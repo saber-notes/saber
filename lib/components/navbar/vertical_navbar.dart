@@ -14,7 +14,7 @@ class VerticalNavbar extends StatelessWidget {
   final List<NavigationDestination> destinations;
   final int selectedIndex;
 
-  final bool expanded = true;
+  final bool expanded = false;
 
   @override
   Widget build(BuildContext context) {

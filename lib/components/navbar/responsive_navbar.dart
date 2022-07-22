@@ -32,10 +32,12 @@ class ResponsiveNavbar extends StatelessWidget {
       if (constraints.maxWidth >= 600) { // tablet/desktop
         return Row(
           children: <Widget>[
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 300),
-              child: VerticalNavbar(
-                destinations: destinations,
+            IntrinsicWidth(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 300),
+                child: VerticalNavbar(
+                  destinations: destinations,
+                ),
               ),
             ),
             Expanded(child: child),
