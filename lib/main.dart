@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return ResponsiveNavbar(
-      child: Scaffold(
+      body: Scaffold(
         appBar: AppBar(
           title: const Text("My notes"),
           backgroundColor: colorScheme.primary,

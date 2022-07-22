@@ -5,9 +5,9 @@ import 'horizontal_navbar.dart';
 import 'vertical_navbar.dart';
 
 class ResponsiveNavbar extends StatelessWidget {
-  ResponsiveNavbar({ Key? key, required this.child }) : super(key: key);
+  ResponsiveNavbar({ Key? key, required this.body }) : super(key: key);
 
-  final Widget child;
+  final Widget body;
 
   final destinations = <NavigationDestination>[
     const NavigationDestination(
@@ -40,13 +40,13 @@ class ResponsiveNavbar extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(child: child),
+            Expanded(child: body),
           ]
         );
       } // else mobile
       return Column(
         children: <Widget>[
-          Expanded(child: child),
+          Expanded(child: body),
           HorizontalNavbar(
             destinations: destinations,
           )
