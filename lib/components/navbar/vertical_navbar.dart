@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:saber/components/files/file_tree.dart';
 
-class VerticalNavbar extends StatelessWidget {
+class VerticalNavbar extends StatefulWidget {
   const VerticalNavbar({
     Key? key,
     required this.destinations,
@@ -14,7 +14,11 @@ class VerticalNavbar extends StatelessWidget {
   final List<NavigationDestination> destinations;
   final int selectedIndex;
 
-  final bool expanded = false;
+  @override
+  _VerticalNavbarState createState() => _VerticalNavbarState();
+}
+class _VerticalNavbarState extends State<VerticalNavbar> {
+  bool expanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +31,29 @@ class VerticalNavbar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            child: TextButton(
+              onPressed: () {setState(() {
+                expanded = !expanded;
+              });},
+              child: Icon(expanded ? Icons.chevron_left : Icons.chevron_right)
+            ),
+          ),
+
           IntrinsicHeight(
             child: NavigationRail(
-              destinations: destinations
+              destinations: widget.destinations
                   .map((e) => NavigationRailDestination(icon: e.icon, label: Text(e.label)))
                   .toList(), // convert NavigationDestination to NavigationRailDestination
-              selectedIndex: selectedIndex,
+              selectedIndex: widget.selectedIndex,
 
               backgroundColor: colorScheme.surface,
 
               extended: expanded,
             ),
           ),
+
           if (expanded) Expanded(child: FileTree(),),
         ],
       ),
