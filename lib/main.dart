@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return ResponsiveNavbar(
       body: Scaffold(
         appBar: AppBar(
+          toolbarHeight: kToolbarHeight,
           title: const Text("My notes"),
         ),
         body: const Center(
