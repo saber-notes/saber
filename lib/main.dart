@@ -38,8 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Scaffold(
         appBar: AppBar(
           title: const Text("My notes"),
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
         ),
         body: const Center(
           child: Text("WIP"),
