@@ -51,6 +51,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
               backgroundColor: colorScheme.surface,
 
               extended: expanded,
+              minExtendedWidth: 300,
             ),
           ),
 
