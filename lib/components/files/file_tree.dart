@@ -104,12 +104,14 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                 ],
 
                 const SizedBox(width: 5),
-                Text(
-                  widget.label,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontSize: 14,
+                Expanded(
+                  child: Text(
+                    widget.label,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontSize: 14,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
