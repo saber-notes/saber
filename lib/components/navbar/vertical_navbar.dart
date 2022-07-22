@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/files/file_tree.dart';
 
 class VerticalNavbar extends StatelessWidget {
   const VerticalNavbar({
@@ -38,6 +39,7 @@ class VerticalNavbar extends StatelessWidget {
               extended: expanded,
             ),
           ),
+          if (expanded) Expanded(child: FileTree(),),
         ],
       ),
     );
