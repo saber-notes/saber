@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/navbar/responsive_navbar.dart';
+import 'components/theming/dynamic_material_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const DynamicMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
+      defaultSwatch: Colors.deepPurple,
+      home: MyHomePage(),
     );
   }
 }
