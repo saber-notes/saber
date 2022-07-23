@@ -8,7 +8,7 @@ abstract class RoutePaths {
   static get all => [root, browse, settings];
 }
 
-abstract class Routes {
+abstract class HomeRoutes {
   static final _routes = <_Route>[
     _Route(
       routePath: RoutePaths.root,

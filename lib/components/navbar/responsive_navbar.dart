@@ -22,7 +22,7 @@ class ResponsiveNavbar extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 300),
                 child: VerticalNavbar(
-                  destinations: Routes.navigationRailDestinations,
+                  destinations: HomeRoutes.navigationRailDestinations,
                 ),
               ),
             ),
@@ -34,7 +34,7 @@ class ResponsiveNavbar extends StatelessWidget {
         children: <Widget>[
           Expanded(child: body),
           HorizontalNavbar(
-            destinations: Routes.navigationDestinations,
+            destinations: HomeRoutes.navigationDestinations,
           )
         ]
       );
