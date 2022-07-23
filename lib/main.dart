@@ -18,15 +18,21 @@ class App extends StatelessWidget {
     routes: <GoRoute>[
       GoRoute(
         path: RoutePaths.root,
-        builder: (BuildContext context, GoRouterState state) => const RecentNotes(),
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const RecentNotes(),
+        ),
       ),
       GoRoute(
         path: RoutePaths.browse,
-        builder: (BuildContext context, GoRouterState state) => const Browse(),
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const Browse(),
+        ),
       ),
       GoRoute(
         path: RoutePaths.edit,
-        builder: (BuildContext context, GoRouterState state) => Editor(
+        builder: (context, state) => Editor(
           path: state.queryParams["path"],
         ),
       ),
