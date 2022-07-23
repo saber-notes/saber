@@ -15,27 +15,37 @@ void main() {
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
 
+  static Widget fadeTransitionBuilder(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+    return FadeTransition(
+      opacity: Tween<double>(begin: 0, end: 1).animate(animation),
+      child: child,
+    );
+  }
+
   final GoRouter _router = GoRouter(
     routes: <GoRoute>[
       GoRoute(
         path: RoutePaths.root,
-        pageBuilder: (context, state) => NoTransitionPage<void>(
+        pageBuilder: (context, state) => CustomTransitionPage<void>(
           key: state.pageKey,
           child: const RecentNotes(),
+          transitionsBuilder: fadeTransitionBuilder,
         ),
       ),
       GoRoute(
         path: RoutePaths.browse,
-        pageBuilder: (context, state) => NoTransitionPage<void>(
+        pageBuilder: (context, state) => CustomTransitionPage<void>(
           key: state.pageKey,
           child: const Browse(),
+          transitionsBuilder: fadeTransitionBuilder,
         ),
       ),
       GoRoute(
         path: RoutePaths.settings,
-        pageBuilder: (context, state) => NoTransitionPage<void>(
+        pageBuilder: (context, state) => CustomTransitionPage<void>(
           key: state.pageKey,
           child: const SettingsPage(),
+          transitionsBuilder: fadeTransitionBuilder,
         ),
       ),
       GoRoute(
