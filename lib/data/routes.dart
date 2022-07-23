@@ -5,7 +5,8 @@ abstract class RoutePaths {
   static const root = "/";
   static const browse = "/browse";
   static const settings = "/settings";
-  static get all => [root, browse, settings];
+  static const edit = "/edit";
+  static get all => [root, browse, settings, edit];
 }
 
 abstract class HomeRoutes {

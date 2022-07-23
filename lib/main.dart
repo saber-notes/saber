@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -17,6 +18,13 @@ class App extends StatelessWidget {
       GoRoute(
         path: RoutePaths.root,
         builder: (BuildContext context, GoRouterState state) => const RecentNotes(),
+      ),
+      GoRoute(
+        path: RoutePaths.edit,
+        builder: (BuildContext context, GoRouterState state) => Editor(
+          path: state.queryParams["path"],
+        ),
+
       ),
     ],
   );
