@@ -21,7 +21,7 @@ abstract class HomeRoutes {
     ),
     _Route(
       routePath: homeFunction({"subpage": HomePage.browseSubpage}),
-      label: 'Notes',
+      label: 'Browse',
       icon: const Icon(Icons.notes),
     ),
     _Route(
