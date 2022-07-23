@@ -9,10 +9,12 @@ class VerticalNavbar extends StatefulWidget {
     Key? key,
     required this.destinations,
     this.selectedIndex = 0,
+    this.onDestinationSelected,
   }) : super(key: key);
 
   final List<NavigationRailDestination> destinations;
   final int selectedIndex;
+  final ValueChanged<int>? onDestinationSelected;
 
   @override
   State<VerticalNavbar> createState() => _VerticalNavbarState();
@@ -52,6 +54,8 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
 
               extended: expanded,
               minExtendedWidth: 300,
+
+              onDestinationSelected: widget.onDestinationSelected,
             ),
           ),
 

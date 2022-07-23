@@ -28,6 +28,10 @@ abstract class HomeRoutes {
     ),
   ];
 
+  static String getRoute(int index) {
+    return _routes[index].routePath;
+  }
+
   static get navigationDestinations => _routes
       .map((e) => e.toNavigationDestination())
       .toList(growable: false);
