@@ -13,6 +13,7 @@ class RecentNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return ResponsiveNavbar(
+      selectedIndex: 0,
       body: Scaffold(
         appBar: AppBar(
           toolbarHeight: kToolbarHeight,
