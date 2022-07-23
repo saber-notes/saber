@@ -6,6 +6,7 @@ import 'package:saber/pages/home/browse.dart';
 
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/pages/home/settings.dart';
 
 void main() {
   runApp(App());
@@ -28,6 +29,13 @@ class App extends StatelessWidget {
         pageBuilder: (context, state) => NoTransitionPage<void>(
           key: state.pageKey,
           child: const Browse(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.settings,
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const SettingsPage(),
         ),
       ),
       GoRoute(
