@@ -36,12 +36,22 @@ class _CanvasState extends State<Canvas> {
         strokes.add(currentStroke!);
         currentStroke = null;
       },
-      child: CustomPaint(
-        painter: CanvasPainter(
-          strokes: strokes,
-          currentStroke: currentStroke,
+      child: FittedBox(
+        child: CustomPaint(
+          foregroundPainter: CanvasPainter(
+            strokes: strokes,
+            currentStroke: currentStroke,
+          ),
+          isComplex: true,
+          willChange: currentStroke != null,
+          child: Container(
+            width: 1000,
+            height: 1000 * 1.4,
+            decoration: const BoxDecoration(
+              color: Color.fromRGBO(245, 245, 245, 1)
+            ),
+          ),
         ),
-        child: Container(),
       ),
     );
   }
