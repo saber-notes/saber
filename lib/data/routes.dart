@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:saber/pages/home/home.dart';
 
 // workaround to assign strings as enum values
 abstract class RoutePaths {
   static const root = "/";
-  static const browse = "/browse";
-  static const settings = "/settings";
+  static const home = "/home/:subpage";
   static const edit = "/edit";
-  static get all => [root, browse, settings, edit];
+  static get all => [root, home, edit];
 }
 
 abstract class HomeRoutes {
+  static PathFunction homeFunction = pathToFunction(RoutePaths.home);
+
   static final _routes = <_Route>[
     _Route(
-      routePath: RoutePaths.root,
+      routePath: homeFunction({"subpage": HomePage.recentSubpage}),
       label: 'Home',
       icon: const Icon(Icons.home),
     ),
     _Route(
-      routePath: RoutePaths.browse,
+      routePath: homeFunction({"subpage": HomePage.browseSubpage}),
       label: 'Notes',
       icon: const Icon(Icons.notes),
     ),
     _Route(
-      routePath: RoutePaths.settings,
+      routePath: homeFunction({"subpage": HomePage.settingsSubpage}),
       label: 'Settings',
       icon: const Icon(Icons.settings),
     ),

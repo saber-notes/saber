@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/browse.dart';
+import 'package:saber/pages/home/home.dart';
 
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -22,30 +24,18 @@ class App extends StatelessWidget {
     );
   }
 
+  static String initialLocation = pathToFunction(RoutePaths.home)({"subpage": HomePage.recentSubpage});
   final GoRouter _router = GoRouter(
+    initialLocation: initialLocation,
     routes: <GoRoute>[
       GoRoute(
         path: RoutePaths.root,
-        pageBuilder: (context, state) => CustomTransitionPage<void>(
-          key: state.pageKey,
-          child: const RecentNotes(),
-          transitionsBuilder: fadeTransitionBuilder,
-        ),
+        redirect: (state) => initialLocation,
       ),
       GoRoute(
-        path: RoutePaths.browse,
-        pageBuilder: (context, state) => CustomTransitionPage<void>(
-          key: state.pageKey,
-          child: const Browse(),
-          transitionsBuilder: fadeTransitionBuilder,
-        ),
-      ),
-      GoRoute(
-        path: RoutePaths.settings,
-        pageBuilder: (context, state) => CustomTransitionPage<void>(
-          key: state.pageKey,
-          child: const SettingsPage(),
-          transitionsBuilder: fadeTransitionBuilder,
+        path: RoutePaths.home,
+        builder: (context, state) => HomePage(
+          subpage: state.params["subpage"] ?? HomePage.recentSubpage,
         ),
       ),
       GoRoute(
