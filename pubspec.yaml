@@ -35,7 +35,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  dynamic_color:
+  dynamic_color: ^1.4.0
+
+  flutter_staggered_grid_view: ^0.6.2
 
 dev_dependencies:
   flutter_test:

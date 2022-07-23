@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'components/navbar/responsive_navbar.dart';
 import 'components/theming/dynamic_material_app.dart';
@@ -36,11 +37,32 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Scaffold(
         appBar: AppBar(
           toolbarHeight: kToolbarHeight,
-          title: const Text("My notes"),
+          title: const Text("Recent notes"),
         ),
-        body: const Center(
-          child: Text("WIP"),
-        ),
+        body: SingleChildScrollView(
+          child: MasonryGridView.count(
+            itemCount: 20,
+            crossAxisCount: 2,
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(10),
+            itemBuilder: (context, index) {
+              return Card(
+                child: SizedBox(
+                  height: (100.0 * index) % 500 + 100,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(height: 10),
+                      Text("Note $index"),
+                      const SizedBox(height: 10),
+                      Text("This is an example note"),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        )
       )
     );
   }
