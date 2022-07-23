@@ -11,36 +11,38 @@ class RecentNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return ResponsiveNavbar(
-        body: Scaffold(
-            appBar: AppBar(
-              toolbarHeight: kToolbarHeight,
-              title: const Text("Recent notes"),
-            ),
-            body: SingleChildScrollView(
-              child: MasonryGridView.count(
-                itemCount: 20,
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(10),
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: SizedBox(
-                      height: (100.0 * index) % 500 + 100,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const SizedBox(height: 10),
-                          Text("Note $index"),
-                          const SizedBox(height: 10),
-                          Text("This is an example note"),
-                        ],
-                      ),
+      body: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: kToolbarHeight,
+          title: const Text("Recent notes"),
+        ),
+        body: SingleChildScrollView(
+          child: LayoutBuilder(
+            builder: (context, constraints) => MasonryGridView.count(
+              itemCount: 30,
+              crossAxisCount: constraints.maxWidth ~/ 300 + 1,
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(10),
+              itemBuilder: (context, index) {
+                return Card(
+                  child: SizedBox(
+                    height: (100.0 * index) % 500 + 100,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 10),
+                        Text("Note $index"),
+                        const SizedBox(height: 10),
+                        Text("This is an example note"),
+                      ],
                     ),
-                  );
-                },
-              ),
-            )
+                  ),
+                );
+              },
+            ),
+          ),
         )
+      )
     );
   }
 }
