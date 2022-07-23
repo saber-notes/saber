@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/toolbar.dart';
+import 'package:saber/components/canvas/canvas.dart';
 
 class Editor extends StatelessWidget {
   const Editor({
@@ -28,9 +30,12 @@ class Editor extends StatelessWidget {
           },
         ),
       ),
-      body: const Center(
-        child: Text("Editor"),
-      ),
+      body: Column(
+        children: const [
+          Toolbar(),
+          Expanded(child: Canvas()),
+        ],
+      )
     );
   }
 }
