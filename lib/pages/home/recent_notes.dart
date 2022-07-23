@@ -28,7 +28,7 @@ class RecentNotes extends StatelessWidget {
             itemBuilder: (context, index) {
               return Card(
                 child: InkWell(
-                  onTap: () { context.push("${RoutePaths.edit}?path=example/path/to/note-$index"); },
+                  onTap: () { context.push("${RoutePaths.edit}?path=/example/path/to/note-$index"); },
                   borderRadius: BorderRadius.circular(10),
                   child: SizedBox(
                     height: (100.0 * index) % 500 + 100,
@@ -46,6 +46,13 @@ class RecentNotes extends StatelessWidget {
               );
             },
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            context.push("${RoutePaths.edit}?path=/new-note");
+          },
+          tooltip: "New note",
+          child: const Icon(Icons.add),
         ),
       )
     );
