@@ -156,6 +156,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.0"
+  perfect_freehand:
+    dependency: "direct main"
+    description:
+      name: perfect_freehand
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   sky_engine:
     dependency: transitive
     description: flutter

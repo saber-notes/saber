@@ -42,6 +42,8 @@ dependencies:
   go_router: ^4.2.1
   path_to_regexp: ^0.4.0
 
+  perfect_freehand: ^1.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
