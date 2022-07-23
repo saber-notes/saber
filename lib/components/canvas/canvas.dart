@@ -14,7 +14,24 @@ class Canvas extends StatefulWidget {
 
 class _CanvasState extends State<Canvas> {
   List<Stroke> strokes = [];
+  List<Stroke> strokesRedoStack = [];
   Stroke? currentStroke;
+
+  undo() {
+    if (strokes.isNotEmpty) {
+      setState(() {
+        strokesRedoStack.add(strokes.removeLast());
+      });
+    }
+  }
+
+  redo() {
+    if (strokesRedoStack.isNotEmpty) {
+      setState(() {
+        strokes.add(strokesRedoStack.removeLast());
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +52,12 @@ class _CanvasState extends State<Canvas> {
       onPanEnd: (DragEndDetails details) {
         strokes.add(currentStroke!);
         currentStroke = null;
+      },
+      onSecondaryTapUp: (TapUpDetails details) {
+        undo();
+      },
+      onTertiaryTapUp: (TapUpDetails details) {
+        redo();
       },
       child: FittedBox(
         child: CustomPaint(
