@@ -18,36 +18,35 @@ class RecentNotes extends StatelessWidget {
           toolbarHeight: kToolbarHeight,
           title: const Text("Recent notes"),
         ),
-        body: SingleChildScrollView(
-          child: LayoutBuilder(
-            builder: (context, constraints) => MasonryGridView.count(
-              itemCount: 30,
-              crossAxisCount: constraints.maxWidth ~/ 300 + 1,
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(10),
-              itemBuilder: (context, index) {
-                return Card(
-                  child: InkWell(
-                    onTap: () { context.go("${RoutePaths.edit}?path=example/path/to/note-$index"); },
-                    borderRadius: BorderRadius.circular(10),
-                    child: SizedBox(
-                      height: (100.0 * index) % 500 + 100,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const SizedBox(height: 10),
-                          Text("Note $index"),
-                          const SizedBox(height: 10),
-                          Text("This is an example note"),
-                        ],
-                      ),
+        body: LayoutBuilder(
+          builder: (context, constraints) => MasonryGridView.count(
+            itemCount: 30,
+            crossAxisCount: constraints.maxWidth ~/ 300 + 1,
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(10),
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return Card(
+                child: InkWell(
+                  onTap: () { context.go("${RoutePaths.edit}?path=example/path/to/note-$index"); },
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    height: (100.0 * index) % 500 + 100,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 10),
+                        Text("Note $index"),
+                        const SizedBox(height: 10),
+                        Text("This is an example note"),
+                      ],
                     ),
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
-        )
+        ),
       )
     );
   }
