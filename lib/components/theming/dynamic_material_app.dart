@@ -1,18 +1,19 @@
 
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DynamicMaterialApp extends StatelessWidget {
   const DynamicMaterialApp({
     Key? key,
     required this.title,
-    required this.home,
+    required this.router,
     this.defaultSwatch = Colors.deepPurple,
   }) : super(key: key);
 
   final String title;
-  final Widget home;
   final Color defaultSwatch;
+  final GoRouter router;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,11 @@ class DynamicMaterialApp extends StatelessWidget {
           );
         }
 
-        return MaterialApp(
+        return MaterialApp.router(
+          routeInformationProvider: router.routeInformationProvider,
+          routeInformationParser: router.routeInformationParser,
+          routerDelegate: router.routerDelegate,
+
           title: title,
           theme: ThemeData(
             useMaterial3: true,
@@ -46,7 +51,6 @@ class DynamicMaterialApp extends StatelessWidget {
             colorScheme: darkColorScheme,
           ),
           themeMode: ThemeMode.system,
-          home: home,
         );
       },
     );
