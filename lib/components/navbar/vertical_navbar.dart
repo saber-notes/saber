@@ -11,11 +11,11 @@ class VerticalNavbar extends StatefulWidget {
     this.selectedIndex = 0,
   }) : super(key: key);
 
-  final List<NavigationDestination> destinations;
+  final List<NavigationRailDestination> destinations;
   final int selectedIndex;
 
   @override
-  _VerticalNavbarState createState() => _VerticalNavbarState();
+  State<VerticalNavbar> createState() => _VerticalNavbarState();
 }
 class _VerticalNavbarState extends State<VerticalNavbar> {
   bool expanded = false;
@@ -45,9 +45,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
 
           IntrinsicHeight(
             child: NavigationRail(
-              destinations: widget.destinations
-                  .map((e) => NavigationRailDestination(icon: e.icon, label: Text(e.label)))
-                  .toList(), // convert NavigationDestination to NavigationRailDestination
+              destinations: widget.destinations,
               selectedIndex: widget.selectedIndex,
 
               backgroundColor: colorScheme.surface,

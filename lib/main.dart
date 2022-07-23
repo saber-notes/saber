@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/data/routes.dart';
 
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
   final GoRouter _router = GoRouter(
     routes: <GoRoute>[
       GoRoute(
-        path: '/',
+        path: RoutePaths.root,
         builder: (BuildContext context, GoRouterState state) => const RecentNotes(),
       ),
     ],
