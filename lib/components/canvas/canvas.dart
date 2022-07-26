@@ -42,10 +42,13 @@ class Canvas extends StatelessWidget {
         onTertiaryTapUp: (TapUpDetails details) => redo(),
         child: InteractiveViewer(
           panEnabled: false,
+          maxScale: 5,
           clipBehavior: Clip.none,
+
           onInteractionStart: onScaleStart,
           onInteractionUpdate: onScaleUpdate,
           onInteractionEnd: onScaleEnd,
+
           child: Center(
             child: FittedBox(
               child: InnerCanvas(
