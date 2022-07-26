@@ -7,9 +7,6 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'canvas.dart';
 
 class Stroke {
-  static const double minSqrDistBetweenPoints = 50;
-  bool _wasLastPointExtraneous = false;
-
   final List<Point> _points = [];
 
   Color _color;
@@ -42,16 +39,6 @@ class Stroke {
     double x = max(min(offset.dx, Canvas.canvasWidth), 0);
     double y = max(min(offset.dy, Canvas.canvasHeight), 0);
     Point point = Point(x, y, pressure);
-
-    if (_wasLastPointExtraneous) {
-      _points.removeLast();
-      _wasLastPointExtraneous = false;
-    }
-    if (_points.isNotEmpty && sqrDistBetweenPoints(_points.last, point) < minSqrDistBetweenPoints) {
-      // If the point is too close to the last point, add it for now but remove it next time.
-      // This helps performance while reducing the gap between the line and user's finger.
-      _wasLastPointExtraneous = true;
-    }
 
     _points.add(point);
     _polygonNeedsUpdating = true;
