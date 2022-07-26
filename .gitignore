@@ -45,3 +45,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flatpak/linux build files
+.flatpak-builder
+build-dir
+Saber-Linux-Portable.tar.gz
