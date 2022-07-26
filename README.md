@@ -1,16 +1,17 @@
-# saber
+# Saber
 
-A cross-platform libre notes app
+A (work-in-progress) cross-platform libre notes app.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+Please see [#1 Saber progress](https://github.com/adil192/saber/discussions/1).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build
+
+Pre-built binaries will be provided when Saber is more fleshed out: for now, you can build from source.
+
+1. Install flutter: https://docs.flutter.dev/get-started/install
+2. Clone this project: `git clone https://github.com/adil192/saber.git`
+3. Build for Linux: `flutter build linux`; Build for Android: `flutter build apk`
