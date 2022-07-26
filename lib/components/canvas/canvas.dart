@@ -79,7 +79,6 @@ class _CanvasState extends State<Canvas> {
           }
 
           currentStroke = Stroke(
-            points: [],
             color: Colors.black,
             strokeWidth: 2,
           )..addPoint(_transformationController.toScene(details.localFocalPoint));
@@ -92,8 +91,10 @@ class _CanvasState extends State<Canvas> {
         },
         onInteractionEnd: (ScaleEndDetails details) {
           if (currentStroke == null) return;
-          strokes.add(currentStroke!);
-          currentStroke = null;
+          setState(() {
+            strokes.add(currentStroke!..isComplete = true);
+            currentStroke = null;
+          });
         },
 
         child: CustomPaint(
