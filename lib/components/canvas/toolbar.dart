@@ -6,10 +6,14 @@ class Toolbar extends StatelessWidget {
     Key? key,
     required this.undo,
     required this.redo,
+    required this.isUndoPossible,
+    required this.isRedoPossible,
   }) : super(key: key);
 
   final VoidCallback undo;
   final VoidCallback redo;
+  final bool isUndoPossible;
+  final bool isRedoPossible;
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +44,11 @@ class Toolbar extends StatelessWidget {
               onPressed: () { }
             ),
             TextButton(
-              onPressed: undo,
+              onPressed: isUndoPossible ? undo : null,
               child: const Icon(Icons.undo),
             ),
             TextButton(
-              onPressed: redo,
+              onPressed: isRedoPossible ? redo : null,
               child: const Icon(Icons.redo),
             ),
           ],

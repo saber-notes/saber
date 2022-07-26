@@ -131,6 +131,8 @@ class _EditorState extends State<Editor> {
           Toolbar(
             undo: undo,
             redo: redo,
+            isUndoPossible: strokes.isNotEmpty,
+            isRedoPossible: isRedoPossible,
           ),
           Expanded(child: Canvas(
             innerCanvasKey: innerCanvasKey,
