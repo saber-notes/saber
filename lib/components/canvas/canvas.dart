@@ -54,7 +54,7 @@ class _CanvasState extends State<Canvas> {
           currentStroke = Stroke(
             points: [],
             color: Colors.black,
-            strokeWidth: 10,
+            strokeWidth: 2,
           )..addPoint(_transformationController.toScene(details.localFocalPoint));
         },
         onInteractionUpdate: (ScaleUpdateDetails details) {
