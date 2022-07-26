@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:saber/components/canvas/_canvas_painter.dart';
@@ -18,6 +20,20 @@ class _CanvasState extends State<Canvas> {
   Stroke? currentStroke;
 
   final TransformationController _transformationController = TransformationController();
+
+  // used to prevent accidentally drawing when pinch zooming
+  int _lastSeenPointerCount = 0;
+  Timer? _lastSeenPointerCountTimer;
+  int get lastSeenPointerCount => _lastSeenPointerCount;
+  set lastSeenPointerCount(int value) {
+    _lastSeenPointerCount = value;
+
+    // reset after 1ms to keep track of the same gesture only
+    _lastSeenPointerCountTimer?.cancel();
+    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 1), () {
+      _lastSeenPointerCount = 0;
+    });
+  }
 
   undo() {
     if (strokes.isNotEmpty) {
@@ -49,7 +65,18 @@ class _CanvasState extends State<Canvas> {
         panEnabled: false,
 
         onInteractionStart: (ScaleStartDetails details) {
-          if (details.pointerCount > 1) return;
+          if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
+            lastSeenPointerCount = lastSeenPointerCount;
+            return;
+          } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
+            if (lastSeenPointerCount == 1) {
+              strokes.removeLast();
+            }
+            _lastSeenPointerCount = details.pointerCount;
+            return;
+          } else { // is a stroke
+            _lastSeenPointerCount = details.pointerCount;
+          }
 
           currentStroke = Stroke(
             points: [],
@@ -58,8 +85,7 @@ class _CanvasState extends State<Canvas> {
           )..addPoint(_transformationController.toScene(details.localFocalPoint));
         },
         onInteractionUpdate: (ScaleUpdateDetails details) {
-          if (details.pointerCount > 1) return;
-
+          if (currentStroke == null) return;
           setState(() {
             currentStroke!.addPoint(_transformationController.toScene(details.localFocalPoint));
           });
