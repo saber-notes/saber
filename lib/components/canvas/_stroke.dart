@@ -18,7 +18,10 @@ class Stroke {
   }
 
   List<Offset> getPolygon() {
-    return getStroke(points)
+    return getStroke(
+      points,
+      size: strokeWidth,
+    )
       .map((Point point) => Offset(point.x, point.y))
       .toList(growable: false);
   }
