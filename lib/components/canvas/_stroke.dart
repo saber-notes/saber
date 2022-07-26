@@ -1,9 +1,13 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
+import 'canvas.dart';
+
 class Stroke {
-  List<Point> points = [];
+  List<Point> _points = [];
   Color color;
   double strokeWidth;
   bool isComplete = false;
@@ -14,12 +18,14 @@ class Stroke {
   });
 
   addPoint(Offset offset, [ double pressure = 0.5 ]) {
-    points.add(Point(offset.dx, offset.dy, pressure));
+    double x = max(min(offset.dx, Canvas.canvasWidth), 0);
+    double y = max(min(offset.dy, Canvas.canvasHeight), 0);
+    _points.add(Point(x, y, pressure));
   }
 
   List<Offset> getPolygon() {
     return getStroke(
-      points,
+      _points,
       size: strokeWidth,
       isComplete: isComplete,
     )

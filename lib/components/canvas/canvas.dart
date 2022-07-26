@@ -9,6 +9,9 @@ import '_stroke.dart';
 class Canvas extends StatefulWidget {
   const Canvas({Key? key}) : super(key: key);
 
+  static const double canvasWidth = 1000;
+  static const double canvasHeight = canvasWidth * 1.4;
+
   @override
   State<Canvas> createState() => _CanvasState();
 
@@ -106,8 +109,8 @@ class _CanvasState extends State<Canvas> {
             isComplex: true,
             willChange: currentStroke != null,
             child: Container(
-              width: 1000,
-              height: 1000 * 1.4,
+              width: Canvas.canvasWidth,
+              height: Canvas.canvasHeight,
               color: const Color.fromRGBO(245, 245, 245, 1),
             ),
           ),
