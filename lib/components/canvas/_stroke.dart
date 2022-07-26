@@ -49,6 +49,7 @@ class Stroke {
       _points,
       size: strokeWidth,
       isComplete: isComplete,
+      smoothing: 0,
     )
       .map((Point point) => Offset(point.x, point.y))
       .toList(growable: false);
