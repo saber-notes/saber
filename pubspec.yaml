@@ -100,12 +100,12 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 icons_launcher:
-  image_path: "assets/icon/icon.svg"
+  image_path: "assets/icon/icon.png"
   platforms:
     android:
       enable: true
       adaptive_background_color: "#f0f0f0"
-      adaptive_foreground_image: "assets/icon/icon_maskable.svg"
+      adaptive_foreground_image: "assets/icon/icon_maskable.png"
     linux:
       enable: true
     web:
