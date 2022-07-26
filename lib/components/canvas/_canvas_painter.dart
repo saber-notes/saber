@@ -23,13 +23,13 @@ class CanvasPainter extends CustomPainter {
     for (final Stroke stroke in strokes) {
       paint.color = stroke.color;
       Path path = Path();
-      path.addPolygon(stroke.getPolygon(), true);
+      path.addPolygon(stroke.polygon, true);
       canvas.drawPath(path, paint);
     }
     if (currentStroke != null) {
       paint.color = currentStroke!.color;
       Path path = Path();
-      path.addPolygon(currentStroke!.getPolygon(), true);
+      path.addPolygon(currentStroke!.polygon, true);
       canvas.drawPath(path, paint);
     }
   }
