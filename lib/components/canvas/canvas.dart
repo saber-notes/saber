@@ -17,6 +17,8 @@ class _CanvasState extends State<Canvas> {
   List<Stroke> strokesRedoStack = [];
   Stroke? currentStroke;
 
+  final TransformationController _transformationController = TransformationController();
+
   undo() {
     if (strokes.isNotEmpty) {
       setState(() {
@@ -36,30 +38,38 @@ class _CanvasState extends State<Canvas> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onPanStart: (DragStartDetails details) {
-        currentStroke = Stroke(
-          points: [],
-          color: Colors.black,
-          strokeWidth: 10,
-        )
-        ..addPoint(details.localPosition);
-      },
-      onPanUpdate: (DragUpdateDetails details) {
-        setState(() {
-          currentStroke!.addPoint(details.localPosition);
-        });
-      },
-      onPanEnd: (DragEndDetails details) {
-        strokes.add(currentStroke!);
-        currentStroke = null;
-      },
       onSecondaryTapUp: (TapUpDetails details) {
         undo();
       },
       onTertiaryTapUp: (TapUpDetails details) {
         redo();
       },
-      child: FittedBox(
+      child: InteractiveViewer(
+        transformationController: _transformationController,
+        panEnabled: false,
+
+        onInteractionStart: (ScaleStartDetails details) {
+          if (details.pointerCount > 1) return;
+
+          currentStroke = Stroke(
+            points: [],
+            color: Colors.black,
+            strokeWidth: 10,
+          )..addPoint(_transformationController.toScene(details.localFocalPoint));
+        },
+        onInteractionUpdate: (ScaleUpdateDetails details) {
+          if (details.pointerCount > 1) return;
+
+          setState(() {
+            currentStroke!.addPoint(_transformationController.toScene(details.localFocalPoint));
+          });
+        },
+        onInteractionEnd: (ScaleEndDetails details) {
+          if (currentStroke == null) return;
+          strokes.add(currentStroke!);
+          currentStroke = null;
+        },
+
         child: CustomPaint(
           foregroundPainter: CanvasPainter(
             strokes: strokes,
