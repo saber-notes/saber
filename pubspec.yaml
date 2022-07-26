@@ -104,7 +104,7 @@ icons_launcher:
   platforms:
     android:
       enable: true
-      adaptive_background_color: "#f0f0f0"
+      adaptive_background_color: "#fff63a"
       adaptive_foreground_image: "assets/icon/icon_maskable.png"
     linux:
       enable: true
