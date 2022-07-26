@@ -22,6 +22,7 @@ class _EditorState extends State<Editor> {
   List<Stroke> strokes = [];
   List<Stroke> strokesRedoStack = [];
   Stroke? currentStroke;
+  bool isRedoPossible = false;
 
   final TransformationController _transformationController = TransformationController();
 
@@ -41,16 +42,21 @@ class _EditorState extends State<Editor> {
 
   undo() {
     if (strokes.isNotEmpty) {
+      if (!isRedoPossible && strokesRedoStack.isNotEmpty) {
+        strokesRedoStack = [];
+      }
       setState(() {
         strokesRedoStack.add(strokes.removeLast());
+        isRedoPossible = true;
       });
     }
   }
 
   redo() {
-    if (strokesRedoStack.isNotEmpty) {
+    if (isRedoPossible) {
       setState(() {
         strokes.add(strokesRedoStack.removeLast());
+        isRedoPossible = strokesRedoStack.isNotEmpty;
       });
     }
   }
@@ -62,6 +68,7 @@ class _EditorState extends State<Editor> {
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
         strokes.removeLast();
+        isRedoPossible = strokesRedoStack.isNotEmpty;
       }
       _lastSeenPointerCount = details.pointerCount;
       return;
@@ -73,6 +80,7 @@ class _EditorState extends State<Editor> {
       color: Colors.black,
       strokeWidth: 2,
     )..addPoint(_transformationController.toScene(details.localFocalPoint));
+    isRedoPossible = false;
   }
   onScaleUpdate(ScaleUpdateDetails details) {
     if (currentStroke == null) return;
