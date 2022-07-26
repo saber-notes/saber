@@ -55,6 +55,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
+  icons_launcher: ^2.0.1
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -96,3 +98,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+icons_launcher:
+  image_path: "assets/icon/icon.svg"
+  platforms:
+    android:
+      enable: true
+      adaptive_background_color: "#f0f0f0"
+      adaptive_foreground_image: "assets/icon/icon_maskable.svg"
+    linux:
+      enable: true
+    web:
+      enable: true
