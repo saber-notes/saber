@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 class Toolbar extends StatelessWidget {
   const Toolbar({
     Key? key,
+    required this.undo,
+    required this.redo,
   }) : super(key: key);
+
+  final VoidCallback undo;
+  final VoidCallback redo;
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +40,12 @@ class Toolbar extends StatelessWidget {
               onPressed: () { }
             ),
             TextButton(
+              onPressed: undo,
               child: const Icon(Icons.undo),
-              onPressed: () {},
             ),
             TextButton(
+              onPressed: redo,
               child: const Icon(Icons.redo),
-              onPressed: () {},
             ),
           ],
         ),

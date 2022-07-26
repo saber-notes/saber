@@ -111,7 +111,10 @@ class _EditorState extends State<Editor> {
       ),
       body: Column(
         children: [
-          Toolbar(),
+          Toolbar(
+            undo: undo,
+            redo: redo,
+          ),
           Expanded(child: Canvas(
             undo: undo,
             redo: redo,
