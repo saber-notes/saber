@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=0.0.1
+Type=Application
+
+Name=Saber
+Comment=A cross-platform libre handwritten notes app.
+Categories=Office;WordProcessor;
+
+Icon=com.adilhanney.saber
+Exec=saber
+Terminal=false
+StartupWMClass=saber

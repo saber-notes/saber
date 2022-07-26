@@ -1,0 +1,58 @@
+{
+  "app-id": "com.adilhanney.saber",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "21.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "saber",
+  "separate-locales": false,
+  "finish-args": [
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--socket=pulseaudio",
+    "--share=network"
+  ],
+  "modules": [
+    {
+      "name": "saber",
+      "buildsystem": "simple",
+      "only-arches": [
+        "x86_64"
+      ],
+      "build-commands": [
+        "mkdir -p Saber",
+        "tar -xf Saber-Linux-Portable.tar.gz -C Saber",
+
+        "cp -r Saber /app/",
+        "chmod +x /app/Saber/saber",
+        "mkdir -p /app/bin",
+        "ln -s /app/Saber/saber /app/bin/saber",
+
+        "install -Dm644 com.adilhanney.saber.metainfo.xml -t /app/share/metainfo/",
+
+        "install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg",
+
+        "install -Dm644 com.adilhanney.saber.desktop -t /app/share/applications/"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "com.adilhanney.saber.metainfo.xml"
+        },
+        {
+          "type": "file",
+          "path": "com.adilhanney.saber.desktop"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/icon.svg"
+        },
+        {
+          "type": "file",
+          "path": "../Saber-Linux-Portable.tar.gz"
+        }
+      ]
+    }
+  ]
+}

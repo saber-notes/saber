@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Generator for metainfo & .desktop files:
+    https://www.freedesktop.org/software/appstream/metainfocreator/#/
+-->
+<component type="desktop-application">
+    <id>com.adilhanney.saber</id>
+
+    <name>Saber</name>
+    <summary>A cross-platform libre handwritten notes app.</summary>
+
+    <developer_name>Adil Hanney</developer_name>
+    <url type="homepage">https://github.com/adil192/saber</url>
+
+    <metadata_license>MIT</metadata_license>
+    <project_license>GPL-3.0-only</project_license>
+
+    <supports>
+        <control>pointing</control>
+        <control>keyboard</control>
+        <control>touch</control>
+        <control>tablet</control>
+    </supports>
+
+    <description>
+        <p>A cross-platform libre handwritten notes app.</p>
+    </description>
+
+    <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>
+
+    <content_rating type="oars-1.1" />
+</component>
