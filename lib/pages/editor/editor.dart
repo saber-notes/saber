@@ -63,7 +63,7 @@ class _EditorState extends State<Editor> {
     }
   }
 
-  late RenderBox innerCanvasRenderObject;
+  RenderBox? innerCanvasRenderObject;
   onScaleStart(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -80,19 +80,21 @@ class _EditorState extends State<Editor> {
     }
 
     final renderObject = innerCanvasKey.currentState!.context.findRenderObject();
-    if (renderObject == null) return;
-    innerCanvasRenderObject = renderObject as RenderBox;
+    if (renderObject != null) {
+      innerCanvasRenderObject = renderObject as RenderBox;
+    }
+    if (innerCanvasRenderObject == null) return;
 
     currentStroke = Stroke(
       color: Colors.black,
       strokeWidth: 2,
-    )..addPoint(innerCanvasRenderObject.globalToLocal(details.focalPoint));
+    )..addPoint(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
     isRedoPossible = false;
   }
   onScaleUpdate(ScaleUpdateDetails details) {
     if (currentStroke == null) return;
     setState(() {
-      currentStroke!.addPoint(innerCanvasRenderObject.globalToLocal(details.focalPoint));
+      currentStroke!.addPoint(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
     });
   }
   onScaleEnd(ScaleEndDetails details) {
