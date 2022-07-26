@@ -31,7 +31,14 @@
 
         "install -Dm644 com.adilhanney.saber.metainfo.xml -t /app/share/metainfo/",
 
-        "install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg",
+        "install -Dm644 icon-16x16.png /app/share/icons/hicolor/16x16/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-24x24.png /app/share/icons/hicolor/24x24/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-32x32.png /app/share/icons/hicolor/32x32/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-48x48.png /app/share/icons/hicolor/48x48/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-64x64.png /app/share/icons/hicolor/64x64/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-128x128.png /app/share/icons/hicolor/128x128/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-256x256.png /app/share/icons/hicolor/256x256/apps/com.adilhanney.saber.png",
+        "install -Dm644 icon-512x512.png /app/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png",
 
         "install -Dm644 com.adilhanney.saber.desktop -t /app/share/applications/"
       ],
@@ -46,11 +53,39 @@
         },
         {
           "type": "file",
-          "path": "../assets/icon/icon.svg"
+          "path": "../Saber-Linux-Portable.tar.gz"
         },
         {
           "type": "file",
-          "path": "../Saber-Linux-Portable.tar.gz"
+          "path": "../assets/icon/resized/icon-16x16.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-24x24.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-32x32.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-48x48.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-64x64.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-128x128.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-256x256.png"
+        },
+        {
+          "type": "file",
+          "path": "../assets/icon/resized/icon-512x512.png"
         }
       ]
     }
