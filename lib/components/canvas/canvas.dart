@@ -1,14 +1,13 @@
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
-import 'package:saber/components/canvas/_canvas_painter.dart';
 import '_stroke.dart';
+import 'inner_canvas.dart';
 
 class Canvas extends StatelessWidget {
   const Canvas({
     Key? key,
+    required this.innerCanvasKey,
     required this.undo,
     required this.redo,
     required this.strokes,
@@ -16,7 +15,6 @@ class Canvas extends StatelessWidget {
     required this.onScaleStart,
     required this.onScaleUpdate,
     required this.onScaleEnd,
-    required this.transformationController,
   }) : super(key: key);
 
   static const double canvasWidth = 1000;
@@ -29,36 +27,32 @@ class Canvas extends StatelessWidget {
   final ValueChanged<ScaleUpdateDetails> onScaleUpdate;
   final ValueChanged<ScaleEndDetails> onScaleEnd;
 
-  final TransformationController transformationController;
-
   final List<Stroke> strokes;
   final Stroke? currentStroke;
 
+  final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
+
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
+    return Container(
+      clipBehavior: Clip.hardEdge,
+      decoration: const BoxDecoration(),
       child: GestureDetector(
         onSecondaryTapUp: (TapUpDetails details) => undo(),
         onTertiaryTapUp: (TapUpDetails details) => redo(),
         child: InteractiveViewer(
-          transformationController: transformationController,
           panEnabled: false,
-
+          clipBehavior: Clip.none,
           onInteractionStart: onScaleStart,
           onInteractionUpdate: onScaleUpdate,
           onInteractionEnd: onScaleEnd,
-
-          child: CustomPaint(
-            foregroundPainter: CanvasPainter(
-              strokes: strokes,
-              currentStroke: currentStroke,
-            ),
-            isComplex: true,
-            willChange: currentStroke != null,
-            child: Container(
-              width: Canvas.canvasWidth,
-              height: Canvas.canvasHeight,
-              color: const Color.fromRGBO(245, 245, 245, 1),
+          child: Center(
+            child: FittedBox(
+              child: InnerCanvas(
+                key: innerCanvasKey,
+                strokes: strokes,
+                currentStroke: currentStroke,
+              ),
             ),
           ),
         ),

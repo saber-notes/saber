@@ -6,6 +6,8 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
 
+import '../../components/canvas/inner_canvas.dart';
+
 class Editor extends StatefulWidget {
   const Editor({
     Key? key,
@@ -19,12 +21,12 @@ class Editor extends StatefulWidget {
 }
 
 class _EditorState extends State<Editor> {
+  final GlobalKey<State<InnerCanvas>> innerCanvasKey = GlobalKey<State<InnerCanvas>>();
+
   List<Stroke> strokes = [];
   List<Stroke> strokesRedoStack = [];
   Stroke? currentStroke;
   bool isRedoPossible = false;
-
-  final TransformationController _transformationController = TransformationController();
 
   // used to prevent accidentally drawing when pinch zooming
   int _lastSeenPointerCount = 0;
@@ -61,6 +63,7 @@ class _EditorState extends State<Editor> {
     }
   }
 
+  late RenderBox innerCanvasRenderObject;
   onScaleStart(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -76,16 +79,20 @@ class _EditorState extends State<Editor> {
       _lastSeenPointerCount = details.pointerCount;
     }
 
+    final renderObject = innerCanvasKey.currentState!.context.findRenderObject();
+    if (renderObject == null) return;
+    innerCanvasRenderObject = renderObject as RenderBox;
+
     currentStroke = Stroke(
       color: Colors.black,
       strokeWidth: 2,
-    )..addPoint(_transformationController.toScene(details.localFocalPoint));
+    )..addPoint(innerCanvasRenderObject.globalToLocal(details.focalPoint));
     isRedoPossible = false;
   }
   onScaleUpdate(ScaleUpdateDetails details) {
     if (currentStroke == null) return;
     setState(() {
-      currentStroke!.addPoint(_transformationController.toScene(details.localFocalPoint));
+      currentStroke!.addPoint(innerCanvasRenderObject.globalToLocal(details.focalPoint));
     });
   }
   onScaleEnd(ScaleEndDetails details) {
@@ -124,6 +131,7 @@ class _EditorState extends State<Editor> {
             redo: redo,
           ),
           Expanded(child: Canvas(
+            innerCanvasKey: innerCanvasKey,
             undo: undo,
             redo: redo,
             strokes: strokes,
@@ -131,7 +139,6 @@ class _EditorState extends State<Editor> {
             onScaleStart: onScaleStart,
             onScaleUpdate: onScaleUpdate,
             onScaleEnd: onScaleEnd,
-            transformationController: _transformationController,
           )),
         ],
       )
