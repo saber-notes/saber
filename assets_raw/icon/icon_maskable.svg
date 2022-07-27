@@ -8,9 +8,9 @@
         </filter>
     </defs>
 
-    <rect x="0" y="0" width="4000" height="4000" fill="#fff43c" />
+    <rect x="0" y="0" width="4000" height="4000" fill="#ffc800" />
 
-    <path filter="url(#boxShadow)" d="M1330,4000L4000,1440L4000,0L0,0L0,4000" fill="#fff43c"  />
+    <path filter="url(#boxShadow)" d="M1330,4000L4000,1440L4000,0L0,0L0,4000" fill="#ffd32e"  />
 
     <image x="716" y="734" width="2568" height="2532" xlink:href="_icon_flat.png" />
 </svg>
