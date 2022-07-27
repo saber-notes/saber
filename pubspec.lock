@@ -120,7 +120,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.1"
+    version: "4.2.2"
   icons_launcher:
     dependency: "direct dev"
     description:
