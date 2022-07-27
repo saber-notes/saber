@@ -34,6 +34,7 @@ class _EditorState extends State<Editor> {
   List<Stroke> strokesRedoStack = [];
   Stroke? currentStroke;
   bool isRedoPossible = false;
+  Timer? _delayedSaveTimer;
 
   // used to prevent accidentally drawing when pinch zooming
   int _lastSeenPointerCount = 0;
@@ -117,10 +118,14 @@ class _EditorState extends State<Editor> {
   }
   onScaleEnd(ScaleEndDetails details) {
     if (currentStroke == null) return;
-    strokes.add(currentStroke!..isComplete = true);
-    currentStroke = null;
-    setState(() {});
-    saveToFile();
+    setState(() {
+      strokes.add(currentStroke!..isComplete = true);
+      currentStroke = null;
+    });
+    _delayedSaveTimer?.cancel();
+    _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {
+      saveToFile();
+    });
   }
 
 
@@ -198,6 +203,7 @@ class _EditorState extends State<Editor> {
 
   @override
   void dispose() {
+    _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
 
     saveToFile();
