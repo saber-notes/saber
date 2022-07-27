@@ -1,20 +1,27 @@
 
+import 'dart:convert';
+import 'dart:io';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
+
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
 
 import '../../components/canvas/inner_canvas.dart';
 
-class Editor extends StatefulWidget {
-  const Editor({
-    Key? key,
-    required this.path,
-  }) : super(key: key);
+const Uuid uuid = Uuid();
 
-  final String? path;
+class Editor extends StatefulWidget {
+  Editor({
+    Key? key,
+    String? path,
+  }) : path = path ?? uuid.v1(), super(key: key);
+
+  final String path;
 
   @override
   State<Editor> createState() => _EditorState();
@@ -40,6 +47,17 @@ class _EditorState extends State<Editor> {
     _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 1), () {
       _lastSeenPointerCount = 0;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initStrokes();
+  }
+  // initState can't be async
+  void _initStrokes() async {
+    strokes = await loadFromFile();
+    setState(() {});
   }
 
   undo() {
@@ -99,10 +117,39 @@ class _EditorState extends State<Editor> {
   }
   onScaleEnd(ScaleEndDetails details) {
     if (currentStroke == null) return;
-    setState(() {
-      strokes.add(currentStroke!..isComplete = true);
-      currentStroke = null;
-    });
+    strokes.add(currentStroke!..isComplete = true);
+    currentStroke = null;
+    setState(() {});
+    saveToFile();
+  }
+
+
+
+  Future<String> get _documentsDirectory async => "${(await getApplicationDocumentsDirectory()).path}/Saber";
+  Future<File> get _localFile async => File(await _documentsDirectory + widget.path);
+  Future<void> _createFileDirectory() async {
+    if (!widget.path.contains("/")) return;
+    var pathParts = widget.path.split("/")..removeLast();
+    var path = pathParts.join("/");
+    await Directory(await _documentsDirectory + path).create(recursive: true);
+  }
+  Future<List<Stroke>> loadFromFile() async {
+    final file = await _localFile;
+    List<dynamic> json = jsonDecode(await file.readAsString(
+      encoding: utf8,
+    ));
+    return json
+        .map((dynamic json) => Stroke.fromJson(json as Map<String, dynamic>))
+        .toList();
+
+  }
+  void saveToFile() async {
+    final file = await _localFile;
+    await _createFileDirectory();
+    file.writeAsString(
+      json.encode(strokes),
+      encoding: utf8,
+    );
   }
 
 
@@ -118,7 +165,7 @@ class _EditorState extends State<Editor> {
             border: InputBorder.none,
           ),
           controller: TextEditingController(
-            text: widget.path ?? "New note",
+            text: widget.path,
           ),
           onChanged: (text) {
             // todo: update note name
@@ -147,5 +194,14 @@ class _EditorState extends State<Editor> {
         ],
       )
     );
+  }
+
+  @override
+  void dispose() {
+    _lastSeenPointerCountTimer?.cancel();
+
+    saveToFile();
+
+    super.dispose();
   }
 }

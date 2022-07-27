@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:saber/components/canvas/point_extensions.dart';
 
 import 'canvas.dart';
 
@@ -34,6 +35,23 @@ class Stroke {
     required Color color,
     required double strokeWidth,
   }): _color = color, _strokeWidth = strokeWidth;
+
+  Stroke.fromJson(Map<String, dynamic> json) :
+        _color = Color(json['color']),
+        _strokeWidth = json['strokeWidth'],
+        _isComplete = json['isComplete']
+  {
+    final List<dynamic> pointsJson = json['points'] as List<dynamic>;
+    _points.insertAll(0, pointsJson.map(
+      (point) => PointExtensions.fromJson(Map<String, dynamic>.from(point))
+    ).toList());
+  }
+  Map<String, dynamic> toJson() => {
+    'color': color.value,
+    'strokeWidth': strokeWidth,
+    'isComplete': isComplete,
+    'points': _points.map((Point point) => point.toJson()).toList(),
+  };
 
   addPoint(Offset offset, [ double pressure = 0.5 ]) {
     double x = max(min(offset.dx, Canvas.canvasWidth), 0);
