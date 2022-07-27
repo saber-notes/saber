@@ -87,7 +87,7 @@ class _EditorState extends State<Editor> {
 
     currentStroke = Stroke(
       color: Colors.black,
-      strokeWidth: 2,
+      strokeWidth: 5,
     )..addPoint(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
     isRedoPossible = false;
   }
