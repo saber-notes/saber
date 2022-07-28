@@ -171,6 +171,7 @@ class _EditorState extends State<Editor> {
     path = path.substring(0, path.lastIndexOf(extension));
     if (filenameTextEditingController.text != _filename) {
       filenameTextEditingController.text = _filename;
+      filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: _filename.length));
     }
   }
 
