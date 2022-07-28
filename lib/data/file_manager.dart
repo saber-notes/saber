@@ -34,6 +34,8 @@ abstract class FileManager {
   static Future<void> writeFile(String filePath, String toWrite, [ bool awaitWrite = false ]) async {
     filePath = _sanitisePath(filePath);
 
+    await _saveFileAsRecentlyAccessed(filePath);
+
     final Future writeFuture;
     if (kIsWeb) {
       final prefs = await _prefs;
@@ -74,6 +76,24 @@ abstract class FileManager {
     final String parentDirectory = filePath.substring(0, filePath.indexOf('/'));
     await Directory(await _documentsDirectory + parentDirectory).create(recursive: true);
   }
+
+  static Future _saveFileAsRecentlyAccessed(String filePath) async {
+    final prefs = await _prefs;
+
+    final String entry = filePrefix + filePath;
+
+    final String? recentlyAccessedStr = prefs.getString(recentlyAccessedKey);
+    final List<String> recentlyAccessed = recentlyAccessedStr != null ? json.decode(recentlyAccessedStr) : [];
+
+    if (!recentlyAccessed.contains(entry)) recentlyAccessed.insert(0, entry);
+    if (recentlyAccessed.length > maxRecentlyAccessedFiles) recentlyAccessed.removeLast();
+
+    prefs.setString(recentlyAccessedKey, json.encode(recentlyAccessed));
+  }
+
+  /// Shared preferences key for the list of recently accessed files.
+  static const String recentlyAccessedKey = "recentlyAccessed";
+  static const int maxRecentlyAccessedFiles = 30;
 
   /// Prefix directories in _webRecordFileDirectories to distinguish from files
   static const String directoryPrefix = 'd';
