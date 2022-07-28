@@ -1,8 +1,10 @@
 
 import 'dart:convert';
+import 'dart:html' show AnchorElement;
 import 'dart:io';
 import 'dart:async';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
@@ -124,21 +126,24 @@ class _EditorState extends State<Editor> {
     });
     _delayedSaveTimer?.cancel();
     _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {
-      saveToFile();
+      saveToFile(autosave: true);
     });
   }
 
 
-
+  static const String extension = '.sbn';
+  String get parentPath => widget.path.contains('/') ? widget.path.substring(0, widget.path.lastIndexOf('/')) : '';
+  String get filename => widget.path.substring(widget.path.lastIndexOf('/') + 1);
   Future<String> get _documentsDirectory async => "${(await getApplicationDocumentsDirectory()).path}/Saber";
-  Future<File> get _localFile async => File(await _documentsDirectory + widget.path);
+  Future<File> get _localFile async => File(await _documentsDirectory + widget.path + extension);
   Future<void> _createFileDirectory() async {
-    if (!widget.path.contains("/")) return;
-    var pathParts = widget.path.split("/")..removeLast();
-    var path = pathParts.join("/");
-    await Directory(await _documentsDirectory + path).create(recursive: true);
+    await Directory(await _documentsDirectory + parentPath).create(recursive: true);
   }
   Future<List<Stroke>> loadFromFile() async {
+    if (kIsWeb) {
+      // todo: import file from user
+      return [];
+    }
     final file = await _localFile;
     List<dynamic> json = jsonDecode(await file.readAsString(
       encoding: utf8,
@@ -148,13 +153,17 @@ class _EditorState extends State<Editor> {
         .toList();
 
   }
-  void saveToFile() async {
+  void saveToFile({ required bool autosave }) async {
+    String toSave = json.encode(strokes);
+    if (kIsWeb) { // path_provider doesn't support web, provide download
+      if (autosave) return; // don't prompt download after every change
+      AnchorElement(href: "data:application/json;charset=utf-8,$toSave")
+        ..setAttribute("download", filename + extension)
+        ..click();
+    }
     final file = await _localFile;
     await _createFileDirectory();
-    file.writeAsString(
-      json.encode(strokes),
-      encoding: utf8,
-    );
+    file.writeAsString(toSave, encoding: utf8);
   }
 
 
@@ -206,7 +215,7 @@ class _EditorState extends State<Editor> {
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
 
-    saveToFile();
+    saveToFile(autosave: false);
 
     super.dispose();
   }
