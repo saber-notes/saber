@@ -39,6 +39,7 @@ abstract class FileManager {
     final Future writeFuture;
     if (kIsWeb) {
       final prefs = await _prefs;
+      if (!prefs.containsKey(filePath)) await _addFileToIndex(filePath, prefs);
       writeFuture = prefs.setString(filePath, toWrite);
     } else {
       final File file = File(await _documentsDirectory + filePath);
@@ -60,6 +61,8 @@ abstract class FileManager {
 
     if (kIsWeb) {
       final prefs = await _prefs;
+      await _addFileToIndex(toPath, prefs);
+      await _removeFileFromIndex(fromPath, prefs);
       await prefs.setString(toPath, await readFile(fromPath) ?? "");
       await prefs.remove(fromPath);
     } else {
@@ -70,6 +73,18 @@ abstract class FileManager {
     }
 
     return toPath;
+  }
+
+  static Future _removeFileFromIndex(String filePath, SharedPreferences prefs) async {
+    final List<String> files = prefs.getStringList(fileIndexKey) ?? [];
+    files.remove(filePath);
+    await prefs.setStringList(fileIndexKey, files);
+  }
+  static Future _addFileToIndex(String filePath, SharedPreferences prefs) async {
+    final List<String> files = prefs.getStringList(fileIndexKey) ?? [];
+    if (files.contains(filePath)) return;
+    files.add(filePath);
+    await prefs.setStringList(fileIndexKey, files);
   }
 
   /// Creates the parent directories of filePath if they don't exist.
@@ -92,4 +107,6 @@ abstract class FileManager {
   /// Shared preferences key for the list of recently accessed files.
   static const String recentlyAccessedKey = "recentlyAccessed";
   static const int maxRecentlyAccessedFiles = 30;
+  /// Shared preferences key for the list of all files.
+  static const String fileIndexKey = "fileIndex";
 }
