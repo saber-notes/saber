@@ -1,6 +1,5 @@
 
 import 'dart:convert';
-import 'dart:html' show AnchorElement;
 import 'dart:io';
 import 'dart:async';
 
