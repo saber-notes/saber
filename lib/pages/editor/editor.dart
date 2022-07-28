@@ -146,7 +146,11 @@ class _EditorState extends State<Editor> {
       json = prefs.getString(path);
     } else {
       final file = await _localFile;
-      json = await file.readAsString(encoding: utf8);
+      try {
+        json = await file.readAsString(encoding: utf8);
+      } catch (e) {
+        json = null;
+      }
     }
 
     if (json == null) return [];
