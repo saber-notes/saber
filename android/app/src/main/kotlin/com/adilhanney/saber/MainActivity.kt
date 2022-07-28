@@ -1,4 +1,4 @@
-package com.adilhanney.saber.saber
+package com.adilhanney.saber
 
 import io.flutter.embedding.android.FlutterActivity
 
