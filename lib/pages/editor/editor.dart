@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:saber/data/file_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
@@ -131,29 +132,10 @@ class _EditorState extends State<Editor> {
 
 
   static const String extension = '.sbn';
-  String get parentPath => widget.path.contains('/') ? widget.path.substring(0, widget.path.lastIndexOf('/')) : '';
-  String get filename => widget.path.substring(widget.path.lastIndexOf('/') + 1);
-  Future<String> get _documentsDirectory async => "${(await getApplicationDocumentsDirectory()).path}/Saber";
-  Future<File> get _localFile async => File(await _documentsDirectory + widget.path + extension);
-  Future<void> _createFileDirectory() async {
-    await Directory(await _documentsDirectory + parentPath).create(recursive: true);
-  }
   Future<List<Stroke>> loadFromFile() async {
-    String? json;
-    if (kIsWeb) {
-      final prefs = await SharedPreferences.getInstance();
-      final path = File(widget.path).path;
-      json = prefs.getString(path);
-    } else {
-      final file = await _localFile;
-      try {
-        json = await file.readAsString(encoding: utf8);
-      } catch (e) {
-        json = null;
-      }
-    }
-
+    String? json = await FileManager.readFile(widget.path + extension);
     if (json == null) return [];
+    
     List<dynamic> parsed = jsonDecode(json);
     return parsed
         .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
@@ -162,15 +144,7 @@ class _EditorState extends State<Editor> {
   }
   void saveToFile() async {
     String toSave = json.encode(strokes);
-    if (kIsWeb) { // path_provider doesn't support web, store in web's LocalStorage
-      final prefs = await SharedPreferences.getInstance();
-      final path = File(widget.path).path;
-      prefs.setString(path, toSave);
-      return;
-    }
-    final file = await _localFile;
-    await _createFileDirectory();
-    file.writeAsString(toSave, encoding: utf8);
+    await FileManager.writeFile(widget.path + extension, toSave);
   }
 
 
