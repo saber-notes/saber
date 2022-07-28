@@ -37,20 +37,20 @@ class Stroke {
   }): _color = color, _strokeWidth = strokeWidth;
 
   Stroke.fromJson(Map<String, dynamic> json) :
-        _color = Color(json['color']),
-        _strokeWidth = json['strokeWidth'],
-        _isComplete = json['isComplete']
+        _color = Color(json['c']),
+        _strokeWidth = json['w'],
+        _isComplete = json['f']
   {
-    final List<dynamic> pointsJson = json['points'] as List<dynamic>;
+    final List<dynamic> pointsJson = json['p'] as List<dynamic>;
     _points.insertAll(0, pointsJson.map(
       (point) => PointExtensions.fromJson(Map<String, dynamic>.from(point))
     ).toList());
   }
   Map<String, dynamic> toJson() => {
-    'color': color.value,
-    'strokeWidth': strokeWidth,
-    'isComplete': isComplete,
-    'points': _points.map((Point point) => point.toJson()).toList(),
+    'c': color.value,
+    'w': strokeWidth,
+    'f': isComplete,
+    'p': _points.map((Point point) => point.toJson()).toList(),
   };
 
   addPoint(Offset offset, [ double pressure = 0.5 ]) {
