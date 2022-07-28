@@ -58,11 +58,12 @@ abstract class FileManager {
       currentPath += "/${pathParts[i]}";
 
       final String prefix = i == pathParts.length - 1 ? filePrefix : directoryPrefix;
+      final String entry = prefix + currentPath;
 
       final String? siblingsStr = prefs.getString(parentDirectory);
-      final List<String> siblings = siblingsStr != null ? json.decode(siblingsStr.substring(1)) : [];
-      if (!siblings.contains(currentPath)) siblings.add(currentPath);
-      prefs.setString(parentDirectory, prefix + json.encode(siblings));
+      final List<String> siblings = siblingsStr != null ? json.decode(siblingsStr) : [];
+      if (!siblings.contains(entry)) siblings.add(entry);
+      prefs.setString(parentDirectory, json.encode(siblings));
 
       parentDirectory = currentPath;
     }
