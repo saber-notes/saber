@@ -7,13 +7,13 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
-
-import '../../components/canvas/inner_canvas.dart';
+import 'package:saber/components/canvas/inner_canvas.dart';
 
 const Uuid uuid = Uuid();
 
@@ -126,7 +126,7 @@ class _EditorState extends State<Editor> {
     });
     _delayedSaveTimer?.cancel();
     _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {
-      saveToFile(autosave: true);
+      saveToFile();
     });
   }
 
@@ -140,26 +140,30 @@ class _EditorState extends State<Editor> {
     await Directory(await _documentsDirectory + parentPath).create(recursive: true);
   }
   Future<List<Stroke>> loadFromFile() async {
+    String? json;
     if (kIsWeb) {
-      // todo: import file from user
-      return [];
+      final prefs = await SharedPreferences.getInstance();
+      final path = File(widget.path).path;
+      json = prefs.getString(path);
+    } else {
+      final file = await _localFile;
+      json = await file.readAsString(encoding: utf8);
     }
-    final file = await _localFile;
-    List<dynamic> json = jsonDecode(await file.readAsString(
-      encoding: utf8,
-    ));
-    return json
-        .map((dynamic json) => Stroke.fromJson(json as Map<String, dynamic>))
+
+    if (json == null) return [];
+    List<dynamic> parsed = jsonDecode(json);
+    return parsed
+        .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
         .toList();
 
   }
-  void saveToFile({ required bool autosave }) async {
+  void saveToFile() async {
     String toSave = json.encode(strokes);
-    if (kIsWeb) { // path_provider doesn't support web, provide download
-      if (autosave) return; // don't prompt download after every change
-      AnchorElement(href: "data:application/json;charset=utf-8,$toSave")
-        ..setAttribute("download", filename + extension)
-        ..click();
+    if (kIsWeb) { // path_provider doesn't support web, store in web's LocalStorage
+      final prefs = await SharedPreferences.getInstance();
+      final path = File(widget.path).path;
+      prefs.setString(path, toSave);
+      return;
     }
     final file = await _localFile;
     await _createFileDirectory();
@@ -215,7 +219,7 @@ class _EditorState extends State<Editor> {
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
 
-    saveToFile(autosave: false);
+    saveToFile();
 
     super.dispose();
   }
