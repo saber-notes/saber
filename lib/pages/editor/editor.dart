@@ -1,13 +1,10 @@
 
 import 'dart:convert';
-import 'dart:io';
 import 'dart:async';
 
-import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:saber/data/file_manager.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
@@ -21,9 +18,9 @@ class Editor extends StatefulWidget {
   Editor({
     Key? key,
     String? path,
-  }) : path = path ?? uuid.v1(), super(key: key);
+  }) : initialPath = path ?? uuid.v1(), super(key: key);
 
-  final String path;
+  final String initialPath;
 
   @override
   State<Editor> createState() => _EditorState();
@@ -31,6 +28,8 @@ class Editor extends StatefulWidget {
 
 class _EditorState extends State<Editor> {
   final GlobalKey<State<InnerCanvas>> innerCanvasKey = GlobalKey<State<InnerCanvas>>();
+
+  late String path;
 
   List<Stroke> strokes = [];
   List<Stroke> strokesRedoStack = [];
@@ -55,6 +54,7 @@ class _EditorState extends State<Editor> {
   @override
   void initState() {
     super.initState();
+    path = widget.initialPath;
     _initStrokes();
   }
   // initState can't be async
@@ -137,9 +137,10 @@ class _EditorState extends State<Editor> {
   }
 
 
+  String get _filename => path.substring(path.lastIndexOf('/') + 1);
   static const String extension = '.sbn';
   Future<List<Stroke>> loadFromFile() async {
-    String? json = await FileManager.readFile(widget.path + extension);
+    String? json = await FileManager.readFile(path + extension);
     if (json == null) return [];
 
     try {
@@ -154,10 +155,25 @@ class _EditorState extends State<Editor> {
   }
   void saveToFile() async {
     String toSave = json.encode(strokes);
-    await FileManager.writeFile(widget.path + extension, toSave);
+    await FileManager.writeFile(path + extension, toSave);
   }
 
 
+  late final filenameTextEditingController = TextEditingController(
+    text: _filename,
+  );
+  Future renameFile(newName) async {
+    if (newName.contains("/") || newName.isEmpty) {
+      filenameTextEditingController.text = _filename;
+      return;
+    }
+    path = await FileManager.moveFile(path + extension, newName + extension);
+    path = path.substring(0, path.lastIndexOf(extension));
+    if (filenameTextEditingController.text != _filename) {
+      filenameTextEditingController.text = _filename;
+    }
+    print(path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -169,12 +185,9 @@ class _EditorState extends State<Editor> {
           decoration: const InputDecoration(
             border: InputBorder.none,
           ),
-          controller: TextEditingController(
-            text: widget.path,
-          ),
-          onChanged: (text) {
-            // todo: update note name
-            print("Note name changed to: $text");
+          controller: filenameTextEditingController,
+          onChanged: (newName) {
+            renameFile(newName);
           },
         ),
       ),

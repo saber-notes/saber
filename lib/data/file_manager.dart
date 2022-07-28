@@ -50,6 +50,30 @@ abstract class FileManager {
     if (awaitWrite) await writeFuture;
   }
 
+  /// Moves a file from [fromPath] to [toPath], returning its final path.
+  static Future<String> moveFile(String fromPath, String toPath) async {
+    fromPath = _sanitisePath(fromPath);
+    toPath = _sanitisePath(toPath);
+
+    if (!toPath.contains('/', 1)) { // if toPath is a file name, not a path
+      toPath = fromPath.substring(0, fromPath.lastIndexOf('/') + 1) + toPath;
+    }
+
+    if (kIsWeb) {
+      final prefs = await _prefs;
+      await _webRecordFileDirectories(toPath, prefs);
+      await prefs.setString(toPath, await readFile(fromPath) ?? "");
+      await prefs.remove(fromPath);
+    } else {
+      final File fromFile = File(await _documentsDirectory + fromPath);
+      final File toFile = File(await _documentsDirectory + toPath);
+      await _createFileDirectory(toPath);
+      await fromFile.rename(toFile.path);
+    }
+
+    return toPath;
+  }
+
   /// Records the path to the file as a nested dictionary.
   /// This lets us simulate a file system on the web.
   static Future _webRecordFileDirectories(String filePath, SharedPreferences prefs) async {
@@ -83,7 +107,7 @@ abstract class FileManager {
     final String entry = filePrefix + filePath;
 
     final String? recentlyAccessedStr = prefs.getString(recentlyAccessedKey);
-    final List<String> recentlyAccessed = recentlyAccessedStr != null ? json.decode(recentlyAccessedStr) : [];
+    final List<dynamic> recentlyAccessed = recentlyAccessedStr != null ? json.decode(recentlyAccessedStr) : [];
 
     if (!recentlyAccessed.contains(entry)) recentlyAccessed.insert(0, entry);
     if (recentlyAccessed.length > maxRecentlyAccessedFiles) recentlyAccessed.removeLast();
