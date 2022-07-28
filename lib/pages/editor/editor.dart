@@ -172,7 +172,6 @@ class _EditorState extends State<Editor> {
     if (filenameTextEditingController.text != _filename) {
       filenameTextEditingController.text = _filename;
     }
-    print(path);
   }
 
   @override
