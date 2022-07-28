@@ -39,7 +39,6 @@ abstract class FileManager {
     final Future writeFuture;
     if (kIsWeb) {
       final prefs = await _prefs;
-      await _webRecordFileDirectories(filePath, prefs);
       writeFuture = prefs.setString(filePath, toWrite);
     } else {
       final File file = File(await _documentsDirectory + filePath);
@@ -61,7 +60,6 @@ abstract class FileManager {
 
     if (kIsWeb) {
       final prefs = await _prefs;
-      await _webRecordFileDirectories(toPath, prefs);
       await prefs.setString(toPath, await readFile(fromPath) ?? "");
       await prefs.remove(fromPath);
     } else {
@@ -74,27 +72,6 @@ abstract class FileManager {
     return toPath;
   }
 
-  /// Records the path to the file as a nested dictionary.
-  /// This lets us simulate a file system on the web.
-  static Future _webRecordFileDirectories(String filePath, SharedPreferences prefs) async {
-    final List<String> pathParts = filePath.split('/');
-    String currentPath = ""; // either a directory or the specified filePath
-    String parentDirectory = "/";
-    for (int i = 1; i < pathParts.length; i++) {  // i=1 to skip the leading slash
-      currentPath += "/${pathParts[i]}";
-
-      final String prefix = i == pathParts.length - 1 ? filePrefix : directoryPrefix;
-      final String entry = prefix + currentPath;
-
-      final String? siblingsStr = prefs.getString(parentDirectory);
-      final List<String> siblings = siblingsStr != null ? json.decode(siblingsStr) : [];
-      if (!siblings.contains(entry)) siblings.add(entry);
-      prefs.setString(parentDirectory, json.encode(siblings));
-
-      parentDirectory = currentPath;
-    }
-  }
-
   /// Creates the parent directories of filePath if they don't exist.
   static Future _createFileDirectory(String filePath) async {
     final String parentDirectory = filePath.substring(0, filePath.indexOf('/'));
@@ -104,12 +81,10 @@ abstract class FileManager {
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
     final prefs = await _prefs;
 
-    final String entry = filePrefix + filePath;
-
     final String? recentlyAccessedStr = prefs.getString(recentlyAccessedKey);
     final List<dynamic> recentlyAccessed = recentlyAccessedStr != null ? json.decode(recentlyAccessedStr) : [];
 
-    if (!recentlyAccessed.contains(entry)) recentlyAccessed.insert(0, entry);
+    if (!recentlyAccessed.contains(filePath)) recentlyAccessed.insert(0, filePath);
     if (recentlyAccessed.length > maxRecentlyAccessedFiles) recentlyAccessed.removeLast();
 
     prefs.setString(recentlyAccessedKey, json.encode(recentlyAccessed));
@@ -118,9 +93,4 @@ abstract class FileManager {
   /// Shared preferences key for the list of recently accessed files.
   static const String recentlyAccessedKey = "recentlyAccessed";
   static const int maxRecentlyAccessedFiles = 30;
-
-  /// Prefix directories in _webRecordFileDirectories to distinguish from files
-  static const String directoryPrefix = 'd';
-  /// Prefix files in _webRecordFileDirectories to distinguish from directories
-  static const String filePrefix = 'f';
 }
