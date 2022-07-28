@@ -72,6 +72,7 @@ class _EditorState extends State<Editor> {
         strokesRedoStack.add(strokes.removeLast());
         isRedoPossible = true;
       });
+      autosaveAfterDelay();
     }
   }
 
@@ -81,6 +82,7 @@ class _EditorState extends State<Editor> {
         strokes.add(strokesRedoStack.removeLast());
         isRedoPossible = strokesRedoStack.isNotEmpty;
       });
+      autosaveAfterDelay();
     }
   }
 
@@ -124,6 +126,10 @@ class _EditorState extends State<Editor> {
       strokes.add(currentStroke!..isComplete = true);
       currentStroke = null;
     });
+    autosaveAfterDelay();
+  }
+
+  autosaveAfterDelay() {
     _delayedSaveTimer?.cancel();
     _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {
       saveToFile();
