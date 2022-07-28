@@ -81,13 +81,12 @@ abstract class FileManager {
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
     final prefs = await _prefs;
 
-    final String? recentlyAccessedStr = prefs.getString(recentlyAccessedKey);
-    final List<dynamic> recentlyAccessed = recentlyAccessedStr != null ? json.decode(recentlyAccessedStr) : [];
+    final List<String> recentlyAccessed = prefs.getStringList(recentlyAccessedKey) ?? [];
 
     if (!recentlyAccessed.contains(filePath)) recentlyAccessed.insert(0, filePath);
     if (recentlyAccessed.length > maxRecentlyAccessedFiles) recentlyAccessed.removeLast();
 
-    prefs.setString(recentlyAccessedKey, json.encode(recentlyAccessed));
+    prefs.setStringList(recentlyAccessedKey, recentlyAccessed);
   }
 
   /// Shared preferences key for the list of recently accessed files.
