@@ -89,7 +89,7 @@ abstract class FileManager {
 
   /// Creates the parent directories of filePath if they don't exist.
   static Future _createFileDirectory(String filePath) async {
-    final String parentDirectory = filePath.substring(0, filePath.indexOf('/'));
+    final String parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
     await Directory(await _documentsDirectory + parentDirectory).create(recursive: true);
   }
 
