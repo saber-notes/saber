@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:async';
 
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/data/file_manager.dart';
@@ -135,12 +135,16 @@ class _EditorState extends State<Editor> {
   Future<List<Stroke>> loadFromFile() async {
     String? json = await FileManager.readFile(widget.path + extension);
     if (json == null) return [];
-    
-    List<dynamic> parsed = jsonDecode(json);
-    return parsed
-        .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
-        .toList();
 
+    try {
+      final List<dynamic> parsed = jsonDecode(json);
+      return parsed
+          .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
+          .toList();
+    } catch (e) {
+      if (kDebugMode) print('Error parsing json: $e');
+      return [];
+    }
   }
   void saveToFile() async {
     String toSave = json.encode(strokes);
