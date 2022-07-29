@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/home/no_files.dart';
 
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -40,7 +41,7 @@ class _BrowsePageState extends State<BrowsePage> {
     if (children == null) {
       failed = true;
     } else {
-      failed = false;
+      failed = children.isEmpty;
       for (String child in children) {
         if (await FileManager.isDirectory("${path ?? '/'}/$child")) {
           directoryPaths.add(child);
@@ -78,7 +79,7 @@ class _BrowsePageState extends State<BrowsePage> {
         child: Column(
           children: [
             if (failed) ...[
-              const Text("Failed to load directory"),
+              const NoFiles(),
             ] else ...[
               GridFolders(
                 isAtRoot: path == null,
