@@ -108,6 +108,19 @@ abstract class FileManager {
     }
   }
 
+  static Future<List<String>?> getRecentlyAccessed() async {
+    final prefs = await _prefs;
+    List<String>? recentlyAccessed = prefs.getStringList(recentlyAccessedKey);
+    if (recentlyAccessed == null) return null;
+    return recentlyAccessed.map((String filePath) {
+      if (filePath.endsWith(Editor.extension)) {
+        return filePath.substring(0, filePath.length - Editor.extension.length);
+      } else {
+        return filePath;
+      }
+    }).toList();
+  }
+
   /// Returns whether the [filePath] is a directory or file.
   /// Behaviour is undefined if [filePath] is not a valid path.
   static Future<bool> isDirectory(String filePath) async {

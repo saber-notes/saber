@@ -1,13 +1,39 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/routes.dart';
-import 'package:saber/pages/home/_masonry_files.dart';
+import 'package:saber/components/home/masonry_files.dart';
 
-class RecentPage extends StatelessWidget {
+class RecentPage extends StatefulWidget {
   const RecentPage({Key? key}) : super(key: key);
+
+  @override
+  State<RecentPage> createState() => _RecentPageState();
+}
+
+class _RecentPageState extends State<RecentPage> {
+  final List<String> filePaths = [];
+  bool failed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    findRecentlyAccessedNotes();
+  }
+
+  Future findRecentlyAccessedNotes() async {
+    List<String>? children = await FileManager.getRecentlyAccessed();
+    filePaths.clear();
+    if (children == null) {
+      failed = true;
+    } else {
+      failed = false;
+      filePaths.addAll(children);
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +43,9 @@ class RecentPage extends StatelessWidget {
         toolbarHeight: kToolbarHeight,
         title: const Text("Recent notes"),
       ),
-      body: MasonryFiles(
+      body: failed ? const Text("Welcome") : MasonryFiles(
         files: [
-          for (int i = 0; i < 30; ++i) "/example/path/to/note-$i",
+          for (String filePath in filePaths) filePath,
         ],
         onTap: (String filePath) {
           context.push("${RoutePaths.edit}?path=$filePath");
