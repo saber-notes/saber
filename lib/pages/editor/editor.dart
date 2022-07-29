@@ -4,6 +4,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:uuid/uuid.dart';
 
@@ -33,9 +35,11 @@ class _EditorState extends State<Editor> {
 
   late String path;
 
+  late Pen currentPen;
+  late Tool currentTool;
+
   List<Stroke> strokes = [];
   List<Stroke> strokesRedoStack = [];
-  Stroke? currentStroke;
   bool isRedoPossible = false;
   Timer? _delayedSaveTimer;
 
@@ -56,7 +60,12 @@ class _EditorState extends State<Editor> {
   @override
   void initState() {
     super.initState();
+
     path = widget.initialPath;
+
+    currentPen = Pen.fountainPen();
+    currentTool = currentPen;
+
     _initStrokes();
   }
   // initState can't be async
@@ -110,23 +119,23 @@ class _EditorState extends State<Editor> {
     }
     if (innerCanvasRenderObject == null) return;
 
-    currentStroke = Stroke(
-      color: Colors.black,
-      strokeWidth: 5,
-    )..addPoint(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
+    currentTool.onDragStart(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
     isRedoPossible = false;
   }
   onScaleUpdate(ScaleUpdateDetails details) {
-    if (currentStroke == null) return;
+    if (currentTool == currentPen && currentPen.currentStroke == null) return;
     setState(() {
-      currentStroke!.addPoint(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
+      currentTool.onDragUpdate(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
     });
   }
   onScaleEnd(ScaleEndDetails details) {
-    if (currentStroke == null) return;
+    if (currentTool == currentPen && currentPen.currentStroke == null) return;
     setState(() {
-      strokes.add(currentStroke!..isComplete = true);
-      currentStroke = null;
+      if (currentTool == currentPen) {
+        strokes.add(currentPen.onDragEnd());
+      } else {
+        currentTool.onDragEnd();
+      }
     });
     autosaveAfterDelay();
   }
@@ -205,7 +214,7 @@ class _EditorState extends State<Editor> {
             undo: undo,
             redo: redo,
             strokes: strokes,
-            currentStroke: currentStroke,
+            currentStroke: currentPen.currentStroke,
             onScaleStart: onScaleStart,
             onScaleUpdate: onScaleUpdate,
             onScaleEnd: onScaleEnd,

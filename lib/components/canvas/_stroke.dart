@@ -4,18 +4,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/point_extensions.dart';
+import 'package:saber/components/canvas/tools/stroke_properties.dart';
 
 import 'canvas.dart';
 
 class Stroke {
   final List<Point> _points = [];
 
-  Color _color;
-  Color get color => _color;
-  set color(Color value) { _color = value; _polygonNeedsUpdating = true; }
-  double _strokeWidth;
-  double get strokeWidth => _strokeWidth;
-  set strokeWidth(double value) { _strokeWidth = value; _polygonNeedsUpdating = true; }
+  late final StrokeProperties strokeProperties;
   bool _isComplete = false;
   bool get isComplete => _isComplete;
   set isComplete(bool value) { _isComplete = value; _polygonNeedsUpdating = true; }
@@ -32,26 +28,22 @@ class Stroke {
   }
 
   Stroke({
-    required Color color,
-    required double strokeWidth,
-  }): _color = color, _strokeWidth = strokeWidth;
+    required this.strokeProperties,
+  });
 
-  Stroke.fromJson(Map<String, dynamic> json) :
-        _color = Color(json['c']),
-        _strokeWidth = json['w'],
-        _isComplete = json['f']
-  {
+  Stroke.fromJson(Map<String, dynamic> json) : _isComplete = json['f'] {
+    strokeProperties = StrokeProperties.fromJson(json);
+
     final List<dynamic> pointsJson = json['p'] as List<dynamic>;
     _points.insertAll(0, pointsJson.map(
       (point) => PointExtensions.fromJson(Map<String, dynamic>.from(point))
     ).toList());
   }
+  // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() => {
-    'c': color.value,
-    'w': strokeWidth,
     'f': isComplete,
     'p': _points.map((Point point) => point.toJson()).toList(),
-  };
+  }..addAll(strokeProperties.toJson());
 
   addPoint(Offset offset, [ double pressure = 0.5 ]) {
     double x = max(min(offset.dx, Canvas.canvasWidth), 0);
@@ -65,9 +57,17 @@ class Stroke {
   List<Offset> _getPolygon() {
     return getStroke(
       _points,
-      size: strokeWidth,
       isComplete: isComplete,
-      smoothing: 0,
+
+      size: strokeProperties.size,
+      thinning: strokeProperties.thinning,
+      smoothing: strokeProperties.smoothing,
+      streamline: strokeProperties.streamline,
+      taperStart: strokeProperties.taperStart,
+      taperEnd: strokeProperties.taperEnd,
+      capStart: strokeProperties.capStart,
+      capEnd: strokeProperties.capEnd,
+      simulatePressure: strokeProperties.simulatePressure,
     )
       .map((Point point) => Offset(point.x, point.y))
       .toList(growable: false);

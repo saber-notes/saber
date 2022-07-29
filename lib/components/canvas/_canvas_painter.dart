@@ -21,13 +21,13 @@ class CanvasPainter extends CustomPainter {
       ..color = Colors.black
       ..strokeCap = StrokeCap.round;
     for (final Stroke stroke in strokes) {
-      paint.color = stroke.color;
+      paint.color = stroke.strokeProperties.color;
       Path path = Path();
       path.addPolygon(stroke.polygon, true);
       canvas.drawPath(path, paint);
     }
     if (currentStroke != null) {
-      paint.color = currentStroke!.color;
+      paint.color = currentStroke!.strokeProperties.color;
       Path path = Path();
       path.addPolygon(currentStroke!.polygon, true);
       canvas.drawPath(path, paint);
