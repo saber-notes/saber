@@ -75,28 +75,24 @@ class _BrowsePageState extends State<BrowsePage> {
         toolbarHeight: kToolbarHeight,
         title: Text("Browse${(path?.isNotEmpty ?? false) ? ": $path" : ""}"),
       ),
-      body: SingleChildScrollView(
+      body: failed ? const NoFiles() : SingleChildScrollView(
         child: Column(
           children: [
-            if (failed) ...[
-              const NoFiles(),
-            ] else ...[
-              GridFolders(
-                isAtRoot: path == null,
-                folders: [
-                  for (String directoryPath in directoryPaths) directoryPath,
-                ],
-                onTap: onDirectoryTap,
-                physics: const NeverScrollableScrollPhysics(),
-              ),
-              MasonryFiles(
-                files: [
-                  for (String filePath in filePaths) "${path ?? ""}/$filePath",
-                ],
-                onTap: onFileTap,
-                physics: const NeverScrollableScrollPhysics(),
-              ),
-            ],
+            GridFolders(
+              isAtRoot: path == null,
+              folders: [
+                for (String directoryPath in directoryPaths) directoryPath,
+              ],
+              onTap: onDirectoryTap,
+              physics: const NeverScrollableScrollPhysics(),
+            ),
+            MasonryFiles(
+              files: [
+                for (String filePath in filePaths) "${path ?? ""}/$filePath",
+              ],
+              onTap: onFileTap,
+              physics: const NeverScrollableScrollPhysics(),
+            ),
           ]
         )
       ),

@@ -11,6 +11,7 @@ class NoFiles extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("No files found", style: textTheme.headline4),
             const SizedBox(height: 8),
