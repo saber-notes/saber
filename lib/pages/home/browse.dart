@@ -43,7 +43,7 @@ class _BrowsePageState extends State<BrowsePage> {
     } else {
       failed = children.isEmpty;
       for (String child in children) {
-        if (await FileManager.isDirectory("${path ?? '/'}/$child")) {
+        if (await FileManager.isDirectory("${path ?? ''}/$child")) {
           directoryPaths.add(child);
         } else {
           filePaths.add(child);

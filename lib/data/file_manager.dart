@@ -127,7 +127,6 @@ abstract class FileManager {
     filePath = _sanitisePath(filePath);
     if (kIsWeb) {
       final prefs = await _prefs;
-      print("filePath: ${filePath + Editor.extension}");
       return !prefs.containsKey(filePath + Editor.extension);
     } else {
       final Directory directory = Directory(await _documentsDirectory + filePath);
