@@ -9,10 +9,12 @@ class MasonryFiles extends StatelessWidget {
   const MasonryFiles({
     Key? key,
     required this.files,
+    required this.onTap,
     this.physics = const AlwaysScrollableScrollPhysics(),
   }) : super(key: key);
 
   final List<String> files;
+  final Function(String) onTap;
   final ScrollPhysics physics;
 
   @override
@@ -28,17 +30,16 @@ class MasonryFiles extends StatelessWidget {
         itemBuilder: (context, index) {
           return Card(
             child: InkWell(
-              onTap: () { context.push("${RoutePaths.edit}?path=/example/path/to/note-$index"); },
+              onTap: () { onTap(files[index]); },
               borderRadius: BorderRadius.circular(10),
-              child: SizedBox(
-                height: (100.0 * index) % 500 + 100,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const SizedBox(height: 10),
-                    Text("Note $index"),
-                    const SizedBox(height: 10),
-                    Text(files[index]),
+                    const Icon(Icons.note, size: 50),
+                    const SizedBox(height: 8),
+                    Text(files[index].substring(files[index].lastIndexOf("/") + 1)),
                   ],
                 ),
               ),

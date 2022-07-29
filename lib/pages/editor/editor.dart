@@ -22,6 +22,8 @@ class Editor extends StatefulWidget {
 
   final String initialPath;
 
+  static const String extension = '.sbn';
+
   @override
   State<Editor> createState() => _EditorState();
 }
@@ -138,9 +140,8 @@ class _EditorState extends State<Editor> {
 
 
   String get _filename => path.substring(path.lastIndexOf('/') + 1);
-  static const String extension = '.sbn';
   Future<List<Stroke>> loadFromFile() async {
-    String? json = await FileManager.readFile(path + extension);
+    String? json = await FileManager.readFile(path + Editor.extension);
     if (json == null) return [];
 
     try {
@@ -155,7 +156,7 @@ class _EditorState extends State<Editor> {
   }
   void saveToFile() async {
     String toSave = json.encode(strokes);
-    await FileManager.writeFile(path + extension, toSave);
+    await FileManager.writeFile(path + Editor.extension, toSave);
   }
 
 
@@ -167,8 +168,8 @@ class _EditorState extends State<Editor> {
       filenameTextEditingController.text = _filename;
       return;
     }
-    path = await FileManager.moveFile(path + extension, newName + extension);
-    path = path.substring(0, path.lastIndexOf(extension));
+    path = await FileManager.moveFile(path + Editor.extension, newName + Editor.extension);
+    path = path.substring(0, path.lastIndexOf(Editor.extension));
     if (filenameTextEditingController.text != _filename) {
       filenameTextEditingController.text = _filename;
       filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: _filename.length));

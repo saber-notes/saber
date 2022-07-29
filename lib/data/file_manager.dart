@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
+import 'package:saber/pages/editor/editor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// A collection of cross-platform utility functions for working with a virtual file system.
@@ -73,6 +74,52 @@ abstract class FileManager {
     }
 
     return toPath;
+  }
+
+  static Future<List<String>?> getChildrenOfDirectory(String directory) async {
+    directory = _sanitisePath(directory);
+    if (!directory.endsWith('/')) directory += '/';
+
+    if (kIsWeb) {
+      final prefs = await _prefs;
+
+      List<String>? fileIndex = prefs.getStringList(fileIndexKey);
+      if (fileIndex == null) return null;
+
+      return fileIndex
+          .where((String file) => file.startsWith(directory)) // filter out other directories
+          .map((String file) => file.substring(directory.length)) // remove directory prefix
+          .map((String file) => file.contains('/') ? file.substring(0, file.indexOf('/')) : file) // remove nested folder names
+          .map((String file) => file.endsWith(Editor.extension) ? file.substring(0, file.length - Editor.extension.length) : file) // remove extension
+          .toSet().toList();
+    } else {
+      final String documentsDirectory = await _documentsDirectory;
+      final Directory dir = Directory(documentsDirectory + directory);
+      if (!await dir.exists()) return null;
+
+      int pathEndIndex = documentsDirectory.length + (directory.endsWith('/') ? directory.length : directory.length + 1);
+      return await dir.list().map(
+        (FileSystemEntity entity) {
+          String filename = entity.path.substring(pathEndIndex);
+          if (filename.endsWith(Editor.extension)) filename = filename.substring(0, filename.length - Editor.extension.length);
+          return filename;
+        }
+      ).toList();
+    }
+  }
+
+  /// Returns whether the [filePath] is a directory or file.
+  /// Behaviour is undefined if [filePath] is not a valid path.
+  static Future<bool> isDirectory(String filePath) async {
+    filePath = _sanitisePath(filePath);
+    if (kIsWeb) {
+      final prefs = await _prefs;
+      print("filePath: ${filePath + Editor.extension}");
+      return !prefs.containsKey(filePath + Editor.extension);
+    } else {
+      final Directory directory = Directory(await _documentsDirectory + filePath);
+      return await directory.exists();
+    }
   }
 
   static Future _removeFileFromIndex(String filePath, SharedPreferences prefs) async {

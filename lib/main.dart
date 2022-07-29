@@ -36,6 +36,7 @@ class App extends StatelessWidget {
         path: RoutePaths.home,
         builder: (context, state) => HomePage(
           subpage: state.params["subpage"] ?? HomePage.recentSubpage,
+          path: state.queryParams["path"],
         ),
       ),
       GoRoute(

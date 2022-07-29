@@ -13,9 +13,11 @@ class HomePage extends StatefulWidget {
   const HomePage({
     Key? key,
     required this.subpage,
+    required this.path,
   }) : super(key: key);
 
   final String subpage;
+  final String? path;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -25,11 +27,12 @@ class HomePage extends StatefulWidget {
   static const String settingsSubpage = "settings";
   static const List<String> subpages = [recentSubpage, browseSubpage, settingsSubpage];
 }
+
 class _HomePageState extends State<HomePage> {
   Widget get body {
     switch (widget.subpage) {
       case HomePage.browseSubpage:
-        return const BrowsePage();
+        return BrowsePage(path: widget.path);
       case HomePage.settingsSubpage:
         return const SettingsPage();
       default:
@@ -41,8 +44,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return ResponsiveNavbar(
-        selectedIndex: HomePage.subpages.indexOf(widget.subpage),
-        body: body,
+      selectedIndex: HomePage.subpages.indexOf(widget.subpage),
+      body: body,
     );
   }
 }

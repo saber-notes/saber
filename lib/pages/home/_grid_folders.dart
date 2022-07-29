@@ -1,40 +1,57 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:saber/data/routes.dart';
 
 class GridFolders extends StatelessWidget {
   const GridFolders({
     Key? key,
+    required this.isAtRoot,
     required this.folders,
+    required this.onTap,
     this.physics = const AlwaysScrollableScrollPhysics(),
   }) : super(key: key);
 
+  final bool isAtRoot;
   final List<String> folders;
+  final Function(String) onTap;
   final ScrollPhysics physics;
 
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
+    int indexOffset = isAtRoot ? 0 : 1;
     return LayoutBuilder(builder: (context, constraints) {
       return AlignedGridView.count(
-        itemCount: folders.length,
+        itemCount: folders.length + indexOffset,
         crossAxisCount: constraints.maxWidth ~/ 150 + 1,
         shrinkWrap: true,
         padding: const EdgeInsets.all(10),
         physics: physics,
         itemBuilder: (context, index) {
+          bool isBackFolder = index < indexOffset;
           return Card(
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                onTap(isBackFolder ? ".." : folders[index - indexOffset]);
+              },
               borderRadius: BorderRadius.circular(10),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(height: 10),
-                  Text("Folder $index"),
-                  const SizedBox(height: 10),
-                  Text("This is example folder $index"),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (isBackFolder) const Icon(Icons.folder_open, size: 50)
+                    else const Icon(Icons.folder, size: 50),
+
+                    const SizedBox(height: 8),
+
+                    Text(isBackFolder ? "(Back)" : folders[index - indexOffset]),
+                  ],
+                ),
               ),
             ),
           );

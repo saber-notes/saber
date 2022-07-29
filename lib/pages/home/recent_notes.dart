@@ -19,12 +19,15 @@ class RecentPage extends StatelessWidget {
       ),
       body: MasonryFiles(
         files: [
-          for (int i = 0; i < 30; ++i) "This is example note $i",
+          for (int i = 0; i < 30; ++i) "/example/path/to/note-$i",
         ],
+        onTap: (String filePath) {
+          context.push("${RoutePaths.edit}?path=$filePath");
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push("${RoutePaths.edit}?path=/new-note");
+          context.push("${RoutePaths.edit}?path=/example/path/to/new-note");
         },
         tooltip: "New note",
         child: const Icon(Icons.add),
