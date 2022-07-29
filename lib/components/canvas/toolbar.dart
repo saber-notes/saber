@@ -1,15 +1,19 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/eraser.dart';
 
 class Toolbar extends StatelessWidget {
   const Toolbar({
     Key? key,
+    required this.setTool,
     required this.undo,
     required this.redo,
     required this.isUndoPossible,
     required this.isRedoPossible,
   }) : super(key: key);
 
+  final ValueChanged<Tool> setTool;
   final VoidCallback undo;
   final VoidCallback redo;
   final bool isUndoPossible;
@@ -38,6 +42,12 @@ class Toolbar extends StatelessWidget {
             TextButton(
               child: const Icon(Icons.palette),
               onPressed: () { }
+            ),
+            TextButton(
+              onPressed: () {
+                setTool(Eraser());
+              },
+              child: const Icon(Icons.backspace), // todo: better eraser icon
             ),
             TextButton(
               child: const Icon(Icons.photo_size_select_actual),

@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:uuid/uuid.dart';
@@ -98,6 +99,7 @@ class _EditorState extends State<Editor> {
   }
 
   RenderBox? innerCanvasRenderObject;
+  bool dragStarted = false;
   onScaleStart(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -119,22 +121,40 @@ class _EditorState extends State<Editor> {
     }
     if (innerCanvasRenderObject == null) return;
 
-    currentTool.onDragStart(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
+    dragStarted = true;
+
+    Offset position = innerCanvasRenderObject!.globalToLocal(details.focalPoint);
+    if (currentTool is Pen) {
+      (currentTool as Pen).onDragStart(position);
+    } else if (currentTool is Eraser) {
+      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes)) {
+        strokes.removeAt(i);
+      }
+    }
+
     isRedoPossible = false;
   }
   onScaleUpdate(ScaleUpdateDetails details) {
-    if (currentTool == currentPen && currentPen.currentStroke == null) return;
+    if (!dragStarted) return;
+
+    Offset position = innerCanvasRenderObject!.globalToLocal(details.focalPoint);
     setState(() {
-      currentTool.onDragUpdate(innerCanvasRenderObject!.globalToLocal(details.focalPoint));
+      if (currentTool is Pen) {
+        (currentTool as Pen).onDragUpdate(position);
+      } else if (currentTool is Eraser) {
+        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes)) {
+          strokes.removeAt(i);
+        }
+      }
     });
+
   }
   onScaleEnd(ScaleEndDetails details) {
-    if (currentTool == currentPen && currentPen.currentStroke == null) return;
+    if (!dragStarted) return;
+    dragStarted = false;
     setState(() {
-      if (currentTool == currentPen) {
-        strokes.add(currentPen.onDragEnd());
-      } else {
-        currentTool.onDragEnd();
+      if (currentTool is Pen) {
+        strokes.add((currentTool as Pen).onDragEnd());
       }
     });
     autosaveAfterDelay();
@@ -204,6 +224,9 @@ class _EditorState extends State<Editor> {
       body: Column(
         children: [
           Toolbar(
+            setTool: (tool) {
+              currentTool = tool;
+            },
             undo: undo,
             redo: redo,
             isUndoPossible: strokes.isNotEmpty,
