@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/components/home/masonry_files.dart';
+import 'package:saber/components/home/welcome.dart';
 
 class RecentPage extends StatefulWidget {
   const RecentPage({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class _RecentPageState extends State<RecentPage> {
         toolbarHeight: kToolbarHeight,
         title: const Text("Recent notes"),
       ),
-      body: failed ? const Text("Welcome") : MasonryFiles(
+      body: failed ? const Welcome() : MasonryFiles(
         files: [
           for (String filePath in filePaths) filePath,
         ],
