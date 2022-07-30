@@ -73,6 +73,8 @@ abstract class FileManager {
       await fromFile.rename(toFile.path);
     }
 
+    _renameReferences(fromPath, toPath);
+
     return toPath;
   }
 
@@ -150,6 +152,24 @@ abstract class FileManager {
   static Future _createFileDirectory(String filePath) async {
     final String parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
     await Directory(await _documentsDirectory + parentDirectory).create(recursive: true);
+  }
+
+  static Future _renameReferences(String fromPath, String toPath) async {
+    // rename file in recently accessed
+    final prefs = await _prefs;
+    final List<String> recentlyAccessed = prefs.getStringList(recentlyAccessedKey) ?? [];
+    print(recentlyAccessed);
+    bool replaced = false;
+    for (int i = 0; i < recentlyAccessed.length; i++) {
+      if (recentlyAccessed[i] != fromPath) continue;
+      if (!replaced) {
+        recentlyAccessed[i] = toPath;
+        replaced = true;
+      } else {
+        recentlyAccessed.removeAt(i);
+      }
+    }
+    await prefs.setStringList(recentlyAccessedKey, recentlyAccessed);
   }
 
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
