@@ -158,7 +158,6 @@ abstract class FileManager {
     // rename file in recently accessed
     final prefs = await _prefs;
     final List<String> recentlyAccessed = prefs.getStringList(recentlyAccessedKey) ?? [];
-    print(recentlyAccessed);
     bool replaced = false;
     for (int i = 0; i < recentlyAccessed.length; i++) {
       if (recentlyAccessed[i] != fromPath) continue;
