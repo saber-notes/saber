@@ -17,6 +17,21 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 
 const Uuid uuid = Uuid();
 
+Future<List<Stroke>> loadStrokesFromPath(String path) async {
+  String? json = await FileManager.readFile(path + Editor.extension);
+  if (json == null) return [];
+
+  try {
+    final List<dynamic> parsed = jsonDecode(json);
+    return parsed
+        .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
+        .toList();
+  } catch (e) {
+    if (kDebugMode) print('Error parsing json: $e');
+    return [];
+  }
+}
+
 class Editor extends StatefulWidget {
   Editor({
     Key? key,
@@ -169,20 +184,7 @@ class _EditorState extends State<Editor> {
 
 
   String get _filename => path.substring(path.lastIndexOf('/') + 1);
-  Future<List<Stroke>> loadFromFile() async {
-    String? json = await FileManager.readFile(path + Editor.extension);
-    if (json == null) return [];
-
-    try {
-      final List<dynamic> parsed = jsonDecode(json);
-      return parsed
-          .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
-          .toList();
-    } catch (e) {
-      if (kDebugMode) print('Error parsing json: $e');
-      return [];
-    }
-  }
+  Future<List<Stroke>> loadFromFile() async => loadStrokesFromPath(path);
   void saveToFile() async {
     String toSave = json.encode(strokes);
     await FileManager.writeFile(path + Editor.extension, toSave);

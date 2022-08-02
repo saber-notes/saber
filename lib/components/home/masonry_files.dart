@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/canvas/canvas_preview.dart';
+import 'package:saber/components/home/preview_card.dart';
 
 import 'package:saber/data/routes.dart';
 
@@ -27,25 +29,10 @@ class MasonryFiles extends StatelessWidget {
         shrinkWrap: true,
         padding: const EdgeInsets.all(10),
         physics: physics,
-        itemBuilder: (context, index) {
-          return Card(
-            child: InkWell(
-              onTap: () { onTap(files[index]); },
-              borderRadius: BorderRadius.circular(10),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.note, size: 50),
-                    const SizedBox(height: 8),
-                    Text(files[index].substring(files[index].lastIndexOf("/") + 1)),
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
+        itemBuilder: (context, index) => PreviewCard(
+          filePath: files[index],
+          onTap: onTap
+        ),
       ),
     );
   }
