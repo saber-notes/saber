@@ -12,10 +12,11 @@ Please see [#1 Saber progress](https://github.com/adil192/saber/discussions/1).
 
 Saber is still in early stages but if you'd like to check it out,
 you can see the online PWA at https://saber.adil.hanney.org.
-If you'd like to run it as a native app, you can [build from source](#build) instead.
+If you'd like to run it as a native app, you can [build from source](#build-from-source) instead.
 
+Update: you can now install a flatpak on Linux by downloading `Saber.flatpak` from the latest [Release](https://github.com/adil192/saber/releases) and running `flatpak --user install Saber.flatpak`.
 
-## Build
+## Build from source
 
 1. Install flutter: https://docs.flutter.dev/get-started/install
 2. Clone this project: `git clone https://github.com/adil192/saber.git`
