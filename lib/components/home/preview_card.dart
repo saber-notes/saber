@@ -1,6 +1,9 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/pages/editor/editor.dart';
 
@@ -19,6 +22,7 @@ class PreviewCard extends StatefulWidget {
 }
 class _PreviewCardState extends State<PreviewCard> {
   List<Stroke> strokes = [];
+  double? height;
 
   @override
   initState() {
@@ -28,6 +32,11 @@ class _PreviewCardState extends State<PreviewCard> {
 
   Future findStrokes() async {
     strokes = await loadStrokesFromPath(widget.filePath);
+
+    double fullHeight = Canvas.canvasHeight;
+    double maxY = strokes.map((stroke) => stroke.maxY).reduce(max);
+    height = min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
+
     setState(() {});
   }
 
@@ -42,7 +51,10 @@ class _PreviewCardState extends State<PreviewCard> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CanvasPreview(strokes: strokes),
+              CanvasPreview(
+                height: height,
+                strokes: strokes,
+              ),
               const SizedBox(height: 8),
               Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
             ],

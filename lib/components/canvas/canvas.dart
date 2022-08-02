@@ -53,6 +53,8 @@ class Canvas extends StatelessWidget {
             child: FittedBox(
               child: InnerCanvas(
                 key: innerCanvasKey,
+                width: canvasWidth,
+                height: canvasHeight,
                 strokes: strokes,
                 currentStroke: currentStroke,
               ),

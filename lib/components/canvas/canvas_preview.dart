@@ -8,9 +8,11 @@ import 'inner_canvas.dart';
 class CanvasPreview extends StatelessWidget {
   const CanvasPreview({
     Key? key,
+    required this.height,
     required this.strokes,
   }) : super(key: key);
 
+  final double? height;
   final List<Stroke> strokes;
 
   @override
@@ -20,6 +22,8 @@ class CanvasPreview extends StatelessWidget {
 
       child: FittedBox(
         child: InnerCanvas(
+          width: Canvas.canvasWidth,
+          height: height ?? Canvas.canvasHeight,
           strokes: strokes,
           currentStroke: null,
         ),
