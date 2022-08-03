@@ -43,16 +43,10 @@ class FileTree extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (var i = 0; i < dummyStructure.length; i++)
-              FileTreeBranch(
-                label: dummyStructure.keys.elementAt(i),
-                children: dummyStructure[dummyStructure.keys.elementAt(i)],
-              )
-          ]
-        ),
+        child: FileTreeBranch(
+          label: null,
+          children: dummyStructure,
+        )
       ),
     );
   }
@@ -68,7 +62,7 @@ class FileTreeBranch extends StatefulWidget {
     isFile = children == null;
   }
 
-  final String label;
+  final String? label;
   final Map<String, dynamic>? children;
   late final bool isFile;
 
@@ -81,13 +75,19 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   bool areChildrenVisible = false;
 
   @override
+  void initState() {
+    super.initState();
+    areChildrenVisible = widget.label == null;
+  }
+
+  @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Material(
+        if (widget.label != null) Material(
           color: colorScheme.surface,
           child: InkWell(
             onTap: () {
@@ -106,7 +106,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                 const SizedBox(width: 5),
                 Expanded(
                   child: Text(
-                    widget.label,
+                    widget.label!,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 14,
                     ),
@@ -120,7 +120,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
 
         if (areChildrenVisible && !widget.isFile) Padding(
-          padding: const EdgeInsets.only(left: 25),
+          padding: (widget.label != null) ? const EdgeInsets.only(left: 25) : const EdgeInsets.only(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
