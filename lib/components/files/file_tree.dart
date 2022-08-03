@@ -7,39 +7,6 @@ import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/routes.dart';
 
 
-Map<String, dynamic> dummyStructure = {
-  "CompSci": {
-    "Operating Systems Long title even longer": {
-      "OS 1": null,
-      "OS 2": null,
-      "OS 3": null,
-    },
-    "Data Structures": {
-      "DS 1": null,
-      "DS 2": null,
-      "DS 3": null,
-    },
-  },
-  "Maths": {
-    "Algebra": {
-      "Math Algebra 1": null,
-      "Math Algebra 2": null,
-      "Math Algebra 3": null,
-    },
-    "Geometry": {
-      "Geometry 1": null,
-      "Geometry 2": null,
-      "Geometry 3": null,
-    },
-    "Maths overview": null,
-  },
-  "Personal": {
-    "Personal 1": null,
-    "Personal 2": null,
-    "Personal 3": null,
-  },
-};
-
 class FileTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
