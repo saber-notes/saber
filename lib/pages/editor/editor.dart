@@ -235,6 +235,7 @@ class _EditorState extends State<Editor> {
             isRedoPossible: isRedoPossible,
           ),
           Expanded(child: Canvas(
+            path: path,
             innerCanvasKey: innerCanvasKey,
             undo: undo,
             redo: redo,

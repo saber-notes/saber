@@ -7,6 +7,7 @@ import 'inner_canvas.dart';
 class Canvas extends StatelessWidget {
   const Canvas({
     Key? key,
+    required this.path,
     required this.innerCanvasKey,
     required this.undo,
     required this.redo,
@@ -19,6 +20,8 @@ class Canvas extends StatelessWidget {
 
   static const double canvasWidth = 1000;
   static const double canvasHeight = canvasWidth * 1.4;
+
+  final String path;
 
   final VoidCallback undo;
   final VoidCallback redo;
@@ -34,29 +37,33 @@ class Canvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      clipBehavior: Clip.hardEdge,
-      decoration: const BoxDecoration(),
-      child: GestureDetector(
-        onSecondaryTapUp: (TapUpDetails details) => undo(),
-        onTertiaryTapUp: (TapUpDetails details) => redo(),
-        child: InteractiveViewer(
-          panEnabled: false,
-          maxScale: 5,
-          clipBehavior: Clip.none,
+    return Hero(
+      tag: "inner-canvas-$path",
+      
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        decoration: const BoxDecoration(),
+        child: GestureDetector(
+          onSecondaryTapUp: (TapUpDetails details) => undo(),
+          onTertiaryTapUp: (TapUpDetails details) => redo(),
+          child: InteractiveViewer(
+            panEnabled: false,
+            maxScale: 5,
+            clipBehavior: Clip.none,
 
-          onInteractionStart: onScaleStart,
-          onInteractionUpdate: onScaleUpdate,
-          onInteractionEnd: onScaleEnd,
+            onInteractionStart: onScaleStart,
+            onInteractionUpdate: onScaleUpdate,
+            onInteractionEnd: onScaleEnd,
 
-          child: Center(
-            child: FittedBox(
-              child: InnerCanvas(
-                key: innerCanvasKey,
-                width: canvasWidth,
-                height: canvasHeight,
-                strokes: strokes,
-                currentStroke: currentStroke,
+            child: Center(
+              child: FittedBox(
+                child: InnerCanvas(
+                  key: innerCanvasKey,
+                  width: canvasWidth,
+                  height: canvasHeight,
+                  strokes: strokes,
+                  currentStroke: currentStroke,
+                ),
               ),
             ),
           ),

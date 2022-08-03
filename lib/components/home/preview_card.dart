@@ -52,6 +52,7 @@ class _PreviewCardState extends State<PreviewCard> {
             mainAxisSize: MainAxisSize.min,
             children: [
               CanvasPreview(
+                path: widget.filePath,
                 height: height,
                 strokes: strokes,
               ),
