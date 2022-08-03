@@ -44,14 +44,13 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   @override
   void initState() {
     super.initState();
-    areChildrenVisible = widget.path == null;
     _getInfo();
   }
 
   _getInfo() async {
     isDirectory = widget.path == null ? true : await FileManager.isDirectory(widget.path!);
     children = await FileManager.getChildrenOfDirectory(widget.path ?? "/");
-    print("children: ${widget.path} $children");
+    areChildrenVisible = children != null && (children!.length <= 1);
     setState(() { });
   }
 
