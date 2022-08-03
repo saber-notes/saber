@@ -134,7 +134,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.2"
+    version: "4.2.7"
   icons_launcher:
     dependency: "direct dev"
     description:
@@ -246,7 +246,7 @@ packages:
       name: path_provider_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   path_to_regexp:
     dependency: "direct main"
     description:
