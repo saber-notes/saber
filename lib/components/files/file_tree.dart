@@ -1,7 +1,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:saber/data/file_manager.dart';
+import 'package:saber/data/routes.dart';
 
 
 Map<String, dynamic> dummyStructure = {
@@ -97,8 +100,11 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
           child: InkWell(
             onTap: () {
               setState(() {
-                // todo: open file if !isDirectory
-                areChildrenVisible = !areChildrenVisible;
+                if (isDirectory) {
+                  areChildrenVisible = !areChildrenVisible;
+                } else {
+                  context.push("${RoutePaths.edit}?path=${widget.path}");
+                }
               });
             },
             child: Row(
