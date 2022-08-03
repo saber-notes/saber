@@ -38,7 +38,7 @@ class FileTreeBranch extends StatefulWidget {
 
 class _FileTreeBranchState extends State<FileTreeBranch> {
   List<String>? children;
-  bool isDirectory = false;
+  bool? isDirectory;
   bool areChildrenVisible = false;
 
   @override
@@ -66,7 +66,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
           child: InkWell(
             onTap: () {
               setState(() {
-                if (isDirectory) {
+                if (isDirectory ?? true) {
                   areChildrenVisible = !areChildrenVisible;
                 } else {
                   context.push("${RoutePaths.edit}?path=${widget.path}");
@@ -75,7 +75,9 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
             },
             child: Row(
               children: [
-                if (isDirectory) ...[
+                if (isDirectory == null) ...[
+                  const SizedBox(width: 25, height: 25),
+                ] else if (isDirectory!) ...[
                   Icon(areChildrenVisible ? Icons.folder_open: Icons.folder, color: colorScheme.primary, size: 25),
                 ] else ...[
                   const Icon(Icons.insert_drive_file, size: 25),
