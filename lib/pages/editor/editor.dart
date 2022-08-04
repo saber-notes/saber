@@ -194,17 +194,24 @@ class _EditorState extends State<Editor> {
   late final filenameTextEditingController = TextEditingController(
     text: _filename,
   );
-  Future renameFile(newName) async {
-    if (newName.contains("/") || newName.isEmpty) {
-      filenameTextEditingController.text = _filename;
-      return;
+  Timer? _renameTimer;
+  void renameFile(String newName) {
+    _renameTimer?.cancel();
+
+    if (newName.contains("/") || newName.isEmpty) { // if invalid name, don't rename
+      _renameTimer = Timer(const Duration(milliseconds: 5000), () {
+        filenameTextEditingController.text = _filename;
+        filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: _filename.length));
+      });
+    } else { // rename after a delay
+      _renameTimer = Timer(const Duration(milliseconds: 500), () {
+        _renameFileNow(newName);
+      });
     }
+  }
+  Future _renameFileNow(String newName) async {
     path = await FileManager.moveFile(path + Editor.extension, newName + Editor.extension);
     path = path.substring(0, path.lastIndexOf(Editor.extension));
-    if (filenameTextEditingController.text != _filename) {
-      filenameTextEditingController.text = _filename;
-      filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: _filename.length));
-    }
   }
 
   @override
@@ -218,9 +225,7 @@ class _EditorState extends State<Editor> {
             border: InputBorder.none,
           ),
           controller: filenameTextEditingController,
-          onChanged: (newName) {
-            renameFile(newName);
-          },
+          onChanged: renameFile,
         ),
       ),
       body: Column(
