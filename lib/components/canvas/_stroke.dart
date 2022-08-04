@@ -74,7 +74,7 @@ class Stroke {
   }
 
   double get maxY {
-    return _points.map((Point point) => point.y).reduce(max);
+    return _points.isEmpty ? 0 : _points.map((Point point) => point.y).reduce(max);
   }
 
   static sqrDistBetweenPoints(Point p1, Point p2) {

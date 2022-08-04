@@ -34,7 +34,7 @@ class _PreviewCardState extends State<PreviewCard> {
     strokes = await loadStrokesFromPath(widget.filePath);
 
     double fullHeight = Canvas.canvasHeight;
-    double maxY = strokes.map((stroke) => stroke.maxY).reduce(max);
+    double maxY = strokes.isEmpty ? 0 : strokes.map((stroke) => stroke.maxY).reduce(max);
     height = min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
 
     setState(() {});
