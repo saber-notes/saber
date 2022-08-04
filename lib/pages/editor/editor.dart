@@ -36,7 +36,7 @@ class Editor extends StatefulWidget {
   Editor({
     Key? key,
     String? path,
-  }) : initialPath = path ?? uuid.v1(), super(key: key);
+  }) : initialPath = path ?? "/${uuid.v1()}", super(key: key);
 
   final String initialPath;
 

@@ -98,7 +98,7 @@ class _BrowsePageState extends State<BrowsePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push("${RoutePaths.edit}?path=/new-note");
+          context.push(RoutePaths.edit);
         },
         tooltip: "New note",
         child: const Icon(Icons.add),

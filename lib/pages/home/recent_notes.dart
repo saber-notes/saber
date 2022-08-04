@@ -54,7 +54,7 @@ class _RecentPageState extends State<RecentPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push("${RoutePaths.edit}?path=/example/path/to/new-note");
+          context.push(RoutePaths.edit);
         },
         tooltip: "New note",
         child: const Icon(Icons.add),
