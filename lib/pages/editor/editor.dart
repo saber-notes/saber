@@ -36,9 +36,12 @@ class Editor extends StatefulWidget {
   Editor({
     Key? key,
     String? path,
-  }) : initialPath = path ?? "/${uuid.v1()}", super(key: key);
+  }) : initialPath = path ?? "/${uuid.v1()}",
+        needsNaming = path == null,
+        super(key: key);
 
   final String initialPath;
+  final bool needsNaming;
 
   static const String extension = '.sbn';
 
@@ -50,6 +53,7 @@ class _EditorState extends State<Editor> {
   final GlobalKey<State<InnerCanvas>> innerCanvasKey = GlobalKey<State<InnerCanvas>>();
 
   late String path;
+  late bool needsNaming;
 
   late Pen currentPen;
   late Tool currentTool;
@@ -78,6 +82,13 @@ class _EditorState extends State<Editor> {
     super.initState();
 
     path = widget.initialPath;
+    needsNaming = widget.needsNaming;
+    if (needsNaming) {
+      filenameTextEditingController.selection = TextSelection(
+        baseOffset: 0,
+        extentOffset: filenameTextEditingController.text.length,
+      );
+    }
 
     currentPen = Pen.fountainPen();
     currentTool = currentPen;
@@ -212,6 +223,7 @@ class _EditorState extends State<Editor> {
   Future _renameFileNow(String newName) async {
     path = await FileManager.moveFile(path + Editor.extension, newName + Editor.extension);
     path = path.substring(0, path.lastIndexOf(Editor.extension));
+    needsNaming = false;
   }
 
   @override
@@ -226,6 +238,7 @@ class _EditorState extends State<Editor> {
           ),
           controller: filenameTextEditingController,
           onChanged: renameFile,
+          autofocus: needsNaming,
         ),
       ),
       body: Column(
