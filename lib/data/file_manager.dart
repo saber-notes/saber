@@ -70,7 +70,7 @@ abstract class FileManager {
       final File fromFile = File(await _documentsDirectory + fromPath);
       final File toFile = File(await _documentsDirectory + toPath);
       await _createFileDirectory(toPath);
-      await fromFile.rename(toFile.path);
+      if (await fromFile.exists()) await fromFile.rename(toFile.path);
     }
 
     _renameReferences(fromPath, toPath);
