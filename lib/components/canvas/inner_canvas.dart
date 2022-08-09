@@ -6,21 +6,31 @@ import '_stroke.dart';
 import 'canvas.dart';
 
 class InnerCanvas extends StatefulWidget {
-  const InnerCanvas({
+  InnerCanvas({
     Key? key,
+    this.pageIndex = 0,
     required this.width,
     required this.height,
-    required this.strokes,
+    required List<Stroke> strokes,
     required this.currentStroke,
     this.onRenderObjectChange,
-  }) : super(key: key);
+  }) : super(key: key) {
+    this.strokes = strokes.where((stroke) => isStrokeInPage(stroke)).toList();
+  }
 
+  final int pageIndex;
   final double width;
   final double height;
 
-  final List<Stroke> strokes;
+  late final List<Stroke> strokes;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
+
+  bool isStrokeInPage(Stroke stroke) {
+    final maxY = stroke.maxY;
+    final startOfPageY = height * pageIndex;
+    return maxY >= startOfPageY && maxY <= startOfPageY + height;
+  }
 
   @override
   State<InnerCanvas> createState() => _InnerCanvasState();
