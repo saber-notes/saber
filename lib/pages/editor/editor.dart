@@ -159,8 +159,10 @@ class _EditorState extends State<Editor> {
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(position);
     } else if (currentTool is Eraser) {
+      int removed = 0;
       for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes)) {
-        strokes.removeAt(i);
+        strokes.removeAt(i - removed);
+        removed++;
       }
     }
 
