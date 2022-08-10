@@ -7,17 +7,25 @@ class Toolbar extends StatelessWidget {
   const Toolbar({
     Key? key,
     required this.setTool,
+
     required this.undo,
-    required this.redo,
     required this.isUndoPossible,
+    required this.redo,
     required this.isRedoPossible,
+
+    required this.toggleFingerDrawing,
+    required this.isFingerDrawingEnabled,
   }) : super(key: key);
 
   final ValueChanged<Tool> setTool;
+
   final VoidCallback undo;
-  final VoidCallback redo;
   final bool isUndoPossible;
+  final VoidCallback redo;
   final bool isRedoPossible;
+
+  final VoidCallback toggleFingerDrawing;
+  final bool isFingerDrawingEnabled;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +60,11 @@ class Toolbar extends StatelessWidget {
             TextButton(
               child: const Icon(Icons.photo_size_select_actual),
               onPressed: () { }
+            ),
+            TextButton(
+              onPressed: toggleFingerDrawing,
+              // todo: better icon
+              child: isFingerDrawingEnabled ? const Icon(Icons.pan_tool) : const Icon(Icons.do_not_touch_outlined),
             ),
             TextButton(
               onPressed: isUndoPossible ? undo : null,

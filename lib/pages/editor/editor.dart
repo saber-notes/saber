@@ -259,9 +259,15 @@ class _EditorState extends State<Editor> {
               currentTool = tool;
             },
             undo: undo,
-            redo: redo,
             isUndoPossible: strokes.isNotEmpty,
+            redo: redo,
             isRedoPossible: isRedoPossible,
+            toggleFingerDrawing: () {
+              setState(() {
+                isFingerDrawingEnabled = !isFingerDrawingEnabled;
+              });
+            },
+            isFingerDrawingEnabled: isFingerDrawingEnabled,
           ),
           Expanded(child: Canvas(
             path: path,
