@@ -45,10 +45,12 @@ class Stroke {
     'p': _points.map((Point point) => point.toJson()).toList(),
   }..addAll(strokeProperties.toJson());
 
-  addPoint(Offset offset, [ double pressure = 0.5 ]) {
+  addPoint(Offset offset, [ double? pressure ]) {
     double x = max(min(offset.dx, Canvas.canvasWidth), 0);
     double y = max(min(offset.dy, Canvas.canvasHeight), 0);
-    Point point = Point(x, y, pressure);
+    Point point = Point(x, y, pressure ?? 0.5);
+
+    if (pressure != null) strokeProperties.simulatePressure = false;
 
     _points.add(point);
     _polygonNeedsUpdating = true;

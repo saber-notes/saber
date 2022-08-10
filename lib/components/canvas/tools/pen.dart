@@ -11,14 +11,14 @@ class Pen extends Tool {
 
   Pen.fountainPen();
 
-  onDragStart(Offset position) {
+  onDragStart(Offset position, double? pressure) {
     currentStroke = Stroke(
       strokeProperties: strokeProperties,
-    )..addPoint(position);
+    )..addPoint(position, pressure);
   }
 
-  onDragUpdate(Offset position) {
-    currentStroke!.addPoint(position);
+  onDragUpdate(Offset position, double? pressure) {
+    currentStroke!.addPoint(position, pressure);
   }
 
   Stroke onDragEnd() {
