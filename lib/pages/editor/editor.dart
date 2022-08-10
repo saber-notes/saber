@@ -193,7 +193,7 @@ class _EditorState extends State<Editor> {
     });
     autosaveAfterDelay();
   }
-  onPressureChanged(double pressure) {
+  onPressureChanged(double? pressure) {
     currentPressure = pressure == 0.0 ? null : pressure;
   }
 

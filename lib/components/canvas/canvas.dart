@@ -1,4 +1,6 @@
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '_stroke.dart';
@@ -31,12 +33,20 @@ class Canvas extends StatelessWidget {
   final ValueChanged<ScaleStartDetails> onScaleStart;
   final ValueChanged<ScaleUpdateDetails> onScaleUpdate;
   final ValueChanged<ScaleEndDetails> onScaleEnd;
-  final ValueChanged<double> onPressureChanged;
+  final ValueChanged<double?> onPressureChanged;
 
   final List<Stroke> strokes;
   final Stroke? currentStroke;
 
   final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
+
+  bool _isPointerDeviceAStylus(PointerDeviceKind kind) {
+    return kind == PointerDeviceKind.stylus || kind == PointerDeviceKind.invertedStylus;
+  }
+
+  _listenerPointerEvent(PointerEvent event) {
+    onPressureChanged(_isPointerDeviceAStylus(event.kind) ? event.pressure : null);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +57,8 @@ class Canvas extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         decoration: const BoxDecoration(),
         child: Listener(
-          onPointerDown: (PointerDownEvent event) {
-            onPressureChanged(event.pressure);
-          },
-          onPointerMove: (PointerMoveEvent event) {
-            onPressureChanged(event.pressure);
-          },
+          onPointerDown: _listenerPointerEvent,
+          onPointerMove: _listenerPointerEvent,
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => undo(),
             onTertiaryTapUp: (TapUpDetails details) => redo(),
