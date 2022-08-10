@@ -13,9 +13,11 @@ class Canvas extends StatelessWidget {
     required this.redo,
     required this.strokes,
     required this.currentStroke,
+
     required this.onScaleStart,
     required this.onScaleUpdate,
     required this.onScaleEnd,
+    required this.onPressureChanged,
   }) : super(key: key);
 
   static const double canvasWidth = 1000;
@@ -29,6 +31,7 @@ class Canvas extends StatelessWidget {
   final ValueChanged<ScaleStartDetails> onScaleStart;
   final ValueChanged<ScaleUpdateDetails> onScaleUpdate;
   final ValueChanged<ScaleEndDetails> onScaleEnd;
+  final ValueChanged<double> onPressureChanged;
 
   final List<Stroke> strokes;
   final Stroke? currentStroke;
@@ -43,26 +46,34 @@ class Canvas extends StatelessWidget {
       child: Container(
         clipBehavior: Clip.hardEdge,
         decoration: const BoxDecoration(),
-        child: GestureDetector(
-          onSecondaryTapUp: (TapUpDetails details) => undo(),
-          onTertiaryTapUp: (TapUpDetails details) => redo(),
-          child: InteractiveViewer(
-            panEnabled: false,
-            maxScale: 5,
-            clipBehavior: Clip.none,
+        child: Listener(
+          onPointerDown: (PointerDownEvent event) {
+            onPressureChanged(event.pressure);
+          },
+          onPointerMove: (PointerMoveEvent event) {
+            onPressureChanged(event.pressure);
+          },
+          child: GestureDetector(
+            onSecondaryTapUp: (TapUpDetails details) => undo(),
+            onTertiaryTapUp: (TapUpDetails details) => redo(),
+            child: InteractiveViewer(
+              panEnabled: false,
+              maxScale: 5,
+              clipBehavior: Clip.none,
 
-            onInteractionStart: onScaleStart,
-            onInteractionUpdate: onScaleUpdate,
-            onInteractionEnd: onScaleEnd,
+              onInteractionStart: onScaleStart,
+              onInteractionUpdate: onScaleUpdate,
+              onInteractionEnd: onScaleEnd,
 
-            child: Center(
-              child: FittedBox(
-                child: InnerCanvas(
-                  key: innerCanvasKey,
-                  width: canvasWidth,
-                  height: canvasHeight,
-                  strokes: strokes,
-                  currentStroke: currentStroke,
+              child: Center(
+                child: FittedBox(
+                  child: InnerCanvas(
+                    key: innerCanvasKey,
+                    width: canvasWidth,
+                    height: canvasHeight,
+                    strokes: strokes,
+                    currentStroke: currentStroke,
+                  ),
                 ),
               ),
             ),

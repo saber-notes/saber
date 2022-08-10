@@ -126,6 +126,8 @@ class _EditorState extends State<Editor> {
 
   RenderBox? innerCanvasRenderObject;
   bool dragStarted = false;
+  double? currentPressure;
+  bool isFingerDrawingEnabled = true;
   onScaleStart(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -147,7 +149,11 @@ class _EditorState extends State<Editor> {
     }
     if (innerCanvasRenderObject == null) return;
 
-    dragStarted = true;
+    if (isFingerDrawingEnabled || currentPressure != null) {
+      dragStarted = true;
+    } else {
+      if (kDebugMode) print("Non-stylus found, rejected stroke");
+    }
 
     Offset position = innerCanvasRenderObject!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
@@ -184,6 +190,9 @@ class _EditorState extends State<Editor> {
       }
     });
     autosaveAfterDelay();
+  }
+  onPressureChanged(double pressure) {
+    currentPressure = pressure == 0.0 ? null : pressure;
   }
 
   autosaveAfterDelay() {
@@ -262,6 +271,7 @@ class _EditorState extends State<Editor> {
             onScaleStart: onScaleStart,
             onScaleUpdate: onScaleUpdate,
             onScaleEnd: onScaleEnd,
+            onPressureChanged: onPressureChanged,
           )),
         ],
       )
