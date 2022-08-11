@@ -42,7 +42,10 @@ dependencies:
   go_router: ^4.2.2
   path_to_regexp: ^0.4.0
 
-  perfect_freehand: ^1.0.4
+  # todo: use pub.dev when the new release (> 1.0.4) is available
+  perfect_freehand:
+    git:
+      url: https://github.com/steveruizok/perfect-freehand-dart
 
   path_provider: ^2.0.11
   uuid: ^3.0.6

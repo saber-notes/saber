@@ -211,7 +211,7 @@ packages:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.17"
+    version: "2.0.19"
   path_provider_ios:
     dependency: transitive
     description:
@@ -257,9 +257,11 @@ packages:
   perfect_freehand:
     dependency: "direct main"
     description:
-      name: perfect_freehand
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "066461ee27342559e5731a03e3371c0537f1abcb"
+      url: "https://github.com/steveruizok/perfect-freehand-dart"
+    source: git
     version: "1.0.4"
   petitparser:
     dependency: transitive
