@@ -54,6 +54,8 @@ dependencies:
 
   url_launcher: ^6.1.4
 
+  package_info_plus: ^1.4.3+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/privacy_policy.dart';
+import 'package:saber/components/settings/app_info.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -15,16 +16,25 @@ class SettingsPage extends StatelessWidget {
         toolbarHeight: kToolbarHeight,
         title: const Text("Settings"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            NextcloudProfile(),
+      body: Column(
+        children: [
+          Expanded(child: SingleChildScrollView(child: Column(
+            children: const [
+              NextcloudProfile(),
+            ],
+          ))),
 
-            SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: Column(
+              children: const [
+                PrivacyPolicy(),
+                AppInfo(),
+              ],
+            ),
+          ),
 
-            PrivacyPolicy(),
-          ],
-        ),
+        ],
       ),
     );
   }
