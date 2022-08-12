@@ -56,6 +56,10 @@ dependencies:
 
   package_info_plus: ^1.4.3+1
 
+  # todo: replace with https://github.com/jld3103/nextcloud-neon/tree/main/packages/nextcloud when it's ready
+  # documentation at https://pub.dev/documentation/nextcloud/3.0.2/ (3.0.2+1 is just a deprecation message)
+  nextcloud: ^3.0.2+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
