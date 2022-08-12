@@ -8,7 +8,7 @@ class DynamicMaterialApp extends StatelessWidget {
     Key? key,
     required this.title,
     required this.router,
-    this.defaultSwatch = Colors.deepPurple,
+    this.defaultSwatch = Colors.yellow,
   }) : super(key: key);
 
   final String title;

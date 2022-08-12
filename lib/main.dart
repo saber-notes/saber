@@ -52,7 +52,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return DynamicMaterialApp(
       title: 'Flutter Demo',
-      defaultSwatch: Colors.deepPurple,
       router: _router,
     );
   }
