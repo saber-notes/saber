@@ -5,10 +5,7 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
-    <!--
-    todo: enable internet permission when needed
     <uses-permission android:name="android.permission.INTERNET"/>
-    -->
 
    <application
         android:label="Saber"
