@@ -1,7 +1,11 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/routes.dart';
 
 class NextcloudProfile extends StatefulWidget {
   const NextcloudProfile({Key? key}) : super(key: key);
@@ -22,21 +26,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   Future getUserInfo() async {
-    final userInfo = await NextCloudClientExtension.fromSavedDetails();
-
-    final UserData user;
-    try {
-      user = await userInfo.user.getUser();
-    } catch (e) {
-      return setState(() {
-        loggedIn = false;
-      });
-    }
-
-    return setState(() {
-      loggedIn = true;
-      username = user.displayName;
-    });
+    loggedIn = false;
   }
 
   @override
@@ -54,7 +44,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     return Material(
       child: InkWell(
         onTap: () {
-          // todo: login with nextcloud
+          context.push(RoutePaths.login);
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

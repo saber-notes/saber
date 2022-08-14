@@ -9,6 +9,7 @@ import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:saber/pages/nextcloud/login.dart';
 
 void main() {
   runApp(App());
@@ -44,6 +45,10 @@ class App extends StatelessWidget {
         builder: (context, state) => Editor(
           path: state.queryParams["path"],
         ),
+      ),
+      GoRoute(
+        path: RoutePaths.login,
+        builder: (context, state) => const NcLoginPage(),
       ),
     ],
   );
