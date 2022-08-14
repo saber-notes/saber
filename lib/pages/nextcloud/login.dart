@@ -8,6 +8,8 @@ import 'package:url_launcher/url_launcher.dart';
 class NcLoginPage extends StatefulWidget {
   const NcLoginPage({Key? key}) : super(key: key);
 
+  static final Uri signupUrl = Uri.parse("https://nc.saber.adil.hanney.org/index.php/apps/registration/");
+
   @override
   State<NcLoginPage> createState() => _NcLoginPageState();
 }
@@ -44,7 +46,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
                         style: TextStyle(color: colorScheme.primary),
                         recognizer: TapGestureRecognizer()..onTap = () {
                           launchUrl(
-                            PrivacyPolicy.privacyPolicyUrl,
+                            NcLoginPage.signupUrl,
                             mode: LaunchMode.externalApplication,
                           );
                         },
