@@ -32,7 +32,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 const SizedBox(height: 16),
                 const Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
                 const SizedBox(height: 64),
-                const LoginInputGroup(),
+                LoginInputGroup(
+                  onLogin: () { return false; },
+                ),
 
                 const SizedBox(height: 64),
 
