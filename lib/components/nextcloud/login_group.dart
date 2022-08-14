@@ -46,16 +46,19 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       });
       return false;
     } else if (LoginInputGroup.appPasswordRegex.hasMatch(password)) {
-      setState(() {
-        _errorMessage = LoginInputGroup.appPasswordError;
-      });
-      return false;
-    } else {
-      setState(() {
-        _errorMessage = null;
-      });
-      return true;
+      // only if user hasn't tapped 'Log in' again
+      if (_errorMessage != LoginInputGroup.appPasswordError) {
+        setState(() {
+          _errorMessage = LoginInputGroup.appPasswordError;
+        });
+        return false;
+      }
     }
+
+    setState(() {
+      _errorMessage = null;
+    });
+    return true;
   }
 
   void _login() {
