@@ -17,9 +17,12 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
-  Future<bool> _login(String username, String password) async {
+  Future<bool> _login(String? url, String username, String password) async {
+    print("url: $url");
+    print("username: $username");
+    print("password: $password");
     NextCloudClient client = NextCloudClient.withCredentials(
-      NextCloudClientExtension.defaultNextCloudUri,
+      url != null ? Uri.parse(url) : NextCloudClientExtension.defaultNextCloudUri,
       username,
       password,
     );
