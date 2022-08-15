@@ -45,6 +45,11 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
         _errorMessage = LoginInputGroup.usernameError;
       });
       return false;
+    } else if (password.isEmpty) {
+      setState(() {
+        _errorMessage = "Please enter a password.";
+      });
+      return false;
     } else if (LoginInputGroup.appPasswordRegex.hasMatch(password)) {
       // only if user hasn't tapped 'Log in' again
       if (_errorMessage != LoginInputGroup.appPasswordError) {
