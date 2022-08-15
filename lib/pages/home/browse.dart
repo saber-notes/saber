@@ -78,7 +78,7 @@ class _BrowsePageState extends State<BrowsePage> {
       body: failed ? const NoFiles() : SingleChildScrollView(
         child: Column(
           children: [
-            GridFolders(
+            if (path != null || directoryPaths.isNotEmpty) GridFolders(
               isAtRoot: path == null,
               folders: [
                 for (String directoryPath in directoryPaths) directoryPath,
