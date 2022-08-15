@@ -29,7 +29,7 @@ class CanvasPreview extends StatelessWidget {
         child: FittedBox(
           child: InnerCanvas(
             width: Canvas.canvasWidth,
-            height: height ?? Canvas.canvasHeight,
+            height: height ?? Canvas.canvasHeight * 0.1,
             strokes: strokes,
             currentStroke: null,
           ),
