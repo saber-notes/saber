@@ -27,8 +27,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
   @override
   void initState() {
-    super.initState();
     getUserInfo();
+    super.initState();
   }
 
   Future getUserInfo() async {

@@ -29,9 +29,9 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   void initState() {
-    super.initState();
     path = widget.initialPath;
     findChildrenOfPath();
+    super.initState();
   }
 
   Future findChildrenOfPath() async {

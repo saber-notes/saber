@@ -79,8 +79,6 @@ class _EditorState extends State<Editor> {
 
   @override
   void initState() {
-    super.initState();
-
     path = widget.initialPath;
     needsNaming = widget.needsNaming;
     if (needsNaming) {
@@ -94,6 +92,8 @@ class _EditorState extends State<Editor> {
     currentTool = currentPen;
 
     _initStrokes();
+
+    super.initState();
   }
   // initState can't be async
   void _initStrokes() async {

@@ -20,8 +20,8 @@ class _RecentPageState extends State<RecentPage> {
 
   @override
   void initState() {
-    super.initState();
     findRecentlyAccessedNotes();
+    super.initState();
   }
 
   Future findRecentlyAccessedNotes() async {

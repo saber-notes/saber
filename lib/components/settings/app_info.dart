@@ -24,8 +24,8 @@ class _AppInfoState extends State<AppInfo> {
 
   @override
   void initState() {
-    super.initState();
     getInfo();
+    super.initState();
   }
 
   Future getInfo() async {

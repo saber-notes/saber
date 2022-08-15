@@ -43,8 +43,8 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
   @override
   void initState() {
-    super.initState();
     _getInfo();
+    super.initState();
   }
 
   _getInfo() async {

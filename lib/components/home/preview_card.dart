@@ -25,9 +25,9 @@ class _PreviewCardState extends State<PreviewCard> {
   double? height;
 
   @override
-  initState() {
-    super.initState();
+  void initState() {
     findStrokes();
+    super.initState();
   }
 
   Future findStrokes() async {
