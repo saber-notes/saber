@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
-import 'package:saber/components/settings/privacy_policy.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 

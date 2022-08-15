@@ -3,7 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
-import 'package:saber/components/settings/privacy_policy.dart';
+import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -203,7 +203,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 style: TextStyle(color: colorScheme.primary),
                 recognizer: TapGestureRecognizer()..onTap = () {
                   launchUrl(
-                    PrivacyPolicy.privacyPolicyUrl,
+                    AppInfo.privacyPolicyUrl,
                     mode: LaunchMode.externalApplication,
                   );
                 },

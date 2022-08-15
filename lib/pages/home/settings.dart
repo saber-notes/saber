@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
-import 'package:saber/components/settings/privacy_policy.dart';
 import 'package:saber/components/settings/app_info.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -24,14 +23,9 @@ class SettingsPage extends StatelessWidget {
             ],
           ))),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: Column(
-              children: const [
-                PrivacyPolicy(),
-                AppInfo(),
-              ],
-            ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: AppInfo(),
           ),
 
         ],
