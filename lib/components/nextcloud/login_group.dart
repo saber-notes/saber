@@ -1,10 +1,12 @@
 
 import 'package:collapsible/collapsible.dart';
+import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/pref_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LoginInputGroup extends StatefulWidget {
@@ -118,6 +120,24 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     setState(() {
       _usingCustomServer = usingCustomServer!;
     });
+  }
+
+  @override
+  void initState() {
+    _getPreviousLoginDetails();
+    super.initState();
+  }
+  Future _getPreviousLoginDetails() async {
+    final encryptedPrefs = EncryptedSharedPreferences();
+
+    final url = await encryptedPrefs.getString(PrefKeys.url);
+    final username = await encryptedPrefs.getString(PrefKeys.username);
+
+    if (url.isNotEmpty) {
+      if (_customServerController.text.isEmpty) _customServerController.text = url;
+      if (url != NextCloudClientExtension.defaultNextCloudUri.toString()) _toggleCustomServer(true);
+    }
+    if (_usernameController.text.isEmpty) _usernameController.text = username;
   }
 
   @override
