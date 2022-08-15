@@ -35,3 +35,12 @@ Update: you can now install a flatpak on Linux by downloading `Saber.flatpak` fr
 4. - Build for Linux: `flutter build linux`
    - Build for Android: `flutter build apk`
    - Build for the web: `flutter build web`
+
+## Development notes
+
+- When updating the **app version**, you'll need to make changes to the following files:
+  - `pubspec.yaml`: `version`
+  - `windows/runner/Runner.rc`: `VERSION_AS_NUMBER` and `VERSION_AS_STRING`
+- When updating the **icons**, run the following commands:
+  - General: `flutter pub run icons_launcher:create`
+  - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
