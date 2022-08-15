@@ -16,8 +16,8 @@ Data the application uses includes the user's:
 - Settings
 - Online cloud service (referred to as "the cloud") credentials including:
   - the cloud server URI
-  - user's display name
-  - and a derivative of the user's password.
+  - the user's display name
+  - the user's password to protect notes
 
 The application seeks to access the least amount of data possible
 and uses a zero-trust approach to cloud storage.
