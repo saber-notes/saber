@@ -1,7 +1,9 @@
 
+import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/settings/privacy_policy.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LoginInputGroup extends StatefulWidget {
@@ -34,6 +36,11 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
   String? _errorMessage;
 
+  bool _usingCustomServer = false;
+
+  final TextEditingController _customServerController = TextEditingController(
+    text: NextCloudClientExtension.defaultNextCloudUri.toString(),
+  );
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -80,11 +87,52 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     }
   }
 
+  void _toggleCustomServer(bool? usingCustomServer) {
+    setState(() {
+      _usingCustomServer = usingCustomServer!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
+        InkWell(
+          onTap: () {
+            _toggleCustomServer(!_usingCustomServer);
+          },
+          child: Row(
+            children: [
+              Checkbox(
+                value: _usingCustomServer,
+                onChanged: _toggleCustomServer,
+              ),
+              const Text("I want to use a custom Nextcloud server"),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+
+        Collapsible(
+          collapsed: !_usingCustomServer,
+          axis: CollapsibleAxis.vertical,
+          alignment: Alignment.topCenter,
+          fade: true,
+          maintainState: true,
+          child: Column(children: [
+            TextField(
+              controller: _customServerController,
+              decoration: const InputDecoration(
+                labelText: "Custom server URL",
+                prefixIcon: Icon(Icons.link),
+                filled: true,
+              ),
+            ),
+            const SizedBox(height: 8),
+          ])
+        ),
+
         TextField(
           controller: _usernameController,
           decoration: const InputDecoration(

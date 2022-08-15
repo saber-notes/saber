@@ -60,6 +60,8 @@ dependencies:
   # documentation at https://pub.dev/documentation/nextcloud/3.0.2/ (3.0.2+1 is just a deprecation message)
   nextcloud: ^3.0.2+1
 
+  collapsible: ^1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
