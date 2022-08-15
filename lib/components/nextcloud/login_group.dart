@@ -68,7 +68,11 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
   void _login() {
     if (!_validate()) return;
-    widget.onLogin();
+    if (!widget.onLogin()) {
+      setState(() {
+        _errorMessage = "Log in failed, please check your details and network connection.";
+      });
+    }
   }
 
   @override
