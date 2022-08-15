@@ -2,7 +2,7 @@
 
 A (work-in-progress) cross-platform libre notes app.
 
-<img src="https://github.com/adil192/saber/raw/main/assets/screenshots/home.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/settings.png" width="200">
+<img src="https://github.com/adil192/saber/raw/main/assets/screenshots/home.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/settings.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/login.png" width="200">
 
 
 ## Features
