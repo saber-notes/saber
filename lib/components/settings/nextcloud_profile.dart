@@ -1,10 +1,14 @@
 
 import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
 
+import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/pref_keys.dart';
 import 'package:saber/data/routes.dart';
 
 class NextcloudProfile extends StatefulWidget {
@@ -19,6 +23,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   bool? loggedIn;
   String username = "";
 
+  Uint8List? pfpBytes;
+
   @override
   void initState() {
     super.initState();
@@ -26,7 +32,21 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   Future getUserInfo() async {
-    loggedIn = false;
+    var encryptedPrefs = EncryptedSharedPreferences();
+    var unsafePrefs = await encryptedPrefs.getInstance();
+
+    try {
+      username = await encryptedPrefs.getString(PrefKeys.username);
+      loggedIn = username.isNotEmpty;
+      if (!loggedIn!) return;
+
+      var pfpBase64 = unsafePrefs.getString(PrefKeys.pfp);
+      if (pfpBase64 != null) {
+        pfpBytes = base64Decode(pfpBase64);
+      }
+    } finally {
+      setState(() { });
+    }
   }
 
   @override
@@ -51,7 +71,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.account_circle, size: 50),
+              if (pfpBytes == null) const Icon(Icons.account_circle, size: 50)
+              else Image.memory(pfpBytes!, width: 50, height: 50),
+
               const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

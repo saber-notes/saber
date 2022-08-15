@@ -1,9 +1,11 @@
 
+import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/pref_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginPage extends StatefulWidget {
@@ -16,24 +18,42 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
-  Future<bool> _tryLogin(String? url, String username, String password) async {
-    NextCloudClient client = NextCloudClient.withCredentials(
-      url != null ? Uri.parse(url) : NextCloudClientExtension.defaultNextCloudUri,
-      username,
+  Future<bool> _tryLogin(String? urlString, String usernameEmail, String password) async {
+    final Uri url = urlString != null ? Uri.parse(urlString) : NextCloudClientExtension.defaultNextCloudUri;
+
+    final NextCloudClient client = NextCloudClient.withCredentials(
+      url,
+      usernameEmail,
       password,
     );
 
-    bool success = await client.isLoggedIn();
+    final String username;
+    try {
+      UserData userData = await client.user.getUser();
+      username = userData.displayName;
+    } catch (e) {
+      return false;
+    }
 
-    if (success) _finishLogin(url, username, password, client); // don't await
+    _finishLogin(url, username, password, client); // don't await
 
-    return success;
+    return true;
   }
 
-  Future _finishLogin(String? url, String username, String password, NextCloudClient client) async {
+  Future _finishLogin(Uri url, String username, String password, NextCloudClient client) async {
+    // encrypted prefs
+    var encryptedPrefs = EncryptedSharedPreferences();
+    await encryptedPrefs.setString(PrefKeys.url, url.toString());
+    await encryptedPrefs.setString(PrefKeys.username, username);
+
+    /// unencrypted prefs
+    var unsafePrefs = await encryptedPrefs.getInstance();
+    var avatar = await client.avatar.getAvatar(username, 512);
+    await unsafePrefs.setString(PrefKeys.pfp, avatar);
+
     // todo: check nextcloud for existing random key
     // todo: if not found, generate new random key, encrypt it, then save to nextcloud
-    // todo: store key securely on device
+    // todo: store key in encrypted prefs
   }
 
   @override
