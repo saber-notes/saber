@@ -71,7 +71,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
             child: Column(
               children: [
                 const SizedBox(height: 16),
-                const Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
+                const Hero(
+                  tag: PrefKeys.pfp,
+                  child: Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
+                ),
+
                 const SizedBox(height: 64),
                 LoginInputGroup(
                   tryLogin: _tryLogin,

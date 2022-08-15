@@ -71,9 +71,10 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (pfpBytes == null) const Icon(Icons.account_circle, size: 50)
-              else Image.memory(pfpBytes!, width: 50, height: 50),
-
+              Hero(
+                tag: PrefKeys.pfp,
+                child: pfpBytes == null ? const Icon(Icons.account_circle, size: 50) : Image.memory(pfpBytes!, width: 50, height: 50),
+              ),
               const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
