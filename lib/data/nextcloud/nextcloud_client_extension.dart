@@ -12,4 +12,13 @@ extension NextCloudClientExtension on NextCloudClient {
       'PASSWORD',
     );
   }
+
+  Future<bool> isLoggedIn() async {
+    try {
+      await user.getUser();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 }

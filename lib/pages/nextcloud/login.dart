@@ -1,8 +1,10 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/components/settings/privacy_policy.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginPage extends StatefulWidget {
@@ -15,6 +17,15 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
+  Future<bool> _login(String username, String password) async {
+    NextCloudClient client = NextCloudClient.withCredentials(
+      NextCloudClientExtension.defaultNextCloudUri,
+      username,
+      password,
+    );
+    return await client.isLoggedIn();
+  }
+
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
@@ -33,7 +44,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 const Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
                 const SizedBox(height: 64),
                 LoginInputGroup(
-                  onLogin: () { return false; },
+                  onLogin: _login,
                 ),
 
                 const SizedBox(height: 64),

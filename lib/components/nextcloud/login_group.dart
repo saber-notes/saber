@@ -10,7 +10,7 @@ class LoginInputGroup extends StatefulWidget {
     required this.onLogin,
   }) : super(key: key);
 
-  final bool Function() onLogin;
+  final Future<bool> Function(String username, String password) onLogin;
 
 
   /// Nextcloud can issue "app passwords" but we need to
@@ -66,11 +66,16 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     return true;
   }
 
-  void _login() {
+  void _login() async {
     if (!_validate()) return;
-    if (!widget.onLogin()) {
+
+    if (!await widget.onLogin(_usernameController.text, _passwordController.text)) {
       setState(() {
         _errorMessage = "Log in failed, please check your details and network connection.";
+      });
+    } else {
+      setState(() {
+        _errorMessage = "Log in successful!";
       });
     }
   }
