@@ -135,7 +135,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 value: _usingCustomServer,
                 onChanged: _toggleCustomServer,
               ),
-              const Text("I want to use a custom Nextcloud server"),
+              const Expanded(child: Text("I want to use a custom Nextcloud server")),
             ],
           ),
         ),
