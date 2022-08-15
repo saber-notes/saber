@@ -25,7 +25,8 @@ class _AppInfoState extends State<AppInfo> {
     String buildNumber = packageInfo.buildNumber;
 
     setState(() {
-      message = "$appName $version ($buildNumber)";
+      message = "$appName $version";
+      if (buildNumber.isNotEmpty) message += " ($buildNumber)";
     });
   }
 
