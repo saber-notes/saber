@@ -10,10 +10,10 @@ import 'package:url_launcher/url_launcher.dart';
 class LoginInputGroup extends StatefulWidget {
   const LoginInputGroup({
     Key? key,
-    required this.onLogin,
+    required this.tryLogin,
   }) : super(key: key);
 
-  final Future<bool> Function(String? url, String username, String password) onLogin;
+  final Future<bool> Function(String? url, String username, String password) tryLogin;
 
 
   /// Nextcloud can issue "app passwords" but we need to
@@ -94,7 +94,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     final bool success;
     try {
       _isLoading = true;
-      success = await widget.onLogin(
+      success = await widget.tryLogin(
         _usingCustomServer ? _customServerController.text : null,
         _usernameController.text,
         _passwordController.text

@@ -16,16 +16,24 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
-  Future<bool> _login(String? url, String username, String password) async {
-    print("url: $url");
-    print("username: $username");
-    print("password: $password");
+  Future<bool> _tryLogin(String? url, String username, String password) async {
     NextCloudClient client = NextCloudClient.withCredentials(
       url != null ? Uri.parse(url) : NextCloudClientExtension.defaultNextCloudUri,
       username,
       password,
     );
-    return await client.isLoggedIn();
+
+    bool success = await client.isLoggedIn();
+
+    if (success) _finishLogin(url, username, password, client); // don't await
+
+    return success;
+  }
+
+  Future _finishLogin(String? url, String username, String password, NextCloudClient client) async {
+    // todo: check nextcloud for existing random key
+    // todo: if not found, generate new random key, encrypt it, then save to nextcloud
+    // todo: store key securely on device
   }
 
   @override
@@ -46,7 +54,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 const Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
                 const SizedBox(height: 64),
                 LoginInputGroup(
-                  onLogin: _login,
+                  tryLogin: _tryLogin,
                 ),
 
                 const SizedBox(height: 64),
