@@ -19,7 +19,10 @@ class LoginInputGroup extends StatefulWidget {
   /// make sure we have the original password for encryption.
   static final RegExp appPasswordRegex = RegExp(r"^([a-z0-9]{5}-){4}([a-z0-9]{5})$", caseSensitive: false);
   static final RegExp usernameRegex = RegExp(r"^[a-z0-9_\-.]+$", caseSensitive: false);
+  /// https://emailregex.com
   static final RegExp emailRegex = RegExp(r"(^[a-z0-9_.+-]+@[a-z0-9-]+\.[a-z0-9-.]+$)", caseSensitive: false);
+  /// https://urlregex.com (modified)
+  static final RegExp urlRegex = RegExp(r"^(http[s]?://)?(?:[a-zA-Z]|[0-9]|[$\-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$", caseSensitive: false);
 
   static const String appPasswordError =
       "Nextcloud's 'app passwords' aren't supported. "
@@ -65,6 +68,11 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
         });
         return false;
       }
+    } else if (_usingCustomServer && !LoginInputGroup.urlRegex.hasMatch(_customServerController.text)) {
+      setState(() {
+        _errorMessage = "Please enter a valid URL.";
+      });
+      return false;
     }
 
     setState(() {
@@ -75,6 +83,10 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
   void _login() async {
     if (!_validate()) return;
+
+    if (!_customServerController.text.contains("https://")) {
+      _customServerController.text = "https://${_customServerController.text}";
+    }
 
     if (!await widget.onLogin(_usernameController.text, _passwordController.text)) {
       setState(() {
