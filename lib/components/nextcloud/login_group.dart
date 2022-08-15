@@ -2,6 +2,7 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/privacy_policy.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,6 +41,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   String? _errorMessage;
 
   bool _usingCustomServer = false;
+
+  bool _isLoading = false;
 
   final TextEditingController _customServerController = TextEditingController(
     text: NextCloudClientExtension.defaultNextCloudUri.toString(),
@@ -88,13 +91,21 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       _customServerController.text = "https://${_customServerController.text}";
     }
 
-    if (!await widget.onLogin(_usernameController.text, _passwordController.text)) {
+    final bool success;
+    try {
+      _isLoading = true;
+      success = await widget.onLogin(_usernameController.text, _passwordController.text);
+    } finally {
+      _isLoading = false;
+    }
+
+    if (success) {
       setState(() {
-        _errorMessage = "Log in failed, please check your details and network connection.";
+        _errorMessage = "Log in successful!";
       });
     } else {
       setState(() {
-        _errorMessage = "Log in successful!";
+        _errorMessage = "Log in failed, please check your details and network connection.";
       });
     }
   }
@@ -200,8 +211,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
         const SizedBox(height: 16),
         ElevatedButton(
-          onPressed: _login,
-          child: const Text("Log in")
+          onPressed: _isLoading ? null : _login,
+          child: _isLoading ? const SpinningLoadingIcon() : const Text("Log in"),
         ),
       ],
     );
