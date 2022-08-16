@@ -157,7 +157,7 @@ class _EditorState extends State<Editor> {
 
     Offset position = innerCanvasRenderObject!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(position, currentPressure);
+      (currentTool as Pen).onDragStart(position, null, currentPressure);
     } else if (currentTool is Eraser) {
       int removed = 0;
       for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes)) {

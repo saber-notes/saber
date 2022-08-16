@@ -10,6 +10,7 @@ import 'canvas.dart';
 
 class Stroke {
   final List<Point> _points = [];
+  final int pageIndex;
 
   late final StrokeProperties strokeProperties;
   bool _isComplete = false;
@@ -29,9 +30,10 @@ class Stroke {
 
   Stroke({
     required this.strokeProperties,
+    required this.pageIndex,
   });
 
-  Stroke.fromJson(Map<String, dynamic> json) : _isComplete = json['f'] {
+  Stroke.fromJson(Map<String, dynamic> json) : _isComplete = json['f'], pageIndex = json['i'] ?? 0 {
     strokeProperties = StrokeProperties.fromJson(json);
 
     final List<dynamic> pointsJson = json['p'] as List<dynamic>;
@@ -43,6 +45,7 @@ class Stroke {
   Map<String, dynamic> toJson() => {
     'f': isComplete,
     'p': _points.map((Point point) => point.toJson()).toList(),
+    'i': pageIndex,
   }..addAll(strokeProperties.toJson());
 
   addPoint(Offset offset, [ double? pressure ]) {
