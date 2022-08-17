@@ -35,7 +35,7 @@ class Canvas extends StatelessWidget {
   final ValueChanged<ScaleEndDetails> onScaleEnd;
   final ValueChanged<double?> onPressureChanged;
 
-  final List<Stroke> strokes;
+  final Iterable<Stroke> strokes;
   final Stroke? currentStroke;
 
   final GlobalKey<State<InnerCanvas>>? innerCanvasKey;

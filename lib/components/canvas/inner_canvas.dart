@@ -11,7 +11,7 @@ class InnerCanvas extends StatefulWidget {
     this.pageIndex = 0,
     required this.width,
     required this.height,
-    required List<Stroke> strokes,
+    required Iterable<Stroke> strokes,
     required this.currentStroke,
     this.onRenderObjectChange,
   }) : super(key: key) {
@@ -22,7 +22,7 @@ class InnerCanvas extends StatefulWidget {
   final double width;
   final double height;
 
-  late final List<Stroke> strokes;
+  late final Iterable<Stroke> strokes;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
 

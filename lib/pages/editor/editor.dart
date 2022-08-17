@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:uuid/uuid.dart';
 
@@ -50,7 +51,7 @@ class Editor extends StatefulWidget {
 }
 
 class _EditorState extends State<Editor> {
-  final GlobalKey<State<InnerCanvas>> innerCanvasKey = GlobalKey<State<InnerCanvas>>();
+  final List<EditorPage> pages = [];
 
   late String path;
   late bool needsNaming;
@@ -58,8 +59,8 @@ class _EditorState extends State<Editor> {
   late Pen currentPen;
   late Tool currentTool;
 
-  List<Stroke> strokes = [];
-  List<Stroke> strokesRedoStack = [];
+  final List<Stroke> strokes = [];
+  final List<Stroke> strokesRedoStack = [];
   bool isRedoPossible = false;
   Timer? _delayedSaveTimer;
 
@@ -97,17 +98,45 @@ class _EditorState extends State<Editor> {
   }
   // initState can't be async
   void _initStrokes() async {
-    strokes = await loadFromFile();
+    List<Stroke> strokes = await loadFromFile();
+    if (strokes.isEmpty) {
+      pages.add(EditorPage());
+    } else {
+      for (Stroke stroke in strokes) {
+        this.strokes.add(stroke);
+        createPageOfStroke(stroke);
+      }
+    }
+
     setState(() {});
+  }
+
+  void createPageOfStroke(Stroke stroke) {
+    while (stroke.pageIndex >= pages.length) {
+      pages.add(EditorPage());
+    }
+    if (stroke.pageIndex == pages.length - 1) {
+      pages.add(EditorPage());
+    }
+  }
+  void removeExcessPagesAfterStroke(Stroke stroke) {
+    // remove excess pages if all pages >= this one are empty
+    for (int i = pages.length - 1; i >= stroke.pageIndex; ++i) {
+      final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i);
+      if (pageEmpty) pages.removeAt(i);
+    }
   }
 
   undo() {
     if (strokes.isNotEmpty) {
       if (!isRedoPossible && strokesRedoStack.isNotEmpty) {
-        strokesRedoStack = [];
+        // no redo is possible, clear the redo stack
+        strokesRedoStack.clear();
       }
       setState(() {
-        strokesRedoStack.add(strokes.removeLast());
+        Stroke undoneStroke = strokes.removeLast();
+        strokesRedoStack.add(undoneStroke);
+        removeExcessPagesAfterStroke(undoneStroke);
         isRedoPossible = true;
       });
       autosaveAfterDelay();
@@ -117,15 +146,26 @@ class _EditorState extends State<Editor> {
   redo() {
     if (isRedoPossible) {
       setState(() {
-        strokes.add(strokesRedoStack.removeLast());
+        Stroke redoneStroke = strokesRedoStack.removeLast();
+        strokes.add(redoneStroke);
+        createPageOfStroke(redoneStroke);
         isRedoPossible = strokesRedoStack.isNotEmpty;
       });
       autosaveAfterDelay();
     }
   }
 
-  RenderBox? innerCanvasRenderObject;
+  int? onWhichPageIsFocalPoint(Offset focalPoint) {
+    Rect pageBounds = const Rect.fromLTWH(0, 0, Canvas.canvasWidth, Canvas.canvasHeight);
+    for (int i = 0; i < pages.length; ++i) {
+      if (pages[i].renderBox == null) continue;
+      if (pageBounds.contains(pages[i].renderBox!.globalToLocal(focalPoint))) return i;
+    }
+    return null;
+  }
+
   bool dragStarted = false;
+  int? dragPageIndex;
   double? currentPressure;
   bool isFingerDrawingEnabled = true;
   onScaleStart(ScaleStartDetails details) {
@@ -134,7 +174,9 @@ class _EditorState extends State<Editor> {
       return;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
-        strokes.removeLast();
+        Stroke accident = strokes.removeLast();
+        removeExcessPagesAfterStroke(accident);
+
         isRedoPossible = strokesRedoStack.isNotEmpty;
       }
       _lastSeenPointerCount = details.pointerCount;
@@ -143,26 +185,23 @@ class _EditorState extends State<Editor> {
       _lastSeenPointerCount = details.pointerCount;
     }
 
-    final renderObject = innerCanvasKey.currentState!.context.findRenderObject();
-    if (renderObject != null) {
-      innerCanvasRenderObject = renderObject as RenderBox;
-    }
-    if (innerCanvasRenderObject == null) return;
+    dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
+    if (dragPageIndex == null) return;
 
     if (isFingerDrawingEnabled || currentPressure != null) {
       dragStarted = true;
     } else {
       if (kDebugMode) print("Non-stylus found, rejected stroke");
+      return;
     }
 
-    Offset position = innerCanvasRenderObject!.globalToLocal(details.focalPoint);
+    Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(position, null, currentPressure);
+      (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
-      int removed = 0;
-      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes)) {
-        strokes.removeAt(i - removed);
-        removed++;
+      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes).reversed) {
+        Stroke removed = strokes.removeAt(i);
+        removeExcessPagesAfterStroke(removed);
       }
     }
 
@@ -171,24 +210,26 @@ class _EditorState extends State<Editor> {
   onScaleUpdate(ScaleUpdateDetails details) {
     if (!dragStarted) return;
 
-    Offset position = innerCanvasRenderObject!.globalToLocal(details.focalPoint);
+    Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
         (currentTool as Pen).onDragUpdate(position, currentPressure);
       } else if (currentTool is Eraser) {
-        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes)) {
-          strokes.removeAt(i);
+        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes).reversed) {
+          Stroke removed = strokes.removeAt(i);
+          removeExcessPagesAfterStroke(removed);
         }
       }
     });
-
   }
   onScaleEnd(ScaleEndDetails details) {
     if (!dragStarted) return;
     dragStarted = false;
     setState(() {
       if (currentTool is Pen) {
-        strokes.add((currentTool as Pen).onDragEnd());
+        Stroke newStroke = (currentTool as Pen).onDragEnd();
+        strokes.add(newStroke);
+        createPageOfStroke(newStroke);
       }
     });
     autosaveAfterDelay();
@@ -239,7 +280,6 @@ class _EditorState extends State<Editor> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
@@ -269,13 +309,13 @@ class _EditorState extends State<Editor> {
             },
             isFingerDrawingEnabled: isFingerDrawingEnabled,
           ),
-          Expanded(child: Canvas(
+          for (int pageIndex = 0; pageIndex < pages.length; ++pageIndex) Expanded(child: Canvas(
             path: path,
-            innerCanvasKey: innerCanvasKey,
+            innerCanvasKey: pages[pageIndex].innerCanvasKey,
             undo: undo,
             redo: redo,
-            strokes: strokes,
-            currentStroke: currentPen.currentStroke,
+            strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
+            currentStroke: (currentPen.currentStroke?.pageIndex == pageIndex) ? currentPen.currentStroke : null,
             onScaleStart: onScaleStart,
             onScaleUpdate: onScaleUpdate,
             onScaleEnd: onScaleEnd,

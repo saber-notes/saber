@@ -12,7 +12,7 @@ class CanvasPainter extends CustomPainter {
     this.currentStroke,
   });
 
-  final List<Stroke> strokes;
+  final Iterable<Stroke> strokes;
   final Stroke? currentStroke;
 
   @override

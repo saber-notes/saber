@@ -11,10 +11,10 @@ class Pen extends Tool {
 
   Pen.fountainPen();
 
-  onDragStart(Offset position, int? pageIndex, double? pressure) {
+  onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
       strokeProperties: strokeProperties,
-      pageIndex: pageIndex ?? 0,
+      pageIndex: pageIndex,
     )..addPoint(position, pressure);
   }
 
