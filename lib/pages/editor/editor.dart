@@ -309,19 +309,28 @@ class _EditorState extends State<Editor> {
             },
             isFingerDrawingEnabled: isFingerDrawingEnabled,
           ),
-          for (int pageIndex = 0; pageIndex < pages.length; ++pageIndex) Expanded(child: Canvas(
-            path: path,
-            pageIndex: pageIndex,
-            innerCanvasKey: pages[pageIndex].innerCanvasKey,
-            undo: undo,
-            redo: redo,
-            strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
-            currentStroke: (currentPen.currentStroke?.pageIndex == pageIndex) ? currentPen.currentStroke : null,
-            onScaleStart: onScaleStart,
-            onScaleUpdate: onScaleUpdate,
-            onScaleEnd: onScaleEnd,
-            onPressureChanged: onPressureChanged,
-          )),
+
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: pages.length,
+              itemBuilder: (context, pageIndex) {
+                return Canvas(
+                  path: path,
+                  pageIndex: pageIndex,
+                  innerCanvasKey: pages[pageIndex].innerCanvasKey,
+                  undo: undo,
+                  redo: redo,
+                  strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
+                  currentStroke: (currentPen.currentStroke?.pageIndex == pageIndex) ? currentPen.currentStroke : null,
+                  onScaleStart: onScaleStart,
+                  onScaleUpdate: onScaleUpdate,
+                  onScaleEnd: onScaleEnd,
+                  onPressureChanged: onPressureChanged,
+                );
+              },
+            ),
+          ),
         ],
       )
     );
