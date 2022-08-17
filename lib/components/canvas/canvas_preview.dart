@@ -17,7 +17,7 @@ class CanvasPreview extends StatelessWidget {
   final int pageIndex = 0;
 
   final double? height;
-  final List<Stroke> strokes;
+  final Iterable<Stroke> strokes;
 
   @override
   Widget build(BuildContext context) {

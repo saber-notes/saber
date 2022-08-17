@@ -21,7 +21,7 @@ class PreviewCard extends StatefulWidget {
   State<StatefulWidget> createState() => _PreviewCardState();
 }
 class _PreviewCardState extends State<PreviewCard> {
-  List<Stroke> strokes = [];
+  Iterable<Stroke> strokes = [];
   double? height;
 
   @override
@@ -31,7 +31,7 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 
   Future findStrokes() async {
-    strokes = await loadStrokesFromPath(widget.filePath);
+    strokes = (await loadStrokesFromPath(widget.filePath)).where((stroke) => stroke.pageIndex == 0);
 
     double fullHeight = Canvas.canvasHeight;
     double maxY = strokes.isEmpty ? 0 : strokes.map((stroke) => stroke.maxY).reduce(max);
