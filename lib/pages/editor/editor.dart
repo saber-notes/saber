@@ -121,7 +121,7 @@ class _EditorState extends State<Editor> {
   }
   void removeExcessPagesAfterStroke(Stroke stroke) {
     // remove excess pages if all pages >= this one are empty
-    for (int i = pages.length - 1; i >= stroke.pageIndex; ++i) {
+    for (int i = pages.length - 1; i >= stroke.pageIndex; --i) {
       final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i);
       if (pageEmpty) pages.removeAt(i);
     }
