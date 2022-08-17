@@ -10,6 +10,7 @@ class Canvas extends StatelessWidget {
   const Canvas({
     Key? key,
     required this.path,
+    required this.pageIndex,
     required this.innerCanvasKey,
     required this.undo,
     required this.redo,
@@ -26,6 +27,7 @@ class Canvas extends StatelessWidget {
   static const double canvasHeight = canvasWidth * 1.4;
 
   final String path;
+  final int pageIndex;
 
   final VoidCallback undo;
   final VoidCallback redo;
@@ -51,7 +53,7 @@ class Canvas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: "inner-canvas-$path",
+      tag: "inner-canvas-$path-page$pageIndex",
       
       child: Container(
         clipBehavior: Clip.hardEdge,

@@ -311,6 +311,7 @@ class _EditorState extends State<Editor> {
           ),
           for (int pageIndex = 0; pageIndex < pages.length; ++pageIndex) Expanded(child: Canvas(
             path: path,
+            pageIndex: pageIndex,
             innerCanvasKey: pages[pageIndex].innerCanvasKey,
             undo: undo,
             redo: redo,

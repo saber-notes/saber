@@ -14,6 +14,7 @@ class CanvasPreview extends StatelessWidget {
   }) : super(key: key);
 
   final String path;
+  final int pageIndex = 0;
 
   final double? height;
   final List<Stroke> strokes;
@@ -21,7 +22,7 @@ class CanvasPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: "inner-canvas-$path",
+      tag: "inner-canvas-$path-page$pageIndex",
 
       child: InteractiveViewer(
         maxScale: 5,
