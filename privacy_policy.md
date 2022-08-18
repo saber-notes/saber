@@ -42,8 +42,8 @@ and an encrypted form of the key is uploaded to the cloud.
 ## The official server ([link](https://nc.saber.adil.hanney.org))
 
 Users have the option of using the Saber project's official server.
-The server's files are able to be accessed by anyone who has access to the server,
-including the server technicians and me (Adil Hanney).
+The server's files by default are able to be accessed by anyone who has access
+to the server, including the server technicians and me (Adil Hanney).
 This is why I have adopted a zero-trust approach so that the user's files
 are solely accessible to the user regardless of which server they use.
 
