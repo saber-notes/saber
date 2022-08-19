@@ -119,6 +119,9 @@ icons_launcher:
       enable: true
       adaptive_background_color: "#ffc800"
       adaptive_foreground_image: "assets/icon/icon_maskable.png"
+    ios:
+      enable: true
+      image_path: "assets/icon/icon_maskable.png"
     linux:
       enable: true
     web:
