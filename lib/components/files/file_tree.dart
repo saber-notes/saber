@@ -99,7 +99,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
         ),
 
 
-        if (areChildrenVisible && children != null) Padding(
+        if ((widget.path == null || areChildrenVisible) && children != null) Padding(
           padding: (widget.path != null) ? const EdgeInsets.only(left: 25) : const EdgeInsets.only(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
