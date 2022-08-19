@@ -2,22 +2,18 @@
 
 A (work-in-progress) cross-platform libre notes app. Please note that this app is still in early stages and not ready to trust with your notes yet.
 
+|         | Android | iOS  | Linux | macOS | Web  | Windows |
+| ------- | ------- | ---- | ----- | ----- | ---- | ------- |
+| Support | ✓       | ✓*   | ✓     | ✗     | ✓    | ✓*      |
+
+✓* Some platforms aren't tested regularly but bug reports are welcome.
+
 <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/home.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/settings.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/login.png" width="200">
 
 
 ## Features
 
 Please see [#1 Saber progress](https://github.com/adil192/saber/discussions/1).
-
-## Platforms
-
-Currently supported:
-- Linux (Flatpak)
-- Android (soon to be on the [Play Store](https://play.google.com/store/apps/details?id=com.adilhanney.saber))
-- Web ([saber.adil.hanney.org](https://saber.adil.hanney.org))
-
-Planned support:
-- Windows
 
 ## Install
 
