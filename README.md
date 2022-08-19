@@ -8,8 +8,10 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 
 ✓* Some platforms aren't tested regularly but bug reports are welcome.
 
+<details>
+<summary>Tap to show/hide screenshots</summary>
 <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/home.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/settings.png" width="200"> <img src="https://github.com/adil192/saber/raw/main/assets/screenshots/login.png" width="200">
-
+</details>
 
 ## Features
 
