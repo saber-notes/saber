@@ -39,6 +39,10 @@ Download `Saber.flatpak` from the latest [Release](https://github.com/adil192/sa
 
 Download and install `SaberInstaller.exe` from the latest [Release](https://github.com/adil192/saber/releases)
 
+#### iOS
+
+See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
+
 ## Build from source
 
 ### 1. Install flutter
@@ -75,6 +79,15 @@ You may need to generate a signing certificate and create the `android/key.prope
 `flutter build windows`
 
 The Windows installer is created with [Inno Setup](https://jrsoftware.org/isinfo.php). To create an installer of your own, run the above build command, then edit and run [installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss) with Inno Setup Compiler.
+
+#### iOS
+
+If you have a macOS computer, you can build for iOS with `flutter build ipa`
+([more info](https://docs.flutter.dev/deployment/ios#create-an-app-bundle)).
+
+If you don't, watch this YouTube tutorial
+[How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
+to build with [Codemagic](https://codemagic.io/start/) and install on your device.
 
 ## Development notes
 
