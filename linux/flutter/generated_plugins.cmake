@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  gtk_theme_fl
   url_launcher_linux
 )
 

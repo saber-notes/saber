@@ -1,9 +1,13 @@
 
+import 'dart:io' show Platform;
+
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gtk_theme_fl/gtk_theme_fl.dart';
 
-class DynamicMaterialApp extends StatelessWidget {
+class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
     Key? key,
     required this.title,
@@ -14,6 +18,36 @@ class DynamicMaterialApp extends StatelessWidget {
   final String title;
   final Color defaultSwatch;
   final GoRouter router;
+
+  @override
+  State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
+}
+
+class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
+  ColorScheme? linuxLightColorScheme;
+  ColorScheme? linuxDarkColorScheme;
+
+  @override
+  void initState() {
+    getLinuxColorScheme();
+    super.initState();
+  }
+
+  Future getLinuxColorScheme() async {
+    if (!Platform.isLinux) return;
+
+    GtkThemeData gtkThemeData = await GtkThemeData.initialize();
+
+    setState(() {
+      linuxLightColorScheme = ColorScheme.fromSeed(
+        seedColor: Color(gtkThemeData.theme_base_color),
+      );
+      linuxDarkColorScheme = ColorScheme.fromSeed(
+        seedColor: Color(gtkThemeData.theme_base_color),
+        brightness: Brightness.dark,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,21 +61,21 @@ class DynamicMaterialApp extends StatelessWidget {
           darkColorScheme = darkDynamic.harmonized();
         } else {
           // Otherwise, use fallback schemes.
-          lightColorScheme = ColorScheme.fromSeed(
-            seedColor: defaultSwatch,
+          lightColorScheme = linuxLightColorScheme ?? ColorScheme.fromSeed(
+            seedColor: widget.defaultSwatch,
           );
-          darkColorScheme = ColorScheme.fromSeed(
-            seedColor: defaultSwatch,
+          darkColorScheme = linuxDarkColorScheme ?? ColorScheme.fromSeed(
+            seedColor: widget.defaultSwatch,
             brightness: Brightness.dark,
           );
         }
 
         return MaterialApp.router(
-          routeInformationProvider: router.routeInformationProvider,
-          routeInformationParser: router.routeInformationParser,
-          routerDelegate: router.routerDelegate,
+          routeInformationProvider: widget.router.routeInformationProvider,
+          routeInformationParser: widget.router.routeInformationParser,
+          routerDelegate: widget.router.routerDelegate,
 
-          title: title,
+          title: widget.title,
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightColorScheme,

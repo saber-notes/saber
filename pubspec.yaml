@@ -42,6 +42,10 @@ dependencies:
     git:
       url: https://github.com/steveruizok/perfect-freehand-dart
 
+  gtk_theme_fl:
+    git:
+      url: https://github.com/gtk-flutter/gtk_theme_fl
+
   path_provider: ^2.0.11
   uuid: ^3.0.6
 
