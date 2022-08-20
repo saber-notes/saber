@@ -92,6 +92,7 @@ to build with [Codemagic](https://codemagic.io/start/) and install on your devic
 - When updating the **app version**, you'll need to make changes to the following files:
   - `pubspec.yaml`: `version`
   - `windows/runner/Runner.rc`: `VERSION_AS_NUMBER` and `VERSION_AS_STRING`
+  - `installers/desktop_inno_script.iss`: `MyAppVersion`
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
