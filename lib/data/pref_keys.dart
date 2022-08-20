@@ -1,7 +1,9 @@
 
+/// Keys of encrypted prefs are prefixed with "enc"
 abstract class PrefKeys {
-  static const url = "url";
-  static const username = "username";
-  static const password = "password";
+  static const encUrl = "url";
+  static const encUsername = "username";
+  static const encPassword = "password";
+
   static const pfp = "pfp";
 }

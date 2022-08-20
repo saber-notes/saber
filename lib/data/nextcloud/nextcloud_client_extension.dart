@@ -9,9 +9,9 @@ extension NextCloudClientExtension on NextCloudClient {
   static Future<NextCloudClient?> fromSavedDetails() async {
     final encryptedPrefs = EncryptedSharedPreferences();
 
-    String url = await encryptedPrefs.getString(PrefKeys.url);
-    String username = await encryptedPrefs.getString(PrefKeys.username);
-    String password = await encryptedPrefs.getString(PrefKeys.password);
+    String url = await encryptedPrefs.getString(PrefKeys.encUrl);
+    String username = await encryptedPrefs.getString(PrefKeys.encUsername);
+    String password = await encryptedPrefs.getString(PrefKeys.encPassword);
 
     if (username.isEmpty || password.isEmpty) return null;
 

@@ -43,9 +43,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
   Future _finishLogin(Uri url, String username, String password, NextCloudClient client) async {
     // encrypted prefs
     var encryptedPrefs = EncryptedSharedPreferences();
-    await encryptedPrefs.setString(PrefKeys.url, url.toString());
-    await encryptedPrefs.setString(PrefKeys.username, username);
-    await encryptedPrefs.setString(PrefKeys.password, password);
+    await encryptedPrefs.setString(PrefKeys.encUrl, url.toString());
+    await encryptedPrefs.setString(PrefKeys.encUsername, username);
+    await encryptedPrefs.setString(PrefKeys.encPassword, password);
 
     // unencrypted prefs
     var unsafePrefs = await encryptedPrefs.getInstance();

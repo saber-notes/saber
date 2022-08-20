@@ -36,7 +36,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     var unsafePrefs = await encryptedPrefs.getInstance();
 
     try {
-      username = await encryptedPrefs.getString(PrefKeys.username);
+      username = await encryptedPrefs.getString(PrefKeys.encUsername);
       loggedIn = username.isNotEmpty;
       if (!loggedIn!) return;
 

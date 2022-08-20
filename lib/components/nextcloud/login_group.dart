@@ -130,8 +130,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   Future _getPreviousLoginDetails() async {
     final encryptedPrefs = EncryptedSharedPreferences();
 
-    final url = await encryptedPrefs.getString(PrefKeys.url);
-    final username = await encryptedPrefs.getString(PrefKeys.username);
+    final url = await encryptedPrefs.getString(PrefKeys.encUrl);
+    final username = await encryptedPrefs.getString(PrefKeys.encUsername);
 
     if (url.isNotEmpty) {
       if (_customServerController.text.isEmpty) _customServerController.text = url;
