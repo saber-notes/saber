@@ -56,7 +56,6 @@ class _EditorState extends State<Editor> {
   late String path;
   late bool needsNaming;
 
-  late Pen currentPen;
   late Tool currentTool;
 
   final List<Stroke> strokes = [];
@@ -89,8 +88,8 @@ class _EditorState extends State<Editor> {
       );
     }
 
-    currentPen = Pen.fountainPen();
-    currentTool = currentPen;
+    Pen.currentPen = Pen.fountainPen();
+    currentTool = Pen.currentPen;
 
     _initStrokes();
 
@@ -296,8 +295,11 @@ class _EditorState extends State<Editor> {
         children: [
           Toolbar(
             setTool: (tool) {
-              currentTool = tool;
+              setState(() {
+                currentTool = tool;
+              });
             },
+            currentTool: currentTool,
             undo: undo,
             isUndoPossible: strokes.isNotEmpty,
             redo: redo,
@@ -322,7 +324,7 @@ class _EditorState extends State<Editor> {
                   undo: undo,
                   redo: redo,
                   strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
-                  currentStroke: (currentPen.currentStroke?.pageIndex == pageIndex) ? currentPen.currentStroke : null,
+                  currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
                   onScaleStart: onScaleStart,
                   onScaleUpdate: onScaleUpdate,
                   onScaleEnd: onScaleEnd,

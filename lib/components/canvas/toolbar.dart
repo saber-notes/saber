@@ -1,12 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 
 class Toolbar extends StatelessWidget {
   const Toolbar({
     Key? key,
     required this.setTool,
+    required this.currentTool,
 
     required this.undo,
     required this.isUndoPossible,
@@ -18,6 +20,7 @@ class Toolbar extends StatelessWidget {
   }) : super(key: key);
 
   final ValueChanged<Tool> setTool;
+  final Tool currentTool;
 
   final VoidCallback undo;
   final bool isUndoPossible;
@@ -30,6 +33,12 @@ class Toolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
+
+    var selectedButtonStyle = TextButton.styleFrom(
+        primary: colorScheme.onPrimary,
+        backgroundColor: colorScheme.primary
+    );
+
     return Container(
       decoration: BoxDecoration(
         color: colorScheme.surface,
@@ -42,11 +51,10 @@ class Toolbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
-                onPressed: () { },
-                style: TextButton.styleFrom(
-                  primary: colorScheme.onPrimary,
-                  backgroundColor: colorScheme.primary
-                ),
+                onPressed: () {
+                  setTool(Pen.currentPen);
+                },
+                style: currentTool == Pen.currentPen ? selectedButtonStyle : null,
                 child: const Icon(Icons.brush),
               ),
               TextButton(
@@ -57,6 +65,7 @@ class Toolbar extends StatelessWidget {
                 onPressed: () {
                   setTool(Eraser());
                 },
+                style: currentTool is Eraser ? selectedButtonStyle : null,
                 child: const Icon(Icons.backspace), // todo: better eraser icon
               ),
               TextButton(

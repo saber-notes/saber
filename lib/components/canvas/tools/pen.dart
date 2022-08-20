@@ -6,10 +6,13 @@ import 'stroke_properties.dart';
 import '_tool.dart';
 
 class Pen extends Tool {
+
+  Pen.fountainPen();
+
   Stroke? currentStroke;
   StrokeProperties strokeProperties = StrokeProperties();
 
-  Pen.fountainPen();
+  static late Pen currentPen;
 
   onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
