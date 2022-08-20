@@ -36,45 +36,48 @@ class Toolbar extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            TextButton(
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                primary: colorScheme.onPrimary,
-                backgroundColor: colorScheme.primary
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextButton(
+                onPressed: () { },
+                style: TextButton.styleFrom(
+                  primary: colorScheme.onPrimary,
+                  backgroundColor: colorScheme.primary
+                ),
+                child: const Icon(Icons.brush),
               ),
-              child: const Icon(Icons.brush),
-            ),
-            TextButton(
-              child: const Icon(Icons.palette),
-              onPressed: () { }
-            ),
-            TextButton(
-              onPressed: () {
-                setTool(Eraser());
-              },
-              child: const Icon(Icons.backspace), // todo: better eraser icon
-            ),
-            TextButton(
-              child: const Icon(Icons.photo_size_select_actual),
-              onPressed: () { }
-            ),
-            TextButton(
-              onPressed: toggleFingerDrawing,
-              // todo: better icon
-              child: isFingerDrawingEnabled ? const Icon(Icons.pan_tool) : const Icon(Icons.do_not_touch_outlined),
-            ),
-            TextButton(
-              onPressed: isUndoPossible ? undo : null,
-              child: const Icon(Icons.undo),
-            ),
-            TextButton(
-              onPressed: isRedoPossible ? redo : null,
-              child: const Icon(Icons.redo),
-            ),
-          ],
+              TextButton(
+                child: const Icon(Icons.palette),
+                onPressed: () { }
+              ),
+              TextButton(
+                onPressed: () {
+                  setTool(Eraser());
+                },
+                child: const Icon(Icons.backspace), // todo: better eraser icon
+              ),
+              TextButton(
+                child: const Icon(Icons.photo_size_select_actual),
+                onPressed: () { }
+              ),
+              TextButton(
+                onPressed: toggleFingerDrawing,
+                // todo: better icon
+                child: isFingerDrawingEnabled ? const Icon(Icons.pan_tool) : const Icon(Icons.do_not_touch_outlined),
+              ),
+              TextButton(
+                onPressed: isUndoPossible ? undo : null,
+                child: const Icon(Icons.undo),
+              ),
+              TextButton(
+                onPressed: isRedoPossible ? redo : null,
+                child: const Icon(Icons.redo),
+              ),
+            ],
+          ),
         ),
       ),
     );
