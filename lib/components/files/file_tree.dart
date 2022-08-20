@@ -16,6 +16,7 @@ class FileTree extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: FileTreeBranch(
           path: null,
+          isDirectory: true,
         )
       ),
     );
@@ -27,9 +28,11 @@ class FileTreeBranch extends StatefulWidget {
   const FileTreeBranch({
     Key? key,
     required this.path,
+    required this.isDirectory,
   }) : super(key: key);
 
   final String? path;
+  final bool isDirectory;
 
   @override
   State<FileTreeBranch> createState() => _FileTreeBranchState();
@@ -37,8 +40,7 @@ class FileTreeBranch extends StatefulWidget {
 }
 
 class _FileTreeBranchState extends State<FileTreeBranch> {
-  List<String>? children;
-  bool? isDirectory;
+  DirectoryChildren? children;
   bool areChildrenVisible = false;
 
   @override
@@ -48,9 +50,8 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   }
 
   _getInfo() async {
-    isDirectory = widget.path == null ? true : await FileManager.isDirectory(widget.path!);
-    children = await FileManager.getChildrenOfDirectory(widget.path ?? "/");
-    areChildrenVisible = children != null && (children!.length <= 1);
+    if (widget.isDirectory) children = await FileManager.getChildrenOfDirectory(widget.path ?? "/");
+    areChildrenVisible = children != null && children!.onlyOneChild();
     setState(() { });
   }
 
@@ -66,7 +67,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
           child: InkWell(
             onTap: () {
               setState(() {
-                if (isDirectory ?? true) {
+                if (widget.isDirectory) {
                   areChildrenVisible = !areChildrenVisible;
                 } else {
                   context.push("${RoutePaths.edit}?path=${widget.path}");
@@ -75,9 +76,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
             },
             child: Row(
               children: [
-                if (isDirectory == null) ...[
-                  const SizedBox(width: 25, height: 25),
-                ] else if (isDirectory!) ...[
+                if (widget.isDirectory) ...[
                   Icon(areChildrenVisible ? Icons.folder_open: Icons.folder, color: colorScheme.primary, size: 25),
                 ] else ...[
                   const Icon(Icons.insert_drive_file, size: 25),
@@ -104,10 +103,16 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (var i = 0; i < children!.length; i++)
+              for (var i = 0; i < children!.directories.length; i++)
                 FileTreeBranch(
-                  path: "${widget.path ?? ""}/${children![i]}",
-                )
+                  path: "${widget.path ?? ""}/${children!.directories[i]}",
+                  isDirectory: true,
+                ),
+              for (var i = 0; i < children!.files.length; i++)
+                FileTreeBranch(
+                  path: "${widget.path ?? ""}/${children!.files[i]}",
+                  isDirectory: false,
+                ),
             ],
           ),
         ),

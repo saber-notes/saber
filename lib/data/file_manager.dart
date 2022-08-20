@@ -78,9 +78,12 @@ abstract class FileManager {
     return toPath;
   }
 
-  static Future<List<String>?> getChildrenOfDirectory(String directory) async {
+  static Future<DirectoryChildren?> getChildrenOfDirectory(String directory) async {
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
+
+    final Iterable<String> allChildren;
+    final List<String> directories = [], files = [];
 
     if (kIsWeb) {
       final prefs = await _prefs;
@@ -88,19 +91,19 @@ abstract class FileManager {
       List<String>? fileIndex = prefs.getStringList(fileIndexKey);
       if (fileIndex == null) return null;
 
-      return fileIndex
+      allChildren = fileIndex
           .where((String file) => file.startsWith(directory)) // filter out other directories
           .map((String file) => file.substring(directory.length)) // remove directory prefix
           .map((String file) => file.contains('/') ? file.substring(0, file.indexOf('/')) : file) // remove nested folder names
           .map((String file) => file.endsWith(Editor.extension) ? file.substring(0, file.length - Editor.extension.length) : file) // remove extension
-          .toSet().toList();
+          .toSet();
     } else {
       final String documentsDirectory = await _documentsDirectory;
       final Directory dir = Directory(documentsDirectory + directory);
       if (!await dir.exists()) return null;
 
       int pathEndIndex = documentsDirectory.length + (directory.endsWith('/') ? directory.length : directory.length + 1);
-      return await dir.list().map(
+      allChildren = await dir.list().map(
         (FileSystemEntity entity) {
           String filename = entity.path.substring(pathEndIndex);
           if (filename.endsWith(Editor.extension)) filename = filename.substring(0, filename.length - Editor.extension.length);
@@ -108,6 +111,16 @@ abstract class FileManager {
         }
       ).toList();
     }
+
+    await Future.wait(allChildren.map((child) async {
+      if (await FileManager.isDirectory(directory + child)) {
+        directories.add(child);
+      } else {
+        files.add(child);
+      }
+    }));
+
+    return DirectoryChildren(directories, files);
   }
 
   static Future<List<String>?> getRecentlyAccessed() async {
@@ -187,4 +200,15 @@ abstract class FileManager {
   static const int maxRecentlyAccessedFiles = 30;
   /// Shared preferences key for the list of all files.
   static const String fileIndexKey = "fileIndex";
+}
+
+class DirectoryChildren {
+  final List<String> directories;
+  final List<String> files;
+
+  DirectoryChildren(this.directories, this.files);
+
+  bool onlyOneChild() => directories.length + files.length <= 1;
+
+  bool get isEmpty => directories.isEmpty && files.isEmpty;
 }

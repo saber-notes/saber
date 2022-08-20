@@ -20,8 +20,7 @@ class BrowsePage extends StatefulWidget {
   State<BrowsePage> createState() => _BrowsePageState();
 }
 class _BrowsePageState extends State<BrowsePage> {
-  final List<String> directoryPaths = [];
-  final List<String> filePaths = [];
+  DirectoryChildren? children;
   bool failed = false;
 
   final List<String?> pathHistory = [];
@@ -35,21 +34,8 @@ class _BrowsePageState extends State<BrowsePage> {
   }
 
   Future findChildrenOfPath() async {
-    List<String>? children = await FileManager.getChildrenOfDirectory(path ?? '/');
-    directoryPaths.clear();
-    filePaths.clear();
-    if (children == null) {
-      failed = true;
-    } else {
-      failed = children.isEmpty;
-      for (String child in children) {
-        if (await FileManager.isDirectory("${path ?? ''}/$child")) {
-          directoryPaths.add(child);
-        } else {
-          filePaths.add(child);
-        }
-      }
-    }
+    children = await FileManager.getChildrenOfDirectory(path ?? '/');
+    failed = children == null || children!.isEmpty;
     setState(() {});
   }
 
@@ -78,17 +64,17 @@ class _BrowsePageState extends State<BrowsePage> {
       body: failed ? const NoFiles() : SingleChildScrollView(
         child: Column(
           children: [
-            if (path != null || directoryPaths.isNotEmpty) GridFolders(
+            if (children != null && (path != null || children!.directories.isNotEmpty)) GridFolders(
               isAtRoot: path == null,
               folders: [
-                for (String directoryPath in directoryPaths) directoryPath,
+                for (String directoryPath in children!.directories) directoryPath,
               ],
               onTap: onDirectoryTap,
               physics: const NeverScrollableScrollPhysics(),
             ),
             MasonryFiles(
               files: [
-                for (String filePath in filePaths) "${path ?? ""}/$filePath",
+                for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
               ],
               onTap: onFileTap,
               physics: const NeverScrollableScrollPhysics(),
