@@ -36,7 +36,7 @@ the official Saber server — run by Adil Hanney — is hosted at
 
 To maintain privacy, all notes are encrypted before being sent to the cloud.
 A randomly generated key is used to encrypt the notes.
-This key is stored on the user's device in secure storage,
+This key and password are stored on the user's device in secure storage,
 and an encrypted form of the key is uploaded to the cloud.
 
 ## The official server ([link](https://nc.saber.adil.hanney.org))

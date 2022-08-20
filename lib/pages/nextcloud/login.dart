@@ -45,8 +45,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
     var encryptedPrefs = EncryptedSharedPreferences();
     await encryptedPrefs.setString(PrefKeys.url, url.toString());
     await encryptedPrefs.setString(PrefKeys.username, username);
+    await encryptedPrefs.setString(PrefKeys.password, password);
 
-    /// unencrypted prefs
+    // unencrypted prefs
     var unsafePrefs = await encryptedPrefs.getInstance();
     var avatar = await client.avatar.getAvatar(username, 512);
     await unsafePrefs.setString(PrefKeys.pfp, avatar);
