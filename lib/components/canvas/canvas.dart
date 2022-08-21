@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/interactive_canvas.dart';
 
 import '_stroke.dart';
 import 'inner_canvas.dart';
@@ -64,14 +65,14 @@ class Canvas extends StatelessWidget {
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => undo(),
             onTertiaryTapUp: (TapUpDetails details) => redo(),
-            child: InteractiveViewer(
+            child: InteractiveCanvasViewer(
               panEnabled: false,
               maxScale: 5,
               clipBehavior: Clip.none,
 
-              onInteractionStart: onScaleStart,
-              onInteractionUpdate: onScaleUpdate,
-              onInteractionEnd: onScaleEnd,
+              onDrawStart: onScaleStart,
+              onDrawUpdate: onScaleUpdate,
+              onDrawEnd: onScaleEnd,
 
               child: Center(
                 child: FittedBox(
