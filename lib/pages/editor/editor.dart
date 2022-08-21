@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
@@ -120,8 +121,8 @@ class _EditorState extends State<Editor> {
   }
   void removeExcessPagesAfterStroke(Stroke stroke) {
     // remove excess pages if all pages >= this one are empty
-    for (int i = pages.length - 1; i >= stroke.pageIndex; --i) {
-      final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i);
+    for (int i = pages.length - 1; i >= stroke.pageIndex + 1; --i) {
+      final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
       if (pageEmpty) pages.removeAt(i);
     }
   }
