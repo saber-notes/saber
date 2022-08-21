@@ -34,6 +34,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
   }
 
   Future getLinuxColorScheme() async {
+    if (kIsWeb) return;
     if (!Platform.isLinux) return;
 
     GtkThemeData gtkThemeData = await GtkThemeData.initialize();
