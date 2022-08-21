@@ -2,16 +2,16 @@
 
 import 'dart:math' as math;
 
-import 'package:flutter/foundation.dart' show clampDouble;
+import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/physics.dart';
 import 'package:vector_math/vector_math_64.dart' show Matrix4, Quad, Vector3;
 
-import 'basic.dart';
-import 'framework.dart';
-import 'gesture_detector.dart';
-import 'layout_builder.dart';
-import 'ticker_provider.dart';
+double clampDouble(value, minimum, maximum) {
+  if (value < minimum) return minimum;
+  if (value > maximum) return maximum;
+  return value;
+}
 
 // Examples can assume:
 // late BuildContext context;
