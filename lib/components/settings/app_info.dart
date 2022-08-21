@@ -55,7 +55,7 @@ class _AppInfoState extends State<AppInfo> {
           child: IntrinsicWidth(
             child: Row(children: [
               moreInfoShown ? const Text("Hide more info") : const Text("Show more info"),
-              moreInfoShown ? const Icon(Icons.expand_less) : const Icon(Icons.expand_more),
+              moreInfoShown ? const Icon(Icons.expand_more) : const Icon(Icons.expand_less),
             ]),
           ),
         ),
