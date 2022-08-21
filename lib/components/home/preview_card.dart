@@ -18,24 +18,36 @@ class PreviewCard extends StatefulWidget {
   final Function(String) onTap;
 
   @override
-  State<StatefulWidget> createState() => _PreviewCardState();
+  State<PreviewCard> createState() => _PreviewCardState();
 }
+
 class _PreviewCardState extends State<PreviewCard> {
-  Iterable<Stroke> strokes = [];
-  double? height;
+  /// cache strokes so there's no delay the second time we see this preview card
+  static final Map<String, Iterable<Stroke>> _mapFilePathToStrokes = {};
+
+  late Iterable<Stroke> _strokes;
+  Iterable<Stroke> get strokes => _strokes;
+  set strokes(Iterable<Stroke> strokes) {
+    _mapFilePathToStrokes[widget.filePath] = _strokes = strokes;
+  }
+
+  double get height {
+    double fullHeight = Canvas.canvasHeight;
+    double maxY = strokes.isEmpty ? 0 : strokes.map((stroke) => stroke.maxY).reduce(max);
+    return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
+  }
 
   @override
   void initState() {
+    _strokes = _mapFilePathToStrokes[widget.filePath] ?? [];
+
     findStrokes();
+
     super.initState();
   }
 
   Future findStrokes() async {
     strokes = (await loadStrokesFromPath(widget.filePath)).where((stroke) => stroke.pageIndex == 0);
-
-    double fullHeight = Canvas.canvasHeight;
-    double maxY = strokes.isEmpty ? 0 : strokes.map((stroke) => stroke.maxY).reduce(max);
-    height = min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
 
     setState(() {});
   }
