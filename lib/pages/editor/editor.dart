@@ -163,14 +163,13 @@ class _EditorState extends State<Editor> {
     return null;
   }
 
-  bool dragStarted = false;
   int? dragPageIndex;
   double? currentPressure;
   bool isFingerDrawingEnabled = true;
-  onScaleStart(ScaleStartDetails details) {
+  bool isDrawGesture(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
-      return;
+      return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
         Stroke accident = strokes.removeLast();
@@ -179,21 +178,22 @@ class _EditorState extends State<Editor> {
         isRedoPossible = strokesRedoStack.isNotEmpty;
       }
       _lastSeenPointerCount = details.pointerCount;
-      return;
+      return false;
     } else { // is a stroke
       _lastSeenPointerCount = details.pointerCount;
     }
 
     dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
-    if (dragPageIndex == null) return;
+    if (dragPageIndex == null) return false;
 
     if (isFingerDrawingEnabled || currentPressure != null) {
-      dragStarted = true;
+      return true;
     } else {
       if (kDebugMode) print("Non-stylus found, rejected stroke");
-      return;
+      return false;
     }
-
+  }
+  onDrawStart(ScaleStartDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
@@ -206,9 +206,7 @@ class _EditorState extends State<Editor> {
 
     isRedoPossible = false;
   }
-  onScaleUpdate(ScaleUpdateDetails details) {
-    if (!dragStarted) return;
-
+  onDrawUpdate(ScaleUpdateDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
@@ -221,9 +219,7 @@ class _EditorState extends State<Editor> {
       }
     });
   }
-  onScaleEnd(ScaleEndDetails details) {
-    if (!dragStarted) return;
-    dragStarted = false;
+  onDrawEnd(ScaleEndDetails details) {
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
@@ -325,9 +321,10 @@ class _EditorState extends State<Editor> {
                   redo: redo,
                   strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
                   currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
-                  onScaleStart: onScaleStart,
-                  onScaleUpdate: onScaleUpdate,
-                  onScaleEnd: onScaleEnd,
+                  isDrawGesture: isDrawGesture,
+                  onDrawStart: onDrawStart,
+                  onDrawUpdate: onDrawUpdate,
+                  onDrawEnd: onDrawEnd,
                   onPressureChanged: onPressureChanged,
                 );
               },

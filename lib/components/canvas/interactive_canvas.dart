@@ -1,5 +1,6 @@
 // Adapted to Saber's purposes from Flutter's InteractiveViewer class
 
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.onDrawEnd,
     this.onDrawStart,
     this.onDrawUpdate,
+    this.isDrawGesture,
     this.panEnabled = true,
     this.scaleEnabled = true,
     this.scaleFactor = 200.0,
@@ -72,6 +74,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.onDrawEnd,
     this.onDrawStart,
     this.onDrawUpdate,
+    this.isDrawGesture,
     this.panEnabled = true,
     this.scaleEnabled = true,
     this.scaleFactor = 200.0,
@@ -300,6 +303,9 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///  * [onDrawStart], which handles the start of the same interaction.
   ///  * [onDrawEnd], which handles the end of the same interaction.
   final GestureScaleUpdateCallback? onDrawUpdate;
+
+  /// A function to distinguish a draw gesture and a pan/zoom gesture.
+  final bool Function(ScaleStartDetails scaleDetails)? isDrawGesture;
 
   /// A [TransformationController] for the transformation performed on the
   /// child.
@@ -664,10 +670,15 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     }
   }
 
+  bool isCurrentGestureADrawGesture = false;
+
   // Handle the start of a gesture. All of pan, scale, and rotate are handled
   // with GestureDetector's scale gesture.
   void _onScaleStart(ScaleStartDetails details) {
-    widget.onDrawStart?.call(details);
+    if (widget.isDrawGesture?.call(details) ?? false) {
+      isCurrentGestureADrawGesture = true;
+      return widget.onDrawStart?.call(details);
+    }
 
     if (_controller.isAnimating) {
       _controller.stop();
@@ -688,6 +699,10 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   // Handle an update to an ongoing gesture. All of pan, scale, and rotate are
   // handled with GestureDetector's scale gesture.
   void _onScaleUpdate(ScaleUpdateDetails details) {
+    if (isCurrentGestureADrawGesture) {
+      return widget.onDrawUpdate?.call(details);
+    }
+
     final double scale = _transformationController!.value.getMaxScaleOnAxis();
     final Offset focalPointScene = _transformationController!.toScene(
       details.localFocalPoint,
@@ -703,7 +718,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
       _gestureType ??= _getGestureType(details);
     }
     if (!_gestureIsSupported(_gestureType)) {
-      widget.onDrawUpdate?.call(details);
       return;
     }
 
@@ -747,7 +761,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
 
       case _GestureType.rotate:
         if (details.rotation == 0.0) {
-          widget.onDrawUpdate?.call(details);
           return;
         }
         final double desiredRotation = _rotationStart! + details.rotation;
@@ -765,7 +778,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         // In an effort to keep the behavior similar whether or not scaleEnabled
         // is true, these gestures are thrown away.
         if (details.scale != 1.0) {
-          widget.onDrawUpdate?.call(details);
           return;
         }
         _panAxis ??= _getPanAxis(_referenceFocalPoint!, focalPointScene);
@@ -781,13 +793,16 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         );
         break;
     }
-    widget.onDrawUpdate?.call(details);
   }
 
   // Handle the end of a gesture of _GestureType. All of pan, scale, and rotate
   // are handled with GestureDetector's scale gesture.
   void _onScaleEnd(ScaleEndDetails details) {
-    widget.onDrawEnd?.call(details);
+    if (isCurrentGestureADrawGesture) {
+      isCurrentGestureADrawGesture = false;
+      return widget.onDrawEnd?.call(details);
+    }
+
     _scaleStart = null;
     _rotationStart = null;
     _referenceFocalPoint = null;
@@ -841,21 +856,9 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
       if (event.scrollDelta.dy == 0.0) {
         return;
       }
-      widget.onDrawStart?.call(
-        ScaleStartDetails(
-          focalPoint: event.position,
-          localFocalPoint: event.localPosition,
-        ),
-      );
       final double scaleChange = math.exp(-event.scrollDelta.dy / widget.scaleFactor);
 
       if (!_gestureIsSupported(_GestureType.scale)) {
-        widget.onDrawUpdate?.call(ScaleUpdateDetails(
-          focalPoint: event.position,
-          localFocalPoint: event.localPosition,
-          scale: scaleChange,
-        ));
-        widget.onDrawEnd?.call(ScaleEndDetails());
         return;
       }
 
@@ -877,13 +880,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         _transformationController!.value,
         focalPointSceneScaled - focalPointScene,
       );
-
-      widget.onDrawUpdate?.call(ScaleUpdateDetails(
-        focalPoint: event.position,
-        localFocalPoint: event.localPosition,
-        scale: scaleChange,
-      ));
-      widget.onDrawEnd?.call(ScaleEndDetails());
     }
   }
 

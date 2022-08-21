@@ -18,9 +18,10 @@ class Canvas extends StatelessWidget {
     required this.strokes,
     required this.currentStroke,
 
-    required this.onScaleStart,
-    required this.onScaleUpdate,
-    required this.onScaleEnd,
+    required this.isDrawGesture,
+    required this.onDrawStart,
+    required this.onDrawUpdate,
+    required this.onDrawEnd,
     required this.onPressureChanged,
   }) : super(key: key);
 
@@ -33,9 +34,10 @@ class Canvas extends StatelessWidget {
   final VoidCallback undo;
   final VoidCallback redo;
 
-  final ValueChanged<ScaleStartDetails> onScaleStart;
-  final ValueChanged<ScaleUpdateDetails> onScaleUpdate;
-  final ValueChanged<ScaleEndDetails> onScaleEnd;
+  final bool Function(ScaleStartDetails scaleDetails) isDrawGesture;
+  final ValueChanged<ScaleStartDetails> onDrawStart;
+  final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
+  final ValueChanged<ScaleEndDetails> onDrawEnd;
   final ValueChanged<double?> onPressureChanged;
 
   final Iterable<Stroke> strokes;
@@ -66,13 +68,13 @@ class Canvas extends StatelessWidget {
             onSecondaryTapUp: (TapUpDetails details) => undo(),
             onTertiaryTapUp: (TapUpDetails details) => redo(),
             child: InteractiveCanvasViewer(
-              panEnabled: false,
               maxScale: 5,
               clipBehavior: Clip.none,
 
-              onDrawStart: onScaleStart,
-              onDrawUpdate: onScaleUpdate,
-              onDrawEnd: onScaleEnd,
+              isDrawGesture: isDrawGesture,
+              onDrawStart: onDrawStart,
+              onDrawUpdate: onDrawUpdate,
+              onDrawEnd: onDrawEnd,
 
               child: Center(
                 child: FittedBox(
