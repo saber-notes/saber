@@ -40,52 +40,54 @@ class Toolbar extends StatelessWidget {
     );
 
     return Container(
+      width: double.infinity,
       decoration: BoxDecoration(
         color: colorScheme.surface,
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TextButton(
-                onPressed: () {
-                  setTool(Pen.currentPen);
-                },
-                style: currentTool == Pen.currentPen ? selectedButtonStyle : null,
-                child: const Icon(Icons.brush),
-              ),
-              TextButton(
-                child: const Icon(Icons.palette),
-                onPressed: () { }
-              ),
-              TextButton(
-                onPressed: () {
-                  setTool(Eraser());
-                },
-                style: currentTool is Eraser ? selectedButtonStyle : null,
-                child: const Icon(Icons.backspace), // todo: better eraser icon
-              ),
-              TextButton(
-                child: const Icon(Icons.photo_size_select_actual),
-                onPressed: () { }
-              ),
-              TextButton(
-                onPressed: toggleFingerDrawing,
-                // todo: better icon
-                child: isFingerDrawingEnabled ? const Icon(Icons.pan_tool) : const Icon(Icons.do_not_touch_outlined),
-              ),
-              TextButton(
-                onPressed: isUndoPossible ? undo : null,
-                child: const Icon(Icons.undo),
-              ),
-              TextButton(
-                onPressed: isRedoPossible ? redo : null,
-                child: const Icon(Icons.redo),
-              ),
-            ],
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    setTool(Pen.currentPen);
+                  },
+                  style: currentTool == Pen.currentPen ? selectedButtonStyle : null,
+                  child: const Icon(Icons.brush),
+                ),
+                TextButton(
+                  child: const Icon(Icons.palette),
+                  onPressed: () { }
+                ),
+                TextButton(
+                  onPressed: () {
+                    setTool(Eraser());
+                  },
+                  style: currentTool is Eraser ? selectedButtonStyle : null,
+                  child: const Icon(Icons.backspace), // todo: better eraser icon
+                ),
+                TextButton(
+                  child: const Icon(Icons.photo_size_select_actual),
+                  onPressed: () { }
+                ),
+                TextButton(
+                  onPressed: toggleFingerDrawing,
+                  // todo: better icon
+                  child: isFingerDrawingEnabled ? const Icon(Icons.pan_tool) : const Icon(Icons.do_not_touch_outlined),
+                ),
+                TextButton(
+                  onPressed: isUndoPossible ? undo : null,
+                  child: const Icon(Icons.undo),
+                ),
+                TextButton(
+                  onPressed: isRedoPossible ? redo : null,
+                  child: const Icon(Icons.redo),
+                ),
+              ],
+            ),
           ),
         ),
       ),
