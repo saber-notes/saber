@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
@@ -310,25 +311,30 @@ class _EditorState extends State<Editor> {
           ),
 
           Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: pages.length,
-              itemBuilder: (context, pageIndex) {
-                return Canvas(
-                  path: path,
-                  pageIndex: pageIndex,
-                  innerCanvasKey: pages[pageIndex].innerCanvasKey,
-                  undo: undo,
-                  redo: redo,
-                  strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
-                  currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
-                  isDrawGesture: isDrawGesture,
-                  onDrawStart: onDrawStart,
-                  onDrawUpdate: onDrawUpdate,
-                  onDrawEnd: onDrawEnd,
-                  onPressureChanged: onPressureChanged,
-                );
-              },
+            child: CanvasGestureDetector(
+              isDrawGesture: isDrawGesture,
+              onDrawStart: onDrawStart,
+              onDrawUpdate: onDrawUpdate,
+              onDrawEnd: onDrawEnd,
+              onPressureChanged: onPressureChanged,
+
+              undo: undo,
+              redo: redo,
+
+              child: Column(
+                children: [
+                  for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) ...[
+                    Canvas(
+                      path: path,
+                      pageIndex: pageIndex,
+                      innerCanvasKey: pages[pageIndex].innerCanvasKey,
+                      strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
+                      currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
+                    ),
+                    const SizedBox(height: 16),
+                  ]
+                ],
+              ),
             ),
           ),
         ],
