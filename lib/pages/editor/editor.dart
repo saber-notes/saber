@@ -1,9 +1,11 @@
 
 import 'dart:convert';
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
@@ -120,8 +122,8 @@ class _EditorState extends State<Editor> {
   }
   void removeExcessPagesAfterStroke(Stroke stroke) {
     // remove excess pages if all pages >= this one are empty
-    for (int i = pages.length - 1; i >= stroke.pageIndex; --i) {
-      final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i);
+    for (int i = pages.length - 1; i >= stroke.pageIndex + 1; --i) {
+      final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
       if (pageEmpty) pages.removeAt(i);
     }
   }
@@ -163,14 +165,13 @@ class _EditorState extends State<Editor> {
     return null;
   }
 
-  bool dragStarted = false;
   int? dragPageIndex;
   double? currentPressure;
   bool isFingerDrawingEnabled = true;
-  onScaleStart(ScaleStartDetails details) {
+  bool isDrawGesture(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
-      return;
+      return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
         Stroke accident = strokes.removeLast();
@@ -179,21 +180,22 @@ class _EditorState extends State<Editor> {
         isRedoPossible = strokesRedoStack.isNotEmpty;
       }
       _lastSeenPointerCount = details.pointerCount;
-      return;
+      return false;
     } else { // is a stroke
       _lastSeenPointerCount = details.pointerCount;
     }
 
     dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
-    if (dragPageIndex == null) return;
+    if (dragPageIndex == null) return false;
 
     if (isFingerDrawingEnabled || currentPressure != null) {
-      dragStarted = true;
+      return true;
     } else {
       if (kDebugMode) print("Non-stylus found, rejected stroke");
-      return;
+      return false;
     }
-
+  }
+  onDrawStart(ScaleStartDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
@@ -206,9 +208,7 @@ class _EditorState extends State<Editor> {
 
     isRedoPossible = false;
   }
-  onScaleUpdate(ScaleUpdateDetails details) {
-    if (!dragStarted) return;
-
+  onDrawUpdate(ScaleUpdateDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
@@ -221,9 +221,7 @@ class _EditorState extends State<Editor> {
       }
     });
   }
-  onScaleEnd(ScaleEndDetails details) {
-    if (!dragStarted) return;
-    dragStarted = false;
+  onDrawEnd(ScaleEndDetails details) {
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
@@ -313,24 +311,30 @@ class _EditorState extends State<Editor> {
           ),
 
           Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: pages.length,
-              itemBuilder: (context, pageIndex) {
-                return Canvas(
-                  path: path,
-                  pageIndex: pageIndex,
-                  innerCanvasKey: pages[pageIndex].innerCanvasKey,
-                  undo: undo,
-                  redo: redo,
-                  strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
-                  currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
-                  onScaleStart: onScaleStart,
-                  onScaleUpdate: onScaleUpdate,
-                  onScaleEnd: onScaleEnd,
-                  onPressureChanged: onPressureChanged,
-                );
-              },
+            child: CanvasGestureDetector(
+              isDrawGesture: isDrawGesture,
+              onDrawStart: onDrawStart,
+              onDrawUpdate: onDrawUpdate,
+              onDrawEnd: onDrawEnd,
+              onPressureChanged: onPressureChanged,
+
+              undo: undo,
+              redo: redo,
+
+              child: Column(
+                children: [
+                  for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) ...[
+                    Canvas(
+                      path: path,
+                      pageIndex: pageIndex,
+                      innerCanvasKey: pages[pageIndex].innerCanvasKey,
+                      strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
+                      currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
+                    ),
+                    const SizedBox(height: 16),
+                  ]
+                ],
+              ),
             ),
           ),
         ],

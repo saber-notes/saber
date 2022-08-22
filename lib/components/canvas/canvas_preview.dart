@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas.dart';
+import 'package:saber/components/canvas/interactive_canvas.dart';
 
 import '_stroke.dart';
 import 'inner_canvas.dart';
@@ -24,7 +25,7 @@ class CanvasPreview extends StatelessWidget {
     return Hero(
       tag: "inner-canvas-$path-page$pageIndex",
 
-      child: InteractiveViewer(
+      child: InteractiveCanvasViewer(
         maxScale: 5,
 
         child: FittedBox(
