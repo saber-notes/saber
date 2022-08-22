@@ -1040,7 +1040,7 @@ class _InteractiveCanvasViewerBuilt extends StatelessWidget {
         alignment: Alignment.topLeft,
         minWidth: 0.0,
         minHeight: 0.0,
-        maxWidth: double.infinity,
+        // maxWidth: double.infinity,
         maxHeight: double.infinity,
         child: child,
       );

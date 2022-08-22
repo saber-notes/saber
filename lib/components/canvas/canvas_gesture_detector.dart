@@ -50,6 +50,7 @@ class CanvasGestureDetector extends StatelessWidget {
         child: InteractiveCanvasViewer(
           minScale: 0.01,
           maxScale: 5,
+          constrained: false,
 
           isDrawGesture: isDrawGesture,
           onDrawStart: onDrawStart,
