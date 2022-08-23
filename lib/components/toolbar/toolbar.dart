@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/toolbar/toolbar_button.dart';
 
 class Toolbar extends StatelessWidget {
   const Toolbar({
@@ -34,59 +35,56 @@ class Toolbar extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
-    var selectedButtonStyle = TextButton.styleFrom(
-        primary: colorScheme.onPrimary,
-        backgroundColor: colorScheme.primary
-    );
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
         color: colorScheme.surface,
       ),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                TextButton(
-                  onPressed: () {
-                    setTool(Pen.currentPen);
-                  },
-                  style: currentTool == Pen.currentPen ? selectedButtonStyle : null,
-                  child: const Icon(Icons.brush),
-                ),
-                TextButton(
-                  child: const Icon(Icons.palette),
-                  onPressed: () { }
-                ),
-                TextButton(
-                  onPressed: () {
-                    setTool(Eraser());
-                  },
-                  style: currentTool is Eraser ? selectedButtonStyle : null,
-                  child: const Icon(Icons.backspace), // todo: better eraser icon
-                ),
-                TextButton(
-                  child: const Icon(Icons.photo_size_select_actual),
-                  onPressed: () { }
-                ),
-                TextButton(
-                  onPressed: toggleFingerDrawing,
-                  // todo: better icon
-                  child: isFingerDrawingEnabled ? const Icon(Icons.pan_tool) : const Icon(Icons.do_not_touch_outlined),
-                ),
-                TextButton(
-                  onPressed: isUndoPossible ? undo : null,
-                  child: const Icon(Icons.undo),
-                ),
-                TextButton(
-                  onPressed: isRedoPossible ? redo : null,
-                  child: const Icon(Icons.redo),
-                ),
-              ],
+      child: Material(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ToolbarIconButton(
+                    onPressed: () {
+                      setTool(Pen.currentPen);
+                    },
+                    selected: currentTool == Pen.currentPen,
+                    child: const Icon(Icons.brush),
+                  ),
+                  ToolbarIconButton(
+                    onPressed: null,
+                    child: const Icon(Icons.palette),
+                  ),
+                  ToolbarIconButton(
+                    onPressed: () {
+                      setTool(Eraser());
+                    },
+                    selected: currentTool is Eraser,
+                    child: const Icon(Icons.remove), // todo: better eraser icon
+                  ),
+                  ToolbarIconButton(
+                    onPressed: null,
+                    child: const Icon(Icons.photo_size_select_actual),
+                  ),
+                  ToolbarIconButton(
+                    onPressed: toggleFingerDrawing,
+                    selected: isFingerDrawingEnabled,
+                    child: const Icon(Icons.gesture),
+                  ),
+                  ToolbarIconButton(
+                    onPressed: isUndoPossible ? undo : null,
+                    child: const Icon(Icons.undo),
+                  ),
+                  ToolbarIconButton(
+                    onPressed: isRedoPossible ? redo : null,
+                    child: const Icon(Icons.redo),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
