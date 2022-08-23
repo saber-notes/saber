@@ -305,6 +305,7 @@ class _EditorState extends State<Editor> {
             toggleFingerDrawing: () {
               setState(() {
                 isFingerDrawingEnabled = !isFingerDrawingEnabled;
+                _lastSeenPointerCount = 0;
               });
             },
             isFingerDrawingEnabled: isFingerDrawingEnabled,
