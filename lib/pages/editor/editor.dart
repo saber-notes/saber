@@ -14,7 +14,7 @@ import 'package:saber/data/file_manager.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/canvas/toolbar.dart';
+import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 
