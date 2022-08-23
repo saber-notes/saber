@@ -295,26 +295,6 @@ class _EditorState extends State<Editor> {
       ),
       body: Column(
         children: [
-          Toolbar(
-            setTool: (tool) {
-              setState(() {
-                currentTool = tool;
-              });
-            },
-            currentTool: currentTool,
-            undo: undo,
-            isUndoPossible: strokes.isNotEmpty,
-            redo: redo,
-            isRedoPossible: isRedoPossible,
-            toggleFingerDrawing: () {
-              setState(() {
-                isFingerDrawingEnabled = !isFingerDrawingEnabled;
-                _lastSeenPointerCount = 0;
-              });
-            },
-            isFingerDrawingEnabled: isFingerDrawingEnabled,
-          ),
-
           Expanded(
             child: CanvasGestureDetector(
               isDrawGesture: isDrawGesture,
@@ -341,6 +321,26 @@ class _EditorState extends State<Editor> {
                 ],
               ),
             ),
+          ),
+
+          Toolbar(
+            setTool: (tool) {
+              setState(() {
+                currentTool = tool;
+              });
+            },
+            currentTool: currentTool,
+            undo: undo,
+            isUndoPossible: strokes.isNotEmpty,
+            redo: redo,
+            isRedoPossible: isRedoPossible,
+            toggleFingerDrawing: () {
+              setState(() {
+                isFingerDrawingEnabled = !isFingerDrawingEnabled;
+                _lastSeenPointerCount = 0;
+              });
+            },
+            isFingerDrawingEnabled: isFingerDrawingEnabled,
           ),
         ],
       )
