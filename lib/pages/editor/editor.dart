@@ -86,12 +86,11 @@ class _EditorState extends State<Editor> {
     Pen.currentPen = Pen.fountainPen();
     currentTool = Pen.currentPen;
 
-    _awaitPath();
-    _initStrokes();
+    _initAsync();
 
     super.initState();
   }
-  void _awaitPath() async {
+  void _initAsync() async {
     path = await widget.initialPath;
     filenameTextEditingController.text = _filename;
     setState(() {});
@@ -102,8 +101,10 @@ class _EditorState extends State<Editor> {
         extentOffset: filenameTextEditingController.text.length,
       );
     }
+
+    await _initStrokes();
   }
-  void _initStrokes() async {
+  Future _initStrokes() async {
     List<Stroke> strokes = await loadFromFile();
     if (strokes.isEmpty) {
       pages.add(EditorPage());
