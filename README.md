@@ -23,6 +23,9 @@ Saber is still in early stages but if you'd like to check it out,
 you can see the online PWA at [saber.adil.hanney.org](https://saber.adil.hanney.org).
 Alternatively, install it natively...
 
+<details>
+<summary>Tap to show/hide install instructions</summary>
+
 #### Android
 
 Option 1 (recommended): Download from the [Play Store](https://play.google.com/store/apps/details?id=com.adilhanney.saber) (not yet live)
@@ -41,7 +44,12 @@ Download and install `SaberInstaller.exe` from the latest [Release](https://gith
 
 See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
 
+</details>
+
 ## Build from source
+
+<details>
+<summary>Tap to show/hide build instructions</summary>
 
 ### 1. Install flutter
 https://docs.flutter.dev/get-started/install
@@ -86,6 +94,8 @@ If you have a macOS computer, you can build for iOS with `flutter build ipa`
 If you don't, watch this YouTube tutorial
 [How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
 to build with [Codemagic](https://codemagic.io/start/) and install on your device.
+
+</details>
 
 ## Development notes
 
