@@ -1,8 +1,10 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -149,6 +151,31 @@ abstract class FileManager {
     }
   }
 
+  static Future<bool> doesFileExist(String filePath) async {
+    filePath = _sanitisePath(filePath);
+    if (kIsWeb) {
+      final prefs = await _prefs;
+      return prefs.containsKey(filePath + Editor.extension);
+    } else {
+      final File file = File(await _documentsDirectory + filePath);
+      return await file.exists();
+    }
+  }
+
+  static Future<String> newFilePath([String parentPath = "/"]) async {
+    assert(parentPath.endsWith('/'));
+
+    final DateTime now = DateTime.now();
+    final String fileNamePrefix = parentPath + DateFormat("yy-MM-dd_").format(now);
+
+    String fileName;
+    do {
+      fileName = fileNamePrefix + generateRandomString(5);
+    } while (await doesFileExist(parentPath + fileNamePrefix));
+
+    return fileName;
+  }
+
   static Future _removeFileFromIndex(String filePath, SharedPreferences prefs) async {
     final List<String> files = prefs.getStringList(fileIndexKey) ?? [];
     files.remove(filePath);
@@ -211,4 +238,12 @@ class DirectoryChildren {
   bool onlyOneChild() => directories.length + files.length <= 1;
 
   bool get isEmpty => directories.isEmpty && files.isEmpty;
+}
+
+final _random = Random();
+/// Generates a random alphanumeric string of length [length].
+/// Source: https://stackoverflow.com/a/63433194/
+String generateRandomString(int len) {
+  const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+  return List.generate(len, (index) => chars[_random.nextInt(chars.length)]).join();
 }

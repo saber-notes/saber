@@ -39,11 +39,11 @@ class Editor extends StatefulWidget {
   Editor({
     Key? key,
     String? path,
-  }) : initialPath = path ?? "/${uuid.v1()}",
+  }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath("/"),
         needsNaming = path == null,
         super(key: key);
 
-  final String initialPath;
+  final Future<String> initialPath;
   final bool needsNaming;
 
   static const String extension = '.sbn';
@@ -55,7 +55,7 @@ class Editor extends StatefulWidget {
 class _EditorState extends State<Editor> {
   final List<EditorPage> pages = [];
 
-  late String path;
+  String path = "";
   late bool needsNaming;
 
   late Tool currentTool;
@@ -81,23 +81,28 @@ class _EditorState extends State<Editor> {
 
   @override
   void initState() {
-    path = widget.initialPath;
     needsNaming = widget.needsNaming;
+
+    Pen.currentPen = Pen.fountainPen();
+    currentTool = Pen.currentPen;
+
+    _awaitPath();
+    _initStrokes();
+
+    super.initState();
+  }
+  void _awaitPath() async {
+    path = await widget.initialPath;
+    filenameTextEditingController.text = _filename;
+    setState(() {});
+
     if (needsNaming) {
       filenameTextEditingController.selection = TextSelection(
         baseOffset: 0,
         extentOffset: filenameTextEditingController.text.length,
       );
     }
-
-    Pen.currentPen = Pen.fountainPen();
-    currentTool = Pen.currentPen;
-
-    _initStrokes();
-
-    super.initState();
   }
-  // initState can't be async
   void _initStrokes() async {
     List<Stroke> strokes = await loadFromFile();
     if (strokes.isEmpty) {
@@ -251,9 +256,7 @@ class _EditorState extends State<Editor> {
   }
 
 
-  late final filenameTextEditingController = TextEditingController(
-    text: _filename,
-  );
+  late final filenameTextEditingController = TextEditingController();
   Timer? _renameTimer;
   void renameFile(String newName) {
     _renameTimer?.cancel();
