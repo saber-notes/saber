@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 class ToolbarIconButton extends StatelessWidget {
   const ToolbarIconButton({
     Key? key,
-    required this.onPressed,
+    this.tooltip,
     this.selected = false,
+    required this.onPressed,
     required this.child,
   }) : super(key: key);
 
-  final void Function()? onPressed;
+  final String? tooltip;
   final bool selected;
+  final void Function()? onPressed;
   final Widget child;
 
   @override
@@ -26,6 +28,7 @@ class ToolbarIconButton extends StatelessWidget {
       child: IconButton(
         color: selected ? colorScheme.onPrimary : colorScheme.primary,
         onPressed: onPressed,
+        tooltip: tooltip,
         icon: child,
       ),
     );

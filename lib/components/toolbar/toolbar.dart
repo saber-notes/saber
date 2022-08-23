@@ -49,37 +49,44 @@ class Toolbar extends StatelessWidget {
               child: Row(
                 children: [
                   ToolbarIconButton(
+                    tooltip: "Fountain pen",
+                    selected: currentTool == Pen.currentPen,
                     onPressed: () {
                       setTool(Pen.currentPen);
                     },
-                    selected: currentTool == Pen.currentPen,
                     child: const Icon(Icons.brush),
                   ),
                   ToolbarIconButton(
+                    tooltip: "Colour",
                     onPressed: null,
                     child: const Icon(Icons.palette),
                   ),
                   ToolbarIconButton(
+                    tooltip: "Eraser",
+                    selected: currentTool is Eraser,
                     onPressed: () {
                       setTool(Eraser());
                     },
-                    selected: currentTool is Eraser,
                     child: const Icon(Icons.remove), // todo: better eraser icon
                   ),
                   ToolbarIconButton(
+                    tooltip: "Photo",
                     onPressed: null,
                     child: const Icon(Icons.photo_size_select_actual),
                   ),
                   ToolbarIconButton(
-                    onPressed: toggleFingerDrawing,
+                    tooltip: "Toggle finger drawing",
                     selected: isFingerDrawingEnabled,
+                    onPressed: toggleFingerDrawing,
                     child: const Icon(Icons.gesture),
                   ),
                   ToolbarIconButton(
+                    tooltip: "Undo",
                     onPressed: isUndoPossible ? undo : null,
                     child: const Icon(Icons.undo),
                   ),
                   ToolbarIconButton(
+                    tooltip: "Redo",
                     onPressed: isRedoPossible ? redo : null,
                     child: const Icon(Icons.redo),
                   ),
