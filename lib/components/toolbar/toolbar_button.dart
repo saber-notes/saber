@@ -29,6 +29,9 @@ class ToolbarIconButton extends StatelessWidget {
         color: selected ? colorScheme.onPrimary : colorScheme.primary,
         onPressed: onPressed,
         tooltip: tooltip,
+        iconSize: 20,
+        splashRadius: 20,
+        visualDensity: VisualDensity.compact,
         icon: child,
       ),
     );
