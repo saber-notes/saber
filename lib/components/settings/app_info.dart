@@ -14,6 +14,7 @@ class AppInfo extends StatefulWidget {
 
   static final Uri privacyPolicyUrl = Uri.parse('https://github.com/adil192/saber/blob/main/privacy_policy.md');
   static final Uri licenseUrl = Uri.parse("https://github.com/adil192/saber/blob/main/LICENSE.md");
+  static final Uri releasesUrl = Uri.parse("https://github.com/adil192/saber/releases");
 
   @override
   State<AppInfo> createState() => _AppInfoState();

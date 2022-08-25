@@ -4,6 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
@@ -29,6 +30,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    UpdateManager.showUpdateDialog(context);
+    super.initState();
+  }
+
   Widget get body {
     switch (widget.subpage) {
       case HomePage.browseSubpage:

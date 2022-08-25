@@ -180,7 +180,7 @@ packages:
     source: git
     version: "0.0.1"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
