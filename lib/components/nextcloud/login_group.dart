@@ -143,102 +143,107 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-    return Column(
-      children: [
-        InkWell(
-          onTap: () {
-            _toggleCustomServer(!_usingCustomServer);
-          },
-          child: Row(
-            children: [
-              Checkbox(
-                value: _usingCustomServer,
-                onChanged: _toggleCustomServer,
-              ),
-              const Expanded(child: Text("I want to use a custom Nextcloud server")),
-            ],
-          ),
-        ),
-        const SizedBox(height: 8),
-
-        Collapsible(
-          collapsed: !_usingCustomServer,
-          axis: CollapsibleAxis.vertical,
-          alignment: Alignment.topCenter,
-          fade: true,
-          maintainState: true,
-          child: Column(children: [
-            TextField(
-              controller: _customServerController,
-              decoration: const InputDecoration(
-                labelText: "Custom server URL",
-                prefixIcon: Icon(Icons.link),
-                filled: true,
-              ),
+    return AutofillGroup(
+      child: Column(
+        children: [
+          InkWell(
+            onTap: () {
+              _toggleCustomServer(!_usingCustomServer);
+            },
+            child: Row(
+              children: [
+                Checkbox(
+                  value: _usingCustomServer,
+                  onChanged: _toggleCustomServer,
+                ),
+                const Expanded(child: Text("I want to use a custom Nextcloud server")),
+              ],
             ),
-            const SizedBox(height: 8),
-          ])
-        ),
-
-        TextField(
-          controller: _usernameController,
-          decoration: const InputDecoration(
-            labelText: "Username or email",
-            prefixIcon: Icon(Icons.person),
-            filled: true,
-          ),
-        ),
-        const SizedBox(height: 8),
-        TextField(
-          controller: _passwordController,
-          obscureText: !_showPassword,
-          decoration: InputDecoration(
-            labelText: "Password",
-            prefixIcon: const Icon(Icons.lock),
-            suffixIcon: IconButton(
-              icon: Icon(_showPassword ? Icons.visibility : Icons.visibility_off),
-              iconSize: 18,
-              onPressed: () { setState(() { _showPassword = !_showPassword; }); },
-            ),
-            filled: true,
-          ),
-        ),
-        const SizedBox(height: 16),
-
-        if (_errorMessage != null) ...[
-          Text(
-            _errorMessage!,
-            style: TextStyle(color: colorScheme.secondary),
           ),
           const SizedBox(height: 8),
-        ],
 
-        RichText(
-          text: TextSpan(
-            style: TextStyle(color: colorScheme.onBackground),
-            children: [
-              const TextSpan(text: "By logging in, you agree to the "),
-              TextSpan(
-                text: "Privacy Policy",
-                style: TextStyle(color: colorScheme.primary),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  launchUrl(
-                    AppInfo.privacyPolicyUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
+          Collapsible(
+            collapsed: !_usingCustomServer,
+            axis: CollapsibleAxis.vertical,
+            alignment: Alignment.topCenter,
+            fade: true,
+            maintainState: true,
+            child: Column(children: [
+              TextField(
+                controller: _customServerController,
+                autofillHints: const [AutofillHints.url],
+                decoration: const InputDecoration(
+                  labelText: "Custom server URL",
+                  prefixIcon: Icon(Icons.link),
+                  filled: true,
+                ),
               ),
-              const TextSpan(text: "."),
-            ],
+              const SizedBox(height: 8),
+            ])
           ),
-        ),
 
-        const SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: _isLoading ? null : _login,
-          child: _isLoading ? const SpinningLoadingIcon() : const Text("Log in"),
-        ),
-      ],
+          TextField(
+            controller: _usernameController,
+            autofillHints: const [AutofillHints.username, AutofillHints.email],
+            decoration: const InputDecoration(
+              labelText: "Username or email",
+              prefixIcon: Icon(Icons.person),
+              filled: true,
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _passwordController,
+            obscureText: !_showPassword,
+            autofillHints: const [AutofillHints.password],
+            decoration: InputDecoration(
+              labelText: "Password",
+              prefixIcon: const Icon(Icons.lock),
+              suffixIcon: IconButton(
+                icon: Icon(_showPassword ? Icons.visibility : Icons.visibility_off),
+                iconSize: 18,
+                onPressed: () { setState(() { _showPassword = !_showPassword; }); },
+              ),
+              filled: true,
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          if (_errorMessage != null) ...[
+            Text(
+              _errorMessage!,
+              style: TextStyle(color: colorScheme.secondary),
+            ),
+            const SizedBox(height: 8),
+          ],
+
+          RichText(
+            text: TextSpan(
+              style: TextStyle(color: colorScheme.onBackground),
+              children: [
+                const TextSpan(text: "By logging in, you agree to the "),
+                TextSpan(
+                  text: "Privacy Policy",
+                  style: TextStyle(color: colorScheme.primary),
+                  recognizer: TapGestureRecognizer()..onTap = () {
+                    launchUrl(
+                      AppInfo.privacyPolicyUrl,
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                ),
+                const TextSpan(text: "."),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: _isLoading ? null : _login,
+            child: _isLoading ? const SpinningLoadingIcon() : const Text("Log in"),
+          ),
+        ],
+      ),
     );
   }
 }
