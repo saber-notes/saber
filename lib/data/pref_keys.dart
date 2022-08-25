@@ -9,4 +9,6 @@ abstract class PrefKeys {
   static const encIv = "iv";
 
   static const pfp = "pfp";
+
+  static const editorToolbarOnBottom = "editorToolbarOnBottom";
 }

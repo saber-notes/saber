@@ -11,6 +11,7 @@ import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
@@ -50,6 +51,15 @@ class Editor extends StatefulWidget {
 
   @override
   State<Editor> createState() => _EditorState();
+
+  static bool editorToolbarOnBottom = (){
+    _getEditorToolbarOnBottom();
+    return true;
+  }();
+  static _getEditorToolbarOnBottom() async {
+    final prefs = await SharedPreferences.getInstance();
+    editorToolbarOnBottom = prefs.getBool('editorToolbarOnBottom') ?? true;
+  }
 }
 
 class _EditorState extends State<Editor> {
@@ -294,6 +304,7 @@ class _EditorState extends State<Editor> {
         ),
       ),
       body: Column(
+        verticalDirection: Editor.editorToolbarOnBottom ? VerticalDirection.down : VerticalDirection.up,
         children: [
           Expanded(
             child: CanvasGestureDetector(
