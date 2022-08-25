@@ -334,24 +334,26 @@ class _EditorState extends State<Editor> {
             ),
           ),
 
-          Toolbar(
-            setTool: (tool) {
-              setState(() {
-                currentTool = tool;
-              });
-            },
-            currentTool: currentTool,
-            undo: undo,
-            isUndoPossible: strokes.isNotEmpty,
-            redo: redo,
-            isRedoPossible: isRedoPossible,
-            toggleFingerDrawing: () {
-              setState(() {
-                isFingerDrawingEnabled = !isFingerDrawingEnabled;
-                _lastSeenPointerCount = 0;
-              });
-            },
-            isFingerDrawingEnabled: isFingerDrawingEnabled,
+          SafeArea(
+            child: Toolbar(
+              setTool: (tool) {
+                setState(() {
+                  currentTool = tool;
+                });
+              },
+              currentTool: currentTool,
+              undo: undo,
+              isUndoPossible: strokes.isNotEmpty,
+              redo: redo,
+              isRedoPossible: isRedoPossible,
+              toggleFingerDrawing: () {
+                setState(() {
+                  isFingerDrawingEnabled = !isFingerDrawingEnabled;
+                  _lastSeenPointerCount = 0;
+                });
+              },
+              isFingerDrawingEnabled: isFingerDrawingEnabled,
+            ),
           ),
         ],
       )
