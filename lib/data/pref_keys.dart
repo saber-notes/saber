@@ -5,5 +5,8 @@ abstract class PrefKeys {
   static const encUsername = "username";
   static const encPassword = "password";
 
+  static const encKey = "key";
+  static const encIv = "iv";
+
   static const pfp = "pfp";
 }

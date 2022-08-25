@@ -11,8 +11,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// A collection of cross-platform utility functions for working with a virtual file system.
 abstract class FileManager {
+  static String appRootDirectoryPrefix = "/Saber";
   static Future<SharedPreferences> get _prefs async => await SharedPreferences.getInstance();
-  static Future<String> get _documentsDirectory async => "${(await getApplicationDocumentsDirectory()).path}/Saber";
+  static Future<String> get _documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
 
   static String _sanitisePath(String path) => File(path).path;
 

@@ -52,9 +52,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
     var avatar = await client.avatar.getAvatar(username, 512);
     await unsafePrefs.setString(PrefKeys.pfp, avatar);
 
-    // todo: check nextcloud for existing random key
-    // todo: if not found, generate new random key, encrypt it, then save to nextcloud
-    // todo: store key in encrypted prefs
+    String key = await client.getEncryptionKey(password);
+    print("generated key: $key");
+
   }
 
   @override
