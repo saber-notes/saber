@@ -107,7 +107,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
     if (success) {
       setState(() {
-        _errorMessage = "Log in successful!";
+        _errorMessage = "Log in successful! Please wait while we set up...";
       });
     } else {
       setState(() {

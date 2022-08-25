@@ -2,6 +2,7 @@
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -55,6 +56,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
     String key = await client.getEncryptionKey(password);
     print("generated key: $key");
 
+    // ignore: use_build_context_synchronously
+    context.pop();
   }
 
   @override
