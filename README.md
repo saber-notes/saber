@@ -97,6 +97,13 @@ to build with [Codemagic](https://codemagic.io/start/) and install on your devic
 
 </details>
 
+## Links
+
+- [Nextcloud server](https://nc.saber.adil.hanney.org/)
+- [Privacy policy](https://github.com/adil192/saber/blob/main/privacy_policy.md)
+- [License](https://github.com/adil192/saber/blob/main/LICENSE.md)
+- [Releases](https://github.com/adil192/saber/releases)
+
 ## Development notes
 
 - When updating the **app version**, you'll need to make changes to the following files:
