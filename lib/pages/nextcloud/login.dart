@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
-import 'package:saber/data/pref_keys.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginPage extends StatefulWidget {
@@ -43,15 +43,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
 
   Future _finishLogin(Uri url, String username, String password, NextCloudClient client) async {
     // encrypted prefs
-    var encryptedPrefs = EncryptedSharedPreferences();
-    await encryptedPrefs.setString(PrefKeys.encUrl, url.toString());
-    await encryptedPrefs.setString(PrefKeys.encUsername, username);
-    await encryptedPrefs.setString(PrefKeys.encPassword, password);
+    Prefs.url.value = url.toString();
+    Prefs.username.value = username;
+    Prefs.password.value = password;
 
-    // unencrypted prefs
-    var unsafePrefs = await encryptedPrefs.getInstance();
-    var avatar = await client.avatar.getAvatar(username, 512);
-    await unsafePrefs.setString(PrefKeys.pfp, avatar);
+    String avatar = await client.avatar.getAvatar(username, 512);
+    Prefs.pfp.value = avatar;
 
     String key = await client.getEncryptionKey(password);
     print("generated key: $key");
@@ -75,9 +72,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
             child: Column(
               children: [
                 const SizedBox(height: 16),
-                const Hero(
-                  tag: PrefKeys.pfp,
-                  child: Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
+                Hero(
+                  tag: Prefs.pfp.key,
+                  child: const Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
                 ),
 
                 const SizedBox(height: 64),

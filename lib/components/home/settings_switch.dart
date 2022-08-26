@@ -1,23 +1,18 @@
 
-import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:saber/data/prefs.dart';
 
 class SettingsSwitch extends StatefulWidget {
   const SettingsSwitch({
     Key? key,
     required this.title,
-    required this.prefKey,
-    required this.isEncPref,
-    this.defaultValue = false,
+    required this.pref,
     this.afterChange,
   }) : super(key: key);
 
   final String title;
-  final String prefKey;
-  final bool isEncPref;
-  final bool defaultValue;
+  final IPref<bool> pref;
   final ValueChanged<bool>? afterChange;
 
   @override
@@ -25,50 +20,23 @@ class SettingsSwitch extends StatefulWidget {
 }
 
 class _SettingsSwitchState extends State<SettingsSwitch> {
-  late bool value;
-
   @override
   void initState() {
-    value = widget.defaultValue;
-    _loadValue();
+    widget.pref.addListener(() => setState(() {}));
+    widget.pref.addListener(() {
+      widget.afterChange?.call(widget.pref.value);
+    });
     super.initState();
-  }
-
-  Future _loadValue() async {
-    if (widget.isEncPref) {
-      final prefs = EncryptedSharedPreferences();
-      final String valueString = await prefs.getString(widget.prefKey);
-      setState(() {
-        value = valueString.isNotEmpty ? valueString == "true" : widget.defaultValue;
-      });
-    } else {
-      final prefs = await SharedPreferences.getInstance();
-      setState(() {
-        value = prefs.getBool(widget.prefKey) ?? widget.defaultValue;
-      });
-    }
-  }
-  Future _saveValue() async {
-    if (widget.isEncPref) {
-      final prefs = EncryptedSharedPreferences();
-      prefs.setString(widget.prefKey, value.toString());
-    } else {
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setBool(widget.prefKey, value);
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(
       title: Text(widget.title, style: const TextStyle(fontSize: 14)),
-      subtitle: kDebugMode ? Text(widget.prefKey) : null,
-      value: value,
-      onChanged: (bool newValue) {
-        value = newValue;
-        _saveValue();
-        widget.afterChange?.call(newValue);
-        setState(() {});
+      subtitle: kDebugMode ? Text(widget.pref.key) : null,
+      value: widget.pref.value,
+      onChanged: (bool value) {
+        widget.pref.value = value;
       },
     );
   }
