@@ -3,6 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:saber/data/version.dart' show buildNumber;
 import 'package:url_launcher/url_launcher.dart';
 
 const String licenseNotice = "Saber  Copyright (C) 2022  Adil Hanney\n"
@@ -34,11 +35,9 @@ class _AppInfoState extends State<AppInfo> {
 
     String appName = packageInfo.appName;
     String version = packageInfo.version;
-    String buildNumber = packageInfo.buildNumber;
 
     setState(() {
-      message = "$appName $version";
-      if (buildNumber.isNotEmpty) message += " ($buildNumber)";
+      message = "$appName $version ($buildNumber)";
     });
   }
 
