@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:saber/components/settings/do_update/do_update.dart'
+  if (dart.library.html) 'package:saber/components/settings/do_update/do_update_web.dart';
 
 abstract class UpdateManager {
   static final Uri versionUrl = Uri.parse("https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart");
@@ -24,21 +26,14 @@ abstract class UpdateManager {
             onPressed: () => Navigator.pop(context),
             child: const Text('Dismiss'),
           ),
-          TextButton(
-            onPressed: () => {
-              _launchUpdateUrl(),
-            },
-            child: const Text('Update'),
+          const TextButton(
+            onPressed: doUpdate,
+            child: Text('Update'),
           ),
         ],
       ),
     );
   }
-
-  static Future _launchUpdateUrl() => launchUrl(
-    AppInfo.releasesUrl,
-    mode: LaunchMode.externalApplication,
-  );
 
   static Future<bool> _checkForUpdate() async {
     const int currentVersion = version.buildNumber;
