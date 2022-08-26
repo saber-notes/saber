@@ -114,7 +114,7 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.brush),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Colour",
+                        tooltip: "Toggle colors",
                         selected: showColorOptions,
                         onPressed: () {
                           setState(() {
