@@ -70,6 +70,7 @@ class _ToolbarState extends State<Toolbar> {
             Collapsible(
               axis: CollapsibleAxis.vertical,
               alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
+              maintainState: true,
               collapsed: !showColorOptions,
               child: Center(
                 child: Padding(
