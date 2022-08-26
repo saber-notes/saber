@@ -16,7 +16,7 @@ class Pen extends Tool {
 
   onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
-      strokeProperties: strokeProperties,
+      strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
     )..addPoint(position, pressure);
   }

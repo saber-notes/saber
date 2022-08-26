@@ -50,4 +50,6 @@ class StrokeProperties {
     if (capEnd != defaultCapEnd) 'ce': capEnd,
     if (simulatePressure != defaultSimulatePressure) 'sp': simulatePressure,
   };
+
+  StrokeProperties copy() => StrokeProperties.fromJson(toJson());
 }
