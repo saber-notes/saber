@@ -49,7 +49,10 @@ class _PreviewCardState extends State<PreviewCard> {
   Future findStrokes() async {
     strokes = (await loadStrokesFromPath(widget.filePath)).where((stroke) => stroke.pageIndex == 0);
 
-    setState(() {});
+    setState(() {
+
+    });
+    if (mounted) setState(() {});
   }
 
   @override
