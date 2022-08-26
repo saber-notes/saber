@@ -1,7 +1,7 @@
 
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsSwitch extends StatefulWidget {
@@ -61,7 +61,8 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(
-      title: Text(widget.title),
+      title: Text(widget.title, style: const TextStyle(fontSize: 14)),
+      subtitle: kDebugMode ? Text(widget.prefKey) : null,
       value: value,
       onChanged: (bool newValue) {
         value = newValue;
