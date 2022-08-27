@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
-import 'package:saber/components/toolbar/color_option.dart';
+import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/pages/editor/editor.dart';
 
 class Toolbar extends StatefulWidget {
   const Toolbar({
@@ -37,17 +36,6 @@ class Toolbar extends StatefulWidget {
   final VoidCallback toggleFingerDrawing;
   final bool isFingerDrawingEnabled;
 
-  static final colorOptions = [
-    Colors.black,
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-    Colors.purple,
-    Colors.orange,
-    Colors.white,
-  ];
-
   @override
   State<Toolbar> createState() => _ToolbarState();
 }
@@ -74,52 +62,8 @@ class _ToolbarState extends State<Toolbar> {
               alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
               maintainState: true,
               collapsed: !showColorOptions,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        for (String colorString in Prefs.recentColors.value.reversed) ColorOption(
-                          isSelected: Pen.currentPen.strokeProperties.color == Color(int.parse(colorString)),
-                          onTap: () => widget.setColor(Color(int.parse(colorString))),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Color(int.parse(colorString)),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                        for (int i = 0; i < 5 - Prefs.recentColors.value.length; ++i) ColorOption(
-                          isSelected: false,
-                          onTap: () {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: colorScheme.onSurface.withOpacity(0.5),
-                                width: 2,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const ColorOptionSeparator(),
-                        for (Color color in Toolbar.colorOptions) ColorOption(
-                          isSelected: Pen.currentPen.strokeProperties.color == color,
-                          onTap: () => widget.setColor(color),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: color,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              child: ColorBar(
+                setColor: widget.setColor,
               ),
             ),
             Center(
