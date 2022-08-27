@@ -18,10 +18,10 @@ abstract class Prefs {
 
 }
 
-abstract class IPref<T> extends ValueNotifier<T> {
+abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   final String key;
 
-  dynamic _prefs;
+  Preferences? _prefs;
 
   IPref(this.key, T defaultValue) : super(defaultValue) {
     _load().then((_) => addListener(() {
@@ -31,7 +31,7 @@ abstract class IPref<T> extends ValueNotifier<T> {
 
   Future<void> _load();
 }
-class PlainPref<T> extends IPref<T> {
+class PlainPref<T> extends IPref<T, SharedPreferences> {
   PlainPref(super.key, super.defaultValue);
 
   @override
@@ -44,7 +44,7 @@ class PlainPref<T> extends IPref<T> {
   }
 }
 
-class EncPref<T extends String> extends IPref<T> {
+class EncPref<T extends String> extends IPref<T, EncryptedSharedPreferences> {
   EncPref(super.key, super.defaultValue);
 
   @override
