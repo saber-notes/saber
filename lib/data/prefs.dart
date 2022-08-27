@@ -1,6 +1,6 @@
 
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
@@ -24,12 +24,11 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   Preferences? _prefs;
 
   IPref(this.key, T defaultValue) : super(defaultValue) {
-    _load().then((_) => addListener(() {
-      _prefs?.setString(key, value.toString());
-    }));
+    _load().then((_) => addListener(_save));
   }
 
   Future<void> _load();
+  Future<void> _save();
 }
 class PlainPref<T> extends IPref<T, SharedPreferences> {
   PlainPref(super.key, super.defaultValue);
@@ -37,9 +36,32 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
   @override
   Future _load() async {
     _prefs = await SharedPreferences.getInstance();
-    final T? currentValue = _prefs!.get(key) as T?;
+    final T? currentValue;
+
+    try {
+      currentValue = _prefs!.get(key) as T?;
+    } catch (e) {
+      if (kDebugMode) print("Error loading $key: $e");
+      return;
+    }
+
     if (currentValue != null) {
       value = currentValue;
+    }
+  }
+
+  @override
+  Future _save() {
+    if (value is bool) {
+      return _prefs!.setBool(key, value as bool);
+    } else if (value is int) {
+      return _prefs!.setInt(key, value as int);
+    } else if (value is double) {
+      return _prefs!.setDouble(key, value as double);
+    } else if (value is List<String>) {
+      return _prefs!.setStringList(key, value as List<String>);
+    } else {
+      return _prefs!.setString(key, value as String);
     }
   }
 }
@@ -55,4 +77,7 @@ class EncPref<T extends String> extends IPref<T, EncryptedSharedPreferences> {
       value = currentValue;
     }
   }
+
+  @override
+  Future _save() => _prefs!.setString(key, value);
 }
