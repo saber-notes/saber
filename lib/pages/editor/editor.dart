@@ -321,7 +321,9 @@ class _EditorState extends State<Editor> {
               currentTool: currentTool,
               setColor: (color) {
                 setState(() {
-                  Prefs.recentColors.value.add(color.value.toString());
+                  final String colorString = color.value.toString();
+                  Prefs.recentColors.value.remove(colorString);
+                  Prefs.recentColors.value.add(colorString);
                   if (Prefs.recentColors.value.length > 5) Prefs.recentColors.value.removeAt(0);
                   Prefs.recentColors.notifyListeners();
 
