@@ -1,7 +1,6 @@
 
 import 'dart:convert';
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
@@ -9,33 +8,17 @@ import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
-import 'package:saber/components/canvas/inner_canvas.dart';
 
 const Uuid uuid = Uuid();
-
-Future<List<Stroke>> loadStrokesFromPath(String path) async {
-  String? json = await FileManager.readFile(path + Editor.extension);
-  if (json == null) return [];
-
-  try {
-    final List<dynamic> parsed = jsonDecode(json);
-    return parsed
-        .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
-        .toList();
-  } catch (e) {
-    if (kDebugMode) print('Error parsing json: $e');
-    return [];
-  }
-}
 
 class Editor extends StatefulWidget {
   Editor({
@@ -57,12 +40,13 @@ class Editor extends StatefulWidget {
 class _EditorState extends State<Editor> {
   final List<EditorPage> pages = [];
 
+  EditorCoreInfo coreInfo = EditorCoreInfo();
+
   String path = "";
   late bool needsNaming;
 
   late Tool currentTool;
 
-  final List<Stroke> strokes = [];
   final List<Stroke> strokesRedoStack = [];
   bool isRedoPossible = false;
   Timer? _delayedSaveTimer;
@@ -84,6 +68,8 @@ class _EditorState extends State<Editor> {
   @override
   void initState() {
     needsNaming = widget.needsNaming;
+
+
 
     Pen.currentPen = Pen.fountainPen();
     currentTool = Pen.currentPen;
@@ -107,12 +93,11 @@ class _EditorState extends State<Editor> {
     await _initStrokes();
   }
   Future _initStrokes() async {
-    List<Stroke> strokes = await loadFromFile();
-    if (strokes.isEmpty) {
+    coreInfo = await EditorCoreInfo.loadFromFilePath(path);
+    if (coreInfo.strokes.isEmpty) {
       pages.add(EditorPage());
     } else {
-      for (Stroke stroke in strokes) {
-        this.strokes.add(stroke);
+      for (Stroke stroke in coreInfo.strokes) {
         createPageOfStroke(stroke);
       }
     }
@@ -131,19 +116,19 @@ class _EditorState extends State<Editor> {
   void removeExcessPagesAfterStroke(Stroke stroke) {
     // remove excess pages if all pages >= this one are empty
     for (int i = pages.length - 1; i >= stroke.pageIndex + 1; --i) {
-      final pageEmpty = !strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
+      final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
       if (pageEmpty) pages.removeAt(i);
     }
   }
 
   undo() {
-    if (strokes.isNotEmpty) {
+    if (coreInfo.strokes.isNotEmpty) {
       if (!isRedoPossible && strokesRedoStack.isNotEmpty) {
         // no redo is possible, clear the redo stack
         strokesRedoStack.clear();
       }
       setState(() {
-        Stroke undoneStroke = strokes.removeLast();
+        Stroke undoneStroke = coreInfo.strokes.removeLast();
         strokesRedoStack.add(undoneStroke);
         removeExcessPagesAfterStroke(undoneStroke);
         isRedoPossible = true;
@@ -156,7 +141,7 @@ class _EditorState extends State<Editor> {
     if (isRedoPossible) {
       setState(() {
         Stroke redoneStroke = strokesRedoStack.removeLast();
-        strokes.add(redoneStroke);
+        coreInfo.strokes.add(redoneStroke);
         createPageOfStroke(redoneStroke);
         isRedoPossible = strokesRedoStack.isNotEmpty;
       });
@@ -182,7 +167,7 @@ class _EditorState extends State<Editor> {
       return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
-        Stroke accident = strokes.removeLast();
+        Stroke accident = coreInfo.strokes.removeLast();
         removeExcessPagesAfterStroke(accident);
 
         isRedoPossible = strokesRedoStack.isNotEmpty;
@@ -208,8 +193,8 @@ class _EditorState extends State<Editor> {
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
-      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes).reversed) {
-        Stroke removed = strokes.removeAt(i);
+      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, coreInfo.strokes).reversed) {
+        Stroke removed = coreInfo.strokes.removeAt(i);
         removeExcessPagesAfterStroke(removed);
       }
     }
@@ -222,8 +207,8 @@ class _EditorState extends State<Editor> {
       if (currentTool is Pen) {
         (currentTool as Pen).onDragUpdate(position, currentPressure);
       } else if (currentTool is Eraser) {
-        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokes).reversed) {
-          Stroke removed = strokes.removeAt(i);
+        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, coreInfo.strokes).reversed) {
+          Stroke removed = coreInfo.strokes.removeAt(i);
           removeExcessPagesAfterStroke(removed);
         }
       }
@@ -233,7 +218,7 @@ class _EditorState extends State<Editor> {
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
-        strokes.add(newStroke);
+        coreInfo.strokes.add(newStroke);
         createPageOfStroke(newStroke);
       }
     });
@@ -252,9 +237,8 @@ class _EditorState extends State<Editor> {
 
 
   String get _filename => path.substring(path.lastIndexOf('/') + 1);
-  Future<List<Stroke>> loadFromFile() async => loadStrokesFromPath(path);
   void saveToFile() async {
-    String toSave = json.encode(strokes);
+    String toSave = json.encode(coreInfo);
     await FileManager.writeFile(path + Editor.extension, toSave);
   }
 
@@ -316,7 +300,7 @@ class _EditorState extends State<Editor> {
                       path: path,
                       pageIndex: pageIndex,
                       innerCanvasKey: pages[pageIndex].innerCanvasKey,
-                      strokes: strokes.where((stroke) => stroke.pageIndex == pageIndex),
+                      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex),
                       currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
                     ),
                     const SizedBox(height: 16),
@@ -344,7 +328,7 @@ class _EditorState extends State<Editor> {
                 });
               },
               undo: undo,
-              isUndoPossible: strokes.isNotEmpty,
+              isUndoPossible: coreInfo.strokes.isNotEmpty,
               redo: redo,
               isRedoPossible: isRedoPossible,
               toggleFingerDrawing: () {

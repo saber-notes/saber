@@ -2,10 +2,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
-import 'package:saber/pages/editor/editor.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 
 class PreviewCard extends StatefulWidget {
   const PreviewCard({
@@ -23,23 +22,23 @@ class PreviewCard extends StatefulWidget {
 
 class _PreviewCardState extends State<PreviewCard> {
   /// cache strokes so there's no delay the second time we see this preview card
-  static final Map<String, Iterable<Stroke>> _mapFilePathToStrokes = {};
+  static final Map<String, EditorCoreInfo> _mapFilePathToEditorInfo = {};
 
-  late Iterable<Stroke> _strokes;
-  Iterable<Stroke> get strokes => _strokes;
-  set strokes(Iterable<Stroke> strokes) {
-    _mapFilePathToStrokes[widget.filePath] = _strokes = strokes;
+  late EditorCoreInfo _coreInfo;
+  EditorCoreInfo get coreInfo => _coreInfo;
+  set coreInfo(EditorCoreInfo coreInfo) {
+    _mapFilePathToEditorInfo[widget.filePath] = _coreInfo = coreInfo;
   }
 
   double get height {
     double fullHeight = Canvas.canvasHeight;
-    double maxY = strokes.isEmpty ? 0 : strokes.map((stroke) => stroke.maxY).reduce(max);
+    double maxY = coreInfo.strokes.isEmpty ? 0 : coreInfo.strokes.map((stroke) => stroke.maxY).reduce(max);
     return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
   }
 
   @override
   void initState() {
-    _strokes = _mapFilePathToStrokes[widget.filePath] ?? [];
+    _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
 
     findStrokes();
 
@@ -47,7 +46,7 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 
   Future findStrokes() async {
-    strokes = (await loadStrokesFromPath(widget.filePath)).where((stroke) => stroke.pageIndex == 0);
+    coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath);
 
     setState(() {
 
@@ -69,7 +68,7 @@ class _PreviewCardState extends State<PreviewCard> {
               CanvasPreview(
                 path: widget.filePath,
                 height: height,
-                strokes: strokes,
+                strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0),
               ),
               const SizedBox(height: 8),
               Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
