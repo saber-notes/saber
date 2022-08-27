@@ -16,6 +16,8 @@ abstract class Prefs {
 
   static PlainPref<bool> editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
 
+  static PlainPref<List<String>> recentColors = PlainPref("recentColors", []);
+
 }
 
 abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
@@ -29,6 +31,11 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
 
   Future<void> _load();
   Future<void> _save();
+
+  /// Lets us use notifyListeners outside of the class
+  /// as super.notifyListeners is @protected
+  @override
+  void notifyListeners() => super.notifyListeners();
 }
 class PlainPref<T> extends IPref<T, SharedPreferences> {
   PlainPref(super.key, super.defaultValue);
@@ -39,7 +46,11 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
     final T? currentValue;
 
     try {
-      currentValue = _prefs!.get(key) as T?;
+      if (T == List<String>) {
+        currentValue = _prefs!.getStringList(key) as T?;
+      } else {
+        currentValue = _prefs!.get(key) as T?;
+      }
     } catch (e) {
       if (kDebugMode) print("Error loading $key: $e");
       return;

@@ -334,6 +334,15 @@ class _EditorState extends State<Editor> {
                 });
               },
               currentTool: currentTool,
+              setColor: (color) {
+                setState(() {
+                  Prefs.recentColors.value.add(color.value.toString());
+                  if (Prefs.recentColors.value.length > 5) Prefs.recentColors.value.removeAt(0);
+                  Prefs.recentColors.notifyListeners();
+
+                  Pen.currentPen.strokeProperties.color = color;
+                });
+              },
               undo: undo,
               isUndoPossible: strokes.isNotEmpty,
               redo: redo,

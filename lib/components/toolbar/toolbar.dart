@@ -14,6 +14,7 @@ class Toolbar extends StatefulWidget {
     Key? key,
     required this.setTool,
     required this.currentTool,
+    required this.setColor,
 
     required this.undo,
     required this.isUndoPossible,
@@ -26,6 +27,7 @@ class Toolbar extends StatefulWidget {
 
   final ValueChanged<Tool> setTool;
   final Tool currentTool;
+  final ValueChanged<Color> setColor;
 
   final VoidCallback undo;
   final bool isUndoPossible;
@@ -79,12 +81,20 @@ class _ToolbarState extends State<Toolbar> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
+                        for (String colorString in Prefs.recentColors.value.reversed) ColorOption(
+                          isSelected: Pen.currentPen.strokeProperties.color == Color(int.parse(colorString)),
+                          onTap: () => widget.setColor(Color(int.parse(colorString))),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Color(int.parse(colorString)),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        const ColorOptionSeparator(),
                         for (Color color in Toolbar.colorOptions) ColorOption(
                           isSelected: Pen.currentPen.strokeProperties.color == color,
-                          onTap: () {
-                            Pen.currentPen.strokeProperties.color = color;
-                            widget.setTool(Pen.currentPen);
-                          },
+                          onTap: () => widget.setColor(color),
                           child: Container(
                             decoration: BoxDecoration(
                               color: color,

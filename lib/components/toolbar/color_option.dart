@@ -42,3 +42,25 @@ class ColorOption extends StatelessWidget {
     );
   }
 }
+
+class ColorOptionSeparator extends StatelessWidget {
+  const ColorOptionSeparator({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var colorScheme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      child: Container(
+        width: 4,
+        height: 4,
+        decoration: BoxDecoration(
+          color: colorScheme.onSurface,
+          shape: BoxShape.circle,
+        ),
+      ),
+    );
+  }
+}
