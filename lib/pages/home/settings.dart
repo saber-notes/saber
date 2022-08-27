@@ -30,7 +30,7 @@ class SettingsPage extends StatelessWidget {
                 pref: Prefs.editorToolbarOnBottom,
               ),
               SettingsSwitch(
-                title: "Darken notes in dark mode",
+                title: "Invert notes in dark mode",
                 pref: Prefs.editorAutoDarken,
               )
             ],
