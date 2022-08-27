@@ -16,7 +16,7 @@ abstract class Prefs {
 
   static PlainPref<bool> editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
   static PlainPref<bool> editorFingerDrawing = PlainPref("editorFingerDrawing", true);
-  static PlainPref<bool> editorAutoDarken = PlainPref("editorAutoDarken", true);
+  static PlainPref<bool> editorAutoInvert = PlainPref("editorAutoInvert", true);
 
   static PlainPref<List<String>> recentColors = PlainPref("recentColors", []);
 

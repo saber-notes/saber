@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/toolbar/color_option.dart';
 import 'package:saber/data/prefs.dart';
@@ -28,6 +29,10 @@ class ColorBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
+
+    Brightness brightness = Theme.of(context).brightness;
+    bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -41,7 +46,7 @@ class ColorBar extends StatelessWidget {
                 onTap: () => setColor(Color(int.parse(colorString))),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(int.parse(colorString)),
+                    color: Color(int.parse(colorString)).withInversion(invert),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -70,7 +75,7 @@ class ColorBar extends StatelessWidget {
                 onTap: () => setColor(color),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: color,
+                    color: color.withInversion(invert),
                     shape: BoxShape.circle,
                   ),
                 ),

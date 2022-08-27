@@ -45,14 +45,14 @@ class _InnerCanvasState extends State<InnerCanvas> {
   @override
   Widget build(BuildContext context) {
     final Color backgroundColor;
-    bool darken = false;
+    bool invert = false;
     if (widget.coreInfo.backgroundColor != null) {
       backgroundColor = widget.coreInfo.backgroundColor!;
     } else {
       Brightness brightness = Theme.of(context).brightness;
-      if (Prefs.editorAutoDarken.value && brightness == Brightness.dark) {
+      if (Prefs.editorAutoInvert.value && brightness == Brightness.dark) {
         backgroundColor = Colors.black.withOpacity(0.95);
-        darken = true;
+        invert = true;
       } else {
         backgroundColor = Colors.white.withOpacity(0.95);
       }
@@ -60,7 +60,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     return CustomPaint(
       foregroundPainter: CanvasPainter(
-        darken: darken,
+        invert: invert,
         strokes: widget.coreInfo.strokes,
         currentStroke: widget.currentStroke,
       ),
