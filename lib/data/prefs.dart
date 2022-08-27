@@ -16,7 +16,7 @@ abstract class Prefs {
 
   static PlainPref<bool> editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
   static PlainPref<bool> editorFingerDrawing = PlainPref("editorFingerDrawing", true);
-  static PlainPref<bool> editorAutoInvert = PlainPref("editorAutoInvert", true);
+  static PlainPref<bool> editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
 
   static PlainPref<List<String>> recentColors = PlainPref("recentColors", []);
 
@@ -24,15 +24,21 @@ abstract class Prefs {
 
 abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   final String key;
+  final List<String> historicalKeys;
 
   Preferences? _prefs;
 
-  IPref(this.key, T defaultValue) : super(defaultValue) {
+  IPref(this.key, T defaultValue, {
+    List<String>? historicalKeys
+  }) : historicalKeys = historicalKeys ?? [],
+        super(defaultValue) {
     _load().then((_) => addListener(_save));
   }
 
   Future<void> _load();
   Future<void> _save();
+  @protected
+  Future<T?> getValueWithKey(String key);
 
   /// Lets us use notifyListeners outside of the class
   /// as super.notifyListeners is @protected
@@ -40,26 +46,26 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   void notifyListeners() => super.notifyListeners();
 }
 class PlainPref<T> extends IPref<T, SharedPreferences> {
-  PlainPref(super.key, super.defaultValue);
+  PlainPref(super.key, super.defaultValue, {super.historicalKeys});
 
   @override
   Future _load() async {
     _prefs = await SharedPreferences.getInstance();
-    final T? currentValue;
 
-    try {
-      if (T == List<String>) {
-        currentValue = _prefs!.getStringList(key) as T?;
-      } else {
-        currentValue = _prefs!.get(key) as T?;
-      }
-    } catch (e) {
-      if (kDebugMode) print("Error loading $key: $e");
+    T? currentValue = await getValueWithKey(key);
+    if (currentValue != null) {
+      value = currentValue;
       return;
     }
 
-    if (currentValue != null) {
+    for (String historicalKey in historicalKeys) {
+      currentValue = await getValueWithKey(historicalKey);
+      if (currentValue == null) continue;
+
       value = currentValue;
+      await _save();
+      _prefs!.remove(historicalKey);
+      return;
     }
   }
 
@@ -77,20 +83,58 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
       return _prefs!.setString(key, value as String);
     }
   }
+
+  @override
+  Future<T?> getValueWithKey(String key) async {
+    try {
+      if (!_prefs!.containsKey(key)) {
+        return null;
+      } else if (T == List<String>) {
+        return _prefs!.getStringList(key) as T?;
+      } else {
+        return _prefs!.get(key) as T?;
+      }
+    } catch (e) {
+      if (kDebugMode) print("Error loading $key: $e");
+      return null;
+    }
+  }
 }
 
 class EncPref<T extends String> extends IPref<T, EncryptedSharedPreferences> {
-  EncPref(super.key, super.defaultValue);
+  EncPref(super.key, super.defaultValue, {super.historicalKeys});
 
   @override
   Future _load() async {
     _prefs = EncryptedSharedPreferences();
-    final T currentValue = await _prefs!.getString(key) as T;
-    if (currentValue.isNotEmpty) {
+    T? currentValue = await getValueWithKey(key);
+    if (currentValue != null) {
       value = currentValue;
+      return;
+    }
+
+    for (String historicalKey in historicalKeys) {
+      currentValue = await getValueWithKey(historicalKey);
+      if (currentValue == null) continue;
+
+      value = currentValue;
+      await _save();
+      _prefs!.remove(historicalKey);
+      return;
     }
   }
 
   @override
   Future _save() => _prefs!.setString(key, value);
+
+  @override
+  Future<T?> getValueWithKey(String key) async {
+    try {
+      final value = await _prefs!.getString(key) as T;
+      return value.isNotEmpty ? value : null;
+    } catch (e) {
+      if (kDebugMode) print("Error loading $key: $e");
+      return null;
+    }
+  }
 }
