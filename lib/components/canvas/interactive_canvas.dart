@@ -27,6 +27,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.alignPanAxis = false,
     this.boundaryMargin = EdgeInsets.zero,
     this.constrained = true,
+    this.scrollZoomEnabled = true,
     // These default scale values were eyeballed as reasonable limits for common
     // use cases.
     this.maxScale = 2.5,
@@ -67,6 +68,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.clipBehavior = Clip.hardEdge,
     this.alignPanAxis = false,
     this.boundaryMargin = EdgeInsets.zero,
+    this.scrollZoomEnabled = true,
     // These default scale values were eyeballed as reasonable limits for common
     // use cases.
     this.maxScale = 2.5,
@@ -183,6 +185,9 @@ class InteractiveCanvasViewer extends StatefulWidget {
   /// ** See code in examples/api/lib/widgets/interactive_viewer/interactive_viewer.constrained.0.dart **
   /// {@end-tool}
   final bool constrained;
+
+  /// Whether the mouse scrollwheel can be used to zoom in and out on desktop.
+  final bool scrollZoomEnabled;
 
   /// If false, the user will be prevented from panning.
   ///
@@ -853,14 +858,11 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   void _receivedPointerSignal(PointerSignalEvent event) {
     if (event is PointerScrollEvent) {
       // Ignore left and right scroll.
-      if (event.scrollDelta.dy == 0.0) {
-        return;
-      }
-      final double scaleChange = math.exp(-event.scrollDelta.dy / widget.scaleFactor);
+      if (event.scrollDelta.dy == 0.0) return;
+      if (!_gestureIsSupported(_GestureType.scale)) return;
+      if (!widget.scrollZoomEnabled) return;
 
-      if (!_gestureIsSupported(_GestureType.scale)) {
-        return;
-      }
+      final double scaleChange = math.exp(-event.scrollDelta.dy / widget.scaleFactor);
 
       final Offset focalPointScene = _transformationController!.toScene(
         event.localPosition,

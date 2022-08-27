@@ -27,6 +27,7 @@ class CanvasPreview extends StatelessWidget {
 
       child: InteractiveCanvasViewer(
         maxScale: 5,
+        scrollZoomEnabled: false,
 
         child: FittedBox(
           child: InnerCanvas(
