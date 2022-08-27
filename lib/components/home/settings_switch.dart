@@ -22,11 +22,13 @@ class SettingsSwitch extends StatefulWidget {
 class _SettingsSwitchState extends State<SettingsSwitch> {
   @override
   void initState() {
-    widget.pref.addListener(() => setState(() {}));
-    widget.pref.addListener(() {
-      widget.afterChange?.call(widget.pref.value);
-    });
+    widget.pref.addListener(onChanged);
     super.initState();
+  }
+
+  void onChanged() {
+    widget.afterChange?.call(widget.pref.value);
+    setState(() { });
   }
 
   @override
@@ -39,5 +41,11 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
         widget.pref.value = value;
       },
     );
+  }
+
+  @override
+  void dispose() {
+    widget.pref.removeListener(onChanged);
+    super.dispose();
   }
 }
