@@ -46,7 +46,10 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   void notifyListeners() => super.notifyListeners();
 }
 class PlainPref<T> extends IPref<T, SharedPreferences> {
-  PlainPref(super.key, super.defaultValue, {super.historicalKeys});
+  PlainPref(super.key, super.defaultValue, {super.historicalKeys}) {
+    // Accepted types
+    assert(T == bool || T == int || T == double || T == typeOf<List<String>>() || T == String);
+  }
 
   @override
   Future _load() async {
@@ -71,13 +74,13 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
 
   @override
   Future _save() {
-    if (value is bool) {
+    if (T == bool) {
       return _prefs!.setBool(key, value as bool);
-    } else if (value is int) {
+    } else if (T == int) {
       return _prefs!.setInt(key, value as int);
-    } else if (value is double) {
+    } else if (T == double) {
       return _prefs!.setDouble(key, value as double);
-    } else if (value is List<String>) {
+    } else if (T == typeOf<List<String>>()) {
       return _prefs!.setStringList(key, value as List<String>);
     } else {
       return _prefs!.setString(key, value as String);
@@ -138,3 +141,5 @@ class EncPref<T extends String> extends IPref<T, EncryptedSharedPreferences> {
     }
   }
 }
+
+Type typeOf<T>() => T;
