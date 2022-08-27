@@ -50,4 +50,13 @@ class EditorCoreInfo {
     's': strokes,
     'b': backgroundColor?.value,
   };
+
+  EditorCoreInfo copyWith({
+    List<Stroke>? strokes,
+  }) {
+    return EditorCoreInfo(
+      strokes: strokes ?? this.strokes,
+      backgroundColor: backgroundColor,
+    );
+  }
 }

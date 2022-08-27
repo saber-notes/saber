@@ -29,6 +29,10 @@ class SettingsPage extends StatelessWidget {
                 title: "Editor toolbar on the bottom",
                 pref: Prefs.editorToolbarOnBottom,
               ),
+              SettingsSwitch(
+                title: "Darken notes in dark mode",
+                pref: Prefs.editorAutoDarken,
+              )
             ],
           )),
 

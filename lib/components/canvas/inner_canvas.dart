@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/prefs.dart';
 
 import '_canvas_painter.dart';
 import '_stroke.dart';
@@ -11,18 +13,20 @@ class InnerCanvas extends StatefulWidget {
     this.pageIndex = 0,
     required this.width,
     required this.height,
-    required Iterable<Stroke> strokes,
+    required EditorCoreInfo coreInfo,
     required this.currentStroke,
     this.onRenderObjectChange,
   }) : super(key: key) {
-    this.strokes = strokes.where((stroke) => isStrokeInPage(stroke)).toList();
+    this.coreInfo = coreInfo.copyWith(
+      strokes: coreInfo.strokes.where((stroke) => isStrokeInPage(stroke)).toList(),
+    );
   }
 
   final int pageIndex;
   final double width;
   final double height;
 
-  late final Iterable<Stroke> strokes;
+  late final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
 
@@ -40,9 +44,24 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
   @override
   Widget build(BuildContext context) {
+    final Color backgroundColor;
+    bool darken = false;
+    if (widget.coreInfo.backgroundColor != null) {
+      backgroundColor = widget.coreInfo.backgroundColor!;
+    } else {
+      Brightness brightness = Theme.of(context).brightness;
+      if (Prefs.editorAutoDarken.value && brightness == Brightness.dark) {
+        backgroundColor = Colors.black.withOpacity(0.95);
+        darken = true;
+      } else {
+        backgroundColor = Colors.white.withOpacity(0.95);
+      }
+    }
+
     return CustomPaint(
       foregroundPainter: CanvasPainter(
-        strokes: widget.strokes,
+        darken: darken,
+        strokes: widget.coreInfo.strokes,
         currentStroke: widget.currentStroke,
       ),
       isComplex: true,
@@ -50,7 +69,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       child: Container(
         width: widget.width,
         height: widget.height,
-        color: const Color.fromRGBO(245, 245, 245, 1),
+        color: backgroundColor,
       ),
     );
   }

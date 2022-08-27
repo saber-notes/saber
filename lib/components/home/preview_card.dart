@@ -68,7 +68,7 @@ class _PreviewCardState extends State<PreviewCard> {
               CanvasPreview(
                 path: widget.filePath,
                 height: height,
-                strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0),
+                coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
               ),
               const SizedBox(height: 8),
               Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),

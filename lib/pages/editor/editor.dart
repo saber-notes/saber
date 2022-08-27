@@ -299,7 +299,9 @@ class _EditorState extends State<Editor> {
                       path: path,
                       pageIndex: pageIndex,
                       innerCanvasKey: pages[pageIndex].innerCanvasKey,
-                      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex),
+                      coreInfo: coreInfo.copyWith(
+                        strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
+                      ),
                       currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
                     ),
                     const SizedBox(height: 16),

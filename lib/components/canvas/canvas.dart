@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 
 import '_stroke.dart';
 import 'inner_canvas.dart';
@@ -10,7 +11,7 @@ class Canvas extends StatelessWidget {
     required this.path,
     required this.pageIndex,
     required this.innerCanvasKey,
-    required this.strokes,
+    required this.coreInfo,
     required this.currentStroke,
   }) : super(key: key);
 
@@ -20,7 +21,7 @@ class Canvas extends StatelessWidget {
   final String path;
   final int pageIndex;
 
-  final Iterable<Stroke> strokes;
+  final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
 
   final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
@@ -37,7 +38,7 @@ class Canvas extends StatelessWidget {
               key: innerCanvasKey,
               width: canvasWidth,
               height: canvasHeight,
-              strokes: strokes,
+              coreInfo: coreInfo,
               currentStroke: currentStroke,
             ),
           ),

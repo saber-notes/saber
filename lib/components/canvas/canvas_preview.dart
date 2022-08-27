@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 
 import '_stroke.dart';
 import 'inner_canvas.dart';
@@ -11,14 +12,14 @@ class CanvasPreview extends StatelessWidget {
     Key? key,
     required this.path,
     required this.height,
-    required this.strokes,
+    required this.coreInfo,
   }) : super(key: key);
 
   final String path;
   final int pageIndex = 0;
 
   final double? height;
-  final Iterable<Stroke> strokes;
+  final EditorCoreInfo coreInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CanvasPreview extends StatelessWidget {
           child: InnerCanvas(
             width: Canvas.canvasWidth,
             height: height ?? Canvas.canvasHeight * 0.1,
-            strokes: strokes,
+            coreInfo: coreInfo,
             currentStroke: null,
           ),
         ),
