@@ -92,10 +92,14 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.palette),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Eraser",
+                        tooltip: "Toggle eraser",
                         selected: widget.currentTool is Eraser,
                         onPressed: () {
-                          widget.setTool(Eraser());
+                          if (widget.currentTool is Eraser) {
+                            widget.setTool(Pen.currentPen);
+                          } else {
+                            widget.setTool(Eraser());
+                          }
                         },
                         child: const Icon(Icons.remove), // todo: better eraser icon
                       ),
