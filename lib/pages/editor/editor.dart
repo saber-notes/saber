@@ -264,6 +264,36 @@ class _EditorState extends State<Editor> {
     needsNaming = false;
   }
 
+  void updateColorBar(Color color) {
+    final String newColorString = color.value.toString();
+
+    // migrate from old pref format
+    if (Prefs.recentColorsPositioned.value.length != Prefs.recentColorsChronological.value.length) {
+      Prefs.recentColorsPositioned.value = List.of(Prefs.recentColorsChronological.value);
+    }
+
+    if (Prefs.recentColorsPositioned.value.contains(newColorString)) {
+      // if the color is already in the list, move it to the top
+      Prefs.recentColorsChronological.value.remove(newColorString);
+      Prefs.recentColorsChronological.value.add(newColorString);
+      Prefs.recentColorsChronological.notifyListeners();
+    } else {
+      if (Prefs.recentColorsPositioned.value.length >= 5) {
+        // if full, replace the oldest color with the new one
+        final String removedColorString = Prefs.recentColorsChronological.value.removeAt(0);
+        Prefs.recentColorsChronological.value.add(newColorString);
+        final int removedColorPosition = Prefs.recentColorsPositioned.value.indexOf(removedColorString);
+        Prefs.recentColorsPositioned.value[removedColorPosition] = newColorString;
+      } else {
+        // if not full, add the new color to the end
+        Prefs.recentColorsChronological.value.add(newColorString);
+        Prefs.recentColorsPositioned.value.add(newColorString);
+      }
+      Prefs.recentColorsChronological.notifyListeners();
+      Prefs.recentColorsPositioned.notifyListeners();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -321,11 +351,7 @@ class _EditorState extends State<Editor> {
               currentTool: currentTool,
               setColor: (color) {
                 setState(() {
-                  final String colorString = color.value.toString();
-                  Prefs.recentColors.value.remove(colorString);
-                  Prefs.recentColors.value.add(colorString);
-                  if (Prefs.recentColors.value.length > 5) Prefs.recentColors.value.removeAt(0);
-                  Prefs.recentColors.notifyListeners();
+                  updateColorBar(color);
 
                   Pen.currentPen.strokeProperties.color = color;
                 });

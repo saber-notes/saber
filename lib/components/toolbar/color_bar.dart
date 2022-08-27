@@ -41,7 +41,7 @@ class ColorBar extends StatelessWidget {
           child: Row(
             children: [
               // recent colors
-              for (String colorString in Prefs.recentColors.value.reversed) ColorOption(
+              for (String colorString in Prefs.recentColorsPositioned.value.reversed) ColorOption(
                 isSelected: Pen.currentPen.strokeProperties.color.value == int.parse(colorString),
                 onTap: () => setColor(Color(int.parse(colorString))),
                 child: Container(
@@ -52,7 +52,7 @@ class ColorBar extends StatelessWidget {
                 ),
               ),
               // placeholders for 5 recent colors
-              for (int i = 0; i < 5 - Prefs.recentColors.value.length; ++i) ColorOption(
+              for (int i = 0; i < 5 - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
                 isSelected: false,
                 onTap: () {},
                 child: Container(
