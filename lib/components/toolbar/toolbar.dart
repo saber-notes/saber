@@ -21,7 +21,6 @@ class Toolbar extends StatefulWidget {
     required this.isRedoPossible,
 
     required this.toggleFingerDrawing,
-    required this.isFingerDrawingEnabled,
   }) : super(key: key);
 
   final ValueChanged<Tool> setTool;
@@ -34,7 +33,6 @@ class Toolbar extends StatefulWidget {
   final bool isRedoPossible;
 
   final VoidCallback toggleFingerDrawing;
-  final bool isFingerDrawingEnabled;
 
   @override
   State<Toolbar> createState() => _ToolbarState();
@@ -110,7 +108,7 @@ class _ToolbarState extends State<Toolbar> {
                       ),
                       ToolbarIconButton(
                         tooltip: "Toggle finger drawing",
-                        selected: widget.isFingerDrawingEnabled,
+                        selected: Prefs.editorFingerDrawing.value,
                         onPressed: widget.toggleFingerDrawing,
                         child: const Icon(Icons.gesture),
                       ),

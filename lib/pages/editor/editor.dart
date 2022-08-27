@@ -160,7 +160,6 @@ class _EditorState extends State<Editor> {
 
   int? dragPageIndex;
   double? currentPressure;
-  bool isFingerDrawingEnabled = true;
   bool isDrawGesture(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -181,7 +180,7 @@ class _EditorState extends State<Editor> {
     dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
     if (dragPageIndex == null) return false;
 
-    if (isFingerDrawingEnabled || currentPressure != null) {
+    if (Prefs.editorFingerDrawing.value || currentPressure != null) {
       return true;
     } else {
       if (kDebugMode) print("Non-stylus found, rejected stroke");
@@ -333,11 +332,10 @@ class _EditorState extends State<Editor> {
               isRedoPossible: isRedoPossible,
               toggleFingerDrawing: () {
                 setState(() {
-                  isFingerDrawingEnabled = !isFingerDrawingEnabled;
+                  Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
                   _lastSeenPointerCount = 0;
                 });
               },
-              isFingerDrawingEnabled: isFingerDrawingEnabled,
             ),
           ),
         ],

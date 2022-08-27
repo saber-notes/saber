@@ -15,6 +15,7 @@ abstract class Prefs {
   static PlainPref<String> pfp = PlainPref("pfp", "");
 
   static PlainPref<bool> editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
+  static PlainPref<bool> editorFingerDrawing = PlainPref("editorFingerDrawing", true);
 
   static PlainPref<List<String>> recentColors = PlainPref("recentColors", []);
 
