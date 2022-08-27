@@ -91,6 +91,20 @@ class _ToolbarState extends State<Toolbar> {
                             ),
                           ),
                         ),
+                        for (int i = 0; i < 5 - Prefs.recentColors.value.length; ++i) ColorOption(
+                          isSelected: false,
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: colorScheme.onSurface.withOpacity(0.5),
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
                         const ColorOptionSeparator(),
                         for (Color color in Toolbar.colorOptions) ColorOption(
                           isSelected: Pen.currentPen.strokeProperties.color == color,
