@@ -15,7 +15,8 @@ class ColorBar extends StatelessWidget {
 
   static const double diameter = 25;
 
-  static final colorOptions = [
+  static List<Color> get colorOptions => Prefs.preferGreyscale.value ? greyScaleColorOptions : normalColorOptions;
+  static final List<Color> normalColorOptions = [
     Colors.black,
     Colors.red,
     Colors.green,
@@ -23,6 +24,13 @@ class ColorBar extends StatelessWidget {
     Colors.yellow,
     Colors.purple,
     Colors.orange,
+    Colors.white,
+  ];
+  static final List<Color> greyScaleColorOptions = [
+    Colors.black,
+    Colors.grey[800] ?? Colors.black54,
+    Colors.grey,
+    Colors.grey[200] ?? Colors.black12,
     Colors.white,
   ];
 
@@ -48,6 +56,10 @@ class ColorBar extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Color(int.parse(colorString)).withInversion(invert),
                     shape: BoxShape.circle,
+                    border: Border.all(
+                      color: colorScheme.onSurface.withOpacity(0.2),
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
@@ -60,8 +72,8 @@ class ColorBar extends StatelessWidget {
                     color: Colors.transparent,
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: colorScheme.onSurface.withOpacity(0.5),
-                      width: 2,
+                      color: colorScheme.onSurface.withOpacity(0.2),
+                      width: 1,
                     ),
                   ),
                 ),
@@ -77,6 +89,10 @@ class ColorBar extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: color.withInversion(invert),
                     shape: BoxShape.circle,
+                    border: Border.all(
+                      color: colorScheme.onSurface.withOpacity(0.2),
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
