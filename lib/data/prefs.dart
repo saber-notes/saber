@@ -5,22 +5,41 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
 
-  static EncPref url = EncPref("url", "");
-  static EncPref username = EncPref("username", "");
-  static EncPref password = EncPref("password", "");
+  static late EncPref url;
+  static late EncPref username;
+  static late EncPref password;
 
-  static EncPref key = EncPref("key", "");
-  static EncPref iv = EncPref("iv", "");
+  static late EncPref key;
+  static late EncPref iv;
 
-  static PlainPref<String> pfp = PlainPref("pfp", "");
+  static late PlainPref<String> pfp;
 
-  static PlainPref<bool> editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
-  static PlainPref<bool> editorFingerDrawing = PlainPref("editorFingerDrawing", true);
-  static PlainPref<bool> editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
-  static PlainPref<bool> preferGreyscale = PlainPref("preferGreyscale", false);
+  static late PlainPref<bool> editorToolbarOnBottom;
+  static late PlainPref<bool> editorFingerDrawing;
+  static late PlainPref<bool> editorAutoInvert;
+  static late PlainPref<bool> preferGreyscale;
 
-  static PlainPref<List<String>> recentColorsChronological = PlainPref("recentColorsChronological", [], historicalKeys: ["recentColors"]);
-  static PlainPref<List<String>> recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
+  static late PlainPref<List<String>> recentColorsChronological;
+  static late PlainPref<List<String>> recentColorsPositioned;
+
+  static void init() {
+    url = EncPref("url", "");
+    username = EncPref("username", "");
+    password = EncPref("password", "");
+
+    key = EncPref("key", "");
+    iv = EncPref("iv", "");
+
+    pfp = PlainPref("pfp", "");
+
+    editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
+    editorFingerDrawing = PlainPref("editorFingerDrawing", true);
+    editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
+    preferGreyscale = PlainPref("preferGreyscale", false);
+
+    recentColorsChronological = PlainPref("recentColorsChronological", [], historicalKeys: ["recentColors"]);
+    recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
+  }
 
 }
 

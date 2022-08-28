@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/editor/editor.dart';
-import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/home.dart';
-
-import 'package:saber/pages/home/recent_notes.dart';
-import 'package:saber/components/theming/dynamic_material_app.dart';
-import 'package:saber/pages/home/settings.dart';
 import 'package:saber/pages/nextcloud/login.dart';
 
 void main() {
+  Prefs.init();
   runApp(App());
 }
 
