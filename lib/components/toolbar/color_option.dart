@@ -5,12 +5,12 @@ class ColorOption extends StatelessWidget {
   const ColorOption({
     Key? key,
     required this.isSelected,
-    required this.onTap,
+    this.onTap,
     required this.child,
   }) : super(key: key);
 
   final bool isSelected;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget child;
 
   static const double diameter = 25;

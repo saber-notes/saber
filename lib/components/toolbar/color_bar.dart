@@ -66,7 +66,7 @@ class ColorBar extends StatelessWidget {
               // placeholders for 5 recent colors
               for (int i = 0; i < 5 - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
                 isSelected: false,
-                onTap: () {},
+                onTap: null,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
