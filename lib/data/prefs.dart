@@ -37,7 +37,7 @@ abstract class Prefs {
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
 
-    recentColorsChronological = PlainPref("recentColorsChronological", [], historicalKeys: ["recentColors"]);
+    recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
   }
 

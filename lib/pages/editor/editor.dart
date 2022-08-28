@@ -268,8 +268,9 @@ class _EditorState extends State<Editor> {
     final String newColorString = color.value.toString();
 
     // migrate from old pref format
-    if (Prefs.recentColorsPositioned.value.length != Prefs.recentColorsChronological.value.length) {
-      Prefs.recentColorsPositioned.value = List.of(Prefs.recentColorsChronological.value);
+    if (Prefs.recentColorsChronological.value.length != Prefs.recentColorsPositioned.value.length) {
+      if (kDebugMode) print("MIGRATING recentColors: ${Prefs.recentColorsChronological.value.length} vs ${Prefs.recentColorsPositioned.value.length}");
+      Prefs.recentColorsChronological.value = List.of(Prefs.recentColorsPositioned.value);
     }
 
     if (Prefs.recentColorsPositioned.value.contains(newColorString)) {
