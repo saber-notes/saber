@@ -71,6 +71,8 @@ dependencies:
 
   http: ^0.13.5
 
+  keybinder: ^1.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

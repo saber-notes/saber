@@ -221,6 +221,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
+  keybinder:
+    dependency: "direct main"
+    description:
+      name: keybinder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   lints:
     dependency: transitive
     description:
@@ -228,6 +235,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  list_utilities:
+    dependency: transitive
+    description:
+      name: list_utilities
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   logging:
     dependency: transitive
     description:
@@ -256,6 +270,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   nextcloud:
     dependency: "direct main"
     description:
@@ -412,6 +433,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.3"
   shared_preferences:
     dependency: "direct main"
     description:

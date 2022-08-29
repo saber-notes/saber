@@ -1,6 +1,8 @@
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
@@ -43,6 +45,43 @@ class _ToolbarState extends State<Toolbar> {
   bool showColorOptions = false;
 
   @override
+  void initState() {
+    _assignKeybindings();
+    super.initState();
+  }
+
+  Keybinding? _keyF;
+  Keybinding? _keyE;
+  Keybinding? _keyC;
+  _assignKeybindings() {
+    // todo: show these shortcuts to user
+    _keyF = Keybinding([KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
+    _keyE = Keybinding([KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
+    _keyC = Keybinding([KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
+    Keybinder.bind(_keyF!, widget.toggleFingerDrawing);
+    Keybinder.bind(_keyE!, toggleEraser);
+    Keybinder.bind(_keyC!, toggleColorOptions);
+  }
+  _removeKeybindings() {
+    if (_keyF != null) Keybinder.remove(_keyF!);
+    if (_keyE != null) Keybinder.remove(_keyE!);
+    if (_keyC != null) Keybinder.remove(_keyC!);
+  }
+
+  toggleEraser() {
+    if (widget.currentTool is Eraser) {
+      widget.setTool(Pen.currentPen);
+    } else {
+      widget.setTool(Eraser());
+    }
+  }
+  toggleColorOptions() {
+    setState(() {
+      showColorOptions = !showColorOptions;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
@@ -82,23 +121,13 @@ class _ToolbarState extends State<Toolbar> {
                       ToolbarIconButton(
                         tooltip: "Toggle colors",
                         selected: showColorOptions,
-                        onPressed: () {
-                          setState(() {
-                            showColorOptions = !showColorOptions;
-                          });
-                        },
+                        onPressed: toggleColorOptions,
                         child: const Icon(Icons.palette),
                       ),
                       ToolbarIconButton(
                         tooltip: "Toggle eraser",
                         selected: widget.currentTool is Eraser,
-                        onPressed: () {
-                          if (widget.currentTool is Eraser) {
-                            widget.setTool(Pen.currentPen);
-                          } else {
-                            widget.setTool(Eraser());
-                          }
-                        },
+                        onPressed: toggleEraser,
                         child: const Icon(Icons.remove), // todo: better eraser icon
                       ),
                       ToolbarIconButton(
@@ -131,5 +160,11 @@ class _ToolbarState extends State<Toolbar> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _removeKeybindings();
+    super.dispose();
   }
 }
