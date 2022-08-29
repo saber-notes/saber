@@ -50,7 +50,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     String avatar = await client.avatar.getAvatar(username, 512);
     Prefs.pfp.value = avatar;
 
-    String key = await client.getEncryptionKey(password);
+    String key = await client.getEncryptionKey();
     print("generated key: $key");
 
     // ignore: use_build_context_synchronously

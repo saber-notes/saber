@@ -4,7 +4,6 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
-import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -20,7 +19,7 @@ extension NextCloudClientExtension on NextCloudClient {
   /// generated with [BCrypt.gensalt()]
   static const String reproducibleSalt = r"8MnPs64@R&mF8XjWeLrD";
 
-  static Future<NextCloudClient?> fromSavedDetails() async {
+  static Future<NextCloudClient?> withSavedDetails() async {
     String url = Prefs.url.value;
     String username = Prefs.username.value;
     String password = Prefs.password.value;
@@ -52,11 +51,8 @@ extension NextCloudClientExtension on NextCloudClient {
     await webDav.upload(file, configFilePath);
   }
 
-  Future<String> getEncryptionKey(String password) async {
-    final List<int> encodedPassword = utf8.encode(password + reproducibleSalt);
-    final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
-    final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
-    final Encrypter encrypter = Encrypter(AES(passwordKey));
+  Future<String> getEncryptionKey() async {
+    final Encrypter encrypter = await this.encrypter;
 
     final Map<String, String> config = await getConfig();
 
@@ -77,5 +73,12 @@ extension NextCloudClientExtension on NextCloudClient {
     config[Prefs.iv.key] = iv.base64;
     await setConfig(config);
     return key.base64;
+  }
+
+  Future<Encrypter> get encrypter async {
+    final List<int> encodedPassword = utf8.encode(Prefs.password.value + reproducibleSalt);
+    final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
+    final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
+    return Encrypter(AES(passwordKey));
   }
 }
