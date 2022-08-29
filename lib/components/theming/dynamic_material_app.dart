@@ -24,11 +24,19 @@ class DynamicMaterialApp extends StatefulWidget {
 }
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
-  ColorScheme? linuxLightColorScheme;
-  ColorScheme? linuxDarkColorScheme;
+  late Color seedColor;
+  get lightColorScheme => ColorScheme.fromSeed(
+    seedColor: seedColor,
+  );
+  get darkColorScheme => ColorScheme.fromSeed(
+    seedColor: seedColor,
+    brightness: Brightness.dark,
+  );
+
 
   @override
   void initState() {
+    seedColor = widget.defaultSwatch;
     getLinuxColorScheme();
     super.initState();
   }
@@ -40,13 +48,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
     GtkThemeData gtkThemeData = await GtkThemeData.initialize();
 
     setState(() {
-      linuxLightColorScheme = ColorScheme.fromSeed(
-        seedColor: Color(gtkThemeData.theme_base_color),
-      );
-      linuxDarkColorScheme = ColorScheme.fromSeed(
-        seedColor: Color(gtkThemeData.theme_base_color),
-        brightness: Brightness.dark,
-      );
+      seedColor = Color(gtkThemeData.theme_base_color);
     });
   }
 
@@ -61,14 +63,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
           lightColorScheme = lightDynamic.harmonized();
           darkColorScheme = darkDynamic.harmonized();
         } else {
-          // Otherwise, use fallback schemes.
-          lightColorScheme = linuxLightColorScheme ?? ColorScheme.fromSeed(
-            seedColor: widget.defaultSwatch,
-          );
-          darkColorScheme = linuxDarkColorScheme ?? ColorScheme.fromSeed(
-            seedColor: widget.defaultSwatch,
-            brightness: Brightness.dark,
-          );
+          lightColorScheme = this.lightColorScheme;
+          darkColorScheme = this.darkColorScheme;
         }
 
         return MaterialApp.router(
