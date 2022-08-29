@@ -169,7 +169,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.8"
+    version: "4.3.0"
   gtk_theme_fl:
     dependency: "direct main"
     description:
