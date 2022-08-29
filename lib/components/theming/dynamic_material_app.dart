@@ -47,6 +47,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
 
     GtkThemeData gtkThemeData = await GtkThemeData.initialize();
 
+    if (gtkThemeData.theme_base_color < 0) return;
+
     setState(() {
       seedColor = Color(gtkThemeData.theme_base_color);
     });
