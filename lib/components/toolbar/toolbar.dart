@@ -54,7 +54,6 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _keyE;
   Keybinding? _keyC;
   _assignKeybindings() {
-    // todo: show these shortcuts to user
     _keyF = Keybinding([KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
     _keyE = Keybinding([KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
     _keyC = Keybinding([KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
@@ -119,13 +118,13 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.brush),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle colors",
+                        tooltip: "Toggle colors (C)",
                         selected: showColorOptions,
                         onPressed: toggleColorOptions,
                         child: const Icon(Icons.palette),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle eraser",
+                        tooltip: "Toggle eraser (E)",
                         selected: widget.currentTool is Eraser,
                         onPressed: toggleEraser,
                         child: const Icon(Icons.remove), // todo: better eraser icon
@@ -136,7 +135,7 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.photo_size_select_actual),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle finger drawing",
+                        tooltip: "Toggle finger drawing (F)",
                         selected: Prefs.editorFingerDrawing.value,
                         onPressed: widget.toggleFingerDrawing,
                         child: const Icon(Icons.gesture),
