@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,6 +40,8 @@ abstract class FileManager {
     filePath = _sanitisePath(filePath);
 
     await _saveFileAsRecentlyAccessed(filePath);
+
+    FileSyncer.addToUploadQueue(filePath);
 
     final Future writeFuture;
     if (kIsWeb) {
