@@ -9,32 +9,27 @@ import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 
-class FileSyncer {
+abstract class FileSyncer {
 
   /// A queue of file paths that need to be uploaded to Nextcloud
-  static Queue<String> _uploadQueue = Queue();
+  static final Queue<String> _uploadQueue = Queue();
 
-  NextCloudClient? _client;
+  static NextCloudClient? _client;
 
-  bool _isUploadingFile = false;
-  bool _isDisposed = false;
-
-  static FileSyncer? Instance;
-  FileSyncer(this._client) {
-    Instance?.dispose();
-    Instance = this;
-  }
+  static bool _isUploadingFile = false;
 
   /// Queues a file to be uploaded
-  void addToUploadQueue(String filePath) {
+  static void addToUploadQueue(String filePath) {
     _uploadQueue.add(filePath);
     _uploadFileFromUploadQueue();
   }
 
   /// Picks the first filePath from [_uploadQueue] and uploads it
-  void _uploadFileFromUploadQueue() async {
-    if (_client == null || _isUploadingFile || _isDisposed) return;
+  static Future _uploadFileFromUploadQueue() async {
+    if (_isUploadingFile) return;
     if (_uploadQueue.isEmpty) return;
+
+    _client ??= await NextCloudClientExtension.withSavedDetails();
 
     try {
       _isUploadingFile = true;
@@ -43,7 +38,7 @@ class FileSyncer {
 
       final String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
       if (localDataUnencrypted == null) {
-        if (kDebugMode) print("Failed to read file ${filePathUnencrypted} to upload");
+        if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
         return;
       }
 
@@ -51,7 +46,7 @@ class FileSyncer {
       final IV iv = IV.fromBase64(Prefs.iv.value);
       final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base64;
       final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted";
-      final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted!, iv: iv).base64;
+      final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
 
       const Utf8Encoder encoder = Utf8Encoder();
       await _client!.webDav.upload(encoder.convert(localDataEncrypted), filePathRemote);
@@ -59,12 +54,5 @@ class FileSyncer {
       _isUploadingFile = false;
       _uploadFileFromUploadQueue();
     }
-  }
-
-  /// Stops uploading files from [_uploadQueue]
-  /// AFTER the current file has finished downloading.
-  void dispose() {
-    _isDisposed = true;
-    Instance = null;
   }
 }
