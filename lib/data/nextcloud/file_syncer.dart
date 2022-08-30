@@ -20,6 +20,7 @@ abstract class FileSyncer {
 
   /// Queues a file to be uploaded
   static void addToUploadQueue(String filePath) {
+    if (_uploadQueue.contains(filePath)) return; // don't add it again
     _uploadQueue.add(filePath);
     _uploadFileFromUploadQueue();
   }
