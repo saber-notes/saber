@@ -1,16 +1,18 @@
 
+import 'dart:convert';
+
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
 
-  static late EncPref url;
-  static late EncPref username;
-  static late EncPref password;
+  static late EncPref<String> url;
+  static late EncPref<String> username;
+  static late EncPref<String> password;
 
-  static late EncPref key;
-  static late EncPref iv;
+  static late EncPref<String> key;
+  static late EncPref<String> iv;
 
   static late PlainPref<String> pfp;
 
@@ -21,6 +23,9 @@ abstract class Prefs {
 
   static late PlainPref<List<String>> recentColorsChronological;
   static late PlainPref<List<String>> recentColorsPositioned;
+
+  /// File paths that need to be uploaded to Nextcloud
+  static late EncPref<List<String>> fileSyncUploadQueue;
 
   static void init() {
     url = EncPref("url", "");
@@ -39,6 +44,8 @@ abstract class Prefs {
 
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
+
+    fileSyncUploadQueue = EncPref("fileSyncUploadQueue", []);
   }
 
 }
@@ -125,8 +132,10 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
   }
 }
 
-class EncPref<T extends String> extends IPref<T, EncryptedSharedPreferences> {
-  EncPref(super.key, super.defaultValue, {super.historicalKeys});
+class EncPref<T> extends IPref<T, EncryptedSharedPreferences> {
+  EncPref(super.key, super.defaultValue, {super.historicalKeys}) {
+    assert(T == String || T == typeOf<List<String>>());
+  }
 
   @override
   Future _load() async {
@@ -149,13 +158,21 @@ class EncPref<T extends String> extends IPref<T, EncryptedSharedPreferences> {
   }
 
   @override
-  Future _save() => _prefs!.setString(key, value);
+  Future _save() {
+    if (T == String) return _prefs!.setString(key, value as String);
+    return _prefs!.setString(key, jsonEncode(value));
+  }
 
   @override
   Future<T?> getValueWithKey(String key) async {
     try {
-      final value = await _prefs!.getString(key) as T;
-      return value.isNotEmpty ? value : null;
+      final value = await _prefs!.getString(key);
+      if (value.isEmpty) return null;
+      if (T == String) {
+        return value as T;
+      } else {
+        return List<String>.from(jsonDecode(value)) as T;
+      }
     } catch (e) {
       if (kDebugMode) print("Error loading $key: $e");
       return null;

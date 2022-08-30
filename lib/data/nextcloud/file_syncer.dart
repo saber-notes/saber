@@ -1,5 +1,4 @@
 
-import 'dart:collection';
 import 'dart:convert';
 
 import 'package:encrypt/encrypt.dart';
@@ -11,8 +10,7 @@ import 'package:saber/data/prefs.dart';
 
 abstract class FileSyncer {
 
-  /// A queue of file paths that need to be uploaded to Nextcloud
-  static final Queue<String> _uploadQueue = Queue();
+  static get _uploadQueue => Prefs.fileSyncUploadQueue;
 
   static NextCloudClient? _client;
 
@@ -20,22 +18,24 @@ abstract class FileSyncer {
 
   /// Queues a file to be uploaded
   static void addToUploadQueue(String filePath) {
-    if (_uploadQueue.contains(filePath)) return; // don't add it again
-    _uploadQueue.add(filePath);
+    if (_uploadQueue.value.contains(filePath)) return; // don't add it again
+    _uploadQueue.value.add(filePath);
+    _uploadQueue.notifyListeners();
     _uploadFileFromUploadQueue();
   }
 
   /// Picks the first filePath from [_uploadQueue] and uploads it
   static Future _uploadFileFromUploadQueue() async {
     if (_isUploadingFile) return;
-    if (_uploadQueue.isEmpty) return;
+    if (_uploadQueue.value.isEmpty) return;
 
     _client ??= await NextCloudClientExtension.withSavedDetails();
 
     try {
       _isUploadingFile = true;
 
-      final String filePathUnencrypted = _uploadQueue.removeFirst();
+      final String filePathUnencrypted = _uploadQueue.value.removeAt(0);
+      _uploadQueue.notifyListeners();
 
       final String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
       if (localDataUnencrypted == null) {
