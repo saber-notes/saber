@@ -36,12 +36,12 @@ abstract class FileManager {
   }
 
   /// Writes [toWrite] to [filePath].
-  static Future<void> writeFile(String filePath, String toWrite, [ bool awaitWrite = false ]) async {
+  static Future<void> writeFile(String filePath, String toWrite, { bool awaitWrite = false, bool alsoUpload = true }) async {
     filePath = _sanitisePath(filePath);
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    FileSyncer.addToUploadQueue(filePath);
+    if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
 
     final Future writeFuture;
     if (kIsWeb) {
@@ -163,6 +163,17 @@ abstract class FileManager {
     } else {
       final File file = File(await _documentsDirectory + filePath);
       return await file.exists();
+    }
+  }
+
+  static Future<DateTime> lastModified(String filePath) async {
+    filePath = _sanitisePath(filePath);
+    if (kIsWeb) {
+      // todo: implement last modified for web
+      return DateTime.now();
+    } else {
+      final File file = File(await _documentsDirectory + filePath);
+      return await file.lastModified();
     }
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -9,8 +10,22 @@ import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/nextcloud/login.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
+  Prefs.username.addListener(onLoginDetailsLoaded);
   runApp(App());
+}
+
+void onLoginDetailsLoaded() async {
+  // wait for username to be loaded
+  if (Prefs.username.value.isEmpty) return;
+  Prefs.username.removeListener(onLoginDetailsLoaded);
+
+  // wait for other prefs to load
+  await Future.delayed(const Duration(milliseconds: 100));
+
+  // start syncing
+  FileSyncer.startDownloads();
 }
 
 class App extends StatelessWidget {
