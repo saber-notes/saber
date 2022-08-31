@@ -52,8 +52,8 @@ abstract class FileSyncer {
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
-      final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base64;
-      final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted";
+      final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
+      final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted.sbe";
       final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
 
       const Utf8Encoder encoder = Utf8Encoder();
