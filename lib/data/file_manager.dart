@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
@@ -16,7 +16,26 @@ abstract class FileManager {
   static Future<SharedPreferences> get _prefs async => await SharedPreferences.getInstance();
   static Future<String> get _documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
 
+  static final ValueNotifier<dynamic> writeWatcher = ValueNotifier<int>(0);
+
   static String _sanitisePath(String path) => File(path).path;
+
+  static Future<void> init() async {
+    if (!kIsWeb) {
+      Directory rootDir = Directory(await _documentsDirectory);
+      rootDir.watch(recursive: true).listen((FileSystemEvent event) {
+        _triggerWriteWatcher();
+      });
+    }
+  }
+
+  static _triggerWriteWatcher() {
+    // Trigger write watcher, limited to once per millisecond
+    final int timestamp = DateTime.now().millisecondsSinceEpoch;
+    if (timestamp > writeWatcher.value) {
+      writeWatcher.value = timestamp;
+    }
+  }
 
   /// Returns the contents of the file at [filePath] as a String.
   static Future<String?> readFile(String filePath) async {
@@ -40,6 +59,7 @@ abstract class FileManager {
     filePath = _sanitisePath(filePath);
 
     await _saveFileAsRecentlyAccessed(filePath);
+    _triggerWriteWatcher();
 
     if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
 

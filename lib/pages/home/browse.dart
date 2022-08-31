@@ -29,14 +29,18 @@ class _BrowsePageState extends State<BrowsePage> {
   @override
   void initState() {
     path = widget.initialPath;
+
     findChildrenOfPath();
+    FileManager.writeWatcher.addListener(findChildrenOfPath);
+
     super.initState();
   }
 
   Future findChildrenOfPath() async {
+    if (!mounted) return;
     children = await FileManager.getChildrenOfDirectory(path ?? '/');
     failed = children == null || children!.isEmpty;
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   onDirectoryTap(String folder) {
@@ -90,5 +94,11 @@ class _BrowsePageState extends State<BrowsePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    FileManager.writeWatcher.removeListener(findChildrenOfPath);
+    super.dispose();
   }
 }

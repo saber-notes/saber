@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -12,6 +13,7 @@ import 'package:saber/pages/nextcloud/login.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
+  FileManager.init();
   Prefs.username.addListener(onLoginDetailsLoaded);
   runApp(App());
 }

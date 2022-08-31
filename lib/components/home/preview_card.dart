@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/file_manager.dart';
 
 class PreviewCard extends StatefulWidget {
   const PreviewCard({
@@ -41,16 +42,16 @@ class _PreviewCardState extends State<PreviewCard> {
     _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
 
     findStrokes();
+    FileManager.writeWatcher.addListener(findStrokes);
 
     super.initState();
   }
 
   Future findStrokes() async {
+    if (!mounted) return;
+
     coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath);
 
-    setState(() {
-
-    });
     if (mounted) setState(() {});
   }
 
@@ -77,5 +78,11 @@ class _PreviewCardState extends State<PreviewCard> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    FileManager.writeWatcher.removeListener(findStrokes);
+    super.dispose();
   }
 }

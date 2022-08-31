@@ -21,10 +21,13 @@ class _RecentPageState extends State<RecentPage> {
   @override
   void initState() {
     findRecentlyAccessedNotes();
+    FileManager.writeWatcher.addListener(findRecentlyAccessedNotes);
+
     super.initState();
   }
 
   Future findRecentlyAccessedNotes() async {
+    if (!mounted) return;
     List<String>? children = await FileManager.getRecentlyAccessed();
     filePaths.clear();
     if (children == null) {
@@ -33,7 +36,7 @@ class _RecentPageState extends State<RecentPage> {
       failed = false;
       filePaths.addAll(children);
     }
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -60,5 +63,11 @@ class _RecentPageState extends State<RecentPage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    FileManager.writeWatcher.removeListener(findRecentlyAccessedNotes);
+    super.dispose();
   }
 }
