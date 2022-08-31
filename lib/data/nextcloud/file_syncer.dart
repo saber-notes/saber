@@ -30,6 +30,7 @@ abstract class FileSyncer {
     if (_uploadQueue.value.isEmpty) return;
 
     _client ??= await NextCloudClientExtension.withSavedDetails();
+    if (_client == null) return;
 
     try {
       _isUploadingFile = true;
@@ -37,7 +38,13 @@ abstract class FileSyncer {
       final String filePathUnencrypted = _uploadQueue.value.removeAt(0);
       _uploadQueue.notifyListeners();
 
-      final String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
+      // try 3 times to read file (may fail because file is locked by another process/thread)
+      String? localDataUnencrypted;
+      for (int i = 0; i < 3; ++i) {
+        if (i > 0) await Future.delayed(const Duration(milliseconds: 100));
+        localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
+        if (localDataUnencrypted != null) break;
+      }
       if (localDataUnencrypted == null) {
         if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
         return;
