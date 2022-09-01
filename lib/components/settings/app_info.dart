@@ -3,7 +3,6 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/data/version.dart' show buildNumber;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,7 +11,7 @@ const String licenseNotice = "Saber  Copyright (C) 2022  Adil Hanney\n"
 "This is free software, and you are welcome to redistribute it under certain conditions.\n\n";
 
 class AppInfo extends StatefulWidget {
-  const AppInfo({Key? key}) : super(key: key);
+  const AppInfo({super.key});
 
   static final Uri privacyPolicyUrl = Uri.parse('https://github.com/adil192/saber/blob/main/privacy_policy.md');
   static final Uri licenseUrl = Uri.parse("https://github.com/adil192/saber/blob/main/LICENSE.md");

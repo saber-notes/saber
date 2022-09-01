@@ -1,13 +1,9 @@
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 
 class SyncingButton extends StatefulWidget {
-  const SyncingButton({
-    Key? key,
-  }) : super(key: key);
+  const SyncingButton({super.key});
 
   @override
   State<SyncingButton> createState() => _SyncingButtonState();
@@ -29,8 +25,11 @@ class _SyncingButtonState extends State<SyncingButton> {
 
     int done = FileSyncer.filesDone.value!;
     int total = done + FileSyncer.filesToSync;
-    if (total == 0) return 1;
-    else return done / total;
+    if (total == 0) {
+      return 1;
+    } else {
+      return done / total;
+    }
   }
 
   @override
@@ -47,7 +46,7 @@ class _SyncingButtonState extends State<SyncingButton> {
             semanticsValue: '${(percentage ?? 0) * 100}%',
             value: percentage,
           ),
-          Icon(Icons.sync)
+          const Icon(Icons.sync)
         ],
       ),
     );

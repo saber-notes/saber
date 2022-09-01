@@ -1,8 +1,5 @@
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 
 import '_stroke.dart';

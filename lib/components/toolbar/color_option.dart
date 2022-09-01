@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class ColorOption extends StatelessWidget {
   const ColorOption({
-    Key? key,
+    super.key,
     required this.isSelected,
     this.onTap,
     required this.child,
-  }) : super(key: key);
+  });
 
   final bool isSelected;
   final VoidCallback? onTap;
@@ -44,9 +44,7 @@ class ColorOption extends StatelessWidget {
 }
 
 class ColorOptionSeparator extends StatelessWidget {
-  const ColorOptionSeparator({
-    Key? key,
-  }) : super(key: key);
+  const ColorOptionSeparator({super.key});
 
   @override
   Widget build(BuildContext context) {

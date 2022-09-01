@@ -5,11 +5,11 @@ import 'package:saber/data/prefs.dart';
 
 class SettingsSwitch extends StatefulWidget {
   const SettingsSwitch({
-    Key? key,
+    super.key,
     required this.title,
     required this.pref,
     this.afterChange,
-  }) : super(key: key);
+  });
 
   final String title;
   final IPref<bool, dynamic> pref;

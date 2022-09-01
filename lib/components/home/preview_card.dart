@@ -9,10 +9,10 @@ import 'package:saber/data/file_manager.dart';
 
 class PreviewCard extends StatefulWidget {
   const PreviewCard({
-    Key? key,
+    super.key,
     required this.filePath,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final String filePath;
   final Function(String) onTap;

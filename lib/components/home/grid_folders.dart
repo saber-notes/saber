@@ -1,19 +1,15 @@
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:go_router/go_router.dart';
-import 'package:saber/data/routes.dart';
 
 class GridFolders extends StatelessWidget {
   const GridFolders({
-    Key? key,
+    super.key,
     required this.isAtRoot,
     required this.folders,
     required this.onTap,
     this.physics = const AlwaysScrollableScrollPhysics(),
-  }) : super(key: key);
+  });
 
   final bool isAtRoot;
   final List<String> folders;
@@ -22,7 +18,6 @@ class GridFolders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
     int indexOffset = isAtRoot ? 0 : 1;
     return LayoutBuilder(builder: (context, constraints) {
       return AlignedGridView.count(

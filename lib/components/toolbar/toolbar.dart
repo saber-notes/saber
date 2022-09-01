@@ -12,7 +12,7 @@ import 'package:saber/data/prefs.dart';
 
 class Toolbar extends StatefulWidget {
   const Toolbar({
-    Key? key,
+    super.key,
     required this.setTool,
     required this.currentTool,
     required this.setColor,
@@ -23,7 +23,7 @@ class Toolbar extends StatefulWidget {
     required this.isRedoPossible,
 
     required this.toggleFingerDrawing,
-  }) : super(key: key);
+  });
 
   final ValueChanged<Tool> setTool;
   final Tool currentTool;

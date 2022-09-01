@@ -5,18 +5,17 @@ import 'package:saber/data/prefs.dart';
 
 import '_canvas_painter.dart';
 import '_stroke.dart';
-import 'canvas.dart';
 
 class InnerCanvas extends StatefulWidget {
   InnerCanvas({
-    Key? key,
+    super.key,
     this.pageIndex = 0,
     required this.width,
     required this.height,
     required EditorCoreInfo coreInfo,
     required this.currentStroke,
     this.onRenderObjectChange,
-  }) : super(key: key) {
+  }) {
     this.coreInfo = coreInfo.copyWith(
       strokes: coreInfo.strokes.where((stroke) => isStrokeInPage(stroke)).toList(),
     );

@@ -1,18 +1,14 @@
 
-import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 
 class NextcloudProfile extends StatefulWidget {
-  const NextcloudProfile({Key? key}) : super(key: key);
+  const NextcloudProfile({super.key});
 
   @override
   State<NextcloudProfile> createState() => _NextcloudProfileState();

@@ -22,11 +22,10 @@ const Uuid uuid = Uuid();
 
 class Editor extends StatefulWidget {
   Editor({
-    Key? key,
+    super.key,
     String? path,
   }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath("/"),
-        needsNaming = path == null,
-        super(key: key);
+        needsNaming = path == null;
 
   final Future<String> initialPath;
   final bool needsNaming;

@@ -1,7 +1,6 @@
 
 import 'dart:collection';
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
@@ -9,7 +8,6 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/pages/editor/editor.dart';
 
 abstract class FileSyncer {
 

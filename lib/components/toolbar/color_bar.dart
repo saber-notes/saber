@@ -7,9 +7,9 @@ import 'package:saber/data/prefs.dart';
 
 class ColorBar extends StatelessWidget {
   const ColorBar({
-    Key? key,
+    super.key,
     required this.setColor,
-  }) : super(key: key);
+  });
 
   final ValueChanged<Color> setColor;
 

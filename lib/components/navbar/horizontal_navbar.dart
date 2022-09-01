@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class HorizontalNavbar extends StatelessWidget {
   const HorizontalNavbar({
-    Key? key,
+    super.key,
     required this.destinations,
     this.selectedIndex = 0,
     this.onDestinationSelected,
-  }) : super(key: key);
+  });
 
   final List<NavigationDestination> destinations;
   final int selectedIndex;

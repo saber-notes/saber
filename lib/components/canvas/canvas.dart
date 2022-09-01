@@ -7,13 +7,13 @@ import 'inner_canvas.dart';
 
 class Canvas extends StatelessWidget {
   const Canvas({
-    Key? key,
+    super.key,
     required this.path,
     required this.pageIndex,
     required this.innerCanvasKey,
     required this.coreInfo,
     required this.currentStroke,
-  }) : super(key: key);
+  });
 
   static const double canvasWidth = 1000;
   static const double canvasHeight = canvasWidth * 1.4;

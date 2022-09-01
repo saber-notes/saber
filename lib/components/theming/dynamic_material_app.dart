@@ -1,18 +1,16 @@
 
-import 'dart:io' show Platform;
 
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
-    Key? key,
+    super.key,
     required this.title,
     required this.router,
     this.defaultSwatch = Colors.yellow,
-  }) : super(key: key);
+  });
 
   final String title;
   final Color defaultSwatch;

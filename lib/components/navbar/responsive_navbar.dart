@@ -8,10 +8,10 @@ import 'vertical_navbar.dart';
 
 class ResponsiveNavbar extends StatefulWidget {
   const ResponsiveNavbar({
-    Key? key,
+    super.key,
     required this.body,
     this.selectedIndex = 0,
-  }) : super(key: key);
+  });
 
   final Widget body;
   final int selectedIndex;
@@ -29,8 +29,6 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
-
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth >= 600) { // tablet/desktop
         return Row(

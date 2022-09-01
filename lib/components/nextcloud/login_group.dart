@@ -1,6 +1,5 @@
 
 import 'package:collapsible/collapsible.dart';
-import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
@@ -11,9 +10,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class LoginInputGroup extends StatefulWidget {
   const LoginInputGroup({
-    Key? key,
+    super.key,
     required this.tryLogin,
-  }) : super(key: key);
+  });
 
   final Future<bool> Function(String? url, String username, String password) tryLogin;
 

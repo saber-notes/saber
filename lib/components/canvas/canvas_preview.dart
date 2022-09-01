@@ -4,16 +4,15 @@ import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 
-import '_stroke.dart';
 import 'inner_canvas.dart';
 
 class CanvasPreview extends StatelessWidget {
   const CanvasPreview({
-    Key? key,
+    super.key,
     required this.path,
     required this.height,
     required this.coreInfo,
-  }) : super(key: key);
+  });
 
   final String path;
   final int pageIndex = 0;

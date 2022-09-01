@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class SpinningLoadingIcon extends StatefulWidget {
-  const SpinningLoadingIcon({ Key? key }) : super(key: key);
+  const SpinningLoadingIcon({super.key});
 
   @override
   State<SpinningLoadingIcon> createState() => _SpinningLoadingIconState();

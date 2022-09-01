@@ -1,21 +1,18 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
-import 'package:saber/data/routes.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/pages/home/settings.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
-    Key? key,
+    super.key,
     required this.subpage,
     required this.path,
-  }) : super(key: key);
+  });
 
   final String subpage;
   final String? path;
@@ -49,7 +46,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
     return ResponsiveNavbar(
       selectedIndex: HomePage.subpages.indexOf(widget.subpage),
       body: body,

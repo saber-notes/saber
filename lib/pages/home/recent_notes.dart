@@ -9,7 +9,7 @@ import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/welcome.dart';
 
 class RecentPage extends StatefulWidget {
-  const RecentPage({Key? key}) : super(key: key);
+  const RecentPage({super.key});
 
   @override
   State<RecentPage> createState() => _RecentPageState();
@@ -42,7 +42,6 @@ class _RecentPageState extends State<RecentPage> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,

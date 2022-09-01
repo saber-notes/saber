@@ -1,5 +1,5 @@
 
-import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -10,7 +10,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginPage extends StatefulWidget {
-  const NcLoginPage({Key? key}) : super(key: key);
+  const NcLoginPage({super.key});
 
   static final Uri signupUrl = Uri.parse("https://nc.saber.adil.hanney.org/index.php/apps/registration/");
 
@@ -51,7 +51,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     Prefs.pfp.value = avatar;
 
     String key = await client.getEncryptionKey();
-    print("generated key: $key");
+    if (kDebugMode) print("generated key: $key");
 
     // ignore: use_build_context_synchronously
     context.pop();

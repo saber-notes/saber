@@ -31,7 +31,7 @@ void onLoginDetailsLoaded() async {
 }
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
   static Widget fadeTransitionBuilder(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     return FadeTransition(

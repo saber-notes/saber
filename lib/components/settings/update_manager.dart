@@ -1,9 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/version.dart' as version;
-import 'package:url_launcher/url_launcher.dart';
 import 'package:saber/components/settings/do_update/do_update.dart'
   if (dart.library.html) 'package:saber/components/settings/do_update/do_update_web.dart';
 

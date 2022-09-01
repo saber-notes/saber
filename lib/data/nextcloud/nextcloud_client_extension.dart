@@ -16,7 +16,6 @@ extension NextCloudClientExtension on NextCloudClient {
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
-  /// generated with [BCrypt.gensalt()]
   static const String reproducibleSalt = r"8MnPs64@R&mF8XjWeLrD";
 
   static Future<NextCloudClient?> withSavedDetails() async {

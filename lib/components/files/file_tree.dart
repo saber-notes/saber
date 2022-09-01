@@ -8,6 +8,8 @@ import 'package:saber/data/routes.dart';
 
 
 class FileTree extends StatelessWidget {
+  const FileTree({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -26,10 +28,10 @@ class FileTree extends StatelessWidget {
 
 class FileTreeBranch extends StatefulWidget {
   const FileTreeBranch({
-    Key? key,
+    super.key,
     required this.path,
     required this.isDirectory,
-  }) : super(key: key);
+  });
 
   final String? path;
   final bool isDirectory;

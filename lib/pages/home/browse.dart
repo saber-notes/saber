@@ -11,9 +11,9 @@ import 'package:saber/components/home/masonry_files.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({
-    Key? key,
+    super.key,
     String? path,
-  }) : initialPath = path, super(key: key);
+  }) : initialPath = path;
 
   final String? initialPath;
 
@@ -60,7 +60,6 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,

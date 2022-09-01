@@ -1,16 +1,14 @@
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:saber/components/files/file_tree.dart';
 
 class VerticalNavbar extends StatefulWidget {
   const VerticalNavbar({
-    Key? key,
+    super.key,
     required this.destinations,
     this.selectedIndex = 0,
     this.onDestinationSelected,
-  }) : super(key: key);
+  });
 
   final List<NavigationRailDestination> destinations;
   final int selectedIndex;
@@ -59,7 +57,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
             ),
           ),
 
-          if (expanded) Expanded(child: FileTree(),),
+          if (expanded) const Expanded(child: FileTree()),
         ],
       ),
     );

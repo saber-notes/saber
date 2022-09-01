@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class NoFiles extends StatelessWidget {
-  const NoFiles({Key? key}) : super(key: key);
+  const NoFiles({super.key});
 
   @override
   Widget build(BuildContext context) {

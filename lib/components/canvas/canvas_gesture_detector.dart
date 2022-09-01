@@ -6,7 +6,7 @@ import 'package:saber/components/canvas/interactive_canvas.dart';
 
 class CanvasGestureDetector extends StatelessWidget {
   const CanvasGestureDetector({
-    Key? key,
+    super.key,
 
     required this.isDrawGesture,
     required this.onDrawStart,
@@ -18,7 +18,7 @@ class CanvasGestureDetector extends StatelessWidget {
     required this.redo,
 
     required this.child,
-  }) : super(key: key);
+  });
 
   final bool Function(ScaleStartDetails scaleDetails) isDrawGesture;
   final ValueChanged<ScaleStartDetails> onDrawStart;
