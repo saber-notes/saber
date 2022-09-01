@@ -15,7 +15,7 @@ abstract class FileSyncer {
   static const String _encExtension = ".sbe";
 
   static EncPref<List<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
-  static final Queue<RemoteFile> _downloadQueue = Queue();
+  static final Queue<SyncFile> _downloadQueue = Queue();
 
   static NextCloudClient? _client;
 
@@ -40,7 +40,7 @@ abstract class FileSyncer {
 
     // Start downloading files one by one
     while (_downloadQueue.isNotEmpty) {
-      final RemoteFile file = _downloadQueue.removeFirst();
+      final SyncFile file = _downloadQueue.removeFirst();
       await _downloadFile(file);
       if (filesDone.value != null) {
         filesDone.value = filesDone.value! + 1;
@@ -70,6 +70,18 @@ abstract class FileSyncer {
       final String filePathUnencrypted = _uploadQueue.value.removeAt(0);
       _uploadQueue.notifyListeners();
 
+      final Encrypter encrypter = await _client!.encrypter;
+      final IV iv = IV.fromBase64(Prefs.iv.value);
+      final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
+      final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$_encExtension";
+
+      final syncFile = SyncFile(remotePath: filePathRemote, localPath: filePathUnencrypted);
+      if (!await _shouldLocalFileBeKept(syncFile)) {
+        // remote file is newer; download it instead
+        _addToDownloadQueueWithoutChecks(syncFile);
+        return;
+      }
+
       // try 3 times to read file (may fail because file is locked by another process/thread)
       String? localDataUnencrypted;
       for (int i = 0; i < 3; ++i) {
@@ -81,11 +93,6 @@ abstract class FileSyncer {
         if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
         return;
       }
-
-      final Encrypter encrypter = await _client!.encrypter;
-      final IV iv = IV.fromBase64(Prefs.iv.value);
-      final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
-      final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$_encExtension";
       final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
 
       const Utf8Encoder encoder = Utf8Encoder();
@@ -126,26 +133,20 @@ abstract class FileSyncer {
     // decrypt file path
     final String filePathUnencrypted = encrypter.decrypt16(filePathEncrypted, iv: iv);
 
-    // if file doesn't exist locally, download it
-    if (!await FileManager.doesFileExist(filePathUnencrypted)) {
-      return _downloadQueue.add(RemoteFile(
-        remotePath: filePathRemote,
-        localPath: filePathUnencrypted,
-      ));
-    }
-
-    // file exists locally, check if it's newer
-    final DateTime lastModifiedRemote = file.lastModified;
-    final DateTime lastModifiedLocal = await FileManager.lastModified(filePathUnencrypted);
-    if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
-      return _downloadQueue.add(RemoteFile(
-        remotePath: filePathRemote,
-        localPath: filePathUnencrypted,
-      ));
+    final syncFile = SyncFile(
+      remotePath: filePathRemote,
+      localPath: filePathUnencrypted,
+      webDavFile: file,
+    );
+    if (!await _shouldLocalFileBeKept(syncFile)) {
+      _addToDownloadQueueWithoutChecks(syncFile);
     }
   }
+  static Future _addToDownloadQueueWithoutChecks(SyncFile syncFile) async {
+    _downloadQueue.add(syncFile);
+  }
 
-  static Future _downloadFile(RemoteFile file) async {
+  static Future _downloadFile(SyncFile file) async {
     final Uint8List encryptedDataEncoded = await _client!.webDav.download(file.remotePath);
     final String encryptedData = utf8.decode(encryptedDataEncoded);
 
@@ -156,10 +157,39 @@ abstract class FileSyncer {
 
     FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
   }
+
+  /// Decides if the local or remote version of a file should be kept
+  /// by comparing the last modified date of each file.
+  static Future<bool> _shouldLocalFileBeKept(SyncFile file) async {
+    // if local file doesn't exist, keep remote
+    if (!await FileManager.doesFileExist(file.localPath)) {
+      return false;
+    }
+
+    // get remote file
+    try {
+      file.webDavFile ??= (await _client!.webDav.ls(file.remotePath, props: {WebDavProps.davLastModified}))[0];
+    } catch (e) {
+      // remote file doesn't exist; keep local
+      return true;
+    }
+
+    // file exists locally, check if it's newer
+    final DateTime lastModifiedRemote = file.webDavFile!.lastModified;
+    final DateTime lastModifiedLocal = await FileManager.lastModified(file.localPath);
+    if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
+      // remote is newer; keep remote
+      return false;
+    } else {
+      // local is newer; keep local
+      return true;
+    }
+  }
 }
 
-class RemoteFile {
+class SyncFile {
   final String remotePath;
   final String localPath;
-  RemoteFile({required this.remotePath, required this.localPath});
+  WebDavFile? webDavFile;
+  SyncFile({required this.remotePath, required this.localPath, this.webDavFile});
 }
