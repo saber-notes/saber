@@ -1,4 +1,5 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:saber/data/version.dart' as version;
@@ -53,7 +54,12 @@ abstract class UpdateManager {
     final int newestVersion = int.tryParse(newestVersionMatch[0] ?? "0") ?? 0;
     if (newestVersion == 0) return false;
 
-    // ignore 1 minor update so the user isn't prompted too often
-    return newestVersion > currentVersion + 1;
+    if (kDebugMode) {
+      // debug should be upgraded as soon as possible
+      return newestVersion > currentVersion;
+    } else {
+      // ignore 1 minor update so the user isn't prompted too often
+      return newestVersion > currentVersion + 1;
+    }
   }
 }
