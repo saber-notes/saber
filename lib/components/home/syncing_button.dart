@@ -46,10 +46,14 @@ class _SyncingButtonState extends State<SyncingButton> {
       icon: Stack(
         alignment: Alignment.center,
         children: [
-          if ((percentage ?? 0) < 1) CircularProgressIndicator(
-            semanticsLabel: 'Syncing progress',
-            semanticsValue: '${(percentage ?? 0) * 100}%',
-            value: percentage,
+          AnimatedOpacity(
+            opacity: (percentage ?? 0) >= 1 ? 0 : 1,
+            duration: const Duration(milliseconds: 200),
+            child: CircularProgressIndicator(
+              semanticsLabel: 'Syncing progress',
+              semanticsValue: '${(percentage ?? 0) * 100}%',
+              value: percentage,
+            ),
           ),
           const Icon(Icons.sync)
         ],
