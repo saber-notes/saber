@@ -3,6 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/data/version.dart' show buildNumber;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,24 +22,15 @@ class AppInfo extends StatefulWidget {
   State<AppInfo> createState() => _AppInfoState();
 }
 class _AppInfoState extends State<AppInfo> {
-  String message = "";
   bool moreInfoShown = false;
 
-  @override
-  void initState() {
-    getInfo();
-    super.initState();
-  }
-
-  Future getInfo() async {
+  Future<String> getInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     String appName = packageInfo.appName;
     String version = packageInfo.version;
 
-    setState(() {
-      message = "$appName $version ($buildNumber)";
-    });
+    return "$appName $version ($buildNumber)";
   }
 
   @override
@@ -47,7 +39,12 @@ class _AppInfoState extends State<AppInfo> {
     return Column(
       children: [
         Center(
-          child: Text(message),
+          child: FutureBuilder(
+            future: getInfo(),
+            builder: (context, snapshot) {
+              return Text(snapshot.data as String? ?? "");
+            },
+          ),
         ),
         
         TextButton(
