@@ -13,11 +13,13 @@ class _SyncingButtonState extends State<SyncingButton> {
 
   @override
   void initState() {
-    FileSyncer.filesDone.addListener(() {
-      setState(() {});
-    });
+    FileSyncer.filesDone.addListener(onProgressChanged);
 
     super.initState();
+  }
+
+  void onProgressChanged() {
+    setState(() {});
   }
 
   double? getPercentage() {
@@ -53,5 +55,11 @@ class _SyncingButtonState extends State<SyncingButton> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    FileSyncer.filesDone.removeListener(onProgressChanged);
+    super.dispose();
   }
 }
