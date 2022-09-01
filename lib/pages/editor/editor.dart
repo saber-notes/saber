@@ -12,13 +12,10 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:uuid/uuid.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
-
-const Uuid uuid = Uuid();
 
 class Editor extends StatefulWidget {
   Editor({
