@@ -37,7 +37,10 @@ class _SyncingButtonState extends State<SyncingButton> {
     double? percentage = getPercentage();
 
     return IconButton(
-      onPressed: () {},
+      onPressed: () {
+        FileSyncer.filesDone.value = null; // reset progress indicator
+        FileSyncer.startDownloads();
+      },
       icon: Stack(
         alignment: Alignment.center,
         children: [
