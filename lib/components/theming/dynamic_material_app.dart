@@ -63,6 +63,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
             colorScheme: darkColorScheme,
           ),
           themeMode: ThemeMode.system,
+
+          debugShowCheckedModeBanner: false,
         );
       },
     );

@@ -23,6 +23,9 @@ abstract class FileSyncer {
 
   static bool _isUploadingFile = false;
 
+  static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
+  static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
+
   static void startDownloads() async {
     _client ??= await NextCloudClientExtension.withSavedDetails();
     if (_client == null) return;
@@ -35,11 +38,15 @@ abstract class FileSyncer {
 
     // Add each file to download queue if needed
     await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
+    filesDone.value = 0;
 
     // Start downloading files one by one
     while (_downloadQueue.isNotEmpty) {
       final RemoteFile file = _downloadQueue.removeFirst();
       await _downloadFile(file);
+      if (filesDone.value != null) {
+        filesDone.value = filesDone.value! + 1;
+      }
     }
   }
 

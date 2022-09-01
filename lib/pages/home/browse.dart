@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/no_files.dart';
+import 'package:saber/components/home/syncing_button.dart';
 
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -64,6 +65,9 @@ class _BrowsePageState extends State<BrowsePage> {
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
         title: Text("Browse${(path?.isNotEmpty ?? false) ? ": $path" : ""}"),
+        actions: const [
+          SyncingButton(),
+        ],
       ),
       body: failed ? const NoFiles() : SingleChildScrollView(
         child: Column(
