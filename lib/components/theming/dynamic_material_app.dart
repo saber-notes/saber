@@ -5,7 +5,6 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:gtk_theme_fl/gtk_theme_fl.dart';
 
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
@@ -24,34 +23,9 @@ class DynamicMaterialApp extends StatefulWidget {
 }
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
-  late Color seedColor;
-  get lightColorScheme => ColorScheme.fromSeed(
-    seedColor: seedColor,
-  );
-  get darkColorScheme => ColorScheme.fromSeed(
-    seedColor: seedColor,
-    brightness: Brightness.dark,
-  );
-
-
   @override
   void initState() {
-    seedColor = widget.defaultSwatch;
-    getLinuxColorScheme();
     super.initState();
-  }
-
-  Future getLinuxColorScheme() async {
-    if (kIsWeb) return;
-    if (!Platform.isLinux) return;
-
-    GtkThemeData gtkThemeData = await GtkThemeData.initialize();
-
-    if (gtkThemeData.theme_base_color < 0) return;
-
-    setState(() {
-      seedColor = Color(gtkThemeData.theme_base_color);
-    });
   }
 
   @override
@@ -65,8 +39,13 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
           lightColorScheme = lightDynamic.harmonized();
           darkColorScheme = darkDynamic.harmonized();
         } else {
-          lightColorScheme = this.lightColorScheme;
-          darkColorScheme = this.darkColorScheme;
+          lightColorScheme = ColorScheme.fromSeed(
+            seedColor: widget.defaultSwatch,
+          );
+          darkColorScheme = ColorScheme.fromSeed(
+            seedColor: widget.defaultSwatch,
+            brightness: Brightness.dark,
+          );
         }
 
         return MaterialApp.router(

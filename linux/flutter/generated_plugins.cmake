@@ -4,7 +4,6 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_color
-  gtk_theme_fl
   url_launcher_linux
 )
 

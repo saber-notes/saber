@@ -163,15 +163,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.3.0"
-  gtk_theme_fl:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "4e1124aca035a11915eae9a964338a2f7e7b84af"
-      url: "https://github.com/gtk-flutter/gtk_theme_fl"
-    source: git
-    version: "0.0.1"
   http:
     dependency: "direct main"
     description:
