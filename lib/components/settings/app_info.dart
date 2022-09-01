@@ -1,5 +1,6 @@
 
 import 'package:collapsible/collapsible.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -29,7 +30,9 @@ class _AppInfoState extends State<AppInfo> {
     String appName = packageInfo.appName;
     String version = packageInfo.version;
 
-    return "$appName $version ($buildNumber)";
+    String debug = kDebugMode ? " DEBUG" : "";
+
+    return "$appName$debug $version ($buildNumber)";
   }
 
   @override
