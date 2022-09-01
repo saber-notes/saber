@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
+import 'package:saber/data/prefs.dart';
 
 class SyncingButton extends StatefulWidget {
   const SyncingButton({super.key});
@@ -13,12 +14,13 @@ class _SyncingButtonState extends State<SyncingButton> {
 
   @override
   void initState() {
-    FileSyncer.filesDone.addListener(onProgressChanged);
+    FileSyncer.filesDone.addListener(listener);
+    Prefs.username.addListener(listener);
 
     super.initState();
   }
 
-  void onProgressChanged() {
+  void listener() {
     setState(() {});
   }
 
@@ -37,17 +39,18 @@ class _SyncingButtonState extends State<SyncingButton> {
   @override
   Widget build(BuildContext context) {
     double? percentage = getPercentage();
+    bool loggedIn = Prefs.username.value.isNotEmpty;
 
     return IconButton(
-      onPressed: () {
+      onPressed: loggedIn ? () {
         FileSyncer.filesDone.value = null; // reset progress indicator
         FileSyncer.startDownloads();
-      },
+      } : null,
       icon: Stack(
         alignment: Alignment.center,
         children: [
           AnimatedOpacity(
-            opacity: (percentage ?? 0) >= 1 ? 0 : 1,
+            opacity:  (loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
             duration: const Duration(milliseconds: 200),
             child: CircularProgressIndicator(
               semanticsLabel: 'Syncing progress',
@@ -63,7 +66,8 @@ class _SyncingButtonState extends State<SyncingButton> {
 
   @override
   void dispose() {
-    FileSyncer.filesDone.removeListener(onProgressChanged);
+    FileSyncer.filesDone.removeListener(listener);
+    Prefs.username.removeListener(listener);
     super.dispose();
   }
 }
