@@ -42,7 +42,7 @@ class _AppInfoState extends State<AppInfo> {
           child: FutureBuilder(
             future: getInfo(),
             builder: (context, snapshot) {
-              return Text(snapshot.data as String? ?? "");
+              return SelectableText(snapshot.data as String? ?? "");
             },
           ),
         ),
@@ -62,7 +62,7 @@ class _AppInfoState extends State<AppInfo> {
           axis: CollapsibleAxis.vertical,
           alignment: Alignment.topCenter,
           maintainState: true,
-          child: RichText(text: TextSpan(
+          child: SelectableText.rich(TextSpan(
             style: TextStyle(color: colorScheme.onBackground),
             children: [
               const TextSpan(text: licenseNotice),
@@ -91,7 +91,7 @@ class _AppInfoState extends State<AppInfo> {
                 },
               ),
             ],
-          ))
+          )),
         ),
       ],
     );
