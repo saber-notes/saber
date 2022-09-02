@@ -4,6 +4,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
@@ -67,6 +69,7 @@ class _EditorState extends State<Editor> {
   @override
   void initState() {
     _initAsync();
+    _assignKeybindings();
 
     super.initState();
   }
@@ -95,6 +98,24 @@ class _EditorState extends State<Editor> {
     }
 
     setState(() {});
+  }
+
+  Keybinding? _ctrlZ;
+  Keybinding? _ctrlY;
+  Keybinding? _ctrlShiftZ;
+  _assignKeybindings() {
+    _ctrlZ = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyZ)], inclusive: true);
+    _ctrlY = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyY)], inclusive: true);
+    _ctrlShiftZ = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyZ)], inclusive: true);
+
+    Keybinder.bind(_ctrlZ!, undo);
+    Keybinder.bind(_ctrlY!, redo);
+    Keybinder.bind(_ctrlShiftZ!, redo);
+  }
+  _removeKeybindings() {
+    if (_ctrlZ != null) Keybinder.remove(_ctrlZ!);
+    if (_ctrlY != null) Keybinder.remove(_ctrlY!);
+    if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
   }
 
   void createPageOfStroke(Stroke stroke) {
@@ -370,6 +391,8 @@ class _EditorState extends State<Editor> {
   void dispose() {
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
+
+    _removeKeybindings();
 
     saveToFile();
 
