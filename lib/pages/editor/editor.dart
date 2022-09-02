@@ -39,9 +39,12 @@ class _EditorState extends State<Editor> {
   EditorCoreInfo coreInfo = EditorCoreInfo();
 
   String path = "";
-  late bool needsNaming;
+  late bool needsNaming = widget.needsNaming;
 
-  late Tool currentTool;
+  late Tool currentTool = (){
+    Pen.currentPen = Pen.fountainPen();
+    return Pen.currentPen;
+  }();
 
   final List<Stroke> strokesRedoStack = [];
   bool isRedoPossible = false;
@@ -63,13 +66,6 @@ class _EditorState extends State<Editor> {
 
   @override
   void initState() {
-    needsNaming = widget.needsNaming;
-
-
-
-    Pen.currentPen = Pen.fountainPen();
-    currentTool = Pen.currentPen;
-
     _initAsync();
 
     super.initState();
