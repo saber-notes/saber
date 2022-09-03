@@ -55,6 +55,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.2.3" type="development" date="2022-09-03">
+            <description>
+                <p>1. Stop the syncing indicator infinitely looping if logged out</p>
+                <p>2. Support Ctrl-Z and Ctrl-Y keyboard shortcuts</p>
+                <p>3. Various flatpak tweaks</p>
+            </description>
+        </release>
         <release version="0.2.2" type="development" date="2022-09-02">
             <description>
                 <p>1. Linux theming now works properly</p>
