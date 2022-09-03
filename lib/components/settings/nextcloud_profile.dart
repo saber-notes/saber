@@ -15,36 +15,23 @@ class NextcloudProfile extends StatefulWidget {
 }
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
-
-  bool? loggedIn;
-  String username = "";
-
   Uint8List? pfpBytes;
 
   @override
   void initState() {
-    try {
-      username = Prefs.username.value;
-      loggedIn = username.isNotEmpty;
-      if (!loggedIn!) return;
+    var pfpBase64 = Prefs.pfp.value;
+    pfpBytes = pfpBase64.isNotEmpty ? base64Decode(pfpBase64) : null;
 
-      var pfpBase64 = Prefs.pfp.value;
-      if (pfpBase64.isNotEmpty) {
-        pfpBytes = base64Decode(pfpBase64);
-      }
-    } finally {
-      setState(() { });
-    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    String heading = " " * 10, subheading = " " * 25;
-    if (loggedIn == true) {
-      heading = username;
+    String heading, subheading;
+    if (Prefs.username.value.isNotEmpty) {
+      heading = Prefs.username.value;
       subheading = "Logged in with Nextcloud";
-    } else if (loggedIn == false) {
+    } else {
       heading = "Logged out";
       subheading = "Tap to log in with Nextcloud";
     }
