@@ -29,4 +29,38 @@
     <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>
 
     <content_rating type="oars-1.1" />
+
+    <categories>
+        <category>Education</category>
+        <category>Graphics</category>
+        <category>Office</category>
+    </categories>
+
+    <keywords>
+        <keyword>cross-platform</keyword>
+        <keyword>handwritten</keyword>
+        <keyword>notes</keyword>
+    </keywords>
+
+    <screenshots>
+        <screenshot type="default">
+            <image>https://github.com/adil192/saber/raw/main/assets/screenshots/home-desktop.png</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/adil192/saber/raw/main/assets/screenshots/editor-desktop.png</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/adil192/saber/raw/main/assets/screenshots/login-desktop.png</image>
+        </screenshot>
+    </screenshots>
+
+    <releases>
+        <release version="0.2.2" type="development" date="2022-09-02">
+            <description>
+                <p>1. Linux theming now works properly</p>
+                <p>2. Home screen shows syncing progress, and a resync can be manually triggered by pressing the sync button in the corner</p>
+                <p>3. Syncing is improved under the hood: the latest version of a note is prioritized rather than accidentally overwriting it if you make changes on two devices</p>
+            </description>
+        </release>
+    </releases>
 </component>
