@@ -47,6 +47,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     Prefs.username.value = username;
     Prefs.password.value = password;
 
+    Prefs.pfp.value = ""; // trigger listeners while awaiting
     String avatar = await client.avatar.getAvatar(username, 512);
     Prefs.pfp.value = avatar;
 

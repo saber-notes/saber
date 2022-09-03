@@ -19,10 +19,16 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
   @override
   void initState() {
-    var pfpBase64 = Prefs.pfp.value;
-    pfpBytes = pfpBase64.isNotEmpty ? base64Decode(pfpBase64) : null;
+    onPfpChange();
+    Prefs.pfp.addListener(onPfpChange);
 
     super.initState();
+  }
+
+  onPfpChange() {
+    var pfpBase64 = Prefs.pfp.value;
+    pfpBytes = pfpBase64.isNotEmpty ? base64Decode(pfpBase64) : null;
+    setState(() {});
   }
 
   @override
@@ -64,5 +70,11 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    Prefs.pfp.removeListener(onPfpChange);
+    super.dispose();
   }
 }
