@@ -84,7 +84,7 @@ packages:
       name: dynamic_color
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.3"
+    version: "1.5.4"
   encrypt:
     dependency: "direct main"
     description:
@@ -627,4 +627,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.17.6 <3.0.0"
-  flutter: ">=3.1.0-0.0.pre.1036"
+  flutter: ">=3.3.0"
