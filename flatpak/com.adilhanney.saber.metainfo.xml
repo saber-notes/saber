@@ -22,6 +22,10 @@
         <control>tablet</control>
     </supports>
 
+    <recommends>
+        <internet>always</internet>
+    </recommends>
+
     <description>
         <p>A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and the web!</p>
     </description>
