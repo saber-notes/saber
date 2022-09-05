@@ -251,7 +251,8 @@ abstract class FileManager {
 
     final List<String> recentlyAccessed = prefs.getStringList(recentlyAccessedKey) ?? [];
 
-    if (!recentlyAccessed.contains(filePath)) recentlyAccessed.insert(0, filePath);
+    recentlyAccessed.remove(filePath);
+    recentlyAccessed.insert(0, filePath);
     if (recentlyAccessed.length > maxRecentlyAccessedFiles) recentlyAccessed.removeLast();
 
     prefs.setStringList(recentlyAccessedKey, recentlyAccessed);
