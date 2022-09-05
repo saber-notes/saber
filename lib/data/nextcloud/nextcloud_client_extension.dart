@@ -21,14 +21,14 @@ extension NextCloudClientExtension on NextCloudClient {
   static Future<NextCloudClient?> withSavedDetails() async {
     String url = Prefs.url.value;
     String username = Prefs.username.value;
-    String password = Prefs.password.value;
+    String ncPassword = Prefs.ncPassword.value;
 
-    if (username.isEmpty || password.isEmpty) return null;
+    if (username.isEmpty || ncPassword.isEmpty) return null;
 
     return NextCloudClient.withCredentials(
       url.isNotEmpty ? Uri.parse(url) : defaultNextCloudUri,
       username,
-      password,
+      ncPassword,
     );
   }
 
@@ -50,16 +50,18 @@ extension NextCloudClientExtension on NextCloudClient {
     await webDav.upload(file, configFilePath);
   }
 
-  Future<String> getEncryptionKey() async {
+  Future<String> loadEncryptionKey() async {
     final Encrypter encrypter = await this.encrypter;
 
     final Map<String, String> config = await getConfig();
-
     if (config.containsKey(Prefs.key.key) && config.containsKey(Prefs.iv.key)) {
       final IV iv = IV.fromBase64(config[Prefs.iv.key]!);
       final String encryptedKey = config[Prefs.key.key]!;
       try {
-        return encrypter.decrypt64(encryptedKey, iv: iv);
+        final String key = encrypter.decrypt64(encryptedKey, iv: iv);
+        Prefs.key.value = key;
+        Prefs.iv.value = iv.base64;
+        return key;
       } catch (e) {
         // can't decrypt, so we need to get the previous encryption key (user's password)
         // todo: prompt user for previous password, instead of generating a new key (important)
@@ -68,14 +70,19 @@ extension NextCloudClientExtension on NextCloudClient {
 
     final Key key = Key.fromSecureRandom(32);
     final IV iv = IV.fromSecureRandom(16);
+
     config[Prefs.key.key] = encrypter.encrypt(key.base64, iv: iv).base64;
     config[Prefs.iv.key] = iv.base64;
     await setConfig(config);
+
+    Prefs.key.value = key.base64;
+    Prefs.iv.value = iv.base64;
+
     return key.base64;
   }
 
   Future<Encrypter> get encrypter async {
-    final List<int> encodedPassword = utf8.encode(Prefs.password.value + reproducibleSalt);
+    final List<int> encodedPassword = utf8.encode(Prefs.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
     final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
     return Encrypter(AES(passwordKey));

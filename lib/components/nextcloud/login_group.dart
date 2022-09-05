@@ -14,22 +14,14 @@ class LoginInputGroup extends StatefulWidget {
     required this.tryLogin,
   });
 
-  final Future<bool> Function(String? url, String username, String password) tryLogin;
+  final Future<bool> Function(LoginDetailsStruct loginDetails) tryLogin;
 
-
-  /// Nextcloud can issue "app passwords" but we need to
-  /// make sure we have the original password for encryption.
-  static final RegExp appPasswordRegex = RegExp(r"^([a-z0-9]{5}-){4}([a-z0-9]{5})$", caseSensitive: false);
   static final RegExp usernameRegex = RegExp(r"^[a-z0-9_\-.]+$", caseSensitive: false);
   /// https://emailregex.com
   static final RegExp emailRegex = RegExp(r"(^[a-z0-9_.+-]+@[a-z0-9-]+\.[a-z0-9-.]+$)", caseSensitive: false);
   /// https://urlregex.com (modified)
   static final RegExp urlRegex = RegExp(r"^(http[s]?://)?(?:[a-zA-Z]|[0-9]|[$\-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$", caseSensitive: false);
 
-  static const String appPasswordError =
-      "Nextcloud's 'app passwords' aren't supported. "
-      "If you entered your actual password, "
-      "or are unsure, please tap 'Log in' again.";
   static const String usernameError = "Please double check your username or email.";
 
   @override
@@ -37,7 +29,8 @@ class LoginInputGroup extends StatefulWidget {
 }
 
 class _LoginInputGroupState extends State<LoginInputGroup> {
-  bool _showPassword = false;
+  bool _showNcPassword = false;
+  bool _showEncPassword = false;
 
   String? _errorMessage;
 
@@ -49,29 +42,28 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     text: NextCloudClientExtension.defaultNextCloudUri.toString(),
   );
   final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _ncPasswordController = TextEditingController();
+  final TextEditingController _encPasswordController = TextEditingController();
 
   bool _validate() {
     String username = _usernameController.text;
-    String password = _passwordController.text;
+    String ncPassword = _ncPasswordController.text;
+    String encPassword = _encPasswordController.text;
     if (!LoginInputGroup.emailRegex.hasMatch(username) && !LoginInputGroup.usernameRegex.hasMatch(username)) {
       setState(() {
         _errorMessage = LoginInputGroup.usernameError;
       });
       return false;
-    } else if (password.isEmpty) {
+    } else if (ncPassword.isEmpty) {
       setState(() {
-        _errorMessage = "Please enter a password.";
+        _errorMessage = "Please enter your Nextcloud password.";
       });
       return false;
-    } else if (LoginInputGroup.appPasswordRegex.hasMatch(password)) {
-      // only if user hasn't tapped 'Log in' again
-      if (_errorMessage != LoginInputGroup.appPasswordError) {
-        setState(() {
-          _errorMessage = LoginInputGroup.appPasswordError;
-        });
-        return false;
-      }
+    } else if (encPassword.isEmpty) {
+      setState(() {
+        _errorMessage = "Please enter your encryption password.";
+      });
+      return false;
     } else if (_usingCustomServer && !LoginInputGroup.urlRegex.hasMatch(_customServerController.text)) {
       setState(() {
         _errorMessage = "Please enter a valid URL.";
@@ -95,11 +87,12 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     final bool success;
     try {
       _isLoading = true;
-      success = await widget.tryLogin(
-        _usingCustomServer ? _customServerController.text : null,
-        _usernameController.text,
-        _passwordController.text
-      );
+      success = await widget.tryLogin(LoginDetailsStruct(
+        urlString: _usingCustomServer ? _customServerController.text : null,
+        username: _usernameController.text,
+        ncPassword: _ncPasswordController.text,
+        encPassword: _encPasswordController.text,
+      ));
     } finally {
       _isLoading = false;
     }
@@ -190,16 +183,32 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
           ),
           const SizedBox(height: 8),
           TextField(
-            controller: _passwordController,
-            obscureText: !_showPassword,
+            controller: _ncPasswordController,
+            obscureText: !_showNcPassword,
             autofillHints: const [AutofillHints.password],
             decoration: InputDecoration(
-              labelText: "Password",
-              prefixIcon: const Icon(Icons.lock),
+              labelText: "Nextcloud password",
+              prefixIcon: const Icon(Icons.lock_person),
               suffixIcon: IconButton(
-                icon: Icon(_showPassword ? Icons.visibility : Icons.visibility_off),
+                icon: Icon(_showNcPassword ? Icons.visibility : Icons.visibility_off),
                 iconSize: 18,
-                onPressed: () { setState(() { _showPassword = !_showPassword; }); },
+                onPressed: () { setState(() { _showNcPassword = !_showNcPassword; }); },
+              ),
+              filled: true,
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _encPasswordController,
+            obscureText: !_showEncPassword,
+            autofillHints: const [AutofillHints.password],
+            decoration: InputDecoration(
+              labelText: "Encryption password",
+              prefixIcon: const Icon(Icons.sync_lock),
+              suffixIcon: IconButton(
+                icon: Icon(_showEncPassword ? Icons.visibility : Icons.visibility_off),
+                iconSize: 18,
+                onPressed: () { setState(() { _showEncPassword = !_showEncPassword; }); },
               ),
               filled: true,
             ),
@@ -243,4 +252,18 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       ),
     );
   }
+}
+
+class LoginDetailsStruct {
+  final Uri url;
+  final String username;
+  final String ncPassword;
+  final String encPassword;
+
+  LoginDetailsStruct({
+    String? urlString,
+    required this.username,
+    required this.ncPassword,
+    required this.encPassword,
+  }) : url = urlString != null ? Uri.parse(urlString) : NextCloudClientExtension.defaultNextCloudUri;
 }

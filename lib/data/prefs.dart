@@ -9,7 +9,10 @@ abstract class Prefs {
 
   static late EncPref<String> url;
   static late EncPref<String> username;
-  static late EncPref<String> password;
+  /// the password used to login to NextCloud
+  static late EncPref<String> ncPassword;
+  /// the password used to encrypt/decrypt notes
+  static late EncPref<String> encPassword;
 
   static late EncPref<String> key;
   static late EncPref<String> iv;
@@ -30,7 +33,8 @@ abstract class Prefs {
   static void init() {
     url = EncPref("url", "");
     username = EncPref("username", "");
-    password = EncPref("password", "");
+    ncPassword = EncPref("ncPassword", "");
+    encPassword = EncPref("encPassword", "");
 
     key = EncPref("key", "");
     iv = EncPref("iv", "");

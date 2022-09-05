@@ -19,43 +19,40 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
-  Future<bool> _tryLogin(String? urlString, String usernameEmail, String password) async {
-    final Uri url = urlString != null ? Uri.parse(urlString) : NextCloudClientExtension.defaultNextCloudUri;
-
+  Future<bool> _tryLogin(LoginDetailsStruct loginDetails) async {
     final NextCloudClient client = NextCloudClient.withCredentials(
-      url,
-      usernameEmail,
-      password,
+      loginDetails.url,
+      loginDetails.username,
+      loginDetails.ncPassword,
     );
 
-    final String username;
+    final String displayName;
     try {
       UserData userData = await client.user.getUser();
-      username = userData.displayName;
+      displayName = userData.displayName;
     } catch (e) {
       return false;
     }
 
-    _finishLogin(url, username, password, client); // don't await
+    _finishLogin(loginDetails, displayName, client); // don't await
 
     return true;
   }
 
-  Future _finishLogin(Uri url, String username, String password, NextCloudClient client) async {
+  Future _finishLogin(LoginDetailsStruct loginDetails, String displayName, NextCloudClient client) async {
     // encrypted prefs
-    Prefs.url.value = url.toString();
-    Prefs.username.value = username;
-    Prefs.password.value = password;
+    Prefs.url.value = loginDetails.url.toString();
+    Prefs.username.value = loginDetails.username;
+    Prefs.ncPassword.value = loginDetails.ncPassword;
+    Prefs.encPassword.value = loginDetails.encPassword;
 
     Prefs.pfp.value = ""; // trigger listeners while awaiting
-    String avatar = await client.avatar.getAvatar(username, 512);
+    String avatar = await client.avatar.getAvatar(loginDetails.username, 512);
     Prefs.pfp.value = avatar;
 
-    String key = await client.getEncryptionKey();
-    if (kDebugMode) print("generated key: $key");
+    await client.loadEncryptionKey();
 
-    // ignore: use_build_context_synchronously
-    context.pop();
+    if (mounted) context.pop();
   }
 
   @override
