@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -150,10 +151,7 @@ abstract class FileManager {
   }
 
   static Future<List<String>?> getRecentlyAccessed() async {
-    final prefs = await _prefs;
-    List<String>? recentlyAccessed = prefs.getStringList(recentlyAccessedKey);
-    if (recentlyAccessed == null) return null;
-    return recentlyAccessed.map((String filePath) {
+    return Prefs.recentFiles.value.map((String filePath) {
       if (filePath.endsWith(Editor.extension)) {
         return filePath.substring(0, filePath.length - Editor.extension.length);
       } else {
@@ -232,34 +230,29 @@ abstract class FileManager {
   static Future _renameReferences(String fromPath, String toPath) async {
     // rename file in recently accessed
     final prefs = await _prefs;
-    final List<String> recentlyAccessed = prefs.getStringList(recentlyAccessedKey) ?? [];
     bool replaced = false;
-    for (int i = 0; i < recentlyAccessed.length; i++) {
-      if (recentlyAccessed[i] != fromPath) continue;
+    for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
+      if (Prefs.recentFiles.value[i] != fromPath) continue;
       if (!replaced) {
-        recentlyAccessed[i] = toPath;
+        Prefs.recentFiles.value[i] = toPath;
         replaced = true;
       } else {
-        recentlyAccessed.removeAt(i);
+        Prefs.recentFiles.value.removeAt(i);
       }
     }
-    await prefs.setStringList(recentlyAccessedKey, recentlyAccessed);
+    Prefs.recentFiles.notifyListeners();
   }
 
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
     final prefs = await _prefs;
 
-    final List<String> recentlyAccessed = prefs.getStringList(recentlyAccessedKey) ?? [];
+    Prefs.recentFiles.value.remove(filePath);
+    Prefs.recentFiles.value.insert(0, filePath);
+    if (Prefs.recentFiles.value.length > maxRecentlyAccessedFiles) Prefs.recentFiles.value.removeLast();
 
-    recentlyAccessed.remove(filePath);
-    recentlyAccessed.insert(0, filePath);
-    if (recentlyAccessed.length > maxRecentlyAccessedFiles) recentlyAccessed.removeLast();
-
-    prefs.setStringList(recentlyAccessedKey, recentlyAccessed);
+    Prefs.recentFiles.notifyListeners();
   }
 
-  /// Shared preferences key for the list of recently accessed files.
-  static const String recentlyAccessedKey = "recentlyAccessed";
   static const int maxRecentlyAccessedFiles = 30;
   /// Shared preferences key for the list of all files.
   static const String fileIndexKey = "fileIndex";
