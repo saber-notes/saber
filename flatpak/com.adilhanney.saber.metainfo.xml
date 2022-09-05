@@ -6,7 +6,7 @@
 <component type="desktop-application">
     <id>com.adilhanney.saber</id>
 
-    <name>Saber</name>
+    <name>Saber: Handwritten Notes</name>
     <summary>A cross-platform libre handwritten notes app.</summary>
 
     <developer_name>Adil Hanney</developer_name>
@@ -23,7 +23,7 @@
     </supports>
 
     <description>
-        <p>A cross-platform libre handwritten notes app.</p>
+        <p>A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and the web!</p>
     </description>
 
     <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>
