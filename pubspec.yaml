@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dynamic_color: ^1.4.0
+  dynamic_color: ^1.5.4
 
   flutter_staggered_grid_view: ^0.6.2
 
