@@ -12,7 +12,7 @@
 		"--socket=wayland",
 		"--device=dri",
 		"--socket=pulseaudio",
-		"--filesystem=xdg-documents/Saber/:create"
+		"--filesystem=xdg-documents/Saber:create"
 	],
 	"modules": [
 		{
