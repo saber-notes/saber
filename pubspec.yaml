@@ -138,3 +138,5 @@ icons_launcher:
       enable: true
     windows:
       enable: true
+    macos:
+      enable: true
