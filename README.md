@@ -4,7 +4,7 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 
 |         | Android | iOS  | Linux | macOS | Web  | Windows |
 | ------- | ------- | ---- | ----- | ----- | ---- | ------- |
-| Support | ✓       | ✓*   | ✓     | ✗     | ✓    | ✓*      |
+| Support | ✓       | ✓*   | ✓     | ✓*    | ✓    | ✓*      |
 
 ✓* Some platforms aren't tested regularly but bug reports are welcome.
 
@@ -49,6 +49,13 @@ Download and install `SaberInstaller.exe` from the latest [Release](https://gith
 
 See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
 
+#### macOS
+
+Download `Saber.app.zip` from the latest [Release](https://github.com/adil192/saber/releases)
+and move the `Saber` app to `/Applications`.
+macOS will warn you that the app is from an unidentified developer when you first open it, so
+you'll need to go to `System Preferences > Security & Privacy` and click `Open Anyway`.
+
 </details>
 
 ## Build from source
@@ -91,14 +98,19 @@ You may need to generate a signing certificate and create the `android/key.prope
 
 The Windows installer is created with [Inno Setup](https://jrsoftware.org/isinfo.php). To create an installer of your own, run the above build command, then edit and run [installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss) with Inno Setup Compiler.
 
-#### iOS
+#### iOS and macOS
 
-If you have a macOS computer, you can build for iOS with `flutter build ipa`
-([more info](https://docs.flutter.dev/deployment/ios#create-an-app-bundle)).
+If you have a macOS computer, you can
+[build for iOS](https://docs.flutter.dev/deployment/ios#create-an-app-bundle)
+with `flutter build ipa` or
+[build for macOS](https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-xcode)
+with `flutter build macos`.
 
-If you don't, watch this YouTube tutorial
+If you don't, fork this repo and use the GitHub Action
+[Build for macOS and iOS](https://github.com/adil192/saber/actions/workflows/apple.yml).
+Alternatively, follow this YouTube tutorial
 [How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
-to build with [Codemagic](https://codemagic.io/start/) and install on your device.
+to manually build with [Codemagic](https://codemagic.io/start/).
 
 </details>
 
