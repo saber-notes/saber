@@ -29,9 +29,9 @@ class _RecentPageState extends State<RecentPage> {
 
   Future findRecentlyAccessedNotes() async {
     if (!mounted) return;
-    List<String>? children = await FileManager.getRecentlyAccessed();
+    List<String> children = await FileManager.getRecentlyAccessed();
     filePaths.clear();
-    if (children == null) {
+    if (children.isEmpty) {
       failed = true;
     } else {
       failed = false;

@@ -150,7 +150,7 @@ abstract class FileManager {
     return DirectoryChildren(directories, files);
   }
 
-  static Future<List<String>?> getRecentlyAccessed() async {
+  static Future<List<String>> getRecentlyAccessed() async {
     return Prefs.recentFiles.value.map((String filePath) {
       if (filePath.endsWith(Editor.extension)) {
         return filePath.substring(0, filePath.length - Editor.extension.length);
