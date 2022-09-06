@@ -35,25 +35,29 @@ jobs:
 
       - name: Compress iOS build
         run: |
-          mkdir -p build/ios/iphoneos/Payload/
-          mv build/ios/iphoneos/Runner.app/ build/ios/iphoneos/Payload/
-          zip -r Saber.ipa build/ios/iphoneos/Payload
+          pushd build/ios/iphoneos
+          mkdir -p Payload
+          mv Runner.app Payload/
+          zip -r Saber.ipa Payload
+          popd
 
       - name: Upload iOS build
         uses: actions/upload-artifact@v2
         with:
           name: Saber-iOS-Archive
-          path: Saber.ipa
+          path: build/ios/iphoneos/Saber.ipa
 
       - name: Build for macOS
         run: flutter build macos
 
       - name: Compress macOS build
         run: |
-          zip -r Saber.app.zip build/macos/Build/Products/Release/Saber.app
+          pushd build/macos/Build/Products/Release
+          zip -r Saber.app.zip Saber.app
+          popd
 
       - name: Upload macOS build
         uses: actions/upload-artifact@v2
         with:
           name: Saber-macOS-Archive
-          path: Saber.app.zip
+          path: build/macos/Build/Products/Release/Saber.app.zip
