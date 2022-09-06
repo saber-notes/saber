@@ -39,7 +39,9 @@ Option 2: Download and install `app-release.apk` from the latest [Release](https
 
 #### Linux
 
-Download `Saber.flatpak` from the latest [Release](https://github.com/adil192/saber/releases) and install with `flatpak --user install Saber.flatpak`
+Option 1 (recommended): Install the flatpak from Flathub: `flatpak --user install com.adilhanney.saber`.
+
+Option 2: Download `Saber.flatpak` from the latest [Release](https://github.com/adil192/saber/releases) and install with `flatpak --user install Saber.flatpak`
 
 #### Windows
 
