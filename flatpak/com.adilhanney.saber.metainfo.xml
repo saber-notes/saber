@@ -59,10 +59,16 @@
     </screenshots>
 
     <releases>
-        <release version="0.3.0" type="development" date="2022-09-03">
+        <release version="0.3.1" type="development" date="2022-09-06">
+            <description>
+                <p>1. Support for macOS</p>
+                <p>2. Pen color doesn't reset to black every time, but remembers your last used color</p>
+                <p>3. Fixed how recently accessed files are recorded</p>
+            </description>
+        </release>
+        <release version="0.3.0" type="development" date="2022-09-05">
             <description>
                 <p>1. Use separate passwords for Nextcloud and encryption. This prevents your Nextcloud provider knowing your encryption key.</p>
-                
             </description>
         </release>
         <release version="0.2.3" type="development" date="2022-09-03">
