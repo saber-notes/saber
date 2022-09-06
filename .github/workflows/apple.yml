@@ -1,0 +1,59 @@
+name: Build for macOS and iOS
+
+on:
+  # Enable manual run
+  workflow_dispatch:
+  pull_request:
+  release:
+    types:
+      - published
+
+env:
+  project-id: com.adilhanney.saber
+
+jobs:
+  build:
+    name: Build for macOS and iOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          architecture: x64
+
+      - name: Setup Flutter
+        run: |
+          flutter config --enable-macos-desktop
+          flutter pub get
+
+      - name: Build for iOS
+        run: flutter build ios --no-codesign
+
+      - name: Compress iOS build
+        run: |
+          mkdir -p build/ios/iphoneos/Payload/
+          mv build/ios/iphoneos/Runner.app/ build/ios/iphoneos/Payload/
+          zip -r Saber.ipa build/ios/iphoneos/Payload
+
+      - name: Upload iOS build
+        uses: actions/upload-artifact@v2
+        with:
+          name: Saber-iOS-Archive
+          path: Saber.ipa
+
+      - name: Build for macOS
+        run: flutter build macos
+
+      - name: Compress macOS build
+        run: |
+          zip -r Saber.app.zip build/macos/Build/Products/Release/Saber.app
+
+      - name: Upload macOS build
+        uses: actions/upload-artifact@v2
+        with:
+          name: Saber-macOS-Archive
+          path: Saber.app.zip
