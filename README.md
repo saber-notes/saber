@@ -116,6 +116,7 @@ to build with [Codemagic](https://codemagic.io/start/) and install on your devic
   - `lib/data/version.dart`: `buildNumber`
   - `windows/runner/Runner.rc`: `VERSION_AS_NUMBER` and `VERSION_AS_STRING`
   - `installers/desktop_inno_script.iss`: `MyAppVersion`
+  - `flatpak/com.adilhanney.saber.metainfo.xml`: `<releases>`
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
