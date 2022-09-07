@@ -59,6 +59,11 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.2" type="development" date="2022-09-07">
+            <description>
+                <p>1. Fix crash in the editor for new users</p>
+            </description>
+        </release>
         <release version="0.3.1" type="development" date="2022-09-06">
             <description>
                 <p>1. Support for macOS</p>
