@@ -28,7 +28,7 @@ Saber is still in early stages but if you'd like to check it out,
 you can see the online PWA at [saber.adil.hanney.org](https://saber.adil.hanney.org).
 Alternatively, install it natively...
 
-<details>
+<details open>
 <summary>Tap to show/hide install instructions</summary>
 
 #### Android
