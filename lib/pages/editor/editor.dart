@@ -320,9 +320,7 @@ class _EditorState extends State<Editor> {
 
   void exportAsPdf() async {
     final pdf = EditorExporter.generatePdf(pages, coreInfo.strokes);
-    final folder = (await getApplicationDocumentsDirectory()).path + FileManager.appRootDirectoryPrefix;
-    final file = File("$folder/example.pdf");
-    await file.writeAsBytes(await pdf.save());
+    FileManager.exportFile("$_filename.pdf", await pdf.save());
   }
 
   @override
