@@ -20,7 +20,7 @@ void main() {
 
 void onLoginDetailsLoaded() async {
   // wait for username to be loaded
-  if (Prefs.username.value.isEmpty) return;
+  if (!Prefs.username.loaded) return;
   Prefs.username.removeListener(onLoginDetailsLoaded);
 
   // wait for other prefs to load

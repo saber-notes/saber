@@ -61,20 +61,32 @@ abstract class Prefs {
 abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   final String key;
   final List<String> historicalKeys;
+  bool _loaded = false;
 
   Preferences? _prefs;
 
   IPref(this.key, T defaultValue, {
     List<String>? historicalKeys
-  }) : historicalKeys = historicalKeys ?? [],
-        super(defaultValue) {
-    _load().then((_) => addListener(_save));
+  }) : historicalKeys = historicalKeys ?? [], super(defaultValue) {
+    _load().then((_) {
+      _loaded = true;
+      addListener(_save);
+    });
   }
 
   Future<void> _load();
   Future<void> _save();
   @protected
   Future<T?> getValueWithKey(String key);
+
+  @override
+  get value {
+    if (!loaded) {
+      if (kDebugMode) print("WARNING: Pref '$key' accessed before it was loaded.");
+    }
+    return super.value;
+  }
+  get loaded => _loaded;
 
   /// Lets us use notifyListeners outside of the class
   /// as super.notifyListeners is @protected
