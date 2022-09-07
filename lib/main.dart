@@ -19,9 +19,9 @@ void main() {
 }
 
 void onLoginDetailsLoaded() async {
-  // wait for username to be loaded
-  if (!Prefs.username.loaded) return;
-  Prefs.username.removeListener(onLoginDetailsLoaded);
+  if (!Prefs.username.loaded) return; // wait until username is loaded
+  if (Prefs.username.value.isEmpty) return; // wait until logged in
+  Prefs.username.removeListener(onLoginDetailsLoaded); // stop waiting
 
   // wait for other prefs to load
   await Future.delayed(const Duration(milliseconds: 100));
