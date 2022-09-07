@@ -387,6 +387,9 @@ class _EditorState extends State<Editor> {
                   _lastSeenPointerCount = 0;
                 });
               },
+
+              exportAsPdf: null,
+              exportAsPng: null,
             ),
           ),
         ],
