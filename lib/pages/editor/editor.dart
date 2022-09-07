@@ -1,16 +1,19 @@
 
 import 'dart:convert';
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -315,6 +318,13 @@ class _EditorState extends State<Editor> {
     }
   }
 
+  void exportAsPdf() async {
+    final pdf = EditorExporter.generatePdf(pages, coreInfo.strokes);
+    final folder = (await getApplicationDocumentsDirectory()).path + FileManager.appRootDirectoryPrefix;
+    final file = File("$folder/example.pdf");
+    await file.writeAsBytes(await pdf.save());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -388,7 +398,7 @@ class _EditorState extends State<Editor> {
                 });
               },
 
-              exportAsPdf: null,
+              exportAsPdf: exportAsPdf,
               exportAsPng: null,
             ),
           ),

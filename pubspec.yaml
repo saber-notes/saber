@@ -68,6 +68,8 @@ dependencies:
 
   keybinder: ^1.0.1
 
+  pdf: ^3.8.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
