@@ -15,7 +15,7 @@ import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/file_manager.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
 import 'package:saber/components/canvas/_stroke.dart';
