@@ -79,7 +79,6 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 LoginInputGroup(
                   tryLogin: _tryLogin,
                 ),
-
                 const SizedBox(height: 64),
 
                 RichText(
@@ -101,6 +100,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
                     ],
                   ),
                 ),
+
+                const SizedBox(height: 16),
               ],
             ),
           ),
