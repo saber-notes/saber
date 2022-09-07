@@ -33,9 +33,9 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1 (recommended): Download from the [Play Store](https://play.google.com/store/apps/details?id=com.adilhanney.saber)
+Option 1 (recommended): Download and install `app-release.apk` from the latest [Release](https://github.com/adil192/saber/releases)
 
-Option 2: Download and install `app-release.apk` from the latest [Release](https://github.com/adil192/saber/releases)
+Option 2: Download from the [Play Store](https://play.google.com/store/apps/details?id=com.adilhanney.saber)
 
 #### Linux
 
