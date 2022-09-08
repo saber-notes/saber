@@ -59,6 +59,12 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.3" type="development" date="2022-09-08">
+            <description>
+                <p>1. Allow PDF export</p>
+                <p>2. Add a setting to disable automatically checking for updates</p>
+            </description>
+        </release>
         <release version="0.3.2" type="development" date="2022-09-07">
             <description>
                 <p>1. Fix crash in the editor for new users</p>
