@@ -28,7 +28,7 @@ class SettingsPage extends StatelessWidget {
                 pref: Prefs.shouldCheckForUpdates,
               ),
               SettingsSwitch(
-                title: "Editor toolbar on the bottom",
+                title: "Align the editor toolbar to the bottom",
                 pref: Prefs.editorToolbarOnBottom,
               ),
               SettingsSwitch(
