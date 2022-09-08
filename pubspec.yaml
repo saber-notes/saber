@@ -69,6 +69,8 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.3
+  share_plus: ^4.1.0
+  file_picker: ^5.0.1
 
 dev_dependencies:
   flutter_test:
