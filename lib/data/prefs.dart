@@ -32,6 +32,8 @@ abstract class Prefs {
   /// File paths that need to be uploaded to Nextcloud
   static late EncPref<List<String>> fileSyncUploadQueue;
 
+  static late PlainPref<bool> shouldCheckForUpdates;
+
   static void init() {
     url = EncPref("url", "");
     username = EncPref("username", "");
@@ -54,6 +56,8 @@ abstract class Prefs {
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
     fileSyncUploadQueue = EncPref("fileSyncUploadQueue", []);
+
+    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", true);
   }
 
 }

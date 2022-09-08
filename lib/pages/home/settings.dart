@@ -24,6 +24,10 @@ class SettingsPage extends StatelessWidget {
             children: [
               const NextcloudProfile(),
               SettingsSwitch(
+                title: "Automatically check for Saber updates",
+                pref: Prefs.shouldCheckForUpdates,
+              ),
+              SettingsSwitch(
                 title: "Editor toolbar on the bottom",
                 pref: Prefs.editorToolbarOnBottom,
               ),

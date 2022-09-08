@@ -2,6 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:saber/components/settings/do_update/do_update.dart'
   if (dart.library.html) 'package:saber/components/settings/do_update/do_update_web.dart';
@@ -11,8 +12,10 @@ abstract class UpdateManager {
 
   static bool _hasShownUpdateDialog = false;
   static Future<void> showUpdateDialog(BuildContext context) async {
+    if (!Prefs.shouldCheckForUpdates.value) return;
     if (_hasShownUpdateDialog) return;
     if (!await _checkForUpdate()) return;
+    if (!Prefs.shouldCheckForUpdates.value) return; // check again after await
 
     _hasShownUpdateDialog = true;
     return await showDialog(
