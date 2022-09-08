@@ -40,8 +40,8 @@ class Toolbar extends StatefulWidget {
 
   final VoidCallback toggleFingerDrawing;
 
-  final VoidCallback? exportAsPdf;
-  final VoidCallback? exportAsPng;
+  final Future Function()? exportAsPdf;
+  final Future Function()? exportAsPng;
 
   @override
   State<Toolbar> createState() => _ToolbarState();
@@ -70,7 +70,7 @@ class _ToolbarState extends State<Toolbar> {
     Keybinder.bind(_keyF!, widget.toggleFingerDrawing);
     Keybinder.bind(_keyE!, toggleEraser);
     Keybinder.bind(_keyC!, toggleColorOptions);
-    Keybinder.bind(_ctrlShiftS!, toggleExportOptions);
+    Keybinder.bind(_ctrlShiftS!, toggleExportBar);
   }
   _removeKeybindings() {
     if (_keyF != null) Keybinder.remove(_keyF!);
@@ -91,7 +91,7 @@ class _ToolbarState extends State<Toolbar> {
       showColorOptions = !showColorOptions;
     });
   }
-  toggleExportOptions() {
+  toggleExportBar() {
     setState(() {
       showExportOptions = !showExportOptions;
     });
@@ -116,6 +116,7 @@ class _ToolbarState extends State<Toolbar> {
               maintainState: true,
               collapsed: !showExportOptions,
               child: ExportBar(
+                toggleExportBar: toggleExportBar,
                 exportAsPdf: widget.exportAsPdf,
                 exportAsPng: widget.exportAsPng,
               ),
@@ -179,7 +180,7 @@ class _ToolbarState extends State<Toolbar> {
                       ),
                       ToolbarIconButton(
                         tooltip: "Export (Ctrl Shift S)",
-                        onPressed: toggleExportOptions,
+                        onPressed: toggleExportBar,
                         child: const Icon(Icons.share),
                       ),
                     ],

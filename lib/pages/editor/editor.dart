@@ -318,9 +318,9 @@ class _EditorState extends State<Editor> {
     }
   }
 
-  void exportAsPdf() async {
+  Future exportAsPdf() async {
     final pdf = EditorExporter.generatePdf(pages, coreInfo.strokes);
-    FileManager.exportFile("$_filename.pdf", await pdf.save());
+    await FileManager.exportFile("$_filename.pdf", await pdf.save());
   }
 
   @override
