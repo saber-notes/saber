@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/data/file_manager.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class EditorCoreInfo {

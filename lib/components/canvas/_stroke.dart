@@ -78,6 +78,18 @@ class Stroke {
       .toList(growable: false);
   }
 
+  String toSvgPath() {
+    String _toSvgPoint(Offset offset) {
+      return '${offset.dx} ${Canvas.canvasHeight - offset.dy}';
+    }
+
+    if (polygon.isEmpty) {
+      return "";
+    } else {
+      return "M${polygon.map((offset) => _toSvgPoint(offset)).join("L")}";
+    }
+  }
+
   double get maxY {
     return _points.isEmpty ? 0 : _points.map((Point point) => point.y).reduce(max);
   }

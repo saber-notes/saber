@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:saber/data/file_manager.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
 extension NextCloudClientExtension on NextCloudClient {

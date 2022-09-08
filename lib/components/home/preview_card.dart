@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/file_manager.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 
 class PreviewCard extends StatefulWidget {
   const PreviewCard({

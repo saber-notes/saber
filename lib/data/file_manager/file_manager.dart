@@ -11,6 +11,9 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'file_manager_nonweb.dart'
+  if (dart.library.html) 'file_manager_web.dart';
+
 /// A collection of cross-platform utility functions for working with a virtual file system.
 abstract class FileManager {
   static String appRootDirectoryPrefix = "/Saber";
@@ -76,6 +79,10 @@ abstract class FileManager {
     }
 
     if (awaitWrite) await writeFuture;
+  }
+
+  static Future exportFile(String fileName, List<int> bytes) async {
+    return await fmExportFile(fileName, bytes);
   }
 
   /// Moves a file from [fromPath] to [toPath], returning its final path.

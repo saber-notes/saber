@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
+import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -23,6 +24,9 @@ class Toolbar extends StatefulWidget {
     required this.isRedoPossible,
 
     required this.toggleFingerDrawing,
+
+    required this.exportAsPdf,
+    required this.exportAsPng,
   });
 
   final ValueChanged<Tool> setTool;
@@ -36,6 +40,9 @@ class Toolbar extends StatefulWidget {
 
   final VoidCallback toggleFingerDrawing;
 
+  final Future Function()? exportAsPdf;
+  final Future Function()? exportAsPng;
+
   @override
   State<Toolbar> createState() => _ToolbarState();
 }
@@ -43,6 +50,7 @@ class Toolbar extends StatefulWidget {
 class _ToolbarState extends State<Toolbar> {
 
   bool showColorOptions = false;
+  bool showExportOptions = false;
 
   @override
   void initState() {
@@ -53,18 +61,22 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _keyF;
   Keybinding? _keyE;
   Keybinding? _keyC;
+  Keybinding? _ctrlShiftS;
   _assignKeybindings() {
     _keyF = Keybinding([KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
     _keyE = Keybinding([KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
     _keyC = Keybinding([KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
+    _ctrlShiftS = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyS)], inclusive: true);
     Keybinder.bind(_keyF!, widget.toggleFingerDrawing);
     Keybinder.bind(_keyE!, toggleEraser);
     Keybinder.bind(_keyC!, toggleColorOptions);
+    Keybinder.bind(_ctrlShiftS!, toggleExportBar);
   }
   _removeKeybindings() {
     if (_keyF != null) Keybinder.remove(_keyF!);
     if (_keyE != null) Keybinder.remove(_keyE!);
     if (_keyC != null) Keybinder.remove(_keyC!);
+    if (_ctrlShiftS != null) Keybinder.remove(_ctrlShiftS!);
   }
 
   toggleEraser() {
@@ -77,6 +89,11 @@ class _ToolbarState extends State<Toolbar> {
   toggleColorOptions() {
     setState(() {
       showColorOptions = !showColorOptions;
+    });
+  }
+  toggleExportBar() {
+    setState(() {
+      showExportOptions = !showExportOptions;
     });
   }
 
@@ -93,6 +110,17 @@ class _ToolbarState extends State<Toolbar> {
         child: Column(
           verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
           children: [
+            Collapsible(
+              axis: CollapsibleAxis.vertical,
+              alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
+              maintainState: true,
+              collapsed: !showExportOptions,
+              child: ExportBar(
+                toggleExportBar: toggleExportBar,
+                exportAsPdf: widget.exportAsPdf,
+                exportAsPng: widget.exportAsPng,
+              ),
+            ),
             Collapsible(
               axis: CollapsibleAxis.vertical,
               alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
@@ -149,6 +177,11 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: "Redo",
                         onPressed: widget.isRedoPossible ? widget.redo : null,
                         child: const Icon(Icons.redo),
+                      ),
+                      ToolbarIconButton(
+                        tooltip: "Export (Ctrl Shift S)",
+                        onPressed: toggleExportBar,
+                        child: const Icon(Icons.share),
                       ),
                     ],
                   ),
