@@ -8,10 +8,11 @@ import 'package:share_plus/share_plus.dart';
 Future fmExportFile(String fileName, List<int> bytes) async {
   final String tempFolder = (await getTemporaryDirectory()).path;
   final File file = File("$tempFolder/$fileName");
-  await file.writeAsBytes(bytes);
+  final Future fileWriteFuture = file.writeAsBytes(bytes);
   bool needToDeleteTempFile = true;
 
   if (Platform.isAndroid || Platform.isIOS) { // mobile, open share dialog
+    await fileWriteFuture;
     await Share.shareFilesWithResult([file.path]);
   } else { // desktop, open save-as dialog
     String? outputFile = await FilePicker.platform.saveFile(
@@ -20,6 +21,7 @@ Future fmExportFile(String fileName, List<int> bytes) async {
       allowedExtensions: [fileName.split(".").last],
     );
     if (outputFile != null) {
+      await fileWriteFuture;
       await file.rename(outputFile);
       needToDeleteTempFile = false;
     }
