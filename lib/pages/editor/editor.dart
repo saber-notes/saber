@@ -259,8 +259,11 @@ class _EditorState extends State<Editor> {
 
 
   String get _filename => path.substring(path.lastIndexOf('/') + 1);
+  String _saveToString() {
+    return json.encode(coreInfo);
+  }
   void saveToFile() async {
-    String toSave = json.encode(coreInfo);
+    String toSave = _saveToString();
     await FileManager.writeFile(path + Editor.extension, toSave);
   }
 
@@ -321,6 +324,11 @@ class _EditorState extends State<Editor> {
   Future exportAsPdf() async {
     final pdf = EditorExporter.generatePdf(pages, coreInfo.strokes);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
+  }
+  Future exportAsSbn() async {
+    final content = _saveToString();
+    final encoded = utf8.encode(content);
+    await FileManager.exportFile("$_filename.sbn", encoded);
   }
 
   @override
@@ -396,6 +404,7 @@ class _EditorState extends State<Editor> {
                 });
               },
 
+              exportAsSbn: exportAsSbn,
               exportAsPdf: exportAsPdf,
               exportAsPng: null,
             ),

@@ -25,6 +25,7 @@ class Toolbar extends StatefulWidget {
 
     required this.toggleFingerDrawing,
 
+    required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
   });
@@ -40,6 +41,7 @@ class Toolbar extends StatefulWidget {
 
   final VoidCallback toggleFingerDrawing;
 
+  final Future Function()? exportAsSbn;
   final Future Function()? exportAsPdf;
   final Future Function()? exportAsPng;
 
@@ -117,6 +119,7 @@ class _ToolbarState extends State<Toolbar> {
               collapsed: !showExportOptions,
               child: ExportBar(
                 toggleExportBar: toggleExportBar,
+                exportAsSbn: widget.exportAsSbn,
                 exportAsPdf: widget.exportAsPdf,
                 exportAsPng: widget.exportAsPng,
               ),

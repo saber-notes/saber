@@ -5,12 +5,14 @@ class ExportBar extends StatelessWidget {
   const ExportBar({
     Key? key,
     required this.toggleExportBar,
+    required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
   }) : super(key: key);
 
   final VoidCallback toggleExportBar;
 
+  final Future Function()? exportAsSbn;
   final Future Function()? exportAsPdf;
   final Future Function()? exportAsPng;
 
@@ -26,6 +28,14 @@ class ExportBar extends StatelessWidget {
               const Text("Export as:"),
               const SizedBox(width: 8),
 
+              TextButton(
+                onPressed: exportAsSbn == null ? null : () {
+                  exportAsSbn?.call().then((_) {
+                    toggleExportBar();
+                  });
+                },
+                child: const Text("SBN"),
+              ),
               TextButton(
                 onPressed: exportAsPdf == null ? null : () {
                   exportAsPdf?.call().then((_) {
