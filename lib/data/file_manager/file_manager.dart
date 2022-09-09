@@ -70,7 +70,10 @@ abstract class FileManager {
     final Future writeFuture;
     if (kIsWeb) {
       final prefs = await _prefs;
-      writeFuture = prefs.setString(filePath, toWrite);
+      writeFuture = Future.wait({
+        prefs.setString(filePath, toWrite),
+        prefs.setInt(_lastModifiedPrefix + filePath, DateTime.now().millisecondsSinceEpoch),
+      });
     } else {
       final File file = File(await _documentsDirectory + filePath);
       await _createFileDirectory(filePath);
@@ -188,8 +191,10 @@ abstract class FileManager {
   static Future<DateTime> lastModified(String filePath) async {
     filePath = _sanitisePath(filePath);
     if (kIsWeb) {
-      // todo: implement last modified for web
-      return DateTime.now();
+      final prefs = await _prefs;
+      int? date = prefs.getInt(_lastModifiedPrefix + filePath);
+      if (date == null) return DateTime(2022, 09, 09); // date when lastModifiedPrefix was introduced
+      return DateTime.fromMillisecondsSinceEpoch(date);
     } else {
       final File file = File(await _documentsDirectory + filePath);
       return await file.lastModified();
@@ -244,6 +249,9 @@ abstract class FileManager {
   }
 
   static const int maxRecentlyAccessedFiles = 30;
+  /// [prefs.getInt(lastModifiedPrefix + filePath)] gives you the date it was last modified,
+  /// in milliseconds since epoch.
+  static const String _lastModifiedPrefix = "date";
 }
 
 class DirectoryChildren {
