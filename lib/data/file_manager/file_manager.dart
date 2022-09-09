@@ -70,7 +70,6 @@ abstract class FileManager {
     final Future writeFuture;
     if (kIsWeb) {
       final prefs = await _prefs;
-      if (!prefs.containsKey(filePath)) await _addFileToIndex(filePath, prefs);
       writeFuture = prefs.setString(filePath, toWrite);
     } else {
       final File file = File(await _documentsDirectory + filePath);
@@ -96,8 +95,6 @@ abstract class FileManager {
 
     if (kIsWeb) {
       final prefs = await _prefs;
-      await _addFileToIndex(toPath, prefs);
-      await _removeFileFromIndex(fromPath, prefs);
       await prefs.setString(toPath, await readFile(fromPath) ?? "");
       await prefs.remove(fromPath);
     } else {
@@ -121,11 +118,8 @@ abstract class FileManager {
 
     if (kIsWeb) {
       final prefs = await _prefs;
-
-      List<String>? fileIndex = prefs.getStringList(fileIndexKey);
-      if (fileIndex == null) return null;
-
-      allChildren = fileIndex
+      allChildren = prefs.getKeys()
+          // .where((String file) => file.startsWith('/')) // directory already starts with '/'
           .where((String file) => file.startsWith(directory)) // filter out other directories
           .map((String file) => file.substring(directory.length)) // remove directory prefix
           .map((String file) => file.contains('/') ? file.substring(0, file.indexOf('/')) : file) // remove nested folder names
@@ -216,17 +210,6 @@ abstract class FileManager {
     return fileName;
   }
 
-  static Future _removeFileFromIndex(String filePath, SharedPreferences prefs) async {
-    final List<String> files = prefs.getStringList(fileIndexKey) ?? [];
-    files.remove(filePath);
-    await prefs.setStringList(fileIndexKey, files);
-  }
-  static Future _addFileToIndex(String filePath, SharedPreferences prefs) async {
-    final List<String> files = prefs.getStringList(fileIndexKey) ?? [];
-    if (files.contains(filePath)) return;
-    files.add(filePath);
-    await prefs.setStringList(fileIndexKey, files);
-  }
 
   /// Creates the parent directories of filePath if they don't exist.
   static Future _createFileDirectory(String filePath) async {
@@ -261,8 +244,6 @@ abstract class FileManager {
   }
 
   static const int maxRecentlyAccessedFiles = 30;
-  /// Shared preferences key for the list of all files.
-  static const String fileIndexKey = "fileIndex";
 }
 
 class DirectoryChildren {
