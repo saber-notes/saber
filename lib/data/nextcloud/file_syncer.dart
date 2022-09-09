@@ -25,7 +25,9 @@ abstract class FileSyncer {
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
 
-  static void startDownloads() async {
+  static void startSync() async {
+    _uploadFileFromQueue();
+
     _client ??= await NextCloudClientExtension.withSavedDetails();
     if (_client == null) return;
 

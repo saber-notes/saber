@@ -27,7 +27,7 @@ void onLoginDetailsLoaded() async {
   await Future.delayed(const Duration(milliseconds: 100));
 
   // start syncing
-  FileSyncer.startDownloads();
+  FileSyncer.startSync();
 }
 
 class App extends StatelessWidget {

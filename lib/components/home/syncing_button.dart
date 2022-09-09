@@ -44,7 +44,7 @@ class _SyncingButtonState extends State<SyncingButton> {
     return IconButton(
       onPressed: loggedIn ? () {
         FileSyncer.filesDone.value = null; // reset progress indicator
-        FileSyncer.startDownloads();
+        FileSyncer.startSync();
       } : null,
       icon: Stack(
         alignment: Alignment.center,
