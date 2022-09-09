@@ -4,10 +4,26 @@ import 'package:saber/components/home/settings_switch.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/prefs.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  @override
+  void initState() {
+    UpdateManager.isUpdateAvailable.addListener(onUpdateAvailable);
+    super.initState();
+  }
+
+  void onUpdateAvailable() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +31,15 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
         title: const Text("Settings"),
+        actions: [
+          if (UpdateManager.isUpdateAvailable.value) IconButton(
+            tooltip: "Show update dialog",
+            icon: const Icon(Icons.system_update),
+            onPressed: () {
+              UpdateManager.showUpdateDialog(context, userTriggered: true);
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -50,5 +75,11 @@ class SettingsPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    UpdateManager.isUpdateAvailable.removeListener(onUpdateAvailable);
+    super.dispose();
   }
 }

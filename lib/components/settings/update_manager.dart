@@ -9,13 +9,17 @@ import 'package:saber/components/settings/do_update/do_update.dart'
 
 abstract class UpdateManager {
   static final Uri versionUrl = Uri.parse("https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart");
+  static final ValueNotifier<bool> isUpdateAvailable = ValueNotifier(false);
 
   static bool _hasShownUpdateDialog = false;
-  static Future<void> showUpdateDialog(BuildContext context) async {
-    if (!Prefs.shouldCheckForUpdates.value) return;
-    if (_hasShownUpdateDialog) return;
-    if (!await _checkForUpdate()) return;
-    if (!Prefs.shouldCheckForUpdates.value) return; // check again after await
+  static Future<void> showUpdateDialog(BuildContext context, {bool userTriggered = false}) async {
+    if (!isUpdateAvailable.value) {
+      if (!Prefs.shouldCheckForUpdates.value) return;
+      isUpdateAvailable.value = await _checkForUpdate();
+    }
+    if (!isUpdateAvailable.value) return; // no update available
+
+    if (!userTriggered && _hasShownUpdateDialog) return; // already shown
 
     _hasShownUpdateDialog = true;
     return await showDialog(
