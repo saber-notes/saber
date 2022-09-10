@@ -176,7 +176,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.0"
+    version: "4.4.1"
   http:
     dependency: "direct main"
     description:
@@ -444,7 +444,7 @@ packages:
       name: pointycastle
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.6.1"
+    version: "3.6.2"
   process:
     dependency: transitive
     description:
