@@ -3,9 +3,9 @@ name: Build for macOS and iOS
 on:
   # Enable manual run
   workflow_dispatch:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - '**'
 
 env:
   project-id: com.adilhanney.saber

@@ -4,9 +4,9 @@ on:
   # Enable manual run
   workflow_dispatch:
   pull_request:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - '**'
 
 env:
   project-id: com.adilhanney.saber
