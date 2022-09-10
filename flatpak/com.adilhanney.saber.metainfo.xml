@@ -59,6 +59,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.4" type="development" date="2022-09-10">
+            <description>
+                <p>1. Allow SBN export (Saber note format)</p>
+                <p>2. Virtual filesystem improvements on the web</p>
+                <p>3. Restart unfinished uploads if needed</p>
+            </description>
+        </release>
         <release version="0.3.3" type="development" date="2022-09-08">
             <description>
                 <p>1. Allow PDF export</p>
