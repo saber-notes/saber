@@ -8,6 +8,8 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class EditorCoreInfo {
+  static const int fileVersion = 1;
+
   final List<Stroke> strokes;
   Color? backgroundColor;
 
@@ -47,6 +49,7 @@ class EditorCoreInfo {
   }
 
   Map<String, dynamic> toJson() => {
+    'v': fileVersion,
     's': strokes,
     'b': backgroundColor?.value,
   };
