@@ -20,12 +20,12 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 
 ## Features
 
-Please see [#1 Saber progress](https://github.com/adil192/saber/discussions/1).
+Please see [#1 Saber progress][progress].
 
 ## Install
 
 Saber is still in early stages but if you'd like to check it out,
-you can see the online PWA at [saber.adil.hanney.org](https://saber.adil.hanney.org).
+you can see the online PWA at [saber.adil.hanney.org][saber_web].
 Alternatively, install it natively...
 
 <details open>
@@ -33,19 +33,19 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1 (recommended): Download and install `app-release.apk` from the latest [Release](https://github.com/adil192/saber/releases)
+Option 1 (recommended): Download and install `app-release.apk` from the latest [Release][releases].
 
-Option 2: Download from the [Play Store](https://play.google.com/store/apps/details?id=com.adilhanney.saber)
+Option 2: Download from the [Play Store][google_play]
 
 #### Linux
 
 Option 1 (recommended): Install the flatpak from Flathub: `flatpak --user install com.adilhanney.saber`.
 
-Option 2: Download `Saber.flatpak` from the latest [Release](https://github.com/adil192/saber/releases) and install with `flatpak --user install Saber.flatpak`
+Option 2: Download `Saber.flatpak` from the latest [Release][releases] and install with `flatpak --user install Saber.flatpak`
 
 #### Windows
 
-Download and install `SaberInstaller.exe` from the latest [Release](https://github.com/adil192/saber/releases)
+Download and install `SaberInstaller.exe` from the latest [Release][releases]
 
 #### iOS
 
@@ -53,7 +53,7 @@ See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
 
 #### macOS
 
-Download `Saber.app.zip` from the latest [Release](https://github.com/adil192/saber/releases)
+Download `Saber.app.zip` from the latest [Release][releases]
 and move the `Saber` app to `/Applications`.
 macOS will warn you that the app is from an unidentified developer when you first open it, so
 you'll need to go to `System Preferences > Security & Privacy` and click `Open Anyway`.
@@ -82,13 +82,16 @@ flutter pub get
 
 `flutter build linux`
 
-This is good enough for using on your own computer, but if you want to redistribute your build, you need to use a predictable environment: fork this repo and use the GitHub Action [Build Flatpak](https://github.com/adil192/saber/actions/workflows/flatpak.yml) instead.
+This is good enough for using on your own computer, but if you want to redistribute your build,
+you need to use a predictable environment: fork this repo and use the GitHub Action
+[Build Flatpak](https://github.com/adil192/saber/actions/workflows/flatpak.yml) instead.
 
 #### Android
 
 `flutter build apk`
 
-You may need to generate a signing certificate and create the `android/key.properties` file. More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
+You may need to generate a signing certificate and create the `android/key.properties` file.
+More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
 #### The web
 
@@ -98,7 +101,10 @@ You may need to generate a signing certificate and create the `android/key.prope
 
 `flutter build windows`
 
-The Windows installer is created with [Inno Setup](https://jrsoftware.org/isinfo.php). To create an installer of your own, run the above build command, then edit and run [installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss) with Inno Setup Compiler.
+The Windows installer is created with [Inno Setup](https://jrsoftware.org/isinfo.php).
+To create an installer of your own, run the above build command, then edit and run
+[installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss)
+with Inno Setup Compiler.
 
 #### iOS and macOS
 
@@ -118,10 +124,10 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 ## Links
 
-- [Nextcloud server](https://nc.saber.adil.hanney.org/)
-- [Privacy policy](https://github.com/adil192/saber/blob/main/privacy_policy.md)
-- [License](https://github.com/adil192/saber/blob/main/LICENSE.md)
-- [Releases](https://github.com/adil192/saber/releases)
+- [Nextcloud server][nextcloud]
+- [Privacy policy][privacy]
+- [License][license]
+- [Releases][releases]
 
 ## Development notes
 
@@ -134,3 +140,15 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
+
+[saber_web]: https://saber.adil.hanney.org
+[google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
+
+[nextcloud]: https://nc.saber.adil.hanney.org/
+
+[privacy]: https://github.com/adil192/saber/blob/main/privacy_policy.md
+[license]: https://github.com/adil192/saber/blob/main/LICENSE.md
+
+[releases]: https://github.com/adil192/saber/releases
+[issues]: https://github.com/adil192/saber/issues
+[progress]: https://github.com/adil192/saber/discussions/1
