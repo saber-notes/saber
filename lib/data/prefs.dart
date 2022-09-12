@@ -57,7 +57,7 @@ abstract class Prefs {
 
     fileSyncUploadQueue = EncPref("fileSyncUploadQueue", []);
 
-    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", true);
+    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", !kIsWeb);
   }
 
 }
