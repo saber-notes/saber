@@ -81,19 +81,19 @@ class _ToolbarState extends State<Toolbar> {
     if (_ctrlShiftS != null) Keybinder.remove(_ctrlShiftS!);
   }
 
-  toggleEraser() {
+  void toggleEraser() {
     if (widget.currentTool is Eraser) {
       widget.setTool(Pen.currentPen);
     } else {
       widget.setTool(Eraser());
     }
   }
-  toggleColorOptions() {
+  void toggleColorOptions() {
     setState(() {
       showColorOptions = !showColorOptions;
     });
   }
-  toggleExportBar() {
+  void toggleExportBar() {
     setState(() {
       showExportOptions = !showExportOptions;
     });
@@ -143,7 +143,7 @@ class _ToolbarState extends State<Toolbar> {
                       ToolbarIconButton(
                         tooltip: "Fountain pen",
                         selected: widget.currentTool == Pen.currentPen,
-                        onPressed: () {
+                        onPressed: (button) {
                           widget.setTool(Pen.currentPen);
                         },
                         child: const Icon(Icons.brush),
@@ -151,13 +151,13 @@ class _ToolbarState extends State<Toolbar> {
                       ToolbarIconButton(
                         tooltip: "Toggle colors (C)",
                         selected: showColorOptions,
-                        onPressed: toggleColorOptions,
+                        onPressed: (_) => toggleColorOptions(),
                         child: const Icon(Icons.palette),
                       ),
                       ToolbarIconButton(
                         tooltip: "Toggle eraser (E)",
                         selected: widget.currentTool is Eraser,
-                        onPressed: toggleEraser,
+                        onPressed: (_) => toggleEraser(),
                         child: const Icon(Icons.remove), // todo: better eraser icon
                       ),
                       ToolbarIconButton(
@@ -168,22 +168,22 @@ class _ToolbarState extends State<Toolbar> {
                       ToolbarIconButton(
                         tooltip: "Toggle finger drawing (F)",
                         selected: Prefs.editorFingerDrawing.value,
-                        onPressed: widget.toggleFingerDrawing,
+                        onPressed: (_) => widget.toggleFingerDrawing(),
                         child: const Icon(Icons.gesture),
                       ),
                       ToolbarIconButton(
                         tooltip: "Undo",
-                        onPressed: widget.isUndoPossible ? widget.undo : null,
+                        onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
                         child: const Icon(Icons.undo),
                       ),
                       ToolbarIconButton(
                         tooltip: "Redo",
-                        onPressed: widget.isRedoPossible ? widget.redo : null,
+                        onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
                         child: const Icon(Icons.redo),
                       ),
                       ToolbarIconButton(
                         tooltip: "Export (Ctrl Shift S)",
-                        onPressed: toggleExportBar,
+                        onPressed: (_) => toggleExportBar(),
                         child: const Icon(Icons.share),
                       ),
                     ],
