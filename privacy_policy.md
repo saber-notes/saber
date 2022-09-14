@@ -39,13 +39,23 @@ A randomly generated key is used to encrypt the notes.
 This key and password are stored on the user's device in secure storage,
 and an encrypted form of the key is uploaded to the cloud.
 
-## The official server ([link](https://nc.saber.adil.hanney.org))
+### My notes are private, right?
 
-Users have the option of using the Saber project's official server.
-The server's files by default are able to be accessed by anyone who has access
-to the server, including the server technicians and me (Adil Hanney).
-This is why I have adopted a zero-trust approach so that the user's files
-are solely accessible to the user regardless of which server they use.
+With any cloud storage, the server owners can see and read any files you upload.
+This is why Saber encrypts your notes before uploading them to the cloud,
+so they're unreadable to the server owner.
+
+### So what data can the server owners see?
+
+- All information provided during the sign-up process, including but not limited to your username and email address.
+- Information about any device that connects to the server, including but not limited to the device's operating system, browser, and IP address.
+- An encrypted (scrambled) form of your notes. However, the server owner can see:
+  - The size of each note.
+  - The number of notes you have.
+  - The last time you edited a note, when it was created, and when you last synced.
+- An encrypted (scrambled) form of your encryption key. This is required to enable cross-device syncing.
+- Nextcloud is general-purpose software, so the server owner can see any other files you upload
+  to the server and information you provide outside of Saber.
 
 ## “Talk is cheap. Show me the code.”
 
