@@ -111,6 +111,7 @@ abstract class FileManager {
     }
 
     _renameReferences(fromPath, toPath);
+    _triggerWriteWatcher();
 
     return toPath;
   }
