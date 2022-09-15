@@ -61,6 +61,10 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   Widget build(BuildContext context) {
+    if (coreInfo.strokes.isEmpty) {
+      return const SizedBox();
+    }
+
     return Card(
       child: InkWell(
         onTap: () { widget.onTap(widget.filePath); },
