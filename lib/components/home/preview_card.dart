@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
   const PreviewCard({
@@ -104,7 +105,9 @@ class _PreviewCardState extends State<PreviewCard> {
                   children: [
                     IconButton(
                       padding: EdgeInsets.zero,
-                      onPressed: null,
+                      onPressed: () {
+                        FileManager.deleteFile(widget.filePath + Editor.extension);
+                      },
                       icon: const Icon(Icons.delete_forever),
                     ),
                   ],

@@ -116,6 +116,21 @@ abstract class FileManager {
     return toPath;
   }
 
+  static Future deleteFile(String filePath) async {
+    filePath = _sanitisePath(filePath);
+
+    if (kIsWeb) {
+      final prefs = await _prefs;
+      await prefs.remove(filePath);
+    } else {
+      final File file = File(await _documentsDirectory + filePath);
+      if (await file.exists()) await file.delete();
+    }
+
+    _removeReferences(filePath);
+    _triggerWriteWatcher();
+  }
+
   static Future<DirectoryChildren?> getChildrenOfDirectory(String directory) async {
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
@@ -238,6 +253,15 @@ abstract class FileManager {
       } else {
         Prefs.recentFiles.value.removeAt(i);
       }
+    }
+    Prefs.recentFiles.notifyListeners();
+  }
+  static Future _removeReferences(String filePath) async {
+    // remove file from recently accessed
+    final prefs = await _prefs;
+    for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
+      if (Prefs.recentFiles.value[i] != filePath) continue;
+      Prefs.recentFiles.value.removeAt(i);
     }
     Prefs.recentFiles.notifyListeners();
   }
