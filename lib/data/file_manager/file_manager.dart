@@ -63,11 +63,8 @@ abstract class FileManager {
     filePath = _sanitisePath(filePath);
 
     await _saveFileAsRecentlyAccessed(filePath);
-    _triggerWriteWatcher();
 
-    if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
-
-    final Future writeFuture;
+    Future writeFuture;
     if (kIsWeb) {
       final prefs = await _prefs;
       writeFuture = Future.wait({
@@ -80,6 +77,12 @@ abstract class FileManager {
       writeFuture = file.writeAsString(toWrite);
     }
 
+    afterWrite() {
+      _triggerWriteWatcher();
+      if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
+    }
+
+    writeFuture = writeFuture.then((_) => afterWrite());
     if (awaitWrite) await writeFuture;
   }
 
