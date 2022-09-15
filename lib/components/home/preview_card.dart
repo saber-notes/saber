@@ -1,6 +1,7 @@
 
 import 'dart:math';
 
+import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
@@ -24,6 +25,8 @@ class PreviewCard extends StatefulWidget {
 class _PreviewCardState extends State<PreviewCard> {
   /// cache strokes so there's no delay the second time we see this preview card
   static final Map<String, EditorCoreInfo> _mapFilePathToEditorInfo = {};
+
+  bool expanded = false;
 
   late EditorCoreInfo _coreInfo;
   EditorCoreInfo get coreInfo => _coreInfo;
@@ -72,7 +75,41 @@ class _PreviewCardState extends State<PreviewCard> {
                 coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
               ),
               const SizedBox(height: 8),
-              Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+                  ),
+                  IconButton(
+                    tooltip: "Show/hide actions",
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      setState(() {
+                        expanded = !expanded;
+                      });
+                    },
+                    icon: Icon(expanded ? Icons.expand_less : Icons.expand_more),
+                  ),
+                ]
+              ),
+
+              Collapsible(
+                collapsed: !expanded,
+                axis: CollapsibleAxis.vertical,
+                maintainState: true,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: null,
+                      icon: const Icon(Icons.delete_forever),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
