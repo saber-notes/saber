@@ -2,6 +2,8 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fzregex/fzregex.dart';
+import 'package:fzregex/utils/pattern.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -15,14 +17,6 @@ class LoginInputGroup extends StatefulWidget {
   });
 
   final Future<bool> Function(LoginDetailsStruct loginDetails) tryLogin;
-
-  static final RegExp usernameRegex = RegExp(r"^[a-z0-9_\-.]+$", caseSensitive: false);
-  /// https://emailregex.com
-  static final RegExp emailRegex = RegExp(r"(^[a-z0-9_.+-]+@[a-z0-9-]+\.[a-z0-9-.]+$)", caseSensitive: false);
-  /// https://urlregex.com (modified)
-  static final RegExp urlRegex = RegExp(r"^(http[s]?://)?(?:[a-zA-Z]|[0-9]|[$\-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$", caseSensitive: false);
-
-  static const String usernameError = "Please double check your username or email.";
 
   @override
   State<LoginInputGroup> createState() => _LoginInputGroupState();
@@ -49,9 +43,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     String username = _usernameController.text;
     String ncPassword = _ncPasswordController.text;
     String encPassword = _encPasswordController.text;
-    if (!LoginInputGroup.emailRegex.hasMatch(username) && !LoginInputGroup.usernameRegex.hasMatch(username)) {
+    if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
       setState(() {
-        _errorMessage = LoginInputGroup.usernameError;
+        _errorMessage = "Please double check your username or email.";
       });
       return false;
     } else if (ncPassword.isEmpty) {
@@ -64,17 +58,17 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
         _errorMessage = "Please enter your encryption password.";
       });
       return false;
-    } else if (_usingCustomServer && !LoginInputGroup.urlRegex.hasMatch(_customServerController.text)) {
+    } else if (_usingCustomServer && !Fzregex.hasMatch(_customServerController.text, FzPattern.url)) {
       setState(() {
         _errorMessage = "Please enter a valid URL.";
       });
       return false;
+    } else {
+      setState(() {
+        _errorMessage = null;
+      });
+      return true;
     }
-
-    setState(() {
-      _errorMessage = null;
-    });
-    return true;
   }
 
   void _login() async {

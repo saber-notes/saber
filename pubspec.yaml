@@ -74,6 +74,8 @@ dependencies:
 
   modals: ^0.0.3
 
+  fzregex: ^2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
