@@ -59,7 +59,13 @@
     </screenshots>
 
     <releases>
-        <release version="0.3.5" type="development" date="2022-09-10">
+        <release version="0.3.6" type="development" date="2022-09-18">
+            <description>
+                <p>1. Fix syncing not starting when already logged in</p>
+                <p>2. Fix oversized navbar on Android</p>
+            </description>
+        </release>
+        <release version="0.3.5" type="development" date="2022-09-15">
             <description>
                 <p>1. Fix some Nextcloud URLs being rejected (#13)</p>
                 <p>2. Add delete buttons to each note on the home screen (#15)</p>
