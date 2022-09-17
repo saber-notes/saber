@@ -31,8 +31,8 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth >= 600) { // tablet/desktop
-        return Row(
-          children: <Widget>[
+        return Scaffold(
+          body: Row(children: [
             IntrinsicWidth(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 300),
@@ -44,18 +44,17 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
               ),
             ),
             Expanded(child: widget.body),
-          ]
+          ]),
         );
       } // else mobile
-      return Column(
-        children: <Widget>[
-          Expanded(child: widget.body),
-          HorizontalNavbar(
-            destinations: HomeRoutes.navigationDestinations,
-            selectedIndex: widget.selectedIndex,
-            onDestinationSelected: onDestinationSelected,
-          )
-        ]
+
+      return Scaffold(
+        body: widget.body,
+        bottomNavigationBar: HorizontalNavbar(
+          destinations: HomeRoutes.navigationDestinations,
+          selectedIndex: widget.selectedIndex,
+          onDestinationSelected: onDestinationSelected,
+        ),
       );
     });
   }
