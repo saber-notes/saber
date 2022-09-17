@@ -41,14 +41,21 @@ abstract class FileSyncer {
     await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
     filesDone.value = 0;
 
+    Queue<SyncFile> failedFiles = Queue();
+
     // Start downloading files one by one
     while (_downloadQueue.isNotEmpty) {
       final SyncFile file = _downloadQueue.removeFirst();
-      await _downloadFile(file);
-      if (filesDone.value != null) {
-        filesDone.value = filesDone.value! + 1;
+      final bool success = await _downloadFile(file);
+      if (success) {
+        filesDone.value = (filesDone.value ?? 0) + 1;
+      } else {
+        failedFiles.add(file);
       }
     }
+
+    // Add failed files back to queue for next sync
+    _downloadQueue.addAll(failedFiles);
   }
 
   /// Queues a file to be uploaded
@@ -152,16 +159,23 @@ abstract class FileSyncer {
     _downloadQueue.add(syncFile);
   }
 
-  static Future _downloadFile(SyncFile file) async {
-    final Uint8List encryptedDataEncoded = await _client!.webDav.download(file.remotePath);
-    final String encryptedData = utf8.decode(encryptedDataEncoded);
+  static Future<bool> _downloadFile(SyncFile file) async {
+    final Uint8List encryptedDataEncoded;
+    try {
+      encryptedDataEncoded = await _client!.webDav.download(file.remotePath);
+    } on RequestException {
+      return false;
+    }
 
     final Encrypter encrypter = await _client!.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
 
+    final String encryptedData = utf8.decode(encryptedDataEncoded);
     final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
 
     FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+
+    return true;
   }
 
   /// Decides if the local or remote version of a file should be kept
