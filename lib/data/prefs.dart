@@ -72,13 +72,16 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   IPref(this.key, T defaultValue, {
     List<String>? historicalKeys
   }) : historicalKeys = historicalKeys ?? [], super(defaultValue) {
-    _load().then((_) {
+    _load().then((T? loadedValue) {
       _loaded = true;
+      if (loadedValue != null) {
+        value = loadedValue;
+      }
       addListener(_save);
     });
   }
 
-  Future<void> _load();
+  Future<T?> _load();
   Future<void> _save();
   @protected
   Future<T?> getValueWithKey(String key);
@@ -104,24 +107,24 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
   }
 
   @override
-  Future _load() async {
+  Future<T?> _load() async {
     _prefs = await SharedPreferences.getInstance();
 
     T? currentValue = await getValueWithKey(key);
-    if (currentValue != null) {
-      value = currentValue;
-      return;
-    }
+    if (currentValue != null) return currentValue;
 
     for (String historicalKey in historicalKeys) {
       currentValue = await getValueWithKey(historicalKey);
       if (currentValue == null) continue;
 
-      value = currentValue;
+      // migrate to new key
       await _save();
       _prefs!.remove(historicalKey);
-      return;
+
+      return currentValue;
     }
+
+    return null;
   }
 
   @override
@@ -162,22 +165,21 @@ class EncPref<T> extends IPref<T, EncryptedSharedPreferences> {
   }
 
   @override
-  Future _load() async {
+  Future<T?> _load() async {
     _prefs = EncryptedSharedPreferences();
+
     T? currentValue = await getValueWithKey(key);
-    if (currentValue != null) {
-      value = currentValue;
-      return;
-    }
+    if (currentValue != null) return currentValue;
 
     for (String historicalKey in historicalKeys) {
       currentValue = await getValueWithKey(historicalKey);
       if (currentValue == null) continue;
 
-      value = currentValue;
+      // migrate to new key
       await _save();
       _prefs!.remove(historicalKey);
-      return;
+
+      return currentValue;
     }
   }
 
