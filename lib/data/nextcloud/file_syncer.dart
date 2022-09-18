@@ -9,6 +9,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 abstract class FileSyncer {
 
@@ -91,7 +92,7 @@ abstract class FileSyncer {
       final syncFile = SyncFile(remotePath: filePathRemote, localPath: filePathUnencrypted);
       if (!await _shouldLocalFileBeKept(syncFile)) {
         // remote file is newer; download it instead
-        _addToDownloadQueueWithoutChecks(syncFile);
+        _downloadQueue.add(syncFile);
         return;
       }
 
@@ -151,12 +152,12 @@ abstract class FileSyncer {
       localPath: filePathUnencrypted,
       webDavFile: file,
     );
-    if (!await _shouldLocalFileBeKept(syncFile)) {
-      _addToDownloadQueueWithoutChecks(syncFile);
+    if (await _shouldLocalFileBeKept(syncFile)) return;
+    if (Editor.reservedFileNames.contains(syncFile.localPath)) {
+      _downloadQueue.addFirst(syncFile);
+    } else {
+      _downloadQueue.add(syncFile);
     }
-  }
-  static Future _addToDownloadQueueWithoutChecks(SyncFile syncFile) async {
-    _downloadQueue.add(syncFile);
   }
 
   static Future<bool> _downloadFile(SyncFile file) async {
