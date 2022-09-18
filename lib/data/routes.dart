@@ -4,11 +4,10 @@ import 'package:saber/pages/home/home.dart';
 
 // workaround to assign strings as enum values
 abstract class RoutePaths {
-  static const root = "/";
   static const home = "/home/:subpage";
   static const edit = "/edit";
   static const login = "/login";
-  static get all => [root, home, edit];
+  static get all => [home, edit];
 }
 
 abstract class HomeRoutes {
