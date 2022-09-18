@@ -181,6 +181,8 @@ class EncPref<T> extends IPref<T, EncryptedSharedPreferences> {
 
       return currentValue;
     }
+
+    return null;
   }
 
   @override
