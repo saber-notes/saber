@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 
 import '../_stroke.dart';
 import 'stroke_properties.dart';
@@ -14,15 +15,15 @@ class Pen extends Tool {
 
   static late Pen currentPen;
 
-  onDragStart(Offset position, int pageIndex, double? pressure) {
+  onDragStart(EditorCoreInfo context, Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
       strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
-    )..addPoint(position, pressure);
+    )..addPoint(context, position, pressure);
   }
 
-  onDragUpdate(Offset position, double? pressure) {
-    currentStroke!.addPoint(position, pressure);
+  onDragUpdate(EditorCoreInfo context, Offset position, double? pressure) {
+    currentStroke!.addPoint(context, position, pressure);
   }
 
   Stroke onDragEnd() {

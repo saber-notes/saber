@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
@@ -173,7 +172,7 @@ class _EditorState extends State<Editor> {
   }
 
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
-    Rect pageBounds = const Rect.fromLTWH(0, 0, Canvas.canvasWidth, Canvas.canvasHeight);
+    Rect pageBounds = Rect.fromLTWH(0, 0, coreInfo.width, coreInfo.height);
     for (int i = 0; i < pages.length; ++i) {
       if (pages[i].renderBox == null) continue;
       if (pageBounds.contains(pages[i].renderBox!.globalToLocal(focalPoint))) return i;
@@ -213,7 +212,7 @@ class _EditorState extends State<Editor> {
   onDrawStart(ScaleStartDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
+      (currentTool as Pen).onDragStart(coreInfo, position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, coreInfo.strokes).reversed) {
         Stroke removed = coreInfo.strokes.removeAt(i);
@@ -227,7 +226,7 @@ class _EditorState extends State<Editor> {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
-        (currentTool as Pen).onDragUpdate(position, currentPressure);
+        (currentTool as Pen).onDragUpdate(coreInfo, position, currentPressure);
       } else if (currentTool is Eraser) {
         for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, coreInfo.strokes).reversed) {
           Stroke removed = coreInfo.strokes.removeAt(i);
@@ -322,7 +321,7 @@ class _EditorState extends State<Editor> {
   }
 
   Future exportAsPdf() async {
-    final pdf = EditorExporter.generatePdf(pages, coreInfo.strokes);
+    final pdf = EditorExporter.generatePdf(pages, coreInfo);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
   }
   Future exportAsSbn() async {

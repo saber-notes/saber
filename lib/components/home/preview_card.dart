@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -36,7 +35,7 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 
   double get height {
-    double fullHeight = Canvas.canvasHeight;
+    double fullHeight = coreInfo.height;
     double maxY = coreInfo.strokes.isEmpty ? 0 : coreInfo.strokes.map((stroke) => stroke.maxY).reduce(max);
     return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
   }

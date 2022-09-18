@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 
@@ -31,8 +30,8 @@ class CanvasPreview extends StatelessWidget {
 
         child: FittedBox(
           child: InnerCanvas(
-            width: Canvas.canvasWidth,
-            height: height ?? Canvas.canvasHeight * 0.1,
+            width: coreInfo.width,
+            height: height ?? coreInfo.height * 0.1,
             coreInfo: coreInfo,
             currentStroke: null,
           ),

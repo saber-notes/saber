@@ -15,9 +15,6 @@ class Canvas extends StatelessWidget {
     required this.currentStroke,
   });
 
-  static const double canvasWidth = 1000;
-  static const double canvasHeight = canvasWidth * 1.4;
-
   final String path;
   final int pageIndex;
 
@@ -36,8 +33,8 @@ class Canvas extends StatelessWidget {
           child: FittedBox(
             child: InnerCanvas(
               key: innerCanvasKey,
-              width: canvasWidth,
-              height: canvasHeight,
+              width: coreInfo.width,
+              height: coreInfo.height,
               coreInfo: coreInfo,
               currentStroke: currentStroke,
             ),

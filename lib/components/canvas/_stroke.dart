@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/point_extensions.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
-
-import 'canvas.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 
 class Stroke {
   final List<Point> _points = [];
@@ -48,9 +47,9 @@ class Stroke {
     'i': pageIndex,
   }..addAll(strokeProperties.toJson());
 
-  addPoint(Offset offset, [ double? pressure ]) {
-    double x = max(min(offset.dx, Canvas.canvasWidth), 0);
-    double y = max(min(offset.dy, Canvas.canvasHeight), 0);
+  addPoint(EditorCoreInfo context, Offset offset, [ double? pressure ]) {
+    double x = max(min(offset.dx, context.width), 0);
+    double y = max(min(offset.dy, context.height), 0);
     Point point = Point(x, y, pressure ?? 0.5);
 
     if (pressure != null) strokeProperties.simulatePressure = false;
@@ -78,15 +77,15 @@ class Stroke {
       .toList(growable: false);
   }
 
-  String toSvgPath() {
-    String _toSvgPoint(Offset offset) {
-      return '${offset.dx} ${Canvas.canvasHeight - offset.dy}';
+  String toSvgPath(EditorCoreInfo context) {
+    String toSvgPoint(Offset offset) {
+      return '${offset.dx} ${context.height - offset.dy}';
     }
 
     if (polygon.isEmpty) {
       return "";
     } else {
-      return "M${polygon.map((offset) => _toSvgPoint(offset)).join("L")}";
+      return "M${polygon.map((offset) => toSvgPoint(offset)).join("L")}";
     }
   }
 
