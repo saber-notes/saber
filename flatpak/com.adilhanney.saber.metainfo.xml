@@ -59,7 +59,14 @@
     </screenshots>
 
     <releases>
-        <release version="0.3.6" type="development" date="2022-09-18">
+        <release version="0.3.7" type="development" date="2022-09-18">
+            <description>
+                <p>1. Add a whiteboard tab to the home screen (use it like you'd use a whiteboard!)</p>
+                <p>2. The file tree (on desktop/tablet) now stays up to date with file changes</p>
+                <p>3. Fix a bug for first-time users where the Saber directory can't be watched when it doesn't exist yet</p>
+            </description>
+        </release>
+        <release version="0.3.6" type="development" date="2022-09-17">
             <description>
                 <p>1. Fix syncing not starting when already logged in</p>
                 <p>2. Fix oversized navbar on Android</p>
