@@ -25,11 +25,14 @@ class Editor extends StatefulWidget {
   Editor({
     super.key,
     String? path,
+    this.embedded = false,
   }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath("/"),
         needsNaming = path == null;
 
   final Future<String> initialPath;
   final bool needsNaming;
+
+  final bool embedded;
 
   static const String extension = '.sbn';
 
@@ -332,6 +335,75 @@ class _EditorState extends State<Editor> {
 
   @override
   Widget build(BuildContext context) {
+    final Widget body = Column(
+      verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
+      children: [
+        Expanded(
+          child: CanvasGestureDetector(
+            isDrawGesture: isDrawGesture,
+            onDrawStart: onDrawStart,
+            onDrawUpdate: onDrawUpdate,
+            onDrawEnd: onDrawEnd,
+            onPressureChanged: onPressureChanged,
+
+            undo: undo,
+            redo: redo,
+
+            child: Column(
+              children: [
+                for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) ...[
+                  Canvas(
+                    path: path,
+                    pageIndex: pageIndex,
+                    innerCanvasKey: pages[pageIndex].innerCanvasKey,
+                    coreInfo: coreInfo.copyWith(
+                        strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
+                    ),
+                    currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
+                  ),
+                  const SizedBox(height: 16),
+                ]
+              ],
+            ),
+          ),
+        ),
+
+        SafeArea(
+          child: Toolbar(
+            setTool: (tool) {
+              setState(() {
+                currentTool = tool;
+              });
+            },
+            currentTool: currentTool,
+            setColor: (color) {
+              setState(() {
+                updateColorBar(color);
+
+                Pen.currentPen.strokeProperties.color = color;
+              });
+            },
+            undo: undo,
+            isUndoPossible: coreInfo.strokes.isNotEmpty,
+            redo: redo,
+            isRedoPossible: isRedoPossible,
+            toggleFingerDrawing: () {
+              setState(() {
+                Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
+                _lastSeenPointerCount = 0;
+              });
+            },
+
+            exportAsSbn: exportAsSbn,
+            exportAsPdf: exportAsPdf,
+            exportAsPng: null,
+          ),
+        ),
+      ],
+    );
+
+    if (widget.embedded) return body;
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
@@ -344,72 +416,7 @@ class _EditorState extends State<Editor> {
           autofocus: needsNaming,
         ),
       ),
-      body: Column(
-        verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
-        children: [
-          Expanded(
-            child: CanvasGestureDetector(
-              isDrawGesture: isDrawGesture,
-              onDrawStart: onDrawStart,
-              onDrawUpdate: onDrawUpdate,
-              onDrawEnd: onDrawEnd,
-              onPressureChanged: onPressureChanged,
-
-              undo: undo,
-              redo: redo,
-
-              child: Column(
-                children: [
-                  for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) ...[
-                    Canvas(
-                      path: path,
-                      pageIndex: pageIndex,
-                      innerCanvasKey: pages[pageIndex].innerCanvasKey,
-                      coreInfo: coreInfo.copyWith(
-                        strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
-                      ),
-                      currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
-                    ),
-                    const SizedBox(height: 16),
-                  ]
-                ],
-              ),
-            ),
-          ),
-
-          SafeArea(
-            child: Toolbar(
-              setTool: (tool) {
-                setState(() {
-                  currentTool = tool;
-                });
-              },
-              currentTool: currentTool,
-              setColor: (color) {
-                setState(() {
-                  updateColorBar(color);
-
-                  Pen.currentPen.strokeProperties.color = color;
-                });
-              },
-              undo: undo,
-              isUndoPossible: coreInfo.strokes.isNotEmpty,
-              redo: redo,
-              isRedoPossible: isRedoPossible,
-              toggleFingerDrawing: () {
-                setState(() {
-                  Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
-                  _lastSeenPointerCount = 0;
-                });
-              },
-
-              exportAsSbn: exportAsSbn,
-              exportAsPdf: exportAsPdf,
-              exportAsPng: null,
-            ),
-          ),
-        ],
-      )
+      body: body,
     );
   }
 

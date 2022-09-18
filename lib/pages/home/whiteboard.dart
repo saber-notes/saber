@@ -6,6 +6,7 @@ import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class Whiteboard extends StatefulWidget {
   const Whiteboard({super.key});
@@ -21,8 +22,9 @@ class _WhiteboardPageState extends State<Whiteboard> {
       appBar: AppBar(
         title: const Text("Whiteboard"),
       ),
-      body: const Center(
-        child: Text("Whiteboard"),
+      body: Editor(
+        path: "/_whiteboard",
+        embedded: true,
       ),
     );
   }
