@@ -25,6 +25,11 @@ abstract class HomeRoutes {
       icon: const Icon(Icons.notes),
     ),
     _Route(
+      routePath: homeFunction({"subpage": HomePage.whiteboardSubpage}),
+      label: 'Whiteboard',
+      icon: const Icon(Icons.speed),
+    ),
+    _Route(
       routePath: homeFunction({"subpage": HomePage.settingsSubpage}),
       label: 'Settings',
       icon: const Icon(Icons.settings),

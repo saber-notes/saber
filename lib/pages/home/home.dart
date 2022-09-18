@@ -6,6 +6,7 @@ import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:saber/pages/home/whiteboard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -22,8 +23,9 @@ class HomePage extends StatefulWidget {
 
   static const String recentSubpage = "recent";
   static const String browseSubpage = "browse";
+  static const String whiteboardSubpage = "whiteboard";
   static const String settingsSubpage = "settings";
-  static const List<String> subpages = [recentSubpage, browseSubpage, settingsSubpage];
+  static const List<String> subpages = [recentSubpage, browseSubpage, whiteboardSubpage, settingsSubpage];
 }
 
 class _HomePageState extends State<HomePage> {
@@ -37,6 +39,8 @@ class _HomePageState extends State<HomePage> {
     switch (widget.subpage) {
       case HomePage.browseSubpage:
         return BrowsePage(path: widget.path);
+      case HomePage.whiteboardSubpage:
+        return const Whiteboard();
       case HomePage.settingsSubpage:
         return const SettingsPage();
       default:
