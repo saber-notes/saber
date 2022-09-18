@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 
 class FileTree extends StatelessWidget {
@@ -107,15 +108,17 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               for (var i = 0; i < children!.directories.length; i++)
-                FileTreeBranch(
-                  path: "${widget.path ?? ""}/${children!.directories[i]}",
-                  isDirectory: true,
-                ),
+                if (!Editor.reservedFileNames.contains("${widget.path ?? ""}/${children!.directories[i]}"))
+                  FileTreeBranch(
+                    path: "${widget.path ?? ""}/${children!.directories[i]}",
+                    isDirectory: true,
+                  ),
               for (var i = 0; i < children!.files.length; i++)
-                FileTreeBranch(
-                  path: "${widget.path ?? ""}/${children!.files[i]}",
-                  isDirectory: false,
-                ),
+                if (!Editor.reservedFileNames.contains("${widget.path ?? ""}/${children!.files[i]}"))
+                  FileTreeBranch(
+                    path: "${widget.path ?? ""}/${children!.files[i]}",
+                    isDirectory: false,
+                  ),
             ],
           ),
         ),
