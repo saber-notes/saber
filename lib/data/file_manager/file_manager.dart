@@ -27,6 +27,7 @@ abstract class FileManager {
   static Future<void> init() async {
     if (!kIsWeb) {
       Directory rootDir = Directory(await _documentsDirectory);
+      await rootDir.create(recursive: true);
       rootDir.watch(recursive: true).listen((FileSystemEvent event) {
         _triggerWriteWatcher();
       });
