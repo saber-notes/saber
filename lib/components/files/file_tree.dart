@@ -48,6 +48,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   @override
   void initState() {
     _getInfo();
+    FileManager.writeWatcher.addListener(_getInfo);
     super.initState();
   }
 
@@ -121,6 +122,12 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    FileManager.writeWatcher.removeListener(_getInfo);
+    super.dispose();
   }
 
 }
