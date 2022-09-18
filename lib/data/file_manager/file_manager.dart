@@ -243,7 +243,6 @@ abstract class FileManager {
 
   static Future _renameReferences(String fromPath, String toPath) async {
     // rename file in recently accessed
-    final prefs = await _prefs;
     bool replaced = false;
     for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
       if (Prefs.recentFiles.value[i] != fromPath) continue;
@@ -258,7 +257,6 @@ abstract class FileManager {
   }
   static Future _removeReferences(String filePath) async {
     // remove file from recently accessed
-    final prefs = await _prefs;
     for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
       if (Prefs.recentFiles.value[i] != filePath) continue;
       Prefs.recentFiles.value.removeAt(i);
@@ -267,8 +265,6 @@ abstract class FileManager {
   }
 
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
-    final prefs = await _prefs;
-
     Prefs.recentFiles.value.remove(filePath);
     Prefs.recentFiles.value.insert(0, filePath);
     if (Prefs.recentFiles.value.length > maxRecentlyAccessedFiles) Prefs.recentFiles.value.removeLast();
