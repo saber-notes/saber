@@ -35,6 +35,8 @@ class Editor extends StatefulWidget {
   final bool embedded;
 
   static const String extension = '.sbn';
+  /// Hidden files used by other functions of the app
+  static List<String> reservedFileNames = ["/_whiteboard"];
 
   @override
   State<Editor> createState() => _EditorState();

@@ -26,8 +26,6 @@ class _PreviewCardState extends State<PreviewCard> {
   /// cache strokes so there's no delay the second time we see this preview card
   static final Map<String, EditorCoreInfo> _mapFilePathToEditorInfo = {};
 
-  static List<String> doNotShowPreviewsOfThese = ["/_whiteboard"];
-
   bool expanded = false;
 
   late EditorCoreInfo _coreInfo;
@@ -44,13 +42,9 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void initState() {
-    if (!doNotShowPreviewsOfThese.contains(widget.filePath)) {
-      _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
-      findStrokes();
-      FileManager.writeWatcher.addListener(findStrokes);
-    } else {
-      _coreInfo = EditorCoreInfo(height: 0);
-    }
+    _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
+    findStrokes();
+    FileManager.writeWatcher.addListener(findStrokes);
 
     super.initState();
   }
@@ -65,10 +59,6 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   Widget build(BuildContext context) {
-    if (coreInfo.strokes.isEmpty) {
-      return const SizedBox();
-    }
-
     return Card(
       child: InkWell(
         onTap: () { widget.onTap(widget.filePath); },

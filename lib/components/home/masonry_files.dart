@@ -2,14 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/preview_card.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class MasonryFiles extends StatelessWidget {
-  const MasonryFiles({
+  MasonryFiles({
     super.key,
-    required this.files,
+    required List<String> files,
     required this.onTap,
     this.physics = const AlwaysScrollableScrollPhysics(),
-  });
+  }) : files = files.where((path) => !Editor.reservedFileNames.contains(path)).toList();
 
   final List<String> files;
   final Function(String) onTap;
@@ -26,7 +27,7 @@ class MasonryFiles extends StatelessWidget {
         physics: physics,
         itemBuilder: (context, index) => PreviewCard(
           filePath: files[index],
-          onTap: onTap
+          onTap: onTap,
         ),
       ),
     );
