@@ -185,6 +185,8 @@ class _EditorState extends State<Editor> {
 
   int? dragPageIndex;
   double? currentPressure;
+  /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
+  bool pressureWasNegative = false;
   bool isDrawGesture(ScaleStartDetails details) {
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -250,6 +252,15 @@ class _EditorState extends State<Editor> {
   }
   onPressureChanged(double? pressure) {
     currentPressure = pressure == 0.0 ? null : pressure;
+    if (currentPressure == null) return;
+
+    if (currentPressure! < 0) {
+      pressureWasNegative = true;
+      currentTool = Eraser();
+    } else if (pressureWasNegative) {
+      pressureWasNegative = false;
+      currentTool = Pen.currentPen;
+    }
   }
 
   autosaveAfterDelay() {
