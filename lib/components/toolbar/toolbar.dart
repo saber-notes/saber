@@ -60,24 +60,24 @@ class _ToolbarState extends State<Toolbar> {
     super.initState();
   }
 
-  Keybinding? _keyF;
-  Keybinding? _keyE;
-  Keybinding? _keyC;
+  Keybinding? _ctrlF;
+  Keybinding? _ctrlE;
+  Keybinding? _ctrlC;
   Keybinding? _ctrlShiftS;
   _assignKeybindings() {
-    _keyF = Keybinding([KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
-    _keyE = Keybinding([KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
-    _keyC = Keybinding([KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
+    _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
+    _ctrlE = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
+    _ctrlC = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
     _ctrlShiftS = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyS)], inclusive: true);
-    Keybinder.bind(_keyF!, widget.toggleFingerDrawing);
-    Keybinder.bind(_keyE!, toggleEraser);
-    Keybinder.bind(_keyC!, toggleColorOptions);
+    Keybinder.bind(_ctrlF!, widget.toggleFingerDrawing);
+    Keybinder.bind(_ctrlE!, toggleEraser);
+    Keybinder.bind(_ctrlC!, toggleColorOptions);
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
   }
   _removeKeybindings() {
-    if (_keyF != null) Keybinder.remove(_keyF!);
-    if (_keyE != null) Keybinder.remove(_keyE!);
-    if (_keyC != null) Keybinder.remove(_keyC!);
+    if (_ctrlF != null) Keybinder.remove(_ctrlF!);
+    if (_ctrlE != null) Keybinder.remove(_ctrlE!);
+    if (_ctrlC != null) Keybinder.remove(_ctrlC!);
     if (_ctrlShiftS != null) Keybinder.remove(_ctrlShiftS!);
   }
 
@@ -149,13 +149,13 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.brush),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle colors (C)",
+                        tooltip: "Toggle colors (Ctrl C)",
                         selected: showColorOptions,
                         onPressed: (_) => toggleColorOptions(),
                         child: const Icon(Icons.palette),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle eraser (E)",
+                        tooltip: "Toggle eraser (Ctrl E)",
                         selected: widget.currentTool is Eraser,
                         onPressed: (_) => toggleEraser(),
                         child: const Icon(Icons.remove), // todo: better eraser icon
@@ -166,7 +166,7 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.photo_size_select_actual),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle finger drawing (F)",
+                        tooltip: "Toggle finger drawing (Ctrl F)",
                         selected: Prefs.editorFingerDrawing.value,
                         onPressed: (_) => widget.toggleFingerDrawing(),
                         child: const Icon(Icons.gesture),
