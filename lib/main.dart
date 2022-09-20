@@ -46,8 +46,7 @@ class App extends StatelessWidget {
     routes: <GoRoute>[
       GoRoute(
         path: "/",
-        redirect: (state) => initialLocation,
-        builder: (context, state) => const SizedBox(),
+        redirect: (context, state) => initialLocation,
       ),
       GoRoute(
         path: RoutePaths.home,
