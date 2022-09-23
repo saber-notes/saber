@@ -249,6 +249,11 @@ class _EditorState extends State<Editor> {
       }
     });
     autosaveAfterDelay();
+
+    if (pressureWasNegative) {
+      pressureWasNegative = false;
+      currentTool = Pen.currentPen;
+    }
   }
   onPressureChanged(double? pressure) {
     currentPressure = pressure == 0.0 ? null : pressure;
@@ -257,9 +262,6 @@ class _EditorState extends State<Editor> {
     if (currentPressure! < 0) {
       pressureWasNegative = true;
       currentTool = Eraser();
-    } else if (pressureWasNegative) {
-      pressureWasNegative = false;
-      currentTool = Pen.currentPen;
     }
   }
 
