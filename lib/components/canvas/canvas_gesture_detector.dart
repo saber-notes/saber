@@ -10,6 +10,7 @@ class CanvasGestureDetector extends StatelessWidget {
     super.key,
 
     required this.isDrawGesture,
+    this.onInteractionEnd,
     required this.onDrawStart,
     required this.onDrawUpdate,
     required this.onDrawEnd,
@@ -22,6 +23,7 @@ class CanvasGestureDetector extends StatelessWidget {
   });
 
   final bool Function(ScaleStartDetails scaleDetails) isDrawGesture;
+  final ValueChanged<ScaleEndDetails>? onInteractionEnd;
   final ValueChanged<ScaleStartDetails> onDrawStart;
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
@@ -58,6 +60,7 @@ class CanvasGestureDetector extends StatelessWidget {
           constrained: false,
 
           isDrawGesture: isDrawGesture,
+          onInteractionEnd: onInteractionEnd,
           onDrawStart: onDrawStart,
           onDrawUpdate: onDrawUpdate,
           onDrawEnd: onDrawEnd,

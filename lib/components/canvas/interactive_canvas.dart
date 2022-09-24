@@ -31,10 +31,11 @@ class InteractiveCanvasViewer extends StatefulWidget {
     // use cases.
     this.maxScale = 2.5,
     this.minScale = 0.8,
+    this.isDrawGesture,
+    this.onInteractionEnd,
     this.onDrawEnd,
     this.onDrawStart,
     this.onDrawUpdate,
-    this.isDrawGesture,
     this.panEnabled = true,
     this.scaleEnabled = true,
     this.scaleFactor = 200.0,
@@ -72,10 +73,11 @@ class InteractiveCanvasViewer extends StatefulWidget {
     // use cases.
     this.maxScale = 2.5,
     this.minScale = 0.8,
+    this.isDrawGesture,
+    this.onInteractionEnd,
     this.onDrawEnd,
     this.onDrawStart,
     this.onDrawUpdate,
-    this.isDrawGesture,
     this.panEnabled = true,
     this.scaleEnabled = true,
     this.scaleFactor = 200.0,
@@ -310,6 +312,8 @@ class InteractiveCanvasViewer extends StatefulWidget {
 
   /// A function to distinguish a draw gesture and a pan/zoom gesture.
   final bool Function(ScaleStartDetails scaleDetails)? isDrawGesture;
+  /// Called when any gesture ends.
+  final GestureScaleEndCallback? onInteractionEnd;
 
   /// A [TransformationController] for the transformation performed on the
   /// child.
@@ -802,6 +806,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   // Handle the end of a gesture of _GestureType. All of pan, scale, and rotate
   // are handled with GestureDetector's scale gesture.
   void _onScaleEnd(ScaleEndDetails details) {
+    widget.onInteractionEnd?.call(details);
+
     if (isCurrentGestureADrawGesture) {
       isCurrentGestureADrawGesture = false;
       return widget.onDrawEnd?.call(details);

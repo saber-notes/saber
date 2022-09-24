@@ -67,18 +67,8 @@ class _EditorState extends State<Editor> {
   Timer? _delayedSaveTimer;
 
   // used to prevent accidentally drawing when pinch zooming
-  int _lastSeenPointerCount = 0;
+  int lastSeenPointerCount = 0;
   Timer? _lastSeenPointerCountTimer;
-  int get lastSeenPointerCount => _lastSeenPointerCount;
-  set lastSeenPointerCount(int value) {
-    _lastSeenPointerCount = value;
-
-    // reset after 1ms to keep track of the same gesture only
-    _lastSeenPointerCountTimer?.cancel();
-    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 1), () {
-      _lastSeenPointerCount = 0;
-    });
-  }
 
   @override
   void initState() {
@@ -190,6 +180,7 @@ class _EditorState extends State<Editor> {
   /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
   bool pressureWasNegative = false;
   bool isDrawGesture(ScaleStartDetails details) {
+    _lastSeenPointerCountTimer?.cancel();
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
       return false;
@@ -200,10 +191,10 @@ class _EditorState extends State<Editor> {
 
         isRedoPossible = strokesRedoStack.isNotEmpty;
       }
-      _lastSeenPointerCount = details.pointerCount;
+      lastSeenPointerCount = details.pointerCount;
       return false;
     } else { // is a stroke
-      _lastSeenPointerCount = details.pointerCount;
+      lastSeenPointerCount = details.pointerCount;
     }
 
     dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
@@ -256,6 +247,13 @@ class _EditorState extends State<Editor> {
       pressureWasNegative = false;
       currentTool = Pen.currentPen;
     }
+  }
+  onInteractionEnd(ScaleEndDetails details) {
+    // reset after 1ms to keep track of the same gesture only
+    _lastSeenPointerCountTimer?.cancel();
+    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 1), () {
+      lastSeenPointerCount = 0;
+    });
   }
   onPressureChanged(double? pressure) {
     currentPressure = pressure == 0.0 ? null : pressure;
@@ -356,6 +354,7 @@ class _EditorState extends State<Editor> {
         Expanded(
           child: CanvasGestureDetector(
             isDrawGesture: isDrawGesture,
+            onInteractionEnd: onInteractionEnd,
             onDrawStart: onDrawStart,
             onDrawUpdate: onDrawUpdate,
             onDrawEnd: onDrawEnd,
@@ -405,7 +404,7 @@ class _EditorState extends State<Editor> {
             toggleFingerDrawing: () {
               setState(() {
                 Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
-                _lastSeenPointerCount = 0;
+                lastSeenPointerCount = 0;
               });
             },
 
