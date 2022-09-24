@@ -1,6 +1,7 @@
 
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 
@@ -24,6 +25,8 @@ class CanvasGestureDetector extends StatelessWidget {
   final ValueChanged<ScaleStartDetails> onDrawStart;
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
+  /// Called when the pressure of the stylus changes,
+  /// pressure is negative if stylus button is pressed
   final ValueChanged<double?> onPressureChanged;
 
   final VoidCallback undo;
@@ -31,12 +34,14 @@ class CanvasGestureDetector extends StatelessWidget {
 
   final Widget child;
 
-  bool _isPointerDeviceAStylus(PointerDeviceKind kind) {
-    return kind == PointerDeviceKind.stylus || kind == PointerDeviceKind.invertedStylus;
-  }
-
   _listenerPointerEvent(PointerEvent event) {
-    onPressureChanged(_isPointerDeviceAStylus(event.kind) ? event.pressure : null);
+    double? pressure;
+    if (event.kind == PointerDeviceKind.stylus) {
+      pressure = event.pressure;
+    } else if (event.kind == PointerDeviceKind.invertedStylus) {
+      pressure = -event.pressure;
+    }
+    onPressureChanged(pressure);
   }
 
   @override
