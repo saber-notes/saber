@@ -59,6 +59,21 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.8" type="development" date="2022-09-24">
+            <description>
+                <ol>
+                    <li>Support for styluses that have a built-in eraser</li>
+                    <li>
+                        Change editor toolbar shortcuts:
+                        <ul>
+                            <li>Toggle pen/eraser: Ctrl E</li>
+                            <li>Toggle color options: Ctrl C</li>
+                            <li>Toggle finger drawing: Ctrl F</li>
+                        </ul>
+                    </li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.7" type="development" date="2022-09-18">
             <description>
                 <p>1. Add a whiteboard tab to the home screen (use it like you'd use a whiteboard!)</p>
