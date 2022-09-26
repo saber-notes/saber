@@ -16,25 +16,27 @@ class EditorBottomSheet extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ConstrainedBox(
-          constraints: const BoxConstraints(
-            minHeight: 200,
-            maxWidth: 500,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                leading: const Icon(Icons.delete),
-                title: const Text('Clear this page'),
-                onTap: clearPage,
-              ),
-              ListTile(
-                leading: const Icon(Icons.delete_sweep),
-                title: const Text('Clear all pages'),
-                onTap: clearAllPages,
-              ),
-            ],
+        Flexible(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 200,
+              maxWidth: 500,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.delete),
+                  title: const Text('Clear this page'),
+                  onTap: clearPage,
+                ),
+                ListTile(
+                  leading: const Icon(Icons.delete_sweep),
+                  title: const Text('Clear all pages'),
+                  onTap: clearAllPages,
+                ),
+              ],
+            ),
           ),
         ),
       ],
