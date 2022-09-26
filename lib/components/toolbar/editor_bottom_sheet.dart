@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 class EditorBottomSheet extends StatelessWidget {
   const EditorBottomSheet({
     super.key,
+    required this.clearPage,
+    required this.clearAllPages,
   });
+
+  final VoidCallback? clearPage;
+  final VoidCallback? clearAllPages;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +27,12 @@ class EditorBottomSheet extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.delete),
                 title: const Text('Clear this page'),
-                onTap: () {},
+                onTap: clearPage,
               ),
               ListTile(
                 leading: const Icon(Icons.delete_sweep),
                 title: const Text('Clear all pages'),
-                onTap: () {},
+                onTap: clearAllPages,
               ),
             ],
           ),

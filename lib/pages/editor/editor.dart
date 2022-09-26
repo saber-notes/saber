@@ -5,6 +5,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
@@ -131,9 +132,11 @@ class _EditorState extends State<Editor> {
       pages.add(EditorPage());
     }
   }
-  void removeExcessPagesAfterStroke(Stroke stroke) {
+  void removeExcessPagesAfterStroke(Stroke? stroke) {
+    int minPageIndex = stroke?.pageIndex ?? 0;
+
     // remove excess pages if all pages >= this one are empty
-    for (int i = pages.length - 1; i >= stroke.pageIndex + 1; --i) {
+    for (int i = pages.length - 1; i >= minPageIndex + 1; --i) {
       final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
       if (pageEmpty) pages.removeAt(i);
     }
@@ -436,7 +439,7 @@ class _EditorState extends State<Editor> {
             onPressed: () {
               showModalBottomSheet(
                 context: context,
-                builder: (context) => const EditorBottomSheet(),
+                builder: (context) => bottomSheet,
               );
             },
           )
@@ -444,6 +447,43 @@ class _EditorState extends State<Editor> {
       ),
       body: body,
     );
+  }
+
+  get bottomSheet => EditorBottomSheet(
+    clearPage: () {
+      final int? currentPageIndex = this.currentPageIndex;
+      if (currentPageIndex == null) return;
+
+      setState(() {
+        coreInfo.strokes.removeWhere((stroke) => stroke.pageIndex == currentPageIndex);
+        removeExcessPagesAfterStroke(null);
+      });
+    },
+
+    clearAllPages: () {
+      setState(() {
+        coreInfo.strokes.clear();
+        removeExcessPagesAfterStroke(null);
+      });
+    },
+  );
+
+  /// The index of the page that is currently centered on screen.
+  int? get currentPageIndex {
+    final Size windowSize = MediaQuery.of(context).size;
+    late Offset centre = Offset(windowSize.width / 2, windowSize.height / 2);
+
+    for (int pageIndex = 0; pageIndex < pages.length; ++pageIndex) {
+      final page = pages[pageIndex];
+      if (page.renderBox == null) continue;
+      final localCenter = page.renderBox!.globalToLocal(centre);
+
+      if (page.renderBox!.hitTest(BoxHitTestResult(), position: localCenter)) {
+        return pageIndex;
+      }
+    }
+
+    return null;
   }
 
   @override
