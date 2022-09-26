@@ -11,6 +11,7 @@ import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
@@ -429,6 +430,17 @@ class _EditorState extends State<Editor> {
           onChanged: renameFile,
           autofocus: needsNaming,
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => const EditorBottomSheet(),
+              );
+            },
+          )
+        ],
       ),
       body: body,
     );
