@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
@@ -19,6 +20,7 @@ abstract class Prefs {
 
   static late PlainPref<String> pfp;
 
+  static late PlainPref<int> appTheme;
   static late PlainPref<bool> editorToolbarOnBottom;
   static late PlainPref<bool> editorFingerDrawing;
   static late PlainPref<bool> editorAutoInvert;
@@ -45,6 +47,7 @@ abstract class Prefs {
 
     pfp = PlainPref("pfp", "");
 
+    appTheme = PlainPref("appTheme", ThemeMode.system.index);
     editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);

@@ -1,11 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/home/settings_dropdown.dart';
 import 'package:saber/components/home/settings_switch.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/settings/app_theme.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -48,6 +50,15 @@ class _SettingsPageState extends State<SettingsPage> {
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
               const NextcloudProfile(),
+              SettingsDropdown(
+                title: "App theme",
+                pref: Prefs.appTheme,
+                values: [
+                  SettingsDropdownValue(ThemeMode.system.index, "System"),
+                  SettingsDropdownValue(ThemeMode.light.index, "Light"),
+                  SettingsDropdownValue(ThemeMode.dark.index, "Dark"),
+                ],
+              ),
               SettingsSwitch(
                 title: "Automatically check for Saber updates",
                 pref: Prefs.shouldCheckForUpdates,
