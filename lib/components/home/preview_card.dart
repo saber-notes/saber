@@ -42,11 +42,25 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void initState() {
-    _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
-    findStrokes();
+    init();
     FileManager.writeWatcher.addListener(findStrokes);
 
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant PreviewCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.filePath != oldWidget.filePath) init(refresh: false);
+  }
+
+  init({refresh = true}) {
+    _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
+    if (_coreInfo.strokes.isEmpty || refresh) {
+      findStrokes();
+    } else {
+      if (mounted) setState(() { });
+    }
   }
 
   Future findStrokes() async {
