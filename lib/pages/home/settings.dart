@@ -7,7 +7,6 @@ import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/settings/app_theme.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
