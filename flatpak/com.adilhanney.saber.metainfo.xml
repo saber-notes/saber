@@ -59,6 +59,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.9" type="development" date="2022-09-29">
+            <description>
+                <ol>
+                    <li>Undo/redo has been given a much needed overhaul. You can now undo/redo the eraser as you'd expect.</li>
+                    <li>You can now clear a page (or all pages) using the overflow menu.</li>
+                    <li>You can choose to override your system dark-mode in settings.</li>
+                    <li>Fixed some weirdness when deleting a note.</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.8" type="development" date="2022-09-24">
             <description>
                 <ol>
