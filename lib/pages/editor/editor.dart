@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
+import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -49,6 +51,8 @@ class _EditorState extends State<Editor> {
 
   EditorCoreInfo coreInfo = EditorCoreInfo();
 
+  EditorHistory history = EditorHistory();
+
   String path = "";
   late bool needsNaming = widget.needsNaming;
 
@@ -64,8 +68,6 @@ class _EditorState extends State<Editor> {
     return Pen.currentPen;
   }();
 
-  final List<Stroke> strokesRedoStack = [];
-  bool isRedoPossible = false;
   Timer? _delayedSaveTimer;
 
   // used to prevent accidentally drawing when pinch zooming
@@ -124,11 +126,19 @@ class _EditorState extends State<Editor> {
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
   }
 
-  void createPageOfStroke(Stroke stroke) {
-    while (stroke.pageIndex >= pages.length) {
-      pages.add(EditorPage());
+  void createPageOfStroke(Stroke? stroke) {
+    int maxPageIndex;
+    if (stroke != null) {
+      maxPageIndex = stroke.pageIndex;
+    } else {
+      if (coreInfo.strokes.isEmpty) {
+        maxPageIndex = 0;
+      } else {
+        maxPageIndex = coreInfo.strokes.map((e) => e.pageIndex).reduce(max);
+      }
     }
-    if (stroke.pageIndex == pages.length - 1) {
+
+    while (maxPageIndex >= pages.length - 1) {
       pages.add(EditorPage());
     }
   }
@@ -143,31 +153,53 @@ class _EditorState extends State<Editor> {
   }
 
   undo() {
-    if (coreInfo.strokes.isNotEmpty) {
-      if (!isRedoPossible && strokesRedoStack.isNotEmpty) {
-        // no redo is possible, clear the redo stack
-        strokesRedoStack.clear();
-      }
-      setState(() {
-        Stroke undoneStroke = coreInfo.strokes.removeLast();
-        strokesRedoStack.add(undoneStroke);
-        removeExcessPagesAfterStroke(undoneStroke);
-        isRedoPossible = true;
-      });
-      autosaveAfterDelay();
+    if (!history.canUndo) return;
+
+    // if we disabled redo, re-enable it
+    if (!history.canRedo) {
+      // no redo is possible, so clear the redo stack
+      history.clearRedo();
+      // don't disable redoing anymore
+      history.canRedo = true;
     }
+
+    setState(() {
+      EditorHistoryItem item = history.undo();
+      if (item.type == EditorHistoryItemType.draw) { // undo draw
+        for (Stroke stroke in item.strokes) {
+          coreInfo.strokes.remove(stroke);
+        }
+        removeExcessPagesAfterStroke(null);
+      } else if (item.type == EditorHistoryItemType.erase) { // undo erase
+        for (Stroke stroke in item.strokes) {
+          coreInfo.strokes.add(stroke);
+        }
+        createPageOfStroke(null);
+      }
+    });
+
+    autosaveAfterDelay();
   }
 
   redo() {
-    if (isRedoPossible) {
-      setState(() {
-        Stroke redoneStroke = strokesRedoStack.removeLast();
-        coreInfo.strokes.add(redoneStroke);
-        createPageOfStroke(redoneStroke);
-        isRedoPossible = strokesRedoStack.isNotEmpty;
-      });
-      autosaveAfterDelay();
-    }
+    if (!history.canRedo) return;
+
+    setState(() {
+      EditorHistoryItem item = history.redo();
+      if (item.type == EditorHistoryItemType.draw) { // redo draw
+        for (Stroke stroke in item.strokes) {
+          coreInfo.strokes.add(stroke);
+        }
+        createPageOfStroke(null);
+      } else if (item.type == EditorHistoryItemType.erase) { // redo erase
+        for (Stroke stroke in item.strokes) {
+          coreInfo.strokes.remove(stroke);
+        }
+        removeExcessPagesAfterStroke(null);
+      }
+    });
+
+    autosaveAfterDelay();
   }
 
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
@@ -192,8 +224,7 @@ class _EditorState extends State<Editor> {
       if (lastSeenPointerCount == 1) {
         Stroke accident = coreInfo.strokes.removeLast();
         removeExcessPagesAfterStroke(accident);
-
-        isRedoPossible = strokesRedoStack.isNotEmpty;
+        history.canRedo = true;
       }
       lastSeenPointerCount = details.pointerCount;
       return false;
@@ -222,7 +253,7 @@ class _EditorState extends State<Editor> {
       }
     }
 
-    isRedoPossible = false;
+    history.canRedo = false;
   }
   onDrawUpdate(ScaleUpdateDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
@@ -243,6 +274,15 @@ class _EditorState extends State<Editor> {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         coreInfo.strokes.add(newStroke);
         createPageOfStroke(newStroke);
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.draw,
+          strokes: [newStroke],
+        ));
+      } else if (currentTool is Eraser) {
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.erase,
+          strokes: (currentTool as Eraser).onDragEnd(),
+        ));
       }
     });
     autosaveAfterDelay();
@@ -402,9 +442,9 @@ class _EditorState extends State<Editor> {
               });
             },
             undo: undo,
-            isUndoPossible: coreInfo.strokes.isNotEmpty,
+            isUndoPossible: history.canUndo,
             redo: redo,
-            isRedoPossible: isRedoPossible,
+            isRedoPossible: history.canRedo,
             toggleFingerDrawing: () {
               setState(() {
                 Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
@@ -455,15 +495,27 @@ class _EditorState extends State<Editor> {
       if (currentPageIndex == null) return;
 
       setState(() {
-        coreInfo.strokes.removeWhere((stroke) => stroke.pageIndex == currentPageIndex);
+        List<Stroke> removed = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
+        for (Stroke stroke in removed) {
+          coreInfo.strokes.remove(stroke);
+        }
         removeExcessPagesAfterStroke(null);
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.erase,
+          strokes: removed,
+        ));
       });
     },
 
     clearAllPages: () {
       setState(() {
+        List<Stroke> removed = coreInfo.strokes.toList();
         coreInfo.strokes.clear();
         removeExcessPagesAfterStroke(null);
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.erase,
+          strokes: removed,
+        ));
       });
     },
   );
