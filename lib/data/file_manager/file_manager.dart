@@ -144,6 +144,7 @@ abstract class FileManager {
       allChildren = prefs.getKeys()
           // .where((String file) => file.startsWith('/')) // directory already starts with '/'
           .where((String file) => file.startsWith(directory)) // filter out other directories
+          .where((String file) => !Editor.reservedFileNames.contains(file)) // filter out reserved file names
           .map((String file) => file.substring(directory.length)) // remove directory prefix
           .map((String file) => file.contains('/') ? file.substring(0, file.indexOf('/')) : file) // remove nested folder names
           .map((String file) => file.endsWith(Editor.extension) ? file.substring(0, file.length - Editor.extension.length) : file) // remove extension
@@ -153,14 +154,24 @@ abstract class FileManager {
       final Directory dir = Directory(documentsDirectory + directory);
       if (!await dir.exists()) return null;
 
-      int pathEndIndex = documentsDirectory.length + (directory.endsWith('/') ? directory.length : directory.length + 1);
-      allChildren = await dir.list().map(
-        (FileSystemEntity entity) {
-          String filename = entity.path.substring(pathEndIndex);
-          if (filename.endsWith(Editor.extension)) filename = filename.substring(0, filename.length - Editor.extension.length);
-          return filename;
-        }
-      ).toList();
+      int directoryPrefixLength = directory.endsWith('/') ? directory.length : directory.length + 1; // +1 for the trailing slash
+      allChildren = await dir.list()
+          .map((FileSystemEntity entity) {
+            String filename = entity.path.substring(documentsDirectory.length);
+
+            if (filename.endsWith(Editor.extension)) { // remove extension
+              filename = filename.substring(0, filename.length - Editor.extension.length);
+            }
+
+            if (Editor.reservedFileNames.contains(filename)) return null; // filter out reserved file names
+
+            filename = filename.substring(directoryPrefixLength); // remove directory prefix
+
+            return filename;
+          })
+          .where((String? file) => file != null)
+          .cast<String>()
+          .toList();
     }
 
     await Future.wait(allChildren.map((child) async {
@@ -175,13 +186,16 @@ abstract class FileManager {
   }
 
   static Future<List<String>> getRecentlyAccessed() async {
-    return Prefs.recentFiles.value.map((String filePath) {
-      if (filePath.endsWith(Editor.extension)) {
-        return filePath.substring(0, filePath.length - Editor.extension.length);
-      } else {
-        return filePath;
-      }
-    }).toList();
+    return Prefs.recentFiles.value
+        .map((String filePath) {
+          if (filePath.endsWith(Editor.extension)) {
+            return filePath.substring(0, filePath.length - Editor.extension.length);
+          } else {
+            return filePath;
+          }
+        })
+        .where((String file) => !Editor.reservedFileNames.contains(file)) // filter out reserved file names
+        .toList();
   }
 
   /// Returns whether the [filePath] is a directory or file.

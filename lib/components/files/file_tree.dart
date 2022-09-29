@@ -108,17 +108,15 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               for (var i = 0; i < children!.directories.length; i++)
-                if (!Editor.reservedFileNames.contains("${widget.path ?? ""}/${children!.directories[i]}"))
-                  FileTreeBranch(
-                    path: "${widget.path ?? ""}/${children!.directories[i]}",
-                    isDirectory: true,
-                  ),
+                FileTreeBranch(
+                  path: "${widget.path ?? ""}/${children!.directories[i]}",
+                  isDirectory: true,
+                ),
               for (var i = 0; i < children!.files.length; i++)
-                if (!Editor.reservedFileNames.contains("${widget.path ?? ""}/${children!.files[i]}"))
-                  FileTreeBranch(
-                    path: "${widget.path ?? ""}/${children!.files[i]}",
-                    isDirectory: false,
-                  ),
+                FileTreeBranch(
+                  path: "${widget.path ?? ""}/${children!.files[i]}",
+                  isDirectory: false,
+                ),
             ],
           ),
         ),

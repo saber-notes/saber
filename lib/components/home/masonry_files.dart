@@ -5,12 +5,12 @@ import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class MasonryFiles extends StatelessWidget {
-  MasonryFiles({
+  const MasonryFiles({
     super.key,
-    required List<String> files,
+    required this.files,
     required this.onTap,
     this.physics = const AlwaysScrollableScrollPhysics(),
-  }) : files = files.where((path) => !Editor.reservedFileNames.contains(path)).toList();
+  });
 
   final List<String> files;
   final Function(String) onTap;
