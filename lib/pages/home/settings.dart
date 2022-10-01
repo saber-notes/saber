@@ -18,7 +18,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
-    UpdateManager.isUpdateAvailable.addListener(onUpdateAvailable);
+    UpdateManager.status.addListener(onUpdateAvailable);
     super.initState();
   }
 
@@ -33,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
         toolbarHeight: kToolbarHeight,
         title: const Text("Settings"),
         actions: [
-          if (UpdateManager.isUpdateAvailable.value) IconButton(
+          if (UpdateManager.status.value != UpdateStatus.upToDate) IconButton(
             tooltip: "Show update dialog",
             icon: const Icon(Icons.system_update),
             onPressed: () {
@@ -89,7 +89,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   void dispose() {
-    UpdateManager.isUpdateAvailable.removeListener(onUpdateAvailable);
+    UpdateManager.status.removeListener(onUpdateAvailable);
     super.dispose();
   }
 }
