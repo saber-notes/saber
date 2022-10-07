@@ -27,7 +27,6 @@ class EditorHistory {
   EditorHistoryItem undo() {
     if (_past.isEmpty) throw Exception("Nothing to undo");
     final EditorHistoryItem item = _past.removeLast();
-    print("Undoing: ${item.type} ${item.strokes.length}");
     _future.add(item);
     return item;
   }
@@ -40,7 +39,6 @@ class EditorHistory {
   EditorHistoryItem redo() {
     if (_future.isEmpty) throw Exception("Nothing to redo");
     final EditorHistoryItem item = _future.removeLast();
-    print("redoing ${item.type} ${item.strokes.length}");
     _past.add(item);
     return item;
   }
