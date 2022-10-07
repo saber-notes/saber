@@ -28,12 +28,18 @@ class EditorBottomSheet extends StatelessWidget {
                 ListTile(
                   leading: const Icon(Icons.delete),
                   title: const Text('Clear this page'),
-                  onTap: clearPage,
+                  onTap: clearPage != null ? () {
+                    clearPage!();
+                    Navigator.pop(context);
+                  } : null,
                 ),
                 ListTile(
                   leading: const Icon(Icons.delete_sweep),
                   title: const Text('Clear all pages'),
-                  onTap: clearAllPages,
+                  onTap: clearAllPages != null ? () {
+                    clearAllPages!();
+                    Navigator.pop(context);
+                  } : null,
                 ),
               ],
             ),
