@@ -8,6 +8,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
 
+  /// If true, the user's preferences will not be loaded and the default values will be used instead.
+  /// The values will not be saved either.
+  static bool testingMode = false;
+
   static late EncPref<String> url;
   static late EncPref<String> username;
   /// the password used to login to NextCloud
@@ -75,13 +79,18 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   IPref(this.key, T defaultValue, {
     List<String>? historicalKeys
   }) : historicalKeys = historicalKeys ?? [], super(defaultValue) {
-    _load().then((T? loadedValue) {
+    if (Prefs.testingMode) {
       _loaded = true;
-      if (loadedValue != null) {
-        value = loadedValue;
-      }
-      addListener(_save);
-    });
+      return;
+    } else {
+      _load().then((T? loadedValue) {
+        _loaded = true;
+        if (loadedValue != null) {
+          value = loadedValue;
+        }
+        addListener(_save);
+      });
+    }
   }
 
   Future<T?> _load();

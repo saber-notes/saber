@@ -6,6 +6,7 @@ import 'package:saber/data/prefs.dart';
 void initialiseForTests() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
+  Prefs.testingMode = true;
   Prefs.init();
 
   FileManager.init();
