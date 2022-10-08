@@ -179,6 +179,12 @@ abstract class FileSyncer {
     return true;
   }
 
+  /// Queues a file to be deleted from the server
+  static void addToDeleteQueue(String filePath) {
+    // todo: implement
+    if (kDebugMode) print("file deletion not implemented yet");
+  }
+
   /// Decides if the local or remote version of a file should be kept
   /// by comparing the last modified date of each file.
   static Future<bool> _shouldLocalFileBeKept(SyncFile file) async {

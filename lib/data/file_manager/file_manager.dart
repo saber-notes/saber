@@ -120,6 +120,8 @@ abstract class FileManager {
   static Future deleteFile(String filePath) async {
     filePath = _sanitisePath(filePath);
 
+    FileSyncer.addToDeleteQueue(filePath);
+
     if (kIsWeb) {
       final prefs = await _prefs;
       await prefs.remove(filePath);
