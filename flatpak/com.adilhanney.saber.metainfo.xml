@@ -73,14 +73,7 @@
             <description>
                 <ol>
                     <li>Support for styluses that have a built-in eraser</li>
-                    <li>
-                        Change editor toolbar shortcuts:
-                        <ul>
-                            <li>Toggle pen/eraser: Ctrl E</li>
-                            <li>Toggle color options: Ctrl C</li>
-                            <li>Toggle finger drawing: Ctrl F</li>
-                        </ul>
-                    </li>
+                    <li>Editor toolbar shortcuts are the same but now require the Ctrl button to be pressed as well.</li>
                 </ol>
             </description>
         </release>
