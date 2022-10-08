@@ -59,6 +59,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.10" type="development" date="2022-10-08">
+            <description>
+                <ol>
+                    <li>Show a button in settings to update your app even if it's not urgent.</li>
+                    <li>The editor overflow menu now closes when you click a button.</li>
+                    <li>Bug fix: the toolbar buttons weren't enabling/disabling as needed (e.g. the undo/redo buttons were always enabled).</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.9" type="development" date="2022-09-29">
             <description>
                 <ol>
