@@ -141,6 +141,10 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
+- When updating the **translations**...
+  - Run the following command `flutter pub run slang`
+  - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
+    and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
 
 [saber_web]: https://saber.adil.hanney.org
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber

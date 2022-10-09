@@ -6,6 +6,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/nextcloud/login.dart';
@@ -15,7 +16,7 @@ void main() {
   Prefs.init();
   FileManager.init();
   Prefs.username.addListener(onLoginDetailsLoaded);
-  runApp(App());
+  runApp(TranslationProvider(child: App()));
 }
 
 void onLoginDetailsLoaded() async {
