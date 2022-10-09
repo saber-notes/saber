@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
@@ -96,7 +97,7 @@ class _PreviewCardState extends State<PreviewCard> {
                     child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
                   ),
                   IconButton(
-                    tooltip: "Show/hide actions",
+                    tooltip: t.home.tooltips.showHideActions,
                     padding: EdgeInsets.zero,
                     onPressed: () {
                       setState(() {

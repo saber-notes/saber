@@ -5,11 +5,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:saber/data/version.dart' show buildNumber;
+import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const String licenseNotice = "Saber  Copyright (C) 2022  Adil Hanney\n"
-"This program comes with absolutely no warranty. "
-"This is free software, and you are welcome to redistribute it under certain conditions.\n\n";
 
 class AppInfo extends StatefulWidget {
   const AppInfo({super.key});
@@ -30,7 +28,7 @@ class _AppInfoState extends State<AppInfo> {
     String appName = packageInfo.appName;
     String version = packageInfo.version;
 
-    String debug = kDebugMode ? " DEBUG" : "";
+    String debug = kDebugMode ? " ${t.appInfo.debug}" : "";
 
     return "$appName$debug $version ($buildNumber)";
   }
@@ -53,8 +51,8 @@ class _AppInfoState extends State<AppInfo> {
           onPressed: () { setState(() { moreInfoShown = !moreInfoShown; }); },
           child: IntrinsicWidth(
             child: Row(children: [
-              moreInfoShown ? const Text("Hide more info") : const Text("Show more info"),
-              moreInfoShown ? const Icon(Icons.expand_more) : const Icon(Icons.expand_less),
+              Text(moreInfoShown ? t.appInfo.showLessInfo : t.appInfo.showMoreInfo),
+              Icon(moreInfoShown ? Icons.expand_more : Icons.expand_less),
             ]),
           ),
         ),
@@ -64,36 +62,30 @@ class _AppInfoState extends State<AppInfo> {
           axis: CollapsibleAxis.vertical,
           alignment: Alignment.topCenter,
           maintainState: true,
-          child: SelectableText.rich(TextSpan(
-            style: TextStyle(color: colorScheme.onBackground),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TextSpan(text: licenseNotice),
-              TextSpan(
-                text: "Tap here to view more license information.\n\n",
-                style: TextStyle(
-                  color: colorScheme.primary,
-                ),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  launchUrl(
-                    AppInfo.licenseUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: SelectableText(t.appInfo.licenseNotice)
               ),
-              TextSpan(
-                text: "Tap here to view the privacy policy.\n",
-                style: TextStyle(
-                  color: colorScheme.primary,
+              TextButton(
+                onPressed: () => launchUrl(
+                  AppInfo.licenseUrl,
+                  mode: LaunchMode.externalApplication,
                 ),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  launchUrl(
-                    AppInfo.privacyPolicyUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
+                child: Text(t.appInfo.licenseButton),
+              ),
+              TextButton(
+                onPressed: () => launchUrl(
+                  AppInfo.privacyPolicyUrl,
+                  mode: LaunchMode.externalApplication,
+                ),
+                child: Text(t.appInfo.privacyPolicyButton),
               ),
             ],
-          )),
+          ),
         ),
       ],
     );

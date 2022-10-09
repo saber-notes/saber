@@ -8,6 +8,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({
@@ -60,10 +61,15 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   Widget build(BuildContext context) {
+    String title = t.home.titles.browse;
+    if (path?.isNotEmpty ?? false) {
+      title += ": $path";
+    }
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
-        title: Text("Browse${(path?.isNotEmpty ?? false) ? ": $path" : ""}"),
+        title: Text(title),
         actions: const [
           SyncingButton(),
         ],
@@ -93,7 +99,7 @@ class _BrowsePageState extends State<BrowsePage> {
         onPressed: () {
           context.push(RoutePaths.edit);
         },
-        tooltip: "New note",
+        tooltip: t.home.tooltips.newNote,
         child: const Icon(Icons.add),
       ),
     );

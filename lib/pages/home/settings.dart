@@ -7,6 +7,7 @@ import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -31,10 +32,10 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
-        title: const Text("Settings"),
+        title: Text(t.home.titles.settings),
         actions: [
           if (UpdateManager.status.value != UpdateStatus.upToDate) IconButton(
-            tooltip: "Show update dialog",
+            tooltip: t.home.tooltips.showUpdateDialog,
             icon: const Icon(Icons.system_update),
             onPressed: () {
               UpdateManager.showUpdateDialog(context, userTriggered: true);
@@ -50,28 +51,28 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               const NextcloudProfile(),
               SettingsDropdown(
-                title: "App theme",
+                title: t.settings.prefLabels.appTheme,
                 pref: Prefs.appTheme,
                 values: [
-                  SettingsDropdownValue(ThemeMode.system.index, "System"),
-                  SettingsDropdownValue(ThemeMode.light.index, "Light"),
-                  SettingsDropdownValue(ThemeMode.dark.index, "Dark"),
+                  SettingsDropdownValue(ThemeMode.system.index, t.settings.themeModes.system),
+                  SettingsDropdownValue(ThemeMode.light.index, t.settings.themeModes.light),
+                  SettingsDropdownValue(ThemeMode.dark.index, t.settings.themeModes.dark),
                 ],
               ),
               SettingsSwitch(
-                title: "Automatically check for Saber updates",
+                title: t.settings.prefLabels.shouldCheckForUpdates,
                 pref: Prefs.shouldCheckForUpdates,
               ),
               SettingsSwitch(
-                title: "Align the editor toolbar to the bottom",
+                title: t.settings.prefLabels.editorToolbarOnBottom,
                 pref: Prefs.editorToolbarOnBottom,
               ),
               SettingsSwitch(
-                title: "Invert notes in dark mode",
+                title: t.settings.prefLabels.editorAutoInvert,
                 pref: Prefs.editorAutoInvert,
               ),
               SettingsSwitch(
-                title: "Prefer greyscale colors",
+                title: t.settings.prefLabels.preferGreyscale,
                 pref: Prefs.preferGreyscale,
               ),
             ],

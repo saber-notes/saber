@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class GridFolders extends StatelessWidget {
   const GridFolders({
@@ -44,7 +45,7 @@ class GridFolders extends StatelessWidget {
 
                     const SizedBox(height: 8),
 
-                    Text(isBackFolder ? "(Back)" : folders[index - indexOffset]),
+                    Text(isBackFolder ? t.home.backFolder : folders[index - indexOffset]),
                   ],
                 ),
               ),

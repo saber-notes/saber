@@ -8,6 +8,7 @@ import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LoginInputGroup extends StatefulWidget {
@@ -45,22 +46,22 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     String encPassword = _encPasswordController.text;
     if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
       setState(() {
-        _errorMessage = "Please double check your username or email.";
+        _errorMessage = t.login.feedbacks.checkUsername;
       });
       return false;
     } else if (ncPassword.isEmpty) {
       setState(() {
-        _errorMessage = "Please enter your Nextcloud password.";
+        _errorMessage = t.login.feedbacks.enterNcPassword;
       });
       return false;
     } else if (encPassword.isEmpty) {
       setState(() {
-        _errorMessage = "Please enter your encryption password.";
+        _errorMessage = t.login.feedbacks.enterEncPassword;
       });
       return false;
     } else if (_usingCustomServer && !Fzregex.hasMatch(_customServerController.text, FzPattern.url)) {
       setState(() {
-        _errorMessage = "Please enter a valid URL.";
+        _errorMessage = t.login.feedbacks.checkUrl;
       });
       return false;
     } else {
@@ -93,11 +94,11 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
     if (success) {
       setState(() {
-        _errorMessage = "Log in successful! Please wait while we set up...";
+        _errorMessage = t.login.feedbacks.loginSuccess;
       });
     } else {
       setState(() {
-        _errorMessage = "Log in failed, please check your details and network connection.";
+        _errorMessage = t.login.feedbacks.loginFailed;
       });
     }
   }
@@ -140,7 +141,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                   value: _usingCustomServer,
                   onChanged: _toggleCustomServer,
                 ),
-                const Expanded(child: Text("I want to use a custom Nextcloud server")),
+                Expanded(child: Text(t.login.form.useCustomServer)),
               ],
             ),
           ),
@@ -156,9 +157,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
               TextField(
                 controller: _customServerController,
                 autofillHints: const [AutofillHints.url],
-                decoration: const InputDecoration(
-                  labelText: "Custom server URL",
-                  prefixIcon: Icon(Icons.link),
+                decoration: InputDecoration(
+                  labelText: t.login.form.customServerUrl,
+                  prefixIcon: const Icon(Icons.link),
                   filled: true,
                 ),
               ),
@@ -169,9 +170,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
           TextField(
             controller: _usernameController,
             autofillHints: const [AutofillHints.username, AutofillHints.email],
-            decoration: const InputDecoration(
-              labelText: "Username or email",
-              prefixIcon: Icon(Icons.person),
+            decoration: InputDecoration(
+              labelText: t.login.form.username,
+              prefixIcon: const Icon(Icons.person),
               filled: true,
             ),
           ),
@@ -181,7 +182,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             obscureText: !_showNcPassword,
             autofillHints: const [AutofillHints.password],
             decoration: InputDecoration(
-              labelText: "Nextcloud password",
+              labelText: t.login.form.ncPassword,
               prefixIcon: const Icon(Icons.lock_person),
               suffixIcon: IconButton(
                 icon: Icon(_showNcPassword ? Icons.visibility : Icons.visibility_off),
@@ -197,7 +198,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             obscureText: !_showEncPassword,
             autofillHints: const [AutofillHints.password],
             decoration: InputDecoration(
-              labelText: "Encryption password",
+              labelText: t.login.form.encPassword,
               prefixIcon: const Icon(Icons.sync_lock),
               suffixIcon: IconButton(
                 icon: Icon(_showEncPassword ? Icons.visibility : Icons.visibility_off),
@@ -218,29 +219,24 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
           ],
 
           RichText(
-            text: TextSpan(
-              style: TextStyle(color: colorScheme.onBackground),
-              children: [
-                const TextSpan(text: "By logging in, you agree to the "),
-                TextSpan(
-                  text: "Privacy Policy",
-                  style: TextStyle(color: colorScheme.primary),
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                    launchUrl(
-                      AppInfo.privacyPolicyUrl,
-                      mode: LaunchMode.externalApplication,
-                    );
-                  },
-                ),
-                const TextSpan(text: "."),
-              ],
+            text: t.login.form.agreeToPrivacyPolicy(
+              linkToPrivacyPolicy: (text) => TextSpan(
+                text: text,
+                style: TextStyle(color: colorScheme.primary),
+                recognizer: TapGestureRecognizer()..onTap = () {
+                  launchUrl(
+                    AppInfo.privacyPolicyUrl,
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
             ),
           ),
 
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: _isLoading ? null : _login,
-            child: _isLoading ? const SpinningLoadingIcon() : const Text("Log in"),
+            child: _isLoading ? const SpinningLoadingIcon() : Text(t.login.form.login),
           ),
         ],
       ),

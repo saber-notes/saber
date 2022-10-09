@@ -7,6 +7,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/welcome.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class RecentPage extends StatefulWidget {
   const RecentPage({super.key});
@@ -45,7 +46,7 @@ class _RecentPageState extends State<RecentPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
-        title: const Text("Recent notes"),
+        title: Text(t.home.titles.home),
         actions: const [
           SyncingButton(),
         ],
@@ -62,7 +63,7 @@ class _RecentPageState extends State<RecentPage> {
         onPressed: () {
           context.push(RoutePaths.edit);
         },
-        tooltip: "New note",
+        tooltip: t.home.tooltips.newNote,
         child: const Icon(Icons.add),
       ),
     );

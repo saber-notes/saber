@@ -7,6 +7,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginPage extends StatefulWidget {
@@ -61,7 +62,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
-        title: const Text("Login"),
+        title: Text(t.login.title),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -82,22 +83,17 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 const SizedBox(height: 64),
 
                 RichText(
-                  text: TextSpan(
-                    style: TextStyle(color: colorScheme.onBackground),
-                    children: [
-                      const TextSpan(text: "Don't have an account yet? "),
-                      TextSpan(
-                        text: "Sign up now",
-                        style: TextStyle(color: colorScheme.primary),
-                        recognizer: TapGestureRecognizer()..onTap = () {
-                          launchUrl(
-                            NcLoginPage.signupUrl,
-                            mode: LaunchMode.externalApplication,
-                          );
-                        },
-                      ),
-                      const TextSpan(text: "!"),
-                    ],
+                  text: t.login.signup(
+                    linkToSignup: (text) => TextSpan(
+                      text: text,
+                      style: TextStyle(color: colorScheme.primary),
+                      recognizer: TapGestureRecognizer()..onTap = () {
+                        launchUrl(
+                          NcLoginPage.signupUrl,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                    ),
                   ),
                 ),
 
