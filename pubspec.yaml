@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   dynamic_color: ^1.5.4
 
@@ -75,6 +77,9 @@ dependencies:
   modals: ^1.0.0+1
 
   fzregex: ^2.0.0
+
+  slang: ^3.1.0
+  slang_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:

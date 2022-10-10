@@ -1,11 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:saber/components/home/settings_switch.dart';
-
-import 'package:saber/components/settings/nextcloud_profile.dart';
-import 'package:saber/components/settings/app_info.dart';
-import 'package:saber/components/settings/update_manager.dart';
-import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class Whiteboard extends StatefulWidget {
@@ -20,7 +15,7 @@ class _WhiteboardPageState extends State<Whiteboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Whiteboard"),
+        title: Text(t.home.titles.whiteboard),
       ),
       body: Editor(
         path: "/_whiteboard",

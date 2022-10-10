@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -13,9 +14,9 @@ class Welcome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Welcome to Saber", style: textTheme.headline4),
+            Text(t.home.welcome, style: textTheme.headline4),
             const SizedBox(height: 8),
-            Text("Tap the + button to create a new note", style: textTheme.bodyText1),
+            Text(t.home.createNewNote, style: textTheme.bodyText1),
           ],
         ),
       ),

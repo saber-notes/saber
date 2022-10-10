@@ -1,0 +1,86 @@
+{
+	"home": {
+		"tabs": {
+			"home": "Home",
+			"browse": "Browse",
+			"whiteboard": "Whiteboard",
+			"settings": "Settings"
+		},
+		"titles": {
+			"home": "Recent notes",
+			"browse": "Browse",
+			"whiteboard": "Whiteboard",
+			"settings": "Settings"
+		},
+		"tooltips": {
+			"showHideActions": "Show/hide actions",
+			"newNote": "New note",
+			"showUpdateDialog": "Show update dialog"
+		},
+		"backFolder": "(Back)",
+		"welcome": "Welcome to Saber",
+		"noFiles": "No files found",
+		"createNewNote": "Tap the + button to create a new note"
+	},
+	"settings": {
+		"prefLabels": {
+			"appTheme": "App theme",
+			"shouldCheckForUpdates": "Automatically check for Saber updates",
+			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
+			"editorAutoInvert": "Invert notes in dark mode",
+			"preferGreyscale": "Prefer greyscale colors"
+		},
+		"themeModes": {
+			"system": "System",
+			"light": "Light",
+			"dark": "Dark"
+		}
+	},
+	"login": {
+		"title": "Login",
+		"feedbacks": {
+			"checkUsername": "Please double check your username or email.",
+			"enterNcPassword": "Please enter your Nextcloud password.",
+			"enterEncPassword": "Please enter your encryption password.",
+			"checkUrl": "Please enter a valid URL.",
+			"loginFailed": "Log in failed, please check your details and network connection.",
+			"loginSuccess": "Log in successful! Please wait while we set up..."
+		},
+		"form": {
+			"useCustomServer": "I want to use a custom Nextcloud server",
+            "customServerUrl": "Custom server URL",
+			"username": "Username or email",
+			"ncPassword": "Nextcloud password",
+			"encPassword": "Encryption password",
+			"agreeToPrivacyPolicy(rich)": "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.",
+			"login": "Log in"
+		},
+		"signup(rich)": "Don't have an account yet? ${linkToSignup(Sign up now)}!",
+		"status": {
+			"loggedIn": "Logged in with Nextcloud",
+			"loggedOut": "Logged out",
+			"tapToLogin": "Tap to log in with Nextcloud"
+		}
+	},
+	"appInfo": {
+		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+		"debug": "DEBUG",
+		"showMoreInfo": "Show more info",
+		"showLessInfo": "Show less info",
+		"licenseButton": "Tap here to view more license information",
+		"privacyPolicyButton": "Tap here to view the privacy policy"
+	},
+	"editor": {
+		"toolbar": {
+			"fountainPen": "Fountain pen",
+			"toggleColors": "Toggle colors (Ctrl C)",
+			"toggleEraser": "Toggle eraser (Ctrl E)",
+			"photo": "Photo",
+			"toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
+			"undo": "Undo",
+			"redo": "Redo",
+			"export": "Export (Ctrl Shift S)",
+			"exportAs": "Export as:"
+		}
+	}
+}

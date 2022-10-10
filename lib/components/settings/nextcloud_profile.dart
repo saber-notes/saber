@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class NextcloudProfile extends StatefulWidget {
   const NextcloudProfile({super.key});
@@ -36,10 +37,10 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     String heading, subheading;
     if (Prefs.username.value.isNotEmpty) {
       heading = Prefs.username.value;
-      subheading = "Logged in with Nextcloud";
+      subheading = t.login.status.loggedIn;
     } else {
-      heading = "Logged out";
-      subheading = "Tap to log in with Nextcloud";
+      heading = t.login.status.loggedOut;
+      subheading = t.login.status.tapToLogin;
     }
 
     var colorScheme = Theme.of(context).colorScheme;

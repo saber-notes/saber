@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/home.dart';
 
 // workaround to assign strings as enum values
@@ -16,22 +17,22 @@ abstract class HomeRoutes {
   static final _routes = <_Route>[
     _Route(
       routePath: homeFunction({"subpage": HomePage.recentSubpage}),
-      label: 'Home',
+      label: t.home.tabs.home,
       icon: const Icon(Icons.home),
     ),
     _Route(
       routePath: homeFunction({"subpage": HomePage.browseSubpage}),
-      label: 'Browse',
+      label: t.home.tabs.browse,
       icon: const Icon(Icons.notes),
     ),
     _Route(
       routePath: homeFunction({"subpage": HomePage.whiteboardSubpage}),
-      label: 'Whiteboard',
+      label: t.home.tabs.whiteboard,
       icon: const Icon(Icons.speed),
     ),
     _Route(
       routePath: homeFunction({"subpage": HomePage.settingsSubpage}),
-      label: 'Settings',
+      label: t.home.tabs.settings,
       icon: const Icon(Icons.settings),
     ),
   ];

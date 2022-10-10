@@ -10,6 +10,7 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class Toolbar extends StatefulWidget {
   const Toolbar({
@@ -141,7 +142,7 @@ class _ToolbarState extends State<Toolbar> {
                   child: Row(
                     children: [
                       ToolbarIconButton(
-                        tooltip: "Fountain pen",
+                        tooltip: t.editor.toolbar.fountainPen,
                         selected: widget.currentTool == Pen.currentPen,
                         onPressed: (button) {
                           widget.setTool(Pen.currentPen);
@@ -149,40 +150,40 @@ class _ToolbarState extends State<Toolbar> {
                         child: const Icon(Icons.brush),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle colors (Ctrl C)",
+                        tooltip: t.editor.toolbar.toggleColors,
                         selected: showColorOptions,
                         onPressed: (_) => toggleColorOptions(),
                         child: const Icon(Icons.palette),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle eraser (Ctrl E)",
+                        tooltip: t.editor.toolbar.toggleEraser,
                         selected: widget.currentTool is Eraser,
                         onPressed: (_) => toggleEraser(),
                         child: const Icon(Icons.remove), // todo: better eraser icon
                       ),
                       ToolbarIconButton(
-                        tooltip: "Photo",
+                        tooltip: t.editor.toolbar.photo,
                         onPressed: null,
                         child: const Icon(Icons.photo_size_select_actual),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Toggle finger drawing (Ctrl F)",
+                        tooltip: t.editor.toolbar.toggleFingerDrawing,
                         selected: Prefs.editorFingerDrawing.value,
                         onPressed: (_) => widget.toggleFingerDrawing(),
                         child: const Icon(Icons.gesture),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Undo",
+                        tooltip: t.editor.toolbar.undo,
                         onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
                         child: const Icon(Icons.undo),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Redo",
+                        tooltip: t.editor.toolbar.redo,
                         onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
                         child: const Icon(Icons.redo),
                       ),
                       ToolbarIconButton(
-                        tooltip: "Export (Ctrl Shift S)",
+                        tooltip: t.editor.toolbar.export,
                         onPressed: (_) => toggleExportBar(),
                         child: const Icon(Icons.share),
                       ),

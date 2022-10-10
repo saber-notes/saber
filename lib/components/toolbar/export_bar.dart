@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class ExportBar extends StatelessWidget {
   const ExportBar({
@@ -25,7 +26,7 @@ class ExportBar extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              const Text("Export as:"),
+              Text(t.editor.toolbar.exportAs),
               const SizedBox(width: 8),
 
               TextButton(

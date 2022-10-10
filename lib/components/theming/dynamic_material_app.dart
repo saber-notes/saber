@@ -2,8 +2,10 @@
 
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
@@ -56,6 +58,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
           routeInformationProvider: widget.router.routeInformationProvider,
           routeInformationParser: widget.router.routeInformationParser,
           routerDelegate: widget.router.routerDelegate,
+
+          locale: TranslationProvider.of(context).flutterLocale,
+          supportedLocales: LocaleSettings.supportedLocales,
+          localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
           title: widget.title,
           theme: ThemeData(
