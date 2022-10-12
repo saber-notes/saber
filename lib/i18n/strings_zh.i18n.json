@@ -1,0 +1,86 @@
+{
+	"home": {
+		"tabs": {
+			"home": "主页",
+			"browse": "浏览",
+			"whiteboard": "白板",
+			"settings": "设置"
+		},
+		"titles": {
+			"home": "最近笔记",
+			"browse": "浏览",
+			"whiteboard": "白板",
+			"settings": "设置"
+		},
+		"tooltips": {
+			"showHideActions": "显示/隐藏操作",
+			"newNote": "新建笔记",
+			"showUpdateDialog": "显示更新对话框"
+		},
+		"backFolder": "(返回)",
+		"welcome": "欢迎使用 Saber",
+		"noFiles": "未找到文件",
+		"createNewNote": "点击 + 按钮新建一个笔记"
+	},
+	"settings": {
+		"prefLabels": {
+			"appTheme": "应用主题",
+			"shouldCheckForUpdates": "自动检查 Saber 更新",
+			"editorToolbarOnBottom": "将编辑工具栏与底部对齐",
+			"editorAutoInvert": "在深色模式下使用反色笔记背景",
+			"preferGreyscale": "使用灰度颜色"
+		},
+		"themeModes": {
+			"system": "系统",
+			"light": "浅色",
+			"dark": "深色"
+		}
+	},
+	"login": {
+		"title": "Login",
+		"feedbacks": {
+			"checkUsername": "请仔细检查您的用户名或电子邮件。",
+			"enterNcPassword": "请输入您的 Nextcloud 密码。",
+			"enterEncPassword": "请输入您的加密密码。",
+			"checkUrl": "请输入有效链接。",
+			"loginFailed": "登录失败，请检查您的详细信息和网络连接。",
+			"loginSuccess": "登录成功！我们正在设置中，请稍候……"
+		},
+		"form": {
+			"useCustomServer": "我想要使用自定义 Nextcloud 服务器",
+            "customServerUrl": "自定义服务器链接",
+			"username": "用户名或邮箱",
+			"ncPassword": "Nextcloud 密码",
+			"encPassword": "加密密码",
+			"agreeToPrivacyPolicy(rich)": "登陆即表示你同意 ${linkToPrivacyPolicy(隐私政策)}。",
+			"login": "Log in"
+		},
+		"signup(rich)": "还没有帐户？ ${linkToSignup(立即注册)}！",
+		"status": {
+			"loggedIn": "已使用 Nextcloud 登录",
+			"loggedOut": "已注销",
+			"tapToLogin": "点击以使用 Nextcloud 登录"
+		}
+	},
+	"appInfo": {
+		"licenseNotice": "Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+		"debug": "DEBUG",
+		"showMoreInfo": "显示更多信息",
+		"showLessInfo": "显示更少信息",
+		"licenseButton": "点击此处查看更多许可证信息",
+		"privacyPolicyButton": "点击此处查看隐私政策"
+	},
+	"editor": {
+		"toolbar": {
+			"fountainPen": "钢笔",
+			"toggleColors": "切换颜色 (Ctrl C)",
+			"toggleEraser": "切换橡皮擦 (Ctrl E)",
+			"photo": "照片",
+			"toggleFingerDrawing": "切换手写 (Ctrl F)",
+			"undo": "撤销",
+			"redo": "重做",
+			"export": "导出 (Ctrl Shift S)",
+			"exportAs": "导出为："
+		}
+	}
+}
