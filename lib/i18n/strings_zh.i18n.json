@@ -52,7 +52,7 @@
 			"username": "用户名或邮箱",
 			"ncPassword": "Nextcloud 密码",
 			"encPassword": "加密密码",
-			"agreeToPrivacyPolicy(rich)": "登陆即表示你同意 ${linkToPrivacyPolicy(隐私政策)}。",
+			"agreeToPrivacyPolicy(rich)": "登陆即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。",
 			"login": "Log in"
 		},
 		"signup(rich)": "还没有帐户？ ${linkToSignup(立即注册)}！",
