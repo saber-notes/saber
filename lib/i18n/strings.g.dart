@@ -3,7 +3,7 @@
 /// Locales: 2
 /// Strings: 112 (56 per locale)
 ///
-/// Built on 2022-10-14 at 09:53 UTC
+/// Built on 2022-10-14 at 13:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -420,7 +420,7 @@ class _StringsLoginZh implements _StringsLoginEn {
 	@override final _StringsZh _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Login';
+	@override String get title => '登录';
 	@override late final _StringsLoginFeedbacksZh feedbacks = _StringsLoginFeedbacksZh._(_root);
 	@override late final _StringsLoginFormZh form = _StringsLoginFormZh._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
@@ -552,7 +552,7 @@ class _StringsLoginFormZh implements _StringsLoginFormEn {
 		linkToPrivacyPolicy('隐私政策'),
 		const TextSpan(text: '。'),
 	]);
-	@override String get login => 'Log in';
+	@override String get login => '登录';
 }
 
 // Path: login.status
@@ -686,7 +686,7 @@ extension on _StringsZh {
 			case 'settings.themeModes.system': return '系统';
 			case 'settings.themeModes.light': return '浅色';
 			case 'settings.themeModes.dark': return '深色';
-			case 'login.title': return 'Login';
+			case 'login.title': return '登录';
 			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
 			case 'login.feedbacks.enterEncPassword': return '请输入您的加密密码。';
@@ -703,7 +703,7 @@ extension on _StringsZh {
 				linkToPrivacyPolicy('隐私政策'),
 				const TextSpan(text: '。'),
 			]);
-			case 'login.form.login': return 'Log in';
+			case 'login.form.login': return '登录';
 			case 'login.signup': return ({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 				const TextSpan(text: '还没有帐户？ '),
 				linkToSignup('立即注册'),

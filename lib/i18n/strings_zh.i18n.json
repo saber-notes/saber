@@ -37,7 +37,7 @@
 		}
 	},
 	"login": {
-		"title": "Login",
+		"title": "登录",
 		"feedbacks": {
 			"checkUsername": "请仔细检查您的用户名或电子邮件。",
 			"enterNcPassword": "请输入您的 Nextcloud 密码。",
@@ -53,7 +53,7 @@
 			"ncPassword": "Nextcloud 密码",
 			"encPassword": "加密密码",
 			"agreeToPrivacyPolicy(rich)": "登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。",
-			"login": "Log in"
+			"login": "登录"
 		},
 		"signup(rich)": "还没有帐户？ ${linkToSignup(立即注册)}！",
 		"status": {
