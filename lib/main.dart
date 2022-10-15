@@ -72,7 +72,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Saber',
       router: _router,
     );
   }
