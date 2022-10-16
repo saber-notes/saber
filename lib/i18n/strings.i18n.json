@@ -8,13 +8,13 @@
 		},
 		"titles": {
 			"home": "Recent notes",
-			"browse": "Browse",
+			"browse": "All Notes",
 			"whiteboard": "Whiteboard",
 			"settings": "Settings"
 		},
 		"tooltips": {
-			"showHideActions": "Show/hide actions",
-			"newNote": "New note",
+			"showHideActions": "show/hide actions",
+			"newNote": "New Note",
 			"showUpdateDialog": "Show update dialog"
 		},
 		"backFolder": "(Back)",
@@ -38,7 +38,7 @@
 		},
 		"accentColorPicker": {
 			"pickAColor": "Pick a color",
-			"gotIt": "Got it"
+			"gotIt": "Confirm"
 		}
 	},
 	"login": {
@@ -53,7 +53,7 @@
 		},
 		"form": {
 			"useCustomServer": "I want to use a custom Nextcloud server",
-            "customServerUrl": "Custom server URL",
+			"customServerUrl": "Custom server URL",
 			"username": "Username or email",
 			"ncPassword": "Nextcloud password",
 			"encPassword": "Encryption password",
@@ -84,13 +84,13 @@
 	"editor": {
 		"toolbar": {
 			"fountainPen": "Fountain pen",
-			"toggleColors": "Toggle colors (Ctrl C)",
-			"toggleEraser": "Toggle eraser (Ctrl E)",
+			"toggleColors": "Toggle colors (Ctrl + C)",
+			"toggleEraser": "Toggle eraser (Ctrl + E)",
 			"photo": "Photo",
-			"toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
+			"toggleFingerDrawing": "Toggle finger drawing (Ctrl + F)",
 			"undo": "Undo",
 			"redo": "Redo",
-			"export": "Export (Ctrl Shift S)",
+			"export": "Export (Ctrl + Shift + S)",
 			"exportAs": "Export as:"
 		}
 	}
