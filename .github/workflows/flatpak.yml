@@ -39,7 +39,7 @@ jobs:
         run: tar -C build/linux/x64/release/bundle -cvf Saber-Linux-Portable.tar.gz .
 
       - name: Upload app archive for next steps
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Saber-Archive
           path: Saber-Linux-Portable.tar.gz
@@ -67,7 +67,7 @@ jobs:
           manifest-path: flatpak/com.adilhanney.saber.json
 
       - name: Upload .flatpak artifact to workflow
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Flatpak artifact
           path: Saber.flatpak

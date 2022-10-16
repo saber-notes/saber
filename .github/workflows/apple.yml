@@ -41,7 +41,7 @@ jobs:
           popd
 
       - name: Upload iOS build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Saber-iOS-Archive
           path: build/ios/iphoneos/Saber.ipa
@@ -56,7 +56,7 @@ jobs:
           popd
 
       - name: Upload macOS build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Saber-macOS-Archive
           path: build/macos/Build/Products/Release/Saber.app.zip
