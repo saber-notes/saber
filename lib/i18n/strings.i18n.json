@@ -25,6 +25,7 @@
 	"settings": {
 		"prefLabels": {
 			"appTheme": "App theme",
+			"customAccentColor": "Custom accent color",
 			"shouldCheckForUpdates": "Automatically check for Saber updates",
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
 			"editorAutoInvert": "Invert notes in dark mode",
@@ -34,6 +35,10 @@
 			"system": "System",
 			"light": "Light",
 			"dark": "Dark"
+		},
+		"accentColorPicker": {
+			"pickAColor": "Pick a color",
+			"gotIt": "Got it"
 		}
 	},
 	"login": {

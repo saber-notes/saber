@@ -27,6 +27,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
   @override
   void initState() {
     Prefs.appTheme.addListener(onChanged);
+    Prefs.accentColor.addListener(onChanged);
     super.initState();
   }
 
@@ -41,7 +42,16 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
         ColorScheme lightColorScheme;
         ColorScheme darkColorScheme;
 
-        if (lightDynamic != null && darkDynamic != null) {
+        if (Prefs.accentColor.value != 0) {
+          Color accentColor = Color(Prefs.accentColor.value);
+          lightColorScheme = ColorScheme.fromSeed(
+            seedColor: accentColor,
+          );
+          darkColorScheme = ColorScheme.fromSeed(
+            seedColor: accentColor,
+            brightness: Brightness.dark,
+          );
+        } else if (lightDynamic != null && darkDynamic != null) {
           lightColorScheme = lightDynamic.harmonized();
           darkColorScheme = darkDynamic.harmonized();
         } else {
@@ -83,6 +93,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
   @override
   void dispose() {
     Prefs.appTheme.removeListener(onChanged);
+    Prefs.accentColor.removeListener(onChanged);
     super.dispose();
   }
 }

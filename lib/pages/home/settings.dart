@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 
@@ -58,6 +59,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   SettingsDropdownValue(ThemeMode.light.index, t.settings.themeModes.light),
                   SettingsDropdownValue(ThemeMode.dark.index, t.settings.themeModes.dark),
                 ],
+              ),
+              SettingsColor(
+                title: t.settings.prefLabels.customAccentColor,
+                pref: Prefs.accentColor,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.shouldCheckForUpdates,

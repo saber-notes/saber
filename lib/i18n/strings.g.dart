@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 116 (58 per locale)
+/// Strings: 119 (59 per locale)
 ///
-/// Built on 2022-10-16 at 16:38 UTC
+/// Built on 2022-10-16 at 21:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -181,6 +181,7 @@ class _StringsSettingsEn {
 	// Translations
 	late final _StringsSettingsPrefLabelsEn prefLabels = _StringsSettingsPrefLabelsEn._(_root);
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
+	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
 }
 
 // Path: login
@@ -285,6 +286,7 @@ class _StringsSettingsPrefLabelsEn {
 
 	// Translations
 	String get appTheme => 'App theme';
+	String get customAccentColor => 'Custom accent color';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
 	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
 	String get editorAutoInvert => 'Invert notes in dark mode';
@@ -301,6 +303,17 @@ class _StringsSettingsThemeModesEn {
 	String get system => 'System';
 	String get light => 'Light';
 	String get dark => 'Dark';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get pickAColor => 'Pick a color';
+	String get gotIt => 'Got it';
 }
 
 // Path: login.feedbacks
@@ -622,6 +635,7 @@ extension on _StringsEn {
 			case 'home.noFiles': return 'No files found';
 			case 'home.createNewNote': return 'Tap the + button to create a new note';
 			case 'settings.prefLabels.appTheme': return 'App theme';
+			case 'settings.prefLabels.customAccentColor': return 'Custom accent color';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Automatically check for Saber updates';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Align the editor toolbar to the bottom';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
@@ -629,6 +643,8 @@ extension on _StringsEn {
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Light';
 			case 'settings.themeModes.dark': return 'Dark';
+			case 'settings.accentColorPicker.pickAColor': return 'Pick a color';
+			case 'settings.accentColorPicker.gotIt': return 'Got it';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
