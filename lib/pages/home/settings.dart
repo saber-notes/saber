@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:saber/components/home/settings_dropdown.dart';
-import 'package:saber/components/home/settings_switch.dart';
+import 'package:saber/components/settings/settings_dropdown.dart';
+import 'package:saber/components/settings/settings_switch.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
