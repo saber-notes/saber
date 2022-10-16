@@ -59,6 +59,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.11" type="development" date="2022-10-16">
+            <description>
+                <ol>
+                    <li>Chinese translations provided by Sdarfeesh</li>
+                    <li>You can pick a custom accent color in settings</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.10" type="development" date="2022-10-08">
             <description>
                 <ol>
