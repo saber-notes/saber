@@ -1,97 +1,97 @@
 {
 	"home": {
 		"tabs": {
-			"home": "Home",
-			"browse": "Browse",
+			"home": "Startseite",
+			"browse": "Durchsuchen",
 			"whiteboard": "Whiteboard",
-			"settings": "Settings"
+			"settings": "Einstellungen"
 		},
 		"titles": {
-			"home": "Recent notes",
-			"browse": "Browse",
+			"home": "Letzte Notizen",
+			"browse": "Alle Notizen",
 			"whiteboard": "Whiteboard",
-			"settings": "Settings"
+			"settings": "Einstellungen"
 		},
 		"tooltips": {
-			"showHideActions": "Show/hide actions",
-			"newNote": "New note",
-			"showUpdateDialog": "Show update dialog"
+			"showHideActions": "Aktionen anzeigen/verstecken",
+			"newNote": "Neue Notiz",
+			"showUpdateDialog": "Aktualisierungsdialog anzeigen"
 		},
-		"backFolder": "(Back)",
-		"welcome": "Welcome to Saber",
-		"noFiles": "No files found",
-		"createNewNote": "Tap the + button to create a new note"
+		"backFolder": "(Zurück)",
+		"welcome": "Willkommen bei Saber",
+		"noFiles": "Keine Dateien gefunden",
+		"createNewNote": "Drücke die + Schaltfläche, um eine neue Notiz zu erstellen"
 	},
 	"settings": {
 		"prefLabels": {
-			"appTheme": "App theme",
-			"customAccentColor": "Custom accent color",
-			"shouldCheckForUpdates": "Automatically check for Saber updates",
-			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
-			"editorAutoInvert": "Invert notes in dark mode",
-			"preferGreyscale": "Prefer greyscale colors"
+			"appTheme": "Anwendungsthema",
+			"customAccentColor": "Benutzerdefinierte Akzentfarbe",
+			"shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
+			"editorToolbarOnBottom": "Editor-Werkzeugleiste am unteren Rand ausrichten",
+			"editorAutoInvert": "Notizen im Dunkelmodus invertieren",
+			"preferGreyscale": "Graustufen bevorzugen"
 		},
 		"themeModes": {
 			"system": "System",
-			"light": "Light",
-			"dark": "Dark"
+			"light": "Hell",
+			"dark": "Dunkel"
 		},
 		"accentColorPicker": {
-			"pickAColor": "Pick a color",
-			"gotIt": "Got it"
+			"pickAColor": "Wähle eine Farbe",
+			"gotIt": "Bestätigen"
 		}
 	},
 	"login": {
 		"title": "Login",
 		"feedbacks": {
-			"checkUsername": "Please double check your username or email.",
-			"enterNcPassword": "Please enter your Nextcloud password.",
-			"enterEncPassword": "Please enter your encryption password.",
-			"checkUrl": "Please enter a valid URL.",
-			"loginFailed": "Log in failed, please check your details and network connection.",
-			"loginSuccess": "Log in successful! Please wait while we set up..."
+			"checkUsername": "Bitte überprüfe deinen Benutzernamen oder deine E-Mail.",
+			"enterNcPassword": "Bitte gib dein Nextcloud-Passwort ein.",
+			"enterEncPassword": "Bitte gib dein Verschlüsselungspasswort ein.",
+			"checkUrl": "Bitte gib eine gültige URL an.",
+			"loginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.",
+			"loginSuccess": "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
 		},
 		"form": {
-			"useCustomServer": "I want to use a custom Nextcloud server",
-            "customServerUrl": "Custom server URL",
-			"username": "Username or email",
-			"ncPassword": "Nextcloud password",
-			"encPassword": "Encryption password",
-			"agreeToPrivacyPolicy(rich)": "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.",
-			"login": "Log in"
+			"useCustomServer": "Ich möchte einen eigenen Nextcloud-Server verwenden",
+			"customServerUrl": "Eigene Server-URL",
+			"username": "Benutzername oder E-Mail",
+			"ncPassword": "Nextcloud-Passwort",
+			"encPassword": "Verschlüsselungspasswort",
+			"agreeToPrivacyPolicy(rich)": "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu.",
+			"login": "Anmelden"
 		},
-		"signup(rich)": "Don't have an account yet? ${linkToSignup(Sign up now)}!",
+		"signup(rich)": "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!",
 		"status": {
-			"loggedIn": "Logged in with Nextcloud",
-			"loggedOut": "Logged out",
-			"tapToLogin": "Tap to log in with Nextcloud"
+			"loggedIn": "Mit Nextcloud angemeldet",
+			"loggedOut": "Nicht angemeldet",
+			"tapToLogin": "Hier tippen, um dich mit Nextcloud anzumelden"
 		}
 	},
 	"appInfo": {
-		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
 		"debug": "DEBUG",
-		"showMoreInfo": "Show more info",
-		"showLessInfo": "Show less info",
-		"licenseButton": "Tap here to view more license information",
-		"privacyPolicyButton": "Tap here to view the privacy policy"
+		"showMoreInfo": "Mehr Infos anzeigen",
+		"showLessInfo": "Weniger Infos anzeigen",
+		"licenseButton": "Hier tippen, um weitere Lizenzinformationen anzuzeigen",
+		"privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen"
 	},
 	"update": {
-		"updateAvailable": "Update available",
-		"updateAvailableDescription": "A new version of the app is available.",
-		"dismiss": "Dismiss",
-		"update": "Update"
+		"updateAvailable": "Aktualisierung verfügbar",
+		"updateAvailableDescription": "Eine neue Version der Anwendung ist verfügbar.",
+		"dismiss": "Ausblenden",
+		"update": "Aktualisieren"
 	},
 	"editor": {
 		"toolbar": {
-			"fountainPen": "Fountain pen",
-			"toggleColors": "Toggle colors (Ctrl C)",
-			"toggleEraser": "Toggle eraser (Ctrl E)",
-			"photo": "Photo",
-			"toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
-			"undo": "Undo",
-			"redo": "Redo",
-			"export": "Export (Ctrl Shift S)",
-			"exportAs": "Export as:"
+			"fountainPen": "Füllfederhalter",
+			"toggleColors": "Farben umschalten (Strg + C)",
+			"toggleEraser": "Radierer umschalten (Strg + E)",
+			"photo": "Foto",
+			"toggleFingerDrawing": "Fingerzeichnen umschalten (Strg + F)",
+			"undo": "Rückgängig",
+			"redo": "Wiederholen",
+			"export": "Exportieren (Strg + Shift + S)",
+			"exportAs": "Exportieren als:"
 		}
 	}
 }
