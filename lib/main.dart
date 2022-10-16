@@ -16,6 +16,7 @@ void main() {
   Prefs.init();
   FileManager.init();
   Prefs.username.addListener(onLoginDetailsLoaded);
+  LocaleSettings.useDeviceLocale();
   runApp(TranslationProvider(child: App()));
 }
 
