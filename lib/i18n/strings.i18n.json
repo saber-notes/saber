@@ -7,7 +7,7 @@
 			"settings": "Settings"
 		},
 		"titles": {
-			"home": "Recent notes",
+			"home": "Recent Notes",
 			"browse": "All Notes",
 			"whiteboard": "Whiteboard",
 			"settings": "Settings"
@@ -83,9 +83,9 @@
 	},
 	"editor": {
 		"toolbar": {
-			"fountainPen": "Fountain pen",
-			"toggleColors": "Toggle colors (Ctrl + C)",
-			"toggleEraser": "Toggle eraser (Ctrl + E)",
+			"fountainPen": "Fountain Pen",
+			"toggleColors": "Toggle Colors (Ctrl + C)",
+			"toggleEraser": "Toggle Eraser (Ctrl + E)",
 			"photo": "Photo",
 			"toggleFingerDrawing": "Toggle finger drawing (Ctrl + F)",
 			"undo": "Undo",
