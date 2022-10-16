@@ -48,6 +48,7 @@
     <key>CFBundleLocalizations</key>
     <array>
        <string>en</string>
+       <string>de</string>
        <string>zh</string>
     </array>
 </dict>

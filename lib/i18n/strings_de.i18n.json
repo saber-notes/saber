@@ -1,0 +1,97 @@
+{
+	"home": {
+		"tabs": {
+			"home": "Startseite",
+			"browse": "Durchsuchen",
+			"whiteboard": "Whiteboard",
+			"settings": "Einstellungen"
+		},
+		"titles": {
+			"home": "Letzte Notizen",
+			"browse": "Alle Notizen",
+			"whiteboard": "Whiteboard",
+			"settings": "Einstellungen"
+		},
+		"tooltips": {
+			"showHideActions": "Aktionen anzeigen/verstecken",
+			"newNote": "Neue Notiz",
+			"showUpdateDialog": "Aktualisierungsdialog anzeigen"
+		},
+		"backFolder": "(Zurück)",
+		"welcome": "Willkommen bei Saber",
+		"noFiles": "Keine Dateien gefunden",
+		"createNewNote": "Drücke die + Schaltfläche, um eine neue Notiz zu erstellen"
+	},
+	"settings": {
+		"prefLabels": {
+			"appTheme": "Anwendungsthema",
+			"customAccentColor": "Benutzerdefinierte Akzentfarbe",
+			"shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
+			"editorToolbarOnBottom": "Editor-Werkzeugleiste am unteren Rand ausrichten",
+			"editorAutoInvert": "Notizen im Dunkelmodus invertieren",
+			"preferGreyscale": "Graustufen bevorzugen"
+		},
+		"themeModes": {
+			"system": "System",
+			"light": "Hell",
+			"dark": "Dunkel"
+		},
+		"accentColorPicker": {
+			"pickAColor": "Wähle eine Farbe",
+			"gotIt": "Bestätigen"
+		}
+	},
+	"login": {
+		"title": "Login",
+		"feedbacks": {
+			"checkUsername": "Bitte überprüfe deinen Benutzernamen oder deine E-Mail.",
+			"enterNcPassword": "Bitte gib dein Nextcloud-Passwort ein.",
+			"enterEncPassword": "Bitte gib dein Verschlüsselungspasswort ein.",
+			"checkUrl": "Bitte gib eine gültige URL an.",
+			"loginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.",
+			"loginSuccess": "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
+		},
+		"form": {
+			"useCustomServer": "Ich möchte einen eigenen Nextcloud-Server verwenden",
+			"customServerUrl": "Eigene Server-URL",
+			"username": "Benutzername oder E-Mail",
+			"ncPassword": "Nextcloud-Passwort",
+			"encPassword": "Verschlüsselungspasswort",
+			"agreeToPrivacyPolicy(rich)": "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu.",
+			"login": "Anmelden"
+		},
+		"signup(rich)": "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!",
+		"status": {
+			"loggedIn": "Mit Nextcloud angemeldet",
+			"loggedOut": "Nicht angemeldet",
+			"tapToLogin": "Hier tippen, um dich mit Nextcloud anzumelden"
+		}
+	},
+	"appInfo": {
+		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
+		"debug": "DEBUG",
+		"showMoreInfo": "Mehr Infos anzeigen",
+		"showLessInfo": "Weniger Infos anzeigen",
+		"licenseButton": "Hier tippen, um weitere Lizenzinformationen anzuzeigen",
+		"privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen"
+	},
+	"update": {
+		"updateAvailable": "Aktualisierung verfügbar",
+		"updateAvailableDescription": "Eine neue Version der Anwendung ist verfügbar.",
+		"dismiss": "Ausblenden",
+		"update": "Aktualisieren"
+	},
+	"editor": {
+		"toolbar": {
+			"fountainPen": "Füllfederhalter",
+			"toggleColors": "Farben umschalten (Strg + C)",
+			"toggleEraser": "Radierer umschalten (Strg + E)",
+			"photo": "Foto",
+			"toggleFingerDrawing": "Fingerzeichnen umschalten (Strg + F)",
+			"undo": "Rückgängig",
+			"redo": "Wiederholen",
+			"export": "Exportieren (Strg + Shift + S)",
+			"exportAs": "Exportieren als:"
+		}
+	}
+}
