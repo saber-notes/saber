@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 112 (56 per locale)
+/// Strings: 116 (58 per locale)
 ///
-/// Built on 2022-10-14 at 13:23 UTC
+/// Built on 2022-10-16 at 16:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,6 +152,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
+	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
 }
 
@@ -213,6 +214,19 @@ class _StringsAppInfoEn {
 	String get showLessInfo => 'Show less info';
 	String get licenseButton => 'Tap here to view more license information';
 	String get privacyPolicyButton => 'Tap here to view the privacy policy';
+}
+
+// Path: update
+class _StringsUpdateEn {
+	_StringsUpdateEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get updateAvailable => 'Update available';
+	String get updateAvailableDescription => 'A new version of the app is available.';
+	String get dismiss => 'Dismiss';
+	String get update => 'Update';
 }
 
 // Path: editor
@@ -355,7 +369,7 @@ class _StringsEditorToolbarEn {
 }
 
 // Path: <root>
-class _StringsZh implements _StringsEn {
+class _StringsZh extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
@@ -366,7 +380,8 @@ class _StringsZh implements _StringsEn {
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
-		  ) {
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
 
@@ -374,7 +389,7 @@ class _StringsZh implements _StringsEn {
 	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key);
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
 
 	@override late final _StringsZh _root = this; // ignore: unused_field
 
@@ -387,8 +402,8 @@ class _StringsZh implements _StringsEn {
 }
 
 // Path: home
-class _StringsHomeZh implements _StringsHomeEn {
-	_StringsHomeZh._(this._root);
+class _StringsHomeZh extends _StringsHomeEn {
+	_StringsHomeZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -403,8 +418,8 @@ class _StringsHomeZh implements _StringsHomeEn {
 }
 
 // Path: settings
-class _StringsSettingsZh implements _StringsSettingsEn {
-	_StringsSettingsZh._(this._root);
+class _StringsSettingsZh extends _StringsSettingsEn {
+	_StringsSettingsZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -414,8 +429,8 @@ class _StringsSettingsZh implements _StringsSettingsEn {
 }
 
 // Path: login
-class _StringsLoginZh implements _StringsLoginEn {
-	_StringsLoginZh._(this._root);
+class _StringsLoginZh extends _StringsLoginEn {
+	_StringsLoginZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -432,8 +447,8 @@ class _StringsLoginZh implements _StringsLoginEn {
 }
 
 // Path: appInfo
-class _StringsAppInfoZh implements _StringsAppInfoEn {
-	_StringsAppInfoZh._(this._root);
+class _StringsAppInfoZh extends _StringsAppInfoEn {
+	_StringsAppInfoZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -447,8 +462,8 @@ class _StringsAppInfoZh implements _StringsAppInfoEn {
 }
 
 // Path: editor
-class _StringsEditorZh implements _StringsEditorEn {
-	_StringsEditorZh._(this._root);
+class _StringsEditorZh extends _StringsEditorEn {
+	_StringsEditorZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -457,8 +472,8 @@ class _StringsEditorZh implements _StringsEditorEn {
 }
 
 // Path: home.tabs
-class _StringsHomeTabsZh implements _StringsHomeTabsEn {
-	_StringsHomeTabsZh._(this._root);
+class _StringsHomeTabsZh extends _StringsHomeTabsEn {
+	_StringsHomeTabsZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -470,8 +485,8 @@ class _StringsHomeTabsZh implements _StringsHomeTabsEn {
 }
 
 // Path: home.titles
-class _StringsHomeTitlesZh implements _StringsHomeTitlesEn {
-	_StringsHomeTitlesZh._(this._root);
+class _StringsHomeTitlesZh extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -483,8 +498,8 @@ class _StringsHomeTitlesZh implements _StringsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _StringsHomeTooltipsZh implements _StringsHomeTooltipsEn {
-	_StringsHomeTooltipsZh._(this._root);
+class _StringsHomeTooltipsZh extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -495,8 +510,8 @@ class _StringsHomeTooltipsZh implements _StringsHomeTooltipsEn {
 }
 
 // Path: settings.prefLabels
-class _StringsSettingsPrefLabelsZh implements _StringsSettingsPrefLabelsEn {
-	_StringsSettingsPrefLabelsZh._(this._root);
+class _StringsSettingsPrefLabelsZh extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -509,8 +524,8 @@ class _StringsSettingsPrefLabelsZh implements _StringsSettingsPrefLabelsEn {
 }
 
 // Path: settings.themeModes
-class _StringsSettingsThemeModesZh implements _StringsSettingsThemeModesEn {
-	_StringsSettingsThemeModesZh._(this._root);
+class _StringsSettingsThemeModesZh extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -521,8 +536,8 @@ class _StringsSettingsThemeModesZh implements _StringsSettingsThemeModesEn {
 }
 
 // Path: login.feedbacks
-class _StringsLoginFeedbacksZh implements _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZh._(this._root);
+class _StringsLoginFeedbacksZh extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -536,8 +551,8 @@ class _StringsLoginFeedbacksZh implements _StringsLoginFeedbacksEn {
 }
 
 // Path: login.form
-class _StringsLoginFormZh implements _StringsLoginFormEn {
-	_StringsLoginFormZh._(this._root);
+class _StringsLoginFormZh extends _StringsLoginFormEn {
+	_StringsLoginFormZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -556,8 +571,8 @@ class _StringsLoginFormZh implements _StringsLoginFormEn {
 }
 
 // Path: login.status
-class _StringsLoginStatusZh implements _StringsLoginStatusEn {
-	_StringsLoginStatusZh._(this._root);
+class _StringsLoginStatusZh extends _StringsLoginStatusEn {
+	_StringsLoginStatusZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -568,8 +583,8 @@ class _StringsLoginStatusZh implements _StringsLoginStatusEn {
 }
 
 // Path: editor.toolbar
-class _StringsEditorToolbarZh implements _StringsEditorToolbarEn {
-	_StringsEditorToolbarZh._(this._root);
+class _StringsEditorToolbarZh extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarZh._(_StringsZh root) : this._root = root, super._(root);
 
 	@override final _StringsZh _root; // ignore: unused_field
 
@@ -646,6 +661,10 @@ extension on _StringsEn {
 			case 'appInfo.showLessInfo': return 'Show less info';
 			case 'appInfo.licenseButton': return 'Tap here to view more license information';
 			case 'appInfo.privacyPolicyButton': return 'Tap here to view the privacy policy';
+			case 'update.updateAvailable': return 'Update available';
+			case 'update.updateAvailableDescription': return 'A new version of the app is available.';
+			case 'update.dismiss': return 'Dismiss';
+			case 'update.update': return 'Update';
 			case 'editor.toolbar.fountainPen': return 'Fountain pen';
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';

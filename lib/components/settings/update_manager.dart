@@ -6,6 +6,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:saber/components/settings/do_update/do_update.dart'
   if (dart.library.html) 'package:saber/components/settings/do_update/do_update_web.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 abstract class UpdateManager {
   static final Uri versionUrl = Uri.parse("https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart");
@@ -27,16 +28,16 @@ abstract class UpdateManager {
     return await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Update Available'),
-        content: const Text('A new version of the app is available.'),
+        title: Text(t.update.updateAvailable),
+        content: Text(t.update.updateAvailableDescription),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Dismiss'),
+            child: Text(t.update.dismiss),
           ),
-          const TextButton(
+          TextButton(
             onPressed: doUpdate,
-            child: Text('Update'),
+            child: Text(t.update.update),
           ),
         ],
       ),

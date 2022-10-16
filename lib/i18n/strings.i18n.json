@@ -70,6 +70,12 @@
 		"licenseButton": "Tap here to view more license information",
 		"privacyPolicyButton": "Tap here to view the privacy policy"
 	},
+	"update": {
+		"updateAvailable": "Update available",
+		"updateAvailableDescription": "A new version of the app is available.",
+		"dismiss": "Dismiss",
+		"update": "Update"
+	},
 	"editor": {
 		"toolbar": {
 			"fountainPen": "Fountain pen",
