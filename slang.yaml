@@ -1,0 +1,2 @@
+base_locale: en
+fallback_strategy: base_locale
