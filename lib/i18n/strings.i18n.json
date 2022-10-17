@@ -38,7 +38,7 @@
 		},
 		"accentColorPicker": {
 			"pickAColor": "Pick a color",
-			"gotIt": "Confirm"
+			"confirm": "Confirm"
 		}
 	},
 	"login": {

@@ -3,7 +3,7 @@
 /// Locales: 3
 /// Strings: 182 (60 per locale)
 ///
-/// Built on 2022-10-17 at 00:15 UTC
+/// Built on 2022-10-17 at 00:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -314,7 +314,7 @@ class _StringsSettingsAccentColorPickerEn {
 
 	// Translations
 	String get pickAColor => 'Pick a color';
-	String get gotIt => 'Confirm';
+	String get confirm => 'Confirm';
 }
 
 // Path: login.feedbacks
@@ -573,7 +573,7 @@ class _StringsSettingsAccentColorPickerDe extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Wähle eine Farbe';
-	@override String get gotIt => 'Bestätigen';
+	@override String get confirm => 'Bestätigen';
 }
 
 // Path: login.feedbacks
@@ -904,7 +904,7 @@ extension on _StringsEn {
 			case 'settings.themeModes.light': return 'Light';
 			case 'settings.themeModes.dark': return 'Dark';
 			case 'settings.accentColorPicker.pickAColor': return 'Pick a color';
-			case 'settings.accentColorPicker.gotIt': return 'Confirm';
+			case 'settings.accentColorPicker.confirm': return 'Confirm';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
@@ -983,7 +983,7 @@ extension on _StringsDe {
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
 			case 'settings.accentColorPicker.pickAColor': return 'Wähle eine Farbe';
-			case 'settings.accentColorPicker.gotIt': return 'Bestätigen';
+			case 'settings.accentColorPicker.confirm': return 'Bestätigen';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';

@@ -52,7 +52,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
     ),
     actions: <Widget>[
       ElevatedButton(
-        child: Text(t.settings.accentColorPicker.gotIt),
+        child: Text(t.settings.accentColorPicker.confirm),
         onPressed: () {
           Navigator.of(context).pop();
         },
