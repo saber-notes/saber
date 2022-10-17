@@ -2,10 +2,11 @@
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide TransformationController;
+import 'package:saber/components/canvas/canvas_zoom_indicator.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 
-class CanvasGestureDetector extends StatelessWidget {
+class CanvasGestureDetector extends StatefulWidget {
   const CanvasGestureDetector({
     super.key,
 
@@ -36,6 +37,19 @@ class CanvasGestureDetector extends StatelessWidget {
 
   final Widget child;
 
+  @override
+  State<CanvasGestureDetector> createState() => _CanvasGestureDetectorState();
+}
+
+class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
+  final TransformationController _transformationController = TransformationController();
+
+  @override
+  initState() {
+    _transformationController.addListener(onTransformationChanged);
+    super.initState();
+  }
+
   _listenerPointerEvent(PointerEvent event) {
     double? pressure;
     if (event.kind == PointerDeviceKind.stylus) {
@@ -43,32 +57,54 @@ class CanvasGestureDetector extends StatelessWidget {
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
       pressure = -event.pressure;
     }
-    onPressureChanged(pressure);
+    widget.onPressureChanged(pressure);
+  }
+
+  onTransformationChanged() {
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      onPointerDown: _listenerPointerEvent,
-      onPointerMove: _listenerPointerEvent,
-      child: GestureDetector(
-        onSecondaryTapUp: (TapUpDetails details) => undo(),
-        onTertiaryTapUp: (TapUpDetails details) => redo(),
-        child: InteractiveCanvasViewer(
-          minScale: 0.01,
-          maxScale: 5,
-          constrained: false,
+    return Stack(
+      children: [
+        Listener(
+          onPointerDown: _listenerPointerEvent,
+          onPointerMove: _listenerPointerEvent,
+          child: GestureDetector(
+            onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
+            onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
+            child: InteractiveCanvasViewer(
+              minScale: 0.01,
+              maxScale: 5,
+              constrained: false,
 
-          isDrawGesture: isDrawGesture,
-          onInteractionEnd: onInteractionEnd,
-          onDrawStart: onDrawStart,
-          onDrawUpdate: onDrawUpdate,
-          onDrawEnd: onDrawEnd,
+              transformationController: _transformationController,
 
-          child: child,
-        )
-      )
+              isDrawGesture: widget.isDrawGesture,
+              onInteractionEnd: widget.onInteractionEnd,
+              onDrawStart: widget.onDrawStart,
+              onDrawUpdate: widget.onDrawUpdate,
+              onDrawEnd: widget.onDrawEnd,
+
+              child: widget.child,
+            )
+          )
+        ),
+        Positioned(
+          top: 5,
+          right: 5,
+          child: CanvasZoomIndicator(
+            zoom: _transformationController.value.getMaxScaleOnAxis(),
+          ),
+        ),
+      ],
     );
   }
 
+  @override
+  void dispose() {
+    _transformationController.removeListener(onTransformationChanged);
+    super.dispose();
+  }
 }
