@@ -3,7 +3,7 @@
 /// Locales: 2
 /// Strings: 119 (59 per locale)
 ///
-/// Built on 2022-10-16 at 21:46 UTC
+/// Built on 2022-10-17 at 00:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -261,7 +261,7 @@ class _StringsHomeTitlesEn {
 
 	// Translations
 	String get home => 'Recent notes';
-	String get browse => 'Browse';
+	String get browse => 'All notes';
 	String get whiteboard => 'Whiteboard';
 	String get settings => 'Settings';
 }
@@ -313,7 +313,7 @@ class _StringsSettingsAccentColorPickerEn {
 
 	// Translations
 	String get pickAColor => 'Pick a color';
-	String get gotIt => 'Got it';
+	String get gotIt => 'Confirm';
 }
 
 // Path: login.feedbacks
@@ -624,7 +624,7 @@ extension on _StringsEn {
 			case 'home.tabs.whiteboard': return 'Whiteboard';
 			case 'home.tabs.settings': return 'Settings';
 			case 'home.titles.home': return 'Recent notes';
-			case 'home.titles.browse': return 'Browse';
+			case 'home.titles.browse': return 'All notes';
 			case 'home.titles.whiteboard': return 'Whiteboard';
 			case 'home.titles.settings': return 'Settings';
 			case 'home.tooltips.showHideActions': return 'Show/hide actions';
@@ -644,7 +644,7 @@ extension on _StringsEn {
 			case 'settings.themeModes.light': return 'Light';
 			case 'settings.themeModes.dark': return 'Dark';
 			case 'settings.accentColorPicker.pickAColor': return 'Pick a color';
-			case 'settings.accentColorPicker.gotIt': return 'Got it';
+			case 'settings.accentColorPicker.gotIt': return 'Confirm';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
