@@ -7,14 +7,14 @@
 			"settings": "Settings"
 		},
 		"titles": {
-			"home": "Recent Notes",
-			"browse": "All Notes",
+			"home": "Recent notes",
+			"browse": "All notes",
 			"whiteboard": "Whiteboard",
 			"settings": "Settings"
 		},
 		"tooltips": {
-			"showHideActions": "show/hide actions",
-			"newNote": "New Note",
+			"showHideActions": "Show/hide actions",
+			"newNote": "New note",
 			"showUpdateDialog": "Show update dialog"
 		},
 		"backFolder": "(Back)",
@@ -83,9 +83,9 @@
 	},
 	"editor": {
 		"toolbar": {
-			"fountainPen": "Fountain Pen",
-			"toggleColors": "Toggle Colors (Ctrl + C)",
-			"toggleEraser": "Toggle Eraser (Ctrl + E)",
+			"fountainPen": "Fountain pen",
+			"toggleColors": "Toggle colors (Ctrl C)",
+			"toggleEraser": "Toggle eraser (Ctrl E)",
 			"photo": "Photo",
 			"toggleFingerDrawing": "Toggle finger drawing (Ctrl + F)",
 			"undo": "Undo",
