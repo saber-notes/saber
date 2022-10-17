@@ -2,13 +2,13 @@
 	"home": {
 		"tabs": {
 			"home": "主页",
-			"browse": "浏览",
+			"browse": "全部笔记",
 			"whiteboard": "白板",
 			"settings": "设置"
 		},
 		"titles": {
 			"home": "最近笔记",
-			"browse": "浏览",
+			"browse": "全部笔记",
 			"whiteboard": "白板",
 			"settings": "设置"
 		},
@@ -25,6 +25,7 @@
 	"settings": {
 		"prefLabels": {
 			"appTheme": "应用主题",
+			"customAccentColor": "自定义主题色",
 			"shouldCheckForUpdates": "自动检查 Saber 更新",
 			"editorToolbarOnBottom": "将编辑工具栏与底部对齐",
 			"editorAutoInvert": "在深色模式下使用反色笔记背景",
@@ -34,6 +35,10 @@
 			"system": "系统",
 			"light": "浅色",
 			"dark": "深色"
+		},
+		"accentColorPicker": {
+			"pickAColor": "选取颜色",
+			"confirm": "确定"
 		}
 	},
 	"login": {
@@ -69,6 +74,12 @@
 		"showLessInfo": "显示更少信息",
 		"licenseButton": "点击此处查看更多许可证信息",
 		"privacyPolicyButton": "点击此处查看隐私政策"
+	},
+	"update": {
+		"updateAvailable": "可用更新",
+		"updateAvailableDescription": "该应用程序的新版本可用。",
+		"dismiss": "忽略",
+		"update": "更新"
 	},
 	"editor": {
 		"toolbar": {

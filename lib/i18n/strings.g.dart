@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 3
-/// Strings: 182 (60 per locale)
+/// Strings: 189 (63 per locale)
 ///
-/// Built on 2022-10-17 at 00:25 UTC
+/// Built on 2022-10-17 at 10:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -671,6 +671,7 @@ class _StringsZh extends _StringsEn {
 	@override late final _StringsSettingsZh settings = _StringsSettingsZh._(_root);
 	@override late final _StringsLoginZh login = _StringsLoginZh._(_root);
 	@override late final _StringsAppInfoZh appInfo = _StringsAppInfoZh._(_root);
+	@override late final _StringsUpdateZh update = _StringsUpdateZh._(_root);
 	@override late final _StringsEditorZh editor = _StringsEditorZh._(_root);
 }
 
@@ -699,6 +700,7 @@ class _StringsSettingsZh extends _StringsSettingsEn {
 	// Translations
 	@override late final _StringsSettingsPrefLabelsZh prefLabels = _StringsSettingsPrefLabelsZh._(_root);
 	@override late final _StringsSettingsThemeModesZh themeModes = _StringsSettingsThemeModesZh._(_root);
+	@override late final _StringsSettingsAccentColorPickerZh accentColorPicker = _StringsSettingsAccentColorPickerZh._(_root);
 }
 
 // Path: login
@@ -734,6 +736,19 @@ class _StringsAppInfoZh extends _StringsAppInfoEn {
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
 }
 
+// Path: update
+class _StringsUpdateZh extends _StringsUpdateEn {
+	_StringsUpdateZh._(_StringsZh root) : this._root = root, super._(root);
+
+	@override final _StringsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => '可用更新';
+	@override String get updateAvailableDescription => '该应用程序的新版本可用。';
+	@override String get dismiss => '忽略';
+	@override String get update => '更新';
+}
+
 // Path: editor
 class _StringsEditorZh extends _StringsEditorEn {
 	_StringsEditorZh._(_StringsZh root) : this._root = root, super._(root);
@@ -752,7 +767,7 @@ class _StringsHomeTabsZh extends _StringsHomeTabsEn {
 
 	// Translations
 	@override String get home => '主页';
-	@override String get browse => '浏览';
+	@override String get browse => '全部笔记';
 	@override String get whiteboard => '白板';
 	@override String get settings => '设置';
 }
@@ -765,7 +780,7 @@ class _StringsHomeTitlesZh extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => '最近笔记';
-	@override String get browse => '浏览';
+	@override String get browse => '全部笔记';
 	@override String get whiteboard => '白板';
 	@override String get settings => '设置';
 }
@@ -790,6 +805,7 @@ class _StringsSettingsPrefLabelsZh extends _StringsSettingsPrefLabelsEn {
 
 	// Translations
 	@override String get appTheme => '应用主题';
+	@override String get customAccentColor => '自定义主题色';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get editorToolbarOnBottom => '将编辑工具栏与底部对齐';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
@@ -806,6 +822,17 @@ class _StringsSettingsThemeModesZh extends _StringsSettingsThemeModesEn {
 	@override String get system => '系统';
 	@override String get light => '浅色';
 	@override String get dark => '深色';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerZh extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerZh._(_StringsZh root) : this._root = root, super._(root);
+
+	@override final _StringsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => '选取颜色';
+	@override String get confirm => '确定';
 }
 
 // Path: login.feedbacks
@@ -1038,11 +1065,11 @@ extension on _StringsZh {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'home.tabs.home': return '主页';
-			case 'home.tabs.browse': return '浏览';
+			case 'home.tabs.browse': return '全部笔记';
 			case 'home.tabs.whiteboard': return '白板';
 			case 'home.tabs.settings': return '设置';
 			case 'home.titles.home': return '最近笔记';
-			case 'home.titles.browse': return '浏览';
+			case 'home.titles.browse': return '全部笔记';
 			case 'home.titles.whiteboard': return '白板';
 			case 'home.titles.settings': return '设置';
 			case 'home.tooltips.showHideActions': return '显示/隐藏操作';
@@ -1053,6 +1080,7 @@ extension on _StringsZh {
 			case 'home.noFiles': return '未找到文件';
 			case 'home.createNewNote': return '点击 + 按钮新建一个笔记';
 			case 'settings.prefLabels.appTheme': return '应用主题';
+			case 'settings.prefLabels.customAccentColor': return '自定义主题色';
 			case 'settings.prefLabels.shouldCheckForUpdates': return '自动检查 Saber 更新';
 			case 'settings.prefLabels.editorToolbarOnBottom': return '将编辑工具栏与底部对齐';
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色笔记背景';
@@ -1060,6 +1088,8 @@ extension on _StringsZh {
 			case 'settings.themeModes.system': return '系统';
 			case 'settings.themeModes.light': return '浅色';
 			case 'settings.themeModes.dark': return '深色';
+			case 'settings.accentColorPicker.pickAColor': return '选取颜色';
+			case 'settings.accentColorPicker.confirm': return '确定';
 			case 'login.title': return '登录';
 			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
@@ -1092,6 +1122,10 @@ extension on _StringsZh {
 			case 'appInfo.showLessInfo': return '显示更少信息';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
 			case 'appInfo.privacyPolicyButton': return '点击此处查看隐私政策';
+			case 'update.updateAvailable': return '可用更新';
+			case 'update.updateAvailableDescription': return '该应用程序的新版本可用。';
+			case 'update.dismiss': return '忽略';
+			case 'update.update': return '更新';
 			case 'editor.toolbar.fountainPen': return '钢笔';
 			case 'editor.toolbar.toggleColors': return '切换颜色 (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return '切换橡皮擦 (Ctrl E)';
