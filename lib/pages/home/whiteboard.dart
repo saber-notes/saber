@@ -11,13 +11,30 @@ class Whiteboard extends StatefulWidget {
 }
 
 class _WhiteboardPageState extends State<Whiteboard> {
+  // editor key
+  final GlobalKey _editorKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(t.home.titles.whiteboard),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {
+              dynamic editorState = _editorKey.currentState;
+              if (editorState == null) return;
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => editorState!.bottomSheet,
+              );
+            },
+          )
+        ],
       ),
       body: Editor(
+        key: _editorKey,
         path: "/_whiteboard",
         embedded: true,
       ),
