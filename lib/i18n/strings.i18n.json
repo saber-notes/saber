@@ -87,10 +87,10 @@
 			"toggleColors": "Toggle colors (Ctrl C)",
 			"toggleEraser": "Toggle eraser (Ctrl E)",
 			"photo": "Photo",
-			"toggleFingerDrawing": "Toggle finger drawing (Ctrl + F)",
+			"toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
 			"undo": "Undo",
 			"redo": "Redo",
-			"export": "Export (Ctrl + Shift + S)",
+			"export": "Export (Ctrl Shift S)",
 			"exportAs": "Export as:"
 		}
 	}
