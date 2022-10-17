@@ -139,6 +139,11 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
+  fonts:
+    - family: SaberIcons
+      fonts:
+        - asset: fonts/SaberIcons.ttf
+
 icons_launcher:
   image_path: "assets/icon/icon.png"
   platforms:

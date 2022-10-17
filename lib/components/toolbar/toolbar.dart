@@ -6,6 +6,7 @@ import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/theming/saber_icons_icons.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
@@ -159,7 +160,7 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: t.editor.toolbar.toggleEraser,
                         selected: widget.currentTool is Eraser,
                         onPressed: (_) => toggleEraser(),
-                        child: const Icon(Icons.remove), // todo: better eraser icon
+                        child: const Icon(SaberIcons.eraser, size: 14),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.photo,
