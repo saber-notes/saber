@@ -8,7 +8,7 @@
 		},
 		"titles": {
 			"home": "Recent notes",
-			"browse": "Browse",
+			"browse": "All notes",
 			"whiteboard": "Whiteboard",
 			"settings": "Settings"
 		},
@@ -38,7 +38,7 @@
 		},
 		"accentColorPicker": {
 			"pickAColor": "Pick a color",
-			"gotIt": "Got it"
+			"gotIt": "Confirm"
 		}
 	},
 	"login": {
@@ -53,7 +53,7 @@
 		},
 		"form": {
 			"useCustomServer": "I want to use a custom Nextcloud server",
-            "customServerUrl": "Custom server URL",
+			"customServerUrl": "Custom server URL",
 			"username": "Username or email",
 			"ncPassword": "Nextcloud password",
 			"encPassword": "Encryption password",
