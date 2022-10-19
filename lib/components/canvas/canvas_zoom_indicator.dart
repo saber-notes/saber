@@ -17,7 +17,7 @@ class CanvasZoomIndicator extends StatefulWidget {
 
 class _CanvasZoomIndicatorState extends State<CanvasZoomIndicator> {
   Timer? _hideIndicatorTimer;
-  double opacity = 1;
+  double opacity = 0;
 
   @override
   void didUpdateWidget(covariant CanvasZoomIndicator oldWidget) {
