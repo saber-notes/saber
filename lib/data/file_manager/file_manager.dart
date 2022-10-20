@@ -241,12 +241,14 @@ abstract class FileManager {
     assert(parentPath.endsWith('/'));
 
     final DateTime now = DateTime.now();
-    final String fileNamePrefix = parentPath + DateFormat("yy-MM-dd_").format(now);
+    final String fileNamePrefix = "$parentPath${DateFormat("yy-MM-dd").format(now)} Untitled";
 
-    String fileName;
-    do {
-      fileName = fileNamePrefix + generateRandomString(5);
-    } while (await doesFileExist(parentPath + fileNamePrefix));
+    String fileName = fileNamePrefix;
+    int i = 1;
+    while (await doesFileExist(fileName + Editor.extension)) {
+      i++;
+      fileName = "$fileNamePrefix ($i)";
+    }
 
     return fileName;
   }
@@ -305,12 +307,4 @@ class DirectoryChildren {
   bool onlyOneChild() => directories.length + files.length <= 1;
 
   bool get isEmpty => directories.isEmpty && files.isEmpty;
-}
-
-final _random = Random();
-/// Generates a random alphanumeric string of length [length].
-/// Source: https://stackoverflow.com/a/63433194/
-String generateRandomString(int len) {
-  const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-  return List.generate(len, (index) => chars[_random.nextInt(chars.length)]).join();
 }
