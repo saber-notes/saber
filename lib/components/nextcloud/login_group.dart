@@ -218,8 +218,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             const SizedBox(height: 8),
           ],
 
-          RichText(
-            text: t.login.form.agreeToPrivacyPolicy(
+          Text.rich(
+            t.login.form.agreeToPrivacyPolicy(
               linkToPrivacyPolicy: (text) => TextSpan(
                 text: text,
                 style: TextStyle(color: colorScheme.primary),

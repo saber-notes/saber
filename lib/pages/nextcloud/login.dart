@@ -82,8 +82,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 ),
                 const SizedBox(height: 64),
 
-                RichText(
-                  text: t.login.signup(
+                Text.rich(
+                  t.login.signup(
                     linkToSignup: (text) => TextSpan(
                       text: text,
                       style: TextStyle(color: colorScheme.primary),
