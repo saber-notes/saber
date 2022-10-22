@@ -143,6 +143,9 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
 
 ## Development notes
 
+<details>
+<summary>Show/hide development notes</summary>
+
 - When updating the **app version**, you'll need to make changes to the following files:
   - `pubspec.yaml`: `version`
   - `lib/data/version.dart`: `buildNumber`
@@ -156,6 +159,8 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
   - Run the following command `flutter pub run slang`
   - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
     and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
+
+</details>
 
 [saber_web]: https://saber.adil.hanney.org
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
