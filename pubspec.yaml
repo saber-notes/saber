@@ -51,7 +51,7 @@ dependencies:
 
   url_launcher: ^6.1.6
 
-  package_info_plus: ^2.0.0
+  package_info_plus: ^3.0.1
 
   # todo: replace with https://github.com/jld3103/nextcloud-neon/tree/main/packages/nextcloud when it's ready
   # documentation at https://pub.dev/documentation/nextcloud/3.0.2/ (3.0.2+1 is just a deprecation message)
@@ -71,7 +71,7 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.3
-  share_plus: ^4.5.3
+  share_plus: ^6.0.1
   file_picker: ^5.2.2
 
   modals: ^1.0.0+1
