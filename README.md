@@ -130,6 +130,17 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 - [License][license]
 - [Releases][releases]
 
+## Translating
+
+1. Fork this repo
+2. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
+   e.g. `es` for Spanish, `fr` for French, `hi` for Hindi, etc.
+3. Copy `lib/i18n/strings.i18n.json` to `lib/i18n/strings_XX.i18n.json` (replacing `XX` with your locale code)
+4. Translate the strings in `lib/i18n/strings_XX.i18n.json`
+5. Open a pull request!
+
+Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) for more information.
+
 ## Development notes
 
 - When updating the **app version**, you'll need to make changes to the following files:
