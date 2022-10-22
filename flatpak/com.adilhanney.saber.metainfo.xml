@@ -59,6 +59,19 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.12" type="development" date="2022-10-22">
+            <description>
+                <ol>
+                    <li>Added the missing clear buttons to the whiteboard</li>
+                    <li>Better icon for the eraser</li>
+                    <li>Show a zoom indicator when zooming</li>
+                    <li>Fix font issue with old macOS versions</li>
+                    <li>New notes have better generated names</li>
+                    <li>German translations by mamasch19</li>
+                    <li>Updated Chinese translations by Sdarfeesh</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.11" type="development" date="2022-10-16">
             <description>
                 <ol>
