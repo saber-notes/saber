@@ -13,9 +13,9 @@ but if you encounter any bugs on other platforms, please open an [issue][issues]
 <summary>Tap to show/hide screenshots</summary>
 
 <div>
-<img src="https://github.com/adil192/saber/raw/main/assets/screenshots/home-desktop.png" width="400">
-<img src="https://github.com/adil192/saber/raw/main/assets/screenshots/editor-desktop.png" width="400">
-<img src="https://github.com/adil192/saber/raw/main/assets/screenshots/login-desktop.png" width="400">
+<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/tenInchScreenshots/home-desktop.png" width="400">
+<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/tenInchScreenshots/editor-desktop.png" width="400">
+<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/tenInchScreenshots/login-desktop.png" width="400">
 </div>
 </details>
 
