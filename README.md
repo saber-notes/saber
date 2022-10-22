@@ -152,6 +152,7 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
   - `windows/runner/Runner.rc`: `VERSION_AS_NUMBER` and `VERSION_AS_STRING`
   - `installers/desktop_inno_script.iss`: `MyAppVersion`
   - `flatpak/com.adilhanney.saber.metainfo.xml`: `<releases>`
+  - `metadata/en-US/changelogs/`: Create a changelog for the new version
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
