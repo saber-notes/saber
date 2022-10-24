@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/data/flavor_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
@@ -67,7 +68,7 @@ abstract class Prefs {
 
     fileSyncUploadQueue = EncPref("fileSyncUploadQueue", []);
 
-    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", !kIsWeb);
+    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
   }
 
 }
