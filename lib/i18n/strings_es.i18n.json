@@ -1,0 +1,97 @@
+{
+	"home": {
+		"tabs": {
+			"home": "Inicio",
+			"browse": "Explorar",
+			"whiteboard": "Pizarra",
+			"settings": "Configuración"
+		},
+		"titles": {
+			"home": "Notas recientes",
+			"browse": "Todas las notas",
+			"whiteboard": "Pizarra",
+			"settings": "Configuración"
+		},
+		"tooltips": {
+			"showHideActions": "Mostrar/Ocultar acciones",
+			"newNote": "Crear nota",
+			"showUpdateDialog": "Mostrar cuadro de diálogo de actualizaciónes"
+		},
+		"backFolder": "(Volver)",
+		"welcome": "Te damos la bienvenida a Saber",
+		"noFiles": "No se encontraron archivos",
+		"createNewNote": "Presiona el botón + para crear una nueva nota"
+	},
+	"settings": {
+		"prefLabels": {
+			"appTheme": "Tema de la aplicación",
+			"customAccentColor": "Color de acento personalizado",
+			"shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
+			"editorToolbarOnBottom": "Alinear la barra de herramientas del editor en la parte inferior",
+			"editorAutoInvert": "Invertir notas en el modo oscuro",
+			"preferGreyscale": "Preferir colores en escala de grises"
+		},
+		"themeModes": {
+			"system": "Sistema",
+			"light": "Claro",
+			"dark": "Oscuro"
+		},
+		"accentColorPicker": {
+			"pickAColor": "Elegir un color",
+			"confirm": "Confirmar"
+		}
+	},
+	"login": {
+		"title": "Iniciar sesión",
+		"feedbacks": {
+			"checkUsername": "Por favor verifica tu nombre de usuario o correo electrónico.",
+			"enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
+			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
+			"checkUrl": "Por favor introduce una dirección URL válida.",
+			"loginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
+			"loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
+		},
+		"form": {
+			"useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
+			"customServerUrl": "Dirección URL del servidor personalizada",
+			"username": "Nombre de usuario o correo electrónico",
+			"ncPassword": "Contraseña de Nextcloud",
+			"encPassword": "Contraseña de cifrado",
+			"agreeToPrivacyPolicy(rich)": "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.",
+			"login": "Iniciar sesión"
+		},
+		"signup(rich)": "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}",
+		"status": {
+			"loggedIn": "Sesión iniciada con Nextcloud",
+			"loggedOut": "Desconectado",
+			"tapToLogin": "Toca para iniciar sesión con Nextcloud"
+		}
+	},
+	"appInfo": {
+		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
+		"debug": "DEBUG",
+		"showMoreInfo": "Mostrar más información",
+		"showLessInfo": "Mostrar menos información",
+		"licenseButton": "Toca aquí para ver más información sobre la licencia",
+		"privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
+	},
+	"update": {
+		"updateAvailable": "Actualización disponible",
+		"updateAvailableDescription": "Hay una nueva versión de la aplicación disponible.",
+		"dismiss": "Ignorar",
+		"update": "Actualizar"
+	},
+	"editor": {
+		"toolbar": {
+			"fountainPen": "Lápiz",
+			"toggleColors": "Cambiar colores (Ctrl C)",
+			"toggleEraser": "Borrador (Ctrl E)",
+			"photo": "Foto",
+			"toggleFingerDrawing": "Dibujar con el dedo (Ctrl F)",
+			"undo": "Deshacer",
+			"redo": "Rehacer",
+			"export": "Exportar (Ctrl Shift S)",
+			"exportAs": "Exportar cómo:"
+		}
+	}
+}
