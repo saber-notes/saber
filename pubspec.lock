@@ -441,7 +441,7 @@ packages:
       name: pdf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.8.3"
+    version: "3.8.4"
   perfect_freehand:
     dependency: "direct main"
     description:
