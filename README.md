@@ -36,7 +36,9 @@ Alternatively, install it natively...
 
 Option 1 (recommended): Download and install `app-release.apk` from the latest [Release][releases].
 
-Option 2: Download from the [Play Store][google_play]
+Option 2: Download from [F-Droid][f-droid]
+
+Option 3: Download from the [Play Store][google_play]
 
 #### Linux
 
@@ -167,6 +169,7 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
 </details>
 
 [saber_web]: https://saber.adil.hanney.org
+[f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
