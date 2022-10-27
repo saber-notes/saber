@@ -28,7 +28,7 @@ abstract class HomeRoutes {
     _Route(
       routePath: homeFunction({"subpage": HomePage.whiteboardSubpage}),
       label: t.home.tabs.whiteboard,
-      icon: const Icon(Icons.speed),
+      icon: const Icon(Icons.draw),
     ),
     _Route(
       routePath: homeFunction({"subpage": HomePage.settingsSubpage}),
