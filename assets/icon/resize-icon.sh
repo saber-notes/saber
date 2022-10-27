@@ -7,3 +7,6 @@ do :
     echo "Resizing to $size"
     convert icon.png -resize ${size} resized/icon-${size}.png
 done
+
+echo "Copying icon to metadata"
+cp resized/icon-${sizes[-1]}.png ../../metadata/en-US/images/icon.png
