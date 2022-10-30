@@ -41,7 +41,7 @@ abstract class FileSyncer {
 
     // Add each file to download queue if needed
     await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
-    filesDone.value = 0;
+    filesDone.value = 1;
 
     Queue<SyncFile> failedFiles = Queue();
 
