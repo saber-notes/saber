@@ -137,6 +137,17 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 ## Translating
 
+### Extending existing translations
+
+Check [missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/missing_translations.json)
+   to see if any translations are missing.
+
+1. Fork this repo
+2. Edit the relevant `lib/i18n/strings_XX.i18n.json` file
+3. Open a pull request!
+
+### Adding a new language
+
 1. Fork this repo
 2. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
    e.g. `es` for Spanish, `fr` for French, `hi` for Hindi, etc.
