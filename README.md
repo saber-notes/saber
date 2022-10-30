@@ -162,7 +162,9 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
 - When updating the **translations**...
-  - Run the following command `flutter pub run slang`
+  - Run the following commands:
+    - `flutter pub run slang`
+    - `flutter pub run slang analyze --outdir=lib/i18n/`
   - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
     and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
 
