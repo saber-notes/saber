@@ -25,6 +25,7 @@ abstract class FileSyncer {
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
+  static const int filesDoneLimit = 100000000;
 
   static void startSync() async {
     _uploadFileFromQueue();
@@ -57,6 +58,9 @@ abstract class FileSyncer {
 
     // Add failed files back to queue for next sync
     _downloadQueue.addAll(failedFiles);
+
+    // make sure progress indicator is complete
+    filesDone.value = (filesDone.value ?? 0) + filesDoneLimit;
   }
 
   /// Queues a file to be uploaded

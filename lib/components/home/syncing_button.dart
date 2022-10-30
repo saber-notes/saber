@@ -28,11 +28,12 @@ class _SyncingButtonState extends State<SyncingButton> {
     if (FileSyncer.filesDone.value == null) return null;
 
     int done = FileSyncer.filesDone.value!;
-    int total = done + FileSyncer.filesToSync;
-    if (total == 0) {
+    int toSync = FileSyncer.filesToSync;
+
+    if (toSync == 0 || done > FileSyncer.filesDoneLimit) {
       return 1;
     } else {
-      return done / total;
+      return done / (done + toSync);
     }
   }
 
