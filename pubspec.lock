@@ -281,6 +281,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
+  json2yaml:
+    dependency: transitive
+    description:
+      name: json2yaml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   keybinder:
     dependency: "direct main"
     description:
@@ -588,14 +595,14 @@ packages:
       name: slang
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.0"
+    version: "3.3.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.0"
+    version: "3.3.0"
   source_span:
     dependency: transitive
     description:
