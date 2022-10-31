@@ -76,7 +76,7 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  share_plus: ^6.0.1
+  share_plus: ^6.1.0
   file_picker: ^5.2.2
 
   modals: ^1.0.0+1
