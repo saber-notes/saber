@@ -139,7 +139,7 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 ### Extending existing translations
 
-Check [missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/missing_translations.json)
+Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.json)
    to see if any translations are missing.
 
 1. Fork this repo
@@ -175,7 +175,7 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
 - When updating the **translations**...
   - Run the following commands:
     - `flutter pub run slang`
-    - `flutter pub run slang analyze --outdir=lib/i18n/`
+    - `flutter pub run slang analyze --full --outdir=lib/i18n/`
   - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
     and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
 
