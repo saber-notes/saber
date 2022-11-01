@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 4
-/// Strings: 252 (63 per locale)
+/// Strings: 253 (63 per locale)
 ///
-/// Built on 2022-10-24 at 23:32 UTC
+/// Built on 2022-11-01 at 15:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -373,6 +373,7 @@ class _StringsEditorToolbarEn {
 
 	// Translations
 	String get fountainPen => 'Fountain pen';
+	String get highlighter => 'Highlighter';
 	String get toggleColors => 'Toggle colors (Ctrl C)';
 	String get toggleEraser => 'Toggle eraser (Ctrl E)';
 	String get photo => 'Photo';
@@ -1228,6 +1229,7 @@ extension on _StringsEn {
 			case 'update.dismiss': return 'Dismiss';
 			case 'update.update': return 'Update';
 			case 'editor.toolbar.fountainPen': return 'Fountain pen';
+			case 'editor.toolbar.highlighter': return 'Highlighter';
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Photo';
