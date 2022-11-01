@@ -420,7 +420,10 @@ class _EditorState extends State<Editor> {
                     coreInfo: coreInfo.copyWith(
                         strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
                     ),
-                    currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
+                    currentStroke: () {
+                      Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
+                      return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
+                    }(),
                   ),
                   const SizedBox(height: 16),
                 ]
