@@ -148,7 +148,7 @@ class _ToolbarState extends State<Toolbar> {
                         onPressed: (button) {
                           widget.setTool(Pen.currentPen);
                         },
-                        child: const Icon(Icons.brush),
+                        child: const Icon(SaberIcons.pen, size: 14),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.toggleColors,
@@ -171,7 +171,7 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: t.editor.toolbar.toggleFingerDrawing,
                         selected: Prefs.editorFingerDrawing.value,
                         onPressed: (_) => widget.toggleFingerDrawing(),
-                        child: const Icon(Icons.gesture),
+                        child: const Icon(SaberIcons.hand_pointer, size: 14),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.undo,
