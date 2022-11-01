@@ -23,6 +23,7 @@ class Pen extends Tool {
     currentStroke = Stroke(
       strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
+      penType: runtimeType.toString(),
     )..addPoint(context, position, pressure);
   }
 
