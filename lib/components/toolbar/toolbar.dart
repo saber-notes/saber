@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/theming/saber_icons_icons.dart';
@@ -149,6 +150,14 @@ class _ToolbarState extends State<Toolbar> {
                           widget.setTool(Pen.currentPen);
                         },
                         child: const Icon(SaberIcons.pen, size: 14),
+                      ),
+                      ToolbarIconButton(
+                        tooltip: t.editor.toolbar.highlighter,
+                        selected: widget.currentTool == Highlighter.currentHighlighter,
+                        onPressed: (button) {
+                          widget.setTool(Highlighter.currentHighlighter);
+                        },
+                        child: const Icon(SaberIcons.highlighter, size: 14),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.toggleColors,

@@ -8,6 +8,10 @@ import '_tool.dart';
 
 class Pen extends Tool {
 
+  @protected
+  @visibleForTesting
+  Pen();
+
   Pen.fountainPen();
 
   Stroke? currentStroke;

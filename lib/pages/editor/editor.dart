@@ -11,7 +11,9 @@ import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -62,7 +64,9 @@ class _EditorState extends State<Editor> {
     }
 
     Pen.currentPen = Pen.fountainPen()
-      ..strokeProperties.color = Color(lastUsedColor ?? 0xFF000000);
+      ..strokeProperties.color = Color(lastUsedColor ?? StrokeProperties.defaultColor.value);
+
+    Highlighter.currentHighlighter = Highlighter();
 
     return Pen.currentPen;
   }();
