@@ -12,6 +12,10 @@
 ///       - asset: fonts/SaberIcons.ttf
 ///
 /// 
+/// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
+///         Author:    Dave Gandy
+///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
+///         Homepage:  http://fortawesome.github.com/Font-Awesome/
 ///
 import 'package:flutter/widgets.dart';
 
@@ -21,5 +25,8 @@ class SaberIcons {
   static const _kFontFam = 'SaberIcons';
   static const String? _kFontPkg = null;
 
-  static const IconData eraser = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eraser = IconData(0xf12d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData hand_pointer = IconData(0xf25a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pen = IconData(0xf304, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData highlighter = IconData(0xf591, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
