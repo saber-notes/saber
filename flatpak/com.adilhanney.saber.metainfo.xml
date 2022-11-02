@@ -59,6 +59,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.3.13" type="development" date="2022-11-02">
+            <description>
+                <ol>
+                    <li>New tool: highlighter!</li>
+                    <li>Updated icons including icons from Font Awesome 5</li>
+                    <li>Syncing progress doesn't get stuck before 100% anymore</li>
+                    <li>Spanish translations by mamasch19</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.12" type="development" date="2022-10-22">
             <description>
                 <ol>
