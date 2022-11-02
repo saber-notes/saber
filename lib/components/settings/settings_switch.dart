@@ -33,7 +33,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
 
   @override
   Widget build(BuildContext context) {
-    return SwitchListTile(
+    return SwitchListTile.adaptive(
       title: Text(widget.title, style: const TextStyle(fontSize: 14)),
       subtitle: kDebugMode ? Text(widget.pref.key) : null,
       value: widget.pref.value,

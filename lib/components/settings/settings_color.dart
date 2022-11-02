@@ -68,16 +68,6 @@ class _SettingsSwitchState extends State<SettingsColor> {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Checkbox(
-            value: color != null,
-            onChanged: (bool? value) {
-              if (value == null) return;
-              widget.pref.value = value ? defaultColor.value : 0;
-            },
-          ),
-          const SizedBox(
-            width: 8,
-          ),
           Container(
             width: 32,
             height: 32,
@@ -86,6 +76,16 @@ class _SettingsSwitchState extends State<SettingsColor> {
               shape: BoxShape.circle,
             ),
           ),
+          const SizedBox(
+            width: 8,
+          ),
+          Switch.adaptive(
+            value: color != null,
+            onChanged: (bool? value) {
+              if (value == null) return;
+              widget.pref.value = value ? defaultColor.value : 0;
+            },
+          )
         ],
       ),
       onTap: () async {
