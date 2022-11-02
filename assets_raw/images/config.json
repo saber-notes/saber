@@ -7,18 +7,28 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "dfde360dda18cbb97c1f3e89fb656b0f",
+      "uid": "a98d1da6597858f213a26d26daebb958",
+      "css": "highlighter",
+      "code": 62865,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "6164fcf5dc99b18258aff91510fd636b",
       "css": "eraser",
-      "code": 59392,
-      "src": "custom_icons",
-      "selected": true,
-      "svg": {
-        "path": "M1050 950H670.7L1085.4 535.4C1104.9 515.8 1104.9 484.2 1085.4 464.6L685.4 64.6C665.8 45.1 634.2 45.1 614.6 64.6L14.6 664.6C5.3 674 0 686.7 0 700S5.3 726 14.6 735.4L314.6 1035.4C324 1044.7 336.7 1050 350 1050L550 1050C550 1050 550 1050 550.1 1050L1050 1050C1077.6 1050 1100 1027.6 1100 1000 1100 972.4 1077.6 950 1050 950ZM650 170.7L979.3 500 690 789.3 360.7 460 650 170.7Z",
-        "width": 1000
-      },
-      "search": [
-        "eraser"
-      ]
+      "code": 61741,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "de07fb26f707ac771e2a592e571a1742",
+      "css": "pen",
+      "code": 62212,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "1efd85e34aa1fb5bce0701b16b1201ac",
+      "css": "hand_pointer",
+      "code": 62042,
+      "src": "fontawesome5"
     }
   ]
 }

@@ -8,6 +8,10 @@ import '_tool.dart';
 
 class Pen extends Tool {
 
+  @protected
+  @visibleForTesting
+  Pen();
+
   Pen.fountainPen();
 
   Stroke? currentStroke;
@@ -19,6 +23,7 @@ class Pen extends Tool {
     currentStroke = Stroke(
       strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
+      penType: runtimeType.toString(),
     )..addPoint(context, position, pressure);
   }
 

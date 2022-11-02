@@ -4,12 +4,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/point_extensions.dart';
+import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 
 class Stroke {
   final List<Point> _points = [];
   final int pageIndex;
+  final String penType;
 
   late final StrokeProperties strokeProperties;
   bool _isComplete = false;
@@ -30,9 +32,13 @@ class Stroke {
   Stroke({
     required this.strokeProperties,
     required this.pageIndex,
+    required this.penType,
   });
 
-  Stroke.fromJson(Map<String, dynamic> json) : _isComplete = json['f'], pageIndex = json['i'] ?? 0 {
+  Stroke.fromJson(Map<String, dynamic> json) :
+        _isComplete = json['f'],
+        pageIndex = json['i'] ?? 0,
+        penType = json['ty'] ?? (Pen).toString() {
     strokeProperties = StrokeProperties.fromJson(json);
 
     final List<dynamic> pointsJson = json['p'] as List<dynamic>;
@@ -45,6 +51,7 @@ class Stroke {
     'f': isComplete,
     'p': _points.map((Point point) => point.toJson()).toList(),
     'i': pageIndex,
+    'ty': penType.toString(),
   }..addAll(strokeProperties.toJson());
 
   addPoint(EditorCoreInfo context, Offset offset, [ double? pressure ]) {

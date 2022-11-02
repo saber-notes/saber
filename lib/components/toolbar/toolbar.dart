@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/theming/saber_icons_icons.dart';
@@ -133,6 +134,7 @@ class _ToolbarState extends State<Toolbar> {
               collapsed: !showColorOptions,
               child: ColorBar(
                 setColor: widget.setColor,
+                currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
               ),
             ),
             Center(
@@ -148,7 +150,15 @@ class _ToolbarState extends State<Toolbar> {
                         onPressed: (button) {
                           widget.setTool(Pen.currentPen);
                         },
-                        child: const Icon(Icons.brush),
+                        child: const Icon(SaberIcons.pen, size: 14),
+                      ),
+                      ToolbarIconButton(
+                        tooltip: t.editor.toolbar.highlighter,
+                        selected: widget.currentTool == Highlighter.currentHighlighter,
+                        onPressed: (button) {
+                          widget.setTool(Highlighter.currentHighlighter);
+                        },
+                        child: const Icon(SaberIcons.highlighter, size: 14),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.toggleColors,
@@ -171,7 +181,7 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: t.editor.toolbar.toggleFingerDrawing,
                         selected: Prefs.editorFingerDrawing.value,
                         onPressed: (_) => widget.toggleFingerDrawing(),
-                        child: const Icon(Icons.gesture),
+                        child: const Icon(SaberIcons.hand_pointer, size: 14),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.undo,

@@ -84,6 +84,7 @@
 	"editor": {
 		"toolbar": {
 			"fountainPen": "Fountain pen",
+			"highlighter": "Highlighter",
 			"toggleColors": "Toggle colors (Ctrl C)",
 			"toggleEraser": "Toggle eraser (Ctrl E)",
 			"photo": "Photo",
