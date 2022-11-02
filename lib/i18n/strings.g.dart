@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 4
-/// Strings: 253 (63 per locale)
+/// Strings: 254 (63 per locale)
 ///
-/// Built on 2022-11-01 at 15:38 UTC
+/// Built on 2022-11-02 at 12:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1150,6 +1150,7 @@ class _StringsEditorToolbarZh extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get fountainPen => '钢笔';
+	@override String get highlighter => '荧光笔';
 	@override String get toggleColors => '切换颜色 (Ctrl C)';
 	@override String get toggleEraser => '切换橡皮擦 (Ctrl E)';
 	@override String get photo => '照片';
@@ -1466,6 +1467,7 @@ extension on _StringsZh {
 			case 'update.dismiss': return '忽略';
 			case 'update.update': return '更新';
 			case 'editor.toolbar.fountainPen': return '钢笔';
+			case 'editor.toolbar.highlighter': return '荧光笔';
 			case 'editor.toolbar.toggleColors': return '切换颜色 (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return '切换橡皮擦 (Ctrl E)';
 			case 'editor.toolbar.photo': return '照片';
