@@ -17,11 +17,5 @@
       }
     }
   },
-  "zh": {
-    "editor": {
-      "toolbar": {
-        "highlighter": "Highlighter"
-      }
-    }
-  }
+  "zh": {}
 }

@@ -83,6 +83,7 @@ dependencies:
 
   fzregex: ^2.0.0
 
+  slang: ^3.3.1
   slang_flutter: ^3.3.0
 
   flutter_colorpicker: ^1.0.3

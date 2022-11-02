@@ -590,7 +590,7 @@ packages:
     source: sdk
     version: "0.0.99"
   slang:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: slang
       url: "https://pub.dartlang.org"
