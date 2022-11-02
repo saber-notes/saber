@@ -1,10 +1,11 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/data/prefs.dart';
 
-class SettingsDropdown extends StatefulWidget {
-  const SettingsDropdown({
+class SettingsSelection extends StatefulWidget {
+  const SettingsSelection({
     super.key,
     required this.title,
     required this.pref,
@@ -14,14 +15,14 @@ class SettingsDropdown extends StatefulWidget {
 
   final String title;
   final IPref<int, dynamic> pref;
-  final List<SettingsDropdownValue> values;
+  final List<SettingsSelectionValue> values;
   final ValueChanged<int>? afterChange;
 
   @override
-  State<SettingsDropdown> createState() => _SettingsDropdownState();
+  State<SettingsSelection> createState() => _SettingsSelectionState();
 }
 
-class _SettingsDropdownState extends State<SettingsDropdown> {
+class _SettingsSelectionState extends State<SettingsSelection> {
   @override
   void initState() {
     widget.pref.addListener(onChanged);
@@ -38,21 +39,14 @@ class _SettingsDropdownState extends State<SettingsDropdown> {
     return ListTile(
       title: Text(widget.title, style: const TextStyle(fontSize: 14)),
       subtitle: kDebugMode ? Text(widget.pref.key) : null,
-      trailing: DropdownButton<int>(
-        value: widget.pref.value,
-        onChanged: (value) {
-          if (value == null) return;
-          widget.pref.value = value;
+      trailing: CupertinoSlidingSegmentedControl<int>(
+        children: widget.values.asMap().map((_, SettingsSelectionValue value) => MapEntry<int, Widget>(value.value, Text(value.text))),
+        groupValue: widget.pref.value,
+        onValueChanged: (int? value) {
+          if (value != null) {
+            widget.pref.value = value;
+          }
         },
-        items: widget.values.map((SettingsDropdownValue value) {
-          return DropdownMenuItem<int>(
-            value: value.value,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(value.text)
-            ),
-          );
-        }).toList(),
       ),
     );
   }
@@ -64,9 +58,9 @@ class _SettingsDropdownState extends State<SettingsDropdown> {
   }
 }
 
-class SettingsDropdownValue {
+class SettingsSelectionValue {
   final int value;
   final String text;
 
-  const SettingsDropdownValue(this.value, this.text);
+  const SettingsSelectionValue(this.value, this.text);
 }

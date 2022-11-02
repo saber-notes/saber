@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/settings/settings_color.dart';
-import 'package:saber/components/settings/settings_dropdown.dart';
+import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -51,13 +51,13 @@ class _SettingsPageState extends State<SettingsPage> {
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
               const NextcloudProfile(),
-              SettingsDropdown(
+              SettingsSelection(
                 title: t.settings.prefLabels.appTheme,
                 pref: Prefs.appTheme,
                 values: [
-                  SettingsDropdownValue(ThemeMode.system.index, t.settings.themeModes.system),
-                  SettingsDropdownValue(ThemeMode.light.index, t.settings.themeModes.light),
-                  SettingsDropdownValue(ThemeMode.dark.index, t.settings.themeModes.dark),
+                  SettingsSelectionValue(ThemeMode.system.index, t.settings.themeModes.system),
+                  SettingsSelectionValue(ThemeMode.light.index, t.settings.themeModes.light),
+                  SettingsSelectionValue(ThemeMode.dark.index, t.settings.themeModes.dark),
                 ],
               ),
               SettingsColor(
