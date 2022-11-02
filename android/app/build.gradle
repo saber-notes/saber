@@ -27,8 +27,11 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
+def fallbackKeystorePropertiesFile = rootProject.file('fallback-key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+} else if (fallbackKeystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(fallbackKeystorePropertiesFile))
 }
 
 android {
