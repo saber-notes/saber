@@ -90,6 +90,8 @@ dependencies:
 
   google_fonts: ^3.0.1
 
+  font_awesome_flutter: ^10.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -145,11 +147,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
-  fonts:
-    - family: SaberIcons
-      fonts:
-        - asset: fonts/SaberIcons.ttf
 
 icons_launcher:
   image_path: "assets/icon/icon.png"

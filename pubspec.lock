@@ -208,6 +208,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "10.2.1"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter

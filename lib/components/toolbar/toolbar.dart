@@ -2,12 +2,12 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
-import 'package:saber/components/theming/saber_icons_icons.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
@@ -150,7 +150,7 @@ class _ToolbarState extends State<Toolbar> {
                         onPressed: (button) {
                           widget.setTool(Pen.currentPen);
                         },
-                        child: const Icon(SaberIcons.pen, size: 14),
+                        child: const FaIcon(FontAwesomeIcons.pen, size: 16),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.highlighter,
@@ -158,7 +158,7 @@ class _ToolbarState extends State<Toolbar> {
                         onPressed: (button) {
                           widget.setTool(Highlighter.currentHighlighter);
                         },
-                        child: const Icon(SaberIcons.highlighter, size: 14),
+                        child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.toggleColors,
@@ -170,7 +170,7 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: t.editor.toolbar.toggleEraser,
                         selected: widget.currentTool is Eraser,
                         onPressed: (_) => toggleEraser(),
-                        child: const Icon(SaberIcons.eraser, size: 14),
+                        child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.photo,
@@ -181,7 +181,7 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: t.editor.toolbar.toggleFingerDrawing,
                         selected: Prefs.editorFingerDrawing.value,
                         onPressed: (_) => widget.toggleFingerDrawing(),
-                        child: const Icon(SaberIcons.hand_pointer, size: 14),
+                        child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.undo,
