@@ -448,7 +448,11 @@ class _EditorState extends State<Editor> {
               setState(() {
                 updateColorBar(color);
 
-                Pen.currentPen.strokeProperties.color = color;
+                if (currentTool is Highlighter) {
+                  (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
+                } else if (currentTool is Pen) {
+                  (currentTool as Pen).strokeProperties.color = color;
+                }
               });
             },
             undo: undo,

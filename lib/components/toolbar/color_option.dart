@@ -5,11 +5,13 @@ class ColorOption extends StatelessWidget {
   const ColorOption({
     super.key,
     required this.isSelected,
+    this.enabled = true,
     this.onTap,
     required this.child,
   });
 
   final bool isSelected;
+  final bool enabled;
   final VoidCallback? onTap;
   final Widget child;
 
@@ -22,7 +24,7 @@ class ColorOption extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: InkWell(
         borderRadius: BorderRadius.circular(diameter / 2),
-        onTap: onTap,
+        onTap: enabled ? onTap : null,
         child: Container(
           width: diameter,
           height: diameter,
@@ -35,7 +37,11 @@ class ColorOption extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(3.0),
-            child: child,
+            child: AnimatedOpacity(
+              opacity: enabled ? 1 : 0.5,
+              duration: const Duration(milliseconds: 200),
+              child: child,
+            ),
           ),
         ),
       ),

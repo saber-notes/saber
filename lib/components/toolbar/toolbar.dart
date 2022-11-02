@@ -134,6 +134,7 @@ class _ToolbarState extends State<Toolbar> {
               collapsed: !showColorOptions,
               child: ColorBar(
                 setColor: widget.setColor,
+                currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
               ),
             ),
             Center(
