@@ -36,6 +36,9 @@ abstract class Prefs {
   static late PlainPref<List<String>> recentColorsChronological;
   static late PlainPref<List<String>> recentColorsPositioned;
 
+  static late PlainPref<int> lastPenColor;
+  static late PlainPref<int> lastHighlighterColor;
+
   static late PlainPref<List<String>> recentFiles;
 
   /// File paths that need to be uploaded to Nextcloud
@@ -63,6 +66,9 @@ abstract class Prefs {
 
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
+
+    lastPenColor = PlainPref("lastPenColor", -1);
+    lastHighlighterColor = PlainPref("lastHighlighterColor", -1);
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 

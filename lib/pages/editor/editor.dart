@@ -58,15 +58,19 @@ class _EditorState extends State<Editor> {
   late bool needsNaming = widget.needsNaming;
 
   late Tool currentTool = (){
-    int? lastUsedColor;
-    if (Prefs.recentColorsChronological.value.isNotEmpty) {
-      lastUsedColor = int.tryParse(Prefs.recentColorsChronological.value.last);
+    int? lastPenColor, lastHighlighterColor;
+    if (Prefs.lastPenColor.value >= 0) {
+      lastPenColor = Prefs.lastPenColor.value;
+    }
+    if (Prefs.lastHighlighterColor.value >= 0) {
+      lastHighlighterColor = Prefs.lastHighlighterColor.value;
     }
 
     Pen.currentPen = Pen.fountainPen()
-      ..strokeProperties.color = Color(lastUsedColor ?? StrokeProperties.defaultColor.value);
+      ..strokeProperties.color = Color(lastPenColor ?? StrokeProperties.defaultColor.value);
 
-    Highlighter.currentHighlighter = Highlighter();
+    Highlighter.currentHighlighter = Highlighter()
+      ..strokeProperties.color = Color(lastHighlighterColor ?? Highlighter.defaultColor.value);
 
     return Pen.currentPen;
   }();
