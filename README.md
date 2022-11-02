@@ -34,7 +34,7 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1 (recommended): Download and install `app-release.apk` from the latest [Release][releases].
+Option 1 (recommended): Download and install `app-regular-release.apk` from the latest [Release][releases].
 
 Option 2: Download from [F-Droid][f-droid]
 
@@ -91,7 +91,7 @@ you need to use a predictable environment: fork this repo and use the GitHub Act
 
 #### Android
 
-`flutter build apk`
+`flutter build apk --flavor regular`
 
 You may need to generate a signing certificate and create the `android/key.properties` file.
 More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore

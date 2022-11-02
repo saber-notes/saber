@@ -80,6 +80,10 @@ android {
 
     flavorDimensions "flavor-type"
     productFlavors {
+        regular {
+            dimension "flavor-type"
+            getIsDefault().set(true)
+        }
         fdroid {
             dimension "flavor-type"
         }
