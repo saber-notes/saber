@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 4
-/// Strings: 254 (63 per locale)
+/// Locales: 5
+/// Strings: 318 (63 per locale)
 ///
-/// Built on 2022-11-02 at 12:23 UTC
+/// Built on 2022-11-02 at 17:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -25,6 +25,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	en(languageCode: 'en', build: _StringsEn.build),
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
+	it(languageCode: 'it', build: _StringsIt.build),
 	zh(languageCode: 'zh', build: _StringsZh.build);
 
 	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
@@ -902,6 +903,266 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 }
 
 // Path: <root>
+class _StringsIt extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsIt.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.it,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <it>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+
+	@override late final _StringsIt _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeIt home = _StringsHomeIt._(_root);
+	@override late final _StringsSettingsIt settings = _StringsSettingsIt._(_root);
+	@override late final _StringsLoginIt login = _StringsLoginIt._(_root);
+	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
+	@override late final _StringsUpdateIt update = _StringsUpdateIt._(_root);
+	@override late final _StringsEditorIt editor = _StringsEditorIt._(_root);
+}
+
+// Path: home
+class _StringsHomeIt extends _StringsHomeEn {
+	_StringsHomeIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsIt tabs = _StringsHomeTabsIt._(_root);
+	@override late final _StringsHomeTitlesIt titles = _StringsHomeTitlesIt._(_root);
+	@override late final _StringsHomeTooltipsIt tooltips = _StringsHomeTooltipsIt._(_root);
+	@override String get backFolder => '(Indietro)';
+	@override String get welcome => 'Benvenuto su Saber';
+	@override String get noFiles => 'Nessun file trovato';
+	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
+}
+
+// Path: settings
+class _StringsSettingsIt extends _StringsSettingsEn {
+	_StringsSettingsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefLabelsIt prefLabels = _StringsSettingsPrefLabelsIt._(_root);
+	@override late final _StringsSettingsThemeModesIt themeModes = _StringsSettingsThemeModesIt._(_root);
+	@override late final _StringsSettingsAccentColorPickerIt accentColorPicker = _StringsSettingsAccentColorPickerIt._(_root);
+}
+
+// Path: login
+class _StringsLoginIt extends _StringsLoginEn {
+	_StringsLoginIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Login';
+	@override late final _StringsLoginFeedbacksIt feedbacks = _StringsLoginFeedbacksIt._(_root);
+	@override late final _StringsLoginFormIt form = _StringsLoginFormIt._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'Non hai ancora un account? '),
+		linkToSignup('Registrati ora'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
+}
+
+// Path: appInfo
+class _StringsAppInfoIt extends _StringsAppInfoEn {
+	_StringsAppInfoIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get licenseNotice => 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
+	@override String get debug => 'DEBUG';
+	@override String get showMoreInfo => 'Mostra più informazioni';
+	@override String get showLessInfo => 'Mostra meno informazioni';
+	@override String get licenseButton => 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
+	@override String get privacyPolicyButton => 'Tocca qui per visualizzare l\'informativa sulla privacy';
+}
+
+// Path: update
+class _StringsUpdateIt extends _StringsUpdateEn {
+	_StringsUpdateIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Aggiornamento disponibile';
+	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app.';
+	@override String get dismiss => 'Abbandona';
+	@override String get update => 'Aggiornamento';
+}
+
+// Path: editor
+class _StringsEditorIt extends _StringsEditorEn {
+	_StringsEditorIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarIt toolbar = _StringsEditorToolbarIt._(_root);
+}
+
+// Path: home.tabs
+class _StringsHomeTabsIt extends _StringsHomeTabsEn {
+	_StringsHomeTabsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Home';
+	@override String get browse => 'Sfoglia';
+	@override String get whiteboard => 'Whiteboard';
+	@override String get settings => 'Impostazioni';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesIt extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Note recenti';
+	@override String get browse => 'Tutte le note';
+	@override String get whiteboard => 'Whiteboard';
+	@override String get settings => 'Impostazioni';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsIt extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get showHideActions => 'Mostra/nascondi azioni';
+	@override String get newNote => 'Nuova nota';
+	@override String get showUpdateDialog => 'Mostra finestra di aggiornamento';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get appTheme => 'Tema dell\'app';
+	@override String get customAccentColor => 'Colore personalizzato';
+	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
+	@override String get editorToolbarOnBottom => 'Allinea la barra degli strumenti dell\'editor in basso';
+	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
+	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesIt extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Sistema';
+	@override String get light => 'Chiaro';
+	@override String get dark => 'Scuro';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerIt extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Scegli un colore';
+	@override String get confirm => 'Conferma';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'Ricontrolla il tuo nome utente o e-mail.';
+	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
+	@override String get enterEncPassword => 'Inserisci la tua password di crittografata.';
+	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
+	@override String get loginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
+	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
+}
+
+// Path: login.form
+class _StringsLoginFormIt extends _StringsLoginFormEn {
+	_StringsLoginFormIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'Voglio utilizzare un server Nextcloud personalizzato';
+	@override String get customServerUrl => 'URL del server personalizzato';
+	@override String get username => 'Nome utente o email';
+	@override String get ncPassword => 'Password nextcloud';
+	@override String get encPassword => 'Password di crittografata';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'Effettuando l\'accesso, accetti la '),
+		linkToPrivacyPolicy('Informativa sulla privacy'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'Log in';
+}
+
+// Path: login.status
+class _StringsLoginStatusIt extends _StringsLoginStatusEn {
+	_StringsLoginStatusIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
+	@override String get loggedOut => 'Disconnesso';
+	@override String get tapToLogin => 'Tocca per accedere con Nextcloud';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Penna stilografica';
+	@override String get highlighter => 'Evidenziatore';
+	@override String get toggleColors => 'Attiva/disattiva i colori (Ctrl C)';
+	@override String get toggleEraser => 'Attiva/disattiva gomma (Ctrl E)';
+	@override String get photo => 'Foto';
+	@override String get toggleFingerDrawing => 'Attiva/disattiva il disegno con il dito (Ctrl F)';
+	@override String get undo => 'Annulla';
+	@override String get redo => 'Rifai';
+	@override String get export => 'Esporta (Ctrl Shift S)';
+	@override String get exportAs => 'Esporta come:';
+}
+
+// Path: <root>
 class _StringsZh extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -1396,6 +1657,86 @@ extension on _StringsEs {
 			case 'editor.toolbar.redo': return 'Rehacer';
 			case 'editor.toolbar.export': return 'Exportar (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Exportar cómo:';
+			default: return null;
+		}
+	}
+}
+
+extension on _StringsIt {
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'home.tabs.home': return 'Home';
+			case 'home.tabs.browse': return 'Sfoglia';
+			case 'home.tabs.whiteboard': return 'Whiteboard';
+			case 'home.tabs.settings': return 'Impostazioni';
+			case 'home.titles.home': return 'Note recenti';
+			case 'home.titles.browse': return 'Tutte le note';
+			case 'home.titles.whiteboard': return 'Whiteboard';
+			case 'home.titles.settings': return 'Impostazioni';
+			case 'home.tooltips.showHideActions': return 'Mostra/nascondi azioni';
+			case 'home.tooltips.newNote': return 'Nuova nota';
+			case 'home.tooltips.showUpdateDialog': return 'Mostra finestra di aggiornamento';
+			case 'home.backFolder': return '(Indietro)';
+			case 'home.welcome': return 'Benvenuto su Saber';
+			case 'home.noFiles': return 'Nessun file trovato';
+			case 'home.createNewNote': return 'Tocca il pulsante + per creare una nuova nota';
+			case 'settings.prefLabels.appTheme': return 'Tema dell\'app';
+			case 'settings.prefLabels.customAccentColor': return 'Colore personalizzato';
+			case 'settings.prefLabels.shouldCheckForUpdates': return 'Controlla automaticamente gli aggiornamenti di Saber';
+			case 'settings.prefLabels.editorToolbarOnBottom': return 'Allinea la barra degli strumenti dell\'editor in basso';
+			case 'settings.prefLabels.editorAutoInvert': return 'Inverti le note in modalità scura';
+			case 'settings.prefLabels.preferGreyscale': return 'Preferisci i colori in scala di grigi';
+			case 'settings.themeModes.system': return 'Sistema';
+			case 'settings.themeModes.light': return 'Chiaro';
+			case 'settings.themeModes.dark': return 'Scuro';
+			case 'settings.accentColorPicker.pickAColor': return 'Scegli un colore';
+			case 'settings.accentColorPicker.confirm': return 'Conferma';
+			case 'login.title': return 'Login';
+			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
+			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
+			case 'login.feedbacks.enterEncPassword': return 'Inserisci la tua password di crittografata.';
+			case 'login.feedbacks.checkUrl': return 'Per favore, inserisci un URL valido.';
+			case 'login.feedbacks.loginFailed': return 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
+			case 'login.feedbacks.loginSuccess': return 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
+			case 'login.form.useCustomServer': return 'Voglio utilizzare un server Nextcloud personalizzato';
+			case 'login.form.customServerUrl': return 'URL del server personalizzato';
+			case 'login.form.username': return 'Nome utente o email';
+			case 'login.form.ncPassword': return 'Password nextcloud';
+			case 'login.form.encPassword': return 'Password di crittografata';
+			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+				const TextSpan(text: 'Effettuando l\'accesso, accetti la '),
+				linkToPrivacyPolicy('Informativa sulla privacy'),
+				const TextSpan(text: '.'),
+			]);
+			case 'login.form.login': return 'Log in';
+			case 'login.signup': return ({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+				const TextSpan(text: 'Non hai ancora un account? '),
+				linkToSignup('Registrati ora'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.status.loggedIn': return 'Effettuato l\'accesso con Nextcloud';
+			case 'login.status.loggedOut': return 'Disconnesso';
+			case 'login.status.tapToLogin': return 'Tocca per accedere con Nextcloud';
+			case 'appInfo.licenseNotice': return 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
+			case 'appInfo.debug': return 'DEBUG';
+			case 'appInfo.showMoreInfo': return 'Mostra più informazioni';
+			case 'appInfo.showLessInfo': return 'Mostra meno informazioni';
+			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
+			case 'appInfo.privacyPolicyButton': return 'Tocca qui per visualizzare l\'informativa sulla privacy';
+			case 'update.updateAvailable': return 'Aggiornamento disponibile';
+			case 'update.updateAvailableDescription': return 'È disponibile una nuova versione dell\'app.';
+			case 'update.dismiss': return 'Abbandona';
+			case 'update.update': return 'Aggiornamento';
+			case 'editor.toolbar.fountainPen': return 'Penna stilografica';
+			case 'editor.toolbar.highlighter': return 'Evidenziatore';
+			case 'editor.toolbar.toggleColors': return 'Attiva/disattiva i colori (Ctrl C)';
+			case 'editor.toolbar.toggleEraser': return 'Attiva/disattiva gomma (Ctrl E)';
+			case 'editor.toolbar.photo': return 'Foto';
+			case 'editor.toolbar.toggleFingerDrawing': return 'Attiva/disattiva il disegno con il dito (Ctrl F)';
+			case 'editor.toolbar.undo': return 'Annulla';
+			case 'editor.toolbar.redo': return 'Rifai';
+			case 'editor.toolbar.export': return 'Esporta (Ctrl Shift S)';
+			case 'editor.toolbar.exportAs': return 'Esporta come:';
 			default: return null;
 		}
 	}
