@@ -34,7 +34,7 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1 (recommended): Download and install `app-regular-release.apk` from the latest [Release][releases].
+Option 1 (recommended): Download and install `Saber.apk` from the latest [Release][releases].
 
 Option 2: Download from [F-Droid][f-droid]
 
