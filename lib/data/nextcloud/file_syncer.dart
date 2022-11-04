@@ -77,6 +77,7 @@ abstract class FileSyncer {
   /// Picks the first filePath from [_uploadQueue] and uploads it
   static Future _uploadFileFromQueue() async {
     if (_isUploadingFile) return;
+    await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
 
     _client ??= await NextCloudClientExtension.withSavedDetails();

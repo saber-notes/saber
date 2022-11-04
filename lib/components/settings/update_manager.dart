@@ -17,6 +17,7 @@ abstract class UpdateManager {
   static Future<void> showUpdateDialog(BuildContext context, {bool userTriggered = false}) async {
     if (!userTriggered) {
       if (status.value == UpdateStatus.upToDate) { // check for updates if not already done
+        await Prefs.shouldCheckForUpdates.waitUntilLoaded();
         if (!Prefs.shouldCheckForUpdates.value) return;
         status.value = await _checkForUpdate();
       }

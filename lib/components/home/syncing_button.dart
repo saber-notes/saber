@@ -40,7 +40,7 @@ class _SyncingButtonState extends State<SyncingButton> {
   @override
   Widget build(BuildContext context) {
     double? percentage = getPercentage();
-    bool loggedIn = Prefs.username.value.isNotEmpty;
+    bool loggedIn = Prefs.username.loaded && Prefs.username.value.isNotEmpty;
 
     return IconButton(
       onPressed: loggedIn ? () {

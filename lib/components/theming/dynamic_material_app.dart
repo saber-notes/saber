@@ -62,7 +62,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
         ColorScheme lightColorScheme;
         ColorScheme darkColorScheme;
 
-        if (Prefs.accentColor.value != 0) {
+        if (Prefs.accentColor.loaded && Prefs.accentColor.value != 0) {
           Color accentColor = Color(Prefs.accentColor.value);
           lightColorScheme = ColorScheme.fromSeed(
             seedColor: accentColor,
@@ -108,7 +108,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
               ThemeData(brightness: Brightness.dark).textTheme,
             ) : null,
           ),
-          themeMode: ThemeMode.values[Prefs.appTheme.value],
+          themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
 
           debugShowCheckedModeBanner: false,
         );
