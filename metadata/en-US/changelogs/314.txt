@@ -1,0 +1,6 @@
+• Use iOS-style switches on the Settings page for iOS/macOS users
+• Updated Font Awesome 5 to Font Awesome 6 icons
+• Bug fix for the eraser
+• Various bug fixes following initial app load
+• Italian translations by albanobattistella
+• Updated Chinese translations by Sdarfeesh
