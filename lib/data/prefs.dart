@@ -117,6 +117,11 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   }
   get loaded => _loaded;
 
+  Future<void> waitUntilLoaded() {
+    if (loaded) return Future.value();
+    return Future.delayed(const Duration(milliseconds: 10), waitUntilLoaded);
+  }
+
   /// Lets us use notifyListeners outside of the class
   /// as super.notifyListeners is @protected
   @override
