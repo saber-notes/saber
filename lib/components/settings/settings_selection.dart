@@ -39,7 +39,8 @@ class _SettingsSelectionState extends State<SettingsSelection> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.title, style: const TextStyle(fontSize: 14)),
+      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: CupertinoSlidingSegmentedControl<int>(
         children: widget.values.asMap().map((_, SettingsSelectionValue value) => MapEntry<int, Widget>(value.value, Text(value.text))),

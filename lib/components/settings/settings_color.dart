@@ -65,7 +65,8 @@ class _SettingsSwitchState extends State<SettingsColor> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.title, style: const TextStyle(fontSize: 14)),
+      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,

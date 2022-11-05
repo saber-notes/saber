@@ -36,7 +36,8 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
   @override
   Widget build(BuildContext context) {
     return SwitchListTile.adaptive(
-      title: Text(widget.title, style: const TextStyle(fontSize: 14)),
+      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       value: widget.pref.value,
       onChanged: (bool value) {
