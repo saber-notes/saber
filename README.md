@@ -91,13 +91,13 @@ you need to use a predictable environment: fork this repo and use the GitHub Act
 
 #### Android
 
-`flutter build apk --flavor regular`
+`flutter build apk`
 
 You may need to generate a signing certificate and create the `android/key.properties` file.
 More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
 Note: F-Droid releases are built slightly differently:
-`flutter build apk --flavor fdroid  -t lib/main_fdroid.dart`
+`flutter build apk -t lib/main_fdroid.dart`
 
 #### The web
 
