@@ -25,12 +25,14 @@ class _AppInfoState extends State<AppInfo> {
   Future<String> getInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-    String appName = packageInfo.appName;
-    String version = packageInfo.version;
+    List<String> info = [
+      packageInfo.appName,
+      kDebugMode ? t.appInfo.debug : "",
+      packageInfo.version,
+      "($buildNumber)",
+    ];
 
-    String debug = kDebugMode ? " ${t.appInfo.debug}" : "";
-
-    return "$appName$debug $version ($buildNumber)";
+    return info.where((s) => s.isNotEmpty).join(" ");
   }
 
   @override
