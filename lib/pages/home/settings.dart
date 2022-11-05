@@ -66,10 +66,12 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.hyperlegibleFont,
+                subtitle: t.settings.prefDescriptions.hyperlegibleFont,
                 pref: Prefs.hyperlegibleFont,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.shouldCheckForUpdates,
+                subtitle: t.settings.prefDescriptions.shouldCheckForUpdates,
                 pref: Prefs.shouldCheckForUpdates,
               ),
               SettingsSwitch(
@@ -78,10 +80,12 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorAutoInvert,
+                subtitle: t.settings.prefDescriptions.editorAutoInvert,
                 pref: Prefs.editorAutoInvert,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.preferGreyscale,
+                subtitle: t.settings.prefDescriptions.preferGreyscale,
                 pref: Prefs.preferGreyscale,
               ),
             ],

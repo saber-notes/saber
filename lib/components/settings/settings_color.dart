@@ -9,11 +9,13 @@ class SettingsColor extends StatefulWidget {
   const SettingsColor({
     super.key,
     required this.title,
+    this.subtitle,
     required this.pref,
     this.afterChange,
   });
 
   final String title;
+  final String? subtitle;
   final IPref<int, dynamic> pref;
   final ValueChanged<Color?>? afterChange;
 
@@ -64,7 +66,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(widget.title, style: const TextStyle(fontSize: 14)),
-      subtitle: kDebugMode ? Text(widget.pref.key) : null,
+      subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

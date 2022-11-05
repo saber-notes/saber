@@ -8,12 +8,14 @@ class SettingsSelection extends StatefulWidget {
   const SettingsSelection({
     super.key,
     required this.title,
+    this.subtitle,
     required this.pref,
     required this.values,
     this.afterChange,
   });
 
   final String title;
+  final String? subtitle;
   final IPref<int, dynamic> pref;
   final List<SettingsSelectionValue> values;
   final ValueChanged<int>? afterChange;
@@ -38,7 +40,7 @@ class _SettingsSelectionState extends State<SettingsSelection> {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(widget.title, style: const TextStyle(fontSize: 14)),
-      subtitle: kDebugMode ? Text(widget.pref.key) : null,
+      subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: CupertinoSlidingSegmentedControl<int>(
         children: widget.values.asMap().map((_, SettingsSelectionValue value) => MapEntry<int, Widget>(value.value, Text(value.text))),
         groupValue: widget.pref.value,
