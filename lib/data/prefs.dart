@@ -28,6 +28,8 @@ abstract class Prefs {
   static late PlainPref<int> appTheme;
   /// The accent color of the app. If 0, the system accent color will be used.
   static late PlainPref<int> accentColor;
+  static late PlainPref<bool> hyperlegibleFont;
+
   static late PlainPref<bool> editorToolbarOnBottom;
   static late PlainPref<bool> editorFingerDrawing;
   static late PlainPref<bool> editorAutoInvert;
@@ -59,6 +61,8 @@ abstract class Prefs {
 
     appTheme = PlainPref("appTheme", ThemeMode.system.index);
     accentColor = PlainPref("accentColor", 0);
+    hyperlegibleFont = PlainPref("hyperlegibleFont", false);
+
     editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);

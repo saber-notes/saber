@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 5
-/// Strings: 318 (63 per locale)
+/// Strings: 319 (63 per locale)
 ///
-/// Built on 2022-11-02 at 17:25 UTC
+/// Built on 2022-11-05 at 02:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -290,6 +290,7 @@ class _StringsSettingsPrefLabelsEn {
 	// Translations
 	String get appTheme => 'App theme';
 	String get customAccentColor => 'Custom accent color';
+	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
 	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
 	String get editorAutoInvert => 'Invert notes in dark mode';
@@ -1445,6 +1446,7 @@ extension on _StringsEn {
 			case 'home.createNewNote': return 'Tap the + button to create a new note';
 			case 'settings.prefLabels.appTheme': return 'App theme';
 			case 'settings.prefLabels.customAccentColor': return 'Custom accent color';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlegible font';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Automatically check for Saber updates';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Align the editor toolbar to the bottom';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';

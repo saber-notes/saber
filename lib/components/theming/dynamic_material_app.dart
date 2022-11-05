@@ -26,12 +26,13 @@ class DynamicMaterialApp extends StatefulWidget {
 }
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
-  bool useCustomFont = false;
+  bool requiresCustomFont = false;
 
   @override
   void initState() {
     Prefs.appTheme.addListener(onChanged);
     Prefs.accentColor.addListener(onChanged);
+    Prefs.hyperlegibleFont.addListener(onChanged);
     decideOnFont();
     super.initState();
   }
@@ -52,7 +53,21 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
     final double osVersion = double.tryParse(osVersionMatch[0] ?? "0") ?? 0;
     if (osVersion >= 10.13) return;
 
-    useCustomFont = true;
+    requiresCustomFont = true;
+  }
+
+  TextTheme? getTextTheme(Brightness brightness) {
+    if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
+      return GoogleFonts.atkinsonHyperlegibleTextTheme(
+        ThemeData(brightness: brightness).textTheme,
+      );
+    } else if (requiresCustomFont) {
+      return GoogleFonts.robotoTextTheme(
+        ThemeData(brightness: brightness).textTheme,
+      );
+    } else {
+      return null;
+    }
   }
 
   @override
@@ -97,16 +112,12 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightColorScheme,
-            textTheme: useCustomFont ? GoogleFonts.robotoTextTheme(
-              ThemeData(brightness: Brightness.light).textTheme,
-            ) : null,
+            textTheme: getTextTheme(Brightness.light),
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
             colorScheme: darkColorScheme,
-            textTheme: useCustomFont ? GoogleFonts.robotoTextTheme(
-              ThemeData(brightness: Brightness.dark).textTheme,
-            ) : null,
+            textTheme: getTextTheme(Brightness.dark),
           ),
           themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
 

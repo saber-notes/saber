@@ -4,6 +4,11 @@
     "After editing this file, you can run 'flutter pub run slang apply' to quickly apply the newly added translations."
   ],
   "de": {
+    "settings": {
+      "prefLabels": {
+        "hyperlegibleFont": "Hyperlegible font"
+      }
+    },
     "editor": {
       "toolbar": {
         "highlighter": "Highlighter"
@@ -11,12 +16,29 @@
     }
   },
   "es": {
+    "settings": {
+      "prefLabels": {
+        "hyperlegibleFont": "Hyperlegible font"
+      }
+    },
     "editor": {
       "toolbar": {
         "highlighter": "Highlighter"
       }
     }
   },
-  "it": {},
-  "zh": {}
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "hyperlegibleFont": "Hyperlegible font"
+      }
+    }
+  },
+  "zh": {
+    "settings": {
+      "prefLabels": {
+        "hyperlegibleFont": "Hyperlegible font"
+      }
+    }
+  }
 }

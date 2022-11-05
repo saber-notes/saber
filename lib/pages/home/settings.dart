@@ -65,6 +65,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.accentColor,
               ),
               SettingsSwitch(
+                title: t.settings.prefLabels.hyperlegibleFont,
+                pref: Prefs.hyperlegibleFont,
+              ),
+              SettingsSwitch(
                 title: t.settings.prefLabels.shouldCheckForUpdates,
                 pref: Prefs.shouldCheckForUpdates,
               ),

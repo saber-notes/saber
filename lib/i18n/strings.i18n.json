@@ -26,6 +26,7 @@
 		"prefLabels": {
 			"appTheme": "App theme",
 			"customAccentColor": "Custom accent color",
+			"hyperlegibleFont": "Hyperlegible font",
 			"shouldCheckForUpdates": "Automatically check for Saber updates",
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
 			"editorAutoInvert": "Invert notes in dark mode",
