@@ -85,9 +85,14 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
         obscureText: obscureText,
         decoration: InputDecoration(
           labelText: widget.placeholder,
+          labelStyle: TextStyle(color: colorScheme.onSurface.withOpacity(0.5)),
           prefixIcon: widget.prefixIcon,
           suffixIcon: suffixIcon,
-          filled: true,
+          contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: colorScheme.onSurface.withOpacity(0.12)),
+            borderRadius: BorderRadius.circular(8),
+          ),
         ),
       );
     }

@@ -152,8 +152,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             alignment: Alignment.topCenter,
             fade: true,
             maintainState: true,
-            clipBehavior: Clip.none,
             child: Column(children: [
+              const SizedBox(height: 4),
               AdaptiveTextField(
                 controller: _customServerController,
                 placeholder: t.login.form.customServerUrl,
