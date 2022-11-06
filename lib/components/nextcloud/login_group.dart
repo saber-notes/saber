@@ -1,11 +1,13 @@
 
 import 'package:collapsible/collapsible.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fzregex/fzregex.dart';
 import 'package:fzregex/utils/pattern.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -24,9 +26,6 @@ class LoginInputGroup extends StatefulWidget {
 }
 
 class _LoginInputGroupState extends State<LoginInputGroup> {
-  bool _showNcPassword = false;
-  bool _showEncPassword = false;
-
   String? _errorMessage;
 
   bool _usingCustomServer = false;
@@ -153,60 +152,40 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             alignment: Alignment.topCenter,
             fade: true,
             maintainState: true,
+            clipBehavior: Clip.none,
             child: Column(children: [
-              TextField(
+              AdaptiveTextField(
                 controller: _customServerController,
+                placeholder: t.login.form.customServerUrl,
+                keyboardType: TextInputType.url,
                 autofillHints: const [AutofillHints.url],
-                decoration: InputDecoration(
-                  labelText: t.login.form.customServerUrl,
-                  prefixIcon: const Icon(Icons.link),
-                  filled: true,
-                ),
+                prefixIcon: const Icon(Icons.link),
               ),
               const SizedBox(height: 8),
             ])
           ),
 
-          TextField(
+          AdaptiveTextField(
             controller: _usernameController,
             autofillHints: const [AutofillHints.username, AutofillHints.email],
-            decoration: InputDecoration(
-              labelText: t.login.form.username,
-              prefixIcon: const Icon(Icons.person),
-              filled: true,
-            ),
+            placeholder: t.login.form.username,
+            prefixIcon: const Icon(Icons.person),
           ),
           const SizedBox(height: 8),
-          TextField(
+          AdaptiveTextField(
             controller: _ncPasswordController,
-            obscureText: !_showNcPassword,
             autofillHints: const [AutofillHints.password],
-            decoration: InputDecoration(
-              labelText: t.login.form.ncPassword,
-              prefixIcon: const Icon(Icons.lock_person),
-              suffixIcon: IconButton(
-                icon: Icon(_showNcPassword ? Icons.visibility : Icons.visibility_off),
-                iconSize: 18,
-                onPressed: () { setState(() { _showNcPassword = !_showNcPassword; }); },
-              ),
-              filled: true,
-            ),
+            placeholder: t.login.form.ncPassword,
+            prefixIcon: const Icon(Icons.lock_person),
+            isPassword: true,
           ),
           const SizedBox(height: 8),
-          TextField(
+          AdaptiveTextField(
             controller: _encPasswordController,
-            obscureText: !_showEncPassword,
             autofillHints: const [AutofillHints.password],
-            decoration: InputDecoration(
-              labelText: t.login.form.encPassword,
-              prefixIcon: const Icon(Icons.sync_lock),
-              suffixIcon: IconButton(
-                icon: Icon(_showEncPassword ? Icons.visibility : Icons.visibility_off),
-                iconSize: 18,
-                onPressed: () { setState(() { _showEncPassword = !_showEncPassword; }); },
-              ),
-              filled: true,
-            ),
+            placeholder: t.login.form.encPassword,
+            prefixIcon: const Icon(Icons.sync_lock),
+            isPassword: true,
           ),
           const SizedBox(height: 16),
 
