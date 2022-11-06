@@ -7,6 +7,7 @@ import 'package:fzregex/fzregex.dart';
 import 'package:fzregex/utils/pattern.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/theming/adaptive_button.dart';
 import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -213,7 +214,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
           ),
 
           const SizedBox(height: 16),
-          ElevatedButton(
+          AdaptiveButton(
             onPressed: _isLoading ? null : _login,
             child: _isLoading ? const SpinningLoadingIcon() : Text(t.login.form.login),
           ),
