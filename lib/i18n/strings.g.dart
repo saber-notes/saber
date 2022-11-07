@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 5
-/// Strings: 323 (64 per locale)
+/// Strings: 328 (65 per locale)
 ///
-/// Built on 2022-11-05 at 02:21 UTC
+/// Built on 2022-11-07 at 14:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1235,6 +1235,7 @@ class _StringsSettingsZh extends _StringsSettingsEn {
 
 	// Translations
 	@override late final _StringsSettingsPrefLabelsZh prefLabels = _StringsSettingsPrefLabelsZh._(_root);
+	@override late final _StringsSettingsPrefDescriptionsZh prefDescriptions = _StringsSettingsPrefDescriptionsZh._(_root);
 	@override late final _StringsSettingsThemeModesZh themeModes = _StringsSettingsThemeModesZh._(_root);
 	@override late final _StringsSettingsAccentColorPickerZh accentColorPicker = _StringsSettingsAccentColorPickerZh._(_root);
 }
@@ -1342,10 +1343,24 @@ class _StringsSettingsPrefLabelsZh extends _StringsSettingsPrefLabelsEn {
 	// Translations
 	@override String get appTheme => '应用主题';
 	@override String get customAccentColor => '自定义主题色';
+	@override String get hyperlegibleFont => '易读字体';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get editorToolbarOnBottom => '将编辑工具栏与底部对齐';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get preferGreyscale => '使用灰度颜色';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsZh extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsZh._(_StringsZh root) : this._root = root, super._(root);
+
+	@override final _StringsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
+	@override String get shouldCheckForUpdates => '如果您通过应用商店或软件包管理器安装了 Saber，则不需要';
+	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
+	@override String get preferGreyscale => '用于电子墨水显示器';
 }
 
 // Path: settings.themeModes
@@ -1782,10 +1797,15 @@ extension on _StringsZh {
 			case 'home.createNewNote': return '点击 + 按钮新建一个笔记';
 			case 'settings.prefLabels.appTheme': return '应用主题';
 			case 'settings.prefLabels.customAccentColor': return '自定义主题色';
+			case 'settings.prefLabels.hyperlegibleFont': return '易读字体';
 			case 'settings.prefLabels.shouldCheckForUpdates': return '自动检查 Saber 更新';
 			case 'settings.prefLabels.editorToolbarOnBottom': return '将编辑工具栏与底部对齐';
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色笔记背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度颜色';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
+			case 'settings.prefDescriptions.shouldCheckForUpdates': return '如果您通过应用商店或软件包管理器安装了 Saber，则不需要';
+			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
+			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';
 			case 'settings.themeModes.system': return '系统';
 			case 'settings.themeModes.light': return '浅色';
 			case 'settings.themeModes.dark': return '深色';
