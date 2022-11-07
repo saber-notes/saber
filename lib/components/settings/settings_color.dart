@@ -25,7 +25,7 @@ class SettingsColor extends StatefulWidget {
 
 class _SettingsSwitchState extends State<SettingsColor> {
   Color? get color => widget.pref.value == 0 ? null : Color(widget.pref.value);
-  static Color defaultColor = Colors.yellow;
+  static Color defaultColor = const Color(0xffffd32e);
 
   @override
   void initState() {
