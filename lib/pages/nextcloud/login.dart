@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -21,26 +23,24 @@ class NcLoginPage extends StatefulWidget {
 
 class _NcLoginPageState extends State<NcLoginPage> {
   Future<bool> _tryLogin(LoginDetailsStruct loginDetails) async {
-    final NextCloudClient client = NextCloudClient.withCredentials(
+    final NextcloudClient client = NextcloudClient(
       loginDetails.url,
-      loginDetails.username,
-      loginDetails.ncPassword,
+      username: loginDetails.username,
+      password: loginDetails.ncPassword,
     );
 
-    final String displayName;
     try {
-      UserData userData = await client.user.getUser();
-      displayName = userData.displayName;
+      await client.webdav.status();
     } catch (e) {
       return false;
     }
 
-    _finishLogin(loginDetails, displayName, client); // don't await
+    _finishLogin(loginDetails, client); // don't await
 
     return true;
   }
 
-  Future _finishLogin(LoginDetailsStruct loginDetails, String displayName, NextCloudClient client) async {
+  Future _finishLogin(LoginDetailsStruct loginDetails, NextcloudClient client) async {
     // encrypted prefs
     Prefs.url.value = loginDetails.url.toString();
     Prefs.username.value = loginDetails.username;
@@ -48,8 +48,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
     Prefs.encPassword.value = loginDetails.encPassword;
 
     Prefs.pfp.value = ""; // trigger listeners while awaiting
-    String avatar = await client.avatar.getAvatar(loginDetails.username, 512);
-    Prefs.pfp.value = avatar;
+    Uint8List avatar = await client.core.getAvatar(userId: loginDetails.username, size: 512);
+    Prefs.pfp.value = base64Encode(avatar);
 
     await client.loadEncryptionKey();
 

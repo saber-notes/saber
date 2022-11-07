@@ -34,7 +34,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   bool _isLoading = false;
 
   final TextEditingController _customServerController = TextEditingController(
-    text: NextCloudClientExtension.defaultNextCloudUri.toString(),
+    text: NextcloudClientExtension.defaultNextCloudUri.toString(),
   );
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _ncPasswordController = TextEditingController();
@@ -83,7 +83,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     try {
       _isLoading = true;
       success = await widget.tryLogin(LoginDetailsStruct(
-        urlString: _usingCustomServer ? _customServerController.text : null,
+        url: _usingCustomServer ? _customServerController.text : null,
         username: _usernameController.text,
         ncPassword: _ncPasswordController.text,
         encPassword: _encPasswordController.text,
@@ -116,7 +116,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
     if (url.isNotEmpty) {
       if (_customServerController.text.isEmpty) _customServerController.text = url;
-      if (url != NextCloudClientExtension.defaultNextCloudUri.toString()) _toggleCustomServer(true);
+      if (url != NextcloudClientExtension.defaultNextCloudUri.toString()) _toggleCustomServer(true);
     }
     if (_usernameController.text.isEmpty) {
       _usernameController.text = username;
@@ -225,15 +225,15 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 }
 
 class LoginDetailsStruct {
-  final Uri url;
+  final String url;
   final String username;
   final String ncPassword;
   final String encPassword;
 
   LoginDetailsStruct({
-    String? urlString,
+    String? url,
     required this.username,
     required this.ncPassword,
     required this.encPassword,
-  }) : url = urlString != null ? Uri.parse(urlString) : NextCloudClientExtension.defaultNextCloudUri;
+  }) : url = url ?? NextcloudClientExtension.defaultNextCloudUri;
 }

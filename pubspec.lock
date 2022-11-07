@@ -92,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  crypton:
+    dependency: transitive
+    description:
+      name: crypton
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   csv:
     dependency: transitive
     description:
@@ -268,7 +275,7 @@ packages:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.3"
+    version: "3.2.2"
   integration_test:
     dependency: "direct dev"
     description: flutter
@@ -295,6 +302,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.7.0"
   keybinder:
     dependency: "direct main"
     description:
@@ -368,10 +382,12 @@ packages:
   nextcloud:
     dependency: "direct main"
     description:
-      name: nextcloud
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.2+1"
+      path: "packages/nextcloud"
+      ref: HEAD
+      resolved-ref: cbf40e35a1506918a9cb2624b82938050a470687
+      url: "https://github.com/provokateurin/nextcloud-neon"
+    source: git
+    version: "1.0.0"
   package_info_plus:
     dependency: "direct main"
     description:
@@ -743,6 +759,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  version:
+    dependency: transitive
+    description:
+      name: version
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.2"
   vm_service:
     dependency: transitive
     description:
@@ -777,7 +800,7 @@ packages:
       name: xml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.1"
+    version: "6.1.0"
   yaml:
     dependency: transitive
     description:
