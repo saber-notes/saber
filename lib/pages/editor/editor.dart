@@ -229,9 +229,11 @@ class _EditorState extends State<Editor> {
       return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
-        Stroke accident = coreInfo.strokes.removeLast();
-        removeExcessPagesAfterStroke(accident);
-        history.canRedo = true;
+        setState(() {
+          Stroke accident = coreInfo.strokes.removeLast();
+          removeExcessPagesAfterStroke(accident);
+          history.canRedo = true;
+        });
       }
       lastSeenPointerCount = details.pointerCount;
       return false;
@@ -302,7 +304,7 @@ class _EditorState extends State<Editor> {
   onInteractionEnd(ScaleEndDetails details) {
     // reset after 1ms to keep track of the same gesture only
     _lastSeenPointerCountTimer?.cancel();
-    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 1), () {
+    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 10), () {
       lastSeenPointerCount = 0;
     });
   }
