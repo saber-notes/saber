@@ -160,7 +160,7 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 
 1. Fork this repo
 2. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
-   e.g. `es` for Spanish, `fr` for French, `hi` for Hindi, etc.
+   e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
 3. Copy `lib/i18n/strings.i18n.json` to `lib/i18n/strings_XX.i18n.json` (replacing `XX` with your locale code)
 4. Translate the strings in `lib/i18n/strings_XX.i18n.json`
 5. Open a pull request!
