@@ -247,7 +247,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.1.1"
+    version: "5.1.5"
   google_fonts:
     dependency: "direct main"
     description:
@@ -275,7 +275,7 @@ packages:
       name: icons_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.5"
   image:
     dependency: transitive
     description:
@@ -800,7 +800,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.1.0"
   xdg_directories:
     dependency: transitive
     description:
