@@ -196,7 +196,7 @@ class _ToolbarState extends State<Toolbar> {
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.export,
                         onPressed: (_) => toggleExportBar(),
-                        child: const Icon(Icons.share),
+                        child: Icon(Icons.adaptive.share),
                       ),
                     ],
                   ),
