@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NoFiles extends StatelessWidget {
@@ -14,6 +15,12 @@ class NoFiles extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SvgPicture.asset(
+              "assets/images/undraw_researching_re_fuod.svg",
+              width: 300,
+              excludeFromSemantics: true,
+            ),
+            const SizedBox(height: 64),
             Text(t.home.noFiles, style: textTheme.headline4),
             const SizedBox(height: 8),
             Text(t.home.createNewNote, style: textTheme.bodyText1),
