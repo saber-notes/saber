@@ -113,11 +113,13 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
             useMaterial3: true,
             colorScheme: lightColorScheme,
             textTheme: getTextTheme(Brightness.light),
+            scaffoldBackgroundColor: lightColorScheme.background,
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
             colorScheme: darkColorScheme,
             textTheme: getTextTheme(Brightness.dark),
+            scaffoldBackgroundColor: darkColorScheme.background,
           ),
           themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
 
