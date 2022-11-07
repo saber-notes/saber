@@ -40,7 +40,8 @@ extension NextcloudClientExtension on NextcloudClient {
     } on ApiException {
       return {};
     }
-    String json = _utf8Decoder.convert(file);
+    List bytes = jsonDecode(_utf8Decoder.convert(file));
+    String json = _utf8Decoder.convert(bytes.cast<int>());
     return Map<String, String>.from(jsonDecode(json));
   }
   Future<void> setConfig(Map<String, String> config) async {

@@ -176,10 +176,16 @@ abstract class FileSyncer {
     final Encrypter encrypter = await _client!.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
 
-    final String encryptedData = utf8.decode(encryptedDataEncoded);
-    final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
-
-    FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+    try {
+      final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
+      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
+      final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
+      final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+      FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+    } catch (e) {
+      if (kDebugMode) print("Failed to download file ${file.localPath} ${file.remotePath}");
+      return false;
+    }
 
     return true;
   }
