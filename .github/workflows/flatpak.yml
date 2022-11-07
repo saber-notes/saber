@@ -3,6 +3,7 @@ name: Build Flatpak
 on:
   # Enable manual run
   workflow_dispatch:
+  pull_request:
   push:
     tags:
       - '**'
