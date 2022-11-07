@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
@@ -67,13 +68,17 @@ class _NcLoginPageState extends State<NcLoginPage> {
       body: SingleChildScrollView(
         child: Center(
           child: SizedBox(
-            width: 300,
+            width: 350,
             child: Column(
               children: [
                 const SizedBox(height: 16),
                 Hero(
                   tag: Prefs.pfp.key,
-                  child: const Image(image: AssetImage("assets/icon/icon.png"), width: 200, height: 200),
+                  child: SvgPicture.asset(
+                    "assets/images/undraw_cloud_sync_re_02p1.svg",
+                    width: 350,
+                    excludeFromSemantics: true,
+                  ),
                 ),
 
                 const SizedBox(height: 64),
