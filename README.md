@@ -143,8 +143,18 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
    to see if any translations are missing.
 
 1. Fork this repo
-2. Edit the relevant `lib/i18n/strings_XX.i18n.json` file
-3. Open a pull request!
+2. Update your `_missing_translations.json` file with your translations, e.g. updating Simplified Chinese (zh)
+    ```javascript
+    "zh": {
+      "editor": {
+        "toolbar": {
+          "highlighter": "荧光笔"
+        }
+      }
+    },
+    // ignore the other languages...
+    ```
+3. Open a pull request! I'll do the rest
 
 ### Adding a new language
 
