@@ -13,7 +13,6 @@
 			"settings": "Settings"
 		},
 		"tooltips": {
-			"showHideActions": "Show/hide actions",
 			"newNote": "New note",
 			"showUpdateDialog": "Show update dialog"
 		},

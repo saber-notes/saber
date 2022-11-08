@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 5
-/// Strings: 334 (66 per locale)
+/// Strings: 329 (65 per locale)
 ///
-/// Built on 2022-11-08 at 16:38 UTC
+/// Built on 2022-11-08 at 16:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -277,7 +277,6 @@ class _StringsHomeTooltipsEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get showHideActions => 'Show/hide actions';
 	String get newNote => 'New note';
 	String get showUpdateDialog => 'Show update dialog';
 }
@@ -551,7 +550,6 @@ class _StringsHomeTooltipsDe extends _StringsHomeTooltipsEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get showHideActions => 'Aktionen anzeigen/verstecken';
 	@override String get newNote => 'Neue Notiz';
 	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
 }
@@ -810,7 +808,6 @@ class _StringsHomeTooltipsEs extends _StringsHomeTooltipsEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get showHideActions => 'Mostrar/Ocultar acciones';
 	@override String get newNote => 'Crear nota';
 	@override String get showUpdateDialog => 'Mostrar cuadro de diálogo de actualizaciónes';
 }
@@ -1084,7 +1081,6 @@ class _StringsHomeTooltipsIt extends _StringsHomeTooltipsEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get showHideActions => 'Mostra/nascondi azioni';
 	@override String get newNote => 'Nuova nota';
 	@override String get showUpdateDialog => 'Mostra finestra di aggiornamento';
 }
@@ -1345,7 +1341,6 @@ class _StringsHomeTooltipsZh extends _StringsHomeTooltipsEn {
 	@override final _StringsZh _root; // ignore: unused_field
 
 	// Translations
-	@override String get showHideActions => '显示/隐藏操作';
 	@override String get newNote => '新建笔记';
 	@override String get showUpdateDialog => '显示更新对话框';
 }
@@ -1482,7 +1477,6 @@ extension on _StringsEn {
 			case 'home.titles.browse': return 'All notes';
 			case 'home.titles.whiteboard': return 'Whiteboard';
 			case 'home.titles.settings': return 'Settings';
-			case 'home.tooltips.showHideActions': return 'Show/hide actions';
 			case 'home.tooltips.newNote': return 'New note';
 			case 'home.tooltips.showUpdateDialog': return 'Show update dialog';
 			case 'home.backFolder': return '(Back)';
@@ -1567,7 +1561,6 @@ extension on _StringsDe {
 			case 'home.titles.browse': return 'Alle Notizen';
 			case 'home.titles.whiteboard': return 'Whiteboard';
 			case 'home.titles.settings': return 'Einstellungen';
-			case 'home.tooltips.showHideActions': return 'Aktionen anzeigen/verstecken';
 			case 'home.tooltips.newNote': return 'Neue Notiz';
 			case 'home.tooltips.showUpdateDialog': return 'Aktualisierungsdialog anzeigen';
 			case 'home.backFolder': return '(Zurück)';
@@ -1646,7 +1639,6 @@ extension on _StringsEs {
 			case 'home.titles.browse': return 'Todas las notas';
 			case 'home.titles.whiteboard': return 'Pizarra';
 			case 'home.titles.settings': return 'Configuración';
-			case 'home.tooltips.showHideActions': return 'Mostrar/Ocultar acciones';
 			case 'home.tooltips.newNote': return 'Crear nota';
 			case 'home.tooltips.showUpdateDialog': return 'Mostrar cuadro de diálogo de actualizaciónes';
 			case 'home.backFolder': return '(Volver)';
@@ -1730,7 +1722,6 @@ extension on _StringsIt {
 			case 'home.titles.browse': return 'Tutte le note';
 			case 'home.titles.whiteboard': return 'Whiteboard';
 			case 'home.titles.settings': return 'Impostazioni';
-			case 'home.tooltips.showHideActions': return 'Mostra/nascondi azioni';
 			case 'home.tooltips.newNote': return 'Nuova nota';
 			case 'home.tooltips.showUpdateDialog': return 'Mostra finestra di aggiornamento';
 			case 'home.backFolder': return '(Indietro)';
@@ -1810,7 +1801,6 @@ extension on _StringsZh {
 			case 'home.titles.browse': return '全部笔记';
 			case 'home.titles.whiteboard': return '白板';
 			case 'home.titles.settings': return '设置';
-			case 'home.tooltips.showHideActions': return '显示/隐藏操作';
 			case 'home.tooltips.newNote': return '新建笔记';
 			case 'home.tooltips.showUpdateDialog': return '显示更新对话框';
 			case 'home.backFolder': return '(返回)';

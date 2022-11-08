@@ -13,7 +13,6 @@
 			"settings": "设置"
 		},
 		"tooltips": {
-			"showHideActions": "显示/隐藏操作",
 			"newNote": "新建笔记",
 			"showUpdateDialog": "显示更新对话框"
 		},

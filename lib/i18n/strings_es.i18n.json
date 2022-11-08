@@ -13,7 +13,6 @@
 			"settings": "Configuración"
 		},
 		"tooltips": {
-			"showHideActions": "Mostrar/Ocultar acciones",
 			"newNote": "Crear nota",
 			"showUpdateDialog": "Mostrar cuadro de diálogo de actualizaciónes"
 		},

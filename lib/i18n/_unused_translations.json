@@ -1,15 +1,10 @@
 {
   "@@info": [
     "Here are translations that exist in secondary locales but not in <en>.",
-    "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
+    "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>.",
+    "Congratulations! There are no unused translations! :)"
   ],
-  "en": {
-    "home": {
-      "tooltips": {
-        "showHideActions": "Show/hide actions"
-      }
-    }
-  },
+  "en": {},
   "de": {},
   "es": {},
   "it": {},
