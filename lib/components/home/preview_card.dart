@@ -75,58 +75,45 @@ class _PreviewCardState extends State<PreviewCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: InkWell(
-        onTap: () { widget.onTap(widget.filePath); },
-        borderRadius: BorderRadius.circular(10),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CanvasPreview(
-                path: widget.filePath,
-                height: height,
-                coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
-              ),
-              const SizedBox(height: 8),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
-                  ),
-                  IconButton(
-                    tooltip: t.home.tooltips.showHideActions,
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      setState(() {
-                        expanded = !expanded;
-                      });
-                    },
-                    icon: Icon(expanded ? Icons.expand_less : Icons.expand_more),
-                  ),
-                ]
-              ),
-
-              Collapsible(
-                collapsed: !expanded,
-                axis: CollapsibleAxis.vertical,
-                maintainState: true,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        FileManager.deleteFile(widget.filePath + Editor.extension);
-                      },
-                      icon: const Icon(Icons.delete_forever),
-                    ),
-                  ],
+      child: GestureDetector(
+        onSecondaryTap: () => setState(() { expanded = !expanded; }),
+        child: InkWell(
+          onTap: () => widget.onTap(widget.filePath),
+          onLongPress: () => setState(() { expanded = !expanded; }),
+          borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CanvasPreview(
+                  path: widget.filePath,
+                  height: height,
+                  coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
                 ),
-              ),
-            ],
+                const SizedBox(height: 8),
+
+                Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+
+                Collapsible(
+                  collapsed: !expanded,
+                  axis: CollapsibleAxis.vertical,
+                  maintainState: true,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          FileManager.deleteFile(widget.filePath + Editor.extension);
+                        },
+                        icon: const Icon(Icons.delete_forever),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
