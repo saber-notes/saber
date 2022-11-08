@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 5
-/// Strings: 328 (65 per locale)
+/// Strings: 334 (66 per locale)
 ///
-/// Built on 2022-11-07 at 14:52 UTC
+/// Built on 2022-11-08 at 16:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -717,6 +717,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 
 	// Translations
 	@override late final _StringsSettingsPrefLabelsEs prefLabels = _StringsSettingsPrefLabelsEs._(_root);
+	@override late final _StringsSettingsPrefDescriptionsEs prefDescriptions = _StringsSettingsPrefDescriptionsEs._(_root);
 	@override late final _StringsSettingsThemeModesEs themeModes = _StringsSettingsThemeModesEs._(_root);
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
 }
@@ -823,10 +824,24 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	// Translations
 	@override String get appTheme => 'Tema de la aplicación';
 	@override String get customAccentColor => 'Color de acento personalizado';
+	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
 	@override String get editorToolbarOnBottom => 'Alinear la barra de herramientas del editor en la parte inferior';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
+	@override String get shouldCheckForUpdates => 'No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes';
+	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
+	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 }
 
 // Path: settings.themeModes
@@ -907,6 +922,7 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get fountainPen => 'Lápiz';
+	@override String get highlighter => 'Resaltador';
 	@override String get toggleColors => 'Cambiar colores (Ctrl C)';
 	@override String get toggleEraser => 'Borrador (Ctrl E)';
 	@override String get photo => 'Foto';
@@ -1639,10 +1655,15 @@ extension on _StringsEs {
 			case 'home.createNewNote': return 'Presiona el botón + para crear una nueva nota';
 			case 'settings.prefLabels.appTheme': return 'Tema de la aplicación';
 			case 'settings.prefLabels.customAccentColor': return 'Color de acento personalizado';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Fuente hiperlegible';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Buscar actualizaciones de Saber automáticamente';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Alinear la barra de herramientas del editor en la parte inferior';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invertir notas en el modo oscuro';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferir colores en escala de grises';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
+			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes';
+			case 'settings.prefDescriptions.editorAutoInvert': return 'Oscurece inteligentemente las notas en el modo oscuro';
+			case 'settings.prefDescriptions.preferGreyscale': return 'Para pantallas con tinta electrónica';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Claro';
 			case 'settings.themeModes.dark': return 'Oscuro';
@@ -1684,6 +1705,7 @@ extension on _StringsEs {
 			case 'update.dismiss': return 'Ignorar';
 			case 'update.update': return 'Actualizar';
 			case 'editor.toolbar.fountainPen': return 'Lápiz';
+			case 'editor.toolbar.highlighter': return 'Resaltador';
 			case 'editor.toolbar.toggleColors': return 'Cambiar colores (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Borrador (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Foto';
