@@ -26,10 +26,17 @@
 		"prefLabels": {
 			"appTheme": "App theme",
 			"customAccentColor": "Custom accent color",
+			"hyperlegibleFont": "Hyperlegible font",
 			"shouldCheckForUpdates": "Automatically check for Saber updates",
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
 			"editorAutoInvert": "Invert notes in dark mode",
 			"preferGreyscale": "Prefer greyscale colors"
+		},
+		"prefDescriptions": {
+			"hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
+			"shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
+			"editorAutoInvert": "Smartly darkens notes in dark mode",
+			"preferGreyscale": "For e-ink displays"
 		},
 		"themeModes": {
 			"system": "System",
@@ -84,6 +91,7 @@
 	"editor": {
 		"toolbar": {
 			"fountainPen": "Fountain pen",
+			"highlighter": "Highlighter",
 			"toggleColors": "Toggle colors (Ctrl C)",
 			"toggleEraser": "Toggle eraser (Ctrl E)",
 			"photo": "Photo",

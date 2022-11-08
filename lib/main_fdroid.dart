@@ -4,7 +4,7 @@ import 'main_common.dart' as common;
 
 void main() {
   FlavorConfig.setup(
-    flavor: "fdroid",
+    flavor: "F-Droid",
     shouldCheckForUpdatesByDefault: false,
   );
 

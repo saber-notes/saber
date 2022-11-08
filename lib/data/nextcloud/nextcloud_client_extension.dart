@@ -8,8 +8,8 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
-extension NextCloudClientExtension on NextCloudClient {
-  static Uri defaultNextCloudUri = Uri.parse('https://nc.saber.adil.hanney.org');
+extension NextcloudClientExtension on NextcloudClient {
+  static const String defaultNextCloudUri = "https://nc.saber.adil.hanney.org";
 
   static String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
   static String configFilePath = "$appRootDirectoryPrefix/config.sbc";
@@ -18,36 +18,37 @@ extension NextCloudClientExtension on NextCloudClient {
 
   static const String reproducibleSalt = r"8MnPs64@R&mF8XjWeLrD";
 
-  static Future<NextCloudClient?> withSavedDetails() async {
+  static Future<NextcloudClient?> withSavedDetails() async {
     String url = Prefs.url.value;
     String username = Prefs.username.value;
     String ncPassword = Prefs.ncPassword.value;
 
     if (username.isEmpty || ncPassword.isEmpty) return null;
 
-    return NextCloudClient.withCredentials(
-      url.isNotEmpty ? Uri.parse(url) : defaultNextCloudUri,
-      username,
-      ncPassword,
+    return NextcloudClient(
+      url.isNotEmpty ? url : defaultNextCloudUri,
+      username: username,
+      password: ncPassword,
     );
   }
 
   Future<Map<String, String>> getConfig() async {
     final Uint8List file;
-    await webDav.mkdir(appRootDirectoryPrefix);
+    await webdav.mkdir(appRootDirectoryPrefix);
     try {
-      file = await webDav.download(configFilePath);
-    } on RequestException {
+      file = await webdav.download(configFilePath);
+    } on ApiException {
       return {};
     }
-    String json = _utf8Decoder.convert(file);
+    List bytes = jsonDecode(_utf8Decoder.convert(file));
+    String json = _utf8Decoder.convert(bytes.cast<int>());
     return Map<String, String>.from(jsonDecode(json));
   }
   Future<void> setConfig(Map<String, String> config) async {
     String json = jsonEncode(config);
     Uint8List file = Uint8List.fromList(json.codeUnits);
-    await webDav.mkdir(appRootDirectoryPrefix);
-    await webDav.upload(file, configFilePath);
+    await webdav.mkdir(appRootDirectoryPrefix);
+    await webdav.upload(file, configFilePath);
   }
 
   Future<String> loadEncryptionKey() async {

@@ -9,11 +9,13 @@ class SettingsColor extends StatefulWidget {
   const SettingsColor({
     super.key,
     required this.title,
+    this.subtitle,
     required this.pref,
     this.afterChange,
   });
 
   final String title;
+  final String? subtitle;
   final IPref<int, dynamic> pref;
   final ValueChanged<Color?>? afterChange;
 
@@ -23,7 +25,7 @@ class SettingsColor extends StatefulWidget {
 
 class _SettingsSwitchState extends State<SettingsColor> {
   Color? get color => widget.pref.value == 0 ? null : Color(widget.pref.value);
-  static Color defaultColor = Colors.yellow;
+  static Color defaultColor = const Color(0xffffd32e);
 
   @override
   void initState() {
@@ -63,21 +65,12 @@ class _SettingsSwitchState extends State<SettingsColor> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.title, style: const TextStyle(fontSize: 14)),
-      subtitle: kDebugMode ? Text(widget.pref.key) : null,
+      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      title: Text(widget.title),
+      subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Checkbox(
-            value: color != null,
-            onChanged: (bool? value) {
-              if (value == null) return;
-              widget.pref.value = value ? defaultColor.value : 0;
-            },
-          ),
-          const SizedBox(
-            width: 8,
-          ),
           Container(
             width: 32,
             height: 32,
@@ -86,6 +79,16 @@ class _SettingsSwitchState extends State<SettingsColor> {
               shape: BoxShape.circle,
             ),
           ),
+          const SizedBox(
+            width: 8,
+          ),
+          Switch.adaptive(
+            value: color != null,
+            onChanged: (bool? value) {
+              if (value == null) return;
+              widget.pref.value = value ? defaultColor.value : 0;
+            },
+          )
         ],
       ),
       onTap: () async {

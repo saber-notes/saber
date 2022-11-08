@@ -1,7 +1,10 @@
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/settings/settings_color.dart';
-import 'package:saber/components/settings/settings_dropdown.dart';
+import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -51,13 +54,13 @@ class _SettingsPageState extends State<SettingsPage> {
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
               const NextcloudProfile(),
-              SettingsDropdown(
+              SettingsSelection(
                 title: t.settings.prefLabels.appTheme,
                 pref: Prefs.appTheme,
                 values: [
-                  SettingsDropdownValue(ThemeMode.system.index, t.settings.themeModes.system),
-                  SettingsDropdownValue(ThemeMode.light.index, t.settings.themeModes.light),
-                  SettingsDropdownValue(ThemeMode.dark.index, t.settings.themeModes.dark),
+                  SettingsSelectionValue(ThemeMode.system.index, t.settings.themeModes.system),
+                  SettingsSelectionValue(ThemeMode.light.index, t.settings.themeModes.light),
+                  SettingsSelectionValue(ThemeMode.dark.index, t.settings.themeModes.dark),
                 ],
               ),
               SettingsColor(
@@ -65,7 +68,19 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.accentColor,
               ),
               SettingsSwitch(
+                title: t.settings.prefLabels.hyperlegibleFont,
+                subtitle: t.settings.prefDescriptions.hyperlegibleFont,
+                pref: Prefs.hyperlegibleFont,
+              ),
+              SettingsSwitch(
                 title: t.settings.prefLabels.shouldCheckForUpdates,
+                subtitle: (){
+                  // Windows, macOS, and iOS aren't on app stores, so they will be updated manually
+                  if (kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isIOS) {
+                    return null;
+                  }
+                  return t.settings.prefDescriptions.shouldCheckForUpdates;
+                }(),
                 pref: Prefs.shouldCheckForUpdates,
               ),
               SettingsSwitch(
@@ -74,10 +89,12 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorAutoInvert,
+                subtitle: t.settings.prefDescriptions.editorAutoInvert,
                 pref: Prefs.editorAutoInvert,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.preferGreyscale,
+                subtitle: t.settings.prefDescriptions.preferGreyscale,
                 pref: Prefs.preferGreyscale,
               ),
             ],

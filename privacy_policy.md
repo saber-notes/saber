@@ -67,7 +67,8 @@ and is available on [GitHub](https://github.com/adil192/saber).
 
 How you can delete your data will vary based on which cloud provider you use.
 1. If you don't use a cloud provider, your data is only stored on your device.
-  If you delete the app, your data will be deleted with it.
+  If you delete the app, your data will be deleted with it. Desktop users will
+  also need to delete the `Saber` folder in your Documents folder.
 2. If you use the default cloud provider, you can head to the
   [account deletion page](https://nc.saber.adil.hanney.org/index.php/settings/user/drop_account)
   by going to Settings then "Delete account". You'll get an email with a link to confirm

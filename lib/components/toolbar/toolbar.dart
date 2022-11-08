@@ -2,11 +2,12 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
-import 'package:saber/components/theming/saber_icons_icons.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
@@ -105,96 +106,100 @@ class _ToolbarState extends State<Toolbar> {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: colorScheme.surface,
-      ),
-      child: Material(
-        child: Column(
-          verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
-          children: [
-            Collapsible(
-              axis: CollapsibleAxis.vertical,
-              alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-              maintainState: true,
-              collapsed: !showExportOptions,
-              child: ExportBar(
-                toggleExportBar: toggleExportBar,
-                exportAsSbn: widget.exportAsSbn,
-                exportAsPdf: widget.exportAsPdf,
-                exportAsPng: widget.exportAsPng,
-              ),
+    return Material(
+      color: colorScheme.background,
+      child: Column(
+        verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
+        children: [
+          Collapsible(
+            axis: CollapsibleAxis.vertical,
+            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
+            maintainState: true,
+            collapsed: !showExportOptions,
+            child: ExportBar(
+              toggleExportBar: toggleExportBar,
+              exportAsSbn: widget.exportAsSbn,
+              exportAsPdf: widget.exportAsPdf,
+              exportAsPng: widget.exportAsPng,
             ),
-            Collapsible(
-              axis: CollapsibleAxis.vertical,
-              alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-              maintainState: true,
-              collapsed: !showColorOptions,
-              child: ColorBar(
-                setColor: widget.setColor,
-              ),
+          ),
+          Collapsible(
+            axis: CollapsibleAxis.vertical,
+            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
+            maintainState: true,
+            collapsed: !showColorOptions,
+            child: ColorBar(
+              setColor: widget.setColor,
+              currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
             ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.fountainPen,
-                        selected: widget.currentTool == Pen.currentPen,
-                        onPressed: (button) {
-                          widget.setTool(Pen.currentPen);
-                        },
-                        child: const Icon(Icons.brush),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.toggleColors,
-                        selected: showColorOptions,
-                        onPressed: (_) => toggleColorOptions(),
-                        child: const Icon(Icons.palette),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.toggleEraser,
-                        selected: widget.currentTool is Eraser,
-                        onPressed: (_) => toggleEraser(),
-                        child: const Icon(SaberIcons.eraser, size: 14),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.photo,
-                        onPressed: null,
-                        child: const Icon(Icons.photo_size_select_actual),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.toggleFingerDrawing,
-                        selected: Prefs.editorFingerDrawing.value,
-                        onPressed: (_) => widget.toggleFingerDrawing(),
-                        child: const Icon(Icons.gesture),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.undo,
-                        onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
-                        child: const Icon(Icons.undo),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.redo,
-                        onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
-                        child: const Icon(Icons.redo),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.export,
-                        onPressed: (_) => toggleExportBar(),
-                        child: const Icon(Icons.share),
-                      ),
-                    ],
-                  ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.fountainPen,
+                      selected: widget.currentTool == Pen.currentPen,
+                      onPressed: (button) {
+                        widget.setTool(Pen.currentPen);
+                      },
+                      child: const FaIcon(FontAwesomeIcons.pen, size: 16),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.highlighter,
+                      selected: widget.currentTool == Highlighter.currentHighlighter,
+                      onPressed: (button) {
+                        widget.setTool(Highlighter.currentHighlighter);
+                      },
+                      child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.toggleColors,
+                      selected: showColorOptions,
+                      onPressed: (_) => toggleColorOptions(),
+                      child: const Icon(Icons.palette),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.toggleEraser,
+                      selected: widget.currentTool is Eraser,
+                      onPressed: (_) => toggleEraser(),
+                      child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.photo,
+                      onPressed: null,
+                      child: const Icon(Icons.photo_size_select_actual),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.toggleFingerDrawing,
+                      selected: Prefs.editorFingerDrawing.value,
+                      onPressed: (_) => widget.toggleFingerDrawing(),
+                      child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.undo,
+                      onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
+                      child: const Icon(Icons.undo),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.redo,
+                      onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
+                      child: const Icon(Icons.redo),
+                    ),
+                    ToolbarIconButton(
+                      tooltip: t.editor.toolbar.export,
+                      onPressed: (_) => toggleExportBar(),
+                      child: Icon(Icons.adaptive.share),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

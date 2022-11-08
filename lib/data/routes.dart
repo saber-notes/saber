@@ -23,7 +23,7 @@ abstract class HomeRoutes {
     _Route(
       routePath: homeFunction({"subpage": HomePage.browseSubpage}),
       label: t.home.tabs.browse,
-      icon: const Icon(Icons.notes),
+      icon: const Icon(Icons.folder),
     ),
     _Route(
       routePath: homeFunction({"subpage": HomePage.whiteboardSubpage}),

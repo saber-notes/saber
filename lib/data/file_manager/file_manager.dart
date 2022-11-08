@@ -188,6 +188,7 @@ abstract class FileManager {
   }
 
   static Future<List<String>> getRecentlyAccessed() async {
+    await Prefs.recentFiles.waitUntilLoaded();
     return Prefs.recentFiles.value
         .map((String filePath) {
           if (filePath.endsWith(Editor.extension)) {

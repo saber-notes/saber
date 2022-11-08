@@ -11,7 +11,9 @@ import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -56,13 +58,19 @@ class _EditorState extends State<Editor> {
   late bool needsNaming = widget.needsNaming;
 
   late Tool currentTool = (){
-    int? lastUsedColor;
-    if (Prefs.recentColorsChronological.value.isNotEmpty) {
-      lastUsedColor = int.tryParse(Prefs.recentColorsChronological.value.last);
+    int? lastPenColor, lastHighlighterColor;
+    if (Prefs.lastPenColor.value >= 0) {
+      lastPenColor = Prefs.lastPenColor.value;
+    }
+    if (Prefs.lastHighlighterColor.value >= 0) {
+      lastHighlighterColor = Prefs.lastHighlighterColor.value;
     }
 
     Pen.currentPen = Pen.fountainPen()
-      ..strokeProperties.color = Color(lastUsedColor ?? 0xFF000000);
+      ..strokeProperties.color = Color(lastPenColor ?? StrokeProperties.defaultColor.value);
+
+    Highlighter.currentHighlighter = Highlighter()
+      ..strokeProperties.color = Color(lastHighlighterColor ?? Highlighter.defaultColor.value);
 
     return Pen.currentPen;
   }();
@@ -221,9 +229,11 @@ class _EditorState extends State<Editor> {
       return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
-        Stroke accident = coreInfo.strokes.removeLast();
-        removeExcessPagesAfterStroke(accident);
-        history.canRedo = true;
+        setState(() {
+          Stroke accident = coreInfo.strokes.removeLast();
+          removeExcessPagesAfterStroke(accident);
+          history.canRedo = true;
+        });
       }
       lastSeenPointerCount = details.pointerCount;
       return false;
@@ -246,7 +256,7 @@ class _EditorState extends State<Editor> {
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(coreInfo, position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
-      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, coreInfo.strokes).reversed) {
+      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
         Stroke removed = coreInfo.strokes.removeAt(i);
         removeExcessPagesAfterStroke(removed);
       }
@@ -260,7 +270,7 @@ class _EditorState extends State<Editor> {
       if (currentTool is Pen) {
         (currentTool as Pen).onDragUpdate(coreInfo, position, currentPressure);
       } else if (currentTool is Eraser) {
-        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, coreInfo.strokes).reversed) {
+        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
           Stroke removed = coreInfo.strokes.removeAt(i);
           removeExcessPagesAfterStroke(removed);
         }
@@ -294,7 +304,7 @@ class _EditorState extends State<Editor> {
   onInteractionEnd(ScaleEndDetails details) {
     // reset after 1ms to keep track of the same gesture only
     _lastSeenPointerCountTimer?.cancel();
-    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 1), () {
+    _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 10), () {
       lastSeenPointerCount = 0;
     });
   }
@@ -416,7 +426,10 @@ class _EditorState extends State<Editor> {
                     coreInfo: coreInfo.copyWith(
                         strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
                     ),
-                    currentStroke: (Pen.currentPen.currentStroke?.pageIndex == pageIndex) ? Pen.currentPen.currentStroke : null,
+                    currentStroke: () {
+                      Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
+                      return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
+                    }(),
                   ),
                   const SizedBox(height: 16),
                 ]
@@ -437,7 +450,11 @@ class _EditorState extends State<Editor> {
               setState(() {
                 updateColorBar(color);
 
-                Pen.currentPen.strokeProperties.color = color;
+                if (currentTool is Highlighter) {
+                  (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
+                } else if (currentTool is Pen) {
+                  (currentTool as Pen).strokeProperties.color = color;
+                }
               });
             },
             undo: undo,

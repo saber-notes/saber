@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.3.12+312
+version: 0.3.14+314
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
@@ -41,7 +41,7 @@ dependencies:
 
   flutter_staggered_grid_view: ^0.6.2
 
-  go_router: ^5.1.1
+  go_router: ^5.1.5
   path_to_regexp: ^0.4.0
 
   # todo: use pub.dev when the new release (> 1.0.4) is available
@@ -58,9 +58,10 @@ dependencies:
 
   package_info_plus: ^3.0.1
 
-  # todo: replace with https://github.com/jld3103/nextcloud-neon/tree/main/packages/nextcloud when it's ready
-  # documentation at https://pub.dev/documentation/nextcloud/3.0.2/ (3.0.2+1 is just a deprecation message)
-  nextcloud: ^3.0.2+1
+  nextcloud:
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/nextcloud
 
   collapsible: ^1.0.0
 
@@ -76,19 +77,23 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  share_plus: ^6.0.1
+  share_plus: ^6.2.0
   file_picker: ^5.2.2
 
   modals: ^1.0.0+1
 
   fzregex: ^2.0.0
 
-  slang: ^3.1.0
-  slang_flutter: ^3.1.0
+  slang: ^3.3.1
+  slang_flutter: ^3.3.0
 
   flutter_colorpicker: ^1.0.3
 
   google_fonts: ^3.0.1
+
+  font_awesome_flutter: ^10.2.1
+
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -103,7 +108,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-  icons_launcher: ^2.0.2
+  icons_launcher: ^2.0.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -116,9 +121,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icon/icon.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -145,11 +150,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
-  fonts:
-    - family: SaberIcons
-      fonts:
-        - asset: fonts/SaberIcons.ttf
 
 icons_launcher:
   image_path: "assets/icon/icon.png"

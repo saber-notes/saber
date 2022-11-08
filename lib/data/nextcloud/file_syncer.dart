@@ -19,28 +19,29 @@ abstract class FileSyncer {
   static EncPref<List<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
 
-  static NextCloudClient? _client;
+  static NextcloudClient? _client;
 
   static bool _isUploadingFile = false;
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
+  static const int filesDoneLimit = 100000000;
 
   static void startSync() async {
     _uploadFileFromQueue();
 
-    _client ??= await NextCloudClientExtension.withSavedDetails();
+    _client ??= await NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
     // Get list of remote files from server
-    List<WebDavFile> remoteFiles = await _client!.webDav.ls(
+    List<WebDavFile> remoteFiles = await _client!.webdav.ls(
         FileManager.appRootDirectoryPrefix,
-        props: {WebDavProps.davLastModified}
+        props: {WebDavProps.davLastModified.name}
     );
 
     // Add each file to download queue if needed
     await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
-    filesDone.value = 0;
+    filesDone.value = 1;
 
     Queue<SyncFile> failedFiles = Queue();
 
@@ -57,6 +58,9 @@ abstract class FileSyncer {
 
     // Add failed files back to queue for next sync
     _downloadQueue.addAll(failedFiles);
+
+    // make sure progress indicator is complete
+    filesDone.value = (filesDone.value ?? 0) + filesDoneLimit;
   }
 
   /// Queues a file to be uploaded
@@ -73,9 +77,10 @@ abstract class FileSyncer {
   /// Picks the first filePath from [_uploadQueue] and uploads it
   static Future _uploadFileFromQueue() async {
     if (_isUploadingFile) return;
+    await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
 
-    _client ??= await NextCloudClientExtension.withSavedDetails();
+    _client ??= await NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
     try {
@@ -110,7 +115,7 @@ abstract class FileSyncer {
       final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
 
       const Utf8Encoder encoder = Utf8Encoder();
-      await _client!.webDav.upload(encoder.convert(localDataEncrypted), filePathRemote);
+      await _client!.webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
     } finally {
       _isUploadingFile = false;
       _uploadFileFromQueue();
@@ -163,18 +168,24 @@ abstract class FileSyncer {
   static Future<bool> _downloadFile(SyncFile file) async {
     final Uint8List encryptedDataEncoded;
     try {
-      encryptedDataEncoded = await _client!.webDav.download(file.remotePath);
-    } on RequestException {
+      encryptedDataEncoded = await _client!.webdav.download(file.remotePath);
+    } on ApiException {
       return false;
     }
 
     final Encrypter encrypter = await _client!.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
 
-    final String encryptedData = utf8.decode(encryptedDataEncoded);
-    final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
-
-    FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+    try {
+      final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
+      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
+      final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
+      final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+      FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+    } catch (e) {
+      if (kDebugMode) print("Failed to download file ${file.localPath} ${file.remotePath}");
+      return false;
+    }
 
     return true;
   }
@@ -195,16 +206,16 @@ abstract class FileSyncer {
 
     // get remote file
     try {
-      file.webDavFile ??= (await _client!.webDav.ls(file.remotePath, props: {WebDavProps.davLastModified}))[0];
+      file.webDavFile ??= (await _client!.webdav.ls(file.remotePath, props: {WebDavProps.davLastModified.name}))[0];
     } catch (e) {
       // remote file doesn't exist; keep local
       return true;
     }
 
     // file exists locally, check if it's newer
-    final DateTime lastModifiedRemote = file.webDavFile!.lastModified;
+    final DateTime? lastModifiedRemote = file.webDavFile!.lastModified;
     final DateTime lastModifiedLocal = await FileManager.lastModified(file.localPath);
-    if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
+    if (lastModifiedRemote != null && lastModifiedRemote.isAfter(lastModifiedLocal)) {
       // remote is newer; keep remote
       return false;
     } else {

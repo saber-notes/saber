@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -26,12 +27,13 @@ class DynamicMaterialApp extends StatefulWidget {
 }
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
-  bool useCustomFont = false;
+  bool requiresCustomFont = false;
 
   @override
   void initState() {
     Prefs.appTheme.addListener(onChanged);
     Prefs.accentColor.addListener(onChanged);
+    Prefs.hyperlegibleFont.addListener(onChanged);
     decideOnFont();
     super.initState();
   }
@@ -43,6 +45,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
   /// We need to use a custom font if macOS < 10.13,
   /// see https://github.com/adil192/saber/issues/26
   void decideOnFont() {
+    if (kIsWeb) return;
     if (!Platform.isMacOS) return;
 
     final RegExp numberRegex = RegExp(r'\d+\.\d+'); // e.g. 10.13 or 12.5
@@ -52,7 +55,21 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
     final double osVersion = double.tryParse(osVersionMatch[0] ?? "0") ?? 0;
     if (osVersion >= 10.13) return;
 
-    useCustomFont = true;
+    requiresCustomFont = true;
+  }
+
+  TextTheme? getTextTheme(Brightness brightness) {
+    if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
+      return GoogleFonts.atkinsonHyperlegibleTextTheme(
+        ThemeData(brightness: brightness).textTheme,
+      );
+    } else if (requiresCustomFont) {
+      return GoogleFonts.robotoTextTheme(
+        ThemeData(brightness: brightness).textTheme,
+      );
+    } else {
+      return null;
+    }
   }
 
   @override
@@ -62,7 +79,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
         ColorScheme lightColorScheme;
         ColorScheme darkColorScheme;
 
-        if (Prefs.accentColor.value != 0) {
+        if (Prefs.accentColor.loaded && Prefs.accentColor.value != 0) {
           Color accentColor = Color(Prefs.accentColor.value);
           lightColorScheme = ColorScheme.fromSeed(
             seedColor: accentColor,
@@ -97,18 +114,16 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightColorScheme,
-            textTheme: useCustomFont ? GoogleFonts.robotoTextTheme(
-              ThemeData(brightness: Brightness.light).textTheme,
-            ) : null,
+            textTheme: getTextTheme(Brightness.light),
+            scaffoldBackgroundColor: lightColorScheme.background,
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
             colorScheme: darkColorScheme,
-            textTheme: useCustomFont ? GoogleFonts.robotoTextTheme(
-              ThemeData(brightness: Brightness.dark).textTheme,
-            ) : null,
+            textTheme: getTextTheme(Brightness.dark),
+            scaffoldBackgroundColor: darkColorScheme.background,
           ),
-          themeMode: ThemeMode.values[Prefs.appTheme.value],
+          themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
 
           debugShowCheckedModeBanner: false,
         );

@@ -1,0 +1,47 @@
+name: Build for Android
+
+on:
+  # Enable manual run
+  workflow_dispatch:
+  push:
+    tags:
+      - '**'
+
+env:
+  project-id: com.adilhanney.saber
+
+jobs:
+  build-apk:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Build apk
+        run: flutter build apk
+
+      - name: Sign apk
+        uses: Tlaster/android-sign@v1.2.2
+        with:
+          releaseDirectory: |
+            build/app/outputs/flutter-apk/
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          output: build/app/outputs/flutter-apk/signed
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Rename signed apk
+        run: mv build/app/outputs/flutter-apk/signed/app-release-signed.apk build/app/outputs/flutter-apk/signed/Saber.apk
+
+      - name: Upload apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: Saber-Android
+          path: build/app/outputs/flutter-apk/signed/Saber.apk

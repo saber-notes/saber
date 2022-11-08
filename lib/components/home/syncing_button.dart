@@ -28,18 +28,19 @@ class _SyncingButtonState extends State<SyncingButton> {
     if (FileSyncer.filesDone.value == null) return null;
 
     int done = FileSyncer.filesDone.value!;
-    int total = done + FileSyncer.filesToSync;
-    if (total == 0) {
+    int toSync = FileSyncer.filesToSync;
+
+    if (toSync == 0 || done > FileSyncer.filesDoneLimit) {
       return 1;
     } else {
-      return done / total;
+      return done / (done + toSync);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     double? percentage = getPercentage();
-    bool loggedIn = Prefs.username.value.isNotEmpty;
+    bool loggedIn = Prefs.username.loaded && Prefs.username.value.isNotEmpty;
 
     return IconButton(
       onPressed: loggedIn ? () {
@@ -52,10 +53,9 @@ class _SyncingButtonState extends State<SyncingButton> {
           AnimatedOpacity(
             opacity:  (loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
             duration: const Duration(milliseconds: 200),
-            child: CircularProgressIndicator(
-              semanticsLabel: 'Syncing progress',
-              semanticsValue: '${(percentage ?? 0) * 100}%',
-              value: percentage,
+            child: _AnimatedCircularProgressIndicator(
+              duration: const Duration(milliseconds: 200),
+              percentage: percentage,
             ),
           ),
           const Icon(Icons.sync)
@@ -69,5 +69,48 @@ class _SyncingButtonState extends State<SyncingButton> {
     FileSyncer.filesDone.removeListener(listener);
     Prefs.username.removeListener(listener);
     super.dispose();
+  }
+}
+
+class _AnimatedCircularProgressIndicator extends ImplicitlyAnimatedWidget {
+  const _AnimatedCircularProgressIndicator({
+    super.key,
+    required super.duration,
+    required this.percentage,
+  });
+
+  final double? percentage;
+
+  @override
+  ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() => _AnimatedCircularProgressIndicatorState();
+}
+class _AnimatedCircularProgressIndicatorState extends AnimatedWidgetBaseState<_AnimatedCircularProgressIndicator> {
+  Tween<double>? _valueTween;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void forEachTween(TweenVisitor<dynamic> visitor) {
+    _valueTween = visitor(
+      _valueTween,
+      widget.percentage ?? 0.0,
+      (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double)
+    ) as Tween<double>?;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double? percentage = _valueTween?.evaluate(animation);
+    if (percentage == 0 && widget.percentage == null) {
+      percentage = null;
+    }
+    return CircularProgressIndicator(
+      semanticsLabel: 'Syncing progress',
+      semanticsValue: '${(percentage ?? 0) * 100}%',
+      value: percentage,
+    );
   }
 }

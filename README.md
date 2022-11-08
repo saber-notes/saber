@@ -34,7 +34,7 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1 (recommended): Download and install `app-release.apk` from the latest [Release][releases].
+Option 1 (recommended): Download and install `Saber.apk` from the latest [Release][releases].
 
 Option 2: Download from [F-Droid][f-droid]
 
@@ -97,7 +97,7 @@ You may need to generate a signing certificate and create the `android/key.prope
 More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
 Note: F-Droid releases are built slightly differently:
-`flutter build apk --flavor fdroid  -t lib/main_fdroid.dart`
+`flutter build apk -t lib/main_fdroid.dart`
 
 #### The web
 
@@ -137,9 +137,30 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 ## Translating
 
+### Extending existing translations
+
+Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.json)
+   to see if any translations are missing.
+
+1. Fork this repo
+2. Update your `_missing_translations.json` file with your translations, e.g. updating Simplified Chinese (zh)
+    ```javascript
+    "zh": {
+      "editor": {
+        "toolbar": {
+          "highlighter": "荧光笔"
+        }
+      }
+    },
+    // ignore the other languages...
+    ```
+3. Open a pull request! I'll do the rest
+
+### Adding a new language
+
 1. Fork this repo
 2. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
-   e.g. `es` for Spanish, `fr` for French, `hi` for Hindi, etc.
+   e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
 3. Copy `lib/i18n/strings.i18n.json` to `lib/i18n/strings_XX.i18n.json` (replacing `XX` with your locale code)
 4. Translate the strings in `lib/i18n/strings_XX.i18n.json`
 5. Open a pull request!
@@ -162,7 +183,9 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
 - When updating the **translations**...
-  - Run the following command `flutter pub run slang`
+  - Run the following commands:
+    - `flutter pub run slang`
+    - `flutter pub run slang analyze --full --outdir=lib/i18n/`
   - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
     and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
 

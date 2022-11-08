@@ -45,6 +45,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
     var colorScheme = Theme.of(context).colorScheme;
     return Material(
+      color: colorScheme.background,
       child: InkWell(
         onTap: () {
           context.push(RoutePaths.login);

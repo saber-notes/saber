@@ -28,6 +28,8 @@ abstract class Prefs {
   static late PlainPref<int> appTheme;
   /// The accent color of the app. If 0, the system accent color will be used.
   static late PlainPref<int> accentColor;
+  static late PlainPref<bool> hyperlegibleFont;
+
   static late PlainPref<bool> editorToolbarOnBottom;
   static late PlainPref<bool> editorFingerDrawing;
   static late PlainPref<bool> editorAutoInvert;
@@ -35,6 +37,9 @@ abstract class Prefs {
 
   static late PlainPref<List<String>> recentColorsChronological;
   static late PlainPref<List<String>> recentColorsPositioned;
+
+  static late PlainPref<int> lastPenColor;
+  static late PlainPref<int> lastHighlighterColor;
 
   static late PlainPref<List<String>> recentFiles;
 
@@ -56,6 +61,8 @@ abstract class Prefs {
 
     appTheme = PlainPref("appTheme", ThemeMode.system.index);
     accentColor = PlainPref("accentColor", 0);
+    hyperlegibleFont = PlainPref("hyperlegibleFont", false);
+
     editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
@@ -63,6 +70,9 @@ abstract class Prefs {
 
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
+
+    lastPenColor = PlainPref("lastPenColor", -1);
+    lastHighlighterColor = PlainPref("lastHighlighterColor", -1);
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
@@ -110,6 +120,11 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
     return super.value;
   }
   get loaded => _loaded;
+
+  Future<void> waitUntilLoaded() {
+    if (loaded) return Future.value();
+    return Future.delayed(const Duration(milliseconds: 10), waitUntilLoaded);
+  }
 
   /// Lets us use notifyListeners outside of the class
   /// as super.notifyListeners is @protected

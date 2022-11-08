@@ -9,9 +9,11 @@ class ColorBar extends StatelessWidget {
   const ColorBar({
     super.key,
     required this.setColor,
+    required this.currentColor,
   });
 
   final ValueChanged<Color> setColor;
+  final Color? currentColor;
 
   static const double diameter = 25;
 
@@ -50,7 +52,8 @@ class ColorBar extends StatelessWidget {
             children: [
               // recent colors
               for (String colorString in Prefs.recentColorsPositioned.value.reversed) ColorOption(
-                isSelected: Pen.currentPen.strokeProperties.color.value == int.parse(colorString),
+                isSelected: currentColor?.withAlpha(255).value == int.parse(colorString),
+                enabled: currentColor != null,
                 onTap: () => setColor(Color(int.parse(colorString))),
                 child: Container(
                   decoration: BoxDecoration(
@@ -66,6 +69,7 @@ class ColorBar extends StatelessWidget {
               // placeholders for 5 recent colors
               for (int i = 0; i < 5 - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
                 isSelected: false,
+                enabled: currentColor != null,
                 onTap: null,
                 child: Container(
                   decoration: BoxDecoration(
@@ -83,7 +87,8 @@ class ColorBar extends StatelessWidget {
 
               // all colors
               for (Color color in colorOptions) ColorOption(
-                isSelected: Pen.currentPen.strokeProperties.color.value == color.value,
+                isSelected: currentColor?.withAlpha(255).value == color.value,
+                enabled: currentColor != null,
                 onTap: () => setColor(color),
                 child: Container(
                   decoration: BoxDecoration(
