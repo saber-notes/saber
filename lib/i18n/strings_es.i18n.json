@@ -26,10 +26,17 @@
 		"prefLabels": {
 			"appTheme": "Tema de la aplicación",
 			"customAccentColor": "Color de acento personalizado",
+			"hyperlegibleFont": "Fuente hiperlegible",
 			"shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
 			"editorToolbarOnBottom": "Alinear la barra de herramientas del editor en la parte inferior",
 			"editorAutoInvert": "Invertir notas en el modo oscuro",
 			"preferGreyscale": "Preferir colores en escala de grises"
+		},
+		"prefDescriptions": {
+			"hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
+			"shouldCheckForUpdates": "No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes",
+			"editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
+			"preferGreyscale": "Para pantallas con tinta electrónica"
 		},
 		"themeModes": {
 			"system": "Sistema",
@@ -84,6 +91,7 @@
 	"editor": {
 		"toolbar": {
 			"fountainPen": "Lápiz",
+			"highlighter": "Resaltador",
 			"toggleColors": "Cambiar colores (Ctrl C)",
 			"toggleEraser": "Borrador (Ctrl E)",
 			"photo": "Foto",
