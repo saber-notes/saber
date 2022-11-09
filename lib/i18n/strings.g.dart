@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 5
-/// Strings: 329 (65 per locale)
+/// Locales: 6
+/// Strings: 397 (66 per locale)
 ///
-/// Built on 2022-11-08 at 16:48 UTC
+/// Built on 2022-11-09 at 02:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -26,7 +26,8 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
 	it(languageCode: 'it', build: _StringsIt.build),
-	zh(languageCode: 'zh', build: _StringsZh.build);
+	zh(languageCode: 'zh', build: _StringsZh.build),
+	zhTw(languageCode: 'zh', countryCode: 'TW', build: _StringsZhTw.build);
 
 	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
 
@@ -1463,6 +1464,280 @@ class _StringsEditorToolbarZh extends _StringsEditorToolbarEn {
 	@override String get exportAs => '导出为：';
 }
 
+// Path: <root>
+class _StringsZhTw extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsZhTw.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.zhTw,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <zh-TW>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+
+	@override late final _StringsZhTw _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeZhTw home = _StringsHomeZhTw._(_root);
+	@override late final _StringsSettingsZhTw settings = _StringsSettingsZhTw._(_root);
+	@override late final _StringsLoginZhTw login = _StringsLoginZhTw._(_root);
+	@override late final _StringsAppInfoZhTw appInfo = _StringsAppInfoZhTw._(_root);
+	@override late final _StringsUpdateZhTw update = _StringsUpdateZhTw._(_root);
+	@override late final _StringsEditorZhTw editor = _StringsEditorZhTw._(_root);
+}
+
+// Path: home
+class _StringsHomeZhTw extends _StringsHomeEn {
+	_StringsHomeZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsZhTw tabs = _StringsHomeTabsZhTw._(_root);
+	@override late final _StringsHomeTitlesZhTw titles = _StringsHomeTitlesZhTw._(_root);
+	@override late final _StringsHomeTooltipsZhTw tooltips = _StringsHomeTooltipsZhTw._(_root);
+	@override String get backFolder => '(返回)';
+	@override String get welcome => '歡迎使用 Saber';
+	@override String get noFiles => '未找到檔案';
+	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
+}
+
+// Path: settings
+class _StringsSettingsZhTw extends _StringsSettingsEn {
+	_StringsSettingsZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefLabelsZhTw prefLabels = _StringsSettingsPrefLabelsZhTw._(_root);
+	@override late final _StringsSettingsPrefDescriptionsZhTw prefDescriptions = _StringsSettingsPrefDescriptionsZhTw._(_root);
+	@override late final _StringsSettingsThemeModesZhTw themeModes = _StringsSettingsThemeModesZhTw._(_root);
+	@override late final _StringsSettingsAccentColorPickerZhTw accentColorPicker = _StringsSettingsAccentColorPickerZhTw._(_root);
+}
+
+// Path: login
+class _StringsLoginZhTw extends _StringsLoginEn {
+	_StringsLoginZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '登入';
+	@override late final _StringsLoginFeedbacksZhTw feedbacks = _StringsLoginFeedbacksZhTw._(_root);
+	@override late final _StringsLoginFormZhTw form = _StringsLoginFormZhTw._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: '還沒有帳號？ '),
+		linkToSignup('立即註冊'),
+		const TextSpan(text: '！'),
+	]);
+	@override late final _StringsLoginStatusZhTw status = _StringsLoginStatusZhTw._(_root);
+}
+
+// Path: appInfo
+class _StringsAppInfoZhTw extends _StringsAppInfoEn {
+	_StringsAppInfoZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get licenseNotice => 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String get debug => 'DEBUG';
+	@override String get showMoreInfo => '顯示更多資訊';
+	@override String get showLessInfo => '顯示更少資訊';
+	@override String get licenseButton => '點擊此處查看更多許可證資訊';
+	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
+}
+
+// Path: update
+class _StringsUpdateZhTw extends _StringsUpdateEn {
+	_StringsUpdateZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => '可用更新';
+	@override String get updateAvailableDescription => '該應用程式的新版本可用。';
+	@override String get dismiss => '忽略';
+	@override String get update => '更新';
+}
+
+// Path: editor
+class _StringsEditorZhTw extends _StringsEditorEn {
+	_StringsEditorZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarZhTw toolbar = _StringsEditorToolbarZhTw._(_root);
+}
+
+// Path: home.tabs
+class _StringsHomeTabsZhTw extends _StringsHomeTabsEn {
+	_StringsHomeTabsZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => '首頁';
+	@override String get browse => '全部筆記';
+	@override String get whiteboard => '白板';
+	@override String get settings => '設定';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesZhTw extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => '最近筆記';
+	@override String get browse => '全部筆記';
+	@override String get whiteboard => '白板';
+	@override String get settings => '設定';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsZhTw extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新增筆記';
+	@override String get showUpdateDialog => '顯示更新對話框';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsZhTw extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get appTheme => '應用程式主題';
+	@override String get customAccentColor => '自訂主題色';
+	@override String get hyperlegibleFont => '易讀字體';
+	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
+	@override String get editorToolbarOnBottom => '將編輯工具列與底部對齊';
+	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
+	@override String get preferGreyscale => '使用灰度顏色';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsZhTw extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
+	@override String get shouldCheckForUpdates => '如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要';
+	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
+	@override String get preferGreyscale => '用於電子紙螢幕';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesZhTw extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => '系統';
+	@override String get light => '淺色';
+	@override String get dark => '深色';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerZhTw extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => '選取顏色';
+	@override String get confirm => '確定';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksZhTw extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => '請仔細檢查您的使用者名稱或電子郵件。';
+	@override String get enterNcPassword => '請輸入您的 Nextcloud 密碼。';
+	@override String get enterEncPassword => '請輸入您的加密密碼。';
+	@override String get checkUrl => '請輸入有效連結。';
+	@override String get loginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
+	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
+}
+
+// Path: login.form
+class _StringsLoginFormZhTw extends _StringsLoginFormEn {
+	_StringsLoginFormZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => '我想要使用自訂 Nextcloud 伺服器';
+	@override String get customServerUrl => '自訂伺服器連結';
+	@override String get username => '使用者名稱或電子郵件';
+	@override String get ncPassword => 'Nextcloud 密碼';
+	@override String get encPassword => '加密密碼';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: '登入即表示你同意 '),
+		linkToPrivacyPolicy('隱私政策'),
+		const TextSpan(text: '。'),
+	]);
+	@override String get login => '登入';
+}
+
+// Path: login.status
+class _StringsLoginStatusZhTw extends _StringsLoginStatusEn {
+	_StringsLoginStatusZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => '已使用 Nextcloud 登入';
+	@override String get loggedOut => '已登出';
+	@override String get tapToLogin => '點擊以使用 Nextcloud 登入';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarZhTw extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => '鋼筆';
+	@override String get highlighter => '螢光筆';
+	@override String get toggleColors => '切換顏色 (Ctrl C)';
+	@override String get toggleEraser => '切換橡皮擦 (Ctrl E)';
+	@override String get photo => '照片';
+	@override String get toggleFingerDrawing => '切換手寫 (Ctrl F)';
+	@override String get undo => '復原';
+	@override String get redo => '重做';
+	@override String get export => '匯出 (Ctrl Shift S)';
+	@override String get exportAs => '匯出為：';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -1869,6 +2144,90 @@ extension on _StringsZh {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '导出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '导出为：';
+			default: return null;
+		}
+	}
+}
+
+extension on _StringsZhTw {
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'home.tabs.home': return '首頁';
+			case 'home.tabs.browse': return '全部筆記';
+			case 'home.tabs.whiteboard': return '白板';
+			case 'home.tabs.settings': return '設定';
+			case 'home.titles.home': return '最近筆記';
+			case 'home.titles.browse': return '全部筆記';
+			case 'home.titles.whiteboard': return '白板';
+			case 'home.titles.settings': return '設定';
+			case 'home.tooltips.newNote': return '新增筆記';
+			case 'home.tooltips.showUpdateDialog': return '顯示更新對話框';
+			case 'home.backFolder': return '(返回)';
+			case 'home.welcome': return '歡迎使用 Saber';
+			case 'home.noFiles': return '未找到檔案';
+			case 'home.createNewNote': return '點擊 + 按鈕新增一個筆記';
+			case 'settings.prefLabels.appTheme': return '應用程式主題';
+			case 'settings.prefLabels.customAccentColor': return '自訂主題色';
+			case 'settings.prefLabels.hyperlegibleFont': return '易讀字體';
+			case 'settings.prefLabels.shouldCheckForUpdates': return '自動檢查 Saber 更新';
+			case 'settings.prefLabels.editorToolbarOnBottom': return '將編輯工具列與底部對齊';
+			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色筆記背景';
+			case 'settings.prefLabels.preferGreyscale': return '使用灰度顏色';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
+			case 'settings.prefDescriptions.shouldCheckForUpdates': return '如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要';
+			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
+			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
+			case 'settings.themeModes.system': return '系統';
+			case 'settings.themeModes.light': return '淺色';
+			case 'settings.themeModes.dark': return '深色';
+			case 'settings.accentColorPicker.pickAColor': return '選取顏色';
+			case 'settings.accentColorPicker.confirm': return '確定';
+			case 'login.title': return '登入';
+			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
+			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
+			case 'login.feedbacks.enterEncPassword': return '請輸入您的加密密碼。';
+			case 'login.feedbacks.checkUrl': return '請輸入有效連結。';
+			case 'login.feedbacks.loginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
+			case 'login.feedbacks.loginSuccess': return '登入成功！我們正在設定中，請稍後……';
+			case 'login.form.useCustomServer': return '我想要使用自訂 Nextcloud 伺服器';
+			case 'login.form.customServerUrl': return '自訂伺服器連結';
+			case 'login.form.username': return '使用者名稱或電子郵件';
+			case 'login.form.ncPassword': return 'Nextcloud 密碼';
+			case 'login.form.encPassword': return '加密密碼';
+			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+				const TextSpan(text: '登入即表示你同意 '),
+				linkToPrivacyPolicy('隱私政策'),
+				const TextSpan(text: '。'),
+			]);
+			case 'login.form.login': return '登入';
+			case 'login.signup': return ({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+				const TextSpan(text: '還沒有帳號？ '),
+				linkToSignup('立即註冊'),
+				const TextSpan(text: '！'),
+			]);
+			case 'login.status.loggedIn': return '已使用 Nextcloud 登入';
+			case 'login.status.loggedOut': return '已登出';
+			case 'login.status.tapToLogin': return '點擊以使用 Nextcloud 登入';
+			case 'appInfo.licenseNotice': return 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+			case 'appInfo.debug': return 'DEBUG';
+			case 'appInfo.showMoreInfo': return '顯示更多資訊';
+			case 'appInfo.showLessInfo': return '顯示更少資訊';
+			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';
+			case 'appInfo.privacyPolicyButton': return '點擊此處查看隱私權政策';
+			case 'update.updateAvailable': return '可用更新';
+			case 'update.updateAvailableDescription': return '該應用程式的新版本可用。';
+			case 'update.dismiss': return '忽略';
+			case 'update.update': return '更新';
+			case 'editor.toolbar.fountainPen': return '鋼筆';
+			case 'editor.toolbar.highlighter': return '螢光筆';
+			case 'editor.toolbar.toggleColors': return '切換顏色 (Ctrl C)';
+			case 'editor.toolbar.toggleEraser': return '切換橡皮擦 (Ctrl E)';
+			case 'editor.toolbar.photo': return '照片';
+			case 'editor.toolbar.toggleFingerDrawing': return '切換手寫 (Ctrl F)';
+			case 'editor.toolbar.undo': return '復原';
+			case 'editor.toolbar.redo': return '重做';
+			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
+			case 'editor.toolbar.exportAs': return '匯出為：';
 			default: return null;
 		}
 	}
