@@ -42,9 +42,11 @@ Option 3: Download from the [Play Store][google_play]
 
 #### Linux
 
-Option 1 (recommended): Install the flatpak from Flathub: `flatpak --user install com.adilhanney.saber`.
+Option 1 (recommended): Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
 
 Option 2: Download `Saber.flatpak` from the latest [Release][releases] and install with `flatpak --user install Saber.flatpak`
+
+Option 3: Download `Saber-latest-x86_64.AppImage` from the latest [Release][releases], make it executable with `chmod +x Saber-latest-x86_64.AppImage`, then run it.
 
 #### Windows
 
@@ -87,7 +89,7 @@ flutter pub get
 
 This is good enough for using on your own computer, but if you want to redistribute your build,
 you need to use a predictable environment: fork this repo and use the GitHub Action
-[Build Flatpak](https://github.com/adil192/saber/actions/workflows/flatpak.yml) instead.
+[Build for Linux](https://github.com/adil192/saber/actions/workflows/linux.yml) instead.
 
 #### Android
 
@@ -193,6 +195,7 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
 
 [saber_web]: https://saber.adil.hanney.org
 [f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
+[flathub]: https://flathub.org/apps/details/com.adilhanney.saber
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
