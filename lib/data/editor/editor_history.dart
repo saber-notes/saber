@@ -46,7 +46,16 @@ class EditorHistory {
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
     _past.add(item);
-    _future.clear();
+    _isRedoPossible = false;
+  }
+
+  /// Removes the last history item due to a rejected stroke.
+  /// This does essentially the opposite of [recordChange].
+  EditorHistoryItem? removeAccidentalStroke() {
+    _isRedoPossible = true;
+    if (_past.isEmpty) return null;
+    assert(_past.last.strokes.length == 1, "Accidental strokes should be single-stroke");
+    return _past.removeLast();
   }
 
   /// Returns true if there is something to undo.

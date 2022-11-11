@@ -230,9 +230,13 @@ class _EditorState extends State<Editor> {
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1) {
         setState(() {
-          Stroke accident = coreInfo.strokes.removeLast();
-          removeExcessPagesAfterStroke(accident);
-          history.canRedo = true;
+          EditorHistoryItem? item = history.removeAccidentalStroke();
+          if (item != null) {
+            for (Stroke stroke in item.strokes) {
+              coreInfo.strokes.remove(stroke);
+            }
+            removeExcessPagesAfterStroke(null);
+          }
         });
       }
       lastSeenPointerCount = details.pointerCount;
