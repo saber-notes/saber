@@ -54,7 +54,7 @@
   "zh": {
     "login": {
       "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
+        "encLoginFailed": "登录失败，请检查您的加密密码。"
       }
     }
   },
