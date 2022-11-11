@@ -55,7 +55,8 @@
 			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
 			"checkUrl": "Por favor introduce una dirección URL válida.",
 			"ncLoginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
-			"loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
+			"loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...",
+			"encLoginFailed": "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
 		},
 		"form": {
 			"useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
