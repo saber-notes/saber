@@ -61,7 +61,7 @@
   "zh-TW": {
     "login": {
       "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
+        "encLoginFailed": "登入失敗，請檢查您的加密密碼。"
       }
     }
   }
