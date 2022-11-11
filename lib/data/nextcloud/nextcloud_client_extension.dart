@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -65,7 +66,7 @@ extension NextcloudClientExtension on NextcloudClient {
         return key;
       } catch (e) {
         // can't decrypt, so we need to get the previous encryption key (user's password)
-        // todo: prompt user for previous password, instead of generating a new key (important)
+        throw EncLoginFailure();
       }
     }
 

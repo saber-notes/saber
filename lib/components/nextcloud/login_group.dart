@@ -20,7 +20,7 @@ class LoginInputGroup extends StatefulWidget {
     required this.tryLogin,
   });
 
-  final Future<bool> Function(LoginDetailsStruct loginDetails) tryLogin;
+  final Future<void> Function(LoginDetailsStruct loginDetails) tryLogin;
 
   @override
   State<LoginInputGroup> createState() => _LoginInputGroupState();
@@ -79,27 +79,27 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       _customServerController.text = "https://${_customServerController.text}";
     }
 
-    final bool success;
     try {
       _isLoading = true;
-      success = await widget.tryLogin(LoginDetailsStruct(
+      await widget.tryLogin(LoginDetailsStruct(
         url: _usingCustomServer ? _customServerController.text : null,
         username: _usernameController.text,
         ncPassword: _ncPasswordController.text,
         encPassword: _encPasswordController.text,
       ));
-    } finally {
-      _isLoading = false;
-    }
-
-    if (success) {
       setState(() {
         _errorMessage = t.login.feedbacks.loginSuccess;
       });
-    } else {
+    } on NcLoginFailure {
       setState(() {
-        _errorMessage = t.login.feedbacks.loginFailed;
+        _errorMessage = t.login.feedbacks.ncLoginFailed;
       });
+    } on EncLoginFailure {
+      setState(() {
+        _errorMessage = t.login.feedbacks.encLoginFailed;
+      });
+    } finally {
+      _isLoading = false;
     }
   }
 
@@ -236,4 +236,16 @@ class LoginDetailsStruct {
     required this.ncPassword,
     required this.encPassword,
   }) : url = url ?? NextcloudClientExtension.defaultNextCloudUri;
+}
+
+abstract class LoginFailure implements Exception {
+  final String message = "Login failed";
+}
+class NcLoginFailure implements LoginFailure {
+  @override
+  final String message = t.login.feedbacks.ncLoginFailed;
+}
+class EncLoginFailure implements LoginFailure {
+  @override
+  final String message = t.login.feedbacks.encLoginFailed;
 }

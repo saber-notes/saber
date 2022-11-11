@@ -54,7 +54,7 @@
 			"enterNcPassword": "請輸入您的 Nextcloud 密碼。",
 			"enterEncPassword": "請輸入您的加密密碼。",
 			"checkUrl": "請輸入有效連結。",
-			"loginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
+			"ncLoginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
 			"loginSuccess": "登入成功！我們正在設定中，請稍後……"
 		},
 		"form": {

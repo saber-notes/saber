@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 397 (66 per locale)
+/// Strings: 398 (66 per locale)
 ///
-/// Built on 2022-11-09 at 02:20 UTC
+/// Built on 2022-11-11 at 10:29 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -345,7 +345,8 @@ class _StringsLoginFeedbacksEn {
 	String get enterNcPassword => 'Please enter your Nextcloud password.';
 	String get enterEncPassword => 'Please enter your encryption password.';
 	String get checkUrl => 'Please enter a valid URL.';
-	String get loginFailed => 'Log in failed, please check your details and network connection.';
+	String get ncLoginFailed => 'Log in failed, please check your details and network connection.';
+	String get encLoginFailed => 'Log in failed, please check your encryption password.';
 	String get loginSuccess => 'Log in successful! Please wait while we set up...';
 }
 
@@ -604,7 +605,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterNcPassword => 'Bitte gib dein Nextcloud-Passwort ein.';
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
-	@override String get loginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
+	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 }
 
@@ -876,7 +877,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterNcPassword => 'Por favor ingresa tu contraseña de Nextcloud.';
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
-	@override String get loginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
+	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
 }
 
@@ -1135,7 +1136,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
 	@override String get enterEncPassword => 'Inserisci la tua password di crittografata.';
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
-	@override String get loginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
+	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
 	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
 }
 
@@ -1409,7 +1410,7 @@ class _StringsLoginFeedbacksZh extends _StringsLoginFeedbacksEn {
 	@override String get enterNcPassword => '请输入您的 Nextcloud 密码。';
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
-	@override String get loginFailed => '登录失败，请检查您的详细信息和网络连接。';
+	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 }
 
@@ -1683,7 +1684,7 @@ class _StringsLoginFeedbacksZhTw extends _StringsLoginFeedbacksEn {
 	@override String get enterNcPassword => '請輸入您的 Nextcloud 密碼。';
 	@override String get enterEncPassword => '請輸入您的加密密碼。';
 	@override String get checkUrl => '請輸入有效連結。';
-	@override String get loginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
+	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
 }
 
@@ -1779,7 +1780,8 @@ extension on _StringsEn {
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
 			case 'login.feedbacks.enterEncPassword': return 'Please enter your encryption password.';
 			case 'login.feedbacks.checkUrl': return 'Please enter a valid URL.';
-			case 'login.feedbacks.loginFailed': return 'Log in failed, please check your details and network connection.';
+			case 'login.feedbacks.ncLoginFailed': return 'Log in failed, please check your details and network connection.';
+			case 'login.feedbacks.encLoginFailed': return 'Log in failed, please check your encryption password.';
 			case 'login.feedbacks.loginSuccess': return 'Log in successful! Please wait while we set up...';
 			case 'login.form.useCustomServer': return 'I want to use a custom Nextcloud server';
 			case 'login.form.customServerUrl': return 'Custom server URL';
@@ -1858,7 +1860,7 @@ extension on _StringsDe {
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';
 			case 'login.feedbacks.enterEncPassword': return 'Bitte gib dein Verschlüsselungspasswort ein.';
 			case 'login.feedbacks.checkUrl': return 'Bitte gib eine gültige URL an.';
-			case 'login.feedbacks.loginFailed': return 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
+			case 'login.feedbacks.ncLoginFailed': return 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
 			case 'login.feedbacks.loginSuccess': return 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 			case 'login.form.useCustomServer': return 'Ich möchte einen eigenen Nextcloud-Server verwenden';
 			case 'login.form.customServerUrl': return 'Eigene Server-URL';
@@ -1941,7 +1943,7 @@ extension on _StringsEs {
 			case 'login.feedbacks.enterNcPassword': return 'Por favor ingresa tu contraseña de Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Por favor introduce tu contraseña de cifrado.';
 			case 'login.feedbacks.checkUrl': return 'Por favor introduce una dirección URL válida.';
-			case 'login.feedbacks.loginFailed': return 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
+			case 'login.feedbacks.ncLoginFailed': return 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
 			case 'login.feedbacks.loginSuccess': return '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
 			case 'login.form.useCustomServer': return 'Quiero utilizar un servidor de Nextcloud personalizado';
 			case 'login.form.customServerUrl': return 'Dirección URL del servidor personalizada';
@@ -2019,7 +2021,7 @@ extension on _StringsIt {
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Inserisci la tua password di crittografata.';
 			case 'login.feedbacks.checkUrl': return 'Per favore, inserisci un URL valido.';
-			case 'login.feedbacks.loginFailed': return 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
+			case 'login.feedbacks.ncLoginFailed': return 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
 			case 'login.feedbacks.loginSuccess': return 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
 			case 'login.form.useCustomServer': return 'Voglio utilizzare un server Nextcloud personalizzato';
 			case 'login.form.customServerUrl': return 'URL del server personalizzato';
@@ -2103,7 +2105,7 @@ extension on _StringsZh {
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
 			case 'login.feedbacks.enterEncPassword': return '请输入您的加密密码。';
 			case 'login.feedbacks.checkUrl': return '请输入有效链接。';
-			case 'login.feedbacks.loginFailed': return '登录失败，请检查您的详细信息和网络连接。';
+			case 'login.feedbacks.ncLoginFailed': return '登录失败，请检查您的详细信息和网络连接。';
 			case 'login.feedbacks.loginSuccess': return '登录成功！我们正在设置中，请稍候……';
 			case 'login.form.useCustomServer': return '我想要使用自定义 Nextcloud 服务器';
 			case 'login.form.customServerUrl': return '自定义服务器链接';
@@ -2187,7 +2189,7 @@ extension on _StringsZhTw {
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
 			case 'login.feedbacks.enterEncPassword': return '請輸入您的加密密碼。';
 			case 'login.feedbacks.checkUrl': return '請輸入有效連結。';
-			case 'login.feedbacks.loginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
+			case 'login.feedbacks.ncLoginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
 			case 'login.feedbacks.loginSuccess': return '登入成功！我們正在設定中，請稍後……';
 			case 'login.form.useCustomServer': return '我想要使用自訂 Nextcloud 伺服器';
 			case 'login.form.customServerUrl': return '自訂伺服器連結';

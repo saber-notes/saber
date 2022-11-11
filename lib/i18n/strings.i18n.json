@@ -54,7 +54,8 @@
 			"enterNcPassword": "Please enter your Nextcloud password.",
 			"enterEncPassword": "Please enter your encryption password.",
 			"checkUrl": "Please enter a valid URL.",
-			"loginFailed": "Log in failed, please check your details and network connection.",
+			"ncLoginFailed": "Log in failed, please check your details and network connection.",
+			"encLoginFailed": "Log in failed, please check your encryption password.",
 			"loginSuccess": "Log in successful! Please wait while we set up..."
 		},
 		"form": {

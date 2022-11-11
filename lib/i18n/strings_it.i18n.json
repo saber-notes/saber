@@ -47,7 +47,7 @@
 			"enterNcPassword": "Inserisci la tua password Nextcloud.",
 			"enterEncPassword": "Inserisci la tua password di crittografata.",
 			"checkUrl": "Per favore, inserisci un URL valido.",
-			"loginFailed": "Accesso fallito, controlla i tuoi dati e la connessione di rete.",
+			"ncLoginFailed": "Accesso fallito, controlla i tuoi dati e la connessione di rete.",
 			"loginSuccess": "Accesso riuscito! Si prega di attendere mentre configuriamo..."
 		},
 		"form": {

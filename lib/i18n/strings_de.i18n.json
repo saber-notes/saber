@@ -47,7 +47,7 @@
 			"enterNcPassword": "Bitte gib dein Nextcloud-Passwort ein.",
 			"enterEncPassword": "Bitte gib dein Verschlüsselungspasswort ein.",
 			"checkUrl": "Bitte gib eine gültige URL an.",
-			"loginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.",
+			"ncLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.",
 			"loginSuccess": "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
 		},
 		"form": {

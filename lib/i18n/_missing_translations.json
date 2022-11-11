@@ -15,13 +15,24 @@
         "preferGreyscale": "For e-ink displays"
       }
     },
+    "login": {
+      "feedbacks": {
+        "encLoginFailed": "Log in failed, please check your encryption password."
+      }
+    },
     "editor": {
       "toolbar": {
         "highlighter": "Highlighter"
       }
     }
   },
-  "es": {},
+  "es": {
+    "login": {
+      "feedbacks": {
+        "encLoginFailed": "Log in failed, please check your encryption password."
+      }
+    }
+  },
   "it": {
     "settings": {
       "prefLabels": {
@@ -33,8 +44,25 @@
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
       }
+    },
+    "login": {
+      "feedbacks": {
+        "encLoginFailed": "Log in failed, please check your encryption password."
+      }
     }
   },
-  "zh": {},
-  "zh-TW": {}
+  "zh": {
+    "login": {
+      "feedbacks": {
+        "encLoginFailed": "Log in failed, please check your encryption password."
+      }
+    }
+  },
+  "zh-TW": {
+    "login": {
+      "feedbacks": {
+        "encLoginFailed": "Log in failed, please check your encryption password."
+      }
+    }
+  }
 }

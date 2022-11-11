@@ -54,7 +54,7 @@
 			"enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
 			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
 			"checkUrl": "Por favor introduce una dirección URL válida.",
-			"loginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
+			"ncLoginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
 			"loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
 		},
 		"form": {

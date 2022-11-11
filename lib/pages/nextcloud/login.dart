@@ -23,7 +23,7 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
-  Future<bool> _tryLogin(LoginDetailsStruct loginDetails) async {
+  Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
     final NextcloudClient client = NextcloudClient(
       loginDetails.url,
       username: loginDetails.username,
@@ -33,26 +33,29 @@ class _NcLoginPageState extends State<NcLoginPage> {
     try {
       await client.webdav.status();
     } catch (e) {
-      return false;
+      throw NcLoginFailure();
     }
 
-    _finishLogin(loginDetails, client); // don't await
+    String previousEncPassword = Prefs.encPassword.value;
+    try {
+      Prefs.encPassword.value = loginDetails.encPassword;
+      await client.loadEncryptionKey();
+    } on EncLoginFailure {
+      rethrow;
+    } finally {
+      // If the encryption password is wrong, we don't want to save it
+      Prefs.encPassword.value = previousEncPassword;
+    }
 
-    return true;
-  }
-
-  Future _finishLogin(LoginDetailsStruct loginDetails, NextcloudClient client) async {
-    // encrypted prefs
     Prefs.url.value = loginDetails.url.toString();
     Prefs.username.value = loginDetails.username;
     Prefs.ncPassword.value = loginDetails.ncPassword;
-    Prefs.encPassword.value = loginDetails.encPassword;
 
-    Prefs.pfp.value = ""; // trigger listeners while awaiting
-    Uint8List avatar = await client.core.getAvatar(userId: loginDetails.username, size: 512);
-    Prefs.pfp.value = base64Encode(avatar);
-
-    await client.loadEncryptionKey();
+    Prefs.pfp.value = "";
+    client.core.getAvatar(userId: loginDetails.username, size: 512)
+        .then((Uint8List avatar) {
+      Prefs.pfp.value = base64Encode(avatar);
+    });
 
     if (mounted) context.pop();
   }
