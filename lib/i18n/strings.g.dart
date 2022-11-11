@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 399 (66 per locale)
+/// Strings: 400 (66 per locale)
 ///
-/// Built on 2022-11-11 at 16:02 UTC
+/// Built on 2022-11-11 at 16:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1687,6 +1687,7 @@ class _StringsLoginFeedbacksZhTw extends _StringsLoginFeedbacksEn {
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
+	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
 }
 
 // Path: login.form
@@ -2193,6 +2194,7 @@ extension on _StringsZhTw {
 			case 'login.feedbacks.checkUrl': return '請輸入有效連結。';
 			case 'login.feedbacks.ncLoginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
 			case 'login.feedbacks.loginSuccess': return '登入成功！我們正在設定中，請稍後……';
+			case 'login.feedbacks.encLoginFailed': return '登入失敗，請檢查您的加密密碼。';
 			case 'login.form.useCustomServer': return '我想要使用自訂 Nextcloud 伺服器';
 			case 'login.form.customServerUrl': return '自訂伺服器連結';
 			case 'login.form.username': return '使用者名稱或電子郵件';

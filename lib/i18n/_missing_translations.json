@@ -51,18 +51,6 @@
       }
     }
   },
-  "zh": {
-    "login": {
-      "feedbacks": {
-        "encLoginFailed": "登录失败，请检查您的加密密码。"
-      }
-    }
-  },
-  "zh-TW": {
-    "login": {
-      "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
-      }
-    }
-  }
+  "zh": {},
+  "zh-TW": {}
 }
