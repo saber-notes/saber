@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 398 (66 per locale)
+/// Strings: 400 (66 per locale)
 ///
-/// Built on 2022-11-11 at 10:29 UTC
+/// Built on 2022-11-11 at 16:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1412,6 +1412,7 @@ class _StringsLoginFeedbacksZh extends _StringsLoginFeedbacksEn {
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
+	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
 }
 
 // Path: login.form
@@ -1686,6 +1687,7 @@ class _StringsLoginFeedbacksZhTw extends _StringsLoginFeedbacksEn {
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
+	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
 }
 
 // Path: login.form
@@ -2107,6 +2109,7 @@ extension on _StringsZh {
 			case 'login.feedbacks.checkUrl': return '请输入有效链接。';
 			case 'login.feedbacks.ncLoginFailed': return '登录失败，请检查您的详细信息和网络连接。';
 			case 'login.feedbacks.loginSuccess': return '登录成功！我们正在设置中，请稍候……';
+			case 'login.feedbacks.encLoginFailed': return '登录失败，请检查您的加密密码。';
 			case 'login.form.useCustomServer': return '我想要使用自定义 Nextcloud 服务器';
 			case 'login.form.customServerUrl': return '自定义服务器链接';
 			case 'login.form.username': return '用户名或邮箱';
@@ -2191,6 +2194,7 @@ extension on _StringsZhTw {
 			case 'login.feedbacks.checkUrl': return '請輸入有效連結。';
 			case 'login.feedbacks.ncLoginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
 			case 'login.feedbacks.loginSuccess': return '登入成功！我們正在設定中，請稍後……';
+			case 'login.feedbacks.encLoginFailed': return '登入失敗，請檢查您的加密密碼。';
 			case 'login.form.useCustomServer': return '我想要使用自訂 Nextcloud 伺服器';
 			case 'login.form.customServerUrl': return '自訂伺服器連結';
 			case 'login.form.username': return '使用者名稱或電子郵件';

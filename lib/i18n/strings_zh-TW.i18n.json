@@ -1,104 +1,105 @@
 {
-	"home": {
-		"tabs": {
-			"home": "首頁",
-			"browse": "全部筆記",
-			"whiteboard": "白板",
-			"settings": "設定"
-		},
-		"titles": {
-			"home": "最近筆記",
-			"browse": "全部筆記",
-			"whiteboard": "白板",
-			"settings": "設定"
-		},
-		"tooltips": {
-			"newNote": "新增筆記",
-			"showUpdateDialog": "顯示更新對話框"
-		},
-		"backFolder": "(返回)",
-		"welcome": "歡迎使用 Saber",
-		"noFiles": "未找到檔案",
-		"createNewNote": "點擊 + 按鈕新增一個筆記"
-	},
-	"settings": {
-		"prefLabels": {
-			"appTheme": "應用程式主題",
-			"customAccentColor": "自訂主題色",
-			"hyperlegibleFont": "易讀字體",
-			"shouldCheckForUpdates": "自動檢查 Saber 更新",
-			"editorToolbarOnBottom": "將編輯工具列與底部對齊",
-			"editorAutoInvert": "在深色模式下使用反色筆記背景",
-			"preferGreyscale": "使用灰度顏色"
-		},
-		"prefDescriptions": {
-			"hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
-			"shouldCheckForUpdates": "如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要",
-			"editorAutoInvert": "在深色模式下自動使用反色筆記背景",
-			"preferGreyscale": "用於電子紙螢幕"
-		},
-		"themeModes": {
-			"system": "系統",
-			"light": "淺色",
-			"dark": "深色"
-		},
-		"accentColorPicker": {
-			"pickAColor": "選取顏色",
-			"confirm": "確定"
-		}
-	},
-	"login": {
-		"title": "登入",
-		"feedbacks": {
-			"checkUsername": "請仔細檢查您的使用者名稱或電子郵件。",
-			"enterNcPassword": "請輸入您的 Nextcloud 密碼。",
-			"enterEncPassword": "請輸入您的加密密碼。",
-			"checkUrl": "請輸入有效連結。",
-			"ncLoginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
-			"loginSuccess": "登入成功！我們正在設定中，請稍後……"
-		},
-		"form": {
-			"useCustomServer": "我想要使用自訂 Nextcloud 伺服器",
-            "customServerUrl": "自訂伺服器連結",
-			"username": "使用者名稱或電子郵件",
-			"ncPassword": "Nextcloud 密碼",
-			"encPassword": "加密密碼",
-			"agreeToPrivacyPolicy(rich)": "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。",
-			"login": "登入"
-		},
-		"signup(rich)": "還沒有帳號？ ${linkToSignup(立即註冊)}！",
-		"status": {
-			"loggedIn": "已使用 Nextcloud 登入",
-			"loggedOut": "已登出",
-			"tapToLogin": "點擊以使用 Nextcloud 登入"
-		}
-	},
-	"appInfo": {
-		"licenseNotice": "Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
-		"debug": "DEBUG",
-		"showMoreInfo": "顯示更多資訊",
-		"showLessInfo": "顯示更少資訊",
-		"licenseButton": "點擊此處查看更多許可證資訊",
-		"privacyPolicyButton": "點擊此處查看隱私權政策"
-	},
-	"update": {
-		"updateAvailable": "可用更新",
-		"updateAvailableDescription": "該應用程式的新版本可用。",
-		"dismiss": "忽略",
-		"update": "更新"
-	},
-	"editor": {
-		"toolbar": {
-			"fountainPen": "鋼筆",
-			"highlighter": "螢光筆",
-			"toggleColors": "切換顏色 (Ctrl C)",
-			"toggleEraser": "切換橡皮擦 (Ctrl E)",
-			"photo": "照片",
-			"toggleFingerDrawing": "切換手寫 (Ctrl F)",
-			"undo": "復原",
-			"redo": "重做",
-			"export": "匯出 (Ctrl Shift S)",
-			"exportAs": "匯出為："
-		}
-	}
+  "home": {
+    "tabs": {
+      "home": "首頁",
+      "browse": "全部筆記",
+      "whiteboard": "白板",
+      "settings": "設定"
+    },
+    "titles": {
+      "home": "最近筆記",
+      "browse": "全部筆記",
+      "whiteboard": "白板",
+      "settings": "設定"
+    },
+    "tooltips": {
+      "newNote": "新增筆記",
+      "showUpdateDialog": "顯示更新對話框"
+    },
+    "backFolder": "(返回)",
+    "welcome": "歡迎使用 Saber",
+    "noFiles": "未找到檔案",
+    "createNewNote": "點擊 + 按鈕新增一個筆記"
+  },
+  "settings": {
+    "prefLabels": {
+      "appTheme": "應用程式主題",
+      "customAccentColor": "自訂主題色",
+      "hyperlegibleFont": "易讀字體",
+      "shouldCheckForUpdates": "自動檢查 Saber 更新",
+      "editorToolbarOnBottom": "將編輯工具列與底部對齊",
+      "editorAutoInvert": "在深色模式下使用反色筆記背景",
+      "preferGreyscale": "使用灰度顏色"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
+      "shouldCheckForUpdates": "如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要",
+      "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
+      "preferGreyscale": "用於電子紙螢幕"
+    },
+    "themeModes": {
+      "system": "系統",
+      "light": "淺色",
+      "dark": "深色"
+    },
+    "accentColorPicker": {
+      "pickAColor": "選取顏色",
+      "confirm": "確定"
+    }
+  },
+  "login": {
+    "title": "登入",
+    "feedbacks": {
+      "checkUsername": "請仔細檢查您的使用者名稱或電子郵件。",
+      "enterNcPassword": "請輸入您的 Nextcloud 密碼。",
+      "enterEncPassword": "請輸入您的加密密碼。",
+      "checkUrl": "請輸入有效連結。",
+      "ncLoginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
+      "loginSuccess": "登入成功！我們正在設定中，請稍後……",
+      "encLoginFailed": "登入失敗，請檢查您的加密密碼。"
+    },
+    "form": {
+      "useCustomServer": "我想要使用自訂 Nextcloud 伺服器",
+      "customServerUrl": "自訂伺服器連結",
+      "username": "使用者名稱或電子郵件",
+      "ncPassword": "Nextcloud 密碼",
+      "encPassword": "加密密碼",
+      "agreeToPrivacyPolicy(rich)": "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。",
+      "login": "登入"
+    },
+    "signup(rich)": "還沒有帳號？ ${linkToSignup(立即註冊)}！",
+    "status": {
+      "loggedIn": "已使用 Nextcloud 登入",
+      "loggedOut": "已登出",
+      "tapToLogin": "點擊以使用 Nextcloud 登入"
+    }
+  },
+  "appInfo": {
+    "licenseNotice": "Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+    "debug": "DEBUG",
+    "showMoreInfo": "顯示更多資訊",
+    "showLessInfo": "顯示更少資訊",
+    "licenseButton": "點擊此處查看更多許可證資訊",
+    "privacyPolicyButton": "點擊此處查看隱私權政策"
+  },
+  "update": {
+    "updateAvailable": "可用更新",
+    "updateAvailableDescription": "該應用程式的新版本可用。",
+    "dismiss": "忽略",
+    "update": "更新"
+  },
+  "editor": {
+    "toolbar": {
+      "fountainPen": "鋼筆",
+      "highlighter": "螢光筆",
+      "toggleColors": "切換顏色 (Ctrl C)",
+      "toggleEraser": "切換橡皮擦 (Ctrl E)",
+      "photo": "照片",
+      "toggleFingerDrawing": "切換手寫 (Ctrl F)",
+      "undo": "復原",
+      "redo": "重做",
+      "export": "匯出 (Ctrl Shift S)",
+      "exportAs": "匯出為："
+    }
+  }
 }
