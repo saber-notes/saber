@@ -118,4 +118,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: AppImage artifact
-          path: appimage/Saber-latest-x86_64.AppImage
+          path: appimage/Saber-*-x86_64.AppImage*
