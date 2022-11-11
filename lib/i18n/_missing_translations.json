@@ -26,13 +26,7 @@
       }
     }
   },
-  "es": {
-    "login": {
-      "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
-      }
-    }
-  },
+  "es": {},
   "it": {
     "settings": {
       "prefLabels": {

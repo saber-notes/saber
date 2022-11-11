@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 400 (66 per locale)
+/// Strings: 401 (66 per locale)
 ///
-/// Built on 2022-11-11 at 16:13 UTC
+/// Built on 2022-11-11 at 23:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -879,6 +879,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
+	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 }
 
 // Path: login.form
@@ -1947,6 +1948,7 @@ extension on _StringsEs {
 			case 'login.feedbacks.checkUrl': return 'Por favor introduce una dirección URL válida.';
 			case 'login.feedbacks.ncLoginFailed': return 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
 			case 'login.feedbacks.loginSuccess': return '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
+			case 'login.feedbacks.encLoginFailed': return 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 			case 'login.form.useCustomServer': return 'Quiero utilizar un servidor de Nextcloud personalizado';
 			case 'login.form.customServerUrl': return 'Dirección URL del servidor personalizada';
 			case 'login.form.username': return 'Nombre de usuario o correo electrónico';
