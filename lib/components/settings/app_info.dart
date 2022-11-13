@@ -3,6 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:saber/data/version.dart' show buildNumber;
 import 'package:saber/i18n/strings.g.dart';
@@ -20,15 +21,23 @@ class AppInfo extends StatefulWidget {
   State<AppInfo> createState() => _AppInfoState();
 }
 class _AppInfoState extends State<AppInfo> {
-  bool moreInfoShown = false;
+  @override
+  void initState() {
+    getInfo().then((info) {
+      setState(() {
+        this.info = info;
+      });
+    });
+    super.initState();
+  }
 
+  String info = "v$buildNumber";
   Future<String> getInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     List<String> info = [
-      packageInfo.appName,
+      "v${packageInfo.version}",
       kDebugMode ? t.appInfo.debug : "",
-      packageInfo.version,
       "($buildNumber)",
     ];
 
@@ -37,59 +46,44 @@ class _AppInfoState extends State<AppInfo> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
-    return Column(
-      children: [
-        Center(
-          child: FutureBuilder(
-            future: getInfo(),
-            builder: (context, snapshot) {
-              return SelectableText(snapshot.data as String? ?? "");
-            },
-          ),
-        ),
-        
-        TextButton(
-          onPressed: () { setState(() { moreInfoShown = !moreInfoShown; }); },
-          child: IntrinsicWidth(
-            child: Row(children: [
-              Text(moreInfoShown ? t.appInfo.showLessInfo : t.appInfo.showMoreInfo),
-              Icon(moreInfoShown ? Icons.expand_more : Icons.expand_less),
-            ]),
-          ),
-        ),
-
-        Collapsible(
-          collapsed: !moreInfoShown,
-          axis: CollapsibleAxis.vertical,
-          alignment: Alignment.topCenter,
-          maintainState: true,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: SelectableText(t.appInfo.licenseNotice)
-              ),
-              TextButton(
-                onPressed: () => launchUrl(
-                  AppInfo.licenseUrl,
-                  mode: LaunchMode.externalApplication,
-                ),
-                child: Text(t.appInfo.licenseButton),
-              ),
-              TextButton(
-                onPressed: () => launchUrl(
-                  AppInfo.privacyPolicyUrl,
-                  mode: LaunchMode.externalApplication,
-                ),
-                child: Text(t.appInfo.privacyPolicyButton),
-              ),
-            ],
-          ),
-        ),
-      ],
+    return TextButton(
+      onPressed: _showAboutDialog,
+      child: Text(info),
     );
   }
+
+  _showAboutDialog() => showAboutDialog(
+    context: context,
+    applicationVersion: info,
+    applicationIcon: Image.asset(
+      "assets/icon/icon.png",
+      width: 50,
+      height: 50,
+    ),
+    applicationLegalese: t.appInfo.licenseNotice,
+    children: [
+
+      const SizedBox(height: 10),
+      TextButton(
+        onPressed: () => launchUrl(
+          AppInfo.licenseUrl,
+          mode: LaunchMode.externalApplication,
+        ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(t.appInfo.licenseButton),
+        ),
+      ),
+      TextButton(
+        onPressed: () => launchUrl(
+          AppInfo.privacyPolicyUrl,
+          mode: LaunchMode.externalApplication,
+        ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(t.appInfo.privacyPolicyButton)
+        ),
+      ),
+    ],
+  );
 }
