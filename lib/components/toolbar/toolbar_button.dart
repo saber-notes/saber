@@ -1,7 +1,6 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:modals/modals.dart';
 import 'package:saber/data/prefs.dart';
 
 class ToolbarIconButton extends StatelessWidget {
@@ -52,17 +51,17 @@ class ToolbarIconButton extends StatelessWidget {
       return;
     }
 
-    removeAllModals();
-    showModal(ModalEntry.aligned(
-      context,
-      tag: "toolbarModal",
-
-      alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-
-      barrierDismissible: true,
-
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 58),
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      barrierColor: Colors.transparent,
+      builder: (BuildContext context) => Padding(
+        padding: EdgeInsets.only(
+          left: 8,
+          right: 8,
+          bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
+          top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
+        ),
         child: SizedBox(
           width: double.infinity,
           height: 100,
@@ -77,6 +76,6 @@ class ToolbarIconButton extends StatelessWidget {
           ),
         ),
       ),
-    ));
+    );
   }
 }
