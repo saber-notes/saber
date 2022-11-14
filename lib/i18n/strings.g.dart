@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 389 (64 per locale)
+/// Strings: 390 (65 per locale)
 ///
-/// Built on 2022-11-14 at 14:58 UTC
+/// Built on 2022-11-14 at 14:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -304,7 +304,8 @@ class _StringsSettingsPrefDescriptionsEn {
 
 	// Translations
 	String get hyperlegibleFont => 'Atkinson Hyperlegible increases legibility for readers with low vision';
-	String get shouldCheckForUpdates => 'Not necessary if you\'ve installed Saber through an app store or package manager';
+	String get shouldCheckForUpdates => 'Not necessary if you\'ve installed Saber through ___';
+	String get defaultAppStore => 'an app store or package manager';
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get preferGreyscale => 'For e-ink displays';
 }
@@ -1758,7 +1759,8 @@ extension on _StringsEn {
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible increases legibility for readers with low vision';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'Not necessary if you\'ve installed Saber through an app store or package manager';
+			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'Not necessary if you\'ve installed Saber through ___';
+			case 'settings.prefDescriptions.defaultAppStore': return 'an app store or package manager';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Smartly darkens notes in dark mode';
 			case 'settings.prefDescriptions.preferGreyscale': return 'For e-ink displays';
 			case 'settings.themeModes.system': return 'System';

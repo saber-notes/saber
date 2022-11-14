@@ -33,7 +33,8 @@
 		},
 		"prefDescriptions": {
 			"hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-			"shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
+			"shouldCheckForUpdates": "Not necessary if you've installed Saber through ___",
+			"defaultAppStore": "an app store or package manager",
 			"editorAutoInvert": "Smartly darkens notes in dark mode",
 			"preferGreyscale": "For e-ink displays"
 		},

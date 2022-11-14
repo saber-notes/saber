@@ -10,7 +10,8 @@
       },
       "prefDescriptions": {
         "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
+        "shouldCheckForUpdates": "Not necessary if you've installed Saber through ___",
+        "defaultAppStore": "an app store or package manager",
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
       }
@@ -26,7 +27,13 @@
       }
     }
   },
-  "es": {},
+  "es": {
+    "settings": {
+      "prefDescriptions": {
+        "defaultAppStore": "an app store or package manager"
+      }
+    }
+  },
   "it": {
     "settings": {
       "prefLabels": {
@@ -34,7 +41,8 @@
       },
       "prefDescriptions": {
         "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
+        "shouldCheckForUpdates": "Not necessary if you've installed Saber through ___",
+        "defaultAppStore": "an app store or package manager",
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
       }
@@ -45,6 +53,18 @@
       }
     }
   },
-  "zh": {},
-  "zh-TW": {}
+  "zh": {
+    "settings": {
+      "prefDescriptions": {
+        "defaultAppStore": "an app store or package manager"
+      }
+    }
+  },
+  "zh-TW": {
+    "settings": {
+      "prefDescriptions": {
+        "defaultAppStore": "an app store or package manager"
+      }
+    }
+  }
 }

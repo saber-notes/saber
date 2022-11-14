@@ -10,6 +10,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -79,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   if (kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isIOS) {
                     return null;
                   }
-                  return t.settings.prefDescriptions.shouldCheckForUpdates;
+                  return t.settings.prefDescriptions.shouldCheckForUpdates.replaceFirst("___", FlavorConfig.appStore);
                 }(),
                 pref: Prefs.shouldCheckForUpdates,
               ),
