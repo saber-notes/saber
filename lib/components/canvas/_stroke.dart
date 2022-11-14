@@ -14,9 +14,15 @@ class Stroke {
   final String penType;
 
   late final StrokeProperties strokeProperties;
+
   bool _isComplete = false;
-  bool get isComplete => _isComplete;
+  bool get isComplete => isStraightLine || _isComplete;
   set isComplete(bool value) { _isComplete = value; _polygonNeedsUpdating = true; }
+
+  /// Whether to draw a straight line from the first point to the last point.
+  bool _isStraightLine = false;
+  bool get isStraightLine => _isStraightLine;
+  set isStraightLine(bool value) { _isStraightLine = value; _polygonNeedsUpdating = true; }
 
   bool _polygonNeedsUpdating = true;
 
@@ -66,8 +72,19 @@ class Stroke {
   }
 
   List<Offset> _getPolygon() {
+    final List<Point> points;
+    if (isStraightLine) {
+      points = [ // todo: make this play nicer with the eraser
+        _points.first,
+        _points.last,
+        _points.last,
+      ];
+    } else {
+      points = _points;
+    }
+
     return getStroke(
-      _points,
+      points,
       isComplete: isComplete,
 
       size: strokeProperties.size,
