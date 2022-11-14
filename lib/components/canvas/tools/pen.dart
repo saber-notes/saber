@@ -22,6 +22,11 @@ class Pen extends Tool {
 
   /// If we don't move for [straightLineTimerDurationMs] milliseconds, we draw a straight line from the first point to the last point.
   Timer? _straightLineTimer;
+  /// Gives us the time between the last two points, to get a rate of movement.
+  /// If this movement is below a certain threshold for [straightLineTimerDurationMs], we draw a straight line.
+  final Stopwatch _straightLineStopwatch = Stopwatch();
+  Offset? lastPosition;
+  static const double maxSpeedForStraightLine = 0.2;
 
   static late Pen currentPen;
 
@@ -37,13 +42,23 @@ class Pen extends Tool {
   onDragUpdate(EditorCoreInfo context, Offset position, double? pressure, void Function()? setState) {
     currentStroke!.addPoint(context, position, pressure);
 
-    if (Prefs.editorStraightenDelay.value != 0) {
+    if (lastPosition != null && Prefs.editorStraightenDelay.value != 0) {
+      _straightLineStopwatch.stop();
+      int elapsedMs = _straightLineStopwatch.elapsedMilliseconds;
+      double sqrDist = (position - lastPosition!).distanceSquared;
+      double speed = sqrDist / elapsedMs;
       _straightLineTimer?.cancel();
-      _straightLineTimer = Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value), () {
-        currentStroke!.isStraightLine = true;
-        setState?.call();
-      });
+      if (speed < maxSpeedForStraightLine) {
+        _straightLineTimer = Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value), () {
+          currentStroke!.isStraightLine = true;
+          setState?.call();
+        });
+      }
     }
+
+    lastPosition = position;
+    _straightLineStopwatch.reset();
+    _straightLineStopwatch.start();
   }
 
   Stroke onDragEnd() {
