@@ -56,7 +56,7 @@ dependencies:
 
   url_launcher: ^6.1.6
 
-  package_info_plus: ^3.0.1
+  package_info_plus: ^3.0.2
 
   nextcloud:
     git:
@@ -77,15 +77,15 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  share_plus: ^6.2.0
+  share_plus: ^6.3.0
   file_picker: ^5.2.2
 
   modals: ^1.0.0+1
 
   fzregex: ^2.0.0
 
-  slang: ^3.3.1
-  slang_flutter: ^3.3.0
+  slang: ^3.4.0
+  slang_flutter: ^3.4.0
 
   flutter_colorpicker: ^1.0.3
 
@@ -108,7 +108,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-  icons_launcher: ^2.0.5
+  icons_launcher: ^2.0.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
