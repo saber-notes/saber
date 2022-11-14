@@ -77,8 +77,6 @@
 	"appInfo": {
 		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
 		"debug": "DEBUG",
-		"showMoreInfo": "Mostrar más información",
-		"showLessInfo": "Mostrar menos información",
 		"licenseButton": "Toca aquí para ver más información sobre la licencia",
 		"privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
 	},

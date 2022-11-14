@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 401 (66 per locale)
+/// Strings: 389 (64 per locale)
 ///
-/// Built on 2022-11-11 at 23:02 UTC
+/// Built on 2022-11-14 at 14:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -216,8 +216,6 @@ class _StringsAppInfoEn {
 	// Translations
 	String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	String get debug => 'DEBUG';
-	String get showMoreInfo => 'Show more info';
-	String get showLessInfo => 'Show less info';
 	String get licenseButton => 'Tap here to view more license information';
 	String get privacyPolicyButton => 'Tap here to view the privacy policy';
 }
@@ -490,8 +488,6 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => 'Mehr Infos anzeigen';
-	@override String get showLessInfo => 'Weniger Infos anzeigen';
 	@override String get licenseButton => 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 	@override String get privacyPolicyButton => 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 }
@@ -748,8 +744,6 @@ class _StringsAppInfoEs extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => 'Mostrar más información';
-	@override String get showLessInfo => 'Mostrar menos información';
 	@override String get licenseButton => 'Toca aquí para ver más información sobre la licencia';
 	@override String get privacyPolicyButton => 'Toca aquí para ver nuestra política de privacidad';
 }
@@ -1022,8 +1016,6 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => 'Mostra più informazioni';
-	@override String get showLessInfo => 'Mostra meno informazioni';
 	@override String get licenseButton => 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 	@override String get privacyPolicyButton => 'Tocca qui per visualizzare l\'informativa sulla privacy';
 }
@@ -1282,8 +1274,6 @@ class _StringsAppInfoZh extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => '显示更多信息';
-	@override String get showLessInfo => '显示更少信息';
 	@override String get licenseButton => '点击此处查看更多许可证信息';
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
 }
@@ -1557,8 +1547,6 @@ class _StringsAppInfoZhTw extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => '顯示更多資訊';
-	@override String get showLessInfo => '顯示更少資訊';
 	@override String get licenseButton => '點擊此處查看更多許可證資訊';
 	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
 }
@@ -1807,8 +1795,6 @@ extension on _StringsEn {
 			case 'login.status.tapToLogin': return 'Tap to log in with Nextcloud';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Show more info';
-			case 'appInfo.showLessInfo': return 'Show less info';
 			case 'appInfo.licenseButton': return 'Tap here to view more license information';
 			case 'appInfo.privacyPolicyButton': return 'Tap here to view the privacy policy';
 			case 'update.updateAvailable': return 'Update available';
@@ -1886,8 +1872,6 @@ extension on _StringsDe {
 			case 'login.status.tapToLogin': return 'Hier tippen, um dich mit Nextcloud anzumelden';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Mehr Infos anzeigen';
-			case 'appInfo.showLessInfo': return 'Weniger Infos anzeigen';
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 			case 'appInfo.privacyPolicyButton': return 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 			case 'update.updateAvailable': return 'Aktualisierung verfügbar';
@@ -1969,8 +1953,6 @@ extension on _StringsEs {
 			case 'login.status.tapToLogin': return 'Toca para iniciar sesión con Nextcloud';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Mostrar más información';
-			case 'appInfo.showLessInfo': return 'Mostrar menos información';
 			case 'appInfo.licenseButton': return 'Toca aquí para ver más información sobre la licencia';
 			case 'appInfo.privacyPolicyButton': return 'Toca aquí para ver nuestra política de privacidad';
 			case 'update.updateAvailable': return 'Actualización disponible';
@@ -2048,8 +2030,6 @@ extension on _StringsIt {
 			case 'login.status.tapToLogin': return 'Tocca per accedere con Nextcloud';
 			case 'appInfo.licenseNotice': return 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Mostra più informazioni';
-			case 'appInfo.showLessInfo': return 'Mostra meno informazioni';
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 			case 'appInfo.privacyPolicyButton': return 'Tocca qui per visualizzare l\'informativa sulla privacy';
 			case 'update.updateAvailable': return 'Aggiornamento disponibile';
@@ -2133,8 +2113,6 @@ extension on _StringsZh {
 			case 'login.status.tapToLogin': return '点击以使用 Nextcloud 登录';
 			case 'appInfo.licenseNotice': return 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return '显示更多信息';
-			case 'appInfo.showLessInfo': return '显示更少信息';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
 			case 'appInfo.privacyPolicyButton': return '点击此处查看隐私政策';
 			case 'update.updateAvailable': return '可用更新';
@@ -2218,8 +2196,6 @@ extension on _StringsZhTw {
 			case 'login.status.tapToLogin': return '點擊以使用 Nextcloud 登入';
 			case 'appInfo.licenseNotice': return 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return '顯示更多資訊';
-			case 'appInfo.showLessInfo': return '顯示更少資訊';
 			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';
 			case 'appInfo.privacyPolicyButton': return '點擊此處查看隱私權政策';
 			case 'update.updateAvailable': return '可用更新';

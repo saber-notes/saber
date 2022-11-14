@@ -77,8 +77,6 @@
   "appInfo": {
     "licenseNotice": "Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
     "debug": "DEBUG",
-    "showMoreInfo": "顯示更多資訊",
-    "showLessInfo": "顯示更少資訊",
     "licenseButton": "點擊此處查看更多許可證資訊",
     "privacyPolicyButton": "點擊此處查看隱私權政策"
   },
