@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/prefs.dart';
 
 import '../_stroke.dart';
 import 'stroke_properties.dart';
@@ -21,7 +22,6 @@ class Pen extends Tool {
 
   /// If we don't move for [straightLineTimerDurationMs] milliseconds, we draw a straight line from the first point to the last point.
   Timer? _straightLineTimer;
-  static const int straightLineTimerDurationMs = 500;
 
   static late Pen currentPen;
 
@@ -37,11 +37,13 @@ class Pen extends Tool {
   onDragUpdate(EditorCoreInfo context, Offset position, double? pressure, void Function()? setState) {
     currentStroke!.addPoint(context, position, pressure);
 
-    _straightLineTimer?.cancel();
-    _straightLineTimer = Timer(const Duration(milliseconds: straightLineTimerDurationMs), () {
-      currentStroke!.isStraightLine = true;
-      setState?.call();
-    });
+    if (Prefs.editorStraightenDelay.value != 0) {
+      _straightLineTimer?.cancel();
+      _straightLineTimer = Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value), () {
+        currentStroke!.isStraightLine = true;
+        setState?.call();
+      });
+    }
   }
 
   Stroke onDragEnd() {

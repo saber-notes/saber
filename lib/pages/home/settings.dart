@@ -92,6 +92,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.preferGreyscale,
                 pref: Prefs.preferGreyscale,
               ),
+              SettingsSelection(
+                title: t.settings.prefLabels.editorStraightenLines,
+                subtitle: (){
+                  if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
+                  return "${Prefs.editorStraightenDelay.value}ms";
+                }(),
+                pref: Prefs.editorStraightenDelay,
+                values: [
+                  SettingsSelectionValue(0, t.settings.straightenDelay.off),
+                  SettingsSelectionValue(500, t.settings.straightenDelay.regular),
+                  SettingsSelectionValue(1000, t.settings.straightenDelay.slow),
+                ],
+                afterChange: (_) => setState(() {}),
+              ),
             ],
           )),
 

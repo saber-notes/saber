@@ -6,12 +6,18 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font"
+        "hyperlegibleFont": "Hyperlegible font",
+        "editorStraightenLines": "Press and hold to straighten a line"
       },
       "prefDescriptions": {
         "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
       }
     },
     "login": {
@@ -25,16 +31,33 @@
       }
     }
   },
-  "es": {},
+  "es": {
+    "settings": {
+      "prefLabels": {
+        "editorStraightenLines": "Press and hold to straighten a line"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
+      }
+    }
+  },
   "it": {
     "settings": {
       "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font"
+        "hyperlegibleFont": "Hyperlegible font",
+        "editorStraightenLines": "Press and hold to straighten a line"
       },
       "prefDescriptions": {
         "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
       }
     },
     "login": {
@@ -43,6 +66,28 @@
       }
     }
   },
-  "zh": {},
-  "zh-TW": {}
+  "zh": {
+    "settings": {
+      "prefLabels": {
+        "editorStraightenLines": "Press and hold to straighten a line"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
+      }
+    }
+  },
+  "zh-TW": {
+    "settings": {
+      "prefLabels": {
+        "editorStraightenLines": "Press and hold to straighten a line"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
+      }
+    }
+  }
 }

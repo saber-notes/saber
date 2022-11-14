@@ -29,7 +29,8 @@
 			"shouldCheckForUpdates": "Automatically check for Saber updates",
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
 			"editorAutoInvert": "Invert notes in dark mode",
-			"preferGreyscale": "Prefer greyscale colors"
+			"preferGreyscale": "Prefer greyscale colors",
+			"editorStraightenLines": "Press and hold to straighten a line"
 		},
 		"prefDescriptions": {
 			"hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
@@ -44,6 +45,11 @@
 		"accentColorPicker": {
 			"pickAColor": "Pick a color",
 			"confirm": "Confirm"
+		},
+		"straightenDelay": {
+			"off": "Off",
+			"regular": "Regular",
+			"slow": "Slow"
 		}
 	},
 	"login": {

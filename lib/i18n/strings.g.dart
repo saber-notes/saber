@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 385 (64 per locale)
+/// Strings: 389 (64 per locale)
 ///
-/// Built on 2022-11-14 at 20:32 UTC
+/// Built on 2022-11-14 at 20:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -187,6 +187,7 @@ class _StringsSettingsEn {
 	late final _StringsSettingsPrefDescriptionsEn prefDescriptions = _StringsSettingsPrefDescriptionsEn._(_root);
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
+	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
 }
 
 // Path: login
@@ -294,6 +295,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
+	String get editorStraightenLines => 'Press and hold to straighten a line';
 }
 
 // Path: settings.prefDescriptions
@@ -329,6 +331,18 @@ class _StringsSettingsAccentColorPickerEn {
 	// Translations
 	String get pickAColor => 'Pick a color';
 	String get confirm => 'Confirm';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get off => 'Off';
+	String get regular => 'Regular';
+	String get slow => 'Slow';
 }
 
 // Path: login.feedbacks
@@ -1753,6 +1767,7 @@ extension on _StringsEn {
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Align the editor toolbar to the bottom';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
+			case 'settings.prefLabels.editorStraightenLines': return 'Press and hold to straighten a line';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible increases legibility for readers with low vision';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Smartly darkens notes in dark mode';
 			case 'settings.prefDescriptions.preferGreyscale': return 'For e-ink displays';
@@ -1761,6 +1776,9 @@ extension on _StringsEn {
 			case 'settings.themeModes.dark': return 'Dark';
 			case 'settings.accentColorPicker.pickAColor': return 'Pick a color';
 			case 'settings.accentColorPicker.confirm': return 'Confirm';
+			case 'settings.straightenDelay.off': return 'Off';
+			case 'settings.straightenDelay.regular': return 'Regular';
+			case 'settings.straightenDelay.slow': return 'Slow';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
