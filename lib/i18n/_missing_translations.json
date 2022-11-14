@@ -81,12 +81,12 @@
   "zh-TW": {
     "settings": {
       "prefLabels": {
-        "editorStraightenLines": "Press and hold to straighten a line"
+        "editorStraightenLines": "按住拉直線條"
       },
       "straightenDelay": {
-        "off": "Off",
-        "regular": "Regular",
-        "slow": "Slow"
+        "off": "關閉",
+        "regular": "常規的",
+        "slow": "緩慢"
       }
     }
   }
