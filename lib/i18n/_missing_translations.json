@@ -69,12 +69,12 @@
   "zh": {
     "settings": {
       "prefLabels": {
-        "editorStraightenLines": "Press and hold to straighten a line"
+        "editorStraightenLines": "按住即可拉直线段"
       },
       "straightenDelay": {
-        "off": "Off",
-        "regular": "Regular",
-        "slow": "Slow"
+        "off": "关闭",
+        "regular": "常规",
+        "slow": "缓慢"
       }
     }
   },
