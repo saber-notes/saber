@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 390 (65 per locale)
+/// Strings: 385 (64 per locale)
 ///
-/// Built on 2022-11-14 at 14:59 UTC
+/// Built on 2022-11-14 at 20:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -304,8 +304,6 @@ class _StringsSettingsPrefDescriptionsEn {
 
 	// Translations
 	String get hyperlegibleFont => 'Atkinson Hyperlegible increases legibility for readers with low vision';
-	String get shouldCheckForUpdates => 'Not necessary if you\'ve installed Saber through ___';
-	String get defaultAppStore => 'an app store or package manager';
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get preferGreyscale => 'For e-ink displays';
 }
@@ -833,7 +831,6 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
-	@override String get shouldCheckForUpdates => 'No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes';
 	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 }
@@ -1363,7 +1360,6 @@ class _StringsSettingsPrefDescriptionsZh extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
-	@override String get shouldCheckForUpdates => '如果您通过应用商店或软件包管理器安装了 Saber，则不需要';
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
 	@override String get preferGreyscale => '用于电子墨水显示器';
 }
@@ -1636,7 +1632,6 @@ class _StringsSettingsPrefDescriptionsZhTw extends _StringsSettingsPrefDescripti
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-	@override String get shouldCheckForUpdates => '如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要';
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
 	@override String get preferGreyscale => '用於電子紙螢幕';
 }
@@ -1759,8 +1754,6 @@ extension on _StringsEn {
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible increases legibility for readers with low vision';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'Not necessary if you\'ve installed Saber through ___';
-			case 'settings.prefDescriptions.defaultAppStore': return 'an app store or package manager';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Smartly darkens notes in dark mode';
 			case 'settings.prefDescriptions.preferGreyscale': return 'For e-ink displays';
 			case 'settings.themeModes.system': return 'System';
@@ -1919,7 +1912,6 @@ extension on _StringsEs {
 			case 'settings.prefLabels.editorAutoInvert': return 'Invertir notas en el modo oscuro';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferir colores en escala de grises';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Oscurece inteligentemente las notas en el modo oscuro';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Para pantallas con tinta electrónica';
 			case 'settings.themeModes.system': return 'Sistema';
@@ -2078,7 +2070,6 @@ extension on _StringsZh {
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色笔记背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度颜色';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return '如果您通过应用商店或软件包管理器安装了 Saber，则不需要';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';
 			case 'settings.themeModes.system': return '系统';
@@ -2161,7 +2152,6 @@ extension on _StringsZhTw {
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色筆記背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度顏色';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return '如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
 			case 'settings.themeModes.system': return '系統';

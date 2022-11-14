@@ -33,7 +33,6 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
-      "shouldCheckForUpdates": "如果您通过应用商店或软件包管理器安装了 Saber，则不需要",
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
       "preferGreyscale": "用于电子墨水显示器"
     },

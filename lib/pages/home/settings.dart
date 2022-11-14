@@ -34,6 +34,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool updatesAreHandledExternally = kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isIOS || FlavorConfig.appStore != null;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
@@ -73,15 +74,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.hyperlegibleFont,
                 pref: Prefs.hyperlegibleFont,
               ),
-              SettingsSwitch(
+              if (!updatesAreHandledExternally) SettingsSwitch(
                 title: t.settings.prefLabels.shouldCheckForUpdates,
-                subtitle: (){
-                  // Windows, macOS, and iOS aren't on app stores, so they will be updated manually
-                  if (kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isIOS) {
-                    return null;
-                  }
-                  return t.settings.prefDescriptions.shouldCheckForUpdates.replaceFirst("___", FlavorConfig.appStore);
-                }(),
                 pref: Prefs.shouldCheckForUpdates,
               ),
               SettingsSwitch(
