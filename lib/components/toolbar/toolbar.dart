@@ -153,7 +153,7 @@ class _ToolbarState extends State<Toolbar> {
                       },
                       modal: PenModal(
                         setTool: widget.setTool,
-                        currentTool: widget.currentTool,
+                        currentTool: widget.currentTool as Pen,
                       ),
                       child: const FaIcon(FontAwesomeIcons.pen, size: 16),
                     ),

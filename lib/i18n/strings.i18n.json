@@ -100,6 +100,9 @@
 			"redo": "Redo",
 			"export": "Export (Ctrl Shift S)",
 			"exportAs": "Export as:"
+		},
+		"penOptions": {
+			"size": "Size"
 		}
 	}
 }

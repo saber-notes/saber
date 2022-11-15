@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/components/toolbar/size_picker.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class PenModal extends StatefulWidget {
   const PenModal({
@@ -10,7 +12,7 @@ class PenModal extends StatefulWidget {
   });
 
   final Function setTool;
-  final Tool currentTool;
+  final Pen currentTool;
 
   @override
   State<PenModal> createState() => _PenModalState();
@@ -22,7 +24,20 @@ class _PenModalState extends State<PenModal> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Pen options not yet available"),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(t.editor.penOptions.size),
+            SizePicker(
+              currentTool: widget.currentTool,
+              onSizeChanged: () {
+                setState(() {});
+              },
+            ),
+            Text(widget.currentTool.strokeProperties.size.round().toString()),
+          ],
+        ),
       ],
     );
   }
