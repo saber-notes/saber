@@ -55,7 +55,16 @@ class Stroke {
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() => {
     'f': isComplete,
-    'p': _points.map((Point point) => point.toJson()).toList(),
+    'p': (){
+      if (isStraightLine && _points.length > 1) {
+        return [
+          _points.first.toJson(),
+          _points.last.toJson(),
+          _points.last.toJson(),
+        ];
+      }
+      return _points.map((Point point) => point.toJson()).toList();
+    }(),
     'i': pageIndex,
     'ty': penType.toString(),
   }..addAll(strokeProperties.toJson());
