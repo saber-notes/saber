@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 398 (66 per locale)
+/// Strings: 403 (67 per locale)
 ///
-/// Built on 2022-11-15 at 10:11 UTC
+/// Built on 2022-11-15 at 17:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -740,6 +740,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefDescriptionsEs prefDescriptions = _StringsSettingsPrefDescriptionsEs._(_root);
 	@override late final _StringsSettingsThemeModesEs themeModes = _StringsSettingsThemeModesEs._(_root);
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
+	@override late final _StringsSettingsStraightenDelayEs straightenDelay = _StringsSettingsStraightenDelayEs._(_root);
 }
 
 // Path: login
@@ -793,6 +794,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarEs toolbar = _StringsEditorToolbarEs._(_root);
+	@override late final _StringsEditorPenOptionsEs penOptions = _StringsEditorPenOptionsEs._(_root);
 }
 
 // Path: home.tabs
@@ -846,6 +848,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarOnBottom => 'Alinear la barra de herramientas del editor en la parte inferior';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
+	@override String get editorStraightenLines => 'Mantén presionado para enderezar una línea';
 }
 
 // Path: settings.prefDescriptions
@@ -881,6 +884,18 @@ class _StringsSettingsAccentColorPickerEs extends _StringsSettingsAccentColorPic
 	// Translations
 	@override String get pickAColor => 'Elegir un color';
 	@override String get confirm => 'Confirmar';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayEs extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Apagado';
+	@override String get regular => 'Regular';
+	@override String get slow => 'Lento';
 }
 
 // Path: login.feedbacks
@@ -948,6 +963,16 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	@override String get redo => 'Rehacer';
 	@override String get export => 'Exportar (Ctrl Shift S)';
 	@override String get exportAs => 'Exportar cómo:';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsEs extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Tamaño';
 }
 
 // Path: <root>
@@ -1969,6 +1994,7 @@ extension on _StringsEs {
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Alinear la barra de herramientas del editor en la parte inferior';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invertir notas en el modo oscuro';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferir colores en escala de grises';
+			case 'settings.prefLabels.editorStraightenLines': return 'Mantén presionado para enderezar una línea';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Oscurece inteligentemente las notas en el modo oscuro';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Para pantallas con tinta electrónica';
@@ -1977,6 +2003,9 @@ extension on _StringsEs {
 			case 'settings.themeModes.dark': return 'Oscuro';
 			case 'settings.accentColorPicker.pickAColor': return 'Elegir un color';
 			case 'settings.accentColorPicker.confirm': return 'Confirmar';
+			case 'settings.straightenDelay.off': return 'Apagado';
+			case 'settings.straightenDelay.regular': return 'Regular';
+			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Iniciar sesión';
 			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario o correo electrónico.';
 			case 'login.feedbacks.enterNcPassword': return 'Por favor ingresa tu contraseña de Nextcloud.';
@@ -2021,6 +2050,7 @@ extension on _StringsEs {
 			case 'editor.toolbar.redo': return 'Rehacer';
 			case 'editor.toolbar.export': return 'Exportar (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Exportar cómo:';
+			case 'editor.penOptions.size': return 'Tamaño';
 			default: return null;
 		}
 	}
