@@ -38,6 +38,10 @@ class _SettingsSelectionState extends State<SettingsSelection> {
 
   @override
   Widget build(BuildContext context) {
+    if (!widget.values.any((SettingsSelectionValue value) => widget.pref.value == value.value)) {
+      if (kDebugMode) print("WARNING: SettingsSelection: Value ${widget.pref.value} is not in the list of values, setting it to ${widget.values.first.value}");
+      widget.pref.value = widget.values.first.value;
+    }
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       title: Text(widget.title),

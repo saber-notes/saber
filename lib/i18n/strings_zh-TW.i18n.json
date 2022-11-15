@@ -29,11 +29,11 @@
       "shouldCheckForUpdates": "自動檢查 Saber 更新",
       "editorToolbarOnBottom": "將編輯工具列與底部對齊",
       "editorAutoInvert": "在深色模式下使用反色筆記背景",
-      "preferGreyscale": "使用灰度顏色"
+      "preferGreyscale": "使用灰度顏色",
+      "editorStraightenLines": "按住拉直線條"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
-      "shouldCheckForUpdates": "如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要",
       "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
       "preferGreyscale": "用於電子紙螢幕"
     },
@@ -45,6 +45,11 @@
     "accentColorPicker": {
       "pickAColor": "選取顏色",
       "confirm": "確定"
+    },
+    "straightenDelay": {
+      "off": "關閉",
+      "regular": "常規",
+      "slow": "緩慢"
     }
   },
   "login": {
@@ -77,8 +82,6 @@
   "appInfo": {
     "licenseNotice": "Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
     "debug": "DEBUG",
-    "showMoreInfo": "顯示更多資訊",
-    "showLessInfo": "顯示更少資訊",
     "licenseButton": "點擊此處查看更多許可證資訊",
     "privacyPolicyButton": "點擊此處查看隱私權政策"
   },

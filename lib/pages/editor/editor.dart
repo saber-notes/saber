@@ -228,7 +228,7 @@ class _EditorState extends State<Editor> {
       lastSeenPointerCount = lastSeenPointerCount;
       return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
-      if (lastSeenPointerCount == 1) {
+      if (lastSeenPointerCount == 1 && Prefs.editorFingerDrawing.value) {
         setState(() {
           EditorHistoryItem? item = history.removeAccidentalStroke();
           if (item != null) {
@@ -272,7 +272,7 @@ class _EditorState extends State<Editor> {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
-        (currentTool as Pen).onDragUpdate(coreInfo, position, currentPressure);
+        (currentTool as Pen).onDragUpdate(coreInfo, position, currentPressure, () => setState(() {}));
       } else if (currentTool is Eraser) {
         for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
           Stroke removed = coreInfo.strokes.removeAt(i);

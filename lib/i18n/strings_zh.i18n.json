@@ -29,11 +29,11 @@
       "shouldCheckForUpdates": "自动检查 Saber 更新",
       "editorToolbarOnBottom": "将编辑工具栏与底部对齐",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
-      "preferGreyscale": "使用灰度颜色"
+      "preferGreyscale": "使用灰度颜色",
+      "editorStraightenLines": "按住拉直线段"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
-      "shouldCheckForUpdates": "如果您通过应用商店或软件包管理器安装了 Saber，则不需要",
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
       "preferGreyscale": "用于电子墨水显示器"
     },
@@ -45,6 +45,11 @@
     "accentColorPicker": {
       "pickAColor": "选取颜色",
       "confirm": "确定"
+    },
+    "straightenDelay": {
+      "off": "关闭",
+      "regular": "常规",
+      "slow": "缓慢"
     }
   },
   "login": {
@@ -77,8 +82,6 @@
   "appInfo": {
     "licenseNotice": "Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
     "debug": "DEBUG",
-    "showMoreInfo": "显示更多信息",
-    "showLessInfo": "显示更少信息",
     "licenseButton": "点击此处查看更多许可证信息",
     "privacyPolicyButton": "点击此处查看隐私政策"
   },

@@ -34,6 +34,7 @@ abstract class Prefs {
   static late PlainPref<bool> editorFingerDrawing;
   static late PlainPref<bool> editorAutoInvert;
   static late PlainPref<bool> preferGreyscale;
+  static late PlainPref<int> editorStraightenDelay;
 
   static late PlainPref<List<String>> recentColorsChronological;
   static late PlainPref<List<String>> recentColorsPositioned;
@@ -67,6 +68,7 @@ abstract class Prefs {
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
+    editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
 
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);

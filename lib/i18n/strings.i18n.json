@@ -29,11 +29,11 @@
 			"shouldCheckForUpdates": "Automatically check for Saber updates",
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
 			"editorAutoInvert": "Invert notes in dark mode",
-			"preferGreyscale": "Prefer greyscale colors"
+			"preferGreyscale": "Prefer greyscale colors",
+			"editorStraightenLines": "Press and hold to straighten a line"
 		},
 		"prefDescriptions": {
 			"hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-			"shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
 			"editorAutoInvert": "Smartly darkens notes in dark mode",
 			"preferGreyscale": "For e-ink displays"
 		},
@@ -45,6 +45,11 @@
 		"accentColorPicker": {
 			"pickAColor": "Pick a color",
 			"confirm": "Confirm"
+		},
+		"straightenDelay": {
+			"off": "Off",
+			"regular": "Regular",
+			"slow": "Slow"
 		}
 	},
 	"login": {
@@ -77,8 +82,6 @@
 	"appInfo": {
 		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
 		"debug": "DEBUG",
-		"showMoreInfo": "Show more info",
-		"showLessInfo": "Show less info",
 		"licenseButton": "Tap here to view more license information",
 		"privacyPolicyButton": "Tap here to view the privacy policy"
 	},

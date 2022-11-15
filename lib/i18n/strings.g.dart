@@ -187,6 +187,7 @@ class _StringsSettingsEn {
 	late final _StringsSettingsPrefDescriptionsEn prefDescriptions = _StringsSettingsPrefDescriptionsEn._(_root);
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
+	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
 }
 
 // Path: login
@@ -216,8 +217,6 @@ class _StringsAppInfoEn {
 	// Translations
 	String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	String get debug => 'DEBUG';
-	String get showMoreInfo => 'Show more info';
-	String get showLessInfo => 'Show less info';
 	String get licenseButton => 'Tap here to view more license information';
 	String get privacyPolicyButton => 'Tap here to view the privacy policy';
 }
@@ -297,6 +296,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
+	String get editorStraightenLines => 'Press and hold to straighten a line';
 }
 
 // Path: settings.prefDescriptions
@@ -307,7 +307,6 @@ class _StringsSettingsPrefDescriptionsEn {
 
 	// Translations
 	String get hyperlegibleFont => 'Atkinson Hyperlegible increases legibility for readers with low vision';
-	String get shouldCheckForUpdates => 'Not necessary if you\'ve installed Saber through an app store or package manager';
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get preferGreyscale => 'For e-ink displays';
 }
@@ -333,6 +332,18 @@ class _StringsSettingsAccentColorPickerEn {
 	// Translations
 	String get pickAColor => 'Pick a color';
 	String get confirm => 'Confirm';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get off => 'Off';
+	String get regular => 'Regular';
+	String get slow => 'Slow';
 }
 
 // Path: login.feedbacks
@@ -501,8 +512,6 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => 'Mehr Infos anzeigen';
-	@override String get showLessInfo => 'Weniger Infos anzeigen';
 	@override String get licenseButton => 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 	@override String get privacyPolicyButton => 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 }
@@ -759,8 +768,6 @@ class _StringsAppInfoEs extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => 'Mostrar más información';
-	@override String get showLessInfo => 'Mostrar menos información';
 	@override String get licenseButton => 'Toca aquí para ver más información sobre la licencia';
 	@override String get privacyPolicyButton => 'Toca aquí para ver nuestra política de privacidad';
 }
@@ -849,7 +856,6 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
-	@override String get shouldCheckForUpdates => 'No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes';
 	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 }
@@ -1033,8 +1039,6 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => 'Mostra più informazioni';
-	@override String get showLessInfo => 'Mostra meno informazioni';
 	@override String get licenseButton => 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 	@override String get privacyPolicyButton => 'Tocca qui per visualizzare l\'informativa sulla privacy';
 }
@@ -1264,6 +1268,7 @@ class _StringsSettingsZh extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefDescriptionsZh prefDescriptions = _StringsSettingsPrefDescriptionsZh._(_root);
 	@override late final _StringsSettingsThemeModesZh themeModes = _StringsSettingsThemeModesZh._(_root);
 	@override late final _StringsSettingsAccentColorPickerZh accentColorPicker = _StringsSettingsAccentColorPickerZh._(_root);
+	@override late final _StringsSettingsStraightenDelayZh straightenDelay = _StringsSettingsStraightenDelayZh._(_root);
 }
 
 // Path: login
@@ -1293,8 +1298,6 @@ class _StringsAppInfoZh extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => '显示更多信息';
-	@override String get showLessInfo => '显示更少信息';
 	@override String get licenseButton => '点击此处查看更多许可证信息';
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
 }
@@ -1373,6 +1376,7 @@ class _StringsSettingsPrefLabelsZh extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarOnBottom => '将编辑工具栏与底部对齐';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get preferGreyscale => '使用灰度颜色';
+	@override String get editorStraightenLines => '按住拉直线段';
 }
 
 // Path: settings.prefDescriptions
@@ -1383,7 +1387,6 @@ class _StringsSettingsPrefDescriptionsZh extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
-	@override String get shouldCheckForUpdates => '如果您通过应用商店或软件包管理器安装了 Saber，则不需要';
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
 	@override String get preferGreyscale => '用于电子墨水显示器';
 }
@@ -1409,6 +1412,18 @@ class _StringsSettingsAccentColorPickerZh extends _StringsSettingsAccentColorPic
 	// Translations
 	@override String get pickAColor => '选取颜色';
 	@override String get confirm => '确定';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayZh extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayZh._(_StringsZh root) : this._root = root, super._(root);
+
+	@override final _StringsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => '关闭';
+	@override String get regular => '常规';
+	@override String get slow => '缓慢';
 }
 
 // Path: login.feedbacks
@@ -1539,6 +1554,7 @@ class _StringsSettingsZhTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefDescriptionsZhTw prefDescriptions = _StringsSettingsPrefDescriptionsZhTw._(_root);
 	@override late final _StringsSettingsThemeModesZhTw themeModes = _StringsSettingsThemeModesZhTw._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhTw accentColorPicker = _StringsSettingsAccentColorPickerZhTw._(_root);
+	@override late final _StringsSettingsStraightenDelayZhTw straightenDelay = _StringsSettingsStraightenDelayZhTw._(_root);
 }
 
 // Path: login
@@ -1568,8 +1584,6 @@ class _StringsAppInfoZhTw extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get debug => 'DEBUG';
-	@override String get showMoreInfo => '顯示更多資訊';
-	@override String get showLessInfo => '顯示更少資訊';
 	@override String get licenseButton => '點擊此處查看更多許可證資訊';
 	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
 }
@@ -1648,6 +1662,7 @@ class _StringsSettingsPrefLabelsZhTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarOnBottom => '將編輯工具列與底部對齊';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
 	@override String get preferGreyscale => '使用灰度顏色';
+	@override String get editorStraightenLines => '按住拉直線條';
 }
 
 // Path: settings.prefDescriptions
@@ -1658,7 +1673,6 @@ class _StringsSettingsPrefDescriptionsZhTw extends _StringsSettingsPrefDescripti
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-	@override String get shouldCheckForUpdates => '如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要';
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
 	@override String get preferGreyscale => '用於電子紙螢幕';
 }
@@ -1684,6 +1698,18 @@ class _StringsSettingsAccentColorPickerZhTw extends _StringsSettingsAccentColorP
 	// Translations
 	@override String get pickAColor => '選取顏色';
 	@override String get confirm => '確定';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayZhTw extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => '關閉';
+	@override String get regular => '常規';
+	@override String get slow => '緩慢';
 }
 
 // Path: login.feedbacks
@@ -1780,8 +1806,8 @@ extension on _StringsEn {
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Align the editor toolbar to the bottom';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
+			case 'settings.prefLabels.editorStraightenLines': return 'Press and hold to straighten a line';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible increases legibility for readers with low vision';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'Not necessary if you\'ve installed Saber through an app store or package manager';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Smartly darkens notes in dark mode';
 			case 'settings.prefDescriptions.preferGreyscale': return 'For e-ink displays';
 			case 'settings.themeModes.system': return 'System';
@@ -1789,6 +1815,9 @@ extension on _StringsEn {
 			case 'settings.themeModes.dark': return 'Dark';
 			case 'settings.accentColorPicker.pickAColor': return 'Pick a color';
 			case 'settings.accentColorPicker.confirm': return 'Confirm';
+			case 'settings.straightenDelay.off': return 'Off';
+			case 'settings.straightenDelay.regular': return 'Regular';
+			case 'settings.straightenDelay.slow': return 'Slow';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
@@ -1818,8 +1847,6 @@ extension on _StringsEn {
 			case 'login.status.tapToLogin': return 'Tap to log in with Nextcloud';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Show more info';
-			case 'appInfo.showLessInfo': return 'Show less info';
 			case 'appInfo.licenseButton': return 'Tap here to view more license information';
 			case 'appInfo.privacyPolicyButton': return 'Tap here to view the privacy policy';
 			case 'update.updateAvailable': return 'Update available';
@@ -1898,8 +1925,6 @@ extension on _StringsDe {
 			case 'login.status.tapToLogin': return 'Hier tippen, um dich mit Nextcloud anzumelden';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Mehr Infos anzeigen';
-			case 'appInfo.showLessInfo': return 'Weniger Infos anzeigen';
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 			case 'appInfo.privacyPolicyButton': return 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 			case 'update.updateAvailable': return 'Aktualisierung verfügbar';
@@ -1945,7 +1970,6 @@ extension on _StringsEs {
 			case 'settings.prefLabels.editorAutoInvert': return 'Invertir notas en el modo oscuro';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferir colores en escala de grises';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return 'No es necesario si instalaste Saber a través de una tienda de aplicaciones o un administrador de paquetes';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Oscurece inteligentemente las notas en el modo oscuro';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Para pantallas con tinta electrónica';
 			case 'settings.themeModes.system': return 'Sistema';
@@ -1981,8 +2005,6 @@ extension on _StringsEs {
 			case 'login.status.tapToLogin': return 'Toca para iniciar sesión con Nextcloud';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Mostrar más información';
-			case 'appInfo.showLessInfo': return 'Mostrar menos información';
 			case 'appInfo.licenseButton': return 'Toca aquí para ver más información sobre la licencia';
 			case 'appInfo.privacyPolicyButton': return 'Toca aquí para ver nuestra política de privacidad';
 			case 'update.updateAvailable': return 'Actualización disponible';
@@ -2060,8 +2082,6 @@ extension on _StringsIt {
 			case 'login.status.tapToLogin': return 'Tocca per accedere con Nextcloud';
 			case 'appInfo.licenseNotice': return 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return 'Mostra più informazioni';
-			case 'appInfo.showLessInfo': return 'Mostra meno informazioni';
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 			case 'appInfo.privacyPolicyButton': return 'Tocca qui per visualizzare l\'informativa sulla privacy';
 			case 'update.updateAvailable': return 'Aggiornamento disponibile';
@@ -2107,8 +2127,8 @@ extension on _StringsZh {
 			case 'settings.prefLabels.editorToolbarOnBottom': return '将编辑工具栏与底部对齐';
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色笔记背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度颜色';
+			case 'settings.prefLabels.editorStraightenLines': return '按住拉直线段';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return '如果您通过应用商店或软件包管理器安装了 Saber，则不需要';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';
 			case 'settings.themeModes.system': return '系统';
@@ -2116,6 +2136,9 @@ extension on _StringsZh {
 			case 'settings.themeModes.dark': return '深色';
 			case 'settings.accentColorPicker.pickAColor': return '选取颜色';
 			case 'settings.accentColorPicker.confirm': return '确定';
+			case 'settings.straightenDelay.off': return '关闭';
+			case 'settings.straightenDelay.regular': return '常规';
+			case 'settings.straightenDelay.slow': return '缓慢';
 			case 'login.title': return '登录';
 			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
@@ -2145,8 +2168,6 @@ extension on _StringsZh {
 			case 'login.status.tapToLogin': return '点击以使用 Nextcloud 登录';
 			case 'appInfo.licenseNotice': return 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return '显示更多信息';
-			case 'appInfo.showLessInfo': return '显示更少信息';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
 			case 'appInfo.privacyPolicyButton': return '点击此处查看隐私政策';
 			case 'update.updateAvailable': return '可用更新';
@@ -2192,8 +2213,8 @@ extension on _StringsZhTw {
 			case 'settings.prefLabels.editorToolbarOnBottom': return '將編輯工具列與底部對齊';
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色筆記背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度顏色';
+			case 'settings.prefLabels.editorStraightenLines': return '按住拉直線條';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-			case 'settings.prefDescriptions.shouldCheckForUpdates': return '如果您透過應用程式商店或軟體套件管理系統安裝了 Saber，則不需要';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
 			case 'settings.themeModes.system': return '系統';
@@ -2201,6 +2222,9 @@ extension on _StringsZhTw {
 			case 'settings.themeModes.dark': return '深色';
 			case 'settings.accentColorPicker.pickAColor': return '選取顏色';
 			case 'settings.accentColorPicker.confirm': return '確定';
+			case 'settings.straightenDelay.off': return '關閉';
+			case 'settings.straightenDelay.regular': return '常規';
+			case 'settings.straightenDelay.slow': return '緩慢';
 			case 'login.title': return '登入';
 			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
@@ -2230,8 +2254,6 @@ extension on _StringsZhTw {
 			case 'login.status.tapToLogin': return '點擊以使用 Nextcloud 登入';
 			case 'appInfo.licenseNotice': return 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
-			case 'appInfo.showMoreInfo': return '顯示更多資訊';
-			case 'appInfo.showLessInfo': return '顯示更少資訊';
 			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';
 			case 'appInfo.privacyPolicyButton': return '點擊此處查看隱私權政策';
 			case 'update.updateAvailable': return '可用更新';

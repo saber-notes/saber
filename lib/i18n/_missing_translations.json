@@ -1,18 +1,23 @@
 {
   "@@info": [
     "Here are translations that exist in <en> but not in secondary locales.",
-    "After editing this file, you can run 'flutter pub run slang apply' to quickly apply the newly added translations."
+    "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "de": {
     "settings": {
       "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font"
+        "hyperlegibleFont": "Hyperlegible font",
+        "editorStraightenLines": "Press and hold to straighten a line"
       },
       "prefDescriptions": {
         "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
       }
     },
     "login": {
@@ -36,16 +41,33 @@
       }
     }
   },
+  "es": {
+    "settings": {
+      "prefLabels": {
+        "editorStraightenLines": "Press and hold to straighten a line"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
+      }
+    }
+  },
   "it": {
     "settings": {
       "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font"
+        "hyperlegibleFont": "Hyperlegible font",
+        "editorStraightenLines": "Press and hold to straighten a line"
       },
       "prefDescriptions": {
         "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "shouldCheckForUpdates": "Not necessary if you've installed Saber through an app store or package manager",
         "editorAutoInvert": "Smartly darkens notes in dark mode",
         "preferGreyscale": "For e-ink displays"
+      },
+      "straightenDelay": {
+        "off": "Off",
+        "regular": "Regular",
+        "slow": "Slow"
       }
     },
     "login": {

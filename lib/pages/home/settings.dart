@@ -10,6 +10,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -33,6 +34,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool updatesAreHandledExternally = kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isIOS || FlavorConfig.appStore != null;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
@@ -72,15 +74,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.hyperlegibleFont,
                 pref: Prefs.hyperlegibleFont,
               ),
-              SettingsSwitch(
+              if (!updatesAreHandledExternally) SettingsSwitch(
                 title: t.settings.prefLabels.shouldCheckForUpdates,
-                subtitle: (){
-                  // Windows, macOS, and iOS aren't on app stores, so they will be updated manually
-                  if (kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isIOS) {
-                    return null;
-                  }
-                  return t.settings.prefDescriptions.shouldCheckForUpdates;
-                }(),
                 pref: Prefs.shouldCheckForUpdates,
               ),
               SettingsSwitch(
@@ -96,6 +91,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.preferGreyscale,
                 subtitle: t.settings.prefDescriptions.preferGreyscale,
                 pref: Prefs.preferGreyscale,
+              ),
+              SettingsSelection(
+                title: t.settings.prefLabels.editorStraightenLines,
+                subtitle: (){
+                  if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
+                  return "${Prefs.editorStraightenDelay.value}ms";
+                }(),
+                pref: Prefs.editorStraightenDelay,
+                values: [
+                  SettingsSelectionValue(0, t.settings.straightenDelay.off),
+                  SettingsSelectionValue(1000, t.settings.straightenDelay.regular),
+                  SettingsSelectionValue(2000, t.settings.straightenDelay.slow),
+                ],
+                afterChange: (_) => setState(() {}),
               ),
             ],
           )),
