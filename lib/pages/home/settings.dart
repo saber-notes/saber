@@ -116,7 +116,7 @@ class _SettingsPageState extends State<SettingsPage> {
           )),
 
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            padding: EdgeInsets.all(8),
             child: AppInfo(),
           ),
 
