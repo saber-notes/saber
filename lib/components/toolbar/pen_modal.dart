@@ -24,15 +24,8 @@ class _PenModalState extends State<PenModal> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(t.editor.penOptions.size),
-            SizePicker(
-              currentTool: widget.currentTool,
-            ),
-          ],
+        SizePicker(
+          currentTool: widget.currentTool,
         ),
       ],
     );

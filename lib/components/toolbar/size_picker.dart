@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {
   const SizePicker({
@@ -69,6 +70,7 @@ class _SizePickerState extends State<SizePicker> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onPanStart: (DragStartDetails details) {
         startingOffset = details.globalPosition;
         startingValue = widget.currentTool.strokeProperties.size;
@@ -79,44 +81,48 @@ class _SizePickerState extends State<SizePicker> {
       onPanEnd: (DragEndDetails details) {
         startingOffset = null;
       },
-      child: Column(
-        children: [
-          Container(
-            width: widget.max,
-            height: widget.max,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: colorScheme.onBackground,
-                width: 1,
-              ),
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Container(
-                width: Pen.currentPen.strokeProperties.size,
-                height: Pen.currentPen.strokeProperties.size,
-                decoration: BoxDecoration(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Text(t.editor.penOptions.size),
+            Container(
+              width: widget.max,
+              height: widget.max,
+              decoration: BoxDecoration(
+                border: Border.all(
                   color: colorScheme.onBackground,
-                  shape: BoxShape.circle,
+                  width: 1,
+                ),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Container(
+                  width: Pen.currentPen.strokeProperties.size,
+                  height: Pen.currentPen.strokeProperties.size,
+                  decoration: BoxDecoration(
+                    color: colorScheme.onBackground,
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
             ),
-          ),
-          ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: widget.max * 2),
-            child: TextField(
-              controller: _controller,
-              decoration: const InputDecoration(
-                isDense: true,
-                border: InputBorder.none,
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: widget.max * 2),
+              child: TextField(
+                controller: _controller,
+                decoration: const InputDecoration(
+                  isDense: true,
+                  border: InputBorder.none,
+                ),
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+                textAlign: TextAlign.center,
               ),
-              style: const TextStyle(
-                fontSize: 14,
-              ),
-              textAlign: TextAlign.center,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
