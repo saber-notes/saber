@@ -35,13 +35,6 @@
     }
   },
   "es": {
-    "editor": {
-      "penOptions": {
-        "size": "Size"
-      }
-    }
-  },
-  "es": {
     "settings": {
       "prefLabels": {
         "editorStraightenLines": "Press and hold to straighten a line"
@@ -50,6 +43,11 @@
         "off": "Off",
         "regular": "Regular",
         "slow": "Slow"
+      }
+    },
+    "editor": {
+      "penOptions": {
+        "size": "Size"
       }
     }
   },
