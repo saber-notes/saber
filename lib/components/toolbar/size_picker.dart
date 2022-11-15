@@ -110,7 +110,7 @@ class _SizePickerState extends State<SizePicker> {
                 ),
               ),
               ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: widget.max * 2),
+                constraints: BoxConstraints(maxWidth: widget.max),
                 child: TextField(
                   controller: _controller,
                   decoration: const InputDecoration(
