@@ -101,8 +101,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.editorStraightenDelay,
                 values: [
                   SettingsSelectionValue(0, t.settings.straightenDelay.off),
-                  SettingsSelectionValue(500, t.settings.straightenDelay.regular),
-                  SettingsSelectionValue(1000, t.settings.straightenDelay.slow),
+                  SettingsSelectionValue(1000, t.settings.straightenDelay.regular),
+                  SettingsSelectionValue(2000, t.settings.straightenDelay.slow),
                 ],
                 afterChange: (_) => setState(() {}),
               ),

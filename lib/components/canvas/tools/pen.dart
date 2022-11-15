@@ -26,7 +26,7 @@ class Pen extends Tool {
   /// If this movement is below a certain threshold for [straightLineTimerDurationMs], we draw a straight line.
   final Stopwatch _straightLineStopwatch = Stopwatch();
   Offset? lastPosition;
-  static const double maxSpeedForStraightLine = 0.2;
+  static const double maxSpeedForStraightLine = 0.03;
 
   static late Pen currentPen;
 
