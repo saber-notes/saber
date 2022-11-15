@@ -10,6 +10,7 @@ import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
+import 'package:saber/components/toolbar/pen_modal.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -144,8 +145,16 @@ class _ToolbarState extends State<Toolbar> {
                       tooltip: t.editor.toolbar.fountainPen,
                       selected: widget.currentTool == Pen.currentPen,
                       onPressed: (button) {
-                        widget.setTool(Pen.currentPen);
+                        if (widget.currentTool == Pen.currentPen) {
+                          button.openModal(context);
+                        } else {
+                          widget.setTool(Pen.currentPen);
+                        }
                       },
+                      modal: PenModal(
+                        setTool: widget.setTool,
+                        currentTool: widget.currentTool as Pen,
+                      ),
                       child: const FaIcon(FontAwesomeIcons.pen, size: 16),
                     ),
                     ToolbarIconButton(

@@ -80,8 +80,6 @@ dependencies:
   share_plus: ^6.3.0
   file_picker: ^5.2.2
 
-  modals: ^1.0.0+1
-
   fzregex: ^2.0.0
 
   slang: ^3.4.0

@@ -28,6 +28,16 @@
     "editor": {
       "toolbar": {
         "highlighter": "Highlighter"
+      },
+      "penOptions": {
+        "size": "Size"
+      }
+    }
+  },
+  "es": {
+    "editor": {
+      "penOptions": {
+        "size": "Size"
       }
     }
   },
@@ -64,8 +74,25 @@
       "feedbacks": {
         "encLoginFailed": "Log in failed, please check your encryption password."
       }
+    },
+    "editor": {
+      "penOptions": {
+        "size": "Size"
+      }
     }
   },
-  "zh": {},
-  "zh-TW": {}
+  "zh": {
+    "editor": {
+      "penOptions": {
+        "size": "Size"
+      }
+    }
+  },
+  "zh-TW": {
+    "editor": {
+      "penOptions": {
+        "size": "Size"
+      }
+    }
+  }
 }

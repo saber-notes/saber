@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 397 (66 per locale)
+/// Strings: 402 (67 per locale)
 ///
-/// Built on 2022-11-15 at 00:38 UTC
+/// Built on 2022-11-15 at 10:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -242,6 +242,7 @@ class _StringsEditorEn {
 
 	// Translations
 	late final _StringsEditorToolbarEn toolbar = _StringsEditorToolbarEn._(_root);
+	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
 }
 
 // Path: home.tabs
@@ -410,6 +411,16 @@ class _StringsEditorToolbarEn {
 	String get redo => 'Redo';
 	String get export => 'Export (Ctrl Shift S)';
 	String get exportAs => 'Export as:';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get size => 'Size';
 }
 
 // Path: <root>
@@ -1852,6 +1863,7 @@ extension on _StringsEn {
 			case 'editor.toolbar.redo': return 'Redo';
 			case 'editor.toolbar.export': return 'Export (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Export as:';
+			case 'editor.penOptions.size': return 'Size';
 			default: return null;
 		}
 	}

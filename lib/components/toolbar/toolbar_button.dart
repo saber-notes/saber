@@ -1,7 +1,6 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:modals/modals.dart';
 import 'package:saber/data/prefs.dart';
 
 class ToolbarIconButton extends StatelessWidget {
@@ -11,17 +10,15 @@ class ToolbarIconButton extends StatelessWidget {
     this.selected = false,
     required this.onPressed,
 
-    this.modalTag,
     this.modal,
 
     required this.child,
-  }) : assert((modalTag == null) == (modal == null), "Both modalTag and modal must be null or non-null");
+  });
 
   final String? tooltip;
   final bool selected;
   final void Function(ToolbarIconButton button)? onPressed;
 
-  final String? modalTag;
   final Widget? modal;
 
   final Widget child;
@@ -30,7 +27,7 @@ class ToolbarIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
-    final Widget button = Ink(
+    return Ink(
       decoration: ShapeDecoration(
         color: selected ? colorScheme.primary : null,
         shape: const CircleBorder(),
@@ -46,15 +43,6 @@ class ToolbarIconButton extends StatelessWidget {
         icon: child,
       ),
     );
-
-    if (modal != null) {
-      return ModalAnchor(
-        tag: modalTag!,
-        child: button,
-      );
-    } else {
-      return button;
-    }
   }
 
   openModal(BuildContext context) {
@@ -63,19 +51,31 @@ class ToolbarIconButton extends StatelessWidget {
       return;
     }
 
-    removeAllModals();
-    showModal(ModalEntry.anchored(
-      context,
-      tag: "${modalTag!}-modal",
-
-      anchorTag: modalTag!,
-      anchorAlignment: Prefs.editorToolbarOnBottom.value ? Alignment.topCenter : Alignment.bottomCenter,
-      modalAlignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-      offset: Offset(0, Prefs.editorToolbarOnBottom.value ? -10 : 10),
-
-      barrierDismissible: true,
-
-      child: modal!,
-    ));
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      barrierColor: Colors.transparent,
+      builder: (BuildContext context) => Padding(
+        padding: EdgeInsets.only(
+          left: 8,
+          right: 8,
+          bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
+          top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
+        ),
+        child: SizedBox(
+          width: double.infinity,
+          height: 100,
+          child: Material(
+            color: Theme.of(context).colorScheme.background,
+            borderRadius: BorderRadius.circular(8),
+            child: Center(
+              child: SingleChildScrollView(
+                child: modal!,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
