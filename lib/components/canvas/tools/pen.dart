@@ -70,6 +70,7 @@ class Pen extends Tool {
   Stroke onDragEnd() {
     _straightLineTimer?.cancel();
     _straightLineTimer = null;
+    lastPosition = null;
 
     final Stroke stroke = currentStroke!..isComplete = true;
     currentStroke = null;
