@@ -40,7 +40,7 @@ class _SizePickerState extends State<SizePicker> {
   void updateValue({double? newValue, bool manuallyTypedIn = false}) {
     if (newValue != null) {
       setState(() {
-        widget.currentTool.strokeProperties.size = newValue.clamp(0, widget.max).roundToDouble();
+        widget.currentTool.strokeProperties.size = newValue.clamp(1, widget.max).roundToDouble();
       });
     }
 
