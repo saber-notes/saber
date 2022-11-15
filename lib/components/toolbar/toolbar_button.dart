@@ -55,22 +55,29 @@ class ToolbarIconButton extends StatelessWidget {
       context: context,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.transparent,
-      builder: (BuildContext context) => Padding(
-        padding: EdgeInsets.only(
-          left: 8,
-          right: 8,
-          bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
-          top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
-        ),
-        child: SizedBox(
-          width: double.infinity,
-          height: 100,
-          child: Material(
-            color: Theme.of(context).colorScheme.background,
-            borderRadius: BorderRadius.circular(8),
-            child: Center(
-              child: SingleChildScrollView(
-                child: modal!,
+      builder: (BuildContext context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.pop(context),
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 8,
+            right: 8,
+            bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
+            top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            height: 100,
+            child: Material(
+              color: Theme.of(context).colorScheme.background,
+              borderRadius: BorderRadius.circular(8),
+              child: GestureDetector(
+                onTap: () {},
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: modal!,
+                  ),
+                ),
               ),
             ),
           ),
