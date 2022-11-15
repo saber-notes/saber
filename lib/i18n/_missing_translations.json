@@ -67,16 +67,5 @@
     }
   },
   "zh": {},
-  "zh-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorStraightenLines": "按住拉直線條"
-      },
-      "straightenDelay": {
-        "off": "關閉",
-        "regular": "常規",
-        "slow": "緩慢"
-      }
-    }
-  }
+  "zh-TW": {}
 }

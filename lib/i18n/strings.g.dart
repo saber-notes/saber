@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 393 (65 per locale)
+/// Strings: 397 (66 per locale)
 ///
-/// Built on 2022-11-15 at 00:35 UTC
+/// Built on 2022-11-15 at 00:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1543,6 +1543,7 @@ class _StringsSettingsZhTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefDescriptionsZhTw prefDescriptions = _StringsSettingsPrefDescriptionsZhTw._(_root);
 	@override late final _StringsSettingsThemeModesZhTw themeModes = _StringsSettingsThemeModesZhTw._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhTw accentColorPicker = _StringsSettingsAccentColorPickerZhTw._(_root);
+	@override late final _StringsSettingsStraightenDelayZhTw straightenDelay = _StringsSettingsStraightenDelayZhTw._(_root);
 }
 
 // Path: login
@@ -1650,6 +1651,7 @@ class _StringsSettingsPrefLabelsZhTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarOnBottom => '將編輯工具列與底部對齊';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
 	@override String get preferGreyscale => '使用灰度顏色';
+	@override String get editorStraightenLines => '按住拉直線條';
 }
 
 // Path: settings.prefDescriptions
@@ -1685,6 +1687,18 @@ class _StringsSettingsAccentColorPickerZhTw extends _StringsSettingsAccentColorP
 	// Translations
 	@override String get pickAColor => '選取顏色';
 	@override String get confirm => '確定';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayZhTw extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayZhTw._(_StringsZhTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => '關閉';
+	@override String get regular => '常規';
+	@override String get slow => '緩慢';
 }
 
 // Path: login.feedbacks
@@ -2187,6 +2201,7 @@ extension on _StringsZhTw {
 			case 'settings.prefLabels.editorToolbarOnBottom': return '將編輯工具列與底部對齊';
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色筆記背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度顏色';
+			case 'settings.prefLabels.editorStraightenLines': return '按住拉直線條';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
@@ -2195,6 +2210,9 @@ extension on _StringsZhTw {
 			case 'settings.themeModes.dark': return '深色';
 			case 'settings.accentColorPicker.pickAColor': return '選取顏色';
 			case 'settings.accentColorPicker.confirm': return '確定';
+			case 'settings.straightenDelay.off': return '關閉';
+			case 'settings.straightenDelay.regular': return '常規';
+			case 'settings.straightenDelay.slow': return '緩慢';
 			case 'login.title': return '登入';
 			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
