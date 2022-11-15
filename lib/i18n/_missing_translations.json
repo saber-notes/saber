@@ -67,16 +67,5 @@
     }
   },
   "zh": {},
-  "zh-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorStraightenLines": "Press and hold to straighten a line"
-      },
-      "straightenDelay": {
-        "off": "Off",
-        "regular": "Regular",
-        "slow": "Slow"
-      }
-    }
-  }
+  "zh-TW": {}
 }
