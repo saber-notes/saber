@@ -29,7 +29,8 @@
       "shouldCheckForUpdates": "自动检查 Saber 更新",
       "editorToolbarOnBottom": "将编辑工具栏与底部对齐",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
-      "preferGreyscale": "使用灰度颜色"
+      "preferGreyscale": "使用灰度颜色",
+      "editorStraightenLines": "按住拉直线段"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
@@ -44,6 +45,11 @@
     "accentColorPicker": {
       "pickAColor": "选取颜色",
       "confirm": "确定"
+    },
+    "straightenDelay": {
+      "off": "关闭",
+      "regular": "常规",
+      "slow": "缓慢"
     }
   },
   "login": {
