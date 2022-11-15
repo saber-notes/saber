@@ -42,17 +42,23 @@ class Pen extends Tool {
   onDragUpdate(EditorCoreInfo context, Offset position, double? pressure, void Function()? setState) {
     currentStroke!.addPoint(context, position, pressure);
 
-    if (lastPosition != null && Prefs.editorStraightenDelay.value != 0) {
+    if (Prefs.editorStraightenDelay.value != 0 && lastPosition != null) {
       _straightLineStopwatch.stop();
       int elapsedMs = _straightLineStopwatch.elapsedMilliseconds;
       double sqrDist = (position - lastPosition!).distanceSquared;
       double speed = sqrDist / elapsedMs;
-      _straightLineTimer?.cancel();
+      Timer newTimer() => Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value - elapsedMs), () {
+        currentStroke!.isStraightLine = true;
+        setState?.call();
+      });
+
       if (speed < maxSpeedForStraightLine) {
-        _straightLineTimer = Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value), () {
-          currentStroke!.isStraightLine = true;
-          setState?.call();
-        });
+        // if we're moving slowly, continue or start the timer
+        _straightLineTimer ??= newTimer();
+      } else {
+        // otherwise see if we don't move for a while
+        _straightLineTimer?.cancel();
+        _straightLineTimer = newTimer();
       }
     }
 
@@ -63,6 +69,8 @@ class Pen extends Tool {
 
   Stroke onDragEnd() {
     _straightLineTimer?.cancel();
+    _straightLineTimer = null;
+
     final Stroke stroke = currentStroke!..isComplete = true;
     currentStroke = null;
     return stroke;
