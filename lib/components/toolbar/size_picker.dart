@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 
@@ -6,12 +8,10 @@ class SizePicker extends StatefulWidget {
   const SizePicker({
     super.key,
     required this.currentTool,
-    this.onSizeChanged,
   });
 
   final double max = 25;
   final Pen currentTool;
-  final VoidCallback? onSizeChanged;
 
   @override
   State<SizePicker> createState() => _SizePickerState();
@@ -19,16 +19,49 @@ class SizePicker extends StatefulWidget {
 
 class _SizePickerState extends State<SizePicker> {
 
+  final TextEditingController _controller = TextEditingController();
+
   Offset? startingOffset;
   double startingValue = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    updateValue();
+    _controller.addListener(() {
+      updateValue(
+        newValue: double.tryParse(_controller.text),
+        manuallyTypedIn: true,
+      );
+    });
+  }
+
+  Timer? updateTextFieldTimer;
+  void updateValue({double? newValue, bool manuallyTypedIn = false}) {
+    if (newValue != null) {
+      setState(() {
+        widget.currentTool.strokeProperties.size = newValue.clamp(0, widget.max).roundToDouble();
+      });
+    }
+
+    String valueString = widget.currentTool.strokeProperties.size.round().toString();
+    updateTextFieldTimer?.cancel();
+    if (manuallyTypedIn) {
+      updateTextFieldTimer = Timer(const Duration(milliseconds: 3000), () {
+        _controller.text = valueString;
+      });
+    } else if (_controller.text != valueString) {
+      _controller.text = valueString;
+    }
+  }
+
   void onDrag(Offset currentOffset) {
     if (startingOffset == null) return;
 
     final double delta = (currentOffset.dx - startingOffset!.dx) / widget.max * 4;
     final double newValue = startingValue + delta;
     setState(() {
-      widget.currentTool.strokeProperties.size = newValue.clamp(0, widget.max).roundToDouble();
-      widget.onSizeChanged?.call();
+      updateValue(newValue: newValue);
     });
   }
 
@@ -46,26 +79,44 @@ class _SizePickerState extends State<SizePicker> {
       onPanEnd: (DragEndDetails details) {
         startingOffset = null;
       },
-      child: Container(
-        width: widget.max,
-        height: widget.max,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: colorScheme.onBackground,
-            width: 1,
-          ),
-          shape: BoxShape.circle,
-        ),
-        child: Center(
-          child: Container(
-            width: Pen.currentPen.strokeProperties.size,
-            height: Pen.currentPen.strokeProperties.size,
+      child: Column(
+        children: [
+          Container(
+            width: widget.max,
+            height: widget.max,
             decoration: BoxDecoration(
-              color: colorScheme.onBackground,
+              border: Border.all(
+                color: colorScheme.onBackground,
+                width: 1,
+              ),
               shape: BoxShape.circle,
             ),
+            child: Center(
+              child: Container(
+                width: Pen.currentPen.strokeProperties.size,
+                height: Pen.currentPen.strokeProperties.size,
+                decoration: BoxDecoration(
+                  color: colorScheme.onBackground,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
           ),
-        ),
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: widget.max * 2),
+            child: TextField(
+              controller: _controller,
+              decoration: const InputDecoration(
+                isDense: true,
+                border: InputBorder.none,
+              ),
+              style: const TextStyle(
+                fontSize: 14,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
       ),
     );
   }

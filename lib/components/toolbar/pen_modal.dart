@@ -31,11 +31,7 @@ class _PenModalState extends State<PenModal> {
             Text(t.editor.penOptions.size),
             SizePicker(
               currentTool: widget.currentTool,
-              onSizeChanged: () {
-                setState(() {});
-              },
             ),
-            Text(widget.currentTool.strokeProperties.size.round().toString()),
           ],
         ),
       ],
