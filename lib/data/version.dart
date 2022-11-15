@@ -1,2 +1,2 @@
 /// The current app version as an ordinal number.
-const int buildNumber = 315;
+const int buildNumber = 316;
