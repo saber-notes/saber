@@ -23,7 +23,7 @@ class EditorImage {
   }
 
   EditorImage.fromJson(Map<String, dynamic> json) :
-        bytes = Uint8List.fromList(json['b'] as List<int>? ?? []),
+        bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
         pageIndex = json['i'] ?? 0,
         onLoad = null,
         _dstRect = Rect.fromLTWH(
