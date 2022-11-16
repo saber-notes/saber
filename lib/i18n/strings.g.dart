@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 403 (67 per locale)
+/// Strings: 404 (67 per locale)
 ///
-/// Built on 2022-11-15 at 17:13 UTC
+/// Built on 2022-11-16 at 08:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1348,6 +1348,7 @@ class _StringsEditorZh extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarZh toolbar = _StringsEditorToolbarZh._(_root);
+	@override late final _StringsEditorPenOptionsZh penOptions = _StringsEditorPenOptionsZh._(_root);
 }
 
 // Path: home.tabs
@@ -1516,6 +1517,16 @@ class _StringsEditorToolbarZh extends _StringsEditorToolbarEn {
 	@override String get redo => '重做';
 	@override String get export => '导出 (Ctrl Shift S)';
 	@override String get exportAs => '导出为：';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsZh extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsZh._(_StringsZh root) : this._root = root, super._(root);
+
+	@override final _StringsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => '粗细';
 }
 
 // Path: <root>
@@ -2214,6 +2225,7 @@ extension on _StringsZh {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '导出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '导出为：';
+			case 'editor.penOptions.size': return '粗细';
 			default: return null;
 		}
 	}
