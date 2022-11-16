@@ -99,7 +99,8 @@ class _SizePickerState extends State<SizePicker> {
                   shape: BoxShape.circle,
                 ),
                 child: Center(
-                  child: Container(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 100),
                     width: Pen.currentPen.strokeProperties.size,
                     height: Pen.currentPen.strokeProperties.size,
                     decoration: BoxDecoration(
