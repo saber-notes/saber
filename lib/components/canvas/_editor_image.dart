@@ -5,6 +5,7 @@ import 'dart:ui';
 class EditorImage {
   final Uint8List bytes;
   final int pageIndex;
+  final VoidCallback? onLoad;
 
   Image? _image;
   Rect _srcRect = Rect.zero;
@@ -16,13 +17,15 @@ class EditorImage {
   EditorImage({
     required this.bytes,
     required this.pageIndex,
+    this.onLoad,
   }) {
-    _getImage();
+    _getImage().then((_) => onLoad?.call());
   }
 
   EditorImage.fromJson(Map<String, dynamic> json) :
         bytes = Uint8List.fromList(json['b'] as List<int>? ?? []),
         pageIndex = json['i'] ?? 0,
+        onLoad = null,
         _dstRect = Rect.fromLTWH(
           json['x'] ?? 0,
           json['y'] ?? 0,

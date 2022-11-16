@@ -412,8 +412,8 @@ class _EditorState extends State<Editor> {
     coreInfo.images.add(EditorImage(
       bytes: bytes,
       pageIndex: currentPageIndex,
+      onLoad: () => setState(() {}),
     ));
-    setState(() {});
   }
 
   Future<Uint8List?> pickPhotoMobile() async {
