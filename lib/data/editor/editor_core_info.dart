@@ -31,7 +31,7 @@ class EditorCoreInfo {
 
   EditorCoreInfo.fromJson(Map<String, dynamic> json):
         strokes = _parseStrokesJson(json["s"] as List),
-        images = _parseImagesJson(json["i"] as List),
+        images = json["i"] != null ? _parseImagesJson(json["i"] as List) : [],
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         width = json["w"] ?? defaultWidth,
         height = json["h"] ?? defaultHeight;

@@ -61,6 +61,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       foregroundPainter: CanvasPainter(
         invert: invert,
         strokes: widget.coreInfo.strokes,
+        images: widget.coreInfo.images,
         currentStroke: widget.currentStroke,
       ),
       isComplex: true,

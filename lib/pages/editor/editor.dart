@@ -596,6 +596,10 @@ class _EditorState extends State<Editor> {
 
     saveToFile();
 
+    for (EditorImage image in coreInfo.images) {
+      image.image?.dispose();
+    }
+
     super.dispose();
   }
 }
