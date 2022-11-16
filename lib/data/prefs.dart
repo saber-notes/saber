@@ -68,7 +68,7 @@ abstract class Prefs {
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
-    editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
+    editorStraightenDelay = PlainPref("editorStraightenDelay", 1000);
 
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
