@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -400,9 +401,22 @@ class _EditorState extends State<Editor> {
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return;
 
-    // todo: add file picker for desktop
-    if (!kIsWeb && !Platform.isAndroid && !Platform.isIOS) return;
+    Uint8List? bytes;
+    if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
+      bytes = await pickPhotoMobile();
+    } else {
+      bytes = await pickPhotoDesktop();
+    }
+    if (bytes == null) return;
 
+    coreInfo.images.add(EditorImage(
+      bytes: bytes,
+      pageIndex: currentPageIndex,
+    ));
+    setState(() {});
+  }
+
+  Future<Uint8List?> pickPhotoMobile() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(
       source: ImageSource.gallery,
@@ -411,13 +425,17 @@ class _EditorState extends State<Editor> {
       imageQuality: 90,
       requestFullMetadata: false,
     );
-    if (image == null) return;
-
-    coreInfo.images.add(EditorImage(
-      bytes: await image.readAsBytes(),
-      pageIndex: currentPageIndex,
-    ));
-    setState(() {});
+    if (image == null) return null;
+    return await image.readAsBytes();
+  }
+  Future <Uint8List?> pickPhotoDesktop() async {
+    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: false,
+      withData: true,
+    );
+    if (result == null) return null;
+    return result.files.single.bytes;
   }
 
   Future exportAsPdf() async {
