@@ -473,7 +473,8 @@ class _EditorState extends State<Editor> {
                     pageIndex: pageIndex,
                     innerCanvasKey: pages[pageIndex].innerCanvasKey,
                     coreInfo: coreInfo.copyWith(
-                        strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
+                      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
+                      images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
                     ),
                     currentStroke: () {
                       Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
