@@ -93,6 +93,9 @@ dependencies:
 
   flutter_svg: ^1.1.6
 
+  # when updated, check if image_picker supports more platforms for Editor.pickPhoto()
+  image_picker: ^0.8.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

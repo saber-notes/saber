@@ -54,5 +54,9 @@
        <string>zh</string>
        <string>zh_TW</string>
     </array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Include your photos in your notes</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Take photos to add to your notes</string>
 </dict>
 </plist>

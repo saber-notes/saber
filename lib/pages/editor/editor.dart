@@ -1,13 +1,16 @@
 
 import 'dart:convert';
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
@@ -393,6 +396,30 @@ class _EditorState extends State<Editor> {
     }
   }
 
+  Future pickPhoto() async {
+    final int? currentPageIndex = this.currentPageIndex;
+    if (currentPageIndex == null) return;
+
+    // todo: add file picker for desktop
+    if (!kIsWeb && !Platform.isAndroid && !Platform.isIOS) return;
+
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 2000,
+      maxHeight: 2000,
+      imageQuality: 90,
+      requestFullMetadata: false,
+    );
+    if (image == null) return;
+
+    coreInfo.images.add(EditorImage(
+      bytes: await image.readAsBytes(),
+      pageIndex: currentPageIndex,
+    ));
+    setState(() {});
+  }
+
   Future exportAsPdf() async {
     final pdf = EditorExporter.generatePdf(pages, coreInfo);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
@@ -471,6 +498,8 @@ class _EditorState extends State<Editor> {
                 lastSeenPointerCount = 0;
               });
             },
+
+            pickPhoto: pickPhoto,
 
             exportAsSbn: exportAsSbn,
             exportAsPdf: exportAsPdf,
