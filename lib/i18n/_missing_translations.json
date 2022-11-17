@@ -63,8 +63,8 @@
       }
     }
   },
-  "zh": {},
-  "zh-TW": {
+  "zh-Hans": {},
+  "zh-Hant": {
     "editor": {
       "penOptions": {
         "size": "Size"
