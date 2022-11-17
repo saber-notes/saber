@@ -3,7 +3,7 @@
 /// Locales: 6
 /// Strings: 404 (67 per locale)
 ///
-/// Built on 2022-11-17 at 07:28 UTC
+/// Built on 2022-11-17 at 15:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -26,8 +26,8 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
 	it(languageCode: 'it', build: _StringsIt.build),
-	zhHans(languageCode: 'zh', scriptCode: 'Hans', build: _StringsZhHans.build),
-	zhHant(languageCode: 'zh', scriptCode: 'Hant', build: _StringsZhHant.build);
+	zhHansCn(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN', build: _StringsZhHansCn.build),
+	zhHantTw(languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW', build: _StringsZhHantTw.build);
 
 	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
 
@@ -1233,14 +1233,14 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 }
 
 // Path: <root>
-class _StringsZhHans extends _StringsEn {
+class _StringsZhHansCn extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	_StringsZhHans.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	_StringsZhHansCn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.zhHans,
+		    locale: AppLocale.zhHansCn,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
@@ -1249,33 +1249,33 @@ class _StringsZhHans extends _StringsEn {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
 
-	/// Metadata for the translations of <zh-Hans>.
+	/// Metadata for the translations of <zh-Hans-CN>.
 	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
 
 	/// Access flat map
 	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
 
-	@override late final _StringsZhHans _root = this; // ignore: unused_field
+	@override late final _StringsZhHansCn _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsHomeZhHans home = _StringsHomeZhHans._(_root);
-	@override late final _StringsSettingsZhHans settings = _StringsSettingsZhHans._(_root);
-	@override late final _StringsLoginZhHans login = _StringsLoginZhHans._(_root);
-	@override late final _StringsAppInfoZhHans appInfo = _StringsAppInfoZhHans._(_root);
-	@override late final _StringsUpdateZhHans update = _StringsUpdateZhHans._(_root);
-	@override late final _StringsEditorZhHans editor = _StringsEditorZhHans._(_root);
+	@override late final _StringsHomeZhHansCn home = _StringsHomeZhHansCn._(_root);
+	@override late final _StringsSettingsZhHansCn settings = _StringsSettingsZhHansCn._(_root);
+	@override late final _StringsLoginZhHansCn login = _StringsLoginZhHansCn._(_root);
+	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
+	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
+	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
 }
 
 // Path: home
-class _StringsHomeZhHans extends _StringsHomeEn {
-	_StringsHomeZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsHomeZhHansCn extends _StringsHomeEn {
+	_StringsHomeZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsHomeTabsZhHans tabs = _StringsHomeTabsZhHans._(_root);
-	@override late final _StringsHomeTitlesZhHans titles = _StringsHomeTitlesZhHans._(_root);
-	@override late final _StringsHomeTooltipsZhHans tooltips = _StringsHomeTooltipsZhHans._(_root);
+	@override late final _StringsHomeTabsZhHansCn tabs = _StringsHomeTabsZhHansCn._(_root);
+	@override late final _StringsHomeTitlesZhHansCn titles = _StringsHomeTitlesZhHansCn._(_root);
+	@override late final _StringsHomeTooltipsZhHansCn tooltips = _StringsHomeTooltipsZhHansCn._(_root);
 	@override String get backFolder => '(返回)';
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get noFiles => '未找到文件';
@@ -1283,42 +1283,42 @@ class _StringsHomeZhHans extends _StringsHomeEn {
 }
 
 // Path: settings
-class _StringsSettingsZhHans extends _StringsSettingsEn {
-	_StringsSettingsZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsSettingsZhHansCn extends _StringsSettingsEn {
+	_StringsSettingsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsSettingsPrefLabelsZhHans prefLabels = _StringsSettingsPrefLabelsZhHans._(_root);
-	@override late final _StringsSettingsPrefDescriptionsZhHans prefDescriptions = _StringsSettingsPrefDescriptionsZhHans._(_root);
-	@override late final _StringsSettingsThemeModesZhHans themeModes = _StringsSettingsThemeModesZhHans._(_root);
-	@override late final _StringsSettingsAccentColorPickerZhHans accentColorPicker = _StringsSettingsAccentColorPickerZhHans._(_root);
-	@override late final _StringsSettingsStraightenDelayZhHans straightenDelay = _StringsSettingsStraightenDelayZhHans._(_root);
+	@override late final _StringsSettingsPrefLabelsZhHansCn prefLabels = _StringsSettingsPrefLabelsZhHansCn._(_root);
+	@override late final _StringsSettingsPrefDescriptionsZhHansCn prefDescriptions = _StringsSettingsPrefDescriptionsZhHansCn._(_root);
+	@override late final _StringsSettingsThemeModesZhHansCn themeModes = _StringsSettingsThemeModesZhHansCn._(_root);
+	@override late final _StringsSettingsAccentColorPickerZhHansCn accentColorPicker = _StringsSettingsAccentColorPickerZhHansCn._(_root);
+	@override late final _StringsSettingsStraightenDelayZhHansCn straightenDelay = _StringsSettingsStraightenDelayZhHansCn._(_root);
 }
 
 // Path: login
-class _StringsLoginZhHans extends _StringsLoginEn {
-	_StringsLoginZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsLoginZhHansCn extends _StringsLoginEn {
+	_StringsLoginZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '登录';
-	@override late final _StringsLoginFeedbacksZhHans feedbacks = _StringsLoginFeedbacksZhHans._(_root);
-	@override late final _StringsLoginFormZhHans form = _StringsLoginFormZhHans._(_root);
+	@override late final _StringsLoginFeedbacksZhHansCn feedbacks = _StringsLoginFeedbacksZhHansCn._(_root);
+	@override late final _StringsLoginFormZhHansCn form = _StringsLoginFormZhHansCn._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '还没有帐户？ '),
 		linkToSignup('立即注册'),
 		const TextSpan(text: '！'),
 	]);
-	@override late final _StringsLoginStatusZhHans status = _StringsLoginStatusZhHans._(_root);
+	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
 }
 
 // Path: appInfo
-class _StringsAppInfoZhHans extends _StringsAppInfoEn {
-	_StringsAppInfoZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsAppInfoZhHansCn extends _StringsAppInfoEn {
+	_StringsAppInfoZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get licenseNotice => 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
@@ -1328,10 +1328,10 @@ class _StringsAppInfoZhHans extends _StringsAppInfoEn {
 }
 
 // Path: update
-class _StringsUpdateZhHans extends _StringsUpdateEn {
-	_StringsUpdateZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsUpdateZhHansCn extends _StringsUpdateEn {
+	_StringsUpdateZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get updateAvailable => '可用更新';
@@ -1341,21 +1341,21 @@ class _StringsUpdateZhHans extends _StringsUpdateEn {
 }
 
 // Path: editor
-class _StringsEditorZhHans extends _StringsEditorEn {
-	_StringsEditorZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsEditorZhHansCn extends _StringsEditorEn {
+	_StringsEditorZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsEditorToolbarZhHans toolbar = _StringsEditorToolbarZhHans._(_root);
-	@override late final _StringsEditorPenOptionsZhHans penOptions = _StringsEditorPenOptionsZhHans._(_root);
+	@override late final _StringsEditorToolbarZhHansCn toolbar = _StringsEditorToolbarZhHansCn._(_root);
+	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
 }
 
 // Path: home.tabs
-class _StringsHomeTabsZhHans extends _StringsHomeTabsEn {
-	_StringsHomeTabsZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsHomeTabsZhHansCn extends _StringsHomeTabsEn {
+	_StringsHomeTabsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => '主页';
@@ -1365,10 +1365,10 @@ class _StringsHomeTabsZhHans extends _StringsHomeTabsEn {
 }
 
 // Path: home.titles
-class _StringsHomeTitlesZhHans extends _StringsHomeTitlesEn {
-	_StringsHomeTitlesZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsHomeTitlesZhHansCn extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => '最近笔记';
@@ -1378,10 +1378,10 @@ class _StringsHomeTitlesZhHans extends _StringsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _StringsHomeTooltipsZhHans extends _StringsHomeTooltipsEn {
-	_StringsHomeTooltipsZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsHomeTooltipsZhHansCn extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get newNote => '新建笔记';
@@ -1389,10 +1389,10 @@ class _StringsHomeTooltipsZhHans extends _StringsHomeTooltipsEn {
 }
 
 // Path: settings.prefLabels
-class _StringsSettingsPrefLabelsZhHans extends _StringsSettingsPrefLabelsEn {
-	_StringsSettingsPrefLabelsZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get appTheme => '应用主题';
@@ -1406,10 +1406,10 @@ class _StringsSettingsPrefLabelsZhHans extends _StringsSettingsPrefLabelsEn {
 }
 
 // Path: settings.prefDescriptions
-class _StringsSettingsPrefDescriptionsZhHans extends _StringsSettingsPrefDescriptionsEn {
-	_StringsSettingsPrefDescriptionsZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
@@ -1418,10 +1418,10 @@ class _StringsSettingsPrefDescriptionsZhHans extends _StringsSettingsPrefDescrip
 }
 
 // Path: settings.themeModes
-class _StringsSettingsThemeModesZhHans extends _StringsSettingsThemeModesEn {
-	_StringsSettingsThemeModesZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsSettingsThemeModesZhHansCn extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get system => '系统';
@@ -1430,10 +1430,10 @@ class _StringsSettingsThemeModesZhHans extends _StringsSettingsThemeModesEn {
 }
 
 // Path: settings.accentColorPicker
-class _StringsSettingsAccentColorPickerZhHans extends _StringsSettingsAccentColorPickerEn {
-	_StringsSettingsAccentColorPickerZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsSettingsAccentColorPickerZhHansCn extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get pickAColor => '选取颜色';
@@ -1441,10 +1441,10 @@ class _StringsSettingsAccentColorPickerZhHans extends _StringsSettingsAccentColo
 }
 
 // Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayZhHans extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsSettingsStraightenDelayZhHansCn extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get off => '关闭';
@@ -1453,10 +1453,10 @@ class _StringsSettingsStraightenDelayZhHans extends _StringsSettingsStraightenDe
 }
 
 // Path: login.feedbacks
-class _StringsLoginFeedbacksZhHans extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get checkUsername => '请仔细检查您的用户名或电子邮件。';
@@ -1469,10 +1469,10 @@ class _StringsLoginFeedbacksZhHans extends _StringsLoginFeedbacksEn {
 }
 
 // Path: login.form
-class _StringsLoginFormZhHans extends _StringsLoginFormEn {
-	_StringsLoginFormZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
+	_StringsLoginFormZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get useCustomServer => '我想要使用自定义 Nextcloud 服务器';
@@ -1489,10 +1489,10 @@ class _StringsLoginFormZhHans extends _StringsLoginFormEn {
 }
 
 // Path: login.status
-class _StringsLoginStatusZhHans extends _StringsLoginStatusEn {
-	_StringsLoginStatusZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsLoginStatusZhHansCn extends _StringsLoginStatusEn {
+	_StringsLoginStatusZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get loggedIn => '已使用 Nextcloud 登录';
@@ -1501,10 +1501,10 @@ class _StringsLoginStatusZhHans extends _StringsLoginStatusEn {
 }
 
 // Path: editor.toolbar
-class _StringsEditorToolbarZhHans extends _StringsEditorToolbarEn {
-	_StringsEditorToolbarZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get fountainPen => '钢笔';
@@ -1520,24 +1520,24 @@ class _StringsEditorToolbarZhHans extends _StringsEditorToolbarEn {
 }
 
 // Path: editor.penOptions
-class _StringsEditorPenOptionsZhHans extends _StringsEditorPenOptionsEn {
-	_StringsEditorPenOptionsZhHans._(_StringsZhHans root) : this._root = root, super._(root);
+class _StringsEditorPenOptionsZhHansCn extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
-	@override final _StringsZhHans _root; // ignore: unused_field
+	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get size => '粗细';
 }
 
 // Path: <root>
-class _StringsZhHant extends _StringsEn {
+class _StringsZhHantTw extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	_StringsZhHant.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	_StringsZhHantTw.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.zhHant,
+		    locale: AppLocale.zhHantTw,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
@@ -1546,33 +1546,33 @@ class _StringsZhHant extends _StringsEn {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
 
-	/// Metadata for the translations of <zh-Hant>.
+	/// Metadata for the translations of <zh-Hant-TW>.
 	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
 
 	/// Access flat map
 	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
 
-	@override late final _StringsZhHant _root = this; // ignore: unused_field
+	@override late final _StringsZhHantTw _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsHomeZhHant home = _StringsHomeZhHant._(_root);
-	@override late final _StringsSettingsZhHant settings = _StringsSettingsZhHant._(_root);
-	@override late final _StringsLoginZhHant login = _StringsLoginZhHant._(_root);
-	@override late final _StringsAppInfoZhHant appInfo = _StringsAppInfoZhHant._(_root);
-	@override late final _StringsUpdateZhHant update = _StringsUpdateZhHant._(_root);
-	@override late final _StringsEditorZhHant editor = _StringsEditorZhHant._(_root);
+	@override late final _StringsHomeZhHantTw home = _StringsHomeZhHantTw._(_root);
+	@override late final _StringsSettingsZhHantTw settings = _StringsSettingsZhHantTw._(_root);
+	@override late final _StringsLoginZhHantTw login = _StringsLoginZhHantTw._(_root);
+	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
+	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
+	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
 }
 
 // Path: home
-class _StringsHomeZhHant extends _StringsHomeEn {
-	_StringsHomeZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsHomeZhHantTw extends _StringsHomeEn {
+	_StringsHomeZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsHomeTabsZhHant tabs = _StringsHomeTabsZhHant._(_root);
-	@override late final _StringsHomeTitlesZhHant titles = _StringsHomeTitlesZhHant._(_root);
-	@override late final _StringsHomeTooltipsZhHant tooltips = _StringsHomeTooltipsZhHant._(_root);
+	@override late final _StringsHomeTabsZhHantTw tabs = _StringsHomeTabsZhHantTw._(_root);
+	@override late final _StringsHomeTitlesZhHantTw titles = _StringsHomeTitlesZhHantTw._(_root);
+	@override late final _StringsHomeTooltipsZhHantTw tooltips = _StringsHomeTooltipsZhHantTw._(_root);
 	@override String get backFolder => '(返回)';
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get noFiles => '未找到檔案';
@@ -1580,42 +1580,42 @@ class _StringsHomeZhHant extends _StringsHomeEn {
 }
 
 // Path: settings
-class _StringsSettingsZhHant extends _StringsSettingsEn {
-	_StringsSettingsZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsSettingsZhHantTw extends _StringsSettingsEn {
+	_StringsSettingsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsSettingsPrefLabelsZhHant prefLabels = _StringsSettingsPrefLabelsZhHant._(_root);
-	@override late final _StringsSettingsPrefDescriptionsZhHant prefDescriptions = _StringsSettingsPrefDescriptionsZhHant._(_root);
-	@override late final _StringsSettingsThemeModesZhHant themeModes = _StringsSettingsThemeModesZhHant._(_root);
-	@override late final _StringsSettingsAccentColorPickerZhHant accentColorPicker = _StringsSettingsAccentColorPickerZhHant._(_root);
-	@override late final _StringsSettingsStraightenDelayZhHant straightenDelay = _StringsSettingsStraightenDelayZhHant._(_root);
+	@override late final _StringsSettingsPrefLabelsZhHantTw prefLabels = _StringsSettingsPrefLabelsZhHantTw._(_root);
+	@override late final _StringsSettingsPrefDescriptionsZhHantTw prefDescriptions = _StringsSettingsPrefDescriptionsZhHantTw._(_root);
+	@override late final _StringsSettingsThemeModesZhHantTw themeModes = _StringsSettingsThemeModesZhHantTw._(_root);
+	@override late final _StringsSettingsAccentColorPickerZhHantTw accentColorPicker = _StringsSettingsAccentColorPickerZhHantTw._(_root);
+	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
 }
 
 // Path: login
-class _StringsLoginZhHant extends _StringsLoginEn {
-	_StringsLoginZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsLoginZhHantTw extends _StringsLoginEn {
+	_StringsLoginZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '登入';
-	@override late final _StringsLoginFeedbacksZhHant feedbacks = _StringsLoginFeedbacksZhHant._(_root);
-	@override late final _StringsLoginFormZhHant form = _StringsLoginFormZhHant._(_root);
+	@override late final _StringsLoginFeedbacksZhHantTw feedbacks = _StringsLoginFeedbacksZhHantTw._(_root);
+	@override late final _StringsLoginFormZhHantTw form = _StringsLoginFormZhHantTw._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '還沒有帳號？ '),
 		linkToSignup('立即註冊'),
 		const TextSpan(text: '！'),
 	]);
-	@override late final _StringsLoginStatusZhHant status = _StringsLoginStatusZhHant._(_root);
+	@override late final _StringsLoginStatusZhHantTw status = _StringsLoginStatusZhHantTw._(_root);
 }
 
 // Path: appInfo
-class _StringsAppInfoZhHant extends _StringsAppInfoEn {
-	_StringsAppInfoZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsAppInfoZhHantTw extends _StringsAppInfoEn {
+	_StringsAppInfoZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get licenseNotice => 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
@@ -1625,10 +1625,10 @@ class _StringsAppInfoZhHant extends _StringsAppInfoEn {
 }
 
 // Path: update
-class _StringsUpdateZhHant extends _StringsUpdateEn {
-	_StringsUpdateZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsUpdateZhHantTw extends _StringsUpdateEn {
+	_StringsUpdateZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get updateAvailable => '可用更新';
@@ -1638,20 +1638,20 @@ class _StringsUpdateZhHant extends _StringsUpdateEn {
 }
 
 // Path: editor
-class _StringsEditorZhHant extends _StringsEditorEn {
-	_StringsEditorZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsEditorZhHantTw extends _StringsEditorEn {
+	_StringsEditorZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsEditorToolbarZhHant toolbar = _StringsEditorToolbarZhHant._(_root);
+	@override late final _StringsEditorToolbarZhHantTw toolbar = _StringsEditorToolbarZhHantTw._(_root);
 }
 
 // Path: home.tabs
-class _StringsHomeTabsZhHant extends _StringsHomeTabsEn {
-	_StringsHomeTabsZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsHomeTabsZhHantTw extends _StringsHomeTabsEn {
+	_StringsHomeTabsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => '首頁';
@@ -1661,10 +1661,10 @@ class _StringsHomeTabsZhHant extends _StringsHomeTabsEn {
 }
 
 // Path: home.titles
-class _StringsHomeTitlesZhHant extends _StringsHomeTitlesEn {
-	_StringsHomeTitlesZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsHomeTitlesZhHantTw extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => '最近筆記';
@@ -1674,10 +1674,10 @@ class _StringsHomeTitlesZhHant extends _StringsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _StringsHomeTooltipsZhHant extends _StringsHomeTooltipsEn {
-	_StringsHomeTooltipsZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsHomeTooltipsZhHantTw extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get newNote => '新增筆記';
@@ -1685,10 +1685,10 @@ class _StringsHomeTooltipsZhHant extends _StringsHomeTooltipsEn {
 }
 
 // Path: settings.prefLabels
-class _StringsSettingsPrefLabelsZhHant extends _StringsSettingsPrefLabelsEn {
-	_StringsSettingsPrefLabelsZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get appTheme => '應用程式主題';
@@ -1702,10 +1702,10 @@ class _StringsSettingsPrefLabelsZhHant extends _StringsSettingsPrefLabelsEn {
 }
 
 // Path: settings.prefDescriptions
-class _StringsSettingsPrefDescriptionsZhHant extends _StringsSettingsPrefDescriptionsEn {
-	_StringsSettingsPrefDescriptionsZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
@@ -1714,10 +1714,10 @@ class _StringsSettingsPrefDescriptionsZhHant extends _StringsSettingsPrefDescrip
 }
 
 // Path: settings.themeModes
-class _StringsSettingsThemeModesZhHant extends _StringsSettingsThemeModesEn {
-	_StringsSettingsThemeModesZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsSettingsThemeModesZhHantTw extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get system => '系統';
@@ -1726,10 +1726,10 @@ class _StringsSettingsThemeModesZhHant extends _StringsSettingsThemeModesEn {
 }
 
 // Path: settings.accentColorPicker
-class _StringsSettingsAccentColorPickerZhHant extends _StringsSettingsAccentColorPickerEn {
-	_StringsSettingsAccentColorPickerZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsSettingsAccentColorPickerZhHantTw extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get pickAColor => '選取顏色';
@@ -1737,10 +1737,10 @@ class _StringsSettingsAccentColorPickerZhHant extends _StringsSettingsAccentColo
 }
 
 // Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayZhHant extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsSettingsStraightenDelayZhHantTw extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get off => '關閉';
@@ -1749,10 +1749,10 @@ class _StringsSettingsStraightenDelayZhHant extends _StringsSettingsStraightenDe
 }
 
 // Path: login.feedbacks
-class _StringsLoginFeedbacksZhHant extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get checkUsername => '請仔細檢查您的使用者名稱或電子郵件。';
@@ -1765,10 +1765,10 @@ class _StringsLoginFeedbacksZhHant extends _StringsLoginFeedbacksEn {
 }
 
 // Path: login.form
-class _StringsLoginFormZhHant extends _StringsLoginFormEn {
-	_StringsLoginFormZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
+	_StringsLoginFormZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get useCustomServer => '我想要使用自訂 Nextcloud 伺服器';
@@ -1785,10 +1785,10 @@ class _StringsLoginFormZhHant extends _StringsLoginFormEn {
 }
 
 // Path: login.status
-class _StringsLoginStatusZhHant extends _StringsLoginStatusEn {
-	_StringsLoginStatusZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsLoginStatusZhHantTw extends _StringsLoginStatusEn {
+	_StringsLoginStatusZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get loggedIn => '已使用 Nextcloud 登入';
@@ -1797,10 +1797,10 @@ class _StringsLoginStatusZhHant extends _StringsLoginStatusEn {
 }
 
 // Path: editor.toolbar
-class _StringsEditorToolbarZhHant extends _StringsEditorToolbarEn {
-	_StringsEditorToolbarZhHant._(_StringsZhHant root) : this._root = root, super._(root);
+class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
-	@override final _StringsZhHant _root; // ignore: unused_field
+	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get fountainPen => '鋼筆';
@@ -2144,7 +2144,7 @@ extension on _StringsIt {
 	}
 }
 
-extension on _StringsZhHans {
+extension on _StringsZhHansCn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'home.tabs.home': return '主页';
@@ -2231,7 +2231,7 @@ extension on _StringsZhHans {
 	}
 }
 
-extension on _StringsZhHant {
+extension on _StringsZhHantTw {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'home.tabs.home': return '首頁';
