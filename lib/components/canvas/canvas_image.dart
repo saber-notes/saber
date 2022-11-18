@@ -15,6 +15,8 @@ class CanvasImage extends StatefulWidget {
 }
 
 class _CanvasImageState extends State<CanvasImage> {
+  bool active = false;
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -23,14 +25,19 @@ class _CanvasImageState extends State<CanvasImage> {
       width: widget.image.dstRect.width,
       height: widget.image.dstRect.height,
       child: GestureDetector(
-        onPanUpdate: (details) {
+        onTap: () {
+          setState(() {
+            active = !active;
+          });
+        },
+        onPanUpdate: active ? (details) {
           setState(() {
             widget.image.dstRect = widget.image.dstRect.translate(
               details.delta.dx,
               details.delta.dy,
             );
           });
-        },
+        } : null,
         child: SizedOverflowBox(
           size: widget.image.srcRect.size,
           child: Transform.translate(
