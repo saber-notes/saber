@@ -7,10 +7,8 @@ class EditorImage {
   final int pageIndex;
   final VoidCallback? onLoad;
 
-  Image? _image;
   Rect _srcRect = Rect.zero;
   Rect _dstRect = Rect.zero;
-  Image? get image => _image;
   Rect get srcRect => _srcRect;
   Rect get dstRect => _dstRect;
 
@@ -53,8 +51,8 @@ class EditorImage {
 
     if (srcRect.left != 0) json['sx'] = srcRect.left;
     if (srcRect.top != 0) json['sy'] = srcRect.top;
-    json['sw'] = srcRect.width;
-    json['sh'] = srcRect.height;
+    if (srcRect.width != 0) json['sw'] = srcRect.width;
+    if (srcRect.height != 0) json['sh'] = srcRect.height;
 
     return json;
   }
@@ -63,10 +61,16 @@ class EditorImage {
     ImageDescriptor imageDescriptor = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
     Codec codec = await imageDescriptor.instantiateCodec();
     FrameInfo frameInfo = await codec.getNextFrame();
-    _image = frameInfo.image;
-    _srcRect = Rect.fromLTWH(_srcRect.left, _srcRect.top, _image!.width.toDouble(), _image!.height.toDouble());
-    if (_dstRect.width == 0 || _dstRect.height == 0) {
-      _dstRect = Rect.fromLTWH(_dstRect.left, _dstRect.top, _image!.width.toDouble(), _image!.height.toDouble());
+    Image image = frameInfo.image;
+    try {
+      if (srcRect.width == 0 || srcRect.height == 0) {
+        _srcRect = Rect.fromLTWH(_srcRect.left, _srcRect.top, image.width.toDouble(), image.height.toDouble());
+      }
+      if (_dstRect.width == 0 || _dstRect.height == 0) {
+        _dstRect = Rect.fromLTWH(_dstRect.left, _dstRect.top, image.width.toDouble(), image.height.toDouble());
+      }
+    } finally {
+      image.dispose();
     }
   }
 

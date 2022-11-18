@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -61,7 +63,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
       foregroundPainter: CanvasPainter(
         invert: invert,
         strokes: widget.coreInfo.strokes,
-        images: widget.coreInfo.images,
         currentStroke: widget.currentStroke,
       ),
       isComplex: true,
@@ -70,6 +71,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
         width: widget.width,
         height: widget.height,
         color: backgroundColor,
+        child: Stack(
+          children: [
+            for (final EditorImage editorImage in widget.coreInfo.images)
+              CanvasImage(image: editorImage),
+          ],
+        ),
       ),
     );
   }

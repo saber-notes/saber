@@ -1,6 +1,5 @@
 
-import 'package:flutter/material.dart' hide Image;
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
@@ -11,13 +10,11 @@ class CanvasPainter extends CustomPainter {
   const CanvasPainter({
     this.invert = false,
     required this.strokes,
-    required this.images,
     this.currentStroke,
   });
 
   final bool invert;
   final Iterable<Stroke> strokes;
-  final Iterable<EditorImage> images;
   final Stroke? currentStroke;
 
   @override
@@ -39,17 +36,6 @@ class CanvasPainter extends CustomPainter {
       canvas.drawPath(path, paint);
     }
     canvas.restore();
-
-    // images
-    for (final EditorImage editorImage in images) {
-      if (editorImage.image == null) continue;
-      canvas.drawImageRect(
-        editorImage.image!,
-        editorImage.srcRect,
-        editorImage.dstRect,
-        paint,
-      );
-    }
 
     // pen
     for (final Stroke stroke in strokes) {

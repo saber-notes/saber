@@ -428,7 +428,7 @@ class _EditorState extends State<Editor> {
     if (image == null) return null;
     return await image.readAsBytes();
   }
-  Future <Uint8List?> pickPhotoDesktop() async {
+  Future<Uint8List?> pickPhotoDesktop() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.image,
       allowMultiple: false,
@@ -614,10 +614,6 @@ class _EditorState extends State<Editor> {
     _removeKeybindings();
 
     saveToFile();
-
-    for (EditorImage image in coreInfo.images) {
-      image.image?.dispose();
-    }
 
     super.dispose();
   }
