@@ -7,10 +7,8 @@ class EditorImage {
   final int pageIndex;
   final VoidCallback? onLoad;
 
-  Rect _srcRect = Rect.zero;
-  Rect _dstRect = Rect.zero;
-  Rect get srcRect => _srcRect;
-  Rect get dstRect => _dstRect;
+  Rect srcRect = Rect.zero;
+  Rect dstRect = Rect.zero;
 
   EditorImage({
     required this.bytes,
@@ -24,13 +22,13 @@ class EditorImage {
         bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
         pageIndex = json['i'] ?? 0,
         onLoad = null,
-        _dstRect = Rect.fromLTWH(
+        dstRect = Rect.fromLTWH(
           json['x'] ?? 0,
           json['y'] ?? 0,
           json['w'] ?? 0,
           json['h'] ?? 0,
         ),
-        _srcRect = Rect.fromLTWH(
+        srcRect = Rect.fromLTWH(
           json['sx'] ?? 0,
           json['sy'] ?? 0,
           json['sw'] ?? 0,
@@ -64,10 +62,10 @@ class EditorImage {
     Image image = frameInfo.image;
     try {
       if (srcRect.width == 0 || srcRect.height == 0) {
-        _srcRect = Rect.fromLTWH(_srcRect.left, _srcRect.top, image.width.toDouble(), image.height.toDouble());
+        srcRect = Rect.fromLTWH(srcRect.left, srcRect.top, image.width.toDouble(), image.height.toDouble());
       }
-      if (_dstRect.width == 0 || _dstRect.height == 0) {
-        _dstRect = Rect.fromLTWH(_dstRect.left, _dstRect.top, image.width.toDouble(), image.height.toDouble());
+      if (dstRect.width == 0 || dstRect.height == 0) {
+        dstRect = Rect.fromLTWH(dstRect.left, dstRect.top, image.width.toDouble(), image.height.toDouble());
       }
     } finally {
       image.dispose();
