@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 404 (67 per locale)
+/// Strings: 405 (67 per locale)
 ///
-/// Built on 2022-11-17 at 16:12 UTC
+/// Built on 2022-11-18 at 04:33 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1645,6 +1645,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarZhHantTw toolbar = _StringsEditorToolbarZhHantTw._(_root);
+	@override late final _StringsEditorPenOptionsZhHantTw penOptions = _StringsEditorPenOptionsZhHantTw._(_root);
 }
 
 // Path: home.tabs
@@ -1813,6 +1814,16 @@ class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
 	@override String get redo => '重做';
 	@override String get export => '匯出 (Ctrl Shift S)';
 	@override String get exportAs => '匯出為：';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsZhHantTw extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => '粗細';
 }
 
 /// Flat map(s) containing all translations.
@@ -2312,6 +2323,7 @@ extension on _StringsZhHantTw {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '匯出為：';
+			case 'editor.penOptions.size': return '粗細';
 			default: return null;
 		}
 	}
