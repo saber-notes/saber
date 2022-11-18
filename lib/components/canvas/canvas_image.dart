@@ -17,10 +17,15 @@ class CanvasImage extends StatelessWidget {
       top: image.dstRect.top,
       width: image.dstRect.width,
       height: image.dstRect.height,
-      child: Image.memory(
-        image.bytes,
-        fit: BoxFit.contain,
-        // todo: use image.srcRect to crop the image
+      child: SizedOverflowBox(
+        size: image.srcRect.size,
+        child: Transform.translate(
+          offset: -image.srcRect.topLeft,
+          child: Image.memory(
+            image.bytes,
+            fit: BoxFit.none,
+          ),
+        ),
       ),
     );
   }
