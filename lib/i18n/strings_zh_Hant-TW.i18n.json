@@ -103,6 +103,9 @@
       "redo": "重做",
       "export": "匯出 (Ctrl Shift S)",
       "exportAs": "匯出為："
+    },
+    "penOptions": {
+      "size": "粗細"
     }
   }
 }
