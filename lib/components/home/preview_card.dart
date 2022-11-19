@@ -11,11 +11,10 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
-  const PreviewCard({
-    super.key,
+  PreviewCard({
     required this.filePath,
     required this.onTap,
-  });
+  }) : super(key: ValueKey("PreviewCard$filePath"));
 
   final String filePath;
   final Function(String) onTap;
