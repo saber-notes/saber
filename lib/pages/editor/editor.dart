@@ -159,7 +159,8 @@ class _EditorState extends State<Editor> {
 
     // remove excess pages if all pages >= this one are empty
     for (int i = pages.length - 1; i >= minPageIndex + 1; --i) {
-      final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
+      final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
+          && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1);
       if (pageEmpty) pages.removeAt(i);
     }
   }
@@ -181,10 +182,16 @@ class _EditorState extends State<Editor> {
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.remove(stroke);
         }
+        for (EditorImage image in item.images) {
+          coreInfo.images.remove(image);
+        }
         removeExcessPagesAfterStroke(null);
       } else if (item.type == EditorHistoryItemType.erase) { // undo erase
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.add(stroke);
+        }
+        for (EditorImage image in item.images) {
+          coreInfo.images.add(image);
         }
         createPageOfStroke(null);
       }
@@ -202,10 +209,16 @@ class _EditorState extends State<Editor> {
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.add(stroke);
         }
+        for (EditorImage image in item.images) {
+          coreInfo.images.add(image);
+        }
         createPageOfStroke(null);
       } else if (item.type == EditorHistoryItemType.erase) { // redo erase
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.remove(stroke);
+        }
+        for (EditorImage image in item.images) {
+          coreInfo.images.remove(image);
         }
         removeExcessPagesAfterStroke(null);
       }
@@ -243,6 +256,7 @@ class _EditorState extends State<Editor> {
             for (Stroke stroke in item.strokes) {
               coreInfo.strokes.remove(stroke);
             }
+            // item.images is always empty
             removeExcessPagesAfterStroke(null);
           }
         });
@@ -298,11 +312,13 @@ class _EditorState extends State<Editor> {
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.draw,
           strokes: [newStroke],
+          images: [],
         ));
       } else if (currentTool is Eraser) {
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
           strokes: (currentTool as Eraser).onDragEnd(),
+          images: [],
         ));
       }
     });
@@ -413,12 +429,18 @@ class _EditorState extends State<Editor> {
     }
     if (bytes == null) return;
 
-    coreInfo.images.add(EditorImage(
+    EditorImage image = EditorImage(
       bytes: bytes,
       pageIndex: currentPageIndex,
       pageSize: Size(coreInfo.width, coreInfo.height),
       onLoad: () => setState(() {}),
+    );
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.draw,
+      strokes: [],
+      images: [image],
     ));
+    coreInfo.images.add(image);
   }
 
   Future<Uint8List?> pickPhotoMobile() async {
@@ -568,26 +590,34 @@ class _EditorState extends State<Editor> {
       if (currentPageIndex == null) return;
 
       setState(() {
-        List<Stroke> removed = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
-        for (Stroke stroke in removed) {
+        List<Stroke> removedStrokes = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
+        for (Stroke stroke in removedStrokes) {
           coreInfo.strokes.remove(stroke);
+        }
+        List<EditorImage> removedImages = coreInfo.images.where((image) => image.pageIndex == currentPageIndex).toList();
+        for (EditorImage image in removedImages) {
+          coreInfo.images.remove(image);
         }
         removeExcessPagesAfterStroke(null);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
-          strokes: removed,
+          strokes: removedStrokes,
+          images: removedImages,
         ));
       });
     },
 
     clearAllPages: () {
       setState(() {
-        List<Stroke> removed = coreInfo.strokes.toList();
+        List<Stroke> removedStrokes = coreInfo.strokes.toList();
+        List<EditorImage> removedImages = coreInfo.images.toList();
         coreInfo.strokes.clear();
+        coreInfo.images.clear();
         removeExcessPagesAfterStroke(null);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
-          strokes: removed,
+          strokes: removedStrokes,
+          images: removedImages,
         ));
       });
     },

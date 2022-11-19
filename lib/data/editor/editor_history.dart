@@ -1,4 +1,5 @@
 
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
 class EditorHistory {
@@ -55,6 +56,7 @@ class EditorHistory {
     _isRedoPossible = true;
     if (_past.isEmpty) return null;
     assert(_past.last.strokes.length == 1, "Accidental strokes should be single-stroke");
+    assert(_past.last.images.isEmpty, "Accidental strokes should not contain images");
     return _past.removeLast();
   }
 
@@ -80,10 +82,12 @@ class EditorHistoryItem {
   EditorHistoryItem({
     required this.type,
     required this.strokes,
+    required this.images,
   });
 
   final EditorHistoryItemType type;
   final List<Stroke> strokes;
+  final List<EditorImage> images;
 }
 
 enum EditorHistoryItemType {
