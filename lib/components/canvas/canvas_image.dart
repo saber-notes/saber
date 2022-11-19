@@ -1,6 +1,7 @@
 
 import 'dart:math';
 
+import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 
@@ -88,13 +89,13 @@ class _CanvasImageState extends State<CanvasImage> {
               ),
             ),
           ),
-          if (active)
-            for (double x = -10; x <= 10; x += 10 * 2)
-              for (double y = -10; y <= 10; y += 10 * 2)
-                CanvasImageResizeHandle(
-                  position: Offset(x, y),
-                  image: widget.image,
-                ),
+          for (double x = -10; x <= 10; x += 10 * 2)
+            for (double y = -10; y <= 10; y += 10 * 2)
+              CanvasImageResizeHandle(
+                active: active,
+                position: Offset(x, y),
+                image: widget.image,
+              ),
         ],
       ),
     );
@@ -110,10 +111,12 @@ class _CanvasImageState extends State<CanvasImage> {
 class CanvasImageResizeHandle extends StatelessWidget {
   const CanvasImageResizeHandle({
     super.key,
+    required this.active,
     required this.position,
     required this.image,
   });
 
+  final bool active;
   final Offset position;
   final EditorImage image;
 
@@ -126,15 +129,19 @@ class CanvasImageResizeHandle extends StatelessWidget {
       bottom: position.dy >= 0 ? -position.dy : null,
       child: GestureDetector(
         // todo: resize on pan
-        child: Container(
-          width: 20,
-          height: 20,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: Colors.black,
-              width: 2,
+        child: AnimatedOpacity(
+          opacity: active ? 1 : 0,
+          duration: const Duration(milliseconds: 100),
+          child: Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: Colors.black,
+                width: 2,
+              ),
             ),
           ),
         ),
