@@ -13,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
+import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -227,6 +228,9 @@ class _EditorState extends State<Editor> {
   /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
   bool pressureWasNegative = false;
   bool isDrawGesture(ScaleStartDetails details) {
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+    CanvasImage.activeListener.notifyListeners();
+
     _lastSeenPointerCountTimer?.cancel();
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;

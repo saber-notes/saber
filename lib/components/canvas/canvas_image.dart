@@ -59,6 +59,7 @@ class _CanvasImageState extends State<CanvasImage> {
                 onTap: () {
                   setState(() {
                     if (!active) {
+                      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
                       CanvasImage.activeListener.notifyListeners();
                       active = true;
                     } else {
