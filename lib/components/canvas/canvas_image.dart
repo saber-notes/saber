@@ -11,12 +11,12 @@ import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 
 class CanvasImage extends StatefulWidget {
-  const CanvasImage({
-    super.key,
+  static int _nextId = 0;
+  CanvasImage({
     required this.image,
     required this.pageSize,
     this.readOnly = false,
-  });
+  }) : super(key: Key('CanvasImage${_nextId++}'));
 
   final EditorImage image;
   final Size pageSize;
