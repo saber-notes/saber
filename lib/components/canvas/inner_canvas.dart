@@ -1,4 +1,5 @@
 
+import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
@@ -74,15 +75,17 @@ class _InnerCanvasState extends State<InnerCanvas> {
         width: widget.width,
         height: widget.height,
         color: backgroundColor,
-        child: Stack(
-          children: [
-            for (final EditorImage editorImage in widget.coreInfo.images)
-              CanvasImage(
-                image: editorImage,
-                pageSize: Size(widget.width, widget.height),
-                readOnly: widget.readOnly,
-              ),
-          ],
+        child: DeferredPointerHandler(
+          child: Stack(
+            children: [
+              for (final EditorImage editorImage in widget.coreInfo.images)
+                CanvasImage(
+                  image: editorImage,
+                  pageSize: Size(widget.width, widget.height),
+                  readOnly: widget.readOnly,
+                ),
+            ],
+          ),
         ),
       ),
     );

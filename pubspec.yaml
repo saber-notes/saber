@@ -96,6 +96,8 @@ dependencies:
   # when updated, check if image_picker supports more platforms for Editor.pickPhoto()
   image_picker: ^0.8.6
 
+  defer_pointer: ^0.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

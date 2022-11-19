@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  defer_pointer:
+    dependency: "direct main"
+    description:
+      name: defer_pointer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   dynamic_color:
     dependency: "direct main"
     description:
@@ -134,6 +141,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:

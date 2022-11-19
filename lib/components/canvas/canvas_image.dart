@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:collapsible/collapsible.dart';
+import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 
@@ -50,7 +51,6 @@ class _CanvasImageState extends State<CanvasImage> {
       child: IgnorePointer(
         ignoring: widget.readOnly,
         child: Stack(
-          clipBehavior: Clip.none,
           fit: StackFit.expand,
           children: [
             GestureDetector(
@@ -134,56 +134,59 @@ class CanvasImageResizeHandle extends StatelessWidget {
       right: position.dx >= 0 ? -position.dx : null,
       top: position.dy < 0 ? position.dy : null,
       bottom: position.dy >= 0 ? -position.dy : null,
-      child: MouseRegion(
-        cursor: (){
-          if (!active) return MouseCursor.defer;
-          if (position.dx < 0 && position.dy < 0) return SystemMouseCursors.resizeUpLeft;
-          if (position.dx < 0 && position.dy >= 0) return SystemMouseCursors.resizeDownLeft;
-          if (position.dx >= 0 && position.dy < 0) return SystemMouseCursors.resizeUpRight;
-          if (position.dx >= 0 && position.dy >= 0) return SystemMouseCursors.resizeDownRight;
-          return MouseCursor.defer;
-        }(),
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onPanUpdate: active ? (details) {
-            final double aspectRatio = image.srcRect.width / image.srcRect.height;
-            double newWidth = image.dstRect.width + (position.dx < 0 ? -1 : 1) * details.delta.dx;
-            double newHeight = image.dstRect.height + (position.dy < 0 ? -1 : 1) * details.delta.dy;
-            double left = image.dstRect.left, top = image.dstRect.top;
+      child: DeferPointer(
+        paintOnTop: true,
+        child: MouseRegion(
+          cursor: (){
+            if (!active) return MouseCursor.defer;
+            if (position.dx < 0 && position.dy < 0) return SystemMouseCursors.resizeUpLeft;
+            if (position.dx < 0 && position.dy >= 0) return SystemMouseCursors.resizeDownLeft;
+            if (position.dx >= 0 && position.dy < 0) return SystemMouseCursors.resizeUpRight;
+            if (position.dx >= 0 && position.dy >= 0) return SystemMouseCursors.resizeDownRight;
+            return MouseCursor.defer;
+          }(),
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onPanUpdate: active ? (details) {
+              final double aspectRatio = image.srcRect.width / image.srcRect.height;
+              double newWidth = image.dstRect.width + (position.dx < 0 ? -1 : 1) * details.delta.dx;
+              double newHeight = image.dstRect.height + (position.dy < 0 ? -1 : 1) * details.delta.dy;
+              double left = image.dstRect.left, top = image.dstRect.top;
 
-            if (newWidth / newHeight > aspectRatio) {
-              newHeight = newWidth / aspectRatio;
-            } else {
-              newWidth = newHeight * aspectRatio;
-            }
+              if (newWidth / newHeight > aspectRatio) {
+                newHeight = newWidth / aspectRatio;
+              } else {
+                newWidth = newHeight * aspectRatio;
+              }
 
-            if (position.dx < 0) {
-              left = image.dstRect.right - newWidth;
-            }
-            if (position.dy < 0) {
-              top = image.dstRect.bottom - newHeight;
-            }
+              if (position.dx < 0) {
+                left = image.dstRect.right - newWidth;
+              }
+              if (position.dy < 0) {
+                top = image.dstRect.bottom - newHeight;
+              }
 
-            image.dstRect = Rect.fromLTWH(
-              left,
-              top,
-              newWidth,
-              newHeight,
-            );
-            afterDrag();
-          } : null,
-          child: AnimatedOpacity(
-            opacity: active ? 1 : 0,
-            duration: const Duration(milliseconds: 100),
-            child: Container(
-              width: 20,
-              height: 20,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.black,
-                  width: 2,
+              image.dstRect = Rect.fromLTWH(
+                left,
+                top,
+                newWidth,
+                newHeight,
+              );
+              afterDrag();
+            } : null,
+            child: AnimatedOpacity(
+              opacity: active ? 1 : 0,
+              duration: const Duration(milliseconds: 100),
+              child: Container(
+                width: 20,
+                height: 20,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
                 ),
               ),
             ),
