@@ -416,6 +416,7 @@ class _EditorState extends State<Editor> {
     coreInfo.images.add(EditorImage(
       bytes: bytes,
       pageIndex: currentPageIndex,
+      pageSize: Size(coreInfo.width, coreInfo.height),
       onLoad: () => setState(() {}),
     ));
   }

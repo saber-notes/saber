@@ -13,9 +13,10 @@ class EditorImage {
   EditorImage({
     required this.bytes,
     required this.pageIndex,
+    required Size pageSize,
     this.onLoad,
   }) {
-    _getImage().then((_) => onLoad?.call());
+    _getImage(pageSize).then((_) => onLoad?.call());
   }
 
   EditorImage.fromJson(Map<String, dynamic> json) :
@@ -55,7 +56,7 @@ class EditorImage {
     return json;
   }
 
-  Future<void> _getImage() async {
+  Future<void> _getImage([Size? pageSize]) async {
     ImageDescriptor imageDescriptor = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
     Codec codec = await imageDescriptor.instantiateCodec();
     FrameInfo frameInfo = await codec.getNextFrame();
@@ -65,7 +66,20 @@ class EditorImage {
         srcRect = Rect.fromLTWH(srcRect.left, srcRect.top, image.width.toDouble(), image.height.toDouble());
       }
       if (dstRect.width == 0 || dstRect.height == 0) {
-        dstRect = Rect.fromLTWH(dstRect.left, dstRect.top, image.width.toDouble(), image.height.toDouble());
+        double width = image.width.toDouble(),
+            height = image.height.toDouble();
+        if (pageSize != null) {
+          double aspectRatio = width / height;
+          if (width > pageSize.width) {
+            width = pageSize.width;
+            height = width / aspectRatio;
+          }
+          if (height > pageSize.height) {
+            height = pageSize.height;
+            width = height * aspectRatio;
+          }
+        }
+        dstRect = Rect.fromLTWH(dstRect.left, dstRect.top, width, height);
       }
     } finally {
       image.dispose();
