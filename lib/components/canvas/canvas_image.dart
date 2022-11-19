@@ -49,6 +49,7 @@ class _CanvasImageState extends State<CanvasImage> {
       height: widget.image.dstRect.height,
       child: Stack(
         clipBehavior: Clip.none,
+        fit: StackFit.expand,
         children: [
           GestureDetector(
             onTap: !widget.readOnly ? () {
@@ -84,7 +85,7 @@ class _CanvasImageState extends State<CanvasImage> {
                 offset: -widget.image.srcRect.topLeft,
                 child: Image.memory(
                   widget.image.bytes,
-                  fit: BoxFit.none,
+                  fit: BoxFit.contain,
                 ),
               ),
             ),
@@ -95,6 +96,7 @@ class _CanvasImageState extends State<CanvasImage> {
                 active: active,
                 position: Offset(x, y),
                 image: widget.image,
+                afterDrag: () => setState(() {}),
               ),
         ],
       ),
@@ -114,11 +116,13 @@ class CanvasImageResizeHandle extends StatelessWidget {
     required this.active,
     required this.position,
     required this.image,
+    required this.afterDrag,
   });
 
   final bool active;
   final Offset position;
   final EditorImage image;
+  final void Function() afterDrag;
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +132,15 @@ class CanvasImageResizeHandle extends StatelessWidget {
       top: position.dy < 0 ? position.dy : null,
       bottom: position.dy >= 0 ? -position.dy : null,
       child: GestureDetector(
-        // todo: resize on pan
+        onPanUpdate: active ? (details) {
+          image.dstRect = Rect.fromLTWH(
+            image.dstRect.left + (position.dx < 0 ? details.delta.dx : 0),
+            image.dstRect.top + (position.dy < 0 ? details.delta.dy : 0),
+            image.dstRect.width + (position.dx < 0 ? -details.delta.dx : details.delta.dx),
+            image.dstRect.height + (position.dy < 0 ? -details.delta.dy : details.delta.dy),
+          );
+          afterDrag();
+        } : null,
         child: AnimatedOpacity(
           opacity: active ? 1 : 0,
           duration: const Duration(milliseconds: 100),
