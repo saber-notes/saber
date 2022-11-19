@@ -98,6 +98,8 @@ dependencies:
 
   defer_pointer: ^0.0.2
 
+  image: ^3.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

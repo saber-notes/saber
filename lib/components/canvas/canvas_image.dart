@@ -1,10 +1,14 @@
 
 import 'dart:math';
+import 'dart:typed_data';
 
-import 'package:collapsible/collapsible.dart';
 import 'package:defer_pointer/defer_pointer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/data/prefs.dart';
 
 class CanvasImage extends StatefulWidget {
   const CanvasImage({
@@ -29,8 +33,15 @@ class _CanvasImageState extends State<CanvasImage> {
   /// Whether this image can be dragged
   bool active = false;
 
+  late Uint8List imageBytes;
+  Brightness imageBrightness = Brightness.light;
+
+  Uint8List? invertedImageBytes;
+  bool invertStarted = false;
+
   @override
   void initState() {
+    imageBytes = widget.image.bytes;
     super.initState();
     CanvasImage.activeListener.addListener(disableActive);
   }
@@ -41,8 +52,51 @@ class _CanvasImageState extends State<CanvasImage> {
     });
   }
 
+  Future invertImage() async {
+    if (invertStarted || !mounted) return;
+    invertStarted = true;
+
+    /// synchronous function run on an isolate using [compute]
+    /// https://api.flutter.dev/flutter/foundation/compute-constant.html
+    image.Image? invertImage(Uint8List originalImageBytes) {
+      image.Image? decoded = image.decodeImage(originalImageBytes);
+      if (decoded == null) return null;
+      for (int x = 0; x < decoded.width; ++x) {
+        for (int y = 0; y < decoded.height; ++y) {
+          int pixel = decoded.getPixel(x, y);
+          int r = image.getRed(pixel),
+              g = image.getGreen(pixel),
+              b = image.getBlue(pixel),
+              a = image.getAlpha(pixel);
+          Color inverted = Color.fromRGBO(r, g, b, 1).withInversion();
+          int invertedInt = image.getColor(inverted.red, inverted.green, inverted.blue, a);
+          decoded.setPixel(x, y, invertedInt);
+        }
+      }
+      return decoded;
+    }
+
+    image.Image? inverted = await compute(invertImage, widget.image.bytes);
+    if (!mounted) return;
+    if (inverted == null) return;
+    invertedImageBytes = image.encodePng(inverted) as Uint8List;
+    setState(() {
+      imageBytes = invertedImageBytes!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Brightness currentBrightness = MediaQuery.of(context).platformBrightness;
+    if (Prefs.editorAutoInvert.value && currentBrightness != imageBrightness) {
+      if (currentBrightness == Brightness.light) {
+        imageBytes = widget.image.bytes;
+      } else {
+        imageBytes = invertedImageBytes ?? imageBytes;
+        invertImage();
+      }
+    }
+
     return Positioned(
       left: widget.image.dstRect.left,
       top: widget.image.dstRect.top,
@@ -89,7 +143,7 @@ class _CanvasImageState extends State<CanvasImage> {
                   child: Transform.translate(
                     offset: -widget.image.srcRect.topLeft,
                     child: Image.memory(
-                      widget.image.bytes,
+                      imageBytes,
                       fit: BoxFit.contain,
                     ),
                   ),
