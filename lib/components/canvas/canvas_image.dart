@@ -132,12 +132,31 @@ class CanvasImageResizeHandle extends StatelessWidget {
       top: position.dy < 0 ? position.dy : null,
       bottom: position.dy >= 0 ? -position.dy : null,
       child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onPanUpdate: active ? (details) {
+          final double aspectRatio = image.srcRect.width / image.srcRect.height;
+          double newWidth = image.dstRect.width + (position.dx < 0 ? -1 : 1) * details.delta.dx;
+          double newHeight = image.dstRect.height + (position.dy < 0 ? -1 : 1) * details.delta.dy;
+          double left = image.dstRect.left, top = image.dstRect.top;
+
+          if (newWidth / newHeight > aspectRatio) {
+            newHeight = newWidth / aspectRatio;
+          } else {
+            newWidth = newHeight * aspectRatio;
+          }
+
+          if (position.dx < 0) {
+            left = image.dstRect.right - newWidth;
+          }
+          if (position.dy < 0) {
+            top = image.dstRect.bottom - newHeight;
+          }
+
           image.dstRect = Rect.fromLTWH(
-            image.dstRect.left + (position.dx < 0 ? details.delta.dx : 0),
-            image.dstRect.top + (position.dy < 0 ? details.delta.dy : 0),
-            image.dstRect.width + (position.dx < 0 ? -details.delta.dx : details.delta.dx),
-            image.dstRect.height + (position.dy < 0 ? -details.delta.dy : details.delta.dy),
+            left,
+            top,
+            newWidth,
+            newHeight,
           );
           afterDrag();
         } : null,
