@@ -10,12 +10,28 @@ class CanvasImage extends StatefulWidget {
 
   final EditorImage image;
 
+  /// When notified, all [CanvasImages] will have their [active] property set to false.
+  static ChangeNotifier activeListener = ChangeNotifier();
+
   @override
   State<CanvasImage> createState() => _CanvasImageState();
 }
 
 class _CanvasImageState extends State<CanvasImage> {
+  /// Whether this image can be dragged
   bool active = false;
+
+  @override
+  void initState() {
+    super.initState();
+    CanvasImage.activeListener.addListener(disableActive);
+  }
+
+  disableActive() {
+    setState(() {
+      active = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +43,12 @@ class _CanvasImageState extends State<CanvasImage> {
       child: GestureDetector(
         onTap: () {
           setState(() {
-            active = !active;
+            if (!active) {
+              CanvasImage.activeListener.notifyListeners();
+              active = true;
+            } else {
+              active = false;
+            }
           });
         },
         onPanUpdate: active ? (details) {
@@ -50,5 +71,11 @@ class _CanvasImageState extends State<CanvasImage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    CanvasImage.activeListener.removeListener(disableActive);
+    super.dispose();
   }
 }
