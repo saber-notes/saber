@@ -30,8 +30,21 @@ class CanvasImage extends StatefulWidget {
 }
 
 class _CanvasImageState extends State<CanvasImage> {
+  bool _active = false;
   /// Whether this image can be dragged
-  bool active = false;
+  bool get active => _active;
+  set active(bool value) {
+    if (active == value) return;
+
+    if (value) {
+      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+      CanvasImage.activeListener.notifyListeners(); // de-activate all other images
+    }
+
+    setState(() {
+      _active = value;
+    });
+  }
 
   late Uint8List imageBytes;
   Brightness imageBrightness = Brightness.light;
@@ -42,8 +55,15 @@ class _CanvasImageState extends State<CanvasImage> {
   @override
   void initState() {
     imageBytes = widget.image.bytes;
-    super.initState();
+
+    if (widget.image.newImage) { // if the image is new, make it [active]
+      active = true;
+      widget.image.newImage = false;
+    }
+
     CanvasImage.activeListener.addListener(disableActive);
+
+    super.initState();
   }
 
   disableActive() {
@@ -111,15 +131,7 @@ class _CanvasImageState extends State<CanvasImage> {
               cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
               child: GestureDetector(
                 onTap: () {
-                  setState(() {
-                    if (!active) {
-                      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-                      CanvasImage.activeListener.notifyListeners();
-                      active = true;
-                    } else {
-                      active = false;
-                    }
-                  });
+                  active = !active;
                 },
                 onPanUpdate: active ? (details) {
                   setState(() {

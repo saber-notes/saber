@@ -10,11 +10,15 @@ class EditorImage {
   Rect srcRect = Rect.zero;
   Rect dstRect = Rect.zero;
 
+  /// If the image is new, it will be [active] (draggable) when loaded
+  bool newImage = false;
+
   EditorImage({
     required this.bytes,
     required this.pageIndex,
     required Size pageSize,
     this.onLoad,
+    this.newImage = true,
   }) {
     _getImage(pageSize).then((_) => onLoad?.call());
   }
