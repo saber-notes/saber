@@ -5,10 +5,12 @@ import 'package:saber/components/canvas/_editor_image.dart';
 class CanvasImage extends StatefulWidget {
   const CanvasImage({
     super.key,
-    required this.image
+    required this.image,
+    this.readOnly = false,
   });
 
   final EditorImage image;
+  final bool readOnly;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
   static ChangeNotifier activeListener = ChangeNotifier();
@@ -44,7 +46,7 @@ class _CanvasImageState extends State<CanvasImage> {
         clipBehavior: Clip.none,
         children: [
           GestureDetector(
-            onTap: () {
+            onTap: !widget.readOnly ? () {
               setState(() {
                 if (!active) {
                   CanvasImage.activeListener.notifyListeners();
@@ -53,7 +55,7 @@ class _CanvasImageState extends State<CanvasImage> {
                   active = false;
                 }
               });
-            },
+            } : null,
             onPanUpdate: active ? (details) {
               setState(() {
                 widget.image.dstRect = widget.image.dstRect.translate(
