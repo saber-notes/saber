@@ -53,41 +53,44 @@ class _CanvasImageState extends State<CanvasImage> {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (!active) {
-                    CanvasImage.activeListener.notifyListeners();
-                    active = true;
-                  } else {
-                    active = false;
-                  }
-                });
-              },
-              onPanUpdate: active ? (details) {
-                setState(() {
-                  double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
-                  widget.image.dstRect = Rect.fromLTWH(
-                    (widget.image.dstRect.left + details.delta.dx).clamp(
-                      fivePercent - widget.image.dstRect.width,
-                      widget.pageSize.width - fivePercent,
-                    ).toDouble(),
-                    (widget.image.dstRect.top + details.delta.dy).clamp(
-                      fivePercent - widget.image.dstRect.height,
-                      widget.pageSize.height - fivePercent,
-                    ).toDouble(),
-                    widget.image.dstRect.width,
-                    widget.image.dstRect.height,
-                  );
-                });
-              } : null,
-              child: SizedOverflowBox(
-                size: widget.image.srcRect.size,
-                child: Transform.translate(
-                  offset: -widget.image.srcRect.topLeft,
-                  child: Image.memory(
-                    widget.image.bytes,
-                    fit: BoxFit.contain,
+            MouseRegion(
+              cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (!active) {
+                      CanvasImage.activeListener.notifyListeners();
+                      active = true;
+                    } else {
+                      active = false;
+                    }
+                  });
+                },
+                onPanUpdate: active ? (details) {
+                  setState(() {
+                    double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
+                    widget.image.dstRect = Rect.fromLTWH(
+                      (widget.image.dstRect.left + details.delta.dx).clamp(
+                        fivePercent - widget.image.dstRect.width,
+                        widget.pageSize.width - fivePercent,
+                      ).toDouble(),
+                      (widget.image.dstRect.top + details.delta.dy).clamp(
+                        fivePercent - widget.image.dstRect.height,
+                        widget.pageSize.height - fivePercent,
+                      ).toDouble(),
+                      widget.image.dstRect.width,
+                      widget.image.dstRect.height,
+                    );
+                  });
+                } : null,
+                child: SizedOverflowBox(
+                  size: widget.image.srcRect.size,
+                  child: Transform.translate(
+                    offset: -widget.image.srcRect.topLeft,
+                    child: Image.memory(
+                      widget.image.bytes,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               ),
