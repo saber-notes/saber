@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 
@@ -6,10 +8,12 @@ class CanvasImage extends StatefulWidget {
   const CanvasImage({
     super.key,
     required this.image,
+    required this.pageSize,
     this.readOnly = false,
   });
 
   final EditorImage image;
+  final Size pageSize;
   final bool readOnly;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
@@ -58,9 +62,18 @@ class _CanvasImageState extends State<CanvasImage> {
             } : null,
             onPanUpdate: active ? (details) {
               setState(() {
-                widget.image.dstRect = widget.image.dstRect.translate(
-                  details.delta.dx,
-                  details.delta.dy,
+                double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
+                widget.image.dstRect = Rect.fromLTWH(
+                  (widget.image.dstRect.left + details.delta.dx).clamp(
+                    fivePercent - widget.image.dstRect.width,
+                    widget.pageSize.width - fivePercent,
+                  ).toDouble(),
+                  (widget.image.dstRect.top + details.delta.dy).clamp(
+                    fivePercent - widget.image.dstRect.height,
+                    widget.pageSize.height - fivePercent,
+                  ).toDouble(),
+                  widget.image.dstRect.width,
+                  widget.image.dstRect.height,
                 );
               });
             } : null,
