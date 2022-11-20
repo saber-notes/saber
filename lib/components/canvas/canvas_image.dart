@@ -57,7 +57,8 @@ class _CanvasImageState extends State<CanvasImage> {
   Uint8List? invertedImageBytes;
   bool invertStarted = false;
 
-  Rect? panStartRect;
+  Rect panStartRect = Rect.zero;
+  Offset panStartPosition = Offset.zero;
 
   @override
   void initState() {
@@ -169,15 +170,13 @@ class _CanvasImageState extends State<CanvasImage> {
                   });
                 } : null,
                 onPanEnd: active ? (details) {
-                  if (panStartRect == null) return;
                   if (panStartRect == widget.image.dstRect) return;
                   widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
-                    widget.image.dstRect.left - panStartRect!.left,
-                    widget.image.dstRect.top - panStartRect!.top,
-                    widget.image.dstRect.right - panStartRect!.right,
-                    widget.image.dstRect.bottom - panStartRect!.bottom,
+                    widget.image.dstRect.left - panStartRect.left,
+                    widget.image.dstRect.top - panStartRect.top,
+                    widget.image.dstRect.right - panStartRect.right,
+                    widget.image.dstRect.bottom - panStartRect.bottom,
                   ));
-                  panStartRect = null;
                 } : null,
                 child: Container(
                   decoration: active ? BoxDecoration(
@@ -280,13 +279,17 @@ class _CanvasImageResizeHandle extends StatelessWidget {
             behavior: HitTestBehavior.opaque,
             onPanStart: active ? (details) {
               parent.panStartRect = parent.widget.image.dstRect;
+              parent.panStartPosition = details.localPosition;
             } : null,
             onPanUpdate: active ? (details) {
-              final double aspectRatio = image.srcRect.width / image.srcRect.height;
-              double newWidth = image.dstRect.width + (position.dx < 0 ? -1 : 1) * details.delta.dx;
-              double newHeight = image.dstRect.height + (position.dy < 0 ? -1 : 1) * details.delta.dy;
+              final Offset delta = details.localPosition - parent.panStartPosition;
+              double newWidth = parent.panStartRect.width + (position.dx < 0 ? -1 : 1) * delta.dx;
+              double newHeight = parent.panStartRect.height + (position.dy < 0 ? -1 : 1) * delta.dy;
               double left = image.dstRect.left, top = image.dstRect.top;
 
+              if (newWidth <= 0 || newHeight <= 0) return;
+
+              final double aspectRatio = image.srcRect.width / image.srcRect.height;
               if (newWidth / newHeight > aspectRatio) {
                 newHeight = newWidth / aspectRatio;
               } else {
@@ -309,15 +312,13 @@ class _CanvasImageResizeHandle extends StatelessWidget {
               afterDrag();
             } : null,
             onPanEnd: active ? (details) {
-              if (parent.panStartRect == null) return;
               if (parent.panStartRect == image.dstRect) return;
               image.onMoveImage?.call(image, Rect.fromLTRB(
-                image.dstRect.left - parent.panStartRect!.left,
-                image.dstRect.top - parent.panStartRect!.top,
-                image.dstRect.right - parent.panStartRect!.right,
-                image.dstRect.bottom - parent.panStartRect!.bottom,
+                image.dstRect.left - parent.panStartRect.left,
+                image.dstRect.top - parent.panStartRect.top,
+                image.dstRect.right - parent.panStartRect.right,
+                image.dstRect.bottom - parent.panStartRect.bottom,
               ));
-              parent.panStartRect = null;
             } : null,
             child: AnimatedOpacity(
               opacity: active ? 1 : 0,
