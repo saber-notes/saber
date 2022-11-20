@@ -2,6 +2,8 @@
 import 'dart:typed_data';
 import 'dart:ui';
 
+import 'package:saber/data/prefs.dart';
+
 class EditorImage {
   static int _nextId = 0;
   final int id = _nextId++;
@@ -17,6 +19,9 @@ class EditorImage {
   /// If the image is new, it will be [active] (draggable) when loaded
   bool newImage = false;
 
+  /// Whether this image is inverted if Prefs.editorAutoInvert.value
+  bool invertible;
+
   EditorImage({
     required this.bytes,
     required this.pageIndex,
@@ -24,13 +29,14 @@ class EditorImage {
     required this.onMoveImage,
     this.onLoad,
     this.newImage = true,
-  }) {
+  }): invertible = true {
     _getImage(pageSize).then((_) => onLoad?.call());
   }
 
   EditorImage.fromJson(Map<String, dynamic> json) :
         bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
         pageIndex = json['i'] ?? 0,
+        invertible = json['v'] ?? true,
         onLoad = null,
         dstRect = Rect.fromLTWH(
           json['x'] ?? 0,
@@ -51,6 +57,7 @@ class EditorImage {
     final json = {
       'b': bytes,
       'i': pageIndex,
+      'v': invertible,
       'x': dstRect.left,
       'y': dstRect.top,
       'w': dstRect.width,

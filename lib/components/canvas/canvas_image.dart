@@ -9,6 +9,7 @@ import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class CanvasImage extends StatefulWidget {
   CanvasImage({
@@ -109,6 +110,8 @@ class _CanvasImageState extends State<CanvasImage> {
   @override
   Widget build(BuildContext context) {
     Brightness currentBrightness = MediaQuery.of(context).platformBrightness;
+    if (!widget.image.invertible) currentBrightness = Brightness.light;
+
     if (Prefs.editorAutoInvert.value && currentBrightness != imageBrightness) {
       if (currentBrightness == Brightness.light) {
         imageBytes = widget.image.bytes;
@@ -116,6 +119,7 @@ class _CanvasImageState extends State<CanvasImage> {
         imageBytes = invertedImageBytes ?? imageBytes;
         invertImage();
       }
+      imageBrightness = currentBrightness;
     }
 
     return Positioned(
@@ -134,6 +138,8 @@ class _CanvasImageState extends State<CanvasImage> {
                 onTap: () {
                   active = !active;
                 },
+                onLongPress: active ? showModal : null,
+                onSecondaryTap: active ? showModal : null,
                 onPanStart: active ? (details) {
                   panStartRect = widget.image.dstRect;
                 } : null,
@@ -196,6 +202,21 @@ class _CanvasImageState extends State<CanvasImage> {
   void dispose() {
     CanvasImage.activeListener.removeListener(disableActive);
     super.dispose();
+  }
+
+  void showModal() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(t.editor.imageOptions.title),
+          content: _CanvasImageDialog(
+            image: widget.image,
+            parent: this,
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -296,4 +317,45 @@ class _CanvasImageResizeHandle extends StatelessWidget {
       ),
     );
   }
+}
+
+class _CanvasImageDialog extends StatefulWidget {
+  const _CanvasImageDialog({
+    required this.image,
+    required this.parent,
+  });
+
+  final EditorImage image;
+  final _CanvasImageState parent;
+
+  @override
+  State<_CanvasImageDialog> createState() => _CanvasImageDialogState();
+}
+class _CanvasImageDialogState extends State<_CanvasImageDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (Prefs.editorAutoInvert.value) ListTile(
+          onTap: () => setState(() {
+            widget.image.invertible = !widget.image.invertible;
+            widget.parent.setState(() {});
+          }),
+          title: Text(t.editor.imageOptions.invertible),
+          trailing: Switch.adaptive(
+            value: widget.image.invertible,
+            onChanged: (bool value) => setState(() {
+              widget.image.invertible = value;
+            }),
+          ),
+        ),
+        ListTile(
+          title: Text(t.editor.imageOptions.delete),
+          trailing: const Icon(Icons.delete),
+        ),
+      ],
+    );
+  }
+
 }
