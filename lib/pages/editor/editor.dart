@@ -379,6 +379,7 @@ class _EditorState extends State<Editor> {
     ));
     // setState to update undo button
     setState(() {});
+    autosaveAfterDelay();
   }
   onDeleteImage(EditorImage image) {
     history.recordChange(EditorHistoryItem(
@@ -389,6 +390,7 @@ class _EditorState extends State<Editor> {
     setState(() {
       coreInfo.images.remove(image);
     });
+    autosaveAfterDelay();
   }
 
   autosaveAfterDelay() {
@@ -488,6 +490,7 @@ class _EditorState extends State<Editor> {
       images: [image],
     ));
     coreInfo.images.add(image);
+    autosaveAfterDelay();
   }
 
   Future<Uint8List?> pickPhotoMobile() async {
