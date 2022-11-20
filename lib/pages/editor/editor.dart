@@ -1,14 +1,19 @@
 
 import 'dart:convert';
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
+import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -104,11 +109,17 @@ class _EditorState extends State<Editor> {
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(path);
-    if (coreInfo.strokes.isEmpty) {
+
+    if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       pages.add(EditorPage());
     } else {
       for (Stroke stroke in coreInfo.strokes) {
-        createPageOfStroke(stroke);
+        createPageOfStroke(stroke.pageIndex);
+      }
+      for (EditorImage image in coreInfo.images) {
+        createPageOfStroke(image.pageIndex);
+        image.onMoveImage = onMoveImage;
+        image.onDeleteImage = onDeleteImage;
       }
     }
 
@@ -133,10 +144,10 @@ class _EditorState extends State<Editor> {
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
   }
 
-  void createPageOfStroke(Stroke? stroke) {
+  void createPageOfStroke([int? pageIndex]) {
     int maxPageIndex;
-    if (stroke != null) {
-      maxPageIndex = stroke.pageIndex;
+    if (pageIndex != null) {
+      maxPageIndex = pageIndex;
     } else {
       if (coreInfo.strokes.isEmpty) {
         maxPageIndex = 0;
@@ -154,7 +165,8 @@ class _EditorState extends State<Editor> {
 
     // remove excess pages if all pages >= this one are empty
     for (int i = pages.length - 1; i >= minPageIndex + 1; --i) {
-      final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1);
+      final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
+          && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1);
       if (pageEmpty) pages.removeAt(i);
     }
   }
@@ -176,12 +188,27 @@ class _EditorState extends State<Editor> {
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.remove(stroke);
         }
+        for (EditorImage image in item.images) {
+          coreInfo.images.remove(image);
+        }
         removeExcessPagesAfterStroke(null);
       } else if (item.type == EditorHistoryItemType.erase) { // undo erase
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.add(stroke);
         }
+        for (EditorImage image in item.images) {
+          coreInfo.images.add(image);
+        }
         createPageOfStroke(null);
+      } else if (item.type == EditorHistoryItemType.move) { // undo move
+        for (EditorImage image in item.images) {
+          image.dstRect = Rect.fromLTRB(
+            image.dstRect.left - item.offset!.left,
+            image.dstRect.top - item.offset!.top,
+            image.dstRect.right - item.offset!.right,
+            image.dstRect.bottom - item.offset!.bottom,
+          );
+        }
       }
     });
 
@@ -197,12 +224,27 @@ class _EditorState extends State<Editor> {
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.add(stroke);
         }
+        for (EditorImage image in item.images) {
+          coreInfo.images.add(image);
+        }
         createPageOfStroke(null);
       } else if (item.type == EditorHistoryItemType.erase) { // redo erase
         for (Stroke stroke in item.strokes) {
           coreInfo.strokes.remove(stroke);
         }
+        for (EditorImage image in item.images) {
+          coreInfo.images.remove(image);
+        }
         removeExcessPagesAfterStroke(null);
+      } else if (item.type == EditorHistoryItemType.move) { // redo move
+        for (EditorImage image in item.images) {
+          image.dstRect = Rect.fromLTRB(
+            image.dstRect.left + item.offset!.left,
+            image.dstRect.top + item.offset!.top,
+            image.dstRect.right + item.offset!.right,
+            image.dstRect.bottom + item.offset!.bottom,
+          );
+        }
       }
     });
 
@@ -223,6 +265,9 @@ class _EditorState extends State<Editor> {
   /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
   bool pressureWasNegative = false;
   bool isDrawGesture(ScaleStartDetails details) {
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+    CanvasImage.activeListener.notifyListeners();
+
     _lastSeenPointerCountTimer?.cancel();
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
@@ -235,6 +280,7 @@ class _EditorState extends State<Editor> {
             for (Stroke stroke in item.strokes) {
               coreInfo.strokes.remove(stroke);
             }
+            // item.images is always empty
             removeExcessPagesAfterStroke(null);
           }
         });
@@ -286,15 +332,17 @@ class _EditorState extends State<Editor> {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         coreInfo.strokes.add(newStroke);
-        createPageOfStroke(newStroke);
+        createPageOfStroke(newStroke.pageIndex);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.draw,
           strokes: [newStroke],
+          images: [],
         ));
       } else if (currentTool is Eraser) {
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
           strokes: (currentTool as Eraser).onDragEnd(),
+          images: [],
         ));
       }
     });
@@ -320,6 +368,29 @@ class _EditorState extends State<Editor> {
       pressureWasNegative = true;
       currentTool = Eraser();
     }
+  }
+
+  onMoveImage(EditorImage image, Rect offset) {
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.move,
+      strokes: [],
+      images: [image],
+      offset: offset,
+    ));
+    // setState to update undo button
+    setState(() {});
+    autosaveAfterDelay();
+  }
+  onDeleteImage(EditorImage image) {
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.erase,
+      strokes: [],
+      images: [image],
+    ));
+    setState(() {
+      coreInfo.images.remove(image);
+    });
+    autosaveAfterDelay();
   }
 
   autosaveAfterDelay() {
@@ -393,6 +464,57 @@ class _EditorState extends State<Editor> {
     }
   }
 
+  Future pickPhoto() async {
+    final int? currentPageIndex = this.currentPageIndex;
+    if (currentPageIndex == null) return;
+
+    Uint8List? bytes;
+    if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
+      bytes = await pickPhotoMobile();
+    } else {
+      bytes = await pickPhotoDesktop();
+    }
+    if (bytes == null) return;
+
+    EditorImage image = EditorImage(
+      bytes: bytes,
+      pageIndex: currentPageIndex,
+      pageSize: Size(coreInfo.width, coreInfo.height),
+      onMoveImage: onMoveImage,
+      onDeleteImage: onDeleteImage,
+      onLoad: () => setState(() {}),
+    );
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.draw,
+      strokes: [],
+      images: [image],
+    ));
+    coreInfo.images.add(image);
+    autosaveAfterDelay();
+  }
+
+  Future<Uint8List?> pickPhotoMobile() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 2000,
+      maxHeight: 2000,
+      imageQuality: 90,
+      requestFullMetadata: false,
+    );
+    if (image == null) return null;
+    return await image.readAsBytes();
+  }
+  Future<Uint8List?> pickPhotoDesktop() async {
+    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: false,
+      withData: true,
+    );
+    if (result == null) return null;
+    return result.files.single.bytes;
+  }
+
   Future exportAsPdf() async {
     final pdf = EditorExporter.generatePdf(pages, coreInfo);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
@@ -428,7 +550,8 @@ class _EditorState extends State<Editor> {
                     pageIndex: pageIndex,
                     innerCanvasKey: pages[pageIndex].innerCanvasKey,
                     coreInfo: coreInfo.copyWith(
-                        strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList()
+                      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
+                      images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
                     ),
                     currentStroke: () {
                       Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
@@ -471,6 +594,8 @@ class _EditorState extends State<Editor> {
                 lastSeenPointerCount = 0;
               });
             },
+
+            pickPhoto: pickPhoto,
 
             exportAsSbn: exportAsSbn,
             exportAsPdf: exportAsPdf,
@@ -515,26 +640,34 @@ class _EditorState extends State<Editor> {
       if (currentPageIndex == null) return;
 
       setState(() {
-        List<Stroke> removed = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
-        for (Stroke stroke in removed) {
+        List<Stroke> removedStrokes = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
+        for (Stroke stroke in removedStrokes) {
           coreInfo.strokes.remove(stroke);
+        }
+        List<EditorImage> removedImages = coreInfo.images.where((image) => image.pageIndex == currentPageIndex).toList();
+        for (EditorImage image in removedImages) {
+          coreInfo.images.remove(image);
         }
         removeExcessPagesAfterStroke(null);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
-          strokes: removed,
+          strokes: removedStrokes,
+          images: removedImages,
         ));
       });
     },
 
     clearAllPages: () {
       setState(() {
-        List<Stroke> removed = coreInfo.strokes.toList();
+        List<Stroke> removedStrokes = coreInfo.strokes.toList();
+        List<EditorImage> removedImages = coreInfo.images.toList();
         coreInfo.strokes.clear();
+        coreInfo.images.clear();
         removeExcessPagesAfterStroke(null);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
-          strokes: removed,
+          strokes: removedStrokes,
+          images: removedImages,
         ));
       });
     },

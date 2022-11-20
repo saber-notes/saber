@@ -3,6 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -29,6 +30,8 @@ class Toolbar extends StatefulWidget {
 
     required this.toggleFingerDrawing,
 
+    required this.pickPhoto,
+
     required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
@@ -44,6 +47,8 @@ class Toolbar extends StatefulWidget {
   final bool isRedoPossible;
 
   final VoidCallback toggleFingerDrawing;
+
+  final VoidCallback pickPhoto;
 
   final Future Function()? exportAsSbn;
   final Future Function()? exportAsPdf;
@@ -179,7 +184,7 @@ class _ToolbarState extends State<Toolbar> {
                     ),
                     ToolbarIconButton(
                       tooltip: t.editor.toolbar.photo,
-                      onPressed: null,
+                      onPressed: (_) => widget.pickPhoto(),
                       child: const Icon(Icons.photo_size_select_actual),
                     ),
                     ToolbarIconButton(

@@ -1,5 +1,8 @@
 
+import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -15,6 +18,7 @@ class InnerCanvas extends StatefulWidget {
     required EditorCoreInfo coreInfo,
     required this.currentStroke,
     this.onRenderObjectChange,
+    this.readOnly = false,
   }) {
     this.coreInfo = coreInfo.copyWith(
       strokes: coreInfo.strokes.where((stroke) => isStrokeInPage(stroke)).toList(),
@@ -28,6 +32,8 @@ class InnerCanvas extends StatefulWidget {
   late final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
+
+  final bool readOnly;
 
   bool isStrokeInPage(Stroke stroke) {
     final maxY = stroke.maxY;
@@ -69,6 +75,18 @@ class _InnerCanvasState extends State<InnerCanvas> {
         width: widget.width,
         height: widget.height,
         color: backgroundColor,
+        child: DeferredPointerHandler(
+          child: Stack(
+            children: [
+              for (final EditorImage editorImage in widget.coreInfo.images)
+                CanvasImage(
+                  image: editorImage,
+                  pageSize: Size(widget.width, widget.height),
+                  readOnly: widget.readOnly,
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }

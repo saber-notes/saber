@@ -31,10 +31,23 @@
       },
       "penOptions": {
         "size": "Size"
+      },
+      "imageOptions": {
+        "title": "Image options",
+        "invertible": "Invertible",
+        "delete": "Delete"
       }
     }
   },
-  "es": {},
+  "es": {
+    "editor": {
+      "imageOptions": {
+        "title": "Image options",
+        "invertible": "Invertible",
+        "delete": "Delete"
+      }
+    }
+  },
   "it": {
     "settings": {
       "prefLabels": {
@@ -60,9 +73,33 @@
     "editor": {
       "penOptions": {
         "size": "Size"
+      },
+      "imageOptions": {
+        "title": "Image options",
+        "invertible": "Invertible",
+        "delete": "Delete"
       }
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh": {
+    "editor": {
+      "imageOptions": {
+        "title": "Image options",
+        "invertible": "Invertible",
+        "delete": "Delete"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "penOptions": {
+        "size": "Size"
+      },
+      "imageOptions": {
+        "title": "Image options",
+        "invertible": "Invertible",
+        "delete": "Delete"
+      }
+    }
+  }
 }

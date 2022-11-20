@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -10,11 +11,10 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
-  const PreviewCard({
-    super.key,
+  PreviewCard({
     required this.filePath,
     required this.onTap,
-  });
+  }) : super(key: ValueKey("PreviewCard$filePath"));
 
   final String filePath;
   final Function(String) onTap;
@@ -38,6 +38,9 @@ class _PreviewCardState extends State<PreviewCard> {
   double get height {
     double fullHeight = coreInfo.height;
     double maxY = coreInfo.strokes.isEmpty ? 0 : coreInfo.strokes.map((stroke) => stroke.maxY).reduce(max);
+    for (EditorImage image in coreInfo.images) {
+      if (image.dstRect.bottom > maxY) maxY = image.dstRect.bottom;
+    }
     return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
   }
 
