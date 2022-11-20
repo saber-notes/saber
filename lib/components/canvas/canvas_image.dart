@@ -180,10 +180,11 @@ class _CanvasImageState extends State<CanvasImage> {
             ),
             for (double x = -10; x <= 10; x += 10 * 2)
               for (double y = -10; y <= 10; y += 10 * 2)
-                CanvasImageResizeHandle(
+                _CanvasImageResizeHandle(
                   active: active,
                   position: Offset(x, y),
                   image: widget.image,
+                  parent: this,
                   afterDrag: () => setState(() {}),
                 ),
           ],
@@ -199,18 +200,19 @@ class _CanvasImageState extends State<CanvasImage> {
   }
 }
 
-class CanvasImageResizeHandle extends StatelessWidget {
-  const CanvasImageResizeHandle({
-    super.key,
+class _CanvasImageResizeHandle extends StatelessWidget {
+  const _CanvasImageResizeHandle({
     required this.active,
     required this.position,
     required this.image,
+    required this.parent,
     required this.afterDrag,
   });
 
   final bool active;
   final Offset position;
   final EditorImage image;
+  final _CanvasImageState parent;
   final void Function() afterDrag;
 
   @override
@@ -233,6 +235,9 @@ class CanvasImageResizeHandle extends StatelessWidget {
           }(),
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
+            onPanStart: active ? (details) {
+              parent.panStartRect = parent.widget.image.dstRect;
+            } : null,
             onPanUpdate: active ? (details) {
               final double aspectRatio = image.srcRect.width / image.srcRect.height;
               double newWidth = image.dstRect.width + (position.dx < 0 ? -1 : 1) * details.delta.dx;
@@ -259,6 +264,17 @@ class CanvasImageResizeHandle extends StatelessWidget {
                 newHeight,
               );
               afterDrag();
+            } : null,
+            onPanEnd: active ? (details) {
+              if (parent.panStartRect == null) return;
+              if (parent.panStartRect == image.dstRect) return;
+              image.onMoveImage?.call(image, Rect.fromLTRB(
+                image.dstRect.left - parent.panStartRect!.left,
+                image.dstRect.top - parent.panStartRect!.top,
+                image.dstRect.right - parent.panStartRect!.right,
+                image.dstRect.bottom - parent.panStartRect!.bottom,
+              ));
+              parent.panStartRect = null;
             } : null,
             child: AnimatedOpacity(
               opacity: active ? 1 : 0,
