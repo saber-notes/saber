@@ -111,7 +111,7 @@ class _CanvasImageState extends State<CanvasImage> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    Brightness currentBrightness = MediaQuery.of(context).platformBrightness;
+    Brightness currentBrightness = Theme.of(context).brightness;
     if (!widget.image.invertible) currentBrightness = Brightness.light;
 
     if (Prefs.editorAutoInvert.value && currentBrightness != imageBrightness) {
