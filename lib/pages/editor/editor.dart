@@ -109,11 +109,16 @@ class _EditorState extends State<Editor> {
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(path);
-    if (coreInfo.strokes.isEmpty) {
+
+    if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       pages.add(EditorPage());
     } else {
       for (Stroke stroke in coreInfo.strokes) {
-        createPageOfStroke(stroke);
+        createPageOfStroke(stroke.pageIndex);
+      }
+      for (EditorImage image in coreInfo.images) {
+        createPageOfStroke(image.pageIndex);
+        image.onMoveImage = onMoveImage;
       }
     }
 
@@ -138,10 +143,10 @@ class _EditorState extends State<Editor> {
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
   }
 
-  void createPageOfStroke(Stroke? stroke) {
+  void createPageOfStroke([int? pageIndex]) {
     int maxPageIndex;
-    if (stroke != null) {
-      maxPageIndex = stroke.pageIndex;
+    if (pageIndex != null) {
+      maxPageIndex = pageIndex;
     } else {
       if (coreInfo.strokes.isEmpty) {
         maxPageIndex = 0;
@@ -194,6 +199,15 @@ class _EditorState extends State<Editor> {
           coreInfo.images.add(image);
         }
         createPageOfStroke(null);
+      } else if (item.type == EditorHistoryItemType.move) { // undo move
+        for (EditorImage image in item.images) {
+          image.dstRect = Rect.fromLTRB(
+            image.dstRect.left - item.offset!.left,
+            image.dstRect.top - item.offset!.top,
+            image.dstRect.right - item.offset!.right,
+            image.dstRect.bottom - item.offset!.bottom,
+          );
+        }
       }
     });
 
@@ -221,6 +235,15 @@ class _EditorState extends State<Editor> {
           coreInfo.images.remove(image);
         }
         removeExcessPagesAfterStroke(null);
+      } else if (item.type == EditorHistoryItemType.move) { // redo move
+        for (EditorImage image in item.images) {
+          image.dstRect = Rect.fromLTRB(
+            image.dstRect.left + item.offset!.left,
+            image.dstRect.top + item.offset!.top,
+            image.dstRect.right + item.offset!.right,
+            image.dstRect.bottom + item.offset!.bottom,
+          );
+        }
       }
     });
 
@@ -308,7 +331,7 @@ class _EditorState extends State<Editor> {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         coreInfo.strokes.add(newStroke);
-        createPageOfStroke(newStroke);
+        createPageOfStroke(newStroke.pageIndex);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.draw,
           strokes: [newStroke],
@@ -344,6 +367,15 @@ class _EditorState extends State<Editor> {
       pressureWasNegative = true;
       currentTool = Eraser();
     }
+  }
+
+  onMoveImage(EditorImage image, Rect offset) {
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.move,
+      strokes: [],
+      images: [image],
+      offset: offset,
+    ));
   }
 
   autosaveAfterDelay() {
@@ -433,6 +465,7 @@ class _EditorState extends State<Editor> {
       bytes: bytes,
       pageIndex: currentPageIndex,
       pageSize: Size(coreInfo.width, coreInfo.height),
+      onMoveImage: onMoveImage,
       onLoad: () => setState(() {}),
     );
     history.recordChange(EditorHistoryItem(

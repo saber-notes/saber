@@ -1,4 +1,5 @@
 
+import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
@@ -55,6 +56,7 @@ class EditorHistory {
   EditorHistoryItem? removeAccidentalStroke() {
     _isRedoPossible = true;
     if (_past.isEmpty) return null;
+    assert(_past.last.type == EditorHistoryItemType.draw, "Accidental stroke is not a draw");
     assert(_past.last.strokes.length == 1, "Accidental strokes should be single-stroke");
     assert(_past.last.images.isEmpty, "Accidental strokes should not contain images");
     return _past.removeLast();
@@ -83,14 +85,17 @@ class EditorHistoryItem {
     required this.type,
     required this.strokes,
     required this.images,
+    this.offset,
   });
 
   final EditorHistoryItemType type;
   final List<Stroke> strokes;
   final List<EditorImage> images;
+  final Rect? offset;
 }
 
 enum EditorHistoryItemType {
   draw,
   erase,
+  move,
 }

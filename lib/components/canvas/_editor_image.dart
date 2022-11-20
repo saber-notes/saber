@@ -5,6 +5,7 @@ import 'dart:ui';
 class EditorImage {
   final Uint8List bytes;
   final int pageIndex;
+  void Function(EditorImage, Rect)? onMoveImage;
   final VoidCallback? onLoad;
 
   Rect srcRect = Rect.zero;
@@ -17,6 +18,7 @@ class EditorImage {
     required this.bytes,
     required this.pageIndex,
     required Size pageSize,
+    required this.onMoveImage,
     this.onLoad,
     this.newImage = true,
   }) {

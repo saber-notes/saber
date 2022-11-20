@@ -52,6 +52,8 @@ class _CanvasImageState extends State<CanvasImage> {
   Uint8List? invertedImageBytes;
   bool invertStarted = false;
 
+  Rect? panStartRect;
+
   @override
   void initState() {
     imageBytes = widget.image.bytes;
@@ -133,6 +135,9 @@ class _CanvasImageState extends State<CanvasImage> {
                 onTap: () {
                   active = !active;
                 },
+                onPanStart: active ? (details) {
+                  panStartRect = widget.image.dstRect;
+                } : null,
                 onPanUpdate: active ? (details) {
                   setState(() {
                     double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
@@ -149,6 +154,17 @@ class _CanvasImageState extends State<CanvasImage> {
                       widget.image.dstRect.height,
                     );
                   });
+                } : null,
+                onPanEnd: active ? (details) {
+                  if (panStartRect == null) return;
+                  if (panStartRect == widget.image.dstRect) return;
+                  widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
+                    widget.image.dstRect.left - panStartRect!.left,
+                    widget.image.dstRect.top - panStartRect!.top,
+                    widget.image.dstRect.right - panStartRect!.right,
+                    widget.image.dstRect.bottom - panStartRect!.bottom,
+                  ));
+                  panStartRect = null;
                 } : null,
                 child: SizedOverflowBox(
                   size: widget.image.srcRect.size,
