@@ -351,6 +351,10 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
           ),
         ),
         ListTile(
+          onTap: () {
+            widget.image.onDeleteImage?.call(widget.image);
+            Navigator.of(context).pop();
+          },
           title: Text(t.editor.imageOptions.delete),
           trailing: const Icon(Icons.delete),
         ),

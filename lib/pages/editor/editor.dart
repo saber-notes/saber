@@ -119,6 +119,7 @@ class _EditorState extends State<Editor> {
       for (EditorImage image in coreInfo.images) {
         createPageOfStroke(image.pageIndex);
         image.onMoveImage = onMoveImage;
+        image.onDeleteImage = onDeleteImage;
       }
     }
 
@@ -377,6 +378,16 @@ class _EditorState extends State<Editor> {
       offset: offset,
     ));
   }
+  onDeleteImage(EditorImage image) {
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.erase,
+      strokes: [],
+      images: [image],
+    ));
+    setState(() {
+      coreInfo.images.remove(image);
+    });
+  }
 
   autosaveAfterDelay() {
     _delayedSaveTimer?.cancel();
@@ -466,6 +477,7 @@ class _EditorState extends State<Editor> {
       pageIndex: currentPageIndex,
       pageSize: Size(coreInfo.width, coreInfo.height),
       onMoveImage: onMoveImage,
+      onDeleteImage: onDeleteImage,
       onLoad: () => setState(() {}),
     );
     history.recordChange(EditorHistoryItem(
