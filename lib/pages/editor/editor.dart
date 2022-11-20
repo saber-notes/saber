@@ -377,6 +377,8 @@ class _EditorState extends State<Editor> {
       images: [image],
       offset: offset,
     ));
+    // setState to update undo button
+    setState(() {});
   }
   onDeleteImage(EditorImage image) {
     history.recordChange(EditorHistoryItem(
