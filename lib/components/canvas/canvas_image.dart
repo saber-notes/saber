@@ -25,6 +25,11 @@ class CanvasImage extends StatefulWidget {
   /// When notified, all [CanvasImages] will have their [active] property set to false.
   static ChangeNotifier activeListener = ChangeNotifier();
 
+  /// The minimum size of the interactive area for the image.
+  static double minInteractiveSize = 50;
+  /// The minimum size of the image itself, inside of the interactive area.
+  static double minImageSize = 10;
+
   @override
   State<CanvasImage> createState() => _CanvasImageState();
 }
@@ -127,8 +132,8 @@ class _CanvasImageState extends State<CanvasImage> {
     return Positioned(
       left: widget.image.dstRect.left,
       top: widget.image.dstRect.top,
-      width: widget.image.dstRect.width,
-      height: widget.image.dstRect.height,
+      width: max(widget.image.dstRect.width, CanvasImage.minInteractiveSize),
+      height: max(widget.image.dstRect.height, CanvasImage.minInteractiveSize),
       child: IgnorePointer(
         ignoring: widget.readOnly,
         child: Stack(
@@ -137,6 +142,7 @@ class _CanvasImageState extends State<CanvasImage> {
             MouseRegion(
               cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
               child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   active = !active;
                 },
@@ -180,13 +186,19 @@ class _CanvasImageState extends State<CanvasImage> {
                       width: 2,
                     ),
                   ) : null,
-                  child: SizedOverflowBox(
-                    size: widget.image.srcRect.size,
-                    child: Transform.translate(
-                      offset: -widget.image.srcRect.topLeft,
-                      child: Image.memory(
-                        imageBytes,
-                        fit: BoxFit.contain,
+                  child: Center(
+                    child: SizedBox(
+                      width: max(widget.image.dstRect.width, CanvasImage.minImageSize),
+                      height: max(widget.image.dstRect.height, CanvasImage.minImageSize),
+                      child: SizedOverflowBox(
+                        size: widget.image.srcRect.size,
+                        child: Transform.translate(
+                          offset: -widget.image.srcRect.topLeft,
+                          child: Image.memory(
+                            imageBytes,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                     ),
                   ),
