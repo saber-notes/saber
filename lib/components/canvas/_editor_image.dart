@@ -3,6 +3,9 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 class EditorImage {
+  static int _nextId = 0;
+  final int id = _nextId++;
+
   final Uint8List bytes;
   final int pageIndex;
   void Function(EditorImage, Rect)? onMoveImage;
