@@ -109,6 +109,8 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     Brightness currentBrightness = MediaQuery.of(context).platformBrightness;
     if (!widget.image.invertible) currentBrightness = Brightness.light;
 
@@ -171,13 +173,21 @@ class _CanvasImageState extends State<CanvasImage> {
                   ));
                   panStartRect = null;
                 } : null,
-                child: SizedOverflowBox(
-                  size: widget.image.srcRect.size,
-                  child: Transform.translate(
-                    offset: -widget.image.srcRect.topLeft,
-                    child: Image.memory(
-                      imageBytes,
-                      fit: BoxFit.contain,
+                child: Container(
+                  decoration: active ? BoxDecoration(
+                    border: Border.all(
+                      color: colorScheme.onBackground,
+                      width: 2,
+                    ),
+                  ) : null,
+                  child: SizedOverflowBox(
+                    size: widget.image.srcRect.size,
+                    child: Transform.translate(
+                      offset: -widget.image.srcRect.topLeft,
+                      child: Image.memory(
+                        imageBytes,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ),
@@ -237,6 +247,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Positioned(
       left: position.dx < 0 ? position.dx : null,
       right: position.dx >= 0 ? -position.dx : null,
@@ -303,10 +314,10 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: colorScheme.onBackground,
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Colors.black,
+                    color: colorScheme.background,
                     width: 2,
                   ),
                 ),
