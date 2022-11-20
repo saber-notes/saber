@@ -81,7 +81,7 @@
       }
     }
   },
-  "zh": {
+  "zh-Hans-CN": {
     "editor": {
       "imageOptions": {
         "title": "Image options",
@@ -92,9 +92,6 @@
   },
   "zh-Hant-TW": {
     "editor": {
-      "penOptions": {
-        "size": "Size"
-      },
       "imageOptions": {
         "title": "Image options",
         "invertible": "Invertible",
