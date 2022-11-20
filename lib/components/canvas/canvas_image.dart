@@ -183,8 +183,8 @@ class _CanvasImageState extends State<CanvasImage> {
                 ),
               ),
             ),
-            for (double x = -10; x <= 10; x += 10 * 2)
-              for (double y = -10; y <= 10; y += 10 * 2)
+            for (double x = -20; x <= 20; x += 20 * 2)
+              for (double y = -20; y <= 20; y += 20 * 2)
                 _CanvasImageResizeHandle(
                   active: active,
                   position: Offset(x, y),
@@ -300,8 +300,8 @@ class _CanvasImageResizeHandle extends StatelessWidget {
               opacity: active ? 1 : 0,
               duration: const Duration(milliseconds: 100),
               child: Container(
-                width: 20,
-                height: 20,
+                width: 40,
+                height: 40,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
