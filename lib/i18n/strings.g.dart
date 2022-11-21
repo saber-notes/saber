@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 411 (68 per locale)
+/// Strings: 414 (69 per locale)
 ///
-/// Built on 2022-11-21 at 01:37 UTC
+/// Built on 2022-11-21 at 09:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1362,6 +1362,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	// Translations
 	@override late final _StringsEditorToolbarZhHansCn toolbar = _StringsEditorToolbarZhHansCn._(_root);
 	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
+	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 }
 
 // Path: home.tabs
@@ -1540,6 +1541,18 @@ class _StringsEditorPenOptionsZhHansCn extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => '粗细';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '图片选项';
+	@override String get invertible => '反转颜色';
+	@override String get delete => '删除';
 }
 
 // Path: <root>
@@ -2266,6 +2279,9 @@ extension on _StringsZhHansCn {
 			case 'editor.toolbar.export': return '导出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '导出为：';
 			case 'editor.penOptions.size': return '粗细';
+			case 'editor.imageOptions.title': return '图片选项';
+			case 'editor.imageOptions.invertible': return '反转颜色';
+			case 'editor.imageOptions.delete': return '删除';
 			default: return null;
 		}
 	}
