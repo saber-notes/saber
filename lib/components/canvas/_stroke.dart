@@ -1,5 +1,5 @@
 
-import 'dart:math';
+import 'dart:math' hide atan2;
 
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/point_extensions.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/fast_math.dart';
 
 class Stroke {
   final List<Point> _points = [];
@@ -83,10 +84,11 @@ class Stroke {
   List<Offset> _getPolygon() {
     final List<Point> points;
     if (isStraightLine) {
+      Point last = snapLineToRightAngle(_points.first, _points.last);
       points = [ // todo: make this play nicer with the eraser
         _points.first,
-        _points.last,
-        _points.last,
+        last,
+        last,
       ];
     } else {
       points = _points;
@@ -128,5 +130,27 @@ class Stroke {
 
   static sqrDistBetweenPoints(Point p1, Point p2) {
     return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2);
+  }
+
+  /// The maximum angle away from a right angle for a line to be snapped to a right angle.
+  static const rightAngleThreshold = 0.1;
+  /// The minimum length for a line to be snapped to a right angle.
+  static const rightAngleMinLength = 10;
+  /// Transforms the [last] point to be at a right angle to [first].
+  static Point snapLineToRightAngle(Point first, Point last) {
+    double dx = (last.x - first.x).abs(),
+        dy = (last.y - first.y).abs();
+    if (dx < rightAngleMinLength && dy < rightAngleMinLength) {
+      return last;
+    }
+
+    double angle = atan2(dy, dx);
+    if (angle > rightAngleThreshold && angle < pi/2 - rightAngleThreshold) {
+      return last;
+    } else if (dx.abs() > dy.abs()) {
+      return Point(last.x, first.y);
+    } else {
+      return Point(first.x, last.y);
+    }
   }
 }
