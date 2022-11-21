@@ -84,9 +84,9 @@
   "zh-Hans-CN": {
     "editor": {
       "imageOptions": {
-        "title": "Image options",
-        "invertible": "Invertible",
-        "delete": "Delete"
+        "title": "图片选项",
+        "invertible": "反转颜色",
+        "delete": "删除"
       }
     }
   },
