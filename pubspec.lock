@@ -21,7 +21,7 @@ packages:
       name: asn1lib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.2"
+    version: "1.4.0"
   async:
     dependency: transitive
     description:
@@ -78,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
+  cookie_jar:
+    dependency: transitive
+    description:
+      name: cookie_jar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   cross_file:
     dependency: transitive
     description:
@@ -261,7 +268,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.1.5"
+    version: "5.1.10"
   google_fonts:
     dependency: "direct main"
     description:
@@ -433,7 +440,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: cbf41db6c7a5c56ebd48b399899b4e0f7aa48fe6
+      resolved-ref: "2fb37eaf41d80016bc1b8884b48c3bb3ecab84e7"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
