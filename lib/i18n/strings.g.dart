@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 408 (68 per locale)
+/// Strings: 411 (68 per locale)
 ///
-/// Built on 2022-11-20 at 23:05 UTC
+/// Built on 2022-11-21 at 01:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1659,6 +1659,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	// Translations
 	@override late final _StringsEditorToolbarZhHantTw toolbar = _StringsEditorToolbarZhHantTw._(_root);
 	@override late final _StringsEditorPenOptionsZhHantTw penOptions = _StringsEditorPenOptionsZhHantTw._(_root);
+	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 }
 
 // Path: home.tabs
@@ -1837,6 +1838,18 @@ class _StringsEditorPenOptionsZhHantTw extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => '粗細';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsZhHantTw extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '圖片選項';
+	@override String get invertible => '反轉顏色';
+	@override String get delete => '刪除';
 }
 
 /// Flat map(s) containing all translations.
@@ -2340,6 +2353,9 @@ extension on _StringsZhHantTw {
 			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '匯出為：';
 			case 'editor.penOptions.size': return '粗細';
+			case 'editor.imageOptions.title': return '圖片選項';
+			case 'editor.imageOptions.invertible': return '反轉顏色';
+			case 'editor.imageOptions.delete': return '刪除';
 			default: return null;
 		}
 	}

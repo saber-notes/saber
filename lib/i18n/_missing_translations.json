@@ -90,13 +90,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "imageOptions": {
-        "title": "圖片選項",
-        "invertible": "反轉顏色",
-        "delete": "刪除"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
