@@ -39,15 +39,7 @@
       }
     }
   },
-  "es": {
-    "editor": {
-      "imageOptions": {
-        "title": "Image options",
-        "invertible": "Invertible",
-        "delete": "Delete"
-      }
-    }
-  },
+  "es": {},
   "it": {
     "settings": {
       "prefLabels": {

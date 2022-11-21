@@ -21,6 +21,7 @@
 		"noFiles": "No se encontraron archivos",
 		"createNewNote": "Presiona el botón + para crear una nueva nota"
 	},
+
 	"settings": {
 		"prefLabels": {
 			"appTheme": "Tema de la aplicación",
@@ -52,6 +53,7 @@
 			"slow": "Lento"
 		  }
 	},
+
 	"login": {
 		"title": "Iniciar sesión",
 		"feedbacks": {
@@ -79,18 +81,21 @@
 			"tapToLogin": "Toca para iniciar sesión con Nextcloud"
 		}
 	},
+
 	"appInfo": {
 		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
 		"debug": "DEBUG",
 		"licenseButton": "Toca aquí para ver más información sobre la licencia",
 		"privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
 	},
+
 	"update": {
 		"updateAvailable": "Actualización disponible",
 		"updateAvailableDescription": "Hay una nueva versión de la aplicación disponible.",
 		"dismiss": "Ignorar",
 		"update": "Actualizar"
 	},
+	
 	"editor": {
 		"toolbar": {
 			"fountainPen": "Lápiz",
@@ -106,6 +111,11 @@
 		},
 		"penOptions": {
 			"size": "Tamaño"
+		},
+		"imageOptions": {
+			"title": "Opciones de imagen",
+			"invertible": "Invertible",
+			"delete": "Eliminar"
 		}
 	}
 }
