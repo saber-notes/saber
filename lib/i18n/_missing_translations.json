@@ -81,14 +81,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "imageOptions": {
-        "title": "Image options",
-        "invertible": "Invertible",
-        "delete": "Delete"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
