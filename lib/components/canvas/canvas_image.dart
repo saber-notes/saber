@@ -130,11 +130,15 @@ class _CanvasImageState extends State<CanvasImage> {
       imageBrightness = currentBrightness;
     }
 
-    return Positioned(
+    return AnimatedPositioned(
+      // duration is zero if we're currently dragging the image
+      duration: (panStartRect != Rect.zero) ? Duration.zero : const Duration(milliseconds: 200),
+
       left: widget.image.dstRect.left,
       top: widget.image.dstRect.top,
       width: max(widget.image.dstRect.width, CanvasImage.minInteractiveSize),
       height: max(widget.image.dstRect.height, CanvasImage.minInteractiveSize),
+
       child: IgnorePointer(
         ignoring: widget.readOnly,
         child: Stack(
@@ -177,6 +181,7 @@ class _CanvasImageState extends State<CanvasImage> {
                     widget.image.dstRect.right - panStartRect.right,
                     widget.image.dstRect.bottom - panStartRect.bottom,
                   ));
+                  panStartRect = Rect.zero;
                 } : null,
                 child: Container(
                   decoration: active ? BoxDecoration(
@@ -319,6 +324,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                 image.dstRect.right - parent.panStartRect.right,
                 image.dstRect.bottom - parent.panStartRect.bottom,
               ));
+              parent.panStartRect = Rect.zero;
             } : null,
             child: AnimatedOpacity(
               opacity: active ? 1 : 0,
