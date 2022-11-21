@@ -51,33 +51,33 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font",
-        "editorStraightenLines": "Press and hold to straighten a line"
+        "hyperlegibleFont": "Carattere iperleggibile",
+        "editorStraightenLines": "Tenere premuto per raddrizzare una linea"
       },
       "prefDescriptions": {
-        "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "editorAutoInvert": "Smartly darkens notes in dark mode",
-        "preferGreyscale": "For e-ink displays"
+        "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
+        "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
+        "preferGreyscale": "Per display e-ink"
       },
       "straightenDelay": {
         "off": "Off",
-        "regular": "Regular",
-        "slow": "Slow"
+        "regular": "Regolare",
+        "slow": "Lento"
       }
     },
     "login": {
       "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
+        "encLoginFailed": "Accesso non riuscito, controllare la password di crittografia."
       }
     },
     "editor": {
       "penOptions": {
-        "size": "Size"
+        "size": "Dimesione"
       },
       "imageOptions": {
-        "title": "Image options",
-        "invertible": "Invertible",
-        "delete": "Delete"
+        "title": "Opzioni immagine",
+        "invertible": "Invertibile",
+        "delete": "Cancella"
       }
     }
   },
