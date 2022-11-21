@@ -59,6 +59,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.0" type="development" date="2022-11-21">
+            <description>
+                <ol>
+                    <li>You can now add images to your notes!</li>
+                    <li>Straight lines are now snapped to right angles</li>
+                    <li>Fixed Traditional Chinese not being used, thanks to jhih_yu</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.3.16" type="development" date="2022-11-15">
             <description>
                 <ol>
