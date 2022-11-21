@@ -145,9 +145,9 @@ class Stroke {
     }
 
     double angle = atan2(dy, dx);
-    if (angle > rightAngleThreshold && angle < pi/2 - rightAngleThreshold) {
+    if (angle > rightAngleThreshold) {
       return last;
-    } else if (dx.abs() > dy.abs()) {
+    } else if (dx > dy) {
       return Point(last.x, first.y);
     } else {
       return Point(first.x, last.y);

@@ -1,28 +1,30 @@
 
 import 'dart:math' show pi;
 
-/// A fast approximation of atan2, used to detect
-/// horizontal and vertical lines.
-/// (adjusted to have a range between 0 and pi/2)
+/// Returns how close this is to a right angle,
+/// using a fast approximation of atan2.
+/// (adjusted to have a range between 0 and pi/4)
 /// Don't use this if the actual angle is needed.
 /// https://math.stackexchange.com/a/1098585
 double atan2(double y, double x) {
-  if (x == 0) {
+  if (x == 0 || y == 0) {
     return 0;
   }
 
-  double z = y / x;
+  double z = (y / x).abs();
 
+  double angle;
   if (z > 1) {
-    return _atan(1 / z);
-  } else if (z < -1) {
-    return _atan(1 / -z);
-  } else if (z < 0) {
-    return _atan(-z);
+    angle = _atan(1 / z);
   } else {
-    return _atan(z);
+    angle = _atan(z);
   }
 
+  if (angle > pi/4) {
+    return pi/2 - angle;
+  } else {
+    return angle;
+  }
 }
 
 /// A fast approximation of atan.
