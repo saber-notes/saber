@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 417 (69 per locale)
+/// Strings: 430 (71 per locale)
 ///
-/// Built on 2022-11-22 at 08:32 UTC
+/// Built on 2022-11-22 at 08:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1061,6 +1061,8 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsIt prefLabels = _StringsSettingsPrefLabelsIt._(_root);
 	@override late final _StringsSettingsThemeModesIt themeModes = _StringsSettingsThemeModesIt._(_root);
 	@override late final _StringsSettingsAccentColorPickerIt accentColorPicker = _StringsSettingsAccentColorPickerIt._(_root);
+	@override late final _StringsSettingsPrefDescriptionsIt prefDescriptions = _StringsSettingsPrefDescriptionsIt._(_root);
+	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
 }
 
 // Path: login
@@ -1115,6 +1117,8 @@ class _StringsEditorIt extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarIt toolbar = _StringsEditorToolbarIt._(_root);
+	@override late final _StringsEditorPenOptionsIt penOptions = _StringsEditorPenOptionsIt._(_root);
+	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
 }
 
 // Path: home.tabs
@@ -1167,6 +1171,8 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarOnBottom => 'Allinea la barra degli strumenti dell\'editor in basso';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
+	@override String get hyperlegibleFont => 'Carattere iperleggibile';
+	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 }
 
 // Path: settings.themeModes
@@ -1192,6 +1198,30 @@ class _StringsSettingsAccentColorPickerIt extends _StringsSettingsAccentColorPic
 	@override String get confirm => 'Conferma';
 }
 
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
+	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
+	@override String get preferGreyscale => 'Per display e-ink';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayIt extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Off';
+	@override String get regular => 'Regolare';
+	@override String get slow => 'Lento';
+}
+
 // Path: login.feedbacks
 class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	_StringsLoginFeedbacksIt._(_StringsIt root) : this._root = root, super._(root);
@@ -1205,6 +1235,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
 	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
 	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
+	@override String get encLoginFailed => 'Accesso non riuscito, controllare la password di crittografia.';
 }
 
 // Path: login.form
@@ -1256,6 +1287,28 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	@override String get redo => 'Rifai';
 	@override String get export => 'Esporta (Ctrl Shift S)';
 	@override String get exportAs => 'Esporta come:';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsIt extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Dimesione';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsIt extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Opzioni immagine';
+	@override String get invertible => 'Invertibile';
+	@override String get delete => 'Cancella';
 }
 
 // Path: <root>
@@ -2159,11 +2212,19 @@ extension on _StringsIt {
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Allinea la barra degli strumenti dell\'editor in basso';
 			case 'settings.prefLabels.editorAutoInvert': return 'Inverti le note in modalità scura';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferisci i colori in scala di grigi';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Carattere iperleggibile';
+			case 'settings.prefLabels.editorStraightenLines': return 'Tenere premuto per raddrizzare una linea';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
 			case 'settings.accentColorPicker.pickAColor': return 'Scegli un colore';
 			case 'settings.accentColorPicker.confirm': return 'Conferma';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
+			case 'settings.prefDescriptions.editorAutoInvert': return 'Scurisce in modo intelligente le note in modalità scura';
+			case 'settings.prefDescriptions.preferGreyscale': return 'Per display e-ink';
+			case 'settings.straightenDelay.off': return 'Off';
+			case 'settings.straightenDelay.regular': return 'Regolare';
+			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
@@ -2171,6 +2232,7 @@ extension on _StringsIt {
 			case 'login.feedbacks.checkUrl': return 'Per favore, inserisci un URL valido.';
 			case 'login.feedbacks.ncLoginFailed': return 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
 			case 'login.feedbacks.loginSuccess': return 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
+			case 'login.feedbacks.encLoginFailed': return 'Accesso non riuscito, controllare la password di crittografia.';
 			case 'login.form.useCustomServer': return 'Voglio utilizzare un server Nextcloud personalizzato';
 			case 'login.form.customServerUrl': return 'URL del server personalizzato';
 			case 'login.form.username': return 'Nome utente o email';
@@ -2208,6 +2270,10 @@ extension on _StringsIt {
 			case 'editor.toolbar.redo': return 'Rifai';
 			case 'editor.toolbar.export': return 'Esporta (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Esporta come:';
+			case 'editor.penOptions.size': return 'Dimesione';
+			case 'editor.imageOptions.title': return 'Opzioni immagine';
+			case 'editor.imageOptions.invertible': return 'Invertibile';
+			case 'editor.imageOptions.delete': return 'Cancella';
 			default: return null;
 		}
 	}
