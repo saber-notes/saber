@@ -40,39 +40,7 @@
     }
   },
   "es": {},
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "hyperlegibleFont": "Carattere iperleggibile",
-        "editorStraightenLines": "Tenere premuto per raddrizzare una linea"
-      },
-      "prefDescriptions": {
-        "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
-        "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
-        "preferGreyscale": "Per display e-ink"
-      },
-      "straightenDelay": {
-        "off": "Off",
-        "regular": "Regolare",
-        "slow": "Lento"
-      }
-    },
-    "login": {
-      "feedbacks": {
-        "encLoginFailed": "Accesso non riuscito, controllare la password di crittografia."
-      }
-    },
-    "editor": {
-      "penOptions": {
-        "size": "Dimesione"
-      },
-      "imageOptions": {
-        "title": "Opzioni immagine",
-        "invertible": "Invertibile",
-        "delete": "Cancella"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

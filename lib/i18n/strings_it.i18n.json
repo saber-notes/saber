@@ -1,95 +1,116 @@
 {
-	"home": {
-		"tabs": {
-			"home": "Home",
-			"browse": "Sfoglia",
-			"whiteboard": "Whiteboard",
-			"settings": "Impostazioni"
-		},
-		"titles": {
-			"home": "Note recenti",
-			"browse": "Tutte le note",
-			"whiteboard": "Whiteboard",
-			"settings": "Impostazioni"
-		},
-		"tooltips": {
-			"newNote": "Nuova nota",
-			"showUpdateDialog": "Mostra finestra di aggiornamento"
-		},
-		"backFolder": "(Indietro)",
-		"welcome": "Benvenuto su Saber",
-		"noFiles": "Nessun file trovato",
-		"createNewNote": "Tocca il pulsante + per creare una nuova nota"
-	},
-	"settings": {
-		"prefLabels": {
-			"appTheme": "Tema dell'app",
-			"customAccentColor": "Colore personalizzato",
-			"shouldCheckForUpdates": "Controlla automaticamente gli aggiornamenti di Saber",
-			"editorToolbarOnBottom": "Allinea la barra degli strumenti dell'editor in basso",
-			"editorAutoInvert": "Inverti le note in modalità scura",
-			"preferGreyscale": "Preferisci i colori in scala di grigi"
-		},
-		"themeModes": {
-			"system": "Sistema",
-			"light": "Chiaro",
-			"dark": "Scuro"
-		},
-		"accentColorPicker": {
-			"pickAColor": "Scegli un colore",
-			"confirm": "Conferma"
-		}
-	},
-	"login": {
-		"title": "Login",
-		"feedbacks": {
-			"checkUsername": "Ricontrolla il tuo nome utente o e-mail.",
-			"enterNcPassword": "Inserisci la tua password Nextcloud.",
-			"enterEncPassword": "Inserisci la tua password di crittografata.",
-			"checkUrl": "Per favore, inserisci un URL valido.",
-			"ncLoginFailed": "Accesso fallito, controlla i tuoi dati e la connessione di rete.",
-			"loginSuccess": "Accesso riuscito! Si prega di attendere mentre configuriamo..."
-		},
-		"form": {
-			"useCustomServer": "Voglio utilizzare un server Nextcloud personalizzato",
-			"customServerUrl": "URL del server personalizzato",
-			"username": "Nome utente o email",
-			"ncPassword": "Password nextcloud",
-			"encPassword": "Password di crittografata",
-			"agreeToPrivacyPolicy(rich)": "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.",
-			"login": "Log in"
-		},
-		"signup(rich)": "Non hai ancora un account? ${linkToSignup(Registrati ora)}!",
-		"status": {
-			"loggedIn": "Effettuato l'accesso con Nextcloud",
-			"loggedOut": "Disconnesso",
-			"tapToLogin": "Tocca per accedere con Nextcloud"
-		}
-	},
-	"appInfo": {
-		"licenseNotice": "Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",
-		"debug": "DEBUG",
-		"licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
-		"privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy"
-	},
-	"update": {
-		"updateAvailable": "Aggiornamento disponibile",
-		"updateAvailableDescription": "È disponibile una nuova versione dell'app.",
-		"dismiss": "Abbandona",
-		"update": "Aggiornamento"
-	},
-	"editor": {
-		"toolbar": {
-			"fountainPen": "Penna stilografica",
-			"highlighter": "Evidenziatore",
-			"toggleColors": "Attiva/disattiva i colori (Ctrl C)",
-			"toggleEraser": "Attiva/disattiva gomma (Ctrl E)",
-			"photo": "Foto",
-			"toggleFingerDrawing": "Attiva/disattiva il disegno con il dito (Ctrl F)",
-			"undo": "Annulla",
-			"redo": "Rifai",
-			"export": "Esporta (Ctrl Shift S)",
-			"exportAs": "Esporta come:"
-		}
-	}
+  "home": {
+    "tabs": {
+      "home": "Home",
+      "browse": "Sfoglia",
+      "whiteboard": "Whiteboard",
+      "settings": "Impostazioni"
+    },
+    "titles": {
+      "home": "Note recenti",
+      "browse": "Tutte le note",
+      "whiteboard": "Whiteboard",
+      "settings": "Impostazioni"
+    },
+    "tooltips": {
+      "newNote": "Nuova nota",
+      "showUpdateDialog": "Mostra finestra di aggiornamento"
+    },
+    "backFolder": "(Indietro)",
+    "welcome": "Benvenuto su Saber",
+    "noFiles": "Nessun file trovato",
+    "createNewNote": "Tocca il pulsante + per creare una nuova nota"
+  },
+  "settings": {
+    "prefLabels": {
+      "appTheme": "Tema dell'app",
+      "customAccentColor": "Colore personalizzato",
+      "shouldCheckForUpdates": "Controlla automaticamente gli aggiornamenti di Saber",
+      "editorToolbarOnBottom": "Allinea la barra degli strumenti dell'editor in basso",
+      "editorAutoInvert": "Inverti le note in modalità scura",
+      "preferGreyscale": "Preferisci i colori in scala di grigi",
+      "hyperlegibleFont": "Carattere iperleggibile",
+      "editorStraightenLines": "Tenere premuto per raddrizzare una linea"
+    },
+    "themeModes": {
+      "system": "Sistema",
+      "light": "Chiaro",
+      "dark": "Scuro"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Scegli un colore",
+      "confirm": "Conferma"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
+      "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
+      "preferGreyscale": "Per display e-ink"
+    },
+    "straightenDelay": {
+      "off": "Off",
+      "regular": "Regolare",
+      "slow": "Lento"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "feedbacks": {
+      "checkUsername": "Ricontrolla il tuo nome utente o e-mail.",
+      "enterNcPassword": "Inserisci la tua password Nextcloud.",
+      "enterEncPassword": "Inserisci la tua password di crittografata.",
+      "checkUrl": "Per favore, inserisci un URL valido.",
+      "ncLoginFailed": "Accesso fallito, controlla i tuoi dati e la connessione di rete.",
+      "loginSuccess": "Accesso riuscito! Si prega di attendere mentre configuriamo...",
+      "encLoginFailed": "Accesso non riuscito, controllare la password di crittografia."
+    },
+    "form": {
+      "useCustomServer": "Voglio utilizzare un server Nextcloud personalizzato",
+      "customServerUrl": "URL del server personalizzato",
+      "username": "Nome utente o email",
+      "ncPassword": "Password nextcloud",
+      "encPassword": "Password di crittografata",
+      "agreeToPrivacyPolicy(rich)": "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.",
+      "login": "Log in"
+    },
+    "signup(rich)": "Non hai ancora un account? ${linkToSignup(Registrati ora)}!",
+    "status": {
+      "loggedIn": "Effettuato l'accesso con Nextcloud",
+      "loggedOut": "Disconnesso",
+      "tapToLogin": "Tocca per accedere con Nextcloud"
+    }
+  },
+  "appInfo": {
+    "licenseNotice": "Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",
+    "debug": "DEBUG",
+    "licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
+    "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy"
+  },
+  "update": {
+    "updateAvailable": "Aggiornamento disponibile",
+    "updateAvailableDescription": "È disponibile una nuova versione dell'app.",
+    "dismiss": "Abbandona",
+    "update": "Aggiornamento"
+  },
+  "editor": {
+    "toolbar": {
+      "fountainPen": "Penna stilografica",
+      "highlighter": "Evidenziatore",
+      "toggleColors": "Attiva/disattiva i colori (Ctrl C)",
+      "toggleEraser": "Attiva/disattiva gomma (Ctrl E)",
+      "photo": "Foto",
+      "toggleFingerDrawing": "Attiva/disattiva il disegno con il dito (Ctrl F)",
+      "undo": "Annulla",
+      "redo": "Rifai",
+      "export": "Esporta (Ctrl Shift S)",
+      "exportAs": "Esporta come:"
+    },
+    "penOptions": {
+      "size": "Dimesione"
+    },
+    "imageOptions": {
+      "title": "Opzioni immagine",
+      "invertible": "Invertibile",
+      "delete": "Cancella"
+    }
+  }
 }
