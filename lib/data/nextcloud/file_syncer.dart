@@ -27,6 +27,12 @@ abstract class FileSyncer {
   static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
   static const int filesDoneLimit = 100000000;
 
+  /// We write [deletedFileDummyContent] to a deleted file on the cloud
+  /// (instead of actually deleting it) so we can sync the file
+  /// as this keeps the last-modified date intact.
+  /// This is currently just an empty string.
+  static const String deletedFileDummyContent = "";
+
   static void startSync() async {
     _uploadFileFromQueue();
 
@@ -101,9 +107,10 @@ abstract class FileSyncer {
         return;
       }
 
-      // try 3 times to read file (may fail because file is locked by another process/thread)
-      String? localDataUnencrypted;
+      final String localDataEncrypted;
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
+        String? localDataUnencrypted;
+        // try 3 times to read file (may fail because file is locked by another process/thread)
         for (int i = 0; i < 3; ++i) {
           if (i > 0) await Future.delayed(const Duration(milliseconds: 100));
           localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
@@ -113,12 +120,10 @@ abstract class FileSyncer {
           if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
           return;
         }
+        localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
       } else {
-        // file doesn't exist locally; delete it from server
-        await _client!.webdav.delete(filePathRemote);
-        return;
+        localDataEncrypted = deletedFileDummyContent;
       }
-      final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
 
       const Utf8Encoder encoder = Utf8Encoder();
       await _client!.webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
@@ -186,14 +191,18 @@ abstract class FileSyncer {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
       final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
       final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
-      final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
-      FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+      if (encryptedData == deletedFileDummyContent) { // deleted file
+        FileManager.deleteFile(file.localPath);
+        return true;
+      } else {
+        final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+        FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+        return true;
+      }
     } catch (e) {
       if (kDebugMode) print("Failed to download file ${file.localPath} ${file.remotePath}");
       return false;
     }
-
-    return true;
   }
 
   /// Decides if the local or remote version of a file should be kept
