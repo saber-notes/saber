@@ -95,7 +95,7 @@ abstract class FileSyncer {
       final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$_encExtension";
 
       final syncFile = SyncFile(remotePath: filePathRemote, localPath: filePathUnencrypted);
-      if (!await _shouldLocalFileBeKept(syncFile)) {
+      if (!await _shouldLocalFileBeKept(syncFile, inUploadQueue: true)) {
         // remote file is newer; download it instead
         _downloadQueue.add(syncFile);
         return;
@@ -103,13 +103,19 @@ abstract class FileSyncer {
 
       // try 3 times to read file (may fail because file is locked by another process/thread)
       String? localDataUnencrypted;
-      for (int i = 0; i < 3; ++i) {
-        if (i > 0) await Future.delayed(const Duration(milliseconds: 100));
-        localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
-        if (localDataUnencrypted != null) break;
-      }
-      if (localDataUnencrypted == null) {
-        if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
+      if (await FileManager.doesFileExist(filePathUnencrypted)) {
+        for (int i = 0; i < 3; ++i) {
+          if (i > 0) await Future.delayed(const Duration(milliseconds: 100));
+          localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
+          if (localDataUnencrypted != null) break;
+        }
+        if (localDataUnencrypted == null) {
+          if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
+          return;
+        }
+      } else {
+        // file doesn't exist locally; delete it from server
+        await _client!.webdav.delete(filePathRemote);
         return;
       }
       final String localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
@@ -190,18 +196,12 @@ abstract class FileSyncer {
     return true;
   }
 
-  /// Queues a file to be deleted from the server
-  static void addToDeleteQueue(String filePath) {
-    // todo: implement
-    if (kDebugMode) print("file deletion not implemented yet");
-  }
-
   /// Decides if the local or remote version of a file should be kept
   /// by comparing the last modified date of each file.
-  static Future<bool> _shouldLocalFileBeKept(SyncFile file) async {
-    // if local file doesn't exist, keep remote
+  static Future<bool> _shouldLocalFileBeKept(SyncFile file, {bool inUploadQueue = false}) async {
+    // if local file doesn't exist, keep remote (unless we're "uploading" a file that we want to delete)
     if (!await FileManager.doesFileExist(file.localPath)) {
-      return false;
+      return inUploadQueue;
     }
 
     // get remote file

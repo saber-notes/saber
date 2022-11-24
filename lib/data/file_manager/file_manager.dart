@@ -96,9 +96,10 @@ abstract class FileManager {
     fromPath = _sanitisePath(fromPath);
     toPath = _sanitisePath(toPath);
 
-    if (!toPath.contains('/', 1)) { // if toPath is a file name, not a path
+    if (!toPath.contains('/', 1)) { // if toPath is a relative path
       toPath = fromPath.substring(0, fromPath.lastIndexOf('/') + 1) + toPath;
     }
+    if (fromPath == toPath) return toPath;
 
     if (kIsWeb) {
       final prefs = await _prefs;
@@ -111,6 +112,9 @@ abstract class FileManager {
       if (await fromFile.exists()) await fromFile.rename(toFile.path);
     }
 
+    FileSyncer.addToUploadQueue(fromPath);
+    FileSyncer.addToUploadQueue(toPath);
+
     _renameReferences(fromPath, toPath);
     _triggerWriteWatcher();
 
@@ -120,8 +124,6 @@ abstract class FileManager {
   static Future deleteFile(String filePath) async {
     filePath = _sanitisePath(filePath);
 
-    FileSyncer.addToDeleteQueue(filePath);
-
     if (kIsWeb) {
       final prefs = await _prefs;
       await prefs.remove(filePath);
@@ -129,6 +131,8 @@ abstract class FileManager {
       final File file = File(await _documentsDirectory + filePath);
       if (await file.exists()) await file.delete();
     }
+
+    FileSyncer.addToUploadQueue(filePath);
 
     _removeReferences(filePath);
     _triggerWriteWatcher();
