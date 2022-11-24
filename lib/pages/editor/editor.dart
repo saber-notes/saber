@@ -198,6 +198,7 @@ class _EditorState extends State<Editor> {
         }
         for (EditorImage image in item.images) {
           coreInfo.images.add(image);
+          image.newImage = true;
         }
         createPageOfStroke(null);
       } else if (item.type == EditorHistoryItemType.move) { // undo move
@@ -226,6 +227,7 @@ class _EditorState extends State<Editor> {
         }
         for (EditorImage image in item.images) {
           coreInfo.images.add(image);
+          image.newImage = true;
         }
         createPageOfStroke(null);
       } else if (item.type == EditorHistoryItemType.erase) { // redo erase

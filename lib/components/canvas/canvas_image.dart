@@ -75,6 +75,7 @@ class _CanvasImageState extends State<CanvasImage> {
   }
 
   disableActive() {
+    if (!active) return;
     setState(() {
       active = false;
     });
