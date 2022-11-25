@@ -59,6 +59,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.1" type="development" date="2022-11-25">
+            <description>
+                <ol>
+                    <li>Deleting a file is now synced between your devices</li>
+                    <li>Animate images when they're undone/redone</li>
+                    <li>UI improvements</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.4.0" type="development" date="2022-11-21">
             <description>
                 <ol>
