@@ -11,8 +11,8 @@ env:
   project-id: com.adilhanney.saber
 
 jobs:
-  build:
-    name: Build for macOS and iOS
+  build-ios:
+    name: Build for iOS
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -23,11 +23,6 @@ jobs:
         with:
           channel: stable
           architecture: x64
-
-      - name: Setup Flutter
-        run: |
-          flutter config --enable-macos-desktop
-          flutter pub get
 
       - name: Build for iOS
         run: flutter build ios --no-codesign
@@ -45,6 +40,24 @@ jobs:
         with:
           name: Saber-iOS-Archive
           path: build/ios/iphoneos/Saber.ipa
+
+  build-macos:
+    name: Build for macOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          architecture: x64
+
+      - name: Setup Flutter
+        run: |
+          flutter config --enable-macos-desktop
+          flutter pub get
 
       - name: Build for macOS
         run: flutter build macos
