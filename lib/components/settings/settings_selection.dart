@@ -1,7 +1,7 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/prefs.dart';
 
 class SettingsSelection extends StatefulWidget {
@@ -10,14 +10,14 @@ class SettingsSelection extends StatefulWidget {
     required this.title,
     this.subtitle,
     required this.pref,
-    required this.values,
+    required this.options,
     this.afterChange,
   });
 
   final String title;
   final String? subtitle;
   final IPref<int, dynamic> pref;
-  final List<SettingsSelectionValue> values;
+  final List<ToggleButtonsOption<int>> options;
   final ValueChanged<int>? afterChange;
 
   @override
@@ -38,18 +38,19 @@ class _SettingsSelectionState extends State<SettingsSelection> {
 
   @override
   Widget build(BuildContext context) {
-    if (!widget.values.any((SettingsSelectionValue value) => widget.pref.value == value.value)) {
-      if (kDebugMode) print("WARNING: SettingsSelection: Value ${widget.pref.value} is not in the list of values, setting it to ${widget.values.first.value}");
-      widget.pref.value = widget.values.first.value;
+    if (!widget.options.any((ToggleButtonsOption option) => widget.pref.value == option.value)) {
+      if (kDebugMode) print("WARNING: SettingsSelection: Value ${widget.pref.value} is not in the list of values, setting it to ${widget.options.first.value}");
+      widget.pref.value = widget.options.first.value;
     }
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
-      trailing: CupertinoSlidingSegmentedControl<int>(
-        children: widget.values.asMap().map((_, SettingsSelectionValue value) => MapEntry<int, Widget>(value.value, Text(value.text))),
-        groupValue: widget.pref.value,
-        onValueChanged: (int? value) {
+      trailing: AdaptiveToggleButtons(
+        value: widget.pref.value,
+        options: widget.options,
+        onChange: (int? value) {
+          // setState is automatically called when the pref changes
           if (value != null) {
             widget.pref.value = value;
           }
@@ -63,11 +64,4 @@ class _SettingsSelectionState extends State<SettingsSelection> {
     widget.pref.removeListener(onChanged);
     super.dispose();
   }
-}
-
-class SettingsSelectionValue {
-  final int value;
-  final String text;
-
-  const SettingsSelectionValue(this.value, this.text);
 }

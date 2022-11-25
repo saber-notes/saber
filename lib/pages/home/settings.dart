@@ -10,6 +10,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -63,10 +64,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   SettingsSelection(
                     title: t.settings.prefLabels.appTheme,
                     pref: Prefs.appTheme,
-                    values: [
-                      SettingsSelectionValue(ThemeMode.system.index, t.settings.themeModes.system),
-                      SettingsSelectionValue(ThemeMode.light.index, t.settings.themeModes.light),
-                      SettingsSelectionValue(ThemeMode.dark.index, t.settings.themeModes.dark),
+                    options: [
+                      ToggleButtonsOption(ThemeMode.system.index, t.settings.themeModes.system),
+                      ToggleButtonsOption(ThemeMode.light.index, t.settings.themeModes.light),
+                      ToggleButtonsOption(ThemeMode.dark.index, t.settings.themeModes.dark),
                     ],
                   ),
                   SettingsColor(
@@ -103,10 +104,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       return "${Prefs.editorStraightenDelay.value}ms";
                     }(),
                     pref: Prefs.editorStraightenDelay,
-                    values: [
-                      SettingsSelectionValue(0, t.settings.straightenDelay.off),
-                      SettingsSelectionValue(500, t.settings.straightenDelay.regular),
-                      SettingsSelectionValue(1000, t.settings.straightenDelay.slow),
+                    options: [
+                      ToggleButtonsOption(0, t.settings.straightenDelay.off),
+                      ToggleButtonsOption(500, t.settings.straightenDelay.regular),
+                      ToggleButtonsOption(1000, t.settings.straightenDelay.slow),
                     ],
                     afterChange: (_) => setState(() {}),
                   ),
