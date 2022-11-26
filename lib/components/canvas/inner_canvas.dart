@@ -3,6 +3,7 @@ import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -49,18 +50,14 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+    final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+
     final Color backgroundColor;
-    bool invert = false;
     if (widget.coreInfo.backgroundColor != null) {
-      backgroundColor = widget.coreInfo.backgroundColor!;
+      backgroundColor = widget.coreInfo.backgroundColor!.withInversion(invert);
     } else {
-      Brightness brightness = Theme.of(context).brightness;
-      if (Prefs.editorAutoInvert.value && brightness == Brightness.dark) {
-        backgroundColor = Colors.black.withOpacity(0.95);
-        invert = true;
-      } else {
-        backgroundColor = Colors.white.withOpacity(0.95);
-      }
+      backgroundColor = const Color(0xFFF2F2F2).withInversion(invert);
     }
 
     return CustomPaint(
