@@ -6,36 +6,36 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font",
-        "editorStraightenLines": "Press and hold to straighten a line"
+        "hyperlegibleFont": "Hyperlesbare Schrift",
+        "editorStraightenLines": "Drücke und halte für eine gerade Linie"
       },
       "prefDescriptions": {
-        "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "editorAutoInvert": "Smartly darkens notes in dark mode",
-        "preferGreyscale": "For e-ink displays"
+        "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
+        "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
+        "preferGreyscale": "Für E-Ink-Bildschirme"
       },
       "straightenDelay": {
-        "off": "Off",
-        "regular": "Regular",
-        "slow": "Slow"
+        "off": "Aus",
+        "regular": "Normal",
+        "slow": "Langsam"
       }
     },
     "login": {
       "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
+        "encLoginFailed": "Login fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
       }
     },
     "editor": {
       "toolbar": {
-        "highlighter": "Highlighter"
+        "highlighter": "Textmarker"
       },
       "penOptions": {
-        "size": "Size"
+        "size": "Dicke"
       },
       "imageOptions": {
-        "title": "Image options",
-        "invertible": "Invertible",
-        "delete": "Delete"
+        "title": "Bildoptionen",
+        "invertible": "Invertierbar",
+        "delete": "Entfernen"
       }
     }
   },
