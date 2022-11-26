@@ -3,7 +3,7 @@
 /// Locales: 6
 /// Strings: 430 (71 per locale)
 ///
-/// Built on 2022-11-24 at 12:39 UTC
+/// Built on 2022-11-26 at 10:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1838,7 +1838,7 @@ class _StringsSettingsStraightenDelayZhHantTw extends _StringsSettingsStraighten
 
 	// Translations
 	@override String get off => '關閉';
-	@override String get regular => '常規';
+	@override String get regular => '正常';
 	@override String get slow => '緩慢';
 }
 
@@ -2403,7 +2403,7 @@ extension on _StringsZhHantTw {
 			case 'settings.accentColorPicker.pickAColor': return '選取顏色';
 			case 'settings.accentColorPicker.confirm': return '確定';
 			case 'settings.straightenDelay.off': return '關閉';
-			case 'settings.straightenDelay.regular': return '常規';
+			case 'settings.straightenDelay.regular': return '正常';
 			case 'settings.straightenDelay.slow': return '緩慢';
 			case 'login.title': return '登入';
 			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
