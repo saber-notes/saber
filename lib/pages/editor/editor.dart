@@ -499,8 +499,8 @@ class _EditorState extends State<Editor> {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(
       source: ImageSource.gallery,
-      maxWidth: 2000,
-      maxHeight: 2000,
+      maxWidth: 1000,
+      maxHeight: 1000,
       imageQuality: 90,
       requestFullMetadata: false,
     );

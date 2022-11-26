@@ -2,13 +2,14 @@
 import 'dart:typed_data';
 import 'dart:ui';
 
-import 'package:saber/data/prefs.dart';
+import 'package:flutter/foundation.dart';
+import 'package:image/image.dart' as image;
 
 class EditorImage {
   static int _nextId = 0;
   final int id = _nextId++;
 
-  final Uint8List bytes;
+  Uint8List bytes;
   final int pageIndex;
   void Function(EditorImage, Rect)? onMoveImage;
   void Function(EditorImage)? onDeleteImage;
@@ -75,6 +76,9 @@ class EditorImage {
   }
 
   Future<void> _getImage([Size? pageSize]) async {
+    Uint8List? resized = await compute(_resizeImageIsolate, bytes);
+    if (resized != null) bytes = resized;
+
     ImageDescriptor imageDescriptor = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
     Codec codec = await imageDescriptor.instantiateCodec();
     FrameInfo frameInfo = await codec.getNextFrame();
@@ -84,24 +88,46 @@ class EditorImage {
         srcRect = Rect.fromLTWH(srcRect.left, srcRect.top, image.width.toDouble(), image.height.toDouble());
       }
       if (dstRect.width == 0 || dstRect.height == 0) {
-        double width = image.width.toDouble(),
-            height = image.height.toDouble();
+        Size size = Size(image.width.toDouble(), image.height.toDouble());
         if (pageSize != null) {
-          double aspectRatio = width / height;
-          if (width > pageSize.width) {
-            width = pageSize.width;
-            height = width / aspectRatio;
-          }
-          if (height > pageSize.height) {
-            height = pageSize.height;
-            width = height * aspectRatio;
-          }
+          size = resize(size, pageSize);
         }
-        dstRect = Rect.fromLTWH(dstRect.left, dstRect.top, width, height);
+        dstRect = Rect.fromLTWH(dstRect.left, dstRect.top, size.width, size.height);
       }
     } finally {
       image.dispose();
     }
+  }
+
+  /// Resizes [before] to fit inside [max] while maintaining aspect ratio
+  static Size resize(final Size before, final Size max) {
+    double width = before.width,
+        height = before.height,
+        aspectRatio = width / height;
+
+    if (width > max.width) {
+      width = max.width;
+      height = width / aspectRatio;
+    }
+    if (height > max.height) {
+      height = max.height;
+      width = height * aspectRatio;
+    }
+
+    return Size(width, height);
+  }
+
+  /// Resizes the image to no larger than 1000x1000 while maintaining aspect ratio
+  static Uint8List? _resizeImageIsolate(Uint8List originalImageBytes) {
+    image.Image? decoded = image.decodeImage(originalImageBytes);
+    if (decoded == null) return null;
+
+    Size resized = resize(Size(decoded.width.toDouble(), decoded.height.toDouble()), const Size(1000, 1000));
+    if (resized.width.round() == decoded.width) return null;
+
+    decoded = image.copyResize(decoded, width: resized.width.toInt(), height: resized.height.toInt());
+
+    return image.encodePng(decoded) as Uint8List;
   }
 
 }

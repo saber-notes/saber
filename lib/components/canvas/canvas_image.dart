@@ -85,32 +85,11 @@ class _CanvasImageState extends State<CanvasImage> {
     if (invertStarted || !mounted) return;
     invertStarted = true;
 
-    /// synchronous function run on an isolate using [compute]
-    /// https://api.flutter.dev/flutter/foundation/compute-constant.html
-    image.Image? invertImage(Uint8List originalImageBytes) {
-      image.Image? decoded = image.decodeImage(originalImageBytes);
-      if (decoded == null) return null;
-      for (int x = 0; x < decoded.width; ++x) {
-        for (int y = 0; y < decoded.height; ++y) {
-          int pixel = decoded.getPixel(x, y);
-          int r = image.getRed(pixel),
-              g = image.getGreen(pixel),
-              b = image.getBlue(pixel),
-              a = image.getAlpha(pixel);
-          Color inverted = Color.fromRGBO(r, g, b, 1).withInversion();
-          int invertedInt = image.getColor(inverted.red, inverted.green, inverted.blue, a);
-          decoded.setPixel(x, y, invertedInt);
-        }
-      }
-      return decoded;
-    }
-
-    image.Image? inverted = await compute(invertImage, widget.image.bytes);
+    Uint8List? inverted = await compute(invertImageIsolate, widget.image.bytes);
     if (!mounted) return;
     if (inverted == null) return;
-    invertedImageBytes = image.encodePng(inverted) as Uint8List;
     setState(() {
-      imageBytes = invertedImageBytes!;
+      imageBytes = inverted;
     });
   }
 
@@ -244,6 +223,28 @@ class _CanvasImageState extends State<CanvasImage> {
         );
       },
     );
+  }
+
+  /// synchronous function run on an isolate using [compute]
+  /// https://api.flutter.dev/flutter/foundation/compute-constant.html
+  static Uint8List? invertImageIsolate(Uint8List originalImageBytes) {
+    image.Image? decoded = image.decodeImage(originalImageBytes);
+    if (decoded == null) return null;
+
+    for (int x = 0; x < decoded.width; ++x) {
+      for (int y = 0; y < decoded.height; ++y) {
+        int pixel = decoded.getPixel(x, y);
+        int r = image.getRed(pixel),
+            g = image.getGreen(pixel),
+            b = image.getBlue(pixel),
+            a = image.getAlpha(pixel);
+        Color inverted = Color.fromRGBO(r, g, b, 1).withInversion();
+        int invertedInt = image.getColor(inverted.red, inverted.green, inverted.blue, a);
+        decoded.setPixel(x, y, invertedInt);
+      }
+    }
+
+    return image.encodePng(decoded) as Uint8List;
   }
 }
 
