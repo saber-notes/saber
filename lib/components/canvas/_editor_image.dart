@@ -10,6 +10,8 @@ class EditorImage {
   final int id = _nextId++;
 
   Uint8List bytes;
+  Uint8List? invertedBytesCache;
+
   final int pageIndex;
   void Function(EditorImage, Rect)? onMoveImage;
   void Function(EditorImage)? onDeleteImage;

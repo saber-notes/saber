@@ -702,6 +702,11 @@ class _EditorState extends State<Editor> {
 
     saveToFile();
 
+    // dispose of images' cache
+    for (EditorImage image in coreInfo.images) {
+      image.invertedBytesCache = null;
+    }
+
     super.dispose();
   }
 }

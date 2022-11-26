@@ -54,7 +54,6 @@ class _CanvasImageState extends State<CanvasImage> {
   late Uint8List imageBytes;
   Brightness imageBrightness = Brightness.light;
 
-  Uint8List? invertedImageBytes;
   bool invertStarted = false;
 
   Rect panStartRect = Rect.zero;
@@ -82,13 +81,16 @@ class _CanvasImageState extends State<CanvasImage> {
   }
 
   Future invertImage() async {
-    if (invertStarted || !mounted) return;
+    if (!mounted) return;
+    if (widget.image.invertedBytesCache != null) return;
+    if (invertStarted) return;
     invertStarted = true;
 
     Uint8List? inverted = await compute(invertImageIsolate, widget.image.bytes);
     if (!mounted) return;
     if (inverted == null) return;
     setState(() {
+      widget.image.invertedBytesCache = inverted;
       imageBytes = inverted;
     });
   }
@@ -104,7 +106,7 @@ class _CanvasImageState extends State<CanvasImage> {
       if (currentBrightness == Brightness.light) {
         imageBytes = widget.image.bytes;
       } else {
-        imageBytes = invertedImageBytes ?? imageBytes;
+        imageBytes = widget.image.invertedBytesCache ?? imageBytes;
         invertImage();
       }
       imageBrightness = currentBrightness;
