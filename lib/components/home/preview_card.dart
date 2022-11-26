@@ -78,45 +78,46 @@ class _PreviewCardState extends State<PreviewCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      clipBehavior: Clip.antiAlias,
       child: GestureDetector(
         onSecondaryTap: () => setState(() { expanded = !expanded; }),
         child: InkWell(
           onTap: () => widget.onTap(widget.filePath),
           onLongPress: () => setState(() { expanded = !expanded; }),
           borderRadius: BorderRadius.circular(10),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CanvasPreview(
-                  path: widget.filePath,
-                  height: height,
-                  coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
-                ),
-                const SizedBox(height: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CanvasPreview(
+                path: widget.filePath,
+                height: height,
+                coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
+              ),
 
-                Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+              ),
 
-                Collapsible(
-                  collapsed: !expanded,
-                  axis: CollapsibleAxis.vertical,
-                  maintainState: true,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {
-                          FileManager.deleteFile(widget.filePath + Editor.extension);
-                        },
-                        icon: const Icon(Icons.delete_forever),
-                      ),
-                    ],
-                  ),
+              Collapsible(
+                collapsed: !expanded,
+                axis: CollapsibleAxis.vertical,
+                maintainState: true,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        FileManager.deleteFile(widget.filePath + Editor.extension);
+                      },
+                      icon: const Icon(Icons.delete_forever),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
