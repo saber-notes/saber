@@ -13,7 +13,7 @@
 			"settings": "Einstellungen"
 		},
 		"tooltips": {
-			"newNote": "Neue Notiz",
+			"newNote": "Notiz erstellen",
 			"showUpdateDialog": "Aktualisierungsdialog anzeigen"
 		},
 		"backFolder": "(Zurück)",
@@ -26,7 +26,7 @@
 			"appTheme": "Anwendungsthema",
 			"customAccentColor": "Benutzerdefinierte Akzentfarbe",
 			"shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
-			"editorToolbarOnBottom": "Editor-Werkzeugleiste am unteren Rand ausrichten",
+			"editorToolbarOnBottom": "Werkzeugleiste am unteren Rand ausrichten",
 			"editorAutoInvert": "Notizen im Dunkelmodus invertieren",
 			"preferGreyscale": "Graustufen bevorzugen"
 		},
@@ -75,7 +75,7 @@
 	"update": {
 		"updateAvailable": "Aktualisierung verfügbar",
 		"updateAvailableDescription": "Eine neue Version der Anwendung ist verfügbar.",
-		"dismiss": "Ausblenden",
+		"dismiss": "Verwerfen",
 		"update": "Aktualisieren"
 	},
 	"editor": {
