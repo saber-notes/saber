@@ -31,7 +31,7 @@ class AdaptiveToggleButtons<T> extends StatelessWidget {
       borderRadius: BorderRadius.circular(1000),
       constraints: BoxConstraints(
         minWidth: 24.0 * options.length,
-        minHeight: 12.0 * options.length,
+        minHeight: 40,
       ),
       onPressed: (int index) {
         onChange(options[index].value);
