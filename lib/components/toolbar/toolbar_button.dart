@@ -15,6 +15,8 @@ class ToolbarIconButton extends StatelessWidget {
     required this.child,
   });
 
+  static PersistentBottomSheetController? modalController;
+
   final String? tooltip;
   final bool selected;
   final void Function(ToolbarIconButton button)? onPressed;
@@ -51,13 +53,15 @@ class ToolbarIconButton extends StatelessWidget {
       return;
     }
 
-    showModalBottomSheet(
+    if (modalController != null) return modalController!.close();
+
+    modalController = showBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      barrierColor: Colors.transparent,
+      enableDrag: true,
       builder: (BuildContext context) => GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () => Navigator.pop(context),
+        onTap: () => modalController?.close(),
         child: Padding(
           padding: EdgeInsets.only(
             left: 8,
@@ -65,16 +69,16 @@ class ToolbarIconButton extends StatelessWidget {
             bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
             top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
           ),
-          child: SizedBox(
-            width: double.infinity,
-            height: 100,
+          child: IntrinsicHeight(
             child: Material(
-              color: Theme.of(context).colorScheme.background,
+              elevation: 1,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(8),
               child: GestureDetector(
                 onTap: () {},
                 child: Center(
                   child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
                     child: modal!,
                   ),
                 ),
@@ -84,5 +88,7 @@ class ToolbarIconButton extends StatelessWidget {
         ),
       ),
     );
+
+    modalController!.closed.then((_) => modalController = null);
   }
 }
