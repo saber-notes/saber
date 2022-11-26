@@ -22,7 +22,7 @@
     },
     "login": {
       "feedbacks": {
-        "encLoginFailed": "Login fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
+        "encLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
       }
     },
     "editor": {
