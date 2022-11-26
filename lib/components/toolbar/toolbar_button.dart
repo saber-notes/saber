@@ -59,34 +59,52 @@ class ToolbarIconButton extends StatelessWidget {
       context: context,
       backgroundColor: Colors.transparent,
       enableDrag: true,
-      builder: (BuildContext context) => GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () => modalController?.close(),
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: 8,
-            right: 8,
-            bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
-            top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
-          ),
-          child: IntrinsicHeight(
-            child: Material(
-              elevation: 1,
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(8),
-              child: GestureDetector(
-                onTap: () {},
-                child: Center(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: modal!,
+      builder: (BuildContext context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => modalController?.close(),
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: 8,
+              right: 8,
+              bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
+              top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
+            ),
+            child: IntrinsicHeight(
+              child: Material(
+                elevation: 1,
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(8),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Center(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Column(
+                        children: [
+                          // drag handle (https://m3.material.io/components/bottom-sheets/specs)
+                          Container(
+                            width: 32,
+                            height: 4,
+                            margin: const EdgeInsets.only(top: 8, bottom: 16),
+                            decoration: BoxDecoration(
+                              color: colorScheme.onSurface.withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                          modal!,
+                          const SizedBox(height: 16),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
 
     modalController!.closed.then((_) => modalController = null);
