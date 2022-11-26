@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 430 (71 per locale)
+/// Strings: 444 (74 per locale)
 ///
-/// Built on 2022-11-26 at 10:46 UTC
+/// Built on 2022-11-26 at 22:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -496,6 +496,8 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsDe prefLabels = _StringsSettingsPrefLabelsDe._(_root);
 	@override late final _StringsSettingsThemeModesDe themeModes = _StringsSettingsThemeModesDe._(_root);
 	@override late final _StringsSettingsAccentColorPickerDe accentColorPicker = _StringsSettingsAccentColorPickerDe._(_root);
+	@override late final _StringsSettingsPrefDescriptionsDe prefDescriptions = _StringsSettingsPrefDescriptionsDe._(_root);
+	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
 }
 
 // Path: login
@@ -538,7 +540,7 @@ class _StringsUpdateDe extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Aktualisierung verfügbar';
 	@override String get updateAvailableDescription => 'Eine neue Version der Anwendung ist verfügbar.';
-	@override String get dismiss => 'Ausblenden';
+	@override String get dismiss => 'Verwerfen';
 	@override String get update => 'Aktualisieren';
 }
 
@@ -550,6 +552,8 @@ class _StringsEditorDe extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarDe toolbar = _StringsEditorToolbarDe._(_root);
+	@override late final _StringsEditorPenOptionsDe penOptions = _StringsEditorPenOptionsDe._(_root);
+	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
 }
 
 // Path: home.tabs
@@ -585,7 +589,7 @@ class _StringsHomeTooltipsDe extends _StringsHomeTooltipsEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => 'Neue Notiz';
+	@override String get newNote => 'Notiz erstellen';
 	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
 }
 
@@ -599,9 +603,11 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get appTheme => 'Anwendungsthema';
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
-	@override String get editorToolbarOnBottom => 'Editor-Werkzeugleiste am unteren Rand ausrichten';
+	@override String get editorToolbarOnBottom => 'Werkzeugleiste am unteren Rand ausrichten';
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
+	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
+	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
 }
 
 // Path: settings.themeModes
@@ -627,6 +633,30 @@ class _StringsSettingsAccentColorPickerDe extends _StringsSettingsAccentColorPic
 	@override String get confirm => 'Bestätigen';
 }
 
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
+	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
+	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayDe extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Aus';
+	@override String get regular => 'Normal';
+	@override String get slow => 'Langsam';
+}
+
 // Path: login.feedbacks
 class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	_StringsLoginFeedbacksDe._(_StringsDe root) : this._root = root, super._(root);
@@ -640,6 +670,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
+	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 }
 
 // Path: login.form
@@ -690,6 +721,29 @@ class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	@override String get redo => 'Wiederholen';
 	@override String get export => 'Exportieren (Strg + Shift + S)';
 	@override String get exportAs => 'Exportieren als:';
+	@override String get highlighter => 'Textmarker';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsDe extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Dicke';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsDe extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Bildoptionen';
+	@override String get invertible => 'Invertierbar';
+	@override String get delete => 'Entfernen';
 }
 
 // Path: <root>
@@ -2035,7 +2089,7 @@ extension on _StringsDe {
 			case 'home.titles.browse': return 'Alle Notizen';
 			case 'home.titles.whiteboard': return 'Whiteboard';
 			case 'home.titles.settings': return 'Einstellungen';
-			case 'home.tooltips.newNote': return 'Neue Notiz';
+			case 'home.tooltips.newNote': return 'Notiz erstellen';
 			case 'home.tooltips.showUpdateDialog': return 'Aktualisierungsdialog anzeigen';
 			case 'home.backFolder': return '(Zurück)';
 			case 'home.welcome': return 'Willkommen bei Saber';
@@ -2044,14 +2098,22 @@ extension on _StringsDe {
 			case 'settings.prefLabels.appTheme': return 'Anwendungsthema';
 			case 'settings.prefLabels.customAccentColor': return 'Benutzerdefinierte Akzentfarbe';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Suche automatisch nach Saber-Aktualisierungen';
-			case 'settings.prefLabels.editorToolbarOnBottom': return 'Editor-Werkzeugleiste am unteren Rand ausrichten';
+			case 'settings.prefLabels.editorToolbarOnBottom': return 'Werkzeugleiste am unteren Rand ausrichten';
 			case 'settings.prefLabels.editorAutoInvert': return 'Notizen im Dunkelmodus invertieren';
 			case 'settings.prefLabels.preferGreyscale': return 'Graustufen bevorzugen';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlesbare Schrift';
+			case 'settings.prefLabels.editorStraightenLines': return 'Drücke und halte für eine gerade Linie';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
 			case 'settings.accentColorPicker.pickAColor': return 'Wähle eine Farbe';
 			case 'settings.accentColorPicker.confirm': return 'Bestätigen';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
+			case 'settings.prefDescriptions.editorAutoInvert': return 'Verdunkelt intelligent die Notizen im Dunkelmodus';
+			case 'settings.prefDescriptions.preferGreyscale': return 'Für E-Ink-Bildschirme';
+			case 'settings.straightenDelay.off': return 'Aus';
+			case 'settings.straightenDelay.regular': return 'Normal';
+			case 'settings.straightenDelay.slow': return 'Langsam';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';
@@ -2059,6 +2121,7 @@ extension on _StringsDe {
 			case 'login.feedbacks.checkUrl': return 'Bitte gib eine gültige URL an.';
 			case 'login.feedbacks.ncLoginFailed': return 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
 			case 'login.feedbacks.loginSuccess': return 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
+			case 'login.feedbacks.encLoginFailed': return 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 			case 'login.form.useCustomServer': return 'Ich möchte einen eigenen Nextcloud-Server verwenden';
 			case 'login.form.customServerUrl': return 'Eigene Server-URL';
 			case 'login.form.username': return 'Benutzername oder E-Mail';
@@ -2084,7 +2147,7 @@ extension on _StringsDe {
 			case 'appInfo.privacyPolicyButton': return 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 			case 'update.updateAvailable': return 'Aktualisierung verfügbar';
 			case 'update.updateAvailableDescription': return 'Eine neue Version der Anwendung ist verfügbar.';
-			case 'update.dismiss': return 'Ausblenden';
+			case 'update.dismiss': return 'Verwerfen';
 			case 'update.update': return 'Aktualisieren';
 			case 'editor.toolbar.fountainPen': return 'Füllfederhalter';
 			case 'editor.toolbar.toggleColors': return 'Farben umschalten (Strg + C)';
@@ -2095,6 +2158,11 @@ extension on _StringsDe {
 			case 'editor.toolbar.redo': return 'Wiederholen';
 			case 'editor.toolbar.export': return 'Exportieren (Strg + Shift + S)';
 			case 'editor.toolbar.exportAs': return 'Exportieren als:';
+			case 'editor.toolbar.highlighter': return 'Textmarker';
+			case 'editor.penOptions.size': return 'Dicke';
+			case 'editor.imageOptions.title': return 'Bildoptionen';
+			case 'editor.imageOptions.invertible': return 'Invertierbar';
+			case 'editor.imageOptions.delete': return 'Entfernen';
 			default: return null;
 		}
 	}

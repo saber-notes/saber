@@ -1,44 +1,10 @@
 {
   "@@info": [
     "Here are translations that exist in <en> but not in secondary locales.",
-    "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
+    "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations.",
+    "Congratulations! There are no missing translations! :)"
   ],
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "hyperlegibleFont": "Hyperlegible font",
-        "editorStraightenLines": "Press and hold to straighten a line"
-      },
-      "prefDescriptions": {
-        "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-        "editorAutoInvert": "Smartly darkens notes in dark mode",
-        "preferGreyscale": "For e-ink displays"
-      },
-      "straightenDelay": {
-        "off": "Off",
-        "regular": "Regular",
-        "slow": "Slow"
-      }
-    },
-    "login": {
-      "feedbacks": {
-        "encLoginFailed": "Log in failed, please check your encryption password."
-      }
-    },
-    "editor": {
-      "toolbar": {
-        "highlighter": "Highlighter"
-      },
-      "penOptions": {
-        "size": "Size"
-      },
-      "imageOptions": {
-        "title": "Image options",
-        "invertible": "Invertible",
-        "delete": "Delete"
-      }
-    }
-  },
+  "de": {},
   "es": {},
   "it": {},
   "zh-Hans-CN": {},
