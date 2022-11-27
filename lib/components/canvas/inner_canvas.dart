@@ -57,7 +57,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
     if (widget.coreInfo.backgroundColor != null) {
       backgroundColor = widget.coreInfo.backgroundColor!.withInversion(invert);
     } else {
-      backgroundColor = const Color(0xFFF2F2F2).withInversion(invert);
+      backgroundColor = const Color(0xFFFCFCFC).withInversion(invert);
     }
 
     return CustomPaint(
