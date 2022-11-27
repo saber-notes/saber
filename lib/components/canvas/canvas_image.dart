@@ -166,12 +166,12 @@ class _CanvasImageState extends State<CanvasImage> {
                   panStartRect = Rect.zero;
                 } : null,
                 child: Container(
-                  decoration: active ? BoxDecoration(
+                  decoration: BoxDecoration(
                     border: Border.all(
-                      color: colorScheme.onBackground,
+                      color: active ? colorScheme.onBackground : Colors.transparent,
                       width: 2,
                     ),
-                  ) : null,
+                  ),
                   child: Center(
                     child: SizedBox(
                       width: max(widget.image.dstRect.width, CanvasImage.minImageSize),
