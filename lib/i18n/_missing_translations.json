@@ -25,11 +25,11 @@
   "it": {
     "editor": {
       "pens": {
-        "ballpointPen": "Ballpoint pen"
+        "ballpointPen": "Penna a sfera"
       },
       "menu": {
-        "clearPage": "Clear page",
-        "clearAllPages": "Clear all pages"
+        "clearPage": "Pulisci pagina",
+        "clearAllPages": "Pulisci tutte le pagine"
       }
     }
   },
