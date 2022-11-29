@@ -56,7 +56,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
       ElevatedButton(
         child: Text(t.settings.accentColorPicker.confirm),
         onPressed: () {
-          Navigator.of(context).pop();
+          Navigator.of(context).pop(true);
         },
       ),
     ],
@@ -92,10 +92,19 @@ class _SettingsSwitchState extends State<SettingsColor> {
         ],
       ),
       onTap: () async {
-        await showDialog(
+        int previousColor = widget.pref.value;
+        bool? confirmChange = await showDialog(
           context: context,
           builder: (BuildContext context) => colorPickerDialog,
         );
+
+        if (confirmChange != true) {
+          // restore to previous accent color
+          widget.pref.value = previousColor;
+        } else if (widget.pref.value == 0) {
+          // enable custom accent color
+          widget.pref.value = defaultColor.value;
+        }
       },
     );
   }
