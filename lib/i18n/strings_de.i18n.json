@@ -104,7 +104,8 @@
     },
     "pens": {
       "fountainPen": "Füllfederhalter",
-      "highlighter": "Textmarker"
+      "highlighter": "Textmarker",
+      "ballpointPen": "Kugelschreiber"
     },
     "penOptions": {
       "size": "Dicke"
