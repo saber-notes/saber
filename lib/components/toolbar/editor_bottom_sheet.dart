@@ -13,6 +13,7 @@ class EditorBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -25,22 +26,53 @@ class EditorBottomSheet extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ListTile(
-                  leading: const Icon(Icons.delete),
-                  title: const Text('Clear this page'),
-                  onTap: clearPage != null ? () {
-                    clearPage!();
-                    Navigator.pop(context);
-                  } : null,
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: colorScheme.primary,
+                          foregroundColor: colorScheme.onPrimary,
+                        ),
+                        onPressed: clearPage != null ? () {
+                          clearPage!();
+                          Navigator.pop(context);
+                        } : null,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.delete),
+                            SizedBox(width: 8),
+                            Text("Clear page"),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: ElevatedButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: colorScheme.primary,
+                          foregroundColor: colorScheme.onPrimary,
+                        ),
+                        onPressed: clearAllPages != null ? () {
+                          clearAllPages!();
+                          Navigator.pop(context);
+                        } : null,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.delete_sweep),
+                            SizedBox(width: 8),
+                            Text("Clear all pages"),
+                          ],
+                        )
+                      ),
+                    ),
+                  ],
                 ),
-                ListTile(
-                  leading: const Icon(Icons.delete_sweep),
-                  title: const Text('Clear all pages'),
-                  onTap: clearAllPages != null ? () {
-                    clearAllPages!();
-                    Navigator.pop(context);
-                  } : null,
-                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
