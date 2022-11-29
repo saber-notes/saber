@@ -50,6 +50,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor = widget.coreInfo.backgroundColor ?? const Color(0xFFFCFCFC);
@@ -58,6 +59,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
       painter: CanvasBackgroundPainter(
         invert: invert,
         backgroundColor: backgroundColor,
+        // backgroundPattern: CanvasBackgroundPatterns.dots,
+        primaryColor: colorScheme.primary,
+        secondaryColor: colorScheme.secondary,
       ),
       foregroundPainter: CanvasPainter(
         invert: invert,
