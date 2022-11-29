@@ -71,6 +71,8 @@ class Stroke {
   }..addAll(strokeProperties.toJson());
 
   addPoint(EditorCoreInfo context, Offset offset, [ double? pressure ]) {
+    if (!strokeProperties.pressureEnabled) pressure = null;
+
     double x = max(min(offset.dx, context.width), 0);
     double y = max(min(offset.dy, context.height), 0);
     Point point = Point(x, y, pressure ?? 0.5);
@@ -106,7 +108,7 @@ class Stroke {
       taperEnd: strokeProperties.taperEnd,
       capStart: strokeProperties.capStart,
       capEnd: strokeProperties.capEnd,
-      simulatePressure: strokeProperties.simulatePressure,
+      simulatePressure: strokeProperties.simulatePressure && strokeProperties.pressureEnabled,
     )
       .map((Point point) => Offset(point.x, point.y))
       .toList(growable: false);

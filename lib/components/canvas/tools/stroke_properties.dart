@@ -23,7 +23,7 @@ class StrokeProperties {
   double taperEnd = defaultTaperEnd;
   bool capStart = defaultCapStart;
   bool capEnd = defaultCapEnd;
-  bool pressureEnabled = defaultPressureEnabled; // todo: don't use pressure sensitivity if false
+  bool pressureEnabled = defaultPressureEnabled;
   bool simulatePressure = defaultSimulatePressure;
 
   StrokeProperties({
@@ -49,6 +49,7 @@ class StrokeProperties {
     taperEnd = json['te'] ?? defaultTaperEnd;
     capStart = json['cs'] ?? defaultCapStart;
     capEnd = json['ce'] ?? defaultCapEnd;
+    pressureEnabled = json['pe'] ?? defaultPressureEnabled;
     simulatePressure = json['sp'] ?? defaultSimulatePressure;
   }
   Map<String, dynamic> toJson() => {
@@ -61,6 +62,7 @@ class StrokeProperties {
     if (taperEnd != defaultTaperEnd) 'te': taperEnd,
     if (capStart != defaultCapStart) 'cs': capStart,
     if (capEnd != defaultCapEnd) 'ce': capEnd,
+    if (pressureEnabled != defaultPressureEnabled) 'pe': pressureEnabled,
     if (simulatePressure != defaultSimulatePressure) 'sp': simulatePressure,
   };
 
