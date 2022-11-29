@@ -11,17 +11,7 @@
       }
     }
   },
-  "es": {
-    "editor": {
-      "pens": {
-        "ballpointPen": "Ballpoint pen"
-      },
-      "menu": {
-        "clearPage": "Clear page",
-        "clearAllPages": "Clear all pages"
-      }
-    }
-  },
+  "es": {},
   "it": {
     "editor": {
       "pens": {
