@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 445 (74 per locale)
+/// Strings: 446 (74 per locale)
 ///
-/// Built on 2022-11-29 at 12:32 UTC
+/// Built on 2022-11-29 at 12:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1701,6 +1701,7 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 
 	// Translations
 	@override String get fountainPen => '钢笔';
+	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
 }
 
@@ -2489,6 +2490,7 @@ extension on _StringsZhHansCn {
 			case 'editor.toolbar.export': return '导出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '导出为：';
 			case 'editor.pens.fountainPen': return '钢笔';
+			case 'editor.pens.ballpointPen': return '圆珠笔';
 			case 'editor.pens.highlighter': return '荧光笔';
 			case 'editor.penOptions.size': return '粗细';
 			case 'editor.imageOptions.title': return '图片选项';
