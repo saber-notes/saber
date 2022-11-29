@@ -3,7 +3,7 @@
 /// Locales: 6
 /// Strings: 447 (74 per locale)
 ///
-/// Built on 2022-11-29 at 15:02 UTC
+/// Built on 2022-11-29 at 16:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -743,6 +743,7 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	// Translations
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get highlighter => 'Textmarker';
+	@override String get ballpointPen => 'Kugelschreiber';
 }
 
 // Path: editor.penOptions
@@ -2223,6 +2224,7 @@ extension on _StringsDe {
 			case 'editor.toolbar.exportAs': return 'Exportieren als:';
 			case 'editor.pens.fountainPen': return 'Füllfederhalter';
 			case 'editor.pens.highlighter': return 'Textmarker';
+			case 'editor.pens.ballpointPen': return 'Kugelschreiber';
 			case 'editor.penOptions.size': return 'Dicke';
 			case 'editor.imageOptions.title': return 'Bildoptionen';
 			case 'editor.imageOptions.invertible': return 'Invertierbar';

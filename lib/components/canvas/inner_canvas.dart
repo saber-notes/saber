@@ -1,9 +1,9 @@
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
-import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -50,17 +50,19 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
-
-    final Color backgroundColor;
-    if (widget.coreInfo.backgroundColor != null) {
-      backgroundColor = widget.coreInfo.backgroundColor!.withInversion(invert);
-    } else {
-      backgroundColor = const Color(0xFFFCFCFC).withInversion(invert);
-    }
+    final Color backgroundColor = widget.coreInfo.backgroundColor ?? const Color(0xFFFCFCFC);
 
     return CustomPaint(
+      painter: CanvasBackgroundPainter(
+        invert: invert,
+        backgroundColor: backgroundColor,
+        // backgroundPattern: CanvasBackgroundPatterns.dots,
+        primaryColor: colorScheme.primary,
+        secondaryColor: colorScheme.secondary,
+      ),
       foregroundPainter: CanvasPainter(
         invert: invert,
         strokes: widget.coreInfo.strokes,
@@ -68,10 +70,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       isComplex: true,
       willChange: widget.currentStroke != null,
-      child: Container(
+      child: SizedBox(
         width: widget.width,
         height: widget.height,
-        color: backgroundColor,
         child: DeferredPointerHandler(
           child: Stack(
             children: [
