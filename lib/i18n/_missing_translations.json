@@ -6,8 +6,8 @@
   "de": {
     "editor": {
       "menu": {
-        "clearPage": "Clear page",
-        "clearAllPages": "Clear all pages"
+        "clearPage": "Seite löschen",
+        "clearAllPages": "Alle Seiten löschen"
       }
     }
   },
