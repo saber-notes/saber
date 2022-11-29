@@ -104,6 +104,7 @@
     },
     "pens": {
       "fountainPen": "钢笔",
+      "ballpointPen": "圆珠笔",
       "highlighter": "荧光笔"
     },
     "penOptions": {
