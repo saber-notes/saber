@@ -64,6 +64,9 @@ class CanvasBackgroundPainter extends CustomPainter {
 }
 
 abstract class CanvasBackgroundPatterns {
+  /// No background pattern
+  static const String none = "";
+
   /// College ruled paper: horizontal lines with one
   /// vertical line along the left margin
   static const String college = "college";
@@ -79,6 +82,11 @@ abstract class CanvasBackgroundPatterns {
   /// corners instead of the whole square border.
   static const String dots = "dots";
 
-  /// No background pattern
-  static const String none = "";
+  static const List<String> all = [
+    none,
+    college,
+    lined,
+    grid,
+    dots,
+  ];
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -17,6 +18,7 @@ class EditorCoreInfo {
   final List<Stroke> strokes;
   final List<EditorImage> images;
   Color? backgroundColor;
+  String backgroundPattern;
   final double width;
   final double height;
 
@@ -24,6 +26,7 @@ class EditorCoreInfo {
     List<Stroke>? strokes,
     List<EditorImage>? images,
     this.backgroundColor,
+    this.backgroundPattern = CanvasBackgroundPatterns.none,
     this.width = defaultWidth,
     this.height = defaultHeight,
   }): strokes = strokes ?? [],
@@ -33,11 +36,13 @@ class EditorCoreInfo {
         strokes = _parseStrokesJson(json["s"] as List),
         images = json["i"] != null ? _parseImagesJson(json["i"] as List) : [],
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
+        backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         width = json["w"] ?? defaultWidth,
         height = json["h"] ?? defaultHeight;
   EditorCoreInfo.fromOldJson(List<dynamic> json):
         strokes = _parseStrokesJson(json),
         images = [],
+        backgroundPattern = CanvasBackgroundPatterns.none,
         width = defaultWidth,
         height = defaultHeight;
 
@@ -82,6 +87,7 @@ class EditorCoreInfo {
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Color? backgroundColor,
+    String? backgroundPattern,
     double? width,
     double? height,
   }) {
@@ -89,6 +95,7 @@ class EditorCoreInfo {
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       backgroundColor: backgroundColor ?? this.backgroundColor,
+      backgroundPattern: backgroundPattern ?? this.backgroundPattern,
       width: width ?? this.width,
       height: height ?? this.height,
     );

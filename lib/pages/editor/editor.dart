@@ -632,7 +632,7 @@ class _EditorState extends State<Editor> {
             onPressed: () {
               showModalBottomSheet(
                 context: context,
-                builder: (context) => bottomSheet,
+                builder: (context) => bottomSheet(context),
               );
             },
           )
@@ -642,44 +642,57 @@ class _EditorState extends State<Editor> {
     );
   }
 
-  get bottomSheet => EditorBottomSheet(
-    clearPage: () {
-      final int? currentPageIndex = this.currentPageIndex;
-      if (currentPageIndex == null) return;
+  Widget bottomSheet(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+    final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
 
-      setState(() {
-        List<Stroke> removedStrokes = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
-        for (Stroke stroke in removedStrokes) {
-          coreInfo.strokes.remove(stroke);
-        }
-        List<EditorImage> removedImages = coreInfo.images.where((image) => image.pageIndex == currentPageIndex).toList();
-        for (EditorImage image in removedImages) {
-          coreInfo.images.remove(image);
-        }
-        removeExcessPagesAfterStroke(null);
-        history.recordChange(EditorHistoryItem(
-          type: EditorHistoryItemType.erase,
-          strokes: removedStrokes,
-          images: removedImages,
-        ));
-      });
-    },
+    return EditorBottomSheet(
+      invert: invert,
+      coreInfo: coreInfo,
+      setBackgroundPattern: (pattern) {
+        setState(() {
+          coreInfo.backgroundPattern = pattern;
+          autosaveAfterDelay();
+        });
+      },
+      clearPage: () {
+        final int? currentPageIndex = this.currentPageIndex;
+        if (currentPageIndex == null) return;
 
-    clearAllPages: () {
-      setState(() {
-        List<Stroke> removedStrokes = coreInfo.strokes.toList();
-        List<EditorImage> removedImages = coreInfo.images.toList();
-        coreInfo.strokes.clear();
-        coreInfo.images.clear();
-        removeExcessPagesAfterStroke(null);
-        history.recordChange(EditorHistoryItem(
-          type: EditorHistoryItemType.erase,
-          strokes: removedStrokes,
-          images: removedImages,
-        ));
-      });
-    },
-  );
+        setState(() {
+          List<Stroke> removedStrokes = coreInfo.strokes.where((stroke) => stroke.pageIndex == currentPageIndex).toList();
+          for (Stroke stroke in removedStrokes) {
+            coreInfo.strokes.remove(stroke);
+          }
+          List<EditorImage> removedImages = coreInfo.images.where((image) => image.pageIndex == currentPageIndex).toList();
+          for (EditorImage image in removedImages) {
+            coreInfo.images.remove(image);
+          }
+          removeExcessPagesAfterStroke(null);
+          history.recordChange(EditorHistoryItem(
+            type: EditorHistoryItemType.erase,
+            strokes: removedStrokes,
+            images: removedImages,
+          ));
+        });
+      },
+
+      clearAllPages: () {
+        setState(() {
+          List<Stroke> removedStrokes = coreInfo.strokes.toList();
+          List<EditorImage> removedImages = coreInfo.images.toList();
+          coreInfo.strokes.clear();
+          coreInfo.images.clear();
+          removeExcessPagesAfterStroke(null);
+          history.recordChange(EditorHistoryItem(
+            type: EditorHistoryItemType.erase,
+            strokes: removedStrokes,
+            images: removedImages,
+          ));
+        });
+      },
+    );
+  }
 
   /// The index of the page that is currently centered on screen.
   int? get currentPageIndex {
