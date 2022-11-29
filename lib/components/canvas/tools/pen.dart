@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -10,12 +11,21 @@ import 'stroke_properties.dart';
 import '_tool.dart';
 
 class Pen extends Tool {
-
   @protected
   @visibleForTesting
-  Pen();
+  Pen() :
+        icon = Icons.question_mark;
 
-  Pen.fountainPen();
+  Pen.fountainPen() :
+        icon = fountainPenIcon;
+
+  Pen.ballpointPen() :
+        icon = ballpointPenIcon,
+        strokeProperties = StrokeProperties(pressureEnabled: false);
+
+  final IconData icon;
+  static const IconData fountainPenIcon = FontAwesomeIcons.penFancy;
+  static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
 
   Stroke? currentStroke;
   StrokeProperties strokeProperties = StrokeProperties();

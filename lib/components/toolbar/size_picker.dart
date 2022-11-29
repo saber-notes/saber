@@ -67,6 +67,12 @@ class _SizePickerState extends State<SizePicker> {
   }
 
   @override
+  void didUpdateWidget(SizePicker oldWidget) {
+    updateValue();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return MouseRegion(

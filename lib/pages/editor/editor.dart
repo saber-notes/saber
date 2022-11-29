@@ -572,6 +572,12 @@ class _EditorState extends State<Editor> {
             setTool: (tool) {
               setState(() {
                 currentTool = tool;
+
+                if (currentTool is Highlighter) {
+                  Highlighter.currentHighlighter = currentTool as Highlighter;
+                } else if (currentTool is Pen) {
+                  Pen.currentPen = currentTool as Pen;
+                }
               });
             },
             currentTool: currentTool,

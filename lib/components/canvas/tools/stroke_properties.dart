@@ -11,6 +11,7 @@ class StrokeProperties {
   static const double defaultTaperEnd = 0.0;
   static const bool defaultCapStart = true;
   static const bool defaultCapEnd = true;
+  static const bool defaultPressureEnabled = true;
   static const bool defaultSimulatePressure = true;
 
   Color color = defaultColor;
@@ -22,10 +23,22 @@ class StrokeProperties {
   double taperEnd = defaultTaperEnd;
   bool capStart = defaultCapStart;
   bool capEnd = defaultCapEnd;
+  bool pressureEnabled = defaultPressureEnabled; // todo: don't use pressure sensitivity if false
   bool simulatePressure = defaultSimulatePressure;
-  //bool isComplete = defaultIsComplete; // not needed
 
-  StrokeProperties();
+  StrokeProperties({
+    this.color = defaultColor,
+    this.size = defaultSize,
+    this.thinning = defaultThinning,
+    this.smoothing = defaultSmoothing,
+    this.streamline = defaultStreamline,
+    this.taperStart = defaultTaperStart,
+    this.taperEnd = defaultTaperEnd,
+    this.capStart = defaultCapStart,
+    this.capEnd = defaultCapEnd,
+    this.pressureEnabled = defaultPressureEnabled,
+    this.simulatePressure = defaultSimulatePressure,
+  });
   StrokeProperties.fromJson(Map<String, dynamic> json) {
     color = Color(json['c'] ?? defaultColor.value);
     size = json['s'] ?? defaultSize;
