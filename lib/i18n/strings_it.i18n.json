@@ -93,8 +93,6 @@
   },
   "editor": {
     "toolbar": {
-      "fountainPen": "Penna stilografica",
-      "highlighter": "Evidenziatore",
       "toggleColors": "Attiva/disattiva i colori (Ctrl C)",
       "toggleEraser": "Attiva/disattiva gomma (Ctrl E)",
       "photo": "Foto",
@@ -103,6 +101,10 @@
       "redo": "Rifai",
       "export": "Esporta (Ctrl Shift S)",
       "exportAs": "Esporta come:"
+    },
+    "pens": {
+      "fountainPen": "Penna stilografica",
+      "highlighter": "Evidenziatore"
     },
     "penOptions": {
       "size": "Dimesione"

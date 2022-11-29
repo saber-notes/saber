@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 import '../_stroke.dart';
 import 'stroke_properties.dart';
@@ -13,16 +14,21 @@ import '_tool.dart';
 class Pen extends Tool {
   @protected
   @visibleForTesting
-  Pen() :
-        icon = Icons.question_mark;
+  Pen({
+    required this.name,
+    required this.icon,
+  });
 
   Pen.fountainPen() :
+        name = t.editor.pens.fountainPen,
         icon = fountainPenIcon;
 
   Pen.ballpointPen() :
+        name = t.editor.pens.ballpointPen,
         icon = ballpointPenIcon,
         strokeProperties = StrokeProperties(pressureEnabled: false);
 
+  final String name;
   final IconData icon;
   static const IconData fountainPenIcon = FontAwesomeIcons.penFancy;
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;

@@ -93,8 +93,6 @@
 	},
 	"editor": {
 		"toolbar": {
-			"fountainPen": "Fountain pen",
-			"highlighter": "Highlighter",
 			"toggleColors": "Toggle colors (Ctrl C)",
 			"toggleEraser": "Toggle eraser (Ctrl E)",
 			"photo": "Photo",
@@ -103,6 +101,11 @@
 			"redo": "Redo",
 			"export": "Export (Ctrl Shift S)",
 			"exportAs": "Export as:"
+		},
+		"pens": {
+			"fountainPen": "Fountain pen",
+			"ballpointPen": "Ballpoint pen",
+			"highlighter": "Highlighter"
 		},
 		"penOptions": {
 			"size": "Size"

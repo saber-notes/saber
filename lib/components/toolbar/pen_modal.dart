@@ -27,7 +27,7 @@ class _PenModalState extends State<PenModal> {
           currentTool: Pen.currentPen,
         ),
         const SizedBox(width: 8),
-        TextButton(
+        IconButton(
           onPressed: () => setState(() {
             widget.setTool(Pen.fountainPen());
           }),
@@ -40,9 +40,10 @@ class _PenModalState extends State<PenModal> {
                 : Colors.transparent,
             shape: const CircleBorder(),
           ),
-          child: const FaIcon(Pen.fountainPenIcon, size: 16),
+          tooltip: t.editor.pens.fountainPen,
+          icon: const FaIcon(Pen.fountainPenIcon, size: 16),
         ),
-        TextButton(
+        IconButton(
           onPressed: () => setState(() {
             widget.setTool(Pen.ballpointPen());
           }),
@@ -55,7 +56,8 @@ class _PenModalState extends State<PenModal> {
                 : Colors.transparent,
             shape: const CircleBorder(),
           ),
-          child: const FaIcon(Pen.ballpointPenIcon, size: 16),
+          tooltip: t.editor.pens.ballpointPen,
+          icon: const FaIcon(Pen.ballpointPenIcon, size: 16),
         ),
       ],
     );

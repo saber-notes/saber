@@ -93,8 +93,6 @@
   },
   "editor": {
     "toolbar": {
-      "fountainPen": "鋼筆",
-      "highlighter": "螢光筆",
       "toggleColors": "切換顏色 (Ctrl C)",
       "toggleEraser": "切換橡皮擦 (Ctrl E)",
       "photo": "照片",
@@ -103,6 +101,10 @@
       "redo": "重做",
       "export": "匯出 (Ctrl Shift S)",
       "exportAs": "匯出為："
+    },
+    "pens": {
+      "fountainPen": "鋼筆",
+      "highlighter": "螢光筆"
     },
     "penOptions": {
       "size": "粗細"

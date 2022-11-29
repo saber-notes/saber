@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 444 (74 per locale)
+/// Strings: 445 (74 per locale)
 ///
-/// Built on 2022-11-26 at 22:57 UTC
+/// Built on 2022-11-29 at 12:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -242,6 +242,7 @@ class _StringsEditorEn {
 
 	// Translations
 	late final _StringsEditorToolbarEn toolbar = _StringsEditorToolbarEn._(_root);
+	late final _StringsEditorPensEn pens = _StringsEditorPensEn._(_root);
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
 }
@@ -402,8 +403,6 @@ class _StringsEditorToolbarEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get fountainPen => 'Fountain pen';
-	String get highlighter => 'Highlighter';
 	String get toggleColors => 'Toggle colors (Ctrl C)';
 	String get toggleEraser => 'Toggle eraser (Ctrl E)';
 	String get photo => 'Photo';
@@ -412,6 +411,18 @@ class _StringsEditorToolbarEn {
 	String get redo => 'Redo';
 	String get export => 'Export (Ctrl Shift S)';
 	String get exportAs => 'Export as:';
+}
+
+// Path: editor.pens
+class _StringsEditorPensEn {
+	_StringsEditorPensEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get fountainPen => 'Fountain pen';
+	String get ballpointPen => 'Ballpoint pen';
+	String get highlighter => 'Highlighter';
 }
 
 // Path: editor.penOptions
@@ -552,6 +563,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarDe toolbar = _StringsEditorToolbarDe._(_root);
+	@override late final _StringsEditorPensDe pens = _StringsEditorPensDe._(_root);
 	@override late final _StringsEditorPenOptionsDe penOptions = _StringsEditorPenOptionsDe._(_root);
 	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
 }
@@ -712,7 +724,6 @@ class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => 'Füllfederhalter';
 	@override String get toggleColors => 'Farben umschalten (Strg + C)';
 	@override String get toggleEraser => 'Radierer umschalten (Strg + E)';
 	@override String get photo => 'Foto';
@@ -721,6 +732,16 @@ class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	@override String get redo => 'Wiederholen';
 	@override String get export => 'Exportieren (Strg + Shift + S)';
 	@override String get exportAs => 'Exportieren als:';
+}
+
+// Path: editor.pens
+class _StringsEditorPensDe extends _StringsEditorPensEn {
+	_StringsEditorPensDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Füllfederhalter';
 	@override String get highlighter => 'Textmarker';
 }
 
@@ -861,6 +882,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarEs toolbar = _StringsEditorToolbarEs._(_root);
+	@override late final _StringsEditorPensEs pens = _StringsEditorPensEs._(_root);
 	@override late final _StringsEditorPenOptionsEs penOptions = _StringsEditorPenOptionsEs._(_root);
 	@override late final _StringsEditorImageOptionsEs imageOptions = _StringsEditorImageOptionsEs._(_root);
 }
@@ -1021,8 +1043,6 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => 'Lápiz';
-	@override String get highlighter => 'Resaltador';
 	@override String get toggleColors => 'Cambiar colores (Ctrl C)';
 	@override String get toggleEraser => 'Borrador (Ctrl E)';
 	@override String get photo => 'Foto';
@@ -1031,6 +1051,17 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	@override String get redo => 'Rehacer';
 	@override String get export => 'Exportar (Ctrl Shift S)';
 	@override String get exportAs => 'Exportar cómo:';
+}
+
+// Path: editor.pens
+class _StringsEditorPensEs extends _StringsEditorPensEn {
+	_StringsEditorPensEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Lápiz';
+	@override String get highlighter => 'Resaltador';
 }
 
 // Path: editor.penOptions
@@ -1171,6 +1202,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarIt toolbar = _StringsEditorToolbarIt._(_root);
+	@override late final _StringsEditorPensIt pens = _StringsEditorPensIt._(_root);
 	@override late final _StringsEditorPenOptionsIt penOptions = _StringsEditorPenOptionsIt._(_root);
 	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
 }
@@ -1331,8 +1363,6 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => 'Penna stilografica';
-	@override String get highlighter => 'Evidenziatore';
 	@override String get toggleColors => 'Attiva/disattiva i colori (Ctrl C)';
 	@override String get toggleEraser => 'Attiva/disattiva gomma (Ctrl E)';
 	@override String get photo => 'Foto';
@@ -1341,6 +1371,17 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	@override String get redo => 'Rifai';
 	@override String get export => 'Esporta (Ctrl Shift S)';
 	@override String get exportAs => 'Esporta come:';
+}
+
+// Path: editor.pens
+class _StringsEditorPensIt extends _StringsEditorPensEn {
+	_StringsEditorPensIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Penna stilografica';
+	@override String get highlighter => 'Evidenziatore';
 }
 
 // Path: editor.penOptions
@@ -1481,6 +1522,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarZhHansCn toolbar = _StringsEditorToolbarZhHansCn._(_root);
+	@override late final _StringsEditorPensZhHansCn pens = _StringsEditorPensZhHansCn._(_root);
 	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 }
@@ -1641,8 +1683,6 @@ class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => '钢笔';
-	@override String get highlighter => '荧光笔';
 	@override String get toggleColors => '切换颜色 (Ctrl C)';
 	@override String get toggleEraser => '切换橡皮擦 (Ctrl E)';
 	@override String get photo => '照片';
@@ -1651,6 +1691,17 @@ class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
 	@override String get redo => '重做';
 	@override String get export => '导出 (Ctrl Shift S)';
 	@override String get exportAs => '导出为：';
+}
+
+// Path: editor.pens
+class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
+	_StringsEditorPensZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => '钢笔';
+	@override String get highlighter => '荧光笔';
 }
 
 // Path: editor.penOptions
@@ -1791,6 +1842,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 
 	// Translations
 	@override late final _StringsEditorToolbarZhHantTw toolbar = _StringsEditorToolbarZhHantTw._(_root);
+	@override late final _StringsEditorPensZhHantTw pens = _StringsEditorPensZhHantTw._(_root);
 	@override late final _StringsEditorPenOptionsZhHantTw penOptions = _StringsEditorPenOptionsZhHantTw._(_root);
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 }
@@ -1951,8 +2003,6 @@ class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => '鋼筆';
-	@override String get highlighter => '螢光筆';
 	@override String get toggleColors => '切換顏色 (Ctrl C)';
 	@override String get toggleEraser => '切換橡皮擦 (Ctrl E)';
 	@override String get photo => '照片';
@@ -1961,6 +2011,17 @@ class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
 	@override String get redo => '重做';
 	@override String get export => '匯出 (Ctrl Shift S)';
 	@override String get exportAs => '匯出為：';
+}
+
+// Path: editor.pens
+class _StringsEditorPensZhHantTw extends _StringsEditorPensEn {
+	_StringsEditorPensZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => '鋼筆';
+	@override String get highlighter => '螢光筆';
 }
 
 // Path: editor.penOptions
@@ -2059,8 +2120,6 @@ extension on _StringsEn {
 			case 'update.updateAvailableDescription': return 'A new version of the app is available.';
 			case 'update.dismiss': return 'Dismiss';
 			case 'update.update': return 'Update';
-			case 'editor.toolbar.fountainPen': return 'Fountain pen';
-			case 'editor.toolbar.highlighter': return 'Highlighter';
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Photo';
@@ -2069,6 +2128,9 @@ extension on _StringsEn {
 			case 'editor.toolbar.redo': return 'Redo';
 			case 'editor.toolbar.export': return 'Export (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Export as:';
+			case 'editor.pens.fountainPen': return 'Fountain pen';
+			case 'editor.pens.ballpointPen': return 'Ballpoint pen';
+			case 'editor.pens.highlighter': return 'Highlighter';
 			case 'editor.penOptions.size': return 'Size';
 			case 'editor.imageOptions.title': return 'Image options';
 			case 'editor.imageOptions.invertible': return 'Invertible';
@@ -2149,7 +2211,6 @@ extension on _StringsDe {
 			case 'update.updateAvailableDescription': return 'Eine neue Version der Anwendung ist verfügbar.';
 			case 'update.dismiss': return 'Verwerfen';
 			case 'update.update': return 'Aktualisieren';
-			case 'editor.toolbar.fountainPen': return 'Füllfederhalter';
 			case 'editor.toolbar.toggleColors': return 'Farben umschalten (Strg + C)';
 			case 'editor.toolbar.toggleEraser': return 'Radierer umschalten (Strg + E)';
 			case 'editor.toolbar.photo': return 'Foto';
@@ -2158,7 +2219,8 @@ extension on _StringsDe {
 			case 'editor.toolbar.redo': return 'Wiederholen';
 			case 'editor.toolbar.export': return 'Exportieren (Strg + Shift + S)';
 			case 'editor.toolbar.exportAs': return 'Exportieren als:';
-			case 'editor.toolbar.highlighter': return 'Textmarker';
+			case 'editor.pens.fountainPen': return 'Füllfederhalter';
+			case 'editor.pens.highlighter': return 'Textmarker';
 			case 'editor.penOptions.size': return 'Dicke';
 			case 'editor.imageOptions.title': return 'Bildoptionen';
 			case 'editor.imageOptions.invertible': return 'Invertierbar';
@@ -2238,8 +2300,6 @@ extension on _StringsEs {
 			case 'update.updateAvailableDescription': return 'Hay una nueva versión de la aplicación disponible.';
 			case 'update.dismiss': return 'Ignorar';
 			case 'update.update': return 'Actualizar';
-			case 'editor.toolbar.fountainPen': return 'Lápiz';
-			case 'editor.toolbar.highlighter': return 'Resaltador';
 			case 'editor.toolbar.toggleColors': return 'Cambiar colores (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Borrador (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Foto';
@@ -2248,6 +2308,8 @@ extension on _StringsEs {
 			case 'editor.toolbar.redo': return 'Rehacer';
 			case 'editor.toolbar.export': return 'Exportar (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Exportar cómo:';
+			case 'editor.pens.fountainPen': return 'Lápiz';
+			case 'editor.pens.highlighter': return 'Resaltador';
 			case 'editor.penOptions.size': return 'Tamaño';
 			case 'editor.imageOptions.title': return 'Opciones de imagen';
 			case 'editor.imageOptions.invertible': return 'Invertible';
@@ -2328,8 +2390,6 @@ extension on _StringsIt {
 			case 'update.updateAvailableDescription': return 'È disponibile una nuova versione dell\'app.';
 			case 'update.dismiss': return 'Abbandona';
 			case 'update.update': return 'Aggiornamento';
-			case 'editor.toolbar.fountainPen': return 'Penna stilografica';
-			case 'editor.toolbar.highlighter': return 'Evidenziatore';
 			case 'editor.toolbar.toggleColors': return 'Attiva/disattiva i colori (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Attiva/disattiva gomma (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Foto';
@@ -2338,6 +2398,8 @@ extension on _StringsIt {
 			case 'editor.toolbar.redo': return 'Rifai';
 			case 'editor.toolbar.export': return 'Esporta (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Esporta come:';
+			case 'editor.pens.fountainPen': return 'Penna stilografica';
+			case 'editor.pens.highlighter': return 'Evidenziatore';
 			case 'editor.penOptions.size': return 'Dimesione';
 			case 'editor.imageOptions.title': return 'Opzioni immagine';
 			case 'editor.imageOptions.invertible': return 'Invertibile';
@@ -2418,8 +2480,6 @@ extension on _StringsZhHansCn {
 			case 'update.updateAvailableDescription': return '该应用程序的新版本可用。';
 			case 'update.dismiss': return '忽略';
 			case 'update.update': return '更新';
-			case 'editor.toolbar.fountainPen': return '钢笔';
-			case 'editor.toolbar.highlighter': return '荧光笔';
 			case 'editor.toolbar.toggleColors': return '切换颜色 (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return '切换橡皮擦 (Ctrl E)';
 			case 'editor.toolbar.photo': return '照片';
@@ -2428,6 +2488,8 @@ extension on _StringsZhHansCn {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '导出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '导出为：';
+			case 'editor.pens.fountainPen': return '钢笔';
+			case 'editor.pens.highlighter': return '荧光笔';
 			case 'editor.penOptions.size': return '粗细';
 			case 'editor.imageOptions.title': return '图片选项';
 			case 'editor.imageOptions.invertible': return '反转颜色';
@@ -2508,8 +2570,6 @@ extension on _StringsZhHantTw {
 			case 'update.updateAvailableDescription': return '該應用程式的新版本可用。';
 			case 'update.dismiss': return '忽略';
 			case 'update.update': return '更新';
-			case 'editor.toolbar.fountainPen': return '鋼筆';
-			case 'editor.toolbar.highlighter': return '螢光筆';
 			case 'editor.toolbar.toggleColors': return '切換顏色 (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return '切換橡皮擦 (Ctrl E)';
 			case 'editor.toolbar.photo': return '照片';
@@ -2518,6 +2578,8 @@ extension on _StringsZhHantTw {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '匯出為：';
+			case 'editor.pens.fountainPen': return '鋼筆';
+			case 'editor.pens.highlighter': return '螢光筆';
 			case 'editor.penOptions.size': return '粗細';
 			case 'editor.imageOptions.title': return '圖片選項';
 			case 'editor.imageOptions.invertible': return '反轉顏色';

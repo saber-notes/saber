@@ -147,7 +147,7 @@ class _ToolbarState extends State<Toolbar> {
                 child: Row(
                   children: [
                     ToolbarIconButton(
-                      tooltip: t.editor.toolbar.fountainPen,
+                      tooltip: Pen.currentPen.name,
                       selected: widget.currentTool == Pen.currentPen,
                       onPressed: (button) {
                         if (widget.currentTool == Pen.currentPen) {
@@ -162,7 +162,7 @@ class _ToolbarState extends State<Toolbar> {
                       child: FaIcon(Pen.currentPen.icon, size: 16),
                     ),
                     ToolbarIconButton(
-                      tooltip: t.editor.toolbar.highlighter,
+                      tooltip: t.editor.pens.highlighter,
                       selected: widget.currentTool == Highlighter.currentHighlighter,
                       onPressed: (button) {
                         widget.setTool(Highlighter.currentHighlighter);

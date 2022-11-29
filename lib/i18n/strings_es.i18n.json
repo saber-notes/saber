@@ -98,8 +98,6 @@
 	
 	"editor": {
 		"toolbar": {
-			"fountainPen": "Lápiz",
-			"highlighter": "Resaltador",
 			"toggleColors": "Cambiar colores (Ctrl C)",
 			"toggleEraser": "Borrador (Ctrl E)",
 			"photo": "Foto",
@@ -108,6 +106,10 @@
 			"redo": "Rehacer",
 			"export": "Exportar (Ctrl Shift S)",
 			"exportAs": "Exportar cómo:"
+		},
+		"pens": {
+			"fountainPen": "Lápiz",
+			"highlighter": "Resaltador"
 		},
 		"penOptions": {
 			"size": "Tamaño"

@@ -93,7 +93,6 @@
   },
   "editor": {
     "toolbar": {
-      "fountainPen": "Füllfederhalter",
       "toggleColors": "Farben umschalten (Strg + C)",
       "toggleEraser": "Radierer umschalten (Strg + E)",
       "photo": "Foto",
@@ -101,7 +100,10 @@
       "undo": "Rückgängig",
       "redo": "Wiederholen",
       "export": "Exportieren (Strg + Shift + S)",
-      "exportAs": "Exportieren als:",
+      "exportAs": "Exportieren als:"
+    },
+    "pens": {
+      "fountainPen": "Füllfederhalter",
       "highlighter": "Textmarker"
     },
     "penOptions": {
