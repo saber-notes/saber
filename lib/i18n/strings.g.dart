@@ -2023,6 +2023,7 @@ class _StringsEditorPensZhHantTw extends _StringsEditorPensEn {
 
 	// Translations
 	@override String get fountainPen => '鋼筆';
+	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
 }
 
@@ -2583,6 +2584,7 @@ extension on _StringsZhHantTw {
 			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '匯出為：';
 			case 'editor.pens.fountainPen': return '鋼筆';
+			case 'editor.pens.ballpointPen': return '原子筆';
 			case 'editor.pens.highlighter': return '螢光筆';
 			case 'editor.penOptions.size': return '粗細';
 			case 'editor.imageOptions.title': return '圖片選項';
