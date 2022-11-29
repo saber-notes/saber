@@ -36,8 +36,8 @@
   "zh-Hans-CN": {
     "editor": {
       "menu": {
-        "clearPage": "Clear page",
-        "clearAllPages": "Clear all pages"
+        "clearPage": "清除页面",
+        "clearAllPages": "清除全部页面"
       }
     }
   },
