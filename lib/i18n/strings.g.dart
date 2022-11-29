@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 447 (74 per locale)
+/// Strings: 450 (75 per locale)
 ///
-/// Built on 2022-11-29 at 16:14 UTC
+/// Built on 2022-11-29 at 17:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -245,6 +245,7 @@ class _StringsEditorEn {
 	late final _StringsEditorPensEn pens = _StringsEditorPensEn._(_root);
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
+	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
 }
 
 // Path: home.tabs
@@ -445,6 +446,17 @@ class _StringsEditorImageOptionsEn {
 	String get title => 'Image options';
 	String get invertible => 'Invertible';
 	String get delete => 'Delete';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuEn {
+	_StringsEditorMenuEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get clearPage => 'Clear page';
+	String get clearAllPages => 'Clear all pages';
 }
 
 // Path: <root>
@@ -2138,6 +2150,8 @@ extension on _StringsEn {
 			case 'editor.imageOptions.title': return 'Image options';
 			case 'editor.imageOptions.invertible': return 'Invertible';
 			case 'editor.imageOptions.delete': return 'Delete';
+			case 'editor.menu.clearPage': return 'Clear page';
+			case 'editor.menu.clearAllPages': return 'Clear all pages';
 			default: return null;
 		}
 	}

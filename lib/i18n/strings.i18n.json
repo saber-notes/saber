@@ -114,6 +114,10 @@
 			"title": "Image options",
 			"invertible": "Invertible",
 			"delete": "Delete"
+		},
+		"menu": {
+			"clearPage": "Clear page",
+			"clearAllPages": "Clear all pages"
 		}
 	}
 }

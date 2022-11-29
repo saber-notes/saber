@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class EditorBottomSheet extends StatelessWidget {
   const EditorBottomSheet({
@@ -41,10 +42,10 @@ class EditorBottomSheet extends StatelessWidget {
                         } : null,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.delete),
-                            SizedBox(width: 8),
-                            Text("Clear page"),
+                          children: [
+                            const Icon(Icons.delete),
+                            const SizedBox(width: 8),
+                            Text(t.editor.menu.clearPage),
                           ],
                         ),
                       ),
@@ -62,10 +63,10 @@ class EditorBottomSheet extends StatelessWidget {
                         } : null,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.delete_sweep),
-                            SizedBox(width: 8),
-                            Text("Clear all pages"),
+                          children: [
+                            const Icon(Icons.delete_sweep),
+                            const SizedBox(width: 8),
+                            Text(t.editor.menu.clearAllPages),
                           ],
                         )
                       ),
