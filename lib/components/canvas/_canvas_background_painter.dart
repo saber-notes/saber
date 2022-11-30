@@ -10,12 +10,15 @@ class CanvasBackgroundPainter extends CustomPainter {
     this.backgroundPattern = CanvasBackgroundPatterns.none,
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
+    this.preview = false,
   });
 
   final bool invert;
   final Color backgroundColor;
   final String backgroundPattern;
   final Color primaryColor, secondaryColor;
+  /// Whether to draw the background pattern in a preview mode (more opaque).
+  final bool preview;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -26,7 +29,7 @@ class CanvasBackgroundPainter extends CustomPainter {
     canvas.drawRect(canvasRect, paint);
 
     int lineHeight = 40;
-    paint.color = primaryColor.withOpacity(0.2);
+    paint.color = primaryColor.withOpacity(preview ? 0.5 : 0.2);
 
     if (backgroundPattern == CanvasBackgroundPatterns.college || backgroundPattern == CanvasBackgroundPatterns.lined) {
       // horizontal lines
@@ -35,7 +38,7 @@ class CanvasBackgroundPainter extends CustomPainter {
       }
       if (backgroundPattern == CanvasBackgroundPatterns.college) {
         // vertical line
-        paint.color = secondaryColor.withOpacity(0.2);
+        paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
         canvas.drawLine(Offset(lineHeight * 2, 0), Offset(lineHeight * 2, size.height), paint);
       }
     } else if (backgroundPattern == CanvasBackgroundPatterns.grid) {
