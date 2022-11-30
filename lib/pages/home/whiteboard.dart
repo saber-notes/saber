@@ -27,7 +27,7 @@ class _WhiteboardPageState extends State<Whiteboard> {
               if (editorState == null) return;
               showModalBottomSheet(
                 context: context,
-                builder: (context) => editorState!.bottomSheet,
+                builder: (context) => editorState!.bottomSheet(context),
               );
             },
           )
