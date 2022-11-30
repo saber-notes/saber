@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 450 (75 per locale)
+/// Strings: 453 (75 per locale)
 ///
-/// Built on 2022-11-29 at 17:45 UTC
+/// Built on 2022-11-30 at 10:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1218,6 +1218,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorPensIt pens = _StringsEditorPensIt._(_root);
 	@override late final _StringsEditorPenOptionsIt penOptions = _StringsEditorPenOptionsIt._(_root);
 	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
+	@override late final _StringsEditorMenuIt menu = _StringsEditorMenuIt._(_root);
 }
 
 // Path: home.tabs
@@ -1395,6 +1396,7 @@ class _StringsEditorPensIt extends _StringsEditorPensEn {
 	// Translations
 	@override String get fountainPen => 'Penna stilografica';
 	@override String get highlighter => 'Evidenziatore';
+	@override String get ballpointPen => 'Penna a sfera';
 }
 
 // Path: editor.penOptions
@@ -1417,6 +1419,17 @@ class _StringsEditorImageOptionsIt extends _StringsEditorImageOptionsEn {
 	@override String get title => 'Opzioni immagine';
 	@override String get invertible => 'Invertibile';
 	@override String get delete => 'Cancella';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuIt extends _StringsEditorMenuEn {
+	_StringsEditorMenuIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Pulisci pagina';
+	@override String get clearAllPages => 'Pulisci tutte le pagine';
 }
 
 // Path: <root>
@@ -2418,10 +2431,13 @@ extension on _StringsIt {
 			case 'editor.toolbar.exportAs': return 'Esporta come:';
 			case 'editor.pens.fountainPen': return 'Penna stilografica';
 			case 'editor.pens.highlighter': return 'Evidenziatore';
+			case 'editor.pens.ballpointPen': return 'Penna a sfera';
 			case 'editor.penOptions.size': return 'Dimesione';
 			case 'editor.imageOptions.title': return 'Opzioni immagine';
 			case 'editor.imageOptions.invertible': return 'Invertibile';
 			case 'editor.imageOptions.delete': return 'Cancella';
+			case 'editor.menu.clearPage': return 'Pulisci pagina';
+			case 'editor.menu.clearAllPages': return 'Pulisci tutte le pagine';
 			default: return null;
 		}
 	}

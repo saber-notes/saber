@@ -22,17 +22,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "pens": {
-        "ballpointPen": "Penna a sfera"
-      },
-      "menu": {
-        "clearPage": "Pulisci pagina",
-        "clearAllPages": "Pulisci tutte le pagine"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {
     "editor": {
       "menu": {
