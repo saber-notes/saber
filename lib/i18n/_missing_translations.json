@@ -7,12 +7,5 @@
   "es": {},
   "it": {},
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "clearPage": "Clear page",
-        "clearAllPages": "Clear all pages"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
