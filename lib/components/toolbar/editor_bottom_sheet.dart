@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -111,7 +112,7 @@ class EditorBottomSheet extends StatelessWidget {
                                     child: CustomPaint(
                                       painter: CanvasBackgroundPainter(
                                         invert: invert,
-                                        backgroundColor: coreInfo.backgroundColor ?? colorScheme.surface,
+                                        backgroundColor: coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
                                         backgroundPattern: backgroundPattern,
                                         primaryColor: colorScheme.primary,
                                         secondaryColor: colorScheme.secondary,

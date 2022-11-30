@@ -42,6 +42,8 @@ class InnerCanvas extends StatefulWidget {
     return maxY >= startOfPageY && maxY <= startOfPageY + height;
   }
 
+  static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
+
   @override
   State<InnerCanvas> createState() => _InnerCanvasState();
 }
@@ -53,7 +55,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final colorScheme = Theme.of(context).colorScheme;
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
-    final Color backgroundColor = widget.coreInfo.backgroundColor ?? const Color(0xFFFCFCFC);
+    final Color backgroundColor = widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
     return CustomPaint(
       painter: CanvasBackgroundPainter(
