@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 450 (75 per locale)
+/// Strings: 452 (75 per locale)
 ///
-/// Built on 2022-11-29 at 17:45 UTC
+/// Built on 2022-11-30 at 10:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1538,6 +1538,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorPensZhHansCn pens = _StringsEditorPensZhHansCn._(_root);
 	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
+	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 }
 
 // Path: home.tabs
@@ -1738,6 +1739,17 @@ class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
 	@override String get title => '图片选项';
 	@override String get invertible => '反转颜色';
 	@override String get delete => '删除';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
+	_StringsEditorMenuZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => '清除页面';
+	@override String get clearAllPages => '清除全部页面';
 }
 
 // Path: <root>
@@ -2513,6 +2525,8 @@ extension on _StringsZhHansCn {
 			case 'editor.imageOptions.title': return '图片选项';
 			case 'editor.imageOptions.invertible': return '反转颜色';
 			case 'editor.imageOptions.delete': return '删除';
+			case 'editor.menu.clearPage': return '清除页面';
+			case 'editor.menu.clearAllPages': return '清除全部页面';
 			default: return null;
 		}
 	}

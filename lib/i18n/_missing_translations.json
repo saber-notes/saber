@@ -33,14 +33,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "menu": {
-        "clearPage": "清除页面",
-        "clearAllPages": "清除全部页面"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {
       "menu": {
