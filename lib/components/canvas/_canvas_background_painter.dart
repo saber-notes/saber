@@ -30,6 +30,7 @@ class CanvasBackgroundPainter extends CustomPainter {
 
     int lineHeight = 40;
     paint.color = primaryColor.withOpacity(preview ? 0.5 : 0.2);
+    paint.strokeWidth = 3;
 
     if (backgroundPattern == CanvasBackgroundPatterns.college || backgroundPattern == CanvasBackgroundPatterns.lined) {
       // horizontal lines
