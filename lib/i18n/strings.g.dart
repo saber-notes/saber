@@ -578,6 +578,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorPensDe pens = _StringsEditorPensDe._(_root);
 	@override late final _StringsEditorPenOptionsDe penOptions = _StringsEditorPenOptionsDe._(_root);
 	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
+	@override late final _StringsEditorMenuDe menu = _StringsEditorMenuDe._(_root);
 }
 
 // Path: home.tabs
@@ -778,6 +779,17 @@ class _StringsEditorImageOptionsDe extends _StringsEditorImageOptionsEn {
 	@override String get title => 'Bildoptionen';
 	@override String get invertible => 'Invertierbar';
 	@override String get delete => 'Entfernen';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuDe extends _StringsEditorMenuEn {
+	_StringsEditorMenuDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Seite löschen';
+	@override String get clearAllPages => 'Alle Seiten löschen';
 }
 
 // Path: <root>
@@ -2256,6 +2268,8 @@ extension on _StringsDe {
 			case 'editor.imageOptions.title': return 'Bildoptionen';
 			case 'editor.imageOptions.invertible': return 'Invertierbar';
 			case 'editor.imageOptions.delete': return 'Entfernen';
+			case 'editor.menu.clearPage': return 'Seite löschen';
+			case 'editor.menu.clearAllPages': return 'Alle Seiten löschen';
 			default: return null;
 		}
 	}
