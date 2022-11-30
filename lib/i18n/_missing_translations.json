@@ -5,17 +5,7 @@
   ],
   "de": {},
   "es": {},
-  "it": {
-    "editor": {
-      "pens": {
-        "ballpointPen": "Ballpoint pen"
-      },
-      "menu": {
-        "clearPage": "Clear page",
-        "clearAllPages": "Clear all pages"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {
     "editor": {
       "menu": {

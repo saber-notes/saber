@@ -104,7 +104,8 @@
     },
     "pens": {
       "fountainPen": "Penna stilografica",
-      "highlighter": "Evidenziatore"
+      "highlighter": "Evidenziatore",
+      "ballpointPen": "Penna a sfera"
     },
     "penOptions": {
       "size": "Dimesione"
@@ -113,6 +114,10 @@
       "title": "Opzioni immagine",
       "invertible": "Invertibile",
       "delete": "Cancella"
+    },
+    "menu": {
+      "clearPage": "Pulisci pagina",
+      "clearAllPages": "Pulisci tutte le pagine"
     }
   }
 }
