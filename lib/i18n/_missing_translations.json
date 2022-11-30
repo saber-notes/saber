@@ -41,12 +41,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "clearPage": "清除頁面",
-        "clearAllPages": "清除所有頁面"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
