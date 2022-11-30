@@ -1,11 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class EditorBottomSheet extends StatelessWidget {
+class EditorBottomSheet extends StatefulWidget {
   const EditorBottomSheet({
     super.key,
     required this.invert,
@@ -18,9 +19,14 @@ class EditorBottomSheet extends StatelessWidget {
   final bool invert;
   final EditorCoreInfo coreInfo;
   final void Function(String) setBackgroundPattern;
-  final VoidCallback? clearPage;
-  final VoidCallback? clearAllPages;
+  final VoidCallback clearPage;
+  final VoidCallback clearAllPages;
 
+  @override
+  State<EditorBottomSheet> createState() => _EditorBottomSheetState();
+}
+
+class _EditorBottomSheetState extends State<EditorBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -41,12 +47,12 @@ class EditorBottomSheet extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          style: TextButton.styleFrom(
+                          style: !widget.coreInfo.isEmpty ? TextButton.styleFrom(
                             backgroundColor: colorScheme.primary,
                             foregroundColor: colorScheme.onPrimary,
-                          ),
-                          onPressed: clearPage != null ? () {
-                            clearPage!();
+                          ) : null,
+                          onPressed: !widget.coreInfo.isEmpty ? () {
+                            widget.clearPage();
                             Navigator.pop(context);
                           } : null,
                           child: Row(
@@ -62,12 +68,12 @@ class EditorBottomSheet extends StatelessWidget {
                       const SizedBox(width: 8),
                       Expanded(
                         child: ElevatedButton(
-                          style: TextButton.styleFrom(
+                          style: !widget.coreInfo.isEmpty ? TextButton.styleFrom(
                             backgroundColor: colorScheme.primary,
                             foregroundColor: colorScheme.onPrimary,
-                          ),
-                          onPressed: clearAllPages != null ? () {
-                            clearAllPages!();
+                          ) : null,
+                          onPressed: !widget.coreInfo.isEmpty ? () {
+                            widget.clearAllPages();
                             Navigator.pop(context);
                           } : null,
                           child: Row(
@@ -90,14 +96,14 @@ class EditorBottomSheet extends StatelessWidget {
                         for (final String backgroundPattern in CanvasBackgroundPatterns.all) ...[
                           InkWell(
                             borderRadius: BorderRadius.circular(8),
-                            onTap: () {
-                              setBackgroundPattern(backgroundPattern);
-                            },
+                            onTap: () => setState(() {
+                              widget.setBackgroundPattern(backgroundPattern);
+                            }),
                             child: Container(
                               width: 150,
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: colorScheme.primary.withOpacity(0.5),
+                                  color: colorScheme.primary.withOpacity(0.5).withSaturation(widget.coreInfo.backgroundPattern == backgroundPattern ? 1 : 0),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(8),
@@ -107,12 +113,12 @@ class EditorBottomSheet extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8),
                                 child: FittedBox(
                                   child: SizedBox(
-                                    width: coreInfo.width / 5,
-                                    height: coreInfo.height / 5,
+                                    width: widget.coreInfo.width / 5,
+                                    height: widget.coreInfo.height / 5,
                                     child: CustomPaint(
                                       painter: CanvasBackgroundPainter(
-                                        invert: invert,
-                                        backgroundColor: coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                                        invert: widget.invert,
+                                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
                                         backgroundPattern: backgroundPattern,
                                         primaryColor: colorScheme.primary,
                                         secondaryColor: colorScheme.secondary,

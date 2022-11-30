@@ -22,6 +22,8 @@ class EditorCoreInfo {
   final double width;
   final double height;
 
+  bool get isEmpty => strokes.isEmpty && images.isEmpty;
+
   EditorCoreInfo({
     List<Stroke>? strokes,
     List<EditorImage>? images,
