@@ -114,6 +114,10 @@
       "title": "图片选项",
       "invertible": "反转颜色",
       "delete": "删除"
+    },
+    "menu": {
+      "clearPage": "清除页面",
+      "clearAllPages": "清除全部页面"
     }
   }
 }

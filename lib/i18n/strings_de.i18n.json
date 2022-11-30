@@ -114,6 +114,10 @@
       "title": "Bildoptionen",
       "invertible": "Invertierbar",
       "delete": "Entfernen"
+    },
+    "menu": {
+      "clearPage": "Seite löschen",
+      "clearAllPages": "Alle Seiten löschen"
     }
   }
 }

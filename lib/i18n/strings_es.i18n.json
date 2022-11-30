@@ -109,6 +109,7 @@
 		},
 		"pens": {
 			"fountainPen": "Lápiz",
+			"ballpointPen": "Bolígrafo",
 			"highlighter": "Resaltador"
 		},
 		"penOptions": {
@@ -118,6 +119,10 @@
 			"title": "Opciones de imagen",
 			"invertible": "Invertible",
 			"delete": "Eliminar"
+		},
+		"menu": {
+			"clearPage": "Borrar página",
+			"clearAllPages": "Borrar todas las páginas"
 		}
 	}
 }
