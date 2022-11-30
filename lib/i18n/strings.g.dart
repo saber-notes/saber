@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 450 (75 per locale)
+/// Strings: 453 (75 per locale)
 ///
-/// Built on 2022-11-29 at 17:45 UTC
+/// Built on 2022-11-30 at 10:17 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -898,6 +898,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorPensEs pens = _StringsEditorPensEs._(_root);
 	@override late final _StringsEditorPenOptionsEs penOptions = _StringsEditorPenOptionsEs._(_root);
 	@override late final _StringsEditorImageOptionsEs imageOptions = _StringsEditorImageOptionsEs._(_root);
+	@override late final _StringsEditorMenuEs menu = _StringsEditorMenuEs._(_root);
 }
 
 // Path: home.tabs
@@ -1074,6 +1075,7 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 
 	// Translations
 	@override String get fountainPen => 'Lápiz';
+	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
 }
 
@@ -1097,6 +1099,17 @@ class _StringsEditorImageOptionsEs extends _StringsEditorImageOptionsEn {
 	@override String get title => 'Opciones de imagen';
 	@override String get invertible => 'Invertible';
 	@override String get delete => 'Eliminar';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuEs extends _StringsEditorMenuEn {
+	_StringsEditorMenuEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Borrar página';
+	@override String get clearAllPages => 'Borrar todas las páginas';
 }
 
 // Path: <root>
@@ -2327,11 +2340,14 @@ extension on _StringsEs {
 			case 'editor.toolbar.export': return 'Exportar (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Exportar cómo:';
 			case 'editor.pens.fountainPen': return 'Lápiz';
+			case 'editor.pens.ballpointPen': return 'Bolígrafo';
 			case 'editor.pens.highlighter': return 'Resaltador';
 			case 'editor.penOptions.size': return 'Tamaño';
 			case 'editor.imageOptions.title': return 'Opciones de imagen';
 			case 'editor.imageOptions.invertible': return 'Invertible';
 			case 'editor.imageOptions.delete': return 'Eliminar';
+			case 'editor.menu.clearPage': return 'Borrar página';
+			case 'editor.menu.clearAllPages': return 'Borrar todas las páginas';
 			default: return null;
 		}
 	}
