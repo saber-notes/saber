@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class EditorCoreInfo {
@@ -29,26 +30,28 @@ class EditorCoreInfo {
     List<Stroke>? strokes,
     List<EditorImage>? images,
     this.backgroundColor,
-    this.backgroundPattern = CanvasBackgroundPatterns.none,
-    this.lineHeight = 40,
+    String? backgroundPattern,
+    int? lineHeight,
     this.width = defaultWidth,
     this.height = defaultHeight,
   }): strokes = strokes ?? [],
-      images = images ?? [];
+      images = images ?? [],
+      backgroundPattern = backgroundPattern ?? Prefs.lastBackgroundPattern.value,
+      lineHeight = lineHeight ?? Prefs.lastLineHeight.value;
 
   EditorCoreInfo.fromJson(Map<String, dynamic> json):
         strokes = _parseStrokesJson(json["s"] as List),
         images = json["i"] != null ? _parseImagesJson(json["i"] as List) : [],
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
-        lineHeight = json["l"] as int? ?? 40,
+        lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
         width = json["w"] ?? defaultWidth,
         height = json["h"] ?? defaultHeight;
   EditorCoreInfo.fromOldJson(List<dynamic> json):
         strokes = _parseStrokesJson(json),
         images = [],
         backgroundPattern = CanvasBackgroundPatterns.none,
-        lineHeight = 40,
+        lineHeight = Prefs.lastLineHeight.value,
         width = defaultWidth,
         height = defaultHeight;
 

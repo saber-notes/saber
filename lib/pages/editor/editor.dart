@@ -651,10 +651,12 @@ class _EditorState extends State<Editor> {
       coreInfo: coreInfo,
       setBackgroundPattern: (pattern) => setState(() {
           coreInfo.backgroundPattern = pattern;
+          Prefs.lastBackgroundPattern.value = pattern;
           autosaveAfterDelay();
         }),
       setLineHeight: (lineHeight) => setState(() {
           coreInfo.lineHeight = lineHeight;
+          Prefs.lastLineHeight.value = lineHeight;
           autosaveAfterDelay();
         }),
       clearPage: () {

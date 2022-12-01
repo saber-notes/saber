@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -41,6 +42,8 @@ abstract class Prefs {
 
   static late PlainPref<int> lastPenColor;
   static late PlainPref<int> lastHighlighterColor;
+  static late PlainPref<String> lastBackgroundPattern;
+  static late PlainPref<int> lastLineHeight;
 
   static late PlainPref<List<String>> recentFiles;
 
@@ -75,6 +78,8 @@ abstract class Prefs {
 
     lastPenColor = PlainPref("lastPenColor", -1);
     lastHighlighterColor = PlainPref("lastHighlighterColor", -1);
+    lastBackgroundPattern = PlainPref("lastBackgroundPattern", CanvasBackgroundPatterns.none);
+    lastLineHeight = PlainPref("lastLineHeight", 40);
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
