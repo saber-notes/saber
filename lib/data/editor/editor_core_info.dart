@@ -81,6 +81,7 @@ class EditorCoreInfo {
     's': strokes,
     'i': images,
     'b': backgroundColor?.value,
+    'p': backgroundPattern,
     'w': width,
     'h': height,
   };
