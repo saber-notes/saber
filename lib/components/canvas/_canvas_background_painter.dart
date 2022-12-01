@@ -28,32 +28,18 @@ class CanvasBackgroundPainter extends CustomPainter {
     paint.color = backgroundColor.withInversion(invert);
     canvas.drawRect(canvasRect, paint);
 
-    int lineHeight = 40;
-    paint.color = primaryColor.withOpacity(preview ? 0.5 : 0.2);
     paint.strokeWidth = 3;
-
-    if (backgroundPattern == CanvasBackgroundPatterns.college || backgroundPattern == CanvasBackgroundPatterns.lined) {
-      // horizontal lines
-      for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
-        canvas.drawLine(Offset(0, y), Offset(size.width, y), paint);
-      }
-      if (backgroundPattern == CanvasBackgroundPatterns.college) {
-        // vertical line
+    for (PatternElement element in getPatternElements(backgroundPattern, size)) {
+      if (element.secondaryColor) {
         paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
-        canvas.drawLine(Offset(lineHeight * 2, 0), Offset(lineHeight * 2, size.height), paint);
+      } else {
+        paint.color = primaryColor.withOpacity(preview ? 0.5 : 0.2);
       }
-    } else if (backgroundPattern == CanvasBackgroundPatterns.grid) {
-      for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
-        canvas.drawLine(Offset(0, y), Offset(size.width, y), paint);
-      }
-      for (double x = 0; x < size.width; x += lineHeight) {
-        canvas.drawLine(Offset(x, lineHeight * 2), Offset(x, size.height), paint);
-      }
-    } else if (backgroundPattern == CanvasBackgroundPatterns.dots) {
-      for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
-        for (double x = 0; x <= size.width; x += lineHeight) {
-          canvas.drawCircle(Offset(x, y), 2, paint);
-        }
+
+      if (element.isLine) {
+        canvas.drawLine(element.start, element.end, paint);
+      } else {
+        canvas.drawCircle(element.start, 2, paint);
       }
     }
   }
@@ -65,6 +51,65 @@ class CanvasBackgroundPainter extends CustomPainter {
         || oldDelegate.backgroundPattern != backgroundPattern
         || oldDelegate.primaryColor != primaryColor
         || oldDelegate.secondaryColor != secondaryColor;
+
+  static Iterable<PatternElement> getPatternElements(String pattern, Size size) sync* {
+    int lineHeight = 40;
+
+    if (pattern == CanvasBackgroundPatterns.college || pattern == CanvasBackgroundPatterns.lined) {
+      // horizontal lines
+      for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
+        yield PatternElement(
+          Offset(0, y),
+          Offset(size.width, y),
+          isLine: true,
+        );
+      }
+      if (pattern == CanvasBackgroundPatterns.college) {
+        // vertical line
+        yield PatternElement(
+          Offset(lineHeight * 2, 0),
+          Offset(lineHeight * 2, size.height),
+          isLine: true,
+          secondaryColor: true,
+        );
+      }
+    } else if (pattern == CanvasBackgroundPatterns.grid) {
+      for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
+        yield PatternElement(
+          Offset(0, y),
+          Offset(size.width, y),
+          isLine: true,
+        );
+      }
+      for (double x = 0; x < size.width; x += lineHeight) {
+        yield PatternElement(
+          Offset(x, lineHeight * 2),
+          Offset(x, size.height),
+          isLine: true,
+        );
+      }
+    } else if (pattern == CanvasBackgroundPatterns.dots) {
+      for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
+        for (double x = 0; x <= size.width; x += lineHeight) {
+          yield PatternElement(
+            Offset(x, y),
+            Offset(x, y),
+            isLine: false,
+          );
+        }
+      }
+    }
+  }
+}
+
+class PatternElement {
+  final Offset start, end;
+  /// Whether this is a line or a dot
+  final bool isLine;
+  /// Whether this should use a secondary color
+  final bool secondaryColor;
+
+  PatternElement(this.start, this.end, {this.isLine = true, this.secondaryColor = false});
 }
 
 abstract class CanvasBackgroundPatterns {

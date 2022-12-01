@@ -1,6 +1,8 @@
 
+import 'package:flutter/material.dart' show Size;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -24,8 +26,13 @@ abstract class EditorExporter {
   }
   
   static pw.Page _generatePdfPage(EditorCoreInfo coreInfo) {
+    /// Blue at 0.2 opacity against white
+    const primaryColor = PdfColor(0.8, 0.8, 1);
+    /// Red at 0.2 opacity against white
+    const secondaryColor = PdfColor(1, 0.8, 0.8);
+
     return pw.Page(
-      pageFormat: PdfPageFormat.a4,
+      pageFormat: PdfPageFormat(coreInfo.width, coreInfo.height),
       build: (pw.Context context) {
         return pw.FittedBox(
           child: pw.SizedBox(
@@ -34,10 +41,37 @@ abstract class EditorExporter {
             child: pw.CustomPaint(
               size: PdfPoint(coreInfo.width, coreInfo.height),
               painter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
+                if (coreInfo.backgroundColor != null) {
+                  pdfGraphics.drawRect(0, 0, coreInfo.width, coreInfo.height);
+                  pdfGraphics.setFillColor(PdfColor.fromInt(coreInfo.backgroundColor!.value));
+                  pdfGraphics.fillPath();
+                }
+                for (PatternElement element in CanvasBackgroundPainter.getPatternElements(coreInfo.backgroundPattern, Size(coreInfo.width, coreInfo.height))) {
+                  if (element.isLine) {
+                    pdfGraphics.drawLine(
+                      element.start.dx, coreInfo.height - element.start.dy,
+                      element.end.dx, coreInfo.height - element.end.dy,
+                    );
+                  } else {
+                    pdfGraphics.drawEllipse(
+                      element.start.dx, coreInfo.height - element.start.dy,
+                      2, 2,
+                    );
+                  }
+                  if (element.secondaryColor) {
+                    pdfGraphics.setColor(secondaryColor);
+                  } else {
+                    pdfGraphics.setColor(primaryColor);
+                  }
+                  pdfGraphics.setLineWidth(3);
+                  pdfGraphics.strokePath();
+                }
+              },
+              foregroundPainter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
                 for (Stroke stroke in coreInfo.strokes) {
                   pdfGraphics.drawShape(stroke.toSvgPath(coreInfo));
                   pdfGraphics.setFillColor(PdfColor.fromInt(stroke.strokeProperties.color.value));
-                  pdfGraphics.fillPath(evenOdd: false);
+                  pdfGraphics.fillPath();
                 }
               },
               child: pw.Stack(
