@@ -5,6 +5,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 
@@ -27,9 +28,9 @@ abstract class EditorExporter {
   
   static pw.Page _generatePdfPage(EditorCoreInfo coreInfo) {
     /// Blue at 0.2 opacity against white
-    const primaryColor = PdfColor(0.8, 0.8, 1);
+    const PdfColor primaryColor = PdfColor(0.8, 0.8, 1);
     /// Red at 0.2 opacity against white
-    const secondaryColor = PdfColor(1, 0.8, 0.8);
+    const PdfColor secondaryColor = PdfColor(1, 0.8, 0.8);
 
     return pw.Page(
       pageFormat: PdfPageFormat(coreInfo.width, coreInfo.height),
@@ -68,10 +69,26 @@ abstract class EditorExporter {
                 }
               },
               foregroundPainter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
-                for (Stroke stroke in coreInfo.strokes) {
+                final PdfColor backgroundColor;
+                if (coreInfo.backgroundColor != null) {
+                  backgroundColor = PdfColor.fromInt(coreInfo.backgroundColor!.value);
+                } else {
+                  backgroundColor = PdfColors.white;
+                }
+
+                void drawStroke(Stroke stroke) {
                   pdfGraphics.drawShape(stroke.toSvgPath(coreInfo));
-                  pdfGraphics.setFillColor(PdfColor.fromInt(stroke.strokeProperties.color.value));
+                  pdfGraphics.setFillColor(PdfColor.fromInt(stroke.strokeProperties.color.value).flatten(background: backgroundColor));
                   pdfGraphics.fillPath();
+                }
+
+                for (Stroke stroke in coreInfo.strokes) {
+                  if (stroke.penType != (Highlighter).toString()) continue;
+                  drawStroke(stroke);
+                }
+                for (Stroke stroke in coreInfo.strokes) {
+                  if (stroke.penType == (Highlighter).toString()) continue;
+                  drawStroke(stroke);
                 }
               },
               child: pw.Stack(

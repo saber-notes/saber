@@ -39,7 +39,7 @@ class CanvasPainter extends CustomPainter {
 
     // pen
     for (final Stroke stroke in strokes) {
-      if (stroke.penType != (Pen).toString()) continue;
+      if (stroke.penType == (Highlighter).toString()) continue;
       paint.color = stroke.strokeProperties.color.withInversion(invert);
       Path path = Path();
       path.addPolygon(stroke.polygon, true);
