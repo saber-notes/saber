@@ -59,6 +59,18 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.2" type="development" date="2022-12-01">
+            <description>
+                <ol>
+                    <li>Add ballpoint pen</li>
+                    <li>You can now set a note to have college-ruled paper, lined paper, grid paper, or dots</li>
+                    <li>Highlighter strokes now mix when they overlap</li>
+                    <li>Images are now restricted to 1000x1000 pixels for performance</li>
+                    <li>PDF exports now display images (and your background)</li>
+                    <li>UI improvements</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.4.1" type="development" date="2022-11-25">
             <description>
                 <ol>

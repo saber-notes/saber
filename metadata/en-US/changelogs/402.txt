@@ -1,0 +1,6 @@
+• Add ballpoint pen
+• You can now set a note to have college-ruled paper, lined paper, grid paper, or dots
+• Highlighter strokes now mix when they overlap
+• Images are now restricted to 1000x1000 pixels for performance
+• PDF exports now display images (and your background)
+• UI improvements
