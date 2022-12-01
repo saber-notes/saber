@@ -62,6 +62,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         invert: invert,
         backgroundColor: backgroundColor,
         backgroundPattern: widget.coreInfo.backgroundPattern,
+        lineHeight: widget.coreInfo.lineHeight,
         primaryColor: colorScheme.primary,
         secondaryColor: colorScheme.secondary,
       ),

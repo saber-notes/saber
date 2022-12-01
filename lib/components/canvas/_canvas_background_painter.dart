@@ -8,6 +8,7 @@ class CanvasBackgroundPainter extends CustomPainter {
     required this.invert,
     required this.backgroundColor,
     this.backgroundPattern = CanvasBackgroundPatterns.none,
+    required this.lineHeight,
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
     this.preview = false,
@@ -15,7 +16,10 @@ class CanvasBackgroundPainter extends CustomPainter {
 
   final bool invert;
   final Color backgroundColor;
+  /// The pattern to use for the background. See [CanvasBackgroundPatterns].
   final String backgroundPattern;
+  /// The height between each line in the background pattern
+  final int lineHeight;
   final Color primaryColor, secondaryColor;
   /// Whether to draw the background pattern in a preview mode (more opaque).
   final bool preview;
@@ -29,7 +33,7 @@ class CanvasBackgroundPainter extends CustomPainter {
     canvas.drawRect(canvasRect, paint);
 
     paint.strokeWidth = 3;
-    for (PatternElement element in getPatternElements(backgroundPattern, size)) {
+    for (PatternElement element in getPatternElements(backgroundPattern, size, lineHeight)) {
       if (element.secondaryColor) {
         paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
       } else {
@@ -49,12 +53,11 @@ class CanvasBackgroundPainter extends CustomPainter {
         || oldDelegate.invert != invert
         || oldDelegate.backgroundColor != backgroundColor
         || oldDelegate.backgroundPattern != backgroundPattern
+        || oldDelegate.lineHeight != lineHeight
         || oldDelegate.primaryColor != primaryColor
         || oldDelegate.secondaryColor != secondaryColor;
 
-  static Iterable<PatternElement> getPatternElements(String pattern, Size size) sync* {
-    int lineHeight = 40;
-
+  static Iterable<PatternElement> getPatternElements(String pattern, Size size, int lineHeight) sync* {
     if (pattern == CanvasBackgroundPatterns.college || pattern == CanvasBackgroundPatterns.lined) {
       // horizontal lines
       for (double y = lineHeight * 2; y < size.height; y += lineHeight) {

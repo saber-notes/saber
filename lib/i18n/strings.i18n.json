@@ -117,7 +117,9 @@
 		},
 		"menu": {
 			"clearPage": "Clear page",
-			"clearAllPages": "Clear all pages"
+			"clearAllPages": "Clear all pages",
+			"lineHeight": "Line height",
+			"lineHeightDescription": "The size of each line"
 		}
 	}
 }

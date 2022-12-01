@@ -12,6 +12,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.invert,
     required this.coreInfo,
     required this.setBackgroundPattern,
+    required this.setLineHeight,
     required this.clearPage,
     required this.clearAllPages,
   });
@@ -19,6 +20,7 @@ class EditorBottomSheet extends StatefulWidget {
   final bool invert;
   final EditorCoreInfo coreInfo;
   final void Function(String) setBackgroundPattern;
+  final void Function(int) setLineHeight;
   final VoidCallback clearPage;
   final VoidCallback clearAllPages;
 
@@ -112,13 +114,14 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                               borderRadius: BorderRadius.circular(8),
                               child: FittedBox(
                                 child: SizedBox(
-                                  width: widget.coreInfo.width / 5,
-                                  height: widget.coreInfo.height / 5,
+                                  width: widget.coreInfo.width / 4,
+                                  height: widget.coreInfo.height / 4,
                                   child: CustomPaint(
                                     painter: CanvasBackgroundPainter(
                                       invert: widget.invert,
                                       backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
                                       backgroundPattern: backgroundPattern,
+                                      lineHeight: widget.coreInfo.lineHeight,
                                       primaryColor: colorScheme.primary.withSaturation(widget.coreInfo.backgroundPattern == backgroundPattern ? 1 : 0),
                                       secondaryColor: colorScheme.secondary.withSaturation(widget.coreInfo.backgroundPattern == backgroundPattern ? 1 : 0),
                                       preview: true,
@@ -131,6 +134,29 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                         ),
                         const SizedBox(width: 8),
                       ],
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                ListTile(
+                  title: Text(t.editor.menu.lineHeight),
+                  subtitle: Text(t.editor.menu.lineHeightDescription),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(widget.coreInfo.lineHeight.toString()),
+                      SizedBox(
+                        width: 200,
+                        child: Slider(
+                          value: widget.coreInfo.lineHeight.toDouble(),
+                          min: 20,
+                          max: 100,
+                          divisions: 8,
+                          onChanged: (double value) => setState(() {
+                            widget.setLineHeight(value.toInt());
+                          }),
+                        ),
+                      ),
                     ],
                   ),
                 ),

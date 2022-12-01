@@ -649,12 +649,14 @@ class _EditorState extends State<Editor> {
     return EditorBottomSheet(
       invert: invert,
       coreInfo: coreInfo,
-      setBackgroundPattern: (pattern) {
-        setState(() {
+      setBackgroundPattern: (pattern) => setState(() {
           coreInfo.backgroundPattern = pattern;
           autosaveAfterDelay();
-        });
-      },
+        }),
+      setLineHeight: (lineHeight) => setState(() {
+          coreInfo.lineHeight = lineHeight;
+          autosaveAfterDelay();
+        }),
       clearPage: () {
         final int? currentPageIndex = this.currentPageIndex;
         if (currentPageIndex == null) return;

@@ -19,6 +19,7 @@ class EditorCoreInfo {
   final List<EditorImage> images;
   Color? backgroundColor;
   String backgroundPattern;
+  int lineHeight;
   final double width;
   final double height;
 
@@ -29,6 +30,7 @@ class EditorCoreInfo {
     List<EditorImage>? images,
     this.backgroundColor,
     this.backgroundPattern = CanvasBackgroundPatterns.none,
+    this.lineHeight = 40,
     this.width = defaultWidth,
     this.height = defaultHeight,
   }): strokes = strokes ?? [],
@@ -39,12 +41,14 @@ class EditorCoreInfo {
         images = json["i"] != null ? _parseImagesJson(json["i"] as List) : [],
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
+        lineHeight = json["l"] as int? ?? 40,
         width = json["w"] ?? defaultWidth,
         height = json["h"] ?? defaultHeight;
   EditorCoreInfo.fromOldJson(List<dynamic> json):
         strokes = _parseStrokesJson(json),
         images = [],
         backgroundPattern = CanvasBackgroundPatterns.none,
+        lineHeight = 40,
         width = defaultWidth,
         height = defaultHeight;
 
@@ -82,6 +86,7 @@ class EditorCoreInfo {
     'i': images,
     'b': backgroundColor?.value,
     'p': backgroundPattern,
+    'l': lineHeight,
     'w': width,
     'h': height,
   };
@@ -91,6 +96,7 @@ class EditorCoreInfo {
     List<EditorImage>? images,
     Color? backgroundColor,
     String? backgroundPattern,
+    int? lineHeight,
     double? width,
     double? height,
   }) {
@@ -99,6 +105,7 @@ class EditorCoreInfo {
       images: images ?? this.images,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,
+      lineHeight: lineHeight ?? this.lineHeight,
       width: width ?? this.width,
       height: height ?? this.height,
     );

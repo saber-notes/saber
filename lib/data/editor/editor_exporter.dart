@@ -47,7 +47,7 @@ abstract class EditorExporter {
                   pdfGraphics.setFillColor(PdfColor.fromInt(coreInfo.backgroundColor!.value));
                   pdfGraphics.fillPath();
                 }
-                for (PatternElement element in CanvasBackgroundPainter.getPatternElements(coreInfo.backgroundPattern, Size(coreInfo.width, coreInfo.height))) {
+                for (PatternElement element in CanvasBackgroundPainter.getPatternElements(coreInfo.backgroundPattern, Size(coreInfo.width, coreInfo.height), coreInfo.lineHeight)) {
                   if (element.isLine) {
                     pdfGraphics.drawLine(
                       element.start.dx, coreInfo.height - element.start.dy,
