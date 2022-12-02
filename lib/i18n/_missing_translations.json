@@ -28,12 +28,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "lineHeight": "Line height",
-        "lineHeightDescription": "The size of each line"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
