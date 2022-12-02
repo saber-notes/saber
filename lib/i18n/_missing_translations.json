@@ -38,8 +38,8 @@
   "zh-Hant-TW": {
     "editor": {
       "menu": {
-        "lineHeight": "Line height",
-        "lineHeightDescription": "The size of each line"
+        "lineHeight": "行高",
+        "lineHeightDescription": "每行的高度"
       }
     }
   }
