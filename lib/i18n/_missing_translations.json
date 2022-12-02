@@ -27,14 +27,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "menu": {
-        "lineHeight": "行高",
-        "lineHeightDescription": "每一行的高度"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {
       "menu": {
