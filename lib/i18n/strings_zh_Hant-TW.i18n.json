@@ -117,7 +117,9 @@
     },
     "menu": {
       "clearPage": "清除頁面",
-      "clearAllPages": "清除所有頁面"
+      "clearAllPages": "清除所有頁面",
+      "lineHeight": "行高",
+      "lineHeightDescription": "每行的高度"
     }
   }
 }

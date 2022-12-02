@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 464 (77 per locale)
+/// Strings: 466 (77 per locale)
 ///
-/// Built on 2022-12-01 at 22:46 UTC
+/// Built on 2022-12-02 at 14:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2123,6 +2123,8 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => '清除頁面';
 	@override String get clearAllPages => '清除所有頁面';
+	@override String get lineHeight => '行高';
+	@override String get lineHeightDescription => '每行的高度';
 }
 
 /// Flat map(s) containing all translations.
@@ -2682,6 +2684,8 @@ extension on _StringsZhHantTw {
 			case 'editor.imageOptions.delete': return '刪除';
 			case 'editor.menu.clearPage': return '清除頁面';
 			case 'editor.menu.clearAllPages': return '清除所有頁面';
+			case 'editor.menu.lineHeight': return '行高';
+			case 'editor.menu.lineHeightDescription': return '每行的高度';
 			default: return null;
 		}
 	}
