@@ -122,7 +122,9 @@
 		},
 		"menu": {
 			"clearPage": "Borrar página",
-			"clearAllPages": "Borrar todas las páginas"
+			"clearAllPages": "Borrar todas las páginas",
+			"lineHeight": "Altura de la línea",
+			"lineHeightDescription": "El tamaño de cada línea"
 		}
 	}
 }
