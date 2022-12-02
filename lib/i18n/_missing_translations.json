@@ -30,8 +30,8 @@
   "zh-Hans-CN": {
     "editor": {
       "menu": {
-        "lineHeight": "Line height",
-        "lineHeightDescription": "The size of each line"
+        "lineHeight": "行高",
+        "lineHeightDescription": "每一行的高度"
       }
     }
   },
