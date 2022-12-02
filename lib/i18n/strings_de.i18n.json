@@ -117,7 +117,9 @@
     },
     "menu": {
       "clearPage": "Seite löschen",
-      "clearAllPages": "Alle Seiten löschen"
+      "clearAllPages": "Alle Seiten löschen",
+      "lineHeight": "Zeilehöhe",
+      "lineHeightDescription": "Die Höhe jeder Zeile"
     }
   }
 }
