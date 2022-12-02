@@ -6,8 +6,8 @@
   "de": {
     "editor": {
       "menu": {
-        "lineHeight": "Line height",
-        "lineHeightDescription": "The size of each line"
+        "lineHeight": "Zeilehöhe",
+        "lineHeightDescription": "Die Höhe jeder Zeile"
       }
     }
   },
