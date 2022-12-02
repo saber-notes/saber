@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 464 (77 per locale)
+/// Strings: 466 (77 per locale)
 ///
-/// Built on 2022-12-01 at 22:46 UTC
+/// Built on 2022-12-02 at 14:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -792,6 +792,8 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Seite löschen';
 	@override String get clearAllPages => 'Alle Seiten löschen';
+	@override String get lineHeight => 'Zeilehöhe';
+	@override String get lineHeightDescription => 'Die Höhe jeder Zeile';
 }
 
 // Path: <root>
@@ -2311,6 +2313,8 @@ extension on _StringsDe {
 			case 'editor.imageOptions.delete': return 'Entfernen';
 			case 'editor.menu.clearPage': return 'Seite löschen';
 			case 'editor.menu.clearAllPages': return 'Alle Seiten löschen';
+			case 'editor.menu.lineHeight': return 'Zeilehöhe';
+			case 'editor.menu.lineHeightDescription': return 'Die Höhe jeder Zeile';
 			default: return null;
 		}
 	}
