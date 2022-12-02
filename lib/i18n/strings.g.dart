@@ -1790,6 +1790,8 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => '清除页面';
 	@override String get clearAllPages => '清除全部页面';
+	@override String get lineHeight => '行高';
+	@override String get lineHeightDescription => '每一行的高度';
 }
 
 // Path: <root>
@@ -2591,6 +2593,8 @@ extension on _StringsZhHansCn {
 			case 'editor.imageOptions.delete': return '删除';
 			case 'editor.menu.clearPage': return '清除页面';
 			case 'editor.menu.clearAllPages': return '清除全部页面';
+			case 'editor.menu.lineHeight': return '行高';
+			case 'editor.menu.lineHeightDescription': return '每一行的高度';
 			default: return null;
 		}
 	}
