@@ -15,8 +15,8 @@
   "it": {
     "editor": {
       "menu": {
-        "lineHeight": "Line height",
-        "lineHeightDescription": "The size of each line"
+        "lineHeight": "Altezza della linea",
+        "lineHeightDescription": "La dimensione di ogni riga"
       }
     }
   },
