@@ -117,7 +117,9 @@
     },
     "menu": {
       "clearPage": "Pulisci pagina",
-      "clearAllPages": "Pulisci tutte le pagine"
+      "clearAllPages": "Pulisci tutte le pagine",
+      "lineHeight": "Altezza della linea",
+      "lineHeightDescription": "La dimensione di ogni riga"
     }
   }
 }

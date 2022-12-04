@@ -12,14 +12,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "menu": {
-        "lineHeight": "Altezza della linea",
-        "lineHeightDescription": "La dimensione di ogni riga"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
