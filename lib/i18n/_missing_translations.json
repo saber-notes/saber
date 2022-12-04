@@ -4,14 +4,7 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "de": {},
-  "es": {
-    "editor": {
-      "menu": {
-        "lineHeight": "Line height",
-        "lineHeightDescription": "The size of each line"
-      }
-    }
-  },
+  "es": {},
   "it": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
