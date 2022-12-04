@@ -3,16 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
-class Whiteboard extends StatefulWidget {
-  const Whiteboard({super.key});
+class Whiteboard extends StatelessWidget {
+  const Whiteboard({
+    super.key = const ValueKey("whiteboard"),
+  });
 
-  @override
-  State<Whiteboard> createState() => _WhiteboardPageState();
-}
-
-class _WhiteboardPageState extends State<Whiteboard> {
   // editor key
-  final GlobalKey _editorKey = GlobalKey();
+  static final GlobalKey _editorKey = GlobalKey(debugLabel: "whiteboardEditor");
 
   @override
   Widget build(BuildContext context) {
