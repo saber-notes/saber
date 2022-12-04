@@ -268,7 +268,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.2.0"
+    version: "5.2.1"
   google_fonts:
     dependency: "direct main"
     description:
@@ -440,7 +440,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "11335ca782a0dd2dd67a3c7f214810d598255650"
+      resolved-ref: "317dc1542a280ce69cf81fe4e67232772a3df9b5"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
