@@ -118,7 +118,7 @@
     "menu": {
       "clearPage": "Seite löschen",
       "clearAllPages": "Alle Seiten löschen",
-      "lineHeight": "Zeilehöhe",
+      "lineHeight": "Zeilenhöhe",
       "lineHeightDescription": "Die Höhe jeder Zeile"
     }
   }

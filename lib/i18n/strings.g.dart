@@ -792,7 +792,7 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Seite löschen';
 	@override String get clearAllPages => 'Alle Seiten löschen';
-	@override String get lineHeight => 'Zeilehöhe';
+	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Die Höhe jeder Zeile';
 }
 
@@ -1461,6 +1461,8 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Pulisci pagina';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
+	@override String get lineHeight => 'Altezza della linea';
+	@override String get lineHeightDescription => 'La dimensione di ogni riga';
 }
 
 // Path: <root>
@@ -2319,7 +2321,7 @@ extension on _StringsDe {
 			case 'editor.imageOptions.delete': return 'Entfernen';
 			case 'editor.menu.clearPage': return 'Seite löschen';
 			case 'editor.menu.clearAllPages': return 'Alle Seiten löschen';
-			case 'editor.menu.lineHeight': return 'Zeilehöhe';
+			case 'editor.menu.lineHeight': return 'Zeilenhöhe';
 			case 'editor.menu.lineHeightDescription': return 'Die Höhe jeder Zeile';
 			default: return null;
 		}
@@ -2508,6 +2510,8 @@ extension on _StringsIt {
 			case 'editor.imageOptions.delete': return 'Cancella';
 			case 'editor.menu.clearPage': return 'Pulisci pagina';
 			case 'editor.menu.clearAllPages': return 'Pulisci tutte le pagine';
+			case 'editor.menu.lineHeight': return 'Altezza della linea';
+			case 'editor.menu.lineHeightDescription': return 'La dimensione di ogni riga';
 			default: return null;
 		}
 	}
