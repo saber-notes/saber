@@ -78,26 +78,29 @@ class EditorImage {
   }
 
   Future<void> _getImage([Size? pageSize]) async {
-    Uint8List? resized = await compute(_resizeImageIsolate, bytes);
-    if (resized != null) bytes = resized;
+    if (srcRect.shortestSide != 0 && dstRect.shortestSide != 0) return;
 
-    ImageDescriptor imageDescriptor = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
-    Codec codec = await imageDescriptor.instantiateCodec();
-    FrameInfo frameInfo = await codec.getNextFrame();
-    Image image = frameInfo.image;
-    try {
-      if (srcRect.width == 0 || srcRect.height == 0) {
-        srcRect = Rect.fromLTWH(srcRect.left, srcRect.top, image.width.toDouble(), image.height.toDouble());
+    ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
+    Size size = Size(image.width.toDouble(), image.height.toDouble());
+    final Size reducedSize = resize(size, const Size(1000, 1000));
+
+    if (size.width != reducedSize.width) {
+      await Future.delayed(Duration.zero); // wait for next event-loop iteration
+
+      Uint8List? resized = await compute((_) => _resizeImageIsolate(bytes, reducedSize), false);
+      if (resized != null) bytes = resized;
+
+      size = reducedSize;
+    }
+
+    if (srcRect.shortestSide == 0) {
+      srcRect = srcRect.topLeft & size;
+    }
+    if (dstRect.shortestSide == 0) {
+      if (pageSize != null) {
+        size = resize(size, pageSize);
       }
-      if (dstRect.width == 0 || dstRect.height == 0) {
-        Size size = Size(image.width.toDouble(), image.height.toDouble());
-        if (pageSize != null) {
-          size = resize(size, pageSize);
-        }
-        dstRect = Rect.fromLTWH(dstRect.left, dstRect.top, size.width, size.height);
-      }
-    } finally {
-      image.dispose();
+      dstRect = dstRect.topLeft & size;
     }
   }
 
@@ -119,15 +122,12 @@ class EditorImage {
     return Size(width, height);
   }
 
-  /// Resizes the image to no larger than 1000x1000 while maintaining aspect ratio
-  static Uint8List? _resizeImageIsolate(Uint8List originalImageBytes) {
+  /// Resizes the image to [newSize]
+  static Uint8List? _resizeImageIsolate(Uint8List originalImageBytes, Size newSize) {
     image.Image? decoded = image.decodeImage(originalImageBytes);
     if (decoded == null) return null;
 
-    Size resized = resize(Size(decoded.width.toDouble(), decoded.height.toDouble()), const Size(1000, 1000));
-    if (resized.width.round() == decoded.width) return null;
-
-    decoded = image.copyResize(decoded, width: resized.width.toInt(), height: resized.height.toInt());
+    decoded = image.copyResize(decoded, width: newSize.width.toInt(), height: newSize.height.toInt());
 
     return image.encodePng(decoded) as Uint8List;
   }
