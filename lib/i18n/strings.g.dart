@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 470 (78 per locale)
+/// Strings: 472 (78 per locale)
 ///
-/// Built on 2022-12-03 at 12:57 UTC
+/// Built on 2022-12-04 at 09:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1459,6 +1459,8 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Pulisci pagina';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
+	@override String get lineHeight => 'Altezza della linea';
+	@override String get lineHeightDescription => 'La dimensione di ogni riga';
 }
 
 // Path: <root>
@@ -2504,6 +2506,8 @@ extension on _StringsIt {
 			case 'editor.imageOptions.delete': return 'Cancella';
 			case 'editor.menu.clearPage': return 'Pulisci pagina';
 			case 'editor.menu.clearAllPages': return 'Pulisci tutte le pagine';
+			case 'editor.menu.lineHeight': return 'Altezza della linea';
+			case 'editor.menu.lineHeightDescription': return 'La dimensione di ogni riga';
 			default: return null;
 		}
 	}
