@@ -80,6 +80,7 @@ class _EditorState extends State<Editor> {
     return Pen.currentPen;
   }();
 
+  bool _hasEdited = false;
   Timer? _delayedSaveTimer;
 
   // used to prevent accidentally drawing when pinch zooming
@@ -396,6 +397,7 @@ class _EditorState extends State<Editor> {
   }
 
   autosaveAfterDelay() {
+    _hasEdited = true;
     _delayedSaveTimer?.cancel();
     _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {
       saveToFile();
@@ -723,7 +725,9 @@ class _EditorState extends State<Editor> {
 
     _removeKeybindings();
 
-    saveToFile();
+    if (_hasEdited) {
+      saveToFile();
+    }
 
     // dispose of images' cache
     for (EditorImage image in coreInfo.images) {
