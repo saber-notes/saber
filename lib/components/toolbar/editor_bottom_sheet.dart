@@ -114,8 +114,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                               borderRadius: BorderRadius.circular(8),
                               child: FittedBox(
                                 child: SizedBox(
-                                  width: widget.coreInfo.width / 4,
-                                  height: widget.coreInfo.height / 4,
+                                  width: EditorCoreInfo.defaultWidth / 4,
+                                  height: EditorCoreInfo.defaultHeight / 4,
                                   child: CustomPaint(
                                     painter: CanvasBackgroundPainter(
                                       invert: widget.invert,

@@ -25,6 +25,7 @@ class Canvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size pageSize = coreInfo.pageSizes.isNotEmpty ? coreInfo.pageSizes[pageIndex] : EditorCoreInfo.defaultPageSize;
     return Hero(
       tag: "inner-canvas-$path-page$pageIndex",
 
@@ -33,8 +34,8 @@ class Canvas extends StatelessWidget {
           child: FittedBox(
             child: InnerCanvas(
               key: innerCanvasKey,
-              width: coreInfo.width,
-              height: coreInfo.height,
+              width: pageSize.width,
+              height: pageSize.height,
               coreInfo: coreInfo,
               currentStroke: currentStroke,
             ),

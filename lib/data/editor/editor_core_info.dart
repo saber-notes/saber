@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,49 +12,55 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class EditorCoreInfo {
-  static const int fileVersion = 2;
+  static const int fileVersion = 3;
 
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
+  static const Size defaultPageSize = Size(defaultWidth, defaultHeight);
 
   final List<Stroke> strokes;
   final List<EditorImage> images;
   Color? backgroundColor;
   String backgroundPattern;
   int lineHeight;
-  final double width;
-  final double height;
+  List<Size> pageSizes;
 
   bool get isEmpty => strokes.isEmpty && images.isEmpty;
 
-  EditorCoreInfo({
-    List<Stroke>? strokes,
-    List<EditorImage>? images,
+  EditorCoreInfo():
+        strokes = [],
+        images = [],
+        backgroundPattern = Prefs.lastBackgroundPattern.value,
+        lineHeight = Prefs.lastLineHeight.value,
+        pageSizes = [];
+
+  EditorCoreInfo._({
+    required this.strokes,
+    required this.images,
     this.backgroundColor,
-    String? backgroundPattern,
-    int? lineHeight,
-    this.width = defaultWidth,
-    this.height = defaultHeight,
-  }): strokes = strokes ?? [],
-      images = images ?? [],
-      backgroundPattern = backgroundPattern ?? Prefs.lastBackgroundPattern.value,
-      lineHeight = lineHeight ?? Prefs.lastLineHeight.value;
+    required this.backgroundPattern,
+    required this.lineHeight,
+    required this.pageSizes,
+  });
 
   EditorCoreInfo.fromJson(Map<String, dynamic> json):
         strokes = _parseStrokesJson(json["s"] as List),
-        images = json["i"] != null ? _parseImagesJson(json["i"] as List) : [],
+        images = _parseImagesJson(json["i"] as List? ?? []),
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
-        width = json["w"] ?? defaultWidth,
-        height = json["h"] ?? defaultHeight;
+        pageSizes = _parsePageSizesJson(json["z"] as List?) {
+    _handleEmptyPageSizes(json["w"] as double?, json["h"] as double?);
+  }
+  /// Old json format is just a list of strokes
   EditorCoreInfo.fromOldJson(List<dynamic> json):
         strokes = _parseStrokesJson(json),
         images = [],
         backgroundPattern = CanvasBackgroundPatterns.none,
         lineHeight = Prefs.lastLineHeight.value,
-        width = defaultWidth,
-        height = defaultHeight;
+        pageSizes = [] {
+    _handleEmptyPageSizes();
+  }
 
   static List<Stroke> _parseStrokesJson(List<dynamic> strokes) => strokes
       .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
@@ -62,6 +69,20 @@ class EditorCoreInfo {
   static List<EditorImage> _parseImagesJson(List<dynamic> images) => images
       .map((dynamic image) => EditorImage.fromJson(image as Map<String, dynamic>))
       .toList();
+
+  static List<Size> _parsePageSizesJson(List<dynamic>? pageSizes) => pageSizes
+      ?.map((dynamic size) => Size(size[0], size[1]))
+      .toList() ?? [];
+
+  void _handleEmptyPageSizes([double? width, double? height]) {
+    if (pageSizes.isNotEmpty) return;
+
+    int maxPageIndex = max(
+      strokes.isNotEmpty ? strokes.map((stroke) => stroke.pageIndex).reduce(max) : 0,
+      images.isNotEmpty ? images.map((image) => image.pageIndex).reduce(max) : 0,
+    );
+    pageSizes = List.generate(maxPageIndex + 1, (index) => Size(width ?? defaultWidth, height ?? defaultHeight));
+  }
 
   static Future<EditorCoreInfo> loadFromFilePath(String path) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
@@ -90,8 +111,7 @@ class EditorCoreInfo {
     'b': backgroundColor?.value,
     'p': backgroundPattern,
     'l': lineHeight,
-    'w': width,
-    'h': height,
+    'z': pageSizes.map((size) => [size.width, size.height]).toList(),
   };
 
   EditorCoreInfo copyWith({
@@ -100,17 +120,15 @@ class EditorCoreInfo {
     Color? backgroundColor,
     String? backgroundPattern,
     int? lineHeight,
-    double? width,
-    double? height,
+    List<Size>? pageSizes,
   }) {
-    return EditorCoreInfo(
+    return EditorCoreInfo._(
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,
       lineHeight: lineHeight ?? this.lineHeight,
-      width: width ?? this.width,
-      height: height ?? this.height,
+      pageSizes: pageSizes ?? this.pageSizes,
     );
   }
 }

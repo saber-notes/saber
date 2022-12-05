@@ -159,6 +159,7 @@ class _EditorState extends State<Editor> {
 
     while (maxPageIndex >= pages.length - 1) {
       pages.add(EditorPage());
+      coreInfo.pageSizes.add(EditorCoreInfo.defaultPageSize);
     }
   }
   void removeExcessPagesAfterStroke(Stroke? stroke) {
@@ -166,9 +167,13 @@ class _EditorState extends State<Editor> {
 
     // remove excess pages if all pages >= this one are empty
     for (int i = pages.length - 1; i >= minPageIndex + 1; --i) {
+      /// true if this page and the page before it are empty
       final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
           && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1);
-      if (pageEmpty) pages.removeAt(i);
+      if (pageEmpty) {
+        pages.removeAt(i);
+        coreInfo.pageSizes.removeAt(i);
+      }
     }
   }
 
@@ -255,9 +260,9 @@ class _EditorState extends State<Editor> {
   }
 
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
-    Rect pageBounds = Rect.fromLTWH(0, 0, coreInfo.width, coreInfo.height);
     for (int i = 0; i < pages.length; ++i) {
       if (pages[i].renderBox == null) continue;
+      Rect pageBounds = Offset.zero & coreInfo.pageSizes[i];
       if (pageBounds.contains(pages[i].renderBox!.globalToLocal(focalPoint))) return i;
     }
     return null;
@@ -307,7 +312,7 @@ class _EditorState extends State<Editor> {
   onDrawStart(ScaleStartDetails details) {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(coreInfo, position, dragPageIndex!, currentPressure);
+      (currentTool as Pen).onDragStart(coreInfo.pageSizes[dragPageIndex!], position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
         Stroke removed = coreInfo.strokes.removeAt(i);
@@ -321,7 +326,7 @@ class _EditorState extends State<Editor> {
     Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
-        (currentTool as Pen).onDragUpdate(coreInfo, position, currentPressure, () => setState(() {}));
+        (currentTool as Pen).onDragUpdate(coreInfo.pageSizes[dragPageIndex!], position, currentPressure, () => setState(() {}));
       } else if (currentTool is Eraser) {
         for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
           Stroke removed = coreInfo.strokes.removeAt(i);
@@ -480,10 +485,11 @@ class _EditorState extends State<Editor> {
     }
     if (bytes == null) return;
 
+    int pageIndex = currentPageIndex;
     EditorImage image = EditorImage(
       bytes: bytes,
-      pageIndex: currentPageIndex,
-      pageSize: Size(coreInfo.width, coreInfo.height),
+      pageIndex: pageIndex,
+      pageSize: coreInfo.pageSizes[pageIndex],
       onMoveImage: onMoveImage,
       onDeleteImage: onDeleteImage,
       onLoad: () => setState(() {}),

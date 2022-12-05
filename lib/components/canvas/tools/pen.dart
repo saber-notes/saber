@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -46,17 +45,17 @@ class Pen extends Tool {
 
   static late Pen currentPen;
 
-  onDragStart(EditorCoreInfo context, Offset position, int pageIndex, double? pressure) {
+  onDragStart(Size pageSize, Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
       strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
       penType: runtimeType.toString(),
     );
-    onDragUpdate(context, position, pressure, null);
+    onDragUpdate(pageSize, position, pressure, null);
   }
 
-  onDragUpdate(EditorCoreInfo context, Offset position, double? pressure, void Function()? setState) {
-    currentStroke!.addPoint(context, position, pressure);
+  onDragUpdate(Size pageSize, Offset position, double? pressure, void Function()? setState) {
+    currentStroke!.addPoint(pageSize, position, pressure);
 
     if (Prefs.editorStraightenDelay.value != 0 && lastPosition != null) {
       _straightLineStopwatch.stop();

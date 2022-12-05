@@ -16,46 +16,45 @@ abstract class EditorExporter {
 
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       pdf.addPage(
-        _generatePdfPage(coreInfo.copyWith(
-          strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
-          images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
-        ))
+        _generatePdfPage(coreInfo, pageIndex)
       );
     }
 
     return pdf;
   }
   
-  static pw.Page _generatePdfPage(EditorCoreInfo coreInfo) {
+  static pw.Page _generatePdfPage(EditorCoreInfo coreInfo, int pageIndex) {
     /// Blue at 0.2 opacity against white
     const PdfColor primaryColor = PdfColor(0.8, 0.8, 1);
     /// Red at 0.2 opacity against white
     const PdfColor secondaryColor = PdfColor(1, 0.8, 0.8);
 
+    final Size pageSize = coreInfo.pageSizes[pageIndex];
+
     return pw.Page(
-      pageFormat: PdfPageFormat(coreInfo.width, coreInfo.height),
+      pageFormat: PdfPageFormat(pageSize.width, pageSize.height),
       build: (pw.Context context) {
         return pw.FittedBox(
           child: pw.SizedBox(
-            width: coreInfo.width,
-            height: coreInfo.height,
+            width: pageSize.width,
+            height: pageSize.height,
             child: pw.CustomPaint(
-              size: PdfPoint(coreInfo.width, coreInfo.height),
+              size: PdfPoint(pageSize.width, pageSize.height),
               painter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
                 if (coreInfo.backgroundColor != null) {
-                  pdfGraphics.drawRect(0, 0, coreInfo.width, coreInfo.height);
+                  pdfGraphics.drawRect(0, 0, pageSize.width, pageSize.height);
                   pdfGraphics.setFillColor(PdfColor.fromInt(coreInfo.backgroundColor!.value));
                   pdfGraphics.fillPath();
                 }
-                for (PatternElement element in CanvasBackgroundPainter.getPatternElements(coreInfo.backgroundPattern, Size(coreInfo.width, coreInfo.height), coreInfo.lineHeight)) {
+                for (PatternElement element in CanvasBackgroundPainter.getPatternElements(coreInfo.backgroundPattern, pageSize, coreInfo.lineHeight)) {
                   if (element.isLine) {
                     pdfGraphics.drawLine(
-                      element.start.dx, coreInfo.height - element.start.dy,
-                      element.end.dx, coreInfo.height - element.end.dy,
+                      element.start.dx, pageSize.height - element.start.dy,
+                      element.end.dx, pageSize.height - element.end.dy,
                     );
                   } else {
                     pdfGraphics.drawEllipse(
-                      element.start.dx, coreInfo.height - element.start.dy,
+                      element.start.dx, pageSize.height - element.start.dy,
                       2, 2,
                     );
                   }
@@ -77,23 +76,25 @@ abstract class EditorExporter {
                 }
 
                 void drawStroke(Stroke stroke) {
-                  pdfGraphics.drawShape(stroke.toSvgPath(coreInfo));
+                  pdfGraphics.drawShape(stroke.toSvgPath(pageSize));
                   pdfGraphics.setFillColor(PdfColor.fromInt(stroke.strokeProperties.color.value).flatten(background: backgroundColor));
                   pdfGraphics.fillPath();
                 }
 
                 for (Stroke stroke in coreInfo.strokes) {
+                  if (stroke.pageIndex != pageIndex) continue;
                   if (stroke.penType != (Highlighter).toString()) continue;
                   drawStroke(stroke);
                 }
                 for (Stroke stroke in coreInfo.strokes) {
+                  if (stroke.pageIndex != pageIndex) continue;
                   if (stroke.penType == (Highlighter).toString()) continue;
                   drawStroke(stroke);
                 }
               },
               child: pw.Stack(
                 children: [
-                  for (EditorImage image in coreInfo.images)
+                  for (EditorImage image in coreInfo.images.where((image) => image.pageIndex == pageIndex))
                     pw.Positioned(
                       left: image.dstRect.left,
                       top: image.dstRect.top,

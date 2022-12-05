@@ -70,11 +70,11 @@ class Stroke {
     'ty': penType.toString(),
   }..addAll(strokeProperties.toJson());
 
-  addPoint(EditorCoreInfo context, Offset offset, [ double? pressure ]) {
+  addPoint(Size pageSize, Offset offset, [ double? pressure ]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
 
-    double x = max(min(offset.dx, context.width), 0);
-    double y = max(min(offset.dy, context.height), 0);
+    double x = max(min(offset.dx, pageSize.width), 0);
+    double y = max(min(offset.dy, pageSize.height), 0);
     Point point = Point(x, y, pressure ?? 0.5);
 
     if (pressure != null) strokeProperties.simulatePressure = false;
@@ -114,9 +114,9 @@ class Stroke {
       .toList(growable: false);
   }
 
-  String toSvgPath(EditorCoreInfo context) {
+  String toSvgPath(Size pageSize) {
     String toSvgPoint(Offset offset) {
-      return '${offset.dx} ${context.height - offset.dy}';
+      return '${offset.dx} ${pageSize.height - offset.dy}';
     }
 
     if (polygon.isEmpty) {
