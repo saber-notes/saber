@@ -366,22 +366,23 @@ class _CanvasImageDialog extends StatefulWidget {
   State<_CanvasImageDialog> createState() => _CanvasImageDialogState();
 }
 class _CanvasImageDialogState extends State<_CanvasImageDialog> {
+  void setInvertible(bool value) => setState(() {
+    widget.image.invertible = value;
+    widget.image.onMiscChange?.call();
+    widget.parent.setState(() {});
+  });
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         if (Prefs.editorAutoInvert.value) ListTile(
-          onTap: () => setState(() {
-            widget.image.invertible = !widget.image.invertible;
-            widget.parent.setState(() {});
-          }),
+          onTap: () => setInvertible(!widget.image.invertible),
           title: Text(t.editor.imageOptions.invertible),
           trailing: Switch.adaptive(
             value: widget.image.invertible,
-            onChanged: (bool value) => setState(() {
-              widget.image.invertible = value;
-            }),
+            onChanged: setInvertible,
           ),
         ),
         ListTile(

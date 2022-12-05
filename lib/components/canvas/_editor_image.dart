@@ -15,6 +15,7 @@ class EditorImage {
   final int pageIndex;
   void Function(EditorImage, Rect)? onMoveImage;
   void Function(EditorImage)? onDeleteImage;
+  void Function()? onMiscChange;
   final VoidCallback? onLoad;
 
   Rect srcRect = Rect.zero;
@@ -32,6 +33,7 @@ class EditorImage {
     required Size pageSize,
     required this.onMoveImage,
     required this.onDeleteImage,
+    required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
   }): invertible = true {

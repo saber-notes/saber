@@ -121,6 +121,7 @@ class _EditorState extends State<Editor> {
         createPageOfStroke(image.pageIndex);
         image.onMoveImage = onMoveImage;
         image.onDeleteImage = onDeleteImage;
+        image.onMiscChange = autosaveAfterDelay;
       }
     }
 
@@ -492,6 +493,7 @@ class _EditorState extends State<Editor> {
       pageSize: coreInfo.pageSizes[pageIndex],
       onMoveImage: onMoveImage,
       onDeleteImage: onDeleteImage,
+      onMiscChange: autosaveAfterDelay,
       onLoad: () => setState(() {}),
     );
     history.recordChange(EditorHistoryItem(
