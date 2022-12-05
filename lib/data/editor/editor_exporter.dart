@@ -55,7 +55,7 @@ abstract class EditorExporter {
                   } else {
                     pdfGraphics.drawEllipse(
                       element.start.dx, pageSize.height - element.start.dy,
-                      2, 2,
+                      4, 4,
                     );
                   }
                   if (element.secondaryColor) {
