@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 
 class StrokeProperties {
   static const Color defaultColor = Colors.black;
@@ -67,4 +68,15 @@ class StrokeProperties {
   };
 
   StrokeProperties copy() => StrokeProperties.fromJson(toJson());
+
+  static StrokeProperties get fountainPen => StrokeProperties();
+  static StrokeProperties get ballpointPen => StrokeProperties(
+    pressureEnabled: false
+  );
+  static StrokeProperties get highlighter => StrokeProperties(
+    size: defaultSize * 5,
+    color: Colors.yellow.withAlpha(Highlighter.alpha),
+    pressureEnabled: false,
+  );
+
 }

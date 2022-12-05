@@ -5,6 +5,7 @@ import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -40,8 +41,10 @@ abstract class Prefs {
   static late PlainPref<List<String>> recentColorsChronological;
   static late PlainPref<List<String>> recentColorsPositioned;
 
-  static late PlainPref<int> lastPenColor;
-  static late PlainPref<int> lastHighlighterColor;
+  static late PlainPref<StrokeProperties>
+      lastFountainPenProperties,
+      lastBallpointPenProperties,
+      lastHighlighterProperties;
   static late PlainPref<String> lastBackgroundPattern;
   static late PlainPref<int> lastLineHeight;
 
@@ -76,8 +79,10 @@ abstract class Prefs {
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
 
-    lastPenColor = PlainPref("lastPenColor", -1);
-    lastHighlighterColor = PlainPref("lastHighlighterColor", -1);
+    lastFountainPenProperties = PlainPref("lastFountainPenProperties", StrokeProperties.fountainPen);
+    lastBallpointPenProperties = PlainPref("lastBallpointPenProperties", StrokeProperties.ballpointPen);
+    lastHighlighterProperties = PlainPref("lastHighlighterProperties", StrokeProperties.highlighter);
+
     lastBackgroundPattern = PlainPref("lastBackgroundPattern", CanvasBackgroundPatterns.none);
     lastLineHeight = PlainPref("lastLineHeight", 40);
 
@@ -141,7 +146,8 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
 class PlainPref<T> extends IPref<T, SharedPreferences> {
   PlainPref(super.key, super.defaultValue, {super.historicalKeys}) {
     // Accepted types
-    assert(T == bool || T == int || T == double || T == typeOf<List<String>>() || T == String);
+    assert(T == bool || T == int || T == double || T == typeOf<List<String>>() || T == String
+        || T == StrokeProperties);
   }
 
   @override
@@ -175,6 +181,8 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
       return _prefs!.setDouble(key, value as double);
     } else if (T == typeOf<List<String>>()) {
       return _prefs!.setStringList(key, value as List<String>);
+    } else if (T == StrokeProperties) {
+      return _prefs!.setString(key, jsonEncode(value));
     } else {
       return _prefs!.setString(key, value as String);
     }
@@ -187,6 +195,8 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
         return null;
       } else if (T == List<String>) {
         return _prefs!.getStringList(key) as T?;
+      } else if (T == StrokeProperties) {
+        return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!)) as T?;
       } else {
         return _prefs!.get(key) as T?;
       }

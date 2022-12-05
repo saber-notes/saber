@@ -62,23 +62,7 @@ class _EditorState extends State<Editor> {
   String path = "";
   late bool needsNaming = widget.needsNaming;
 
-  late Tool currentTool = (){
-    int? lastPenColor, lastHighlighterColor;
-    if (Prefs.lastPenColor.value >= 0) {
-      lastPenColor = Prefs.lastPenColor.value;
-    }
-    if (Prefs.lastHighlighterColor.value >= 0) {
-      lastHighlighterColor = Prefs.lastHighlighterColor.value;
-    }
-
-    Pen.currentPen = Pen.fountainPen()
-      ..strokeProperties.color = Color(lastPenColor ?? StrokeProperties.defaultColor.value);
-
-    Highlighter.currentHighlighter = Highlighter()
-      ..strokeProperties.color = Color(lastHighlighterColor ?? Highlighter.defaultColor.value);
-
-    return Pen.currentPen;
-  }();
+  Tool currentTool = Pen.currentPen;
 
   bool _hasEdited = false;
   Timer? _delayedSaveTimer;
@@ -733,7 +717,14 @@ class _EditorState extends State<Editor> {
 
     _removeKeybindings();
 
+    // avoid saving if nothing has changed
     if (_hasEdited) {
+      // manually save pen properties since the listeners don't fire if a property is changed
+      Prefs.lastFountainPenProperties.notifyListeners();
+      Prefs.lastBallpointPenProperties.notifyListeners();
+      Prefs.lastHighlighterProperties.notifyListeners();
+
+      // save the file
       saveToFile();
     }
 

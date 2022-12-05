@@ -20,12 +20,13 @@ class Pen extends Tool {
 
   Pen.fountainPen() :
         name = t.editor.pens.fountainPen,
-        icon = fountainPenIcon;
+        icon = fountainPenIcon,
+        strokeProperties = Prefs.lastFountainPenProperties.value;
 
   Pen.ballpointPen() :
         name = t.editor.pens.ballpointPen,
         icon = ballpointPenIcon,
-        strokeProperties = StrokeProperties(pressureEnabled: false);
+        strokeProperties = Prefs.lastBallpointPenProperties.value;
 
   final String name;
   final IconData icon;
@@ -43,7 +44,7 @@ class Pen extends Tool {
   Offset? lastPosition;
   static const double maxSpeedForStraightLine = 0.03;
 
-  static late Pen currentPen;
+  static Pen currentPen = Pen.fountainPen();
 
   onDragStart(Size pageSize, Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
