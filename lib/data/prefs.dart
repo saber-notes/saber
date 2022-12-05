@@ -79,9 +79,9 @@ abstract class Prefs {
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
 
-    lastFountainPenProperties = PlainPref("lastFountainPenProperties", StrokeProperties.fountainPen);
+    lastFountainPenProperties = PlainPref("lastFountainPenProperties", StrokeProperties.fountainPen, deprecatedKeys: ["lastPenColor"]);
     lastBallpointPenProperties = PlainPref("lastBallpointPenProperties", StrokeProperties.ballpointPen);
-    lastHighlighterProperties = PlainPref("lastHighlighterProperties", StrokeProperties.highlighter);
+    lastHighlighterProperties = PlainPref("lastHighlighterProperties", StrokeProperties.highlighter, deprecatedKeys: ["lastHighlighterColor"]);
 
     lastBackgroundPattern = PlainPref("lastBackgroundPattern", CanvasBackgroundPatterns.none);
     lastLineHeight = PlainPref("lastLineHeight", 40);
@@ -97,14 +97,21 @@ abstract class Prefs {
 
 abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   final String key;
+  /// The keys that were used in the past for this Pref. If one of these keys is found, the value will be migrated to the current key.
   final List<String> historicalKeys;
+  /// The keys that were used in the past for a similar Pref. If one of these keys is found, it will be deleted.
+  final List<String> deprecatedKeys;
+
   bool _loaded = false;
 
   Preferences? _prefs;
 
   IPref(this.key, T defaultValue, {
-    List<String>? historicalKeys
-  }) : historicalKeys = historicalKeys ?? [], super(defaultValue) {
+    List<String>? historicalKeys,
+    List<String>? deprecatedKeys,
+  }) : historicalKeys = historicalKeys ?? [],
+        deprecatedKeys = deprecatedKeys ?? [],
+        super(defaultValue) {
     if (Prefs.testingMode) {
       _loaded = true;
       return;
@@ -144,7 +151,7 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   void notifyListeners() => super.notifyListeners();
 }
 class PlainPref<T> extends IPref<T, SharedPreferences> {
-  PlainPref(super.key, super.defaultValue, {super.historicalKeys}) {
+  PlainPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     // Accepted types
     assert(T == bool || T == int || T == double || T == typeOf<List<String>>() || T == String
         || T == StrokeProperties);
@@ -166,6 +173,10 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
       _prefs!.remove(historicalKey);
 
       return currentValue;
+    }
+
+    for (String deprecatedKey in deprecatedKeys) {
+      _prefs!.remove(deprecatedKey);
     }
 
     return null;
@@ -208,7 +219,7 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
 }
 
 class EncPref<T> extends IPref<T, EncryptedSharedPreferences> {
-  EncPref(super.key, super.defaultValue, {super.historicalKeys}) {
+  EncPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     assert(T == String || T == typeOf<List<String>>());
   }
 
@@ -228,6 +239,10 @@ class EncPref<T> extends IPref<T, EncryptedSharedPreferences> {
       _prefs!.remove(historicalKey);
 
       return currentValue;
+    }
+
+    for (String deprecatedKey in deprecatedKeys) {
+      _prefs!.remove(deprecatedKey);
     }
 
     return null;
