@@ -3,7 +3,7 @@
 /// Locales: 6
 /// Strings: 486 (81 per locale)
 ///
-/// Built on 2022-12-06 at 15:18 UTC
+/// Built on 2022-12-06 at 15:22 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -595,6 +595,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsDe penOptions = _StringsEditorPenOptionsDe._(_root);
 	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
 	@override late final _StringsEditorMenuDe menu = _StringsEditorMenuDe._(_root);
+	@override late final _StringsEditorNewerFileFormatDe newerFileFormat = _StringsEditorNewerFileFormatDe._(_root);
 }
 
 // Path: home.tabs
@@ -808,6 +809,19 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Alle Seiten löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Die Höhe jeder Zeile';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
+	@override String get subtitle => 'Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?';
+	@override String get openAnyway => 'Trotzdem öffnen';
+	@override String get cancel => 'Abbruch';
 }
 
 // Path: <root>
@@ -2369,6 +2383,10 @@ extension on _StringsDe {
 			case 'editor.menu.clearAllPages': return 'Alle Seiten löschen';
 			case 'editor.menu.lineHeight': return 'Zeilenhöhe';
 			case 'editor.menu.lineHeightDescription': return 'Die Höhe jeder Zeile';
+			case 'editor.newerFileFormat.title': return 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
+			case 'editor.newerFileFormat.subtitle': return 'Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?';
+			case 'editor.newerFileFormat.openAnyway': return 'Trotzdem öffnen';
+			case 'editor.newerFileFormat.cancel': return 'Abbruch';
 			default: return null;
 		}
 	}
