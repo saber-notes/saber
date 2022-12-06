@@ -139,18 +139,22 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 ## Translating
 
-### Extending existing translations
+### Extending existing languages
 
 Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.json)
    to see if any translations are missing.
 
-1. Fork this repo
-2. Update your `_missing_translations.json` file with your translations, e.g. updating Simplified Chinese (zh)
+1. Use [this link](https://github.com/adil192/saber/edit/main/lib/i18n/_missing_translations.json)
+   to edit `_missing_translations.json`.
+2. Update your `_missing_translations.json` file with your translations, e.g. updating German (de)
     ```javascript
-    "zh": {
+    "de": {
       "editor": {
-        "toolbar": {
-          "highlighter": "荧光笔"
+        "newerFileFormat": {
+          "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
+          "subtitle": "Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?",
+          "openAnyway": "Trotzdem öffnen",
+          "cancel": "Abbruch"
         }
       }
     },
@@ -160,12 +164,15 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 
 ### Adding a new language
 
-1. Fork this repo
-2. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
+1. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
    e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
-3. Copy `lib/i18n/strings.i18n.json` to `lib/i18n/strings_XX.i18n.json` (replacing `XX` with your locale code)
-4. Translate the strings in `lib/i18n/strings_XX.i18n.json`
-5. Open a pull request!
+2. Use [this link](https://github.com/adil192/saber/new/main/lib/i18n)
+   to create a new file called `lib/i18n/strings_XX.i18n.json` where `XX` is your locale code.
+3. Copy the contents of an existing file like
+   [`lib/i18n/strings.i18n.json`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json)
+   and replace the translations with your own.
+   If you don't know the translation for a string, just delete the line.
+4. Open a pull request!
 
 Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) for more information.
 
