@@ -89,7 +89,7 @@ class EditorImage {
     if (size.width != reducedSize.width) {
       await Future.delayed(Duration.zero); // wait for next event-loop iteration
 
-      Uint8List? resized = await compute((_) => _resizeImageIsolate(bytes, reducedSize), false);
+      Uint8List? resized = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, reducedSize));
       if (resized != null) bytes = resized;
 
       size = reducedSize;
@@ -125,13 +125,20 @@ class EditorImage {
   }
 
   /// Resizes the image to [newSize]
-  static Uint8List? _resizeImageIsolate(Uint8List originalImageBytes, Size newSize) {
-    image.Image? decoded = image.decodeImage(originalImageBytes);
+  static Uint8List? _resizeImageIsolate(_ResizeImageIsolateInfo info) {
+    image.Image? decoded = image.decodeImage(info.bytes);
     if (decoded == null) return null;
 
-    decoded = image.copyResize(decoded, width: newSize.width.toInt(), height: newSize.height.toInt());
+    decoded = image.copyResize(decoded, width: info.newSize.width.toInt(), height: info.newSize.height.toInt());
 
     return image.encodePng(decoded) as Uint8List;
   }
 
+}
+
+class _ResizeImageIsolateInfo {
+  final Uint8List bytes;
+  final Size newSize;
+
+  _ResizeImageIsolateInfo(this.bytes, this.newSize);
 }
