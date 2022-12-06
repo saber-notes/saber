@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 478 (79 per locale)
+/// Strings: 482 (80 per locale)
 ///
-/// Built on 2022-12-06 at 05:18 UTC
+/// Built on 2022-12-06 at 05:31 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1599,6 +1599,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
+	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
 }
 
 // Path: home.tabs
@@ -1812,6 +1813,19 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get clearAllPages => '清除全部页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '每一行的高度';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '此笔记使用新版 Saber 编辑而成';
+	@override String get subtitle => '编辑此笔记可能导致某些信息丢失。是否忽略并打开？';
+	@override String get openAnyway => '打开';
+	@override String get cancel => '取消';
 }
 
 // Path: <root>
@@ -2625,6 +2639,10 @@ extension on _StringsZhHansCn {
 			case 'editor.menu.clearAllPages': return '清除全部页面';
 			case 'editor.menu.lineHeight': return '行高';
 			case 'editor.menu.lineHeightDescription': return '每一行的高度';
+			case 'editor.newerFileFormat.title': return '此笔记使用新版 Saber 编辑而成';
+			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能导致某些信息丢失。是否忽略并打开？';
+			case 'editor.newerFileFormat.openAnyway': return '打开';
+			case 'editor.newerFileFormat.cancel': return '取消';
 			default: return null;
 		}
 	}
