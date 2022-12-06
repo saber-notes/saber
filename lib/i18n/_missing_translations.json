@@ -37,10 +37,10 @@
   "zh-Hant-TW": {
     "editor": {
       "newerFileFormat": {
-        "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?",
-        "openAnyway": "Open anyway",
-        "cancel": "Cancel"
+        "title": "這篇筆記是使用較新版本的 Saber 編輯的",
+        "subtitle": "編輯此筆記可能會導致某些資訊遺失。 是否要忽略它並打開它？",
+        "openAnyway": "仍要打開",
+        "cancel": "取消"
       }
     }
   }
