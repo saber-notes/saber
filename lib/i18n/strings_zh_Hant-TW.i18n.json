@@ -120,6 +120,12 @@
       "clearAllPages": "清除所有頁面",
       "lineHeight": "行高",
       "lineHeightDescription": "每行的高度"
+    },
+    "newerFileFormat": {
+      "title": "這篇筆記是使用較新版本的 Saber 編輯的",
+      "subtitle": "編輯此筆記可能會導致某些資訊遺失。 是否要忽略它並打開它？",
+      "openAnyway": "仍要打開",
+      "cancel": "取消"
     }
   }
 }
