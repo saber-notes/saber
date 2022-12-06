@@ -80,6 +80,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Install AppImage dependencies
+        run: |
+          sudo add-apt-repository universe
+          sudo apt install libfuse2
+
       - name: Download app archive
         uses: actions/download-artifact@v3
         with:
