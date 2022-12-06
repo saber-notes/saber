@@ -681,6 +681,7 @@ class _EditorState extends State<Editor> {
             strokes: removedStrokes,
             images: removedImages,
           ));
+          autosaveAfterDelay();
         });
       },
 
@@ -697,6 +698,7 @@ class _EditorState extends State<Editor> {
             images: removedImages,
           ));
         });
+        autosaveAfterDelay();
       },
     );
   }
