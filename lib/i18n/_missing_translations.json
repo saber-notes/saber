@@ -6,10 +6,10 @@
   "de": {
     "editor": {
       "newerFileFormat": {
-        "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?",
-        "openAnyway": "Open anyway",
-        "cancel": "Cancel"
+        "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
+        "subtitle": "Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?",
+        "openAnyway": "Trotzdem öffnen",
+        "cancel": "Abbruch"
       }
     }
   },
