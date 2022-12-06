@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 482 (80 per locale)
+/// Strings: 486 (81 per locale)
 ///
-/// Built on 2022-12-06 at 05:31 UTC
+/// Built on 2022-12-06 at 15:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1948,6 +1948,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsZhHantTw penOptions = _StringsEditorPenOptionsZhHantTw._(_root);
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
+	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
 }
 
 // Path: home.tabs
@@ -2161,6 +2162,19 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get clearAllPages => '清除所有頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '每行的高度';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatZhHantTw extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
+	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 是否要忽略它並打開它？';
+	@override String get openAnyway => '仍要打開';
+	@override String get cancel => '取消';
 }
 
 /// Flat map(s) containing all translations.
@@ -2738,6 +2752,10 @@ extension on _StringsZhHantTw {
 			case 'editor.menu.clearAllPages': return '清除所有頁面';
 			case 'editor.menu.lineHeight': return '行高';
 			case 'editor.menu.lineHeightDescription': return '每行的高度';
+			case 'editor.newerFileFormat.title': return '這篇筆記是使用較新版本的 Saber 編輯的';
+			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 是否要忽略它並打開它？';
+			case 'editor.newerFileFormat.openAnyway': return '仍要打開';
+			case 'editor.newerFileFormat.cancel': return '取消';
 			default: return null;
 		}
 	}
