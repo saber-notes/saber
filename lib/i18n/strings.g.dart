@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 472 (78 per locale)
+/// Strings: 478 (79 per locale)
 ///
-/// Built on 2022-12-04 at 09:59 UTC
+/// Built on 2022-12-06 at 05:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -246,6 +246,7 @@ class _StringsEditorEn {
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
 	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
+	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
 }
 
 // Path: home.tabs
@@ -459,6 +460,19 @@ class _StringsEditorMenuEn {
 	String get clearAllPages => 'Clear all pages';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'The size of each line';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'This note was edited using a newer version of Saber';
+	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?';
+	String get openAnyway => 'Open anyway';
+	String get cancel => 'Cancel';
 }
 
 // Path: <root>
@@ -2228,6 +2242,10 @@ extension on _StringsEn {
 			case 'editor.menu.clearAllPages': return 'Clear all pages';
 			case 'editor.menu.lineHeight': return 'Line height';
 			case 'editor.menu.lineHeightDescription': return 'The size of each line';
+			case 'editor.newerFileFormat.title': return 'This note was edited using a newer version of Saber';
+			case 'editor.newerFileFormat.subtitle': return 'Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?';
+			case 'editor.newerFileFormat.openAnyway': return 'Open anyway';
+			case 'editor.newerFileFormat.cancel': return 'Cancel';
 			default: return null;
 		}
 	}

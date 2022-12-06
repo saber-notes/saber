@@ -69,7 +69,7 @@ class _PreviewCardState extends State<PreviewCard> {
   Future findStrokes() async {
     if (!mounted) return;
 
-    coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath);
+    coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath, ignoreVersion: true);
 
     if (mounted) setState(() {});
   }

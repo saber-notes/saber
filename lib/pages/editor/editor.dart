@@ -18,7 +18,6 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -30,6 +29,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class Editor extends StatefulWidget {
   Editor({
@@ -93,7 +93,16 @@ class _EditorState extends State<Editor> {
     await _initStrokes();
   }
   Future _initStrokes() async {
-    coreInfo = await EditorCoreInfo.loadFromFilePath(path);
+    try {
+      coreInfo = await EditorCoreInfo.loadFromFilePath(path);
+    } on CoreInfoTooNewException {
+      if (await askUserIfShouldIgnoreVersion()) {
+        coreInfo = await EditorCoreInfo.loadFromFilePath(path, ignoreVersion: true);
+      } else {
+        if (mounted) Navigator.pop(context);
+        return;
+      }
+    }
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       pages.add(EditorPage());
@@ -690,6 +699,26 @@ class _EditorState extends State<Editor> {
         });
       },
     );
+  }
+
+  Future<bool> askUserIfShouldIgnoreVersion() async {
+    return await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.editor.newerFileFormat.title),
+        content: Text(t.editor.newerFileFormat.subtitle),
+        actions: [
+          TextButton(
+            child: Text(t.editor.newerFileFormat.cancel),
+            onPressed: () => Navigator.pop(context, false),
+          ),
+          TextButton(
+            child: Text(t.editor.newerFileFormat.openAnyway),
+            onPressed: () => Navigator.pop(context, true),
+          ),
+        ],
+      ),
+    ) ?? false;
   }
 
   /// The index of the page that is currently centered on screen.

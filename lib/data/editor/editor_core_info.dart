@@ -43,13 +43,16 @@ class EditorCoreInfo {
     required this.pageSizes,
   });
 
-  EditorCoreInfo.fromJson(Map<String, dynamic> json):
+  EditorCoreInfo.fromJson(Map<String, dynamic> json, {bool ignoreVersion = false}):
         strokes = _parseStrokesJson(json["s"] as List),
         images = _parseImagesJson(json["i"] as List? ?? []),
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
         pageSizes = _parsePageSizesJson(json["z"] as List?) {
+    int thisVersion = json["v"] as int? ?? 0;
+    if (thisVersion > fileVersion && !ignoreVersion) throw CoreInfoTooNewException(thisVersion);
+
     _handleEmptyPageSizes(json["w"] as double?, json["h"] as double?);
   }
   /// Old json format is just a list of strokes
@@ -84,7 +87,7 @@ class EditorCoreInfo {
     pageSizes = List.generate(maxPageIndex + 1, (index) => Size(width ?? defaultWidth, height ?? defaultHeight));
   }
 
-  static Future<EditorCoreInfo> loadFromFilePath(String path) async {
+  static Future<EditorCoreInfo> loadFromFilePath(String path, {bool ignoreVersion = false}) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
     if (jsonString == null) return EditorCoreInfo();
 
@@ -93,8 +96,10 @@ class EditorCoreInfo {
       if (json is List) { // old format
         return EditorCoreInfo.fromOldJson(json);
       } else {
-        return EditorCoreInfo.fromJson(json as Map<String, dynamic>);
+        return EditorCoreInfo.fromJson(json as Map<String, dynamic>, ignoreVersion: ignoreVersion);
       }
+    } on CoreInfoTooNewException {
+      rethrow;
     } catch (e) {
       if (kDebugMode) {
         rethrow;
@@ -131,4 +136,13 @@ class EditorCoreInfo {
       pageSizes: pageSizes ?? this.pageSizes,
     );
   }
+}
+
+class CoreInfoTooNewException implements Exception {
+  final int version;
+
+  CoreInfoTooNewException(this.version);
+
+  @override
+  String toString() => "CoreInfoTooNewException: Note version is $version while the app only supports up to ${EditorCoreInfo.fileVersion}";
 }
