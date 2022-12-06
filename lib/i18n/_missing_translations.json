@@ -25,14 +25,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "newerFileFormat": {
-        "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?",
-        "openAnyway": "Open anyway",
-        "cancel": "Cancel"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
