@@ -748,14 +748,13 @@ class _EditorState extends State<Editor> {
 
     // avoid saving if nothing has changed
     if (_hasEdited) {
-      // manually save pen properties since the listeners don't fire if a property is changed
-      Prefs.lastFountainPenProperties.notifyListeners();
-      Prefs.lastBallpointPenProperties.notifyListeners();
-      Prefs.lastHighlighterProperties.notifyListeners();
-
-      // save the file
       saveToFile();
     }
+
+    // manually save pen properties since the listeners don't fire if a property is changed
+    Prefs.lastFountainPenProperties.notifyListeners();
+    Prefs.lastBallpointPenProperties.notifyListeners();
+    Prefs.lastHighlighterProperties.notifyListeners();
 
     // dispose of images' cache
     for (EditorImage image in coreInfo.images) {
