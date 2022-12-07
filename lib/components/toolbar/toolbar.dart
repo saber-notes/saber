@@ -143,6 +143,7 @@ class _ToolbarState extends State<Toolbar> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Wrap(
+                alignment: WrapAlignment.center,
                 runSpacing: 8,
                 children: [
                   ToolbarIconButton(
