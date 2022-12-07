@@ -38,9 +38,9 @@
   "zh-Hant-TW": {
     "editor": {
       "newerFileFormat": {
-        "readOnlyMode": "Read-only mode",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
-        "allowEditing": "Allow editing"
+        "readOnlyMode": "唯讀模式",
+        "subtitle": "編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？",
+        "allowEditing": "允許編輯"
       }
     }
   }
