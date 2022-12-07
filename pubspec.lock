@@ -249,7 +249,7 @@ packages:
       name: font_awesome_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "10.2.1"
+    version: "10.3.0"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -440,7 +440,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "317dc1542a280ce69cf81fe4e67232772a3df9b5"
+      resolved-ref: "258175ffbcf4bf884a67e349ecfa5d8b1a1c956c"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"

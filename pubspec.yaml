@@ -89,7 +89,7 @@ dependencies:
 
   google_fonts: ^3.0.1
 
-  font_awesome_flutter: ^10.2.1
+  font_awesome_flutter: ^10.3.0
 
   flutter_svg: ^1.1.6
 
