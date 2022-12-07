@@ -3,13 +3,22 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "de": {},
+  "de": {
+    "editor": {
+      "newerFileFormat": {
+        "readOnlyMode": "Read-only mode",
+        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
+        "allowEditing": "Allow editing"
+      }
+    }
+  },
   "es": {
     "editor": {
       "newerFileFormat": {
+        "readOnlyMode": "Read-only mode",
         "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?",
-        "openAnyway": "Open anyway",
+        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
+        "allowEditing": "Allow editing",
         "cancel": "Cancel"
       }
     }
@@ -17,13 +26,30 @@
   "it": {
     "editor": {
       "newerFileFormat": {
+        "readOnlyMode": "Read-only mode",
         "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?",
-        "openAnyway": "Open anyway",
+        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
+        "allowEditing": "Allow editing",
         "cancel": "Cancel"
       }
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "editor": {
+      "newerFileFormat": {
+        "readOnlyMode": "Read-only mode",
+        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
+        "allowEditing": "Allow editing"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "newerFileFormat": {
+        "readOnlyMode": "Read-only mode",
+        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
+        "allowEditing": "Allow editing"
+      }
+    }
+  }
 }

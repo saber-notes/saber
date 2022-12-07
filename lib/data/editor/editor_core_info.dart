@@ -13,6 +13,7 @@ import 'package:saber/pages/editor/editor.dart';
 
 class EditorCoreInfo {
   static const int fileVersion = 3;
+  bool readOnly = false;
 
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
@@ -35,6 +36,7 @@ class EditorCoreInfo {
         pageSizes = [];
 
   EditorCoreInfo._({
+    required this.readOnly,
     required this.strokes,
     required this.images,
     this.backgroundColor,
@@ -43,16 +45,14 @@ class EditorCoreInfo {
     required this.pageSizes,
   });
 
-  EditorCoreInfo.fromJson(Map<String, dynamic> json, {bool ignoreVersion = false}):
+  EditorCoreInfo.fromJson(Map<String, dynamic> json):
+        readOnly = (json["v"] as int? ?? 0) > fileVersion,
         strokes = _parseStrokesJson(json["s"] as List),
         images = _parseImagesJson(json["i"] as List? ?? []),
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
         pageSizes = _parsePageSizesJson(json["z"] as List?) {
-    int thisVersion = json["v"] as int? ?? 0;
-    if (thisVersion > fileVersion && !ignoreVersion) throw CoreInfoTooNewException(thisVersion);
-
     _handleEmptyPageSizes(json["w"] as double?, json["h"] as double?);
   }
   /// Old json format is just a list of strokes
@@ -87,7 +87,7 @@ class EditorCoreInfo {
     pageSizes = List.generate(maxPageIndex + 1, (index) => Size(width ?? defaultWidth, height ?? defaultHeight));
   }
 
-  static Future<EditorCoreInfo> loadFromFilePath(String path, {bool ignoreVersion = false}) async {
+  static Future<EditorCoreInfo> loadFromFilePath(String path) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
     if (jsonString == null) return EditorCoreInfo();
 
@@ -96,10 +96,8 @@ class EditorCoreInfo {
       if (json is List) { // old format
         return EditorCoreInfo.fromOldJson(json);
       } else {
-        return EditorCoreInfo.fromJson(json as Map<String, dynamic>, ignoreVersion: ignoreVersion);
+        return EditorCoreInfo.fromJson(json as Map<String, dynamic>);
       }
-    } on CoreInfoTooNewException {
-      rethrow;
     } catch (e) {
       if (kDebugMode) {
         rethrow;
@@ -120,6 +118,7 @@ class EditorCoreInfo {
   };
 
   EditorCoreInfo copyWith({
+    bool? readOnly,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Color? backgroundColor,
@@ -128,6 +127,7 @@ class EditorCoreInfo {
     List<Size>? pageSizes,
   }) {
     return EditorCoreInfo._(
+      readOnly: readOnly ?? this.readOnly,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -136,13 +136,4 @@ class EditorCoreInfo {
       pageSizes: pageSizes ?? this.pageSizes,
     );
   }
-}
-
-class CoreInfoTooNewException implements Exception {
-  final int version;
-
-  CoreInfoTooNewException(this.version);
-
-  @override
-  String toString() => "CoreInfoTooNewException: Note version is $version while the app only supports up to ${EditorCoreInfo.fileVersion}";
 }

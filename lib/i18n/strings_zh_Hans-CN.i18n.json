@@ -123,8 +123,6 @@
     },
     "newerFileFormat": {
       "title": "此笔记使用新版 Saber 编辑而成",
-      "subtitle": "编辑此笔记可能导致某些信息丢失。是否忽略并打开？",
-      "openAnyway": "打开",
       "cancel": "取消"
     }
   }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 486 (81 per locale)
+/// Strings: 485 (80 per locale)
 ///
-/// Built on 2022-12-06 at 15:22 UTC
+/// Built on 2022-12-07 at 05:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -469,9 +469,10 @@ class _StringsEditorNewerFileFormatEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
+	String get readOnlyMode => 'Read-only mode';
 	String get title => 'This note was edited using a newer version of Saber';
-	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?';
-	String get openAnyway => 'Open anyway';
+	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
+	String get allowEditing => 'Allow editing';
 	String get cancel => 'Cancel';
 }
 
@@ -819,8 +820,6 @@ class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
 
 	// Translations
 	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
-	@override String get subtitle => 'Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?';
-	@override String get openAnyway => 'Trotzdem öffnen';
 	@override String get cancel => 'Abbruch';
 }
 
@@ -1837,8 +1836,6 @@ class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileForma
 
 	// Translations
 	@override String get title => '此笔记使用新版 Saber 编辑而成';
-	@override String get subtitle => '编辑此笔记可能导致某些信息丢失。是否忽略并打开？';
-	@override String get openAnyway => '打开';
 	@override String get cancel => '取消';
 }
 
@@ -2186,8 +2183,6 @@ class _StringsEditorNewerFileFormatZhHantTw extends _StringsEditorNewerFileForma
 
 	// Translations
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
-	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 是否要忽略它並打開它？';
-	@override String get openAnyway => '仍要打開';
 	@override String get cancel => '取消';
 }
 
@@ -2284,9 +2279,10 @@ extension on _StringsEn {
 			case 'editor.menu.clearAllPages': return 'Clear all pages';
 			case 'editor.menu.lineHeight': return 'Line height';
 			case 'editor.menu.lineHeightDescription': return 'The size of each line';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Read-only mode';
 			case 'editor.newerFileFormat.title': return 'This note was edited using a newer version of Saber';
-			case 'editor.newerFileFormat.subtitle': return 'Editing this note may result in some information being lost. Do you want to ignore this and open it anyway?';
-			case 'editor.newerFileFormat.openAnyway': return 'Open anyway';
+			case 'editor.newerFileFormat.subtitle': return 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
+			case 'editor.newerFileFormat.allowEditing': return 'Allow editing';
 			case 'editor.newerFileFormat.cancel': return 'Cancel';
 			default: return null;
 		}
@@ -2384,8 +2380,6 @@ extension on _StringsDe {
 			case 'editor.menu.lineHeight': return 'Zeilenhöhe';
 			case 'editor.menu.lineHeightDescription': return 'Die Höhe jeder Zeile';
 			case 'editor.newerFileFormat.title': return 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
-			case 'editor.newerFileFormat.subtitle': return 'Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?';
-			case 'editor.newerFileFormat.openAnyway': return 'Trotzdem öffnen';
 			case 'editor.newerFileFormat.cancel': return 'Abbruch';
 			default: return null;
 		}
@@ -2672,8 +2666,6 @@ extension on _StringsZhHansCn {
 			case 'editor.menu.lineHeight': return '行高';
 			case 'editor.menu.lineHeightDescription': return '每一行的高度';
 			case 'editor.newerFileFormat.title': return '此笔记使用新版 Saber 编辑而成';
-			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能导致某些信息丢失。是否忽略并打开？';
-			case 'editor.newerFileFormat.openAnyway': return '打开';
 			case 'editor.newerFileFormat.cancel': return '取消';
 			default: return null;
 		}
@@ -2771,8 +2763,6 @@ extension on _StringsZhHantTw {
 			case 'editor.menu.lineHeight': return '行高';
 			case 'editor.menu.lineHeightDescription': return '每行的高度';
 			case 'editor.newerFileFormat.title': return '這篇筆記是使用較新版本的 Saber 編輯的';
-			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 是否要忽略它並打開它？';
-			case 'editor.newerFileFormat.openAnyway': return '仍要打開';
 			case 'editor.newerFileFormat.cancel': return '取消';
 			default: return null;
 		}

@@ -123,8 +123,6 @@
     },
     "newerFileFormat": {
       "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
-      "subtitle": "Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?",
-      "openAnyway": "Trotzdem öffnen",
       "cancel": "Abbruch"
     }
   }

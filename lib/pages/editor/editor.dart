@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
@@ -93,16 +94,7 @@ class _EditorState extends State<Editor> {
     await _initStrokes();
   }
   Future _initStrokes() async {
-    try {
-      coreInfo = await EditorCoreInfo.loadFromFilePath(path);
-    } on CoreInfoTooNewException {
-      if (await askUserIfShouldIgnoreVersion()) {
-        coreInfo = await EditorCoreInfo.loadFromFilePath(path, ignoreVersion: true);
-      } else {
-        if (mounted) Navigator.pop(context);
-        return;
-      }
-    }
+    coreInfo = await EditorCoreInfo.loadFromFilePath(path);
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       pages.add(EditorPage());
@@ -267,8 +259,10 @@ class _EditorState extends State<Editor> {
   /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
   bool pressureWasNegative = false;
   bool isDrawGesture(ScaleStartDetails details) {
+    if (coreInfo.readOnly) return false;
+
     // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-    CanvasImage.activeListener.notifyListeners();
+    CanvasImage.activeListener.notifyListeners(); // un-select active image
 
     _lastSeenPointerCountTimer?.cancel();
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
@@ -409,6 +403,7 @@ class _EditorState extends State<Editor> {
     return json.encode(coreInfo);
   }
   void saveToFile() async {
+    if (coreInfo.readOnly) return;
     String toSave = _saveToString();
     await FileManager.writeFile(path + Editor.extension, toSave);
   }
@@ -468,6 +463,8 @@ class _EditorState extends State<Editor> {
   }
 
   Future pickPhoto() async {
+    if (coreInfo.readOnly) return;
+
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return;
 
@@ -562,6 +559,7 @@ class _EditorState extends State<Editor> {
                       Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
                       return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                     }(),
+                    readOnly: coreInfo.readOnly,
                   ),
                   const SizedBox(height: 16),
                 ]
@@ -613,6 +611,19 @@ class _EditorState extends State<Editor> {
             exportAsPng: null,
           ),
         ),
+
+        SafeArea(
+          child: Collapsible(
+            collapsed: !coreInfo.readOnly,
+            axis: CollapsibleAxis.vertical,
+            child: ListTile(
+              onTap: askUserToDisableReadOnly,
+              title: Text(t.editor.newerFileFormat.readOnlyMode),
+              subtitle: Text(t.editor.newerFileFormat.title),
+              trailing: const Icon(Icons.edit_off),
+            ),
+          ),
+        )
       ],
     );
 
@@ -653,16 +664,20 @@ class _EditorState extends State<Editor> {
       invert: invert,
       coreInfo: coreInfo,
       setBackgroundPattern: (pattern) => setState(() {
+          if (coreInfo.readOnly) return;
           coreInfo.backgroundPattern = pattern;
           Prefs.lastBackgroundPattern.value = pattern;
           autosaveAfterDelay();
         }),
       setLineHeight: (lineHeight) => setState(() {
+          if (coreInfo.readOnly) return;
           coreInfo.lineHeight = lineHeight;
           Prefs.lastLineHeight.value = lineHeight;
           autosaveAfterDelay();
         }),
       clearPage: () {
+        if (coreInfo.readOnly) return;
+
         final int? currentPageIndex = this.currentPageIndex;
         if (currentPageIndex == null) return;
 
@@ -686,6 +701,7 @@ class _EditorState extends State<Editor> {
       },
 
       clearAllPages: () {
+        if (coreInfo.readOnly) return;
         setState(() {
           List<Stroke> removedStrokes = coreInfo.strokes.toList();
           List<EditorImage> removedImages = coreInfo.images.toList();
@@ -703,8 +719,8 @@ class _EditorState extends State<Editor> {
     );
   }
 
-  Future<bool> askUserIfShouldIgnoreVersion() async {
-    return await showDialog(
+  Future askUserToDisableReadOnly() async {
+    bool disableReadOnly = await showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(t.editor.newerFileFormat.title),
@@ -715,12 +731,19 @@ class _EditorState extends State<Editor> {
             onPressed: () => Navigator.pop(context, false),
           ),
           TextButton(
-            child: Text(t.editor.newerFileFormat.openAnyway),
+            child: Text(t.editor.newerFileFormat.allowEditing),
             onPressed: () => Navigator.pop(context, true),
           ),
         ],
       ),
     ) ?? false;
+
+    if (!mounted) return;
+    if (!disableReadOnly) return;
+
+    setState(() {
+      coreInfo.readOnly = false;
+    });
   }
 
   /// The index of the page that is currently centered on screen.
