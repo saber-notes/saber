@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/version.dart' show buildNumber;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -37,6 +38,7 @@ class _AppInfoState extends State<AppInfo> {
 
     List<String> info = [
       "v${packageInfo.version}",
+      FlavorConfig.flavor,
       kDebugMode ? t.appInfo.debug : "",
       "($buildNumber)",
     ];
