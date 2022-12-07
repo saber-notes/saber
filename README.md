@@ -34,11 +34,11 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1 (recommended): Download and install `Saber.apk` from the latest [Release][releases].
+Option 1: Download from the [Play Store][google_play]
 
 Option 2: Download from [F-Droid][f-droid]
 
-Option 3: Download from the [Play Store][google_play]
+Option 3 (fastest updates): Download and install `Saber.apk` from the latest [Release][releases].
 
 #### Linux
 
