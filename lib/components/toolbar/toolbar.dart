@@ -142,73 +142,71 @@ class _ToolbarState extends State<Toolbar> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ToolbarIconButton(
-                      tooltip: Pen.currentPen.name,
-                      selected: widget.currentTool == Pen.currentPen,
-                      onPressed: (button) {
-                        if (widget.currentTool == Pen.currentPen) {
-                          button.openModal(context);
-                        } else {
-                          widget.setTool(Pen.currentPen);
-                        }
-                      },
-                      modal: PenModal(
-                        setTool: widget.setTool,
-                      ),
-                      child: FaIcon(Pen.currentPen.icon, size: 16),
+              child: Wrap(
+                runSpacing: 8,
+                children: [
+                  ToolbarIconButton(
+                    tooltip: Pen.currentPen.name,
+                    selected: widget.currentTool == Pen.currentPen,
+                    onPressed: (button) {
+                      if (widget.currentTool == Pen.currentPen) {
+                        button.openModal(context);
+                      } else {
+                        widget.setTool(Pen.currentPen);
+                      }
+                    },
+                    modal: PenModal(
+                      setTool: widget.setTool,
                     ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.pens.highlighter,
-                      selected: widget.currentTool == Highlighter.currentHighlighter,
-                      onPressed: (button) {
-                        widget.setTool(Highlighter.currentHighlighter);
-                      },
-                      child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.toggleColors,
-                      selected: showColorOptions,
-                      onPressed: (_) => toggleColorOptions(),
-                      child: const Icon(Icons.palette),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.toggleEraser,
-                      selected: widget.currentTool is Eraser,
-                      onPressed: (_) => toggleEraser(),
-                      child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.photo,
-                      onPressed: (_) => widget.pickPhoto(),
-                      child: const Icon(Icons.photo_size_select_actual),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.toggleFingerDrawing,
-                      selected: Prefs.editorFingerDrawing.value,
-                      onPressed: (_) => widget.toggleFingerDrawing(),
-                      child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.undo,
-                      onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
-                      child: const Icon(Icons.undo),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.redo,
-                      onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
-                      child: const Icon(Icons.redo),
-                    ),
-                    ToolbarIconButton(
-                      tooltip: t.editor.toolbar.export,
-                      onPressed: (_) => toggleExportBar(),
-                      child: Icon(Icons.adaptive.share),
-                    ),
-                  ],
-                ),
+                    child: FaIcon(Pen.currentPen.icon, size: 16),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.pens.highlighter,
+                    selected: widget.currentTool == Highlighter.currentHighlighter,
+                    onPressed: (button) {
+                      widget.setTool(Highlighter.currentHighlighter);
+                    },
+                    child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.toggleColors,
+                    selected: showColorOptions,
+                    onPressed: (_) => toggleColorOptions(),
+                    child: const Icon(Icons.palette),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.toggleEraser,
+                    selected: widget.currentTool is Eraser,
+                    onPressed: (_) => toggleEraser(),
+                    child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.photo,
+                    onPressed: (_) => widget.pickPhoto(),
+                    child: const Icon(Icons.photo_size_select_actual),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.toggleFingerDrawing,
+                    selected: Prefs.editorFingerDrawing.value,
+                    onPressed: (_) => widget.toggleFingerDrawing(),
+                    child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.undo,
+                    onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
+                    child: const Icon(Icons.undo),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.redo,
+                    onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
+                    child: const Icon(Icons.redo),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.export,
+                    onPressed: (_) => toggleExportBar(),
+                    child: Icon(Icons.adaptive.share),
+                  ),
+                ],
               ),
             ),
           ),
