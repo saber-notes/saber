@@ -836,6 +836,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "9.0.0"
+  wear:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: upgrade-versions
+      resolved-ref: "3be8f07380cda83191726ea983f46f694650ff96"
+      url: "https://github.com/ju851zel/flutter_wear_plugin/"
+    source: git
+    version: "1.1.0"
   webdriver:
     dependency: transitive
     description:
