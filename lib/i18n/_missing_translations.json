@@ -6,9 +6,9 @@
   "de": {
     "editor": {
       "newerFileFormat": {
-        "readOnlyMode": "Read-only mode",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
-        "allowEditing": "Allow editing"
+        "readOnlyMode": "Schreibgeschützter Modus",
+        "subtitle": "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?",
+        "allowEditing": "Schreibschutz aufheben"
       }
     }
   },
