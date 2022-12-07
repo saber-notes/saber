@@ -29,9 +29,9 @@
   "zh-Hans-CN": {
     "editor": {
       "newerFileFormat": {
-        "readOnlyMode": "Read-only mode",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
-        "allowEditing": "Allow editing"
+        "readOnlyMode": "只读模式",
+        "subtitle": "编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？",
+        "allowEditing": "允许编辑"
       }
     }
   },
