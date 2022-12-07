@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 488 (81 per locale)
+/// Strings: 491 (81 per locale)
 ///
-/// Built on 2022-12-07 at 06:24 UTC
+/// Built on 2022-12-07 at 06:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2187,6 +2187,9 @@ class _StringsEditorNewerFileFormatZhHantTw extends _StringsEditorNewerFileForma
 	// Translations
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
 	@override String get cancel => '取消';
+	@override String get readOnlyMode => '唯讀模式';
+	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
+	@override String get allowEditing => '允許編輯';
 }
 
 /// Flat map(s) containing all translations.
@@ -2770,6 +2773,9 @@ extension on _StringsZhHantTw {
 			case 'editor.menu.lineHeightDescription': return '每行的高度';
 			case 'editor.newerFileFormat.title': return '這篇筆記是使用較新版本的 Saber 編輯的';
 			case 'editor.newerFileFormat.cancel': return '取消';
+			case 'editor.newerFileFormat.readOnlyMode': return '唯讀模式';
+			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
+			case 'editor.newerFileFormat.allowEditing': return '允許編輯';
 			default: return null;
 		}
 	}

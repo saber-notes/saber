@@ -123,7 +123,10 @@
     },
     "newerFileFormat": {
       "title": "這篇筆記是使用較新版本的 Saber 編輯的",
-      "cancel": "取消"
+      "cancel": "取消",
+      "readOnlyMode": "唯讀模式",
+      "subtitle": "編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？",
+      "allowEditing": "允許編輯"
     }
   }
 }
