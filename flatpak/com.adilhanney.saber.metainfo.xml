@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.4" type="development" date="2022-12-07">
+            <description>
+                <ol>
+                    <li>Pen properties are now saved</li>
+                    <li>You'll be warned before editing a note edited/created with a newer version of Saber</li>
+                    <li>Toolbar buttons now wrap instead of scroll on small screens</li>
+                    <li>Fix crash when resizing large photos</li>
+                    <li>Various misc improvements</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.4.3" type="development" date="2022-12-04">
             <description>
                 <ol>

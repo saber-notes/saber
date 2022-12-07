@@ -1,0 +1,5 @@
+• Pen properties are now saved
+• You'll be warned before editing a note edited/created with a newer version of Saber
+• Toolbar buttons now wrap instead of scroll on small screens
+• Fix crash when resizing large photos
+• Various misc improvements
