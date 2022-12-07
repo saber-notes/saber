@@ -123,7 +123,10 @@
     },
     "newerFileFormat": {
       "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
-      "cancel": "Abbruch"
+      "cancel": "Abbruch",
+      "readOnlyMode": "Schreibgeschützter Modus",
+      "subtitle": "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?",
+      "allowEditing": "Schreibschutz aufheben"
     }
   }
 }
