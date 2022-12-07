@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 485 (80 per locale)
+/// Strings: 488 (81 per locale)
 ///
-/// Built on 2022-12-07 at 05:53 UTC
+/// Built on 2022-12-07 at 06:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -821,6 +821,9 @@ class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
 	// Translations
 	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
 	@override String get cancel => 'Abbruch';
+	@override String get readOnlyMode => 'Schreibgeschützter Modus';
+	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
+	@override String get allowEditing => 'Schreibschutz aufheben';
 }
 
 // Path: <root>
@@ -2381,6 +2384,9 @@ extension on _StringsDe {
 			case 'editor.menu.lineHeightDescription': return 'Die Höhe jeder Zeile';
 			case 'editor.newerFileFormat.title': return 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
 			case 'editor.newerFileFormat.cancel': return 'Abbruch';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Schreibgeschützter Modus';
+			case 'editor.newerFileFormat.subtitle': return 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
+			case 'editor.newerFileFormat.allowEditing': return 'Schreibschutz aufheben';
 			default: return null;
 		}
 	}
