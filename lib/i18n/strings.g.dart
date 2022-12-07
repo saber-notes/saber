@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 491 (81 per locale)
+/// Strings: 494 (82 per locale)
 ///
-/// Built on 2022-12-07 at 06:54 UTC
+/// Built on 2022-12-07 at 13:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1840,6 +1840,9 @@ class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileForma
 	// Translations
 	@override String get title => '此笔记使用新版 Saber 编辑而成';
 	@override String get cancel => '取消';
+	@override String get readOnlyMode => '只读模式';
+	@override String get subtitle => '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
+	@override String get allowEditing => '允许编辑';
 }
 
 // Path: <root>
@@ -2676,6 +2679,9 @@ extension on _StringsZhHansCn {
 			case 'editor.menu.lineHeightDescription': return '每一行的高度';
 			case 'editor.newerFileFormat.title': return '此笔记使用新版 Saber 编辑而成';
 			case 'editor.newerFileFormat.cancel': return '取消';
+			case 'editor.newerFileFormat.readOnlyMode': return '只读模式';
+			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
+			case 'editor.newerFileFormat.allowEditing': return '允许编辑';
 			default: return null;
 		}
 	}
