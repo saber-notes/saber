@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_switch.dart';
@@ -37,7 +38,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final bool requiresManualUpdates = !kIsWeb && FlavorConfig.appStore == null;
     return Scaffold(
-      appBar: AppBar(
+      appBar: isWatch ? null : AppBar(
         toolbarHeight: kToolbarHeight,
         title: Text(t.home.titles.settings),
         actions: [

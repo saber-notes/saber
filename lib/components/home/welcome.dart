@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Welcome extends StatelessWidget {
@@ -17,13 +18,13 @@ class Welcome extends StatelessWidget {
           children: [
             SvgPicture.asset(
               "assets/images/undraw_learning_sketching_nd4f.svg",
-              width: 300,
+              width: isWatch ? 100 : 300,
               excludeFromSemantics: true,
             ),
-            const SizedBox(height: 64),
-            Text(t.home.welcome, style: textTheme.headline4),
-            const SizedBox(height: 8),
-            Text(t.home.createNewNote, style: textTheme.bodyText1),
+            if (!isWatch) const SizedBox(height: 64),
+            Text(t.home.welcome, style: isWatch ? null : textTheme.headline4),
+            if (!isWatch) const SizedBox(height: 8),
+            Text(t.home.createNewNote, style: isWatch ? null : textTheme.bodyText1),
           ],
         ),
       ),

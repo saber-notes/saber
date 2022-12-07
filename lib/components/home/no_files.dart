@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NoFiles extends StatelessWidget {
@@ -17,13 +18,13 @@ class NoFiles extends StatelessWidget {
           children: [
             SvgPicture.asset(
               "assets/images/undraw_researching_re_fuod.svg",
-              width: 300,
+              width: isWatch ? 100 : 300,
               excludeFromSemantics: true,
             ),
-            const SizedBox(height: 64),
-            Text(t.home.noFiles, style: textTheme.headline4),
-            const SizedBox(height: 8),
-            Text(t.home.createNewNote, style: textTheme.bodyText1),
+            if (!isWatch) const SizedBox(height: 64),
+            Text(t.home.noFiles, style: isWatch ? null : textTheme.headline4),
+            if (!isWatch) const SizedBox(height: 8),
+            Text(t.home.createNewNote, style: isWatch ? null : textTheme.bodyText1),
           ],
         ),
       ),

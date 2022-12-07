@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/syncing_button.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -44,7 +45,7 @@ class _RecentPageState extends State<RecentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: isWatch ? null : AppBar(
         toolbarHeight: kToolbarHeight,
         title: Text(t.home.titles.home),
         actions: const [
@@ -59,7 +60,7 @@ class _RecentPageState extends State<RecentPage> {
           context.push("${RoutePaths.edit}?path=$filePath");
         },
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: isWatch ? null : FloatingActionButton(
         onPressed: () {
           context.push(RoutePaths.edit);
         },
