@@ -192,15 +192,20 @@ class _ToolbarState extends State<Toolbar> {
                     onPressed: (_) => widget.toggleFingerDrawing(),
                     child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
                   ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.undo,
-                    onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
-                    child: const Icon(Icons.undo),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.redo,
-                    onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
-                    child: const Icon(Icons.redo),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ToolbarIconButton(
+                        tooltip: t.editor.toolbar.undo,
+                        onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
+                        child: const Icon(Icons.undo),
+                      ),
+                      ToolbarIconButton(
+                        tooltip: t.editor.toolbar.redo,
+                        onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
+                        child: const Icon(Icons.redo),
+                      ),
+                    ],
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.export,
