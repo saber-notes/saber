@@ -1,0 +1,29 @@
+name: saber
+version: 0.4.3
+summary: Handwritten notes
+description: A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and the web!
+
+confinement: strict
+base: core18
+grade: devel
+
+slots:
+  dbus-saber:
+    interface: dbus
+    bus: session
+    name: com.adilhanney.saber
+
+apps:
+  saber:
+    command: saber
+    extensions: [flutter-stable]
+    plugs:
+      - network
+    slots:
+      - dbus-saber
+
+parts:
+  saber:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main_snap.dart
