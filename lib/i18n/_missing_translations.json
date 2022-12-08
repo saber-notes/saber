@@ -52,7 +52,7 @@
   "zh-Hant-TW": {
     "login": {
       "feedbacks": {
-        "dontUseEmail": "Please use your username to login, not your email."
+        "dontUseEmail": "請使用您的使用者名稱登入，而不是您的電子郵件。"
       }
     }
   }
