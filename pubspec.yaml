@@ -107,6 +107,7 @@ dependencies:
       ref: upgrade-versions
 
 dev_dependencies:
+  test: ^1.21.4
   flutter_test:
     sdk: flutter
   integration_test:
