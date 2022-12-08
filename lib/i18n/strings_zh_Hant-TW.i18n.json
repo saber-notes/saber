@@ -55,7 +55,7 @@
   "login": {
     "title": "登入",
     "feedbacks": {
-      "checkUsername": "請仔細檢查您的使用者名稱或電子郵件。",
+      "checkUsername": "請仔細檢查您的使用者名稱",
       "enterNcPassword": "請輸入您的 Nextcloud 密碼。",
       "enterEncPassword": "請輸入您的加密密碼。",
       "checkUrl": "請輸入有效連結。",
@@ -66,7 +66,7 @@
     "form": {
       "useCustomServer": "我想要使用自訂 Nextcloud 伺服器",
       "customServerUrl": "自訂伺服器連結",
-      "username": "使用者名稱或電子郵件",
+      "username": "使用者名稱",
       "ncPassword": "Nextcloud 密碼",
       "encPassword": "加密密碼",
       "agreeToPrivacyPolicy(rich)": "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。",
