@@ -116,7 +116,7 @@ class _SizePickerState extends State<SizePicker> {
                 ),
               ),
               SizedBox(
-                width: widget.pen.sizeMax,
+                width: 30,
                 child: TextField(
                   controller: _controller,
                   decoration: const InputDecoration(
