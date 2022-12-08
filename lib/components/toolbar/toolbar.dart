@@ -157,6 +157,7 @@ class _ToolbarState extends State<Toolbar> {
                       }
                     },
                     modal: PenModal(
+                      currentTool: Pen.currentPen,
                       setTool: widget.setTool,
                     ),
                     child: FaIcon(Pen.currentPen.icon, size: 16),
@@ -165,8 +166,16 @@ class _ToolbarState extends State<Toolbar> {
                     tooltip: t.editor.pens.highlighter,
                     selected: widget.currentTool == Highlighter.currentHighlighter,
                     onPressed: (button) {
-                      widget.setTool(Highlighter.currentHighlighter);
+                      if (widget.currentTool == Highlighter.currentHighlighter) {
+                        button.openModal(context);
+                      } else {
+                        widget.setTool(Highlighter.currentHighlighter);
+                      }
                     },
+                    modal: PenModal(
+                      currentTool: Highlighter.currentHighlighter,
+                      setTool: widget.setTool,
+                    ),
                     child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
                   ),
                   ToolbarIconButton(

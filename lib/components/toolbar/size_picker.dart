@@ -8,11 +8,10 @@ import 'package:saber/i18n/strings.g.dart';
 class SizePicker extends StatefulWidget {
   const SizePicker({
     super.key,
-    required this.currentTool,
+    required this.pen,
   });
 
-  final double max = 25;
-  final Pen currentTool;
+  final Pen pen;
 
   @override
   State<SizePicker> createState() => _SizePickerState();
@@ -41,11 +40,11 @@ class _SizePickerState extends State<SizePicker> {
   void updateValue({double? newValue, bool manuallyTypedIn = false}) {
     if (newValue != null) {
       setState(() {
-        widget.currentTool.strokeProperties.size = newValue.clamp(1, widget.max).roundToDouble();
+        widget.pen.strokeProperties.size = newValue.clamp(widget.pen.sizeMin, widget.pen.sizeMax).roundToDouble();
       });
     }
 
-    String valueString = widget.currentTool.strokeProperties.size.round().toString();
+    String valueString = widget.pen.strokeProperties.size.round().toString();
     updateTextFieldTimer?.cancel();
     if (manuallyTypedIn) {
       updateTextFieldTimer = Timer(const Duration(milliseconds: 3000), () {
@@ -59,8 +58,8 @@ class _SizePickerState extends State<SizePicker> {
   void onDrag(Offset currentOffset) {
     if (startingOffset == null) return;
 
-    final double delta = (currentOffset.dx - startingOffset!.dx) / widget.max * 4;
-    final double newValue = startingValue + delta;
+    final double delta = (currentOffset.dx - startingOffset!.dx) / widget.pen.sizeMax * 4 * widget.pen.sizeStep;
+    final double newValue = startingValue + delta ~/ widget.pen.sizeStep * widget.pen.sizeStep;
     setState(() {
       updateValue(newValue: newValue);
     });
@@ -81,7 +80,7 @@ class _SizePickerState extends State<SizePicker> {
         behavior: HitTestBehavior.opaque,
         onPanStart: (DragStartDetails details) {
           startingOffset = details.globalPosition;
-          startingValue = widget.currentTool.strokeProperties.size;
+          startingValue = widget.pen.strokeProperties.size;
         },
         onPanUpdate: (DragUpdateDetails details) {
           onDrag(details.globalPosition);
@@ -95,8 +94,8 @@ class _SizePickerState extends State<SizePicker> {
             children: [
               Text(t.editor.penOptions.size),
               Container(
-                width: widget.max,
-                height: widget.max,
+                width: 25,
+                height: 25,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: colorScheme.onBackground,
@@ -107,8 +106,8 @@ class _SizePickerState extends State<SizePicker> {
                 child: Center(
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 100),
-                    width: Pen.currentPen.strokeProperties.size,
-                    height: Pen.currentPen.strokeProperties.size,
+                    width: widget.pen.strokeProperties.size / widget.pen.sizeMax * 25,
+                    height: widget.pen.strokeProperties.size / widget.pen.sizeMax * 25,
                     decoration: BoxDecoration(
                       color: colorScheme.onBackground,
                       shape: BoxShape.circle,
@@ -116,13 +115,14 @@ class _SizePickerState extends State<SizePicker> {
                   ),
                 ),
               ),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: widget.max),
+              SizedBox(
+                width: widget.pen.sizeMax,
                 child: TextField(
                   controller: _controller,
                   decoration: const InputDecoration(
                     isDense: true,
                     border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(top: 2),
                   ),
                   style: const TextStyle(
                     fontSize: 14,

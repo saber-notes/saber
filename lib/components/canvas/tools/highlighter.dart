@@ -8,7 +8,13 @@ import 'package:saber/i18n/strings.g.dart';
 import 'pen.dart';
 
 class Highlighter extends Pen {
-  Highlighter() : super(name: t.editor.pens.highlighter, icon: highlighterIcon) {
+  Highlighter() : super(
+    name: t.editor.pens.highlighter,
+    sizeMin: 10,
+    sizeMax: 100,
+    sizeStep: 10,
+    icon: highlighterIcon,
+  ) {
     strokeProperties = Prefs.lastHighlighterProperties.value;
   }
 

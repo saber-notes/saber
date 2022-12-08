@@ -15,20 +15,30 @@ class Pen extends Tool {
   @visibleForTesting
   Pen({
     required this.name,
+    required this.sizeMin,
+    required this.sizeMax,
+    required this.sizeStep,
     required this.icon,
   });
 
   Pen.fountainPen() :
         name = t.editor.pens.fountainPen,
+        sizeMin = 1,
+        sizeMax = 25,
+        sizeStep = 1,
         icon = fountainPenIcon,
         strokeProperties = Prefs.lastFountainPenProperties.value;
 
   Pen.ballpointPen() :
         name = t.editor.pens.ballpointPen,
+        sizeMin = 1,
+        sizeMax = 25,
+        sizeStep = 1,
         icon = ballpointPenIcon,
         strokeProperties = Prefs.lastBallpointPenProperties.value;
 
   final String name;
+  final double sizeMin, sizeMax, sizeStep;
   final IconData icon;
   static const IconData fountainPenIcon = FontAwesomeIcons.penFancy;
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
