@@ -92,6 +92,10 @@
 		"dismiss": "Dismiss",
 		"update": "Update"
 	},
+	"usernameNotEmail": {
+		"title": "You may be experiencing sync issues",
+		"description": "Please login again using your username instead of your email address."
+	},
 	"editor": {
 		"toolbar": {
 			"toggleColors": "Toggle colors (Ctrl C)",

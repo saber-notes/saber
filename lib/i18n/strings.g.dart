@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 496 (82 per locale)
+/// Strings: 498 (83 per locale)
 ///
-/// Built on 2022-12-08 at 23:10 UTC
+/// Built on 2022-12-08 at 23:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -157,6 +157,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
+	late final _StringsUsernameNotEmailEn usernameNotEmail = _StringsUsernameNotEmailEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
 }
 
@@ -232,6 +233,17 @@ class _StringsUpdateEn {
 	String get updateAvailableDescription => 'A new version of the app is available.';
 	String get dismiss => 'Dismiss';
 	String get update => 'Update';
+}
+
+// Path: usernameNotEmail
+class _StringsUsernameNotEmailEn {
+	_StringsUsernameNotEmailEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'You may be experiencing sync issues';
+	String get description => 'Please login again using your username instead of your email address.';
 }
 
 // Path: editor
@@ -2272,6 +2284,8 @@ extension on _StringsEn {
 			case 'update.updateAvailableDescription': return 'A new version of the app is available.';
 			case 'update.dismiss': return 'Dismiss';
 			case 'update.update': return 'Update';
+			case 'usernameNotEmail.title': return 'You may be experiencing sync issues';
+			case 'usernameNotEmail.description': return 'Please login again using your username instead of your email address.';
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Photo';
