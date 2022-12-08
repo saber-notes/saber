@@ -36,6 +36,7 @@ abstract class FileSyncer {
   static void startSync() async {
     _uploadFileFromQueue();
 
+    if (_client?.username != Prefs.username.value) _client = null;
     _client ??= await NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
@@ -86,6 +87,7 @@ abstract class FileSyncer {
     await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
 
+    if (_client?.username != Prefs.username.value) _client = null;
     _client ??= await NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
