@@ -49,11 +49,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "login": {
-      "feedbacks": {
-        "dontUseEmail": "Please use your username to login, not your email."
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
