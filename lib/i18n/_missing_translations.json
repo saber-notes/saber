@@ -45,7 +45,7 @@
   "zh-Hans-CN": {
     "login": {
       "feedbacks": {
-        "dontUseEmail": "Please use your username to login, not your email."
+        "dontUseEmail": "请使用您的用户名登录，而非您的邮箱。"
       }
     }
   },
