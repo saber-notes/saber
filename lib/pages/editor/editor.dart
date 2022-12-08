@@ -97,7 +97,7 @@ class _EditorState extends State<Editor> {
     coreInfo = await EditorCoreInfo.loadFromFilePath(path);
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
-      pages.add(EditorPage());
+      createPageOfStroke(0);
     } else {
       for (Stroke stroke in coreInfo.strokes) {
         createPageOfStroke(stroke.pageIndex);
@@ -246,6 +246,7 @@ class _EditorState extends State<Editor> {
   }
 
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
+    assert(coreInfo.pageSizes.length == pages.length, "pageSizes and pages must be the same length");
     for (int i = 0; i < pages.length; ++i) {
       if (pages[i].renderBox == null) continue;
       Rect pageBounds = Offset.zero & coreInfo.pageSizes[i];
