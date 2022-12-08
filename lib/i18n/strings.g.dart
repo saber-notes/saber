@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 495 (82 per locale)
+/// Strings: 496 (82 per locale)
 ///
-/// Built on 2022-12-08 at 21:55 UTC
+/// Built on 2022-12-08 at 23:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2077,13 +2077,14 @@ class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => '請仔細檢查您的使用者名稱或電子郵件。';
+	@override String get checkUsername => '請仔細檢查您的使用者名稱';
 	@override String get enterNcPassword => '請輸入您的 Nextcloud 密碼。';
 	@override String get enterEncPassword => '請輸入您的加密密碼。';
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
 	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
+	@override String get dontUseEmail => '請使用您的使用者名稱登入，而不是您的電子郵件。';
 }
 
 // Path: login.form
@@ -2095,7 +2096,7 @@ class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => '我想要使用自訂 Nextcloud 伺服器';
 	@override String get customServerUrl => '自訂伺服器連結';
-	@override String get username => '使用者名稱或電子郵件';
+	@override String get username => '使用者名稱';
 	@override String get ncPassword => 'Nextcloud 密碼';
 	@override String get encPassword => '加密密碼';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2726,16 +2727,17 @@ extension on _StringsZhHantTw {
 			case 'settings.straightenDelay.regular': return '正常';
 			case 'settings.straightenDelay.slow': return '緩慢';
 			case 'login.title': return '登入';
-			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
+			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱';
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
 			case 'login.feedbacks.enterEncPassword': return '請輸入您的加密密碼。';
 			case 'login.feedbacks.checkUrl': return '請輸入有效連結。';
 			case 'login.feedbacks.ncLoginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
 			case 'login.feedbacks.loginSuccess': return '登入成功！我們正在設定中，請稍後……';
 			case 'login.feedbacks.encLoginFailed': return '登入失敗，請檢查您的加密密碼。';
+			case 'login.feedbacks.dontUseEmail': return '請使用您的使用者名稱登入，而不是您的電子郵件。';
 			case 'login.form.useCustomServer': return '我想要使用自訂 Nextcloud 伺服器';
 			case 'login.form.customServerUrl': return '自訂伺服器連結';
-			case 'login.form.username': return '使用者名稱或電子郵件';
+			case 'login.form.username': return '使用者名稱';
 			case 'login.form.ncPassword': return 'Nextcloud 密碼';
 			case 'login.form.encPassword': return '加密密碼';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [

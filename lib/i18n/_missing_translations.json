@@ -49,11 +49,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "login": {
-      "feedbacks": {
-        "dontUseEmail": "請使用您的使用者名稱登入，而不是您的電子郵件。"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
