@@ -489,7 +489,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "258175ffbcf4bf884a67e349ecfa5d8b1a1c956c"
+      resolved-ref: bee053c499728839be6dcf3df7cf8daa194aab24
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"

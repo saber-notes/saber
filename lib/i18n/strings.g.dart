@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 494 (82 per locale)
+/// Strings: 495 (82 per locale)
 ///
-/// Built on 2022-12-07 at 13:19 UTC
+/// Built on 2022-12-08 at 21:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -357,7 +357,8 @@ class _StringsLoginFeedbacksEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get checkUsername => 'Please double check your username or email.';
+	String get checkUsername => 'Please double check your username.';
+	String get dontUseEmail => 'Please use your username to login, not your email.';
 	String get enterNcPassword => 'Please enter your Nextcloud password.';
 	String get enterEncPassword => 'Please enter your encryption password.';
 	String get checkUrl => 'Please enter a valid URL.';
@@ -375,7 +376,7 @@ class _StringsLoginFormEn {
 	// Translations
 	String get useCustomServer => 'I want to use a custom Nextcloud server';
 	String get customServerUrl => 'Custom server URL';
-	String get username => 'Username or email';
+	String get username => 'Username';
 	String get ncPassword => 'Nextcloud password';
 	String get encPassword => 'Encryption password';
 	TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -707,7 +708,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
+	@override String get checkUsername => 'Bitte überprüfe deinen Benutzernamen.';
 	@override String get enterNcPassword => 'Bitte gib dein Nextcloud-Passwort ein.';
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
@@ -725,7 +726,7 @@ class _StringsLoginFormDe extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Ich möchte einen eigenen Nextcloud-Server verwenden';
 	@override String get customServerUrl => 'Eigene Server-URL';
-	@override String get username => 'Benutzername oder E-Mail';
+	@override String get username => 'Benutzername';
 	@override String get ncPassword => 'Nextcloud-Passwort';
 	@override String get encPassword => 'Verschlüsselungspasswort';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -1055,7 +1056,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Por favor verifica tu nombre de usuario o correo electrónico.';
+	@override String get checkUsername => 'Por favor verifica tu nombre de usuario.';
 	@override String get enterNcPassword => 'Por favor ingresa tu contraseña de Nextcloud.';
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
@@ -1073,7 +1074,7 @@ class _StringsLoginFormEs extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Quiero utilizar un servidor de Nextcloud personalizado';
 	@override String get customServerUrl => 'Dirección URL del servidor personalizada';
-	@override String get username => 'Nombre de usuario o correo electrónico';
+	@override String get username => 'Nombre de usuario';
 	@override String get ncPassword => 'Contraseña de Nextcloud';
 	@override String get encPassword => 'Contraseña de cifrado';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -1390,7 +1391,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Ricontrolla il tuo nome utente o e-mail.';
+	@override String get checkUsername => 'Ricontrolla il tuo nome utente.';
 	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
 	@override String get enterEncPassword => 'Inserisci la tua password di crittografata.';
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
@@ -1408,7 +1409,7 @@ class _StringsLoginFormIt extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Voglio utilizzare un server Nextcloud personalizzato';
 	@override String get customServerUrl => 'URL del server personalizzato';
-	@override String get username => 'Nome utente o email';
+	@override String get username => 'Nome utente';
 	@override String get ncPassword => 'Password nextcloud';
 	@override String get encPassword => 'Password di crittografata';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2235,7 +2236,8 @@ extension on _StringsEn {
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Slow';
 			case 'login.title': return 'Login';
-			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
+			case 'login.feedbacks.checkUsername': return 'Please double check your username.';
+			case 'login.feedbacks.dontUseEmail': return 'Please use your username to login, not your email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
 			case 'login.feedbacks.enterEncPassword': return 'Please enter your encryption password.';
 			case 'login.feedbacks.checkUrl': return 'Please enter a valid URL.';
@@ -2244,7 +2246,7 @@ extension on _StringsEn {
 			case 'login.feedbacks.loginSuccess': return 'Log in successful! Please wait while we set up...';
 			case 'login.form.useCustomServer': return 'I want to use a custom Nextcloud server';
 			case 'login.form.customServerUrl': return 'Custom server URL';
-			case 'login.form.username': return 'Username or email';
+			case 'login.form.username': return 'Username';
 			case 'login.form.ncPassword': return 'Nextcloud password';
 			case 'login.form.encPassword': return 'Encryption password';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2335,7 +2337,7 @@ extension on _StringsDe {
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Langsam';
 			case 'login.title': return 'Login';
-			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
+			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen.';
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';
 			case 'login.feedbacks.enterEncPassword': return 'Bitte gib dein Verschlüsselungspasswort ein.';
 			case 'login.feedbacks.checkUrl': return 'Bitte gib eine gültige URL an.';
@@ -2344,7 +2346,7 @@ extension on _StringsDe {
 			case 'login.feedbacks.encLoginFailed': return 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 			case 'login.form.useCustomServer': return 'Ich möchte einen eigenen Nextcloud-Server verwenden';
 			case 'login.form.customServerUrl': return 'Eigene Server-URL';
-			case 'login.form.username': return 'Benutzername oder E-Mail';
+			case 'login.form.username': return 'Benutzername';
 			case 'login.form.ncPassword': return 'Nextcloud-Passwort';
 			case 'login.form.encPassword': return 'Verschlüsselungspasswort';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2435,7 +2437,7 @@ extension on _StringsEs {
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Iniciar sesión';
-			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario o correo electrónico.';
+			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario.';
 			case 'login.feedbacks.enterNcPassword': return 'Por favor ingresa tu contraseña de Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Por favor introduce tu contraseña de cifrado.';
 			case 'login.feedbacks.checkUrl': return 'Por favor introduce una dirección URL válida.';
@@ -2444,7 +2446,7 @@ extension on _StringsEs {
 			case 'login.feedbacks.encLoginFailed': return 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 			case 'login.form.useCustomServer': return 'Quiero utilizar un servidor de Nextcloud personalizado';
 			case 'login.form.customServerUrl': return 'Dirección URL del servidor personalizada';
-			case 'login.form.username': return 'Nombre de usuario o correo electrónico';
+			case 'login.form.username': return 'Nombre de usuario';
 			case 'login.form.ncPassword': return 'Contraseña de Nextcloud';
 			case 'login.form.encPassword': return 'Contraseña de cifrado';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2529,7 +2531,7 @@ extension on _StringsIt {
 			case 'settings.straightenDelay.regular': return 'Regolare';
 			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Login';
-			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
+			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente.';
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Inserisci la tua password di crittografata.';
 			case 'login.feedbacks.checkUrl': return 'Per favore, inserisci un URL valido.';
@@ -2538,7 +2540,7 @@ extension on _StringsIt {
 			case 'login.feedbacks.encLoginFailed': return 'Accesso non riuscito, controllare la password di crittografia.';
 			case 'login.form.useCustomServer': return 'Voglio utilizzare un server Nextcloud personalizzato';
 			case 'login.form.customServerUrl': return 'URL del server personalizzato';
-			case 'login.form.username': return 'Nome utente o email';
+			case 'login.form.username': return 'Nome utente';
 			case 'login.form.ncPassword': return 'Password nextcloud';
 			case 'login.form.encPassword': return 'Password di crittografata';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [

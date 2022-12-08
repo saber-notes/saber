@@ -55,7 +55,8 @@
 	"login": {
 		"title": "Login",
 		"feedbacks": {
-			"checkUsername": "Please double check your username or email.",
+			"checkUsername": "Please double check your username.",
+			"dontUseEmail": "Please use your username to login, not your email.",
 			"enterNcPassword": "Please enter your Nextcloud password.",
 			"enterEncPassword": "Please enter your encryption password.",
 			"checkUrl": "Please enter a valid URL.",
@@ -66,7 +67,7 @@
 		"form": {
 			"useCustomServer": "I want to use a custom Nextcloud server",
 			"customServerUrl": "Custom server URL",
-			"username": "Username or email",
+			"username": "Username",
 			"ncPassword": "Nextcloud password",
 			"encPassword": "Encryption password",
 			"agreeToPrivacyPolicy(rich)": "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.",

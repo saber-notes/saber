@@ -44,9 +44,14 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     String username = _usernameController.text;
     String ncPassword = _ncPasswordController.text;
     String encPassword = _encPasswordController.text;
-    if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
+    if (username.isEmpty) {
       setState(() {
         _errorMessage = t.login.feedbacks.checkUsername;
+      });
+      return false;
+    } else if (username.contains("@")) {
+      setState(() {
+        _errorMessage = t.login.feedbacks.dontUseEmail;
       });
       return false;
     } else if (ncPassword.isEmpty) {
@@ -168,7 +173,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
           AdaptiveTextField(
             controller: _usernameController,
-            autofillHints: const [AutofillHints.username, AutofillHints.email],
+            autofillHints: const [AutofillHints.username],
             placeholder: t.login.form.username,
             prefixIcon: const Icon(Icons.person),
           ),

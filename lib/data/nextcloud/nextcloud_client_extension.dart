@@ -28,6 +28,7 @@ extension NextcloudClientExtension on NextcloudClient {
 
     return NextcloudClient(
       url.isNotEmpty ? url : defaultNextCloudUri,
+      loginName: username,
       username: username,
       password: ncPassword,
     );

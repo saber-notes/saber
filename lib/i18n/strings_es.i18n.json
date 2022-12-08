@@ -57,7 +57,7 @@
 	"login": {
 		"title": "Iniciar sesión",
 		"feedbacks": {
-			"checkUsername": "Por favor verifica tu nombre de usuario o correo electrónico.",
+			"checkUsername": "Por favor verifica tu nombre de usuario.",
 			"enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
 			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
 			"checkUrl": "Por favor introduce una dirección URL válida.",
@@ -68,7 +68,7 @@
 		"form": {
 			"useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
 			"customServerUrl": "Dirección URL del servidor personalizada",
-			"username": "Nombre de usuario o correo electrónico",
+			"username": "Nombre de usuario",
 			"ncPassword": "Contraseña de Nextcloud",
 			"encPassword": "Contraseña de cifrado",
 			"agreeToPrivacyPolicy(rich)": "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.",
