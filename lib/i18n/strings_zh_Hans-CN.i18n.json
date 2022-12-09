@@ -55,18 +55,19 @@
   "login": {
     "title": "登录",
     "feedbacks": {
-      "checkUsername": "请仔细检查您的用户名或电子邮件。",
+      "checkUsername": "请仔细检查您的用户名。",
       "enterNcPassword": "请输入您的 Nextcloud 密码。",
       "enterEncPassword": "请输入您的加密密码。",
       "checkUrl": "请输入有效链接。",
       "ncLoginFailed": "登录失败，请检查您的详细信息和网络连接。",
       "loginSuccess": "登录成功！我们正在设置中，请稍候……",
-      "encLoginFailed": "登录失败，请检查您的加密密码。"
+      "encLoginFailed": "登录失败，请检查您的加密密码。",
+      "dontUseEmail": "请使用您的用户名登录，而非您的邮箱。"
     },
     "form": {
       "useCustomServer": "我想要使用自定义 Nextcloud 服务器",
       "customServerUrl": "自定义服务器链接",
-      "username": "用户名或邮箱",
+      "username": "用户名",
       "ncPassword": "Nextcloud 密码",
       "encPassword": "加密密码",
       "agreeToPrivacyPolicy(rich)": "登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。",
@@ -128,5 +129,9 @@
       "subtitle": "编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？",
       "allowEditing": "允许编辑"
     }
+  },
+  "usernameNotEmail": {
+    "title": "您可能会遇到同步问题",
+    "description": "请使用您的用户名重新登录而非您的邮箱。"
   }
 }
