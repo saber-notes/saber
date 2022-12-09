@@ -61,8 +61,8 @@
       }
     },
     "usernameNotEmail": {
-      "title": "You may be experiencing sync issues",
-      "description": "Please login again using your username instead of your email address."
+      "title": "您可能遇到同步问题",
+      "description": "请使用您的用户名重新登录而非您的邮箱。"
     }
   },
   "zh-Hant-TW": {
