@@ -14,26 +14,7 @@
       "description": "Please login again using your username instead of your email address."
     }
   },
-  "es": {
-    "login": {
-      "feedbacks": {
-        "dontUseEmail": "Please use your username to login, not your email."
-      }
-    },
-    "usernameNotEmail": {
-      "title": "You may be experiencing sync issues",
-      "description": "Please login again using your username instead of your email address."
-    },
-    "editor": {
-      "newerFileFormat": {
-        "readOnlyMode": "Read-only mode",
-        "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
-        "allowEditing": "Allow editing",
-        "cancel": "Cancel"
-      }
-    }
-  },
+  "es": {},
   "it": {
     "login": {
       "feedbacks": {
