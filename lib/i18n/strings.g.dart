@@ -870,6 +870,7 @@ class _StringsEs extends _StringsEn {
 	@override late final _StringsLoginEs login = _StringsLoginEs._(_root);
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
+	@override late final _StringsUsernameNotEmailEs usernameNotEmail = _StringsUsernameNotEmailEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
 }
 
@@ -946,6 +947,17 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 	@override String get update => 'Actualizar';
 }
 
+// Path: usernameNotEmail
+class _StringsUsernameNotEmailEs extends _StringsUsernameNotEmailEn {
+	_StringsUsernameNotEmailEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Es posible que estés experimentando problemas de sincronización';
+	@override String get description => 'por favor vuelve a iniciar sesión con tu nombre de usuario en lugar de tu dirección de correo electrónico.';
+}
+
 // Path: editor
 class _StringsEditorEs extends _StringsEditorEn {
 	_StringsEditorEs._(_StringsEs root) : this._root = root, super._(root);
@@ -958,6 +970,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsEs penOptions = _StringsEditorPenOptionsEs._(_root);
 	@override late final _StringsEditorImageOptionsEs imageOptions = _StringsEditorImageOptionsEs._(_root);
 	@override late final _StringsEditorMenuEs menu = _StringsEditorMenuEs._(_root);
+	@override late final _StringsEditorNewerFileFormatEs newerFileFormat = _StringsEditorNewerFileFormatEs._(_root);
 }
 
 // Path: home.tabs
@@ -1069,6 +1082,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 
 	// Translations
 	@override String get checkUsername => 'Por favor verifica tu nombre de usuario.';
+	@override String get dontUseEmail => 'por favor utiliza tu nombre de usuario para iniciar sesión, no tu correo electrónico.';
 	@override String get enterNcPassword => 'Por favor ingresa tu contraseña de Nextcloud.';
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
@@ -1171,6 +1185,20 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Borrar todas las páginas';
 	@override String get lineHeight => 'Altura de la línea';
 	@override String get lineHeightDescription => 'El tamaño de cada línea';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatEs extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Modo de solo lectura';
+	@override String get title => 'Esta nota fue editada usando una versión más reciente de Saber';
+	@override String get subtitle => 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
+	@override String get allowEditing => 'Editar';
+	@override String get cancel => 'Cancelar';
 }
 
 // Path: <root>
@@ -1903,6 +1931,7 @@ class _StringsZhHantTw extends _StringsEn {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
+	@override late final _StringsUsernameNotEmailZhHantTw usernameNotEmail = _StringsUsernameNotEmailZhHantTw._(_root);
 }
 
 // Path: home
@@ -1992,6 +2021,17 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
+}
+
+// Path: usernameNotEmail
+class _StringsUsernameNotEmailZhHantTw extends _StringsUsernameNotEmailEn {
+	_StringsUsernameNotEmailZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '您可能遇到同步問題';
+	@override String get description => '請使用您的使用者名稱而不是您的電子郵件地址重新登入';
 }
 
 // Path: home.tabs
@@ -2466,6 +2506,7 @@ extension on _StringsEs {
 			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Iniciar sesión';
 			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario.';
+			case 'login.feedbacks.dontUseEmail': return 'por favor utiliza tu nombre de usuario para iniciar sesión, no tu correo electrónico.';
 			case 'login.feedbacks.enterNcPassword': return 'Por favor ingresa tu contraseña de Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Por favor introduce tu contraseña de cifrado.';
 			case 'login.feedbacks.checkUrl': return 'Por favor introduce una dirección URL válida.';
@@ -2498,6 +2539,8 @@ extension on _StringsEs {
 			case 'update.updateAvailableDescription': return 'Hay una nueva versión de la aplicación disponible.';
 			case 'update.dismiss': return 'Ignorar';
 			case 'update.update': return 'Actualizar';
+			case 'usernameNotEmail.title': return 'Es posible que estés experimentando problemas de sincronización';
+			case 'usernameNotEmail.description': return 'por favor vuelve a iniciar sesión con tu nombre de usuario en lugar de tu dirección de correo electrónico.';
 			case 'editor.toolbar.toggleColors': return 'Cambiar colores (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Borrador (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Foto';
@@ -2517,6 +2560,11 @@ extension on _StringsEs {
 			case 'editor.menu.clearAllPages': return 'Borrar todas las páginas';
 			case 'editor.menu.lineHeight': return 'Altura de la línea';
 			case 'editor.menu.lineHeightDescription': return 'El tamaño de cada línea';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Modo de solo lectura';
+			case 'editor.newerFileFormat.title': return 'Esta nota fue editada usando una versión más reciente de Saber';
+			case 'editor.newerFileFormat.subtitle': return 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
+			case 'editor.newerFileFormat.allowEditing': return 'Editar';
+			case 'editor.newerFileFormat.cancel': return 'Cancelar';
 			default: return null;
 		}
 	}
@@ -2816,6 +2864,8 @@ extension on _StringsZhHantTw {
 			case 'editor.newerFileFormat.readOnlyMode': return '唯讀模式';
 			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 			case 'editor.newerFileFormat.allowEditing': return '允許編輯';
+			case 'usernameNotEmail.title': return '您可能遇到同步問題';
+			case 'usernameNotEmail.description': return '請使用您的使用者名稱而不是您的電子郵件地址重新登入';
 			default: return null;
 		}
 	}

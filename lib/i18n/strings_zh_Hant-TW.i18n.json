@@ -129,5 +129,9 @@
       "subtitle": "編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？",
       "allowEditing": "允許編輯"
     }
+  },
+  "usernameNotEmail": {
+    "title": "您可能遇到同步問題",
+    "description": "請使用您的使用者名稱而不是您的電子郵件地址重新登入"
   }
 }
