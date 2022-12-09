@@ -84,6 +84,14 @@ extension NextcloudClientExtension on NextcloudClient {
     return key.base64;
   }
 
+  Future<String> getUsername() async {
+    try {
+      return (await provisioningApi.getCurrentUser()).ocs.data.id;
+    } catch (e) {
+      throw NcLoginFailure();
+    }
+  }
+
   Future<Encrypter> get encrypter async {
     final List<int> encodedPassword = utf8.encode(Prefs.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;

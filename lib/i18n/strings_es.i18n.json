@@ -57,8 +57,7 @@
 	"login": {
 		"title": "Iniciar sesión",
 		"feedbacks": {
-			"checkUsername": "Por favor verifica tu nombre de usuario.",
-			"dontUseEmail": "por favor utiliza tu nombre de usuario para iniciar sesión, no tu correo electrónico.",
+			"checkUsername": "Por favor verifica tu nombre de usuario o correo electrónico.",
 			"enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
 			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
 			"checkUrl": "Por favor introduce una dirección URL válida.",
@@ -69,7 +68,7 @@
 		"form": {
 			"useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
 			"customServerUrl": "Dirección URL del servidor personalizada",
-			"username": "Nombre de usuario",
+			"username": "Nombre de usuario o correo electrónico",
 			"ncPassword": "Contraseña de Nextcloud",
 			"encPassword": "Contraseña de cifrado",
 			"agreeToPrivacyPolicy(rich)": "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.",
@@ -96,11 +95,6 @@
 		"dismiss": "Ignorar",
 		"update": "Actualizar"
 	},
-
-	"usernameNotEmail": {
-		"title": "Es posible que estés experimentando problemas de sincronización",
-		"description": "por favor vuelve a iniciar sesión con tu nombre de usuario en lugar de tu dirección de correo electrónico."
-	  },
 	
 	"editor": {
 		"toolbar": {

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class Prefs {
@@ -91,6 +92,20 @@ abstract class Prefs {
     fileSyncUploadQueue = EncPref("fileSyncUploadQueue", []);
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
+
+    _migrateEmailToUsername();
+  }
+
+  static void _migrateEmailToUsername() async {
+    await username.waitUntilLoaded();
+    await ncPassword.waitUntilLoaded();
+
+    if (!username.value.contains("@")) return;
+
+    final client = await NextcloudClientExtension.withSavedDetails();
+    if (client == null) return;
+
+    username.value = await client.getUsername();
   }
 
 }

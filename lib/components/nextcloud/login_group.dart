@@ -44,14 +44,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     String username = _usernameController.text;
     String ncPassword = _ncPasswordController.text;
     String encPassword = _encPasswordController.text;
-    if (username.isEmpty) {
+    if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
       setState(() {
         _errorMessage = t.login.feedbacks.checkUsername;
-      });
-      return false;
-    } else if (username.contains("@")) {
-      setState(() {
-        _errorMessage = t.login.feedbacks.dontUseEmail;
       });
       return false;
     } else if (ncPassword.isEmpty) {
@@ -88,7 +83,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       _isLoading = true;
       await widget.tryLogin(LoginDetailsStruct(
         url: _usingCustomServer ? _customServerController.text : null,
-        username: _usernameController.text,
+        loginName: _usernameController.text,
         ncPassword: _ncPasswordController.text,
         encPassword: _encPasswordController.text,
       ));
@@ -173,7 +168,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
           AdaptiveTextField(
             controller: _usernameController,
-            autofillHints: const [AutofillHints.username],
+            autofillHints: const [AutofillHints.username, AutofillHints.email],
             placeholder: t.login.form.username,
             prefixIcon: const Icon(Icons.person),
           ),
@@ -231,13 +226,13 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
 class LoginDetailsStruct {
   final String url;
-  final String username;
+  final String loginName;
   final String ncPassword;
   final String encPassword;
 
   LoginDetailsStruct({
     String? url,
-    required this.username,
+    required this.loginName,
     required this.ncPassword,
     required this.encPassword,
   }) : url = url ?? NextcloudClientExtension.defaultNextCloudUri;

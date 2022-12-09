@@ -26,13 +26,13 @@ class _NcLoginPageState extends State<NcLoginPage> {
   Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
     final NextcloudClient client = NextcloudClient(
       loginDetails.url,
-      loginName: loginDetails.username,
-      username: loginDetails.username,
+      loginName: loginDetails.loginName,
       password: loginDetails.ncPassword,
     );
 
+    final String username;
     try {
-      await client.webdav.status();
+      username = await client.getUsername();
     } catch (e) {
       throw NcLoginFailure();
     }
@@ -42,18 +42,16 @@ class _NcLoginPageState extends State<NcLoginPage> {
       Prefs.encPassword.value = loginDetails.encPassword;
       await client.loadEncryptionKey();
     } on EncLoginFailure {
-      rethrow;
-    } finally {
       // If the encryption password is wrong, we don't want to save it
       Prefs.encPassword.value = previousEncPassword;
     }
 
     Prefs.url.value = loginDetails.url.toString();
-    Prefs.username.value = loginDetails.username;
+    Prefs.username.value = username;
     Prefs.ncPassword.value = loginDetails.ncPassword;
 
     Prefs.pfp.value = "";
-    client.core.getAvatar(userId: loginDetails.username, size: 512)
+    client.core.getAvatar(userId: username, size: 512)
         .then((Uint8List avatar) {
       Prefs.pfp.value = base64Encode(avatar);
     });

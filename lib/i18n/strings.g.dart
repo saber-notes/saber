@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 501 (83 per locale)
+/// Strings: 499 (83 per locale)
 ///
-/// Built on 2022-12-09 at 04:15 UTC
+/// Built on 2022-12-09 at 07:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -157,7 +157,6 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
-	late final _StringsUsernameNotEmailEn usernameNotEmail = _StringsUsernameNotEmailEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
 }
 
@@ -233,17 +232,6 @@ class _StringsUpdateEn {
 	String get updateAvailableDescription => 'A new version of the app is available.';
 	String get dismiss => 'Dismiss';
 	String get update => 'Update';
-}
-
-// Path: usernameNotEmail
-class _StringsUsernameNotEmailEn {
-	_StringsUsernameNotEmailEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'You may be experiencing sync issues';
-	String get description => 'Please login again using your username instead of your email address.';
 }
 
 // Path: editor
@@ -369,8 +357,7 @@ class _StringsLoginFeedbacksEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get checkUsername => 'Please double check your username.';
-	String get dontUseEmail => 'Please use your username to login, not your email.';
+	String get checkUsername => 'Please double check your username or email.';
 	String get enterNcPassword => 'Please enter your Nextcloud password.';
 	String get enterEncPassword => 'Please enter your encryption password.';
 	String get checkUrl => 'Please enter a valid URL.';
@@ -388,7 +375,7 @@ class _StringsLoginFormEn {
 	// Translations
 	String get useCustomServer => 'I want to use a custom Nextcloud server';
 	String get customServerUrl => 'Custom server URL';
-	String get username => 'Username';
+	String get username => 'Username or email';
 	String get ncPassword => 'Nextcloud password';
 	String get encPassword => 'Encryption password';
 	TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -720,7 +707,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Bitte überprüfe deinen Benutzernamen.';
+	@override String get checkUsername => 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
 	@override String get enterNcPassword => 'Bitte gib dein Nextcloud-Passwort ein.';
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
@@ -738,7 +725,7 @@ class _StringsLoginFormDe extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Ich möchte einen eigenen Nextcloud-Server verwenden';
 	@override String get customServerUrl => 'Eigene Server-URL';
-	@override String get username => 'Benutzername';
+	@override String get username => 'Benutzername oder E-Mail';
 	@override String get ncPassword => 'Nextcloud-Passwort';
 	@override String get encPassword => 'Verschlüsselungspasswort';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -870,7 +857,6 @@ class _StringsEs extends _StringsEn {
 	@override late final _StringsLoginEs login = _StringsLoginEs._(_root);
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
-	@override late final _StringsUsernameNotEmailEs usernameNotEmail = _StringsUsernameNotEmailEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
 }
 
@@ -945,17 +931,6 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible.';
 	@override String get dismiss => 'Ignorar';
 	@override String get update => 'Actualizar';
-}
-
-// Path: usernameNotEmail
-class _StringsUsernameNotEmailEs extends _StringsUsernameNotEmailEn {
-	_StringsUsernameNotEmailEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Es posible que estés experimentando problemas de sincronización';
-	@override String get description => 'por favor vuelve a iniciar sesión con tu nombre de usuario en lugar de tu dirección de correo electrónico.';
 }
 
 // Path: editor
@@ -1081,8 +1056,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Por favor verifica tu nombre de usuario.';
-	@override String get dontUseEmail => 'por favor utiliza tu nombre de usuario para iniciar sesión, no tu correo electrónico.';
+	@override String get checkUsername => 'Por favor verifica tu nombre de usuario o correo electrónico.';
 	@override String get enterNcPassword => 'Por favor ingresa tu contraseña de Nextcloud.';
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
@@ -1100,7 +1074,7 @@ class _StringsLoginFormEs extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Quiero utilizar un servidor de Nextcloud personalizado';
 	@override String get customServerUrl => 'Dirección URL del servidor personalizada';
-	@override String get username => 'Nombre de usuario';
+	@override String get username => 'Nombre de usuario o correo electrónico';
 	@override String get ncPassword => 'Contraseña de Nextcloud';
 	@override String get encPassword => 'Contraseña de cifrado';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -1431,7 +1405,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Ricontrolla il tuo nome utente.';
+	@override String get checkUsername => 'Ricontrolla il tuo nome utente o e-mail.';
 	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
 	@override String get enterEncPassword => 'Inserisci la tua password di crittografata.';
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
@@ -1449,7 +1423,7 @@ class _StringsLoginFormIt extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Voglio utilizzare un server Nextcloud personalizzato';
 	@override String get customServerUrl => 'URL del server personalizzato';
-	@override String get username => 'Nome utente';
+	@override String get username => 'Nome utente o email';
 	@override String get ncPassword => 'Password nextcloud';
 	@override String get encPassword => 'Password di crittografata';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -1568,7 +1542,6 @@ class _StringsZhHansCn extends _StringsEn {
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
-	@override late final _StringsUsernameNotEmailZhHansCn usernameNotEmail = _StringsUsernameNotEmailZhHansCn._(_root);
 }
 
 // Path: home
@@ -1658,17 +1631,6 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
-}
-
-// Path: usernameNotEmail
-class _StringsUsernameNotEmailZhHansCn extends _StringsUsernameNotEmailEn {
-	_StringsUsernameNotEmailZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '您可能会遇到同步问题';
-	@override String get description => '请使用您的用户名重新登录而非您的邮箱。';
 }
 
 // Path: home.tabs
@@ -1779,14 +1741,13 @@ class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => '请仔细检查您的用户名。';
+	@override String get checkUsername => '请仔细检查您的用户名或电子邮件。';
 	@override String get enterNcPassword => '请输入您的 Nextcloud 密码。';
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
-	@override String get dontUseEmail => '请使用您的用户名登录，而非您的邮箱。';
 }
 
 // Path: login.form
@@ -1798,7 +1759,7 @@ class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => '我想要使用自定义 Nextcloud 服务器';
 	@override String get customServerUrl => '自定义服务器链接';
-	@override String get username => '用户名';
+	@override String get username => '用户名或邮箱';
 	@override String get ncPassword => 'Nextcloud 密码';
 	@override String get encPassword => '加密密码';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -1931,7 +1892,6 @@ class _StringsZhHantTw extends _StringsEn {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
-	@override late final _StringsUsernameNotEmailZhHantTw usernameNotEmail = _StringsUsernameNotEmailZhHantTw._(_root);
 }
 
 // Path: home
@@ -2021,17 +1981,6 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
-}
-
-// Path: usernameNotEmail
-class _StringsUsernameNotEmailZhHantTw extends _StringsUsernameNotEmailEn {
-	_StringsUsernameNotEmailZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '您可能遇到同步問題';
-	@override String get description => '請使用您的使用者名稱而不是您的電子郵件地址重新登入';
 }
 
 // Path: home.tabs
@@ -2142,14 +2091,13 @@ class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => '請仔細檢查您的使用者名稱';
+	@override String get checkUsername => '請仔細檢查您的使用者名稱或電子郵件。';
 	@override String get enterNcPassword => '請輸入您的 Nextcloud 密碼。';
 	@override String get enterEncPassword => '請輸入您的加密密碼。';
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
 	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
-	@override String get dontUseEmail => '請使用您的使用者名稱登入，而不是您的電子郵件。';
 }
 
 // Path: login.form
@@ -2161,7 +2109,7 @@ class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => '我想要使用自訂 Nextcloud 伺服器';
 	@override String get customServerUrl => '自訂伺服器連結';
-	@override String get username => '使用者名稱';
+	@override String get username => '使用者名稱或電子郵件';
 	@override String get ncPassword => 'Nextcloud 密碼';
 	@override String get encPassword => '加密密碼';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2302,8 +2250,7 @@ extension on _StringsEn {
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Slow';
 			case 'login.title': return 'Login';
-			case 'login.feedbacks.checkUsername': return 'Please double check your username.';
-			case 'login.feedbacks.dontUseEmail': return 'Please use your username to login, not your email.';
+			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';
 			case 'login.feedbacks.enterEncPassword': return 'Please enter your encryption password.';
 			case 'login.feedbacks.checkUrl': return 'Please enter a valid URL.';
@@ -2312,7 +2259,7 @@ extension on _StringsEn {
 			case 'login.feedbacks.loginSuccess': return 'Log in successful! Please wait while we set up...';
 			case 'login.form.useCustomServer': return 'I want to use a custom Nextcloud server';
 			case 'login.form.customServerUrl': return 'Custom server URL';
-			case 'login.form.username': return 'Username';
+			case 'login.form.username': return 'Username or email';
 			case 'login.form.ncPassword': return 'Nextcloud password';
 			case 'login.form.encPassword': return 'Encryption password';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2337,8 +2284,6 @@ extension on _StringsEn {
 			case 'update.updateAvailableDescription': return 'A new version of the app is available.';
 			case 'update.dismiss': return 'Dismiss';
 			case 'update.update': return 'Update';
-			case 'usernameNotEmail.title': return 'You may be experiencing sync issues';
-			case 'usernameNotEmail.description': return 'Please login again using your username instead of your email address.';
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Photo';
@@ -2405,7 +2350,7 @@ extension on _StringsDe {
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Langsam';
 			case 'login.title': return 'Login';
-			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen.';
+			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';
 			case 'login.feedbacks.enterEncPassword': return 'Bitte gib dein Verschlüsselungspasswort ein.';
 			case 'login.feedbacks.checkUrl': return 'Bitte gib eine gültige URL an.';
@@ -2414,7 +2359,7 @@ extension on _StringsDe {
 			case 'login.feedbacks.encLoginFailed': return 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 			case 'login.form.useCustomServer': return 'Ich möchte einen eigenen Nextcloud-Server verwenden';
 			case 'login.form.customServerUrl': return 'Eigene Server-URL';
-			case 'login.form.username': return 'Benutzername';
+			case 'login.form.username': return 'Benutzername oder E-Mail';
 			case 'login.form.ncPassword': return 'Nextcloud-Passwort';
 			case 'login.form.encPassword': return 'Verschlüsselungspasswort';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2505,8 +2450,7 @@ extension on _StringsEs {
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Iniciar sesión';
-			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario.';
-			case 'login.feedbacks.dontUseEmail': return 'por favor utiliza tu nombre de usuario para iniciar sesión, no tu correo electrónico.';
+			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario o correo electrónico.';
 			case 'login.feedbacks.enterNcPassword': return 'Por favor ingresa tu contraseña de Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Por favor introduce tu contraseña de cifrado.';
 			case 'login.feedbacks.checkUrl': return 'Por favor introduce una dirección URL válida.';
@@ -2515,7 +2459,7 @@ extension on _StringsEs {
 			case 'login.feedbacks.encLoginFailed': return 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 			case 'login.form.useCustomServer': return 'Quiero utilizar un servidor de Nextcloud personalizado';
 			case 'login.form.customServerUrl': return 'Dirección URL del servidor personalizada';
-			case 'login.form.username': return 'Nombre de usuario';
+			case 'login.form.username': return 'Nombre de usuario o correo electrónico';
 			case 'login.form.ncPassword': return 'Contraseña de Nextcloud';
 			case 'login.form.encPassword': return 'Contraseña de cifrado';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2539,8 +2483,6 @@ extension on _StringsEs {
 			case 'update.updateAvailableDescription': return 'Hay una nueva versión de la aplicación disponible.';
 			case 'update.dismiss': return 'Ignorar';
 			case 'update.update': return 'Actualizar';
-			case 'usernameNotEmail.title': return 'Es posible que estés experimentando problemas de sincronización';
-			case 'usernameNotEmail.description': return 'por favor vuelve a iniciar sesión con tu nombre de usuario en lugar de tu dirección de correo electrónico.';
 			case 'editor.toolbar.toggleColors': return 'Cambiar colores (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Borrador (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Foto';
@@ -2607,7 +2549,7 @@ extension on _StringsIt {
 			case 'settings.straightenDelay.regular': return 'Regolare';
 			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'login.title': return 'Login';
-			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente.';
+			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
 			case 'login.feedbacks.enterEncPassword': return 'Inserisci la tua password di crittografata.';
 			case 'login.feedbacks.checkUrl': return 'Per favore, inserisci un URL valido.';
@@ -2616,7 +2558,7 @@ extension on _StringsIt {
 			case 'login.feedbacks.encLoginFailed': return 'Accesso non riuscito, controllare la password di crittografia.';
 			case 'login.form.useCustomServer': return 'Voglio utilizzare un server Nextcloud personalizzato';
 			case 'login.form.customServerUrl': return 'URL del server personalizzato';
-			case 'login.form.username': return 'Nome utente';
+			case 'login.form.username': return 'Nome utente o email';
 			case 'login.form.ncPassword': return 'Password nextcloud';
 			case 'login.form.encPassword': return 'Password di crittografata';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2702,17 +2644,16 @@ extension on _StringsZhHansCn {
 			case 'settings.straightenDelay.regular': return '常规';
 			case 'settings.straightenDelay.slow': return '缓慢';
 			case 'login.title': return '登录';
-			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名。';
+			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
 			case 'login.feedbacks.enterEncPassword': return '请输入您的加密密码。';
 			case 'login.feedbacks.checkUrl': return '请输入有效链接。';
 			case 'login.feedbacks.ncLoginFailed': return '登录失败，请检查您的详细信息和网络连接。';
 			case 'login.feedbacks.loginSuccess': return '登录成功！我们正在设置中，请稍候……';
 			case 'login.feedbacks.encLoginFailed': return '登录失败，请检查您的加密密码。';
-			case 'login.feedbacks.dontUseEmail': return '请使用您的用户名登录，而非您的邮箱。';
 			case 'login.form.useCustomServer': return '我想要使用自定义 Nextcloud 服务器';
 			case 'login.form.customServerUrl': return '自定义服务器链接';
-			case 'login.form.username': return '用户名';
+			case 'login.form.username': return '用户名或邮箱';
 			case 'login.form.ncPassword': return 'Nextcloud 密码';
 			case 'login.form.encPassword': return '加密密码';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2761,8 +2702,6 @@ extension on _StringsZhHansCn {
 			case 'editor.newerFileFormat.readOnlyMode': return '只读模式';
 			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 			case 'editor.newerFileFormat.allowEditing': return '允许编辑';
-			case 'usernameNotEmail.title': return '您可能会遇到同步问题';
-			case 'usernameNotEmail.description': return '请使用您的用户名重新登录而非您的邮箱。';
 			default: return null;
 		}
 	}
@@ -2805,17 +2744,16 @@ extension on _StringsZhHantTw {
 			case 'settings.straightenDelay.regular': return '正常';
 			case 'settings.straightenDelay.slow': return '緩慢';
 			case 'login.title': return '登入';
-			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱';
+			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
 			case 'login.feedbacks.enterEncPassword': return '請輸入您的加密密碼。';
 			case 'login.feedbacks.checkUrl': return '請輸入有效連結。';
 			case 'login.feedbacks.ncLoginFailed': return '登入失敗，請檢查您的詳細資訊和網路連接。';
 			case 'login.feedbacks.loginSuccess': return '登入成功！我們正在設定中，請稍後……';
 			case 'login.feedbacks.encLoginFailed': return '登入失敗，請檢查您的加密密碼。';
-			case 'login.feedbacks.dontUseEmail': return '請使用您的使用者名稱登入，而不是您的電子郵件。';
 			case 'login.form.useCustomServer': return '我想要使用自訂 Nextcloud 伺服器';
 			case 'login.form.customServerUrl': return '自訂伺服器連結';
-			case 'login.form.username': return '使用者名稱';
+			case 'login.form.username': return '使用者名稱或電子郵件';
 			case 'login.form.ncPassword': return 'Nextcloud 密碼';
 			case 'login.form.encPassword': return '加密密碼';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2864,8 +2802,6 @@ extension on _StringsZhHantTw {
 			case 'editor.newerFileFormat.readOnlyMode': return '唯讀模式';
 			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 			case 'editor.newerFileFormat.allowEditing': return '允許編輯';
-			case 'usernameNotEmail.title': return '您可能遇到同步問題';
-			case 'usernameNotEmail.description': return '請使用您的使用者名稱而不是您的電子郵件地址重新登入';
 			default: return null;
 		}
 	}

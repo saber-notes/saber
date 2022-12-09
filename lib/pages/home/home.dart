@@ -1,11 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
-import 'package:saber/data/prefs.dart';
-import 'package:saber/data/routes.dart';
-import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/pages/home/settings.dart';
@@ -36,30 +32,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     UpdateManager.showUpdateDialog(context);
-    tellUserNotToUseEmail(context);
-  }
-
-  void tellUserNotToUseEmail(BuildContext context) async {
-    await Prefs.username.waitUntilLoaded();
-    if (!Prefs.username.value.contains("@")) return;
-
-    return await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(t.usernameNotEmail.title),
-        content: Text(t.usernameNotEmail.description),
-        actions: [
-          TextButton(
-            child: Text(t.update.dismiss),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          TextButton(
-            child: Text(t.login.form.login),
-            onPressed: () => context.push(RoutePaths.login),
-          ),
-        ],
-      ),
-    );
   }
 
   Widget get body {

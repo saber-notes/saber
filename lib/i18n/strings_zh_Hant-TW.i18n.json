@@ -55,19 +55,18 @@
   "login": {
     "title": "登入",
     "feedbacks": {
-      "checkUsername": "請仔細檢查您的使用者名稱",
+      "checkUsername": "請仔細檢查您的使用者名稱或電子郵件。",
       "enterNcPassword": "請輸入您的 Nextcloud 密碼。",
       "enterEncPassword": "請輸入您的加密密碼。",
       "checkUrl": "請輸入有效連結。",
       "ncLoginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
       "loginSuccess": "登入成功！我們正在設定中，請稍後……",
-      "encLoginFailed": "登入失敗，請檢查您的加密密碼。",
-      "dontUseEmail": "請使用您的使用者名稱登入，而不是您的電子郵件。"
+      "encLoginFailed": "登入失敗，請檢查您的加密密碼。"
     },
     "form": {
       "useCustomServer": "我想要使用自訂 Nextcloud 伺服器",
       "customServerUrl": "自訂伺服器連結",
-      "username": "使用者名稱",
+      "username": "使用者名稱或電子郵件",
       "ncPassword": "Nextcloud 密碼",
       "encPassword": "加密密碼",
       "agreeToPrivacyPolicy(rich)": "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。",
@@ -129,9 +128,5 @@
       "subtitle": "編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？",
       "allowEditing": "允許編輯"
     }
-  },
-  "usernameNotEmail": {
-    "title": "您可能遇到同步問題",
-    "description": "請使用您的使用者名稱而不是您的電子郵件地址重新登入"
   }
 }
