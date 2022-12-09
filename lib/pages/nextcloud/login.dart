@@ -79,6 +79,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
                   child: SvgPicture.asset(
                     "assets/images/undraw_cloud_sync_re_02p1.svg",
                     width: 350,
+                    height: 240,
                     excludeFromSemantics: true,
                   ),
                 ),

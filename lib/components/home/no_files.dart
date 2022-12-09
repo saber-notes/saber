@@ -18,6 +18,7 @@ class NoFiles extends StatelessWidget {
             SvgPicture.asset(
               "assets/images/undraw_researching_re_fuod.svg",
               width: 300,
+              height: 188,
               excludeFromSemantics: true,
             ),
             const SizedBox(height: 64),
