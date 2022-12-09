@@ -58,6 +58,7 @@
 		"title": "Iniciar sesión",
 		"feedbacks": {
 			"checkUsername": "Por favor verifica tu nombre de usuario.",
+			"dontUseEmail": "por favor utiliza tu nombre de usuario para iniciar sesión, no tu correo electrónico.",
 			"enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
 			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
 			"checkUrl": "Por favor introduce una dirección URL válida.",
@@ -95,6 +96,11 @@
 		"dismiss": "Ignorar",
 		"update": "Actualizar"
 	},
+
+	"usernameNotEmail": {
+		"title": "Es posible que estés experimentando problemas de sincronización",
+		"description": "por favor vuelve a iniciar sesión con tu nombre de usuario en lugar de tu dirección de correo electrónico."
+	  },
 	
 	"editor": {
 		"toolbar": {
@@ -125,6 +131,13 @@
 			"clearAllPages": "Borrar todas las páginas",
 			"lineHeight": "Altura de la línea",
 			"lineHeightDescription": "El tamaño de cada línea"
-		}
+		},
+		"newerFileFormat": {
+			"readOnlyMode": "Modo de solo lectura",
+			"title": "Esta nota fue editada usando una versión más reciente de Saber",
+			"subtitle": "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?",
+			"allowEditing": "Editar",
+			"cancel": "Cancelar"
+		  }
 	}
 }
