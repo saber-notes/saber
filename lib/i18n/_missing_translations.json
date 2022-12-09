@@ -46,10 +46,5 @@
       "description": "Please login again using your username instead of your email address."
     }
   },
-  "zh-Hant-TW": {
-    "usernameNotEmail": {
-      "title": "You may be experiencing sync issues",
-      "description": "Please login again using your username instead of your email address."
-    }
-  }
+  "zh-Hant-TW": {}
 }
