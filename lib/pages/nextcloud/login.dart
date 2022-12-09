@@ -26,6 +26,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
   Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
     final NextcloudClient client = NextcloudClient(
       loginDetails.url,
+      loginName: loginDetails.username,
       username: loginDetails.username,
       password: loginDetails.ncPassword,
     );
