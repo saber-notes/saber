@@ -65,14 +65,13 @@ abstract class UpdateManager {
     final int newestVersion = int.tryParse(newestVersionMatch[0] ?? "0") ?? 0;
     if (newestVersion == 0) return UpdateStatus.upToDate;
 
-    if (newestVersion > currentVersion + 1) {
-      // ignore 1 minor update so the user isn't prompted too often
-      return UpdateStatus.updateRecommended;
-    } else if (newestVersion > currentVersion && kDebugMode) {
-      // debug should be upgraded as soon as possible
+    if (newestVersion <= currentVersion) {
+      return UpdateStatus.upToDate;
+    } else if (newestVersion == currentVersion + 1 && !kDebugMode) {
+      // ignore 1 minor update so the user isn't prompted too often (debug mode ignores this)
       return UpdateStatus.updateOptional;
     } else {
-      return UpdateStatus.upToDate;
+      return UpdateStatus.updateRecommended;
     }
   }
 }

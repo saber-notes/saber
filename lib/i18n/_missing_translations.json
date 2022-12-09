@@ -8,6 +8,10 @@
       "feedbacks": {
         "dontUseEmail": "Please use your username to login, not your email."
       }
+    },
+    "usernameNotEmail": {
+      "title": "You may be experiencing sync issues",
+      "description": "Please login again using your username instead of your email address."
     }
   },
   "es": {
@@ -15,6 +19,10 @@
       "feedbacks": {
         "dontUseEmail": "Please use your username to login, not your email."
       }
+    },
+    "usernameNotEmail": {
+      "title": "You may be experiencing sync issues",
+      "description": "Please login again using your username instead of your email address."
     },
     "editor": {
       "newerFileFormat": {
@@ -32,6 +40,10 @@
         "dontUseEmail": "Please use your username to login, not your email."
       }
     },
+    "usernameNotEmail": {
+      "title": "You may be experiencing sync issues",
+      "description": "Please login again using your username instead of your email address."
+    },
     "editor": {
       "newerFileFormat": {
         "readOnlyMode": "Read-only mode",
@@ -47,13 +59,16 @@
       "feedbacks": {
         "dontUseEmail": "请使用您的用户名登录，而非您的邮箱。"
       }
+    },
+    "usernameNotEmail": {
+      "title": "You may be experiencing sync issues",
+      "description": "Please login again using your username instead of your email address."
     }
   },
   "zh-Hant-TW": {
-    "login": {
-      "feedbacks": {
-        "dontUseEmail": "Please use your username to login, not your email."
-      }
+    "usernameNotEmail": {
+      "title": "You may be experiencing sync issues",
+      "description": "Please login again using your username instead of your email address."
     }
   }
 }
