@@ -100,12 +100,6 @@ dependencies:
 
   image: ^3.2.2
 
-  # todo: use pub.dev when https://github.com/fluttercommunity/flutter_wear_plugin/pull/20 is merged
-  wear:
-    git:
-      url: https://github.com/ju851zel/flutter_wear_plugin/
-      ref: upgrade-versions
-
 dev_dependencies:
   test: ^1.21.4
   flutter_test:

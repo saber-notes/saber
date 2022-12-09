@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
-import 'package:saber/components/navbar/responsive_navbar.dart';
 
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -68,7 +67,7 @@ class _BrowsePageState extends State<BrowsePage> {
     }
 
     return Scaffold(
-      appBar: isWatch ? null : AppBar(
+      appBar: AppBar(
         toolbarHeight: kToolbarHeight,
         title: Text(title),
         actions: const [
@@ -96,7 +95,7 @@ class _BrowsePageState extends State<BrowsePage> {
           ]
         )
       ),
-      floatingActionButton: isWatch ? null : FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.push(RoutePaths.edit);
         },

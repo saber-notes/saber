@@ -30,14 +30,6 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 200) { // hide navbar on watch
-        return Scaffold(
-          body: widget.body,
-        );
-      } else {
-        isWatch = false;
-      }
-
       if (constraints.maxWidth >= 600) { // tablet/desktop
         return Scaffold(
           body: Row(children: [
@@ -54,9 +46,8 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
             Expanded(child: widget.body),
           ]),
         );
-      }
+      } // else mobile
 
-      // mobile
       return Scaffold(
         body: widget.body,
         bottomNavigationBar: HorizontalNavbar(
@@ -68,5 +59,3 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     });
   }
 }
-
-bool isWatch = true;
