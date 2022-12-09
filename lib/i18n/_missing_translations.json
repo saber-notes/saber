@@ -54,17 +54,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "login": {
-      "feedbacks": {
-        "dontUseEmail": "请使用您的用户名登录，而非您的邮箱。"
-      }
-    },
-    "usernameNotEmail": {
-      "title": "您可能会遇到同步问题",
-      "description": "请使用您的用户名重新登录而非您的邮箱。"
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "usernameNotEmail": {
       "title": "You may be experiencing sync issues",

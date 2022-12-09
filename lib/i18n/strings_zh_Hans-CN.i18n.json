@@ -61,7 +61,8 @@
       "checkUrl": "请输入有效链接。",
       "ncLoginFailed": "登录失败，请检查您的详细信息和网络连接。",
       "loginSuccess": "登录成功！我们正在设置中，请稍候……",
-      "encLoginFailed": "登录失败，请检查您的加密密码。"
+      "encLoginFailed": "登录失败，请检查您的加密密码。",
+      "dontUseEmail": "请使用您的用户名登录，而非您的邮箱。"
     },
     "form": {
       "useCustomServer": "我想要使用自定义 Nextcloud 服务器",
@@ -128,5 +129,9 @@
       "subtitle": "编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？",
       "allowEditing": "允许编辑"
     }
+  },
+  "usernameNotEmail": {
+    "title": "您可能会遇到同步问题",
+    "description": "请使用您的用户名重新登录而非您的邮箱。"
   }
 }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 498 (83 per locale)
+/// Strings: 501 (83 per locale)
 ///
-/// Built on 2022-12-08 at 23:12 UTC
+/// Built on 2022-12-09 at 04:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1540,6 +1540,7 @@ class _StringsZhHansCn extends _StringsEn {
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
+	@override late final _StringsUsernameNotEmailZhHansCn usernameNotEmail = _StringsUsernameNotEmailZhHansCn._(_root);
 }
 
 // Path: home
@@ -1629,6 +1630,17 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
+}
+
+// Path: usernameNotEmail
+class _StringsUsernameNotEmailZhHansCn extends _StringsUsernameNotEmailEn {
+	_StringsUsernameNotEmailZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '您可能会遇到同步问题';
+	@override String get description => '请使用您的用户名重新登录而非您的邮箱。';
 }
 
 // Path: home.tabs
@@ -1739,13 +1751,14 @@ class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => '请仔细检查您的用户名或电子邮件。';
+	@override String get checkUsername => '请仔细检查您的用户名。';
 	@override String get enterNcPassword => '请输入您的 Nextcloud 密码。';
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
+	@override String get dontUseEmail => '请使用您的用户名登录，而非您的邮箱。';
 }
 
 // Path: login.form
@@ -1757,7 +1770,7 @@ class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => '我想要使用自定义 Nextcloud 服务器';
 	@override String get customServerUrl => '自定义服务器链接';
-	@override String get username => '用户名或邮箱';
+	@override String get username => '用户名';
 	@override String get ncPassword => 'Nextcloud 密码';
 	@override String get encPassword => '加密密码';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2641,16 +2654,17 @@ extension on _StringsZhHansCn {
 			case 'settings.straightenDelay.regular': return '常规';
 			case 'settings.straightenDelay.slow': return '缓慢';
 			case 'login.title': return '登录';
-			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
+			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
 			case 'login.feedbacks.enterEncPassword': return '请输入您的加密密码。';
 			case 'login.feedbacks.checkUrl': return '请输入有效链接。';
 			case 'login.feedbacks.ncLoginFailed': return '登录失败，请检查您的详细信息和网络连接。';
 			case 'login.feedbacks.loginSuccess': return '登录成功！我们正在设置中，请稍候……';
 			case 'login.feedbacks.encLoginFailed': return '登录失败，请检查您的加密密码。';
+			case 'login.feedbacks.dontUseEmail': return '请使用您的用户名登录，而非您的邮箱。';
 			case 'login.form.useCustomServer': return '我想要使用自定义 Nextcloud 服务器';
 			case 'login.form.customServerUrl': return '自定义服务器链接';
-			case 'login.form.username': return '用户名或邮箱';
+			case 'login.form.username': return '用户名';
 			case 'login.form.ncPassword': return 'Nextcloud 密码';
 			case 'login.form.encPassword': return '加密密码';
 			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -2699,6 +2713,8 @@ extension on _StringsZhHansCn {
 			case 'editor.newerFileFormat.readOnlyMode': return '只读模式';
 			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 			case 'editor.newerFileFormat.allowEditing': return '允许编辑';
+			case 'usernameNotEmail.title': return '您可能会遇到同步问题';
+			case 'usernameNotEmail.description': return '请使用您的用户名重新登录而非您的邮箱。';
 			default: return null;
 		}
 	}
