@@ -65,10 +65,5 @@
       "description": "Please login again using your username instead of your email address."
     }
   },
-  "zh-Hant-TW": {
-    "usernameNotEmail": {
-      "title": "您可能遇到同步問題",
-      "description": "請使用您的使用者名稱而不是您的電子郵件地址重新登入"
-    }
-  }
+  "zh-Hant-TW": {}
 }

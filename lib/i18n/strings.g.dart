@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 498 (83 per locale)
+/// Strings: 500 (83 per locale)
 ///
-/// Built on 2022-12-08 at 23:12 UTC
+/// Built on 2022-12-09 at 04:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1890,6 +1890,7 @@ class _StringsZhHantTw extends _StringsEn {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
+	@override late final _StringsUsernameNotEmailZhHantTw usernameNotEmail = _StringsUsernameNotEmailZhHantTw._(_root);
 }
 
 // Path: home
@@ -1979,6 +1980,17 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
+}
+
+// Path: usernameNotEmail
+class _StringsUsernameNotEmailZhHantTw extends _StringsUsernameNotEmailEn {
+	_StringsUsernameNotEmailZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '您可能遇到同步問題';
+	@override String get description => '請使用您的使用者名稱而不是您的電子郵件地址重新登入';
 }
 
 // Path: home.tabs
@@ -2800,6 +2812,8 @@ extension on _StringsZhHantTw {
 			case 'editor.newerFileFormat.readOnlyMode': return '唯讀模式';
 			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 			case 'editor.newerFileFormat.allowEditing': return '允許編輯';
+			case 'usernameNotEmail.title': return '您可能遇到同步問題';
+			case 'usernameNotEmail.description': return '請使用您的使用者名稱而不是您的電子郵件地址重新登入';
 			default: return null;
 		}
 	}
