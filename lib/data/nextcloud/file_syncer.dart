@@ -18,6 +18,7 @@ abstract class FileSyncer {
 
   static EncPref<List<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
+  static CancellableStruct _downloadCancellable = CancellableStruct();
 
   static NextcloudClient? _client;
 
@@ -34,11 +35,18 @@ abstract class FileSyncer {
   static const String deletedFileDummyContent = "";
 
   static void startSync() async {
+    // cancel previous sync
+    _downloadCancellable.cancelled = true;
+    final CancellableStruct downloadCancellable = CancellableStruct();
+    _downloadCancellable = downloadCancellable;
+
     _uploadFileFromQueue();
 
     if (_client?.username != Prefs.username.value) _client = null;
     _client ??= await NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
+
+    if (downloadCancellable.cancelled) return;
 
     // Get list of remote files from server
     List<WebDavFile> remoteFiles = await _client!.webdav.ls(
@@ -46,28 +54,35 @@ abstract class FileSyncer {
         props: {WebDavProps.davLastModified.name}
     );
 
+    if (downloadCancellable.cancelled) return;
+
     // Add each file to download queue if needed
     await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
     filesDone.value = 1;
 
+    if (downloadCancellable.cancelled) return;
+
     Queue<SyncFile> failedFiles = Queue();
-
-    // Start downloading files one by one
-    while (_downloadQueue.isNotEmpty) {
-      final SyncFile file = _downloadQueue.removeFirst();
-      final bool success = await _downloadFile(file);
-      if (success) {
-        filesDone.value = (filesDone.value ?? 0) + 1;
-      } else {
-        failedFiles.add(file);
+    try {
+      // Start downloading files one by one
+      while (_downloadQueue.isNotEmpty) {
+        final SyncFile file = _downloadQueue.removeFirst();
+        final bool success = await _downloadFile(file);
+        if (downloadCancellable.cancelled) return;
+        if (success) {
+          filesDone.value = (filesDone.value ?? 0) + 1;
+        } else {
+          failedFiles.add(file);
+        }
       }
+    } finally {
+      // Add failed files back to queue for next sync
+      _downloadQueue.addAll(failedFiles);
     }
-
-    // Add failed files back to queue for next sync
-    _downloadQueue.addAll(failedFiles);
 
     // make sure progress indicator is complete
     filesDone.value = (filesDone.value ?? 0) + filesDoneLimit;
+    downloadCancellable.cancelled = true;
   }
 
   /// Queues a file to be uploaded
@@ -241,4 +256,8 @@ class SyncFile {
   final String localPath;
   WebDavFile? webDavFile;
   SyncFile({required this.remotePath, required this.localPath, this.webDavFile});
+}
+
+class CancellableStruct {
+  bool cancelled = false;
 }
