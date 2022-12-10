@@ -778,6 +778,7 @@ class _EditorState extends State<Editor> {
   void dispose() {
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
+    filenameTextEditingController.dispose();
 
     _removeKeybindings();
 
