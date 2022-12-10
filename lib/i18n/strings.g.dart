@@ -653,6 +653,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
+	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Andwendung';
 }
 
 // Path: settings.themeModes
@@ -688,6 +689,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
 	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
+	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 }
 
 // Path: settings.straightenDelay
@@ -2361,6 +2363,7 @@ extension on _StringsDe {
 			case 'settings.prefLabels.preferGreyscale': return 'Graustufen bevorzugen';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlesbare Schrift';
 			case 'settings.prefLabels.editorStraightenLines': return 'Drücke und halte für eine gerade Linie';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Lösche das Whiteboard nach Verlassen der Andwendung';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
@@ -2369,6 +2372,7 @@ extension on _StringsDe {
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Für E-Ink-Bildschirme';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 			case 'settings.straightenDelay.off': return 'Aus';
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Langsam';

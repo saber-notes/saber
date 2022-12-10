@@ -30,7 +30,8 @@
       "editorAutoInvert": "Notizen im Dunkelmodus invertieren",
       "preferGreyscale": "Graustufen bevorzugen",
       "hyperlegibleFont": "Hyperlesbare Schrift",
-      "editorStraightenLines": "Drücke und halte für eine gerade Linie"
+      "editorStraightenLines": "Drücke und halte für eine gerade Linie",
+      "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung"
     },
     "themeModes": {
       "system": "System",
@@ -44,7 +45,8 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
       "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
-      "preferGreyscale": "Für E-Ink-Bildschirme"
+      "preferGreyscale": "Für E-Ink-Bildschirme",
+      "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert"
     },
     "straightenDelay": {
       "off": "Aus",
