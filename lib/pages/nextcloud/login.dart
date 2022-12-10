@@ -96,7 +96,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 LoginInputGroup(
                   tryLogin: _tryLogin,
                 ),
-                const SizedBox(height: 64),
+                const SizedBox(height: 40),
 
                 Faq(
                   items: [
