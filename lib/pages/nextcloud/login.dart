@@ -40,7 +40,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     // set username so we can use WebDAV
     client = NextcloudClient(
       loginDetails.url,
-      loginName: loginDetails.loginName,
+      loginName: username,
       username: username,
       password: loginDetails.ncPassword,
     );
@@ -52,6 +52,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     } on EncLoginFailure {
       // If the encryption password is wrong, we don't want to save it
       Prefs.encPassword.value = previousEncPassword;
+      rethrow;
     }
 
     Prefs.url.value = loginDetails.url.toString();
