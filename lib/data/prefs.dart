@@ -16,47 +16,47 @@ abstract class Prefs {
   /// The values will not be saved either.
   static bool testingMode = false;
 
-  static late EncPref<String> url;
-  static late EncPref<String> username;
+  static late final EncPref<String> url;
+  static late final EncPref<String> username;
   /// the password used to login to NextCloud
-  static late EncPref<String> ncPassword;
+  static late final EncPref<String> ncPassword;
   /// the password used to encrypt/decrypt notes
-  static late EncPref<String> encPassword;
+  static late final EncPref<String> encPassword;
 
-  static late EncPref<String> key;
-  static late EncPref<String> iv;
+  static late final EncPref<String> key;
+  static late final EncPref<String> iv;
 
-  static late PlainPref<String> pfp;
+  static late final PlainPref<String> pfp;
 
-  static late PlainPref<int> appTheme;
+  static late final PlainPref<int> appTheme;
   /// The accent color of the app. If 0, the system accent color will be used.
-  static late PlainPref<int> accentColor;
-  static late PlainPref<bool> hyperlegibleFont;
+  static late final PlainPref<int> accentColor;
+  static late final PlainPref<bool> hyperlegibleFont;
 
-  static late PlainPref<bool> editorToolbarOnBottom;
-  static late PlainPref<bool> editorFingerDrawing;
-  static late PlainPref<bool> editorAutoInvert;
-  static late PlainPref<bool> preferGreyscale;
-  static late PlainPref<int> editorStraightenDelay;
+  static late final PlainPref<bool> editorToolbarOnBottom;
+  static late final PlainPref<bool> editorFingerDrawing;
+  static late final PlainPref<bool> editorAutoInvert;
+  static late final PlainPref<bool> preferGreyscale;
+  static late final PlainPref<int> editorStraightenDelay;
 
-  static late PlainPref<bool> autoClearWhiteboardOnExit;
+  static late final PlainPref<bool> autoClearWhiteboardOnExit;
 
-  static late PlainPref<List<String>> recentColorsChronological;
-  static late PlainPref<List<String>> recentColorsPositioned;
+  static late final PlainPref<List<String>> recentColorsChronological;
+  static late final PlainPref<List<String>> recentColorsPositioned;
 
-  static late PlainPref<StrokeProperties>
+  static late final PlainPref<StrokeProperties>
       lastFountainPenProperties,
       lastBallpointPenProperties,
       lastHighlighterProperties;
-  static late PlainPref<String> lastBackgroundPattern;
-  static late PlainPref<int> lastLineHeight;
+  static late final PlainPref<String> lastBackgroundPattern;
+  static late final PlainPref<int> lastLineHeight;
 
-  static late PlainPref<List<String>> recentFiles;
+  static late final PlainPref<List<String>> recentFiles;
 
   /// File paths that need to be uploaded to Nextcloud
-  static late EncPref<List<String>> fileSyncUploadQueue;
+  static late final EncPref<List<String>> fileSyncUploadQueue;
 
-  static late PlainPref<bool> shouldCheckForUpdates;
+  static late final PlainPref<bool> shouldCheckForUpdates;
 
   static void init() {
     url = EncPref("url", "");
