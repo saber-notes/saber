@@ -61,15 +61,18 @@ class _PreviewCardState extends State<PreviewCard> {
     _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
     if (_coreInfo.strokes.isEmpty || refresh) {
       findStrokes();
-    } else {
-      if (mounted) setState(() { });
     }
   }
 
   Future findStrokes() async {
     if (!mounted) return;
 
-    coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath);
+    EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath);
+    this.coreInfo = coreInfo.copyWith( // only keep first page
+      readOnly: true,
+      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList(growable: false),
+      images: coreInfo.images.where((image) => image.pageIndex == 0).toList(growable: false),
+    );
 
     if (mounted) setState(() {});
   }

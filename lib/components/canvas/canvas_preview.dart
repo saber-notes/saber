@@ -14,16 +14,15 @@ class CanvasPreview extends StatelessWidget {
   });
 
   final String path;
-  final int pageIndex = 0;
 
   final double? height;
   final EditorCoreInfo coreInfo;
 
   @override
   Widget build(BuildContext context) {
-    Size pageSize = coreInfo.pageSizes.isNotEmpty ? coreInfo.pageSizes[pageIndex] : EditorCoreInfo.defaultPageSize;
+    Size pageSize = coreInfo.pageSizes.isNotEmpty ? coreInfo.pageSizes[0] : EditorCoreInfo.defaultPageSize;
     return Hero(
-      tag: "inner-canvas-$path-page$pageIndex",
+      tag: "inner-canvas-$path-page0",
 
       child: InteractiveCanvasViewer(
         maxScale: 5,
