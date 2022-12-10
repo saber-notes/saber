@@ -24,7 +24,7 @@ class NcLoginPage extends StatefulWidget {
 
 class _NcLoginPageState extends State<NcLoginPage> {
   Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
-    final NextcloudClient client = NextcloudClient(
+    NextcloudClient client = NextcloudClient(
       loginDetails.url,
       loginName: loginDetails.loginName,
       password: loginDetails.ncPassword,
@@ -36,6 +36,14 @@ class _NcLoginPageState extends State<NcLoginPage> {
     } catch (e) {
       throw NcLoginFailure();
     }
+
+    // set username so we can use WebDAV
+    client = NextcloudClient(
+      loginDetails.url,
+      loginName: loginDetails.loginName,
+      username: username,
+      password: loginDetails.ncPassword,
+    );
 
     String previousEncPassword = Prefs.encPassword.value;
     try {
