@@ -1,7 +1,7 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 501 (83 per locale)
+/// Strings: 508 (84 per locale)
 ///
 /// Built on 2022-12-10 at 21:00 UTC
 
@@ -1297,6 +1297,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsIt penOptions = _StringsEditorPenOptionsIt._(_root);
 	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
 	@override late final _StringsEditorMenuIt menu = _StringsEditorMenuIt._(_root);
+	@override late final _StringsEditorNewerFileFormatIt newerFileFormat = _StringsEditorNewerFileFormatIt._(_root);
 }
 
 // Path: home.tabs
@@ -1351,6 +1352,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
+	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
 }
 
 // Path: settings.themeModes
@@ -1386,6 +1388,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
 	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
 	@override String get preferGreyscale => 'Per display e-ink';
+	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 }
 
 // Path: settings.straightenDelay
@@ -1510,6 +1513,20 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'La dimensione di ogni riga';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatIt extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Modalità di sola lettura';
+	@override String get title => 'Questa nota è stata modificata utilizzando una versione più recente di Saber';
+	@override String get subtitle => 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
+	@override String get allowEditing => 'Consenti modifica';
+	@override String get cancel => 'Cancella';
 }
 
 // Path: <root>
@@ -2541,6 +2558,7 @@ extension on _StringsIt {
 			case 'settings.prefLabels.preferGreyscale': return 'Preferisci i colori in scala di grigi';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Carattere iperleggibile';
 			case 'settings.prefLabels.editorStraightenLines': return 'Tenere premuto per raddrizzare una linea';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Svuota la lavagna dopo essere uscito dall\'app';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
@@ -2549,6 +2567,7 @@ extension on _StringsIt {
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Scurisce in modo intelligente le note in modalità scura';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Per display e-ink';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 			case 'settings.straightenDelay.off': return 'Off';
 			case 'settings.straightenDelay.regular': return 'Regolare';
 			case 'settings.straightenDelay.slow': return 'Lento';
@@ -2606,6 +2625,11 @@ extension on _StringsIt {
 			case 'editor.menu.clearAllPages': return 'Pulisci tutte le pagine';
 			case 'editor.menu.lineHeight': return 'Altezza della linea';
 			case 'editor.menu.lineHeightDescription': return 'La dimensione di ogni riga';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Modalità di sola lettura';
+			case 'editor.newerFileFormat.title': return 'Questa nota è stata modificata utilizzando una versione più recente di Saber';
+			case 'editor.newerFileFormat.subtitle': return 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
+			case 'editor.newerFileFormat.allowEditing': return 'Consenti modifica';
+			case 'editor.newerFileFormat.cancel': return 'Cancella';
 			default: return null;
 		}
 	}

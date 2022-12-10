@@ -23,25 +23,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
-      },
-      "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
-      }
-    },
-    "editor": {
-      "newerFileFormat": {
-        "readOnlyMode": "Read-only mode",
-        "title": "This note was edited using a newer version of Saber",
-        "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
-        "allowEditing": "Allow editing",
-        "cancel": "Cancel"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
