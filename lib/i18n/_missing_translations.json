@@ -6,10 +6,10 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+        "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung"
       },
       "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+        "autoClearWhiteboardOnExit": "Es wird trotzdem mit deinen anderen Geräten synchronisiert"
       }
     }
   },
