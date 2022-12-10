@@ -3,7 +3,7 @@
 /// Locales: 6
 /// Strings: 510 (85 per locale)
 ///
-/// Built on 2022-12-10 at 22:36 UTC
+/// Built on 2022-12-10 at 22:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1706,6 +1706,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get preferGreyscale => '使用灰度颜色';
 	@override String get editorStraightenLines => '按住拉直线段';
+	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 }
 
 // Path: settings.prefDescriptions
@@ -1718,6 +1719,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
 	@override String get preferGreyscale => '用于电子墨水显示器';
+	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 }
 
 // Path: settings.themeModes
@@ -2664,9 +2666,11 @@ extension on _StringsZhHansCn {
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色笔记背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度颜色';
 			case 'settings.prefLabels.editorStraightenLines': return '按住拉直线段';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return '离开应用后清除白板';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return '这将会同步到您的其他设备';
 			case 'settings.themeModes.system': return '系统';
 			case 'settings.themeModes.light': return '浅色';
 			case 'settings.themeModes.dark': return '深色';
