@@ -3,13 +3,13 @@
     "tabs": {
       "home": "Home",
       "browse": "Sfoglia",
-      "whiteboard": "Whiteboard",
+      "whiteboard": "Lavagna",
       "settings": "Impostazioni"
     },
     "titles": {
       "home": "Note recenti",
       "browse": "Tutte le note",
-      "whiteboard": "Whiteboard",
+      "whiteboard": "Lavagna",
       "settings": "Impostazioni"
     },
     "tooltips": {
