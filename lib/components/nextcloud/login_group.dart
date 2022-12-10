@@ -1,6 +1,5 @@
 
 import 'package:collapsible/collapsible.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fzregex/fzregex.dart';
@@ -125,6 +124,15 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     }
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _customServerController.dispose();
+    _usernameController.dispose();
+    _ncPasswordController.dispose();
+    _encPasswordController.dispose();
+    super.dispose();
   }
 
   @override
