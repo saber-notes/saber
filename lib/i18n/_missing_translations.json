@@ -3,16 +3,7 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung"
-      },
-      "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert"
-      }
-    }
-  },
+  "de": {},
   "es": {
     "settings": {
       "prefLabels": {
