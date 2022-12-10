@@ -30,7 +30,8 @@
       "editorAutoInvert": "Inverti le note in modalità scura",
       "preferGreyscale": "Preferisci i colori in scala di grigi",
       "hyperlegibleFont": "Carattere iperleggibile",
-      "editorStraightenLines": "Tenere premuto per raddrizzare una linea"
+      "editorStraightenLines": "Tenere premuto per raddrizzare una linea",
+      "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app"
     },
     "themeModes": {
       "system": "Sistema",
@@ -44,7 +45,8 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
       "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
-      "preferGreyscale": "Per display e-ink"
+      "preferGreyscale": "Per display e-ink",
+      "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi"
     },
     "straightenDelay": {
       "off": "Off",
@@ -120,6 +122,13 @@
       "clearAllPages": "Pulisci tutte le pagine",
       "lineHeight": "Altezza della linea",
       "lineHeightDescription": "La dimensione di ogni riga"
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Modalità di sola lettura",
+      "title": "Questa nota è stata modificata utilizzando una versione più recente di Saber",
+      "subtitle": "La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?",
+      "allowEditing": "Consenti modifica",
+      "cancel": "Cancella"
     }
   }
 }
