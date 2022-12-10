@@ -29,23 +29,29 @@ class Canvas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size pageSize = coreInfo.pageSizes.isNotEmpty ? coreInfo.pageSizes[pageIndex] : EditorCoreInfo.defaultPageSize;
-    return Hero(
-      tag: "inner-canvas-$path-page$pageIndex",
 
-      child: ClipRect(
-        child: Center(
-          child: FittedBox(
-            child: InnerCanvas(
-              key: innerCanvasKey,
-              width: pageSize.width,
-              height: pageSize.height,
-              coreInfo: coreInfo,
-              currentStroke: currentStroke,
-              readOnly: readOnly,
-            ),
+    Widget innerCanvas = ClipRect(
+      child: Center(
+        child: FittedBox(
+          child: InnerCanvas(
+            key: innerCanvasKey,
+            width: pageSize.width,
+            height: pageSize.height,
+            coreInfo: coreInfo,
+            currentStroke: currentStroke,
+            readOnly: readOnly,
           ),
         ),
       ),
     );
+
+    if (pageIndex == 0) {
+      return Hero(
+        tag: "inner-canvas-$path",
+        child: innerCanvas,
+      );
+    } else {
+      return innerCanvas;
+    }
   }
 }
