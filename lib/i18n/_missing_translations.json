@@ -23,25 +23,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app"
-      },
-      "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi"
-      }
-    },
-    "editor": {
-      "newerFileFormat": {
-        "readOnlyMode": "Modalità di sola lettura",
-        "title": "Questa nota è stata modificata utilizzando una versione più recente di Saber",
-        "subtitle": "La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?",
-        "allowEditing": "Consenti modifica",
-        "cancel": "Cancella"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
