@@ -139,6 +139,14 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 ## Translating
 
+All translations are crowd-sourced. Saber has so far been translated into:
+- English ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json))
+- German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/strings_de.i18n.json))
+- Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/strings_es.i18n.json))
+- Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/strings_it.i18n.json))
+- Chinese Simplified ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/strings_zh_Hans-CN.i18n.json))
+- Chinese Traditional ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/strings_zh_Hant-TW.i18n.json))
+
 ### Extending existing languages
 
 Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.json)
@@ -197,6 +205,7 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
     - `flutter pub run slang analyze --full --outdir=lib/i18n/`
   - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
     and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
+    Also update README.md above in the "Translating" section.
 
 </details>
 
