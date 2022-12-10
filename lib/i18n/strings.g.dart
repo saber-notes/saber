@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 510 (85 per locale)
+/// Strings: 518 (86 per locale)
 ///
-/// Built on 2022-12-10 at 22:38 UTC
+/// Built on 2022-12-10 at 22:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -206,6 +206,11 @@ class _StringsLoginEn {
 		const TextSpan(text: '!'),
 	]);
 	late final _StringsLoginStatusEn status = _StringsLoginStatusEn._(_root);
+	List<dynamic> get faq => [
+		_StringsLogin0i0En._(_root),
+		_StringsLogin0i1En._(_root),
+		_StringsLogin0i2En._(_root),
+	];
 }
 
 // Path: appInfo
@@ -398,6 +403,39 @@ class _StringsLoginStatusEn {
 	String get loggedIn => 'Logged in with Nextcloud';
 	String get loggedOut => 'Logged out';
 	String get tapToLogin => 'Tap to log in with Nextcloud';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0En {
+	_StringsLogin0i0En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'What is Nextcloud?';
+	String get a => 'Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1En {
+	_StringsLogin0i1En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'What is the encryption password?';
+	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2En {
+	_StringsLogin0i2En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'Why use two passwords?';
+	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
 }
 
 // Path: editor.toolbar
@@ -2301,6 +2339,12 @@ extension on _StringsEn {
 			case 'login.status.loggedIn': return 'Logged in with Nextcloud';
 			case 'login.status.loggedOut': return 'Logged out';
 			case 'login.status.tapToLogin': return 'Tap to log in with Nextcloud';
+			case 'login.faq.0.q': return 'What is Nextcloud?';
+			case 'login.faq.0.a': return 'Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data.';
+			case 'login.faq.1.q': return 'What is the encryption password?';
+			case 'login.faq.1.a': return 'The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
+			case 'login.faq.2.q': return 'Why use two passwords?';
+			case 'login.faq.2.a': return 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Tap here to view more license information';

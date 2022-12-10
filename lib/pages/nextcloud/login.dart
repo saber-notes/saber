@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -94,6 +95,13 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 const SizedBox(height: 64),
                 LoginInputGroup(
                   tryLogin: _tryLogin,
+                ),
+                const SizedBox(height: 64),
+
+                Faq(
+                  items: [
+                    for (final item in t.login.faq) FaqItem(item.q, item.a),
+                  ],
                 ),
 
                 const SizedBox(height: 16),
