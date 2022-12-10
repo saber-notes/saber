@@ -9,6 +9,7 @@ import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_button.dart';
 import 'package:saber/components/theming/adaptive_text_field.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -90,6 +91,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       setState(() {
         _errorMessage = t.login.feedbacks.loginSuccess;
       });
+      FileSyncer.startSync();
     } on NcLoginFailure {
       setState(() {
         _errorMessage = t.login.feedbacks.ncLoginFailed;
