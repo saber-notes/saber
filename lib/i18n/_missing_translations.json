@@ -27,10 +27,10 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+        "autoClearWhiteboardOnExit": "离开应用后清除白板"
       },
       "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+        "autoClearWhiteboardOnExit": "这将会同步到您的其他设备"
       }
     }
   },
