@@ -24,16 +24,7 @@
     }
   },
   "it": {},
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "autoClearWhiteboardOnExit": "离开应用后清除白板"
-      },
-      "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "这将会同步到您的其他设备"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
