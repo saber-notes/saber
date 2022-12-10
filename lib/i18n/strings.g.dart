@@ -3,7 +3,7 @@
 /// Locales: 6
 /// Strings: 501 (83 per locale)
 ///
-/// Built on 2022-12-10 at 18:43 UTC
+/// Built on 2022-12-10 at 21:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1308,7 +1308,7 @@ class _StringsHomeTabsIt extends _StringsHomeTabsEn {
 	// Translations
 	@override String get home => 'Home';
 	@override String get browse => 'Sfoglia';
-	@override String get whiteboard => 'Whiteboard';
+	@override String get whiteboard => 'Lavagna';
 	@override String get settings => 'Impostazioni';
 }
 
@@ -1321,7 +1321,7 @@ class _StringsHomeTitlesIt extends _StringsHomeTitlesEn {
 	// Translations
 	@override String get home => 'Note recenti';
 	@override String get browse => 'Tutte le note';
-	@override String get whiteboard => 'Whiteboard';
+	@override String get whiteboard => 'Lavagna';
 	@override String get settings => 'Impostazioni';
 }
 
@@ -2521,11 +2521,11 @@ extension on _StringsIt {
 		switch (path) {
 			case 'home.tabs.home': return 'Home';
 			case 'home.tabs.browse': return 'Sfoglia';
-			case 'home.tabs.whiteboard': return 'Whiteboard';
+			case 'home.tabs.whiteboard': return 'Lavagna';
 			case 'home.tabs.settings': return 'Impostazioni';
 			case 'home.titles.home': return 'Note recenti';
 			case 'home.titles.browse': return 'Tutte le note';
-			case 'home.titles.whiteboard': return 'Whiteboard';
+			case 'home.titles.whiteboard': return 'Lavagna';
 			case 'home.titles.settings': return 'Impostazioni';
 			case 'home.tooltips.newNote': return 'Nuova nota';
 			case 'home.tooltips.showUpdateDialog': return 'Mostra finestra di aggiornamento';
