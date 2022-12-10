@@ -12,6 +12,7 @@ import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/nextcloud/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LoginInputGroup extends StatefulWidget {
@@ -208,6 +209,21 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             const SizedBox(height: 8),
           ],
 
+          Text.rich(
+            t.login.signup(
+              linkToSignup: (text) => TextSpan(
+                text: text,
+                style: TextStyle(color: colorScheme.primary),
+                recognizer: TapGestureRecognizer()..onTap = () {
+                  launchUrl(
+                    NcLoginPage.signupUrl,
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
           Text.rich(
             t.login.form.agreeToPrivacyPolicy(
               linkToPrivacyPolicy: (text) => TextSpan(

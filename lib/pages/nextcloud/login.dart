@@ -2,7 +2,6 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -11,7 +10,6 @@ import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginPage extends StatefulWidget {
   const NcLoginPage({super.key});
@@ -96,22 +94,6 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 const SizedBox(height: 64),
                 LoginInputGroup(
                   tryLogin: _tryLogin,
-                ),
-                const SizedBox(height: 64),
-
-                Text.rich(
-                  t.login.signup(
-                    linkToSignup: (text) => TextSpan(
-                      text: text,
-                      style: TextStyle(color: colorScheme.primary),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        launchUrl(
-                          NcLoginPage.signupUrl,
-                          mode: LaunchMode.externalApplication,
-                        );
-                      },
-                    ),
-                  ),
                 ),
 
                 const SizedBox(height: 16),
