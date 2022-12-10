@@ -30,12 +30,14 @@
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
 			"editorAutoInvert": "Invert notes in dark mode",
 			"preferGreyscale": "Prefer greyscale colors",
-			"editorStraightenLines": "Press and hold to straighten a line"
+			"editorStraightenLines": "Press and hold to straighten a line",
+			"autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
 		},
 		"prefDescriptions": {
 			"hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
 			"editorAutoInvert": "Smartly darkens notes in dark mode",
-			"preferGreyscale": "For e-ink displays"
+			"preferGreyscale": "For e-ink displays",
+			"autoClearWhiteboardOnExit": "It will still be synced to your other devices"
 		},
 		"themeModes": {
 			"system": "System",

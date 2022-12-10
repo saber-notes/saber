@@ -39,6 +39,8 @@ abstract class Prefs {
   static late PlainPref<bool> preferGreyscale;
   static late PlainPref<int> editorStraightenDelay;
 
+  static late PlainPref<bool> autoClearWhiteboardOnExit;
+
   static late PlainPref<List<String>> recentColorsChronological;
   static late PlainPref<List<String>> recentColorsPositioned;
 
@@ -76,6 +78,8 @@ abstract class Prefs {
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
     editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
+
+    autoClearWhiteboardOnExit = PlainPref("autoClearWhiteboardOnExit", false);
 
     recentColorsChronological = PlainPref("recentColorsChronological", []);
     recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);

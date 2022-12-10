@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 499 (83 per locale)
+/// Strings: 501 (83 per locale)
 ///
-/// Built on 2022-12-09 at 07:24 UTC
+/// Built on 2022-12-10 at 18:43 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -301,6 +301,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
 	String get editorStraightenLines => 'Press and hold to straighten a line';
+	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
 }
 
 // Path: settings.prefDescriptions
@@ -313,6 +314,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get hyperlegibleFont => 'Atkinson Hyperlegible increases legibility for readers with low vision';
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get preferGreyscale => 'For e-ink displays';
+	String get autoClearWhiteboardOnExit => 'It will still be synced to your other devices';
 }
 
 // Path: settings.themeModes
@@ -2238,9 +2240,11 @@ extension on _StringsEn {
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
 			case 'settings.prefLabels.editorStraightenLines': return 'Press and hold to straighten a line';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Clear the whiteboard after you exit the app';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible increases legibility for readers with low vision';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Smartly darkens notes in dark mode';
 			case 'settings.prefDescriptions.preferGreyscale': return 'For e-ink displays';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'It will still be synced to your other devices';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Light';
 			case 'settings.themeModes.dark': return 'Dark';

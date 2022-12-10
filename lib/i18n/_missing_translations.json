@@ -3,9 +3,35 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "de": {},
-  "es": {},
+  "de": {
+    "settings": {
+      "prefLabels": {
+        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+      },
+      "prefDescriptions": {
+        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+      }
+    }
+  },
+  "es": {
+    "settings": {
+      "prefLabels": {
+        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+      },
+      "prefDescriptions": {
+        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+      }
+    }
+  },
   "it": {
+    "settings": {
+      "prefLabels": {
+        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+      },
+      "prefDescriptions": {
+        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+      }
+    },
     "editor": {
       "newerFileFormat": {
         "readOnlyMode": "Read-only mode",
@@ -16,6 +42,24 @@
       }
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+      },
+      "prefDescriptions": {
+        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+      },
+      "prefDescriptions": {
+        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+      }
+    }
+  }
 }

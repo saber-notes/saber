@@ -111,6 +111,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     ],
                     afterChange: (_) => setState(() {}),
                   ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.autoClearWhiteboardOnExit,
+                    subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
+                    pref: Prefs.autoClearWhiteboardOnExit,
+                  ),
                 ],
               ),
             ),

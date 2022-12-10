@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
@@ -10,6 +11,10 @@ class Whiteboard extends StatelessWidget {
 
   // editor key
   static final GlobalKey _editorKey = GlobalKey(debugLabel: "whiteboardEditor");
+
+  static const String filePath = "/_whiteboard";
+
+  static bool needsToAutoClearWhiteboard = Prefs.autoClearWhiteboardOnExit.value;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,7 @@ class Whiteboard extends StatelessWidget {
       ),
       body: Editor(
         key: _editorKey,
-        path: "/_whiteboard",
+        path: filePath,
         embedded: true,
       ),
     );

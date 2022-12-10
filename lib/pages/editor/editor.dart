@@ -31,6 +31,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/home/whiteboard.dart';
 
 class Editor extends StatefulWidget {
   Editor({
@@ -47,7 +48,7 @@ class Editor extends StatefulWidget {
 
   static const String extension = '.sbn';
   /// Hidden files used by other functions of the app
-  static List<String> reservedFileNames = ["/_whiteboard"];
+  static List<String> reservedFileNames = [Whiteboard.filePath];
 
   @override
   State<Editor> createState() => _EditorState();
@@ -94,10 +95,18 @@ class _EditorState extends State<Editor> {
     await _initStrokes();
   }
   Future _initStrokes() async {
+    if (path == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
+      createPageOfStroke(-1);
+      saveToFile().then((_) {
+        Whiteboard.needsToAutoClearWhiteboard = false;
+      });
+      return; // stick to empty coreInfo, don't load anything
+    }
+
     coreInfo = await EditorCoreInfo.loadFromFilePath(path);
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
-      createPageOfStroke(0);
+      createPageOfStroke(-1);
     } else {
       for (Stroke stroke in coreInfo.strokes) {
         createPageOfStroke(stroke.pageIndex);
@@ -246,7 +255,7 @@ class _EditorState extends State<Editor> {
   }
 
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
-    assert(coreInfo.pageSizes.length == pages.length, "pageSizes and pages must be the same length");
+    assert(coreInfo.pageSizes.length == pages.length, "pageSizes (${coreInfo.pageSizes.length}) and pages (${pages.length}) must be the same length");
     for (int i = 0; i < pages.length; ++i) {
       if (pages[i].renderBox == null) continue;
       Rect pageBounds = Offset.zero & coreInfo.pageSizes[i];
@@ -403,7 +412,7 @@ class _EditorState extends State<Editor> {
   String _saveToString() {
     return json.encode(coreInfo);
   }
-  void saveToFile() async {
+  Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
     String toSave = _saveToString();
     await FileManager.writeFile(path + Editor.extension, toSave);
