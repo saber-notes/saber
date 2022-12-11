@@ -31,13 +31,15 @@
       "editorAutoInvert": "在深色模式下使用反色筆記背景",
       "preferGreyscale": "使用灰度顏色",
       "editorStraightenLines": "按住拉直線條",
-      "autoClearWhiteboardOnExit": "退出應用程式後清除白板"
+      "autoClearWhiteboardOnExit": "退出應用程式後清除白板",
+      "editorPromptRename": "提醒您重新命名新筆記"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
       "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
       "preferGreyscale": "用於電子紙螢幕",
-      "autoClearWhiteboardOnExit": "它仍會同步到您的其他裝置"
+      "autoClearWhiteboardOnExit": "它仍會同步到您的其他裝置",
+      "editorPromptRename": "您以後隨時可以重新命名筆記"
     },
     "themeModes": {
       "system": "系統",
@@ -99,7 +101,8 @@
     "licenseNotice": "Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
     "debug": "DEBUG",
     "licenseButton": "點擊此處查看更多許可證資訊",
-    "privacyPolicyButton": "點擊此處查看隱私權政策"
+    "privacyPolicyButton": "點擊此處查看隱私權政策",
+    "sponsorButton": "點擊此處贊助我或購買更多儲存空間"
   },
   "update": {
     "updateAvailable": "可用更新",

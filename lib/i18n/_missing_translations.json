@@ -70,17 +70,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
-      },
-      "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
-      }
-    },
-    "appInfo": {
-      "sponsorButton": "Tap here to sponsor me or buy more storage"
-    }
-  }
+  "zh-Hant-TW": {}
 }
