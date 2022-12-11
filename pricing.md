@@ -3,11 +3,11 @@
 The app is free to use. However, to support Saber's development and fund the server,
 I'm offering some storage plans for the Saber Nextcloud server...
 
-| Sponsorship          | Storage                                              |
-|----------------------|------------------------------------------------------|
-| Free                 | All accounts by default get 500MB of storage.        |
-| Any amount per month | Sponsor me any amount per month for 2GB of storage.  |
-| ≥ $5 per month       | Sponsor me $5 or more per month for 10GB of storage. |
+| Sponsorship | Storage                                               |
+|-------------|-------------------------------------------------------|
+| Free        | All accounts by default get 500MB of storage.         |
+| Standard    | Sponsor me _any amount_ per month for 2GB of storage. |
+| Premium     | Sponsor me $5 or more per month for 10GB of storage.  |
 
 All sponsorships are in USD ($) because of GitHub Sponsors.
 
@@ -19,6 +19,12 @@ All sponsorships are in USD ($) because of GitHub Sponsors.
 - Email me at adilhanney@disroot.org with your Nextcloud username and
   confirmation of your sponsorship, and I'll upgrade your account!
 
+## I'm a student
+
+If you're a student, you can get the Standard plan for free! Just email me at
+adilhanney@disroot.org with your Nextcloud username and confirmation of your
+student status (e.g. a screenshot of your UNiDAYS iD),
+and I'll upgrade your account!
 
 # Other options
 
