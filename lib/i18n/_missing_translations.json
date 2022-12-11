@@ -73,14 +73,14 @@
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
+        "editorPromptRename": "提醒您重新命名新筆記"
       },
       "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
+        "editorPromptRename": "您以後隨時可以重新命名筆記"
       }
     },
     "appInfo": {
-      "sponsorButton": "Tap here to sponsor me or buy more storage"
+      "sponsorButton": "點擊此處贊助我或購買更多儲存空間"
     }
   }
 }
