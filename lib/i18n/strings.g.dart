@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 538 (89 per locale)
+/// Strings: 544 (90 per locale)
 ///
-/// Built on 2022-12-11 at 07:09 UTC
+/// Built on 2022-12-11 at 17:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -596,6 +596,11 @@ class _StringsLoginDe extends _StringsLoginEn {
 		const TextSpan(text: '!'),
 	]);
 	@override late final _StringsLoginStatusDe status = _StringsLoginStatusDe._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0De._(_root),
+		_StringsLogin0i1De._(_root),
+		_StringsLogin0i2De._(_root),
+	];
 }
 
 // Path: appInfo
@@ -788,6 +793,39 @@ class _StringsLoginStatusDe extends _StringsLoginStatusEn {
 	@override String get loggedIn => 'Mit Nextcloud angemeldet';
 	@override String get loggedOut => 'Nicht angemeldet';
 	@override String get tapToLogin => 'Hier tippen, um dich mit Nextcloud anzumelden';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0De extends _StringsLogin0i0En {
+	_StringsLogin0i0De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Was ist Nextcloud?';
+	@override String get a => 'Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1De extends _StringsLogin0i1En {
+	_StringsLogin0i1De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Was ist das Verchlüsselungspasswort?';
+	@override String get a => 'Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\n\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2De extends _StringsLogin0i2En {
+	_StringsLogin0i2De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Wieso zwei Passwörter?';
+	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
 }
 
 // Path: editor.toolbar
@@ -2563,6 +2601,12 @@ extension on _StringsDe {
 			case 'login.status.loggedIn': return 'Mit Nextcloud angemeldet';
 			case 'login.status.loggedOut': return 'Nicht angemeldet';
 			case 'login.status.tapToLogin': return 'Hier tippen, um dich mit Nextcloud anzumelden';
+			case 'login.faq.0.q': return 'Was ist Nextcloud?';
+			case 'login.faq.0.a': return 'Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten.';
+			case 'login.faq.1.q': return 'Was ist das Verchlüsselungspasswort?';
+			case 'login.faq.1.a': return 'Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\n\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
+			case 'login.faq.2.q': return 'Wieso zwei Passwörter?';
+			case 'login.faq.2.a': return 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
