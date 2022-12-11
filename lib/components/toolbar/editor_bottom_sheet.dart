@@ -4,6 +4,7 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class EditorBottomSheet extends StatefulWidget {
@@ -114,8 +115,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                               borderRadius: BorderRadius.circular(8),
                               child: FittedBox(
                                 child: SizedBox(
-                                  width: EditorCoreInfo.defaultWidth / 4,
-                                  height: EditorCoreInfo.defaultHeight / 4,
+                                  width: EditorPage.defaultWidth / 4,
+                                  height: EditorPage.defaultHeight / 4,
                                   child: CustomPaint(
                                     painter: CanvasBackgroundPainter(
                                       invert: widget.invert,

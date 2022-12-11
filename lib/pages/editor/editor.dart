@@ -55,8 +55,6 @@ class Editor extends StatefulWidget {
 }
 
 class _EditorState extends State<Editor> {
-  final List<EditorPage> pages = [];
-
   EditorCoreInfo coreInfo = EditorCoreInfo();
 
   EditorHistory history = EditorHistory();
@@ -152,22 +150,22 @@ class _EditorState extends State<Editor> {
       }
     }
 
-    while (maxPageIndex >= pages.length - 1) {
-      pages.add(EditorPage());
-      coreInfo.pageSizes.add(EditorCoreInfo.defaultPageSize);
+    while (maxPageIndex >= coreInfo.pages.length - 1) {
+      coreInfo.pages.add(EditorPage());
     }
   }
   void removeExcessPagesAfterStroke(Stroke? stroke) {
     int minPageIndex = stroke?.pageIndex ?? 0;
 
     // remove excess pages if all pages >= this one are empty
-    for (int i = pages.length - 1; i >= minPageIndex + 1; --i) {
+    for (int i = coreInfo.pages.length - 1; i >= minPageIndex + 1; --i) {
       /// true if this page and the page before it are empty
       final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
           && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1);
       if (pageEmpty) {
-        pages.removeAt(i);
-        coreInfo.pageSizes.removeAt(i);
+        coreInfo.pages.removeAt(i);
+      } else {
+        break;
       }
     }
   }
@@ -255,11 +253,10 @@ class _EditorState extends State<Editor> {
   }
 
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
-    assert(coreInfo.pageSizes.length == pages.length, "pageSizes (${coreInfo.pageSizes.length}) and pages (${pages.length}) must be the same length");
-    for (int i = 0; i < pages.length; ++i) {
-      if (pages[i].renderBox == null) continue;
-      Rect pageBounds = Offset.zero & coreInfo.pageSizes[i];
-      if (pageBounds.contains(pages[i].renderBox!.globalToLocal(focalPoint))) return i;
+    for (int i = 0; i < coreInfo.pages.length; ++i) {
+      if (coreInfo.pages[i].renderBox == null) continue;
+      Rect pageBounds = Offset.zero & coreInfo.pages[i].size;
+      if (pageBounds.contains(coreInfo.pages[i].renderBox!.globalToLocal(focalPoint))) return i;
     }
     return null;
   }
@@ -308,9 +305,9 @@ class _EditorState extends State<Editor> {
     }
   }
   onDrawStart(ScaleStartDetails details) {
-    Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
+    Offset position = coreInfo.pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(coreInfo.pageSizes[dragPageIndex!], position, dragPageIndex!, currentPressure);
+      (currentTool as Pen).onDragStart(coreInfo.pages[dragPageIndex!].size, position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
         Stroke removed = coreInfo.strokes.removeAt(i);
@@ -321,10 +318,10 @@ class _EditorState extends State<Editor> {
     history.canRedo = false;
   }
   onDrawUpdate(ScaleUpdateDetails details) {
-    Offset position = pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
+    Offset position = coreInfo.pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
     setState(() {
       if (currentTool is Pen) {
-        (currentTool as Pen).onDragUpdate(coreInfo.pageSizes[dragPageIndex!], position, currentPressure, () => setState(() {}));
+        (currentTool as Pen).onDragUpdate(coreInfo.pages[dragPageIndex!].size, position, currentPressure, () => setState(() {}));
       } else if (currentTool is Eraser) {
         for (int i in (currentTool as Eraser).checkForOverlappingStrokes(dragPageIndex!, position, coreInfo.strokes).reversed) {
           Stroke removed = coreInfo.strokes.removeAt(i);
@@ -490,7 +487,7 @@ class _EditorState extends State<Editor> {
     EditorImage image = EditorImage(
       bytes: bytes,
       pageIndex: pageIndex,
-      pageSize: coreInfo.pageSizes[pageIndex],
+      pageSize: coreInfo.pages[pageIndex].size,
       onMoveImage: onMoveImage,
       onDeleteImage: onDeleteImage,
       onMiscChange: autosaveAfterDelay,
@@ -528,7 +525,7 @@ class _EditorState extends State<Editor> {
   }
 
   Future exportAsPdf() async {
-    final pdf = EditorExporter.generatePdf(pages, coreInfo);
+    final pdf = EditorExporter.generatePdf(coreInfo);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
   }
   Future exportAsSbn() async {
@@ -556,11 +553,11 @@ class _EditorState extends State<Editor> {
 
             child: Column(
               children: [
-                for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) ...[
+                for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) ...[
                   Canvas(
                     path: path,
                     pageIndex: pageIndex,
-                    innerCanvasKey: pages[pageIndex].innerCanvasKey,
+                    innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
                     coreInfo: coreInfo.copyWith(
                       strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
                       images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
@@ -761,8 +758,8 @@ class _EditorState extends State<Editor> {
     final Size windowSize = MediaQuery.of(context).size;
     late Offset centre = Offset(windowSize.width / 2, windowSize.height / 2);
 
-    for (int pageIndex = 0; pageIndex < pages.length; ++pageIndex) {
-      final page = pages[pageIndex];
+    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; ++pageIndex) {
+      final page = coreInfo.pages[pageIndex];
       if (page.renderBox == null) continue;
       final localCenter = page.renderBox!.globalToLocal(centre);
 

@@ -11,10 +11,10 @@ import 'package:saber/data/editor/page.dart';
 
 abstract class EditorExporter {
 
-  static pw.Document generatePdf(List<EditorPage> pages, EditorCoreInfo coreInfo) {
+  static pw.Document generatePdf(EditorCoreInfo coreInfo) {
     final pw.Document pdf = pw.Document();
 
-    for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
+    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
       pdf.addPage(
         _generatePdfPage(coreInfo, pageIndex)
       );
@@ -29,7 +29,7 @@ abstract class EditorExporter {
     /// Red at 0.2 opacity against white
     const PdfColor secondaryColor = PdfColor(1, 0.8, 0.8);
 
-    final Size pageSize = coreInfo.pageSizes[pageIndex];
+    final Size pageSize = coreInfo.pages[pageIndex].size;
 
     return pw.Page(
       pageFormat: PdfPageFormat(pageSize.width, pageSize.height),

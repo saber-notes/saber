@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page.dart';
 
 import '_stroke.dart';
 import 'inner_canvas.dart';
@@ -28,7 +29,7 @@ class Canvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size pageSize = coreInfo.pageSizes.isNotEmpty ? coreInfo.pageSizes[pageIndex] : EditorCoreInfo.defaultPageSize;
+    Size pageSize = coreInfo.pages.isNotEmpty ? coreInfo.pages[pageIndex].size : EditorPage.defaultSize;
 
     Widget innerCanvas = ClipRect(
       child: Center(

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/pages/editor/editor.dart';
 
@@ -35,7 +36,7 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 
   double get height {
-    double fullHeight = coreInfo.pageSizes.isNotEmpty ? coreInfo.pageSizes[0].height : EditorCoreInfo.defaultHeight;
+    double fullHeight = coreInfo.pages.isNotEmpty ? coreInfo.pages[0].size.height : EditorPage.defaultHeight;
     double maxY = coreInfo.strokes.isEmpty ? 0 : coreInfo.strokes.map((stroke) => stroke.maxY).reduce(max);
     for (EditorImage image in coreInfo.images) {
       if (image.dstRect.bottom > maxY) maxY = image.dstRect.bottom;
