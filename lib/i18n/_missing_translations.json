@@ -3,7 +3,11 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "de": {},
+  "de": {
+    "appInfo": {
+      "sponsorButton": "Tap here to sponsor me or buy more storage"
+    }
+  },
   "es": {
     "settings": {
       "prefLabels": {
@@ -28,9 +32,24 @@
           "a": "The Nextcloud password is used to access the cloud. The encryption password \"scrambles\" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data."
         }
       ]
+    },
+    "appInfo": {
+      "sponsorButton": "Tap here to sponsor me or buy more storage"
     }
   },
-  "it": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "it": {
+    "appInfo": {
+      "sponsorButton": "Tap here to sponsor me or buy more storage"
+    }
+  },
+  "zh-Hans-CN": {
+    "appInfo": {
+      "sponsorButton": "Tap here to sponsor me or buy more storage"
+    }
+  },
+  "zh-Hant-TW": {
+    "appInfo": {
+      "sponsorButton": "Tap here to sponsor me or buy more storage"
+    }
+  }
 }

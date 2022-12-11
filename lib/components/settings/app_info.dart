@@ -14,7 +14,8 @@ import 'package:url_launcher/url_launcher.dart';
 class AppInfo extends StatefulWidget {
   const AppInfo({super.key});
 
-  static final Uri privacyPolicyUrl = Uri.parse('https://github.com/adil192/saber/blob/main/privacy_policy.md');
+  static final Uri sponsorUrl = Uri.parse("https://github.com/sponsors/adil192");
+  static final Uri privacyPolicyUrl = Uri.parse("https://github.com/adil192/saber/blob/main/privacy_policy.md");
   static final Uri licenseUrl = Uri.parse("https://github.com/adil192/saber/blob/main/LICENSE.md");
   static final Uri releasesUrl = Uri.parse("https://github.com/adil192/saber/releases");
 
@@ -64,8 +65,17 @@ class _AppInfoState extends State<AppInfo> {
     ),
     applicationLegalese: t.appInfo.licenseNotice,
     children: [
-
       const SizedBox(height: 10),
+      TextButton(
+        onPressed: () => launchUrl(
+          AppInfo.sponsorUrl,
+          mode: LaunchMode.externalApplication,
+        ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(t.appInfo.sponsorButton)
+        ),
+      ),
       TextButton(
         onPressed: () => launchUrl(
           AppInfo.licenseUrl,

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 544 (90 per locale)
+/// Strings: 545 (90 per locale)
 ///
-/// Built on 2022-12-11 at 17:32 UTC
+/// Built on 2022-12-11 at 21:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -222,6 +222,7 @@ class _StringsAppInfoEn {
 	// Translations
 	String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	String get debug => 'DEBUG';
+	String get sponsorButton => 'Tap here to sponsor me or buy more storage';
 	String get licenseButton => 'Tap here to view more license information';
 	String get privacyPolicyButton => 'Tap here to view the privacy policy';
 }
@@ -2501,6 +2502,7 @@ extension on _StringsEn {
 			case 'login.faq.2.a': return 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
+			case 'appInfo.sponsorButton': return 'Tap here to sponsor me or buy more storage';
 			case 'appInfo.licenseButton': return 'Tap here to view more license information';
 			case 'appInfo.privacyPolicyButton': return 'Tap here to view the privacy policy';
 			case 'update.updateAvailable': return 'Update available';
