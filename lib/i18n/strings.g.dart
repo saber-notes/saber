@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 532 (88 per locale)
+/// Strings: 538 (89 per locale)
 ///
-/// Built on 2022-12-11 at 06:02 UTC
+/// Built on 2022-12-11 at 07:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1297,6 +1297,11 @@ class _StringsLoginIt extends _StringsLoginEn {
 		const TextSpan(text: '!'),
 	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0It._(_root),
+		_StringsLogin0i1It._(_root),
+		_StringsLogin0i2It._(_root),
+	];
 }
 
 // Path: appInfo
@@ -1489,6 +1494,39 @@ class _StringsLoginStatusIt extends _StringsLoginStatusEn {
 	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
 	@override String get loggedOut => 'Disconnesso';
 	@override String get tapToLogin => 'Tocca per accedere con Nextcloud';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0It extends _StringsLogin0i0En {
+	_StringsLogin0i0It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Cos\'è Nextcloud?';
+	@override String get a => 'Nextcloud è, tra le altre cose, un server di sincronizzazione file privato. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1It extends _StringsLogin0i1En {
+	_StringsLogin0i1It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Cos\'è la password di crittografia?';
+	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Non è archiviato sul server e viene utilizzato solo da Sabre per crittografare e decrittografare i tuoi dati.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2It extends _StringsLogin0i2En {
+	_StringsLogin0i2It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Perché usare due password?';
+	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
 }
 
 // Path: editor.toolbar
@@ -2726,6 +2764,12 @@ extension on _StringsIt {
 			case 'login.status.loggedIn': return 'Effettuato l\'accesso con Nextcloud';
 			case 'login.status.loggedOut': return 'Disconnesso';
 			case 'login.status.tapToLogin': return 'Tocca per accedere con Nextcloud';
+			case 'login.faq.0.q': return 'Cos\'è Nextcloud?';
+			case 'login.faq.0.a': return 'Nextcloud è, tra le altre cose, un server di sincronizzazione file privato. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.';
+			case 'login.faq.1.q': return 'Cos\'è la password di crittografia?';
+			case 'login.faq.1.a': return 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Non è archiviato sul server e viene utilizzato solo da Sabre per crittografare e decrittografare i tuoi dati.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+			case 'login.faq.2.q': return 'Perché usare due password?';
+			case 'login.faq.2.a': return 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
 			case 'appInfo.licenseNotice': return 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
