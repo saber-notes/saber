@@ -13,7 +13,7 @@ Future fmExportFile(String fileName, List<int> bytes) async {
 
   if (Platform.isAndroid || Platform.isIOS) { // mobile, open share dialog
     await fileWriteFuture;
-    await Share.shareFilesWithResult([file.path]);
+    await Share.shareXFiles([XFile(file.path)]);
   } else { // desktop, open save-as dialog
     String? outputFile = await FilePicker.platform.saveFile(
       fileName: fileName,
