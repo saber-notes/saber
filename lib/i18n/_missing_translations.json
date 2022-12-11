@@ -60,15 +60,6 @@
       "sponsorButton": "Tap here to sponsor me or buy more storage"
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "editorPromptRename": "提示您重命名新笔记"
-      },
-      "prefDescriptions": {
-        "editorPromptRename": "您可以总是稍后重命名笔记"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
