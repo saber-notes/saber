@@ -59,6 +59,18 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.6" type="development" date="2022-12-11">
+            <description>
+                <ol>
+                    <li>You can now automatically clear the whiteboard after you close the app</li>
+                    <li>There's now an FAQ section in the login page</li>
+                    <li>You won't be prompted to rename new notes anymore unless you opt-in in Settings</li>
+                    <li>The Settings page shows how much storage you have left</li>
+                    <li>Fix more login bugs :p</li>
+                    <li>Various performance improvements</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.4.5" type="development" date="2022-12-09">
             <description>
                 <ol>
