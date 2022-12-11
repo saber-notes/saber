@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 546 (91 per locale)
+/// Strings: 548 (91 per locale)
 ///
-/// Built on 2022-12-11 at 22:04 UTC
+/// Built on 2022-12-11 at 22:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -308,6 +308,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get preferGreyscale => 'Prefer greyscale colors';
 	String get editorStraightenLines => 'Press and hold to straighten a line';
 	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
+	String get editorPromptRename => 'Prompt you to rename new notes';
 }
 
 // Path: settings.prefDescriptions
@@ -321,6 +322,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get preferGreyscale => 'For e-ink displays';
 	String get autoClearWhiteboardOnExit => 'It will still be synced to your other devices';
+	String get editorPromptRename => 'You can always rename notes later';
 }
 
 // Path: settings.themeModes
@@ -2456,10 +2458,12 @@ extension on _StringsEn {
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
 			case 'settings.prefLabels.editorStraightenLines': return 'Press and hold to straighten a line';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Clear the whiteboard after you exit the app';
+			case 'settings.prefLabels.editorPromptRename': return 'Prompt you to rename new notes';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible increases legibility for readers with low vision';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Smartly darkens notes in dark mode';
 			case 'settings.prefDescriptions.preferGreyscale': return 'For e-ink displays';
 			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'It will still be synced to your other devices';
+			case 'settings.prefDescriptions.editorPromptRename': return 'You can always rename notes later';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Light';
 			case 'settings.themeModes.dark': return 'Dark';

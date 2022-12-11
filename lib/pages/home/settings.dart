@@ -116,6 +116,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
                     pref: Prefs.autoClearWhiteboardOnExit,
                   ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.editorPromptRename,
+                    subtitle: t.settings.prefDescriptions.editorPromptRename,
+                    pref: Prefs.editorPromptRename,
+                  ),
                 ],
               ),
             ),

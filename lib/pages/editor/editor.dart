@@ -60,7 +60,7 @@ class _EditorState extends State<Editor> {
   EditorHistory history = EditorHistory();
 
   String path = "";
-  late bool needsNaming = widget.needsNaming;
+  late bool needsNaming = widget.needsNaming && Prefs.editorPromptRename.value;
 
   Tool currentTool = Pen.currentPen;
 

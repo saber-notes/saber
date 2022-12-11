@@ -4,6 +4,14 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "de": {
+    "settings": {
+      "prefLabels": {
+        "editorPromptRename": "Prompt you to rename new notes"
+      },
+      "prefDescriptions": {
+        "editorPromptRename": "You can always rename notes later"
+      }
+    },
     "appInfo": {
       "sponsorButton": "Tap here to sponsor me or buy more storage"
     }
@@ -11,10 +19,12 @@
   "es": {
     "settings": {
       "prefLabels": {
-        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app"
+        "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
+        "editorPromptRename": "Prompt you to rename new notes"
       },
       "prefDescriptions": {
-        "autoClearWhiteboardOnExit": "It will still be synced to your other devices"
+        "autoClearWhiteboardOnExit": "It will still be synced to your other devices",
+        "editorPromptRename": "You can always rename notes later"
       }
     },
     "login": {
@@ -38,12 +48,37 @@
     }
   },
   "it": {
+    "settings": {
+      "prefLabels": {
+        "editorPromptRename": "Prompt you to rename new notes"
+      },
+      "prefDescriptions": {
+        "editorPromptRename": "You can always rename notes later"
+      }
+    },
     "appInfo": {
       "sponsorButton": "Tap here to sponsor me or buy more storage"
     }
   },
-  "zh-Hans-CN": {},
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "editorPromptRename": "Prompt you to rename new notes"
+      },
+      "prefDescriptions": {
+        "editorPromptRename": "You can always rename notes later"
+      }
+    }
+  },
   "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "editorPromptRename": "Prompt you to rename new notes"
+      },
+      "prefDescriptions": {
+        "editorPromptRename": "You can always rename notes later"
+      }
+    },
     "appInfo": {
       "sponsorButton": "Tap here to sponsor me or buy more storage"
     }

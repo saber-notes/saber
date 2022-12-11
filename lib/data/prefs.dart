@@ -38,6 +38,7 @@ abstract class Prefs {
   static late final PlainPref<bool> editorAutoInvert;
   static late final PlainPref<bool> preferGreyscale;
   static late final PlainPref<int> editorStraightenDelay;
+  static late final PlainPref<bool> editorPromptRename;
 
   static late final PlainPref<bool> autoClearWhiteboardOnExit;
 
@@ -78,6 +79,7 @@ abstract class Prefs {
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
     editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
+    editorPromptRename = PlainPref("editorPromptRename", false);
 
     autoClearWhiteboardOnExit = PlainPref("autoClearWhiteboardOnExit", false);
 
