@@ -42,11 +42,7 @@
       "sponsorButton": "Tap here to sponsor me or buy more storage"
     }
   },
-  "zh-Hans-CN": {
-    "appInfo": {
-      "sponsorButton": "点击此处赞助我或购买更多存储空间"
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "appInfo": {
       "sponsorButton": "Tap here to sponsor me or buy more storage"

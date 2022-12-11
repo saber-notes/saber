@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 545 (90 per locale)
+/// Strings: 546 (91 per locale)
 ///
-/// Built on 2022-12-11 at 21:08 UTC
+/// Built on 2022-12-11 at 22:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1744,6 +1744,7 @@ class _StringsAppInfoZhHansCn extends _StringsAppInfoEn {
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => '点击此处查看更多许可证信息';
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
+	@override String get sponsorButton => '点击此处赞助我或购买更多存储空间';
 }
 
 // Path: update
@@ -2928,6 +2929,7 @@ extension on _StringsZhHansCn {
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
 			case 'appInfo.privacyPolicyButton': return '点击此处查看隐私政策';
+			case 'appInfo.sponsorButton': return '点击此处赞助我或购买更多存储空间';
 			case 'update.updateAvailable': return '可用更新';
 			case 'update.updateAvailableDescription': return '该应用程序的新版本可用。';
 			case 'update.dismiss': return '忽略';
