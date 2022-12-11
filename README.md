@@ -201,11 +201,15 @@ Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-star
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
 - When updating the **translations**...
   - Run the following commands:
+    - `flutter pub run slang apply --outdir=lib/i18n --locale=XX` if you need to apply _missing_translations.json
     - `flutter pub run slang`
     - `flutter pub run slang analyze --full --outdir=lib/i18n/`
-  - If you're adding a new language, edit `CFBundleLocalizations` in `ios/Runner/Info.plist`
-    and `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
-    Also update README.md above in the "Translating" section.
+  - If you're adding a new language, update:
+    - `CFBundleLocalizations` in `ios/Runner/Info.plist`
+    - `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
+    - `android/app/src/main/res/xml/locales_config.xml`
+    - `resConfigs` in `android/app/build.gradle`
+    - `README.md` above in the "Translating" section.
 
 </details>
 

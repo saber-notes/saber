@@ -63,6 +63,9 @@ android {
         ndk {
             debugSymbolLevel 'FULL'
         }
+
+        // Supported languages
+        resConfigs "en", "es", "de", "it", "zh"
     }
 
     signingConfigs {
