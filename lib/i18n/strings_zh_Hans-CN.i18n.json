@@ -31,13 +31,15 @@
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
       "preferGreyscale": "使用灰度颜色",
       "editorStraightenLines": "按住拉直线段",
-      "autoClearWhiteboardOnExit": "离开应用后清除白板"
+      "autoClearWhiteboardOnExit": "离开应用后清除白板",
+      "editorPromptRename": "提示您重命名新笔记"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
       "preferGreyscale": "用于电子墨水显示器",
-      "autoClearWhiteboardOnExit": "这将会同步到您的其他设备"
+      "autoClearWhiteboardOnExit": "这将会同步到您的其他设备",
+      "editorPromptRename": "您可以总是稍后重命名笔记"
     },
     "themeModes": {
       "system": "系统",

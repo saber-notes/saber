@@ -60,15 +60,6 @@
       "sponsorButton": "Tap here to sponsor me or buy more storage"
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
-      },
-      "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
