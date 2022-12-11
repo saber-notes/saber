@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 526 (87 per locale)
+/// Strings: 532 (88 per locale)
 ///
-/// Built on 2022-12-10 at 23:59 UTC
+/// Built on 2022-12-11 at 06:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1649,6 +1649,11 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		const TextSpan(text: '！'),
 	]);
 	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0ZhHansCn._(_root),
+		_StringsLogin0i1ZhHansCn._(_root),
+		_StringsLogin0i2ZhHansCn._(_root),
+	];
 }
 
 // Path: appInfo
@@ -1841,6 +1846,39 @@ class _StringsLoginStatusZhHansCn extends _StringsLoginStatusEn {
 	@override String get loggedIn => '已使用 Nextcloud 登录';
 	@override String get loggedOut => '已注销';
 	@override String get tapToLogin => '点击以使用 Nextcloud 登录';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0ZhHansCn extends _StringsLogin0i0En {
+	_StringsLogin0i0ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Nextcloud 是什么？';
+	@override String get a => 'Nextcloud 是一个私人文件同步服务器。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1ZhHansCn extends _StringsLogin0i1En {
+	_StringsLogin0i1ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '加密密码是什么？';
+	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。它不存储在服务器上，仅供 Saber 用来加密和解密您的数据。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2ZhHansCn extends _StringsLogin0i2En {
+	_StringsLogin0i2ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '为什么使用双重密码？';
+	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
 }
 
 // Path: editor.toolbar
@@ -2790,6 +2828,12 @@ extension on _StringsZhHansCn {
 			case 'login.status.loggedIn': return '已使用 Nextcloud 登录';
 			case 'login.status.loggedOut': return '已注销';
 			case 'login.status.tapToLogin': return '点击以使用 Nextcloud 登录';
+			case 'login.faq.0.q': return 'Nextcloud 是什么？';
+			case 'login.faq.0.a': return 'Nextcloud 是一个私人文件同步服务器。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。';
+			case 'login.faq.1.q': return '加密密码是什么？';
+			case 'login.faq.1.a': return '加密密码用于在将数据发送到服务器之前对其进行加密。它不存储在服务器上，仅供 Saber 用来加密和解密您的数据。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+			case 'login.faq.2.q': return '为什么使用双重密码？';
+			case 'login.faq.2.a': return 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
 			case 'appInfo.licenseNotice': return 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
