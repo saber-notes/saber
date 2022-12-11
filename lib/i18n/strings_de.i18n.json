@@ -79,7 +79,21 @@
       "loggedIn": "Mit Nextcloud angemeldet",
       "loggedOut": "Nicht angemeldet",
       "tapToLogin": "Hier tippen, um dich mit Nextcloud anzumelden"
-    }
+    },
+    "faq": [
+      {
+        "q": "Was ist Nextcloud?",
+        "a": "Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
+      },
+      {
+        "q": "Was ist das Verchlüsselungspasswort?",
+        "a": "Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\n\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst."
+      },
+      {
+        "q": "Wieso zwei Passwörter?",
+        "a": "Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort \"verwürfelt\" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar."
+      }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
