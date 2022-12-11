@@ -43,6 +43,10 @@ class _SettingsSelectionState extends State<SettingsSelection> {
       widget.pref.value = widget.options.first.value;
     }
     return ListTile(
+      onTap: () { // cycle through options
+        final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);
+        widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
+      },
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
