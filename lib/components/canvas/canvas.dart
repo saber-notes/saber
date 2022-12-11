@@ -14,7 +14,6 @@ class Canvas extends StatelessWidget {
     required this.innerCanvasKey,
     required this.coreInfo,
     required this.currentStroke,
-    this.readOnly = false,
   });
 
   final String path;
@@ -22,8 +21,6 @@ class Canvas extends StatelessWidget {
 
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
-
-  final bool readOnly;
 
   final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
 
@@ -40,7 +37,6 @@ class Canvas extends StatelessWidget {
             height: pageSize.height,
             coreInfo: coreInfo,
             currentStroke: currentStroke,
-            readOnly: readOnly,
           ),
         ),
       ),

@@ -566,7 +566,6 @@ class _EditorState extends State<Editor> {
                       Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
                       return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                     }(),
-                    readOnly: coreInfo.readOnly,
                   ),
                   const SizedBox(height: 16),
                 ]

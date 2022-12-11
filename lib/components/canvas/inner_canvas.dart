@@ -19,7 +19,6 @@ class InnerCanvas extends StatefulWidget {
     required EditorCoreInfo coreInfo,
     required this.currentStroke,
     this.onRenderObjectChange,
-    this.readOnly = false,
   }) {
     this.coreInfo = coreInfo.copyWith(
       strokes: coreInfo.strokes.where((stroke) => isStrokeInPage(stroke)).toList(),
@@ -33,8 +32,6 @@ class InnerCanvas extends StatefulWidget {
   late final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
-
-  final bool readOnly;
 
   bool isStrokeInPage(Stroke stroke) {
     final maxY = stroke.maxY;
@@ -83,7 +80,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
                 CanvasImage(
                   image: editorImage,
                   pageSize: Size(widget.width, widget.height),
-                  readOnly: widget.readOnly,
+                  readOnly: widget.coreInfo.readOnly,
                 ),
             ],
           ),

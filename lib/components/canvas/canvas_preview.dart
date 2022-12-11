@@ -35,7 +35,6 @@ class CanvasPreview extends StatelessWidget {
             height: height ?? pageSize.height * 0.1,
             coreInfo: coreInfo,
             currentStroke: null,
-            readOnly: true,
           ),
         ),
       ),
