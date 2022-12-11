@@ -63,10 +63,10 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
+        "editorPromptRename": "提示您重命名新笔记"
       },
       "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
+        "editorPromptRename": "您可以总是稍后重命名笔记"
       }
     }
   },
