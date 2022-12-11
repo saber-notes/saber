@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 518 (86 per locale)
+/// Strings: 526 (87 per locale)
 ///
-/// Built on 2022-12-10 at 22:49 UTC
+/// Built on 2022-12-10 at 23:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2001,6 +2001,11 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 		const TextSpan(text: '！'),
 	]);
 	@override late final _StringsLoginStatusZhHantTw status = _StringsLoginStatusZhHantTw._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0ZhHantTw._(_root),
+		_StringsLogin0i1ZhHantTw._(_root),
+		_StringsLogin0i2ZhHantTw._(_root),
+	];
 }
 
 // Path: appInfo
@@ -2096,6 +2101,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
 	@override String get preferGreyscale => '使用灰度顏色';
 	@override String get editorStraightenLines => '按住拉直線條';
+	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
 }
 
 // Path: settings.prefDescriptions
@@ -2108,6 +2114,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
 	@override String get preferGreyscale => '用於電子紙螢幕';
+	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
 }
 
 // Path: settings.themeModes
@@ -2191,6 +2198,39 @@ class _StringsLoginStatusZhHantTw extends _StringsLoginStatusEn {
 	@override String get loggedIn => '已使用 Nextcloud 登入';
 	@override String get loggedOut => '已登出';
 	@override String get tapToLogin => '點擊以使用 Nextcloud 登入';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0ZhHantTw extends _StringsLogin0i0En {
+	_StringsLogin0i0ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '什麼是 Nextcloud？';
+	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。 您可以使用預設的 Sabre Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1ZhHantTw extends _StringsLogin0i1En {
+	_StringsLogin0i1ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '加密密碼是什麼？';
+	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。 它不存儲在伺服器上，僅供 Saber 用來加密和解密您的資料。\n\n沒有您的加密密碼，任何人都無法訪問您儲存在伺服器上的筆記。 這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2ZhHantTw extends _StringsLogin0i2En {
+	_StringsLogin0i2ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '為什麼要使用兩個密碼？';
+	@override String get a => 'Nextcloud 密碼用於訪問雲端。 而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。 這為您提供了第二層安全保護來保護您的資料。';
 }
 
 // Path: editor.toolbar
@@ -2812,9 +2852,11 @@ extension on _StringsZhHantTw {
 			case 'settings.prefLabels.editorAutoInvert': return '在深色模式下使用反色筆記背景';
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度顏色';
 			case 'settings.prefLabels.editorStraightenLines': return '按住拉直線條';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return '退出應用程式後清除白板';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return '它仍會同步到您的其他裝置';
 			case 'settings.themeModes.system': return '系統';
 			case 'settings.themeModes.light': return '淺色';
 			case 'settings.themeModes.dark': return '深色';
@@ -2850,6 +2892,12 @@ extension on _StringsZhHantTw {
 			case 'login.status.loggedIn': return '已使用 Nextcloud 登入';
 			case 'login.status.loggedOut': return '已登出';
 			case 'login.status.tapToLogin': return '點擊以使用 Nextcloud 登入';
+			case 'login.faq.0.q': return '什麼是 Nextcloud？';
+			case 'login.faq.0.a': return 'Nextcloud 是一個私人檔案同步伺服器。 您可以使用預設的 Sabre Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
+			case 'login.faq.1.q': return '加密密碼是什麼？';
+			case 'login.faq.1.a': return '加密密碼用於在將資料傳送到伺服器之前對其進行加密。 它不存儲在伺服器上，僅供 Saber 用來加密和解密您的資料。\n\n沒有您的加密密碼，任何人都無法訪問您儲存在伺服器上的筆記。 這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。';
+			case 'login.faq.2.q': return '為什麼要使用兩個密碼？';
+			case 'login.faq.2.a': return 'Nextcloud 密碼用於訪問雲端。 而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。 這為您提供了第二層安全保護來保護您的資料。';
 			case 'appInfo.licenseNotice': return 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';

@@ -30,12 +30,14 @@
       "editorToolbarOnBottom": "將編輯工具列與底部對齊",
       "editorAutoInvert": "在深色模式下使用反色筆記背景",
       "preferGreyscale": "使用灰度顏色",
-      "editorStraightenLines": "按住拉直線條"
+      "editorStraightenLines": "按住拉直線條",
+      "autoClearWhiteboardOnExit": "退出應用程式後清除白板"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
       "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
-      "preferGreyscale": "用於電子紙螢幕"
+      "preferGreyscale": "用於電子紙螢幕",
+      "autoClearWhiteboardOnExit": "它仍會同步到您的其他裝置"
     },
     "themeModes": {
       "system": "系統",
@@ -77,7 +79,21 @@
       "loggedIn": "已使用 Nextcloud 登入",
       "loggedOut": "已登出",
       "tapToLogin": "點擊以使用 Nextcloud 登入"
-    }
+    },
+    "faq": [
+      {
+        "q": "什麼是 Nextcloud？",
+        "a": "Nextcloud 是一個私人檔案同步伺服器。 您可以使用預設的 Sabre Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。"
+      },
+      {
+        "q": "加密密碼是什麼？",
+        "a": "加密密碼用於在將資料傳送到伺服器之前對其進行加密。 它不存儲在伺服器上，僅供 Saber 用來加密和解密您的資料。\n\n沒有您的加密密碼，任何人都無法訪問您儲存在伺服器上的筆記。 這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。"
+      },
+      {
+        "q": "為什麼要使用兩個密碼？",
+        "a": "Nextcloud 密碼用於訪問雲端。 而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。 這為您提供了第二層安全保護來保護您的資料。"
+      }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
