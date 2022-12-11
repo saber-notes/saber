@@ -81,7 +81,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     }
 
     try {
-      _isLoading = true;
+      setState(() {
+        _isLoading = true;
+      });
       await widget.tryLogin(LoginDetailsStruct(
         url: _usingCustomServer ? _customServerController.text : null,
         loginName: _usernameController.text,
@@ -101,7 +103,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
         _errorMessage = t.login.feedbacks.encLoginFailed;
       });
     } finally {
-      _isLoading = false;
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
