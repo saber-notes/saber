@@ -36,14 +36,17 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     setState(() {});
   }
 
-  /// Returns the percentage of storage used.
-  Future<Quota?> storageUsed() async {
+  Future<Quota?> getStorageQuota() async {
     final client = await NextcloudClientExtension.withSavedDetails();
     if (client == null) return null;
 
     final user = await client.provisioningApi.getCurrentUser();
-    return user.ocs.data.quota;
+    _lastStorageQuota = user.ocs.data.quota;
+    _lastUsername = Prefs.username.value;
+    return _lastStorageQuota;
   }
+  static Quota? _lastStorageQuota;
+  static String _lastUsername = "";
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +72,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       title: Text(heading),
       subtitle: Text(subheading),
       trailing: loggedIn ? FutureBuilder(
-        future: storageUsed(),
+        future: getStorageQuota(),
+        initialData: (_lastUsername == Prefs.username.value) ? _lastStorageQuota : null,
         builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
           final Quota? quota = snapshot.data;
           return Stack(
