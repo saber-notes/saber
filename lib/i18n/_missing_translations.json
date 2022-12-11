@@ -70,17 +70,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorPromptRename": "提醒您重新命名新筆記"
-      },
-      "prefDescriptions": {
-        "editorPromptRename": "您以後隨時可以重新命名筆記"
-      }
-    },
-    "appInfo": {
-      "sponsorButton": "點擊此處贊助我或購買更多儲存空間"
-    }
-  }
+  "zh-Hant-TW": {}
 }

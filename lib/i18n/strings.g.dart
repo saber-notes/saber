@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 548 (91 per locale)
+/// Strings: 551 (91 per locale)
 ///
-/// Built on 2022-12-11 at 22:24 UTC
+/// Built on 2022-12-11 at 22:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2137,6 +2137,7 @@ class _StringsAppInfoZhHantTw extends _StringsAppInfoEn {
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => '點擊此處查看更多許可證資訊';
 	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
+	@override String get sponsorButton => '點擊此處贊助我或購買更多儲存空間';
 }
 
 // Path: update
@@ -2220,6 +2221,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => '使用灰度顏色';
 	@override String get editorStraightenLines => '按住拉直線條';
 	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
+	@override String get editorPromptRename => '提醒您重新命名新筆記';
 }
 
 // Path: settings.prefDescriptions
@@ -2233,6 +2235,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
 	@override String get preferGreyscale => '用於電子紙螢幕';
 	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
+	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 }
 
 // Path: settings.themeModes
@@ -2993,10 +2996,12 @@ extension on _StringsZhHantTw {
 			case 'settings.prefLabels.preferGreyscale': return '使用灰度顏色';
 			case 'settings.prefLabels.editorStraightenLines': return '按住拉直線條';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return '退出應用程式後清除白板';
+			case 'settings.prefLabels.editorPromptRename': return '提醒您重新命名新筆記';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
 			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return '它仍會同步到您的其他裝置';
+			case 'settings.prefDescriptions.editorPromptRename': return '您以後隨時可以重新命名筆記';
 			case 'settings.themeModes.system': return '系統';
 			case 'settings.themeModes.light': return '淺色';
 			case 'settings.themeModes.dark': return '深色';
@@ -3042,6 +3047,7 @@ extension on _StringsZhHantTw {
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';
 			case 'appInfo.privacyPolicyButton': return '點擊此處查看隱私權政策';
+			case 'appInfo.sponsorButton': return '點擊此處贊助我或購買更多儲存空間';
 			case 'update.updateAvailable': return '可用更新';
 			case 'update.updateAvailableDescription': return '該應用程式的新版本可用。';
 			case 'update.dismiss': return '忽略';
