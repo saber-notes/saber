@@ -184,6 +184,15 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 
 Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) for more information.
 
+## Supporting Saber
+
+If you like Saber, please consider supporting it by:
+- Spreading the word!
+- Starring the project on GitHub
+- Sponsoring me on [GitHub Sponsors](https://github.com/sponsors/adil192)
+- Donating via [PayPal](https://paypal.me/adilhanney)
+- Buying more storage on the Nextcloud server: see [Pricing](pricing.md)
+
 ## Development notes
 
 <details>
