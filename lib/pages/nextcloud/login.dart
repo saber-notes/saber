@@ -82,14 +82,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
             child: Column(
               children: [
                 const SizedBox(height: 16),
-                Hero(
-                  tag: Prefs.pfp.key,
-                  child: SvgPicture.asset(
-                    "assets/images/undraw_cloud_sync_re_02p1.svg",
-                    width: 350,
-                    height: 240,
-                    excludeFromSemantics: true,
-                  ),
+                SvgPicture.asset(
+                  "assets/images/undraw_cloud_sync_re_02p1.svg",
+                  width: 350,
+                  height: 240,
+                  excludeFromSemantics: true,
                 ),
 
                 const SizedBox(height: 64),
