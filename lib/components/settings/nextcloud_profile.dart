@@ -4,9 +4,13 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetails_Quota;
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+
+typedef Quota = ProvisioningApiUserDetails_Quota;
 
 class NextcloudProfile extends StatefulWidget {
   const NextcloudProfile({super.key});
@@ -32,10 +36,20 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     setState(() {});
   }
 
+  /// Returns the percentage of storage used.
+  Future<Quota?> storageUsed() async {
+    final client = await NextcloudClientExtension.withSavedDetails();
+    if (client == null) return null;
+
+    final user = await client.provisioningApi.getCurrentUser();
+    return user.ocs.data.quota;
+  }
+
   @override
   Widget build(BuildContext context) {
-    String heading, subheading;
-    if (Prefs.username.value.isNotEmpty) {
+    final String heading, subheading;
+    final bool loggedIn = Prefs.username.value.isNotEmpty;
+    if (loggedIn) {
       heading = Prefs.username.value;
       subheading = t.login.status.loggedIn;
     } else {
@@ -44,33 +58,36 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     }
 
     var colorScheme = Theme.of(context).colorScheme;
-    return Material(
-      color: colorScheme.background,
-      child: InkWell(
-        onTap: () {
-          context.push(RoutePaths.login);
-        },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Hero(
-                tag: Prefs.pfp.key,
-                child: pfpBytes == null ? const Icon(Icons.account_circle, size: 50) : Image.memory(pfpBytes!, width: 50, height: 50),
-              ),
-              const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(heading),
-                  Text(subheading, style: TextStyle(color: colorScheme.secondary)),
-                ],
-              ),
-            ],
-          ),
-        ),
+    return ListTile(
+      onTap: () {
+        context.push(RoutePaths.login);
+      },
+      leading: Hero(
+        tag: Prefs.pfp.key,
+        child: pfpBytes == null ? const Icon(Icons.account_circle, size: 50) : Image.memory(pfpBytes!, width: 50, height: 50),
       ),
+      title: Text(heading),
+      subtitle: Text(subheading),
+      trailing: loggedIn ? FutureBuilder(
+        future: storageUsed(),
+        builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
+          final Quota? quota = snapshot.data;
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              CircularProgressIndicator(
+                value: quota != null ? quota.relative / 100 : null,
+                color: colorScheme.primary.withOpacity(0.5),
+                backgroundColor: colorScheme.primary.withOpacity(0.1),
+                strokeWidth: 8,
+                semanticsLabel: "Storage usage",
+                semanticsValue: snapshot.data != null ? "${snapshot.data}%" : null,
+              ),
+              Text(quota != null ? "${readableBytes(quota.used)} / ${readableBytes(quota.total)}" : " "*15),
+            ],
+          );
+        },
+      ) : null,
     );
   }
 
@@ -78,5 +95,17 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   void dispose() {
     Prefs.pfp.removeListener(onPfpChange);
     super.dispose();
+  }
+
+  String readableBytes(int bytes) {
+    if (bytes < 1024) {
+      return "$bytes B";
+    } else if (bytes < 1024 * 1024) {
+      return "${(bytes / 1024).round()} KB";
+    } else if (bytes < 1024 * 1024 * 1024) {
+      return "${(bytes / 1024 / 1024).round()} MB";
+    } else {
+      return "${(bytes / 1024 / 1024 / 1024).round()} GB";
+    }
   }
 }
