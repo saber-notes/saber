@@ -79,7 +79,21 @@
       "loggedIn": "已使用 Nextcloud 登录",
       "loggedOut": "已注销",
       "tapToLogin": "点击以使用 Nextcloud 登录"
-    }
+    },
+    "faq": [
+      {
+        "q": "Nextcloud 是什么？",
+        "a": "Nextcloud 是一个私人文件同步服务器。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。"
+      },
+      {
+        "q": "加密密码是什么？",
+        "a": "加密密码用于在将数据发送到服务器之前对其进行加密。它不存储在服务器上，仅供 Saber 用来加密和解密您的数据。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。"
+      },
+      {
+        "q": "为什么使用双重密码？",
+        "a": "Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。"
+      }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
