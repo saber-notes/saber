@@ -213,19 +213,21 @@ class PlainPref<T> extends IPref<T> {
   }
 
   @override
-  Future _save() {
+  Future _save() async {
+    _prefs ??= await SharedPreferences.getInstance();
+
     if (T == bool) {
-      return _prefs!.setBool(key, value as bool);
+      return await _prefs!.setBool(key, value as bool);
     } else if (T == int) {
-      return _prefs!.setInt(key, value as int);
+      return await _prefs!.setInt(key, value as int);
     } else if (T == double) {
-      return _prefs!.setDouble(key, value as double);
+      return await _prefs!.setDouble(key, value as double);
     } else if (T == typeOf<List<String>>()) {
-      return _prefs!.setStringList(key, value as List<String>);
+      return await _prefs!.setStringList(key, value as List<String>);
     } else if (T == StrokeProperties) {
-      return _prefs!.setString(key, jsonEncode(value));
+      return await _prefs!.setString(key, jsonEncode(value));
     } else {
-      return _prefs!.setString(key, value as String);
+      return await _prefs!.setString(key, value as String);
     }
   }
 
@@ -308,9 +310,11 @@ class EncPref<T> extends IPref<T> {
   }
 
   @override
-  Future _save() {
-    if (T == String) return _storage!.write(key: key, value: value as String);
-    return _storage!.write(key: key, value: jsonEncode(value));
+  Future _save() async {
+    _storage ??= const FlutterSecureStorage();
+
+    if (T == String) return await _storage!.write(key: key, value: value as String);
+    return await _storage!.write(key: key, value: jsonEncode(value));
   }
 
   @override
