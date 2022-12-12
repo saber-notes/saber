@@ -6,18 +6,18 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
+        "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen"
       },
       "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
+        "editorPromptRename": "Notizen können immer auch später noch umbenannt werden"
       }
     },
     "appInfo": {
-      "sponsorButton": "Tap here to sponsor me or buy more storage"
+      "sponsorButton": "Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen"
     },
     "editor": {
       "penOptions": {
-        "sizeDragHint": "Drag left or right to change the size"
+        "sizeDragHint": "Nach links oder rechts ziehen, um die Größe zu ändern"
       }
     }
   },
