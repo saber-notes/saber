@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {
@@ -29,6 +30,9 @@ class _SizePickerState extends State<SizePicker> {
     super.initState();
     updateValue();
     _controller.addListener(() {
+      if (!Prefs.hasDraggedSizeIndicatorBefore.value) {
+        hintUserToDragSizePicker();
+      }
       updateValue(
         newValue: double.tryParse(_controller.text),
         manuallyTypedIn: true,
@@ -84,24 +88,7 @@ class _SizePickerState extends State<SizePicker> {
       cursor: SystemMouseCursors.resizeLeftRight,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () {
-          // hint user to drag
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                backgroundColor: colorScheme.surface,
-                action: SnackBarAction(
-                  label: t.update.dismiss,
-                  onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
-                ),
-                content: Text(
-                  t.editor.penOptions.sizeDragHint,
-                  style: TextStyle(color: colorScheme.onSurface),
-                ),
-              ),
-            );
-        },
+        onTap: hintUserToDragSizePicker,
         onPanStart: (DragStartDetails details) {
           startingOffset = details.globalPosition;
           startingValue = widget.pen.strokeProperties.size;
@@ -111,6 +98,7 @@ class _SizePickerState extends State<SizePicker> {
         },
         onPanEnd: (DragEndDetails details) {
           startingOffset = null;
+          Prefs.hasDraggedSizeIndicatorBefore.value = true;
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -159,5 +147,24 @@ class _SizePickerState extends State<SizePicker> {
         ),
       ),
     );
+  }
+
+  void hintUserToDragSizePicker() {
+    final colorScheme = Theme.of(context).colorScheme;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          backgroundColor: colorScheme.surface,
+          action: SnackBarAction(
+            label: t.update.dismiss,
+            onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+          ),
+          content: Text(
+            t.editor.penOptions.sizeDragHint,
+            style: TextStyle(color: colorScheme.onSurface),
+          ),
+        ),
+      );
   }
 }

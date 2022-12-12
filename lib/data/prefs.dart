@@ -54,6 +54,8 @@ abstract class Prefs {
   static late final PlainPref<String> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
 
+  static late final PlainPref<bool> hasDraggedSizeIndicatorBefore;
+
   static late final PlainPref<List<String>> recentFiles;
 
   /// File paths that need to be uploaded to Nextcloud
@@ -94,6 +96,8 @@ abstract class Prefs {
 
     lastBackgroundPattern = PlainPref("lastBackgroundPattern", CanvasBackgroundPatterns.none);
     lastLineHeight = PlainPref("lastLineHeight", 40);
+
+    hasDraggedSizeIndicatorBefore = PlainPref("hasDraggedSizeIndicatorBefore", false);
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
