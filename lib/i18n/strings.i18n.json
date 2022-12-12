@@ -127,7 +127,8 @@
 			"highlighter": "Highlighter"
 		},
 		"penOptions": {
-			"size": "Size"
+			"size": "Size",
+			"sizeDragHint": "Drag left or right to change the size"
 		},
 		"imageOptions": {
 			"title": "Image options",

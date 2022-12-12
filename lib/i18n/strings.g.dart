@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 553 (92 per locale)
+/// Strings: 554 (92 per locale)
 ///
-/// Built on 2022-12-11 at 22:59 UTC
+/// Built on 2022-12-12 at 16:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -478,6 +478,7 @@ class _StringsEditorPenOptionsEn {
 
 	// Translations
 	String get size => 'Size';
+	String get sizeDragHint => 'Drag left or right to change the size';
 }
 
 // Path: editor.imageOptions
@@ -2531,6 +2532,7 @@ extension on _StringsEn {
 			case 'editor.pens.ballpointPen': return 'Ballpoint pen';
 			case 'editor.pens.highlighter': return 'Highlighter';
 			case 'editor.penOptions.size': return 'Size';
+			case 'editor.penOptions.sizeDragHint': return 'Drag left or right to change the size';
 			case 'editor.imageOptions.title': return 'Image options';
 			case 'editor.imageOptions.invertible': return 'Invertible';
 			case 'editor.imageOptions.delete': return 'Delete';

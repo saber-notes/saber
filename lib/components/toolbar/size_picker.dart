@@ -84,6 +84,24 @@ class _SizePickerState extends State<SizePicker> {
       cursor: SystemMouseCursors.resizeLeftRight,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
+        onTap: () {
+          // hint user to drag
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                backgroundColor: colorScheme.surface,
+                action: SnackBarAction(
+                  label: t.update.dismiss,
+                  onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                ),
+                content: Text(
+                  t.editor.penOptions.sizeDragHint,
+                  style: TextStyle(color: colorScheme.onSurface),
+                ),
+              ),
+            );
+        },
         onPanStart: (DragStartDetails details) {
           startingOffset = details.globalPosition;
           startingValue = widget.pen.strokeProperties.size;
