@@ -14,7 +14,7 @@ class SettingsSwitch extends StatefulWidget {
 
   final String title;
   final String? subtitle;
-  final IPref<bool, dynamic> pref;
+  final IPref<bool> pref;
   final ValueChanged<bool>? afterChange;
 
   @override

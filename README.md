@@ -85,6 +85,7 @@ flutter pub get
 
 #### Linux
 
+`sudo apt install libsecret-1-dev libjsoncpp-dev`
 `flutter build linux`
 
 This is good enough for using on your own computer, but if you want to redistribute your build,

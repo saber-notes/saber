@@ -27,3 +27,10 @@ parts:
     source: .
     plugin: flutter
     flutter-target: lib/main_snap.dart
+    build-packages:
+      - libsecret-1-dev
+      - libjsoncpp-dev
+    stage-packages:
+      - libsecret-1-dev
+      - libjsoncpp1-dev
+

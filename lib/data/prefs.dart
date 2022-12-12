@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -56,7 +57,7 @@ abstract class Prefs {
   static late final PlainPref<List<String>> recentFiles;
 
   /// File paths that need to be uploaded to Nextcloud
-  static late final EncPref<List<String>> fileSyncUploadQueue;
+  static late final PlainPref<List<String>> fileSyncUploadQueue;
 
   static late final PlainPref<bool> shouldCheckForUpdates;
 
@@ -96,7 +97,7 @@ abstract class Prefs {
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
-    fileSyncUploadQueue = EncPref("fileSyncUploadQueue", []);
+    fileSyncUploadQueue = PlainPref("fileSyncUploadQueue", []);
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
 
@@ -117,7 +118,7 @@ abstract class Prefs {
 
 }
 
-abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
+abstract class IPref<T> extends ValueNotifier<T> {
   final String key;
   /// The keys that were used in the past for this Pref. If one of these keys is found, the value will be migrated to the current key.
   final List<String> historicalKeys;
@@ -125,8 +126,6 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   final List<String> deprecatedKeys;
 
   bool _loaded = false;
-
-  Preferences? _prefs;
 
   IPref(this.key, T defaultValue, {
     List<String>? historicalKeys,
@@ -143,12 +142,14 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
         if (loadedValue != null) {
           value = loadedValue;
         }
+        _afterLoad();
         addListener(_save);
       });
     }
   }
 
   Future<T?> _load();
+  Future<void> _afterLoad();
   Future<void> _save();
   @protected
   Future<T?> getValueWithKey(String key);
@@ -173,7 +174,9 @@ abstract class IPref<T, Preferences extends dynamic> extends ValueNotifier<T> {
   @override
   void notifyListeners() => super.notifyListeners();
 }
-class PlainPref<T> extends IPref<T, SharedPreferences> {
+class PlainPref<T> extends IPref<T> {
+  SharedPreferences? _prefs;
+
   PlainPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     // Accepted types
     assert(T == bool || T == int || T == double || T == typeOf<List<String>>() || T == String
@@ -182,7 +185,7 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
 
   @override
   Future<T?> _load() async {
-    _prefs = await SharedPreferences.getInstance();
+    _prefs ??= await SharedPreferences.getInstance();
 
     T? currentValue = await getValueWithKey(key);
     if (currentValue != null) return currentValue;
@@ -203,6 +206,10 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
     }
 
     return null;
+  }
+  @override
+  _afterLoad() async {
+    _prefs = null;
   }
 
   @override
@@ -241,55 +248,89 @@ class PlainPref<T> extends IPref<T, SharedPreferences> {
   }
 }
 
-class EncPref<T> extends IPref<T, EncryptedSharedPreferences> {
+class EncPref<T> extends IPref<T> {
+  FlutterSecureStorage? _storage;
+
   EncPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     assert(T == String || T == typeOf<List<String>>());
   }
 
   @override
   Future<T?> _load() async {
-    _prefs = EncryptedSharedPreferences();
+    _storage ??= const FlutterSecureStorage();
 
     T? currentValue = await getValueWithKey(key);
     if (currentValue != null) return currentValue;
 
-    for (String historicalKey in historicalKeys) {
-      currentValue = await getValueWithKey(historicalKey);
+    for (String key in historicalKeys) {
+      currentValue = await getValueWithKey(key);
       if (currentValue == null) continue;
 
       // migrate to new key
       await _save();
-      _prefs!.remove(historicalKey);
+      _storage!.delete(key: key);
 
       return currentValue;
     }
 
-    for (String deprecatedKey in deprecatedKeys) {
-      _prefs!.remove(deprecatedKey);
+    for (String key in deprecatedKeys) {
+      _storage!.delete(key: key);
+    }
+
+    // try to load from EncryptedSharedPreferences (deprecated)
+    try {
+      final prefs = EncryptedSharedPreferences();
+      for (String key in [key, ...historicalKeys]) {
+        currentValue = _parseString(await prefs.getString(key));
+
+        // migrate to new key
+        await _save();
+        prefs.remove(key);
+
+        return currentValue;
+      }
+      for (String key in deprecatedKeys) {
+        try {
+          prefs.remove(key);
+        } catch (e) {
+          // ignore
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) rethrow;
     }
 
     return null;
   }
+  @override
+  _afterLoad() async {
+    _storage = null;
+  }
 
   @override
   Future _save() {
-    if (T == String) return _prefs!.setString(key, value as String);
-    return _prefs!.setString(key, jsonEncode(value));
+    if (T == String) return _storage!.write(key: key, value: value as String);
+    return _storage!.write(key: key, value: jsonEncode(value));
   }
 
   @override
   Future<T?> getValueWithKey(String key) async {
     try {
-      final value = await _prefs!.getString(key);
-      if (value.isEmpty) return null;
-      if (T == String) {
-        return value as T;
-      } else {
-        return List<String>.from(jsonDecode(value)) as T;
-      }
+      final value = await _storage!.read(key: key);
+      return _parseString(value);
     } catch (e) {
       if (kDebugMode) print("Error loading $key: $e");
       return null;
+    }
+  }
+
+  T? _parseString(String? value) {
+    if (value == null || value.isEmpty) return null;
+
+    if (T == String) {
+      return value as T;
+    } else {
+      return List<String>.from(jsonDecode(value)) as T;
     }
   }
 }

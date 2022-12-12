@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.adilhanney.saber">
 
     <uses-permission
@@ -12,7 +13,10 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="false"
-        android:localeConfig="@xml/locales_config">
+        android:localeConfig="@xml/locales_config"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        tools:targetApi="donut">
         <activity
             android:name=".MainActivity"
             android:exported="true"

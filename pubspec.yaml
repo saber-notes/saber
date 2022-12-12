@@ -52,6 +52,11 @@ dependencies:
   path_provider: ^2.0.11
 
   shared_preferences: ^2.0.15
+  flutter_secure_storage: ^7.0.0
+
+  # Don't use encrypted_shared_preferences because it's insecure:
+  # https://github.com/roulljdh/encrypted_shared_preferences/issues/10.
+  # This remains to migrate existing users to flutter_secure_storage.
   encrypted_shared_preferences: ^3.0.1
 
   url_launcher: ^6.1.7

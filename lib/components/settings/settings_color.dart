@@ -16,7 +16,7 @@ class SettingsColor extends StatefulWidget {
 
   final String title;
   final String? subtitle;
-  final IPref<int, dynamic> pref;
+  final IPref<int> pref;
   final ValueChanged<Color?>? afterChange;
 
   @override

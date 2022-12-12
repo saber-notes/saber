@@ -16,7 +16,7 @@ class SettingsSelection extends StatefulWidget {
 
   final String title;
   final String? subtitle;
-  final IPref<int, dynamic> pref;
+  final IPref<int> pref;
   final List<ToggleButtonsOption<int>> options;
   final ValueChanged<int>? afterChange;
 

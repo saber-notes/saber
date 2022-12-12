@@ -16,7 +16,7 @@ abstract class FileSyncer {
   /// the file extension of an encrypted base64 note
   static const String _encExtension = ".sbe";
 
-  static EncPref<List<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
+  static PlainPref<List<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
   static CancellableStruct _downloadCancellable = CancellableStruct();
 
