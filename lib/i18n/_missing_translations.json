@@ -60,18 +60,18 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
+        "editorPromptRename": "Richiede di rinominare nuove note"
       },
       "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
+        "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento"
       }
     },
     "appInfo": {
-      "sponsorButton": "Tap here to sponsor me or buy more storage"
+      "sponsorButton": "Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione"
     },
     "editor": {
       "penOptions": {
-        "sizeDragHint": "Drag left or right to change the size"
+        "sizeDragHint": "Trascina a sinistra o a destra per modificare le dimensioni"
       }
     }
   },
