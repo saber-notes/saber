@@ -51,7 +51,7 @@
   "zh-Hant-TW": {
     "editor": {
       "penOptions": {
-        "sizeDragHint": "Drag left or right to change the size"
+        "sizeDragHint": "向左或向右拖動以更改大小"
       }
     }
   }
