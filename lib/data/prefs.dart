@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/foundation.dart';
@@ -79,7 +80,7 @@ abstract class Prefs {
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
     editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
-    editorPromptRename = PlainPref("editorPromptRename", false);
+    editorPromptRename = PlainPref("editorPromptRename", Platform.isLinux || Platform.isWindows || Platform.isMacOS);
 
     autoClearWhiteboardOnExit = PlainPref("autoClearWhiteboardOnExit", false);
 
