@@ -44,7 +44,7 @@
   "zh-Hans-CN": {
     "editor": {
       "penOptions": {
-        "sizeDragHint": "Drag left or right to change the size"
+        "sizeDragHint": "左右拖动更改粗细"
       }
     }
   },
