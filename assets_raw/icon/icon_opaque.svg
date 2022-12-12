@@ -1,0 +1,17 @@
+<!-- This is the same as icon_maskable.svg but with a cropped viewBox. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="716 734 2568 2532">
+    <defs>
+        <filter id="boxShadow">
+            <feOffset result="offOut" in="SourceGraphic" dx="40" dy="40" />
+            <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.5 0" />
+            <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
+            <feBlend in="SourceGraphic" in2="blurOut" />
+        </filter>
+    </defs>
+
+    <rect x="0" y="0" width="4000" height="4000" fill="#ffc800" />
+
+    <path filter="url(#boxShadow)" d="M1330,4000L4000,1440L4000,0L0,0L0,4000" fill="#ffd32e"  />
+
+    <image x="716" y="734" width="2568" height="2532" xlink:href="_icon_flat.png" />
+</svg>

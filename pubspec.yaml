@@ -162,6 +162,8 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
+
+# flutter pub run icons_launcher:create
 icons_launcher:
   image_path: "assets/icon/icon.png"
   platforms:
@@ -171,7 +173,7 @@ icons_launcher:
       adaptive_foreground_image: "assets/icon/icon_maskable.png"
     ios:
       enable: true
-      image_path: "assets/icon/icon_maskable.png"
+      image_path: "assets/icon/icon_opaque.png"
     linux:
       enable: true
     web:
@@ -180,3 +182,4 @@ icons_launcher:
       enable: true
     macos:
       enable: true
+      image_path: "assets/icon/icon_opaque.png"
