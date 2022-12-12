@@ -303,7 +303,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.2.3"
+    version: "5.2.4"
   google_fonts:
     dependency: "direct main"
     description:
