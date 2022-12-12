@@ -1,7 +1,6 @@
 
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -92,13 +91,22 @@ abstract class FileManager {
   }
 
   /// Moves a file from [fromPath] to [toPath], returning its final path.
-  static Future<String> moveFile(String fromPath, String toPath) async {
+  ///
+  /// If a file already exists at [toPath], [fromPath] will be suffixed with
+  /// a number e.g. "file (1)". If [replaceExistingFile] is true, the existing
+  /// file will be overwritten instead.
+  static Future<String> moveFile(String fromPath, String toPath, [bool replaceExistingFile = false]) async {
     fromPath = _sanitisePath(fromPath);
     toPath = _sanitisePath(toPath);
 
     if (!toPath.contains('/', 1)) { // if toPath is a relative path
       toPath = fromPath.substring(0, fromPath.lastIndexOf('/') + 1) + toPath;
     }
+
+    if (!replaceExistingFile) {
+      toPath = await _suffixFilePathToMakeItUnique(toPath, fromPath);
+    }
+
     if (fromPath == toPath) return toPath;
 
     if (kIsWeb) {
@@ -222,7 +230,7 @@ abstract class FileManager {
     filePath = _sanitisePath(filePath);
     if (kIsWeb) {
       final prefs = await _prefs;
-      return prefs.containsKey(filePath + Editor.extension);
+      return prefs.containsKey(filePath);
     } else {
       final File file = File(await _documentsDirectory + filePath);
       return await file.exists();
@@ -246,16 +254,33 @@ abstract class FileManager {
     assert(parentPath.endsWith('/'));
 
     final DateTime now = DateTime.now();
-    final String fileNamePrefix = "$parentPath${DateFormat("yy-MM-dd").format(now)} Untitled";
+    final String filePath = "$parentPath${DateFormat("yy-MM-dd").format(now)} Untitled";
 
-    String fileName = fileNamePrefix;
-    int i = 1;
-    while (await doesFileExist(fileName + Editor.extension)) {
-      i++;
-      fileName = "$fileNamePrefix ($i)";
+    return await _suffixFilePathToMakeItUnique(filePath);
+  }
+
+  /// Returns a unique file path by appending a number to the end of the [filePath].
+  /// e.g. "/Untitled" -> "/Untitled (2)"
+  ///
+  /// Providing a [currentPath] means that e.g. "/Untitled (2)" being renamed
+  /// to "/Untitled" will be returned as "/Untitled (2)" not "/Untitled (3)".
+  static Future<String> _suffixFilePathToMakeItUnique(String filePath, [String? currentPath]) async {
+    String newFilePath = filePath;
+    String extension = "";
+
+    if (filePath.endsWith(Editor.extension)) {
+      filePath = filePath.substring(0, filePath.length - Editor.extension.length);
+      newFilePath = filePath;
+      extension = Editor.extension;
     }
 
-    return fileName;
+    int i = 1;
+    while (await doesFileExist(newFilePath + extension) && newFilePath + extension != currentPath) {
+      i++;
+      newFilePath = "$filePath ($i)";
+    }
+
+    return newFilePath + extension;
   }
 
 

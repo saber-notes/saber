@@ -433,9 +433,17 @@ class _EditorState extends State<Editor> {
     }
   }
   Future _renameFileNow(String newName) async {
+    if (newName == _filename) return;
+
     path = await FileManager.moveFile(path + Editor.extension, newName + Editor.extension);
     path = path.substring(0, path.lastIndexOf(Editor.extension));
     needsNaming = false;
+
+    final String actualName = _filename;
+    if (actualName != newName) { // update text field if renamed differently
+      filenameTextEditingController.text = actualName;
+      filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: actualName.length));
+    }
   }
 
   void updateColorBar(Color color) {
