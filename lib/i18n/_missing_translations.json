@@ -57,24 +57,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "editorPromptRename": "Prompt you to rename new notes"
-      },
-      "prefDescriptions": {
-        "editorPromptRename": "You can always rename notes later"
-      }
-    },
-    "appInfo": {
-      "sponsorButton": "Tap here to sponsor me or buy more storage"
-    },
-    "editor": {
-      "penOptions": {
-        "sizeDragHint": "Drag left or right to change the size"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {
     "editor": {
       "penOptions": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 554 (92 per locale)
+/// Strings: 558 (93 per locale)
 ///
-/// Built on 2022-12-12 at 16:47 UTC
+/// Built on 2022-12-13 at 13:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1357,6 +1357,7 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 	@override String get privacyPolicyButton => 'Tocca qui per visualizzare l\'informativa sulla privacy';
+	@override String get sponsorButton => 'Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione';
 }
 
 // Path: update
@@ -1440,6 +1441,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
+	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 }
 
 // Path: settings.themeModes
@@ -1476,6 +1478,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
+	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 }
 
 // Path: settings.straightenDelay
@@ -1608,6 +1611,7 @@ class _StringsEditorPenOptionsIt extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Dimesione';
+	@override String get sizeDragHint => 'Trascina a sinistra o a destra per modificare le dimensioni';
 }
 
 // Path: editor.imageOptions
@@ -2783,6 +2787,7 @@ extension on _StringsIt {
 			case 'settings.prefLabels.hyperlegibleFont': return 'Carattere iperleggibile';
 			case 'settings.prefLabels.editorStraightenLines': return 'Tenere premuto per raddrizzare una linea';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Svuota la lavagna dopo essere uscito dall\'app';
+			case 'settings.prefLabels.editorPromptRename': return 'Richiede di rinominare nuove note';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
@@ -2792,6 +2797,7 @@ extension on _StringsIt {
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Scurisce in modo intelligente le note in modalità scura';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Per display e-ink';
 			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
+			case 'settings.prefDescriptions.editorPromptRename': return 'Puoi sempre rinominare le note in un secondo momento';
 			case 'settings.straightenDelay.off': return 'Off';
 			case 'settings.straightenDelay.regular': return 'Regolare';
 			case 'settings.straightenDelay.slow': return 'Lento';
@@ -2832,6 +2838,7 @@ extension on _StringsIt {
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 			case 'appInfo.privacyPolicyButton': return 'Tocca qui per visualizzare l\'informativa sulla privacy';
+			case 'appInfo.sponsorButton': return 'Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione';
 			case 'update.updateAvailable': return 'Aggiornamento disponibile';
 			case 'update.updateAvailableDescription': return 'È disponibile una nuova versione dell\'app.';
 			case 'update.dismiss': return 'Abbandona';
@@ -2848,6 +2855,7 @@ extension on _StringsIt {
 			case 'editor.pens.highlighter': return 'Evidenziatore';
 			case 'editor.pens.ballpointPen': return 'Penna a sfera';
 			case 'editor.penOptions.size': return 'Dimesione';
+			case 'editor.penOptions.sizeDragHint': return 'Trascina a sinistra o a destra per modificare le dimensioni';
 			case 'editor.imageOptions.title': return 'Opzioni immagine';
 			case 'editor.imageOptions.invertible': return 'Invertibile';
 			case 'editor.imageOptions.delete': return 'Cancella';
