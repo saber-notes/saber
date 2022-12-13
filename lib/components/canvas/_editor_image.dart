@@ -108,8 +108,9 @@ class EditorImage {
       }
     }
 
-    if (allowCalculations) {
-      thumbnailBytes ??= await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, const Size(100, 100)));
+    if (thumbnailBytes == null && allowCalculations) {
+      final Size thumbnailSize = resize(srcRect.size, const Size(100, 100));
+      thumbnailBytes = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, thumbnailSize));
     }
   }
 
