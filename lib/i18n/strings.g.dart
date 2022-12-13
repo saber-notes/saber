@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 558 (93 per locale)
+/// Strings: 562 (93 per locale)
 ///
-/// Built on 2022-12-13 at 13:12 UTC
+/// Built on 2022-12-13 at 13:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -618,6 +618,7 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 	@override String get privacyPolicyButton => 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
+	@override String get sponsorButton => 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
 }
 
 // Path: update
@@ -701,6 +702,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Andwendung';
+	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 }
 
 // Path: settings.themeModes
@@ -737,6 +739,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
+	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
 }
 
 // Path: settings.straightenDelay
@@ -869,6 +872,7 @@ class _StringsEditorPenOptionsDe extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Dicke';
+	@override String get sizeDragHint => 'Nach links oder rechts ziehen, um die Größe zu ändern';
 }
 
 // Path: editor.imageOptions
@@ -2580,6 +2584,7 @@ extension on _StringsDe {
 			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlesbare Schrift';
 			case 'settings.prefLabels.editorStraightenLines': return 'Drücke und halte für eine gerade Linie';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Lösche das Whiteboard nach Verlassen der Andwendung';
+			case 'settings.prefLabels.editorPromptRename': return 'Beim Erstellen von Notizen einen Namen erfragen';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
@@ -2589,6 +2594,7 @@ extension on _StringsDe {
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Für E-Ink-Bildschirme';
 			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
+			case 'settings.prefDescriptions.editorPromptRename': return 'Notizen können immer auch später noch umbenannt werden';
 			case 'settings.straightenDelay.off': return 'Aus';
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Langsam';
@@ -2629,6 +2635,7 @@ extension on _StringsDe {
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 			case 'appInfo.privacyPolicyButton': return 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
+			case 'appInfo.sponsorButton': return 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
 			case 'update.updateAvailable': return 'Aktualisierung verfügbar';
 			case 'update.updateAvailableDescription': return 'Eine neue Version der Anwendung ist verfügbar.';
 			case 'update.dismiss': return 'Verwerfen';
@@ -2645,6 +2652,7 @@ extension on _StringsDe {
 			case 'editor.pens.highlighter': return 'Textmarker';
 			case 'editor.pens.ballpointPen': return 'Kugelschreiber';
 			case 'editor.penOptions.size': return 'Dicke';
+			case 'editor.penOptions.sizeDragHint': return 'Nach links oder rechts ziehen, um die Größe zu ändern';
 			case 'editor.imageOptions.title': return 'Bildoptionen';
 			case 'editor.imageOptions.invertible': return 'Invertierbar';
 			case 'editor.imageOptions.delete': return 'Entfernen';
