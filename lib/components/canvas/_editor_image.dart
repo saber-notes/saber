@@ -118,7 +118,7 @@ class EditorImage {
     }
 
     if (thumbnailBytes == null && allowCalculations) {
-      final Size thumbnailSize = resize(srcRect.size, const Size(100, 100));
+      final Size thumbnailSize = resize(srcRect.size, const Size(300, 300));
       if (thumbnailSize.width != srcRect.width) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
         thumbnailBytes = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, thumbnailSize));
