@@ -42,10 +42,13 @@ class EditorCoreInfo {
     required this.pages,
   });
 
-  EditorCoreInfo.fromJson(Map<String, dynamic> json):
-        readOnly = (json["v"] as int? ?? 0) > fileVersion,
+  EditorCoreInfo.fromJson(Map<String, dynamic> json, {bool readOnly = false}):
+        readOnly = readOnly || (json["v"] as int? ?? 0) > fileVersion,
         strokes = _parseStrokesJson(json["s"] as List),
-        images = _parseImagesJson(json["i"] as List? ?? []),
+        images = _parseImagesJson(
+          json["i"] as List? ?? [],
+          allowCalculations: !(readOnly || (json["v"] as int? ?? 0) > fileVersion), // !this.readOnly
+        ),
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
@@ -66,8 +69,8 @@ class EditorCoreInfo {
       .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
       .toList();
 
-  static List<EditorImage> _parseImagesJson(List<dynamic> images) => images
-      .map((dynamic image) => EditorImage.fromJson(image as Map<String, dynamic>))
+  static List<EditorImage> _parseImagesJson(List<dynamic> images, {required bool allowCalculations}) => images
+      .map((dynamic image) => EditorImage.fromJson(image as Map<String, dynamic>, allowCalculations: allowCalculations))
       .toList();
 
   static List<EditorPage> _parsePagesJson(List<dynamic>? pages) {
@@ -96,7 +99,7 @@ class EditorCoreInfo {
     pages = List.generate(maxPageIndex + 1, (index) => EditorPage(width: width, height: height));
   }
 
-  static Future<EditorCoreInfo> loadFromFilePath(String path) async {
+  static Future<EditorCoreInfo> loadFromFilePath(String path, {bool readOnly = false}) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
     if (jsonString == null) return EditorCoreInfo();
 
@@ -105,7 +108,7 @@ class EditorCoreInfo {
       if (json is List) { // old format
         return EditorCoreInfo.fromOldJson(json);
       } else {
-        return EditorCoreInfo.fromJson(json as Map<String, dynamic>);
+        return EditorCoreInfo.fromJson(json as Map<String, dynamic>, readOnly: readOnly);
       }
     } catch (e) {
       if (kDebugMode) {

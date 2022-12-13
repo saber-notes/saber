@@ -68,9 +68,8 @@ class _PreviewCardState extends State<PreviewCard> {
   Future findStrokes() async {
     if (!mounted) return;
 
-    EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath);
+    EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath, readOnly: true);
     this.coreInfo = coreInfo.copyWith( // only keep first page
-      readOnly: true,
       strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList(growable: false),
       images: coreInfo.images.where((image) => image.pageIndex == 0).toList(growable: false),
     );

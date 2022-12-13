@@ -37,10 +37,10 @@ class EditorImage {
     this.onLoad,
     this.newImage = true,
   }): invertible = true {
-    _getImage(pageSize).then((_) => onLoad?.call());
+    _getImage(pageSize: pageSize).then((_) => onLoad?.call());
   }
 
-  EditorImage.fromJson(Map<String, dynamic> json) :
+  EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) :
         bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
         pageIndex = json['i'] ?? 0,
         invertible = json['v'] ?? true,
@@ -57,7 +57,7 @@ class EditorImage {
           json['sw'] ?? 0,
           json['sh'] ?? 0,
         ) {
-    _getImage();
+    _getImage(allowCalculations: allowCalculations);
   }
 
   Map<String, dynamic> toJson() {
@@ -79,13 +79,13 @@ class EditorImage {
     return json;
   }
 
-  Future<void> _getImage([Size? pageSize]) async {
+  Future<void> _getImage({Size? pageSize, bool allowCalculations = true}) async {
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
       Size size = Size(image.width.toDouble(), image.height.toDouble());
-      final Size reducedSize = resize(size, const Size(1000, 1000));
 
-      if (size.width != reducedSize.width) {
+      final Size reducedSize = resize(size, const Size(1000, 1000));
+      if (size.width != reducedSize.width && allowCalculations) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
 
         Uint8List? resized = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, reducedSize));
