@@ -9,9 +9,18 @@ class EditorImage {
   static int _nextId = 0;
   final int id = _nextId++;
 
-  Uint8List? thumbnailBytes;
   Uint8List bytes;
   Uint8List? invertedBytesCache;
+
+  Uint8List? thumbnailBytes;
+  bool _isThumbnail = false;
+  bool get isThumbnail => _isThumbnail;
+  set isThumbnail(bool value) {
+    _isThumbnail = value;
+    if (value) {
+      bytes = thumbnailBytes ?? bytes;
+    }
+  }
 
   final int pageIndex;
   void Function(EditorImage, Rect)? onMoveImage;
@@ -110,8 +119,14 @@ class EditorImage {
 
     if (thumbnailBytes == null && allowCalculations) {
       final Size thumbnailSize = resize(srcRect.size, const Size(100, 100));
-      thumbnailBytes = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, thumbnailSize));
+      if (thumbnailSize.width != srcRect.width) {
+        await Future.delayed(Duration.zero); // wait for next event-loop iteration
+        thumbnailBytes = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, thumbnailSize));
+      } else { // no need to resize
+        thumbnailBytes = bytes;
+      }
     }
+    if (isThumbnail) bytes = thumbnailBytes ?? bytes;
   }
 
   /// Resizes [before] to fit inside [max] while maintaining aspect ratio

@@ -75,7 +75,7 @@ class _PreviewCardState extends State<PreviewCard> {
           .where((image) => image.pageIndex == 0)
           .toList(growable: false)
           // use thumbnail to reduce memory usage
-          ..map((image) => image.bytes = image.thumbnailBytes ?? image.bytes),
+          ..forEach((image) => image.isThumbnail = true),
     );
 
     if (mounted) setState(() {});
