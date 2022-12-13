@@ -31,12 +31,16 @@
 			"editorToolbarOnBottom": "Alinear la barra de herramientas del editor en la parte inferior",
 			"editorAutoInvert": "Invertir notas en el modo oscuro",
 			"preferGreyscale": "Preferir colores en escala de grises",
-			"editorStraightenLines": "Mantén presionado para enderezar una línea"
+			"editorStraightenLines": "Mantén presionado para enderezar una línea",
+			"autoClearWhiteboardOnExit": "Borrar la pizarra después de salir de la aplicación",
+        	"editorPromptRename": "Solicitarte cambiar el nombre de nuevas notas"
 		},
 		"prefDescriptions": {
 			"hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
 			"editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
-			"preferGreyscale": "Para pantallas con tinta electrónica"
+			"preferGreyscale": "Para pantallas con tinta electrónica",
+			"autoClearWhiteboardOnExit": "Aún se sincronizará con tus otros dispositivos",
+        	"editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde"
 		},
 		"themeModes": {
 			"system": "Sistema",
@@ -79,12 +83,27 @@
 			"loggedIn": "Sesión iniciada con Nextcloud",
 			"loggedOut": "Desconectado",
 			"tapToLogin": "Toca para iniciar sesión con Nextcloud"
-		}
+		},
+		"faq": [
+			{
+			  "q": "¿Qué es Nextcloud?",
+			  "a": "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puede usar el servidor Sabre Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
+			},
+			{
+			  "q": "¿Qué es la contraseña de cifrado?",
+			  "a": "La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y solo Saber lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos."
+			},
+			{
+			  "q": "¿Por qué usar dos contraseñas?",
+			  "a": "La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación \"codifica\" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos."
+			}
+		  ]
 	},
 
 	"appInfo": {
 		"licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
 		"debug": "DEBUG",
+		"sponsorButton": "Toca aquí para patrocinarme o comprar más almacenamiento",
 		"licenseButton": "Toca aquí para ver más información sobre la licencia",
 		"privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
 	},
@@ -113,7 +132,8 @@
 			"highlighter": "Resaltador"
 		},
 		"penOptions": {
-			"size": "Tamaño"
+			"size": "Tamaño",
+			"sizeDragHint": "Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño"
 		},
 		"imageOptions": {
 			"title": "Opciones de imagen",
