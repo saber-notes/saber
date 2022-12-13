@@ -127,7 +127,8 @@
       "highlighter": "螢光筆"
     },
     "penOptions": {
-      "size": "粗細"
+      "size": "粗細",
+      "sizeDragHint": "向左或向右拖動以更改大小"
     },
     "imageOptions": {
       "title": "圖片選項",

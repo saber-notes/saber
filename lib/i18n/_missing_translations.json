@@ -48,11 +48,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "penOptions": {
-        "sizeDragHint": "向左或向右拖動以更改大小"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
