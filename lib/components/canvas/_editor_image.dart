@@ -9,6 +9,7 @@ class EditorImage {
   static int _nextId = 0;
   final int id = _nextId++;
 
+  Uint8List? thumbnailBytes;
   Uint8List bytes;
   Uint8List? invertedBytesCache;
 
@@ -41,7 +42,6 @@ class EditorImage {
   }
 
   EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) :
-        bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
         pageIndex = json['i'] ?? 0,
         invertible = json['v'] ?? true,
         onLoad = null,
@@ -56,19 +56,22 @@ class EditorImage {
           json['sy'] ?? 0,
           json['sw'] ?? 0,
           json['sh'] ?? 0,
-        ) {
+        ),
+        thumbnailBytes = Uint8List.fromList((json['t'] as List<dynamic>?)?.cast<int>() ?? []),
+        bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []) {
     _getImage(allowCalculations: allowCalculations);
   }
 
   Map<String, dynamic> toJson() {
     final json = {
-      'b': bytes,
       'i': pageIndex,
       'v': invertible,
       'x': dstRect.left,
       'y': dstRect.top,
       'w': dstRect.width,
       'h': dstRect.height,
+      't': thumbnailBytes,
+      'b': bytes,
     };
 
     if (srcRect.left != 0) json['sx'] = srcRect.left;
@@ -103,6 +106,10 @@ class EditorImage {
         }
         dstRect = dstRect.topLeft & size;
       }
+    }
+
+    if (allowCalculations) {
+      thumbnailBytes ??= await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, const Size(100, 100)));
     }
   }
 

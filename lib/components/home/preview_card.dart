@@ -71,7 +71,11 @@ class _PreviewCardState extends State<PreviewCard> {
     EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath, readOnly: true);
     this.coreInfo = coreInfo.copyWith( // only keep first page
       strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList(growable: false),
-      images: coreInfo.images.where((image) => image.pageIndex == 0).toList(growable: false),
+      images: coreInfo.images
+          .where((image) => image.pageIndex == 0)
+          .toList(growable: false)
+          // use thumbnail to reduce memory usage
+          ..map((image) => image.bytes = image.thumbnailBytes ?? image.bytes),
     );
 
     if (mounted) setState(() {});
