@@ -127,7 +127,8 @@
       "highlighter": "荧光笔"
     },
     "penOptions": {
-      "size": "粗细"
+      "size": "粗细",
+      "sizeDragHint": "左右拖动更改粗细"
     },
     "imageOptions": {
       "title": "图片选项",

@@ -41,12 +41,6 @@
     }
   },
   "it": {},
-  "zh-Hans-CN": {
-    "editor": {
-      "penOptions": {
-        "sizeDragHint": "Drag left or right to change the size"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
