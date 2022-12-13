@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 564 (94 per locale)
+/// Strings: 576 (96 per locale)
 ///
-/// Built on 2022-12-13 at 13:46 UTC
+/// Built on 2022-12-13 at 13:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -993,6 +993,11 @@ class _StringsLoginEs extends _StringsLoginEn {
 		linkToSignup('Regístrate ahora'),
 	]);
 	@override late final _StringsLoginStatusEs status = _StringsLoginStatusEs._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0Es._(_root),
+		_StringsLogin0i1Es._(_root),
+		_StringsLogin0i2Es._(_root),
+	];
 }
 
 // Path: appInfo
@@ -1004,6 +1009,7 @@ class _StringsAppInfoEs extends _StringsAppInfoEn {
 	// Translations
 	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => 'Toca aquí para patrocinarme o comprar más almacenamiento';
 	@override String get licenseButton => 'Toca aquí para ver más información sobre la licencia';
 	@override String get privacyPolicyButton => 'Toca aquí para ver nuestra política de privacidad';
 }
@@ -1088,6 +1094,8 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
 	@override String get editorStraightenLines => 'Mantén presionado para enderezar una línea';
+	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
+	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 }
 
 // Path: settings.prefDescriptions
@@ -1100,6 +1108,8 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
 	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
+	@override String get autoClearWhiteboardOnExit => 'Aún se sincronizará con tus otros dispositivos';
+	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 }
 
 // Path: settings.themeModes
@@ -1185,6 +1195,39 @@ class _StringsLoginStatusEs extends _StringsLoginStatusEn {
 	@override String get tapToLogin => 'Toca para iniciar sesión con Nextcloud';
 }
 
+// Path: login.faq.0
+class _StringsLogin0i0Es extends _StringsLogin0i0En {
+	_StringsLogin0i0Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Qué es Nextcloud?';
+	@override String get a => 'Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puede usar el servidor Sabre Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1Es extends _StringsLogin0i1En {
+	_StringsLogin0i1Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Qué es la contraseña de cifrado?';
+	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y solo Saber lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2Es extends _StringsLogin0i2En {
+	_StringsLogin0i2Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Por qué usar dos contraseñas?';
+	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarEs._(_StringsEs root) : this._root = root, super._(root);
@@ -1222,6 +1265,7 @@ class _StringsEditorPenOptionsEs extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Tamaño';
+	@override String get sizeDragHint => 'Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño';
 }
 
 // Path: editor.imageOptions
@@ -2697,9 +2741,13 @@ extension on _StringsEs {
 			case 'settings.prefLabels.editorAutoInvert': return 'Invertir notas en el modo oscuro';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferir colores en escala de grises';
 			case 'settings.prefLabels.editorStraightenLines': return 'Mantén presionado para enderezar una línea';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Borrar la pizarra después de salir de la aplicación';
+			case 'settings.prefLabels.editorPromptRename': return 'Solicitarte cambiar el nombre de nuevas notas';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Oscurece inteligentemente las notas en el modo oscuro';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Para pantallas con tinta electrónica';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Aún se sincronizará con tus otros dispositivos';
+			case 'settings.prefDescriptions.editorPromptRename': return 'Siempre puedes cambiar el nombre de las notas más tarde';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Claro';
 			case 'settings.themeModes.dark': return 'Oscuro';
@@ -2734,8 +2782,15 @@ extension on _StringsEs {
 			case 'login.status.loggedIn': return 'Sesión iniciada con Nextcloud';
 			case 'login.status.loggedOut': return 'Desconectado';
 			case 'login.status.tapToLogin': return 'Toca para iniciar sesión con Nextcloud';
+			case 'login.faq.0.q': return '¿Qué es Nextcloud?';
+			case 'login.faq.0.a': return 'Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puede usar el servidor Sabre Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.';
+			case 'login.faq.1.q': return '¿Qué es la contraseña de cifrado?';
+			case 'login.faq.1.a': return 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y solo Saber lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+			case 'login.faq.2.q': return '¿Por qué usar dos contraseñas?';
+			case 'login.faq.2.a': return 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
 			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 			case 'appInfo.debug': return 'DEBUG';
+			case 'appInfo.sponsorButton': return 'Toca aquí para patrocinarme o comprar más almacenamiento';
 			case 'appInfo.licenseButton': return 'Toca aquí para ver más información sobre la licencia';
 			case 'appInfo.privacyPolicyButton': return 'Toca aquí para ver nuestra política de privacidad';
 			case 'update.updateAvailable': return 'Actualización disponible';
@@ -2754,6 +2809,7 @@ extension on _StringsEs {
 			case 'editor.pens.ballpointPen': return 'Bolígrafo';
 			case 'editor.pens.highlighter': return 'Resaltador';
 			case 'editor.penOptions.size': return 'Tamaño';
+			case 'editor.penOptions.sizeDragHint': return 'Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño';
 			case 'editor.imageOptions.title': return 'Opciones de imagen';
 			case 'editor.imageOptions.invertible': return 'Invertible';
 			case 'editor.imageOptions.delete': return 'Eliminar';
