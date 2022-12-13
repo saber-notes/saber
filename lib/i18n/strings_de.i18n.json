@@ -31,7 +31,8 @@
       "preferGreyscale": "Graustufen bevorzugen",
       "hyperlegibleFont": "Hyperlesbare Schrift",
       "editorStraightenLines": "Drücke und halte für eine gerade Linie",
-      "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung"
+      "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung",
+      "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen"
     },
     "themeModes": {
       "system": "System",
@@ -46,7 +47,8 @@
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
       "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
       "preferGreyscale": "Für E-Ink-Bildschirme",
-      "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert"
+      "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert",
+      "editorPromptRename": "Notizen können immer auch später noch umbenannt werden"
     },
     "straightenDelay": {
       "off": "Aus",
@@ -99,7 +101,8 @@
     "licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
     "debug": "DEBUG",
     "licenseButton": "Hier tippen, um weitere Lizenzinformationen anzuzeigen",
-    "privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen"
+    "privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen",
+    "sponsorButton": "Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen"
   },
   "update": {
     "updateAvailable": "Aktualisierung verfügbar",
@@ -124,7 +127,8 @@
       "ballpointPen": "Kugelschreiber"
     },
     "penOptions": {
-      "size": "Dicke"
+      "size": "Dicke",
+      "sizeDragHint": "Nach links oder rechts ziehen, um die Größe zu ändern"
     },
     "imageOptions": {
       "title": "Bildoptionen",
