@@ -80,29 +80,29 @@ class EditorImage {
   }
 
   Future<void> _getImage([Size? pageSize]) async {
-    if (srcRect.shortestSide != 0 && dstRect.shortestSide != 0) return;
+    if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
+      ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
+      Size size = Size(image.width.toDouble(), image.height.toDouble());
+      final Size reducedSize = resize(size, const Size(1000, 1000));
 
-    ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
-    Size size = Size(image.width.toDouble(), image.height.toDouble());
-    final Size reducedSize = resize(size, const Size(1000, 1000));
+      if (size.width != reducedSize.width) {
+        await Future.delayed(Duration.zero); // wait for next event-loop iteration
 
-    if (size.width != reducedSize.width) {
-      await Future.delayed(Duration.zero); // wait for next event-loop iteration
+        Uint8List? resized = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, reducedSize));
+        if (resized != null) bytes = resized;
 
-      Uint8List? resized = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, reducedSize));
-      if (resized != null) bytes = resized;
-
-      size = reducedSize;
-    }
-
-    if (srcRect.shortestSide == 0) {
-      srcRect = srcRect.topLeft & size;
-    }
-    if (dstRect.shortestSide == 0) {
-      if (pageSize != null) {
-        size = resize(size, pageSize);
+        size = reducedSize;
       }
-      dstRect = dstRect.topLeft & size;
+
+      if (srcRect.shortestSide == 0) {
+        srcRect = srcRect.topLeft & size;
+      }
+      if (dstRect.shortestSide == 0) {
+        if (pageSize != null) {
+          size = resize(size, pageSize);
+        }
+        dstRect = dstRect.topLeft & size;
+      }
     }
   }
 
