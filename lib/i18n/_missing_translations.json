@@ -57,24 +57,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "editorPromptRename": "Richiede di rinominare nuove note"
-      },
-      "prefDescriptions": {
-        "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento"
-      }
-    },
-    "appInfo": {
-      "sponsorButton": "Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione"
-    },
-    "editor": {
-      "penOptions": {
-        "sizeDragHint": "Trascina a sinistra o a destra per modificare le dimensioni"
-      }
-    }
-  },
+  "it": {},
   "zh-Hans-CN": {
     "editor": {
       "penOptions": {

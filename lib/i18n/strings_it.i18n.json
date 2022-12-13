@@ -31,7 +31,8 @@
       "preferGreyscale": "Preferisci i colori in scala di grigi",
       "hyperlegibleFont": "Carattere iperleggibile",
       "editorStraightenLines": "Tenere premuto per raddrizzare una linea",
-      "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app"
+      "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app",
+      "editorPromptRename": "Richiede di rinominare nuove note"
     },
     "themeModes": {
       "system": "Sistema",
@@ -46,7 +47,8 @@
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
       "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
       "preferGreyscale": "Per display e-ink",
-      "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi"
+      "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
+      "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento"
     },
     "straightenDelay": {
       "off": "Off",
@@ -99,7 +101,8 @@
     "licenseNotice": "Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",
     "debug": "DEBUG",
     "licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
-    "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy"
+    "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy",
+    "sponsorButton": "Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione"
   },
   "update": {
     "updateAvailable": "Aggiornamento disponibile",
@@ -124,7 +127,8 @@
       "ballpointPen": "Penna a sfera"
     },
     "penOptions": {
-      "size": "Dimesione"
+      "size": "Dimesione",
+      "sizeDragHint": "Trascina a sinistra o a destra per modificare le dimensioni"
     },
     "imageOptions": {
       "title": "Opzioni immagine",
