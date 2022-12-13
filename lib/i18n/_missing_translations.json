@@ -41,12 +41,6 @@
     }
   },
   "it": {},
-  "zh-Hans-CN": {
-    "editor": {
-      "penOptions": {
-        "sizeDragHint": "左右拖动更改粗细"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

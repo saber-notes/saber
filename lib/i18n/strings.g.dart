@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 563 (93 per locale)
+/// Strings: 564 (94 per locale)
 ///
-/// Built on 2022-12-13 at 13:18 UTC
+/// Built on 2022-12-13 at 13:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2009,6 +2009,7 @@ class _StringsEditorPenOptionsZhHansCn extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => '粗细';
+	@override String get sizeDragHint => '左右拖动更改粗细';
 }
 
 // Path: editor.imageOptions
@@ -2976,6 +2977,7 @@ extension on _StringsZhHansCn {
 			case 'editor.pens.ballpointPen': return '圆珠笔';
 			case 'editor.pens.highlighter': return '荧光笔';
 			case 'editor.penOptions.size': return '粗细';
+			case 'editor.penOptions.sizeDragHint': return '左右拖动更改粗细';
 			case 'editor.imageOptions.title': return '图片选项';
 			case 'editor.imageOptions.invertible': return '反转颜色';
 			case 'editor.imageOptions.delete': return '删除';
