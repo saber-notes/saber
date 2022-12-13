@@ -66,7 +66,7 @@ class EditorImage {
           json['sw'] ?? 0,
           json['sh'] ?? 0,
         ),
-        thumbnailBytes = Uint8List.fromList((json['t'] as List<dynamic>?)?.cast<int>() ?? []),
+        thumbnailBytes = json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
         bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []) {
     _getImage(allowCalculations: allowCalculations);
   }
@@ -117,7 +117,7 @@ class EditorImage {
       }
     }
 
-    if (thumbnailBytes == null && allowCalculations) {
+    if ((thumbnailBytes?.isEmpty ?? true) && allowCalculations) {
       final Size thumbnailSize = resize(srcRect.size, const Size(300, 300));
       if (thumbnailSize.width != srcRect.width) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
