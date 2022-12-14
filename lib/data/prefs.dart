@@ -240,7 +240,7 @@ class PlainPref<T> extends IPref<T> {
     try {
       if (!_prefs!.containsKey(key)) {
         return null;
-      } else if (T == List<String>) {
+      } else if (T == typeOf<List<String>>()) {
         return _prefs!.getStringList(key) as T?;
       } else if (T == StrokeProperties) {
         return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!)) as T?;
