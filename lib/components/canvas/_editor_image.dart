@@ -13,12 +13,16 @@ class EditorImage {
   Uint8List? invertedBytesCache;
 
   Uint8List? thumbnailBytes;
+  Size thumbnailSize = Size.zero;
+
   bool _isThumbnail = false;
   bool get isThumbnail => _isThumbnail;
-  set isThumbnail(bool value) {
-    _isThumbnail = value;
-    if (value) {
-      bytes = thumbnailBytes ?? bytes;
+  set isThumbnail(bool isThumbnail) {
+    _isThumbnail = isThumbnail;
+    if (isThumbnail && thumbnailBytes != null) {
+      bytes = thumbnailBytes!;
+      final scale = thumbnailSize.width / naturalSize.width;
+      srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale, srcRect.width * scale, srcRect.height * scale);
     }
   }
 
@@ -30,6 +34,7 @@ class EditorImage {
 
   Rect srcRect = Rect.zero;
   Rect dstRect = Rect.zero;
+  Size naturalSize = Size.zero;
 
   /// If the image is new, it will be [active] (draggable) when loaded
   bool newImage = false;
@@ -66,6 +71,10 @@ class EditorImage {
           json['sw'] ?? 0,
           json['sh'] ?? 0,
         ),
+        naturalSize = Size(
+          json['nw'] ?? 0,
+          json['nh'] ?? 0,
+        ),
         thumbnailBytes = json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
         bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []) {
     _getImage(allowCalculations: allowCalculations);
@@ -88,45 +97,52 @@ class EditorImage {
     if (srcRect.width != 0) json['sw'] = srcRect.width;
     if (srcRect.height != 0) json['sh'] = srcRect.height;
 
+    if (naturalSize.width != 0) json['nw'] = naturalSize.width;
+    if (naturalSize.height != 0) json['nh'] = naturalSize.height;
+
     return json;
   }
 
   Future<void> _getImage({Size? pageSize, bool allowCalculations = true}) async {
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
-      Size size = Size(image.width.toDouble(), image.height.toDouble());
+      naturalSize = Size(image.width.toDouble(), image.height.toDouble());
 
-      final Size reducedSize = resize(size, const Size(1000, 1000));
-      if (size.width != reducedSize.width && allowCalculations) {
+      final Size reducedSize = resize(naturalSize, const Size(1000, 1000));
+      if (naturalSize.width != reducedSize.width && allowCalculations) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
 
         Uint8List? resized = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, reducedSize));
         if (resized != null) bytes = resized;
 
-        size = reducedSize;
+        naturalSize = reducedSize;
       }
 
       if (srcRect.shortestSide == 0) {
-        srcRect = srcRect.topLeft & size;
+        srcRect = srcRect.topLeft & naturalSize;
       }
       if (dstRect.shortestSide == 0) {
-        if (pageSize != null) {
-          size = resize(size, pageSize);
-        }
-        dstRect = dstRect.topLeft & size;
+        final Size dstSize = pageSize != null ? resize(naturalSize, pageSize) : naturalSize;
+        dstRect = dstRect.topLeft & dstSize;
       }
     }
 
+    if (naturalSize.shortestSide == 0) {
+      naturalSize = Size(srcRect.width, srcRect.height);
+    }
+
     if ((thumbnailBytes?.isEmpty ?? true) && allowCalculations) {
-      final Size thumbnailSize = resize(srcRect.size, const Size(300, 300));
-      if (thumbnailSize.width != srcRect.width) {
+      thumbnailSize = resize(naturalSize, const Size(300, 300));
+      if (thumbnailSize.width != naturalSize.width) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
         thumbnailBytes = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, thumbnailSize));
       } else { // no need to resize
         thumbnailBytes = bytes;
       }
     }
-    if (isThumbnail) bytes = thumbnailBytes ?? bytes;
+    if (isThumbnail) {
+      isThumbnail = true; // updates bytes and srcRect
+    }
   }
 
   /// Resizes [before] to fit inside [max] while maintaining aspect ratio

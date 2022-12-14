@@ -51,7 +51,6 @@ class _CanvasImageState extends State<CanvasImage> {
     });
   }
 
-  late Uint8List imageBytes;
   Brightness imageBrightness = Brightness.light;
 
   bool invertStarted = false;
@@ -61,8 +60,6 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   void initState() {
-    imageBytes = widget.image.bytes;
-
     if (widget.image.newImage) { // if the image is new, make it [active]
       active = true;
       widget.image.newImage = false;
@@ -91,7 +88,6 @@ class _CanvasImageState extends State<CanvasImage> {
     if (inverted == null) return;
     setState(() {
       widget.image.invertedBytesCache = inverted;
-      imageBytes = inverted;
     });
   }
 
@@ -103,10 +99,7 @@ class _CanvasImageState extends State<CanvasImage> {
     if (!widget.image.invertible) currentBrightness = Brightness.light;
 
     if (Prefs.editorAutoInvert.value && currentBrightness != imageBrightness) {
-      if (currentBrightness == Brightness.light) {
-        imageBytes = widget.image.bytes;
-      } else {
-        imageBytes = widget.image.invertedBytesCache ?? imageBytes;
+      if (currentBrightness == Brightness.dark) {
         invertImage();
       }
       imageBrightness = currentBrightness;
@@ -180,9 +173,32 @@ class _CanvasImageState extends State<CanvasImage> {
                         size: widget.image.srcRect.size,
                         child: Transform.translate(
                           offset: -widget.image.srcRect.topLeft,
-                          child: Image.memory(
-                            imageBytes,
-                            fit: BoxFit.contain,
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 500),
+                            switchInCurve: Curves.easeOut,
+                            switchOutCurve: Curves.easeIn,
+                            child: (imageBrightness == Brightness.dark && widget.image.invertedBytesCache != null)
+                              ? Image.memory(widget.image.invertedBytesCache!, fit: BoxFit.contain, key: Key("Image${widget.image.id}-dark"))
+                              : Image.memory(widget.image.bytes, fit: BoxFit.contain, key: Key("Image${widget.image.id}-light")),
+                            layoutBuilder: (currentChild, previousChildren) {
+                              return SizedBox(
+                                width: widget.image.naturalSize.width,
+                                height: widget.image.naturalSize.height,
+                                child: Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    ...previousChildren,
+                                    if (currentChild != null) currentChild
+                                    else Container(
+                                      color: Colors.grey,
+                                      child: const Center(
+                                        child: Icon(Icons.image, color: Colors.white),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
