@@ -28,9 +28,9 @@ class Canvas extends StatelessWidget {
   Widget build(BuildContext context) {
     Size pageSize = coreInfo.pages.isNotEmpty ? coreInfo.pages[pageIndex].size : EditorPage.defaultSize;
 
-    Widget innerCanvas = ClipRect(
-      child: Center(
-        child: FittedBox(
+    Widget innerCanvas = Center(
+      child: FittedBox(
+        child: ClipRect(
           child: InnerCanvas(
             key: innerCanvasKey,
             width: pageSize.width,
