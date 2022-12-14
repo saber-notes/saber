@@ -65,6 +65,11 @@ class _CanvasImageState extends State<CanvasImage> {
       widget.image.newImage = false;
     }
 
+    if (Prefs.appTheme.value == ThemeMode.system.index || Prefs.appTheme.value == ThemeMode.dark.index) {
+      // invert the image pre-emptively if we're likely to switch to dark mode
+      invertImage();
+    }
+
     CanvasImage.activeListener.addListener(disableActive);
 
     super.initState();
