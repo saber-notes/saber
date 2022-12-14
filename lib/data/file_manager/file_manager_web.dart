@@ -3,7 +3,7 @@
 import 'dart:html' as html;
 
 /// https://stackoverflow.com/a/60237118/
-Future fmExportFile(String fileName, List<int> bytes) async {
+Future fmExportFile(String fileName, List<int> bytes, {bool useShareDialogOnMobile = true}) async {
   final blob = html.Blob([bytes]);
   final url = html.Url.createObjectUrlFromBlob(blob);
 

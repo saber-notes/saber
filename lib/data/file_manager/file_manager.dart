@@ -86,8 +86,8 @@ abstract class FileManager {
     if (awaitWrite) await writeFuture;
   }
 
-  static Future exportFile(String fileName, List<int> bytes) async {
-    return await fmExportFile(fileName, bytes);
+  static Future exportFile(String fileName, List<int> bytes, {bool useShareDialogOnMobile = true}) async {
+    return await fmExportFile(fileName, bytes, useShareDialogOnMobile: useShareDialogOnMobile);
   }
 
   /// Moves a file from [fromPath] to [toPath], returning its final path.
