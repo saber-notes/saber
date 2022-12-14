@@ -280,8 +280,12 @@ class _EditorState extends State<Editor> {
         setState(() {
           EditorHistoryItem? item = history.removeAccidentalStroke();
           if (item != null) {
-            for (Stroke stroke in item.strokes) {
-              coreInfo.strokes.remove(stroke);
+            if (item.type == EditorHistoryItemType.erase) {
+              coreInfo.strokes.addAll(item.strokes);
+            } else {
+              for (Stroke stroke in item.strokes) {
+                coreInfo.strokes.remove(stroke);
+              }
             }
             // item.images is always empty
             removeExcessPagesAfterStroke(null);
