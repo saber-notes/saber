@@ -29,7 +29,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
   bool expanded = false;
 
-  late EditorCoreInfo _coreInfo;
+  late EditorCoreInfo _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
   EditorCoreInfo get coreInfo => _coreInfo;
   set coreInfo(EditorCoreInfo coreInfo) {
     _mapFilePathToEditorInfo[widget.filePath] = _coreInfo = coreInfo;
@@ -46,23 +46,12 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void initState() {
-    init();
+    if (_coreInfo.isEmpty) {
+      findStrokes();
+    }
     FileManager.writeWatcher.addListener(findStrokes);
 
     super.initState();
-  }
-
-  @override
-  void didUpdateWidget(covariant PreviewCard oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.filePath != oldWidget.filePath) init(refresh: false);
-  }
-
-  init({refresh = true}) {
-    _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
-    if (_coreInfo.strokes.isEmpty || refresh) {
-      findStrokes();
-    }
   }
 
   Future findStrokes() async {
@@ -98,7 +87,7 @@ class _PreviewCardState extends State<PreviewCard> {
               CanvasPreview(
                 path: widget.filePath,
                 height: height,
-                coreInfo: coreInfo.copyWith(strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList()),
+                coreInfo: coreInfo,
               ),
 
               Padding(
