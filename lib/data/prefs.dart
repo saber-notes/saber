@@ -290,8 +290,8 @@ class EncPref<T> extends IPref<T> {
         currentValue = _parseString(await prefs.getString(key));
 
         // migrate to new key
-        await _save();
         prefs.remove(key);
+        await _save();
 
         return currentValue;
       }
