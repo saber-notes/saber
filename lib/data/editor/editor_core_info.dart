@@ -13,11 +13,14 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class EditorCoreInfo {
+  /// The version of the file format.
+  /// Increment this if earlier versions of the app can't satisfiably read the file.
   static const int fileVersion = 4;
   bool readOnly = false;
 
   final List<Stroke> strokes;
   final List<EditorImage> images;
+  int nextImageId;
   Color? backgroundColor;
   String backgroundPattern;
   int lineHeight;
@@ -28,14 +31,17 @@ class EditorCoreInfo {
   EditorCoreInfo():
         strokes = [],
         images = [],
+        nextImageId = 0,
         backgroundPattern = Prefs.lastBackgroundPattern.value,
         lineHeight = Prefs.lastLineHeight.value,
         pages = [];
 
+  /// used in EditorCoreInfo.copyWith(...)
   EditorCoreInfo._({
     required this.readOnly,
     required this.strokes,
     required this.images,
+    required this.nextImageId,
     this.backgroundColor,
     required this.backgroundPattern,
     required this.lineHeight,
@@ -49,16 +55,19 @@ class EditorCoreInfo {
           json["i"] as List? ?? [],
           allowCalculations: !(readOnly || (json["v"] as int? ?? 0) > fileVersion), // !this.readOnly
         ),
+        nextImageId = json["ni"] as int? ?? 0,
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
         pages = _parsePagesJson(json["z"] as List?) {
     _handleEmptyPages(json["w"] as double?, json["h"] as double?);
+    _handleEmptyImageIds();
   }
   /// Old json format is just a list of strokes
   EditorCoreInfo.fromOldJson(List<dynamic> json):
         strokes = _parseStrokesJson(json),
         images = [],
+        nextImageId = 0,
         backgroundPattern = CanvasBackgroundPatterns.none,
         lineHeight = Prefs.lastLineHeight.value,
         pages = [] {
@@ -99,6 +108,12 @@ class EditorCoreInfo {
     pages = List.generate(maxPageIndex + 1, (index) => EditorPage(width: width, height: height));
   }
 
+  void _handleEmptyImageIds() {
+    for (EditorImage image in images) {
+      if (image.id == -1) image.id = nextImageId++;
+    }
+  }
+
   static Future<EditorCoreInfo> loadFromFilePath(String path, {bool readOnly = false}) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
     if (jsonString == null) return EditorCoreInfo();
@@ -123,6 +138,7 @@ class EditorCoreInfo {
     'v': fileVersion,
     's': strokes,
     'i': images,
+    'ni': nextImageId,
     'b': backgroundColor?.value,
     'p': backgroundPattern,
     'l': lineHeight,
@@ -133,6 +149,7 @@ class EditorCoreInfo {
     bool? readOnly,
     List<Stroke>? strokes,
     List<EditorImage>? images,
+    int? nextImageId,
     Color? backgroundColor,
     String? backgroundPattern,
     int? lineHeight,
@@ -142,6 +159,7 @@ class EditorCoreInfo {
       readOnly: readOnly ?? this.readOnly,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
+      nextImageId: nextImageId ?? this.nextImageId,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,
       lineHeight: lineHeight ?? this.lineHeight,

@@ -497,6 +497,7 @@ class _EditorState extends State<Editor> {
 
     int pageIndex = currentPageIndex;
     EditorImage image = EditorImage(
+      id: coreInfo.nextImageId++,
       bytes: bytes,
       pageIndex: pageIndex,
       pageSize: coreInfo.pages[pageIndex].size,

@@ -6,8 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:image/image.dart' as image;
 
 class EditorImage {
-  static int _nextId = 0;
-  final int id = _nextId++;
+  /// Unique id for this image
+  int id;
 
   Uint8List bytes;
   Uint8List? invertedBytesCache;
@@ -43,6 +43,7 @@ class EditorImage {
   bool invertible;
 
   EditorImage({
+    required this.id,
     required this.bytes,
     required this.pageIndex,
     required Size pageSize,
@@ -56,6 +57,7 @@ class EditorImage {
   }
 
   EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) :
+        id = json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
         pageIndex = json['i'] ?? 0,
         invertible = json['v'] ?? true,
         onLoad = null,
@@ -82,6 +84,7 @@ class EditorImage {
 
   Map<String, dynamic> toJson() {
     final json = {
+      'id': id,
       'i': pageIndex,
       'v': invertible,
       'x': dstRect.left,
