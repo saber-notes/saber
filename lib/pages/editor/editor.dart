@@ -542,7 +542,7 @@ class _EditorState extends State<Editor> {
   }
   Future exportAsSbn() async {
     final content = _saveToString();
-    final encoded = utf8.encode(content);
+    final encoded = utf8.encode(content) as Uint8List;
     await FileManager.exportFile("$_filename.sbn", encoded);
   }
 

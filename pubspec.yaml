@@ -105,6 +105,8 @@ dependencies:
 
   image: ^3.2.2
 
+  image_save: ^5.0.0
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:

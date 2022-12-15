@@ -2,11 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.adilhanney.saber">
 
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Storage permissions for saving photos -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
 
    <application
         android:label="Saber"
