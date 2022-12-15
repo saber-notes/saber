@@ -29,7 +29,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
   bool expanded = false;
 
-  late EditorCoreInfo _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo();
+  late EditorCoreInfo _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo(filePath: widget.filePath);
   EditorCoreInfo get coreInfo => _coreInfo;
   set coreInfo(EditorCoreInfo coreInfo) {
     _mapFilePathToEditorInfo[widget.filePath] = _coreInfo = coreInfo;

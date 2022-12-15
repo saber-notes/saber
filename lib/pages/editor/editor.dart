@@ -55,11 +55,10 @@ class Editor extends StatefulWidget {
 }
 
 class _EditorState extends State<Editor> {
-  EditorCoreInfo coreInfo = EditorCoreInfo();
+  EditorCoreInfo coreInfo = EditorCoreInfo(filePath: "");
 
   EditorHistory history = EditorHistory();
 
-  String path = "";
   late bool needsNaming = widget.needsNaming && Prefs.editorPromptRename.value;
 
   Tool currentTool = Pen.currentPen;
@@ -79,7 +78,7 @@ class _EditorState extends State<Editor> {
     super.initState();
   }
   void _initAsync() async {
-    path = await widget.initialPath;
+    coreInfo.filePath = await widget.initialPath;
     filenameTextEditingController.text = _filename;
     setState(() {});
 
@@ -93,7 +92,7 @@ class _EditorState extends State<Editor> {
     await _initStrokes();
   }
   Future _initStrokes() async {
-    if (path == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
+    if (coreInfo.filePath == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
       createPageOfStroke(-1);
       saveToFile().then((_) {
         Whiteboard.needsToAutoClearWhiteboard = false;
@@ -101,7 +100,7 @@ class _EditorState extends State<Editor> {
       return; // stick to empty coreInfo, don't load anything
     }
 
-    coreInfo = await EditorCoreInfo.loadFromFilePath(path);
+    coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       createPageOfStroke(-1);
@@ -409,14 +408,14 @@ class _EditorState extends State<Editor> {
   }
 
 
-  String get _filename => path.substring(path.lastIndexOf('/') + 1);
+  String get _filename => coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
   String _saveToString() {
     return json.encode(coreInfo);
   }
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
     String toSave = _saveToString();
-    await FileManager.writeFile(path + Editor.extension, toSave);
+    await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave);
   }
 
 
@@ -439,8 +438,8 @@ class _EditorState extends State<Editor> {
   Future _renameFileNow(String newName) async {
     if (newName == _filename) return;
 
-    path = await FileManager.moveFile(path + Editor.extension, newName + Editor.extension);
-    path = path.substring(0, path.lastIndexOf(Editor.extension));
+    coreInfo.filePath = await FileManager.moveFile(coreInfo.filePath + Editor.extension, newName + Editor.extension);
+    coreInfo.filePath = coreInfo.filePath.substring(0, coreInfo.filePath.lastIndexOf(Editor.extension));
     needsNaming = false;
 
     final String actualName = _filename;
@@ -568,7 +567,7 @@ class _EditorState extends State<Editor> {
               children: [
                 for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) ...[
                   Canvas(
-                    path: path,
+                    path: coreInfo.filePath,
                     pageIndex: pageIndex,
                     innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
                     coreInfo: coreInfo.copyWith(

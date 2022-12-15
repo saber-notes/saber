@@ -18,6 +18,8 @@ class EditorCoreInfo {
   static const int fileVersion = 4;
   bool readOnly = false;
 
+  String filePath;
+
   final List<Stroke> strokes;
   final List<EditorImage> images;
   int nextImageId;
@@ -28,7 +30,7 @@ class EditorCoreInfo {
 
   bool get isEmpty => strokes.isEmpty && images.isEmpty;
 
-  EditorCoreInfo():
+  EditorCoreInfo({required this.filePath}):
         strokes = [],
         images = [],
         nextImageId = 0,
@@ -38,6 +40,7 @@ class EditorCoreInfo {
 
   /// used in EditorCoreInfo.copyWith(...)
   EditorCoreInfo._({
+    required this.filePath,
     required this.readOnly,
     required this.strokes,
     required this.images,
@@ -48,7 +51,10 @@ class EditorCoreInfo {
     required this.pages,
   });
 
-  EditorCoreInfo.fromJson(Map<String, dynamic> json, {bool readOnly = false}):
+  EditorCoreInfo.fromJson(Map<String, dynamic> json, {
+    required this.filePath,
+    bool readOnly = false,
+  }):
         readOnly = readOnly || (json["v"] as int? ?? 0) > fileVersion,
         strokes = _parseStrokesJson(json["s"] as List),
         images = _parseImagesJson(
@@ -64,7 +70,9 @@ class EditorCoreInfo {
     _handleEmptyImageIds();
   }
   /// Old json format is just a list of strokes
-  EditorCoreInfo.fromOldJson(List<dynamic> json):
+  EditorCoreInfo.fromOldJson(List<dynamic> json, {
+    required this.filePath,
+  }):
         strokes = _parseStrokesJson(json),
         images = [],
         nextImageId = 0,
@@ -116,20 +124,24 @@ class EditorCoreInfo {
 
   static Future<EditorCoreInfo> loadFromFilePath(String path, {bool readOnly = false}) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
-    if (jsonString == null) return EditorCoreInfo();
+    if (jsonString == null) return EditorCoreInfo(filePath: path);
 
     try {
       final dynamic json = jsonDecode(jsonString);
       if (json is List) { // old format
-        return EditorCoreInfo.fromOldJson(json);
+        return EditorCoreInfo.fromOldJson(json, filePath: path);
       } else {
-        return EditorCoreInfo.fromJson(json as Map<String, dynamic>, readOnly: readOnly);
+        return EditorCoreInfo.fromJson(
+          json as Map<String, dynamic>,
+          filePath: path,
+          readOnly: readOnly
+        );
       }
     } catch (e) {
       if (kDebugMode) {
         rethrow;
       } else {
-        return EditorCoreInfo();
+        return EditorCoreInfo(filePath: path);
       }
     }
   }
@@ -146,6 +158,7 @@ class EditorCoreInfo {
   };
 
   EditorCoreInfo copyWith({
+    String? filePath,
     bool? readOnly,
     List<Stroke>? strokes,
     List<EditorImage>? images,
@@ -156,6 +169,7 @@ class EditorCoreInfo {
     List<EditorPage>? pages,
   }) {
     return EditorCoreInfo._(
+      filePath: filePath ?? this.filePath,
       readOnly: readOnly ?? this.readOnly,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
