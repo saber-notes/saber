@@ -133,6 +133,7 @@
 		"imageOptions": {
 			"title": "Image options",
 			"invertible": "Invertible",
+			"download": "Download",
 			"delete": "Delete"
 		},
 		"menu": {
