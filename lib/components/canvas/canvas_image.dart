@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -406,6 +407,14 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             value: widget.image.invertible,
             onChanged: setInvertible,
           ),
+        ),
+        ListTile(
+          onTap: () {
+            FileManager.exportFile("image", widget.image.bytes, useShareDialogOnMobile: false);
+            Navigator.of(context).pop();
+          },
+          title: Text(t.editor.imageOptions.download),
+          trailing: const Icon(Icons.download),
         ),
         ListTile(
           onTap: () {
