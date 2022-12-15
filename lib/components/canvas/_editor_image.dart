@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:image/image.dart' as image;
 
 class EditorImage {
-  /// Unique id for this image
+  /// id for this image, unique within a note
   int id;
 
   Uint8List bytes;

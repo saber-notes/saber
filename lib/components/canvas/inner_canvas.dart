@@ -78,6 +78,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
             children: [
               for (final EditorImage editorImage in widget.coreInfo.images)
                 CanvasImage(
+                  filePath: widget.coreInfo.filePath,
                   image: editorImage,
                   pageSize: Size(widget.width, widget.height),
                   readOnly: widget.coreInfo.readOnly,

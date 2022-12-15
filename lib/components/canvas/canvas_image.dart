@@ -13,10 +13,11 @@ import 'package:saber/i18n/strings.g.dart';
 
 class CanvasImage extends StatefulWidget {
   CanvasImage({
+    required String filePath,
     required this.image,
     required this.pageSize,
     this.readOnly = false,
-  }) : super(key: Key("CanvasImage${image.id}"));
+  }) : super(key: Key("CanvasImage$filePath/${image.id}"));
 
   final EditorImage image;
   final Size pageSize;
