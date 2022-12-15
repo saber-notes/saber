@@ -24,16 +24,14 @@ Future fmExportFile(String fileName, Uint8List bytes, {bool isImage = false}) as
       await Share.shareXFiles([XFile(tempFile.path)]);
     }
   } else { // desktop, open save-as dialog
-    Future<File> tempFileFuture = getTempFile();
     String? outputFile = await FilePicker.platform.saveFile(
       fileName: fileName,
       initialDirectory: (await getDownloadsDirectory())?.path,
       allowedExtensions: [fileName.split(".").last],
     );
-    tempFile = await tempFileFuture;
     if (outputFile != null) {
-      await tempFile.rename(outputFile);
-      tempFile = null;
+      File file = File(outputFile);
+      await file.writeAsBytes(bytes);
     }
   }
 
