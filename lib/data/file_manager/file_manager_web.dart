@@ -1,9 +1,10 @@
 // ignore_for_file: avoid_web_libraries_in_flutter
 
 import 'dart:html' as html;
+import 'dart:typed_data';
 
 /// https://stackoverflow.com/a/60237118/
-Future fmExportFile(String fileName, List<int> bytes, {bool useShareDialogOnMobile = true}) async {
+Future fmExportFile(String fileName, Uint8List bytes, {bool isImage = false}) async {
   final blob = html.Blob([bytes]);
   final url = html.Url.createObjectUrlFromBlob(blob);
 

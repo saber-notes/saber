@@ -410,7 +410,7 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
         ),
         ListTile(
           onTap: () {
-            FileManager.exportFile("image", widget.image.bytes, useShareDialogOnMobile: false);
+            FileManager.exportFile("image", widget.image.bytes, isImage: true);
             Navigator.of(context).pop();
           },
           title: Text(t.editor.imageOptions.download),
