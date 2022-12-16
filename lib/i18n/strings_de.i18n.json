@@ -133,7 +133,8 @@
     "imageOptions": {
       "title": "Bildoptionen",
       "invertible": "Invertierbar",
-      "delete": "Entfernen"
+      "delete": "Entfernen",
+      "download": "Herunterladen"
     },
     "menu": {
       "clearPage": "Seite löschen",
