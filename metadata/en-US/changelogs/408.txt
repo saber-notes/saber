@@ -1,0 +1,4 @@
+• Greatly reduced scrolling jank
+• Inverted images are now pre-loaded and nicely animated
+• You can now download images into your gallery/hard drive
+• Fixed transition from old secure storage

@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.8" type="development" date="2022-12-16">
+            <description>
+                <ol>
+                    <li>Greatly reduced scrolling jank</li>
+                    <li>Inverted images are now pre-loaded and nicely animated</li>
+                    <li>You can now download images into your gallery/hard drive</li>
+                    <li>Fixed transition from old secure storage</li>
+                    <li>Fixed bug with computers with multiple disks/partitions</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.4.7" type="development" date="2022-12-14">
             <description>
                 <ol>
