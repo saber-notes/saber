@@ -15,15 +15,18 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
-  Prefs.username.addListener(onLoginDetailsLoaded);
   LocaleSettings.useDeviceLocale();
   runApp(TranslationProvider(child: App()));
+  startSyncAfterUsernameLoaded();
 }
 
-void onLoginDetailsLoaded() async {
-  if (!Prefs.username.loaded) return; // wait until username is loaded
-  if (Prefs.username.value.isEmpty) return; // wait until logged in
-  Prefs.username.removeListener(onLoginDetailsLoaded); // stop waiting
+void startSyncAfterUsernameLoaded() async {
+  await Prefs.username.waitUntilLoaded();
+
+  Prefs.username.removeListener(startSyncAfterUsernameLoaded);
+  if (Prefs.username.value.isEmpty) { // try again when logged in
+    return Prefs.username.addListener(startSyncAfterUsernameLoaded);
+  }
 
   // wait for other prefs to load
   await Future.delayed(const Duration(milliseconds: 100));
