@@ -133,7 +133,8 @@
     "imageOptions": {
       "title": "Opzioni immagine",
       "invertible": "Invertibile",
-      "delete": "Cancella"
+      "delete": "Cancella",
+      "download": "Download"
     },
     "menu": {
       "clearPage": "Pulisci pagina",
