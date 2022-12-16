@@ -19,11 +19,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "imageOptions": {
-        "download": "Download"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }

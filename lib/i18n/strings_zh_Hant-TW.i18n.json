@@ -133,7 +133,8 @@
     "imageOptions": {
       "title": "圖片選項",
       "invertible": "反轉顏色",
-      "delete": "刪除"
+      "delete": "刪除",
+      "download": "下載"
     },
     "menu": {
       "clearPage": "清除頁面",

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 6
-/// Strings: 579 (96 per locale)
+/// Strings: 580 (96 per locale)
 ///
-/// Built on 2022-12-16 at 13:47 UTC
+/// Built on 2022-12-16 at 13:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2463,6 +2463,7 @@ class _StringsEditorImageOptionsZhHantTw extends _StringsEditorImageOptionsEn {
 	@override String get title => '圖片選項';
 	@override String get invertible => '反轉顏色';
 	@override String get delete => '刪除';
+	@override String get download => '下載';
 }
 
 // Path: editor.menu
@@ -3155,6 +3156,7 @@ extension on _StringsZhHantTw {
 			case 'editor.imageOptions.title': return '圖片選項';
 			case 'editor.imageOptions.invertible': return '反轉顏色';
 			case 'editor.imageOptions.delete': return '刪除';
+			case 'editor.imageOptions.download': return '下載';
 			case 'editor.menu.clearPage': return '清除頁面';
 			case 'editor.menu.clearAllPages': return '清除所有頁面';
 			case 'editor.menu.lineHeight': return '行高';
