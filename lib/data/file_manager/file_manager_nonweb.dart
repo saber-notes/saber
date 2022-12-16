@@ -18,7 +18,11 @@ Future fmExportFile(String fileName, Uint8List bytes, {bool isImage = false}) as
 
   if (Platform.isAndroid || Platform.isIOS) {
     if (isImage) { // save image to gallery
-      await ImageSave.saveImage(bytes, fileName);
+      await ImageSave.saveImage(
+        bytes,
+        fileName,
+        albumName: "Saber",
+      );
     } else { // share file
       tempFile = await getTempFile();
       await Share.shareXFiles([XFile(tempFile.path)]);
