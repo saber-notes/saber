@@ -9,6 +9,10 @@ class EditorImage {
   /// id for this image, unique within a note
   int id;
 
+  /// The image's file extension, e.g. [".jpg"].
+  /// This is used when "downloading" the image to the user's photo gallery.
+  final String extension;
+
   Uint8List bytes;
   Uint8List? invertedBytesCache;
 
@@ -44,6 +48,7 @@ class EditorImage {
 
   EditorImage({
     required this.id,
+    required this.extension,
     required this.bytes,
     required this.pageIndex,
     required Size pageSize,
@@ -58,6 +63,7 @@ class EditorImage {
 
   EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) :
         id = json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+        extension = json['e'] ?? ".jpg",
         pageIndex = json['i'] ?? 0,
         invertible = json['v'] ?? true,
         onLoad = null,
@@ -85,6 +91,7 @@ class EditorImage {
   Map<String, dynamic> toJson() {
     final json = {
       'id': id,
+      'e': extension,
       'i': pageIndex,
       'v': invertible,
       'x': dstRect.left,
