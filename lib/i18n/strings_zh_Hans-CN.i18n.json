@@ -133,7 +133,8 @@
     "imageOptions": {
       "title": "图片选项",
       "invertible": "反转颜色",
-      "delete": "删除"
+      "delete": "删除",
+      "download": "下载"
     },
     "menu": {
       "clearPage": "清除页面",
