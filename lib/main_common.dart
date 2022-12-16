@@ -38,13 +38,6 @@ void startSyncAfterUsernameLoaded() async {
 class App extends StatelessWidget {
   App({super.key});
 
-  static Widget fadeTransitionBuilder(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
-    return FadeTransition(
-      opacity: Tween<double>(begin: 0, end: 1).animate(animation),
-      child: child,
-    );
-  }
-
   static String initialLocation = pathToFunction(RoutePaths.home)({"subpage": HomePage.recentSubpage});
   final GoRouter _router = GoRouter(
     initialLocation: initialLocation,
