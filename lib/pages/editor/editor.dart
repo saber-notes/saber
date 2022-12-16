@@ -486,18 +486,19 @@ class _EditorState extends State<Editor> {
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return;
 
-    Uint8List? bytes;
+    PhotoInfo? photoInfo;
     if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
-      bytes = await pickPhotoMobile();
+      photoInfo = await pickPhotoMobile();
     } else {
-      bytes = await pickPhotoDesktop();
+      photoInfo = await pickPhotoDesktop();
     }
-    if (bytes == null) return;
+    if (photoInfo == null) return;
 
     int pageIndex = currentPageIndex;
     EditorImage image = EditorImage(
       id: coreInfo.nextImageId++,
-      bytes: bytes,
+      extension: photoInfo.extension,
+      bytes: photoInfo.bytes,
       pageIndex: pageIndex,
       pageSize: coreInfo.pages[pageIndex].size,
       onMoveImage: onMoveImage,
@@ -514,7 +515,7 @@ class _EditorState extends State<Editor> {
     autosaveAfterDelay();
   }
 
-  Future<Uint8List?> pickPhotoMobile() async {
+  Future<PhotoInfo?> pickPhotoMobile() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(
       source: ImageSource.gallery,
@@ -524,16 +525,27 @@ class _EditorState extends State<Editor> {
       requestFullMetadata: false,
     );
     if (image == null) return null;
-    return await image.readAsBytes();
+    return PhotoInfo(
+      bytes: await image.readAsBytes(),
+      extension: image.path.substring(image.path.lastIndexOf('.')),
+    );
   }
-  Future<Uint8List?> pickPhotoDesktop() async {
+  Future<PhotoInfo?> pickPhotoDesktop() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.image,
       allowMultiple: false,
       withData: true,
     );
     if (result == null) return null;
-    return result.files.single.bytes;
+
+    Uint8List? bytes = result.files.single.bytes;
+    String? extension = result.files.single.extension;
+    if (bytes == null || extension == null) return null;
+
+    return PhotoInfo(
+      bytes: bytes,
+      extension: ".$extension",
+    );
   }
 
   Future exportAsPdf() async {
@@ -807,4 +819,10 @@ class _EditorState extends State<Editor> {
 
     super.dispose();
   }
+}
+
+class PhotoInfo {
+  Uint8List bytes;
+  String extension;
+  PhotoInfo({required this.bytes, required this.extension});
 }

@@ -15,7 +15,7 @@ import 'package:saber/pages/editor/editor.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int fileVersion = 4;
+  static const int fileVersion = 5;
   bool readOnly = false;
 
   String filePath;
