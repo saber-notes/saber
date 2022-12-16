@@ -14,12 +14,14 @@ import 'package:saber/i18n/strings.g.dart';
 
 class CanvasImage extends StatefulWidget {
   CanvasImage({
-    required String filePath,
+    required this.filePath,
     required this.image,
     required this.pageSize,
     this.readOnly = false,
   }) : super(key: Key("CanvasImage$filePath/${image.id}"));
 
+  /// The path to the note that this image is in.
+  final String filePath;
   final EditorImage image;
   final Size pageSize;
   final bool readOnly;
@@ -410,7 +412,9 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
         ),
         ListTile(
           onTap: () {
-            FileManager.exportFile("image", widget.image.bytes, isImage: true);
+            final String filePathSanitized = widget.parent.widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
+            final String imageFileName = "image$filePathSanitized${widget.image.id}${widget.image.extension}";
+            FileManager.exportFile(imageFileName, widget.image.bytes, isImage: true);
             Navigator.of(context).pop();
           },
           title: Text(t.editor.imageOptions.download),
