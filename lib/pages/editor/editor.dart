@@ -81,7 +81,6 @@ class _EditorState extends State<Editor> {
   void _initAsync() async {
     coreInfo = PreviewCard.getCachedCoreInfo(await widget.initialPath);
     filenameTextEditingController.text = _filename;
-    setState(() {});
 
     if (needsNaming) {
       filenameTextEditingController.selection = TextSelection(
@@ -93,14 +92,6 @@ class _EditorState extends State<Editor> {
     await _initStrokes();
   }
   Future _initStrokes() async {
-    if (coreInfo.filePath == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
-      createPageOfStroke(-1);
-      saveToFile().then((_) {
-        Whiteboard.needsToAutoClearWhiteboard = false;
-      });
-      return; // stick to empty coreInfo, don't load anything
-    }
-
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
@@ -117,7 +108,16 @@ class _EditorState extends State<Editor> {
       }
     }
 
-    setState(() {});
+    if (coreInfo.filePath == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
+      // clear whiteboard (and add to history)
+      clearAllPages();
+
+      // save cleared whiteboard
+      await saveToFile();
+      Whiteboard.needsToAutoClearWhiteboard = false;
+    } else {
+      setState(() {});
+    }
   }
 
   Keybinding? _ctrlZ;
@@ -731,23 +731,25 @@ class _EditorState extends State<Editor> {
         });
       },
 
-      clearAllPages: () {
-        if (coreInfo.readOnly) return;
-        setState(() {
-          List<Stroke> removedStrokes = coreInfo.strokes.toList();
-          List<EditorImage> removedImages = coreInfo.images.toList();
-          coreInfo.strokes.clear();
-          coreInfo.images.clear();
-          removeExcessPagesAfterStroke(null);
-          history.recordChange(EditorHistoryItem(
-            type: EditorHistoryItemType.erase,
-            strokes: removedStrokes,
-            images: removedImages,
-          ));
-        });
-        autosaveAfterDelay();
-      },
+      clearAllPages: clearAllPages,
     );
+  }
+
+  void clearAllPages() {
+    if (coreInfo.readOnly) return;
+    setState(() {
+      List<Stroke> removedStrokes = coreInfo.strokes.toList();
+      List<EditorImage> removedImages = coreInfo.images.toList();
+      coreInfo.strokes.clear();
+      coreInfo.images.clear();
+      removeExcessPagesAfterStroke(null);
+      history.recordChange(EditorHistoryItem(
+        type: EditorHistoryItemType.erase,
+        strokes: removedStrokes,
+        images: removedImages,
+      ));
+    });
+    autosaveAfterDelay();
   }
 
   Future askUserToDisableReadOnly() async {
