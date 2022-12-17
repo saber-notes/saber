@@ -83,7 +83,7 @@ abstract class Prefs {
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);
     editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
-    editorPromptRename = PlainPref("editorPromptRename", Platform.isLinux || Platform.isWindows || Platform.isMacOS);
+    editorPromptRename = PlainPref("editorPromptRename", isDesktop);
 
     autoClearWhiteboardOnExit = PlainPref("autoClearWhiteboardOnExit", false);
 
@@ -119,6 +119,8 @@ abstract class Prefs {
 
     username.value = await client.getUsername();
   }
+
+  static bool get isDesktop => !kIsWeb && (Platform.isLinux || Platform.isWindows || Platform.isMacOS);
 
 }
 
