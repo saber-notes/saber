@@ -1,6 +1,7 @@
 
 import 'dart:math';
 
+import 'package:animations/animations.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -8,16 +9,15 @@ import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/routes.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
   PreviewCard({
     required this.filePath,
-    required this.onTap,
   }) : super(key: ValueKey("PreviewCard$filePath"));
 
   final String filePath;
-  final Function(String) onTap;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -72,15 +72,16 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    final colorScheme = Theme.of(context).colorScheme;
+
+    Widget card = Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       clipBehavior: Clip.antiAlias,
-      child: GestureDetector(
-        onSecondaryTap: () => setState(() { expanded = !expanded; }),
-        child: InkWell(
-          onTap: () => widget.onTap(widget.filePath),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onSecondaryTap: () => setState(() { expanded = !expanded; }),
           onLongPress: () => setState(() { expanded = !expanded; }),
-          borderRadius: BorderRadius.circular(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -89,12 +90,12 @@ class _PreviewCardState extends State<PreviewCard> {
                 height: height,
                 coreInfo: coreInfo,
               ),
-
+      
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
               ),
-
+      
               Collapsible(
                 collapsed: !expanded,
                 axis: CollapsibleAxis.vertical,
@@ -115,6 +116,16 @@ class _PreviewCardState extends State<PreviewCard> {
             ],
           ),
         ),
+      ),
+    );
+    
+    return OpenContainer(
+      closedColor: colorScheme.surface,
+      openColor: colorScheme.background,
+      closedBuilder: (context, action) => card,
+      openBuilder: (context, action) => Editor(path: widget.filePath),
+      routeSettings: RouteSettings(
+        name: "${RoutePaths.edit}?path=${widget.filePath}"
       ),
     );
   }

@@ -55,9 +55,6 @@ class _BrowsePageState extends State<BrowsePage> {
     context.go("${HomeRoutes.getRoute(1)}?path=${path ?? '/'}");
     findChildrenOfPath();
   }
-  onFileTap(String filePath) {
-    context.push("${RoutePaths.edit}?path=$filePath");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +86,6 @@ class _BrowsePageState extends State<BrowsePage> {
               files: [
                 for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
               ],
-              onTap: onFileTap,
               physics: const NeverScrollableScrollPhysics(),
             ),
           ]

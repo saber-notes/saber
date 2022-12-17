@@ -107,6 +107,8 @@ dependencies:
 
   image_save: ^5.0.0
 
+  animations: ^2.0.7
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:

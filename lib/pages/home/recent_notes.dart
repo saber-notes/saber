@@ -55,9 +55,6 @@ class _RecentPageState extends State<RecentPage> {
         files: [
           for (String filePath in filePaths) filePath,
         ],
-        onTap: (String filePath) {
-          context.push("${RoutePaths.edit}?path=$filePath");
-        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

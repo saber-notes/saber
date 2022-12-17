@@ -28,7 +28,7 @@ class Canvas extends StatelessWidget {
   Widget build(BuildContext context) {
     Size pageSize = coreInfo.pages.isNotEmpty ? coreInfo.pages[pageIndex].size : EditorPage.defaultSize;
 
-    Widget innerCanvas = Center(
+    return Center(
       child: FittedBox(
         child: ClipRect(
           child: InnerCanvas(
@@ -41,14 +41,5 @@ class Canvas extends StatelessWidget {
         ),
       ),
     );
-
-    if (pageIndex == 0) {
-      return Hero(
-        tag: "inner-canvas-$path",
-        child: innerCanvas,
-      );
-    } else {
-      return innerCanvas;
-    }
   }
 }

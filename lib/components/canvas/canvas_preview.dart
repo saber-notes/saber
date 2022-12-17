@@ -22,20 +22,16 @@ class CanvasPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size pageSize = coreInfo.pages.isNotEmpty ? coreInfo.pages[0].size : EditorPage.defaultSize;
-    return Hero(
-      tag: "inner-canvas-$path",
+    return InteractiveCanvasViewer(
+      maxScale: 5,
+      scrollZoomEnabled: false,
 
-      child: InteractiveCanvasViewer(
-        maxScale: 5,
-        scrollZoomEnabled: false,
-
-        child: FittedBox(
-          child: InnerCanvas(
-            width: pageSize.width,
-            height: height ?? pageSize.height * 0.1,
-            coreInfo: coreInfo,
-            currentStroke: null,
-          ),
+      child: FittedBox(
+        child: InnerCanvas(
+          width: pageSize.width,
+          height: height ?? pageSize.height * 0.1,
+          coreInfo: coreInfo,
+          currentStroke: null,
         ),
       ),
     );
