@@ -21,15 +21,22 @@ class PreviewCard extends StatefulWidget {
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
+
+  static EditorCoreInfo getCachedCoreInfo(String filePath) {
+    return _PreviewCardState.getCachedCoreInfo(filePath);
+  }
 }
 
 class _PreviewCardState extends State<PreviewCard> {
   /// cache strokes so there's no delay the second time we see this preview card
   static final Map<String, EditorCoreInfo> _mapFilePathToEditorInfo = {};
+  static EditorCoreInfo getCachedCoreInfo(String filePath) {
+    return _mapFilePathToEditorInfo[filePath] ?? EditorCoreInfo(filePath: filePath);
+  }
 
   bool expanded = false;
 
-  late EditorCoreInfo _coreInfo = _mapFilePathToEditorInfo[widget.filePath] ?? EditorCoreInfo(filePath: widget.filePath);
+  late EditorCoreInfo _coreInfo = getCachedCoreInfo(widget.filePath);
   EditorCoreInfo get coreInfo => _coreInfo;
   set coreInfo(EditorCoreInfo coreInfo) {
     _mapFilePathToEditorInfo[widget.filePath] = _coreInfo = coreInfo;

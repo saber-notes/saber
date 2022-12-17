@@ -19,6 +19,7 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -55,7 +56,7 @@ class Editor extends StatefulWidget {
 }
 
 class _EditorState extends State<Editor> {
-  EditorCoreInfo coreInfo = EditorCoreInfo(filePath: "");
+  late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: "");
 
   EditorHistory history = EditorHistory();
 
@@ -78,7 +79,7 @@ class _EditorState extends State<Editor> {
     super.initState();
   }
   void _initAsync() async {
-    coreInfo.filePath = await widget.initialPath;
+    coreInfo = PreviewCard.getCachedCoreInfo(await widget.initialPath);
     filenameTextEditingController.text = _filename;
     setState(() {});
 
