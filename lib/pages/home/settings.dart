@@ -52,76 +52,78 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: Column(
         children: [
-          Expanded(child: Align(
-            alignment: Alignment.topCenter,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1000),
-              child: ListView(
-                shrinkWrap: true,
-                physics: const AlwaysScrollableScrollPhysics(),
-                children: [
-                  const NextcloudProfile(),
-                  SettingsSelection(
-                    title: t.settings.prefLabels.appTheme,
-                    pref: Prefs.appTheme,
-                    options: [
-                      ToggleButtonsOption(ThemeMode.system.index, t.settings.themeModes.system),
-                      ToggleButtonsOption(ThemeMode.light.index, t.settings.themeModes.light),
-                      ToggleButtonsOption(ThemeMode.dark.index, t.settings.themeModes.dark),
-                    ],
-                  ),
-                  SettingsColor(
-                    title: t.settings.prefLabels.customAccentColor,
-                    pref: Prefs.accentColor,
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.hyperlegibleFont,
-                    subtitle: t.settings.prefDescriptions.hyperlegibleFont,
-                    pref: Prefs.hyperlegibleFont,
-                  ),
-                  if (requiresManualUpdates) SettingsSwitch(
-                    title: t.settings.prefLabels.shouldCheckForUpdates,
-                    pref: Prefs.shouldCheckForUpdates,
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.editorToolbarOnBottom,
-                    pref: Prefs.editorToolbarOnBottom,
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.editorAutoInvert,
-                    subtitle: t.settings.prefDescriptions.editorAutoInvert,
-                    pref: Prefs.editorAutoInvert,
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.preferGreyscale,
-                    subtitle: t.settings.prefDescriptions.preferGreyscale,
-                    pref: Prefs.preferGreyscale,
-                  ),
-                  SettingsSelection(
-                    title: t.settings.prefLabels.editorStraightenLines,
-                    subtitle: (){
-                      if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
-                      return "${Prefs.editorStraightenDelay.value}ms";
-                    }(),
-                    pref: Prefs.editorStraightenDelay,
-                    options: [
-                      ToggleButtonsOption(0, t.settings.straightenDelay.off),
-                      ToggleButtonsOption(500, t.settings.straightenDelay.regular),
-                      ToggleButtonsOption(1000, t.settings.straightenDelay.slow),
-                    ],
-                    afterChange: (_) => setState(() {}),
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.autoClearWhiteboardOnExit,
-                    subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
-                    pref: Prefs.autoClearWhiteboardOnExit,
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.editorPromptRename,
-                    subtitle: t.settings.prefDescriptions.editorPromptRename,
-                    pref: Prefs.editorPromptRename,
-                  ),
-                ],
+          Expanded(child: SingleChildScrollView(
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1000),
+                child: ListView(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    const NextcloudProfile(),
+                    SettingsSelection(
+                      title: t.settings.prefLabels.appTheme,
+                      pref: Prefs.appTheme,
+                      options: [
+                        ToggleButtonsOption(ThemeMode.system.index, t.settings.themeModes.system),
+                        ToggleButtonsOption(ThemeMode.light.index, t.settings.themeModes.light),
+                        ToggleButtonsOption(ThemeMode.dark.index, t.settings.themeModes.dark),
+                      ],
+                    ),
+                    SettingsColor(
+                      title: t.settings.prefLabels.customAccentColor,
+                      pref: Prefs.accentColor,
+                    ),
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.hyperlegibleFont,
+                      subtitle: t.settings.prefDescriptions.hyperlegibleFont,
+                      pref: Prefs.hyperlegibleFont,
+                    ),
+                    if (requiresManualUpdates) SettingsSwitch(
+                      title: t.settings.prefLabels.shouldCheckForUpdates,
+                      pref: Prefs.shouldCheckForUpdates,
+                    ),
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.editorToolbarOnBottom,
+                      pref: Prefs.editorToolbarOnBottom,
+                    ),
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.editorAutoInvert,
+                      subtitle: t.settings.prefDescriptions.editorAutoInvert,
+                      pref: Prefs.editorAutoInvert,
+                    ),
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.preferGreyscale,
+                      subtitle: t.settings.prefDescriptions.preferGreyscale,
+                      pref: Prefs.preferGreyscale,
+                    ),
+                    SettingsSelection(
+                      title: t.settings.prefLabels.editorStraightenLines,
+                      subtitle: (){
+                        if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
+                        return "${Prefs.editorStraightenDelay.value}ms";
+                      }(),
+                      pref: Prefs.editorStraightenDelay,
+                      options: [
+                        ToggleButtonsOption(0, t.settings.straightenDelay.off),
+                        ToggleButtonsOption(500, t.settings.straightenDelay.regular),
+                        ToggleButtonsOption(1000, t.settings.straightenDelay.slow),
+                      ],
+                      afterChange: (_) => setState(() {}),
+                    ),
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.autoClearWhiteboardOnExit,
+                      subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
+                      pref: Prefs.autoClearWhiteboardOnExit,
+                    ),
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.editorPromptRename,
+                      subtitle: t.settings.prefDescriptions.editorPromptRename,
+                      pref: Prefs.editorPromptRename,
+                    ),
+                  ],
+                ),
               ),
             ),
           )),
