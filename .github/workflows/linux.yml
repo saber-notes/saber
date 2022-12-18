@@ -54,6 +54,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - name: Download app archive
         uses: actions/download-artifact@v3
