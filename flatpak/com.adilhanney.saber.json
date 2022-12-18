@@ -15,7 +15,7 @@
 		"--filesystem=xdg-documents/Saber:create"
 	],
 	"modules": [
-		"submodules/shared-modules/libsecret/libsecret.json",
+		"../submodules/shared-modules/libsecret/libsecret.json",
 		{
 			"name": "saber",
 			"buildsystem": "simple",
