@@ -84,7 +84,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                 semanticsLabel: "Storage usage",
                 semanticsValue: snapshot.data != null ? "${snapshot.data}%" : null,
               ),
-              Text(quota != null ? "${readableBytes(quota.used)} / ${readableBytes(quota.total)}" : " "*15),
+              Text(quota != null ? "${readableBytes(quota.used)} / ${readableBytes(quota.total)}" : "     ... B / ... B     "),
             ],
           );
         },
