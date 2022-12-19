@@ -20,7 +20,7 @@
 			"name": "libjsoncpp",
 			"buildsystem": "meson",
 			"config-opts": [
-				"-Dtests=false"
+				"-Dbuild_tests=false"
 			],
 			"sources": [
 				{
