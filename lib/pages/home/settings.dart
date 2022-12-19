@@ -65,10 +65,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     SettingsSelection(
                       title: t.settings.prefLabels.appTheme,
                       pref: Prefs.appTheme,
+                      optionWidth: 20,
                       options: [
-                        ToggleButtonsOption(ThemeMode.system.index, Text(t.settings.themeModes.system)),
-                        ToggleButtonsOption(ThemeMode.light.index, Text(t.settings.themeModes.light)),
-                        ToggleButtonsOption(ThemeMode.dark.index, Text(t.settings.themeModes.dark)),
+                        ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
+                        ToggleButtonsOption(ThemeMode.light.index, Icon(Icons.light_mode, semanticLabel: t.settings.themeModes.light)),
+                        ToggleButtonsOption(ThemeMode.dark.index, Icon(Icons.dark_mode, semanticLabel: t.settings.themeModes.dark)),
                       ],
                     ),
                     SettingsColor(

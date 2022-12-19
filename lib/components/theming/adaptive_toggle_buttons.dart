@@ -8,11 +8,15 @@ class AdaptiveToggleButtons<T> extends StatelessWidget {
     required this.value,
     required this.options,
     required this.onChange,
-  });
+    this.optionWidth = 24,
+    this.optionsHeight = 40,
+  }): assert(optionWidth > 0), assert(optionsHeight > 0);
 
   final T value;
   final List<ToggleButtonsOption<T>> options;
   final ValueChanged<T?> onChange;
+
+  final double optionWidth, optionsHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +34,8 @@ class AdaptiveToggleButtons<T> extends StatelessWidget {
     return ToggleButtons(
       borderRadius: BorderRadius.circular(1000),
       constraints: BoxConstraints(
-        minWidth: 24.0 * options.length,
-        minHeight: 40,
+        minWidth: optionWidth * options.length,
+        minHeight: optionsHeight,
       ),
       onPressed: (int index) {
         onChange(options[index].value);

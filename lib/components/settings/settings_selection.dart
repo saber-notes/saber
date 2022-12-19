@@ -12,6 +12,8 @@ class SettingsSelection extends StatefulWidget {
     required this.pref,
     required this.options,
     this.afterChange,
+    this.optionWidth = 24,
+    this.optionsHeight = 40,
   });
 
   final String title;
@@ -19,6 +21,8 @@ class SettingsSelection extends StatefulWidget {
   final IPref<int> pref;
   final List<ToggleButtonsOption<int>> options;
   final ValueChanged<int>? afterChange;
+
+  final double optionWidth, optionsHeight;
 
   @override
   State<SettingsSelection> createState() => _SettingsSelectionState();
@@ -59,6 +63,8 @@ class _SettingsSelectionState extends State<SettingsSelection> {
             widget.pref.value = value;
           }
         },
+        optionWidth: widget.optionWidth,
+        optionsHeight: widget.optionsHeight,
       ),
     );
   }
