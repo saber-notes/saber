@@ -19,9 +19,6 @@
 		{
 			"name": "libjsoncpp",
 			"buildsystem": "meson",
-			"config-opts": [
-				"-Dbuild_tests=false"
-			],
 			"sources": [
 				{
 					"type": "archive",
