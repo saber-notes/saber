@@ -66,9 +66,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       title: t.settings.prefLabels.appTheme,
                       pref: Prefs.appTheme,
                       options: [
-                        ToggleButtonsOption(ThemeMode.system.index, t.settings.themeModes.system),
-                        ToggleButtonsOption(ThemeMode.light.index, t.settings.themeModes.light),
-                        ToggleButtonsOption(ThemeMode.dark.index, t.settings.themeModes.dark),
+                        ToggleButtonsOption(ThemeMode.system.index, Text(t.settings.themeModes.system)),
+                        ToggleButtonsOption(ThemeMode.light.index, Text(t.settings.themeModes.light)),
+                        ToggleButtonsOption(ThemeMode.dark.index, Text(t.settings.themeModes.dark)),
                       ],
                     ),
                     SettingsColor(
@@ -106,9 +106,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       }(),
                       pref: Prefs.editorStraightenDelay,
                       options: [
-                        ToggleButtonsOption(0, t.settings.straightenDelay.off),
-                        ToggleButtonsOption(500, t.settings.straightenDelay.regular),
-                        ToggleButtonsOption(1000, t.settings.straightenDelay.slow),
+                        ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
+                        ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
+                        ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
                       ],
                       afterChange: (_) => setState(() {}),
                     ),

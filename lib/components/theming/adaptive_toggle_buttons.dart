@@ -40,13 +40,13 @@ class AdaptiveToggleButtons<T> extends StatelessWidget {
         for (ToggleButtonsOption option in options) value == option.value,
       ],
       children: [
-        for (ToggleButtonsOption option in options) Text(option.text),
+        for (ToggleButtonsOption option in options) option.widget,
       ],
     );
   }
   Widget _buildCupertino(BuildContext context) {
     return CupertinoSlidingSegmentedControl<T>(
-      children: options.asMap().map((_, ToggleButtonsOption option) => MapEntry<T, Widget>(option.value, Text(option.text))),
+      children: options.asMap().map((_, ToggleButtonsOption option) => MapEntry<T, Widget>(option.value, option.widget)),
       groupValue: value,
       onValueChanged: onChange,
     );
@@ -55,7 +55,7 @@ class AdaptiveToggleButtons<T> extends StatelessWidget {
 
 class ToggleButtonsOption<T> {
   final T value;
-  final String text;
+  final Widget widget;
 
-  const ToggleButtonsOption(this.value, this.text);
+  const ToggleButtonsOption(this.value, this.widget);
 }
