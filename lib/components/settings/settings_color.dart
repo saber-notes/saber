@@ -93,6 +93,8 @@ class _SettingsSwitchState extends State<SettingsColor> {
       ),
       onTap: () async {
         int previousColor = widget.pref.value;
+        widget.pref.value = defaultColor.value; // enable custom accent color
+
         bool? confirmChange = await showDialog(
           context: context,
           builder: (BuildContext context) => colorPickerDialog,
@@ -101,9 +103,6 @@ class _SettingsSwitchState extends State<SettingsColor> {
         if (confirmChange != true) {
           // restore to previous accent color
           widget.pref.value = previousColor;
-        } else if (widget.pref.value == 0) {
-          // enable custom accent color
-          widget.pref.value = defaultColor.value;
         }
       },
     );
