@@ -1,23 +1,25 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
-import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/toolbar/color_option.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class ColorBar extends StatelessWidget {
   const ColorBar({
     super.key,
     required this.setColor,
     required this.currentColor,
+    required this.invert,
   });
 
   final ValueChanged<Color> setColor;
   final Color? currentColor;
+  final bool invert;
 
-  static const double diameter = 25;
-
-  static List<Color> get colorOptions => Prefs.preferGreyscale.value ? greyScaleColorOptions : normalColorOptions;
+  static List<Color> get colorPresets => Prefs.preferGreyscale.value ? greyScaleColorOptions : normalColorOptions;
   static final List<Color> normalColorOptions = [
     Colors.black,
     Colors.red,
@@ -39,9 +41,6 @@ class ColorBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-
-    Brightness brightness = Theme.of(context).brightness;
-    bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
 
     return Center(
       child: Padding(
@@ -85,8 +84,22 @@ class ColorBar extends StatelessWidget {
 
               const ColorOptionSeparator(),
 
-              // all colors
-              for (Color color in colorOptions) ColorOption(
+              // custom color
+              ColorOption(
+                isSelected: currentColor?.withAlpha(255).value == pickedColor.value,
+                enabled: true,
+                onTap: () => openColorPicker(context),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
+                ),
+              ),
+
+              // color presets
+              for (Color color in colorPresets) ColorOption(
                 isSelected: currentColor?.withAlpha(255).value == color.value,
                 enabled: currentColor != null,
                 onTap: () => setColor(color),
@@ -107,4 +120,35 @@ class ColorBar extends StatelessWidget {
       ),
     );
   }
+
+  static Color pickedColor = const Color.fromRGBO(255, 0, 0, 1);
+  openColorPicker(BuildContext context) async {
+    bool? confirmChange = await showDialog(
+      context: context,
+      builder: (BuildContext context) => _colorPickerDialog(context),
+    );
+    if (confirmChange == true) {
+      setColor(pickedColor.withInversion(invert));
+    }
+  }
+
+  Widget _colorPickerDialog(BuildContext context) => AlertDialog(
+    title: Text(t.settings.accentColorPicker.pickAColor),
+    content: SingleChildScrollView(
+      child: ColorPicker(
+        pickerColor: pickedColor,
+        onColorChanged: (Color color) {
+          pickedColor = color;
+        },
+      ),
+    ),
+    actions: <Widget>[
+      ElevatedButton(
+        child: Text(t.settings.accentColorPicker.confirm),
+        onPressed: () {
+          Navigator.of(context).pop(true);
+        },
+      ),
+    ],
+  );
 }

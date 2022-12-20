@@ -112,6 +112,9 @@ class _ToolbarState extends State<Toolbar> {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
+    Brightness brightness = Theme.of(context).brightness;
+    bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+
     return Material(
       color: colorScheme.background,
       child: Column(
@@ -137,6 +140,7 @@ class _ToolbarState extends State<Toolbar> {
             child: ColorBar(
               setColor: widget.setColor,
               currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
+              invert: invert,
             ),
           ),
           Center(
