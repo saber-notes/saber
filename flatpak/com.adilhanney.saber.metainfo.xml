@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.4.9" type="development" date="2022-12-20">
+            <description>
+                <ol>
+                    <li>Better transition when opening a note</li>
+                    <li>You can now choose custom colors in the editor</li>
+                    <li>If you've chosen to auto-clear the whiteboard, you can tap the undo button to restore it</li>
+                    <li>Minor UI tweaks</li>
+                    <li>Added missing dependencies to the Flatpak release</li>
+                </ol>
+            </description>
+        </release>
         <release version="0.4.8" type="development" date="2022-12-16">
             <description>
                 <ol>

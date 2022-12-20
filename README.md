@@ -206,6 +206,7 @@ If you like Saber, please consider supporting it by:
   - `installers/desktop_inno_script.iss`: `MyAppVersion`
   - `flatpak/com.adilhanney.saber.metainfo.xml`: `<releases>`
   - `metadata/en-US/changelogs/`: Create a changelog for the new version
+  - `snap/snapcraft.yaml`: `version`
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
