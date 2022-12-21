@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 6
-/// Strings: 581 (96 per locale)
+/// Locales: 7
+/// Strings: 678 (96 per locale)
 ///
-/// Built on 2022-12-16 at 20:14 UTC
+/// Built on 2022-12-21 at 08:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -26,6 +26,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
 	it(languageCode: 'it', build: _StringsIt.build),
+	ru(languageCode: 'ru', build: _StringsRu.build),
 	zhHansCn(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN', build: _StringsZhHansCn.build),
 	zhHantTw(languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW', build: _StringsZhHantTw.build);
 
@@ -1705,6 +1706,401 @@ class _StringsEditorNewerFileFormatIt extends _StringsEditorNewerFileFormatEn {
 }
 
 // Path: <root>
+class _StringsRu extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsRu.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.ru,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <ru>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+
+	@override late final _StringsRu _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeRu home = _StringsHomeRu._(_root);
+	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
+	@override late final _StringsLoginRu login = _StringsLoginRu._(_root);
+	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
+	@override late final _StringsUpdateRu update = _StringsUpdateRu._(_root);
+	@override late final _StringsEditorRu editor = _StringsEditorRu._(_root);
+}
+
+// Path: home
+class _StringsHomeRu extends _StringsHomeEn {
+	_StringsHomeRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsRu tabs = _StringsHomeTabsRu._(_root);
+	@override late final _StringsHomeTitlesRu titles = _StringsHomeTitlesRu._(_root);
+	@override late final _StringsHomeTooltipsRu tooltips = _StringsHomeTooltipsRu._(_root);
+	@override String get backFolder => '(Назад)';
+	@override String get welcome => 'Приветствуем в Saber';
+	@override String get noFiles => 'Файлов ещё нет';
+	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
+}
+
+// Path: settings
+class _StringsSettingsRu extends _StringsSettingsEn {
+	_StringsSettingsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefLabelsRu prefLabels = _StringsSettingsPrefLabelsRu._(_root);
+	@override late final _StringsSettingsPrefDescriptionsRu prefDescriptions = _StringsSettingsPrefDescriptionsRu._(_root);
+	@override late final _StringsSettingsThemeModesRu themeModes = _StringsSettingsThemeModesRu._(_root);
+	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
+	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
+}
+
+// Path: login
+class _StringsLoginRu extends _StringsLoginEn {
+	_StringsLoginRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Авторизация';
+	@override late final _StringsLoginFeedbacksRu feedbacks = _StringsLoginFeedbacksRu._(_root);
+	@override late final _StringsLoginFormRu form = _StringsLoginFormRu._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'У вас нет учётной записи? '),
+		linkToSignup('Зарегистрируйтесь сейчас'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusRu status = _StringsLoginStatusRu._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0Ru._(_root),
+		_StringsLogin0i1Ru._(_root),
+		_StringsLogin0i2Ru._(_root),
+	];
+}
+
+// Path: appInfo
+class _StringsAppInfoRu extends _StringsAppInfoEn {
+	_StringsAppInfoRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+	@override String get debug => 'ОТЛАДКА';
+	@override String get sponsorButton => 'Проспонсируйте меня или купите дополнительное пространство';
+	@override String get licenseButton => 'Просмотрите дополнительную информацию о лицензии';
+	@override String get privacyPolicyButton => 'Просмотр политики конфиденциальности';
+}
+
+// Path: update
+class _StringsUpdateRu extends _StringsUpdateEn {
+	_StringsUpdateRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Доступно обновление';
+	@override String get updateAvailableDescription => 'Доступна новая версия приложения.';
+	@override String get dismiss => 'Отказаться';
+	@override String get update => 'Обновить';
+}
+
+// Path: editor
+class _StringsEditorRu extends _StringsEditorEn {
+	_StringsEditorRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarRu toolbar = _StringsEditorToolbarRu._(_root);
+	@override late final _StringsEditorPensRu pens = _StringsEditorPensRu._(_root);
+	@override late final _StringsEditorPenOptionsRu penOptions = _StringsEditorPenOptionsRu._(_root);
+	@override late final _StringsEditorImageOptionsRu imageOptions = _StringsEditorImageOptionsRu._(_root);
+	@override late final _StringsEditorMenuRu menu = _StringsEditorMenuRu._(_root);
+	@override late final _StringsEditorNewerFileFormatRu newerFileFormat = _StringsEditorNewerFileFormatRu._(_root);
+}
+
+// Path: home.tabs
+class _StringsHomeTabsRu extends _StringsHomeTabsEn {
+	_StringsHomeTabsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Домашняя';
+	@override String get browse => 'Обзор';
+	@override String get whiteboard => 'Чистый лист';
+	@override String get settings => 'Настройки';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesRu extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Недавние заметки';
+	@override String get browse => 'Все заметки';
+	@override String get whiteboard => 'Чистый лист';
+	@override String get settings => 'Настройки';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsRu extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Новая заметка';
+	@override String get showUpdateDialog => 'Показывать диалог обновления';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get appTheme => 'Тема оформления';
+	@override String get customAccentColor => 'Свой цвет акцента';
+	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
+	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
+	@override String get editorToolbarOnBottom => 'Выровнять панель инструментов редактора по нижнему краю';
+	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
+	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
+	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
+	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
+	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
+	@override String get editorAutoInvert => 'Интеллектуально затемнять заметки в тёмном режиме';
+	@override String get preferGreyscale => 'Для e-ink экранов';
+	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
+	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesRu extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Системная';
+	@override String get light => 'Светлая';
+	@override String get dark => 'Тёмная';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerRu extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Выбери цвет';
+	@override String get confirm => 'Подтвердить';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayRu extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Выкл.';
+	@override String get regular => 'Обычно';
+	@override String get slow => 'Долго';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksRu extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'Дважды проверьте своё имя пользователя или адрес электронной почты.';
+	@override String get enterNcPassword => 'Введите свой пароль Nextcloud.';
+	@override String get enterEncPassword => 'Введите пароль шифрования.';
+	@override String get checkUrl => 'Пожалуйста, введите корректный URL адрес.';
+	@override String get ncLoginFailed => 'Ошибка входа. Проверьте свои данные и подключение к сети.';
+	@override String get encLoginFailed => 'Не удалось войти. Проверьте пароль шифрования.';
+	@override String get loginSuccess => 'Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…';
+}
+
+// Path: login.form
+class _StringsLoginFormRu extends _StringsLoginFormEn {
+	_StringsLoginFormRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'Я буду использовать свой Nextcloud сервер';
+	@override String get customServerUrl => 'Адрес Вашего сервера';
+	@override String get username => 'Имя пользователя или e-mail';
+	@override String get ncPassword => 'Пароль Nextcloud';
+	@override String get encPassword => 'Пароль шифрования';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'Авторизуясь, вы соглашаетесь с '),
+		linkToPrivacyPolicy('политикой конфиденциальности'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'Авторизоваться';
+}
+
+// Path: login.status
+class _StringsLoginStatusRu extends _StringsLoginStatusEn {
+	_StringsLoginStatusRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Авторизован в Nextcloud';
+	@override String get loggedOut => 'Не авторизован';
+	@override String get tapToLogin => 'Нажми для авторизации в Nextcloud';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0Ru extends _StringsLogin0i0En {
+	_StringsLogin0i0Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Что такое Nextcloud?';
+	@override String get a => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Sabre Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1Ru extends _StringsLogin0i1En {
+	_StringsLogin0i1Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Что такое пароль шифрования?';
+	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед отправкой их на сервер. Он не хранится на сервере и используется Sabre только для шифрования и расшифровки ваших данных.\n\nНикто не может получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2Ru extends _StringsLogin0i2En {
+	_StringsLogin0i2Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Зачем использовать два пароля?';
+	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarRu extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'Выбор цвета (Ctrl C)';
+	@override String get toggleEraser => 'Ластик (Ctrl E)';
+	@override String get photo => 'Фото';
+	@override String get toggleFingerDrawing => 'Рисование пальцем (Ctrl F)';
+	@override String get undo => 'Отменить';
+	@override String get redo => 'Вернуть';
+	@override String get export => 'Экспорт (Ctrl Shift S)';
+	@override String get exportAs => 'Сохранить как:';
+}
+
+// Path: editor.pens
+class _StringsEditorPensRu extends _StringsEditorPensEn {
+	_StringsEditorPensRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Перьевая ручка';
+	@override String get ballpointPen => 'Шариковая ручка';
+	@override String get highlighter => 'Маркер';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsRu extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Размер';
+	@override String get sizeDragHint => 'Тяните влево или вправо, чтобы изменить размер';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsRu extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Параметры изображения';
+	@override String get invertible => 'Инвертированное';
+	@override String get download => 'Сохранить';
+	@override String get delete => 'Удалить';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuRu extends _StringsEditorMenuEn {
+	_StringsEditorMenuRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Очистить лист';
+	@override String get clearAllPages => 'Очистить все листы';
+	@override String get lineHeight => 'Высота строки';
+	@override String get lineHeightDescription => 'Размер каждой строки';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatRu extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Режим «Только чтение»';
+	@override String get title => 'Эта заметка была отредактирована в более новой версии Sabre.';
+	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
+	@override String get allowEditing => 'Разрешить редактирование';
+	@override String get cancel => 'Отмена';
+}
+
+// Path: <root>
 class _StringsZhHansCn extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -2942,6 +3338,119 @@ extension on _StringsIt {
 			case 'editor.newerFileFormat.subtitle': return 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
 			case 'editor.newerFileFormat.allowEditing': return 'Consenti modifica';
 			case 'editor.newerFileFormat.cancel': return 'Cancella';
+			default: return null;
+		}
+	}
+}
+
+extension on _StringsRu {
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'home.tabs.home': return 'Домашняя';
+			case 'home.tabs.browse': return 'Обзор';
+			case 'home.tabs.whiteboard': return 'Чистый лист';
+			case 'home.tabs.settings': return 'Настройки';
+			case 'home.titles.home': return 'Недавние заметки';
+			case 'home.titles.browse': return 'Все заметки';
+			case 'home.titles.whiteboard': return 'Чистый лист';
+			case 'home.titles.settings': return 'Настройки';
+			case 'home.tooltips.newNote': return 'Новая заметка';
+			case 'home.tooltips.showUpdateDialog': return 'Показывать диалог обновления';
+			case 'home.backFolder': return '(Назад)';
+			case 'home.welcome': return 'Приветствуем в Saber';
+			case 'home.noFiles': return 'Файлов ещё нет';
+			case 'home.createNewNote': return 'Нажмите кнопку «+» чтобы создать новую заметку';
+			case 'settings.prefLabels.appTheme': return 'Тема оформления';
+			case 'settings.prefLabels.customAccentColor': return 'Свой цвет акцента';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Гипер разборчивый шрифт';
+			case 'settings.prefLabels.shouldCheckForUpdates': return 'Автоматически проверять обновления Saber';
+			case 'settings.prefLabels.editorToolbarOnBottom': return 'Выровнять панель инструментов редактора по нижнему краю';
+			case 'settings.prefLabels.editorAutoInvert': return 'Инвертировать заметки в тёмном режиме';
+			case 'settings.prefLabels.preferGreyscale': return 'Предпочтение оттенкам серого';
+			case 'settings.prefLabels.editorStraightenLines': return 'Нажать и удерживать, чтобы выпрямить линию';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Очищать лист при выходе из приложения';
+			case 'settings.prefLabels.editorPromptRename': return 'Предлагать переименовывать новые заметки';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
+			case 'settings.prefDescriptions.editorAutoInvert': return 'Интеллектуально затемнять заметки в тёмном режиме';
+			case 'settings.prefDescriptions.preferGreyscale': return 'Для e-ink экранов';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Это будет синхронизировано с другими вашими устройствами';
+			case 'settings.prefDescriptions.editorPromptRename': return 'Вы всегда можете переименовать заметки позже';
+			case 'settings.themeModes.system': return 'Системная';
+			case 'settings.themeModes.light': return 'Светлая';
+			case 'settings.themeModes.dark': return 'Тёмная';
+			case 'settings.accentColorPicker.pickAColor': return 'Выбери цвет';
+			case 'settings.accentColorPicker.confirm': return 'Подтвердить';
+			case 'settings.straightenDelay.off': return 'Выкл.';
+			case 'settings.straightenDelay.regular': return 'Обычно';
+			case 'settings.straightenDelay.slow': return 'Долго';
+			case 'login.title': return 'Авторизация';
+			case 'login.feedbacks.checkUsername': return 'Дважды проверьте своё имя пользователя или адрес электронной почты.';
+			case 'login.feedbacks.enterNcPassword': return 'Введите свой пароль Nextcloud.';
+			case 'login.feedbacks.enterEncPassword': return 'Введите пароль шифрования.';
+			case 'login.feedbacks.checkUrl': return 'Пожалуйста, введите корректный URL адрес.';
+			case 'login.feedbacks.ncLoginFailed': return 'Ошибка входа. Проверьте свои данные и подключение к сети.';
+			case 'login.feedbacks.encLoginFailed': return 'Не удалось войти. Проверьте пароль шифрования.';
+			case 'login.feedbacks.loginSuccess': return 'Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…';
+			case 'login.form.useCustomServer': return 'Я буду использовать свой Nextcloud сервер';
+			case 'login.form.customServerUrl': return 'Адрес Вашего сервера';
+			case 'login.form.username': return 'Имя пользователя или e-mail';
+			case 'login.form.ncPassword': return 'Пароль Nextcloud';
+			case 'login.form.encPassword': return 'Пароль шифрования';
+			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+				const TextSpan(text: 'Авторизуясь, вы соглашаетесь с '),
+				linkToPrivacyPolicy('политикой конфиденциальности'),
+				const TextSpan(text: '.'),
+			]);
+			case 'login.form.login': return 'Авторизоваться';
+			case 'login.signup': return ({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+				const TextSpan(text: 'У вас нет учётной записи? '),
+				linkToSignup('Зарегистрируйтесь сейчас'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.status.loggedIn': return 'Авторизован в Nextcloud';
+			case 'login.status.loggedOut': return 'Не авторизован';
+			case 'login.status.tapToLogin': return 'Нажми для авторизации в Nextcloud';
+			case 'login.faq.0.q': return 'Что такое Nextcloud?';
+			case 'login.faq.0.a': return 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Sabre Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
+			case 'login.faq.1.q': return 'Что такое пароль шифрования?';
+			case 'login.faq.1.a': return 'Пароль шифрования используется для шифрования ваших данных перед отправкой их на сервер. Он не хранится на сервере и используется Sabre только для шифрования и расшифровки ваших данных.\n\nНикто не может получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+			case 'login.faq.2.q': return 'Зачем использовать два пароля?';
+			case 'login.faq.2.a': return 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+			case 'appInfo.debug': return 'ОТЛАДКА';
+			case 'appInfo.sponsorButton': return 'Проспонсируйте меня или купите дополнительное пространство';
+			case 'appInfo.licenseButton': return 'Просмотрите дополнительную информацию о лицензии';
+			case 'appInfo.privacyPolicyButton': return 'Просмотр политики конфиденциальности';
+			case 'update.updateAvailable': return 'Доступно обновление';
+			case 'update.updateAvailableDescription': return 'Доступна новая версия приложения.';
+			case 'update.dismiss': return 'Отказаться';
+			case 'update.update': return 'Обновить';
+			case 'editor.toolbar.toggleColors': return 'Выбор цвета (Ctrl C)';
+			case 'editor.toolbar.toggleEraser': return 'Ластик (Ctrl E)';
+			case 'editor.toolbar.photo': return 'Фото';
+			case 'editor.toolbar.toggleFingerDrawing': return 'Рисование пальцем (Ctrl F)';
+			case 'editor.toolbar.undo': return 'Отменить';
+			case 'editor.toolbar.redo': return 'Вернуть';
+			case 'editor.toolbar.export': return 'Экспорт (Ctrl Shift S)';
+			case 'editor.toolbar.exportAs': return 'Сохранить как:';
+			case 'editor.pens.fountainPen': return 'Перьевая ручка';
+			case 'editor.pens.ballpointPen': return 'Шариковая ручка';
+			case 'editor.pens.highlighter': return 'Маркер';
+			case 'editor.penOptions.size': return 'Размер';
+			case 'editor.penOptions.sizeDragHint': return 'Тяните влево или вправо, чтобы изменить размер';
+			case 'editor.imageOptions.title': return 'Параметры изображения';
+			case 'editor.imageOptions.invertible': return 'Инвертированное';
+			case 'editor.imageOptions.download': return 'Сохранить';
+			case 'editor.imageOptions.delete': return 'Удалить';
+			case 'editor.menu.clearPage': return 'Очистить лист';
+			case 'editor.menu.clearAllPages': return 'Очистить все листы';
+			case 'editor.menu.lineHeight': return 'Высота строки';
+			case 'editor.menu.lineHeightDescription': return 'Размер каждой строки';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Режим «Только чтение»';
+			case 'editor.newerFileFormat.title': return 'Эта заметка была отредактирована в более новой версии Sabre.';
+			case 'editor.newerFileFormat.subtitle': return 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
+			case 'editor.newerFileFormat.allowEditing': return 'Разрешить редактирование';
+			case 'editor.newerFileFormat.cancel': return 'Отмена';
 			default: return null;
 		}
 	}
