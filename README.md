@@ -145,6 +145,7 @@ All translations are crowd-sourced. Saber has so far been translated into:
 - German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/strings_de.i18n.json))
 - Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/strings_es.i18n.json))
 - Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/strings_it.i18n.json))
+- Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/strings_ru.i18n.json))
 - Chinese Simplified ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/strings_zh_Hans-CN.i18n.json))
 - Chinese Traditional ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/strings_zh_Hant-TW.i18n.json))
 
@@ -219,7 +220,6 @@ If you like Saber, please consider supporting it by:
     - `CFBundleLocalizations` in `ios/Runner/Info.plist`
     - `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
     - `android/app/src/main/res/xml/locales_config.xml`
-    - `resConfigs` in `android/app/build.gradle`
     - `README.md` above in the "Translating" section.
 
 </details>
