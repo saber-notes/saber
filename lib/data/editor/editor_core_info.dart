@@ -28,6 +28,11 @@ class EditorCoreInfo {
   String backgroundPattern;
   int lineHeight;
   QuillController quillController;
+  late FocusNode quillFocusNode = FocusNode(
+    debugLabel: 'Quill Focus Node',
+    canRequestFocus: !readOnly,
+    descendantsAreFocusable: !readOnly,
+  );
   List<EditorPage> pages;
 
   bool get isEmpty => strokes.isEmpty && images.isEmpty;

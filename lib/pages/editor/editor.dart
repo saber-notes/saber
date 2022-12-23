@@ -303,6 +303,8 @@ class _EditorState extends State<Editor> {
 
     if (Prefs.editorFingerDrawing.value || currentPressure != null) {
       return true;
+    } else if (currentTool == Tool.textEditing) {
+      return true;
     } else {
       if (kDebugMode) print("Non-stylus found, rejected stroke");
       return false;
@@ -583,6 +585,7 @@ class _EditorState extends State<Editor> {
                     path: coreInfo.filePath,
                     pageIndex: pageIndex,
                     innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
+                    textEditing: currentTool == Tool.textEditing,
                     coreInfo: coreInfo.copyWith(
                       strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
                       images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
@@ -630,8 +633,10 @@ class _EditorState extends State<Editor> {
             toggleTextEditing: () => setState(() {
               if (currentTool == Tool.textEditing) {
                 currentTool = Pen.currentPen;
+                coreInfo.quillFocusNode.unfocus();
               } else {
                 currentTool = Tool.textEditing;
+                coreInfo.quillFocusNode.requestFocus();
               }
             }),
 

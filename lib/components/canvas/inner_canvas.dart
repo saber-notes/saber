@@ -1,6 +1,7 @@
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
@@ -16,6 +17,7 @@ class InnerCanvas extends StatefulWidget {
     this.pageIndex = 0,
     required this.width,
     required this.height,
+    this.textEditing = false,
     required EditorCoreInfo coreInfo,
     required this.currentStroke,
     this.onRenderObjectChange,
@@ -29,6 +31,7 @@ class InnerCanvas extends StatefulWidget {
   final double width;
   final double height;
 
+  final bool textEditing;
   late final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
@@ -54,6 +57,23 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor = widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
+    QuillEditor quillEditor = QuillEditor(
+      controller: widget.coreInfo.quillController,
+      scrollController: ScrollController(),
+      scrollable: false,
+      autoFocus: false,
+      readOnly: false,
+      expands: true,
+      focusNode: widget.coreInfo.quillFocusNode,
+      padding: EdgeInsets.zero,
+      customStyles: DefaultStyles(
+        color: invert ? Colors.white : Colors.black,
+      ),
+      placeholder: "Type here",
+      showCursor: true,
+      keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+    );
+
     return CustomPaint(
       painter: CanvasBackgroundPainter(
         invert: invert,
@@ -76,6 +96,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
         child: DeferredPointerHandler(
           child: Stack(
             children: [
+              (widget.coreInfo.readOnly || !widget.textEditing) ? IgnorePointer(
+                child: quillEditor,
+              ) : quillEditor,
               for (final EditorImage editorImage in widget.coreInfo.images)
                 CanvasImage(
                   filePath: widget.coreInfo.filePath,
