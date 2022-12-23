@@ -93,7 +93,9 @@ class _EditorState extends State<Editor> {
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
-    coreInfo.quillController.addListener(autosaveAfterDelay);
+    for (EditorPage page in coreInfo.pages) {
+      page.quill.controller.addListener(autosaveAfterDelay);
+    }
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       createPageOfStroke(-1);
@@ -152,7 +154,10 @@ class _EditorState extends State<Editor> {
     }
 
     while (maxPageIndex >= coreInfo.pages.length - 1) {
-      coreInfo.pages.add(EditorPage());
+      coreInfo.pages.add(
+        EditorPage()
+          ..quill.controller.addListener(autosaveAfterDelay)
+      );
     }
   }
   void removeExcessPagesAfterStroke(Stroke? stroke) {
@@ -162,9 +167,11 @@ class _EditorState extends State<Editor> {
     for (int i = coreInfo.pages.length - 1; i >= minPageIndex + 1; --i) {
       /// true if this page and the page before it are empty
       final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
-          && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1);
+          && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1)
+          && coreInfo.pages[i].quill.controller.document.isEmpty();
       if (pageEmpty) {
-        coreInfo.pages.removeAt(i);
+        EditorPage page = coreInfo.pages.removeAt(i);
+        page.quill.controller.removeListener(autosaveAfterDelay);
       } else {
         break;
       }
@@ -629,15 +636,26 @@ class _EditorState extends State<Editor> {
               });
             },
 
-            quillController: coreInfo.quillController,
+            getCurrentQuill: () {
+              for (EditorPage page in coreInfo.pages) {
+                if (!page.quill.focusNode.hasFocus) continue;
+                return page.quill;
+              }
+              return null;
+            },
             textEditing: currentTool == Tool.textEditing,
             toggleTextEditing: () => setState(() {
               if (currentTool == Tool.textEditing) {
                 currentTool = Pen.currentPen;
-                coreInfo.quillFocusNode.unfocus();
+                for (EditorPage page in coreInfo.pages) {
+                  page.quill.focusNode.unfocus();
+                }
               } else {
                 currentTool = Tool.textEditing;
-                coreInfo.quillFocusNode.requestFocus();
+                int? pageIndex = currentPageIndex;
+                if (pageIndex != null) {
+                  coreInfo.pages[pageIndex].quill.focusNode.requestFocus();
+                }
               }
             }),
 
@@ -822,7 +840,9 @@ class _EditorState extends State<Editor> {
 
     _removeKeybindings();
 
-    coreInfo.quillController.removeListener(autosaveAfterDelay);
+    for (EditorPage page in coreInfo.pages) {
+      page.quill.controller.removeListener(autosaveAfterDelay);
+    }
 
     // avoid saving if nothing has changed
     if (_hasEdited) {

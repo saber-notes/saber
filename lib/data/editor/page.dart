@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
@@ -18,18 +19,42 @@ class EditorPage {
     return _renderBox;
   }
 
+  final QuillStruct quill;
+
   EditorPage({
     Size? size,
     double? width,
     double? height,
   }): assert((size == null) || (width == null && height == null), "size and width/height shouldn't both be specified"),
-      size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight);
+      size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
+      quill = QuillStruct(
+        controller: QuillController.basic(),
+        focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
+      );
 
   EditorPage.fromJson(Map<String, dynamic> json):
-      size = Size(json["w"] ?? defaultWidth, json["h"] ?? defaultHeight);
+      size = Size(json["w"] ?? defaultWidth, json["h"] ?? defaultHeight),
+      quill = QuillStruct(
+        controller: json["q"] != null ? QuillController(
+          document: Document.fromJson(json["q"] as List),
+          selection: const TextSelection.collapsed(offset: 0),
+        ) : QuillController.basic(),
+        focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
+      );
 
   Map<String, dynamic> toJson() => {
     "w": size.width,
     "h": size.height,
+    "q": quill.controller.document.toDelta().toJson(),
   };
+}
+
+class QuillStruct {
+  final QuillController controller;
+  late final FocusNode focusNode;
+
+  QuillStruct({
+    required this.controller,
+    required this.focusNode,
+  });
 }

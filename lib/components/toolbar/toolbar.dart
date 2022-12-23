@@ -13,6 +13,7 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -23,7 +24,7 @@ class Toolbar extends StatefulWidget {
     required this.currentTool,
     required this.setColor,
 
-    required this.quillController,
+    required this.getCurrentQuill,
     required this.textEditing,
     required this.toggleTextEditing,
 
@@ -45,7 +46,7 @@ class Toolbar extends StatefulWidget {
   final Tool currentTool;
   final ValueChanged<Color> setColor;
 
-  final QuillController quillController;
+  final QuillStruct? Function() getCurrentQuill;
   final bool textEditing;
   final VoidCallback toggleTextEditing;
 
@@ -123,6 +124,8 @@ class _ToolbarState extends State<Toolbar> {
     Brightness brightness = Theme.of(context).brightness;
     bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
 
+    QuillStruct? quill = widget.getCurrentQuill();
+
     return Material(
       color: colorScheme.background,
       child: Column(
@@ -155,9 +158,9 @@ class _ToolbarState extends State<Toolbar> {
             axis: CollapsibleAxis.vertical,
             alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
             maintainState: true,
-            collapsed: !widget.textEditing,
-            child: QuillToolbar.basic(
-              controller: widget.quillController,
+            collapsed: !widget.textEditing || quill == null,
+            child: quill != null ? QuillToolbar.basic(
+              controller: quill.controller,
               locale: TranslationProvider.of(context).flutterLocale,
               toolbarIconSize: 20,
               iconTheme: QuillIconTheme(
@@ -166,7 +169,7 @@ class _ToolbarState extends State<Toolbar> {
               showFontSize: false,
               showFontFamily: false,
               showClearFormat: false,
-            ),
+            ) : const SizedBox.shrink(),
           ),
           Center(
             child: Padding(

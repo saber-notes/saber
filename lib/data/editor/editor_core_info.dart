@@ -27,12 +27,6 @@ class EditorCoreInfo {
   Color? backgroundColor;
   String backgroundPattern;
   int lineHeight;
-  QuillController quillController;
-  late FocusNode quillFocusNode = FocusNode(
-    debugLabel: 'Quill Focus Node',
-    canRequestFocus: !readOnly,
-    descendantsAreFocusable: !readOnly,
-  );
   List<EditorPage> pages;
 
   bool get isEmpty => strokes.isEmpty && images.isEmpty;
@@ -43,7 +37,6 @@ class EditorCoreInfo {
         nextImageId = 0,
         backgroundPattern = Prefs.lastBackgroundPattern.value,
         lineHeight = Prefs.lastLineHeight.value,
-        quillController = QuillController.basic(),
         pages = [];
 
   /// used in EditorCoreInfo.copyWith(...)
@@ -56,7 +49,6 @@ class EditorCoreInfo {
     this.backgroundColor,
     required this.backgroundPattern,
     required this.lineHeight,
-    required this.quillController,
     required this.pages,
   });
 
@@ -74,10 +66,6 @@ class EditorCoreInfo {
         backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
-        quillController = json["q"] != null ? QuillController(
-          document: Document.fromJson(json["q"] as List),
-          selection: const TextSelection.collapsed(offset: 0),
-        ) : QuillController.basic(),
         pages = _parsePagesJson(json["z"] as List?) {
     _handleEmptyPages(json["w"] as double?, json["h"] as double?);
     _handleEmptyImageIds();
@@ -91,7 +79,6 @@ class EditorCoreInfo {
         nextImageId = 0,
         backgroundPattern = CanvasBackgroundPatterns.none,
         lineHeight = Prefs.lastLineHeight.value,
-        quillController = QuillController.basic(),
         pages = [] {
     _handleEmptyPages();
   }
@@ -168,7 +155,6 @@ class EditorCoreInfo {
     'b': backgroundColor?.value,
     'p': backgroundPattern,
     'l': lineHeight,
-    'q': quillController.document.toDelta().toJson(),
     'z': pages,
   };
 
@@ -193,7 +179,6 @@ class EditorCoreInfo {
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,
       lineHeight: lineHeight ?? this.lineHeight,
-      quillController: quillController ?? this.quillController,
       pages: pages ?? this.pages,
     );
   }

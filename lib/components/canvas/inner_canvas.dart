@@ -15,35 +15,25 @@ import '_canvas_painter.dart';
 import '_stroke.dart';
 
 class InnerCanvas extends StatefulWidget {
-  InnerCanvas({
+  const InnerCanvas({
     super.key,
     this.pageIndex = 0,
     required this.width,
     required this.height,
     this.textEditing = false,
-    required EditorCoreInfo coreInfo,
+    required this.coreInfo,
     required this.currentStroke,
     this.onRenderObjectChange,
-  }) {
-    this.coreInfo = coreInfo.copyWith(
-      strokes: coreInfo.strokes.where((stroke) => isStrokeInPage(stroke)).toList(),
-    );
-  }
+  });
 
   final int pageIndex;
   final double width;
   final double height;
 
   final bool textEditing;
-  late final EditorCoreInfo coreInfo;
+  final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
   final ValueChanged<RenderObject>? onRenderObjectChange;
-
-  bool isStrokeInPage(Stroke stroke) {
-    final maxY = stroke.maxY;
-    final startOfPageY = height * pageIndex;
-    return maxY >= startOfPageY && maxY <= startOfPageY + height;
-  }
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
 
@@ -66,21 +56,21 @@ class _InnerCanvasState extends State<InnerCanvas> {
     Widget quillEditor = Transform.scale(
       scale: InnerCanvas.quillScale,
       alignment: Alignment.topLeft,
-      child: QuillEditor(
-        controller: widget.coreInfo.quillController,
+      child: widget.coreInfo.pages.isNotEmpty ? QuillEditor(
+        controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
         scrollController: ScrollController(),
         scrollable: false,
         autoFocus: false,
         readOnly: false,
         expands: true,
-        focusNode: widget.coreInfo.quillFocusNode,
+        focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
         padding: EdgeInsets.zero,
         customStyles: _getQuillStyles(context, invert: invert),
         locale: TranslationProvider.of(context).flutterLocale,
         placeholder: "Type here",
         showCursor: true,
         keyboardAppearance: invert ? Brightness.dark : Brightness.light,
-      ),
+      ) : null,
     );
 
     return CustomPaint(
