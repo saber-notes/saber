@@ -93,6 +93,7 @@ class _EditorState extends State<Editor> {
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
+    coreInfo.quillController.addListener(autosaveAfterDelay);
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       createPageOfStroke(-1);
@@ -820,6 +821,8 @@ class _EditorState extends State<Editor> {
     filenameTextEditingController.dispose();
 
     _removeKeybindings();
+
+    coreInfo.quillController.removeListener(autosaveAfterDelay);
 
     // avoid saving if nothing has changed
     if (_hasEdited) {
