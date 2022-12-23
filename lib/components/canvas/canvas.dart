@@ -35,6 +35,7 @@ class Canvas extends StatelessWidget {
         child: ClipRect(
           child: InnerCanvas(
             key: innerCanvasKey,
+            pageIndex: pageIndex,
             width: pageSize.width,
             height: pageSize.height,
             textEditing: textEditing,
