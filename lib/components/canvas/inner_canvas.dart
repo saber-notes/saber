@@ -64,7 +64,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
         readOnly: false,
         expands: true,
         focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets.only(
+          top: widget.coreInfo.lineHeight * 1.2 / InnerCanvas.quillScale,
+          left: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
+          right: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
+          bottom: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
+        ),
         customStyles: _getQuillStyles(context, invert: invert),
         locale: TranslationProvider.of(context).flutterLocale,
         placeholder: widget.textEditing ? "Type here" : null,
@@ -120,90 +125,124 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
   /// Adapted from "packages://flutter_quill/lib/src/widgets/default_styles.dart"
   DefaultStyles _getQuillStyles(BuildContext context, {required bool invert}) {
-    final ThemeData themeData = Theme.of(context);
-    final TextTheme textTheme = GoogleFonts.neuchaTextTheme( // neucha is a handwriting font
+    final colorScheme = Theme.of(context).colorScheme;
+
+    /// lineHeight in local space
+    final double lineHeight = widget.coreInfo.lineHeight / InnerCanvas.quillScale;
+
+    /// Blank TextStyle with the correct color
+    final TextStyle defaultStyle = TextStyle(color: invert ? Colors.white : Colors.black);
+
+    TextTheme textTheme = GoogleFonts.neuchaTextTheme( // neucha is a handwriting font
       ThemeData(brightness: invert ? Brightness.dark : Brightness.light).textTheme,
     );
-    final TextStyle defaultStyle = TextStyle(color: invert ? Colors.white : Colors.black);
-    final TextStyle bodyStyle = textTheme.bodyText1 ?? defaultStyle;
+    textTheme = textTheme.copyWith(
+      bodyText1: (textTheme.bodyText1 ?? defaultStyle).copyWith(
+        fontSize: lineHeight * 0.6,
+        height: 1 / 0.6,
+      ),
+      headline1: (textTheme.headline1 ?? defaultStyle).copyWith(
+        fontSize: lineHeight * 0.85,
+        height: 1 / 0.85,
+        color: defaultStyle.color,
+        decoration: TextDecoration.underline,
+        decorationColor: defaultStyle.color?.withOpacity(0.9),
+      ),
+      headline2: (textTheme.headline2 ?? defaultStyle).copyWith(
+        fontSize: lineHeight * 0.775,
+        height: 1 / 0.775,
+        color: defaultStyle.color,
+        decoration: TextDecoration.underline,
+        decorationColor: defaultStyle.color?.withOpacity(0.6),
+      ),
+      headline3: (textTheme.headline3 ?? defaultStyle).copyWith(
+        fontSize: lineHeight * 0.7,
+        height: 1 / 0.7,
+        color: defaultStyle.color,
+        decoration: TextDecoration.underline,
+        decorationColor: defaultStyle.color?.withOpacity(0.3),
+      ),
+    );
 
     const zeroSpacing = Tuple2<double, double>(0, 0);
-    const baseSpacing = Tuple2<double, double>(6, 0);
 
     return DefaultStyles.getInstance(context).merge(DefaultStyles(
       h1: DefaultTextBlockStyle(
-        textTheme.titleLarge ?? defaultStyle,
-        const Tuple2(16, 0), zeroSpacing, null
+        textTheme.headline1!,
+        zeroSpacing, zeroSpacing, null
       ),
       h2: DefaultTextBlockStyle(
-        textTheme.titleMedium ?? defaultStyle,
-        const Tuple2(8, 0), zeroSpacing, null
+        textTheme.headline2!,
+        zeroSpacing, zeroSpacing, null
       ),
       h3: DefaultTextBlockStyle(
-        textTheme.titleSmall ?? defaultStyle,
-        const Tuple2(8, 0), zeroSpacing, null
+        textTheme.headline3!,
+        zeroSpacing, zeroSpacing, null
       ),
       paragraph: DefaultTextBlockStyle(
-        bodyStyle,
+        textTheme.bodyText1!,
         zeroSpacing, zeroSpacing, null
       ),
       bold: const TextStyle(fontWeight: FontWeight.bold),
       italic: const TextStyle(fontStyle: FontStyle.italic),
-      small: const TextStyle(fontSize: 12),
+      small: TextStyle(
+        fontSize: lineHeight * 0.4,
+        height: 1 / 0.4,
+      ),
       underline: const TextStyle(decoration: TextDecoration.underline),
       strikeThrough: const TextStyle(decoration: TextDecoration.lineThrough),
       inlineCode: InlineCodeStyle(
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Colors.grey.withOpacity(0.1),
         radius: const Radius.circular(3),
-        style: GoogleFonts.firaMono(textStyle: bodyStyle),
-        header1: GoogleFonts.firaMono(textStyle: textTheme.titleLarge),
-        header2: GoogleFonts.firaMono(textStyle: textTheme.titleMedium),
-        header3: GoogleFonts.firaMono(textStyle: textTheme.titleSmall),
+        style: GoogleFonts.firaMono(textStyle: textTheme.bodyText1!),
+        header1: GoogleFonts.firaMono(textStyle: textTheme.headline1!),
+        header2: GoogleFonts.firaMono(textStyle: textTheme.headline2!),
+        header3: GoogleFonts.firaMono(textStyle: textTheme.headline3!),
       ),
       link: TextStyle(
-        color: themeData.colorScheme.secondary,
+        color: colorScheme.secondary,
         decoration: TextDecoration.underline,
       ),
       placeHolder: DefaultTextBlockStyle(
-        bodyStyle.copyWith(
+        textTheme.bodyText1!.copyWith(
           color: Colors.grey.withOpacity(0.6),
         ),
         zeroSpacing, zeroSpacing, null
       ),
       lists: DefaultListBlockStyle(
-        bodyStyle,
-        baseSpacing, const Tuple2(0, 6), null, null,
+        textTheme.bodyText1!,
+        zeroSpacing, zeroSpacing, null, null
       ),
       quote: DefaultTextBlockStyle(
-        TextStyle(color: (bodyStyle.color ?? defaultStyle.color!).withOpacity(0.6)),
-        baseSpacing, const Tuple2(6, 2),
+        TextStyle(color: (textTheme.bodyText1!.color ?? defaultStyle.color!).withOpacity(0.6)),
+        zeroSpacing, zeroSpacing,
         BoxDecoration(
           border: Border(
             left: BorderSide(
-              color: (bodyStyle.color ?? defaultStyle.color!).withOpacity(0.6),
+              color: (textTheme.bodyText1!.color ?? defaultStyle.color!).withOpacity(0.6),
               width: 4,
             ),
           ),
         ),
       ),
       code: DefaultTextBlockStyle(
-        GoogleFonts.firaMono(textStyle: bodyStyle),
-        baseSpacing, zeroSpacing,
+        GoogleFonts.firaMono(textStyle: textTheme.bodyText1!),
+        zeroSpacing, zeroSpacing,
         BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(2),
         ),
       ),
       indent: DefaultTextBlockStyle(
-        bodyStyle,
-        baseSpacing, const Tuple2(0, 6), null
+        textTheme.bodyText1!,
+        zeroSpacing, zeroSpacing, null
       ),
       align: DefaultTextBlockStyle(
-        bodyStyle,
+        textTheme.bodyText1!,
         zeroSpacing, zeroSpacing, null
       ),
       leading: DefaultTextBlockStyle(
-        bodyStyle,
+        textTheme.bodyText1!,
         zeroSpacing, zeroSpacing, null
       ),
     ));
