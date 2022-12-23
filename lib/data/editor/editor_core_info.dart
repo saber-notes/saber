@@ -30,7 +30,10 @@ class EditorCoreInfo {
 
   bool get isEmpty => strokes.isEmpty && images.isEmpty;
 
-  EditorCoreInfo({required this.filePath}):
+  EditorCoreInfo({
+    required this.filePath,
+    this.readOnly = true, // default to read-only, until it's loaded with [loadFromFilePath]
+  }):
         strokes = [],
         images = [],
         nextImageId = 0,
@@ -124,7 +127,7 @@ class EditorCoreInfo {
 
   static Future<EditorCoreInfo> loadFromFilePath(String path, {bool readOnly = false}) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
-    if (jsonString == null) return EditorCoreInfo(filePath: path);
+    if (jsonString == null) return EditorCoreInfo(filePath: path, readOnly: readOnly);
 
     try {
       final dynamic json = jsonDecode(jsonString);
@@ -141,7 +144,7 @@ class EditorCoreInfo {
       if (kDebugMode) {
         rethrow;
       } else {
-        return EditorCoreInfo(filePath: path);
+        return EditorCoreInfo(filePath: path, readOnly: readOnly);
       }
     }
   }

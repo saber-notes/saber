@@ -93,6 +93,9 @@ class _EditorState extends State<Editor> {
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
+    if (coreInfo.readOnly) {
+      if (kDebugMode) print("Loaded file as read-only");
+    }
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       createPageOfStroke(-1);
