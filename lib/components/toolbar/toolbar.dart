@@ -158,6 +158,7 @@ class _ToolbarState extends State<Toolbar> {
             collapsed: !widget.textEditing,
             child: QuillToolbar.basic(
               controller: widget.quillController,
+              locale: TranslationProvider.of(context).flutterLocale,
               toolbarIconSize: 20,
               iconTheme: QuillIconTheme(
                 iconSelectedColor: colorScheme.onPrimary,

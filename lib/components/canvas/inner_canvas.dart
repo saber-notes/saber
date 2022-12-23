@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 import '_canvas_painter.dart';
 import '_stroke.dart';
@@ -69,6 +70,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       customStyles: DefaultStyles(
         color: invert ? Colors.white : Colors.black,
       ),
+      locale: TranslationProvider.of(context).flutterLocale,
       placeholder: "Type here",
       showCursor: true,
       keyboardAppearance: invert ? Brightness.dark : Brightness.light,
