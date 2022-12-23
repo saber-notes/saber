@@ -9,7 +9,11 @@
 			"upgradePackages": true
 		}
 	},
-	"extensions": [
-		"Dart-Code.flutter"
-	]
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Dart-Code.flutter"
+			]
+		}
+	}
 }
