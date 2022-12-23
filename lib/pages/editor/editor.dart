@@ -624,7 +624,17 @@ class _EditorState extends State<Editor> {
                 }
               });
             },
+
             quillController: coreInfo.quillController,
+            textEditing: currentTool == Tool.textEditing,
+            toggleTextEditing: () => setState(() {
+              if (currentTool == Tool.textEditing) {
+                currentTool = Pen.currentPen;
+              } else {
+                currentTool = Tool.textEditing;
+              }
+            }),
+
             undo: undo,
             isUndoPossible: history.canUndo,
             redo: redo,

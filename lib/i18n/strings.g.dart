@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 678 (96 per locale)
+/// Strings: 679 (97 per locale)
 ///
-/// Built on 2022-12-21 at 08:47 UTC
+/// Built on 2022-12-23 at 08:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -452,6 +452,7 @@ class _StringsEditorToolbarEn {
 	String get toggleColors => 'Toggle colors (Ctrl C)';
 	String get toggleEraser => 'Toggle eraser (Ctrl E)';
 	String get photo => 'Photo';
+	String get text => 'Text';
 	String get toggleFingerDrawing => 'Toggle finger drawing (Ctrl F)';
 	String get undo => 'Undo';
 	String get redo => 'Redo';
@@ -2978,6 +2979,7 @@ extension on _StringsEn {
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Photo';
+			case 'editor.toolbar.text': return 'Text';
 			case 'editor.toolbar.toggleFingerDrawing': return 'Toggle finger drawing (Ctrl F)';
 			case 'editor.toolbar.undo': return 'Undo';
 			case 'editor.toolbar.redo': return 'Redo';

@@ -115,6 +115,7 @@
 			"toggleColors": "Toggle colors (Ctrl C)",
 			"toggleEraser": "Toggle eraser (Ctrl E)",
 			"photo": "Photo",
+			"text": "Text",
 			"toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
 			"undo": "Undo",
 			"redo": "Redo",

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -25,6 +24,8 @@ class Toolbar extends StatefulWidget {
     required this.setColor,
 
     required this.quillController,
+    required this.textEditing,
+    required this.toggleTextEditing,
 
     required this.undo,
     required this.isUndoPossible,
@@ -45,6 +46,8 @@ class Toolbar extends StatefulWidget {
   final ValueChanged<Color> setColor;
 
   final QuillController quillController;
+  final bool textEditing;
+  final VoidCallback toggleTextEditing;
 
   final VoidCallback undo;
   final bool isUndoPossible;
@@ -152,7 +155,7 @@ class _ToolbarState extends State<Toolbar> {
             axis: CollapsibleAxis.vertical,
             alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
             maintainState: true,
-            collapsed: false,
+            collapsed: !widget.textEditing,
             child: QuillToolbar.basic(
               controller: widget.quillController,
               toolbarIconSize: 20,
@@ -216,6 +219,12 @@ class _ToolbarState extends State<Toolbar> {
                     tooltip: t.editor.toolbar.photo,
                     onPressed: (_) => widget.pickPhoto(),
                     child: const Icon(Icons.photo_size_select_actual),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.text,
+                    selected: widget.textEditing,
+                    onPressed: (_) => widget.toggleTextEditing(),
+                    child: const Icon(Icons.text_fields),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleFingerDrawing,
