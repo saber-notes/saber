@@ -163,6 +163,9 @@ class _ToolbarState extends State<Toolbar> {
               iconTheme: QuillIconTheme(
                 iconSelectedColor: colorScheme.onPrimary,
               ),
+              showFontSize: false,
+              showFontFamily: false,
+              showClearFormat: false,
             ),
           ),
           Center(
