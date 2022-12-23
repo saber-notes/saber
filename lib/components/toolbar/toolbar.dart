@@ -2,6 +2,7 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
@@ -23,6 +24,8 @@ class Toolbar extends StatefulWidget {
     required this.currentTool,
     required this.setColor,
 
+    required this.quillController,
+
     required this.undo,
     required this.isUndoPossible,
     required this.redo,
@@ -40,6 +43,8 @@ class Toolbar extends StatefulWidget {
   final ValueChanged<Tool> setTool;
   final Tool currentTool;
   final ValueChanged<Color> setColor;
+
+  final QuillController quillController;
 
   final VoidCallback undo;
   final bool isUndoPossible;
@@ -141,6 +146,19 @@ class _ToolbarState extends State<Toolbar> {
               setColor: widget.setColor,
               currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
               invert: invert,
+            ),
+          ),
+          Collapsible(
+            axis: CollapsibleAxis.vertical,
+            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
+            maintainState: true,
+            collapsed: false,
+            child: QuillToolbar.basic(
+              controller: widget.quillController,
+              toolbarIconSize: 20,
+              iconTheme: QuillIconTheme(
+                iconSelectedColor: colorScheme.onPrimary,
+              ),
             ),
           ),
           Center(

@@ -624,6 +624,7 @@ class _EditorState extends State<Editor> {
                 }
               });
             },
+            quillController: coreInfo.quillController,
             undo: undo,
             isUndoPossible: history.canUndo,
             redo: redo,
