@@ -16,7 +16,7 @@ import 'package:saber/pages/editor/editor.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int fileVersion = 5;
+  static const int fileVersion = 6;
   bool readOnly = false;
 
   String filePath;
@@ -75,7 +75,7 @@ class EditorCoreInfo {
         backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
         lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
         quillController = json["q"] != null ? QuillController(
-          document: Document.fromJson(jsonDecode(json["q"] as String)),
+          document: Document.fromJson(json["q"] as List),
           selection: const TextSelection.collapsed(offset: 0),
         ) : QuillController.basic(),
         pages = _parsePagesJson(json["z"] as List?) {
@@ -168,6 +168,7 @@ class EditorCoreInfo {
     'b': backgroundColor?.value,
     'p': backgroundPattern,
     'l': lineHeight,
+    'q': quillController.document.toDelta().toJson(),
     'z': pages,
   };
 
