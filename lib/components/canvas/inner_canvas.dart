@@ -45,6 +45,9 @@ class InnerCanvas extends StatefulWidget {
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
 
+  /// Quill text size / UI size is quite small due to the canvas resolution, so we need to scale it up.
+  static const double quillScale = 2;
+
   @override
   State<InnerCanvas> createState() => _InnerCanvasState();
 }
@@ -58,22 +61,26 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor = widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
-    QuillEditor quillEditor = QuillEditor(
-      controller: widget.coreInfo.quillController,
-      scrollController: ScrollController(),
-      scrollable: false,
-      autoFocus: false,
-      readOnly: false,
-      expands: true,
-      focusNode: widget.coreInfo.quillFocusNode,
-      padding: EdgeInsets.zero,
-      customStyles: DefaultStyles(
-        color: invert ? Colors.white : Colors.black,
+    Widget quillEditor = Transform.scale(
+      scale: InnerCanvas.quillScale,
+      alignment: Alignment.topLeft,
+      child: QuillEditor(
+        controller: widget.coreInfo.quillController,
+        scrollController: ScrollController(),
+        scrollable: false,
+        autoFocus: false,
+        readOnly: false,
+        expands: true,
+        focusNode: widget.coreInfo.quillFocusNode,
+        padding: EdgeInsets.zero,
+        customStyles: DefaultStyles(
+          color: invert ? Colors.white : Colors.black,
+        ),
+        locale: TranslationProvider.of(context).flutterLocale,
+        placeholder: "Type here",
+        showCursor: true,
+        keyboardAppearance: invert ? Brightness.dark : Brightness.light,
       ),
-      locale: TranslationProvider.of(context).flutterLocale,
-      placeholder: "Type here",
-      showCursor: true,
-      keyboardAppearance: invert ? Brightness.dark : Brightness.light,
     );
 
     return CustomPaint(
@@ -98,9 +105,15 @@ class _InnerCanvasState extends State<InnerCanvas> {
         child: DeferredPointerHandler(
           child: Stack(
             children: [
-              (widget.coreInfo.readOnly || !widget.textEditing) ? IgnorePointer(
-                child: quillEditor,
-              ) : quillEditor,
+              Positioned(
+                top: 0,
+                left: 0,
+                width: widget.width / InnerCanvas.quillScale,
+                height: widget.height / InnerCanvas.quillScale,
+                child: (widget.coreInfo.readOnly || !widget.textEditing) ? IgnorePointer(
+                  child: quillEditor,
+                ) : quillEditor,
+              ),
               for (final EditorImage editorImage in widget.coreInfo.images)
                 CanvasImage(
                   filePath: widget.coreInfo.filePath,
