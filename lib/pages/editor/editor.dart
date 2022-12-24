@@ -10,6 +10,7 @@ import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quill/flutter_quill.dart' show ChangeSource;
 import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -649,6 +650,13 @@ class _EditorState extends State<Editor> {
                 currentTool = Pen.currentPen;
                 for (EditorPage page in coreInfo.pages) {
                   page.quill.focusNode.unfocus();
+                  page.quill.controller.updateSelection( // unselect text
+                    TextSelection.collapsed(
+                      // maintain cursor position for when it regains focus
+                      offset: page.quill.controller.selection.extentOffset
+                    ),
+                    ChangeSource.LOCAL
+                  );
                 }
               } else {
                 currentTool = Tool.textEditing;
