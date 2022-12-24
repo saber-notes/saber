@@ -119,7 +119,8 @@
       "undo": "復原",
       "redo": "重做",
       "export": "匯出 (Ctrl Shift S)",
-      "exportAs": "匯出為："
+      "exportAs": "匯出為：",
+      "text": "文本"
     },
     "pens": {
       "fountainPen": "鋼筆",
@@ -148,6 +149,9 @@
       "readOnlyMode": "唯讀模式",
       "subtitle": "編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？",
       "allowEditing": "允許編輯"
+    },
+    "quill": {
+      "typeSomething": "在這裡輸入一些內容..."
     }
   }
 }

@@ -47,14 +47,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "toolbar": {
-        "text": "Text"
-      },
-      "quill": {
-        "typeSomething": "Type something here..."
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
