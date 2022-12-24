@@ -50,10 +50,10 @@
   "zh-Hant-TW": {
     "editor": {
       "toolbar": {
-        "text": "Text"
+        "text": "文本"
       },
       "quill": {
-        "typeSomething": "Type something here..."
+        "typeSomething": "在這裡輸入一些內容..."
       }
     }
   }
