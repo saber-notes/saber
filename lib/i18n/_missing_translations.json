@@ -46,16 +46,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "toolbar": {
-        "text": "Text"
-      },
-      "quill": {
-        "typeSomething": "Type something here..."
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {
       "toolbar": {

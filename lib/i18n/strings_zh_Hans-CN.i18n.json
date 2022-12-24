@@ -119,7 +119,8 @@
       "undo": "撤销",
       "redo": "重做",
       "export": "导出 (Ctrl Shift S)",
-      "exportAs": "导出为："
+      "exportAs": "导出为：",
+      "text": "文本"
     },
     "pens": {
       "fountainPen": "钢笔",
@@ -148,6 +149,9 @@
       "readOnlyMode": "只读模式",
       "subtitle": "编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？",
       "allowEditing": "允许编辑"
+    },
+    "quill": {
+      "typeSomething": "在这里输入..."
     }
   }
 }
