@@ -711,7 +711,7 @@ class _EditorState extends State<Editor> {
 
         SafeArea(
           child: Collapsible(
-            collapsed: !coreInfo.readOnly,
+            collapsed: !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
             axis: CollapsibleAxis.vertical,
             child: ListTile(
               onTap: askUserToDisableReadOnly,

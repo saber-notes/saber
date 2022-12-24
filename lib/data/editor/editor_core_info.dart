@@ -18,6 +18,7 @@ class EditorCoreInfo {
   /// Increment this if earlier versions of the app can't satisfiably read the file.
   static const int fileVersion = 6;
   bool readOnly = false;
+  bool readOnlyBecauseOfVersion = false;
 
   String filePath;
 
@@ -46,6 +47,7 @@ class EditorCoreInfo {
   EditorCoreInfo._({
     required this.filePath,
     required this.readOnly,
+    required this.readOnlyBecauseOfVersion,
     required this.strokes,
     required this.images,
     required this.nextImageId,
@@ -60,6 +62,7 @@ class EditorCoreInfo {
     bool readOnly = false,
   }):
         readOnly = readOnly || (json["v"] as int? ?? 0) > fileVersion,
+        readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > fileVersion,
         strokes = _parseStrokesJson(json["s"] as List),
         images = _parseImagesJson(
           json["i"] as List? ?? [],
@@ -164,6 +167,7 @@ class EditorCoreInfo {
   EditorCoreInfo copyWith({
     String? filePath,
     bool? readOnly,
+    bool? readOnlyBecauseOfVersion,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     int? nextImageId,
@@ -176,6 +180,7 @@ class EditorCoreInfo {
     return EditorCoreInfo._(
       filePath: filePath ?? this.filePath,
       readOnly: readOnly ?? this.readOnly,
+      readOnlyBecauseOfVersion: readOnlyBecauseOfVersion ?? this.readOnlyBecauseOfVersion,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       nextImageId: nextImageId ?? this.nextImageId,
