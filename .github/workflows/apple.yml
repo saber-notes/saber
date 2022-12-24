@@ -18,6 +18,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Remove unneeded files
+        run: |
+          rm -rf android
+          rm -rf appimage
+          rm -rf assets_raw
+          rm -rf flatpak
+          rm -rf installers
+          rm -rf integration_test
+          rm -rf linux
+          rm -rf macos
+          rm -rf metadata
+          rm -rf snap
+          rm -rf submodules
+          rm -rf test
+          rm -rf web
+          rm -rf windows
+
       - name: Get Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -47,6 +64,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Remove unneeded files
+        run: |
+          rm -rf android
+          rm -rf appimage
+          rm -rf assets_raw
+          rm -rf flatpak
+          rm -rf installers
+          rm -rf integration_test
+          rm -rf ios
+          rm -rf linux
+          rm -rf metadata
+          rm -rf snap
+          rm -rf submodules
+          rm -rf test
+          rm -rf web
+          rm -rf windows
 
       - name: Get Flutter
         uses: subosito/flutter-action@v2

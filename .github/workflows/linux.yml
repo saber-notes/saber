@@ -19,6 +19,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Remove unneeded files
+        run: |
+          rm -rf android
+          rm -rf assets_raw
+          rm -rf installers
+          rm -rf integration_test
+          rm -rf ios
+          rm -rf macos
+          rm -rf metadata
+          rm -rf test
+          rm -rf web
+          rm -rf windows
+
       - name: Install Flutter dependencies
         run: |
           sudo apt-get update
@@ -57,6 +70,19 @@ jobs:
         with:
           submodules: true
 
+      - name: Remove unneeded files
+        run: |
+          rm -rf android
+          rm -rf assets_raw
+          rm -rf installers
+          rm -rf integration_test
+          rm -rf ios
+          rm -rf macos
+          rm -rf metadata
+          rm -rf test
+          rm -rf web
+          rm -rf windows
+
       - name: Download app archive
         uses: actions/download-artifact@v3
         with:
@@ -81,6 +107,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Remove unneeded files
+        run: |
+          rm -rf android
+          rm -rf assets_raw
+          rm -rf installers
+          rm -rf integration_test
+          rm -rf ios
+          rm -rf macos
+          rm -rf metadata
+          rm -rf test
+          rm -rf web
+          rm -rf windows
 
       - name: Install AppImage dependencies
         run: |
