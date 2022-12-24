@@ -140,6 +140,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       bodyText1: (textTheme.bodyText1 ?? defaultStyle).copyWith(
         fontSize: lineHeight * 0.7,
         height: 1 / 0.7,
+        color: textTheme.bodyText1?.color ?? defaultStyle.color!,
       ),
       headline1: (textTheme.headline1 ?? defaultStyle).copyWith(
         fontSize: lineHeight * 1.15,
@@ -217,12 +218,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
         zeroSpacing, zeroSpacing, null, null
       ),
       quote: DefaultTextBlockStyle(
-        TextStyle(color: (textTheme.bodyText1!.color ?? defaultStyle.color!).withOpacity(0.6)),
+        TextStyle(color: textTheme.bodyText1!.color!.withOpacity(0.6)),
         zeroSpacing, zeroSpacing,
         BoxDecoration(
           border: Border(
             left: BorderSide(
-              color: (textTheme.bodyText1!.color ?? defaultStyle.color!).withOpacity(0.6),
+              color: textTheme.bodyText1!.color!.withOpacity(0.6),
               width: 4,
             ),
           ),
