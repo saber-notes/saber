@@ -206,12 +206,12 @@ abstract class FileSyncer {
 
     try {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
-      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
-      final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
-      if (encryptedData == deletedFileDummyContent) { // deleted file
+      if (encryptedDataBytesJson == deletedFileDummyContent) { // deleted file
         FileManager.deleteFile(file.localPath);
         return true;
       } else {
+        final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
+        final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
         final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
         FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
         return true;
