@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 686 (98 per locale)
+/// Strings: 688 (98 per locale)
 ///
-/// Built on 2022-12-24 at 12:37 UTC
+/// Built on 2022-12-24 at 17:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1449,6 +1449,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
 	@override late final _StringsEditorMenuIt menu = _StringsEditorMenuIt._(_root);
 	@override late final _StringsEditorNewerFileFormatIt newerFileFormat = _StringsEditorNewerFileFormatIt._(_root);
+	@override late final _StringsEditorQuillIt quill = _StringsEditorQuillIt._(_root);
 }
 
 // Path: home.tabs
@@ -1652,6 +1653,7 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	@override String get redo => 'Rifai';
 	@override String get export => 'Esporta (Ctrl Shift S)';
 	@override String get exportAs => 'Esporta come:';
+	@override String get text => 'Testo';
 }
 
 // Path: editor.pens
@@ -1715,6 +1717,16 @@ class _StringsEditorNewerFileFormatIt extends _StringsEditorNewerFileFormatEn {
 	@override String get subtitle => 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
 	@override String get allowEditing => 'Consenti modifica';
 	@override String get cancel => 'Cancella';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillIt extends _StringsEditorQuillEn {
+	_StringsEditorQuillIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Scrivi qualcosa qui...';
 }
 
 // Path: <root>
@@ -3370,6 +3382,7 @@ extension on _StringsIt {
 			case 'editor.toolbar.redo': return 'Rifai';
 			case 'editor.toolbar.export': return 'Esporta (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Esporta come:';
+			case 'editor.toolbar.text': return 'Testo';
 			case 'editor.pens.fountainPen': return 'Penna stilografica';
 			case 'editor.pens.highlighter': return 'Evidenziatore';
 			case 'editor.pens.ballpointPen': return 'Penna a sfera';
@@ -3388,6 +3401,7 @@ extension on _StringsIt {
 			case 'editor.newerFileFormat.subtitle': return 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
 			case 'editor.newerFileFormat.allowEditing': return 'Consenti modifica';
 			case 'editor.newerFileFormat.cancel': return 'Cancella';
+			case 'editor.quill.typeSomething': return 'Scrivi qualcosa qui...';
 			default: return null;
 		}
 	}
