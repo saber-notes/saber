@@ -29,7 +29,7 @@ class EditorCoreInfo {
   int lineHeight;
   List<EditorPage> pages;
 
-  bool get isEmpty => strokes.isEmpty && images.isEmpty;
+  bool get isEmpty => strokes.isEmpty && images.isEmpty && pages.every((EditorPage page) => page.quill.controller.document.isEmpty());
 
   EditorCoreInfo({
     required this.filePath,
