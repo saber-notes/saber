@@ -198,7 +198,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
       inlineCode: InlineCodeStyle(
         backgroundColor: Colors.grey.withOpacity(0.1),
         radius: const Radius.circular(3),
-        style: GoogleFonts.firaMono(textStyle: textTheme.bodyText1!),
+        style: GoogleFonts.firaMono(textStyle: textTheme.bodyText1!).copyWith(
+          // Setting backgroundColor is broken right now, so this always has a white background.
+          // Set text color to black to make it readable.
+          // https://github.com/singerdmx/flutter-quill/issues/1014
+          color: Colors.black,
+        ),
         header1: GoogleFonts.firaMono(textStyle: textTheme.headline1!),
         header2: GoogleFonts.firaMono(textStyle: textTheme.headline2!),
         header3: GoogleFonts.firaMono(textStyle: textTheme.headline3!),
