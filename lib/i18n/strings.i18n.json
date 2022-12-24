@@ -149,6 +149,9 @@
 			"subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
 			"allowEditing": "Allow editing",
 			"cancel": "Cancel"
+		},
+		"quill": {
+			"typeSomething": "Type something here..."
 		}
 	}
 }

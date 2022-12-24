@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 679 (97 per locale)
+/// Strings: 680 (97 per locale)
 ///
-/// Built on 2022-12-23 at 08:04 UTC
+/// Built on 2022-12-24 at 01:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -254,6 +254,7 @@ class _StringsEditorEn {
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
 	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
+	late final _StringsEditorQuillEn quill = _StringsEditorQuillEn._(_root);
 }
 
 // Path: home.tabs
@@ -521,6 +522,16 @@ class _StringsEditorNewerFileFormatEn {
 	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
 	String get allowEditing => 'Allow editing';
 	String get cancel => 'Cancel';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillEn {
+	_StringsEditorQuillEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get typeSomething => 'Type something here...';
 }
 
 // Path: <root>
@@ -3003,6 +3014,7 @@ extension on _StringsEn {
 			case 'editor.newerFileFormat.subtitle': return 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
 			case 'editor.newerFileFormat.allowEditing': return 'Allow editing';
 			case 'editor.newerFileFormat.cancel': return 'Cancel';
+			case 'editor.quill.typeSomething': return 'Type something here...';
 			default: return null;
 		}
 	}

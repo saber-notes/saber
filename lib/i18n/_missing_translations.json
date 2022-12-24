@@ -7,6 +7,9 @@
     "editor": {
       "toolbar": {
         "text": "Text"
+      },
+      "quill": {
+        "typeSomething": "Type something here..."
       }
     }
   },
@@ -17,6 +20,9 @@
       },
       "imageOptions": {
         "download": "Download"
+      },
+      "quill": {
+        "typeSomething": "Type something here..."
       }
     }
   },
@@ -24,6 +30,9 @@
     "editor": {
       "toolbar": {
         "text": "Text"
+      },
+      "quill": {
+        "typeSomething": "Type something here..."
       }
     }
   },
@@ -31,6 +40,9 @@
     "editor": {
       "toolbar": {
         "text": "Text"
+      },
+      "quill": {
+        "typeSomething": "Type something here..."
       }
     }
   },
@@ -38,6 +50,9 @@
     "editor": {
       "toolbar": {
         "text": "Text"
+      },
+      "quill": {
+        "typeSomething": "Type something here..."
       }
     }
   },
@@ -45,6 +60,9 @@
     "editor": {
       "toolbar": {
         "text": "Text"
+      },
+      "quill": {
+        "typeSomething": "Type something here..."
       }
     }
   }

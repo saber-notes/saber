@@ -72,7 +72,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         ),
         customStyles: _getQuillStyles(context, invert: invert),
         locale: TranslationProvider.of(context).flutterLocale,
-        placeholder: widget.textEditing ? "Type here" : null,
+        placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
         showCursor: true,
         keyboardAppearance: invert ? Brightness.dark : Brightness.light,
       ) : null,
