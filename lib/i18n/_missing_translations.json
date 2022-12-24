@@ -49,10 +49,10 @@
   "zh-Hans-CN": {
     "editor": {
       "toolbar": {
-        "text": "Text"
+        "text": "文本"
       },
       "quill": {
-        "typeSomething": "Type something here..."
+        "typeSomething": "在这里输入..."
       }
     }
   },
