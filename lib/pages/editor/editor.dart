@@ -65,6 +65,7 @@ class _EditorState extends State<Editor> {
 
   Tool currentTool = Pen.currentPen;
 
+  /// Whether the note has changed since it was last saved
   bool _hasEdited = false;
   Timer? _delayedSaveTimer;
 
@@ -443,8 +444,17 @@ class _EditorState extends State<Editor> {
   }
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
+
+    // avoid saving if nothing has changed
+    if (!_hasEdited) return;
+
     String toSave = _saveToString();
-    await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave);
+    try {
+      _hasEdited = false;
+      await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave);
+    } catch (e) {
+      _hasEdited = true;
+    }
   }
 
 
@@ -865,6 +875,8 @@ class _EditorState extends State<Editor> {
 
   @override
   void dispose() {
+    saveToFile();
+
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
     filenameTextEditingController.dispose();
@@ -873,11 +885,6 @@ class _EditorState extends State<Editor> {
 
     for (EditorPage page in coreInfo.pages) {
       page.quill.controller.removeListener(onQuillChange);
-    }
-
-    // avoid saving if nothing has changed
-    if (_hasEdited) {
-      saveToFile();
     }
 
     // manually save pen properties since the listeners don't fire if a property is changed
