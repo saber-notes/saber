@@ -29,10 +29,10 @@
   "it": {
     "editor": {
       "toolbar": {
-        "text": "Text"
+        "text": "Testo"
       },
       "quill": {
-        "typeSomething": "Type something here..."
+        "typeSomething": "Scrivi qualcosa qui..."
       }
     }
   },
