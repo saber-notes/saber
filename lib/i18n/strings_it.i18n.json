@@ -119,7 +119,8 @@
       "undo": "Annulla",
       "redo": "Rifai",
       "export": "Esporta (Ctrl Shift S)",
-      "exportAs": "Esporta come:"
+      "exportAs": "Esporta come:",
+      "text": "Testo"
     },
     "pens": {
       "fountainPen": "Penna stilografica",
@@ -148,6 +149,9 @@
       "subtitle": "La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?",
       "allowEditing": "Consenti modifica",
       "cancel": "Cancella"
+    },
+    "quill": {
+      "typeSomething": "Scrivi qualcosa qui..."
     }
   }
 }

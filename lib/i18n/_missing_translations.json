@@ -26,16 +26,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "toolbar": {
-        "text": "Text"
-      },
-      "quill": {
-        "typeSomething": "Type something here..."
-      }
-    }
-  },
+  "it": {},
   "ru": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
