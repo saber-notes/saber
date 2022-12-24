@@ -51,13 +51,14 @@ abstract class FileSyncer {
     // Get list of remote files from server
     List<WebDavFile> remoteFiles = await _client!.webdav.ls(
         FileManager.appRootDirectoryPrefix,
-        props: {WebDavProps.davLastModified.name}
+        props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
     );
 
     if (downloadCancellable.cancelled) return;
 
     // Add each file to download queue if needed
     await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
+    _sortDownloadQueue();
     filesDone.value = 1;
 
     if (downloadCancellable.cancelled) return;
@@ -193,6 +194,15 @@ abstract class FileSyncer {
     }
   }
 
+  /// Sorts [_downloadQueue] so that deleted files are at the end
+  static void _sortDownloadQueue() {
+    final emptyFiles = _downloadQueue.where((SyncFile file) => (file.webDavFile!.size ?? 0) == 0).toList(growable: false);
+    for (final SyncFile file in emptyFiles) {
+      _downloadQueue.remove(file);
+      _downloadQueue.add(file);
+    }
+  }
+
   static Future<bool> _downloadFile(SyncFile file) async {
     final Uint8List encryptedDataEncoded;
     try {
@@ -232,7 +242,10 @@ abstract class FileSyncer {
 
     // get remote file
     try {
-      file.webDavFile ??= (await _client!.webdav.ls(file.remotePath, props: {WebDavProps.davLastModified.name}))[0];
+      file.webDavFile ??= (await _client!.webdav.ls(
+        file.remotePath,
+        props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
+      ))[0];
     } catch (e) {
       // remote file doesn't exist; keep local
       return true;
