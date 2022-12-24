@@ -169,7 +169,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     const zeroSpacing = Tuple2<double, double>(0, 0);
 
-    return DefaultStyles.getInstance(context).merge(DefaultStyles(
+    return DefaultStyles(
       h1: DefaultTextBlockStyle(
         textTheme.headline1!,
         zeroSpacing, zeroSpacing, null
@@ -248,6 +248,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
         textTheme.bodyText1!,
         zeroSpacing, zeroSpacing, null
       ),
-    ));
+    );
   }
 }
