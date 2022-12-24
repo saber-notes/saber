@@ -36,16 +36,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "toolbar": {
-        "text": "Text"
-      },
-      "quill": {
-        "typeSomething": "Type something here..."
-      }
-    }
-  },
+  "ru": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

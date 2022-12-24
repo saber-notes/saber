@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 684 (97 per locale)
+/// Strings: 686 (98 per locale)
 ///
-/// Built on 2022-12-24 at 02:37 UTC
+/// Built on 2022-12-24 at 12:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1844,6 +1844,7 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsRu imageOptions = _StringsEditorImageOptionsRu._(_root);
 	@override late final _StringsEditorMenuRu menu = _StringsEditorMenuRu._(_root);
 	@override late final _StringsEditorNewerFileFormatRu newerFileFormat = _StringsEditorNewerFileFormatRu._(_root);
+	@override late final _StringsEditorQuillRu quill = _StringsEditorQuillRu._(_root);
 }
 
 // Path: home.tabs
@@ -2042,6 +2043,7 @@ class _StringsEditorToolbarRu extends _StringsEditorToolbarEn {
 	@override String get toggleColors => 'Выбор цвета (Ctrl C)';
 	@override String get toggleEraser => 'Ластик (Ctrl E)';
 	@override String get photo => 'Фото';
+	@override String get text => 'Текст';
 	@override String get toggleFingerDrawing => 'Рисование пальцем (Ctrl F)';
 	@override String get undo => 'Отменить';
 	@override String get redo => 'Вернуть';
@@ -2110,6 +2112,16 @@ class _StringsEditorNewerFileFormatRu extends _StringsEditorNewerFileFormatEn {
 	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
 	@override String get allowEditing => 'Разрешить редактирование';
 	@override String get cancel => 'Отмена';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillRu extends _StringsEditorQuillEn {
+	_StringsEditorQuillRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Напишите что-нибудь здесь...';
 }
 
 // Path: <root>
@@ -3466,6 +3478,7 @@ extension on _StringsRu {
 			case 'editor.toolbar.toggleColors': return 'Выбор цвета (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Ластик (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Фото';
+			case 'editor.toolbar.text': return 'Текст';
 			case 'editor.toolbar.toggleFingerDrawing': return 'Рисование пальцем (Ctrl F)';
 			case 'editor.toolbar.undo': return 'Отменить';
 			case 'editor.toolbar.redo': return 'Вернуть';
@@ -3489,6 +3502,7 @@ extension on _StringsRu {
 			case 'editor.newerFileFormat.subtitle': return 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
 			case 'editor.newerFileFormat.allowEditing': return 'Разрешить редактирование';
 			case 'editor.newerFileFormat.cancel': return 'Отмена';
+			case 'editor.quill.typeSomething': return 'Напишите что-нибудь здесь...';
 			default: return null;
 		}
 	}
