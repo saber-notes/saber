@@ -110,6 +110,7 @@ dependencies:
   animations: ^2.0.7
 
   flutter_quill: ^6.1.5
+  tuple: ^2.0.1
 
 dev_dependencies:
   test: ^1.21.4

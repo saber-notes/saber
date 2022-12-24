@@ -2,8 +2,8 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -13,6 +13,7 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -22,6 +23,10 @@ class Toolbar extends StatefulWidget {
     required this.setTool,
     required this.currentTool,
     required this.setColor,
+
+    required this.getCurrentQuill,
+    required this.textEditing,
+    required this.toggleTextEditing,
 
     required this.undo,
     required this.isUndoPossible,
@@ -40,6 +45,10 @@ class Toolbar extends StatefulWidget {
   final ValueChanged<Tool> setTool;
   final Tool currentTool;
   final ValueChanged<Color> setColor;
+
+  final QuillStruct? Function() getCurrentQuill;
+  final bool textEditing;
+  final VoidCallback toggleTextEditing;
 
   final VoidCallback undo;
   final bool isUndoPossible;
@@ -115,6 +124,8 @@ class _ToolbarState extends State<Toolbar> {
     Brightness brightness = Theme.of(context).brightness;
     bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
 
+    QuillStruct? quill = widget.getCurrentQuill();
+
     return Material(
       color: colorScheme.background,
       child: Column(
@@ -142,6 +153,23 @@ class _ToolbarState extends State<Toolbar> {
               currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
               invert: invert,
             ),
+          ),
+          Collapsible(
+            axis: CollapsibleAxis.vertical,
+            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
+            maintainState: true,
+            collapsed: !widget.textEditing || quill == null,
+            child: quill != null ? QuillToolbar.basic(
+              controller: quill.controller,
+              locale: TranslationProvider.of(context).flutterLocale,
+              toolbarIconSize: 20,
+              iconTheme: QuillIconTheme(
+                iconSelectedColor: colorScheme.onPrimary,
+              ),
+              showFontSize: false,
+              showFontFamily: false,
+              showClearFormat: false,
+            ) : const SizedBox.shrink(),
           ),
           Center(
             child: Padding(
@@ -198,6 +226,12 @@ class _ToolbarState extends State<Toolbar> {
                     tooltip: t.editor.toolbar.photo,
                     onPressed: (_) => widget.pickPhoto(),
                     child: const Icon(Icons.photo_size_select_actual),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.text,
+                    selected: widget.textEditing,
+                    onPressed: (_) => widget.toggleTextEditing(),
+                    child: const Icon(Icons.text_fields),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleFingerDrawing,

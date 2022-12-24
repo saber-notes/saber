@@ -10,6 +10,7 @@ import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quill/flutter_quill.dart' show ChangeSource;
 import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -97,6 +98,10 @@ class _EditorState extends State<Editor> {
       if (kDebugMode) print("Loaded file as read-only");
     }
 
+    for (EditorPage page in coreInfo.pages) {
+      page.quill.controller.addListener(autosaveAfterDelay);
+    }
+
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
       createPageOfStroke(-1);
     } else {
@@ -154,7 +159,10 @@ class _EditorState extends State<Editor> {
     }
 
     while (maxPageIndex >= coreInfo.pages.length - 1) {
-      coreInfo.pages.add(EditorPage());
+      coreInfo.pages.add(
+        EditorPage()
+          ..quill.controller.addListener(autosaveAfterDelay)
+      );
     }
   }
   void removeExcessPagesAfterStroke(Stroke? stroke) {
@@ -164,9 +172,11 @@ class _EditorState extends State<Editor> {
     for (int i = coreInfo.pages.length - 1; i >= minPageIndex + 1; --i) {
       /// true if this page and the page before it are empty
       final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
-          && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1);
+          && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1)
+          && coreInfo.pages[i].quill.controller.document.isEmpty();
       if (pageEmpty) {
-        coreInfo.pages.removeAt(i);
+        EditorPage page = coreInfo.pages.removeAt(i);
+        page.quill.controller.removeListener(autosaveAfterDelay);
       } else {
         break;
       }
@@ -305,6 +315,8 @@ class _EditorState extends State<Editor> {
     if (dragPageIndex == null) return false;
 
     if (Prefs.editorFingerDrawing.value || currentPressure != null) {
+      return true;
+    } else if (currentTool == Tool.textEditing) {
       return true;
     } else {
       if (kDebugMode) print("Non-stylus found, rejected stroke");
@@ -592,6 +604,7 @@ class _EditorState extends State<Editor> {
                     path: coreInfo.filePath,
                     pageIndex: pageIndex,
                     innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
+                    textEditing: currentTool == Tool.textEditing,
                     coreInfo: coreInfo.copyWith(
                       strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
                       images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
@@ -633,6 +646,37 @@ class _EditorState extends State<Editor> {
                 }
               });
             },
+
+            getCurrentQuill: () {
+              for (EditorPage page in coreInfo.pages) {
+                if (!page.quill.focusNode.hasFocus) continue;
+                return page.quill;
+              }
+              return null;
+            },
+            textEditing: currentTool == Tool.textEditing,
+            toggleTextEditing: () => setState(() {
+              if (currentTool == Tool.textEditing) {
+                currentTool = Pen.currentPen;
+                for (EditorPage page in coreInfo.pages) {
+                  page.quill.focusNode.unfocus();
+                  page.quill.controller.updateSelection( // unselect text
+                    TextSelection.collapsed(
+                      // maintain cursor position for when it regains focus
+                      offset: page.quill.controller.selection.extentOffset
+                    ),
+                    ChangeSource.LOCAL
+                  );
+                }
+              } else {
+                currentTool = Tool.textEditing;
+                int? pageIndex = currentPageIndex;
+                if (pageIndex != null) {
+                  coreInfo.pages[pageIndex].quill.focusNode.requestFocus();
+                }
+              }
+            }),
+
             undo: undo,
             isUndoPossible: history.canUndo,
             redo: redo,
@@ -813,6 +857,10 @@ class _EditorState extends State<Editor> {
     filenameTextEditingController.dispose();
 
     _removeKeybindings();
+
+    for (EditorPage page in coreInfo.pages) {
+      page.quill.controller.removeListener(autosaveAfterDelay);
+    }
 
     // avoid saving if nothing has changed
     if (_hasEdited) {

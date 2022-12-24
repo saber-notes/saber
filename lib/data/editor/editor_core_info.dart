@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -15,7 +16,7 @@ import 'package:saber/pages/editor/editor.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int fileVersion = 5;
+  static const int fileVersion = 6;
   bool readOnly = false;
 
   String filePath;
@@ -169,6 +170,7 @@ class EditorCoreInfo {
     Color? backgroundColor,
     String? backgroundPattern,
     int? lineHeight,
+    QuillController? quillController,
     List<EditorPage>? pages,
   }) {
     return EditorCoreInfo._(

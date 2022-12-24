@@ -12,6 +12,7 @@ class Canvas extends StatelessWidget {
     required this.path,
     required this.pageIndex,
     required this.innerCanvasKey,
+    required this.textEditing,
     required this.coreInfo,
     required this.currentStroke,
   });
@@ -19,6 +20,7 @@ class Canvas extends StatelessWidget {
   final String path;
   final int pageIndex;
 
+  final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
 
@@ -33,8 +35,10 @@ class Canvas extends StatelessWidget {
         child: ClipRect(
           child: InnerCanvas(
             key: innerCanvasKey,
+            pageIndex: pageIndex,
             width: pageSize.width,
             height: pageSize.height,
+            textEditing: textEditing,
             coreInfo: coreInfo,
             currentStroke: currentStroke,
           ),
