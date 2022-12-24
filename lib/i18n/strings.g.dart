@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 682 (97 per locale)
+/// Strings: 684 (97 per locale)
 ///
-/// Built on 2022-12-24 at 02:12 UTC
+/// Built on 2022-12-24 at 02:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2646,6 +2646,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
+	@override late final _StringsEditorQuillZhHantTw quill = _StringsEditorQuillZhHantTw._(_root);
 }
 
 // Path: home.tabs
@@ -2849,6 +2850,7 @@ class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
 	@override String get redo => '重做';
 	@override String get export => '匯出 (Ctrl Shift S)';
 	@override String get exportAs => '匯出為：';
+	@override String get text => '文本';
 }
 
 // Path: editor.pens
@@ -2912,6 +2914,16 @@ class _StringsEditorNewerFileFormatZhHantTw extends _StringsEditorNewerFileForma
 	@override String get readOnlyMode => '唯讀模式';
 	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 	@override String get allowEditing => '允許編輯';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillZhHantTw extends _StringsEditorQuillEn {
+	_StringsEditorQuillZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => '在這裡輸入一些內容...';
 }
 
 /// Flat map(s) containing all translations.
@@ -3687,6 +3699,7 @@ extension on _StringsZhHantTw {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '匯出為：';
+			case 'editor.toolbar.text': return '文本';
 			case 'editor.pens.fountainPen': return '鋼筆';
 			case 'editor.pens.ballpointPen': return '原子筆';
 			case 'editor.pens.highlighter': return '螢光筆';
@@ -3705,6 +3718,7 @@ extension on _StringsZhHantTw {
 			case 'editor.newerFileFormat.readOnlyMode': return '唯讀模式';
 			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 			case 'editor.newerFileFormat.allowEditing': return '允許編輯';
+			case 'editor.quill.typeSomething': return '在這裡輸入一些內容...';
 			default: return null;
 		}
 	}

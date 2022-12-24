@@ -47,14 +47,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "toolbar": {
-        "text": "文本"
-      },
-      "quill": {
-        "typeSomething": "在這裡輸入一些內容..."
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
