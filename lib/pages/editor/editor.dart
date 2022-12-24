@@ -99,7 +99,7 @@ class _EditorState extends State<Editor> {
     }
 
     for (EditorPage page in coreInfo.pages) {
-      page.quill.controller.addListener(autosaveAfterDelay);
+      page.quill.controller.addListener(onQuillChange);
     }
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
@@ -151,17 +151,24 @@ class _EditorState extends State<Editor> {
     if (pageIndex != null) {
       maxPageIndex = pageIndex;
     } else {
-      if (coreInfo.strokes.isEmpty) {
-        maxPageIndex = 0;
+      if (coreInfo.isEmpty) {
+        maxPageIndex = -1;
       } else {
-        maxPageIndex = coreInfo.strokes.map((e) => e.pageIndex).reduce(max);
+        maxPageIndex = [
+          coreInfo.strokes.isNotEmpty ? coreInfo.strokes.map((e) => e.pageIndex).reduce(max) : -1,
+          coreInfo.images.isNotEmpty ? coreInfo.images.map((e) => e.pageIndex).reduce(max) : -1,
+        ].reduce(max);
+
+        if (coreInfo.pages.length > maxPageIndex && !coreInfo.pages[coreInfo.pages.length - 1].quill.controller.document.isEmpty()) {
+          maxPageIndex = coreInfo.pages.length;
+        }
       }
     }
 
     while (maxPageIndex >= coreInfo.pages.length - 1) {
       coreInfo.pages.add(
         EditorPage()
-          ..quill.controller.addListener(autosaveAfterDelay)
+          ..quill.controller.addListener(onQuillChange)
       );
     }
   }
@@ -173,10 +180,11 @@ class _EditorState extends State<Editor> {
       /// true if this page and the page before it are empty
       final pageEmpty = !coreInfo.strokes.any((stroke) => stroke.pageIndex == i || stroke.pageIndex == i - 1)
           && !coreInfo.images.any((image) => image.pageIndex == i || image.pageIndex == i - 1)
-          && coreInfo.pages[i].quill.controller.document.isEmpty();
+          && coreInfo.pages[i].quill.controller.document.isEmpty()
+          && coreInfo.pages[i - 1].quill.controller.document.isEmpty();
       if (pageEmpty) {
         EditorPage page = coreInfo.pages.removeAt(i);
-        page.quill.controller.removeListener(autosaveAfterDelay);
+        page.quill.controller.removeListener(onQuillChange);
       } else {
         break;
       }
@@ -412,6 +420,11 @@ class _EditorState extends State<Editor> {
     setState(() {
       coreInfo.images.remove(image);
     });
+    autosaveAfterDelay();
+  }
+
+  onQuillChange() {
+    createPageOfStroke();
     autosaveAfterDelay();
   }
 
@@ -859,7 +872,7 @@ class _EditorState extends State<Editor> {
     _removeKeybindings();
 
     for (EditorPage page in coreInfo.pages) {
-      page.quill.controller.removeListener(autosaveAfterDelay);
+      page.quill.controller.removeListener(onQuillChange);
     }
 
     // avoid saving if nothing has changed
