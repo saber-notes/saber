@@ -46,7 +46,11 @@ class _PreviewCardState extends State<PreviewCard> {
     double fullHeight = coreInfo.pages.isNotEmpty ? coreInfo.pages[0].size.height : EditorPage.defaultHeight;
     double maxY = coreInfo.strokes.isEmpty ? 0 : coreInfo.strokes.map((stroke) => stroke.maxY).reduce(max);
     for (EditorImage image in coreInfo.images) {
-      if (image.dstRect.bottom > maxY) maxY = image.dstRect.bottom;
+      maxY = max(maxY, image.dstRect.bottom);
+    }
+    if (coreInfo.pages.isNotEmpty && !coreInfo.pages[0].quill.controller.document.isEmpty()) {
+      // this does not account for text that wraps to the next line
+      maxY = max(maxY, coreInfo.pages[0].quill.controller.document.toPlainText().split("\n").length * coreInfo.lineHeight * 1.0);
     }
     return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
   }
@@ -72,6 +76,7 @@ class _PreviewCardState extends State<PreviewCard> {
           .toList(growable: false)
           // use thumbnail to reduce memory usage
           ..forEach((image) => image.isThumbnail = true),
+      pages: coreInfo.pages.isNotEmpty ? [coreInfo.pages[0]] : [],
     );
 
     if (mounted) setState(() {});
