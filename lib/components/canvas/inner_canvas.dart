@@ -138,29 +138,32 @@ class _InnerCanvasState extends State<InnerCanvas> {
     );
     textTheme = textTheme.copyWith(
       bodyText1: (textTheme.bodyText1 ?? defaultStyle).copyWith(
-        fontSize: lineHeight * 0.6,
-        height: 1 / 0.6,
+        fontSize: lineHeight * 0.7,
+        height: 1 / 0.7,
       ),
       headline1: (textTheme.headline1 ?? defaultStyle).copyWith(
-        fontSize: lineHeight * 0.85,
-        height: 1 / 0.85,
-        color: defaultStyle.color,
-        decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.9),
-      ),
-      headline2: (textTheme.headline2 ?? defaultStyle).copyWith(
-        fontSize: lineHeight * 0.775,
-        height: 1 / 0.775,
+        fontSize: lineHeight * 1.15,
+        height: 1 / 1.15,
         color: defaultStyle.color,
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.6),
+        decorationThickness: 3,
       ),
-      headline3: (textTheme.headline3 ?? defaultStyle).copyWith(
-        fontSize: lineHeight * 0.7,
-        height: 1 / 0.7,
+      headline2: (textTheme.headline2 ?? defaultStyle).copyWith(
+        fontSize: lineHeight * 1,
+        height: 1 / 1,
         color: defaultStyle.color,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.3),
+        decorationColor: defaultStyle.color?.withOpacity(0.5),
+        decorationThickness: 3,
+      ),
+      headline3: (textTheme.headline3 ?? defaultStyle).copyWith(
+        fontSize: lineHeight * 0.9,
+        height: 1 / 0.9,
+        color: defaultStyle.color,
+        decoration: TextDecoration.underline,
+        decorationColor: defaultStyle.color?.withOpacity(0.4),
+        decorationThickness: 3,
       ),
     );
 
