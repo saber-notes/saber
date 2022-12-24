@@ -59,6 +59,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.0" type="development" date="2022-12-24">
+            <description>
+                <ul>
+                    <li>You can now type in notes!</li>
+                    <li>Minor bug fixes</li>
+                    <li>Added Russian translations, thanks @ShevT</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.4.9" type="development" date="2022-12-20">
             <description>
                 <ol>
