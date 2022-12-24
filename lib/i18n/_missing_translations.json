@@ -46,16 +46,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "toolbar": {
-        "text": "文本"
-      },
-      "quill": {
-        "typeSomething": "在这里输入..."
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {
       "toolbar": {

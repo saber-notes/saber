@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 680 (97 per locale)
+/// Strings: 682 (97 per locale)
 ///
-/// Built on 2022-12-24 at 01:36 UTC
+/// Built on 2022-12-24 at 02:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2239,6 +2239,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
+	@override late final _StringsEditorQuillZhHansCn quill = _StringsEditorQuillZhHansCn._(_root);
 }
 
 // Path: home.tabs
@@ -2442,6 +2443,7 @@ class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
 	@override String get redo => '重做';
 	@override String get export => '导出 (Ctrl Shift S)';
 	@override String get exportAs => '导出为：';
+	@override String get text => '文本';
 }
 
 // Path: editor.pens
@@ -2505,6 +2507,16 @@ class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileForma
 	@override String get readOnlyMode => '只读模式';
 	@override String get subtitle => '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 	@override String get allowEditing => '允许编辑';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillZhHansCn extends _StringsEditorQuillEn {
+	_StringsEditorQuillZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => '在这里输入...';
 }
 
 // Path: <root>
@@ -3560,6 +3572,7 @@ extension on _StringsZhHansCn {
 			case 'editor.toolbar.redo': return '重做';
 			case 'editor.toolbar.export': return '导出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '导出为：';
+			case 'editor.toolbar.text': return '文本';
 			case 'editor.pens.fountainPen': return '钢笔';
 			case 'editor.pens.ballpointPen': return '圆珠笔';
 			case 'editor.pens.highlighter': return '荧光笔';
@@ -3578,6 +3591,7 @@ extension on _StringsZhHansCn {
 			case 'editor.newerFileFormat.readOnlyMode': return '只读模式';
 			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 			case 'editor.newerFileFormat.allowEditing': return '允许编辑';
+			case 'editor.quill.typeSomething': return '在这里输入...';
 			default: return null;
 		}
 	}
