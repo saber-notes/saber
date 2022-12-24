@@ -94,6 +94,10 @@ class _EditorState extends State<Editor> {
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
+    if (coreInfo.readOnly) {
+      if (kDebugMode) print("Loaded file as read-only");
+    }
+
     for (EditorPage page in coreInfo.pages) {
       page.quill.controller.addListener(autosaveAfterDelay);
     }
@@ -438,8 +442,11 @@ class _EditorState extends State<Editor> {
 
     if (newName.contains("/") || newName.isEmpty) { // if invalid name, don't rename
       _renameTimer = Timer(const Duration(milliseconds: 5000), () {
-        filenameTextEditingController.text = _filename;
-        filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: _filename.length));
+        filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
+          text: _filename,
+          selection: TextSelection.fromPosition(TextPosition(offset: _filename.length)),
+          composing: TextRange.empty,
+        );
       });
     } else { // rename after a delay
       _renameTimer = Timer(const Duration(milliseconds: 500), () {
@@ -456,8 +463,11 @@ class _EditorState extends State<Editor> {
 
     final String actualName = _filename;
     if (actualName != newName) { // update text field if renamed differently
-      filenameTextEditingController.text = actualName;
-      filenameTextEditingController.selection = TextSelection.fromPosition(TextPosition(offset: actualName.length));
+      filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
+        text: actualName,
+        selection: TextSelection.fromPosition(TextPosition(offset: actualName.length)),
+        composing: TextRange.empty,
+      );
     }
   }
 

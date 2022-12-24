@@ -134,10 +134,18 @@ abstract class FileManager {
 
     if (kIsWeb) {
       final prefs = await _prefs;
-      await prefs.remove(filePath);
+      if (prefs.containsKey(filePath)) {
+        await prefs.remove(filePath);
+      } else {
+        return;
+      }
     } else {
       final File file = File(await _documentsDirectory + filePath);
-      if (await file.exists()) await file.delete();
+      if (await file.exists()) {
+        await file.delete();
+      } else {
+        return;
+      }
     }
 
     FileSyncer.addToUploadQueue(filePath);
