@@ -75,6 +75,12 @@ class _ToolbarState extends State<Toolbar> {
   @override
   void initState() {
     _assignKeybindings();
+    SystemChrome.setSystemUIChangeCallback((bool fullscreen) async {
+      if (this.fullscreen == fullscreen) return;
+      setState(() {
+        this.fullscreen = fullscreen;
+      });
+    });
     super.initState();
   }
 
@@ -82,21 +88,25 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _ctrlE;
   Keybinding? _ctrlC;
   Keybinding? _ctrlShiftS;
+  Keybinding? _f11;
   _assignKeybindings() {
     _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
     _ctrlE = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
     _ctrlC = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
     _ctrlShiftS = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyS)], inclusive: true);
+    _f11 = Keybinding([KeyCode.from(LogicalKeyboardKey.f11)], inclusive: true);
     Keybinder.bind(_ctrlF!, widget.toggleFingerDrawing);
     Keybinder.bind(_ctrlE!, toggleEraser);
     Keybinder.bind(_ctrlC!, toggleColorOptions);
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
+    Keybinder.bind(_f11!, toggleFullscreen);
   }
   _removeKeybindings() {
     if (_ctrlF != null) Keybinder.remove(_ctrlF!);
     if (_ctrlE != null) Keybinder.remove(_ctrlE!);
     if (_ctrlC != null) Keybinder.remove(_ctrlC!);
     if (_ctrlShiftS != null) Keybinder.remove(_ctrlShiftS!);
+    if (_f11 != null) Keybinder.remove(_f11!);
   }
 
   void toggleEraser() {
@@ -114,6 +124,18 @@ class _ToolbarState extends State<Toolbar> {
   void toggleExportBar() {
     setState(() {
       showExportOptions = !showExportOptions;
+    });
+  }
+
+  bool fullscreen = false;
+  void toggleFullscreen() async {
+    if (fullscreen) {
+      await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    } else {
+      await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    }
+    setState(() {
+      fullscreen = !fullscreen;
     });
   }
 
@@ -239,6 +261,12 @@ class _ToolbarState extends State<Toolbar> {
                     onPressed: (_) => widget.toggleFingerDrawing(),
                     child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
                   ),
+                  ToolbarIconButton(
+                    tooltip: "Toggle fullscreen",
+                    selected: fullscreen,
+                    onPressed: (_) => toggleFullscreen(),
+                    child: Icon(fullscreen ? Icons.fullscreen_exit : Icons.fullscreen),
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -271,6 +299,8 @@ class _ToolbarState extends State<Toolbar> {
 
   @override
   void dispose() {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIChangeCallback(null);
     _removeKeybindings();
     super.dispose();
   }
