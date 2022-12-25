@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/pages/home/settings.dart';
@@ -30,9 +31,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
+    DynamicMaterialApp.isFullscreen.addListener(_setState);
     super.initState();
     UpdateManager.showUpdateDialog(context);
   }
+
+  void _setState() => setState(() {});
 
   Widget get body {
     switch (widget.subpage) {
@@ -49,9 +53,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // hide navbar in fullscreen whiteboard
+    if (widget.subpage == HomePage.whiteboardSubpage && DynamicMaterialApp.isFullscreen.value) {
+      return body;
+    }
+
     return ResponsiveNavbar(
       selectedIndex: HomePage.subpages.indexOf(widget.subpage),
       body: body,
     );
+  }
+
+  @override
+  void dispose() {
+    DynamicMaterialApp.isFullscreen.removeListener(_setState);
+
+    super.dispose();
   }
 }
