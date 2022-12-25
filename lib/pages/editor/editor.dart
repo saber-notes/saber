@@ -729,10 +729,10 @@ class _EditorState extends State<Editor> {
           ),
         ),
 
-        if (coreInfo.readOnlyBecauseOfVersion) SafeArea(
-          child: Collapsible(
-            collapsed: !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
-            axis: CollapsibleAxis.vertical,
+        if (coreInfo.readOnlyBecauseOfVersion) Collapsible(
+          collapsed: !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
+          axis: CollapsibleAxis.vertical,
+          child: SafeArea(
             child: ListTile(
               onTap: askUserToDisableReadOnly,
               title: Text(t.editor.newerFileFormat.readOnlyMode),
