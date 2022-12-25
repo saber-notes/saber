@@ -7,6 +7,9 @@
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "libsecret-1-dev,libjsoncpp-dev",
 			"upgradePackages": true
+		},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
 		}
 	},
 	"customizations": {
