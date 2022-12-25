@@ -770,6 +770,12 @@ class _EditorState extends State<Editor> {
         ],
       ),
       body: body,
+      floatingActionButton: DynamicMaterialApp.isFullscreen.value ? FloatingActionButton(
+        onPressed: () {
+          DynamicMaterialApp.isFullscreen.value = false;
+        },
+        child: const Icon(Icons.fullscreen_exit),
+      ) : null,
     );
   }
 
