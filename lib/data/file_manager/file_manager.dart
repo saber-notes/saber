@@ -104,7 +104,7 @@ abstract class FileManager {
     }
 
     if (!replaceExistingFile) {
-      toPath = await _suffixFilePathToMakeItUnique(toPath, fromPath);
+      toPath = await suffixFilePathToMakeItUnique(toPath, fromPath);
     }
 
     if (fromPath == toPath) return toPath;
@@ -129,7 +129,7 @@ abstract class FileManager {
     return toPath;
   }
 
-  static Future deleteFile(String filePath) async {
+  static Future deleteFile(String filePath, {bool alsoUpload = true}) async {
     filePath = _sanitisePath(filePath);
 
     if (kIsWeb) {
@@ -148,7 +148,7 @@ abstract class FileManager {
       }
     }
 
-    FileSyncer.addToUploadQueue(filePath);
+    if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
 
     _removeReferences(filePath);
     _triggerWriteWatcher();
@@ -264,7 +264,7 @@ abstract class FileManager {
     final DateTime now = DateTime.now();
     final String filePath = "$parentPath${DateFormat("yy-MM-dd").format(now)} Untitled";
 
-    return await _suffixFilePathToMakeItUnique(filePath);
+    return await suffixFilePathToMakeItUnique(filePath);
   }
 
   /// Returns a unique file path by appending a number to the end of the [filePath].
@@ -272,7 +272,8 @@ abstract class FileManager {
   ///
   /// Providing a [currentPath] means that e.g. "/Untitled (2)" being renamed
   /// to "/Untitled" will be returned as "/Untitled (2)" not "/Untitled (3)".
-  static Future<String> _suffixFilePathToMakeItUnique(String filePath, [String? currentPath]) async {
+  @visibleForTesting
+  static Future<String> suffixFilePathToMakeItUnique(String filePath, [String? currentPath]) async {
     String newFilePath = filePath;
     bool hasExtension = false;
 
