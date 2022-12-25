@@ -9,6 +9,7 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
@@ -75,14 +76,14 @@ class _ToolbarState extends State<Toolbar> {
   @override
   void initState() {
     _assignKeybindings();
-    SystemChrome.setSystemUIChangeCallback((bool fullscreen) async {
-      if (this.fullscreen == fullscreen) return;
-      setState(() {
-        this.fullscreen = fullscreen;
-      });
-    });
+
+    DynamicMaterialApp.isFullscreen.addListener(_setState);
+    SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
+
     super.initState();
   }
+
+  void _setState() => setState(() { });
 
   Keybinding? _ctrlF;
   Keybinding? _ctrlE;
@@ -127,16 +128,11 @@ class _ToolbarState extends State<Toolbar> {
     });
   }
 
-  bool fullscreen = false;
   void toggleFullscreen() async {
-    if (fullscreen) {
-      await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    } else {
-      await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    }
-    setState(() {
-      fullscreen = !fullscreen;
-    });
+    DynamicMaterialApp.isFullscreen.value = !DynamicMaterialApp.isFullscreen.value;
+  }
+  Future<void> _onFullscreenChange(bool fullscreen) async {
+    DynamicMaterialApp.isFullscreen.value = fullscreen;
   }
 
   @override
@@ -263,9 +259,9 @@ class _ToolbarState extends State<Toolbar> {
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.fullscreen,
-                    selected: fullscreen,
+                    selected: DynamicMaterialApp.isFullscreen.value,
                     onPressed: (_) => toggleFullscreen(),
-                    child: Icon(fullscreen ? Icons.fullscreen_exit : Icons.fullscreen),
+                    child: Icon(DynamicMaterialApp.isFullscreen.value ? Icons.fullscreen_exit : Icons.fullscreen),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -299,8 +295,10 @@ class _ToolbarState extends State<Toolbar> {
 
   @override
   void dispose() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     SystemChrome.setSystemUIChangeCallback(null);
+    DynamicMaterialApp.isFullscreen.removeListener(_setState);
+    DynamicMaterialApp.isFullscreen.value = false;
+
     _removeKeybindings();
     super.dispose();
   }
