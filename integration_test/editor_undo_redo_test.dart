@@ -2,6 +2,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 import 'test_globals.dart';
@@ -10,8 +11,9 @@ void main() {
   testWidgets('Editor: undo/redo buttons interaction test', (tester) async {
     initialiseForTests();
 
+    const String filePath = "/tests/editor_undo_redo_test";
     final Editor editor = Editor(
-      path: "/tests/editor_undo_redo_test",
+      path: filePath,
       embedded: true,
     );
     await tester.pumpWidget(MaterialApp(
@@ -64,6 +66,8 @@ void main() {
     await tester.pump();
     expect(tester.widget<IconButton>(undoBtnFinder).onPressed == null, isFalse, reason: "Undo button should be enabled after undo and draw");
     expect(tester.widget<IconButton>(redoBtnFinder).onPressed == null, isTrue, reason: "Redo button should be disabled after undo and draw");
+
+    FileManager.deleteFile(filePath + Editor.extension);
   });
 }
 
