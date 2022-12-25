@@ -17,7 +17,6 @@ import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:window_manager/window_manager.dart';
 
 class Toolbar extends StatefulWidget {
   const Toolbar({
@@ -69,7 +68,7 @@ class Toolbar extends StatefulWidget {
   State<Toolbar> createState() => _ToolbarState();
 }
 
-class _ToolbarState extends State<Toolbar> with WindowListener {
+class _ToolbarState extends State<Toolbar> {
 
   bool showColorOptions = false;
   bool showExportOptions = false;
@@ -79,8 +78,6 @@ class _ToolbarState extends State<Toolbar> with WindowListener {
     _assignKeybindings();
 
     DynamicMaterialApp.isFullscreen.addListener(_setState);
-    SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
-    windowManager.addListener(this);
 
     super.initState();
   }
@@ -132,17 +129,6 @@ class _ToolbarState extends State<Toolbar> with WindowListener {
 
   void toggleFullscreen() async {
     DynamicMaterialApp.isFullscreen.value = !DynamicMaterialApp.isFullscreen.value;
-  }
-  Future<void> _onFullscreenChange(bool fullscreen) async {
-    DynamicMaterialApp.isFullscreen.value = fullscreen;
-  }
-  @override
-  void onWindowEnterFullScreen() {
-    DynamicMaterialApp.isFullscreen.value = true;
-  }
-  @override
-  void onWindowLeaveFullScreen() {
-    DynamicMaterialApp.isFullscreen.value = false;
   }
 
   @override
@@ -305,8 +291,6 @@ class _ToolbarState extends State<Toolbar> with WindowListener {
 
   @override
   void dispose() {
-    SystemChrome.setSystemUIChangeCallback(null);
-    windowManager.removeListener(this);
     DynamicMaterialApp.isFullscreen.removeListener(_setState);
     DynamicMaterialApp.isFullscreen.value = false;
 

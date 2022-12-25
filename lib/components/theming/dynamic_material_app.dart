@@ -43,7 +43,7 @@ class DynamicMaterialApp extends StatefulWidget {
   State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
 }
 
-class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
+class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowListener {
   bool requiresCustomFont = false;
 
   @override
@@ -52,11 +52,27 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
     Prefs.accentColor.addListener(onChanged);
     Prefs.hyperlegibleFont.addListener(onChanged);
     decideOnFont();
+
+    windowManager.addListener(this);
+    SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
+
     super.initState();
   }
 
   void onChanged() {
     setState(() { });
+  }
+
+  @override
+  void onWindowEnterFullScreen() {
+    DynamicMaterialApp.isFullscreen.value = true;
+  }
+  @override
+  void onWindowLeaveFullScreen() {
+    DynamicMaterialApp.isFullscreen.value = false;
+  }
+  Future<void> _onFullscreenChange(bool fullscreen) async {
+    DynamicMaterialApp.isFullscreen.value = fullscreen;
   }
 
   /// We need to use a custom font if macOS < 10.13,
@@ -152,6 +168,9 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> {
   void dispose() {
     Prefs.appTheme.removeListener(onChanged);
     Prefs.accentColor.removeListener(onChanged);
+    windowManager.removeListener(this);
+    SystemChrome.setSystemUIChangeCallback(null);
+
     super.dispose();
   }
 }
