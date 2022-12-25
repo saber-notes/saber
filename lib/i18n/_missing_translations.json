@@ -6,7 +6,8 @@
   "de": {
     "editor": {
       "toolbar": {
-        "text": "Text"
+        "text": "Text",
+        "fullscreen": "Toggle fullscreen (F11)"
       },
       "quill": {
         "typeSomething": "Type something here..."
@@ -16,7 +17,8 @@
   "es": {
     "editor": {
       "toolbar": {
-        "text": "Text"
+        "text": "Text",
+        "fullscreen": "Toggle fullscreen (F11)"
       },
       "imageOptions": {
         "download": "Download"
@@ -26,8 +28,32 @@
       }
     }
   },
-  "it": {},
-  "ru": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "it": {
+    "editor": {
+      "toolbar": {
+        "fullscreen": "Toggle fullscreen (F11)"
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "toolbar": {
+        "fullscreen": "Toggle fullscreen (F11)"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "editor": {
+      "toolbar": {
+        "fullscreen": "Toggle fullscreen (F11)"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "toolbar": {
+        "fullscreen": "Toggle fullscreen (F11)"
+      }
+    }
+  }
 }

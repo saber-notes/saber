@@ -120,7 +120,8 @@
 			"undo": "Undo",
 			"redo": "Redo",
 			"export": "Export (Ctrl Shift S)",
-			"exportAs": "Export as:"
+			"exportAs": "Export as:",
+			"fullscreen": "Toggle fullscreen (F11)"
 		},
 		"pens": {
 			"fountainPen": "Fountain pen",
