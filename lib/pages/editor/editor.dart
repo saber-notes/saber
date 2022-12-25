@@ -747,7 +747,7 @@ class _EditorState extends State<Editor> {
     if (widget.embedded) return body;
 
     return Scaffold(
-      appBar: AppBar(
+      appBar: DynamicMaterialApp.isFullscreen.value ? null : AppBar(
         toolbarHeight: kToolbarHeight,
         title: TextField(
           decoration: const InputDecoration(
