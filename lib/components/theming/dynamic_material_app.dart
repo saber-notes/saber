@@ -9,10 +9,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/i18n/strings.g.dart';
-
 import 'package:saber/data/web/fullscreen_nonweb.dart'
   if (dart.library.html) 'package:saber/data/web/fullscreen_web.dart' as web;
+import 'package:saber/i18n/strings.g.dart';
+import 'package:window_manager/window_manager.dart';
 
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
@@ -30,9 +30,11 @@ class DynamicMaterialApp extends StatefulWidget {
     ..addListener(() {
       if (DynamicMaterialApp.isFullscreen.value) {
         web.enterFullScreen();
+        windowManager.setFullScreen(true);
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
       } else {
         web.exitFullscreen();
+        windowManager.setFullScreen(false);
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
       }
     });

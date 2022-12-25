@@ -112,6 +112,8 @@ dependencies:
   flutter_quill: ^6.1.5
   tuple: ^2.0.1
 
+  window_manager: ^0.2.8
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:
