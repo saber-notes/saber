@@ -9,6 +9,16 @@
             "request": "launch",
             "type": "dart",
             "deviceId": "web-server",
+            "args": [
+                "--web-hostname=0.0.0.0",
+                "--web-port=3000"
+            ]
+        },
+        {
+            "name": "Saber (Codespaces, release)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "web-server",
             "flutterMode": "release",
             "args": [
                 "--web-hostname=0.0.0.0",
