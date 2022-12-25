@@ -274,21 +274,21 @@ abstract class FileManager {
   /// to "/Untitled" will be returned as "/Untitled (2)" not "/Untitled (3)".
   static Future<String> _suffixFilePathToMakeItUnique(String filePath, [String? currentPath]) async {
     String newFilePath = filePath;
-    String extension = "";
+    bool hasExtension = false;
 
     if (filePath.endsWith(Editor.extension)) {
       filePath = filePath.substring(0, filePath.length - Editor.extension.length);
       newFilePath = filePath;
-      extension = Editor.extension;
+      hasExtension = true;
     }
 
     int i = 1;
-    while (await doesFileExist(newFilePath + extension) && newFilePath + extension != currentPath) {
+    while (await doesFileExist(newFilePath + Editor.extension) && newFilePath + Editor.extension != currentPath) {
       i++;
       newFilePath = "$filePath ($i)";
     }
 
-    return newFilePath + extension;
+    return newFilePath + (hasExtension ? Editor.extension : "");
   }
 
 
