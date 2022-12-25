@@ -21,6 +21,7 @@ import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/home/preview_card.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -75,6 +76,8 @@ class _EditorState extends State<Editor> {
 
   @override
   void initState() {
+    DynamicMaterialApp.isFullscreen.addListener(_setState);
+
     _initAsync();
     _assignKeybindings();
 
@@ -128,6 +131,8 @@ class _EditorState extends State<Editor> {
       setState(() {});
     }
   }
+
+  void _setState() => setState(() {});
 
   Keybinding? _ctrlZ;
   Keybinding? _ctrlY;
@@ -645,77 +650,82 @@ class _EditorState extends State<Editor> {
         ),
 
         SafeArea(
-          child: Toolbar(
-            setTool: (tool) {
-              setState(() {
-                currentTool = tool;
+          child: Collapsible(
+            axis: CollapsibleAxis.vertical,
+            collapsed: DynamicMaterialApp.isFullscreen.value,
+            maintainState: true,
+            child: Toolbar(
+              setTool: (tool) {
+                setState(() {
+                  currentTool = tool;
 
-                if (currentTool is Highlighter) {
-                  Highlighter.currentHighlighter = currentTool as Highlighter;
-                } else if (currentTool is Pen) {
-                  Pen.currentPen = currentTool as Pen;
-                }
-              });
-            },
-            currentTool: currentTool,
-            setColor: (color) {
-              setState(() {
-                updateColorBar(color);
+                  if (currentTool is Highlighter) {
+                    Highlighter.currentHighlighter = currentTool as Highlighter;
+                  } else if (currentTool is Pen) {
+                    Pen.currentPen = currentTool as Pen;
+                  }
+                });
+              },
+              currentTool: currentTool,
+              setColor: (color) {
+                setState(() {
+                  updateColorBar(color);
 
-                if (currentTool is Highlighter) {
-                  (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
-                } else if (currentTool is Pen) {
-                  (currentTool as Pen).strokeProperties.color = color;
-                }
-              });
-            },
+                  if (currentTool is Highlighter) {
+                    (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
+                  } else if (currentTool is Pen) {
+                    (currentTool as Pen).strokeProperties.color = color;
+                  }
+                });
+              },
 
-            getCurrentQuill: () {
-              for (EditorPage page in coreInfo.pages) {
-                if (!page.quill.focusNode.hasFocus) continue;
-                return page.quill;
-              }
-              return null;
-            },
-            textEditing: currentTool == Tool.textEditing,
-            toggleTextEditing: () => setState(() {
-              if (currentTool == Tool.textEditing) {
-                currentTool = Pen.currentPen;
+              getCurrentQuill: () {
                 for (EditorPage page in coreInfo.pages) {
-                  page.quill.focusNode.unfocus();
-                  page.quill.controller.updateSelection( // unselect text
-                    TextSelection.collapsed(
-                      // maintain cursor position for when it regains focus
-                      offset: page.quill.controller.selection.extentOffset
-                    ),
-                    ChangeSource.LOCAL
-                  );
+                  if (!page.quill.focusNode.hasFocus) continue;
+                  return page.quill;
                 }
-              } else {
-                currentTool = Tool.textEditing;
-                int? pageIndex = currentPageIndex;
-                if (pageIndex != null) {
-                  coreInfo.pages[pageIndex].quill.focusNode.requestFocus();
+                return null;
+              },
+              textEditing: currentTool == Tool.textEditing,
+              toggleTextEditing: () => setState(() {
+                if (currentTool == Tool.textEditing) {
+                  currentTool = Pen.currentPen;
+                  for (EditorPage page in coreInfo.pages) {
+                    page.quill.focusNode.unfocus();
+                    page.quill.controller.updateSelection( // unselect text
+                      TextSelection.collapsed(
+                        // maintain cursor position for when it regains focus
+                        offset: page.quill.controller.selection.extentOffset
+                      ),
+                      ChangeSource.LOCAL
+                    );
+                  }
+                } else {
+                  currentTool = Tool.textEditing;
+                  int? pageIndex = currentPageIndex;
+                  if (pageIndex != null) {
+                    coreInfo.pages[pageIndex].quill.focusNode.requestFocus();
+                  }
                 }
-              }
-            }),
+              }),
 
-            undo: undo,
-            isUndoPossible: history.canUndo,
-            redo: redo,
-            isRedoPossible: history.canRedo,
-            toggleFingerDrawing: () {
-              setState(() {
-                Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
-                lastSeenPointerCount = 0;
-              });
-            },
+              undo: undo,
+              isUndoPossible: history.canUndo,
+              redo: redo,
+              isRedoPossible: history.canRedo,
+              toggleFingerDrawing: () {
+                setState(() {
+                  Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
+                  lastSeenPointerCount = 0;
+                });
+              },
 
-            pickPhoto: pickPhoto,
+              pickPhoto: pickPhoto,
 
-            exportAsSbn: exportAsSbn,
-            exportAsPdf: exportAsPdf,
-            exportAsPng: null,
+              exportAsSbn: exportAsSbn,
+              exportAsPdf: exportAsPdf,
+              exportAsPng: null,
+            ),
           ),
         ),
 
@@ -876,6 +886,8 @@ class _EditorState extends State<Editor> {
   @override
   void dispose() {
     saveToFile();
+
+    DynamicMaterialApp.isFullscreen.removeListener(_setState);
 
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
