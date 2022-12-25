@@ -719,7 +719,7 @@ class _EditorState extends State<Editor> {
           ),
         ),
 
-        SafeArea(
+        if (coreInfo.readOnlyBecauseOfVersion) SafeArea(
           child: Collapsible(
             collapsed: !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
             axis: CollapsibleAxis.vertical,
