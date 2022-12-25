@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 688 (98 per locale)
+/// Strings: 689 (98 per locale)
 ///
-/// Built on 2022-12-24 at 17:50 UTC
+/// Built on 2022-12-25 at 16:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -459,6 +459,7 @@ class _StringsEditorToolbarEn {
 	String get redo => 'Redo';
 	String get export => 'Export (Ctrl Shift S)';
 	String get exportAs => 'Export as:';
+	String get fullscreen => 'Toggle fullscreen (F11)';
 }
 
 // Path: editor.pens
@@ -3044,6 +3045,7 @@ extension on _StringsEn {
 			case 'editor.toolbar.redo': return 'Redo';
 			case 'editor.toolbar.export': return 'Export (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Export as:';
+			case 'editor.toolbar.fullscreen': return 'Toggle fullscreen (F11)';
 			case 'editor.pens.fountainPen': return 'Fountain pen';
 			case 'editor.pens.ballpointPen': return 'Ballpoint pen';
 			case 'editor.pens.highlighter': return 'Highlighter';

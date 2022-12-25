@@ -262,7 +262,7 @@ class _ToolbarState extends State<Toolbar> {
                     child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
                   ),
                   ToolbarIconButton(
-                    tooltip: "Toggle fullscreen",
+                    tooltip: t.editor.toolbar.fullscreen,
                     selected: fullscreen,
                     onPressed: (_) => toggleFullscreen(),
                     child: Icon(fullscreen ? Icons.fullscreen_exit : Icons.fullscreen),
