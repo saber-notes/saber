@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +22,15 @@ class DynamicMaterialApp extends StatefulWidget {
   final String title;
   final Color defaultSwatch;
   final GoRouter router;
+
+  static ValueNotifier<bool> isFullscreen = ValueNotifier(false)
+    ..addListener(() {
+      if (DynamicMaterialApp.isFullscreen.value) {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+      } else {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+      }
+    });
 
   @override
   State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
