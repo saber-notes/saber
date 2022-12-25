@@ -11,6 +11,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
+import 'package:saber/data/web/fullscreen_nonweb.dart'
+  if (dart.library.html) 'package:saber/data/web/fullscreen_web.dart' as web;
+
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
     super.key,
@@ -26,8 +29,10 @@ class DynamicMaterialApp extends StatefulWidget {
   static ValueNotifier<bool> isFullscreen = ValueNotifier(false)
     ..addListener(() {
       if (DynamicMaterialApp.isFullscreen.value) {
+        web.enterFullScreen();
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
       } else {
+        web.exitFullscreen();
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
       }
     });
