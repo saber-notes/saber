@@ -35,13 +35,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "toolbar": {
-        "fullscreen": "Toggle fullscreen (F11)"
-      }
-    }
-  },
+  "ru": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
