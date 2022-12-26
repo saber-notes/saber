@@ -42,12 +42,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "toolbar": {
-        "fullscreen": "切换全屏 (F11)"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

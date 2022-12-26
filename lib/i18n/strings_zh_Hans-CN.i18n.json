@@ -120,7 +120,8 @@
       "redo": "重做",
       "export": "导出 (Ctrl Shift S)",
       "exportAs": "导出为：",
-      "text": "文本"
+      "text": "文本",
+      "fullscreen": "切换全屏 (F11)"
     },
     "pens": {
       "fountainPen": "钢笔",
