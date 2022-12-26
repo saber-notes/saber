@@ -99,7 +99,6 @@ class EditorImage {
       'y': dstRect.top,
       'w': dstRect.width,
       'h': dstRect.height,
-      't': thumbnailBytes,
       'b': bytes,
     };
 
@@ -110,6 +109,8 @@ class EditorImage {
 
     if (naturalSize.width != 0) json['nw'] = naturalSize.width;
     if (naturalSize.height != 0) json['nh'] = naturalSize.height;
+
+    if (thumbnailBytes != null) json['t'] = thumbnailBytes!;
 
     return json;
   }
@@ -148,7 +149,7 @@ class EditorImage {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
         thumbnailBytes = await Executor().execute(fun2: _resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
       } else { // no need to resize
-        thumbnailBytes = bytes;
+        thumbnailBytes = null; // will fall back to full-size image
       }
     }
     if (isThumbnail) {
