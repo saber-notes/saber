@@ -29,13 +29,21 @@ class DynamicMaterialApp extends StatefulWidget {
   static ValueNotifier<bool> isFullscreen = ValueNotifier(false)
     ..addListener(() {
       if (DynamicMaterialApp.isFullscreen.value) {
-        web.enterFullScreen();
-        windowManager.setFullScreen(true);
-        SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+        if (kIsWeb) {
+          web.enterFullScreen();
+        } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+          windowManager.setFullScreen(true);
+        } else {
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+        }
       } else {
-        web.exitFullscreen();
-        windowManager.setFullScreen(false);
-        SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+        if (kIsWeb) {
+          web.exitFullscreen();
+        } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+          windowManager.setFullScreen(false);
+        } else {
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+        }
       }
     });
 
