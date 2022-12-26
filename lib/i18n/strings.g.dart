@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 691 (98 per locale)
+/// Strings: 692 (98 per locale)
 ///
-/// Built on 2022-12-26 at 03:01 UTC
+/// Built on 2022-12-26 at 15:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2062,6 +2062,7 @@ class _StringsEditorToolbarRu extends _StringsEditorToolbarEn {
 	@override String get redo => 'Вернуть';
 	@override String get export => 'Экспорт (Ctrl Shift S)';
 	@override String get exportAs => 'Сохранить как:';
+	@override String get fullscreen => 'Полноэкранный режим (F11)';
 }
 
 // Path: editor.pens
@@ -3502,6 +3503,7 @@ extension on _StringsRu {
 			case 'editor.toolbar.redo': return 'Вернуть';
 			case 'editor.toolbar.export': return 'Экспорт (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Сохранить как:';
+			case 'editor.toolbar.fullscreen': return 'Полноэкранный режим (F11)';
 			case 'editor.pens.fountainPen': return 'Перьевая ручка';
 			case 'editor.pens.ballpointPen': return 'Шариковая ручка';
 			case 'editor.pens.highlighter': return 'Маркер';
