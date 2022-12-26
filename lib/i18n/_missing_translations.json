@@ -64,11 +64,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarShowInFullscreen": "在全螢幕模式中顯示編輯器工具列"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
