@@ -627,6 +627,8 @@ class _EditorState extends State<Editor> {
 
             child: Column(
               children: [
+                const SizedBox(height: 16),
+                const SizedBox(height: 16),
                 for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) ...[
                   Canvas(
                     path: coreInfo.filePath,
@@ -643,7 +645,8 @@ class _EditorState extends State<Editor> {
                     }(),
                   ),
                   const SizedBox(height: 16),
-                ]
+                ],
+                const SizedBox(height: 16),
               ],
             ),
           ),
