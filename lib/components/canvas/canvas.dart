@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 
@@ -32,15 +33,24 @@ class Canvas extends StatelessWidget {
 
     return Center(
       child: FittedBox(
-        child: ClipRect(
-          child: InnerCanvas(
-            key: innerCanvasKey,
-            pageIndex: pageIndex,
-            width: pageSize.width,
-            height: pageSize.height,
-            textEditing: textEditing,
-            coreInfo: coreInfo,
-            currentStroke: currentStroke,
+        child: Container(
+          decoration: BoxDecoration(
+            boxShadow: [BoxShadow(
+              color: Colors.black.withOpacity(0.1), // dark regardless of theme
+              blurRadius: 10,
+              spreadRadius: 2,
+            )],
+          ),
+          child: ClipRect(
+            child: InnerCanvas(
+              key: innerCanvasKey,
+              pageIndex: pageIndex,
+              width: pageSize.width,
+              height: pageSize.height,
+              textEditing: textEditing,
+              coreInfo: coreInfo,
+              currentStroke: currentStroke,
+            ),
           ),
         ),
       ),
