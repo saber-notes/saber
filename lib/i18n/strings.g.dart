@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 692 (98 per locale)
+/// Strings: 693 (99 per locale)
 ///
-/// Built on 2022-12-26 at 15:57 UTC
+/// Built on 2022-12-26 at 19:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -306,6 +306,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
 	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
+	String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
 	String get editorStraightenLines => 'Press and hold to straighten a line';
@@ -2979,6 +2980,7 @@ extension on _StringsEn {
 			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlegible font';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Automatically check for Saber updates';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Align the editor toolbar to the bottom';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Show the editor toolbar in fullscreen mode';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invert notes in dark mode';
 			case 'settings.prefLabels.preferGreyscale': return 'Prefer greyscale colors';
 			case 'settings.prefLabels.editorStraightenLines': return 'Press and hold to straighten a line';

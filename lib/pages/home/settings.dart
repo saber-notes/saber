@@ -92,6 +92,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   pref: Prefs.editorToolbarOnBottom,
                 ),
                 SettingsSwitch(
+                  title: t.settings.prefLabels.editorToolbarShowInFullscreen,
+                  pref: Prefs.editorToolbarShowInFullscreen,
+                ),
+                SettingsSwitch(
                   title: t.settings.prefLabels.editorAutoInvert,
                   subtitle: t.settings.prefDescriptions.editorAutoInvert,
                   pref: Prefs.editorAutoInvert,

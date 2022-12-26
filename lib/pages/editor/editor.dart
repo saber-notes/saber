@@ -655,7 +655,7 @@ class _EditorState extends State<Editor> {
         SafeArea(
           child: Collapsible(
             axis: CollapsibleAxis.vertical,
-            collapsed: DynamicMaterialApp.isFullscreen.value,
+            collapsed: DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value,
             maintainState: true,
             child: Toolbar(
               setTool: (tool) {
@@ -773,7 +773,7 @@ class _EditorState extends State<Editor> {
         ],
       ),
       body: body,
-      floatingActionButton: DynamicMaterialApp.isFullscreen.value ? FloatingActionButton(
+      floatingActionButton: (DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
         onPressed: () {
           DynamicMaterialApp.isFullscreen.value = false;
         },

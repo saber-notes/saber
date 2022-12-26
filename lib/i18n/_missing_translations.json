@@ -4,6 +4,11 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "de": {
+    "settings": {
+      "prefLabels": {
+        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+      }
+    },
     "editor": {
       "toolbar": {
         "text": "Text",
@@ -15,6 +20,11 @@
     }
   },
   "es": {
+    "settings": {
+      "prefLabels": {
+        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+      }
+    },
     "editor": {
       "toolbar": {
         "text": "Text",
@@ -29,13 +39,36 @@
     }
   },
   "it": {
+    "settings": {
+      "prefLabels": {
+        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+      }
+    },
     "editor": {
       "toolbar": {
         "fullscreen": "Toggle fullscreen (F11)"
       }
     }
   },
-  "ru": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+      }
+    }
+  }
 }

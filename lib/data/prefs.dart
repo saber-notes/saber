@@ -36,6 +36,7 @@ abstract class Prefs {
   static late final PlainPref<bool> hyperlegibleFont;
 
   static late final PlainPref<bool> editorToolbarOnBottom;
+  static late final PlainPref<bool> editorToolbarShowInFullscreen;
   static late final PlainPref<bool> editorFingerDrawing;
   static late final PlainPref<bool> editorAutoInvert;
   static late final PlainPref<bool> preferGreyscale;
@@ -79,6 +80,7 @@ abstract class Prefs {
     hyperlegibleFont = PlainPref("hyperlegibleFont", false);
 
     editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
+    editorToolbarShowInFullscreen = PlainPref("editorToolbarShowInFullscreen", true);
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
     preferGreyscale = PlainPref("preferGreyscale", false);

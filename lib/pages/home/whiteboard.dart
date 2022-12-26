@@ -41,7 +41,7 @@ class Whiteboard extends StatelessWidget {
         path: filePath,
         embedded: true,
       ),
-      floatingActionButton: DynamicMaterialApp.isFullscreen.value ? FloatingActionButton(
+      floatingActionButton: (DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
         onPressed: () {
           DynamicMaterialApp.isFullscreen.value = false;
         },

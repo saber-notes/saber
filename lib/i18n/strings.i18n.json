@@ -28,6 +28,7 @@
 			"hyperlegibleFont": "Hyperlegible font",
 			"shouldCheckForUpdates": "Automatically check for Saber updates",
 			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
+			"editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
 			"editorAutoInvert": "Invert notes in dark mode",
 			"preferGreyscale": "Prefer greyscale colors",
 			"editorStraightenLines": "Press and hold to straighten a line",
