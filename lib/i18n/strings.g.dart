@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 689 (98 per locale)
+/// Strings: 690 (98 per locale)
 ///
-/// Built on 2022-12-25 at 16:55 UTC
+/// Built on 2022-12-26 at 00:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2876,6 +2876,7 @@ class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
 	@override String get export => '匯出 (Ctrl Shift S)';
 	@override String get exportAs => '匯出為：';
 	@override String get text => '文本';
+	@override String get fullscreen => '切換到全螢幕 (F11)';
 }
 
 // Path: editor.pens
@@ -3730,6 +3731,7 @@ extension on _StringsZhHantTw {
 			case 'editor.toolbar.export': return '匯出 (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return '匯出為：';
 			case 'editor.toolbar.text': return '文本';
+			case 'editor.toolbar.fullscreen': return '切換到全螢幕 (F11)';
 			case 'editor.pens.fountainPen': return '鋼筆';
 			case 'editor.pens.ballpointPen': return '原子筆';
 			case 'editor.pens.highlighter': return '螢光筆';

@@ -49,11 +49,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "toolbar": {
-        "fullscreen": "切換到全螢幕 (F11)"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
