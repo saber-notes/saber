@@ -1,0 +1,52 @@
+name: Run tests
+
+on:
+  # Enable manual run
+  workflow_dispatch:
+  pull_request:
+  push:
+    tags:
+      - '**'
+
+env:
+  project-id: com.adilhanney.saber
+
+jobs:
+  run-tests:
+    name: Run Flutter tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Remove unneeded files
+        run: |
+          rm -rf android
+          rm -rf appimage
+          rm -rf assets_raw
+          rm -rf flatpak
+          rm -rf installers
+          rm -rf ios
+          rm -rf linux
+          rm -rf macos
+          rm -rf metadata
+          rm -rf snap
+          rm -rf submodules
+          rm -rf web
+          rm -rf windows
+
+      - name: Install Flutter dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test

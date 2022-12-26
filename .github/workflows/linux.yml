@@ -3,7 +3,6 @@ name: Build for Linux
 on:
   # Enable manual run
   workflow_dispatch:
-  pull_request:
   push:
     tags:
       - '**'
