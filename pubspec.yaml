@@ -116,6 +116,8 @@ dependencies:
 
   worker_manager: ^4.4.9
 
+  flutter_native_splash: ^2.2.16
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:
@@ -194,3 +196,23 @@ icons_launcher:
     macos:
       enable: true
       image_path: "assets/icon/icon_opaque.png"
+
+flutter_native_splash:
+  # Customize the parameters below, and run the following command in the terminal:
+  # flutter pub run flutter_native_splash:create
+  # To restore Flutter's default white splash screen, run the following command in the terminal:
+  # flutter pub run flutter_native_splash:remove
+  # See https://pub.dev/packages/flutter_native_splash for more information.
+
+  # Use color to set the background of your splash screen to a solid color.
+  color: "#ffffff"
+  color_dark: "#000000"
+
+  # The image parameter allows you to specify an image used in the splash screen.  It must be a
+  # png file and should be sized for 4x pixel density.
+  image: assets/icon/icon.png
+
+  # disable generating a splash screen on a given platform.
+  android: false
+  ios: false
+  #web: false
