@@ -4,6 +4,8 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:image/image.dart' as image;
+import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class EditorImage {
@@ -18,7 +20,10 @@ class EditorImage {
   Uint8List? invertedBytesCache;
 
   Uint8List? thumbnailBytes;
+  Uint8List? invertedThumbnailBytes;
   Size thumbnailSize = Size.zero;
+
+  bool loaded = false;
 
   bool _isThumbnail = false;
   bool get isThumbnail => _isThumbnail;
@@ -28,6 +33,9 @@ class EditorImage {
       bytes = thumbnailBytes!;
       final scale = thumbnailSize.width / naturalSize.width;
       srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale, srcRect.width * scale, srcRect.height * scale);
+    }
+    if (isThumbnail && invertedThumbnailBytes != null) {
+      invertedBytesCache = invertedThumbnailBytes;
     }
   }
 
@@ -85,6 +93,7 @@ class EditorImage {
           json['nh'] ?? 0,
         ),
         thumbnailBytes = json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
+        invertedThumbnailBytes = json['it'] != null ? Uint8List.fromList((json['it'] as List<dynamic>).cast<int>()) : null,
         bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []) {
     _getImage(allowCalculations: allowCalculations);
   }
@@ -111,6 +120,7 @@ class EditorImage {
     if (naturalSize.height != 0) json['nh'] = naturalSize.height;
 
     if (thumbnailBytes != null) json['t'] = thumbnailBytes!;
+    if (invertible && invertedThumbnailBytes != null) json['it'] = invertedThumbnailBytes!;
 
     return json;
   }
@@ -155,6 +165,15 @@ class EditorImage {
     if (isThumbnail) {
       isThumbnail = true; // updates bytes and srcRect
     }
+
+    if (invertible && (invertedThumbnailBytes?.isEmpty ?? true) && allowCalculations) {
+      invertedThumbnailBytes = await Executor().execute(fun1: invertImageIsolate, arg1: thumbnailBytes ?? bytes);
+    }
+    if (isThumbnail) {
+      isThumbnail = true;
+    }
+
+    loaded = true;
   }
 
   /// Resizes [before] to fit inside [max] while maintaining aspect ratio
@@ -185,6 +204,26 @@ class EditorImage {
     return image.encodePng(decoded) as Uint8List;
   }
 
+  /// Inverts each pixel of the image
+  static Uint8List? invertImageIsolate(Uint8List originalImageBytes, TypeSendPort port) {
+    image.Image? decoded = image.decodeImage(originalImageBytes);
+    if (decoded == null) return null;
+
+    for (int x = 0; x < decoded.width; ++x) {
+      for (int y = 0; y < decoded.height; ++y) {
+        int pixel = decoded.getPixel(x, y);
+        int r = image.getRed(pixel),
+            g = image.getGreen(pixel),
+            b = image.getBlue(pixel),
+            a = image.getAlpha(pixel);
+        Color inverted = Color.fromRGBO(r, g, b, 1).withInversion();
+        int invertedInt = image.getColor(inverted.red, inverted.green, inverted.blue, a);
+        decoded.setPixel(x, y, invertedInt);
+      }
+    }
+
+    return image.encodePng(decoded) as Uint8List;
+  }
 }
 
 class _ResizeImageIsolateInfo {

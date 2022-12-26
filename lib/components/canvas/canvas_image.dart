@@ -5,9 +5,7 @@ import 'dart:typed_data';
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -89,11 +87,24 @@ class _CanvasImageState extends State<CanvasImage> {
 
   Future invertImage() async {
     if (!mounted) return;
-    if (widget.image.invertedBytesCache != null) return;
+
+    // wait for thumbnail to be inverted if needed
+    while (!widget.image.loaded) {
+      await Future.delayed(const Duration(milliseconds: 50));
+    }
+
+    if (widget.image.isThumbnail || widget.image.thumbnailBytes == null) {
+      // if image is a thumbnail (or thumbnail sized), we've already inverted it
+      return;
+    } else if (widget.image.invertedBytesCache != null) {
+      // if we've already inverted the image, use the cached version
+      return;
+    }
+
     if (invertStarted) return;
     invertStarted = true;
 
-    Uint8List? inverted = await Executor().execute(fun1: invertImageIsolate, arg1: widget.image.bytes);
+    Uint8List? inverted = await Executor().execute(fun1: EditorImage.invertImageIsolate, arg1: widget.image.bytes);
     if (!mounted) return;
     if (inverted == null) return;
     setState(() {
@@ -187,9 +198,24 @@ class _CanvasImageState extends State<CanvasImage> {
                             duration: const Duration(milliseconds: 500),
                             switchInCurve: Curves.easeOut,
                             switchOutCurve: Curves.easeIn,
-                            child: (imageBrightness == Brightness.dark && widget.image.invertedBytesCache != null)
-                              ? Image.memory(widget.image.invertedBytesCache!, fit: BoxFit.contain, key: Key("Image${widget.image.id}-dark"))
-                              : Image.memory(widget.image.bytes, fit: BoxFit.contain, key: Key("Image${widget.image.id}-light")),
+                            child: (){
+                              Uint8List bytes = widget.image.bytes;
+                              String keySuffix = "light";
+                              if (imageBrightness == Brightness.dark) {
+                                if (widget.image.invertedBytesCache != null) {
+                                  bytes = widget.image.invertedBytesCache!;
+                                  keySuffix = "dark";
+                                } else if (widget.image.invertedThumbnailBytes != null) {
+                                  bytes = widget.image.invertedThumbnailBytes!;
+                                  keySuffix = "dark-thumbnail";
+                                }
+                              }
+                              return Image.memory(
+                                bytes,
+                                fit: BoxFit.contain,
+                                key: Key("Image${widget.image.id}-$keySuffix"),
+                              );
+                            }(),
                             layoutBuilder: (currentChild, previousChildren) {
                               return SizedBox(
                                 width: widget.image.naturalSize.width,
@@ -251,26 +277,6 @@ class _CanvasImageState extends State<CanvasImage> {
         );
       },
     );
-  }
-
-  static Uint8List? invertImageIsolate(Uint8List originalImageBytes, TypeSendPort port) {
-    image.Image? decoded = image.decodeImage(originalImageBytes);
-    if (decoded == null) return null;
-
-    for (int x = 0; x < decoded.width; ++x) {
-      for (int y = 0; y < decoded.height; ++y) {
-        int pixel = decoded.getPixel(x, y);
-        int r = image.getRed(pixel),
-            g = image.getGreen(pixel),
-            b = image.getBlue(pixel),
-            a = image.getAlpha(pixel);
-        Color inverted = Color.fromRGBO(r, g, b, 1).withInversion();
-        int invertedInt = image.getColor(inverted.red, inverted.green, inverted.blue, a);
-        decoded.setPixel(x, y, invertedInt);
-      }
-    }
-
-    return image.encodePng(decoded) as Uint8List;
   }
 }
 
