@@ -121,6 +121,7 @@
 			"redo": "Вернуть",
 			"export": "Экспорт (Ctrl Shift S)",
 			"exportAs": "Сохранить как:"
+			"fullscreen": "Полноэкранный режим (F11)"
 		},
 		"pens": {
 			"fountainPen": "Перьевая ручка",
