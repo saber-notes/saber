@@ -70,6 +70,8 @@ class _PreviewCardState extends State<PreviewCard> {
 
     EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath, readOnly: true);
     this.coreInfo = coreInfo.copyWith( // only keep first page
+      readOnly: true,
+      readOnlyBecauseOfVersion: false,
       strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList(growable: false),
       images: coreInfo.images
           .where((image) => image.pageIndex == 0)
