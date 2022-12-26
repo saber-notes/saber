@@ -11,6 +11,7 @@ import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:worker_manager/worker_manager.dart';
 
 class CanvasImage extends StatefulWidget {
   CanvasImage({
@@ -92,7 +93,7 @@ class _CanvasImageState extends State<CanvasImage> {
     if (invertStarted) return;
     invertStarted = true;
 
-    Uint8List? inverted = await compute(invertImageIsolate, widget.image.bytes);
+    Uint8List? inverted = await Executor().execute(fun1: invertImageIsolate, arg1: widget.image.bytes);
     if (!mounted) return;
     if (inverted == null) return;
     setState(() {
@@ -252,9 +253,7 @@ class _CanvasImageState extends State<CanvasImage> {
     );
   }
 
-  /// synchronous function run on an isolate using [compute]
-  /// https://api.flutter.dev/flutter/foundation/compute-constant.html
-  static Uint8List? invertImageIsolate(Uint8List originalImageBytes) {
+  static Uint8List? invertImageIsolate(Uint8List originalImageBytes, TypeSendPort port) {
     image.Image? decoded = image.decodeImage(originalImageBytes);
     if (decoded == null) return null;
 

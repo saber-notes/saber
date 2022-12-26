@@ -114,6 +114,8 @@ dependencies:
 
   window_manager: ^0.2.8
 
+  worker_manager: ^4.4.9
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:

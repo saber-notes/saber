@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:image/image.dart' as image;
+import 'package:worker_manager/worker_manager.dart';
 
 class EditorImage {
   /// id for this image, unique within a note
@@ -122,7 +123,7 @@ class EditorImage {
       if (naturalSize.width != reducedSize.width && allowCalculations) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
 
-        Uint8List? resized = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, reducedSize));
+        Uint8List? resized = await Executor().execute(fun2: _resizeImageIsolate, arg1: bytes, arg2: reducedSize);
         if (resized != null) bytes = resized;
 
         naturalSize = reducedSize;
@@ -145,7 +146,7 @@ class EditorImage {
       thumbnailSize = resize(naturalSize, const Size(300, 300));
       if (thumbnailSize.width != naturalSize.width) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
-        thumbnailBytes = await compute(_resizeImageIsolate, _ResizeImageIsolateInfo(bytes, thumbnailSize));
+        thumbnailBytes = await Executor().execute(fun2: _resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
       } else { // no need to resize
         thumbnailBytes = bytes;
       }
@@ -174,11 +175,11 @@ class EditorImage {
   }
 
   /// Resizes the image to [newSize]
-  static Uint8List? _resizeImageIsolate(_ResizeImageIsolateInfo info) {
-    image.Image? decoded = image.decodeImage(info.bytes);
+  static Uint8List? _resizeImageIsolate(Uint8List bytes, Size newSize, TypeSendPort port) {
+    image.Image? decoded = image.decodeImage(bytes);
     if (decoded == null) return null;
 
-    decoded = image.copyResize(decoded, width: info.newSize.width.toInt(), height: info.newSize.height.toInt());
+    decoded = image.copyResize(decoded, width: newSize.width.toInt(), height: newSize.height.toInt());
 
     return image.encodePng(decoded) as Uint8List;
   }

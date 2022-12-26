@@ -14,14 +14,17 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/nextcloud/login.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:worker_manager/worker_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    await windowManager.ensureInitialized();
-  }
+  await Future.wait([
+    if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS))
+      windowManager.ensureInitialized(),
+    Executor().warmUp(),
+  ]);
   LocaleSettings.useDeviceLocale();
   runApp(TranslationProvider(child: App()));
   startSyncAfterUsernameLoaded();

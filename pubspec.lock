@@ -1193,6 +1193,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.8"
+  worker_manager:
+    dependency: "direct main"
+    description:
+      name: worker_manager
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.5.0"
   xdg_directories:
     dependency: transitive
     description:
