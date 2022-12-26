@@ -12,6 +12,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:worker_manager/worker_manager.dart';
 
 class EditorCoreInfo {
   /// The version of the file format.
@@ -134,7 +135,7 @@ class EditorCoreInfo {
     if (jsonString == null) return EditorCoreInfo(filePath: path, readOnly: readOnly);
 
     try {
-      final dynamic json = jsonDecode(jsonString);
+      final dynamic json = await Executor().execute(fun1: _jsonDecodeIsolate, arg1: jsonString);
       if (json is List) { // old format
         return EditorCoreInfo.fromOldJson(json, filePath: path);
       } else {
@@ -151,6 +152,10 @@ class EditorCoreInfo {
         return EditorCoreInfo(filePath: path, readOnly: readOnly);
       }
     }
+  }
+
+  static dynamic _jsonDecodeIsolate(String json, TypeSendPort port) {
+    return jsonDecode(json);
   }
 
   Map<String, dynamic> toJson() => {
