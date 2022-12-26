@@ -64,11 +64,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
