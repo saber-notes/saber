@@ -28,6 +28,7 @@
 			"hyperlegibleFont": "Гипер разборчивый шрифт",
 			"shouldCheckForUpdates": "Автоматически проверять обновления Saber",
 			"editorToolbarOnBottom": "Выровнять панель инструментов редактора по нижнему краю",
+			"editorToolbarShowInFullscreen": "Панель инструментов редактора в полноэкранном режиме",
 			"editorAutoInvert": "Инвертировать заметки в тёмном режиме",
 			"preferGreyscale": "Предпочтение оттенкам серого",
 			"editorStraightenLines": "Нажать и удерживать, чтобы выпрямить линию",
