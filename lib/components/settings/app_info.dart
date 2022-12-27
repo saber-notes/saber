@@ -40,6 +40,7 @@ class _AppInfoState extends State<AppInfo> {
     List<String> info = [
       "v${packageInfo.version}",
       FlavorConfig.flavor,
+      FlavorConfig.dirty ? t.appInfo.dirty : "",
       kDebugMode ? t.appInfo.debug : "",
       "($buildNumber)",
     ];
