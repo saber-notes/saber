@@ -60,7 +60,7 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+        "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏"
       }
     }
   },
