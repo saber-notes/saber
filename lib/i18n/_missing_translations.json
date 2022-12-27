@@ -50,13 +50,7 @@
       }
     }
   },
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
-      }
-    }
-  },
+  "ru": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

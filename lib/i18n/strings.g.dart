@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 695 (99 per locale)
+/// Strings: 696 (99 per locale)
 ///
-/// Built on 2022-12-27 at 02:45 UTC
+/// Built on 2022-12-27 at 17:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1910,6 +1910,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get editorToolbarOnBottom => 'Выровнять панель инструментов редактора по нижнему краю';
+	@override String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
 	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
@@ -3438,6 +3439,7 @@ extension on _StringsRu {
 			case 'settings.prefLabels.hyperlegibleFont': return 'Гипер разборчивый шрифт';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Автоматически проверять обновления Saber';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Выровнять панель инструментов редактора по нижнему краю';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Show the editor toolbar in fullscreen mode';
 			case 'settings.prefLabels.editorAutoInvert': return 'Инвертировать заметки в тёмном режиме';
 			case 'settings.prefLabels.preferGreyscale': return 'Предпочтение оттенкам серого';
 			case 'settings.prefLabels.editorStraightenLines': return 'Нажать и удерживать, чтобы выпрямить линию';
