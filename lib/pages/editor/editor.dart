@@ -658,6 +658,8 @@ class _EditorState extends State<Editor> {
             collapsed: DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value,
             maintainState: true,
             child: Toolbar(
+              readOnly: coreInfo.readOnly,
+
               setTool: (tool) {
                 setState(() {
                   currentTool = tool;

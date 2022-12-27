@@ -8,6 +8,7 @@ class ToolbarIconButton extends StatelessWidget {
     super.key,
     this.tooltip,
     this.selected = false,
+    this.enabled = true,
     required this.onPressed,
 
     this.modal,
@@ -19,6 +20,7 @@ class ToolbarIconButton extends StatelessWidget {
 
   final String? tooltip;
   final bool selected;
+  final bool enabled;
   final void Function(ToolbarIconButton button)? onPressed;
 
   final Widget? modal;
@@ -31,13 +33,13 @@ class ToolbarIconButton extends StatelessWidget {
 
     return Ink(
       decoration: ShapeDecoration(
-        color: selected ? colorScheme.primary : null,
+        color: (selected && enabled) ? colorScheme.primary : null,
         shape: const CircleBorder(),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 6.0),
       child: IconButton(
-        color: selected ? colorScheme.onPrimary : colorScheme.primary,
-        onPressed: onPressed != null ? () => onPressed!(this) : null,
+        color: (selected && enabled) ? colorScheme.onPrimary : colorScheme.primary,
+        onPressed: (onPressed != null && enabled) ? () => onPressed!(this) : null,
         tooltip: tooltip,
         iconSize: 20,
         splashRadius: 20,

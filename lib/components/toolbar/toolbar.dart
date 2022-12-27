@@ -21,6 +21,9 @@ import 'package:saber/i18n/strings.g.dart';
 class Toolbar extends StatefulWidget {
   const Toolbar({
     super.key,
+
+    required this.readOnly,
+
     required this.setTool,
     required this.currentTool,
     required this.setColor,
@@ -42,6 +45,8 @@ class Toolbar extends StatefulWidget {
     required this.exportAsPdf,
     required this.exportAsPng,
   });
+
+  final bool readOnly;
 
   final ValueChanged<Tool> setTool;
   final Tool currentTool;
@@ -195,6 +200,7 @@ class _ToolbarState extends State<Toolbar> {
                   ToolbarIconButton(
                     tooltip: Pen.currentPen.name,
                     selected: widget.currentTool == Pen.currentPen,
+                    enabled: !widget.readOnly,
                     onPressed: (button) {
                       if (widget.currentTool == Pen.currentPen) {
                         button.openModal(context);
@@ -211,6 +217,7 @@ class _ToolbarState extends State<Toolbar> {
                   ToolbarIconButton(
                     tooltip: t.editor.pens.highlighter,
                     selected: widget.currentTool == Highlighter.currentHighlighter,
+                    enabled: !widget.readOnly,
                     onPressed: (button) {
                       if (widget.currentTool == Highlighter.currentHighlighter) {
                         button.openModal(context);
@@ -227,35 +234,41 @@ class _ToolbarState extends State<Toolbar> {
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleColors,
                     selected: showColorOptions,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => toggleColorOptions(),
                     child: const Icon(Icons.palette),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleEraser,
                     selected: widget.currentTool is Eraser,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => toggleEraser(),
                     child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.photo,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => widget.pickPhoto(),
                     child: const Icon(Icons.photo_size_select_actual),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.text,
                     selected: widget.textEditing,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => widget.toggleTextEditing(),
                     child: const Icon(Icons.text_fields),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleFingerDrawing,
                     selected: Prefs.editorFingerDrawing.value,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => widget.toggleFingerDrawing(),
                     child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.fullscreen,
                     selected: DynamicMaterialApp.isFullscreen.value,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => toggleFullscreen(),
                     child: Icon(DynamicMaterialApp.isFullscreen.value ? Icons.fullscreen_exit : Icons.fullscreen),
                   ),
@@ -264,12 +277,14 @@ class _ToolbarState extends State<Toolbar> {
                     children: [
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.undo,
-                        onPressed: widget.isUndoPossible ? (_) => widget.undo() : null,
+                        enabled: !widget.readOnly && widget.isUndoPossible,
+                        onPressed: (_) => widget.undo(),
                         child: const Icon(Icons.undo),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.redo,
-                        onPressed: widget.isRedoPossible ? (_) => widget.redo() : null,
+                        enabled: !widget.readOnly && widget.isRedoPossible,
+                        onPressed: (_) => widget.redo(),
                         child: const Icon(Icons.redo),
                       ),
                     ],
@@ -277,6 +292,7 @@ class _ToolbarState extends State<Toolbar> {
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.export,
                     selected: showExportOptions,
+                    enabled: !widget.readOnly,
                     onPressed: (_) => toggleExportBar(),
                     child: Icon(Icons.adaptive.share),
                   ),
