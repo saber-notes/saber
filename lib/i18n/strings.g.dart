@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 694 (99 per locale)
+/// Strings: 695 (99 per locale)
 ///
-/// Built on 2022-12-26 at 23:17 UTC
+/// Built on 2022-12-27 at 02:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2323,6 +2323,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => '按住拉直线段';
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 	@override String get editorPromptRename => '提示您重命名新笔记';
+	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 }
 
 // Path: settings.prefDescriptions
@@ -3558,6 +3559,7 @@ extension on _StringsZhHansCn {
 			case 'settings.prefLabels.editorStraightenLines': return '按住拉直线段';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return '离开应用后清除白板';
 			case 'settings.prefLabels.editorPromptRename': return '提示您重命名新笔记';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return '在全屏模式中显示编辑菜单栏';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';

@@ -32,7 +32,8 @@
       "preferGreyscale": "使用灰度颜色",
       "editorStraightenLines": "按住拉直线段",
       "autoClearWhiteboardOnExit": "离开应用后清除白板",
-      "editorPromptRename": "提示您重命名新笔记"
+      "editorPromptRename": "提示您重命名新笔记",
+      "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",

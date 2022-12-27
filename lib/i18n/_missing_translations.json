@@ -57,12 +57,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
