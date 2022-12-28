@@ -41,7 +41,12 @@ jobs:
           channel: stable
 
       - name: Build apk
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
         run: flutter build apk
+
+      - name: Build apk (dirty)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        run: flutter build apk -t lib/main_dirty.dart
 
       - name: Sign apk
         uses: Tlaster/android-sign@v1.2.2
