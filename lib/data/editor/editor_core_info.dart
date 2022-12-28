@@ -44,7 +44,6 @@ class EditorCoreInfo {
         lineHeight = Prefs.lastLineHeight.value,
         pages = [];
 
-  /// used in EditorCoreInfo.copyWith(...)
   EditorCoreInfo._({
     required this.filePath,
     required this.readOnly,
@@ -56,26 +55,37 @@ class EditorCoreInfo {
     required this.backgroundPattern,
     required this.lineHeight,
     required this.pages,
-  });
-
-  EditorCoreInfo.fromJson(Map<String, dynamic> json, {
-    required this.filePath,
-    bool readOnly = false,
-  }):
-        readOnly = readOnly || (json["v"] as int? ?? 0) > fileVersion,
-        readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > fileVersion,
-        strokes = _parseStrokesJson(json["s"] as List),
-        images = _parseImagesJson(
-          json["i"] as List? ?? [],
-          allowCalculations: !(readOnly || (json["v"] as int? ?? 0) > fileVersion), // !this.readOnly
-        ),
-        nextImageId = json["ni"] as int? ?? 0,
-        backgroundColor = json["b"] != null ? Color(json["b"] as int) : null,
-        backgroundPattern = json["p"] as String? ?? CanvasBackgroundPatterns.none,
-        lineHeight = json["l"] as int? ?? Prefs.lastLineHeight.value,
-        pages = _parsePagesJson(json["z"] as List?) {
-    _handleEmptyPages(json["w"] as double?, json["h"] as double?);
+    double? fallbackPageWidth,
+    double? fallbackPageHeight,
+  }) {
+    _handleEmptyPages(fallbackPageWidth, fallbackPageHeight);
     _handleEmptyImageIds();
+  }
+
+  factory EditorCoreInfo.fromJson(Map<String, dynamic> json, {
+    required String filePath,
+    bool readOnly = false,
+  }) {
+    bool readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > fileVersion;
+    readOnly = readOnly || readOnlyBecauseOfVersion;
+
+    return EditorCoreInfo._(
+      filePath: filePath,
+      readOnly: readOnly,
+      readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
+      strokes: _parseStrokesJson(json["s"] as List),
+      images: _parseImagesJson(
+        json["i"] as List? ?? [],
+        allowCalculations: !readOnly,
+      ),
+      nextImageId: json["ni"] as int? ?? 0,
+      backgroundColor: json["b"] != null ? Color(json["b"] as int) : null,
+      backgroundPattern: json["p"] as String? ?? CanvasBackgroundPatterns.none,
+      lineHeight: json["l"] as int? ?? Prefs.lastLineHeight.value,
+      pages: _parsePagesJson(json["z"] as List?),
+      fallbackPageWidth: json["w"] as double?,
+      fallbackPageHeight: json["h"] as double?,
+    );
   }
   /// Old json format is just a list of strokes
   EditorCoreInfo.fromOldJson(List<dynamic> json, {
