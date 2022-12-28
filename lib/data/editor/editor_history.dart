@@ -4,6 +4,8 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
 class EditorHistory {
+  static const int maxHistoryLength = 100;
+
   /// A stack of the changes that have been made in the editor.
   /// The last element is used when undoing.
   ///
@@ -48,6 +50,7 @@ class EditorHistory {
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
     _past.add(item);
+    if (_past.length > maxHistoryLength) _past.removeAt(0);
     _isRedoPossible = false;
   }
 
