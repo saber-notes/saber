@@ -210,7 +210,7 @@ flutter_native_splash:
 
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
-  image: assets/icon/icon.png
+  image: assets/icon/resized/icon-512x512.png
 
   # disable generating a splash screen on a given platform.
   android: false

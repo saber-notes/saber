@@ -211,6 +211,7 @@ If you like Saber, please consider supporting it by:
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
+  - Web splash screen: `flutter pub run flutter_native_splash:create`
 - When updating the **translations**...
   - Run the following commands:
     - `flutter pub run slang apply --outdir=lib/i18n --locale=XX` if you need to apply _missing_translations.json
