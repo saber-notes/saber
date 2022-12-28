@@ -1,4 +1,11 @@
-// Adapted to Saber's purposes from Flutter's InteractiveViewer class
+// Adapted for Saber from Flutter's InteractiveViewer class
+// https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
+// Using this commit:
+// https://github.com/flutter/flutter/blob/64a0c19652a63292f7587a52f5f24656291ffd35/packages/flutter/lib/src/widgets/interactive_viewer.dart
+
+// Copyright 2014 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in Flutter's LICENSE file.
 
 import 'dart:math' as math;
 
