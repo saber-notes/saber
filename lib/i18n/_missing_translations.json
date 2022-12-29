@@ -47,7 +47,7 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+        "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero"
       }
     },
     "appInfo": {
@@ -55,7 +55,7 @@
     },
     "editor": {
       "toolbar": {
-        "fullscreen": "Toggle fullscreen (F11)"
+        "fullscreen": "Passa a schermo intero (F11)"
       }
     }
   },
