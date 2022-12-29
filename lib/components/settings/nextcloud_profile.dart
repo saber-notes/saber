@@ -41,12 +41,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     if (client == null) return null;
 
     final user = await client.provisioningApi.getCurrentUser();
-    _lastStorageQuota = user.ocs.data.quota;
-    _lastUsername = Prefs.username.value;
-    return _lastStorageQuota;
+    Prefs.lastStorageQuota.value = user.ocs.data.quota;
+    return Prefs.lastStorageQuota.value;
   }
-  static Quota? _lastStorageQuota;
-  static String _lastUsername = "";
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +67,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       subtitle: Text(subheading),
       trailing: loggedIn ? FutureBuilder(
         future: getStorageQuota(),
-        initialData: (_lastUsername == Prefs.username.value) ? _lastStorageQuota : null,
+        initialData: Prefs.lastStorageQuota.value,
         builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
           final Quota? quota = snapshot.data;
           return Stack(

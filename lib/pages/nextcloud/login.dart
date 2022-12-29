@@ -64,6 +64,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
       Prefs.pfp.value = base64Encode(avatar);
     });
 
+    Prefs.lastStorageQuota.value = null;
+
     if (mounted) context.pop();
   }
 
