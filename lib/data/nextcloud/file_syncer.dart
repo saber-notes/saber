@@ -23,6 +23,7 @@ abstract class FileSyncer {
   static NextcloudClient? _client;
 
   static bool _isUploadingFile = false;
+  static final ChangeNotifier uploadNotifier = ChangeNotifier();
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
@@ -153,6 +154,7 @@ abstract class FileSyncer {
       await _client!.webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
     } finally {
       _isUploadingFile = false;
+      uploadNotifier.notifyListeners();
       _uploadFileFromQueue();
     }
   }
