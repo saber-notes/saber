@@ -27,3 +27,4 @@ If applicable, add screenshots or screen recordings to help explain your problem
  - Device: [e.g. Pixel 6]
  - OS: [e.g. Android 13]
  - Version: [e.g. v0.4.5]
+ - Browser (if applicable):
