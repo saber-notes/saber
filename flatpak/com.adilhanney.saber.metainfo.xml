@@ -59,6 +59,19 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.1" type="development" date="2022-12-29">
+            <description>
+                <ul>
+                    <li>There's now a button to use the editor in fullscreen</li>
+                    <li>Undo/redo history is now limited to 100 records</li>
+                    <li>Fix bug with new notes all having the same name</li>
+                    <li>Invertible pictures won't be shown not-inverted while loading</li>
+                    <li>Reduced stutter while opening large files</li>
+                    <li>Performance improvements for notes with many pages</li>
+                    <li>Pages in the editor now have a box shadow to make them stand out from the background</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.0" type="development" date="2022-12-24">
             <description>
                 <ul>
