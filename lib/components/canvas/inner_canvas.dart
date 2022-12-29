@@ -105,9 +105,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
                 left: 0,
                 width: widget.width / InnerCanvas.quillScale,
                 height: widget.height / InnerCanvas.quillScale,
-                child: (widget.coreInfo.readOnly || !widget.textEditing) ? IgnorePointer(
+                child: IgnorePointer(
+                  ignoring: widget.coreInfo.readOnly || !widget.textEditing,
                   child: quillEditor,
-                ) : quillEditor,
+                ),
               ),
               for (final EditorImage editorImage in widget.coreInfo.images)
                 CanvasImage(
