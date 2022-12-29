@@ -62,7 +62,7 @@ abstract class Prefs {
   /// File paths that need to be uploaded to Nextcloud
   static late final PlainPref<List<String>> fileSyncUploadQueue;
   /// File paths that have been deleted locally
-  static late final PlainPref<List<String>> fileSyncAlreadyDeleted;
+  static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
 
   static late final PlainPref<bool> shouldCheckForUpdates;
 
@@ -106,7 +106,7 @@ abstract class Prefs {
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
     fileSyncUploadQueue = PlainPref("fileSyncUploadQueue", []);
-    fileSyncAlreadyDeleted = PlainPref("fileSyncAlreadyDeleted", []);
+    fileSyncAlreadyDeleted = PlainPref("fileSyncAlreadyDeleted", {});
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
 
@@ -190,7 +190,8 @@ class PlainPref<T> extends IPref<T> {
 
   PlainPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     // Accepted types
-    assert(T == bool || T == int || T == double || T == typeOf<List<String>>() || T == String
+    assert(T == bool || T == int || T == double || T == String
+        || T == typeOf<List<String>>() || T == typeOf<Set<String>>()
         || T == StrokeProperties);
   }
 
@@ -235,6 +236,8 @@ class PlainPref<T> extends IPref<T> {
       return await _prefs!.setDouble(key, value as double);
     } else if (T == typeOf<List<String>>()) {
       return await _prefs!.setStringList(key, value as List<String>);
+    } else if (T == typeOf<Set<String>>()) {
+      return await _prefs!.setStringList(key, (value as Set<String>).toList());
     } else if (T == StrokeProperties) {
       return await _prefs!.setString(key, jsonEncode(value));
     } else {
@@ -249,6 +252,8 @@ class PlainPref<T> extends IPref<T> {
         return null;
       } else if (T == typeOf<List<String>>()) {
         return _prefs!.getStringList(key) as T?;
+      } else if (T == typeOf<Set<String>>()) {
+        return _prefs!.getStringList(key)?.toSet() as T?;
       } else if (T == StrokeProperties) {
         return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!)) as T?;
       } else {
