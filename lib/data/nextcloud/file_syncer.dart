@@ -226,6 +226,13 @@ abstract class FileSyncer {
   }
 
   static Future<bool> _downloadFile(SyncFile file) async {
+    if (file.webDavFile!.size == 0) { // deleted file
+      FileManager.deleteFile(file.localPath);
+      Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
+      Prefs.fileSyncAlreadyDeleted.notifyListeners();
+      return true;
+    }
+
     final Uint8List encryptedDataEncoded;
     try {
       encryptedDataEncoded = await _client!.webdav.download(file.remotePath);
@@ -238,18 +245,11 @@ abstract class FileSyncer {
 
     try {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
-      if (encryptedDataBytesJson == deletedFileDummyContent) { // deleted file
-        FileManager.deleteFile(file.localPath);
-        Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
-        Prefs.fileSyncAlreadyDeleted.notifyListeners();
-        return true;
-      } else {
-        final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
-        final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
-        final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
-        FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
-        return true;
-      }
+      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
+      final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
+      final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+      FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+      return true;
     } catch (e) {
       if (kDebugMode) print("Failed to download file ${file.localPath} ${file.remotePath}");
       return false;
