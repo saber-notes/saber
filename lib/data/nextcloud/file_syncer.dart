@@ -16,7 +16,7 @@ abstract class FileSyncer {
   /// the file extension of an encrypted base64 note
   static const String _encExtension = ".sbe";
 
-  static PlainPref<List<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
+  static PlainPref<Queue<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
   static CancellableStruct _downloadCancellable = CancellableStruct();
 
@@ -116,7 +116,7 @@ abstract class FileSyncer {
     try {
       _isUploadingFile = true;
 
-      final String filePathUnencrypted = _uploadQueue.value.removeAt(0);
+      final String filePathUnencrypted = _uploadQueue.value.removeFirst();
       _uploadQueue.notifyListeners();
 
       final Encrypter encrypter = await _client!.encrypter;

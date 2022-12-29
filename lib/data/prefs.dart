@@ -1,4 +1,5 @@
 
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 
@@ -60,7 +61,7 @@ abstract class Prefs {
   static late final PlainPref<List<String>> recentFiles;
 
   /// File paths that need to be uploaded to Nextcloud
-  static late final PlainPref<List<String>> fileSyncUploadQueue;
+  static late final PlainPref<Queue<String>> fileSyncUploadQueue;
   /// File paths that have been deleted locally
   static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
 
@@ -105,7 +106,7 @@ abstract class Prefs {
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
-    fileSyncUploadQueue = PlainPref("fileSyncUploadQueue", []);
+    fileSyncUploadQueue = PlainPref("fileSyncUploadQueue", Queue<String>());
     fileSyncAlreadyDeleted = PlainPref("fileSyncAlreadyDeleted", {});
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
@@ -192,6 +193,7 @@ class PlainPref<T> extends IPref<T> {
     // Accepted types
     assert(T == bool || T == int || T == double || T == String
         || T == typeOf<List<String>>() || T == typeOf<Set<String>>()
+        || T == typeOf<Queue<String>>()
         || T == StrokeProperties);
   }
 
@@ -238,6 +240,8 @@ class PlainPref<T> extends IPref<T> {
       return await _prefs!.setStringList(key, value as List<String>);
     } else if (T == typeOf<Set<String>>()) {
       return await _prefs!.setStringList(key, (value as Set<String>).toList());
+    } else if (T == typeOf<Queue<String>>()) {
+      return await _prefs!.setStringList(key, (value as Queue<String>).toList());
     } else if (T == StrokeProperties) {
       return await _prefs!.setString(key, jsonEncode(value));
     } else {
@@ -254,6 +258,9 @@ class PlainPref<T> extends IPref<T> {
         return _prefs!.getStringList(key) as T?;
       } else if (T == typeOf<Set<String>>()) {
         return _prefs!.getStringList(key)?.toSet() as T?;
+      } else if (T == typeOf<Queue<String>>()) {
+        List? list = _prefs!.getStringList(key);
+        return list != null ? Queue<String>.from(list) as T : null;
       } else if (T == StrokeProperties) {
         return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!)) as T?;
       } else {
