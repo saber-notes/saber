@@ -19,6 +19,16 @@ class EditorPage {
     return _renderBox;
   }
 
+  bool _isRendered = false;
+  bool get isRendered => _isRendered;
+  set isRendered(bool isRendered) {
+    if (isRendered == _isRendered) return;
+    _isRendered = isRendered;
+
+    // reset renderBox as renderObject has changed
+    _renderBox = null;
+  }
+
   final QuillStruct quill;
 
   EditorPage({

@@ -1,10 +1,13 @@
 
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide TransformationController;
 import 'package:saber/components/canvas/canvas_zoom_indicator.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
+import 'package:saber/data/editor/page.dart';
+import 'package:vector_math/vector_math_64.dart';
 
 class CanvasGestureDetector extends StatefulWidget {
   const CanvasGestureDetector({
@@ -20,7 +23,9 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.undo,
     required this.redo,
 
-    required this.child,
+    required this.pages,
+    required this.pageBuilder,
+    required this.placeholderPageBuilder,
   });
 
   final bool Function(ScaleStartDetails scaleDetails) isDrawGesture;
@@ -35,7 +40,9 @@ class CanvasGestureDetector extends StatefulWidget {
   final VoidCallback undo;
   final VoidCallback redo;
 
-  final Widget child;
+  final List<EditorPage> pages;
+  final Widget Function(BuildContext context, int pageIndex) pageBuilder;
+  final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
 
   @override
   State<CanvasGestureDetector> createState() => _CanvasGestureDetectorState();
@@ -74,10 +81,9 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
             onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
-            child: InteractiveCanvasViewer(
+            child: InteractiveCanvasViewer.builder(
               minScale: 0.01,
               maxScale: 5,
-              constrained: false,
 
               transformationController: _transformationController,
 
@@ -87,7 +93,14 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
               onDrawUpdate: widget.onDrawUpdate,
               onDrawEnd: widget.onDrawEnd,
 
-              child: widget.child,
+              builder: (BuildContext context, Quad viewport) {
+                return _PagesBuilder(
+                  pages: widget.pages,
+                  pageBuilder: widget.pageBuilder,
+                  placeholderPageBuilder: widget.placeholderPageBuilder,
+                  boundingBox: _axisAlignedBoundingBox(viewport),
+                );
+              },
             )
           )
         ),
@@ -106,5 +119,75 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   void dispose() {
     _transformationController.removeListener(onTransformationChanged);
     super.dispose();
+  }
+
+  /// Returns the axis aligned bounding box for the given Quad,
+  /// which might not be axis aligned.
+  /// From https://api.flutter.dev/flutter/widgets/InteractiveViewer/builder.html
+  static Rect _axisAlignedBoundingBox(Quad quad) {
+    final List<Vector3> points = [
+      quad.point0,
+      quad.point1,
+      quad.point2,
+      quad.point3,
+    ];
+
+    final List<double> xValues = points.map((Vector3 point) => point.x).toList();
+    final List<double> yValues = points.map((Vector3 point) => point.y).toList();
+
+    final double left = xValues.reduce(min);
+    final double right = xValues.reduce(max);
+    final double top = yValues.reduce(min);
+    final double bottom = yValues.reduce(max);
+
+    return Rect.fromLTRB(left, top, right, bottom);
+  }
+}
+
+class _PagesBuilder extends StatelessWidget {
+  const _PagesBuilder({
+    super.key,
+
+    required this.pages,
+    required this.pageBuilder,
+    required this.placeholderPageBuilder,
+    required this.boundingBox,
+  });
+
+  final List<EditorPage> pages;
+  final Widget Function(BuildContext context, int pageIndex) pageBuilder;
+  final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
+  final Rect boundingBox;
+
+  @override
+  Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
+    final List<Widget> children = [
+      const SizedBox(height: 16),
+      const SizedBox(height: 16),
+    ];
+
+    double topOfPage = 16 * 2;
+    for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
+      final Size pageSize = pages[pageIndex].size;
+      final double pageHeight = screenWidth / pageSize.width * pageSize.height;
+      final double bottomOfPage = topOfPage + pageHeight;
+
+      if (topOfPage > boundingBox.bottom || bottomOfPage < boundingBox.top) {
+        pages[pageIndex].isRendered = false;
+        children.add(placeholderPageBuilder(context, pageIndex));
+      } else {
+        pages[pageIndex].isRendered = true;
+        children.add(pageBuilder(context, pageIndex));
+      }
+
+      children.add(const SizedBox(height: 16));
+
+      topOfPage = bottomOfPage + 16;
+    }
+
+    children.add(const SizedBox(height: 16));
+    return Column(children: children);
   }
 }

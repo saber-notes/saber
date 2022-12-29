@@ -625,30 +625,34 @@ class _EditorState extends State<Editor> {
             undo: undo,
             redo: redo,
 
-            child: Column(
-              children: [
-                const SizedBox(height: 16),
-                const SizedBox(height: 16),
-                for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) ...[
-                  Canvas(
-                    path: coreInfo.filePath,
-                    pageIndex: pageIndex,
-                    innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
-                    textEditing: currentTool == Tool.textEditing,
-                    coreInfo: coreInfo.copyWith(
-                      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
-                      images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
-                    ),
-                    currentStroke: () {
-                      Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
-                      return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
-                    }(),
-                  ),
-                  const SizedBox(height: 16),
-                ],
-                const SizedBox(height: 16),
-              ],
-            ),
+            pages: coreInfo.pages,
+            pageBuilder: (BuildContext context, int pageIndex) {
+              return Canvas(
+                path: coreInfo.filePath,
+                pageIndex: pageIndex,
+                innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
+                textEditing: currentTool == Tool.textEditing,
+                coreInfo: coreInfo.copyWith(
+                  strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == pageIndex).toList(),
+                  images: coreInfo.images.where((image) => image.pageIndex == pageIndex).toList(),
+                ),
+                currentStroke: () {
+                  Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
+                  return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
+                }(),
+              );
+            },
+            placeholderPageBuilder: (BuildContext context, int pageIndex) {
+              return Canvas(
+                path: coreInfo.filePath,
+                pageIndex: 0,
+                innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
+                textEditing: false,
+                coreInfo: EditorCoreInfo.empty,
+                currentStroke: null,
+                placeholder: true,
+              );
+            },
           ),
         ),
 

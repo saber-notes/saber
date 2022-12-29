@@ -31,6 +31,19 @@ class EditorCoreInfo {
   int lineHeight;
   List<EditorPage> pages;
 
+  static final empty = EditorCoreInfo._(
+    filePath: '',
+    readOnly: true,
+    readOnlyBecauseOfVersion: false,
+    strokes: [],
+    images: [],
+    nextImageId: 0,
+    backgroundColor: null,
+    backgroundPattern: '',
+    lineHeight: Prefs.lastLineHeight.value,
+    pages: [EditorPage()],
+  );
+
   bool get isEmpty => strokes.isEmpty && images.isEmpty && pages.every((EditorPage page) => page.quill.controller.document.isEmpty());
 
   EditorCoreInfo({

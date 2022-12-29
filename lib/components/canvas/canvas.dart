@@ -16,16 +16,19 @@ class Canvas extends StatelessWidget {
     required this.textEditing,
     required this.coreInfo,
     required this.currentStroke,
+    this.placeholder = false,
   });
 
   final String path;
   final int pageIndex;
 
+  final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
+
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
 
-  final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
+  final bool placeholder;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +44,7 @@ class Canvas extends StatelessWidget {
               spreadRadius: 2,
             )],
           ),
-          child: ClipRect(
+          child: !placeholder ? ClipRect(
             child: InnerCanvas(
               key: innerCanvasKey,
               pageIndex: pageIndex,
@@ -51,6 +54,9 @@ class Canvas extends StatelessWidget {
               coreInfo: coreInfo,
               currentStroke: currentStroke,
             ),
+          ) : SizedBox(
+            width: pageSize.width,
+            height: pageSize.height,
           ),
         ),
       ),
