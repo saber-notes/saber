@@ -1,6 +1,7 @@
 
 import 'dart:collection';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:encrypt/encrypt.dart';
@@ -114,11 +115,11 @@ abstract class FileSyncer {
     _client ??= await NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
+    final String filePathUnencrypted = _uploadQueue.value.removeFirst();
+    _uploadQueue.notifyListeners();
+
     try {
       _isUploadingFile = true;
-
-      final String filePathUnencrypted = _uploadQueue.value.removeFirst();
-      _uploadQueue.notifyListeners();
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
@@ -152,6 +153,9 @@ abstract class FileSyncer {
 
       const Utf8Encoder encoder = Utf8Encoder();
       await _client!.webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
+    } on SocketException { // network error
+      _uploadQueue.value.add(filePathUnencrypted);
+      await Future.delayed(const Duration(seconds: 2));
     } finally {
       _isUploadingFile = false;
       uploadNotifier.notifyListeners();
