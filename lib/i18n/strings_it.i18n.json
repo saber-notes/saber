@@ -32,7 +32,8 @@
       "hyperlegibleFont": "Carattere iperleggibile",
       "editorStraightenLines": "Tenere premuto per raddrizzare una linea",
       "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app",
-      "editorPromptRename": "Richiede di rinominare nuove note"
+      "editorPromptRename": "Richiede di rinominare nuove note",
+      "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero"
     },
     "themeModes": {
       "system": "Sistema",
@@ -102,7 +103,8 @@
     "debug": "DEBUG",
     "licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
     "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy",
-    "sponsorButton": "Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione"
+    "sponsorButton": "Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione",
+    "dirty": "GROSSOLANA"
   },
   "update": {
     "updateAvailable": "Aggiornamento disponibile",
@@ -120,7 +122,8 @@
       "redo": "Rifai",
       "export": "Esporta (Ctrl Shift S)",
       "exportAs": "Esporta come:",
-      "text": "Testo"
+      "text": "Testo",
+      "fullscreen": "Passa a schermo intero (F11)"
     },
     "pens": {
       "fountainPen": "Penna stilografica",

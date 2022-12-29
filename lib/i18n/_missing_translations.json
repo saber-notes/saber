@@ -44,21 +44,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero"
-      }
-    },
-    "appInfo": {
-      "dirty": "GROSSOLANA"
-    },
-    "editor": {
-      "toolbar": {
-        "fullscreen": "Passa a schermo intero (F11)"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "appInfo": {
       "dirty": "DIRTY"
