@@ -34,6 +34,12 @@ abstract class FileSyncer {
   /// This is currently just an empty string.
   static const String deletedFileDummyContent = "";
 
+  /// List of files to ignore on the server.
+  /// Prefix with a slash so we can use [filePath.endsWith]
+  static const List<String> _ignoredFiles = [
+    "/Readme.md",
+  ];
+
   static void startSync() async {
     // cancel previous sync
     _downloadCancellable.cancelled = true;
@@ -168,6 +174,13 @@ abstract class FileSyncer {
     } else {
       if (kDebugMode) print("remote file not in app root: $filePathEncrypted");
       return;
+    }
+
+    // ignored files
+    for (final String ignoredFile in _ignoredFiles) {
+      if (("/$filePathEncrypted").endsWith(ignoredFile)) {
+        return;
+      }
     }
 
     // remove extension
