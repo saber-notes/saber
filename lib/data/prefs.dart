@@ -61,6 +61,8 @@ abstract class Prefs {
 
   /// File paths that need to be uploaded to Nextcloud
   static late final PlainPref<List<String>> fileSyncUploadQueue;
+  /// File paths that have been deleted locally
+  static late final PlainPref<List<String>> fileSyncAlreadyDeleted;
 
   static late final PlainPref<bool> shouldCheckForUpdates;
 
@@ -104,6 +106,7 @@ abstract class Prefs {
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 
     fileSyncUploadQueue = PlainPref("fileSyncUploadQueue", []);
+    fileSyncAlreadyDeleted = PlainPref("fileSyncAlreadyDeleted", []);
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
 

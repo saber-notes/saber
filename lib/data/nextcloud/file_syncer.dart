@@ -194,13 +194,22 @@ abstract class FileSyncer {
     }
   }
 
-  /// Sorts [_downloadQueue] so that deleted files are at the end
+  /// Sorts [_downloadQueue] so that deleted files are at the end.
+  /// Also filters out already-deleted files
   static void _sortDownloadQueue() {
+    // list of remotely deleted files
     final emptyFiles = _downloadQueue.where((SyncFile file) => (file.webDavFile!.size ?? 0) == 0).toList(growable: false);
+
+    // move empty files to end of queue, or remove them if they are already deleted locally
     for (final SyncFile file in emptyFiles) {
+      bool alreadyDeleted = Prefs.fileSyncAlreadyDeleted.value.contains(file.localPath);
       _downloadQueue.remove(file);
-      _downloadQueue.add(file);
+      if (!alreadyDeleted) _downloadQueue.add(file);
     }
+
+    // forget un-deleted files that were previously deleted locally
+    Prefs.fileSyncAlreadyDeleted.value.removeWhere((filePath) => !Prefs.fileSyncAlreadyDeleted.value.contains(filePath));
+    Prefs.fileSyncAlreadyDeleted.notifyListeners();
   }
 
   static Future<bool> _downloadFile(SyncFile file) async {
@@ -218,6 +227,8 @@ abstract class FileSyncer {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
       if (encryptedDataBytesJson == deletedFileDummyContent) { // deleted file
         FileManager.deleteFile(file.localPath);
+        Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
+        Prefs.fileSyncAlreadyDeleted.notifyListeners();
         return true;
       } else {
         final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
