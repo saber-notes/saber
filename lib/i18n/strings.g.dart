@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 697 (99 per locale)
+/// Strings: 700 (100 per locale)
 ///
-/// Built on 2022-12-27 at 18:04 UTC
+/// Built on 2022-12-29 at 22:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1424,6 +1424,7 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	@override String get licenseButton => 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 	@override String get privacyPolicyButton => 'Tocca qui per visualizzare l\'informativa sulla privacy';
 	@override String get sponsorButton => 'Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione';
+	@override String get dirty => 'GROSSOLANA';
 }
 
 // Path: update
@@ -1509,6 +1510,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
+	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 }
 
 // Path: settings.themeModes
@@ -1657,6 +1659,7 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	@override String get export => 'Esporta (Ctrl Shift S)';
 	@override String get exportAs => 'Esporta come:';
 	@override String get text => 'Testo';
+	@override String get fullscreen => 'Passa a schermo intero (F11)';
 }
 
 // Path: editor.pens
@@ -3331,6 +3334,7 @@ extension on _StringsIt {
 			case 'settings.prefLabels.editorStraightenLines': return 'Tenere premuto per raddrizzare una linea';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Svuota la lavagna dopo essere uscito dall\'app';
 			case 'settings.prefLabels.editorPromptRename': return 'Richiede di rinominare nuove note';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
@@ -3382,6 +3386,7 @@ extension on _StringsIt {
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 			case 'appInfo.privacyPolicyButton': return 'Tocca qui per visualizzare l\'informativa sulla privacy';
 			case 'appInfo.sponsorButton': return 'Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione';
+			case 'appInfo.dirty': return 'GROSSOLANA';
 			case 'update.updateAvailable': return 'Aggiornamento disponibile';
 			case 'update.updateAvailableDescription': return 'È disponibile una nuova versione dell\'app.';
 			case 'update.dismiss': return 'Abbandona';
@@ -3395,6 +3400,7 @@ extension on _StringsIt {
 			case 'editor.toolbar.export': return 'Esporta (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Esporta come:';
 			case 'editor.toolbar.text': return 'Testo';
+			case 'editor.toolbar.fullscreen': return 'Passa a schermo intero (F11)';
 			case 'editor.pens.fountainPen': return 'Penna stilografica';
 			case 'editor.pens.highlighter': return 'Evidenziatore';
 			case 'editor.pens.ballpointPen': return 'Penna a sfera';

@@ -44,21 +44,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
-      }
-    },
-    "appInfo": {
-      "dirty": "DIRTY"
-    },
-    "editor": {
-      "toolbar": {
-        "fullscreen": "Toggle fullscreen (F11)"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "appInfo": {
       "dirty": "DIRTY"
