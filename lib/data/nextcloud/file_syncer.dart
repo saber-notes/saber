@@ -55,10 +55,17 @@ abstract class FileSyncer {
     if (_client == null) return;
 
     // Get list of remote files from server
-    List<WebDavFile> remoteFiles = await _client!.webdav.ls(
-        FileManager.appRootDirectoryPrefix,
-        props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
-    );
+    List<WebDavFile> remoteFiles;
+    try {
+      remoteFiles = await _client!.webdav.ls(
+          FileManager.appRootDirectoryPrefix,
+          props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
+      );
+    } on SocketException { // network error
+      filesDone.value = filesDoneLimit;
+      downloadCancellable.cancelled = true;
+      return;
+    }
 
     if (downloadCancellable.cancelled) return;
 
