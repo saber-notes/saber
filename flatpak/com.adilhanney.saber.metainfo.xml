@@ -63,6 +63,7 @@
             <description>
                 <ul>
                     <li>Fixed regression where the 3rd page couldn't be drawn on</li>
+                    <li>Fixed bug on desktops where pages would incorrectly be calculated as offscreen</li>
                     <li>Performance improvements with syncing</li>
                     <li>Syncing now handles being offline</li>
                 </ul>
