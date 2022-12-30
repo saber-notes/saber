@@ -37,7 +37,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   Future<Quota?> getStorageQuota() async {
-    final client = await NextcloudClientExtension.withSavedDetails();
+    final client = NextcloudClientExtension.withSavedDetails();
     if (client == null) return null;
 
     final user = await client.provisioningApi.getCurrentUser();

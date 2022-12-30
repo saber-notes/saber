@@ -15,7 +15,7 @@ void main() {
     Prefs.ncPassword.value = "test.issue.118";
     Prefs.encPassword.value = "test.issue.118";
 
-    final client = await NextcloudClientExtension.withSavedDetails();
+    final client = NextcloudClientExtension.withSavedDetails();
     expect(client != null, true, reason: "Login failed");
 
     final String key1;

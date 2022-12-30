@@ -126,7 +126,7 @@ abstract class Prefs {
 
     if (!username.value.contains("@")) return;
 
-    final client = await NextcloudClientExtension.withSavedDetails();
+    final client = NextcloudClientExtension.withSavedDetails();
     if (client == null) return;
 
     username.value = await client.getUsername();

@@ -19,7 +19,7 @@ extension NextcloudClientExtension on NextcloudClient {
 
   static const String reproducibleSalt = r"8MnPs64@R&mF8XjWeLrD";
 
-  static Future<NextcloudClient?> withSavedDetails() async {
+  static NextcloudClient? withSavedDetails() {
     String url = Prefs.url.value;
     String username = Prefs.username.value;
     String ncPassword = Prefs.ncPassword.value;

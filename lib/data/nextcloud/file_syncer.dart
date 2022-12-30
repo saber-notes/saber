@@ -51,10 +51,8 @@ abstract class FileSyncer {
     _uploadFileFromQueue();
 
     if (_client?.username != Prefs.username.value) _client = null;
-    _client ??= await NextcloudClientExtension.withSavedDetails();
+    _client ??= NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
-
-    if (downloadCancellable.cancelled) return;
 
     // Get list of remote files from server
     List<WebDavFile> remoteFiles = await _client!.webdav.ls(
@@ -112,7 +110,7 @@ abstract class FileSyncer {
     if (_uploadQueue.value.isEmpty) return;
 
     if (_client?.username != Prefs.username.value) _client = null;
-    _client ??= await NextcloudClientExtension.withSavedDetails();
+    _client ??= NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
     final String filePathUnencrypted = _uploadQueue.value.removeFirst();
