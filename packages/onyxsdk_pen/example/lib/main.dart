@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,8 +55,10 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: OnyxSdkPenArea(
+          child: Center(
+            child: Text('Running on: $_platformVersion\n'),
+          ),
         ),
       ),
     );
