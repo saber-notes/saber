@@ -19,6 +19,17 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    /*
+    // These need to be added to your project's android/build.gradle file.
+    maven {
+        url "https://jitpack.io"
+    }
+    maven {
+        url "http://repo.boox.com/repository/maven-public/"
+        allowInsecureProtocol true
+    }
+    */
 }
 
 apply plugin: 'com.android.library'
@@ -42,5 +53,10 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+    }
+
+    dependencies {
+        implementation('com.onyx.android.sdk:onyxsdk-device:1.2.16')
+        implementation('com.onyx.android.sdk:onyxsdk-pen:1.4.2')
     }
 }
