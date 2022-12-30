@@ -17,8 +17,8 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
 
     init {
         textView = TextView(context)
-        textView.textSize = 72f
-        textView.setBackgroundColor(Color.rgb(255, 255, 255))
+        textView.textSize = 36f
+        textView.setBackgroundColor(Color.argb(150, 255, 255, 255))
         textView.text = "Rendered on a native Android view (id: $id)"
     }
 }
