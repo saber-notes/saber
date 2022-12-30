@@ -10,8 +10,8 @@ class MethodChannelOnyxsdkPen extends OnyxsdkPenPlatform {
   final methodChannel = const MethodChannel('onyxsdk_pen');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<bool> isOnyxDevice() async {
+    final isOnyxDevice = await methodChannel.invokeMethod<bool>('isOnyxDevice');
+    return isOnyxDevice ?? false;
   }
 }
