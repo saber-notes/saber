@@ -171,7 +171,8 @@ class _PagesBuilder extends StatelessWidget {
     double topOfPage = 16 * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final Size pageSize = pages[pageIndex].size;
-      final double pageHeight = screenWidth / pageSize.width * pageSize.height;
+      final double pageWidth = min(pageSize.width, screenWidth); // because of FittedBox
+      final double pageHeight = pageWidth / pageSize.width * pageSize.height;
       final double bottomOfPage = topOfPage + pageHeight;
 
       if (topOfPage > boundingBox.bottom || bottomOfPage < boundingBox.top) {
