@@ -15,7 +15,7 @@ class EditorPage {
   late final CanvasKey innerCanvasKey = CanvasKey();
   RenderBox? _renderBox;
   RenderBox? get renderBox {
-    _renderBox ??= innerCanvasKey.currentState!.context.findRenderObject() as RenderBox;
+    _renderBox ??= innerCanvasKey.currentState?.context.findRenderObject() as RenderBox?;
     return _renderBox;
   }
 
