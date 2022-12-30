@@ -16,9 +16,13 @@ class OnyxsdkPenPlugin: FlutterPlugin, MethodCallHandler {
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
 
-  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "onyxsdk_pen")
+  override fun onAttachedToEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+    channel = MethodChannel(binding.binaryMessenger, "onyxsdk_pen")
     channel.setMethodCallHandler(this)
+
+    binding
+      .platformViewRegistry
+      .registerViewFactory("onyxsdk_pen_area", OnyxsdkPenAreaFactory())
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
