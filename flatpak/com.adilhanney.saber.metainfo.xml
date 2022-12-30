@@ -59,6 +59,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.2" type="development" date="2022-12-30">
+            <description>
+                <ul>
+                    <li>Fixed regression where the 3rd page couldn't be drawn on</li>
+                    <li>Performance improvements with syncing</li>
+                    <li>Syncing now handles being offline</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.1" type="development" date="2022-12-29">
             <description>
                 <ul>

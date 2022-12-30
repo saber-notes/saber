@@ -1,0 +1,3 @@
+• Fixed regression where the 3rd page couldn't be drawn on
+• Performance improvements with syncing
+• Syncing now handles being offline
