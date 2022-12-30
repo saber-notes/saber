@@ -9,7 +9,7 @@ class MockOnyxsdkPenPlatform
     implements OnyxsdkPenPlatform {
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Future<bool> isOnyxDevice() => Future.value(false);
 }
 
 void main() {
@@ -19,11 +19,11 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelOnyxsdkPen>());
   });
 
-  test('getPlatformVersion', () async {
+  test('isOnyxDevice', () async {
     OnyxsdkPen onyxsdkPenPlugin = OnyxsdkPen();
     MockOnyxsdkPenPlatform fakePlatform = MockOnyxsdkPenPlatform();
     OnyxsdkPenPlatform.instance = fakePlatform;
 
-    expect(await onyxsdkPenPlugin.getPlatformVersion(), '42');
+    expect(await onyxsdkPenPlugin.isOnyxDevice(), false);
   });
 }

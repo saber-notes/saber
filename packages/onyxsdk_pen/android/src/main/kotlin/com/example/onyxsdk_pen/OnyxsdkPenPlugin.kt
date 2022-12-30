@@ -26,8 +26,8 @@ class OnyxsdkPenPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+    if (call.method == "isOnyxDevice") {
+      result.success(android.os.Build.BRAND == "onyx") // todo: check if this is the right value
     } else {
       result.notImplemented()
     }
