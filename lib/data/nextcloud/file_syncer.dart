@@ -6,6 +6,7 @@ import 'dart:typed_data';
 
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -159,14 +160,16 @@ abstract class FileSyncer {
       const Utf8Encoder encoder = Utf8Encoder();
       final WebDavClient webdav = _client!.webdav;
       final DateTime lastModified = await FileManager.lastModified(filePathUnencrypted);
+      // DateFormat copied from nextcloud/lib/src/webdav/file.dart
+      final String lastModifiedString = DateFormat('E, d MMM yyyy HH:mm:ss', 'en_US').format(lastModified);
 
       // upload file
       await webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
 
       // set lastModified to match local file
       await webdav.updateProps(filePathRemote, {
-        WebDavProps.davLastModified.name: lastModified.toString(),
-        WebDavProps.ncUploadTime.name: lastModified.toString(),
+        WebDavProps.davLastModified.name: lastModifiedString,
+        WebDavProps.ncUploadTime.name: lastModifiedString,
       });
     } on SocketException { // network error
       _uploadQueue.value.add(filePathUnencrypted);
