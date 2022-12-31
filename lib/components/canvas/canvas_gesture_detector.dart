@@ -56,7 +56,6 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   @override
   initState() {
     setInitialTransform();
-    _transformationController.addListener(onTransformationChanged);
     super.initState();
   }
 
@@ -91,10 +90,6 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       pressure = -event.pressure;
     }
     widget.onPressureChanged(pressure);
-  }
-
-  onTransformationChanged() {
-    setState(() {});
   }
 
   @override
@@ -143,7 +138,6 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
-    _transformationController.removeListener(onTransformationChanged);
     super.dispose();
   }
 
