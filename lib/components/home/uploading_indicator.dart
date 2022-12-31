@@ -19,17 +19,17 @@ class UploadingIndicator extends StatefulWidget {
 class _UploadingIndicatorState extends State<UploadingIndicator> {
   @override
   void initState() {
+    Prefs.username.addListener(onFileUploaded);
     FileSyncer.uploadNotifier.addListener(onFileUploaded);
     super.initState();
   }
 
-  /// Called when some file is uploaded.
+  /// Called when some file is uploaded (or when login state changes)
   void onFileUploaded() {
-    if (isInUploadQueue != _isInUploadQueue()) {
-      setState(() {
-        isInUploadQueue = !isInUploadQueue;
-      });
-    }
+    if (isInUploadQueue == _isInUploadQueue()) return;
+    setState(() {
+      isInUploadQueue = !isInUploadQueue;
+    });
   }
 
   bool _isInUploadQueue() => Prefs.fileSyncUploadQueue.value.contains(widget.filePath)
@@ -38,6 +38,8 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
 
   @override
   Widget build(BuildContext context) {
+    if (Prefs.username.value.isEmpty) return const SizedBox.shrink();
+
     return Positioned(
       top: 0,
       right: 0,
@@ -54,6 +56,7 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
 
   @override
   void dispose() {
+    Prefs.username.removeListener(onFileUploaded);
     FileSyncer.uploadNotifier.removeListener(onFileUploaded);
     super.dispose();
   }
