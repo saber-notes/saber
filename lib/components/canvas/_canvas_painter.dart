@@ -60,5 +60,8 @@ class CanvasPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(CanvasPainter oldDelegate) => true;
+  bool shouldRepaint(CanvasPainter oldDelegate) {
+    return currentStroke != null
+        || strokes.length != oldDelegate.strokes.length;
+  }
 }
