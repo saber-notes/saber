@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
-import 'package:saber/components/canvas/tools/pen.dart';
 
 import '_stroke.dart';
 
@@ -14,7 +13,7 @@ class CanvasPainter extends CustomPainter {
   });
 
   final bool invert;
-  final Iterable<Stroke> strokes;
+  final List<Stroke> strokes;
   final Stroke? currentStroke;
 
   @override
@@ -42,9 +41,7 @@ class CanvasPainter extends CustomPainter {
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
         }
         paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
-        Path path = Path();
-        path.addPolygon(stroke.polygon, true);
-        canvas.drawPath(path, paint);
+        canvas.drawPath(stroke.path, paint);
       }
     }
     canvas.restore();
@@ -53,16 +50,12 @@ class CanvasPainter extends CustomPainter {
     for (final Stroke stroke in strokes) {
       if (stroke.penType == (Highlighter).toString()) continue;
       paint.color = stroke.strokeProperties.color.withInversion(invert);
-      Path path = Path();
-      path.addPolygon(stroke.polygon, true);
-      canvas.drawPath(path, paint);
+      canvas.drawPath(stroke.path, paint);
     }
 
     if (currentStroke != null) {
       paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
-      Path path = Path();
-      path.addPolygon(currentStroke!.polygon, true);
-      canvas.drawPath(path, paint);
+      canvas.drawPath(currentStroke!.path, paint);
     }
   }
 

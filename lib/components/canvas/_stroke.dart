@@ -28,12 +28,19 @@ class Stroke {
   bool _polygonNeedsUpdating = true;
 
   List<Offset>? _polygon;
+  Path? _path;
   List<Offset> get polygon {
-    if (_polygonNeedsUpdating) {
-      _polygon = _getPolygon();
-      _polygonNeedsUpdating = false;
-    }
+    if (_polygonNeedsUpdating) _updatePolygon();
     return _polygon!;
+  }
+  Path get path {
+    if (_polygonNeedsUpdating) _updatePolygon();
+    return _path!;
+  }
+  void _updatePolygon() {
+    _polygon = _getPolygon();
+    _path = Path()..addPolygon(_polygon!, true);
+    _polygonNeedsUpdating = false;
   }
 
   Stroke({
