@@ -51,6 +51,10 @@ jobs:
       - name: Run tests
         run: flutter test --reporter expanded --coverage
 
+      - name: Run tests (packages/onyxsdk_pen)
+        working-directory: packages/onyxsdk_pen
+        run: flutter test
+
       - name: Upload to Codecov
         uses: codecov/codecov-action@v3
         with:
