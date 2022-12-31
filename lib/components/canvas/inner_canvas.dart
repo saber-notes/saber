@@ -78,46 +78,48 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ) : null,
     );
 
-    return CustomPaint(
-      painter: CanvasBackgroundPainter(
-        invert: invert,
-        backgroundColor: backgroundColor,
-        backgroundPattern: widget.coreInfo.backgroundPattern,
-        lineHeight: widget.coreInfo.lineHeight,
-        primaryColor: colorScheme.primary,
-        secondaryColor: colorScheme.secondary,
-      ),
-      foregroundPainter: CanvasPainter(
-        invert: invert,
-        strokes: widget.coreInfo.strokes,
-        currentStroke: widget.currentStroke,
-      ),
-      isComplex: true,
-      willChange: widget.currentStroke != null,
-      child: SizedBox(
-        width: widget.width,
-        height: widget.height,
-        child: DeferredPointerHandler(
-          child: Stack(
-            children: [
-              Positioned(
-                top: 0,
-                left: 0,
-                width: widget.width / InnerCanvas.quillScale,
-                height: widget.height / InnerCanvas.quillScale,
-                child: IgnorePointer(
-                  ignoring: widget.coreInfo.readOnly || !widget.textEditing,
-                  child: quillEditor,
+    return RepaintBoundary(
+      child: CustomPaint(
+        painter: CanvasBackgroundPainter(
+          invert: invert,
+          backgroundColor: backgroundColor,
+          backgroundPattern: widget.coreInfo.backgroundPattern,
+          lineHeight: widget.coreInfo.lineHeight,
+          primaryColor: colorScheme.primary,
+          secondaryColor: colorScheme.secondary,
+        ),
+        foregroundPainter: CanvasPainter(
+          invert: invert,
+          strokes: widget.coreInfo.strokes,
+          currentStroke: widget.currentStroke,
+        ),
+        isComplex: true,
+        willChange: widget.currentStroke != null,
+        child: SizedBox(
+          width: widget.width,
+          height: widget.height,
+          child: DeferredPointerHandler(
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  width: widget.width / InnerCanvas.quillScale,
+                  height: widget.height / InnerCanvas.quillScale,
+                  child: IgnorePointer(
+                    ignoring: widget.coreInfo.readOnly || !widget.textEditing,
+                    child: quillEditor,
+                  ),
                 ),
-              ),
-              for (final EditorImage editorImage in widget.coreInfo.images)
-                CanvasImage(
-                  filePath: widget.coreInfo.filePath,
-                  image: editorImage,
-                  pageSize: Size(widget.width, widget.height),
-                  readOnly: widget.coreInfo.readOnly,
-                ),
-            ],
+                for (final EditorImage editorImage in widget.coreInfo.images)
+                  CanvasImage(
+                    filePath: widget.coreInfo.filePath,
+                    image: editorImage,
+                    pageSize: Size(widget.width, widget.height),
+                    readOnly: widget.coreInfo.readOnly,
+                  ),
+              ],
+            ),
           ),
         ),
       ),
