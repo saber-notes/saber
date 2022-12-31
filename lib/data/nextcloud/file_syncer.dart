@@ -157,7 +157,17 @@ abstract class FileSyncer {
       }
 
       const Utf8Encoder encoder = Utf8Encoder();
-      await _client!.webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
+      final WebDavClient webdav = _client!.webdav;
+      final DateTime lastModified = await FileManager.lastModified(filePathUnencrypted);
+
+      // upload file
+      await webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
+
+      // set lastModified to match local file
+      await webdav.updateProps(filePathRemote, {
+        WebDavProps.davLastModified.name: lastModified.toString(),
+        WebDavProps.ncUploadTime.name: lastModified.toString(),
+      });
     } on SocketException { // network error
       _uploadQueue.value.add(filePathUnencrypted);
       await Future.delayed(const Duration(seconds: 2));
