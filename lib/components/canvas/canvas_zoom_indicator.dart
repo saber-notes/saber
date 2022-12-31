@@ -29,9 +29,11 @@ class _CanvasZoomIndicatorState extends State<CanvasZoomIndicator> {
           opacity = 0;
         });
       });
-      setState(() {
-        opacity = 1;
-      });
+      if (opacity != 1) {
+        setState(() {
+          opacity = 1;
+        });
+      }
     }
   }
 
