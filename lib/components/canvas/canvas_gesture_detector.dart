@@ -24,6 +24,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.redo,
 
     required this.pages,
+    required this.initialPageIndex,
     required this.pageBuilder,
     required this.placeholderPageBuilder,
   });
@@ -41,6 +42,7 @@ class CanvasGestureDetector extends StatefulWidget {
   final VoidCallback redo;
 
   final List<EditorPage> pages;
+  final int? initialPageIndex;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
   final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
 
@@ -53,8 +55,32 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   initState() {
+    setInitialTransform();
     _transformationController.addListener(onTransformationChanged);
     super.initState();
+  }
+
+  /// When the widget is created, we still have an empty coreInfo.
+  /// Wait for [initialPageIndex] to be set before setting the initial transform.
+  @override
+  didUpdateWidget(CanvasGestureDetector oldWidget) {
+    if (oldWidget.initialPageIndex != widget.initialPageIndex) {
+      setInitialTransform();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  /// Sets the initial transform so that we're scrolled to the correct page.
+  /// Has no effect if [initialPageIndex] is null or if the user has already scrolled.
+  void setInitialTransform() {
+    if (widget.initialPageIndex == null) return;
+    if (!_transformationController.value.isIdentity()) return;
+
+    _transformationController.value = Matrix4.translationValues(
+      0,
+      -getTopOfPage(widget.initialPageIndex!),
+      0,
+    );
   }
 
   _listenerPointerEvent(PointerEvent event) {
@@ -141,6 +167,23 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final double bottom = yValues.reduce(max);
 
     return Rect.fromLTRB(left, top, right, bottom);
+  }
+
+  double getTopOfPage(int pageIndex) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
+    double top = 0;
+
+    if (pageIndex <= 0) return top;
+
+    top += 16;
+    for (int i = 0; i < pageIndex && i < widget.pages.length; i++) {
+      final pageSize = widget.pages[i].size;
+      top += 16;
+      top += screenWidth / pageSize.width * pageSize.height;
+    }
+
+    return top;
   }
 }
 

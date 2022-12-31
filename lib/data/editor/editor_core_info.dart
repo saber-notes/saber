@@ -31,6 +31,9 @@ class EditorCoreInfo {
   int lineHeight;
   List<EditorPage> pages;
 
+  /// Stores the current page index so that it can be restored when the file is reloaded.
+  int? initialPageIndex;
+
   static final empty = EditorCoreInfo._(
     filePath: '',
     readOnly: true,
@@ -42,6 +45,7 @@ class EditorCoreInfo {
     backgroundPattern: '',
     lineHeight: Prefs.lastLineHeight.value,
     pages: [EditorPage()],
+    initialPageIndex: null,
   );
 
   bool get isEmpty => strokes.isEmpty && images.isEmpty && pages.every((EditorPage page) => page.quill.controller.document.isEmpty());
@@ -68,6 +72,7 @@ class EditorCoreInfo {
     required this.backgroundPattern,
     required this.lineHeight,
     required this.pages,
+    required this.initialPageIndex,
     double? fallbackPageWidth,
     double? fallbackPageHeight,
   }) {
@@ -96,6 +101,7 @@ class EditorCoreInfo {
       backgroundPattern: json["p"] as String? ?? CanvasBackgroundPatterns.none,
       lineHeight: json["l"] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(json["z"] as List?),
+      initialPageIndex: json["c"] as int?,
       fallbackPageWidth: json["w"] as double?,
       fallbackPageHeight: json["h"] as double?,
     );
@@ -190,6 +196,7 @@ class EditorCoreInfo {
     'p': backgroundPattern,
     'l': lineHeight,
     'z': pages,
+    'c': initialPageIndex,
   };
 
   EditorCoreInfo copyWith({
@@ -216,6 +223,7 @@ class EditorCoreInfo {
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,
       lineHeight: lineHeight ?? this.lineHeight,
       pages: pages ?? this.pages,
+      initialPageIndex: initialPageIndex,
     );
   }
 }

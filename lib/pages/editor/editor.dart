@@ -445,6 +445,7 @@ class _EditorState extends State<Editor> {
 
   String get _filename => coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
   String _saveToString() {
+    coreInfo.initialPageIndex = currentPageIndex ?? coreInfo.initialPageIndex;
     return json.encode(coreInfo);
   }
   Future<void> saveToFile() async {
@@ -626,6 +627,7 @@ class _EditorState extends State<Editor> {
             redo: redo,
 
             pages: coreInfo.pages,
+            initialPageIndex: coreInfo.initialPageIndex,
             pageBuilder: (BuildContext context, int pageIndex) {
               return Canvas(
                 path: coreInfo.filePath,
