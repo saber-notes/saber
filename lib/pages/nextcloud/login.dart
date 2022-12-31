@@ -52,6 +52,10 @@ class _NcLoginPageState extends State<NcLoginPage> {
       // If the encryption password is wrong, we don't want to save it
       Prefs.encPassword.value = previousEncPassword;
       rethrow;
+    } catch (e) { // Probably a webdav error
+      Prefs.encPassword.value = previousEncPassword;
+      if (kDebugMode) rethrow;
+      throw NcLoginFailure();
     }
 
     Prefs.url.value = loginDetails.url.toString();
