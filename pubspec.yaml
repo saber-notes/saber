@@ -103,7 +103,7 @@ dependencies:
 
   defer_pointer: ^0.0.2
 
-  image: ^3.2.2
+  image: ^3.3.0
 
   image_save: ^5.0.0
 
