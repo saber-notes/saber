@@ -118,6 +118,8 @@ dependencies:
 
   flutter_native_splash: ^2.2.16
 
+  flutter_sharing_intent: ^1.0.5
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:
