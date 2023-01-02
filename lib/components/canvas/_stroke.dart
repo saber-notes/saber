@@ -65,10 +65,11 @@ class Stroke {
     'f': isComplete,
     'p': (){
       if (isStraightLine && _points.length > 1) {
+        Point last = snapLineToRightAngle(_points.first, _points.last);
         return [
           _points.first.toJson(),
-          _points.last.toJson(),
-          _points.last.toJson(),
+          last.toJson(),
+          last.toJson(),
         ];
       }
       return _points.map((Point point) => point.toJson()).toList();
