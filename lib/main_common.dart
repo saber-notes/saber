@@ -1,7 +1,11 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_sharing_intent/flutter_sharing_intent.dart';
+import 'package:flutter_sharing_intent/model/sharing_file.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -26,7 +30,7 @@ void main() async {
     Executor().warmUp(),
   ]);
   LocaleSettings.useDeviceLocale();
-  runApp(TranslationProvider(child: App()));
+  runApp(TranslationProvider(child: const App()));
   startSyncAfterUsernameLoaded();
 }
 
@@ -45,11 +49,11 @@ void startSyncAfterUsernameLoaded() async {
   FileSyncer.startSync();
 }
 
-class App extends StatelessWidget {
-  App({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
 
   static String initialLocation = pathToFunction(RoutePaths.home)({"subpage": HomePage.recentSubpage});
-  final GoRouter _router = GoRouter(
+  static final GoRouter _router = GoRouter(
     initialLocation: initialLocation,
     routes: <GoRoute>[
       GoRoute(
@@ -76,11 +80,53 @@ class App extends StatelessWidget {
     ],
   );
 
+  static void openFile(SharedFile file) async {
+    print("Opening file of type: ${file.type}");
+    print("Value: ${file.value}");
+  }
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  StreamSubscription? _intentDataStreamSubscription;
+
+  @override
+  void initState() {
+    try {
+      // for files opened while the app is closed
+      FlutterSharingIntent.instance.getInitialSharing().then((List<SharedFile> files) {
+        for (final file in files) {
+          App.openFile(file);
+        }
+      });
+
+      // for files opened while the app is open
+      final stream = FlutterSharingIntent.instance.getMediaStream();
+      _intentDataStreamSubscription = stream.listen((List<SharedFile> files) {
+        for (final file in files) {
+          App.openFile(file);
+        }
+      });
+    } on MissingPluginException {
+      // ignore
+    }
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DynamicMaterialApp(
       title: 'Saber',
-      router: _router,
+      router: App._router,
     );
+  }
+
+  @override
+  void dispose() {
+    _intentDataStreamSubscription?.cancel();
+    super.dispose();
   }
 }
