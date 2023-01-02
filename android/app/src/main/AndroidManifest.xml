@@ -17,6 +17,7 @@
         android:localeConfig="@xml/locales_config"
         android:allowBackup="false"
         android:fullBackupContent="false"
+        android:launchMode="singleTask"
         tools:targetApi="donut">
         <activity
             android:name=".MainActivity"

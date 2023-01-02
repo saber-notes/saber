@@ -4,10 +4,9 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_sharing_intent/flutter_sharing_intent.dart';
-import 'package:flutter_sharing_intent/model/sharing_file.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
@@ -80,9 +79,9 @@ class App extends StatefulWidget {
     ],
   );
 
-  static void openFile(SharedFile file) async {
+  static void openFile(SharedMediaFile file) async {
     print("Opening file of type: ${file.type}");
-    print("Value: ${file.value}");
+    print("Value: ${file.path}");
   }
 
   @override
@@ -96,15 +95,15 @@ class _AppState extends State<App> {
   void initState() {
     try {
       // for files opened while the app is closed
-      FlutterSharingIntent.instance.getInitialSharing().then((List<SharedFile> files) {
+      ReceiveSharingIntent.getInitialMedia().then((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
         }
       });
 
       // for files opened while the app is open
-      final stream = FlutterSharingIntent.instance.getMediaStream();
-      _intentDataStreamSubscription = stream.listen((List<SharedFile> files) {
+      final stream = ReceiveSharingIntent.getMediaStream();
+      _intentDataStreamSubscription = stream.listen((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
         }
