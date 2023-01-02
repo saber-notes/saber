@@ -4,9 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <!-- Storage permissions for saving photos -->
+    <!-- Needed for saving photos -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <!-- Needed for reading files opened with the app -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
    <application
         android:label="Saber"
@@ -36,6 +37,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <!-- Support opening json (.sbn) files -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/json" />
             </intent-filter>
         </activity>
 
