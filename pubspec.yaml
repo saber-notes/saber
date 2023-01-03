@@ -120,7 +120,11 @@ dependencies:
 
   # https://pub.dev/packages/flutter_sharing_intent will have better cross-platform support
   # but it's not yet ready (January 2023)
-  receive_sharing_intent: ^1.4.5
+  # Using a fork because the original uses an old version of kotlin and doesn't support text files
+  receive_sharing_intent:
+    git:
+      url: https://github.com/adil192/receive_sharing_intent.git
+      ref: receive-.txt-v2
 
 dev_dependencies:
   test: ^1.21.4
