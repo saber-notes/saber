@@ -862,9 +862,11 @@ packages:
   receive_sharing_intent:
     dependency: "direct main"
     description:
-      name: receive_sharing_intent
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: "receive-.txt-v2"
+      resolved-ref: a0ed7870fb2012a954908100d6385a2331595df8
+      url: "https://github.com/adil192/receive_sharing_intent.git"
+    source: git
     version: "1.4.5"
   screen_retriever:
     dependency: transitive
