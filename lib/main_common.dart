@@ -80,8 +80,17 @@ class App extends StatefulWidget {
   );
 
   static void openFile(SharedMediaFile file) async {
-    print("Opening file of type: ${file.type}");
-    print("Value: ${file.path}");
+    if (kDebugMode) print("Opening file: (${file.type}) ${file.path}");
+
+    if (file.type != SharedMediaType.FILE) return;
+
+    final String? path = await FileManager.importFile(file.path);
+    if (path == null) return;
+
+    // allow file to finish writing
+    await Future.delayed(const Duration(milliseconds: 100));
+
+    _router.push("${RoutePaths.edit}?path=$path");
   }
 
   @override
@@ -93,6 +102,13 @@ class _AppState extends State<App> {
 
   @override
   void initState() {
+    setupSharingIntent();
+    super.initState();
+  }
+
+  void setupSharingIntent() {
+    if (kIsWeb) return;
+
     try {
       // for files opened while the app is closed
       ReceiveSharingIntent.getInitialMedia().then((List<SharedMediaFile> files) {
@@ -111,8 +127,6 @@ class _AppState extends State<App> {
     } on MissingPluginException {
       // ignore
     }
-
-    super.initState();
   }
 
   @override

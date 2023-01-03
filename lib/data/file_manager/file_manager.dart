@@ -292,6 +292,29 @@ abstract class FileManager {
     return newFilePath + (hasExtension ? Editor.extension : "");
   }
 
+  /// Imports a file from a sharing intent.
+  /// Returns the file path of the imported file.
+  static Future<String?> importFile(String path, {bool awaitWrite = true}) async {
+    assert(!kIsWeb, "importFile is not supported on web");
+    if (kIsWeb) return null;
+
+    final String fileName = path.split('/').last;
+    final String importedPath = await suffixFilePathToMakeItUnique("/$fileName");
+
+    final File tempFile = File(path);
+    final String fileContents;
+    try {
+      fileContents = await tempFile.readAsString();
+    } catch (e) {
+      if (kDebugMode) print("Failed to read file as string when importing $path");
+      return null;
+    }
+
+    await writeFile(importedPath, fileContents, awaitWrite: awaitWrite);
+
+    return importedPath;
+  }
+
 
   /// Creates the parent directories of filePath if they don't exist.
   static Future _createFileDirectory(String filePath) async {
