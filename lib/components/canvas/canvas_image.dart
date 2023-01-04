@@ -196,8 +196,8 @@ class _CanvasImageState extends State<CanvasImage> {
                           offset: -widget.image.srcRect.topLeft,
                           child: AnimatedSwitcher(
                             duration: const Duration(milliseconds: 500),
-                            switchInCurve: Curves.easeOut,
-                            switchOutCurve: Curves.easeIn,
+                            switchInCurve: Curves.fastLinearToSlowEaseIn,
+                            switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
                             child: (){
                               Uint8List bytes = widget.image.bytes;
                               String keySuffix = "light";
