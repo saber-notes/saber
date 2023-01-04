@@ -2,6 +2,7 @@ package com.example.onyxsdk_pen
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.util.Log
 import android.view.View
 import com.onyx.android.sdk.data.note.TouchPoint
@@ -11,9 +12,9 @@ import com.onyx.android.sdk.pen.data.TouchPointList
 import io.flutter.plugin.platform.PlatformView
 
 internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
-    private val touchHelper: TouchHelper
+    private val touchHelper: TouchHelper by lazy { TouchHelper.create(view, callback) }
 
-    private val view: View
+    private val view: View = View(context)
     override fun getView(): View {
         return view
     }
@@ -50,8 +51,13 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
     }
 
     init {
-        view = View(context)
-        touchHelper = TouchHelper.create(view, callback)
+        view.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            val limit = Rect()
+            val exclude = emptyList<Rect>()
+            view.getLocalVisibleRect(limit)
+            touchHelper.setLimitRect(limit, exclude)
+        }
+
         touchHelper.setStrokeWidth(3.0f)
         touchHelper.openRawDrawing()
         touchHelper.setRawDrawingEnabled(true)

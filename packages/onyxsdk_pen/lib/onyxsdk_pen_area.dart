@@ -56,7 +56,6 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
         Positioned.fill(
           child: AndroidView(
             viewType: viewType,
-            layoutDirection: TextDirection.ltr,
             creationParams: creationParams,
             creationParamsCodec: const StandardMessageCodec(),
             hitTestBehavior: PlatformViewHitTestBehavior.translucent,
