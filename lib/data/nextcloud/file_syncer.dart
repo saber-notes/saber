@@ -159,12 +159,18 @@ abstract class FileSyncer {
 
       const Utf8Encoder encoder = Utf8Encoder();
       final WebDavClient webdav = _client!.webdav;
-      final DateTime lastModified = await FileManager.lastModified(filePathUnencrypted);
-      // DateFormat copied from nextcloud/lib/src/webdav/file.dart
-      final String lastModifiedString = DateFormat('E, d MMM yyyy HH:mm:ss', 'en_US').format(lastModified);
 
       // upload file
       await webdav.upload(encoder.convert(localDataEncrypted), filePathRemote);
+
+      final DateTime lastModified;
+      try {
+        lastModified = await FileManager.lastModified(filePathUnencrypted);
+      } on FileSystemException { // file was deleted
+        return;
+      }
+      // DateFormat copied from nextcloud/lib/src/webdav/file.dart
+      final String lastModifiedString = DateFormat('E, d MMM yyyy HH:mm:ss', 'en_US').format(lastModified);
 
       // set lastModified to match local file
       await webdav.updateProps(filePathRemote, {
