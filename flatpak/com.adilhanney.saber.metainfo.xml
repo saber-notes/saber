@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.3" type="development" date="2023-01-04">
+            <description>
+                <ul>
+                    <li>Notes will reopen to the last page you were on</li>
+                    <li>Android users can now import .sbn files</li>
+                    <li>Uploading indicators are no longer shown if you aren't logged in with Nextcloud</li>
+                    <li>Bug fix: Correctly save 90° straight lines</li>
+                    <li>Bug fix: Exiting fullscreen now works in Firefox</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.2" type="development" date="2022-12-30">
             <description>
                 <ul>
