@@ -51,15 +51,15 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
     return Stack(
       children: [
         Positioned.fill(
-          child: widget.child
-        ),
-        Positioned.fill(
           child: AndroidView(
             viewType: viewType,
             creationParams: creationParams,
             creationParamsCodec: const StandardMessageCodec(),
             hitTestBehavior: PlatformViewHitTestBehavior.translucent,
           ),
+        ),
+        Positioned.fill(
+            child: widget.child
         ),
       ],
     );
