@@ -40,6 +40,9 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
 
         override fun onEndRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // end of stylus data
+            startPoint = null
+            drawPreview(null)
+            refreshUI();
         }
 
         override fun onRawDrawingTouchPointMoveReceived(end: TouchPoint) {
@@ -49,18 +52,7 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             if (pointsSinceLastRedraw < pointsToRedraw) return;
             pointsSinceLastRedraw = 0
 
-            val canvas: Canvas = view.getHolder().lockCanvas() ?: return
-
-            val start: TouchPoint? = startPoint
-
-            if (start == null) {
-                view.getHolder().unlockCanvasAndPost(canvas)
-                return
-            }
-
-            canvas.drawColor(Color.RED)
-            canvas.drawLine(start.getX(), start.getY(), end.getX(), end.getY(), paint)
-            view.getHolder().unlockCanvasAndPost(canvas)
+            drawPreview(end)
         }
 
         override fun onRawDrawingTouchPointListReceived(touchPointList: TouchPointList) {
@@ -77,6 +69,26 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
 
         override fun onRawErasingTouchPointListReceived(touchPointList: TouchPointList) {
         }
+    }
+
+    fun drawPreview(end: TouchPoint?) {
+        val canvas: Canvas = view.getHolder().lockCanvas() ?: return
+        canvas.drawColor(Color.WHITE) // this is drawn as transparent by onyx sdk
+
+        val start: TouchPoint? = startPoint
+
+        if (start == null || end == null) {
+            view.getHolder().unlockCanvasAndPost(canvas)
+            return
+        }
+
+        canvas.drawLine(start.getX(), start.getY(), end.getX(), end.getY(), paint)
+        view.getHolder().unlockCanvasAndPost(canvas)
+    }
+
+    fun refreshUI() {
+        touchHelper.setRawDrawingEnabled(false)
+        touchHelper.setRawDrawingEnabled(true)
     }
 
     init {
