@@ -170,7 +170,9 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
     if (pageIndex <= 0) return top;
 
-    top += 16;
+    // Slight upwards offset so that the page is not flush with the top of the screen.
+    top = -50;
+
     for (int i = 0; i < pageIndex && i < widget.pages.length; i++) {
       final pageSize = widget.pages[i].size;
       top += 16;
