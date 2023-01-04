@@ -16,7 +16,7 @@ import 'package:saber/pages/editor/editor.dart';
 abstract class FileSyncer {
 
   /// the file extension of an encrypted base64 note
-  static const String _encExtension = ".sbe";
+  static const String encExtension = ".sbe";
 
   static PlainPref<Queue<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
@@ -49,7 +49,7 @@ abstract class FileSyncer {
     final CancellableStruct downloadCancellable = CancellableStruct();
     _downloadCancellable = downloadCancellable;
 
-    _uploadFileFromQueue();
+    uploadFileFromQueue();
 
     if (_client?.username != Prefs.username.value) _client = null;
     _client ??= NextcloudClientExtension.withSavedDetails();
@@ -82,7 +82,7 @@ abstract class FileSyncer {
       // Start downloading files one by one
       while (_downloadQueue.isNotEmpty) {
         final SyncFile file = _downloadQueue.removeFirst();
-        final bool success = await _downloadFile(file);
+        final bool success = await downloadFile(file);
         if (downloadCancellable.cancelled) return;
         if (success) {
           filesDone.value = (filesDone.value ?? 0) + 1;
@@ -107,12 +107,13 @@ abstract class FileSyncer {
       _uploadQueue.value.add(filePath);
       _uploadQueue.notifyListeners();
     } finally {
-      _uploadFileFromQueue(); // start upload if not already uploading
+      uploadFileFromQueue(); // start upload if not already uploading
     }
   }
 
   /// Picks the first filePath from [_uploadQueue] and uploads it
-  static Future _uploadFileFromQueue() async {
+  @visibleForTesting
+  static Future uploadFileFromQueue() async {
     if (_isUploadingFile) return;
     await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
@@ -130,7 +131,7 @@ abstract class FileSyncer {
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
       final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
-      final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$_encExtension";
+      final String filePathRemote = "${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$encExtension";
 
       final syncFile = SyncFile(remotePath: filePathRemote, localPath: filePathUnencrypted);
       if (!await _shouldLocalFileBeKept(syncFile, inUploadQueue: true)) {
@@ -183,7 +184,7 @@ abstract class FileSyncer {
     } finally {
       _isUploadingFile = false;
       uploadNotifier.notifyListeners();
-      _uploadFileFromQueue();
+      uploadFileFromQueue();
     }
   }
 
@@ -214,8 +215,8 @@ abstract class FileSyncer {
     }
 
     // remove extension
-    if (filePathEncrypted.endsWith(_encExtension)) {
-      filePathEncrypted = filePathEncrypted.substring(0, filePathEncrypted.length - _encExtension.length);
+    if (filePathEncrypted.endsWith(encExtension)) {
+      filePathEncrypted = filePathEncrypted.substring(0, filePathEncrypted.length - encExtension.length);
     } else {
       if (kDebugMode) print("remote file not in recognised encrypted format: $filePathRemote");
       return;
@@ -255,7 +256,8 @@ abstract class FileSyncer {
     Prefs.fileSyncAlreadyDeleted.notifyListeners();
   }
 
-  static Future<bool> _downloadFile(SyncFile file) async {
+  @visibleForTesting
+  static Future<bool> downloadFile(SyncFile file, { bool awaitWrite = false }) async {
     if (file.webDavFile!.size == 0) { // deleted file
       FileManager.deleteFile(file.localPath);
       Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
@@ -278,7 +280,7 @@ abstract class FileSyncer {
       final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
       final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
       final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
-      FileManager.writeFile(file.localPath, decryptedData, alsoUpload: false);
+      FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
       if (kDebugMode) print("Failed to download file ${file.localPath} ${file.remotePath}");

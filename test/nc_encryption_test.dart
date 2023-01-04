@@ -15,12 +15,11 @@ void main() {
     Prefs.ncPassword.value = "test.issue.118";
     Prefs.encPassword.value = "test.issue.118";
 
-    final client = NextcloudClientExtension.withSavedDetails();
-    expect(client != null, true, reason: "Login failed");
+    final client = NextcloudClientExtension.withSavedDetails()!;
 
     final String key1;
     try {
-      key1 = await client!.loadEncryptionKey();
+      key1 = await client.loadEncryptionKey();
     } catch (e) {
       printOnFailure("Failed to load encryption key");
       rethrow;
