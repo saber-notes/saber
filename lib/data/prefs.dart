@@ -20,6 +20,7 @@ abstract class Prefs {
 
   /// If true, the user's preferences will not be loaded and the default values will be used instead.
   /// The values will not be saved either.
+  @visibleForTesting
   static bool testingMode = false;
 
   static late final EncPref<String> url;
