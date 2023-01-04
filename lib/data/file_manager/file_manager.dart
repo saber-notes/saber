@@ -14,7 +14,10 @@ import 'file_manager_nonweb.dart'
   if (dart.library.html) 'file_manager_web.dart';
 
 /// A collection of cross-platform utility functions for working with a virtual file system.
-abstract class FileManager {
+class FileManager {
+  // disable constructor
+  FileManager._();
+
   static String appRootDirectoryPrefix = "/Saber";
   static Future<SharedPreferences> get _prefs async => await SharedPreferences.getInstance();
   static Future<String> get _documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
