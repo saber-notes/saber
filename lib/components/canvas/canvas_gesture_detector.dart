@@ -102,28 +102,33 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
             onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
-            child: InteractiveCanvasViewer.builder(
-              minScale: 0.01,
-              maxScale: 5,
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return InteractiveCanvasViewer.builder(
+                  minScale: 0.01,
+                  maxScale: 5,
 
-              transformationController: _transformationController,
+                  transformationController: _transformationController,
 
-              isDrawGesture: widget.isDrawGesture,
-              onInteractionEnd: widget.onInteractionEnd,
-              onDrawStart: widget.onDrawStart,
-              onDrawUpdate: widget.onDrawUpdate,
-              onDrawEnd: widget.onDrawEnd,
+                  isDrawGesture: widget.isDrawGesture,
+                  onInteractionEnd: widget.onInteractionEnd,
+                  onDrawStart: widget.onDrawStart,
+                  onDrawUpdate: widget.onDrawUpdate,
+                  onDrawEnd: widget.onDrawEnd,
 
-              builder: (BuildContext context, Quad viewport) {
-                return _PagesBuilder(
-                  pages: widget.pages,
-                  pageBuilder: widget.pageBuilder,
-                  placeholderPageBuilder: widget.placeholderPageBuilder,
-                  boundingBox: _axisAlignedBoundingBox(viewport),
+                  builder: (BuildContext context, Quad viewport) {
+                    return _PagesBuilder(
+                      pages: widget.pages,
+                      pageBuilder: widget.pageBuilder,
+                      placeholderPageBuilder: widget.placeholderPageBuilder,
+                      boundingBox: _axisAlignedBoundingBox(viewport),
+                      containerWidth: constraints.maxWidth,
+                    );
+                  },
                 );
               },
-            )
-          )
+            ),
+          ),
         ),
         Positioned(
           top: 5,
@@ -193,17 +198,17 @@ class _PagesBuilder extends StatelessWidget {
     required this.pageBuilder,
     required this.placeholderPageBuilder,
     required this.boundingBox,
+    required this.containerWidth,
   });
 
   final List<EditorPage> pages;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
   final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
   final Rect boundingBox;
+  final double containerWidth;
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-
     final List<Widget> children = [
       const SizedBox(height: 16),
       const SizedBox(height: 16),
@@ -212,7 +217,7 @@ class _PagesBuilder extends StatelessWidget {
     double topOfPage = 16 * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final Size pageSize = pages[pageIndex].size;
-      final double pageWidth = min(pageSize.width, screenWidth); // because of FittedBox
+      final double pageWidth = min(pageSize.width, containerWidth); // because of FittedBox
       final double pageHeight = pageWidth / pageSize.width * pageSize.height;
       final double bottomOfPage = topOfPage + pageHeight;
 
