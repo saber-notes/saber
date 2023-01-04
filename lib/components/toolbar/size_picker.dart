@@ -149,7 +149,15 @@ class _SizePickerState extends State<SizePicker> {
     );
   }
 
+  /// Prevents snackbars from spamming the user.
+  /// The hint will be shown again the next time the user opens the app
+  /// if they haven't dragged the size indicator before.
+  static bool hasHintedUserToDragSizePicker = false;
+
   void hintUserToDragSizePicker() {
+    if (hasHintedUserToDragSizePicker) return;
+    hasHintedUserToDragSizePicker = true;
+
     final colorScheme = Theme.of(context).colorScheme;
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
