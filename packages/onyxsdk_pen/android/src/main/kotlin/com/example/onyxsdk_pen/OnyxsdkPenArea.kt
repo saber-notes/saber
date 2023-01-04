@@ -1,9 +1,12 @@
 package com.example.onyxsdk_pen
 
 import android.content.Context
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.Rect
 import android.util.Log
+import android.view.SurfaceView
 import android.view.View
 import com.onyx.android.sdk.data.note.TouchPoint
 import com.onyx.android.sdk.pen.RawInputCallback
@@ -12,26 +15,52 @@ import com.onyx.android.sdk.pen.data.TouchPointList
 import io.flutter.plugin.platform.PlatformView
 
 internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
+    companion object {
+        private val pointsToRedraw = 20
+        private val strokeWidth = 3f
+    }
+
     private val touchHelper: TouchHelper by lazy { TouchHelper.create(view, callback) }
 
-    private val view: View = View(context)
+    private val view: SurfaceView = SurfaceView(context)
     override fun getView(): View {
         return view
     }
 
+    private val paint: Paint = Paint()
+    private var startPoint: TouchPoint? = null
+    private var pointsSinceLastRedraw = 0
+
     private val callback: RawInputCallback = object: RawInputCallback() {
         override fun onBeginRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // begin of stylus data
-            Log.d("OnyxsdkPenArea", "onBeginRawDrawing")
+            startPoint = touchPoint
+            pointsSinceLastRedraw = 0
         }
 
         override fun onEndRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // end of stylus data
         }
 
-        override fun onRawDrawingTouchPointMoveReceived(touchPoint: TouchPoint) {
+        override fun onRawDrawingTouchPointMoveReceived(end: TouchPoint) {
             // stylus data during stylus moving
-            Log.d("OnyxsdkPenArea", "onRawDrawingTouchPointMoveReceived: " + touchPoint.toString())
+
+            pointsSinceLastRedraw++
+            if (pointsSinceLastRedraw < pointsToRedraw) return;
+            pointsSinceLastRedraw = 0
+
+            val canvas: Canvas = view.getHolder().lockCanvas() ?: return
+
+            val start: TouchPoint? = startPoint
+
+            if (start == null) {
+                view.getHolder().unlockCanvasAndPost(canvas)
+                return
+            }
+
+            canvas.drawColor(Color.RED)
+            canvas.drawLine(start.getX(), start.getY(), end.getX(), end.getY(), paint)
+            view.getHolder().unlockCanvasAndPost(canvas)
         }
 
         override fun onRawDrawingTouchPointListReceived(touchPointList: TouchPointList) {
@@ -58,7 +87,9 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             touchHelper.setLimitRect(limit, exclude)
         }
 
-        touchHelper.setStrokeWidth(3.0f)
+        paint.setStrokeWidth(strokeWidth)
+
+        touchHelper.setStrokeWidth(strokeWidth)
         touchHelper.openRawDrawing()
         touchHelper.setRawDrawingEnabled(true)
     }
