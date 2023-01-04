@@ -138,6 +138,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
+    _transformationController.dispose();
     super.dispose();
   }
 
@@ -185,6 +186,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
 class _PagesBuilder extends StatelessWidget {
   const _PagesBuilder({
+    // ignore: unused_element
     super.key,
 
     required this.pages,
