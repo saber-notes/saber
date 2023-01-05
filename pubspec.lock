@@ -661,6 +661,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  open_as_default:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "0a994753e04d851138a6af8efe03346df8319d4b"
+      url: "https://github.com/adil192/open_as_default.git"
+    source: git
+    version: "0.0.4"
   package_config:
     dependency: transitive
     description:
@@ -1097,6 +1106,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+  uri_to_file:
+    dependency: transitive
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "3a32d9d3893eae9449fe39c2061aaad0a266a792"
+      url: "https://github.com/adil192/uri-to-file.git"
+    source: git
+    version: "0.2.0"
   url_launcher:
     dependency: "direct main"
     description:

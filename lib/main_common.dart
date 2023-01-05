@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -124,8 +125,18 @@ class _AppState extends State<App> {
           App.openFile(file);
         }
       });
-    } on MissingPluginException {
-      // ignore
+    } catch (e) {
+      // ignore MissingPluginException
+    }
+
+    try {
+      // this only works for files opened while the app is closed
+      OpenAsDefault.getFileIntent.then((File? file) {
+        if (file == null) return;
+        App.openFile(SharedMediaFile(file.path, null, null, SharedMediaType.FILE));
+      });
+    } catch (e) {
+      // ignore MissingPluginException
     }
   }
 

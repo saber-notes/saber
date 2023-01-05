@@ -43,13 +43,19 @@
             <!-- Support opening json (.sbn) files -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="application/*" />
+                <data android:mimeType="text/*" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/*" />
+
+                <data android:mimeType="application/*" android:scheme="content" />
+                <data android:mimeType="text/*" android:scheme="content" />
             </intent-filter>
         </activity>
 

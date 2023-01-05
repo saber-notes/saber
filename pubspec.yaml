@@ -125,6 +125,9 @@ dependencies:
     git:
       url: https://github.com/adil192/receive_sharing_intent.git
       ref: receive-.txt-v2
+  open_as_default:
+    git:
+      url: https://github.com/adil192/open_as_default.git
 
   js: ^0.6.4
 
