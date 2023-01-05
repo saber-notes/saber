@@ -20,6 +20,7 @@ class InnerCanvas extends StatefulWidget {
     this.pageIndex = 0,
     required this.width,
     required this.height,
+    this.isPreview = false,
     this.textEditing = false,
     required this.coreInfo,
     required this.currentStroke,
@@ -29,6 +30,7 @@ class InnerCanvas extends StatefulWidget {
   final int pageIndex;
   final double width;
   final double height;
+  final bool isPreview;
 
   final bool textEditing;
   final EditorCoreInfo coreInfo;
@@ -92,6 +94,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
           invert: invert,
           strokes: widget.coreInfo.strokes,
           currentStroke: widget.currentStroke,
+
+          showPageIndicator: !widget.isPreview,
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,
         ),

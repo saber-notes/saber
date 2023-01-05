@@ -30,6 +30,7 @@ class CanvasPreview extends StatelessWidget {
         child: InnerCanvas(
           width: pageSize.width,
           height: height ?? pageSize.height * 0.1,
+          isPreview: true,
           coreInfo: coreInfo,
           currentStroke: null,
         ),

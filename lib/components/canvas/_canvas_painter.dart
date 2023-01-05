@@ -11,7 +11,9 @@ class CanvasPainter extends CustomPainter {
   const CanvasPainter({
     this.invert = false,
     required this.strokes,
-    this.currentStroke,
+    required this.currentStroke,
+
+    required this.showPageIndicator,
     required this.pageIndex,
     required this.totalPages,
   });
@@ -19,6 +21,8 @@ class CanvasPainter extends CustomPainter {
   final bool invert;
   final List<Stroke> strokes;
   final Stroke? currentStroke;
+
+  final bool showPageIndicator;
   final int pageIndex;
   final int totalPages;
 
@@ -64,13 +68,15 @@ class CanvasPainter extends CustomPainter {
       canvas.drawPath(currentStroke!.path, paint);
     }
 
-    canvas.drawParagraph(
-      _getPageIndicator(size.width),
-      Offset(
-        _pageIndicatorPadding,
-        size.height - _pageIndicatorPadding - _pageIndicatorFontSize * 1.2,
-      ),
-    );
+    if (showPageIndicator) {
+      canvas.drawParagraph(
+        _getPageIndicator(size.width),
+        Offset(
+          _pageIndicatorPadding,
+          size.height - _pageIndicatorPadding - _pageIndicatorFontSize * 1.2,
+        ),
+      );
+    }
   }
 
   @override
