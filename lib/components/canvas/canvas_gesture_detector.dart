@@ -134,7 +134,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           top: 5,
           right: 5,
           child: CanvasZoomIndicator(
-            zoom: _transformationController.value.getMaxScaleOnAxis(),
+            transformationController: _transformationController,
           ),
         ),
       ],
