@@ -92,6 +92,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
           invert: invert,
           strokes: widget.coreInfo.strokes,
           currentStroke: widget.currentStroke,
+          pageIndex: widget.pageIndex,
+          totalPages: widget.coreInfo.pages.length,
         ),
         isComplex: true,
         willChange: widget.currentStroke != null,

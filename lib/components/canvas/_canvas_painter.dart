@@ -1,5 +1,7 @@
 
-import 'package:flutter/material.dart';
+import 'dart:ui';
+
+import 'package:flutter/material.dart' hide TextStyle;
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 
@@ -10,11 +12,15 @@ class CanvasPainter extends CustomPainter {
     this.invert = false,
     required this.strokes,
     this.currentStroke,
+    required this.pageIndex,
+    required this.totalPages,
   });
 
   final bool invert;
   final List<Stroke> strokes;
   final Stroke? currentStroke;
+  final int pageIndex;
+  final int totalPages;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -57,11 +63,43 @@ class CanvasPainter extends CustomPainter {
       paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
       canvas.drawPath(currentStroke!.path, paint);
     }
+
+    canvas.drawParagraph(
+      _getPageIndicator(size.width),
+      Offset(
+        _pageIndicatorPadding,
+        size.height - _pageIndicatorPadding - _pageIndicatorFontSize * 1.2,
+      ),
+    );
   }
 
   @override
   bool shouldRepaint(CanvasPainter oldDelegate) {
     return currentStroke != null
         || strokes.length != oldDelegate.strokes.length;
+  }
+
+  static const double _pageIndicatorFontSize = 20;
+  static const double _pageIndicatorPadding = 5;
+  Paragraph _getPageIndicator(double pageWidth) {
+    ParagraphStyle style = ParagraphStyle(
+      textAlign: TextAlign.end,
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+    );
+
+    ParagraphBuilder builder = ParagraphBuilder(style)
+      ..pushStyle(TextStyle(
+        color: Colors.black.withInversion(invert).withOpacity(0.5),
+        fontSize: _pageIndicatorFontSize,
+      ))
+      ..addText('${pageIndex + 1} / $totalPages');
+
+    Paragraph paragraph = builder.build();
+    paragraph.layout(ParagraphConstraints(
+      width: pageWidth - 2 * _pageIndicatorPadding,
+    ));
+
+    return paragraph;
   }
 }
