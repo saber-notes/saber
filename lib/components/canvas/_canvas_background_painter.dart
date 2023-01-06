@@ -58,7 +58,9 @@ class CanvasBackgroundPainter extends CustomPainter {
         || oldDelegate.secondaryColor != secondaryColor;
 
   static Iterable<PatternElement> getPatternElements(String pattern, Size size, int lineHeight) sync* {
-    if (pattern == CanvasBackgroundPatterns.college || pattern == CanvasBackgroundPatterns.lined) {
+    if (pattern == CanvasBackgroundPatterns.none) {
+      return;
+    } else if (pattern == CanvasBackgroundPatterns.college || pattern == CanvasBackgroundPatterns.lined) {
       // horizontal lines
       for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
         yield PatternElement(
