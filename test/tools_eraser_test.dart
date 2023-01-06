@@ -15,7 +15,7 @@ const Size _pageSize = Size(100, 100);
 const Offset _eraserPos = Offset(50, 50);
 
 void main() {
-  test("Test that the eraser tool erases the correct strokes", () async {
+  test("Test that the eraser tool erases the correct strokes", () {
     final Eraser eraser = Eraser(size: 10);
 
     List<Stroke> strokesToErase = [
