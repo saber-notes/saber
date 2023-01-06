@@ -49,4 +49,9 @@ jobs:
         run: flutter pub get
 
       - name: Run tests
-        run: flutter test
+        run: flutter test --coverage
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/lcov.info
