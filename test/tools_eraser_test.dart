@@ -59,6 +59,10 @@ void main() {
     for (int i = strokesToErase.length; i < strokes.length; i++) {
       expect(erasedIndices.contains(i), false, reason: "Stroke at index $i should not be erased");
     }
+
+    List<Stroke> erasedStrokes = eraser.onDragEnd();
+    expect(erasedStrokes.length, strokesToErase.length, reason: "The correct number of strokes should have been erased");
+    expect(erasedStrokes.every((stroke) => strokesToErase.contains(stroke)), true, reason: "The correct strokes should have been erased");
   });
 }
 
