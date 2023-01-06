@@ -24,7 +24,7 @@ class Eraser extends Tool {
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
       if (stroke.pageIndex != pageIndex) continue;
-      if (stroke.polygon.any((strokeVertex) => sqrDistanceBetween(strokeVertex, eraserPos) < sqrSize)) {
+      if (stroke.polygon.any((strokeVertex) => sqrDistanceBetween(strokeVertex, eraserPos) <= sqrSize)) {
         _erased.add(stroke);
         indices.add(i);
       }
