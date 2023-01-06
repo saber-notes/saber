@@ -9,11 +9,14 @@ double square(double x) => x * x;
 double sqrDistanceBetween(Offset p1, Offset p2) => square(p1.dx - p2.dx) + square(p1.dy - p2.dy);
 
 class Eraser extends Tool {
-  final double sqrSize;
+  final double size;
+  late final double sqrSize = square(size);
 
   List<Stroke> _erased = [];
 
-  Eraser([ double size = 10 ]) : sqrSize = square(size);
+  Eraser({
+    this.size = 10
+  });
 
   /// Returns the indices of any [strokes] that are close to the given [eraserPos].
   List<int> checkForOverlappingStrokes(int pageIndex, Offset eraserPos, List<Stroke> strokes) {
