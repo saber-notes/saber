@@ -67,7 +67,7 @@ abstract class UpdateManager {
 
     if (newestVersion <= currentVersion) {
       return UpdateStatus.upToDate;
-    } else if (newestVersion ~/ 10 == currentVersion ~/ 10 && !kDebugMode) {
+    } else if (newestVersion ~/ 10 <= currentVersion ~/ 10 + 1 && !kDebugMode) {
       // ignore 1 minor update so the user isn't prompted too often (debug mode ignores this)
       return UpdateStatus.updateOptional;
     } else {
