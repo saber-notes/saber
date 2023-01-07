@@ -154,7 +154,7 @@ class Stroke {
       return last;
     }
 
-    double angle = atan2(dy, dx);
+    double angle = diffToRightAngle(dy, dx);
     if (angle > rightAngleThreshold) {
       return last;
     } else if (dx > dy) {

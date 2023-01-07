@@ -3,10 +3,10 @@ import 'dart:math' show pi;
 
 /// Returns how close this is to a right angle,
 /// using a fast approximation of atan2.
-/// (adjusted to have a range between 0 and pi/4)
+/// (adjusted to have a range between 0 and pi/4).
 /// Don't use this if the actual angle is needed.
 /// https://math.stackexchange.com/a/1098585
-double atan2(double y, double x) {
+double diffToRightAngle(double y, double x, [double Function(double z) atan = _atan]) {
   if (x == 0 || y == 0) {
     return 0;
   }
