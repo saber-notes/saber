@@ -1,0 +1,156 @@
+{
+  "home": {
+    "tabs": {
+      "home": "Domů",
+      "browse": "Poznámky",
+      "whiteboard": "Tabule",
+      "settings": "Nastavení"
+    },
+    "titles": {
+      "home": "Poslední poznámky",
+      "browse": "Všechny poznámky",
+      "whiteboard": "Tabule",
+      "settings": "Nastavení"
+    },
+    "tooltips": {
+      "newNote": "Nová poznámka",
+      "showUpdateDialog": "Zobrazit dialogové okno aktualizace"
+    },
+    "backFolder": "(Zpět)",
+    "welcome": "Vítejte v aplikaci Saber",
+    "noFiles": "Žádné poznámky nebyly nalezeny",
+    "createNewNote": "Pro přidání nové poznámky klepněte na tlačítko +"
+  },
+  "settings": {
+    "prefLabels": {
+      "appTheme": "Motiv aplikace",
+      "customAccentColor": "Vlastní barevný odstín",
+      "hyperlegibleFont": "Lépe čitelný font",
+      "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
+      "editorToolbarOnBottom": "Umístit nabídku editoru do spodní části",
+      "editorToolbarShowInFullscreen": "Zobrazovat nabídku editoru v režimu celé obrazovky",
+      "editorAutoInvert": "V tmavém režimu invertovat poznámky",
+      "preferGreyscale": "Preferovat černobílé barvy",
+      "editorStraightenLines": "Pro kreslení rovné čáry stisknout a podržet",
+      "autoClearWhiteboardOnExit": "Smazat tabuli po opuštění aplikace",
+      "editorPromptRename": "Vybízet k přejmenování nových poznámek"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
+      "editorAutoInvert": "Inteligentně ztmaví poznámky ve tmavém motivu",
+      "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",
+      "autoClearWhiteboardOnExit": "Bude synchronizováno do dalších zařízení",
+      "editorPromptRename": "Poznámky můžete vždy přejmenovat i později"
+    },
+    "themeModes": {
+      "system": "Systémový",
+      "light": "Světlý",
+      "dark": "Tmavý"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Vyberte barvu",
+      "confirm": "Potvrdit"
+    },
+    "straightenDelay": {
+      "off": "Vypnuto",
+      "regular": "Standardně",
+      "slow": "Dlouze"
+    }
+  },
+  "login": {
+    "title": "Přihlásit se",
+    "feedbacks": {
+      "checkUsername": "Zkontrolujte prosím své uživatelské jméno a heslo.",
+      "enterNcPassword": "Zadejte prosím své heslo k NextCloud účtu.",
+      "enterEncPassword": "Zadejte prosím své heslo pro šifrování.",
+      "checkUrl": "Zadejte prosím správnou URL adresu.",
+      "ncLoginFailed": "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.",
+      "encLoginFailed": "Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.",
+      "loginSuccess": "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
+    },
+    "form": {
+      "useCustomServer": "Chci využít vlastní NextCloud server",
+      "customServerUrl": "URL adresa vlastního NextCloud serveru",
+      "username": "Přihlašovací jméno nebo e-mail",
+      "ncPassword": "Heslo k NextCloud účtu",
+      "encPassword": "Heslo pro šifrování",
+      "agreeToPrivacyPolicy(rich)": "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}.",
+      "login": "Přihlásit se"
+    },
+    "signup(rich)": "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!",
+    "status": {
+      "loggedIn": "Jste přihlášeni pomocí Nextcloud účtu",
+      "loggedOut": "Jste odhlášení",
+      "tapToLogin": "Klepněte pro přihlášení pomocí NextCloud účtu"
+    },
+    "faq": [{
+      "q": "Co je to NextCloud?",
+      "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty."
+    }, {
+      "q": "K čemu je heslo pro šifrování?",
+      "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
+    }, {
+      "q": "Proč používat dvě hesla?",
+      "a": "Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
+    }]
+  },
+  "appInfo": {
+    "licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.",
+    "dirty": "ZKUŠEBNÍ VERZE",
+    "debug": "LADÍCÍ VERZE",
+    "sponsorButton": "Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště",
+    "licenseButton": "Klepněte sem pro zobrazení podrobnějších licenčních informací",
+    "privacyPolicyButton": "Klepněte sem pro zobrazení zásad ochrany osobních údajů"
+  },
+  "update": {
+    "updateAvailable": "Aktualizace k dispozici",
+    "updateAvailableDescription": "Je k dispozici nová verze aplikace.",
+    "dismiss": "Ignorovat",
+    "update": "Aktualizovat"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Přepnout barvy (Ctrl C)",
+      "toggleEraser": "Přepnout gumu (Ctrl E)",
+      "photo": "Obrázek",
+      "text": "Text",
+      "toggleFingerDrawing": "Přepnout kreslení prstem (Ctrl F)",
+      "undo": "Zpět",
+      "redo": "Obnovit",
+      "export": "Exportovat (Ctrl Shift S)",
+      "exportAs": "Exportovat jako:",
+      "fullscreen": "Přepnout režim celé obrazovky (F11)"
+    },
+    "pens": {
+      "fountainPen": "Plnící pero",
+      "ballpointPen": "Kuličkové pero",
+      "highlighter": "Zvýrazňovač"
+    },
+    "penOptions": {
+      "size": "Velikost",
+      "sizeDragHint": "Posunem vlevo nebo vpravo změníte velikost"
+    },
+    "imageOptions": {
+      "title": "Možnosti obrázku",
+      "invertible": "Invertování barev podle motivu",
+      "download": "Stáhnout",
+      "delete": "Odstranit"
+    },
+    "menu": {
+      "clearPage": "Smazat obsah stránky",
+      "clearAllPages": "Smazat všechny stránky",
+      "lineHeight": "Výška řádku",
+      "lineHeightDescription": "Velikost každého řádku"
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Otevřít v režimu pouze pro čtení",
+      "title": "Tato poznámka byla upravena v novější verzi aplikace Saber",
+      "subtitle": "Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?",
+      "allowEditing": "Povolit úpravy",
+      "cancel": "Zrušit"
+    },
+    "quill": {
+      "typeSomething": "Něco sem napište..."
+    }
+  }
+}
