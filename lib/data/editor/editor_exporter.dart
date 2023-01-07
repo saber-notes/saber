@@ -15,6 +15,11 @@ abstract class EditorExporter {
     final pw.Document pdf = pw.Document();
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
+      // Don't export the empty last page
+      if (pageIndex == coreInfo.pages.length - 1 && _isPageEmpty(coreInfo, pageIndex)) {
+        continue;
+      }
+
       pdf.addPage(
         _generatePdfPage(coreInfo, pageIndex)
       );
@@ -22,7 +27,20 @@ abstract class EditorExporter {
 
     return pdf;
   }
-  
+
+  static bool _isPageEmpty(EditorCoreInfo coreInfo, int pageIndex) {
+    if (coreInfo.strokes.any((stroke) => stroke.pageIndex == pageIndex)) {
+      return false;
+    }
+    if (coreInfo.images.any((image) => image.pageIndex == pageIndex)) {
+      return false;
+    }
+    if (!coreInfo.pages[pageIndex].quill.controller.document.isEmpty()) {
+      return false;
+    }
+    return true;
+  }
+
   static pw.Page _generatePdfPage(EditorCoreInfo coreInfo, int pageIndex) {
     /// Blue at 0.2 opacity against white
     const PdfColor primaryColor = PdfColor(0.8, 0.8, 1);
