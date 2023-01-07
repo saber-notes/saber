@@ -1,0 +1,8 @@
+• Make it clearer when you're taken to your last viewed page
+• Pages now have a page indicator on the bottom
+• Improvements for Android users importing files
+• Better version comparison for updates
+• Bug fix: Deleting files properly syncs again
+• Bug fix: Only show the size indicator hint once
+• Bug fix: Whiteboard pages no longer blank out if you expand the navigation menu
+• Bug fix: Fix zoom indicator not showing up

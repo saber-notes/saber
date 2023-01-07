@@ -59,6 +59,20 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.4" type="development" date="2023-01-07">
+            <description>
+                <ul>
+                    <li>Make it clearer when you're taken to your last viewed page</li>
+                    <li>Pages now have a page indicator on the bottom</li>
+                    <li>Improvements for Android users importing files</li>
+                    <li>Better version comparison for updates</li>
+                    <li>Bug fix: Deleting files properly syncs again</li>
+                    <li>Bug fix: Only show the size indicator hint once</li>
+                    <li>Bug fix: Whiteboard pages no longer blank out if you expand the navigation menu</li>
+                    <li>Bug fix: Fix zoom indicator not showing up</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.3" type="development" date="2023-01-04">
             <description>
                 <ul>
