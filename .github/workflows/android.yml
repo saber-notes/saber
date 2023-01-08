@@ -62,8 +62,16 @@ jobs:
       - name: Rename signed apk
         run: mv build/app/outputs/flutter-apk/signed/app-release-signed.apk build/app/outputs/flutter-apk/signed/Saber.apk
 
-      - name: Upload apk
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-Android
           path: build/app/outputs/flutter-apk/signed/Saber.apk
+
+      - name: Upload to GitHub release
+        uses: xresloader/upload-to-github-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: build/app/outputs/flutter-apk/signed/Saber.apk

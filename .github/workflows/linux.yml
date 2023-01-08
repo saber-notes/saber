@@ -50,11 +50,19 @@ jobs:
       - name: Compress Flutter build
         run: tar -C build/linux/x64/release/bundle -cvf Saber-Linux-Portable.tar.gz .
 
-      - name: Upload app archive for next steps
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-Archive
           path: Saber-Linux-Portable.tar.gz
+
+      - name: Upload to GitHub release
+        uses: xresloader/upload-to-github-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: Saber-Linux-Portable.tar.gz
 
   build-flatpak:
     name: Build flatpak
@@ -93,11 +101,19 @@ jobs:
           bundle: Saber.flatpak
           manifest-path: flatpak/com.adilhanney.saber.json
 
-      - name: Upload .flatpak artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Flatpak artifact
           path: Saber.flatpak
+
+      - name: Upload to GitHub release
+        uses: xresloader/upload-to-github-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: Saber.flatpak
 
   build-appimage:
     name: Build AppImage
@@ -159,8 +175,16 @@ jobs:
         run: |
           ./appimage-builder-x86_64.AppImage --skip-test
 
-      - name: Upload AppImage artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: AppImage artifact
           path: appimage/Saber-*-x86_64.AppImage*
+
+      - name: Upload to GitHub release
+        uses: xresloader/upload-to-github-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: appimage/Saber-*-x86_64.AppImage*

@@ -52,11 +52,19 @@ jobs:
           zip -r Saber.ipa Payload
           popd
 
-      - name: Upload iOS build
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-iOS-Archive
           path: build/ios/iphoneos/Saber.ipa
+
+      - name: Upload to GitHub release
+        uses: xresloader/upload-to-github-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: build/ios/iphoneos/Saber.ipa
 
   build-macos:
     name: Build for macOS
@@ -102,8 +110,16 @@ jobs:
           zip -r Saber.app.zip Saber.app
           popd
 
-      - name: Upload macOS build
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-macOS-Archive
           path: build/macos/Build/Products/Release/Saber.app.zip
+
+      - name: Upload to GitHub release
+        uses: xresloader/upload-to-github-release@v1
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: build/macos/Build/Products/Release/Saber.app.zip
