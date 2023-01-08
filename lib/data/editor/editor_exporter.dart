@@ -116,7 +116,10 @@ abstract class EditorExporter {
               child: pw.Stack(
                 children: [
                   pw.Positioned.fill(
-                    top: coreInfo.lineHeight * 2,
+                    top: coreInfo.lineHeight * 1.2,
+                    left: coreInfo.lineHeight * 0.5,
+                    right: coreInfo.lineHeight * 0.5,
+                    bottom: coreInfo.lineHeight * 0.5,
                     child: _pdfQuill(coreInfo.pages[pageIndex].quill.controller, coreInfo.lineHeight),
                   ),
                   for (EditorImage image in coreInfo.images.where((image) => image.pageIndex == pageIndex))
