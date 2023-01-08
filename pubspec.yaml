@@ -134,6 +134,8 @@ dependencies:
   vsc_quill_delta_to_html: ^1.0.0+1
   html: ^0.15.1
 
+  flutter_localized_locales: ^2.0.3
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:

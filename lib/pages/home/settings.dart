@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
@@ -71,8 +72,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   pref: Prefs.locale,
                   options: [
                     ToggleButtonsOption("", Text(t.settings.systemLanguage)),
-                    for (final Locale locale in LocaleSettings.supportedLocales)
-                      ToggleButtonsOption<String>(locale.toLanguageTag(), Text(locale.toLanguageTag())),
+                    ...LocaleSettings.supportedLocales.map((locale) {
+                      final String localeCode = locale.toLanguageTag();
+                      String? localeName;
+                      localeName ??= LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode.replaceAll("-", "_")];
+                      localeName ??= localeCode;
+                      return ToggleButtonsOption(localeCode, Text(localeName));
+                    }),
                   ],
                 ),
                 SettingsSelection(
