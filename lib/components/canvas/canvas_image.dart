@@ -212,7 +212,7 @@ class _CanvasImageState extends State<CanvasImage> {
                               }
                               return Image.memory(
                                 bytes,
-                                fit: BoxFit.contain,
+                                fit: BoxFit.fill,
                                 key: Key("Image${widget.image.id}-$keySuffix"),
                               );
                             }(),
@@ -243,15 +243,16 @@ class _CanvasImageState extends State<CanvasImage> {
                 ),
               ),
             ),
-            for (double x = -20; x <= 20; x += 20 * 2)
-              for (double y = -20; y <= 20; y += 20 * 2)
-                _CanvasImageResizeHandle(
-                  active: active,
-                  position: Offset(x, y),
-                  image: widget.image,
-                  parent: this,
-                  afterDrag: () => setState(() {}),
-                ),
+            for (double x = -20; x <= 20; x += 20)
+              for (double y = -20; y <= 20; y += 20)
+                if (x != 0 || y != 0) // ignore (0,0)
+                  _CanvasImageResizeHandle(
+                    active: active,
+                    position: Offset(x, y),
+                    image: widget.image,
+                    parent: this,
+                    afterDrag: () => setState(() {}),
+                  ),
           ],
         ),
       ),
@@ -299,19 +300,24 @@ class _CanvasImageResizeHandle extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Positioned(
-      left: position.dx < 0 ? position.dx : null,
-      right: position.dx >= 0 ? -position.dx : null,
-      top: position.dy < 0 ? position.dy : null,
-      bottom: position.dy >= 0 ? -position.dy : null,
+      left: (position.dx.sign + 1) / 2 * image.dstRect.width - 20,
+      top: (position.dy.sign + 1) / 2 * image.dstRect.height - 20,
       child: DeferPointer(
         paintOnTop: true,
         child: MouseRegion(
           cursor: (){
             if (!active) return MouseCursor.defer;
+
+            if (position.dx == 0 && position.dy < 0) return SystemMouseCursors.resizeUp;
+            if (position.dx == 0 && position.dy > 0) return SystemMouseCursors.resizeDown;
+            if (position.dx < 0 && position.dy == 0) return SystemMouseCursors.resizeLeft;
+            if (position.dx > 0 && position.dy == 0) return SystemMouseCursors.resizeRight;
+
             if (position.dx < 0 && position.dy < 0) return SystemMouseCursors.resizeUpLeft;
-            if (position.dx < 0 && position.dy >= 0) return SystemMouseCursors.resizeDownLeft;
-            if (position.dx >= 0 && position.dy < 0) return SystemMouseCursors.resizeUpRight;
-            if (position.dx >= 0 && position.dy >= 0) return SystemMouseCursors.resizeDownRight;
+            if (position.dx < 0 && position.dy > 0) return SystemMouseCursors.resizeDownLeft;
+            if (position.dx > 0 && position.dy < 0) return SystemMouseCursors.resizeUpRight;
+            if (position.dx > 0 && position.dy > 0) return SystemMouseCursors.resizeDownRight;
+
             return MouseCursor.defer;
           }(),
           child: GestureDetector(
@@ -322,19 +328,39 @@ class _CanvasImageResizeHandle extends StatelessWidget {
             } : null,
             onPanUpdate: active ? (details) {
               final Offset delta = details.localPosition - parent.panStartPosition;
-              double newWidth = parent.panStartRect.width + (position.dx < 0 ? -1 : 1) * delta.dx;
-              double newHeight = parent.panStartRect.height + (position.dy < 0 ? -1 : 1) * delta.dy;
-              double left = image.dstRect.left, top = image.dstRect.top;
+
+              double newWidth;
+              if (position.dx < 0) {
+                newWidth = parent.panStartRect.width - delta.dx;
+              } else if (position.dx > 0) {
+                newWidth = parent.panStartRect.width + delta.dx;
+              } else {
+                newWidth = parent.panStartRect.width;
+              }
+
+              double newHeight;
+              if (position.dy < 0) {
+                newHeight = parent.panStartRect.height - delta.dy;
+              } else if (position.dy > 0) {
+                newHeight = parent.panStartRect.height + delta.dy;
+              } else {
+                newHeight = parent.panStartRect.height;
+              }
 
               if (newWidth <= 0 || newHeight <= 0) return;
 
-              final double aspectRatio = image.srcRect.width / image.srcRect.height;
-              if (newWidth / newHeight > aspectRatio) {
-                newHeight = newWidth / aspectRatio;
-              } else {
-                newWidth = newHeight * aspectRatio;
+              // preserve aspect ratio if diagonal
+              if (position.dx != 0 && position.dy != 0) { // if diagonal
+                final double aspectRatio = image.dstRect.width / image.dstRect.height;
+                if (newWidth / newHeight > aspectRatio) {
+                  newHeight = newWidth / aspectRatio;
+                } else {
+                  newWidth = newHeight * aspectRatio;
+                }
               }
 
+              // resize from the correct corner
+              double left = image.dstRect.left, top = image.dstRect.top;
               if (position.dx < 0) {
                 left = image.dstRect.right - newWidth;
               }
