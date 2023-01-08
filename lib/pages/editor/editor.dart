@@ -616,6 +616,8 @@ class _EditorState extends State<Editor> {
       children: [
         Expanded(
           child: CanvasGestureDetector(
+            filePath: coreInfo.filePath,
+
             isDrawGesture: isDrawGesture,
             onInteractionEnd: onInteractionEnd,
             onDrawStart: onDrawStart,

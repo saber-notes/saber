@@ -13,6 +13,8 @@ class CanvasGestureDetector extends StatefulWidget {
   const CanvasGestureDetector({
     super.key,
 
+    required this.filePath,
+
     required this.isDrawGesture,
     this.onInteractionEnd,
     required this.onDrawStart,
@@ -28,6 +30,8 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.pageBuilder,
     required this.placeholderPageBuilder,
   });
+
+  final String filePath;
 
   final bool Function(ScaleStartDetails scaleDetails) isDrawGesture;
   final ValueChanged<ScaleEndDetails>? onInteractionEnd;
@@ -60,26 +64,39 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   /// When the widget is created, we still have an empty coreInfo.
-  /// Wait for [initialPageIndex] to be set before setting the initial transform.
+  /// Wait for note to be loaded before setting the initial transform.
   @override
   didUpdateWidget(CanvasGestureDetector oldWidget) {
-    if (oldWidget.initialPageIndex != widget.initialPageIndex) {
+    if (oldWidget.initialPageIndex != widget.initialPageIndex
+        || oldWidget.filePath != widget.filePath) {
       setInitialTransform();
     }
     super.didUpdateWidget(oldWidget);
   }
 
   /// Sets the initial transform so that we're scrolled to the correct page.
-  /// Has no effect if [initialPageIndex] is null or if the user has already scrolled.
+  /// Has no effect if note hasn't yet loaded or if the user has already scrolled.
   void setInitialTransform() {
-    if (widget.initialPageIndex == null) return;
+    // wait for note to be loaded
+    if (widget.filePath.isEmpty) return;
+
+    // don't override user's scroll
     if (!_transformationController.value.isIdentity()) return;
 
-    _transformationController.value = Matrix4.translationValues(
-      0,
-      -getTopOfPage(widget.initialPageIndex!),
-      0,
-    );
+    final transformCacheItem = _CanvasTransformCache.get(widget.filePath);
+
+    if (transformCacheItem != null) {
+      // if we're opening the same note, restore the last transform
+      _transformationController.value = transformCacheItem.transform;
+      return;
+    } else if (widget.initialPageIndex != null) {
+      // if we're opening a different note, scroll to the last recorded page
+      _transformationController.value = Matrix4.translationValues(
+        0,
+        -getTopOfPage(widget.initialPageIndex!),
+        0,
+      );
+    }
   }
 
   _listenerPointerEvent(PointerEvent event) {
@@ -143,7 +160,9 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
+    _CanvasTransformCache.add(widget.filePath, _transformationController.value);
     _transformationController.dispose();
+
     super.dispose();
   }
 
@@ -237,4 +256,36 @@ class _PagesBuilder extends StatelessWidget {
     children.add(const SizedBox(height: 16));
     return Column(children: children);
   }
+}
+
+class _CanvasTransformCache {
+  static const int _maxCacheSize = 5;
+  static final List<_CanvasTransformCacheItem> _cache = [];
+
+  _CanvasTransformCache._();
+
+  static void add(String filePath, Matrix4 transform) {
+    _cache.removeWhere((item) => item.filePath == filePath);
+
+    _cache.add(_CanvasTransformCacheItem(filePath, transform));
+
+    if (_cache.length > _maxCacheSize) {
+      _cache.removeAt(0);
+    }
+  }
+
+  static _CanvasTransformCacheItem? get(String filePath) {
+    try {
+      return _cache.firstWhere((item) => item.filePath == filePath);
+    } on StateError {
+      return null;
+    }
+  }
+}
+
+class _CanvasTransformCacheItem {
+  final String filePath;
+  final Matrix4 transform;
+
+  _CanvasTransformCacheItem(this.filePath, this.transform);
 }
