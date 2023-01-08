@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart' show Size;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_quill/flutter_quill.dart' show QuillController;
 import 'package:html/dom.dart' as html;
 import 'package:html/parser.dart' show parse;
@@ -13,9 +14,12 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:vsc_quill_delta_to_html/vsc_quill_delta_to_html.dart';
 
 abstract class EditorExporter {
+  static pw.TtfFont? _neuchaFont;
 
-  static pw.Document generatePdf(EditorCoreInfo coreInfo) {
+  static Future<pw.Document> generatePdf(EditorCoreInfo coreInfo) async {
     final pw.Document pdf = pw.Document();
+
+    _neuchaFont ??= pw.TtfFont(await rootBundle.load("assets/fonts/Neucha/Neucha-Regular.ttf"));
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
       // Don't export the empty last page
@@ -155,7 +159,14 @@ abstract class EditorExporter {
     if (body == null) return pw.SizedBox.shrink();
 
     return pw.RichText(
-      text: _htmlNodeToTextSpan(body, lineHeight, backgroundColor),
+      text: pw.TextSpan(
+        style: pw.TextStyle(
+          font: _neuchaFont!,
+        ),
+        children: [
+          _htmlNodeToTextSpan(body, lineHeight, backgroundColor),
+        ],
+      ),
     );
   }
 
