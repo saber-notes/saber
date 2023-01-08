@@ -4,6 +4,16 @@
     "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
   ],
   "en": {},
+  "cs": {
+    "settings": {
+      "accentColorPicker": {
+        "confirm": "Potvrdit"
+      }
+    },
+    "update": {
+      "dismiss": "Ignorovat"
+    }
+  },
   "de": {
     "settings": {
       "accentColorPicker": {

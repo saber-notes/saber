@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 8
-/// Strings: 800 (100 per locale)
+/// Locales: 9
+/// Strings: 902 (100 per locale)
 ///
-/// Built on 2023-01-08 at 19:47 UTC
+/// Built on 2023-01-08 at 19:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -23,6 +23,7 @@ const AppLocale _baseLocale = AppLocale.en;
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	en(languageCode: 'en', build: _StringsEn.build),
+	cs(languageCode: 'cs', build: _StringsCs.build),
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
 	it(languageCode: 'it', build: _StringsIt.build),
@@ -536,6 +537,416 @@ class _StringsEditorQuillEn {
 
 	// Translations
 	String get typeSomething => 'Type something here...';
+}
+
+// Path: <root>
+class _StringsCs extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsCs.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.cs,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <cs>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+
+	@override late final _StringsCs _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeCs home = _StringsHomeCs._(_root);
+	@override late final _StringsSettingsCs settings = _StringsSettingsCs._(_root);
+	@override late final _StringsLoginCs login = _StringsLoginCs._(_root);
+	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
+	@override late final _StringsUpdateCs update = _StringsUpdateCs._(_root);
+	@override late final _StringsEditorCs editor = _StringsEditorCs._(_root);
+}
+
+// Path: home
+class _StringsHomeCs extends _StringsHomeEn {
+	_StringsHomeCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsCs tabs = _StringsHomeTabsCs._(_root);
+	@override late final _StringsHomeTitlesCs titles = _StringsHomeTitlesCs._(_root);
+	@override late final _StringsHomeTooltipsCs tooltips = _StringsHomeTooltipsCs._(_root);
+	@override String get backFolder => '(Zpět)';
+	@override String get welcome => 'Vítejte v aplikaci Saber';
+	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
+	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
+}
+
+// Path: settings
+class _StringsSettingsCs extends _StringsSettingsEn {
+	_StringsSettingsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefLabelsCs prefLabels = _StringsSettingsPrefLabelsCs._(_root);
+	@override late final _StringsSettingsPrefDescriptionsCs prefDescriptions = _StringsSettingsPrefDescriptionsCs._(_root);
+	@override late final _StringsSettingsThemeModesCs themeModes = _StringsSettingsThemeModesCs._(_root);
+	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
+	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
+}
+
+// Path: login
+class _StringsLoginCs extends _StringsLoginEn {
+	_StringsLoginCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Přihlásit se';
+	@override late final _StringsLoginFeedbacksCs feedbacks = _StringsLoginFeedbacksCs._(_root);
+	@override late final _StringsLoginFormCs form = _StringsLoginFormCs._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'Ještě nemáte účet? '),
+		linkToSignup('Zaregistrujte se'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusCs status = _StringsLoginStatusCs._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0Cs._(_root),
+		_StringsLogin0i1Cs._(_root),
+		_StringsLogin0i2Cs._(_root),
+	];
+}
+
+// Path: appInfo
+class _StringsAppInfoCs extends _StringsAppInfoEn {
+	_StringsAppInfoCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
+	@override String get dirty => 'ZKUŠEBNÍ VERZE';
+	@override String get debug => 'LADÍCÍ VERZE';
+	@override String get sponsorButton => 'Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště';
+	@override String get licenseButton => 'Klepněte sem pro zobrazení podrobnějších licenčních informací';
+	@override String get privacyPolicyButton => 'Klepněte sem pro zobrazení zásad ochrany osobních údajů';
+}
+
+// Path: update
+class _StringsUpdateCs extends _StringsUpdateEn {
+	_StringsUpdateCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Aktualizace k dispozici';
+	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace.';
+	@override String get dismiss => 'Ignorovat';
+	@override String get update => 'Aktualizovat';
+}
+
+// Path: editor
+class _StringsEditorCs extends _StringsEditorEn {
+	_StringsEditorCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarCs toolbar = _StringsEditorToolbarCs._(_root);
+	@override late final _StringsEditorPensCs pens = _StringsEditorPensCs._(_root);
+	@override late final _StringsEditorPenOptionsCs penOptions = _StringsEditorPenOptionsCs._(_root);
+	@override late final _StringsEditorImageOptionsCs imageOptions = _StringsEditorImageOptionsCs._(_root);
+	@override late final _StringsEditorMenuCs menu = _StringsEditorMenuCs._(_root);
+	@override late final _StringsEditorNewerFileFormatCs newerFileFormat = _StringsEditorNewerFileFormatCs._(_root);
+	@override late final _StringsEditorQuillCs quill = _StringsEditorQuillCs._(_root);
+}
+
+// Path: home.tabs
+class _StringsHomeTabsCs extends _StringsHomeTabsEn {
+	_StringsHomeTabsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Domů';
+	@override String get browse => 'Poznámky';
+	@override String get whiteboard => 'Tabule';
+	@override String get settings => 'Nastavení';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesCs extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Poslední poznámky';
+	@override String get browse => 'Všechny poznámky';
+	@override String get whiteboard => 'Tabule';
+	@override String get settings => 'Nastavení';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsCs extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nová poznámka';
+	@override String get showUpdateDialog => 'Zobrazit dialogové okno aktualizace';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get appTheme => 'Motiv aplikace';
+	@override String get customAccentColor => 'Vlastní barevný odstín';
+	@override String get hyperlegibleFont => 'Lépe čitelný font';
+	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
+	@override String get editorToolbarOnBottom => 'Umístit nabídku editoru do spodní části';
+	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
+	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
+	@override String get preferGreyscale => 'Preferovat černobílé barvy';
+	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
+	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
+	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
+	@override String get editorAutoInvert => 'Inteligentně ztmaví poznámky ve tmavém motivu';
+	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
+	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
+	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesCs extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Systémový';
+	@override String get light => 'Světlý';
+	@override String get dark => 'Tmavý';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerCs extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Vyberte barvu';
+	@override String get confirm => 'Potvrdit';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayCs extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Vypnuto';
+	@override String get regular => 'Standardně';
+	@override String get slow => 'Dlouze';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'Zkontrolujte prosím své uživatelské jméno a heslo.';
+	@override String get enterNcPassword => 'Zadejte prosím své heslo k NextCloud účtu.';
+	@override String get enterEncPassword => 'Zadejte prosím své heslo pro šifrování.';
+	@override String get checkUrl => 'Zadejte prosím správnou URL adresu.';
+	@override String get ncLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
+	@override String get encLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.';
+	@override String get loginSuccess => 'Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...';
+}
+
+// Path: login.form
+class _StringsLoginFormCs extends _StringsLoginFormEn {
+	_StringsLoginFormCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'Chci využít vlastní NextCloud server';
+	@override String get customServerUrl => 'URL adresa vlastního NextCloud serveru';
+	@override String get username => 'Přihlašovací jméno nebo e-mail';
+	@override String get ncPassword => 'Heslo k NextCloud účtu';
+	@override String get encPassword => 'Heslo pro šifrování';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'Přihlášením souhlasíte se '),
+		linkToPrivacyPolicy('Zásadami ochrany osobních údajů'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'Přihlásit se';
+}
+
+// Path: login.status
+class _StringsLoginStatusCs extends _StringsLoginStatusEn {
+	_StringsLoginStatusCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Jste přihlášeni pomocí Nextcloud účtu';
+	@override String get loggedOut => 'Jste odhlášení';
+	@override String get tapToLogin => 'Klepněte pro přihlášení pomocí NextCloud účtu';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0Cs extends _StringsLogin0i0En {
+	_StringsLogin0i0Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Co je to NextCloud?';
+	@override String get a => 'Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1Cs extends _StringsLogin0i1En {
+	_StringsLogin0i1Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'K čemu je heslo pro šifrování?';
+	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2Cs extends _StringsLogin0i2En {
+	_StringsLogin0i2Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Proč používat dvě hesla?';
+	@override String get a => 'Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'Přepnout barvy (Ctrl C)';
+	@override String get toggleEraser => 'Přepnout gumu (Ctrl E)';
+	@override String get photo => 'Obrázek';
+	@override String get text => 'Text';
+	@override String get toggleFingerDrawing => 'Přepnout kreslení prstem (Ctrl F)';
+	@override String get undo => 'Zpět';
+	@override String get redo => 'Obnovit';
+	@override String get export => 'Exportovat (Ctrl Shift S)';
+	@override String get exportAs => 'Exportovat jako:';
+	@override String get fullscreen => 'Přepnout režim celé obrazovky (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensCs extends _StringsEditorPensEn {
+	_StringsEditorPensCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Plnící pero';
+	@override String get ballpointPen => 'Kuličkové pero';
+	@override String get highlighter => 'Zvýrazňovač';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsCs extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Velikost';
+	@override String get sizeDragHint => 'Posunem vlevo nebo vpravo změníte velikost';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsCs extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Možnosti obrázku';
+	@override String get invertible => 'Invertování barev podle motivu';
+	@override String get download => 'Stáhnout';
+	@override String get delete => 'Odstranit';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuCs extends _StringsEditorMenuEn {
+	_StringsEditorMenuCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Smazat obsah stránky';
+	@override String get clearAllPages => 'Smazat všechny stránky';
+	@override String get lineHeight => 'Výška řádku';
+	@override String get lineHeightDescription => 'Velikost každého řádku';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatCs extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Otevřít v režimu pouze pro čtení';
+	@override String get title => 'Tato poznámka byla upravena v novější verzi aplikace Saber';
+	@override String get subtitle => 'Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?';
+	@override String get allowEditing => 'Povolit úpravy';
+	@override String get cancel => 'Zrušit';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillCs extends _StringsEditorQuillEn {
+	_StringsEditorQuillCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Něco sem napište...';
 }
 
 // Path: <root>
@@ -3487,6 +3898,124 @@ extension on _StringsEn {
 			case 'editor.newerFileFormat.allowEditing': return 'Allow editing';
 			case 'editor.newerFileFormat.cancel': return 'Cancel';
 			case 'editor.quill.typeSomething': return 'Type something here...';
+			default: return null;
+		}
+	}
+}
+
+extension on _StringsCs {
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'home.tabs.home': return 'Domů';
+			case 'home.tabs.browse': return 'Poznámky';
+			case 'home.tabs.whiteboard': return 'Tabule';
+			case 'home.tabs.settings': return 'Nastavení';
+			case 'home.titles.home': return 'Poslední poznámky';
+			case 'home.titles.browse': return 'Všechny poznámky';
+			case 'home.titles.whiteboard': return 'Tabule';
+			case 'home.titles.settings': return 'Nastavení';
+			case 'home.tooltips.newNote': return 'Nová poznámka';
+			case 'home.tooltips.showUpdateDialog': return 'Zobrazit dialogové okno aktualizace';
+			case 'home.backFolder': return '(Zpět)';
+			case 'home.welcome': return 'Vítejte v aplikaci Saber';
+			case 'home.noFiles': return 'Žádné poznámky nebyly nalezeny';
+			case 'home.createNewNote': return 'Pro přidání nové poznámky klepněte na tlačítko +';
+			case 'settings.prefLabels.appTheme': return 'Motiv aplikace';
+			case 'settings.prefLabels.customAccentColor': return 'Vlastní barevný odstín';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Lépe čitelný font';
+			case 'settings.prefLabels.shouldCheckForUpdates': return 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
+			case 'settings.prefLabels.editorToolbarOnBottom': return 'Umístit nabídku editoru do spodní části';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Zobrazovat nabídku editoru v režimu celé obrazovky';
+			case 'settings.prefLabels.editorAutoInvert': return 'V tmavém režimu invertovat poznámky';
+			case 'settings.prefLabels.preferGreyscale': return 'Preferovat černobílé barvy';
+			case 'settings.prefLabels.editorStraightenLines': return 'Pro kreslení rovné čáry stisknout a podržet';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Smazat tabuli po opuštění aplikace';
+			case 'settings.prefLabels.editorPromptRename': return 'Vybízet k přejmenování nových poznámek';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
+			case 'settings.prefDescriptions.editorAutoInvert': return 'Inteligentně ztmaví poznámky ve tmavém motivu';
+			case 'settings.prefDescriptions.preferGreyscale': return 'Pro elektronické čtečky knih s e-ink displejem';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Bude synchronizováno do dalších zařízení';
+			case 'settings.prefDescriptions.editorPromptRename': return 'Poznámky můžete vždy přejmenovat i později';
+			case 'settings.themeModes.system': return 'Systémový';
+			case 'settings.themeModes.light': return 'Světlý';
+			case 'settings.themeModes.dark': return 'Tmavý';
+			case 'settings.accentColorPicker.pickAColor': return 'Vyberte barvu';
+			case 'settings.accentColorPicker.confirm': return 'Potvrdit';
+			case 'settings.straightenDelay.off': return 'Vypnuto';
+			case 'settings.straightenDelay.regular': return 'Standardně';
+			case 'settings.straightenDelay.slow': return 'Dlouze';
+			case 'login.title': return 'Přihlásit se';
+			case 'login.feedbacks.checkUsername': return 'Zkontrolujte prosím své uživatelské jméno a heslo.';
+			case 'login.feedbacks.enterNcPassword': return 'Zadejte prosím své heslo k NextCloud účtu.';
+			case 'login.feedbacks.enterEncPassword': return 'Zadejte prosím své heslo pro šifrování.';
+			case 'login.feedbacks.checkUrl': return 'Zadejte prosím správnou URL adresu.';
+			case 'login.feedbacks.ncLoginFailed': return 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
+			case 'login.feedbacks.encLoginFailed': return 'Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.';
+			case 'login.feedbacks.loginSuccess': return 'Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...';
+			case 'login.form.useCustomServer': return 'Chci využít vlastní NextCloud server';
+			case 'login.form.customServerUrl': return 'URL adresa vlastního NextCloud serveru';
+			case 'login.form.username': return 'Přihlašovací jméno nebo e-mail';
+			case 'login.form.ncPassword': return 'Heslo k NextCloud účtu';
+			case 'login.form.encPassword': return 'Heslo pro šifrování';
+			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+				const TextSpan(text: 'Přihlášením souhlasíte se '),
+				linkToPrivacyPolicy('Zásadami ochrany osobních údajů'),
+				const TextSpan(text: '.'),
+			]);
+			case 'login.form.login': return 'Přihlásit se';
+			case 'login.signup': return ({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+				const TextSpan(text: 'Ještě nemáte účet? '),
+				linkToSignup('Zaregistrujte se'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.status.loggedIn': return 'Jste přihlášeni pomocí Nextcloud účtu';
+			case 'login.status.loggedOut': return 'Jste odhlášení';
+			case 'login.status.tapToLogin': return 'Klepněte pro přihlášení pomocí NextCloud účtu';
+			case 'login.faq.0.q': return 'Co je to NextCloud?';
+			case 'login.faq.0.a': return 'Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty.';
+			case 'login.faq.1.q': return 'K čemu je heslo pro šifrování?';
+			case 'login.faq.1.a': return 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+			case 'login.faq.2.q': return 'Proč používat dvě hesla?';
+			case 'login.faq.2.a': return 'Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
+			case 'appInfo.dirty': return 'ZKUŠEBNÍ VERZE';
+			case 'appInfo.debug': return 'LADÍCÍ VERZE';
+			case 'appInfo.sponsorButton': return 'Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště';
+			case 'appInfo.licenseButton': return 'Klepněte sem pro zobrazení podrobnějších licenčních informací';
+			case 'appInfo.privacyPolicyButton': return 'Klepněte sem pro zobrazení zásad ochrany osobních údajů';
+			case 'update.updateAvailable': return 'Aktualizace k dispozici';
+			case 'update.updateAvailableDescription': return 'Je k dispozici nová verze aplikace.';
+			case 'update.dismiss': return 'Ignorovat';
+			case 'update.update': return 'Aktualizovat';
+			case 'editor.toolbar.toggleColors': return 'Přepnout barvy (Ctrl C)';
+			case 'editor.toolbar.toggleEraser': return 'Přepnout gumu (Ctrl E)';
+			case 'editor.toolbar.photo': return 'Obrázek';
+			case 'editor.toolbar.text': return 'Text';
+			case 'editor.toolbar.toggleFingerDrawing': return 'Přepnout kreslení prstem (Ctrl F)';
+			case 'editor.toolbar.undo': return 'Zpět';
+			case 'editor.toolbar.redo': return 'Obnovit';
+			case 'editor.toolbar.export': return 'Exportovat (Ctrl Shift S)';
+			case 'editor.toolbar.exportAs': return 'Exportovat jako:';
+			case 'editor.toolbar.fullscreen': return 'Přepnout režim celé obrazovky (F11)';
+			case 'editor.pens.fountainPen': return 'Plnící pero';
+			case 'editor.pens.ballpointPen': return 'Kuličkové pero';
+			case 'editor.pens.highlighter': return 'Zvýrazňovač';
+			case 'editor.penOptions.size': return 'Velikost';
+			case 'editor.penOptions.sizeDragHint': return 'Posunem vlevo nebo vpravo změníte velikost';
+			case 'editor.imageOptions.title': return 'Možnosti obrázku';
+			case 'editor.imageOptions.invertible': return 'Invertování barev podle motivu';
+			case 'editor.imageOptions.download': return 'Stáhnout';
+			case 'editor.imageOptions.delete': return 'Odstranit';
+			case 'editor.menu.clearPage': return 'Smazat obsah stránky';
+			case 'editor.menu.clearAllPages': return 'Smazat všechny stránky';
+			case 'editor.menu.lineHeight': return 'Výška řádku';
+			case 'editor.menu.lineHeightDescription': return 'Velikost každého řádku';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Otevřít v režimu pouze pro čtení';
+			case 'editor.newerFileFormat.title': return 'Tato poznámka byla upravena v novější verzi aplikace Saber';
+			case 'editor.newerFileFormat.subtitle': return 'Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?';
+			case 'editor.newerFileFormat.allowEditing': return 'Povolit úpravy';
+			case 'editor.newerFileFormat.cancel': return 'Zrušit';
+			case 'editor.quill.typeSomething': return 'Něco sem napište...';
 			default: return null;
 		}
 	}
