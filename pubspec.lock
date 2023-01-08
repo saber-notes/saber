@@ -452,12 +452,19 @@ packages:
     source: hosted
     version: "3.0.1"
   html:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.1"
+  html_unescape:
+    dependency: transitive
+    description:
+      name: html_unescape
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   http:
     dependency: "direct main"
     description:
@@ -1199,6 +1206,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "9.0.0"
+  vsc_quill_delta_to_html:
+    dependency: "direct main"
+    description:
+      name: vsc_quill_delta_to_html
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+1"
   watcher:
     dependency: transitive
     description:
@@ -1270,5 +1284,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.18.0 <3.0.0"
+  dart: ">=2.18.6 <3.0.0"
   flutter: ">=3.3.0"

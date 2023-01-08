@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart' show Size;
+import 'package:flutter_quill/flutter_quill.dart' show QuillController;
+import 'package:html/dom.dart' as html;
+import 'package:html/parser.dart' show parse;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
@@ -7,7 +10,7 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/editor/page.dart';
+import 'package:vsc_quill_delta_to_html/vsc_quill_delta_to_html.dart';
 
 abstract class EditorExporter {
 
@@ -112,6 +115,10 @@ abstract class EditorExporter {
               },
               child: pw.Stack(
                 children: [
+                  pw.Positioned.fill(
+                    top: coreInfo.lineHeight * 2,
+                    child: _pdfQuill(coreInfo.pages[pageIndex].quill.controller, coreInfo.lineHeight),
+                  ),
                   for (EditorImage image in coreInfo.images.where((image) => image.pageIndex == pageIndex))
                     pw.Positioned(
                       left: image.dstRect.left,
@@ -128,6 +135,64 @@ abstract class EditorExporter {
           ),
         );
       },
+    );
+  }
+
+  static pw.Widget _pdfQuill(QuillController controller, num lineHeight) {
+    final converter = QuillDeltaToHtmlConverter(
+      controller.document.toDelta().toJson().cast(),
+    );
+    final html.Document document = parse(converter.convert());
+
+    final html.Element? body = document.body;
+    if (body == null) return pw.SizedBox.shrink();
+
+    return pw.RichText(
+      text: _htmlNodeToTextSpan(body, lineHeight),
+    );
+  }
+
+  static pw.TextSpan _htmlNodeToTextSpan(html.Node node, num lineHeight) {
+    if (node is html.Text) {
+      return pw.TextSpan(
+        text: node.text,
+      );
+    } else if (node is! html.Element) {
+      return const pw.TextSpan();
+    }
+
+    if (node.localName == "br") {
+      return const pw.TextSpan(text: "\n");
+    }
+
+    final bool isBlock;
+    switch (node.localName) {
+      case "p":
+      case "div":
+      case "ul":
+      case "ol":
+      case "li":
+      case "h1":
+      case "h2":
+      case "h3":
+        isBlock = true;
+        break;
+      default:
+        isBlock = false;
+        break;
+    }
+
+    return pw.TextSpan(
+      style: pw.TextStyle(
+        fontSize: lineHeight * 1.0,
+        fontWeight: node.localName == "b" ? pw.FontWeight.bold : null,
+        fontStyle: node.localName == "i" ? pw.FontStyle.italic : null,
+      ),
+      children: [
+        ...node.nodes.map((node) => _htmlNodeToTextSpan(node, lineHeight)),
+
+        if (isBlock) const pw.TextSpan(text: "\n"),
+      ],
     );
   }
 }

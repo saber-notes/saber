@@ -131,6 +131,9 @@ dependencies:
 
   js: ^0.6.4
 
+  vsc_quill_delta_to_html: ^1.0.0+1
+  html: ^0.15.1
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:
