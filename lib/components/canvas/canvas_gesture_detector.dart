@@ -83,7 +83,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     // don't override user's scroll
     if (!_transformationController.value.isIdentity()) return;
 
-    final transformCacheItem = _CanvasTransformCache.get(widget.filePath);
+    final transformCacheItem = CanvasTransformCache.get(widget.filePath);
 
     if (transformCacheItem != null) {
       // if we're opening the same note, restore the last transform
@@ -160,7 +160,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
-    _CanvasTransformCache.add(widget.filePath, _transformationController.value);
+    CanvasTransformCache.add(widget.filePath, _transformationController.value);
     _transformationController.dispose();
 
     super.dispose();
@@ -258,34 +258,41 @@ class _PagesBuilder extends StatelessWidget {
   }
 }
 
-class _CanvasTransformCache {
+@visibleForTesting
+class CanvasTransformCache {
   static const int _maxCacheSize = 5;
-  static final List<_CanvasTransformCacheItem> _cache = [];
+  static final List<CanvasTransformCacheItem> _cache = [];
 
-  _CanvasTransformCache._();
+  CanvasTransformCache._();
 
   static void add(String filePath, Matrix4 transform) {
     _cache.removeWhere((item) => item.filePath == filePath);
 
-    _cache.add(_CanvasTransformCacheItem(filePath, transform));
+    _cache.add(CanvasTransformCacheItem(filePath, transform));
 
     if (_cache.length > _maxCacheSize) {
       _cache.removeAt(0);
     }
   }
 
-  static _CanvasTransformCacheItem? get(String filePath) {
+  static CanvasTransformCacheItem? get(String filePath) {
     try {
       return _cache.firstWhere((item) => item.filePath == filePath);
     } on StateError {
       return null;
     }
   }
+
+  @visibleForTesting
+  static void clear() {
+    _cache.clear();
+  }
 }
 
-class _CanvasTransformCacheItem {
+@visibleForTesting
+class CanvasTransformCacheItem {
   final String filePath;
   final Matrix4 transform;
 
-  _CanvasTransformCacheItem(this.filePath, this.transform);
+  CanvasTransformCacheItem(this.filePath, this.transform);
 }
