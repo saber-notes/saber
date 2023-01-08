@@ -165,7 +165,7 @@ class _SizePickerState extends State<SizePicker> {
         SnackBar(
           backgroundColor: colorScheme.surface,
           action: SnackBarAction(
-            label: t.update.dismiss,
+            label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
             onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
           ),
           content: Text(

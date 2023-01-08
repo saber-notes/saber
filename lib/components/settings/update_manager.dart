@@ -34,7 +34,7 @@ abstract class UpdateManager {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(t.update.dismiss),
+            child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
           ),
           TextButton(
             onPressed: doUpdate,

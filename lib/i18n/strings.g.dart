@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 7
-/// Strings: 700 (100 per locale)
+/// Strings: 698 (99 per locale)
 ///
-/// Built on 2022-12-29 at 22:47 UTC
+/// Built on 2023-01-08 at 03:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -238,7 +238,6 @@ class _StringsUpdateEn {
 	// Translations
 	String get updateAvailable => 'Update available';
 	String get updateAvailableDescription => 'A new version of the app is available.';
-	String get dismiss => 'Dismiss';
 	String get update => 'Update';
 }
 
@@ -349,7 +348,6 @@ class _StringsSettingsAccentColorPickerEn {
 
 	// Translations
 	String get pickAColor => 'Pick a color';
-	String get confirm => 'Confirm';
 }
 
 // Path: settings.straightenDelay
@@ -3002,7 +3000,6 @@ extension on _StringsEn {
 			case 'settings.themeModes.light': return 'Light';
 			case 'settings.themeModes.dark': return 'Dark';
 			case 'settings.accentColorPicker.pickAColor': return 'Pick a color';
-			case 'settings.accentColorPicker.confirm': return 'Confirm';
 			case 'settings.straightenDelay.off': return 'Off';
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Slow';
@@ -3047,7 +3044,6 @@ extension on _StringsEn {
 			case 'appInfo.privacyPolicyButton': return 'Tap here to view the privacy policy';
 			case 'update.updateAvailable': return 'Update available';
 			case 'update.updateAvailableDescription': return 'A new version of the app is available.';
-			case 'update.dismiss': return 'Dismiss';
 			case 'update.update': return 'Update';
 			case 'editor.toolbar.toggleColors': return 'Toggle colors (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Toggle eraser (Ctrl E)';

@@ -144,7 +144,7 @@ class ColorBar extends StatelessWidget {
     ),
     actions: <Widget>[
       ElevatedButton(
-        child: Text(t.settings.accentColorPicker.confirm),
+        child: Text(MaterialLocalizations.of(context).saveButtonLabel),
         onPressed: () {
           Navigator.of(context).pop(true);
         },

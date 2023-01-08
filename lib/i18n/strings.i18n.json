@@ -48,8 +48,7 @@
 			"dark": "Dark"
 		},
 		"accentColorPicker": {
-			"pickAColor": "Pick a color",
-			"confirm": "Confirm"
+			"pickAColor": "Pick a color"
 		},
 		"straightenDelay": {
 			"off": "Off",
@@ -109,7 +108,6 @@
 	"update": {
 		"updateAvailable": "Update available",
 		"updateAvailableDescription": "A new version of the app is available.",
-		"dismiss": "Dismiss",
 		"update": "Update"
 	},
 	"editor": {
