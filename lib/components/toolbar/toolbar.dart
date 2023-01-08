@@ -181,9 +181,15 @@ class _ToolbarState extends State<Toolbar> {
             child: quill != null ? QuillToolbar.basic(
               controller: quill.controller,
               locale: TranslationProvider.of(context).flutterLocale,
-              toolbarIconSize: 20,
+              toolbarIconSize: 22,
               iconTheme: QuillIconTheme(
                 iconSelectedColor: colorScheme.onPrimary,
+                iconUnselectedColor: colorScheme.primary,
+                iconSelectedFillColor: colorScheme.primary,
+                iconUnselectedFillColor: Colors.transparent,
+                disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
+                disabledIconFillColor: Colors.transparent,
+                borderRadius: 22,
               ),
               showFontSize: false,
               showFontFamily: false,

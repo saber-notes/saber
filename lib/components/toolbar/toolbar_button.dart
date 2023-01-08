@@ -39,6 +39,7 @@ class ToolbarIconButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6.0),
       child: IconButton(
         color: (selected && enabled) ? colorScheme.onPrimary : colorScheme.primary,
+        disabledColor: colorScheme.onSurface.withOpacity(0.4),
         onPressed: (onPressed != null && enabled) ? () => onPressed!(this) : null,
         tooltip: tooltip,
         iconSize: 20,
