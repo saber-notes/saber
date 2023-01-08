@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 7
-/// Strings: 698 (99 per locale)
+/// Locales: 8
+/// Strings: 798 (99 per locale)
 ///
-/// Built on 2023-01-08 at 03:12 UTC
+/// Built on 2023-01-08 at 17:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -27,6 +27,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	es(languageCode: 'es', build: _StringsEs.build),
 	it(languageCode: 'it', build: _StringsIt.build),
 	ru(languageCode: 'ru', build: _StringsRu.build),
+	tr(languageCode: 'tr', build: _StringsTr.build),
 	zhHansCn(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN', build: _StringsZhHansCn.build),
 	zhHantTw(languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW', build: _StringsZhHantTw.build);
 
@@ -2143,6 +2144,414 @@ class _StringsEditorQuillRu extends _StringsEditorQuillEn {
 }
 
 // Path: <root>
+class _StringsTr extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsTr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.tr,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <tr>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+
+	@override late final _StringsTr _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTr home = _StringsHomeTr._(_root);
+	@override late final _StringsSettingsTr settings = _StringsSettingsTr._(_root);
+	@override late final _StringsLoginTr login = _StringsLoginTr._(_root);
+	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
+	@override late final _StringsUpdateTr update = _StringsUpdateTr._(_root);
+	@override late final _StringsEditorTr editor = _StringsEditorTr._(_root);
+}
+
+// Path: home
+class _StringsHomeTr extends _StringsHomeEn {
+	_StringsHomeTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsTr tabs = _StringsHomeTabsTr._(_root);
+	@override late final _StringsHomeTitlesTr titles = _StringsHomeTitlesTr._(_root);
+	@override late final _StringsHomeTooltipsTr tooltips = _StringsHomeTooltipsTr._(_root);
+	@override String get backFolder => '(Back)';
+	@override String get welcome => 'Saber\'a hoş geldiniz';
+	@override String get noFiles => 'Dosya yok';
+	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
+}
+
+// Path: settings
+class _StringsSettingsTr extends _StringsSettingsEn {
+	_StringsSettingsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefLabelsTr prefLabels = _StringsSettingsPrefLabelsTr._(_root);
+	@override late final _StringsSettingsPrefDescriptionsTr prefDescriptions = _StringsSettingsPrefDescriptionsTr._(_root);
+	@override late final _StringsSettingsThemeModesTr themeModes = _StringsSettingsThemeModesTr._(_root);
+	@override late final _StringsSettingsAccentColorPickerTr accentColorPicker = _StringsSettingsAccentColorPickerTr._(_root);
+	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
+}
+
+// Path: login
+class _StringsLoginTr extends _StringsLoginEn {
+	_StringsLoginTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Giriş yap';
+	@override late final _StringsLoginFeedbacksTr feedbacks = _StringsLoginFeedbacksTr._(_root);
+	@override late final _StringsLoginFormTr form = _StringsLoginFormTr._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'Henüz hesabınız yok mu? '),
+		linkToSignup('Hesap oluşturmak için tıklayın'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusTr status = _StringsLoginStatusTr._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin0i0Tr._(_root),
+		_StringsLogin0i1Tr._(_root),
+		_StringsLogin0i2Tr._(_root),
+	];
+}
+
+// Path: appInfo
+class _StringsAppInfoTr extends _StringsAppInfoEn {
+	_StringsAppInfoTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get licenseNotice => 'Saber  Copyright (C) 2023  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
+	@override String get dirty => 'TEST';
+	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => 'Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla';
+	@override String get licenseButton => 'Lisans bilgisinin detaylarını görmek için buraya tıkla';
+	@override String get privacyPolicyButton => 'Gizlilik Politikasını görmek için buraya tıkla';
+}
+
+// Path: update
+class _StringsUpdateTr extends _StringsUpdateEn {
+	_StringsUpdateTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Güncelleme var';
+	@override String get updateAvailableDescription => 'Uygulamanın yeni bir versiyonu mevcut.';
+	@override String get update => 'Güncelle';
+}
+
+// Path: editor
+class _StringsEditorTr extends _StringsEditorEn {
+	_StringsEditorTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarTr toolbar = _StringsEditorToolbarTr._(_root);
+	@override late final _StringsEditorPensTr pens = _StringsEditorPensTr._(_root);
+	@override late final _StringsEditorPenOptionsTr penOptions = _StringsEditorPenOptionsTr._(_root);
+	@override late final _StringsEditorImageOptionsTr imageOptions = _StringsEditorImageOptionsTr._(_root);
+	@override late final _StringsEditorMenuTr menu = _StringsEditorMenuTr._(_root);
+	@override late final _StringsEditorNewerFileFormatTr newerFileFormat = _StringsEditorNewerFileFormatTr._(_root);
+	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
+}
+
+// Path: home.tabs
+class _StringsHomeTabsTr extends _StringsHomeTabsEn {
+	_StringsHomeTabsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Giriş';
+	@override String get browse => 'Göz at';
+	@override String get whiteboard => 'Beyaz tahta';
+	@override String get settings => 'Ayarlar';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesTr extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Son notlar';
+	@override String get browse => 'Tüm notlar';
+	@override String get whiteboard => 'Beyaz tahta';
+	@override String get settings => 'Ayarlar';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsTr extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Yeni not';
+	@override String get showUpdateDialog => 'Güncelleme diyalogunu göster';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get appTheme => 'Uygulama teması';
+	@override String get customAccentColor => 'Farklı ana renk';
+	@override String get hyperlegibleFont => 'Hyperlegible font';
+	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
+	@override String get editorToolbarOnBottom => 'Editör araç kutusunu aşağıya yerleştir';
+	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
+	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
+	@override String get preferGreyscale => 'Gri tonlamayı tercih et';
+	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
+	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
+	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
+	@override String get editorAutoInvert => 'Karanlık modda notların rengini değiştirir';
+	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
+	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
+	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesTr extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Sistem teması';
+	@override String get light => 'Aydınlık';
+	@override String get dark => 'Karanlık';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerTr extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Bir renk seçin';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayTr extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Kapalı';
+	@override String get regular => 'Normal';
+	@override String get slow => 'Yavaş';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.';
+	@override String get enterNcPassword => 'Lütfen Nextcloud parolanızı girin.';
+	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
+	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
+	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
+	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
+	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
+}
+
+// Path: login.form
+class _StringsLoginFormTr extends _StringsLoginFormEn {
+	_StringsLoginFormTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'Farklı bir Nextcloud sunucusu kullanmak istiyorum';
+	@override String get customServerUrl => 'Farklı bir sunucu URL\'i';
+	@override String get username => 'Kullanıcı adı veya e-posta adresi';
+	@override String get ncPassword => 'Nextcloud parolası';
+	@override String get encPassword => 'Şifreleme parolası';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'Giriş yaparak '),
+		linkToPrivacyPolicy('Gizlilik Politikasını'),
+		const TextSpan(text: ' kabul edersiniz.'),
+	]);
+	@override String get login => 'Giriş yap';
+}
+
+// Path: login.status
+class _StringsLoginStatusTr extends _StringsLoginStatusEn {
+	_StringsLoginStatusTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Nextcloud\'a giriş yapıldı';
+	@override String get loggedOut => 'Çıkış yapıldı';
+	@override String get tapToLogin => 'Nextcloud oturumu açmak için tıklayın';
+}
+
+// Path: login.faq.0
+class _StringsLogin0i0Tr extends _StringsLogin0i0En {
+	_StringsLogin0i0Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Nextcloud nedir?';
+	@override String get a => 'Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz.';
+}
+
+// Path: login.faq.1
+class _StringsLogin0i1Tr extends _StringsLogin0i1En {
+	_StringsLogin0i1Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Şifreleme parolası nedir?';
+	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+}
+
+// Path: login.faq.2
+class _StringsLogin0i2Tr extends _StringsLogin0i2En {
+	_StringsLogin0i2Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Neden iki şifre kullanılıyor?';
+	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarTr extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'Renklere geç (Ctrl C)';
+	@override String get toggleEraser => 'Silgiyi aktifleştir (Ctrl E)';
+	@override String get photo => 'Fotoğraf';
+	@override String get text => 'Metin';
+	@override String get toggleFingerDrawing => 'Parmakla çizimi aktifleştir (Ctrl F)';
+	@override String get undo => 'Geri al';
+	@override String get redo => 'Yeniden yap';
+	@override String get export => 'Dışa aktar (Ctrl Shift S)';
+	@override String get exportAs => 'Farklı formatta dışa aktar:';
+	@override String get fullscreen => 'Tam ekrana geç (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensTr extends _StringsEditorPensEn {
+	_StringsEditorPensTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Dolma kalem';
+	@override String get ballpointPen => 'Tükenmez kalem';
+	@override String get highlighter => 'İşaretleme kalemi';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsTr extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Boyut';
+	@override String get sizeDragHint => 'Boyutu değiştirmek için sağa veya sola kaydır';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsTr extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Görüntü ayarları';
+	@override String get invertible => '(Rengi) Tersine çevrilebilir';
+	@override String get download => 'İndir';
+	@override String get delete => 'Sil';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuTr extends _StringsEditorMenuEn {
+	_StringsEditorMenuTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Sayfayı temizle';
+	@override String get clearAllPages => 'Tüm sayfaları temizle';
+	@override String get lineHeight => 'Satır aralığı';
+	@override String get lineHeightDescription => 'Her bir satırın boyutu';
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatTr extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Yalnızca okunabilir mod';
+	@override String get title => 'Bu not Saber\'ın yeni bir versiyonunda düzenlenmiş';
+	@override String get subtitle => 'Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?';
+	@override String get allowEditing => 'Düzenlemeye izin ver';
+	@override String get cancel => 'İptal';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillTr extends _StringsEditorQuillEn {
+	_StringsEditorQuillTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Buraya bir şey yaz...';
+}
+
+// Path: <root>
 class _StringsZhHansCn extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -3533,6 +3942,122 @@ extension on _StringsRu {
 			case 'editor.newerFileFormat.allowEditing': return 'Разрешить редактирование';
 			case 'editor.newerFileFormat.cancel': return 'Отмена';
 			case 'editor.quill.typeSomething': return 'Напишите что-нибудь здесь...';
+			default: return null;
+		}
+	}
+}
+
+extension on _StringsTr {
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'home.tabs.home': return 'Giriş';
+			case 'home.tabs.browse': return 'Göz at';
+			case 'home.tabs.whiteboard': return 'Beyaz tahta';
+			case 'home.tabs.settings': return 'Ayarlar';
+			case 'home.titles.home': return 'Son notlar';
+			case 'home.titles.browse': return 'Tüm notlar';
+			case 'home.titles.whiteboard': return 'Beyaz tahta';
+			case 'home.titles.settings': return 'Ayarlar';
+			case 'home.tooltips.newNote': return 'Yeni not';
+			case 'home.tooltips.showUpdateDialog': return 'Güncelleme diyalogunu göster';
+			case 'home.backFolder': return '(Back)';
+			case 'home.welcome': return 'Saber\'a hoş geldiniz';
+			case 'home.noFiles': return 'Dosya yok';
+			case 'home.createNewNote': return 'Yeni bir not oluşturmak için + butonuna tıklayınız';
+			case 'settings.prefLabels.appTheme': return 'Uygulama teması';
+			case 'settings.prefLabels.customAccentColor': return 'Farklı ana renk';
+			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlegible font';
+			case 'settings.prefLabels.shouldCheckForUpdates': return 'Otomatik olarak Saber güncellemelerini kontrol et';
+			case 'settings.prefLabels.editorToolbarOnBottom': return 'Editör araç kutusunu aşağıya yerleştir';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Editör araç kutusunu tam ekranda göster';
+			case 'settings.prefLabels.editorAutoInvert': return 'Karanlık temada notların rengini tersine çevir';
+			case 'settings.prefLabels.preferGreyscale': return 'Gri tonlamayı tercih et';
+			case 'settings.prefLabels.editorStraightenLines': return 'Bir çizgiyi düzleştirmek için basılı tut';
+			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
+			case 'settings.prefLabels.editorPromptRename': return 'Notları yeniden adlandırmak için uyar';
+			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
+			case 'settings.prefDescriptions.editorAutoInvert': return 'Karanlık modda notların rengini değiştirir';
+			case 'settings.prefDescriptions.preferGreyscale': return 'E-mürekkep ekranlar için';
+			case 'settings.prefDescriptions.autoClearWhiteboardOnExit': return 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
+			case 'settings.prefDescriptions.editorPromptRename': return 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
+			case 'settings.themeModes.system': return 'Sistem teması';
+			case 'settings.themeModes.light': return 'Aydınlık';
+			case 'settings.themeModes.dark': return 'Karanlık';
+			case 'settings.accentColorPicker.pickAColor': return 'Bir renk seçin';
+			case 'settings.straightenDelay.off': return 'Kapalı';
+			case 'settings.straightenDelay.regular': return 'Normal';
+			case 'settings.straightenDelay.slow': return 'Yavaş';
+			case 'login.title': return 'Giriş yap';
+			case 'login.feedbacks.checkUsername': return 'Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.';
+			case 'login.feedbacks.enterNcPassword': return 'Lütfen Nextcloud parolanızı girin.';
+			case 'login.feedbacks.enterEncPassword': return 'Lütfen şifreleme parolanızı girin.';
+			case 'login.feedbacks.checkUrl': return 'Lütfen geçerli bir URL girin.';
+			case 'login.feedbacks.ncLoginFailed': return 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
+			case 'login.feedbacks.encLoginFailed': return 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
+			case 'login.feedbacks.loginSuccess': return 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
+			case 'login.form.useCustomServer': return 'Farklı bir Nextcloud sunucusu kullanmak istiyorum';
+			case 'login.form.customServerUrl': return 'Farklı bir sunucu URL\'i';
+			case 'login.form.username': return 'Kullanıcı adı veya e-posta adresi';
+			case 'login.form.ncPassword': return 'Nextcloud parolası';
+			case 'login.form.encPassword': return 'Şifreleme parolası';
+			case 'login.form.agreeToPrivacyPolicy': return ({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+				const TextSpan(text: 'Giriş yaparak '),
+				linkToPrivacyPolicy('Gizlilik Politikasını'),
+				const TextSpan(text: ' kabul edersiniz.'),
+			]);
+			case 'login.form.login': return 'Giriş yap';
+			case 'login.signup': return ({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+				const TextSpan(text: 'Henüz hesabınız yok mu? '),
+				linkToSignup('Hesap oluşturmak için tıklayın'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.status.loggedIn': return 'Nextcloud\'a giriş yapıldı';
+			case 'login.status.loggedOut': return 'Çıkış yapıldı';
+			case 'login.status.tapToLogin': return 'Nextcloud oturumu açmak için tıklayın';
+			case 'login.faq.0.q': return 'Nextcloud nedir?';
+			case 'login.faq.0.a': return 'Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz.';
+			case 'login.faq.1.q': return 'Şifreleme parolası nedir?';
+			case 'login.faq.1.a': return 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+			case 'login.faq.2.q': return 'Neden iki şifre kullanılıyor?';
+			case 'login.faq.2.a': return 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2023  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
+			case 'appInfo.dirty': return 'TEST';
+			case 'appInfo.debug': return 'DEBUG';
+			case 'appInfo.sponsorButton': return 'Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla';
+			case 'appInfo.licenseButton': return 'Lisans bilgisinin detaylarını görmek için buraya tıkla';
+			case 'appInfo.privacyPolicyButton': return 'Gizlilik Politikasını görmek için buraya tıkla';
+			case 'update.updateAvailable': return 'Güncelleme var';
+			case 'update.updateAvailableDescription': return 'Uygulamanın yeni bir versiyonu mevcut.';
+			case 'update.update': return 'Güncelle';
+			case 'editor.toolbar.toggleColors': return 'Renklere geç (Ctrl C)';
+			case 'editor.toolbar.toggleEraser': return 'Silgiyi aktifleştir (Ctrl E)';
+			case 'editor.toolbar.photo': return 'Fotoğraf';
+			case 'editor.toolbar.text': return 'Metin';
+			case 'editor.toolbar.toggleFingerDrawing': return 'Parmakla çizimi aktifleştir (Ctrl F)';
+			case 'editor.toolbar.undo': return 'Geri al';
+			case 'editor.toolbar.redo': return 'Yeniden yap';
+			case 'editor.toolbar.export': return 'Dışa aktar (Ctrl Shift S)';
+			case 'editor.toolbar.exportAs': return 'Farklı formatta dışa aktar:';
+			case 'editor.toolbar.fullscreen': return 'Tam ekrana geç (F11)';
+			case 'editor.pens.fountainPen': return 'Dolma kalem';
+			case 'editor.pens.ballpointPen': return 'Tükenmez kalem';
+			case 'editor.pens.highlighter': return 'İşaretleme kalemi';
+			case 'editor.penOptions.size': return 'Boyut';
+			case 'editor.penOptions.sizeDragHint': return 'Boyutu değiştirmek için sağa veya sola kaydır';
+			case 'editor.imageOptions.title': return 'Görüntü ayarları';
+			case 'editor.imageOptions.invertible': return '(Rengi) Tersine çevrilebilir';
+			case 'editor.imageOptions.download': return 'İndir';
+			case 'editor.imageOptions.delete': return 'Sil';
+			case 'editor.menu.clearPage': return 'Sayfayı temizle';
+			case 'editor.menu.clearAllPages': return 'Tüm sayfaları temizle';
+			case 'editor.menu.lineHeight': return 'Satır aralığı';
+			case 'editor.menu.lineHeightDescription': return 'Her bir satırın boyutu';
+			case 'editor.newerFileFormat.readOnlyMode': return 'Yalnızca okunabilir mod';
+			case 'editor.newerFileFormat.title': return 'Bu not Saber\'ın yeni bir versiyonunda düzenlenmiş';
+			case 'editor.newerFileFormat.subtitle': return 'Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?';
+			case 'editor.newerFileFormat.allowEditing': return 'Düzenlemeye izin ver';
+			case 'editor.newerFileFormat.cancel': return 'İptal';
+			case 'editor.quill.typeSomething': return 'Buraya bir şey yaz...';
 			default: return null;
 		}
 	}
