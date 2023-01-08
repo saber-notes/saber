@@ -176,6 +176,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   void dispose() {
     Prefs.appTheme.removeListener(onChanged);
     Prefs.accentColor.removeListener(onChanged);
+    Prefs.hyperlegibleFont.removeListener(onChanged);
+
     windowManager.removeListener(this);
     SystemChrome.setSystemUIChangeCallback(null);
 
