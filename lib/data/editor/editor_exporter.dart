@@ -165,28 +165,42 @@ abstract class EditorExporter {
       return const pw.TextSpan(text: "\n");
     }
 
-    final bool isBlock;
-    switch (node.localName) {
-      case "p":
-      case "div":
-      case "ul":
-      case "ol":
-      case "li":
-      case "h1":
-      case "h2":
-      case "h3":
-        isBlock = true;
-        break;
-      default:
-        isBlock = false;
-        break;
-    }
+    final bool isHeading = node.localName == "h1"
+      || node.localName == "h2"
+      || node.localName == "h3";
+
+    /// Block elements have a newline at the end
+    final bool isBlock = node.localName == "p"
+      || node.localName == "div"
+      || node.localName == "ul"
+      || node.localName == "ol"
+      || node.localName == "li"
+      || node.localName == "blockquote"
+      || node.localName == "pre"
+      || isHeading;
+
+    /// Font size as a multiple of the line height
+    final double fontSizePercent = {
+      "h1": 1.15,
+      "h2": 1.0,
+      "h3": 0.9,
+    }[node.localName] ?? 0.7;
+
+    final PdfColor? underlineColor = {
+      "h1": const PdfColor.fromInt(0x99000000),
+      "h2": const PdfColor.fromInt(0x80000000),
+      "h3": const PdfColor.fromInt(0x66000000),
+    }[node.localName];
 
     return pw.TextSpan(
       style: pw.TextStyle(
-        fontSize: lineHeight * 1.0,
+        fontSize: lineHeight * fontSizePercent,
+        height: 1 / fontSizePercent,
         fontWeight: node.localName == "b" ? pw.FontWeight.bold : null,
         fontStyle: node.localName == "i" ? pw.FontStyle.italic : null,
+        decoration: isHeading ? pw.TextDecoration.underline : null,
+        decorationColor: underlineColor,
+        decorationThickness: isHeading ? 3 : null,
       ),
       children: [
         ...node.nodes.map((node) => _htmlNodeToTextSpan(node, lineHeight)),
