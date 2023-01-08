@@ -52,6 +52,13 @@ abstract class EditorExporter {
 
     final Size pageSize = coreInfo.pages[pageIndex].size;
 
+    final PdfColor backgroundColor;
+    if (coreInfo.backgroundColor != null) {
+      backgroundColor = PdfColor.fromInt(coreInfo.backgroundColor!.value);
+    } else {
+      backgroundColor = PdfColors.white;
+    }
+
     return pw.Page(
       pageFormat: PdfPageFormat(pageSize.width, pageSize.height),
       build: (pw.Context context) {
@@ -89,13 +96,6 @@ abstract class EditorExporter {
                 }
               },
               foregroundPainter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
-                final PdfColor backgroundColor;
-                if (coreInfo.backgroundColor != null) {
-                  backgroundColor = PdfColor.fromInt(coreInfo.backgroundColor!.value);
-                } else {
-                  backgroundColor = PdfColors.white;
-                }
-
                 void drawStroke(Stroke stroke) {
                   pdfGraphics.drawShape(stroke.toSvgPath(pageSize));
                   pdfGraphics.setFillColor(PdfColor.fromInt(stroke.strokeProperties.color.value).flatten(background: backgroundColor));
@@ -120,7 +120,11 @@ abstract class EditorExporter {
                     left: coreInfo.lineHeight * 0.5,
                     right: coreInfo.lineHeight * 0.5,
                     bottom: coreInfo.lineHeight * 0.5,
-                    child: _pdfQuill(coreInfo.pages[pageIndex].quill.controller, coreInfo.lineHeight),
+                    child: _pdfQuill(
+                      coreInfo.pages[pageIndex].quill.controller,
+                      coreInfo.lineHeight,
+                      backgroundColor,
+                    ),
                   ),
                   for (EditorImage image in coreInfo.images.where((image) => image.pageIndex == pageIndex))
                     pw.Positioned(
@@ -141,7 +145,7 @@ abstract class EditorExporter {
     );
   }
 
-  static pw.Widget _pdfQuill(QuillController controller, num lineHeight) {
+  static pw.Widget _pdfQuill(QuillController controller, num lineHeight, PdfColor backgroundColor) {
     final converter = QuillDeltaToHtmlConverter(
       controller.document.toDelta().toJson().cast(),
     );
@@ -151,11 +155,11 @@ abstract class EditorExporter {
     if (body == null) return pw.SizedBox.shrink();
 
     return pw.RichText(
-      text: _htmlNodeToTextSpan(body, lineHeight),
+      text: _htmlNodeToTextSpan(body, lineHeight, backgroundColor),
     );
   }
 
-  static pw.TextSpan _htmlNodeToTextSpan(html.Node node, num lineHeight) {
+  static pw.TextSpan _htmlNodeToTextSpan(html.Node node, num lineHeight, PdfColor backgroundColor) {
     if (node is html.Text) {
       return pw.TextSpan(
         text: node.text,
@@ -202,11 +206,11 @@ abstract class EditorExporter {
         fontWeight: node.localName == "b" ? pw.FontWeight.bold : null,
         fontStyle: node.localName == "i" ? pw.FontStyle.italic : null,
         decoration: isHeading ? pw.TextDecoration.underline : null,
-        decorationColor: underlineColor,
+        decorationColor: underlineColor?.flatten(background: backgroundColor),
         decorationThickness: isHeading ? 3 : null,
       ),
       children: [
-        ...node.nodes.map((node) => _htmlNodeToTextSpan(node, lineHeight)),
+        ...node.nodes.map((node) => _htmlNodeToTextSpan(node, lineHeight, backgroundColor)),
 
         if (isBlock) const pw.TextSpan(text: "\n"),
       ],
