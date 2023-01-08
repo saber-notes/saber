@@ -73,6 +73,8 @@ abstract class Prefs {
 
   static late final PlainPref<bool> shouldCheckForUpdates;
 
+  static late final PlainPref<String> locale;
+
   static void init() {
     url = EncPref("url", "");
     username = EncPref("username", "");
@@ -117,6 +119,8 @@ abstract class Prefs {
     lastStorageQuota = PlainPref("lastStorageQuota", null);
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
+
+    locale = PlainPref("locale", "");
 
     _migrateEmailToUsername();
   }

@@ -24,12 +24,17 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
+
   await Future.wait([
     if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS))
       windowManager.ensureInitialized(),
     Executor().warmUp(),
+    Prefs.locale.waitUntilLoaded(),
   ]);
-  LocaleSettings.useDeviceLocale();
+
+  setLocale();
+  Prefs.locale.addListener(setLocale);
+
   runApp(TranslationProvider(child: const App()));
   startSyncAfterUsernameLoaded();
 }
@@ -47,6 +52,14 @@ void startSyncAfterUsernameLoaded() async {
 
   // start syncing
   FileSyncer.startSync();
+}
+
+void setLocale() {
+  if (Prefs.locale.value.isNotEmpty && LocaleSettings.supportedLocalesRaw.contains(Prefs.locale.value)) {
+    LocaleSettings.setLocaleRaw(Prefs.locale.value);
+  } else {
+    LocaleSettings.useDeviceLocale();
+  }
 }
 
 class App extends StatefulWidget {

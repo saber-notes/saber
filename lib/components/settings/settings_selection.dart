@@ -43,9 +43,10 @@ class _SettingsSelectionState extends State<SettingsSelection> {
   @override
   Widget build(BuildContext context) {
     if (!widget.options.any((ToggleButtonsOption option) => widget.pref.value == option.value)) {
-      if (kDebugMode) throw Exception("SettingsSelection: Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?");
+      if (kDebugMode) throw Exception("SettingsSelection (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?");
       widget.pref.value = widget.options.first.value;
     }
+
     return ListTile(
       onTap: () { // cycle through options
         final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 8
-/// Strings: 798 (99 per locale)
+/// Strings: 800 (100 per locale)
 ///
-/// Built on 2023-01-08 at 17:58 UTC
+/// Built on 2023-01-08 at 19:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -190,6 +190,7 @@ class _StringsSettingsEn {
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
 	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
+	String get systemLanguage => 'System language';
 }
 
 // Path: login
@@ -302,6 +303,7 @@ class _StringsSettingsPrefLabelsEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
+	String get locale => 'App language';
 	String get appTheme => 'App theme';
 	String get customAccentColor => 'Custom accent color';
 	String get hyperlegibleFont => 'Hyperlegible font';
@@ -3389,6 +3391,7 @@ extension on _StringsEn {
 			case 'home.welcome': return 'Welcome to Saber';
 			case 'home.noFiles': return 'No files found';
 			case 'home.createNewNote': return 'Tap the + button to create a new note';
+			case 'settings.prefLabels.locale': return 'App language';
 			case 'settings.prefLabels.appTheme': return 'App theme';
 			case 'settings.prefLabels.customAccentColor': return 'Custom accent color';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlegible font';
@@ -3412,6 +3415,7 @@ extension on _StringsEn {
 			case 'settings.straightenDelay.off': return 'Off';
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Slow';
+			case 'settings.systemLanguage': return 'System language';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Please double check your username or email.';
 			case 'login.feedbacks.enterNcPassword': return 'Please enter your Nextcloud password.';

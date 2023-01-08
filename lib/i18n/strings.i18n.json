@@ -23,6 +23,7 @@
 	},
 	"settings": {
 		"prefLabels": {
+			"locale": "App language",
 			"appTheme": "App theme",
 			"customAccentColor": "Custom accent color",
 			"hyperlegibleFont": "Hyperlegible font",
@@ -54,7 +55,8 @@
 			"off": "Off",
 			"regular": "Regular",
 			"slow": "Slow"
-		}
+		},
+		"systemLanguage": "System language"
 	},
 	"login": {
 		"title": "Login",

@@ -6,8 +6,10 @@
   "de": {
     "settings": {
       "prefLabels": {
+        "locale": "App language",
         "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
-      }
+      },
+      "systemLanguage": "System language"
     },
     "appInfo": {
       "dirty": "DIRTY"
@@ -25,8 +27,10 @@
   "es": {
     "settings": {
       "prefLabels": {
+        "locale": "App language",
         "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
-      }
+      },
+      "systemLanguage": "System language"
     },
     "appInfo": {
       "dirty": "DIRTY"
@@ -44,19 +48,51 @@
       }
     }
   },
-  "it": {},
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "locale": "App language"
+      },
+      "systemLanguage": "System language"
+    }
+  },
   "ru": {
+    "settings": {
+      "prefLabels": {
+        "locale": "App language"
+      },
+      "systemLanguage": "System language"
+    },
     "appInfo": {
       "dirty": "DIRTY"
     }
   },
-  "tr": {},
+  "tr": {
+    "settings": {
+      "prefLabels": {
+        "locale": "App language"
+      },
+      "systemLanguage": "System language"
+    }
+  },
   "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "locale": "App language"
+      },
+      "systemLanguage": "System language"
+    },
     "appInfo": {
       "dirty": "DIRTY"
     }
   },
   "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "locale": "App language"
+      },
+      "systemLanguage": "System language"
+    },
     "appInfo": {
       "dirty": "DIRTY"
     }

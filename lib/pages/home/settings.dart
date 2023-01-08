@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/settings/settings_color.dart';
+import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 
@@ -25,11 +26,12 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
-    UpdateManager.status.addListener(onUpdateAvailable);
+    Prefs.locale.addListener(onChanged);
+    UpdateManager.status.addListener(onChanged);
     super.initState();
   }
 
-  void onUpdateAvailable() {
+  void onChanged() {
     setState(() {});
   }
 
@@ -63,6 +65,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 const Padding(
                   padding: EdgeInsets.all(8),
                   child: AppInfo(),
+                ),
+                SettingsDropdown(
+                  title: t.settings.prefLabels.locale,
+                  pref: Prefs.locale,
+                  options: [
+                    ToggleButtonsOption("", Text(t.settings.systemLanguage)),
+                    for (final Locale locale in LocaleSettings.supportedLocales)
+                      ToggleButtonsOption<String>(locale.toLanguageTag(), Text(locale.toLanguageTag())),
+                  ],
                 ),
                 SettingsSelection(
                   title: t.settings.prefLabels.appTheme,
@@ -139,7 +150,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   void dispose() {
-    UpdateManager.status.removeListener(onUpdateAvailable);
+    Prefs.locale.removeListener(onChanged);
+    UpdateManager.status.removeListener(onChanged);
     super.dispose();
   }
 }
