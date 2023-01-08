@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 
 import 'horizontal_navbar.dart';
@@ -21,6 +22,16 @@ class ResponsiveNavbar extends StatefulWidget {
 
 }
 class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
+
+  @override
+  void initState() {
+    Prefs.locale.addListener(onChange);
+    super.initState();
+  }
+
+  void onChange() {
+    setState(() {});
+  }
 
   onDestinationSelected(int index) {
     if (index == widget.selectedIndex) return;
@@ -57,5 +68,11 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
         ),
       );
     });
+  }
+
+  @override
+  void dispose() {
+    Prefs.locale.removeListener(onChange);
+    super.dispose();
   }
 }
