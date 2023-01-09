@@ -37,7 +37,8 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
       });
     });
 
-    return _isOnyxDevice = false;
+    // assume it's an Onyx device until we know otherwise
+    return _isOnyxDevice = true;
   }
 
   @override
