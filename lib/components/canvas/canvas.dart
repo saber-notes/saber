@@ -46,15 +46,19 @@ class Canvas extends StatelessWidget {
             )],
           ),
           child: !placeholder ? ClipRect(
-            child: OnyxSdkPenArea(
-              child: InnerCanvas(
-                key: innerCanvasKey,
-                pageIndex: pageIndex,
-                width: pageSize.width,
-                height: pageSize.height,
-                textEditing: textEditing,
-                coreInfo: coreInfo,
-                currentStroke: currentStroke,
+            child: SizedBox(
+              width: pageSize.width,
+              height: pageSize.height,
+              child: OnyxSdkPenArea(
+                child: InnerCanvas(
+                  key: innerCanvasKey,
+                  pageIndex: pageIndex,
+                  width: pageSize.width,
+                  height: pageSize.height,
+                  textEditing: textEditing,
+                  coreInfo: coreInfo,
+                  currentStroke: currentStroke,
+                ),
               ),
             ),
           ) : SizedBox(
