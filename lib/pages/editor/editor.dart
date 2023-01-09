@@ -74,6 +74,8 @@ class _EditorState extends State<Editor> {
   int lastSeenPointerCount = 0;
   Timer? _lastSeenPointerCountTimer;
 
+  QuillStruct? lastFocusedQuill;
+
   @override
   void initState() {
     DynamicMaterialApp.isFullscreen.addListener(_setState);
@@ -695,9 +697,10 @@ class _EditorState extends State<Editor> {
               getCurrentQuill: () {
                 for (EditorPage page in coreInfo.pages) {
                   if (!page.quill.focusNode.hasFocus) continue;
+                  lastFocusedQuill = page.quill;
                   return page.quill;
                 }
-                return null;
+                return lastFocusedQuill;
               },
               textEditing: currentTool == Tool.textEditing,
               toggleTextEditing: () => setState(() {
@@ -717,7 +720,8 @@ class _EditorState extends State<Editor> {
                   currentTool = Tool.textEditing;
                   int? pageIndex = currentPageIndex;
                   if (pageIndex != null) {
-                    coreInfo.pages[pageIndex].quill.focusNode.requestFocus();
+                    lastFocusedQuill = coreInfo.pages[pageIndex].quill;
+                    lastFocusedQuill!.focusNode.requestFocus();
                   }
                 }
               }),
