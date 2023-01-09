@@ -55,7 +55,7 @@ android {
         applicationId "com.adilhanney.saber"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion 18
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -85,7 +85,10 @@ android {
         }
     }
 
-
+    packagingOptions {
+        pickFirst 'lib/*/libc++_shared.so'
+        pickFirst 'androidsupportmultidexversion.txt'
+    }
 }
 
 flutter {

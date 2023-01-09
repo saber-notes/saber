@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
@@ -45,14 +46,16 @@ class Canvas extends StatelessWidget {
             )],
           ),
           child: !placeholder ? ClipRect(
-            child: InnerCanvas(
-              key: innerCanvasKey,
-              pageIndex: pageIndex,
-              width: pageSize.width,
-              height: pageSize.height,
-              textEditing: textEditing,
-              coreInfo: coreInfo,
-              currentStroke: currentStroke,
+            child: OnyxSdkPenArea(
+              child: InnerCanvas(
+                key: innerCanvasKey,
+                pageIndex: pageIndex,
+                width: pageSize.width,
+                height: pageSize.height,
+                textEditing: textEditing,
+                coreInfo: coreInfo,
+                currentStroke: currentStroke,
+              ),
             ),
           ) : SizedBox(
             width: pageSize.width,

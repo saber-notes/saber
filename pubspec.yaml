@@ -136,6 +136,9 @@ dependencies:
 
   flutter_localized_locales: ^2.0.3
 
+  onyxsdk_pen:
+    path: packages/onyxsdk_pen
+
 dev_dependencies:
   test: ^1.21.4
   flutter_test:
