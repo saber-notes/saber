@@ -42,7 +42,6 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             // end of stylus data
             startPoint = null
             drawPreview(null)
-            refreshUI()
         }
 
         override fun onRawDrawingTouchPointMoveReceived(end: TouchPoint) {
@@ -84,11 +83,6 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
 
         canvas.drawLine(start.getX(), start.getY(), end.getX(), end.getY(), paint)
         view.getHolder().unlockCanvasAndPost(canvas)
-    }
-
-    fun refreshUI() {
-        touchHelper.setRawDrawingEnabled(false)
-        touchHelper.setRawDrawingEnabled(true)
     }
 
     init {
