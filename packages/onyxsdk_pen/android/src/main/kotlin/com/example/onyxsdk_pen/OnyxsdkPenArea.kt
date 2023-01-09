@@ -28,30 +28,33 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
     }
 
     private val paint: Paint = Paint()
-    private var startPoint: TouchPoint? = null
     private var pointsSinceLastRedraw = 0
+
+    private val currentStroke: ArrayList<TouchPoint> = ArrayList()
 
     private val callback: RawInputCallback = object: RawInputCallback() {
         override fun onBeginRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // begin of stylus data
-            startPoint = touchPoint
+            currentStroke.clear()
             pointsSinceLastRedraw = 0
+            drawPreview()
         }
 
         override fun onEndRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // end of stylus data
-            startPoint = null
-            drawPreview(null)
+            drawPreview()
         }
 
-        override fun onRawDrawingTouchPointMoveReceived(end: TouchPoint) {
+        override fun onRawDrawingTouchPointMoveReceived(touchPoint: TouchPoint) {
             // stylus data during stylus moving
 
             pointsSinceLastRedraw++
             if (pointsSinceLastRedraw < pointsToRedraw) return
             pointsSinceLastRedraw = 0
 
-            drawPreview(end)
+            currentStroke.add(touchPoint)
+
+            drawPreview()
         }
 
         override fun onRawDrawingTouchPointListReceived(touchPointList: TouchPointList) {
@@ -70,18 +73,17 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         }
     }
 
-    fun drawPreview(end: TouchPoint?) {
+    fun drawPreview() {
         val canvas: Canvas = view.getHolder().lockCanvas() ?: return
-        canvas.drawColor(Color.WHITE) // this is drawn as transparent by onyx sdk
+        canvas.drawColor(Color.WHITE)
 
-        val start: TouchPoint? = startPoint
+        for (i in 0 until currentStroke.size - 1) {
+            val p1 = currentStroke[i]
+            val p2 = currentStroke[i + 1]
 
-        if (start == null || end == null) {
-            view.getHolder().unlockCanvasAndPost(canvas)
-            return
+            canvas.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY(), paint)
         }
 
-        canvas.drawLine(start.getX(), start.getY(), end.getX(), end.getY(), paint)
         view.getHolder().unlockCanvasAndPost(canvas)
     }
 
@@ -100,6 +102,8 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         touchHelper.openRawDrawing()
         touchHelper.setRawDrawingEnabled(true)
         touchHelper.setRawDrawingRenderEnabled(false)
+
+        drawPreview()
     }
 
     override fun dispose() {
