@@ -464,9 +464,10 @@ class _EditorState extends State<Editor> {
     String toSave = _saveToString();
     try {
       _hasEdited = false;
-      await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave);
+      await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave, awaitWrite: true);
     } catch (e) {
       _hasEdited = true;
+      if (kDebugMode) rethrow;
     }
   }
 
