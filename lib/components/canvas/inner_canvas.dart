@@ -142,16 +142,25 @@ class _InnerCanvasState extends State<InnerCanvas> {
     /// Blank TextStyle with the correct color
     final TextStyle defaultStyle = TextStyle(color: invert ? Colors.white : Colors.black);
 
+    final TextStyle kalam = GoogleFonts.kalam(); // Preload fallback font
+    List<String> fontFamilyFallback = [
+      kalam.fontFamily ?? "Kalam",
+      "handwriting",
+      "sans-serif",
+    ];
+
     TextTheme textTheme = GoogleFonts.neuchaTextTheme( // neucha is a handwriting font
       ThemeData(brightness: invert ? Brightness.dark : Brightness.light).textTheme,
     );
     textTheme = textTheme.copyWith(
       bodyText1: (textTheme.bodyText1 ?? defaultStyle).copyWith(
+        fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 0.7,
         height: 1 / 0.7,
         color: textTheme.bodyText1?.color ?? defaultStyle.color!,
       ),
       headline1: (textTheme.headline1 ?? defaultStyle).copyWith(
+        fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
         color: defaultStyle.color,
@@ -160,6 +169,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         decorationThickness: 3,
       ),
       headline2: (textTheme.headline2 ?? defaultStyle).copyWith(
+        fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 1,
         height: 1 / 1,
         color: defaultStyle.color,
@@ -168,6 +178,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         decorationThickness: 3,
       ),
       headline3: (textTheme.headline3 ?? defaultStyle).copyWith(
+        fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
         color: defaultStyle.color,
