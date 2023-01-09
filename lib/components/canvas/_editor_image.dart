@@ -138,6 +138,9 @@ class EditorImage {
         if (resized != null) bytes = resized;
 
         naturalSize = reducedSize;
+      } else if (allowCalculations) { // otherwise make sure orientation is baked in
+        Uint8List? rotated = await Executor().execute(fun1: _bakeOrientationIsolate, arg1: bytes);
+        if (rotated != null) bytes = rotated;
       }
 
       if (srcRect.shortestSide == 0) {
@@ -194,12 +197,25 @@ class EditorImage {
     return Size(width, height);
   }
 
-  /// Resizes the image to [newSize]
+  /// Resizes the image to [newSize].
+  /// Also bakes the image orientation into the image data.
   static Uint8List? _resizeImageIsolate(Uint8List bytes, Size newSize, TypeSendPort port) {
     image.Image? decoded = image.decodeImage(bytes);
     if (decoded == null) return null;
 
     decoded = image.copyResize(decoded, width: newSize.width.toInt(), height: newSize.height.toInt());
+    decoded = image.bakeOrientation(decoded);
+
+    return image.encodePng(decoded) as Uint8List;
+  }
+
+  /// Bakes the image orientation into the image data.
+  /// This is only necessary if [_resizeImageIsolate] is not called.
+  static Uint8List? _bakeOrientationIsolate(Uint8List bytes, TypeSendPort port) {
+    image.Image? decoded = image.decodeImage(bytes);
+    if (decoded == null) return null;
+
+    decoded = image.bakeOrientation(decoded);
 
     return image.encodePng(decoded) as Uint8List;
   }
