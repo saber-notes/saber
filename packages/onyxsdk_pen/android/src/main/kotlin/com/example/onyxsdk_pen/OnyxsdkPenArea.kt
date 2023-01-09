@@ -33,21 +33,12 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
     private val currentStroke: ArrayList<TouchPoint> = ArrayList()
 
     private val callback: RawInputCallback = object: RawInputCallback() {
-        override fun onBeginRawDrawing(b: Boolean, touchPoint: TouchPoint) {
-            // begin of stylus data
+        fun reset() {
             currentStroke.clear()
             pointsSinceLastRedraw = 0
             drawPreview()
         }
-
-        override fun onEndRawDrawing(b: Boolean, touchPoint: TouchPoint) {
-            // end of stylus data
-            drawPreview()
-        }
-
-        override fun onRawDrawingTouchPointMoveReceived(touchPoint: TouchPoint) {
-            // stylus data during stylus moving
-
+        fun update(touchPoint: TouchPoint) {
             pointsSinceLastRedraw++
             if (pointsSinceLastRedraw < pointsToRedraw) return
             pointsSinceLastRedraw = 0
@@ -57,16 +48,35 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             drawPreview()
         }
 
+
+        override fun onBeginRawDrawing(b: Boolean, touchPoint: TouchPoint) {
+            // begin of stylus data
+            reset()
+        }
+
+        override fun onEndRawDrawing(b: Boolean, touchPoint: TouchPoint) {
+            // end of stylus data
+            reset()
+        }
+
+        override fun onRawDrawingTouchPointMoveReceived(touchPoint: TouchPoint) {
+            // stylus data during stylus moving
+            update(touchPoint)
+        }
+
         override fun onRawDrawingTouchPointListReceived(touchPointList: TouchPointList) {
         }
 
         override fun onBeginRawErasing(b: Boolean, touchPoint: TouchPoint) {
+            reset()
         }
 
         override fun onEndRawErasing(b: Boolean, touchPoint: TouchPoint) {
+            reset()
         }
 
         override fun onRawErasingTouchPointMoveReceived(touchPoint: TouchPoint) {
+            update(touchPoint)
         }
 
         override fun onRawErasingTouchPointListReceived(touchPointList: TouchPointList) {
