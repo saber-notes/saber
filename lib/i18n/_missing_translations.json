@@ -6,9 +6,9 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "locale": "App language"
+        "locale": "Jazyk aplikace"
       },
-      "systemLanguage": "System language"
+      "systemLanguage": "Systémový jazyk"
     }
   },
   "de": {
