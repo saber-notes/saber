@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -49,18 +50,22 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
     final Map<String, dynamic> creationParams = <String, dynamic>{};
 
     return Stack(
+      fit: StackFit.expand,
       children: [
-        Positioned.fill(
+        Opacity(
+          opacity: 0,
           child: AndroidView(
             viewType: viewType,
             creationParams: creationParams,
             creationParamsCodec: const StandardMessageCodec(),
-            hitTestBehavior: PlatformViewHitTestBehavior.translucent,
+            gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
+              Factory<OneSequenceGestureRecognizer>(
+                    () => EagerGestureRecognizer(),
+              ),
+            },
           ),
         ),
-        Positioned.fill(
-            child: widget.child
-        ),
+        widget.child,
       ],
     );
   }
