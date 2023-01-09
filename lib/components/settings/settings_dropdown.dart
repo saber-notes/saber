@@ -32,6 +32,8 @@ class SettingsDropdown<T> extends StatefulWidget {
 }
 
 class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
+  late FocusNode dropdownFocusNode = FocusNode(debugLabel: "dropdownFocusNode(${widget.pref.key})");
+
   @override
   void initState() {
     widget.pref.addListener(onChanged);
@@ -65,15 +67,15 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
           ),
         );
       }).toList(),
+      focusNode: dropdownFocusNode,
       borderRadius: BorderRadius.circular(32),
       underline: const SizedBox.shrink(),
     );
 
     return MergeSemantics(
       child: ListTile(
-        onTap: () { // cycle through options // todo: remove
-          final int i = widget.indexOf(widget.pref.value)!;
-          widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
+        onTap: () {
+          dropdownFocusNode.requestFocus();
         },
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         title: Text(widget.title),
