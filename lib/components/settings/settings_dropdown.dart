@@ -50,29 +50,35 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
       widget.pref.value = widget.options.first.value;
     }
 
-    return ListTile(
-      onTap: () { // cycle through options // todo: remove
-        final int i = widget.indexOf(widget.pref.value)!;
-        widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
+    final dropdown = DropdownButton<T>(
+      value: widget.pref.value,
+      onChanged: (T? value) {
+        if (value == null) return;
+        widget.pref.value = value;
       },
-      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-      title: Text(widget.title),
-      subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
-      trailing: DropdownButton<T>(
-        value: widget.pref.value,
-        onChanged: (T? value) {
-          if (value == null) return;
-          widget.pref.value = value;
+      items: widget.options.map((ToggleButtonsOption<T> option) {
+        return DropdownMenuItem<T>(
+          value: option.value,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: option.widget,
+          ),
+        );
+      }).toList(),
+      borderRadius: BorderRadius.circular(32),
+      underline: const SizedBox.shrink(),
+    );
+
+    return MergeSemantics(
+      child: ListTile(
+        onTap: () { // cycle through options // todo: remove
+          final int i = widget.indexOf(widget.pref.value)!;
+          widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
         },
-        items: widget.options.map((ToggleButtonsOption<T> option) {
-          return DropdownMenuItem<T>(
-            value: option.value,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: option.widget,
-            ),
-          );
-        }).toList(),
+        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        title: Text(widget.title),
+        subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
+        trailing: dropdown,
       ),
     );
   }
