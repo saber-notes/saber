@@ -33,7 +33,8 @@
       "preferGreyscale": "Preferovat černobílé barvy",
       "editorStraightenLines": "Pro kreslení rovné čáry stisknout a podržet",
       "autoClearWhiteboardOnExit": "Smazat tabuli po opuštění aplikace",
-      "editorPromptRename": "Vybízet k přejmenování nových poznámek"
+      "editorPromptRename": "Vybízet k přejmenování nových poznámek",
+      "locale": "Jazyk aplikace"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
@@ -55,7 +56,8 @@
       "off": "Vypnuto",
       "regular": "Standardně",
       "slow": "Dlouze"
-    }
+    },
+    "systemLanguage": "Systémový jazyk"
   },
   "login": {
     "title": "Přihlásit se",
@@ -83,16 +85,20 @@
       "loggedOut": "Jste odhlášení",
       "tapToLogin": "Klepněte pro přihlášení pomocí NextCloud účtu"
     },
-    "faq": [{
-      "q": "Co je to NextCloud?",
-      "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty."
-    }, {
-      "q": "K čemu je heslo pro šifrování?",
-      "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
-    }, {
-      "q": "Proč používat dvě hesla?",
-      "a": "Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
-    }]
+    "faq": [
+      {
+        "q": "Co je to NextCloud?",
+        "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty."
+      },
+      {
+        "q": "K čemu je heslo pro šifrování?",
+        "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
+      },
+      {
+        "q": "Proč používat dvě hesla?",
+        "a": "Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
+      }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.",

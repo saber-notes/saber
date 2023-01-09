@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 902 (100 per locale)
+/// Strings: 904 (100 per locale)
 ///
-/// Built on 2023-01-08 at 19:54 UTC
+/// Built on 2023-01-09 at 21:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -601,6 +601,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesCs themeModes = _StringsSettingsThemeModesCs._(_root);
 	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
 	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
+	@override String get systemLanguage => 'Systémový jazyk';
 }
 
 // Path: login
@@ -725,6 +726,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
+	@override String get locale => 'Jazyk aplikace';
 }
 
 // Path: settings.prefDescriptions
@@ -3931,6 +3933,7 @@ extension on _StringsCs {
 			case 'settings.prefLabels.editorStraightenLines': return 'Pro kreslení rovné čáry stisknout a podržet';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Smazat tabuli po opuštění aplikace';
 			case 'settings.prefLabels.editorPromptRename': return 'Vybízet k přejmenování nových poznámek';
+			case 'settings.prefLabels.locale': return 'Jazyk aplikace';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Inteligentně ztmaví poznámky ve tmavém motivu';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Pro elektronické čtečky knih s e-ink displejem';
@@ -3944,6 +3947,7 @@ extension on _StringsCs {
 			case 'settings.straightenDelay.off': return 'Vypnuto';
 			case 'settings.straightenDelay.regular': return 'Standardně';
 			case 'settings.straightenDelay.slow': return 'Dlouze';
+			case 'settings.systemLanguage': return 'Systémový jazyk';
 			case 'login.title': return 'Přihlásit se';
 			case 'login.feedbacks.checkUsername': return 'Zkontrolujte prosím své uživatelské jméno a heslo.';
 			case 'login.feedbacks.enterNcPassword': return 'Zadejte prosím své heslo k NextCloud účtu.';
