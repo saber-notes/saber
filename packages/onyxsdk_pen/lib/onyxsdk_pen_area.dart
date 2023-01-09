@@ -30,9 +30,11 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
 
     // use the platform interface to check if the device is an Onyx device
     OnyxsdkPenPlatform.instance.isOnyxDevice().then((isOnyxDevice) {
-      setState(() {
-        _isOnyxDevice = isOnyxDevice;
-      });
+      if (isOnyxDevice != _isOnyxDevice) {
+        setState(() {
+          _isOnyxDevice = isOnyxDevice;
+        });
+      }
     });
 
     // assume it's an Onyx device until we know otherwise
