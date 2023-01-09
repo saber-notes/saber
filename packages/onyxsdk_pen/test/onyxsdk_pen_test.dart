@@ -7,7 +7,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockOnyxsdkPenPlatform
     with MockPlatformInterfaceMixin
     implements OnyxsdkPenPlatform {
-
   @override
   Future<bool> isOnyxDevice() => Future.value(false);
 }

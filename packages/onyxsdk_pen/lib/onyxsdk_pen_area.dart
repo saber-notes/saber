@@ -1,10 +1,8 @@
-
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import 'onyxsdk_pen_platform_interface.dart';
@@ -61,7 +59,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
             creationParamsCodec: const StandardMessageCodec(),
             gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
               Factory<OneSequenceGestureRecognizer>(
-                    () => EagerGestureRecognizer(),
+                () => EagerGestureRecognizer(),
               ),
             },
           ),

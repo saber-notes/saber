@@ -1,4 +1,3 @@
-
 import 'onyxsdk_pen_platform_interface.dart';
 
 class OnyxsdkPen {
