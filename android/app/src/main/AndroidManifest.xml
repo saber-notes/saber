@@ -18,7 +18,8 @@
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:launchMode="singleTask"
-        tools:targetApi="donut">
+        tools:targetApi="donut"
+        tools:replace="android:label,android:allowBackup">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -15,6 +15,13 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
+        maven {
+            url "http://repo.boox.com/repository/maven-public/"
+            allowInsecureProtocol true
+        }
     }
 }
 
