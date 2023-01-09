@@ -165,7 +165,9 @@ class EditorCoreInfo {
 
     try {
       final dynamic json = await Executor().execute(fun1: _jsonDecodeIsolate, arg1: jsonString);
-      if (json is List) { // old format
+      if (json == null) {
+        throw Exception("Failed to parse json from $path");
+      } else if (json is List) { // old format
         return EditorCoreInfo.fromOldJson(json, filePath: path);
       } else {
         return EditorCoreInfo.fromJson(
@@ -184,7 +186,12 @@ class EditorCoreInfo {
   }
 
   static dynamic _jsonDecodeIsolate(String json, TypeSendPort port) {
-    return jsonDecode(json);
+    try {
+      return jsonDecode(json);
+    } catch (e) {
+      if (kDebugMode) print("_jsonDecodeIsolate: $e");
+      return null;
+    }
   }
 
   Map<String, dynamic> toJson() => {
