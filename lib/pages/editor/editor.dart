@@ -713,14 +713,9 @@ class _EditorState extends State<Editor> {
                 if (currentTool == Tool.textEditing) {
                   currentTool = Pen.currentPen;
                   for (EditorPage page in coreInfo.pages) {
+                    // unselect text, but maintain cursor position
+                    page.quill.controller.moveCursorToPosition(page.quill.controller.selection.extentOffset);
                     page.quill.focusNode.unfocus();
-                    page.quill.controller.updateSelection( // unselect text
-                      TextSelection.collapsed(
-                        // maintain cursor position for when it regains focus
-                        offset: page.quill.controller.selection.extentOffset
-                      ),
-                      ChangeSource.LOCAL
-                    );
                   }
                 } else {
                   currentTool = Tool.textEditing;
