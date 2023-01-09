@@ -105,7 +105,7 @@ class _EditorState extends State<Editor> {
     }
 
     for (EditorPage page in coreInfo.pages) {
-      page.quill.controller.addListener(onQuillChange);
+      listenToQuillChanges(page.quill);
     }
 
     if (coreInfo.strokes.isEmpty && coreInfo.images.isEmpty) {
@@ -174,10 +174,9 @@ class _EditorState extends State<Editor> {
     }
 
     while (maxPageIndex >= coreInfo.pages.length - 1) {
-      coreInfo.pages.add(
-        EditorPage()
-          ..quill.controller.addListener(onQuillChange)
-      );
+      final page = EditorPage();
+      coreInfo.pages.add(page);
+      listenToQuillChanges(page.quill);
     }
   }
   void removeExcessPagesAfterStroke(Stroke? stroke) {
@@ -192,7 +191,7 @@ class _EditorState extends State<Editor> {
           && coreInfo.pages[i - 1].quill.controller.document.isEmpty();
       if (pageEmpty) {
         EditorPage page = coreInfo.pages.removeAt(i);
-        page.quill.controller.removeListener(onQuillChange);
+        page.quill.changeSubscription?.cancel();
       } else {
         break;
       }
@@ -431,6 +430,12 @@ class _EditorState extends State<Editor> {
     autosaveAfterDelay();
   }
 
+  listenToQuillChanges(QuillStruct quill) {
+    quill.changeSubscription?.cancel();
+    quill.changeSubscription = quill.controller.changes.listen((event) {
+      onQuillChange();
+    });
+  }
   onQuillChange() {
     createPageOfStroke();
     autosaveAfterDelay();
@@ -919,7 +924,7 @@ class _EditorState extends State<Editor> {
     _removeKeybindings();
 
     for (EditorPage page in coreInfo.pages) {
-      page.quill.controller.removeListener(onQuillChange);
+      page.quill.changeSubscription?.cancel();
     }
 
     // manually save pen properties since the listeners don't fire if a property is changed

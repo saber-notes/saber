@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
@@ -62,6 +64,7 @@ class EditorPage {
 class QuillStruct {
   final QuillController controller;
   late final FocusNode focusNode;
+  StreamSubscription? changeSubscription;
 
   QuillStruct({
     required this.controller,
