@@ -142,9 +142,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
     /// Blank TextStyle with the correct color
     final TextStyle defaultStyle = TextStyle(color: invert ? Colors.white : Colors.black);
 
-    final TextStyle kalam = GoogleFonts.kalam(); // Preload fallback font
+    final TextStyle dekko = GoogleFonts.dekko(); // Preload fallback font
     List<String> fontFamilyFallback = [
-      kalam.fontFamily ?? "Kalam",
+      "Neucha",
+      dekko.fontFamily ?? "Dekko",
+      "Dekko",
+      "Kalam",
       "handwriting",
       "sans-serif",
     ];
