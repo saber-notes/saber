@@ -14,7 +14,7 @@ abstract class RoutePaths {
 abstract class HomeRoutes {
   static PathFunction homeFunction = pathToFunction(RoutePaths.home);
 
-  static final _routes = <_Route>[
+  static List<_Route> get _routes => <_Route>[
     _Route(
       routePath: homeFunction({"subpage": HomePage.recentSubpage}),
       label: t.home.tabs.home,
