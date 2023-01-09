@@ -1,11 +1,9 @@
 
-import 'package:collapsible/collapsible.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' show buildNumber;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,16 +23,13 @@ class AppInfo extends StatefulWidget {
 class _AppInfoState extends State<AppInfo> {
   @override
   void initState() {
-    getInfo().then((info) {
-      setState(() {
-        this.info = info;
-      });
-    });
+    _getInfo();
+    Prefs.locale.addListener(_getInfo);
     super.initState();
   }
 
   String info = "v$buildNumber";
-  Future<String> getInfo() async {
+  void _getInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     List<String> info = [
@@ -45,7 +40,9 @@ class _AppInfoState extends State<AppInfo> {
       "($buildNumber)",
     ];
 
-    return info.where((s) => s.isNotEmpty).join(" ");
+    setState(() {
+      this.info = info.where((s) => s.isNotEmpty).join(" ");
+    });
   }
 
   @override
@@ -99,4 +96,10 @@ class _AppInfoState extends State<AppInfo> {
       ),
     ],
   );
+
+  @override
+  void dispose() {
+    Prefs.locale.removeListener(_getInfo);
+    super.dispose();
+  }
 }
