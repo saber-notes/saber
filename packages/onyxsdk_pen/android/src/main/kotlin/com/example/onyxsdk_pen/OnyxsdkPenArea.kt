@@ -42,14 +42,14 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             // end of stylus data
             startPoint = null
             drawPreview(null)
-            refreshUI();
+            refreshUI()
         }
 
         override fun onRawDrawingTouchPointMoveReceived(end: TouchPoint) {
             // stylus data during stylus moving
 
             pointsSinceLastRedraw++
-            if (pointsSinceLastRedraw < pointsToRedraw) return;
+            if (pointsSinceLastRedraw < pointsToRedraw) return
             pointsSinceLastRedraw = 0
 
             drawPreview(end)
@@ -100,10 +100,12 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         }
 
         paint.setStrokeWidth(strokeWidth)
+        paint.setColor(Color.BLACK)
 
         touchHelper.setStrokeWidth(strokeWidth)
         touchHelper.openRawDrawing()
         touchHelper.setRawDrawingEnabled(true)
+        touchHelper.setRawDrawingRenderEnabled(false)
     }
 
     override fun dispose() {
