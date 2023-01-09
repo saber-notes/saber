@@ -80,7 +80,7 @@ allprojects {
 
 ```yaml
 dependencies:
-  onyxsdk_pen: ^1.0.0
+  onyxsdk_pen: ^1.0.1
 ```
 
 #### `lib/main.dart`
