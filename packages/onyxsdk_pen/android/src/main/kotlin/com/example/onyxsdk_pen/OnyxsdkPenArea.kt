@@ -103,6 +103,9 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             val exclude = emptyList<Rect>()
             view.getLocalVisibleRect(limit)
             touchHelper.setLimitRect(limit, exclude)
+
+            touchHelper.setRawDrawingEnabled(false)
+            touchHelper.setRawDrawingEnabled(true)
         }
 
         paint.setStrokeWidth(strokeWidth)
