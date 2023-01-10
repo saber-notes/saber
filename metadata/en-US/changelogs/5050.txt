@@ -1,5 +1,4 @@
 • You'll remained scrolled/zoomed to the same position when you close and open a note during the same session
-• Optimisations for Onyx devices
 • Removed the empty last page from PDF exports
 • Initial support for exporting typed text to PDF (doesn't line up properly yet)
 • Quill toolbar buttons now match the other toolbar buttons
