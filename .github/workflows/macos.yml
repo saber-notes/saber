@@ -1,4 +1,4 @@
-name: Build for macOS and iOS
+name: Build for macOS
 
 on:
   # Enable manual run
@@ -11,61 +11,6 @@ env:
   project-id: com.adilhanney.saber
 
 jobs:
-  build-ios:
-    name: Build for iOS
-    runs-on: macos-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Remove unneeded files
-        run: |
-          rm -rf android
-          rm -rf appimage
-          rm -rf assets_raw
-          rm -rf flatpak
-          rm -rf installers
-          rm -rf integration_test
-          rm -rf linux
-          rm -rf macos
-          rm -rf metadata
-          rm -rf snap
-          rm -rf submodules
-          rm -rf test
-          rm -rf web
-          rm -rf windows
-
-      - name: Get Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          architecture: x64
-
-      - name: Build for iOS
-        run: flutter build ios --no-codesign
-
-      - name: Compress iOS build
-        run: |
-          pushd build/ios/iphoneos
-          mkdir -p Payload
-          mv Runner.app Payload/
-          zip -r Saber.ipa Payload
-          popd
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Saber-iOS-Archive
-          path: build/ios/iphoneos/Saber.ipa
-
-      - name: Upload to GitHub release
-        uses: xresloader/upload-to-github-release@v1
-        if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          file: build/ios/iphoneos/Saber.ipa
-
   build-macos:
     name: Build for macOS
     runs-on: macos-latest
