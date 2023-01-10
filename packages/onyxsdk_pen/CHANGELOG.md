@@ -1,3 +1,7 @@
+## 1.0.3
+
+* Update pub.dev description
+
 ## 1.0.2
 
 * Refresh the screen after 1s (default). This fixes the issue where after writing with
