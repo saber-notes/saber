@@ -11,7 +11,6 @@ class MethodChannelOnyxsdkPen extends OnyxsdkPenPlatform {
 
   @override
   Future<bool> isOnyxDevice() async {
-    final isOnyxDevice = await methodChannel.invokeMethod<bool>('isOnyxDevice');
-    return isOnyxDevice ?? false;
+    return false;
   }
 }

@@ -54,9 +54,4 @@ android {
     defaultConfig {
         minSdkVersion 16
     }
-
-    dependencies {
-        implementation('com.onyx.android.sdk:onyxsdk-device:1.2.16')
-        implementation('com.onyx.android.sdk:onyxsdk-pen:1.4.2')
-    }
 }
