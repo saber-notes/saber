@@ -40,7 +40,7 @@ Options:
 
 2. Download from [F-Droid][f-droid]
    - Note that the F-Droid build is not optimised for Onyx Boox devices as this would require
-     proprietary dependencies from Onyx.
+     [proprietary dependencies](https://github.com/adil192/saber/issues/219) from Onyx.
 
 3. Download and install `Saber.apk` from the latest [Release][releases].
 
