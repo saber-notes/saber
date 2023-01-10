@@ -13,6 +13,8 @@ import com.onyx.android.sdk.pen.RawInputCallback
 import com.onyx.android.sdk.pen.TouchHelper
 import com.onyx.android.sdk.pen.data.TouchPointList
 import io.flutter.plugin.platform.PlatformView
+import java.util.Timer
+import java.util.TimerTask
 
 internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
     companion object {
@@ -32,11 +34,15 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
 
     private val currentStroke: ArrayList<TouchPoint> = ArrayList()
 
+    private var refreshTimerTask: TimerTask? = null
+    private val refreshDelayMs: Long by lazy { creationParams?.get("refreshDelayMs") as? Long ?: 1000 }
+
     private val callback: RawInputCallback = object: RawInputCallback() {
         fun reset() {
             currentStroke.clear()
             pointsSinceLastRedraw = 0
             drawPreview()
+            refreshTimerTask?.cancel()
         }
         fun update(touchPoint: TouchPoint) {
             pointsSinceLastRedraw++
@@ -48,6 +54,17 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
             drawPreview()
         }
 
+        fun scheduleRefresh() {
+            refreshTimerTask?.cancel()
+            refreshTimerTask = object : TimerTask() {
+                override fun run() {
+                    touchHelper.setRawDrawingEnabled(false)
+                    touchHelper.setRawDrawingEnabled(true)
+                }
+            }
+            Timer().schedule(refreshTimerTask, refreshDelayMs)
+        }
+
 
         override fun onBeginRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // begin of stylus data
@@ -57,6 +74,7 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         override fun onEndRawDrawing(b: Boolean, touchPoint: TouchPoint) {
             // end of stylus data
             reset()
+            scheduleRefresh()
         }
 
         override fun onRawDrawingTouchPointMoveReceived(touchPoint: TouchPoint) {
@@ -73,6 +91,7 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
 
         override fun onEndRawErasing(b: Boolean, touchPoint: TouchPoint) {
             reset()
+            scheduleRefresh()
         }
 
         override fun onRawErasingTouchPointMoveReceived(touchPoint: TouchPoint) {

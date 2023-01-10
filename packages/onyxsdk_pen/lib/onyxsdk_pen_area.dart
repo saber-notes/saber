@@ -11,11 +11,18 @@ import 'onyxsdk_pen_platform_interface.dart';
 class OnyxSdkPenArea extends StatefulWidget {
   const OnyxSdkPenArea({
     Key? key,
+    this.refreshDelayMs = 1000,
     required this.child,
   }) : super(key: key);
 
+  /// The delay after the pen stroke is finished before the screen is refreshed.
+  ///
+  /// Setting this too low will cause the screen to refresh while the user
+  /// is still writing, which will make the screen get stuck in a half-drawn
+  /// state.
+  final int refreshDelayMs;
+
   final Widget child;
-  // todo: add event handlers
 
   @override
   State<OnyxSdkPenArea> createState() => _OnyxSdkPenAreaState();
@@ -48,7 +55,9 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
     // This is used in the platform side to register the view.
     const String viewType = 'onyxsdk_pen_area';
     // Pass parameters to the platform side.
-    final Map<String, dynamic> creationParams = <String, dynamic>{};
+    final Map<String, dynamic> creationParams = <String, dynamic>{
+      "refreshDelayMs": widget.refreshDelayMs,
+    };
 
     return Stack(
       fit: StackFit.expand,
