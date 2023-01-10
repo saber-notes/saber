@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:image_gallery_saver_v3/image_gallery_saver.dart';
+import 'package:image_save/image_save.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -18,17 +18,15 @@ Future fmExportFile(String fileName, Uint8List bytes, {bool isImage = false}) as
 
   if (Platform.isAndroid || Platform.isIOS) {
     if (isImage) { // save image to gallery
-      final Map result = await ImageGallerySaver.saveImage(
+      await ImageSave.saveImage(
         bytes,
-        quality: 100,
-        name: fileName,
+        fileName,
+        albumName: "Saber",
       );
-      if (result["isSuccess"] == true) return;
+    } else { // share file
+      tempFile = await getTempFile();
+      await Share.shareXFiles([XFile(tempFile.path)]);
     }
-
-    // otherwise share file
-    tempFile = await getTempFile();
-    await Share.shareXFiles([XFile(tempFile.path)]);
   } else { // desktop, open save-as dialog
     String? outputFile = await FilePicker.platform.saveFile(
       fileName: fileName,

@@ -514,13 +514,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.0"
-  image_gallery_saver_v3:
-    dependency: "direct main"
-    description:
-      name: image_gallery_saver_v3
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   image_picker:
     dependency: "direct main"
     description:
@@ -556,6 +549,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.2"
+  image_save:
+    dependency: "direct main"
+    description:
+      name: image_save
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.0"
   integration_test:
     dependency: "direct dev"
     description: flutter
