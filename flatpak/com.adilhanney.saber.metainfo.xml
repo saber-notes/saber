@@ -59,6 +59,21 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.5" type="development" date="2023-01-10">
+            <description>
+                <ul>
+                    <li>You'll remained scrolled/zoomed to the same position when you close and open a note during the same session</li>
+                    <li>Optimisations for Onyx devices</li>
+                    <li>Removed the empty last page from PDF exports</li>
+                    <li>Initial support for exporting typed text to PDF (doesn't line up properly yet)</li>
+                    <li>Quill toolbar buttons now match the other toolbar buttons</li>
+                    <li>Images can now be stretched (distorted)</li>
+                    <li>You can now override your system language in Settings</li>
+                    <li>New Turkish and Czech translations</li>
+                    <li>Bug fix: The Quill toolbar no longer disappears if the editor loses focus</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.4" type="development" date="2023-01-07">
             <description>
                 <ul>
