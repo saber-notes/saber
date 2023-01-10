@@ -34,11 +34,15 @@ Alternatively, install it natively...
 
 #### Android
 
-Option 1: Download from the [Play Store][google_play]
+Options:
 
-Option 2: Download from [F-Droid][f-droid]
+1. Download from the [Play Store][google_play]
 
-Option 3 (fastest updates): Download and install `Saber.apk` from the latest [Release][releases].
+2. Download from [F-Droid][f-droid]
+   - Note that the F-Droid build is not optimised for Onyx Boox devices as this would require
+     proprietary dependencies from Onyx.
+
+3. Download and install `Saber.apk` from the latest [Release][releases].
 
 #### Linux
 
@@ -100,6 +104,7 @@ You may need to generate a signing certificate and create the `android/key.prope
 More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
 Note: F-Droid releases are built slightly differently:
+`./patches/remove_proprietary_dependencies.sh`
 `flutter build apk -t lib/main_fdroid.dart`
 
 #### The web
