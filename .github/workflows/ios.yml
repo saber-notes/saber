@@ -59,9 +59,8 @@ jobs:
           path: build/ios/iphoneos/Saber.ipa
 
       - name: Upload to GitHub release
-        uses: xresloader/upload-to-github-release@v1
+        uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/ios/iphoneos/Saber.ipa

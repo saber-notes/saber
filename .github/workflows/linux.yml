@@ -57,11 +57,10 @@ jobs:
           path: Saber-Linux-Portable.tar.gz
 
       - name: Upload to GitHub release
-        uses: xresloader/upload-to-github-release@v1
+        uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: Saber-Linux-Portable.tar.gz
 
   build-flatpak:
@@ -108,11 +107,10 @@ jobs:
           path: Saber.flatpak
 
       - name: Upload to GitHub release
-        uses: xresloader/upload-to-github-release@v1
+        uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: Saber.flatpak
 
   build-appimage:
@@ -182,9 +180,9 @@ jobs:
           path: appimage/Saber-*-x86_64.AppImage*
 
       - name: Upload to GitHub release
-        uses: xresloader/upload-to-github-release@v1
+        uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: appimage/Saber-*-x86_64.AppImage*
+          file_glob: true
