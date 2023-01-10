@@ -1,3 +1,8 @@
+## 1.0.2
+
+* Refresh the screen after 1s (default). This fixes the issue where after writing with
+  the pen, the screen wouldn't respond to your finger.
+
 ## 1.0.1
 
 * Initially refresh the screen (plugin now works)

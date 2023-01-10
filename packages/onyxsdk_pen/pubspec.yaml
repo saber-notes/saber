@@ -1,6 +1,6 @@
 name: onyxsdk_pen
 description: This plugin integrates the Onyx Pen SDK into Flutter.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/adil192/saber/tree/main/packages/onyxsdk_pen
 
 environment:
