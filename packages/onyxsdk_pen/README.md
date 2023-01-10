@@ -2,7 +2,7 @@
 
 This plugin integrates the
 [Onyx Pen SDK](https://github.com/onyx-intl/OnyxAndroidDemo/blob/master/doc/Onyx-Pen-SDK.md)
-into Flutter.
+into Flutter to improve e-ink performance in drawing apps.
 
 Most of the SDK functionality is omitted due to it being restricted to Onyx devices.
 We instead only provide the `OnyxSdkPenArea` widget. The children of this widget
