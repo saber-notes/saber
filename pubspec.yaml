@@ -83,7 +83,7 @@ dependencies:
 
   pdf: ^3.8.4
   share_plus: ^6.3.0
-  file_picker: ^5.2.4
+  file_picker: ^5.2.5
 
   fzregex: ^2.0.0
 
@@ -112,7 +112,7 @@ dependencies:
   flutter_quill: ^6.1.5
   tuple: ^2.0.1
 
-  window_manager: ^0.2.9
+  window_manager: ^0.3.0
 
   worker_manager: ^4.4.9
 
