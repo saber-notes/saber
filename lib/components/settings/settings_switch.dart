@@ -8,12 +8,14 @@ class SettingsSwitch extends StatefulWidget {
     super.key,
     required this.title,
     this.subtitle,
+    this.icon,
     required this.pref,
     this.afterChange,
   });
 
   final String title;
   final String? subtitle;
+  final IconData? icon;
   final IPref<bool> pref;
   final ValueChanged<bool>? afterChange;
 
@@ -37,6 +39,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
   Widget build(BuildContext context) {
     return SwitchListTile.adaptive(
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      secondary: Icon(widget.icon ?? Icons.settings),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       value: widget.pref.value,

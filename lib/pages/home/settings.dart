@@ -69,6 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsDropdown(
                   title: t.settings.prefLabels.locale,
+                  icon: Icons.language,
                   pref: Prefs.locale,
                   options: [
                     ToggleButtonsOption("", Text(t.settings.systemLanguage)),
@@ -83,6 +84,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsSelection(
                   title: t.settings.prefLabels.appTheme,
+                  icon: Icons.brightness_6,
                   pref: Prefs.appTheme,
                   optionWidth: 20,
                   options: [
@@ -93,33 +95,40 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsColor(
                   title: t.settings.prefLabels.customAccentColor,
+                  icon: Icons.colorize,
                   pref: Prefs.accentColor,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.hyperlegibleFont,
                   subtitle: t.settings.prefDescriptions.hyperlegibleFont,
+                  icon: Icons.font_download,
                   pref: Prefs.hyperlegibleFont,
                 ),
                 if (requiresManualUpdates) SettingsSwitch(
                   title: t.settings.prefLabels.shouldCheckForUpdates,
+                  icon: Icons.system_update,
                   pref: Prefs.shouldCheckForUpdates,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorToolbarOnBottom,
+                  icon: Icons.vertical_align_bottom,
                   pref: Prefs.editorToolbarOnBottom,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorToolbarShowInFullscreen,
+                  icon: Icons.fullscreen,
                   pref: Prefs.editorToolbarShowInFullscreen,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorAutoInvert,
                   subtitle: t.settings.prefDescriptions.editorAutoInvert,
+                  icon: Icons.invert_colors,
                   pref: Prefs.editorAutoInvert,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.preferGreyscale,
                   subtitle: t.settings.prefDescriptions.preferGreyscale,
+                  icon: Icons.monochrome_photos,
                   pref: Prefs.preferGreyscale,
                 ),
                 SettingsSelection(
@@ -128,6 +137,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
                     return "${Prefs.editorStraightenDelay.value}ms";
                   }(),
+                  icon: Icons.straighten,
                   pref: Prefs.editorStraightenDelay,
                   options: [
                     ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
@@ -139,11 +149,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsSwitch(
                   title: t.settings.prefLabels.autoClearWhiteboardOnExit,
                   subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
+                  icon: Icons.cleaning_services_rounded,
                   pref: Prefs.autoClearWhiteboardOnExit,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorPromptRename,
                   subtitle: t.settings.prefDescriptions.editorPromptRename,
+                  icon: Icons.keyboard_hide,
                   pref: Prefs.editorPromptRename,
                 ),
               ],

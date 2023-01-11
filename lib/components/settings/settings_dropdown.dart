@@ -9,6 +9,7 @@ class SettingsDropdown<T> extends StatefulWidget {
     super.key,
     required this.title,
     this.subtitle,
+    this.icon,
     required this.pref,
     required this.options,
     this.afterChange,
@@ -16,6 +17,8 @@ class SettingsDropdown<T> extends StatefulWidget {
 
   final String title;
   final String? subtitle;
+  final IconData? icon;
+
   final IPref<T> pref;
   final List<ToggleButtonsOption<T>> options;
   final ValueChanged<T>? afterChange;
@@ -78,6 +81,7 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
           dropdownFocusNode.requestFocus();
         },
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        leading: Icon(widget.icon ?? Icons.settings),
         title: Text(widget.title),
         subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
         trailing: dropdown,

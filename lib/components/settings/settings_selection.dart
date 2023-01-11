@@ -9,6 +9,7 @@ class SettingsSelection extends StatefulWidget {
     super.key,
     required this.title,
     this.subtitle,
+    this.icon,
     required this.pref,
     required this.options,
     this.afterChange,
@@ -18,6 +19,7 @@ class SettingsSelection extends StatefulWidget {
 
   final String title;
   final String? subtitle;
+  final IconData? icon;
   final IPref<int> pref;
   final List<ToggleButtonsOption<int>> options;
   final ValueChanged<int>? afterChange;
@@ -53,6 +55,7 @@ class _SettingsSelectionState extends State<SettingsSelection> {
         widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
       },
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      leading: Icon(widget.icon ?? Icons.settings),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: AdaptiveToggleButtons(
