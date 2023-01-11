@@ -150,6 +150,10 @@ abstract class IPref<T> extends ValueNotifier<T> {
 
   bool _loaded = false;
 
+  /// Whether this pref has changes that have yet to be saved to disk.
+  @protected
+  bool _saved = true;
+
   IPref(this.key, T defaultValue, {
     List<String>? historicalKeys,
     List<String>? deprecatedKeys,
@@ -177,6 +181,10 @@ abstract class IPref<T> extends ValueNotifier<T> {
   @protected
   Future<T?> getValueWithKey(String key);
 
+  /// Removes the value from shared preferences, and resets the pref to its default value.
+  @visibleForTesting
+  Future<void> delete();
+
   @override
   get value {
     if (!loaded) {
@@ -185,9 +193,20 @@ abstract class IPref<T> extends ValueNotifier<T> {
     return super.value;
   }
   get loaded => _loaded;
+  get saved => _saved;
 
   Future<void> waitUntilLoaded() async {
     while (!loaded) {
+      await Future.delayed(const Duration(milliseconds: 10));
+    }
+  }
+
+  /// Waits until the value has been saved to disk.
+  /// Note that there is no guarantee with shared preferences that
+  /// the value will actually be saved to disk.
+  @visibleForTesting
+  Future<void> waitUntilSaved() async {
+    while (!saved) {
       await Future.delayed(const Duration(milliseconds: 10));
     }
   }
@@ -239,31 +258,36 @@ class PlainPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
-    _prefs ??= await SharedPreferences.getInstance();
+    _saved = false;
+    try {
+      _prefs ??= await SharedPreferences.getInstance();
 
-    if (T == bool) {
-      return await _prefs!.setBool(key, value as bool);
-    } else if (T == int) {
-      return await _prefs!.setInt(key, value as int);
-    } else if (T == double) {
-      return await _prefs!.setDouble(key, value as double);
-    } else if (T == typeOf<List<String>>()) {
-      return await _prefs!.setStringList(key, value as List<String>);
-    } else if (T == typeOf<Set<String>>()) {
-      return await _prefs!.setStringList(key, (value as Set<String>).toList());
-    } else if (T == typeOf<Queue<String>>()) {
-      return await _prefs!.setStringList(key, (value as Queue<String>).toList());
-    } else if (T == StrokeProperties) {
-      return await _prefs!.setString(key, jsonEncode(value));
-    } else if (T == typeOf<Quota?>()) {
-      Quota? quota = value as Quota?;
-      if (quota == null) {
-        return await _prefs!.remove(key);
+      if (T == bool) {
+        return await _prefs!.setBool(key, value as bool);
+      } else if (T == int) {
+        return await _prefs!.setInt(key, value as int);
+      } else if (T == double) {
+        return await _prefs!.setDouble(key, value as double);
+      } else if (T == typeOf<List<String>>()) {
+        return await _prefs!.setStringList(key, value as List<String>);
+      } else if (T == typeOf<Set<String>>()) {
+        return await _prefs!.setStringList(key, (value as Set<String>).toList());
+      } else if (T == typeOf<Queue<String>>()) {
+        return await _prefs!.setStringList(key, (value as Queue<String>).toList());
+      } else if (T == StrokeProperties) {
+        return await _prefs!.setString(key, jsonEncode(value));
+      } else if (T == typeOf<Quota?>()) {
+        Quota? quota = value as Quota?;
+        if (quota == null) {
+          return await _prefs!.remove(key);
+        } else {
+          return await _prefs!.setStringList(key, [quota.used.toString(), quota.total.toString()]);
+        }
       } else {
-        return await _prefs!.setStringList(key, [quota.used.toString(), quota.total.toString()]);
+        return await _prefs!.setString(key, value as String);
       }
-    } else {
-      return await _prefs!.setString(key, value as String);
+    } finally {
+      _saved = true;
     }
   }
 
@@ -300,6 +324,12 @@ class PlainPref<T> extends IPref<T> {
       if (kDebugMode) print("Error loading $key: $e");
       return null;
     }
+  }
+
+  @override
+  Future<void> delete() async {
+    _prefs ??= await SharedPreferences.getInstance();
+    await _prefs!.remove(key);
   }
 }
 
@@ -364,10 +394,15 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
-    _storage ??= const FlutterSecureStorage();
+    _saved = false;
+    try {
+      _storage ??= const FlutterSecureStorage();
 
-    if (T == String) return await _storage!.write(key: key, value: value as String);
-    return await _storage!.write(key: key, value: jsonEncode(value));
+      if (T == String) return await _storage!.write(key: key, value: value as String);
+      return await _storage!.write(key: key, value: jsonEncode(value));
+    } finally {
+      _saved = true;
+    }
   }
 
   @override
@@ -389,6 +424,12 @@ class EncPref<T> extends IPref<T> {
     } else {
       return List<String>.from(jsonDecode(value)) as T;
     }
+  }
+
+  @override
+  Future<void> delete() async {
+    _storage ??= const FlutterSecureStorage();
+    await _storage!.delete(key: key);
   }
 }
 
