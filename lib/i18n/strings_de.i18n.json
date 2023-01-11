@@ -40,8 +40,7 @@
       "dark": "Dunkel"
     },
     "accentColorPicker": {
-      "pickAColor": "Wähle eine Farbe",
-      "confirm": "Bestätigen"
+      "pickAColor": "Wähle eine Farbe"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
@@ -107,7 +106,6 @@
   "update": {
     "updateAvailable": "Aktualisierung verfügbar",
     "updateAvailableDescription": "Eine neue Version der Anwendung ist verfügbar.",
-    "dismiss": "Verwerfen",
     "update": "Aktualisieren"
   },
   "editor": {

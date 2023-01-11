@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 904 (100 per locale)
+/// Strings: 890 (98 per locale)
 ///
-/// Built on 2023-01-09 at 21:45 UTC
+/// Built on 2023-01-11 at 00:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -651,7 +651,6 @@ class _StringsUpdateCs extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Aktualizace k dispozici';
 	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace.';
-	@override String get dismiss => 'Ignorovat';
 	@override String get update => 'Aktualizovat';
 }
 
@@ -763,7 +762,6 @@ class _StringsSettingsAccentColorPickerCs extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Vyberte barvu';
-	@override String get confirm => 'Potvrdit';
 }
 
 // Path: settings.straightenDelay
@@ -1061,7 +1059,6 @@ class _StringsUpdateDe extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Aktualisierung verfügbar';
 	@override String get updateAvailableDescription => 'Eine neue Version der Anwendung ist verfügbar.';
-	@override String get dismiss => 'Verwerfen';
 	@override String get update => 'Aktualisieren';
 }
 
@@ -1156,7 +1153,6 @@ class _StringsSettingsAccentColorPickerDe extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Wähle eine Farbe';
-	@override String get confirm => 'Bestätigen';
 }
 
 // Path: settings.prefDescriptions
@@ -1455,7 +1451,6 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Actualización disponible';
 	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible.';
-	@override String get dismiss => 'Ignorar';
 	@override String get update => 'Actualizar';
 }
 
@@ -1564,7 +1559,6 @@ class _StringsSettingsAccentColorPickerEs extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Elegir un color';
-	@override String get confirm => 'Confirmar';
 }
 
 // Path: settings.straightenDelay
@@ -1850,7 +1844,6 @@ class _StringsUpdateIt extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Aggiornamento disponibile';
 	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app.';
-	@override String get dismiss => 'Abbandona';
 	@override String get update => 'Aggiornamento';
 }
 
@@ -1947,7 +1940,6 @@ class _StringsSettingsAccentColorPickerIt extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Scegli un colore';
-	@override String get confirm => 'Conferma';
 }
 
 // Path: settings.prefDescriptions
@@ -2259,7 +2251,6 @@ class _StringsUpdateRu extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Доступно обновление';
 	@override String get updateAvailableDescription => 'Доступна новая версия приложения.';
-	@override String get dismiss => 'Отказаться';
 	@override String get update => 'Обновить';
 }
 
@@ -2370,7 +2361,6 @@ class _StringsSettingsAccentColorPickerRu extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Выбери цвет';
-	@override String get confirm => 'Подтвердить';
 }
 
 // Path: settings.straightenDelay
@@ -3076,7 +3066,6 @@ class _StringsUpdateZhHansCn extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '该应用程序的新版本可用。';
-	@override String get dismiss => '忽略';
 	@override String get update => '更新';
 }
 
@@ -3187,7 +3176,6 @@ class _StringsSettingsAccentColorPickerZhHansCn extends _StringsSettingsAccentCo
 
 	// Translations
 	@override String get pickAColor => '选取颜色';
-	@override String get confirm => '确定';
 }
 
 // Path: settings.straightenDelay
@@ -3485,7 +3473,6 @@ class _StringsUpdateZhHantTw extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '該應用程式的新版本可用。';
-	@override String get dismiss => '忽略';
 	@override String get update => '更新';
 }
 
@@ -3596,7 +3583,6 @@ class _StringsSettingsAccentColorPickerZhHantTw extends _StringsSettingsAccentCo
 
 	// Translations
 	@override String get pickAColor => '選取顏色';
-	@override String get confirm => '確定';
 }
 
 // Path: settings.straightenDelay
@@ -3943,7 +3929,6 @@ extension on _StringsCs {
 			case 'settings.themeModes.light': return 'Světlý';
 			case 'settings.themeModes.dark': return 'Tmavý';
 			case 'settings.accentColorPicker.pickAColor': return 'Vyberte barvu';
-			case 'settings.accentColorPicker.confirm': return 'Potvrdit';
 			case 'settings.straightenDelay.off': return 'Vypnuto';
 			case 'settings.straightenDelay.regular': return 'Standardně';
 			case 'settings.straightenDelay.slow': return 'Dlouze';
@@ -3989,7 +3974,6 @@ extension on _StringsCs {
 			case 'appInfo.privacyPolicyButton': return 'Klepněte sem pro zobrazení zásad ochrany osobních údajů';
 			case 'update.updateAvailable': return 'Aktualizace k dispozici';
 			case 'update.updateAvailableDescription': return 'Je k dispozici nová verze aplikace.';
-			case 'update.dismiss': return 'Ignorovat';
 			case 'update.update': return 'Aktualizovat';
 			case 'editor.toolbar.toggleColors': return 'Přepnout barvy (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Přepnout gumu (Ctrl E)';
@@ -4056,7 +4040,6 @@ extension on _StringsDe {
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
 			case 'settings.accentColorPicker.pickAColor': return 'Wähle eine Farbe';
-			case 'settings.accentColorPicker.confirm': return 'Bestätigen';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Für E-Ink-Bildschirme';
@@ -4105,7 +4088,6 @@ extension on _StringsDe {
 			case 'appInfo.sponsorButton': return 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
 			case 'update.updateAvailable': return 'Aktualisierung verfügbar';
 			case 'update.updateAvailableDescription': return 'Eine neue Version der Anwendung ist verfügbar.';
-			case 'update.dismiss': return 'Verwerfen';
 			case 'update.update': return 'Aktualisieren';
 			case 'editor.toolbar.toggleColors': return 'Farben umschalten (Strg + C)';
 			case 'editor.toolbar.toggleEraser': return 'Radierer umschalten (Strg + E)';
@@ -4174,7 +4156,6 @@ extension on _StringsEs {
 			case 'settings.themeModes.light': return 'Claro';
 			case 'settings.themeModes.dark': return 'Oscuro';
 			case 'settings.accentColorPicker.pickAColor': return 'Elegir un color';
-			case 'settings.accentColorPicker.confirm': return 'Confirmar';
 			case 'settings.straightenDelay.off': return 'Apagado';
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Lento';
@@ -4217,7 +4198,6 @@ extension on _StringsEs {
 			case 'appInfo.privacyPolicyButton': return 'Toca aquí para ver nuestra política de privacidad';
 			case 'update.updateAvailable': return 'Actualización disponible';
 			case 'update.updateAvailableDescription': return 'Hay una nueva versión de la aplicación disponible.';
-			case 'update.dismiss': return 'Ignorar';
 			case 'update.update': return 'Actualizar';
 			case 'editor.toolbar.toggleColors': return 'Cambiar colores (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Borrador (Ctrl E)';
@@ -4281,7 +4261,6 @@ extension on _StringsIt {
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
 			case 'settings.accentColorPicker.pickAColor': return 'Scegli un colore';
-			case 'settings.accentColorPicker.confirm': return 'Conferma';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Scurisce in modo intelligente le note in modalità scura';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Per display e-ink';
@@ -4331,7 +4310,6 @@ extension on _StringsIt {
 			case 'appInfo.dirty': return 'GROSSOLANA';
 			case 'update.updateAvailable': return 'Aggiornamento disponibile';
 			case 'update.updateAvailableDescription': return 'È disponibile una nuova versione dell\'app.';
-			case 'update.dismiss': return 'Abbandona';
 			case 'update.update': return 'Aggiornamento';
 			case 'editor.toolbar.toggleColors': return 'Attiva/disattiva i colori (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Attiva/disattiva gomma (Ctrl E)';
@@ -4404,7 +4382,6 @@ extension on _StringsRu {
 			case 'settings.themeModes.light': return 'Светлая';
 			case 'settings.themeModes.dark': return 'Тёмная';
 			case 'settings.accentColorPicker.pickAColor': return 'Выбери цвет';
-			case 'settings.accentColorPicker.confirm': return 'Подтвердить';
 			case 'settings.straightenDelay.off': return 'Выкл.';
 			case 'settings.straightenDelay.regular': return 'Обычно';
 			case 'settings.straightenDelay.slow': return 'Долго';
@@ -4448,7 +4425,6 @@ extension on _StringsRu {
 			case 'appInfo.privacyPolicyButton': return 'Просмотр политики конфиденциальности';
 			case 'update.updateAvailable': return 'Доступно обновление';
 			case 'update.updateAvailableDescription': return 'Доступна новая версия приложения.';
-			case 'update.dismiss': return 'Отказаться';
 			case 'update.update': return 'Обновить';
 			case 'editor.toolbar.toggleColors': return 'Выбор цвета (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Ластик (Ctrl E)';
@@ -4637,7 +4613,6 @@ extension on _StringsZhHansCn {
 			case 'settings.themeModes.light': return '浅色';
 			case 'settings.themeModes.dark': return '深色';
 			case 'settings.accentColorPicker.pickAColor': return '选取颜色';
-			case 'settings.accentColorPicker.confirm': return '确定';
 			case 'settings.straightenDelay.off': return '关闭';
 			case 'settings.straightenDelay.regular': return '常规';
 			case 'settings.straightenDelay.slow': return '缓慢';
@@ -4681,7 +4656,6 @@ extension on _StringsZhHansCn {
 			case 'appInfo.sponsorButton': return '点击此处赞助我或购买更多存储空间';
 			case 'update.updateAvailable': return '可用更新';
 			case 'update.updateAvailableDescription': return '该应用程序的新版本可用。';
-			case 'update.dismiss': return '忽略';
 			case 'update.update': return '更新';
 			case 'editor.toolbar.toggleColors': return '切换颜色 (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return '切换橡皮擦 (Ctrl E)';
@@ -4754,7 +4728,6 @@ extension on _StringsZhHantTw {
 			case 'settings.themeModes.light': return '淺色';
 			case 'settings.themeModes.dark': return '深色';
 			case 'settings.accentColorPicker.pickAColor': return '選取顏色';
-			case 'settings.accentColorPicker.confirm': return '確定';
 			case 'settings.straightenDelay.off': return '關閉';
 			case 'settings.straightenDelay.regular': return '正常';
 			case 'settings.straightenDelay.slow': return '緩慢';
@@ -4798,7 +4771,6 @@ extension on _StringsZhHantTw {
 			case 'appInfo.sponsorButton': return '點擊此處贊助我或購買更多儲存空間';
 			case 'update.updateAvailable': return '可用更新';
 			case 'update.updateAvailableDescription': return '該應用程式的新版本可用。';
-			case 'update.dismiss': return '忽略';
 			case 'update.update': return '更新';
 			case 'editor.toolbar.toggleColors': return '切換顏色 (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return '切換橡皮擦 (Ctrl E)';

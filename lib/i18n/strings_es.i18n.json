@@ -48,8 +48,7 @@
 			"dark": "Oscuro"
 		},
 		"accentColorPicker": {
-			"pickAColor": "Elegir un color",
-			"confirm": "Confirmar"
+			"pickAColor": "Elegir un color"
 		},
 		"straightenDelay": {
 			"off": "Apagado",
@@ -111,7 +110,6 @@
 	"update": {
 		"updateAvailable": "Actualización disponible",
 		"updateAvailableDescription": "Hay una nueva versión de la aplicación disponible.",
-		"dismiss": "Ignorar",
 		"update": "Actualizar"
 	},
 	

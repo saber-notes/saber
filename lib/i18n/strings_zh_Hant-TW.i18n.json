@@ -48,8 +48,7 @@
       "dark": "深色"
     },
     "accentColorPicker": {
-      "pickAColor": "選取顏色",
-      "confirm": "確定"
+      "pickAColor": "選取顏色"
     },
     "straightenDelay": {
       "off": "關閉",
@@ -108,7 +107,6 @@
   "update": {
     "updateAvailable": "可用更新",
     "updateAvailableDescription": "該應用程式的新版本可用。",
-    "dismiss": "忽略",
     "update": "更新"
   },
   "editor": {

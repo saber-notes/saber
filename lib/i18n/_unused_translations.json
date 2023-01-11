@@ -1,78 +1,16 @@
 {
   "@@info": [
     "Here are translations that exist in secondary locales but not in <en>.",
-    "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
+    "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>.",
+    "Congratulations! There are no unused translations! :)"
   ],
   "en": {},
-  "cs": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "Potvrdit"
-      }
-    },
-    "update": {
-      "dismiss": "Ignorovat"
-    }
-  },
-  "de": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "Bestätigen"
-      }
-    },
-    "update": {
-      "dismiss": "Verwerfen"
-    }
-  },
-  "es": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "Confirmar"
-      }
-    },
-    "update": {
-      "dismiss": "Ignorar"
-    }
-  },
-  "it": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "Conferma"
-      }
-    },
-    "update": {
-      "dismiss": "Abbandona"
-    }
-  },
-  "ru": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "Подтвердить"
-      }
-    },
-    "update": {
-      "dismiss": "Отказаться"
-    }
-  },
+  "cs": {},
+  "de": {},
+  "es": {},
+  "it": {},
+  "ru": {},
   "tr": {},
-  "zh-Hans-CN": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "确定"
-      }
-    },
-    "update": {
-      "dismiss": "忽略"
-    }
-  },
-  "zh-Hant-TW": {
-    "settings": {
-      "accentColorPicker": {
-        "confirm": "確定"
-      }
-    },
-    "update": {
-      "dismiss": "忽略"
-    }
-  }
+  "zh-Hans-CN": {},
+  "zh-Hant-TW": {}
 }

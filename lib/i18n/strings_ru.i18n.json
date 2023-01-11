@@ -48,8 +48,7 @@
       "dark": "Тёмная"
     },
     "accentColorPicker": {
-      "pickAColor": "Выбери цвет",
-      "confirm": "Подтвердить"
+      "pickAColor": "Выбери цвет"
     },
     "straightenDelay": {
       "off": "Выкл.",
@@ -108,7 +107,6 @@
   "update": {
     "updateAvailable": "Доступно обновление",
     "updateAvailableDescription": "Доступна новая версия приложения.",
-    "dismiss": "Отказаться",
     "update": "Обновить"
   },
   "editor": {

@@ -49,8 +49,7 @@
       "dark": "Tmavý"
     },
     "accentColorPicker": {
-      "pickAColor": "Vyberte barvu",
-      "confirm": "Potvrdit"
+      "pickAColor": "Vyberte barvu"
     },
     "straightenDelay": {
       "off": "Vypnuto",
@@ -111,7 +110,6 @@
   "update": {
     "updateAvailable": "Aktualizace k dispozici",
     "updateAvailableDescription": "Je k dispozici nová verze aplikace.",
-    "dismiss": "Ignorovat",
     "update": "Aktualizovat"
   },
   "editor": {
