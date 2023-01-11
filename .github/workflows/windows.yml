@@ -20,19 +20,19 @@ jobs:
 
       - name: Remove unneeded files
         run: |
-          rm -rf android
-          rm -rf appimage
-          rm -rf assets_raw
-          rm -rf flatpak
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf linux
-          rm -rf macos
-          rm -rf metadata
-          rm -rf snap
-          rm -rf submodules
-          rm -rf test
-          rm -rf web
+          rmdir /s /q android
+          rmdir /s /q appimage
+          rmdir /s /q assets_raw
+          rmdir /s /q flatpak
+          rmdir /s /q integration_test
+          rmdir /s /q ios
+          rmdir /s /q linux
+          rmdir /s /q macos
+          rmdir /s /q metadata
+          rmdir /s /q snap
+          rmdir /s /q submodules
+          rmdir /s /q test
+          rmdir /s /q web
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
