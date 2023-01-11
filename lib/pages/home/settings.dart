@@ -1,6 +1,3 @@
-
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
@@ -84,7 +81,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsSelection(
                   title: t.settings.prefLabels.appTheme,
-                  icon: Icons.brightness_6,
+                  iconBuilder: (i) {
+                    if (i == ThemeMode.system.index) return Icons.brightness_auto;
+                    if (i == ThemeMode.light.index) return Icons.light_mode;
+                    if (i == ThemeMode.dark.index) return Icons.dark_mode;
+                    return null;
+                  },
                   pref: Prefs.appTheme,
                   optionWidth: 20,
                   options: [
@@ -101,7 +103,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsSwitch(
                   title: t.settings.prefLabels.hyperlegibleFont,
                   subtitle: t.settings.prefDescriptions.hyperlegibleFont,
-                  icon: Icons.font_download,
+                  iconBuilder: (b) {
+                    return b ? Icons.font_download : Icons.font_download_off;
+                  },
                   pref: Prefs.hyperlegibleFont,
                 ),
                 if (requiresManualUpdates) SettingsSwitch(
@@ -111,7 +115,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorToolbarOnBottom,
-                  icon: Icons.vertical_align_bottom,
+                  iconBuilder: (b) {
+                    return b ? Icons.vertical_align_bottom : Icons.vertical_align_top;
+                  },
                   pref: Prefs.editorToolbarOnBottom,
                 ),
                 SettingsSwitch(
@@ -122,13 +128,17 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorAutoInvert,
                   subtitle: t.settings.prefDescriptions.editorAutoInvert,
-                  icon: Icons.invert_colors,
+                  iconBuilder: (b) {
+                    return b ? Icons.invert_colors_on : Icons.invert_colors_off;
+                  },
                   pref: Prefs.editorAutoInvert,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.preferGreyscale,
                   subtitle: t.settings.prefDescriptions.preferGreyscale,
-                  icon: Icons.monochrome_photos,
+                  iconBuilder: (b) {
+                    return b ? Icons.monochrome_photos : Icons.enhance_photo_translate;
+                  },
                   pref: Prefs.preferGreyscale,
                 ),
                 SettingsSelection(
@@ -137,7 +147,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
                     return "${Prefs.editorStraightenDelay.value}ms";
                   }(),
-                  icon: Icons.straighten,
+                  iconBuilder: (i) {
+                    return (i <= 0) ? Icons.gesture : Icons.straighten;
+                  },
                   pref: Prefs.editorStraightenDelay,
                   options: [
                     ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
@@ -149,13 +161,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsSwitch(
                   title: t.settings.prefLabels.autoClearWhiteboardOnExit,
                   subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
-                  icon: Icons.cleaning_services_rounded,
+                  icon: Icons.cleaning_services,
                   pref: Prefs.autoClearWhiteboardOnExit,
                 ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorPromptRename,
                   subtitle: t.settings.prefDescriptions.editorPromptRename,
-                  icon: Icons.keyboard_hide,
+                  iconBuilder: (b) {
+                    return b ? Icons.keyboard : Icons.keyboard_hide;
+                  },
                   pref: Prefs.editorPromptRename,
                 ),
               ],

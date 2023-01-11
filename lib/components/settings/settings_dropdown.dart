@@ -10,14 +10,17 @@ class SettingsDropdown<T> extends StatefulWidget {
     required this.title,
     this.subtitle,
     this.icon,
+    this.iconBuilder,
+
     required this.pref,
     required this.options,
     this.afterChange,
-  });
+  }): assert(icon == null || iconBuilder == null, "Cannot set both icon and iconBuilder");
 
   final String title;
   final String? subtitle;
   final IconData? icon;
+  final IconData? Function(T)? iconBuilder;
 
   final IPref<T> pref;
   final List<ToggleButtonsOption<T>> options;
@@ -55,6 +58,10 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
       widget.pref.value = widget.options.first.value;
     }
 
+    IconData? icon = widget.icon;
+    icon ??= widget.iconBuilder?.call(widget.pref.value);
+    icon ??= Icons.settings;
+
     final dropdown = DropdownButton<T>(
       value: widget.pref.value,
       onChanged: (T? value) {
@@ -81,7 +88,10 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
           dropdownFocusNode.requestFocus();
         },
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        leading: Icon(widget.icon ?? Icons.settings),
+        leading: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 100),
+          child: Icon(icon, key: ValueKey(icon)),
+        ),
         title: Text(widget.title),
         subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
         trailing: dropdown,

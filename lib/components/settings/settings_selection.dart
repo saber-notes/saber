@@ -10,16 +10,20 @@ class SettingsSelection extends StatefulWidget {
     required this.title,
     this.subtitle,
     this.icon,
+    this.iconBuilder,
+
     required this.pref,
     required this.options,
     this.afterChange,
     this.optionWidth = 24,
     this.optionsHeight = 40,
-  });
+  }): assert(icon == null || iconBuilder == null, "Cannot set both icon and iconBuilder");
 
   final String title;
   final String? subtitle;
   final IconData? icon;
+  final IconData? Function(int)? iconBuilder;
+
   final IPref<int> pref;
   final List<ToggleButtonsOption<int>> options;
   final ValueChanged<int>? afterChange;
@@ -49,13 +53,20 @@ class _SettingsSelectionState extends State<SettingsSelection> {
       widget.pref.value = widget.options.first.value;
     }
 
+    IconData? icon = widget.icon;
+    icon ??= widget.iconBuilder?.call(widget.pref.value);
+    icon ??= Icons.settings;
+
     return ListTile(
       onTap: () { // cycle through options
         final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);
         widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
       },
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-      leading: Icon(widget.icon ?? Icons.settings),
+      leading: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 100),
+        child: Icon(icon, key: ValueKey(icon)),
+      ),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: AdaptiveToggleButtons(
