@@ -3,7 +3,7 @@
 /// Locales: 9
 /// Strings: 890 (98 per locale)
 ///
-/// Built on 2023-01-11 at 00:05 UTC
+/// Built on 2023-01-11 at 17:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1977,7 +1977,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	// Translations
 	@override String get checkUsername => 'Ricontrolla il tuo nome utente o e-mail.';
 	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
-	@override String get enterEncPassword => 'Inserisci la tua password di crittografata.';
+	@override String get enterEncPassword => 'Inserisci la tua password di crittografia.';
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
 	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
 	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
@@ -4272,7 +4272,7 @@ extension on _StringsIt {
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
-			case 'login.feedbacks.enterEncPassword': return 'Inserisci la tua password di crittografata.';
+			case 'login.feedbacks.enterEncPassword': return 'Inserisci la tua password di crittografia.';
 			case 'login.feedbacks.checkUrl': return 'Per favore, inserisci un URL valido.';
 			case 'login.feedbacks.ncLoginFailed': return 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
 			case 'login.feedbacks.loginSuccess': return 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
