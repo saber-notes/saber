@@ -39,9 +39,6 @@ jobs:
         with:
           channel: stable
 
-      - name: Install Inno Setup
-        run: choco install innosetup
-
       - run: flutter pub get
 
       - name: Build Windows
