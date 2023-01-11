@@ -45,7 +45,7 @@ jobs:
       - run: flutter pub get
 
       - name: Build Windows
-        run: flutter build apk
+        run: flutter build windows
 
       - name: Build Windows Installer
         run: |
