@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -48,24 +50,46 @@ abstract class UpdateManager {
   static Future<UpdateStatus> _checkForUpdate() async {
     const int currentVersion = version.buildNumber;
 
-    // download the latest version.dart
-    final http.Response response;
+    final int newestVersion;
     try {
-      response = await http.get(versionUrl);
-      if (response.statusCode >= 400) return UpdateStatus.upToDate;
+      newestVersion = await getNewestVersion() ?? 0;
     } catch (e) {
       return UpdateStatus.upToDate;
     }
 
+    return getUpdateStatus(currentVersion, newestVersion);
+  }
+
+  /// Returns the version number hosted on GitHub (at [versionUrl]).
+  /// If you provide a [latestVersionFile] (i.e. for testing),
+  /// it will be used instead of downloading from GitHub.
+  @visibleForTesting
+  static Future<int?> getNewestVersion([String? latestVersionFile]) async {
+    latestVersionFile ??= await _downloadLatestVersionFileFromGitHub();
+    if (latestVersionFile == null) return null;
+
     // extract the number from the latest version.dart
     final RegExp numberRegex = RegExp(r'(\d+)');
-    final RegExpMatch? newestVersionMatch = numberRegex.firstMatch(response.body);
-    if (newestVersionMatch == null) return UpdateStatus.upToDate;
+    final RegExpMatch? newestVersionMatch = numberRegex.firstMatch(latestVersionFile);
+    if (newestVersionMatch == null) return null;
 
     final int newestVersion = int.tryParse(newestVersionMatch[0] ?? "0") ?? 0;
-    if (newestVersion == 0) return UpdateStatus.upToDate;
+    if (newestVersion == 0) return null;
 
-    return getUpdateStatus(currentVersion, newestVersion);
+    return newestVersion;
+  }
+
+  static Future<String?> _downloadLatestVersionFileFromGitHub() async {
+    // download the latest version.dart
+    final http.Response response;
+    try {
+      response = await http.get(versionUrl);
+    } catch (e) {
+      throw const SocketException("Failed to download version.dart");
+    }
+    if (response.statusCode >= 400) throw SocketException("Failed to download version.dart, HTTP status code ${response.statusCode}");
+
+    return response.body;
   }
 
   @visibleForTesting
