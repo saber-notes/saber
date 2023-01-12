@@ -17,7 +17,7 @@ class MainActivity: FlutterActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-        windowInsetsController.isAppearanceLightNavigationBars = true
+        val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView)
+        windowInsetsController?.isAppearanceLightNavigationBars = true
     }
 }
