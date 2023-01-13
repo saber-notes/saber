@@ -155,6 +155,8 @@ dev_dependencies:
 
   icons_launcher: ^2.0.6
 
+  process_run: ^0.12.5
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

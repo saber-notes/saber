@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# function to print help
 function print_help {
   echo "This script is used to apply the version to the relevant files."
   echo "Usage: $0 <version-name> <version-code>"
@@ -18,6 +17,7 @@ if [ "$#" -ne 2 ]; then
   print_help
 fi
 
+DUMMY_CHANGELOG="Release notes will be added here."
 BUILD_NAME=$1
 BUILD_NUMBER=$2
 DATE=$(date +%Y-%m-%d)
@@ -70,7 +70,7 @@ if [ -f "$CHANGELOG_FILE" ]; then
   echo " - Assuming that the <release> tag exists in flatpak/com.adilhanney.saber.metainfo.xml"
 else
   echo " - (*) Creating a blank changelog file at $CHANGELOG_FILE"
-  echo "• Release notes will be added here." > "$CHANGELOG_FILE"
+  echo "• $DUMMY_CHANGELOG" > "$CHANGELOG_FILE"
 
   echo " - (*) Add <release> tag to flatpak/com.adilhanney.saber.metainfo.xml"
   # shellcheck disable=SC1078,SC1079
@@ -78,7 +78,7 @@ else
           <release version=\"$BUILD_NAME\" type=\"development\" date=\"$DATE\"/>
               <description>
                   <ul>
-                      <li>Release notes will be added here.</li>
+                      <li>$DUMMY_CHANGELOG</li>
                   </ul>
               </description>
           </release>\
