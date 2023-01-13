@@ -4,7 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide TransformationController;
-import 'package:saber/components/canvas/canvas_zoom_indicator.dart';
+import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:vector_math/vector_math_64.dart';
@@ -56,6 +56,8 @@ class CanvasGestureDetector extends StatefulWidget {
 
 class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   final TransformationController _transformationController = TransformationController();
+
+  bool zoomLock = false;
 
   @override
   initState() {
@@ -124,6 +126,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                 return InteractiveCanvasViewer.builder(
                   minScale: 0.01,
                   maxScale: 5,
+                  scaleEnabled: !zoomLock,
 
                   transformationController: _transformationController,
 
@@ -147,11 +150,13 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
             ),
           ),
         ),
-        Positioned(
-          top: 5,
-          right: 5,
-          child: CanvasZoomIndicator(
+        Positioned.fill(
+          child: CanvasHud(
             transformationController: _transformationController,
+            zoomLock: zoomLock,
+            onZoomLockChanged: (bool zoomLock) => setState(() {
+              this.zoomLock = zoomLock;
+            }),
           ),
         ),
       ],
