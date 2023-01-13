@@ -207,14 +207,11 @@ If you like Saber, please consider supporting it by:
 <details>
 <summary>Show/hide development notes</summary>
 
-- When updating the **app version**, you'll need to make changes to the following files:
-  - `pubspec.yaml`: `version`
-  - `lib/data/version.dart`: `buildNumber`
-  - `windows/runner/Runner.rc`: `VERSION_AS_NUMBER` and `VERSION_AS_STRING`
-  - `installers/desktop_inno_script.iss`: `MyAppVersion`
-  - `flatpak/com.adilhanney.saber.metainfo.xml`: `<releases>`
-  - `metadata/en-US/changelogs/`: Create a changelog for the new version
-  - `snap/snapcraft.yaml`: `version`
+- When updating the **app version**:
+  - Run `./apply_version.sh <version-name> <version-code>`
+    (Run `./apply_version.sh --help` for more info)
+  - Update the changelogs in `metadata/en-US/changelogs/`
+    and `flatpak/com.adilhanney.saber.metainfo.xml` as directed by the script.
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
