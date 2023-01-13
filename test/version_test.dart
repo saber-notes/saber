@@ -29,14 +29,22 @@ void main() {
     final shell = Shell(verbose: false);
 
     // Initial commit to hide any unrelated changes...
-    await shell.run("git add . \n git commit -m 'Test commit' --allow-empty");
+    await shell.run("""
+    touch stash-me.txt  # make sure we can stash
+    git stash --include-untracked
+    """);
     addTearDown(() async {
       // restore changes
-      await shell.run("touch stash-me.txt \n" // make sure we can stash
-          "git stash --include-untracked \n"
-          "git stash drop");
-      // undo initial commit
-      await shell.run("git reset --soft HEAD@{2}");
+      await shell.run("""
+      touch stash-me.txt  # make sure we can stash
+      git stash --include-untracked
+      git stash drop
+      """);
+      // restore original stash
+      await shell.run("""
+      git stash pop
+      rm stash-me.txt
+      """);
     });
 
     // expect git to be clean
