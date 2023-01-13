@@ -3,7 +3,14 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
+  "cs": {
+    "editor": {
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
+      }
+    }
+  },
   "de": {
     "settings": {
       "prefLabels": {
@@ -22,6 +29,10 @@
       },
       "quill": {
         "typeSomething": "Type something here..."
+      },
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
       }
     }
   },
@@ -46,6 +57,10 @@
       },
       "quill": {
         "typeSomething": "Type something here..."
+      },
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
       }
     }
   },
@@ -55,6 +70,12 @@
         "locale": "App language"
       },
       "systemLanguage": "System language"
+    },
+    "editor": {
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
+      }
     }
   },
   "ru": {
@@ -66,6 +87,12 @@
     },
     "appInfo": {
       "dirty": "DIRTY"
+    },
+    "editor": {
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
+      }
     }
   },
   "tr": {
@@ -74,6 +101,12 @@
         "locale": "App language"
       },
       "systemLanguage": "System language"
+    },
+    "editor": {
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
+      }
     }
   },
   "zh-Hans-CN": {
@@ -85,6 +118,12 @@
     },
     "appInfo": {
       "dirty": "DIRTY"
+    },
+    "editor": {
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
+      }
     }
   },
   "zh-Hant-TW": {
@@ -96,6 +135,12 @@
     },
     "appInfo": {
       "dirty": "DIRTY"
+    },
+    "editor": {
+      "hud": {
+        "unlockZoom": "Unlock zoom",
+        "lockZoom": "Lock zoom"
+      }
     }
   }
 }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 890 (98 per locale)
+/// Strings: 892 (99 per locale)
 ///
-/// Built on 2023-01-13 at 03:22 UTC
+/// Built on 2023-01-13 at 17:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -258,6 +258,7 @@ class _StringsEditorEn {
 	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
 	late final _StringsEditorQuillEn quill = _StringsEditorQuillEn._(_root);
+	late final _StringsEditorHudEn hud = _StringsEditorHudEn._(_root);
 }
 
 // Path: home.tabs
@@ -537,6 +538,17 @@ class _StringsEditorQuillEn {
 
 	// Translations
 	String get typeSomething => 'Type something here...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudEn {
+	_StringsEditorHudEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get unlockZoom => 'Unlock zoom';
+	String get lockZoom => 'Lock zoom';
 }
 
 // Path: <root>
@@ -3886,6 +3898,8 @@ extension on _StringsEn {
 			case 'editor.newerFileFormat.allowEditing': return 'Allow editing';
 			case 'editor.newerFileFormat.cancel': return 'Cancel';
 			case 'editor.quill.typeSomething': return 'Type something here...';
+			case 'editor.hud.unlockZoom': return 'Unlock zoom';
+			case 'editor.hud.lockZoom': return 'Lock zoom';
 			default: return null;
 		}
 	}
