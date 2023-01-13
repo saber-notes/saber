@@ -86,17 +86,17 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "locale": "App language"
+        "locale": "应用语言"
       },
-      "systemLanguage": "System language"
+      "systemLanguage": "系统语言"
     },
     "appInfo": {
       "dirty": "DIRTY"
     },
     "editor": {
       "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
+        "unlockZoom": "解锁缩放",
+        "lockZoom": "锁定缩放"
       }
     }
   },
