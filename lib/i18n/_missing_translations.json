@@ -85,14 +85,14 @@
   "tr": {
     "settings": {
       "prefLabels": {
-        "locale": "App language"
+        "locale": "Uygulama dili"
       },
-      "systemLanguage": "System language"
+      "systemLanguage": "Sistem dili"
     },
     "editor": {
       "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
+        "unlockZoom": "Yakınlaştırma kilidini aç",
+        "lockZoom": "Yakınlaştırmayı kilitle"
       }
     }
   },
