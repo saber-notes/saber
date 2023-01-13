@@ -6,8 +6,8 @@
   "cs": {
     "editor": {
       "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
+        "unlockZoom": "Odemknout přibližování",
+        "lockZoom": "Zamknout přibližování"
       }
     }
   },
