@@ -42,6 +42,10 @@ sed -i "s/#define MyAppVersion .*/#define MyAppVersion \"$BUILD_NAME\"/g" instal
 
 echo " - Updating buildNumber in lib/data/version.dart" # e.g. const int buildNumber = 5050;
 sed -i "s/buildNumber = .*/buildNumber = $BUILD_NUMBER;/g" lib/data/version.dart
+
+echo " - Updating buildName in lib/data/version.dart" # e.g. const String buildName = "0.5.5";
+sed -i "s/buildName = .*/buildName = \"$BUILD_NAME\";/g" lib/data/version.dart
+
 echo " - Updating buildYear in lib/data/version.dart" # e.g. const int buildYear = 2023;
 sed -i "s/buildYear = .*/buildYear = $YEAR;/g" lib/data/version.dart
 
@@ -54,6 +58,7 @@ sed -i "s/version: .*/version: $BUILD_NAME/g" snap/snapcraft.yaml
 echo " - Updating VERSION_AS_NUMBER in windows/runner/Runner.rc" # e.g. #define VERSION_AS_NUMBER 0,5,5,0
 BUILD_NAME_WITH_COMMAS=$(echo $BUILD_NAME | sed 's/\./,/g')
 sed -i "s/#define VERSION_AS_NUMBER .*/#define VERSION_AS_NUMBER $BUILD_NAME_WITH_COMMAS,0/g" windows/runner/Runner.rc
+
 echo " - Updating VERSION_AS_STRING in windows/runner/Runner.rc" # e.g. #define VERSION_AS_STRING "0.5.5.0"
 sed -i "s/#define VERSION_AS_STRING .*/#define VERSION_AS_STRING \"$BUILD_NAME.0\"/g" windows/runner/Runner.rc
 
