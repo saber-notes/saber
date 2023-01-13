@@ -155,6 +155,10 @@
 		},
 		"quill": {
 			"typeSomething": "Type something here..."
+		},
+		"hud": {
+			"unlockZoom": "Unlock zoom",
+			"lockZoom": "Lock zoom"
 		}
 	}
 }

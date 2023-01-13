@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class CanvasZoomLock extends StatelessWidget {
   const CanvasZoomLock({
@@ -24,7 +25,12 @@ class CanvasZoomLock extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 200),
-          child: Icon(icon, color: colorScheme.onBackground, key: ValueKey(icon)),
+          child: Icon(
+            icon,
+            color: colorScheme.onBackground,
+            key: ValueKey(icon),
+            semanticLabel: zoomLock ? t.editor.hud.unlockZoom : t.editor.hud.lockZoom,
+          ),
         ),
       ),
     );
