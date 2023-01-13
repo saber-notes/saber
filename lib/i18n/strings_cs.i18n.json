@@ -100,7 +100,7 @@
     ]
   },
   "appInfo": {
-    "licenseNotice": "Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.",
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.",
     "dirty": "ZKUŠEBNÍ VERZE",
     "debug": "LADÍCÍ VERZE",
     "sponsorButton": "Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště",

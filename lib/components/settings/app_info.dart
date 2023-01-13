@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/version.dart' show buildNumber;
+import 'package:saber/data/version.dart' show buildNumber, buildYear;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -61,7 +61,7 @@ class _AppInfoState extends State<AppInfo> {
       width: 50,
       height: 50,
     ),
-    applicationLegalese: t.appInfo.licenseNotice,
+    applicationLegalese: t.appInfo.licenseNotice(buildYear: buildYear),
     children: [
       const SizedBox(height: 10),
       TextButton(

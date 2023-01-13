@@ -98,7 +98,7 @@
     ]
   },
   "appInfo": {
-    "licenseNotice": "Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",
+    "licenseNotice": "Sabre Copyright (C) 2022-$buildYear Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",
     "debug": "DEBUG",
     "licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
     "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy",

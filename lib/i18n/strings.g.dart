@@ -3,7 +3,7 @@
 /// Locales: 9
 /// Strings: 890 (98 per locale)
 ///
-/// Built on 2023-01-11 at 17:07 UTC
+/// Built on 2023-01-13 at 03:22 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -224,7 +224,7 @@ class _StringsAppInfoEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	String get dirty => 'DIRTY';
 	String get debug => 'DEBUG';
 	String get sponsorButton => 'Tap here to sponsor me or buy more storage';
@@ -634,7 +634,7 @@ class _StringsAppInfoCs extends _StringsAppInfoEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
 	@override String get dirty => 'ZKUŠEBNÍ VERZE';
 	@override String get debug => 'LADÍCÍ VERZE';
 	@override String get sponsorButton => 'Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště';
@@ -1043,7 +1043,7 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 	@override String get privacyPolicyButton => 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
@@ -1435,7 +1435,7 @@ class _StringsAppInfoEs extends _StringsAppInfoEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toca aquí para patrocinarme o comprar más almacenamiento';
 	@override String get licenseButton => 'Toca aquí para ver más información sobre la licencia';
@@ -1827,7 +1827,7 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
+	@override String licenseNotice({required Object buildYear}) => 'Sabre Copyright (C) 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 	@override String get privacyPolicyButton => 'Tocca qui per visualizzare l\'informativa sulla privacy';
@@ -2235,7 +2235,7 @@ class _StringsAppInfoRu extends _StringsAppInfoEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  Copyright (C) 2022  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
 	@override String get debug => 'ОТЛАДКА';
 	@override String get sponsorButton => 'Проспонсируйте меня или купите дополнительное пространство';
 	@override String get licenseButton => 'Просмотрите дополнительную информацию о лицензии';
@@ -2642,7 +2642,7 @@ class _StringsAppInfoTr extends _StringsAppInfoEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  Copyright (C) 2023  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
 	@override String get dirty => 'TEST';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla';
@@ -3050,7 +3050,7 @@ class _StringsAppInfoZhHansCn extends _StringsAppInfoEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版权所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => '点击此处查看更多许可证信息';
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
@@ -3457,7 +3457,7 @@ class _StringsAppInfoZhHantTw extends _StringsAppInfoEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get debug => 'DEBUG';
 	@override String get licenseButton => '點擊此處查看更多許可證資訊';
 	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
@@ -3848,7 +3848,7 @@ extension on _StringsEn {
 			case 'login.faq.1.a': return 'The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
 			case 'login.faq.2.q': return 'Why use two passwords?';
 			case 'login.faq.2.a': return 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
-			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.dirty': return 'DIRTY';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.sponsorButton': return 'Tap here to sponsor me or buy more storage';
@@ -3966,7 +3966,7 @@ extension on _StringsCs {
 			case 'login.faq.1.a': return 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 			case 'login.faq.2.q': return 'Proč používat dvě hesla?';
 			case 'login.faq.2.a': return 'Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
-			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
 			case 'appInfo.dirty': return 'ZKUŠEBNÍ VERZE';
 			case 'appInfo.debug': return 'LADÍCÍ VERZE';
 			case 'appInfo.sponsorButton': return 'Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště';
@@ -4081,7 +4081,7 @@ extension on _StringsDe {
 			case 'login.faq.1.a': return 'Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\n\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
 			case 'login.faq.2.q': return 'Wieso zwei Passwörter?';
 			case 'login.faq.2.a': return 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
-			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 			case 'appInfo.privacyPolicyButton': return 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
@@ -4191,7 +4191,7 @@ extension on _StringsEs {
 			case 'login.faq.1.a': return 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y solo Saber lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
 			case 'login.faq.2.q': return '¿Por qué usar dos contraseñas?';
 			case 'login.faq.2.a': return 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
-			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.sponsorButton': return 'Toca aquí para patrocinarme o comprar más almacenamiento';
 			case 'appInfo.licenseButton': return 'Toca aquí para ver más información sobre la licencia';
@@ -4302,7 +4302,7 @@ extension on _StringsIt {
 			case 'login.faq.1.a': return 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Non è archiviato sul server e viene utilizzato solo da Sabre per crittografare e decrittografare i tuoi dati.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
 			case 'login.faq.2.q': return 'Perché usare due password?';
 			case 'login.faq.2.a': return 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
-			case 'appInfo.licenseNotice': return 'Sabre Copyright (C) 2022 Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Sabre Copyright (C) 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
 			case 'appInfo.privacyPolicyButton': return 'Tocca qui per visualizzare l\'informativa sulla privacy';
@@ -4418,7 +4418,7 @@ extension on _StringsRu {
 			case 'login.faq.1.a': return 'Пароль шифрования используется для шифрования ваших данных перед отправкой их на сервер. Он не хранится на сервере и используется Sabre только для шифрования и расшифровки ваших данных.\n\nНикто не может получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
 			case 'login.faq.2.q': return 'Зачем использовать два пароля?';
 			case 'login.faq.2.a': return 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
-			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2022  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
 			case 'appInfo.debug': return 'ОТЛАДКА';
 			case 'appInfo.sponsorButton': return 'Проспонсируйте меня или купите дополнительное пространство';
 			case 'appInfo.licenseButton': return 'Просмотрите дополнительную информацию о лицензии';
@@ -4533,7 +4533,7 @@ extension on _StringsTr {
 			case 'login.faq.1.a': return 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
 			case 'login.faq.2.q': return 'Neden iki şifre kullanılıyor?';
 			case 'login.faq.2.a': return 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
-			case 'appInfo.licenseNotice': return 'Saber  Copyright (C) 2023  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
 			case 'appInfo.dirty': return 'TEST';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.sponsorButton': return 'Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla';
@@ -4649,7 +4649,7 @@ extension on _StringsZhHansCn {
 			case 'login.faq.1.a': return '加密密码用于在将数据发送到服务器之前对其进行加密。它不存储在服务器上，仅供 Saber 用来加密和解密您的数据。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
 			case 'login.faq.2.q': return '为什么使用双重密码？';
 			case 'login.faq.2.a': return 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
-			case 'appInfo.licenseNotice': return 'Saber  版权所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  版权所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
 			case 'appInfo.privacyPolicyButton': return '点击此处查看隐私政策';
@@ -4764,7 +4764,7 @@ extension on _StringsZhHantTw {
 			case 'login.faq.1.a': return '加密密碼用於在將資料傳送到伺服器之前對其進行加密。 它不存儲在伺服器上，僅供 Saber 用來加密和解密您的資料。\n\n沒有您的加密密碼，任何人都無法訪問您儲存在伺服器上的筆記。 這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。';
 			case 'login.faq.2.q': return '為什麼要使用兩個密碼？';
 			case 'login.faq.2.a': return 'Nextcloud 密碼用於訪問雲端。 而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。 這為您提供了第二層安全保護來保護您的資料。';
-			case 'appInfo.licenseNotice': return 'Saber  版權所有 (C) 2022  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  版權所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';
 			case 'appInfo.privacyPolicyButton': return '點擊此處查看隱私權政策';
