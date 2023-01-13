@@ -67,14 +67,14 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "locale": "App language"
+        "locale": "Lingua app"
       },
-      "systemLanguage": "System language"
+      "systemLanguage": "Lingua del sistema"
     },
     "editor": {
       "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
+        "unlockZoom": "Sblocca zoom",
+        "lockZoom": "Blocca zoom"
       }
     }
   },
