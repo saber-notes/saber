@@ -89,8 +89,8 @@
     },
     "editor": {
       "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
+        "unlockZoom": "解鎖縮放",
+        "lockZoom": "鎖定縮放"
       }
     }
   }
