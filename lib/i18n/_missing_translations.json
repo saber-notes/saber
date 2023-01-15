@@ -77,21 +77,5 @@
   },
   "tr": {},
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "locale": "應用程式語言"
-      },
-      "systemLanguage": "系統語言"
-    },
-    "appInfo": {
-      "dirty": "DIRTY"
-    },
-    "editor": {
-      "hud": {
-        "unlockZoom": "解鎖縮放",
-        "lockZoom": "鎖定縮放"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
