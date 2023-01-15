@@ -75,13 +75,13 @@ else
   echo " - (*) Add <release> tag to flatpak/com.adilhanney.saber.metainfo.xml"
   # shellcheck disable=SC1078,SC1079
   RELEASE_TAG="""\
-          <release version=\"$BUILD_NAME\" type=\"development\" date=\"$DATE\"/>
-              <description>
-                  <ul>
-                      <li>$DUMMY_CHANGELOG</li>
-                  </ul>
-              </description>
-          </release>\
+        <release version=\"$BUILD_NAME\" type=\"development\" date=\"$DATE\">
+            <description>
+                <ul>
+                    <li>$DUMMY_CHANGELOG</li>
+                </ul>
+            </description>
+        </release>\
   """
   awk -v release="$RELEASE_TAG" 'NR==62{print release}1' flatpak/com.adilhanney.saber.metainfo.xml > flatpak/com.adilhanney.saber.metainfo.xml.tmp
   mv flatpak/com.adilhanney.saber.metainfo.xml.tmp flatpak/com.adilhanney.saber.metainfo.xml
