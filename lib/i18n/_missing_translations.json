@@ -83,23 +83,7 @@
     }
   },
   "tr": {},
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "locale": "应用语言"
-      },
-      "systemLanguage": "系统语言"
-    },
-    "appInfo": {
-      "dirty": "DIRTY"
-    },
-    "editor": {
-      "hud": {
-        "unlockZoom": "解锁缩放",
-        "lockZoom": "锁定缩放"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {

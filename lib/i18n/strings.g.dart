@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 900 (100 per locale)
+/// Strings: 905 (100 per locale)
 ///
-/// Built on 2023-01-15 at 03:49 UTC
+/// Built on 2023-01-15 at 03:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3058,6 +3058,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesZhHansCn themeModes = _StringsSettingsThemeModesZhHansCn._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhHansCn accentColorPicker = _StringsSettingsAccentColorPickerZhHansCn._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHansCn straightenDelay = _StringsSettingsStraightenDelayZhHansCn._(_root);
+	@override String get systemLanguage => '系统语言';
 }
 
 // Path: login
@@ -3095,6 +3096,7 @@ class _StringsAppInfoZhHansCn extends _StringsAppInfoEn {
 	@override String get licenseButton => '点击此处查看更多许可证信息';
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
 	@override String get sponsorButton => '点击此处赞助我或购买更多存储空间';
+	@override String get dirty => 'DIRTY';
 }
 
 // Path: update
@@ -3123,6 +3125,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
 	@override late final _StringsEditorQuillZhHansCn quill = _StringsEditorQuillZhHansCn._(_root);
+	@override late final _StringsEditorHudZhHansCn hud = _StringsEditorHudZhHansCn._(_root);
 }
 
 // Path: home.tabs
@@ -3180,6 +3183,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
+	@override String get locale => '应用语言';
 }
 
 // Path: settings.prefDescriptions
@@ -3401,6 +3405,17 @@ class _StringsEditorQuillZhHansCn extends _StringsEditorQuillEn {
 
 	// Translations
 	@override String get typeSomething => '在这里输入...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudZhHansCn extends _StringsEditorHudEn {
+	_StringsEditorHudZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => '解锁缩放';
+	@override String get lockZoom => '锁定缩放';
 }
 
 // Path: <root>
@@ -4654,6 +4669,7 @@ extension on _StringsZhHansCn {
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return '离开应用后清除白板';
 			case 'settings.prefLabels.editorPromptRename': return '提示您重命名新笔记';
 			case 'settings.prefLabels.editorToolbarShowInFullscreen': return '在全屏模式中显示编辑菜单栏';
+			case 'settings.prefLabels.locale': return '应用语言';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';
@@ -4666,6 +4682,7 @@ extension on _StringsZhHansCn {
 			case 'settings.straightenDelay.off': return '关闭';
 			case 'settings.straightenDelay.regular': return '常规';
 			case 'settings.straightenDelay.slow': return '缓慢';
+			case 'settings.systemLanguage': return '系统语言';
 			case 'login.title': return '登录';
 			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
@@ -4704,6 +4721,7 @@ extension on _StringsZhHansCn {
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
 			case 'appInfo.privacyPolicyButton': return '点击此处查看隐私政策';
 			case 'appInfo.sponsorButton': return '点击此处赞助我或购买更多存储空间';
+			case 'appInfo.dirty': return 'DIRTY';
 			case 'update.updateAvailable': return '可用更新';
 			case 'update.updateAvailableDescription': return '该应用程序的新版本可用。';
 			case 'update.update': return '更新';
@@ -4736,6 +4754,8 @@ extension on _StringsZhHansCn {
 			case 'editor.newerFileFormat.subtitle': return '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 			case 'editor.newerFileFormat.allowEditing': return '允许编辑';
 			case 'editor.quill.typeSomething': return '在这里输入...';
+			case 'editor.hud.unlockZoom': return '解锁缩放';
+			case 'editor.hud.lockZoom': return '锁定缩放';
 			default: return null;
 		}
 	}
