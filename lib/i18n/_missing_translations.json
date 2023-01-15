@@ -64,20 +64,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "locale": "Lingua app"
-      },
-      "systemLanguage": "Lingua del sistema"
-    },
-    "editor": {
-      "hud": {
-        "unlockZoom": "Sblocca zoom",
-        "lockZoom": "Blocca zoom"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "settings": {
       "prefLabels": {

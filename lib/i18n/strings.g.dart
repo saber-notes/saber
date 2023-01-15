@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 892 (99 per locale)
+/// Strings: 896 (99 per locale)
 ///
-/// Built on 2023-01-13 at 17:53 UTC
+/// Built on 2023-01-15 at 03:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1807,6 +1807,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerIt accentColorPicker = _StringsSettingsAccentColorPickerIt._(_root);
 	@override late final _StringsSettingsPrefDescriptionsIt prefDescriptions = _StringsSettingsPrefDescriptionsIt._(_root);
 	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
+	@override String get systemLanguage => 'Lingua del sistema';
 }
 
 // Path: login
@@ -1873,6 +1874,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorMenuIt menu = _StringsEditorMenuIt._(_root);
 	@override late final _StringsEditorNewerFileFormatIt newerFileFormat = _StringsEditorNewerFileFormatIt._(_root);
 	@override late final _StringsEditorQuillIt quill = _StringsEditorQuillIt._(_root);
+	@override late final _StringsEditorHudIt hud = _StringsEditorHudIt._(_root);
 }
 
 // Path: home.tabs
@@ -1930,6 +1932,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
+	@override String get locale => 'Lingua app';
 }
 
 // Path: settings.themeModes
@@ -2151,6 +2154,17 @@ class _StringsEditorQuillIt extends _StringsEditorQuillEn {
 
 	// Translations
 	@override String get typeSomething => 'Scrivi qualcosa qui...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudIt extends _StringsEditorHudEn {
+	_StringsEditorHudIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Sblocca zoom';
+	@override String get lockZoom => 'Blocca zoom';
 }
 
 // Path: <root>
@@ -4271,6 +4285,7 @@ extension on _StringsIt {
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Svuota la lavagna dopo essere uscito dall\'app';
 			case 'settings.prefLabels.editorPromptRename': return 'Richiede di rinominare nuove note';
 			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
+			case 'settings.prefLabels.locale': return 'Lingua app';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
@@ -4283,6 +4298,7 @@ extension on _StringsIt {
 			case 'settings.straightenDelay.off': return 'Off';
 			case 'settings.straightenDelay.regular': return 'Regolare';
 			case 'settings.straightenDelay.slow': return 'Lento';
+			case 'settings.systemLanguage': return 'Lingua del sistema';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
@@ -4354,6 +4370,8 @@ extension on _StringsIt {
 			case 'editor.newerFileFormat.allowEditing': return 'Consenti modifica';
 			case 'editor.newerFileFormat.cancel': return 'Cancella';
 			case 'editor.quill.typeSomething': return 'Scrivi qualcosa qui...';
+			case 'editor.hud.unlockZoom': return 'Sblocca zoom';
+			case 'editor.hud.lockZoom': return 'Blocca zoom';
 			default: return null;
 		}
 	}
