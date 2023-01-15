@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 907 (100 per locale)
+/// Strings: 912 (101 per locale)
 ///
-/// Built on 2023-01-15 at 03:57 UTC
+/// Built on 2023-01-15 at 04:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3492,6 +3492,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesZhHantTw themeModes = _StringsSettingsThemeModesZhHantTw._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhHantTw accentColorPicker = _StringsSettingsAccentColorPickerZhHantTw._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
+	@override String get systemLanguage => '系統語言';
 }
 
 // Path: login
@@ -3529,6 +3530,7 @@ class _StringsAppInfoZhHantTw extends _StringsAppInfoEn {
 	@override String get licenseButton => '點擊此處查看更多許可證資訊';
 	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
 	@override String get sponsorButton => '點擊此處贊助我或購買更多儲存空間';
+	@override String get dirty => 'DIRTY';
 }
 
 // Path: update
@@ -3557,6 +3559,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
 	@override late final _StringsEditorQuillZhHantTw quill = _StringsEditorQuillZhHantTw._(_root);
+	@override late final _StringsEditorHudZhHantTw hud = _StringsEditorHudZhHantTw._(_root);
 }
 
 // Path: home.tabs
@@ -3614,6 +3617,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
+	@override String get locale => '應用程式語言';
 }
 
 // Path: settings.prefDescriptions
@@ -3835,6 +3839,17 @@ class _StringsEditorQuillZhHantTw extends _StringsEditorQuillEn {
 
 	// Translations
 	@override String get typeSomething => '在這裡輸入一些內容...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudZhHantTw extends _StringsEditorHudEn {
+	_StringsEditorHudZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => '解鎖縮放';
+	@override String get lockZoom => '鎖定縮放';
 }
 
 /// Flat map(s) containing all translations.
@@ -4803,6 +4818,7 @@ extension on _StringsZhHantTw {
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return '退出應用程式後清除白板';
 			case 'settings.prefLabels.editorPromptRename': return '提醒您重新命名新筆記';
 			case 'settings.prefLabels.editorToolbarShowInFullscreen': return '在全螢幕模式中顯示編輯器工具列';
+			case 'settings.prefLabels.locale': return '應用程式語言';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自動使用反色筆記背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用於電子紙螢幕';
@@ -4815,6 +4831,7 @@ extension on _StringsZhHantTw {
 			case 'settings.straightenDelay.off': return '關閉';
 			case 'settings.straightenDelay.regular': return '正常';
 			case 'settings.straightenDelay.slow': return '緩慢';
+			case 'settings.systemLanguage': return '系統語言';
 			case 'login.title': return '登入';
 			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
@@ -4853,6 +4870,7 @@ extension on _StringsZhHantTw {
 			case 'appInfo.licenseButton': return '點擊此處查看更多許可證資訊';
 			case 'appInfo.privacyPolicyButton': return '點擊此處查看隱私權政策';
 			case 'appInfo.sponsorButton': return '點擊此處贊助我或購買更多儲存空間';
+			case 'appInfo.dirty': return 'DIRTY';
 			case 'update.updateAvailable': return '可用更新';
 			case 'update.updateAvailableDescription': return '該應用程式的新版本可用。';
 			case 'update.update': return '更新';
@@ -4885,6 +4903,8 @@ extension on _StringsZhHantTw {
 			case 'editor.newerFileFormat.subtitle': return '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 			case 'editor.newerFileFormat.allowEditing': return '允許編輯';
 			case 'editor.quill.typeSomething': return '在這裡輸入一些內容...';
+			case 'editor.hud.unlockZoom': return '解鎖縮放';
+			case 'editor.hud.lockZoom': return '鎖定縮放';
 			default: return null;
 		}
 	}

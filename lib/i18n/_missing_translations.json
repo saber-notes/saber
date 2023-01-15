@@ -77,21 +77,5 @@
   },
   "tr": {},
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "locale": "App language"
-      },
-      "systemLanguage": "System language"
-    },
-    "appInfo": {
-      "dirty": "DIRTY"
-    },
-    "editor": {
-      "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
