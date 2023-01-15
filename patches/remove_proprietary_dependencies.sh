@@ -20,10 +20,6 @@ else
   echo "already done"
 fi
 
-# Delete packages/onyxsdk_pen to make sure it's not used
-echo "Deleting packages/onyxsdk_pen"
-rm -rf packages/onyxsdk_pen
-
 # Reduce minSdkVersion to 18
 echo "Reducing minSdkVersion to 18"
 sed -i -e 's!minSdkVersion 23!minSdkVersion 18!' android/app/build.gradle

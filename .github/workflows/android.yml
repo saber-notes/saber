@@ -93,6 +93,7 @@ jobs:
           rm -rf linux
           rm -rf macos
           rm -rf metadata
+          rm -rf packages/onyxsdk_pen
           rm -rf snap
           rm -rf submodules
           rm -rf test
