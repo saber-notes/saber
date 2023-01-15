@@ -78,7 +78,6 @@ class _RecentPageState extends State<RecentPage> {
                   ],
                 ),
               ],
-              addRepaintBoundaries: !failed,
             )),
           ],
         ),

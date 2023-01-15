@@ -108,7 +108,6 @@ class _BrowsePageState extends State<BrowsePage> {
                   ],
                 ),
               ],
-              addRepaintBoundaries: !failed,
             )),
           ],
         ),
