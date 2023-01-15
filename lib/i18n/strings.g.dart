@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 905 (100 per locale)
+/// Strings: 907 (100 per locale)
 ///
-/// Built on 2023-01-15 at 03:54 UTC
+/// Built on 2023-01-15 at 03:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -680,6 +680,7 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorMenuCs menu = _StringsEditorMenuCs._(_root);
 	@override late final _StringsEditorNewerFileFormatCs newerFileFormat = _StringsEditorNewerFileFormatCs._(_root);
 	@override late final _StringsEditorQuillCs quill = _StringsEditorQuillCs._(_root);
+	@override late final _StringsEditorHudCs hud = _StringsEditorHudCs._(_root);
 }
 
 // Path: home.tabs
@@ -959,6 +960,17 @@ class _StringsEditorQuillCs extends _StringsEditorQuillEn {
 
 	// Translations
 	@override String get typeSomething => 'Něco sem napište...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudCs extends _StringsEditorHudEn {
+	_StringsEditorHudCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Odemknout přibližování';
+	@override String get lockZoom => 'Zamknout přibližování';
 }
 
 // Path: <root>
@@ -4061,6 +4073,8 @@ extension on _StringsCs {
 			case 'editor.newerFileFormat.allowEditing': return 'Povolit úpravy';
 			case 'editor.newerFileFormat.cancel': return 'Zrušit';
 			case 'editor.quill.typeSomething': return 'Něco sem napište...';
+			case 'editor.hud.unlockZoom': return 'Odemknout přibližování';
+			case 'editor.hud.lockZoom': return 'Zamknout přibližování';
 			default: return null;
 		}
 	}

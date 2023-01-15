@@ -155,6 +155,10 @@
     },
     "quill": {
       "typeSomething": "Něco sem napište..."
+    },
+    "hud": {
+      "unlockZoom": "Odemknout přibližování",
+      "lockZoom": "Zamknout přibližování"
     }
   }
 }
