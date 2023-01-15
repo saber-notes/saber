@@ -80,9 +80,9 @@
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
-        "locale": "App language"
+        "locale": "應用程式語言"
       },
-      "systemLanguage": "System language"
+      "systemLanguage": "系統語言"
     },
     "appInfo": {
       "dirty": "DIRTY"
