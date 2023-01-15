@@ -133,7 +133,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Saber-Android
+          name: Saber-Android-FOSS
           path: build/app/outputs/flutter-apk/signed/Saber-FOSS.apk
 
       - name: Upload to GitHub release
