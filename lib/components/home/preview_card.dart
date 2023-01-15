@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
@@ -88,6 +89,7 @@ class _PreviewCardState extends State<PreviewCard> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final disableAnimations = MediaQuery.of(context).disableAnimations;
 
     Widget card = Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -141,7 +143,16 @@ class _PreviewCardState extends State<PreviewCard> {
         ),
       ),
     );
-    
+
+    if (disableAnimations) {
+      return GestureDetector(
+        onTap: () {
+          context.push("${RoutePaths.edit}?path=${widget.filePath}");
+        },
+        child: card,
+      );
+    }
+
     return OpenContainer(
       closedColor: colorScheme.surface,
       openColor: colorScheme.background,
