@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.6" type="development" date="2023-01-15">
+            <description>
+                <ul>
+                    <li>Added a button to lock the canvas zoom</li>
+                    <li>Added icons to the settings page</li>
+                    <li>Updated the copyright year</li>
+                    <li>UI improvements</li>
+                    <li>Disabled the container transform animation if your device has reduced animations enabled</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.5" type="development" date="2023-01-10">
             <description>
                 <ul>
