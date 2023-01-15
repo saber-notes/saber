@@ -82,20 +82,7 @@
       }
     }
   },
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "locale": "App language"
-      },
-      "systemLanguage": "System language"
-    },
-    "editor": {
-      "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {

@@ -1,158 +1,164 @@
 {
-	"home": {
-		"tabs": {
-			"home": "Giriş",
-			"browse": "Göz at",
-			"whiteboard": "Beyaz tahta",
-			"settings": "Ayarlar"
-		},
-		"titles": {
-			"home": "Son notlar",
-			"browse": "Tüm notlar",
-			"whiteboard": "Beyaz tahta",
-			"settings": "Ayarlar"
-		},
-		"tooltips": {
-			"newNote": "Yeni not",
-			"showUpdateDialog": "Güncelleme diyalogunu göster"
-		},
-		"backFolder": "(Back)",
-		"welcome": "Saber'a hoş geldiniz",
-		"noFiles": "Dosya yok",
-		"createNewNote": "Yeni bir not oluşturmak için + butonuna tıklayınız"
-	},
-	"settings": {
-		"prefLabels": {
-			"appTheme": "Uygulama teması",
-			"customAccentColor": "Farklı ana renk",
-			"hyperlegibleFont": "Hyperlegible font",
-			"shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
-			"editorToolbarOnBottom": "Editör araç kutusunu aşağıya yerleştir",
-			"editorToolbarShowInFullscreen": "Editör araç kutusunu tam ekranda göster",
-			"editorAutoInvert": "Karanlık temada notların rengini tersine çevir",
-			"preferGreyscale": "Gri tonlamayı tercih et",
-			"editorStraightenLines": "Bir çizgiyi düzleştirmek için basılı tut",
-			"autoClearWhiteboardOnExit": "Uygulamadan çıkıldığında beyaz tahtayı temizle",
-			"editorPromptRename": "Notları yeniden adlandırmak için uyar"
-		},
-		"prefDescriptions": {
-			"hyperlegibleFont": "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur",
-			"editorAutoInvert": "Karanlık modda notların rengini değiştirir",
-			"preferGreyscale": "E-mürekkep ekranlar için",
-			"autoClearWhiteboardOnExit": "Diğer cihazlarınıza senkronize edilmeye devam edecek",
-			"editorPromptRename": "Notlarınızı daha sonra da yeniden adlandırabilirsiniz"
-		},
-		"themeModes": {
-			"system": "Sistem teması",
-			"light": "Aydınlık",
-			"dark": "Karanlık"
-		},
-		"accentColorPicker": {
-			"pickAColor": "Bir renk seçin"
-		},
-		"straightenDelay": {
-			"off": "Kapalı",
-			"regular": "Normal",
-			"slow": "Yavaş"
-		}
-	},
-	"login": {
-		"title": "Giriş yap",
-		"feedbacks": {
-			"checkUsername": "Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.",
-			"enterNcPassword": "Lütfen Nextcloud parolanızı girin.",
-			"enterEncPassword": "Lütfen şifreleme parolanızı girin.",
-			"checkUrl": "Lütfen geçerli bir URL girin.",
-			"ncLoginFailed": "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.",
-			"encLoginFailed": "Giriş başarısız, şifreleme parolanızı kontrol ediniz.",
-			"loginSuccess": "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
-		},
-		"form": {
-			"useCustomServer": "Farklı bir Nextcloud sunucusu kullanmak istiyorum",
-			"customServerUrl": "Farklı bir sunucu URL'i",
-			"username": "Kullanıcı adı veya e-posta adresi",
-			"ncPassword": "Nextcloud parolası",
-			"encPassword": "Şifreleme parolası",
-			"agreeToPrivacyPolicy(rich)": "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz.",
-			"login": "Giriş yap"
-		},
-		"signup(rich)": "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!",
-		"status": {
-			"loggedIn": "Nextcloud'a giriş yapıldı",
-			"loggedOut": "Çıkış yapıldı",
-			"tapToLogin": "Nextcloud oturumu açmak için tıklayın"
-		},
-		"faq": [
-			{
-				"q": "Nextcloud nedir?",
-				"a": "Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz."
-			},
-			{
-				"q": "Şifreleme parolası nedir?",
-				"a": "Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz."
-			},
-			{
-				"q": "Neden iki şifre kullanılıyor?",
-				"a": "Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce \"karmaşıklaştırılması\"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor."
-			}
-		]
-	},
-	"appInfo": {
-		"licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.",
-		"dirty": "TEST",
-		"debug": "DEBUG",
-		"sponsorButton": "Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla",
-		"licenseButton": "Lisans bilgisinin detaylarını görmek için buraya tıkla",
-		"privacyPolicyButton": "Gizlilik Politikasını görmek için buraya tıkla"
-	},
-	"update": {
-		"updateAvailable": "Güncelleme var",
-		"updateAvailableDescription": "Uygulamanın yeni bir versiyonu mevcut.",
-		"update": "Güncelle"
-	},
-	"editor": {
-		"toolbar": {
-			"toggleColors": "Renklere geç (Ctrl C)",
-			"toggleEraser": "Silgiyi aktifleştir (Ctrl E)",
-			"photo": "Fotoğraf",
-			"text": "Metin",
-			"toggleFingerDrawing": "Parmakla çizimi aktifleştir (Ctrl F)",
-			"undo": "Geri al",
-			"redo": "Yeniden yap",
-			"export": "Dışa aktar (Ctrl Shift S)",
-			"exportAs": "Farklı formatta dışa aktar:",
-			"fullscreen": "Tam ekrana geç (F11)"
-		},
-		"pens": {
-			"fountainPen": "Dolma kalem",
-			"ballpointPen": "Tükenmez kalem",
-			"highlighter": "İşaretleme kalemi"
-		},
-		"penOptions": {
-			"size": "Boyut",
-			"sizeDragHint": "Boyutu değiştirmek için sağa veya sola kaydır"
-		},
-		"imageOptions": {
-			"title": "Görüntü ayarları",
-			"invertible": "(Rengi) Tersine çevrilebilir",
-			"download": "İndir",
-			"delete": "Sil"
-		},
-		"menu": {
-			"clearPage": "Sayfayı temizle",
-			"clearAllPages": "Tüm sayfaları temizle",
-			"lineHeight": "Satır aralığı",
-			"lineHeightDescription": "Her bir satırın boyutu"
-		},
-		"newerFileFormat": {
-			"readOnlyMode": "Yalnızca okunabilir mod",
-			"title": "Bu not Saber'ın yeni bir versiyonunda düzenlenmiş",
-			"subtitle": "Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?",
-			"allowEditing": "Düzenlemeye izin ver",
-			"cancel": "İptal"
-		},
-		"quill": {
-			"typeSomething": "Buraya bir şey yaz..."
-		}
-	}
+  "home": {
+    "tabs": {
+      "home": "Giriş",
+      "browse": "Göz at",
+      "whiteboard": "Beyaz tahta",
+      "settings": "Ayarlar"
+    },
+    "titles": {
+      "home": "Son notlar",
+      "browse": "Tüm notlar",
+      "whiteboard": "Beyaz tahta",
+      "settings": "Ayarlar"
+    },
+    "tooltips": {
+      "newNote": "Yeni not",
+      "showUpdateDialog": "Güncelleme diyalogunu göster"
+    },
+    "backFolder": "(Back)",
+    "welcome": "Saber'a hoş geldiniz",
+    "noFiles": "Dosya yok",
+    "createNewNote": "Yeni bir not oluşturmak için + butonuna tıklayınız"
+  },
+  "settings": {
+    "prefLabels": {
+      "appTheme": "Uygulama teması",
+      "customAccentColor": "Farklı ana renk",
+      "hyperlegibleFont": "Hyperlegible font",
+      "shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
+      "editorToolbarOnBottom": "Editör araç kutusunu aşağıya yerleştir",
+      "editorToolbarShowInFullscreen": "Editör araç kutusunu tam ekranda göster",
+      "editorAutoInvert": "Karanlık temada notların rengini tersine çevir",
+      "preferGreyscale": "Gri tonlamayı tercih et",
+      "editorStraightenLines": "Bir çizgiyi düzleştirmek için basılı tut",
+      "autoClearWhiteboardOnExit": "Uygulamadan çıkıldığında beyaz tahtayı temizle",
+      "editorPromptRename": "Notları yeniden adlandırmak için uyar",
+      "locale": "Uygulama dili"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur",
+      "editorAutoInvert": "Karanlık modda notların rengini değiştirir",
+      "preferGreyscale": "E-mürekkep ekranlar için",
+      "autoClearWhiteboardOnExit": "Diğer cihazlarınıza senkronize edilmeye devam edecek",
+      "editorPromptRename": "Notlarınızı daha sonra da yeniden adlandırabilirsiniz"
+    },
+    "themeModes": {
+      "system": "Sistem teması",
+      "light": "Aydınlık",
+      "dark": "Karanlık"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Bir renk seçin"
+    },
+    "straightenDelay": {
+      "off": "Kapalı",
+      "regular": "Normal",
+      "slow": "Yavaş"
+    },
+    "systemLanguage": "Sistem dili"
+  },
+  "login": {
+    "title": "Giriş yap",
+    "feedbacks": {
+      "checkUsername": "Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.",
+      "enterNcPassword": "Lütfen Nextcloud parolanızı girin.",
+      "enterEncPassword": "Lütfen şifreleme parolanızı girin.",
+      "checkUrl": "Lütfen geçerli bir URL girin.",
+      "ncLoginFailed": "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.",
+      "encLoginFailed": "Giriş başarısız, şifreleme parolanızı kontrol ediniz.",
+      "loginSuccess": "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
+    },
+    "form": {
+      "useCustomServer": "Farklı bir Nextcloud sunucusu kullanmak istiyorum",
+      "customServerUrl": "Farklı bir sunucu URL'i",
+      "username": "Kullanıcı adı veya e-posta adresi",
+      "ncPassword": "Nextcloud parolası",
+      "encPassword": "Şifreleme parolası",
+      "agreeToPrivacyPolicy(rich)": "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz.",
+      "login": "Giriş yap"
+    },
+    "signup(rich)": "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!",
+    "status": {
+      "loggedIn": "Nextcloud'a giriş yapıldı",
+      "loggedOut": "Çıkış yapıldı",
+      "tapToLogin": "Nextcloud oturumu açmak için tıklayın"
+    },
+    "faq": [
+      {
+        "q": "Nextcloud nedir?",
+        "a": "Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz."
+      },
+      {
+        "q": "Şifreleme parolası nedir?",
+        "a": "Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz."
+      },
+      {
+        "q": "Neden iki şifre kullanılıyor?",
+        "a": "Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce \"karmaşıklaştırılması\"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor."
+      }
+    ]
+  },
+  "appInfo": {
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.",
+    "dirty": "TEST",
+    "debug": "DEBUG",
+    "sponsorButton": "Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla",
+    "licenseButton": "Lisans bilgisinin detaylarını görmek için buraya tıkla",
+    "privacyPolicyButton": "Gizlilik Politikasını görmek için buraya tıkla"
+  },
+  "update": {
+    "updateAvailable": "Güncelleme var",
+    "updateAvailableDescription": "Uygulamanın yeni bir versiyonu mevcut.",
+    "update": "Güncelle"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Renklere geç (Ctrl C)",
+      "toggleEraser": "Silgiyi aktifleştir (Ctrl E)",
+      "photo": "Fotoğraf",
+      "text": "Metin",
+      "toggleFingerDrawing": "Parmakla çizimi aktifleştir (Ctrl F)",
+      "undo": "Geri al",
+      "redo": "Yeniden yap",
+      "export": "Dışa aktar (Ctrl Shift S)",
+      "exportAs": "Farklı formatta dışa aktar:",
+      "fullscreen": "Tam ekrana geç (F11)"
+    },
+    "pens": {
+      "fountainPen": "Dolma kalem",
+      "ballpointPen": "Tükenmez kalem",
+      "highlighter": "İşaretleme kalemi"
+    },
+    "penOptions": {
+      "size": "Boyut",
+      "sizeDragHint": "Boyutu değiştirmek için sağa veya sola kaydır"
+    },
+    "imageOptions": {
+      "title": "Görüntü ayarları",
+      "invertible": "(Rengi) Tersine çevrilebilir",
+      "download": "İndir",
+      "delete": "Sil"
+    },
+    "menu": {
+      "clearPage": "Sayfayı temizle",
+      "clearAllPages": "Tüm sayfaları temizle",
+      "lineHeight": "Satır aralığı",
+      "lineHeightDescription": "Her bir satırın boyutu"
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Yalnızca okunabilir mod",
+      "title": "Bu not Saber'ın yeni bir versiyonunda düzenlenmiş",
+      "subtitle": "Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?",
+      "allowEditing": "Düzenlemeye izin ver",
+      "cancel": "İptal"
+    },
+    "quill": {
+      "typeSomething": "Buraya bir şey yaz..."
+    },
+    "hud": {
+      "unlockZoom": "Yakınlaştırma kilidini aç",
+      "lockZoom": "Yakınlaştırmayı kilitle"
+    }
+  }
 }
