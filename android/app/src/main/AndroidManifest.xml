@@ -46,10 +46,6 @@
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="*" />
-                <data android:host="*" />
-                <data android:pathPattern=".*\\.sbn"/>
-
                 <data android:mimeType="application/json" />
                 <data android:mimeType="application/sbn" />
                 <data android:mimeType="text/*" />
