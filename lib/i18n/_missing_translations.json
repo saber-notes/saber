@@ -82,20 +82,7 @@
       }
     }
   },
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "locale": "Uygulama dili"
-      },
-      "systemLanguage": "Sistem dili"
-    },
-    "editor": {
-      "hud": {
-        "unlockZoom": "Yakınlaştırma kilidini aç",
-        "lockZoom": "Yakınlaştırmayı kilitle"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {

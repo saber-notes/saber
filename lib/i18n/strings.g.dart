@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 896 (99 per locale)
+/// Strings: 900 (100 per locale)
 ///
-/// Built on 2023-01-15 at 03:46 UTC
+/// Built on 2023-01-15 at 03:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2636,6 +2636,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesTr themeModes = _StringsSettingsThemeModesTr._(_root);
 	@override late final _StringsSettingsAccentColorPickerTr accentColorPicker = _StringsSettingsAccentColorPickerTr._(_root);
 	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
+	@override String get systemLanguage => 'Sistem dili';
 }
 
 // Path: login
@@ -2702,6 +2703,7 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorMenuTr menu = _StringsEditorMenuTr._(_root);
 	@override late final _StringsEditorNewerFileFormatTr newerFileFormat = _StringsEditorNewerFileFormatTr._(_root);
 	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
+	@override late final _StringsEditorHudTr hud = _StringsEditorHudTr._(_root);
 }
 
 // Path: home.tabs
@@ -2759,6 +2761,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
+	@override String get locale => 'Uygulama dili';
 }
 
 // Path: settings.prefDescriptions
@@ -2980,6 +2983,17 @@ class _StringsEditorQuillTr extends _StringsEditorQuillEn {
 
 	// Translations
 	@override String get typeSomething => 'Buraya bir şey yaz...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudTr extends _StringsEditorHudEn {
+	_StringsEditorHudTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Yakınlaştırma kilidini aç';
+	@override String get lockZoom => 'Yakınlaştırmayı kilitle';
 }
 
 // Path: <root>
@@ -4520,6 +4534,7 @@ extension on _StringsTr {
 			case 'settings.prefLabels.editorStraightenLines': return 'Bir çizgiyi düzleştirmek için basılı tut';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 			case 'settings.prefLabels.editorPromptRename': return 'Notları yeniden adlandırmak için uyar';
+			case 'settings.prefLabels.locale': return 'Uygulama dili';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Karanlık modda notların rengini değiştirir';
 			case 'settings.prefDescriptions.preferGreyscale': return 'E-mürekkep ekranlar için';
@@ -4532,6 +4547,7 @@ extension on _StringsTr {
 			case 'settings.straightenDelay.off': return 'Kapalı';
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Yavaş';
+			case 'settings.systemLanguage': return 'Sistem dili';
 			case 'login.title': return 'Giriş yap';
 			case 'login.feedbacks.checkUsername': return 'Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.';
 			case 'login.feedbacks.enterNcPassword': return 'Lütfen Nextcloud parolanızı girin.';
@@ -4603,6 +4619,8 @@ extension on _StringsTr {
 			case 'editor.newerFileFormat.allowEditing': return 'Düzenlemeye izin ver';
 			case 'editor.newerFileFormat.cancel': return 'İptal';
 			case 'editor.quill.typeSomething': return 'Buraya bir şey yaz...';
+			case 'editor.hud.unlockZoom': return 'Yakınlaştırma kilidini aç';
+			case 'editor.hud.lockZoom': return 'Yakınlaştırmayı kilitle';
 			default: return null;
 		}
 	}
