@@ -14,7 +14,6 @@ void main() {
     const String filePath = "/tests/editor_undo_redo_test";
     final Editor editor = Editor(
       path: filePath,
-      embedded: true,
     );
     await tester.pumpWidget(MaterialApp(
       home: SizedBox(

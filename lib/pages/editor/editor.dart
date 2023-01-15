@@ -10,7 +10,6 @@ import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_quill/flutter_quill.dart' show ChangeSource;
 import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -40,14 +39,14 @@ class Editor extends StatefulWidget {
   Editor({
     super.key,
     String? path,
-    this.embedded = false,
+    this.customTitle,
   }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath("/"),
         needsNaming = path == null;
 
   final Future<String> initialPath;
   final bool needsNaming;
 
-  final bool embedded;
+  final String? customTitle;
 
   static const String extension = '.sbn';
   /// Hidden files used by other functions of the app
@@ -762,12 +761,10 @@ class _EditorState extends State<Editor> {
       ],
     );
 
-    if (widget.embedded) return body;
-
     return Scaffold(
       appBar: DynamicMaterialApp.isFullscreen.value ? null : AppBar(
         toolbarHeight: kToolbarHeight,
-        title: TextField(
+        title: widget.customTitle != null ? Text(widget.customTitle!) : TextField(
           decoration: const InputDecoration(
             border: InputBorder.none,
           ),
