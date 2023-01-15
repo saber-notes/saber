@@ -7,11 +7,9 @@ class MasonryFiles extends StatelessWidget {
   const MasonryFiles({
     super.key,
     required this.files,
-    this.physics = const AlwaysScrollableScrollPhysics(),
   });
 
   final List<String> files;
-  final ScrollPhysics physics;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class MasonryFiles extends StatelessWidget {
         crossAxisCount: constraints.maxWidth ~/ 300 + 1,
         shrinkWrap: true,
         padding: const EdgeInsets.all(10),
-        physics: physics,
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) => PreviewCard(
           filePath: files[index],
         ),

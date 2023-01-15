@@ -58,38 +58,57 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final platform = Theme.of(context).platform;
+    final appBarCentered = platform == TargetPlatform.iOS
+        || platform == TargetPlatform.macOS;
+
     String title = t.home.titles.browse;
     if (path?.isNotEmpty ?? false) {
       title += ": $path";
     }
 
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: kToolbarHeight,
-        title: Text(title),
-        actions: const [
-          SyncingButton(),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            collapsedHeight: kToolbarHeight,
+            expandedHeight: 200,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                title,
+                style: TextStyle(color: colorScheme.onBackground),
+              ),
+              centerTitle: appBarCentered,
+              titlePadding: EdgeInsetsDirectional.only(
+                  start: appBarCentered ? 0 : 16,
+                  bottom: 16
+              ),
+            ),
+            actions: const [
+              SyncingButton(),
+            ],
+          ),
+          SliverList(delegate: SliverChildListDelegate.fixed(
+            failed ? [const NoFiles()] : [
+              if (children != null && (path != null || children!.directories.isNotEmpty)) GridFolders(
+                isAtRoot: path == null,
+                folders: [
+                  for (String directoryPath in children!.directories) directoryPath,
+                ],
+                onTap: onDirectoryTap,
+                physics: const NeverScrollableScrollPhysics(),
+              ),
+              MasonryFiles(
+                files: [
+                  for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
+                ],
+              ),
+            ],
+            addRepaintBoundaries: !failed,
+          )),
         ],
-      ),
-      body: failed ? const NoFiles() : SingleChildScrollView(
-        child: Column(
-          children: [
-            if (children != null && (path != null || children!.directories.isNotEmpty)) GridFolders(
-              isAtRoot: path == null,
-              folders: [
-                for (String directoryPath in children!.directories) directoryPath,
-              ],
-              onTap: onDirectoryTap,
-              physics: const NeverScrollableScrollPhysics(),
-            ),
-            MasonryFiles(
-              files: [
-                for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
-              ],
-              physics: const NeverScrollableScrollPhysics(),
-            ),
-          ]
-        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

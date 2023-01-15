@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/syncing_button.dart';
@@ -43,17 +42,42 @@ class _RecentPageState extends State<RecentPage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final platform = Theme.of(context).platform;
+    final appBarCentered = platform == TargetPlatform.iOS
+        || platform == TargetPlatform.macOS;
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: kToolbarHeight,
-        title: Text(t.home.titles.home),
-        actions: const [
-          SyncingButton(),
-        ],
-      ),
-      body: failed ? const Welcome() : MasonryFiles(
-        files: [
-          for (String filePath in filePaths) filePath,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            collapsedHeight: kToolbarHeight,
+            expandedHeight: 200,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                t.home.titles.home,
+                style: TextStyle(color: colorScheme.onBackground),
+              ),
+              centerTitle: appBarCentered,
+              titlePadding: EdgeInsetsDirectional.only(
+                start: appBarCentered ? 0 : 16,
+                bottom: 16
+              ),
+            ),
+            actions: const [
+              SyncingButton(),
+            ],
+          ),
+          SliverList(delegate: SliverChildListDelegate.fixed(
+            [
+              failed ? const Welcome() : MasonryFiles(
+                files: [
+                  for (String filePath in filePaths) filePath,
+                ],
+              ),
+            ],
+            addRepaintBoundaries: !failed,
+          )),
         ],
       ),
       floatingActionButton: FloatingActionButton(
