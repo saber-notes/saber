@@ -70,8 +70,8 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
           ),
-          SliverList(delegate: SliverChildListDelegate.fixed(
-            [
+          SliverList(delegate: SliverChildListDelegate.fixed([
+            Column(children: [
               const NextcloudProfile(),
               const Padding(
                 padding: EdgeInsets.all(8),
@@ -185,8 +185,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
                 pref: Prefs.editorPromptRename,
               ),
-            ],
-          )),
+            ]),
+          ])),
         ],
       ),
     );
