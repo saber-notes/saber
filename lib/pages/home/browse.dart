@@ -69,46 +69,49 @@ class _BrowsePageState extends State<BrowsePage> {
     }
 
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            collapsedHeight: kToolbarHeight,
-            expandedHeight: 200,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                title,
-                style: TextStyle(color: colorScheme.onBackground),
+      body: RefreshIndicator(
+        onRefresh: findChildrenOfPath,
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              collapsedHeight: kToolbarHeight,
+              expandedHeight: 200,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  title,
+                  style: TextStyle(color: colorScheme.onBackground),
+                ),
+                centerTitle: appBarCentered,
+                titlePadding: EdgeInsetsDirectional.only(
+                    start: appBarCentered ? 0 : 16,
+                    bottom: 16
+                ),
               ),
-              centerTitle: appBarCentered,
-              titlePadding: EdgeInsetsDirectional.only(
-                  start: appBarCentered ? 0 : 16,
-                  bottom: 16
-              ),
+              actions: const [
+                SyncingButton(),
+              ],
             ),
-            actions: const [
-              SyncingButton(),
-            ],
-          ),
-          SliverList(delegate: SliverChildListDelegate.fixed(
-            failed ? [const NoFiles()] : [
-              if (children != null && (path != null || children!.directories.isNotEmpty)) GridFolders(
-                isAtRoot: path == null,
-                folders: [
-                  for (String directoryPath in children!.directories) directoryPath,
-                ],
-                onTap: onDirectoryTap,
-                physics: const NeverScrollableScrollPhysics(),
-              ),
-              MasonryFiles(
-                files: [
-                  for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
-                ],
-              ),
-            ],
-            addRepaintBoundaries: !failed,
-          )),
-        ],
+            SliverList(delegate: SliverChildListDelegate.fixed(
+              failed ? [const NoFiles()] : [
+                if (children != null && (path != null || children!.directories.isNotEmpty)) GridFolders(
+                  isAtRoot: path == null,
+                  folders: [
+                    for (String directoryPath in children!.directories) directoryPath,
+                  ],
+                  onTap: onDirectoryTap,
+                  physics: const NeverScrollableScrollPhysics(),
+                ),
+                MasonryFiles(
+                  files: [
+                    for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
+                  ],
+                ),
+              ],
+              addRepaintBoundaries: !failed,
+            )),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

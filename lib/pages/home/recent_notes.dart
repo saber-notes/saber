@@ -47,38 +47,41 @@ class _RecentPageState extends State<RecentPage> {
     final appBarCentered = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            collapsedHeight: kToolbarHeight,
-            expandedHeight: 200,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                t.home.titles.home,
-                style: TextStyle(color: colorScheme.onBackground),
+      body: RefreshIndicator(
+        onRefresh: findRecentlyAccessedNotes,
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              collapsedHeight: kToolbarHeight,
+              expandedHeight: 200,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  t.home.titles.home,
+                  style: TextStyle(color: colorScheme.onBackground),
+                ),
+                centerTitle: appBarCentered,
+                titlePadding: EdgeInsetsDirectional.only(
+                  start: appBarCentered ? 0 : 16,
+                  bottom: 16
+                ),
               ),
-              centerTitle: appBarCentered,
-              titlePadding: EdgeInsetsDirectional.only(
-                start: appBarCentered ? 0 : 16,
-                bottom: 16
-              ),
+              actions: const [
+                SyncingButton(),
+              ],
             ),
-            actions: const [
-              SyncingButton(),
-            ],
-          ),
-          SliverList(delegate: SliverChildListDelegate.fixed(
-            [
-              failed ? const Welcome() : MasonryFiles(
-                files: [
-                  for (String filePath in filePaths) filePath,
-                ],
-              ),
-            ],
-            addRepaintBoundaries: !failed,
-          )),
-        ],
+            SliverList(delegate: SliverChildListDelegate.fixed(
+              [
+                failed ? const Welcome() : MasonryFiles(
+                  files: [
+                    for (String filePath in filePaths) filePath,
+                  ],
+                ),
+              ],
+              addRepaintBoundaries: !failed,
+            )),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
