@@ -16,7 +16,6 @@ class MasonryFiles extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) => MasonryGridView.count(
         itemCount: files.length,
-        cacheExtent: 1000,
         crossAxisCount: constraints.maxWidth ~/ 300 + 1,
         shrinkWrap: true,
         padding: const EdgeInsets.all(10),
