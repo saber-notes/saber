@@ -41,10 +41,7 @@ jobs:
           channel: stable
           architecture: x64
 
-      - name: Setup Flutter
-        run: |
-          flutter config --enable-macos-desktop
-          flutter pub get
+      - run: flutter pub get
 
       - name: Build for macOS
         run: flutter build macos

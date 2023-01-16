@@ -34,8 +34,7 @@ jobs:
         with:
           channel: stable
 
-      - name: Get dependencies
-        run: flutter pub get
+      - run: flutter pub get
 
       - name: Run tests
         run: flutter test --reporter expanded --coverage

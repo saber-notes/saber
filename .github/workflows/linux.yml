@@ -41,11 +41,10 @@ jobs:
         with:
           channel: stable
 
+      - run: flutter pub get
+
       - name: Build Flutter linux version
-        run: |
-          flutter config --enable-linux-desktop
-          flutter pub get
-          flutter build linux --release
+        run: flutter build linux --release
 
       - name: Compress Flutter build
         run: tar -C build/linux/x64/release/bundle -cvf Saber-Linux-Portable.tar.gz .
