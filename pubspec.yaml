@@ -114,7 +114,7 @@ dependencies:
 
   window_manager: ^0.3.0
 
-  worker_manager: ^4.4.9
+  worker_manager: ^4.5.1
 
   flutter_native_splash: ^2.2.16
 

@@ -1296,7 +1296,7 @@ packages:
       name: worker_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.0"
+    version: "4.5.1"
   xdg_directories:
     dependency: transitive
     description:
