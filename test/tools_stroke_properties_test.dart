@@ -1,8 +1,7 @@
-
 import 'dart:ui';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
-import 'package:test/test.dart';
 
 void main() {
   test("Test strokeProperties copy function", () { // also tests json serialization

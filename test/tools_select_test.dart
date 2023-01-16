@@ -1,10 +1,9 @@
-
 import 'dart:ui';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
-import 'package:test/test.dart';
 
 void main() {
   test("Test that the select tool selects the right points", () async {

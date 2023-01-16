@@ -1,14 +1,13 @@
-
 import 'dart:collection';
 
 import 'package:encrypt/encrypt.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:test/test.dart';
 
 void main() {
   test("Test deleting a file and syncing it", () async {

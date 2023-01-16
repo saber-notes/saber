@@ -1,8 +1,7 @@
-
 import 'dart:math';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/fast_math.dart';
-import 'package:test/test.dart';
 
 const double _quarterTurn = pi/4;
 /// Tolerance for an error (large because it's a fast approximation).

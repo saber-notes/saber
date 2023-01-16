@@ -1,9 +1,8 @@
-
 import 'dart:io';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/version.dart';
-import 'package:test/test.dart';
 
 /// Example current build number.
 /// See [buildNumber] in [lib/data/version.dart].

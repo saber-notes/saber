@@ -1,8 +1,7 @@
-
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:test/test.dart';
 
 void main() {
   test("Test new notes having distinct names", () async {

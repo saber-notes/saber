@@ -1,9 +1,8 @@
-
 import 'package:encrypt/encrypt.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:test/test.dart';
 
 void main() {
   test("Test encrypting and decrypting a filename", () async {

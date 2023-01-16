@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart' show Matrix4;
+import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
-import 'package:test/test.dart';
 
 final List<CanvasTransformCacheItem> samples = [
   CanvasTransformCacheItem("file0", Matrix4.rotationZ(0.0)),
