@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 917 (101 per locale)
+/// Strings: 926 (102 per locale)
 ///
-/// Built on 2023-01-16 at 05:57 UTC
+/// Built on 2023-01-16 at 08:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1035,6 +1035,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerDe accentColorPicker = _StringsSettingsAccentColorPickerDe._(_root);
 	@override late final _StringsSettingsPrefDescriptionsDe prefDescriptions = _StringsSettingsPrefDescriptionsDe._(_root);
 	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
+	@override String get systemLanguage => 'Systemsprache';
 }
 
 // Path: login
@@ -1072,6 +1073,7 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 	@override String get licenseButton => 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 	@override String get privacyPolicyButton => 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 	@override String get sponsorButton => 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
+	@override String get dirty => 'TESTVERSION';
 }
 
 // Path: update
@@ -1099,6 +1101,8 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
 	@override late final _StringsEditorMenuDe menu = _StringsEditorMenuDe._(_root);
 	@override late final _StringsEditorNewerFileFormatDe newerFileFormat = _StringsEditorNewerFileFormatDe._(_root);
+	@override late final _StringsEditorQuillDe quill = _StringsEditorQuillDe._(_root);
+	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
 }
 
 // Path: home.tabs
@@ -1155,6 +1159,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Andwendung';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
+	@override String get locale => 'Sprache';
+	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
 }
 
 // Path: settings.themeModes
@@ -1301,6 +1307,8 @@ class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	@override String get redo => 'Wiederholen';
 	@override String get export => 'Exportieren (Strg + Shift + S)';
 	@override String get exportAs => 'Exportieren als:';
+	@override String get text => 'Text';
+	@override String get fullscreen => 'Vollbild umschalten (F11)';
 }
 
 // Path: editor.pens
@@ -1364,6 +1372,27 @@ class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
 	@override String get readOnlyMode => 'Schreibgeschützter Modus';
 	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
 	@override String get allowEditing => 'Schreibschutz aufheben';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillDe extends _StringsEditorQuillEn {
+	_StringsEditorQuillDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Hier tippen...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudDe extends _StringsEditorHudEn {
+	_StringsEditorHudDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Zoom entsperren';
+	@override String get lockZoom => 'Zoom sperren';
 }
 
 // Path: <root>
@@ -4137,6 +4166,8 @@ extension on _StringsDe {
 			case 'settings.prefLabels.editorStraightenLines': return 'Drücke und halte für eine gerade Linie';
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Lösche das Whiteboard nach Verlassen der Andwendung';
 			case 'settings.prefLabels.editorPromptRename': return 'Beim Erstellen von Notizen einen Namen erfragen';
+			case 'settings.prefLabels.locale': return 'Sprache';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Zeige die Werkzeugleiste im Vollbild';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
@@ -4149,6 +4180,7 @@ extension on _StringsDe {
 			case 'settings.straightenDelay.off': return 'Aus';
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Langsam';
+			case 'settings.systemLanguage': return 'Systemsprache';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';
@@ -4187,6 +4219,7 @@ extension on _StringsDe {
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 			case 'appInfo.privacyPolicyButton': return 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
 			case 'appInfo.sponsorButton': return 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
+			case 'appInfo.dirty': return 'TESTVERSION';
 			case 'update.updateAvailable': return 'Aktualisierung verfügbar';
 			case 'update.updateAvailableDescription': return 'Eine neue Version der Anwendung ist verfügbar.';
 			case 'update.update': return 'Aktualisieren';
@@ -4198,6 +4231,8 @@ extension on _StringsDe {
 			case 'editor.toolbar.redo': return 'Wiederholen';
 			case 'editor.toolbar.export': return 'Exportieren (Strg + Shift + S)';
 			case 'editor.toolbar.exportAs': return 'Exportieren als:';
+			case 'editor.toolbar.text': return 'Text';
+			case 'editor.toolbar.fullscreen': return 'Vollbild umschalten (F11)';
 			case 'editor.pens.fountainPen': return 'Füllfederhalter';
 			case 'editor.pens.highlighter': return 'Textmarker';
 			case 'editor.pens.ballpointPen': return 'Kugelschreiber';
@@ -4216,6 +4251,9 @@ extension on _StringsDe {
 			case 'editor.newerFileFormat.readOnlyMode': return 'Schreibgeschützter Modus';
 			case 'editor.newerFileFormat.subtitle': return 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
 			case 'editor.newerFileFormat.allowEditing': return 'Schreibschutz aufheben';
+			case 'editor.quill.typeSomething': return 'Hier tippen...';
+			case 'editor.hud.unlockZoom': return 'Zoom entsperren';
+			case 'editor.hud.lockZoom': return 'Zoom sperren';
 			default: return null;
 		}
 	}
