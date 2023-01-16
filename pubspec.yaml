@@ -51,7 +51,7 @@ dependencies:
 
   path_provider: ^2.0.11
 
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.0.16
   flutter_secure_storage: ^7.0.1
 
   # Don't use encrypted_shared_preferences because it's insecure:
@@ -114,7 +114,7 @@ dependencies:
 
   window_manager: ^0.3.0
 
-  worker_manager: ^4.4.9
+  worker_manager: ^4.5.1
 
   flutter_native_splash: ^2.2.16
 
@@ -134,7 +134,7 @@ dependencies:
   vsc_quill_delta_to_html: ^1.0.0+1
   html: ^0.15.1
 
-  flutter_localized_locales: ^2.0.3
+  flutter_localized_locales: ^2.0.4
 
   onyxsdk_pen:
     path: packages/onyxsdk_pen
