@@ -7,25 +7,25 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "locale": "App language",
-        "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
+        "locale": "Sprache",
+        "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild"
       },
-      "systemLanguage": "System language"
+      "systemLanguage": "Systemsprache"
     },
     "appInfo": {
-      "dirty": "DIRTY"
+      "dirty": "TESTVERSION"
     },
     "editor": {
       "toolbar": {
         "text": "Text",
-        "fullscreen": "Toggle fullscreen (F11)"
+        "fullscreen": "Vollbild umschalten (F11)"
       },
       "quill": {
-        "typeSomething": "Type something here..."
+        "typeSomething": "Hier tippen..."
       },
       "hud": {
-        "unlockZoom": "Unlock zoom",
-        "lockZoom": "Lock zoom"
+        "unlockZoom": "Zoom entsperren",
+        "lockZoom": "Zoom sperren"
       }
     }
   },
