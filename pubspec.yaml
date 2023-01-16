@@ -51,7 +51,7 @@ dependencies:
 
   path_provider: ^2.0.11
 
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.0.16
   flutter_secure_storage: ^7.0.1
 
   # Don't use encrypted_shared_preferences because it's insecure:
