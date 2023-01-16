@@ -23,12 +23,13 @@
   },
   "settings": {
     "prefLabels": {
+      "locale": "Язык приложения",
       "appTheme": "Тема оформления",
       "customAccentColor": "Свой цвет акцента",
       "hyperlegibleFont": "Гипер разборчивый шрифт",
       "shouldCheckForUpdates": "Автоматически проверять обновления Saber",
       "editorToolbarOnBottom": "Выровнять панель инструментов редактора по нижнему краю",
-      "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
+      "editorToolbarShowInFullscreen": "Показывать инструменты в полноэкранном режиме",
       "editorAutoInvert": "Инвертировать заметки в тёмном режиме",
       "preferGreyscale": "Предпочтение оттенкам серого",
       "editorStraightenLines": "Нажать и удерживать, чтобы выпрямить линию",
@@ -55,6 +56,7 @@
       "regular": "Обычно",
       "slow": "Долго"
     }
+    "systemLanguage": "System language"
   },
   "login": {
     "title": "Авторизация",
@@ -99,6 +101,7 @@
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.",
+    "dirty": "ГРЯЗНАЯ",
     "debug": "ОТЛАДКА",
     "sponsorButton": "Проспонсируйте меня или купите дополнительное пространство",
     "licenseButton": "Просмотрите дополнительную информацию о лицензии",
@@ -152,6 +155,10 @@
     },
     "quill": {
       "typeSomething": "Напишите что-нибудь здесь..."
+    },
+    "hud": {
+      "unlockZoom": "Разблок. увеличение",
+      "lockZoom": "Блок. увеличения"
     }
   }
 }
