@@ -134,7 +134,7 @@ class EditorImage {
       if (naturalSize.width != reducedSize.width && allowCalculations) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
 
-        Uint8List? resized = await Executor().execute(fun2: _resizeImageIsolate, arg1: bytes, arg2: reducedSize);
+        Uint8List? resized = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: reducedSize);
         if (resized != null) bytes = resized;
 
         naturalSize = reducedSize;
@@ -160,7 +160,7 @@ class EditorImage {
       thumbnailSize = resize(naturalSize, const Size(300, 300));
       if (thumbnailSize.width != naturalSize.width) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
-        thumbnailBytes = await Executor().execute(fun2: _resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
+        thumbnailBytes = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
       } else { // no need to resize
         thumbnailBytes = null; // will fall back to full-size image
       }
@@ -199,7 +199,8 @@ class EditorImage {
 
   /// Resizes the image to [newSize].
   /// Also bakes the image orientation into the image data.
-  static Uint8List? _resizeImageIsolate(Uint8List bytes, Size newSize, TypeSendPort port) {
+  @visibleForTesting
+  static Uint8List? resizeImageIsolate(Uint8List bytes, Size newSize, TypeSendPort port) {
     image.Image? decoded = image.decodeImage(bytes);
     if (decoded == null) return null;
 
@@ -240,11 +241,4 @@ class EditorImage {
 
     return image.encodePng(decoded) as Uint8List;
   }
-}
-
-class _ResizeImageIsolateInfo {
-  final Uint8List bytes;
-  final Size newSize;
-
-  _ResizeImageIsolateInfo(this.bytes, this.newSize);
 }
