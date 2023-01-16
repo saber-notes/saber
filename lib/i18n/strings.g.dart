@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 912 (101 per locale)
+/// Strings: 917 (101 per locale)
 ///
-/// Built on 2023-01-15 at 04:15 UTC
+/// Built on 2023-01-16 at 05:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2241,6 +2241,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesRu themeModes = _StringsSettingsThemeModesRu._(_root);
 	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
 	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
+	@override String get systemLanguage => 'System language';
 }
 
 // Path: login
@@ -2274,6 +2275,7 @@ class _StringsAppInfoRu extends _StringsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+	@override String get dirty => 'ГРЯЗНАЯ';
 	@override String get debug => 'ОТЛАДКА';
 	@override String get sponsorButton => 'Проспонсируйте меня или купите дополнительное пространство';
 	@override String get licenseButton => 'Просмотрите дополнительную информацию о лицензии';
@@ -2306,6 +2308,7 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorMenuRu menu = _StringsEditorMenuRu._(_root);
 	@override late final _StringsEditorNewerFileFormatRu newerFileFormat = _StringsEditorNewerFileFormatRu._(_root);
 	@override late final _StringsEditorQuillRu quill = _StringsEditorQuillRu._(_root);
+	@override late final _StringsEditorHudRu hud = _StringsEditorHudRu._(_root);
 }
 
 // Path: home.tabs
@@ -2352,12 +2355,13 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
+	@override String get locale => 'Язык приложения';
 	@override String get appTheme => 'Тема оформления';
 	@override String get customAccentColor => 'Свой цвет акцента';
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get editorToolbarOnBottom => 'Выровнять панель инструментов редактора по нижнему краю';
-	@override String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
+	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
 	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
@@ -2584,6 +2588,17 @@ class _StringsEditorQuillRu extends _StringsEditorQuillEn {
 
 	// Translations
 	@override String get typeSomething => 'Напишите что-нибудь здесь...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudRu extends _StringsEditorHudEn {
+	_StringsEditorHudRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Разблок. увеличение';
+	@override String get lockZoom => 'Блок. увеличения';
 }
 
 // Path: <root>
@@ -4452,12 +4467,13 @@ extension on _StringsRu {
 			case 'home.welcome': return 'Приветствуем в Saber';
 			case 'home.noFiles': return 'Файлов ещё нет';
 			case 'home.createNewNote': return 'Нажмите кнопку «+» чтобы создать новую заметку';
+			case 'settings.prefLabels.locale': return 'Язык приложения';
 			case 'settings.prefLabels.appTheme': return 'Тема оформления';
 			case 'settings.prefLabels.customAccentColor': return 'Свой цвет акцента';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Гипер разборчивый шрифт';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Автоматически проверять обновления Saber';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Выровнять панель инструментов редактора по нижнему краю';
-			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Show the editor toolbar in fullscreen mode';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Показывать инструменты в полноэкранном режиме';
 			case 'settings.prefLabels.editorAutoInvert': return 'Инвертировать заметки в тёмном режиме';
 			case 'settings.prefLabels.preferGreyscale': return 'Предпочтение оттенкам серого';
 			case 'settings.prefLabels.editorStraightenLines': return 'Нажать и удерживать, чтобы выпрямить линию';
@@ -4475,6 +4491,7 @@ extension on _StringsRu {
 			case 'settings.straightenDelay.off': return 'Выкл.';
 			case 'settings.straightenDelay.regular': return 'Обычно';
 			case 'settings.straightenDelay.slow': return 'Долго';
+			case 'settings.systemLanguage': return 'System language';
 			case 'login.title': return 'Авторизация';
 			case 'login.feedbacks.checkUsername': return 'Дважды проверьте своё имя пользователя или адрес электронной почты.';
 			case 'login.feedbacks.enterNcPassword': return 'Введите свой пароль Nextcloud.';
@@ -4509,6 +4526,7 @@ extension on _StringsRu {
 			case 'login.faq.2.q': return 'Зачем использовать два пароля?';
 			case 'login.faq.2.a': return 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+			case 'appInfo.dirty': return 'ГРЯЗНАЯ';
 			case 'appInfo.debug': return 'ОТЛАДКА';
 			case 'appInfo.sponsorButton': return 'Проспонсируйте меня или купите дополнительное пространство';
 			case 'appInfo.licenseButton': return 'Просмотрите дополнительную информацию о лицензии';
@@ -4545,6 +4563,8 @@ extension on _StringsRu {
 			case 'editor.newerFileFormat.allowEditing': return 'Разрешить редактирование';
 			case 'editor.newerFileFormat.cancel': return 'Отмена';
 			case 'editor.quill.typeSomething': return 'Напишите что-нибудь здесь...';
+			case 'editor.hud.unlockZoom': return 'Разблок. увеличение';
+			case 'editor.hud.lockZoom': return 'Блок. увеличения';
 			default: return null;
 		}
 	}
