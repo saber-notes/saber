@@ -4,31 +4,7 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {},
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "locale": "Sprache",
-        "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild"
-      },
-      "systemLanguage": "Systemsprache"
-    },
-    "appInfo": {
-      "dirty": "TESTVERSION"
-    },
-    "editor": {
-      "toolbar": {
-        "text": "Text",
-        "fullscreen": "Vollbild umschalten (F11)"
-      },
-      "quill": {
-        "typeSomething": "Hier tippen..."
-      },
-      "hud": {
-        "unlockZoom": "Zoom entsperren",
-        "lockZoom": "Zoom sperren"
-      }
-    }
-  },
+  "de": {},
   "es": {
     "settings": {
       "prefLabels": {

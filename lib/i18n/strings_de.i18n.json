@@ -32,7 +32,9 @@
       "hyperlegibleFont": "Hyperlesbare Schrift",
       "editorStraightenLines": "Drücke und halte für eine gerade Linie",
       "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung",
-      "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen"
+      "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
+      "locale": "Sprache",
+      "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild"
     },
     "themeModes": {
       "system": "System",
@@ -53,7 +55,8 @@
       "off": "Aus",
       "regular": "Normal",
       "slow": "Langsam"
-    }
+    },
+    "systemLanguage": "Systemsprache"
   },
   "login": {
     "title": "Login",
@@ -101,7 +104,8 @@
     "debug": "DEBUG",
     "licenseButton": "Hier tippen, um weitere Lizenzinformationen anzuzeigen",
     "privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen",
-    "sponsorButton": "Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen"
+    "sponsorButton": "Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen",
+    "dirty": "TESTVERSION"
   },
   "update": {
     "updateAvailable": "Aktualisierung verfügbar",
@@ -117,7 +121,9 @@
       "undo": "Rückgängig",
       "redo": "Wiederholen",
       "export": "Exportieren (Strg + Shift + S)",
-      "exportAs": "Exportieren als:"
+      "exportAs": "Exportieren als:",
+      "text": "Text",
+      "fullscreen": "Vollbild umschalten (F11)"
     },
     "pens": {
       "fountainPen": "Füllfederhalter",
@@ -146,6 +152,13 @@
       "readOnlyMode": "Schreibgeschützter Modus",
       "subtitle": "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?",
       "allowEditing": "Schreibschutz aufheben"
+    },
+    "quill": {
+      "typeSomething": "Hier tippen..."
+    },
+    "hud": {
+      "unlockZoom": "Zoom entsperren",
+      "lockZoom": "Zoom sperren"
     }
   }
 }
