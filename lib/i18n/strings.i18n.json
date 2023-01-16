@@ -1,164 +1,164 @@
 {
-	"home": {
-		"tabs": {
-			"home": "Home",
-			"browse": "Browse",
-			"whiteboard": "Whiteboard",
-			"settings": "Settings"
-		},
-		"titles": {
-			"home": "Recent notes",
-			"browse": "All notes",
-			"whiteboard": "Whiteboard",
-			"settings": "Settings"
-		},
-		"tooltips": {
-			"newNote": "New note",
-			"showUpdateDialog": "Show update dialog"
-		},
-		"backFolder": "(Back)",
-		"welcome": "Welcome to Saber",
-		"noFiles": "No files found",
-		"createNewNote": "Tap the + button to create a new note"
-	},
-	"settings": {
-		"prefLabels": {
-			"locale": "App language",
-			"appTheme": "App theme",
-			"customAccentColor": "Custom accent color",
-			"hyperlegibleFont": "Hyperlegible font",
-			"shouldCheckForUpdates": "Automatically check for Saber updates",
-			"editorToolbarOnBottom": "Align the editor toolbar to the bottom",
-			"editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
-			"editorAutoInvert": "Invert notes in dark mode",
-			"preferGreyscale": "Prefer greyscale colors",
-			"editorStraightenLines": "Press and hold to straighten a line",
-			"autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
-			"editorPromptRename": "Prompt you to rename new notes"
-		},
-		"prefDescriptions": {
-			"hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
-			"editorAutoInvert": "Smartly darkens notes in dark mode",
-			"preferGreyscale": "For e-ink displays",
-			"autoClearWhiteboardOnExit": "It will still be synced to your other devices",
-			"editorPromptRename": "You can always rename notes later"
-		},
-		"themeModes": {
-			"system": "System",
-			"light": "Light",
-			"dark": "Dark"
-		},
-		"accentColorPicker": {
-			"pickAColor": "Pick a color"
-		},
-		"straightenDelay": {
-			"off": "Off",
-			"regular": "Regular",
-			"slow": "Slow"
-		},
-		"systemLanguage": "System language"
-	},
-	"login": {
-		"title": "Login",
-		"feedbacks": {
-			"checkUsername": "Please double check your username or email.",
-			"enterNcPassword": "Please enter your Nextcloud password.",
-			"enterEncPassword": "Please enter your encryption password.",
-			"checkUrl": "Please enter a valid URL.",
-			"ncLoginFailed": "Log in failed, please check your details and network connection.",
-			"encLoginFailed": "Log in failed, please check your encryption password.",
-			"loginSuccess": "Log in successful! Please wait while we set up..."
-		},
-		"form": {
-			"useCustomServer": "I want to use a custom Nextcloud server",
-			"customServerUrl": "Custom server URL",
-			"username": "Username or email",
-			"ncPassword": "Nextcloud password",
-			"encPassword": "Encryption password",
-			"agreeToPrivacyPolicy(rich)": "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.",
-			"login": "Log in"
-		},
-		"signup(rich)": "Don't have an account yet? ${linkToSignup(Sign up now)}!",
-		"status": {
-			"loggedIn": "Logged in with Nextcloud",
-			"loggedOut": "Logged out",
-			"tapToLogin": "Tap to log in with Nextcloud"
-		},
-		"faq": [
-			{
-				"q": "What is Nextcloud?",
-				"a": "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
-			},
-			{
-				"q": "What is the encryption password?",
-				"a": "The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data."
-			},
-			{
-				"q": "Why use two passwords?",
-				"a": "The Nextcloud password is used to access the cloud. The encryption password \"scrambles\" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data."
-			}
-		]
-	},
-	"appInfo": {
-		"licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
-		"dirty": "DIRTY",
-		"debug": "DEBUG",
-		"sponsorButton": "Tap here to sponsor me or buy more storage",
-		"licenseButton": "Tap here to view more license information",
-		"privacyPolicyButton": "Tap here to view the privacy policy"
-	},
-	"update": {
-		"updateAvailable": "Update available",
-		"updateAvailableDescription": "A new version of the app is available.",
-		"update": "Update"
-	},
-	"editor": {
-		"toolbar": {
-			"toggleColors": "Toggle colors (Ctrl C)",
-			"toggleEraser": "Toggle eraser (Ctrl E)",
-			"photo": "Photo",
-			"text": "Text",
-			"toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
-			"undo": "Undo",
-			"redo": "Redo",
-			"export": "Export (Ctrl Shift S)",
-			"exportAs": "Export as:",
-			"fullscreen": "Toggle fullscreen (F11)"
-		},
-		"pens": {
-			"fountainPen": "Fountain pen",
-			"ballpointPen": "Ballpoint pen",
-			"highlighter": "Highlighter"
-		},
-		"penOptions": {
-			"size": "Size",
-			"sizeDragHint": "Drag left or right to change the size"
-		},
-		"imageOptions": {
-			"title": "Image options",
-			"invertible": "Invertible",
-			"download": "Download",
-			"delete": "Delete"
-		},
-		"menu": {
-			"clearPage": "Clear page",
-			"clearAllPages": "Clear all pages",
-			"lineHeight": "Line height",
-			"lineHeightDescription": "The size of each line"
-		},
-		"newerFileFormat": {
-			"readOnlyMode": "Read-only mode",
-			"title": "This note was edited using a newer version of Saber",
-			"subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
-			"allowEditing": "Allow editing",
-			"cancel": "Cancel"
-		},
-		"quill": {
-			"typeSomething": "Type something here..."
-		},
-		"hud": {
-			"unlockZoom": "Unlock zoom",
-			"lockZoom": "Lock zoom"
-		}
-	}
+  "home": {
+    "tabs": {
+      "home": "Home",
+      "browse": "Browse",
+      "whiteboard": "Whiteboard",
+      "settings": "Settings"
+    },
+    "titles": {
+      "home": "Recent notes",
+      "browse": "All notes",
+      "whiteboard": "Whiteboard",
+      "settings": "Settings"
+    },
+    "tooltips": {
+      "newNote": "New note",
+      "showUpdateDialog": "Show update dialog"
+    },
+    "backFolder": "(Back)",
+    "welcome": "Welcome to Saber",
+    "noFiles": "No files found",
+    "createNewNote": "Tap the + button to create a new note"
+  },
+  "settings": {
+    "prefLabels": {
+      "locale": "App language",
+      "appTheme": "App theme",
+      "customAccentColor": "Custom accent color",
+      "hyperlegibleFont": "Hyperlegible font",
+      "shouldCheckForUpdates": "Automatically check for Saber updates",
+      "editorToolbarOnBottom": "Align the editor toolbar to the bottom",
+      "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
+      "editorAutoInvert": "Invert notes in dark mode",
+      "preferGreyscale": "Prefer greyscale colors",
+      "editorStraightenLines": "Press and hold to straighten a line",
+      "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
+      "editorPromptRename": "Prompt you to rename new notes"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
+      "editorAutoInvert": "Smartly darkens notes in dark mode",
+      "preferGreyscale": "For e-ink displays",
+      "autoClearWhiteboardOnExit": "It will still be synced to your other devices",
+      "editorPromptRename": "You can always rename notes later"
+    },
+    "themeModes": {
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Pick a color"
+    },
+    "straightenDelay": {
+      "off": "Off",
+      "regular": "Regular",
+      "slow": "Slow"
+    },
+    "systemLanguage": "System language"
+  },
+  "login": {
+    "title": "Login",
+    "feedbacks": {
+      "checkUsername": "Please double check your username or email.",
+      "enterNcPassword": "Please enter your Nextcloud password.",
+      "enterEncPassword": "Please enter your encryption password.",
+      "checkUrl": "Please enter a valid URL.",
+      "ncLoginFailed": "Log in failed, please check your details and network connection.",
+      "encLoginFailed": "Log in failed, please check your encryption password.",
+      "loginSuccess": "Log in successful! Please wait while we set up..."
+    },
+    "form": {
+      "useCustomServer": "I want to use a custom Nextcloud server",
+      "customServerUrl": "Custom server URL",
+      "username": "Username or email",
+      "ncPassword": "Nextcloud password",
+      "encPassword": "Encryption password",
+      "agreeToPrivacyPolicy(rich)": "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.",
+      "login": "Log in"
+    },
+    "signup(rich)": "Don't have an account yet? ${linkToSignup(Sign up now)}!",
+    "status": {
+      "loggedIn": "Logged in with Nextcloud",
+      "loggedOut": "Logged out",
+      "tapToLogin": "Tap to log in with Nextcloud"
+    },
+    "faq": [
+      {
+        "q": "What is Nextcloud?",
+        "a": "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
+      },
+      {
+        "q": "What is the encryption password?",
+        "a": "The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data."
+      },
+      {
+        "q": "Why use two passwords?",
+        "a": "The Nextcloud password is used to access the cloud. The encryption password \"scrambles\" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data."
+      }
+    ]
+  },
+  "appInfo": {
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+    "dirty": "DIRTY",
+    "debug": "DEBUG",
+    "sponsorButton": "Tap here to sponsor me or buy more storage",
+    "licenseButton": "Tap here to view more license information",
+    "privacyPolicyButton": "Tap here to view the privacy policy"
+  },
+  "update": {
+    "updateAvailable": "Update available",
+    "updateAvailableDescription": "A new version of the app is available.",
+    "update": "Update"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Toggle colors (Ctrl C)",
+      "toggleEraser": "Toggle eraser (Ctrl E)",
+      "photo": "Photo",
+      "text": "Text",
+      "toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
+      "undo": "Undo",
+      "redo": "Redo",
+      "export": "Export (Ctrl Shift S)",
+      "exportAs": "Export as:",
+      "fullscreen": "Toggle fullscreen (F11)"
+    },
+    "pens": {
+      "fountainPen": "Fountain pen",
+      "ballpointPen": "Ballpoint pen",
+      "highlighter": "Highlighter"
+    },
+    "penOptions": {
+      "size": "Size",
+      "sizeDragHint": "Drag left or right to change the size"
+    },
+    "imageOptions": {
+      "title": "Image options",
+      "invertible": "Invertible",
+      "download": "Download",
+      "delete": "Delete"
+    },
+    "menu": {
+      "clearPage": "Clear page",
+      "clearAllPages": "Clear all pages",
+      "lineHeight": "Line height",
+      "lineHeightDescription": "The size of each line"
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Read-only mode",
+      "title": "This note was edited using a newer version of Saber",
+      "subtitle": "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?",
+      "allowEditing": "Allow editing",
+      "cancel": "Cancel"
+    },
+    "quill": {
+      "typeSomething": "Type something here..."
+    },
+    "hud": {
+      "unlockZoom": "Unlock zoom",
+      "lockZoom": "Lock zoom"
+    }
+  }
 }
