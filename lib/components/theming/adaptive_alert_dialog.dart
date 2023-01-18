@@ -29,7 +29,10 @@ class AdaptiveAlertDialog extends StatelessWidget {
     if (cupertino) {
       return CupertinoAlertDialog(
         title: title,
-        content: content,
+        content: Material(
+          color: Colors.transparent,
+          child: content,
+        ),
         actions: actions,
       );
     } else {
