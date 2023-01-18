@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 928 (103 per locale)
+/// Strings: 929 (103 per locale)
 ///
-/// Built on 2023-01-18 at 02:47 UTC
+/// Built on 2023-01-18 at 05:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2387,6 +2387,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	// Translations
 	@override String get locale => 'Язык приложения';
 	@override String get appTheme => 'Тема оформления';
+	@override String get platform => 'Тип темы';
 	@override String get customAccentColor => 'Свой цвет акцента';
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
@@ -4510,6 +4511,7 @@ extension on _StringsRu {
 			case 'home.createNewNote': return 'Нажмите кнопку «+» чтобы создать новую заметку';
 			case 'settings.prefLabels.locale': return 'Язык приложения';
 			case 'settings.prefLabels.appTheme': return 'Тема оформления';
+			case 'settings.prefLabels.platform': return 'Тип темы';
 			case 'settings.prefLabels.customAccentColor': return 'Свой цвет акцента';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Гипер разборчивый шрифт';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Автоматически проверять обновления Saber';
