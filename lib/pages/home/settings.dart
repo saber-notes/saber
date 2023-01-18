@@ -101,7 +101,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   return null;
                 },
                 pref: Prefs.appTheme,
-                optionWidth: 20,
+                optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
                   ToggleButtonsOption(ThemeMode.light.index, Icon(Icons.light_mode, semanticLabel: t.settings.themeModes.light)),

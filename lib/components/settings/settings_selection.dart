@@ -15,7 +15,7 @@ class SettingsSelection extends StatefulWidget {
     required this.pref,
     required this.options,
     this.afterChange,
-    this.optionWidth = 24,
+    this.optionsWidth = 72,
     this.optionsHeight = 40,
   }): assert(icon == null || iconBuilder == null, "Cannot set both icon and iconBuilder");
 
@@ -28,7 +28,7 @@ class SettingsSelection extends StatefulWidget {
   final List<ToggleButtonsOption<int>> options;
   final ValueChanged<int>? afterChange;
 
-  final double optionWidth, optionsHeight;
+  final double optionsWidth, optionsHeight;
 
   @override
   State<SettingsSelection> createState() => _SettingsSelectionState();
@@ -78,7 +78,7 @@ class _SettingsSelectionState extends State<SettingsSelection> {
             widget.pref.value = value;
           }
         },
-        optionWidth: widget.optionWidth,
+        optionsWidth: widget.optionsWidth,
         optionsHeight: widget.optionsHeight,
       ),
     );
