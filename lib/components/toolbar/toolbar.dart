@@ -1,5 +1,6 @@
 
 import 'package:collapsible/collapsible.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -9,6 +10,7 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
@@ -255,28 +257,37 @@ class _ToolbarState extends State<Toolbar> {
                     tooltip: t.editor.toolbar.photo,
                     enabled: !widget.readOnly,
                     onPressed: (_) => widget.pickPhoto(),
-                    child: const Icon(Icons.photo_size_select_actual),
+                    child: const AdaptiveIcon(
+                      icon: Icons.photo,
+                      cupertinoIcon: CupertinoIcons.photo,
+                    ),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.text,
                     selected: widget.textEditing,
                     enabled: !widget.readOnly,
                     onPressed: (_) => widget.toggleTextEditing(),
-                    child: const Icon(Icons.text_fields),
+                    child: const AdaptiveIcon(
+                      icon: Icons.text_fields,
+                      cupertinoIcon: CupertinoIcons.text_cursor,
+                    ),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleFingerDrawing,
                     selected: Prefs.editorFingerDrawing.value,
                     enabled: !widget.readOnly,
                     onPressed: (_) => widget.toggleFingerDrawing(),
-                    child: const FaIcon(FontAwesomeIcons.handPointer, size: 16),
+                    child: const Icon(CupertinoIcons.hand_draw),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.fullscreen,
                     selected: DynamicMaterialApp.isFullscreen.value,
                     enabled: !widget.readOnly,
                     onPressed: (_) => toggleFullscreen(),
-                    child: Icon(DynamicMaterialApp.isFullscreen.value ? Icons.fullscreen_exit : Icons.fullscreen),
+                    child: AdaptiveIcon(
+                      icon: DynamicMaterialApp.isFullscreen.value ? Icons.fullscreen_exit : Icons.fullscreen,
+                      cupertinoIcon: DynamicMaterialApp.isFullscreen.value ? CupertinoIcons.fullscreen_exit : CupertinoIcons.fullscreen,
+                    ),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -285,13 +296,19 @@ class _ToolbarState extends State<Toolbar> {
                         tooltip: t.editor.toolbar.undo,
                         enabled: !widget.readOnly && widget.isUndoPossible,
                         onPressed: (_) => widget.undo(),
-                        child: const Icon(Icons.undo),
+                        child: const AdaptiveIcon(
+                          icon: Icons.undo,
+                          cupertinoIcon: CupertinoIcons.arrow_uturn_left,
+                        ),
                       ),
                       ToolbarIconButton(
                         tooltip: t.editor.toolbar.redo,
                         enabled: !widget.readOnly && widget.isRedoPossible,
                         onPressed: (_) => widget.redo(),
-                        child: const Icon(Icons.redo),
+                        child: const AdaptiveIcon(
+                          icon: Icons.redo,
+                          cupertinoIcon: CupertinoIcons.arrow_uturn_right,
+                        ),
                       ),
                     ],
                   ),
@@ -300,7 +317,10 @@ class _ToolbarState extends State<Toolbar> {
                     selected: showExportOptions,
                     enabled: !widget.readOnly,
                     onPressed: (_) => toggleExportBar(),
-                    child: Icon(Icons.adaptive.share),
+                    child: const AdaptiveIcon(
+                      icon: Icons.share,
+                      cupertinoIcon: CupertinoIcons.share,
+                    ),
                   ),
                 ],
               ),

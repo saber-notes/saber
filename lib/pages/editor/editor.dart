@@ -22,6 +22,7 @@ import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -776,7 +777,10 @@ class _EditorState extends State<Editor> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const AdaptiveIcon(
+              icon: Icons.more_vert,
+              cupertinoIcon: CupertinoIcons.ellipsis_vertical,
+            ),
             onPressed: () {
               showModalBottomSheet(
                 context: context,
