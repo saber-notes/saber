@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 929 (103 per locale)
+/// Strings: 930 (103 per locale)
 ///
-/// Built on 2023-01-18 at 05:04 UTC
+/// Built on 2023-01-18 at 10:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2820,6 +2820,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get locale => 'Uygulama dili';
+	@override String get platform => 'Tema tipi';
 }
 
 // Path: settings.prefDescriptions
@@ -4642,6 +4643,7 @@ extension on _StringsTr {
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 			case 'settings.prefLabels.editorPromptRename': return 'Notları yeniden adlandırmak için uyar';
 			case 'settings.prefLabels.locale': return 'Uygulama dili';
+			case 'settings.prefLabels.platform': return 'Tema tipi';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Karanlık modda notların rengini değiştirir';
 			case 'settings.prefDescriptions.preferGreyscale': return 'E-mürekkep ekranlar için';
