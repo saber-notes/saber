@@ -9,6 +9,8 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 Android and Linux are the main platforms that are being developed for,
 but if you encounter any bugs on other platforms, please open an [issue][issues].
 
+[![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
+
 <details open>
 <summary>Tap to show/hide screenshots</summary>
 
