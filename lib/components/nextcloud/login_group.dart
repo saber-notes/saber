@@ -192,7 +192,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             placeholder: t.login.form.username,
             prefixIcon: const AdaptiveIcon(
               icon: Icons.person,
-              cupertinoIcon: CupertinoIcons.person,
+              cupertinoIcon: CupertinoIcons.person_fill,
             ),
           ),
           const SizedBox(height: 8),
