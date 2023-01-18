@@ -56,11 +56,5 @@
   "ru": {},
   "tr": {},
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "platform": "主題類型"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
