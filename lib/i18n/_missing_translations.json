@@ -15,8 +15,8 @@
       }
     },
     "sPenWarning": {
-      "title": "S Pen bug warning",
-      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+      "title": "Varování ohledně chyby při používání S Pen",
+      "description": "Při používání S Pen můžete narazit na chybu způsobující pád aplikace, která se projeví po pokusu mazat podržením tlačítka na S Pen. Jedná se o chybu ve frameworku Flutter, jejíž oprava bude vydána zhruba do měsíce. Prozatím prosím používejte tlačítko pro smazání umístěné v nástrojové liště."
     }
   },
   "de": {
