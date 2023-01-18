@@ -41,6 +41,8 @@ jobs:
           channel: stable
           architecture: x64
 
+      - run: flutter pub get
+
       - name: Build for iOS
         run: flutter build ios --no-codesign
 
