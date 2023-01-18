@@ -62,6 +62,7 @@ void main() {
     Prefs.platform.value = TargetPlatform.iOS.index;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.apple), findsAtLeastNWidgets(2));
+    Prefs.platform.value = -1;
 
     // Hyperlegible font
     Prefs.hyperlegibleFont.value = false;
