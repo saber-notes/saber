@@ -67,13 +67,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "platform": "Theme type"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 927 (103 per locale)
+/// Strings: 928 (103 per locale)
 ///
-/// Built on 2023-01-18 at 02:05 UTC
+/// Built on 2023-01-18 at 02:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3241,6 +3241,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get locale => '应用语言';
+	@override String get platform => '主题类型';
 }
 
 // Path: settings.prefDescriptions
@@ -4759,6 +4760,7 @@ extension on _StringsZhHansCn {
 			case 'settings.prefLabels.editorPromptRename': return '提示您重命名新笔记';
 			case 'settings.prefLabels.editorToolbarShowInFullscreen': return '在全屏模式中显示编辑菜单栏';
 			case 'settings.prefLabels.locale': return '应用语言';
+			case 'settings.prefLabels.platform': return '主题类型';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
 			case 'settings.prefDescriptions.editorAutoInvert': return '在深色模式下自动使用反色笔记背景';
 			case 'settings.prefDescriptions.preferGreyscale': return '用于电子墨水显示器';
