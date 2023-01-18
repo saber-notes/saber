@@ -1,5 +1,6 @@
 
 import 'package:collapsible/collapsible.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fzregex/fzregex.dart';
@@ -7,6 +8,7 @@ import 'package:fzregex/utils/pattern.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_button.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -175,7 +177,10 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 placeholder: t.login.form.customServerUrl,
                 keyboardType: TextInputType.url,
                 autofillHints: const [AutofillHints.url],
-                prefixIcon: const Icon(Icons.link),
+                prefixIcon: const AdaptiveIcon(
+                  icon: Icons.link,
+                  cupertinoIcon: CupertinoIcons.link,
+                ),
               ),
               const SizedBox(height: 8),
             ])
@@ -185,7 +190,10 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             controller: _usernameController,
             autofillHints: const [AutofillHints.username, AutofillHints.email],
             placeholder: t.login.form.username,
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: const AdaptiveIcon(
+              icon: Icons.person,
+              cupertinoIcon: CupertinoIcons.person,
+            ),
           ),
           const SizedBox(height: 8),
           AdaptiveTextField(
