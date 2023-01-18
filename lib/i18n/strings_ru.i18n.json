@@ -25,6 +25,7 @@
     "prefLabels": {
       "locale": "Язык приложения",
       "appTheme": "Тема оформления",
+      "platform": "Тип темы",
       "customAccentColor": "Свой цвет акцента",
       "hyperlegibleFont": "Гипер разборчивый шрифт",
       "shouldCheckForUpdates": "Автоматически проверять обновления Saber",

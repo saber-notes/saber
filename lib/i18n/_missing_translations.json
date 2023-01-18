@@ -53,13 +53,7 @@
       }
     }
   },
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "platform": "Theme type"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {
