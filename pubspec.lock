@@ -239,6 +239,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.5"
+  flex_seed_scheme:
+    dependency: "direct main"
+    description:
+      name: flex_seed_scheme
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   flutter:
     dependency: "direct main"
     description: flutter

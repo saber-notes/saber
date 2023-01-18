@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -118,30 +119,48 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   Widget build(BuildContext context) {
     return DynamicColorBuilder(
       builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-        ColorScheme lightColorScheme;
-        ColorScheme darkColorScheme;
+        final Color seedColor;
+        final ColorScheme lightColorScheme;
+        final ColorScheme darkColorScheme;
 
         if (Prefs.accentColor.loaded && Prefs.accentColor.value != 0) {
-          Color accentColor = Color(Prefs.accentColor.value);
-          lightColorScheme = ColorScheme.fromSeed(
-            seedColor: accentColor,
+          seedColor = Color(Prefs.accentColor.value);
+          lightColorScheme = SeedColorScheme.fromSeeds(
+            brightness: Brightness.light,
+            primaryKey: seedColor,
           );
-          darkColorScheme = ColorScheme.fromSeed(
-            seedColor: accentColor,
+          darkColorScheme = SeedColorScheme.fromSeeds(
             brightness: Brightness.dark,
+            primaryKey: seedColor,
           );
         } else if (lightDynamic != null && darkDynamic != null) {
           lightColorScheme = lightDynamic.harmonized();
           darkColorScheme = darkDynamic.harmonized();
+          seedColor = lightColorScheme.primary;
         } else {
-          lightColorScheme = ColorScheme.fromSeed(
-            seedColor: widget.defaultSwatch,
+          seedColor = widget.defaultSwatch;
+          lightColorScheme = SeedColorScheme.fromSeeds(
+            brightness: Brightness.light,
+            primaryKey: seedColor,
           );
-          darkColorScheme = ColorScheme.fromSeed(
-            seedColor: widget.defaultSwatch,
+          darkColorScheme = SeedColorScheme.fromSeeds(
             brightness: Brightness.dark,
+            primaryKey: seedColor,
           );
         }
+
+        final ColorScheme highContrastLightColorScheme = SeedColorScheme.fromSeeds(
+          brightness: Brightness.light,
+          primaryKey: seedColor,
+          background: Colors.white,
+          tones: FlexTones.ultraContrast(Brightness.light),
+        );
+        final ColorScheme highContrastDarkColorScheme = SeedColorScheme.fromSeeds(
+          brightness: Brightness.dark,
+          primaryKey: seedColor,
+          background: Colors.black,
+          tones: FlexTones.ultraContrast(Brightness.dark),
+        );
 
         final TargetPlatform? platform;
         if (Prefs.platform.value == TargetPlatform.iOS.index) {
@@ -162,6 +181,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
           title: widget.title,
+
+          themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightColorScheme,
@@ -176,7 +197,20 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
             scaffoldBackgroundColor: darkColorScheme.background,
             platform: platform,
           ),
-          themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
+          highContrastTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: highContrastLightColorScheme,
+            textTheme: getTextTheme(Brightness.light),
+            scaffoldBackgroundColor: highContrastLightColorScheme.background,
+            platform: platform,
+          ),
+          highContrastDarkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: highContrastDarkColorScheme,
+            textTheme: getTextTheme(Brightness.dark),
+            scaffoldBackgroundColor: highContrastDarkColorScheme.background,
+            platform: platform,
+          ),
 
           debugShowCheckedModeBanner: false,
         );
