@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 931 (103 per locale)
+/// Strings: 933 (103 per locale)
 ///
-/// Built on 2023-01-18 at 11:47 UTC
+/// Built on 2023-01-18 at 22:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -161,6 +161,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
+	late final _StringsSPenWarningEn sPenWarning = _StringsSPenWarningEn._(_root);
 }
 
 // Path: home
@@ -259,6 +260,17 @@ class _StringsEditorEn {
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
 	late final _StringsEditorQuillEn quill = _StringsEditorQuillEn._(_root);
 	late final _StringsEditorHudEn hud = _StringsEditorHudEn._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningEn {
+	_StringsSPenWarningEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'S Pen bug warning';
+	String get description => 'If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar.';
 }
 
 // Path: home.tabs
@@ -4020,6 +4032,8 @@ extension on _StringsEn {
 			case 'editor.quill.typeSomething': return 'Type something here...';
 			case 'editor.hud.unlockZoom': return 'Unlock zoom';
 			case 'editor.hud.lockZoom': return 'Lock zoom';
+			case 'sPenWarning.title': return 'S Pen bug warning';
+			case 'sPenWarning.description': return 'If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar.';
 			default: return null;
 		}
 	}

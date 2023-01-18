@@ -63,6 +63,7 @@ abstract class Prefs {
   static late final PlainPref<int> lastLineHeight;
 
   static late final PlainPref<bool> hasDraggedSizeIndicatorBefore;
+  static late final PlainPref<bool> hasBeenWarnedAboutSPen;
 
   static late final PlainPref<List<String>> recentFiles;
 
@@ -114,6 +115,7 @@ abstract class Prefs {
     lastLineHeight = PlainPref("lastLineHeight", 40);
 
     hasDraggedSizeIndicatorBefore = PlainPref("hasDraggedSizeIndicatorBefore", false);
+    hasBeenWarnedAboutSPen = PlainPref("hasBeenWarnedAboutSPen", false);
 
     recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
 

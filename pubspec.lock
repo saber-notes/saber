@@ -163,7 +163,7 @@ packages:
     source: hosted
     version: "0.0.2"
   device_info_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: device_info_plus
       url: "https://pub.dartlang.org"

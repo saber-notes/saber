@@ -8,6 +8,10 @@
       "prefLabels": {
         "platform": "Theme type"
       }
+    },
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
   "de": {
@@ -15,6 +19,10 @@
       "prefLabels": {
         "platform": "Theme type"
       }
+    },
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
   "es": {
@@ -44,6 +52,10 @@
         "unlockZoom": "Unlock zoom",
         "lockZoom": "Lock zoom"
       }
+    },
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
   "it": {
@@ -51,10 +63,34 @@
       "prefLabels": {
         "platform": "Theme type"
       }
+    },
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "ru": {
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+    }
+  },
+  "tr": {
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+    }
+  },
+  "zh-Hans-CN": {
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+    }
+  },
+  "zh-Hant-TW": {
+    "sPenWarning": {
+      "title": "S Pen bug warning",
+      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+    }
+  }
 }
