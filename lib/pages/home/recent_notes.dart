@@ -48,7 +48,10 @@ class _RecentPageState extends State<RecentPage> {
         || platform == TargetPlatform.macOS;
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: findRecentlyAccessedNotes,
+        onRefresh: () => Future.wait([
+          findRecentlyAccessedNotes(),
+          Future.delayed(const Duration(milliseconds: 500)),
+        ]),
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
