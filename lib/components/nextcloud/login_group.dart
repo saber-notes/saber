@@ -3,7 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:regexpattern/regexpattern.dart';
+import 'package:regexed_validator/regexed_validator.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_button.dart';
@@ -36,7 +36,7 @@ class LoginInputGroup extends StatefulWidget {
     required String encPassword,
     required String? customServer,
   }) {
-    if (username.isEmpty || (username.contains('@') && !username.isEmail())) {
+    if (username.isEmpty || (username.contains('@') && !validator.email(username))) {
       return t.login.feedbacks.checkUsername;
     }
     if (ncPassword.isEmpty) {
@@ -45,7 +45,7 @@ class LoginInputGroup extends StatefulWidget {
     if (encPassword.isEmpty) {
       return t.login.feedbacks.enterEncPassword;
     }
-    if (customServer != null && !customServer.isUrl()) {
+    if (customServer != null && !validator.url(customServer)) {
       return t.login.feedbacks.checkUrl;
     }
     return null;

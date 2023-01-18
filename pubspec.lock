@@ -870,13 +870,13 @@ packages:
       url: "https://github.com/adil192/receive_sharing_intent.git"
     source: git
     version: "1.4.5"
-  regexpattern:
+  regexed_validator:
     dependency: "direct main"
     description:
-      name: regexpattern
+      name: regexed_validator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.0.0+1"
   screen_retriever:
     dependency: transitive
     description:

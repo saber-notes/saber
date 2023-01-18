@@ -85,7 +85,7 @@ dependencies:
   share_plus: ^6.3.0
   file_picker: ^5.2.5
 
-  regexpattern: ^2.1.0
+  regexed_validator: ^2.0.0+1
 
   slang: ^3.7.0
   slang_flutter: ^3.7.0
