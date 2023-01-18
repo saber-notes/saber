@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
 
 void main() {
@@ -13,7 +16,21 @@ void main() {
     Prefs.testingMode = true;
     Prefs.init();
 
-    await tester.pumpWidget(const MaterialApp(home: SettingsPage()));
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const SettingsPage(),
+        ),
+      ],
+    );
+
+    await tester.pumpWidget(TranslationProvider(
+      child: DynamicMaterialApp(
+        title: 'Saber',
+        router: router,
+      ),
+    ));
     await tester.pumpAndSettle();
 
     // Static icons
@@ -36,6 +53,15 @@ void main() {
     Prefs.appTheme.value = ThemeMode.dark.index;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.dark_mode), findsAtLeastNWidgets(2));
+
+    // Theme type
+    // findsAtLeastNWidgets(2) because of leading + trailing icons
+    Prefs.platform.value = -1;
+    await tester.pumpAndSettle();
+    expect(findIcon(Icons.android), findsAtLeastNWidgets(2));
+    Prefs.platform.value = TargetPlatform.iOS.index;
+    await tester.pumpAndSettle();
+    expect(findIcon(Icons.apple), findsAtLeastNWidgets(2));
 
     // Hyperlegible font
     Prefs.hyperlegibleFont.value = false;
