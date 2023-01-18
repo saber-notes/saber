@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/syncing_button.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -90,7 +92,10 @@ class _RecentPageState extends State<RecentPage> {
           context.push(RoutePaths.edit);
         },
         tooltip: t.home.tooltips.newNote,
-        child: const Icon(Icons.add),
+        child: const AdaptiveIcon(
+          icon: Icons.add,
+          cupertinoIcon: CupertinoIcons.add,
+        ),
       ),
     );
   }

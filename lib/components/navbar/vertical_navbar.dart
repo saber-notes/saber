@@ -1,6 +1,8 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/files/file_tree.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 
 class VerticalNavbar extends StatefulWidget {
   const VerticalNavbar({
@@ -39,7 +41,10 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
               onPressed: () {setState(() {
                 expanded = !expanded;
               });},
-              child: Icon(expanded ? Icons.chevron_left : Icons.chevron_right)
+              child: AdaptiveIcon(
+                icon: expanded ? Icons.chevron_left : Icons.chevron_right,
+                cupertinoIcon: expanded ? CupertinoIcons.chevron_left : CupertinoIcons.chevron_right,
+              ),
             ),
           ),
 

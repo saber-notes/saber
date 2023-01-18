@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/home.dart';
 
@@ -26,22 +28,34 @@ abstract class HomeRoutes {
     _Route(
       routePath: _homeFunction({"subpage": HomePage.recentSubpage}),
       label: t.home.tabs.home,
-      icon: const Icon(Icons.home),
+      icon: const AdaptiveIcon(
+        icon: Icons.home,
+        cupertinoIcon: CupertinoIcons.home,
+      ),
     ),
     _Route(
       routePath: _homeFunction({"subpage": HomePage.browseSubpage}),
       label: t.home.tabs.browse,
-      icon: const Icon(Icons.folder),
+      icon: const AdaptiveIcon(
+        icon: Icons.folder,
+        cupertinoIcon: CupertinoIcons.folder,
+      ),
     ),
     _Route(
       routePath: _homeFunction({"subpage": HomePage.whiteboardSubpage}),
       label: t.home.tabs.whiteboard,
-      icon: const Icon(Icons.draw),
+      icon: const AdaptiveIcon(
+        icon: Icons.draw,
+        cupertinoIcon: CupertinoIcons.pencil_outline,
+      ),
     ),
     _Route(
       routePath: _homeFunction({"subpage": HomePage.settingsSubpage}),
       label: t.home.tabs.settings,
-      icon: const Icon(Icons.settings),
+      icon: const AdaptiveIcon(
+        icon: Icons.settings,
+        cupertinoIcon: CupertinoIcons.settings,
+      ),
     ),
   ];
 
@@ -60,7 +74,7 @@ abstract class HomeRoutes {
 class _Route {
   final String routePath;
   final String label;
-  final Icon icon;
+  final Widget icon;
 
   _Route({
     required this.routePath,

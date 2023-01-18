@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -58,7 +60,10 @@ class _SyncingButtonState extends State<SyncingButton> {
               percentage: percentage,
             ),
           ),
-          const Icon(Icons.sync)
+          const AdaptiveIcon(
+            icon: Icons.sync,
+            cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+          ),
         ],
       ),
     );
