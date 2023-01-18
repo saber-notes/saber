@@ -1,6 +1,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -65,7 +66,7 @@ class _SettingsSelectionState extends State<SettingsSelection> {
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(
         duration: const Duration(milliseconds: 100),
-        child: Icon(icon, key: ValueKey(icon)),
+        child: FaIcon(icon, key: ValueKey(icon)),
       ),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),

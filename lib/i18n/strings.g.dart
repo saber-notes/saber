@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 926 (102 per locale)
+/// Strings: 927 (103 per locale)
 ///
-/// Built on 2023-01-16 at 08:42 UTC
+/// Built on 2023-01-18 at 02:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -307,6 +307,7 @@ class _StringsSettingsPrefLabelsEn {
 	// Translations
 	String get locale => 'App language';
 	String get appTheme => 'App theme';
+	String get platform => 'Theme type';
 	String get customAccentColor => 'Custom accent color';
 	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
@@ -3918,6 +3919,7 @@ extension on _StringsEn {
 			case 'home.createNewNote': return 'Tap the + button to create a new note';
 			case 'settings.prefLabels.locale': return 'App language';
 			case 'settings.prefLabels.appTheme': return 'App theme';
+			case 'settings.prefLabels.platform': return 'Theme type';
 			case 'settings.prefLabels.customAccentColor': return 'Custom accent color';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Hyperlegible font';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Automatically check for Saber updates';

@@ -3,12 +3,25 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
-  "de": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  },
+  "de": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  },
   "es": {
     "settings": {
       "prefLabels": {
         "locale": "App language",
+        "platform": "Theme type",
         "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode"
       },
       "systemLanguage": "System language"
@@ -33,9 +46,39 @@
       }
     }
   },
-  "it": {},
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  },
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  },
+  "tr": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "platform": "Theme type"
+      }
+    }
+  }
 }

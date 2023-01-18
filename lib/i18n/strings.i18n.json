@@ -25,6 +25,7 @@
     "prefLabels": {
       "locale": "App language",
       "appTheme": "App theme",
+      "platform": "Theme type",
       "customAccentColor": "Custom accent color",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Automatically check for Saber updates",

@@ -36,6 +36,8 @@ abstract class Prefs {
   static late final PlainPref<String> pfp;
 
   static late final PlainPref<int> appTheme;
+  /// The type of platform to theme. If -1, use [defaultTargetPlatform].
+  static late final PlainPref<int> platform;
   /// The accent color of the app. If 0, the system accent color will be used.
   static late final PlainPref<int> accentColor;
   static late final PlainPref<bool> hyperlegibleFont;
@@ -87,6 +89,7 @@ abstract class Prefs {
     pfp = PlainPref("pfp", "");
 
     appTheme = PlainPref("appTheme", ThemeMode.system.index);
+    platform = PlainPref("platform", -1);
     accentColor = PlainPref("accentColor", 0);
     hyperlegibleFont = PlainPref("hyperlegibleFont", false);
 

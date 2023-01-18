@@ -57,6 +57,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   @override
   void initState() {
     Prefs.appTheme.addListener(onChanged);
+    Prefs.platform.addListener(onChanged);
     Prefs.accentColor.addListener(onChanged);
     Prefs.hyperlegibleFont.addListener(onChanged);
     decideOnFont();
@@ -142,6 +143,15 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
           );
         }
 
+        final TargetPlatform? platform;
+        if (Prefs.platform.value == TargetPlatform.iOS.index) {
+          platform = TargetPlatform.iOS;
+        } else if (Prefs.platform.value == TargetPlatform.android.index) {
+          platform = TargetPlatform.android;
+        } else {
+          platform = null;
+        }
+
         return MaterialApp.router(
           routeInformationProvider: widget.router.routeInformationProvider,
           routeInformationParser: widget.router.routeInformationParser,
@@ -157,12 +167,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
             colorScheme: lightColorScheme,
             textTheme: getTextTheme(Brightness.light),
             scaffoldBackgroundColor: lightColorScheme.background,
+            platform: platform,
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
             colorScheme: darkColorScheme,
             textTheme: getTextTheme(Brightness.dark),
             scaffoldBackgroundColor: darkColorScheme.background,
+            platform: platform,
           ),
           themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
 
@@ -175,6 +187,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   @override
   void dispose() {
     Prefs.appTheme.removeListener(onChanged);
+    Prefs.platform.removeListener(onChanged);
     Prefs.accentColor.removeListener(onChanged);
     Prefs.hyperlegibleFont.removeListener(onChanged);
 

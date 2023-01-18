@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
@@ -33,6 +34,12 @@ class _SettingsPageState extends State<SettingsPage> {
     setState(() {});
   }
 
+  static final bool usesMaterialByDefault = () {
+    if (defaultTargetPlatform == TargetPlatform.iOS) return false;
+    if (defaultTargetPlatform == TargetPlatform.macOS) return false;
+    return true;
+  }();
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -41,6 +48,13 @@ class _SettingsPageState extends State<SettingsPage> {
         || platform == TargetPlatform.macOS;
 
     final bool requiresManualUpdates = !kIsWeb && FlavorConfig.appStore == null;
+
+    final IconData materialIcon = () {
+      if (kIsWeb) return FontAwesomeIcons.firefoxBrowser;
+      if (defaultTargetPlatform == TargetPlatform.linux) return FontAwesomeIcons.linux;
+      if (defaultTargetPlatform == TargetPlatform.windows) return FontAwesomeIcons.windows;
+      return Icons.android;
+    }();
 
     return Scaffold(
       body: CustomScrollView(
@@ -106,6 +120,32 @@ class _SettingsPageState extends State<SettingsPage> {
                   ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
                   ToggleButtonsOption(ThemeMode.light.index, Icon(Icons.light_mode, semanticLabel: t.settings.themeModes.light)),
                   ToggleButtonsOption(ThemeMode.dark.index, Icon(Icons.dark_mode, semanticLabel: t.settings.themeModes.dark)),
+                ],
+              ),
+              SettingsSelection(
+                title: t.settings.prefLabels.platform,
+                iconBuilder: (i) {
+                  if (platform == TargetPlatform.iOS) return Icons.apple;
+                  if (platform == TargetPlatform.macOS) return Icons.apple;
+                  return materialIcon;
+                },
+                pref: Prefs.platform,
+                optionsWidth: 60,
+                options: [
+                  ToggleButtonsOption(
+                    () {
+                      if (usesMaterialByDefault) return -1;
+                      return TargetPlatform.android.index;
+                    }(),
+                    Icon(materialIcon, semanticLabel: "Material"),
+                  ),
+                  ToggleButtonsOption(
+                    () {
+                      if (!usesMaterialByDefault) return -1;
+                      return TargetPlatform.iOS.index;
+                    }(),
+                    const Icon(Icons.apple, semanticLabel: "Cupertino"),
+                  ),
                 ],
               ),
               SettingsColor(
