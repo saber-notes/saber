@@ -53,6 +53,7 @@ class AdaptiveToggleButtons<T> extends StatelessWidget {
       children: options.asMap().map((_, ToggleButtonsOption option) => MapEntry<T, Widget>(option.value, option.widget)),
       groupValue: value,
       onValueChanged: onChange,
+      padding: const EdgeInsets.all(8),
     );
   }
 }
