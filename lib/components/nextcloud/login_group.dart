@@ -3,8 +3,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fzregex/fzregex.dart';
-import 'package:fzregex/utils/pattern.dart';
+import 'package:regexpattern/regexpattern.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_button.dart';
@@ -37,7 +36,7 @@ class LoginInputGroup extends StatefulWidget {
     required String encPassword,
     required String? customServer,
   }) {
-    if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
+    if (username.isEmpty || (username.contains('@') && !username.isEmail())) {
       return t.login.feedbacks.checkUsername;
     }
     if (ncPassword.isEmpty) {
@@ -46,7 +45,7 @@ class LoginInputGroup extends StatefulWidget {
     if (encPassword.isEmpty) {
       return t.login.feedbacks.enterEncPassword;
     }
-    if (customServer != null && !Fzregex.hasMatch(customServer, FzPattern.url)) {
+    if (customServer != null && !customServer.isUrl()) {
       return t.login.feedbacks.checkUrl;
     }
     return null;

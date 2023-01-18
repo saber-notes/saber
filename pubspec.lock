@@ -423,13 +423,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fzregex:
-    dependency: "direct main"
-    description:
-      name: fzregex
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   gettext_parser:
     dependency: transitive
     description:
@@ -877,6 +870,13 @@ packages:
       url: "https://github.com/adil192/receive_sharing_intent.git"
     source: git
     version: "1.4.5"
+  regexpattern:
+    dependency: "direct main"
+    description:
+      name: regexpattern
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   screen_retriever:
     dependency: transitive
     description:
