@@ -17,7 +17,7 @@ if [ "$#" -ne 2 ]; then
   print_help
 fi
 
-DUMMY_CHANGELOG="Release notes will be added here."
+DUMMY_CHANGELOG="Release notes will be added here"
 BUILD_NAME=$1
 BUILD_NUMBER=$2
 DATE=$(date +%Y-%m-%d)
