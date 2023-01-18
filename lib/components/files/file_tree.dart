@@ -1,11 +1,8 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
-import 'package:saber/pages/editor/editor.dart';
 
 
 class FileTree extends StatelessWidget {
@@ -74,7 +71,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                 if (widget.isDirectory) {
                   areChildrenVisible = !areChildrenVisible;
                 } else {
-                  context.push("${RoutePaths.edit}?path=${widget.path}");
+                  context.push(RoutePaths.editFilePath(widget.path ?? "/"));
                 }
               });
             },

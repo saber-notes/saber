@@ -9,29 +9,37 @@ abstract class RoutePaths {
   static const edit = "/edit";
   static const login = "/login";
   static get all => [home, edit];
+
+  static String editFilePath(String filePath) {
+    return "$edit?path=${Uri.encodeQueryComponent(filePath)}";
+  }
 }
 
 abstract class HomeRoutes {
-  static PathFunction homeFunction = pathToFunction(RoutePaths.home);
+  static String browseFilePath(String filePath) {
+    return "${getRoute(1)}?path=${Uri.encodeQueryComponent(filePath)}";
+  }
+
+  static final PathFunction _homeFunction = pathToFunction(RoutePaths.home);
 
   static List<_Route> get _routes => <_Route>[
     _Route(
-      routePath: homeFunction({"subpage": HomePage.recentSubpage}),
+      routePath: _homeFunction({"subpage": HomePage.recentSubpage}),
       label: t.home.tabs.home,
       icon: const Icon(Icons.home),
     ),
     _Route(
-      routePath: homeFunction({"subpage": HomePage.browseSubpage}),
+      routePath: _homeFunction({"subpage": HomePage.browseSubpage}),
       label: t.home.tabs.browse,
       icon: const Icon(Icons.folder),
     ),
     _Route(
-      routePath: homeFunction({"subpage": HomePage.whiteboardSubpage}),
+      routePath: _homeFunction({"subpage": HomePage.whiteboardSubpage}),
       label: t.home.tabs.whiteboard,
       icon: const Icon(Icons.draw),
     ),
     _Route(
-      routePath: homeFunction({"subpage": HomePage.settingsSubpage}),
+      routePath: _homeFunction({"subpage": HomePage.settingsSubpage}),
       label: t.home.tabs.settings,
       icon: const Icon(Icons.settings),
     ),

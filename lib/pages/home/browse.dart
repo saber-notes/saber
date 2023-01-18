@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -52,7 +53,7 @@ class _BrowsePageState extends State<BrowsePage> {
       pathHistory.add(path);
       path = "${path ?? ''}/$folder";
     }
-    context.go("${HomeRoutes.getRoute(1)}?path=${path ?? '/'}");
+    context.go(HomeRoutes.browseFilePath(path ?? '/'));
     findChildrenOfPath();
   }
 

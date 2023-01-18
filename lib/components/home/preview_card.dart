@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:animations/animations.dart';
@@ -147,7 +146,7 @@ class _PreviewCardState extends State<PreviewCard> {
     if (disableAnimations) {
       return GestureDetector(
         onTap: () {
-          context.push("${RoutePaths.edit}?path=${widget.filePath}");
+          context.push(RoutePaths.editFilePath(widget.filePath));
         },
         child: card,
       );
@@ -159,7 +158,7 @@ class _PreviewCardState extends State<PreviewCard> {
       closedBuilder: (context, action) => card,
       openBuilder: (context, action) => Editor(path: widget.filePath),
       routeSettings: RouteSettings(
-        name: "${RoutePaths.edit}?path=${widget.filePath}"
+        name: RoutePaths.editFilePath(widget.filePath),
       ),
     );
   }
