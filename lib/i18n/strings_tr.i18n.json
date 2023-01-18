@@ -34,7 +34,8 @@
       "editorStraightenLines": "Bir çizgiyi düzleştirmek için basılı tut",
       "autoClearWhiteboardOnExit": "Uygulamadan çıkıldığında beyaz tahtayı temizle",
       "editorPromptRename": "Notları yeniden adlandırmak için uyar",
-      "locale": "Uygulama dili"
+      "locale": "Uygulama dili",
+      "platform": "Tema tipi"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur",
