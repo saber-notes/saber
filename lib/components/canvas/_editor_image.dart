@@ -158,7 +158,8 @@ class EditorImage {
 
     if ((thumbnailBytes?.isEmpty ?? true) && allowCalculations) {
       thumbnailSize = resize(naturalSize, const Size(300, 300));
-      if (thumbnailSize.width != naturalSize.width) {
+      // if [naturalSize] is big enough to warrant a thumbnail
+      if (thumbnailSize.width * 1.5 < naturalSize.width) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
         thumbnailBytes = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
       } else { // no need to resize
