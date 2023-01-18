@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
@@ -44,7 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final platform = Theme.of(context).platform;
-    final appBarCentered = platform == TargetPlatform.iOS
+    final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
 
     final bool requiresManualUpdates = !kIsWeb && FlavorConfig.appStore == null;
@@ -68,10 +69,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 t.home.titles.settings,
                 style: TextStyle(color: colorScheme.onBackground),
               ),
-              centerTitle: appBarCentered,
+              centerTitle: cupertino,
               titlePadding: EdgeInsetsDirectional.only(
-                  start: appBarCentered ? 0 : 16,
-                  bottom: 16
+                start: cupertino ? 0 : 16,
+                bottom: 16,
               ),
             ),
             actions: [
@@ -93,7 +94,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsDropdown(
                 title: t.settings.prefLabels.locale,
-                icon: Icons.language,
+                icon: cupertino ? CupertinoIcons.globe : Icons.language,
                 pref: Prefs.locale,
                 options: [
                   ToggleButtonsOption("", Text(t.settings.systemLanguage)),
@@ -157,7 +158,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.hyperlegibleFont,
                 subtitle: t.settings.prefDescriptions.hyperlegibleFont,
                 iconBuilder: (b) {
-                  return b ? Icons.font_download : Icons.font_download_off;
+                  if (b) return cupertino ? CupertinoIcons.textformat : Icons.font_download;
+                  return cupertino ? CupertinoIcons.textformat_alt : Icons.font_download_off;
                 },
                 pref: Prefs.hyperlegibleFont,
               ),
@@ -169,13 +171,14 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsSwitch(
                 title: t.settings.prefLabels.editorToolbarOnBottom,
                 iconBuilder: (b) {
-                  return b ? Icons.vertical_align_bottom : Icons.vertical_align_top;
+                  if (b) return cupertino ? CupertinoIcons.arrow_down_to_line : Icons.vertical_align_bottom;
+                  return cupertino ? CupertinoIcons.arrow_up_to_line : Icons.vertical_align_top;
                 },
                 pref: Prefs.editorToolbarOnBottom,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorToolbarShowInFullscreen,
-                icon: Icons.fullscreen,
+                icon: cupertino ? CupertinoIcons.fullscreen : Icons.fullscreen,
                 pref: Prefs.editorToolbarShowInFullscreen,
               ),
               SettingsSwitch(
@@ -221,7 +224,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.editorPromptRename,
                 subtitle: t.settings.prefDescriptions.editorPromptRename,
                 iconBuilder: (b) {
-                  return b ? Icons.keyboard : Icons.keyboard_hide;
+                  if (b) return cupertino ? CupertinoIcons.keyboard : Icons.keyboard;
+                  return cupertino ? CupertinoIcons.keyboard_chevron_compact_down : Icons.keyboard_hide;
                 },
                 pref: Prefs.editorPromptRename,
               ),
