@@ -6,6 +6,7 @@ import 'dart:math';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -20,6 +21,7 @@ import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/home/preview_card.dart';
+import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -862,15 +864,15 @@ class _EditorState extends State<Editor> {
   Future askUserToDisableReadOnly() async {
     bool disableReadOnly = await showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) => AdaptiveAlertDialog(
         title: Text(t.editor.newerFileFormat.title),
         content: Text(t.editor.newerFileFormat.subtitle),
         actions: [
-          TextButton(
+          CupertinoDialogAction(
             child: Text(t.editor.newerFileFormat.cancel),
             onPressed: () => Navigator.pop(context, false),
           ),
-          TextButton(
+          CupertinoDialogAction(
             child: Text(t.editor.newerFileFormat.allowEditing),
             onPressed: () => Navigator.pop(context, true),
           ),

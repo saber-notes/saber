@@ -1,9 +1,11 @@
 
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
@@ -31,15 +33,15 @@ abstract class UpdateManager {
     _hasShownUpdateDialog = true;
     return await showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) => AdaptiveAlertDialog(
         title: Text(t.update.updateAvailable),
         content: Text(t.update.updateAvailableDescription),
         actions: [
-          TextButton(
+          CupertinoDialogAction(
             onPressed: () => Navigator.pop(context),
             child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
           ),
-          TextButton(
+          CupertinoDialogAction(
             onPressed: doUpdate,
             child: Text(t.update.update),
           ),

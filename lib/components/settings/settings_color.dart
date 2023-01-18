@@ -1,7 +1,8 @@
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -48,7 +49,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
     setState(() { });
   }
 
-  get colorPickerDialog => AlertDialog(
+  get colorPickerDialog => AdaptiveAlertDialog(
     title: Text(t.settings.accentColorPicker.pickAColor),
     content: SingleChildScrollView(
       child: ColorPicker(
@@ -58,8 +59,8 @@ class _SettingsSwitchState extends State<SettingsColor> {
         },
       ),
     ),
-    actions: <Widget>[
-      ElevatedButton(
+    actions: [
+      CupertinoDialogAction(
         child: Text(MaterialLocalizations.of(context).saveButtonLabel),
         onPressed: () {
           Navigator.of(context).pop(true);

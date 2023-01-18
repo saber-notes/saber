@@ -6,6 +6,7 @@ import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -269,12 +270,13 @@ class _CanvasImageState extends State<CanvasImage> {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
+        return AdaptiveAlertDialog(
           title: Text(t.editor.imageOptions.title),
           content: _CanvasImageDialog(
             image: widget.image,
             parent: this,
           ),
+          actions: const [],
         );
       },
     );
