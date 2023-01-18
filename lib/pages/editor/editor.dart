@@ -785,6 +785,10 @@ class _EditorState extends State<Editor> {
               showModalBottomSheet(
                 context: context,
                 builder: (context) => bottomSheet(context),
+                isScrollControlled: true,
+                constraints: const BoxConstraints(
+                  maxWidth: 500,
+                ),
               );
             },
           )
