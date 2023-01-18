@@ -34,7 +34,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       child: IntrinsicHeight(
         child: Column(
           mainAxisSize: MainAxisSize.min,
