@@ -27,6 +27,30 @@ class LoginInputGroup extends StatefulWidget {
 
   @override
   State<LoginInputGroup> createState() => _LoginInputGroupState();
+
+  /// Validates the login details. Returns an error message
+  /// if validation fails, or null if it succeeds.
+  @visibleForTesting
+  static String? validate({
+    required String username,
+    required String ncPassword,
+    required String encPassword,
+    required String? customServer,
+  }) {
+    if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
+      return t.login.feedbacks.checkUsername;
+    }
+    if (ncPassword.isEmpty) {
+      return t.login.feedbacks.enterNcPassword;
+    }
+    if (encPassword.isEmpty) {
+      return t.login.feedbacks.enterEncPassword;
+    }
+    if (customServer != null && !Fzregex.hasMatch(customServer, FzPattern.url)) {
+      return t.login.feedbacks.checkUrl;
+    }
+    return null;
+  }
 }
 
 class _LoginInputGroupState extends State<LoginInputGroup> {
@@ -43,36 +67,19 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   final TextEditingController _ncPasswordController = TextEditingController();
   final TextEditingController _encPasswordController = TextEditingController();
 
+  /// Returns whether validation passes.
+  /// Updates [_errorMessage] with any resulting validation error.
   bool _validate() {
-    String username = _usernameController.text;
-    String ncPassword = _ncPasswordController.text;
-    String encPassword = _encPasswordController.text;
-    if (username.isEmpty || (username.contains('@') && !Fzregex.hasMatch(username, FzPattern.email))) {
-      setState(() {
-        _errorMessage = t.login.feedbacks.checkUsername;
-      });
-      return false;
-    } else if (ncPassword.isEmpty) {
-      setState(() {
-        _errorMessage = t.login.feedbacks.enterNcPassword;
-      });
-      return false;
-    } else if (encPassword.isEmpty) {
-      setState(() {
-        _errorMessage = t.login.feedbacks.enterEncPassword;
-      });
-      return false;
-    } else if (_usingCustomServer && !Fzregex.hasMatch(_customServerController.text, FzPattern.url)) {
-      setState(() {
-        _errorMessage = t.login.feedbacks.checkUrl;
-      });
-      return false;
-    } else {
-      setState(() {
-        _errorMessage = null;
-      });
-      return true;
-    }
+    String? validationError = LoginInputGroup.validate(
+      username: _usernameController.text,
+      ncPassword: _ncPasswordController.text,
+      encPassword: _encPasswordController.text,
+      customServer: _usingCustomServer ? _customServerController.text : null,
+    );
+    setState(() {
+      _errorMessage = validationError;
+    });
+    return validationError == null;
   }
 
   void _login() async {
