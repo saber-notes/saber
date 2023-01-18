@@ -9,6 +9,12 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 Android and Linux are the main platforms that are being developed for,
 but if you encounter any bugs on other platforms, please open an [issue][issues].
 
+[![Build for Android](https://github.com/adil192/saber/actions/workflows/android.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/android.yml)
+[![Build for iOS](https://github.com/adil192/saber/actions/workflows/ios.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/ios.yml)
+[![Build for Linux](https://github.com/adil192/saber/actions/workflows/linux.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/linux.yml)
+[![Build for macOS](https://github.com/adil192/saber/actions/workflows/macos.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/macos.yml)
+[![Build for Windows](https://github.com/adil192/saber/actions/workflows/windows.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/windows.yml)
+[![Run tests](https://github.com/adil192/saber/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
 
 <details open>
