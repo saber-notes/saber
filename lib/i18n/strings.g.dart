@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 941 (104 per locale)
+/// Strings: 957 (106 per locale)
 ///
-/// Built on 2023-01-19 at 02:07 UTC
+/// Built on 2023-01-19 at 05:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1453,6 +1453,7 @@ class _StringsEs extends _StringsEn {
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
+	@override late final _StringsSPenWarningEs sPenWarning = _StringsSPenWarningEs._(_root);
 }
 
 // Path: home
@@ -1478,11 +1479,13 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsSettingsPrefCategoriesEs prefCategories = _StringsSettingsPrefCategoriesEs._(_root);
 	@override late final _StringsSettingsPrefLabelsEs prefLabels = _StringsSettingsPrefLabelsEs._(_root);
 	@override late final _StringsSettingsPrefDescriptionsEs prefDescriptions = _StringsSettingsPrefDescriptionsEs._(_root);
 	@override late final _StringsSettingsThemeModesEs themeModes = _StringsSettingsThemeModesEs._(_root);
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
 	@override late final _StringsSettingsStraightenDelayEs straightenDelay = _StringsSettingsStraightenDelayEs._(_root);
+	@override String get systemLanguage => 'Idioma del sistema';
 }
 
 // Path: login
@@ -1515,6 +1518,7 @@ class _StringsAppInfoEs extends _StringsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
+	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toca aquí para patrocinarme o comprar más almacenamiento';
 	@override String get licenseButton => 'Toca aquí para ver más información sobre la licencia';
@@ -1546,6 +1550,19 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorImageOptionsEs imageOptions = _StringsEditorImageOptionsEs._(_root);
 	@override late final _StringsEditorMenuEs menu = _StringsEditorMenuEs._(_root);
 	@override late final _StringsEditorNewerFileFormatEs newerFileFormat = _StringsEditorNewerFileFormatEs._(_root);
+	@override late final _StringsEditorQuillEs quill = _StringsEditorQuillEs._(_root);
+	@override late final _StringsEditorHudEs hud = _StringsEditorHudEs._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningEs extends _StringsSPenWarningEn {
+	_StringsSPenWarningEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Aviso de error del S Pen';
+	@override String get description => 'Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas.';
 }
 
 // Path: home.tabs
@@ -1585,6 +1602,18 @@ class _StringsHomeTooltipsEs extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Mostrar cuadro de diálogo de actualizaciónes';
 }
 
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'General';
+	@override String get layout => 'Diseño';
+	@override String get writing => 'Escritura';
+}
+
 // Path: settings.prefLabels
 class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	_StringsSettingsPrefLabelsEs._(_StringsEs root) : this._root = root, super._(root);
@@ -1592,11 +1621,14 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get locale => 'Idioma de la aplicación';
 	@override String get appTheme => 'Tema de la aplicación';
+	@override String get platform => 'Tipo de tema';
 	@override String get customAccentColor => 'Color de acento personalizado';
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
 	@override String get editorToolbarOnBottom => 'Alinear la barra de herramientas del editor en la parte inferior';
+	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
 	@override String get editorStraightenLines => 'Mantén presionado para enderezar una línea';
@@ -1743,11 +1775,13 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	@override String get toggleColors => 'Cambiar colores (Ctrl C)';
 	@override String get toggleEraser => 'Borrador (Ctrl E)';
 	@override String get photo => 'Foto';
+	@override String get text => 'Texto';
 	@override String get toggleFingerDrawing => 'Dibujar con el dedo (Ctrl F)';
 	@override String get undo => 'Deshacer';
 	@override String get redo => 'Rehacer';
 	@override String get export => 'Exportar (Ctrl Shift S)';
 	@override String get exportAs => 'Exportar cómo:';
+	@override String get fullscreen => 'Pantalla completa (F11)';
 }
 
 // Path: editor.pens
@@ -1782,6 +1816,7 @@ class _StringsEditorImageOptionsEs extends _StringsEditorImageOptionsEn {
 	// Translations
 	@override String get title => 'Opciones de imagen';
 	@override String get invertible => 'Invertible';
+	@override String get download => 'Descargar';
 	@override String get delete => 'Eliminar';
 }
 
@@ -1810,6 +1845,27 @@ class _StringsEditorNewerFileFormatEs extends _StringsEditorNewerFileFormatEn {
 	@override String get subtitle => 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
 	@override String get allowEditing => 'Editar';
 	@override String get cancel => 'Cancelar';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillEs extends _StringsEditorQuillEn {
+	_StringsEditorQuillEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Escribe algo aquí...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudEs extends _StringsEditorHudEn {
+	_StringsEditorHudEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Desbloquear zoom';
+	@override String get lockZoom => 'Bloquear zoom';
 }
 
 // Path: <root>
@@ -4337,11 +4393,17 @@ extension on _StringsEs {
 			case 'home.welcome': return 'Te damos la bienvenida a Saber';
 			case 'home.noFiles': return 'No se encontraron archivos';
 			case 'home.createNewNote': return 'Presiona el botón + para crear una nueva nota';
+			case 'settings.prefCategories.general': return 'General';
+			case 'settings.prefCategories.layout': return 'Diseño';
+			case 'settings.prefCategories.writing': return 'Escritura';
+			case 'settings.prefLabels.locale': return 'Idioma de la aplicación';
 			case 'settings.prefLabels.appTheme': return 'Tema de la aplicación';
+			case 'settings.prefLabels.platform': return 'Tipo de tema';
 			case 'settings.prefLabels.customAccentColor': return 'Color de acento personalizado';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Fuente hiperlegible';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Buscar actualizaciones de Saber automáticamente';
 			case 'settings.prefLabels.editorToolbarOnBottom': return 'Alinear la barra de herramientas del editor en la parte inferior';
+			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 			case 'settings.prefLabels.editorAutoInvert': return 'Invertir notas en el modo oscuro';
 			case 'settings.prefLabels.preferGreyscale': return 'Preferir colores en escala de grises';
 			case 'settings.prefLabels.editorStraightenLines': return 'Mantén presionado para enderezar una línea';
@@ -4359,6 +4421,7 @@ extension on _StringsEs {
 			case 'settings.straightenDelay.off': return 'Apagado';
 			case 'settings.straightenDelay.regular': return 'Regular';
 			case 'settings.straightenDelay.slow': return 'Lento';
+			case 'settings.systemLanguage': return 'Idioma del sistema';
 			case 'login.title': return 'Iniciar sesión';
 			case 'login.feedbacks.checkUsername': return 'Por favor verifica tu nombre de usuario o correo electrónico.';
 			case 'login.feedbacks.enterNcPassword': return 'Por favor ingresa tu contraseña de Nextcloud.';
@@ -4392,6 +4455,7 @@ extension on _StringsEs {
 			case 'login.faq.2.q': return '¿Por qué usar dos contraseñas?';
 			case 'login.faq.2.a': return 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
+			case 'appInfo.dirty': return 'DIRTY';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.sponsorButton': return 'Toca aquí para patrocinarme o comprar más almacenamiento';
 			case 'appInfo.licenseButton': return 'Toca aquí para ver más información sobre la licencia';
@@ -4402,11 +4466,13 @@ extension on _StringsEs {
 			case 'editor.toolbar.toggleColors': return 'Cambiar colores (Ctrl C)';
 			case 'editor.toolbar.toggleEraser': return 'Borrador (Ctrl E)';
 			case 'editor.toolbar.photo': return 'Foto';
+			case 'editor.toolbar.text': return 'Texto';
 			case 'editor.toolbar.toggleFingerDrawing': return 'Dibujar con el dedo (Ctrl F)';
 			case 'editor.toolbar.undo': return 'Deshacer';
 			case 'editor.toolbar.redo': return 'Rehacer';
 			case 'editor.toolbar.export': return 'Exportar (Ctrl Shift S)';
 			case 'editor.toolbar.exportAs': return 'Exportar cómo:';
+			case 'editor.toolbar.fullscreen': return 'Pantalla completa (F11)';
 			case 'editor.pens.fountainPen': return 'Lápiz';
 			case 'editor.pens.ballpointPen': return 'Bolígrafo';
 			case 'editor.pens.highlighter': return 'Resaltador';
@@ -4414,6 +4480,7 @@ extension on _StringsEs {
 			case 'editor.penOptions.sizeDragHint': return 'Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño';
 			case 'editor.imageOptions.title': return 'Opciones de imagen';
 			case 'editor.imageOptions.invertible': return 'Invertible';
+			case 'editor.imageOptions.download': return 'Descargar';
 			case 'editor.imageOptions.delete': return 'Eliminar';
 			case 'editor.menu.clearPage': return 'Borrar página';
 			case 'editor.menu.clearAllPages': return 'Borrar todas las páginas';
@@ -4424,6 +4491,11 @@ extension on _StringsEs {
 			case 'editor.newerFileFormat.subtitle': return 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
 			case 'editor.newerFileFormat.allowEditing': return 'Editar';
 			case 'editor.newerFileFormat.cancel': return 'Cancelar';
+			case 'editor.quill.typeSomething': return 'Escribe algo aquí...';
+			case 'editor.hud.unlockZoom': return 'Desbloquear zoom';
+			case 'editor.hud.lockZoom': return 'Bloquear zoom';
+			case 'sPenWarning.title': return 'Aviso de error del S Pen';
+			case 'sPenWarning.description': return 'Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas.';
 			default: return null;
 		}
 	}
