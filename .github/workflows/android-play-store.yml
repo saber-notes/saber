@@ -45,25 +45,29 @@ jobs:
       - name: Build aab
         run: flutter build appbundle -t lib/main_play_store.dart
 
+      - name: Move unsigned apk
+        run: |
+          rm -rf *.apk *.aab
+          mv build/app/outputs/bundle/release/app-release.aab Saber.aab
+
       - name: Sign aab
-        uses: Tlaster/android-sign@v1.2.2
+        uses: ilharp/sign-android-release@v1
+        id: sign_app
         with:
-          releaseDirectory: |
-            build/app/outputs/bundle/release/
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          output: build/app/outputs/bundle/release/signed
-          alias: ${{ secrets.ALIAS }}
+          releaseDir: .
+          signingKey: ${{ secrets.SIGNING_KEY }}
+          keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Rename signed apk
-        run: mv build/app/outputs/bundle/release/signed/app-release.aab build/app/outputs/bundle/release/signed/Saber.aab
+        run: mv ${{ steps.sign_app.outputs.signedFile }} Saber.aab
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-Android-PlayStore
-          path: build/app/outputs/bundle/release/signed/Saber.aab
+          path: Saber.aab
 
       - name: Prepare whatsnew directory from metadata/*/changelogs
         run: |
@@ -85,7 +89,7 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_JSON }}
           packageName: com.adilhanney.saber
-          releaseFile: build/app/outputs/bundle/release/signed/Saber.aab
+          releaseFile: Saber.aab
           track: beta
           status: completed
           whatsNewDirectory: whatsnew
