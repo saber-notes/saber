@@ -23,7 +23,7 @@
   },
   "settings": {
     "prefLabels": {
-      "appTheme": "Motiv aplikace",
+      "appTheme": "Barva motivu",
       "customAccentColor": "Vlastní barevný odstín",
       "hyperlegibleFont": "Lépe čitelný font",
       "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
