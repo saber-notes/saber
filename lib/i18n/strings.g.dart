@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 936 (104 per locale)
+/// Strings: 941 (104 per locale)
 ///
-/// Built on 2023-01-19 at 02:00 UTC
+/// Built on 2023-01-19 at 02:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3112,6 +3112,7 @@ class _StringsZhHansCn extends _StringsEn {
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
+	@override late final _StringsSPenWarningZhHansCn sPenWarning = _StringsSPenWarningZhHansCn._(_root);
 }
 
 // Path: home
@@ -3143,6 +3144,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerZhHansCn accentColorPicker = _StringsSettingsAccentColorPickerZhHansCn._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHansCn straightenDelay = _StringsSettingsStraightenDelayZhHansCn._(_root);
 	@override String get systemLanguage => '系统语言';
+	@override late final _StringsSettingsPrefCategoriesZhHansCn prefCategories = _StringsSettingsPrefCategoriesZhHansCn._(_root);
 }
 
 // Path: login
@@ -3210,6 +3212,17 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
 	@override late final _StringsEditorQuillZhHansCn quill = _StringsEditorQuillZhHansCn._(_root);
 	@override late final _StringsEditorHudZhHansCn hud = _StringsEditorHudZhHansCn._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningZhHansCn extends _StringsSPenWarningEn {
+	_StringsSPenWarningZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'S Pen 错误警告';
+	@override String get description => '如果您使用的是 S Pen，您可能会遇到一个错误，即在尝试使用 S Pen 按钮进行擦除时应用会崩溃。这是 Flutter 框架中的一个错误，修复可能会在一个月内发布。同时，请使用工具栏中的橡皮擦按钮。';
 }
 
 // Path: home.tabs
@@ -3317,6 +3330,18 @@ class _StringsSettingsStraightenDelayZhHansCn extends _StringsSettingsStraighten
 	@override String get off => '关闭';
 	@override String get regular => '常规';
 	@override String get slow => '缓慢';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => '通用';
+	@override String get layout => '布局';
+	@override String get writing => '书写';
 }
 
 // Path: login.feedbacks
@@ -4809,6 +4834,9 @@ extension on _StringsZhHansCn {
 			case 'settings.straightenDelay.regular': return '常规';
 			case 'settings.straightenDelay.slow': return '缓慢';
 			case 'settings.systemLanguage': return '系统语言';
+			case 'settings.prefCategories.general': return '通用';
+			case 'settings.prefCategories.layout': return '布局';
+			case 'settings.prefCategories.writing': return '书写';
 			case 'login.title': return '登录';
 			case 'login.feedbacks.checkUsername': return '请仔细检查您的用户名或电子邮件。';
 			case 'login.feedbacks.enterNcPassword': return '请输入您的 Nextcloud 密码。';
@@ -4882,6 +4910,8 @@ extension on _StringsZhHansCn {
 			case 'editor.quill.typeSomething': return '在这里输入...';
 			case 'editor.hud.unlockZoom': return '解锁缩放';
 			case 'editor.hud.lockZoom': return '锁定缩放';
+			case 'sPenWarning.title': return 'S Pen 错误警告';
+			case 'sPenWarning.description': return '如果您使用的是 S Pen，您可能会遇到一个错误，即在尝试使用 S Pen 按钮进行擦除时应用会崩溃。这是 Flutter 框架中的一个错误，修复可能会在一个月内发布。同时，请使用工具栏中的橡皮擦按钮。';
 			default: return null;
 		}
 	}
