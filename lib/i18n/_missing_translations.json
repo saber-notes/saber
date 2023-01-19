@@ -118,9 +118,9 @@
   "zh-Hans-CN": {
     "settings": {
       "prefCategories": {
-        "general": "General",
-        "layout": "Layout",
-        "writing": "Writing"
+        "general": "通用",
+        "layout": "布局",
+        "writing": "书写"
       }
     },
     "sPenWarning": {
