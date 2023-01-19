@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 957 (106 per locale)
+/// Strings: 962 (106 per locale)
 ///
-/// Built on 2023-01-19 at 05:01 UTC
+/// Built on 2023-01-19 at 16:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2745,6 +2745,7 @@ class _StringsTr extends _StringsEn {
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
 	@override late final _StringsUpdateTr update = _StringsUpdateTr._(_root);
 	@override late final _StringsEditorTr editor = _StringsEditorTr._(_root);
+	@override late final _StringsSPenWarningTr sPenWarning = _StringsSPenWarningTr._(_root);
 }
 
 // Path: home
@@ -2776,6 +2777,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerTr accentColorPicker = _StringsSettingsAccentColorPickerTr._(_root);
 	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
 	@override String get systemLanguage => 'Sistem dili';
+	@override late final _StringsSettingsPrefCategoriesTr prefCategories = _StringsSettingsPrefCategoriesTr._(_root);
 }
 
 // Path: login
@@ -2843,6 +2845,17 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatTr newerFileFormat = _StringsEditorNewerFileFormatTr._(_root);
 	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
 	@override late final _StringsEditorHudTr hud = _StringsEditorHudTr._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningTr extends _StringsSPenWarningEn {
+	_StringsSPenWarningTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'S Pen hata uyarısı';
+	@override String get description => 'S Pen kullanıcıları, yazıları silmek için S Pen butonunu kullandıklarında uygulamanın çökmesine neden olan bir hata ile karşılaşıyorlar. Bu hata Flutter framework\'ten kaynaklanmakta ve çözümü muhtemelen bir ay içerisinde yayınlanacak. Bu sırada, lütfen araç kutusundaki silgiyi kullanın.';
 }
 
 // Path: home.tabs
@@ -2950,6 +2963,18 @@ class _StringsSettingsStraightenDelayTr extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Kapalı';
 	@override String get regular => 'Normal';
 	@override String get slow => 'Yavaş';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Genel';
+	@override String get layout => 'Yerleşim';
+	@override String get writing => 'Yazım';
 }
 
 // Path: login.feedbacks
@@ -4785,6 +4810,9 @@ extension on _StringsTr {
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Yavaş';
 			case 'settings.systemLanguage': return 'Sistem dili';
+			case 'settings.prefCategories.general': return 'Genel';
+			case 'settings.prefCategories.layout': return 'Yerleşim';
+			case 'settings.prefCategories.writing': return 'Yazım';
 			case 'login.title': return 'Giriş yap';
 			case 'login.feedbacks.checkUsername': return 'Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.';
 			case 'login.feedbacks.enterNcPassword': return 'Lütfen Nextcloud parolanızı girin.';
@@ -4858,6 +4886,8 @@ extension on _StringsTr {
 			case 'editor.quill.typeSomething': return 'Buraya bir şey yaz...';
 			case 'editor.hud.unlockZoom': return 'Yakınlaştırma kilidini aç';
 			case 'editor.hud.lockZoom': return 'Yakınlaştırmayı kilitle';
+			case 'sPenWarning.title': return 'S Pen hata uyarısı';
+			case 'sPenWarning.description': return 'S Pen kullanıcıları, yazıları silmek için S Pen butonunu kullandıklarında uygulamanın çökmesine neden olan bir hata ile karşılaşıyorlar. Bu hata Flutter framework\'ten kaynaklanmakta ve çözümü muhtemelen bir ay içerisinde yayınlanacak. Bu sırada, lütfen araç kutusundaki silgiyi kullanın.';
 			default: return null;
 		}
 	}
