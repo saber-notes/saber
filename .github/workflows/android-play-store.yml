@@ -1,0 +1,91 @@
+name: Build for Play Store
+
+on:
+  # Enable manual run
+  workflow_dispatch:
+  push:
+    tags:
+      - '**'
+
+env:
+  project-id: com.adilhanney.saber
+
+jobs:
+  build-aab:
+    name: Build AAB for the Play Store
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Remove unneeded files
+        run: |
+          rm -rf appimage
+          rm -rf assets_raw
+          rm -rf flatpak
+          rm -rf installers
+          rm -rf integration_test
+          rm -rf ios
+          rm -rf linux
+          rm -rf macos
+          rm -rf metadata
+          rm -rf snap
+          rm -rf submodules
+          rm -rf test
+          rm -rf web
+          rm -rf windows
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - run: flutter pub get
+
+      - name: Build aab
+        run: flutter build appbundle -t lib/main_play_store.dart
+
+      - name: Sign aab
+        uses: Tlaster/android-sign@v1.2.2
+        with:
+          releaseDirectory: |
+            build/app/outputs/bundle/release/
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          output: build/app/outputs/bundle/release/signed
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Rename signed apk
+        run: mv build/app/outputs/bundle/release/signed/app-release.aab build/app/outputs/bundle/release/signed/Saber.aab
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Saber-Android-PlayStore
+          path: build/app/outputs/bundle/release/signed/Saber.aab
+
+      - name: Prepare whatsnew directory from metadata/*/changelogs
+        run: |
+          mkdir -p whatsnew
+
+          # get current version code from lib/data/version.dart
+          VERSION_CODE=$(grep -oP '(?<=buildNumber = )\d+' lib/data/version.dart)
+
+          # copy changelogs of each language to whatsnew
+          # e.g. cp metadata/en-US/changelogs/$VERSION_CODE.txt whatsnew/whatsnew-en-US
+          for f in metadata/*; do
+            if [ -f "$f/changelogs/$VERSION_CODE.txt" ]; then
+              cp "$f/changelogs/$VERSION_CODE.txt" "whatsnew/whatsnew-$(basename "$f")"
+            fi
+          done
+
+      - name: Upload to Play Store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_JSON }}
+          packageName: com.adilhanney.saber
+          releaseFile: build/app/outputs/bundle/release/signed/Saber.aab
+          track: beta
+          status: completed
+          whatsNewDirectory: whatsnew
