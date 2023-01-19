@@ -3641,6 +3641,7 @@ class _StringsZhHantTw extends _StringsEn {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
+	@override late final _StringsSPenWarningZhHantTw sPenWarning = _StringsSPenWarningZhHantTw._(_root);
 }
 
 // Path: home
@@ -3672,6 +3673,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerZhHantTw accentColorPicker = _StringsSettingsAccentColorPickerZhHantTw._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
 	@override String get systemLanguage => '系統語言';
+	@override late final _StringsSettingsPrefCategoriesZhHantTw prefCategories = _StringsSettingsPrefCategoriesZhHantTw._(_root);
 }
 
 // Path: login
@@ -3739,6 +3741,17 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
 	@override late final _StringsEditorQuillZhHantTw quill = _StringsEditorQuillZhHantTw._(_root);
 	@override late final _StringsEditorHudZhHantTw hud = _StringsEditorHudZhHantTw._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningZhHantTw extends _StringsSPenWarningEn {
+	_StringsSPenWarningZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'S Pen 錯誤警告';
+	@override String get description => '如果您使用的是 S Pen，您可能會遇到一個錯誤，即在嘗試使用 S Pen 按鈕進行擦除時應用程式會崩潰。這是 Flutter 框架中的一個錯誤，修復可能會在一個月內發布。同時，請使用工具欄中的橡皮擦按鈕。';
 }
 
 // Path: home.tabs
@@ -3846,6 +3859,18 @@ class _StringsSettingsStraightenDelayZhHantTw extends _StringsSettingsStraighten
 	@override String get off => '關閉';
 	@override String get regular => '正常';
 	@override String get slow => '緩慢';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesZhHantTw extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => '一般';
+	@override String get layout => '佈局';
+	@override String get writing => '書寫';
 }
 
 // Path: login.feedbacks
@@ -5062,6 +5087,9 @@ extension on _StringsZhHantTw {
 			case 'settings.straightenDelay.regular': return '正常';
 			case 'settings.straightenDelay.slow': return '緩慢';
 			case 'settings.systemLanguage': return '系統語言';
+			case 'settings.prefCategories.general': return '一般';
+			case 'settings.prefCategories.layout': return '佈局';
+			case 'settings.prefCategories.writing': return '書寫';
 			case 'login.title': return '登入';
 			case 'login.feedbacks.checkUsername': return '請仔細檢查您的使用者名稱或電子郵件。';
 			case 'login.feedbacks.enterNcPassword': return '請輸入您的 Nextcloud 密碼。';
@@ -5135,6 +5163,8 @@ extension on _StringsZhHantTw {
 			case 'editor.quill.typeSomething': return '在這裡輸入一些內容...';
 			case 'editor.hud.unlockZoom': return '解鎖縮放';
 			case 'editor.hud.lockZoom': return '鎖定縮放';
+			case 'sPenWarning.title': return 'S Pen 錯誤警告';
+			case 'sPenWarning.description': return '如果您使用的是 S Pen，您可能會遇到一個錯誤，即在嘗試使用 S Pen 按鈕進行擦除時應用程式會崩潰。這是 Flutter 框架中的一個錯誤，修復可能會在一個月內發布。同時，請使用工具欄中的橡皮擦按鈕。';
 			default: return null;
 		}
 	}

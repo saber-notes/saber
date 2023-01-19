@@ -57,7 +57,12 @@
       "regular": "正常",
       "slow": "緩慢"
     },
-    "systemLanguage": "系統語言"
+    "systemLanguage": "系統語言",
+    "prefCategories": {
+      "general": "一般",
+      "layout": "佈局",
+      "writing": "書寫"
+    }
   },
   "login": {
     "title": "登入",
@@ -161,5 +166,9 @@
       "unlockZoom": "解鎖縮放",
       "lockZoom": "鎖定縮放"
     }
+  },
+  "sPenWarning": {
+    "title": "S Pen 錯誤警告",
+    "description": "如果您使用的是 S Pen，您可能會遇到一個錯誤，即在嘗試使用 S Pen 按鈕進行擦除時應用程式會崩潰。這是 Flutter 框架中的一個錯誤，修復可能會在一個月內發布。同時，請使用工具欄中的橡皮擦按鈕。"
   }
 }
