@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 962 (106 per locale)
+/// Strings: 972 (108 per locale)
 ///
-/// Built on 2023-01-19 at 16:35 UTC
+/// Built on 2023-01-19 at 16:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2322,6 +2322,7 @@ class _StringsRu extends _StringsEn {
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
 	@override late final _StringsUpdateRu update = _StringsUpdateRu._(_root);
 	@override late final _StringsEditorRu editor = _StringsEditorRu._(_root);
+	@override late final _StringsSPenWarningRu sPenWarning = _StringsSPenWarningRu._(_root);
 }
 
 // Path: home
@@ -2347,6 +2348,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsSettingsPrefCategoriesRu prefCategories = _StringsSettingsPrefCategoriesRu._(_root);
 	@override late final _StringsSettingsPrefLabelsRu prefLabels = _StringsSettingsPrefLabelsRu._(_root);
 	@override late final _StringsSettingsPrefDescriptionsRu prefDescriptions = _StringsSettingsPrefDescriptionsRu._(_root);
 	@override late final _StringsSettingsThemeModesRu themeModes = _StringsSettingsThemeModesRu._(_root);
@@ -2422,6 +2424,17 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorHudRu hud = _StringsEditorHudRu._(_root);
 }
 
+// Path: sPenWarning
+class _StringsSPenWarningRu extends _StringsSPenWarningEn {
+	_StringsSPenWarningRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Предупреждение для S Pen';
+	@override String get description => 'Если вы используете S Pen, то можете получить ошибку, из-за которой приложение даст сбой при попытке стереть с помощью кнопки S Pen. Это ошибка в рамках Flutter и исправление, вероятно, будет выпущено в течение месяца. В то же время, пожалуйста, используйте кнопку «Ластик» на панели инструментов.';
+}
+
 // Path: home.tabs
 class _StringsHomeTabsRu extends _StringsHomeTabsEn {
 	_StringsHomeTabsRu._(_StringsRu root) : this._root = root, super._(root);
@@ -2457,6 +2470,18 @@ class _StringsHomeTooltipsRu extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Новая заметка';
 	@override String get showUpdateDialog => 'Показывать диалог обновления';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Общие';
+	@override String get layout => 'Макет';
+	@override String get writing => 'Письмо';
 }
 
 // Path: settings.prefLabels
@@ -4688,6 +4713,9 @@ extension on _StringsRu {
 			case 'home.welcome': return 'Приветствуем в Saber';
 			case 'home.noFiles': return 'Файлов ещё нет';
 			case 'home.createNewNote': return 'Нажмите кнопку «+» чтобы создать новую заметку';
+			case 'settings.prefCategories.general': return 'Общие';
+			case 'settings.prefCategories.layout': return 'Макет';
+			case 'settings.prefCategories.writing': return 'Письмо';
 			case 'settings.prefLabels.locale': return 'Язык приложения';
 			case 'settings.prefLabels.appTheme': return 'Тема оформления';
 			case 'settings.prefLabels.platform': return 'Тип темы';
@@ -4787,6 +4815,8 @@ extension on _StringsRu {
 			case 'editor.quill.typeSomething': return 'Напишите что-нибудь здесь...';
 			case 'editor.hud.unlockZoom': return 'Разблок. увеличение';
 			case 'editor.hud.lockZoom': return 'Блок. увеличения';
+			case 'sPenWarning.title': return 'Предупреждение для S Pen';
+			case 'sPenWarning.description': return 'Если вы используете S Pen, то можете получить ошибку, из-за которой приложение даст сбой при попытке стереть с помощью кнопки S Pen. Это ошибка в рамках Flutter и исправление, вероятно, будет выпущено в течение месяца. В то же время, пожалуйста, используйте кнопку «Ластик» на панели инструментов.';
 			default: return null;
 		}
 	}
