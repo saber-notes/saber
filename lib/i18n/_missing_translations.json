@@ -68,14 +68,14 @@
   "tr": {
     "settings": {
       "prefCategories": {
-        "general": "General",
-        "layout": "Layout",
-        "writing": "Writing"
+        "general": "Genel",
+        "layout": "Yerleşim",
+        "writing": "Yazım"
       }
     },
     "sPenWarning": {
-      "title": "S Pen bug warning",
-      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+      "title": "S Pen hata uyarısı",
+      "description": "S Pen kullanıcıları, yazıları silmek için S Pen butonunu kullandıklarında uygulamanın çökmesine neden olan bir hata ile karşılaşıyorlar. Bu hata Flutter framework'ten kaynaklanmakta ve çözümü muhtemelen bir ay içerisinde yayınlanacak. Bu sırada, lütfen araç kutusundaki silgiyi kullanın."
     }
   },
   "zh-Hans-CN": {},
