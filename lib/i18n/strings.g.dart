@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 933 (103 per locale)
+/// Strings: 936 (104 per locale)
 ///
-/// Built on 2023-01-18 at 22:12 UTC
+/// Built on 2023-01-19 at 02:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -187,6 +187,7 @@ class _StringsSettingsEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
+	late final _StringsSettingsPrefCategoriesEn prefCategories = _StringsSettingsPrefCategoriesEn._(_root);
 	late final _StringsSettingsPrefLabelsEn prefLabels = _StringsSettingsPrefLabelsEn._(_root);
 	late final _StringsSettingsPrefDescriptionsEn prefDescriptions = _StringsSettingsPrefDescriptionsEn._(_root);
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
@@ -308,6 +309,18 @@ class _StringsHomeTooltipsEn {
 	// Translations
 	String get newNote => 'New note';
 	String get showUpdateDialog => 'Show update dialog';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get general => 'General';
+	String get layout => 'Layout';
+	String get writing => 'Writing';
 }
 
 // Path: settings.prefLabels
@@ -3933,6 +3946,9 @@ extension on _StringsEn {
 			case 'home.welcome': return 'Welcome to Saber';
 			case 'home.noFiles': return 'No files found';
 			case 'home.createNewNote': return 'Tap the + button to create a new note';
+			case 'settings.prefCategories.general': return 'General';
+			case 'settings.prefCategories.layout': return 'Layout';
+			case 'settings.prefCategories.writing': return 'Writing';
 			case 'settings.prefLabels.locale': return 'App language';
 			case 'settings.prefLabels.appTheme': return 'App theme';
 			case 'settings.prefLabels.platform': return 'Theme type';

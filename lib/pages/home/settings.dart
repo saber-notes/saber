@@ -92,142 +92,163 @@ class _SettingsPageState extends State<SettingsPage> {
                 padding: EdgeInsets.all(8),
                 child: AppInfo(),
               ),
-              SettingsDropdown(
-                title: t.settings.prefLabels.locale,
-                icon: cupertino ? CupertinoIcons.globe : Icons.language,
-                pref: Prefs.locale,
-                options: [
-                  ToggleButtonsOption("", Text(t.settings.systemLanguage)),
-                  ...LocaleSettings.supportedLocales.map((locale) {
-                    final String localeCode = locale.toLanguageTag();
-                    String? localeName;
-                    localeName ??= LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode.replaceAll("-", "_")];
-                    localeName ??= localeCode;
-                    return ToggleButtonsOption(localeCode, Text(localeName));
-                  }),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.appTheme,
-                iconBuilder: (i) {
-                  if (i == ThemeMode.system.index) return Icons.brightness_auto;
-                  if (i == ThemeMode.light.index) return Icons.light_mode;
-                  if (i == ThemeMode.dark.index) return Icons.dark_mode;
-                  return null;
-                },
-                pref: Prefs.appTheme,
-                optionsWidth: 60,
-                options: [
-                  ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
-                  ToggleButtonsOption(ThemeMode.light.index, Icon(Icons.light_mode, semanticLabel: t.settings.themeModes.light)),
-                  ToggleButtonsOption(ThemeMode.dark.index, Icon(Icons.dark_mode, semanticLabel: t.settings.themeModes.dark)),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.platform,
-                iconBuilder: (i) {
-                  if (platform == TargetPlatform.iOS) return Icons.apple;
-                  if (platform == TargetPlatform.macOS) return Icons.apple;
-                  return materialIcon;
-                },
-                pref: Prefs.platform,
-                optionsWidth: 60,
-                options: [
-                  ToggleButtonsOption(
-                    () {
-                      if (usesMaterialByDefault) return -1;
-                      return TargetPlatform.android.index;
-                    }(),
-                    Icon(materialIcon, semanticLabel: "Material"),
+              ExpansionTile(
+                initiallyExpanded: kDebugMode,
+                leading: const Icon(Icons.app_settings_alt),
+                title: Text(t.settings.prefCategories.general),
+                children: [
+                  SettingsDropdown(
+                    title: t.settings.prefLabels.locale,
+                    icon: cupertino ? CupertinoIcons.globe : Icons.language,
+                    pref: Prefs.locale,
+                    options: [
+                      ToggleButtonsOption("", Text(t.settings.systemLanguage)),
+                      ...LocaleSettings.supportedLocales.map((locale) {
+                        final String localeCode = locale.toLanguageTag();
+                        String? localeName;
+                        localeName ??= LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode.replaceAll("-", "_")];
+                        localeName ??= localeCode;
+                        return ToggleButtonsOption(localeCode, Text(localeName));
+                      }),
+                    ],
                   ),
-                  ToggleButtonsOption(
-                    () {
-                      if (!usesMaterialByDefault) return -1;
-                      return TargetPlatform.iOS.index;
-                    }(),
-                    const Icon(Icons.apple, semanticLabel: "Cupertino"),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.appTheme,
+                    iconBuilder: (i) {
+                      if (i == ThemeMode.system.index) return Icons.brightness_auto;
+                      if (i == ThemeMode.light.index) return Icons.light_mode;
+                      if (i == ThemeMode.dark.index) return Icons.dark_mode;
+                      return null;
+                    },
+                    pref: Prefs.appTheme,
+                    optionsWidth: 60,
+                    options: [
+                      ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
+                      ToggleButtonsOption(ThemeMode.light.index, Icon(Icons.light_mode, semanticLabel: t.settings.themeModes.light)),
+                      ToggleButtonsOption(ThemeMode.dark.index, Icon(Icons.dark_mode, semanticLabel: t.settings.themeModes.dark)),
+                    ],
+                  ),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.platform,
+                    iconBuilder: (i) {
+                      if (platform == TargetPlatform.iOS) return Icons.apple;
+                      if (platform == TargetPlatform.macOS) return Icons.apple;
+                      return materialIcon;
+                    },
+                    pref: Prefs.platform,
+                    optionsWidth: 60,
+                    options: [
+                      ToggleButtonsOption(
+                            () {
+                          if (usesMaterialByDefault) return -1;
+                          return TargetPlatform.android.index;
+                        }(),
+                        Icon(materialIcon, semanticLabel: "Material"),
+                      ),
+                      ToggleButtonsOption(
+                            () {
+                          if (!usesMaterialByDefault) return -1;
+                          return TargetPlatform.iOS.index;
+                        }(),
+                        const Icon(Icons.apple, semanticLabel: "Cupertino"),
+                      ),
+                    ],
+                  ),
+                  SettingsColor(
+                    title: t.settings.prefLabels.customAccentColor,
+                    icon: Icons.colorize,
+                    pref: Prefs.accentColor,
+                  ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.hyperlegibleFont,
+                    subtitle: t.settings.prefDescriptions.hyperlegibleFont,
+                    iconBuilder: (b) {
+                      if (b) return cupertino ? CupertinoIcons.textformat : Icons.font_download;
+                      return cupertino ? CupertinoIcons.textformat_alt : Icons.font_download_off;
+                    },
+                    pref: Prefs.hyperlegibleFont,
+                  ),
+                  if (requiresManualUpdates) SettingsSwitch(
+                    title: t.settings.prefLabels.shouldCheckForUpdates,
+                    icon: Icons.system_update,
+                    pref: Prefs.shouldCheckForUpdates,
                   ),
                 ],
               ),
-              SettingsColor(
-                title: t.settings.prefLabels.customAccentColor,
-                icon: Icons.colorize,
-                pref: Prefs.accentColor,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.hyperlegibleFont,
-                subtitle: t.settings.prefDescriptions.hyperlegibleFont,
-                iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.textformat : Icons.font_download;
-                  return cupertino ? CupertinoIcons.textformat_alt : Icons.font_download_off;
-                },
-                pref: Prefs.hyperlegibleFont,
-              ),
-              if (requiresManualUpdates) SettingsSwitch(
-                title: t.settings.prefLabels.shouldCheckForUpdates,
-                icon: Icons.system_update,
-                pref: Prefs.shouldCheckForUpdates,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorToolbarOnBottom,
-                iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.arrow_down_to_line : Icons.vertical_align_bottom;
-                  return cupertino ? CupertinoIcons.arrow_up_to_line : Icons.vertical_align_top;
-                },
-                pref: Prefs.editorToolbarOnBottom,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorToolbarShowInFullscreen,
-                icon: cupertino ? CupertinoIcons.fullscreen : Icons.fullscreen,
-                pref: Prefs.editorToolbarShowInFullscreen,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorAutoInvert,
-                subtitle: t.settings.prefDescriptions.editorAutoInvert,
-                iconBuilder: (b) {
-                  return b ? Icons.invert_colors_on : Icons.invert_colors_off;
-                },
-                pref: Prefs.editorAutoInvert,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.preferGreyscale,
-                subtitle: t.settings.prefDescriptions.preferGreyscale,
-                iconBuilder: (b) {
-                  return b ? Icons.monochrome_photos : Icons.enhance_photo_translate;
-                },
-                pref: Prefs.preferGreyscale,
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.editorStraightenLines,
-                subtitle: (){
-                  if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
-                  return "${Prefs.editorStraightenDelay.value}ms";
-                }(),
-                iconBuilder: (i) {
-                  return (i <= 0) ? Icons.gesture : Icons.straighten;
-                },
-                pref: Prefs.editorStraightenDelay,
-                options: [
-                  ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
-                  ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
-                  ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
+              ExpansionTile(
+                initiallyExpanded: kDebugMode,
+                leading: const Icon(Icons.display_settings),
+                title: Text(t.settings.prefCategories.layout),
+                children: [
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.editorToolbarOnBottom,
+                    iconBuilder: (b) {
+                      if (b) return cupertino ? CupertinoIcons.arrow_down_to_line : Icons.vertical_align_bottom;
+                      return cupertino ? CupertinoIcons.arrow_up_to_line : Icons.vertical_align_top;
+                    },
+                    pref: Prefs.editorToolbarOnBottom,
+                  ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.editorToolbarShowInFullscreen,
+                    icon: cupertino ? CupertinoIcons.fullscreen : Icons.fullscreen,
+                    pref: Prefs.editorToolbarShowInFullscreen,
+                  ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.editorAutoInvert,
+                    subtitle: t.settings.prefDescriptions.editorAutoInvert,
+                    iconBuilder: (b) {
+                      return b ? Icons.invert_colors_on : Icons.invert_colors_off;
+                    },
+                    pref: Prefs.editorAutoInvert,
+                  ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.editorPromptRename,
+                    subtitle: t.settings.prefDescriptions.editorPromptRename,
+                    iconBuilder: (b) {
+                      if (b) return cupertino ? CupertinoIcons.keyboard : Icons.keyboard;
+                      return cupertino ? CupertinoIcons.keyboard_chevron_compact_down : Icons.keyboard_hide;
+                    },
+                    pref: Prefs.editorPromptRename,
+                  ),
                 ],
-                afterChange: (_) => setState(() {}),
               ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.autoClearWhiteboardOnExit,
-                subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
-                icon: Icons.cleaning_services,
-                pref: Prefs.autoClearWhiteboardOnExit,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorPromptRename,
-                subtitle: t.settings.prefDescriptions.editorPromptRename,
-                iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.keyboard : Icons.keyboard;
-                  return cupertino ? CupertinoIcons.keyboard_chevron_compact_down : Icons.keyboard_hide;
-                },
-                pref: Prefs.editorPromptRename,
+              ExpansionTile(
+                initiallyExpanded: kDebugMode,
+                leading: const Icon(Icons.brush),
+                title: Text(t.settings.prefCategories.writing),
+                children: [
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.preferGreyscale,
+                    subtitle: t.settings.prefDescriptions.preferGreyscale,
+                    iconBuilder: (b) {
+                      return b ? Icons.monochrome_photos : Icons.enhance_photo_translate;
+                    },
+                    pref: Prefs.preferGreyscale,
+                  ),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.editorStraightenLines,
+                    subtitle: (){
+                      if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
+                      return "${Prefs.editorStraightenDelay.value}ms";
+                    }(),
+                    iconBuilder: (i) {
+                      return (i <= 0) ? Icons.gesture : Icons.straighten;
+                    },
+                    pref: Prefs.editorStraightenDelay,
+                    options: [
+                      ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
+                      ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
+                      ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
+                    ],
+                    afterChange: (_) => setState(() {}),
+                  ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.autoClearWhiteboardOnExit,
+                    subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
+                    icon: Icons.cleaning_services,
+                    pref: Prefs.autoClearWhiteboardOnExit,
+                  ),
+                ],
               ),
             ]),
           ])),
