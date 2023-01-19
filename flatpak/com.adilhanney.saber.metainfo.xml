@@ -59,6 +59,18 @@
     </screenshots>
 
     <releases>
+        <release version="0.5.7" type="development" date="2023-01-19">
+            <description>
+                <ul>
+                    <li>Various UI changes for iOS/macOS users</li>
+                    <li>You can choose whether to use the regular or iOS style of the app</li>
+                    <li>Better color scheme for high contrast devices</li>
+                    <li>Fix bug with notes named with special characters not being openable</li>
+                    <li>Fixed editor menu not being sized correctly on landscape phones</li>
+                    <li>The Settings page is organised into categories</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.5.6" type="development" date="2023-01-15">
             <description>
                 <ul>
