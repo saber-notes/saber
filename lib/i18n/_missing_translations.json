@@ -115,19 +115,7 @@
       "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefCategories": {
-        "general": "通用",
-        "layout": "布局",
-        "writing": "书写"
-      }
-    },
-    "sPenWarning": {
-      "title": "S Pen 错误警告",
-      "description": "如果您使用的是 S Pen，您可能会遇到一个错误，即在尝试使用 S Pen 按钮进行擦除时应用会崩溃。这是 Flutter 框架中的一个错误，修复可能会在一个月内发布。同时，请使用工具栏中的橡皮擦按钮。"
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefCategories": {
