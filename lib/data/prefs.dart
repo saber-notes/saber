@@ -23,6 +23,11 @@ abstract class Prefs {
   @visibleForTesting
   static bool testingMode = false;
 
+  /// macOS doesn't support [flutter_secure_storage] without a paid Developer account,
+  /// so we use [encrypted_shared_preferences] instead. This is insecure, so we
+  /// require the user to explicitly enable it.
+  static late final PlainPref<bool> macOSInsecureStorageEnabled;
+
   static late final EncPref<String> url;
   static late final EncPref<String> username;
   /// the password used to login to NextCloud
@@ -79,6 +84,8 @@ abstract class Prefs {
   static late final PlainPref<String> locale;
 
   static void init() {
+    macOSInsecureStorageEnabled = PlainPref("macOSInsecureStorageEnabled", false);
+
     url = EncPref("url", "");
     username = EncPref("username", "");
     ncPassword = EncPref("ncPassword", "");
@@ -353,6 +360,14 @@ class EncPref<T> extends IPref<T> {
     _storage ??= const FlutterSecureStorage();
     _prefs ??= EncryptedSharedPreferences();
 
+    if (!kIsWeb && Platform.isMacOS) {
+      await Prefs.macOSInsecureStorageEnabled.waitUntilLoaded();
+      if (!Prefs.macOSInsecureStorageEnabled.value) {
+        // insecure storage is disabled
+        return null;
+      }
+    }
+
     T? currentValue = await getValueWithKey(key);
     if (currentValue != null) return currentValue;
 
@@ -414,6 +429,7 @@ class EncPref<T> extends IPref<T> {
     _saved = false;
     try {
       if (!kIsWeb && Platform.isMacOS) {
+        if (!Prefs.macOSInsecureStorageEnabled.value) return;
         _prefs ??= EncryptedSharedPreferences();
         if (T == String) return await _prefs!.setString(key, value as String);
         return await _prefs!.setString(key, jsonEncode(value));
