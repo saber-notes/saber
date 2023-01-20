@@ -35,6 +35,9 @@ jobs:
           rm -rf web
           rm -rf windows
 
+      - name: Remove signingConfig
+        run: ./patches/remove_signing_android.sh
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
