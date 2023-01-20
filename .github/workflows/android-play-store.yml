@@ -80,19 +80,20 @@ jobs:
           VERSION_CODE=$(grep -oP '(?<=buildNumber = )\d+' lib/data/version.dart)
 
           # copy changelogs of each language to whatsnew
-          # e.g. cp metadata/en-US/changelogs/$VERSION_CODE.txt whatsnew/whatsnew-en-US
           for f in metadata/*; do
             if [ -f "$f/changelogs/$VERSION_CODE.txt" ]; then
-              cp "$f/changelogs/$VERSION_CODE.txt" "whatsnew/whatsnew-$(basename "$f")"
+              cp "$f/changelogs/$VERSION_CODE.txt" "whatsnew/whatsnew-$(basename "$f").txt"
             fi
           done
+          # copy default to en-GB
+          cp metadata/en-US/changelogs/$VERSION_CODE.txt whatsnew/whatsnew-en-GB.txt
 
       - name: Upload to Play Store
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_JSON }}
           packageName: com.adilhanney.saber
-          releaseFile: output/Saber.aab
+          releaseFiles: output/Saber.aab
           track: beta
           status: completed
           whatsNewDirectory: whatsnew
