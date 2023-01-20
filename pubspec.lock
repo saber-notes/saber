@@ -35,7 +35,7 @@ packages:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   asn1lib:
     dependency: transitive
     description:
@@ -574,7 +574,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.7.0"
+    version: "4.8.0"
   keybinder:
     dependency: "direct main"
     description:
@@ -643,7 +643,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "8a47aff8355f387552065c02e7fbf1cd6b9e56ce"
+      resolved-ref: f7e5a3998d81c01fef3f758c63eacd1e886dbc4f
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -659,7 +659,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "0a994753e04d851138a6af8efe03346df8319d4b"
+      resolved-ref: "74aab49e239217becfb5dd6d055400cc6f630715"
       url: "https://github.com/adil192/open_as_default.git"
     source: git
     version: "0.0.4"
@@ -832,7 +832,7 @@ packages:
       name: process_run
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.5"
+    version: "0.12.5+2"
   provider:
     dependency: transitive
     description:
@@ -958,14 +958,14 @@ packages:
       name: slang
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.7.0"
+    version: "3.9.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.7.0"
+    version: "3.9.0"
   source_span:
     dependency: transitive
     description:

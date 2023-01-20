@@ -87,8 +87,8 @@ dependencies:
 
   regexed_validator: ^2.0.0+1
 
-  slang: ^3.7.0
-  slang_flutter: ^3.7.0
+  slang: ^3.9.0
+  slang_flutter:
 
   flutter_colorpicker: ^1.0.3
 
@@ -158,7 +158,7 @@ dev_dependencies:
 
   icons_launcher: ^2.0.6
 
-  process_run: ^0.12.5
+  process_run: ^0.12.5+2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
