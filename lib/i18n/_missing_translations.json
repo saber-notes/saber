@@ -6,12 +6,12 @@
   "cs": {
     "settings": {
       "prefCategories": {
-        "general": "General",
-        "layout": "Layout",
-        "writing": "Writing"
+        "general": "Obecné",
+        "layout": "Uspořádání uživatelského rozhraní",
+        "writing": "Psaní"
       },
       "prefLabels": {
-        "platform": "Theme type"
+        "platform": "Motiv"
       }
     },
     "sPenWarning": {
