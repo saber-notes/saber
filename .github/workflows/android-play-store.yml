@@ -50,27 +50,27 @@ jobs:
 
       - name: Move unsigned apk
         run: |
-          rm -rf *.apk *.aab
-          mv build/app/outputs/bundle/release/app-release.aab Saber.aab
+          mkdir -p output
+          mv build/app/outputs/bundle/release/app-release.aab output/Saber.aab
 
       - name: Sign aab
         uses: ilharp/sign-android-release@v1
         id: sign_app
         with:
-          releaseDir: .
+          releaseDir: output
           signingKey: ${{ secrets.SIGNING_KEY }}
           keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Rename signed apk
-        run: mv ${{ steps.sign_app.outputs.signedFile }} Saber.aab
+        run: mv ${{ steps.sign_app.outputs.signedFile }} output/Saber.aab
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-Android-PlayStore
-          path: Saber.aab
+          path: output/Saber.aab
 
       - name: Prepare whatsnew directory from metadata/*/changelogs
         run: |
@@ -92,7 +92,7 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_JSON }}
           packageName: com.adilhanney.saber
-          releaseFile: Saber.aab
+          releaseFile: output/Saber.aab
           track: beta
           status: completed
           whatsNewDirectory: whatsnew
