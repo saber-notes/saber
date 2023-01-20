@@ -659,7 +659,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "74aab49e239217becfb5dd6d055400cc6f630715"
+      resolved-ref: c390042cacafdea0dd08c2e0dfeafd0552c4a671
       url: "https://github.com/adil192/open_as_default.git"
     source: git
     version: "0.0.4"
