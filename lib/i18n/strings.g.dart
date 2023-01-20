@@ -3,7 +3,7 @@
 /// Locales: 9
 /// Strings: 978 (108 per locale)
 ///
-/// Built on 2023-01-20 at 01:32 UTC
+/// Built on 2023-01-20 at 22:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -106,8 +106,8 @@ class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
 	static AppLocale setLocale(AppLocale locale) => instance.setLocale(locale);
 	static AppLocale setLocaleRaw(String rawLocale) => instance.setLocaleRaw(rawLocale);
 	static AppLocale useDeviceLocale() => instance.useDeviceLocale();
-	static List<Locale> get supportedLocales => instance.supportedLocales;
-	static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
+	@Deprecated('Use [AppLocaleUtils.supportedLocales]') static List<Locale> get supportedLocales => instance.supportedLocales;
+	@Deprecated('Use [AppLocaleUtils.supportedLocalesRaw]') static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
 	static void setPluralResolver({String? language, AppLocale? locale, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver}) => instance.setPluralResolver(
 		language: language,
 		locale: locale,
@@ -126,6 +126,8 @@ class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, _StringsEn> {
 	static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
 	static AppLocale parseLocaleParts({required String languageCode, String? scriptCode, String? countryCode}) => instance.parseLocaleParts(languageCode: languageCode, scriptCode: scriptCode, countryCode: countryCode);
 	static AppLocale findDeviceLocale() => instance.findDeviceLocale();
+	static List<Locale> get supportedLocales => instance.supportedLocales;
+	static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
 }
 
 // translations
@@ -213,9 +215,9 @@ class _StringsLoginEn {
 	]);
 	late final _StringsLoginStatusEn status = _StringsLoginStatusEn._(_root);
 	List<dynamic> get faq => [
-		_StringsLogin0i0En._(_root),
-		_StringsLogin0i1En._(_root),
-		_StringsLogin0i2En._(_root),
+		_StringsLogin$faq$0i0$En._(_root),
+		_StringsLogin$faq$0i1$En._(_root),
+		_StringsLogin$faq$0i2$En._(_root),
 	];
 }
 
@@ -442,8 +444,8 @@ class _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0En {
-	_StringsLogin0i0En._(this._root);
+class _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$En._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
@@ -453,8 +455,8 @@ class _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1En {
-	_StringsLogin0i1En._(this._root);
+class _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$En._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
@@ -464,8 +466,8 @@ class _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2En {
-	_StringsLogin0i2En._(this._root);
+class _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$En._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
@@ -661,9 +663,9 @@ class _StringsLoginCs extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusCs status = _StringsLoginStatusCs._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0Cs._(_root),
-		_StringsLogin0i1Cs._(_root),
-		_StringsLogin0i2Cs._(_root),
+		_StringsLogin$faq$0i0$Cs._(_root),
+		_StringsLogin$faq$0i1$Cs._(_root),
+		_StringsLogin$faq$0i2$Cs._(_root),
 	];
 }
 
@@ -890,8 +892,8 @@ class _StringsLoginStatusCs extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0Cs extends _StringsLogin0i0En {
-	_StringsLogin0i0Cs._(_StringsCs root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$Cs extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Cs._(_StringsCs root) : this._root = root, super._(root);
 
 	@override final _StringsCs _root; // ignore: unused_field
 
@@ -901,8 +903,8 @@ class _StringsLogin0i0Cs extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1Cs extends _StringsLogin0i1En {
-	_StringsLogin0i1Cs._(_StringsCs root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$Cs extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Cs._(_StringsCs root) : this._root = root, super._(root);
 
 	@override final _StringsCs _root; // ignore: unused_field
 
@@ -912,8 +914,8 @@ class _StringsLogin0i1Cs extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2Cs extends _StringsLogin0i2En {
-	_StringsLogin0i2Cs._(_StringsCs root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$Cs extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Cs._(_StringsCs root) : this._root = root, super._(root);
 
 	@override final _StringsCs _root; // ignore: unused_field
 
@@ -1107,9 +1109,9 @@ class _StringsLoginDe extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusDe status = _StringsLoginStatusDe._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0De._(_root),
-		_StringsLogin0i1De._(_root),
-		_StringsLogin0i2De._(_root),
+		_StringsLogin$faq$0i0$De._(_root),
+		_StringsLogin$faq$0i1$De._(_root),
+		_StringsLogin$faq$0i2$De._(_root),
 	];
 }
 
@@ -1312,8 +1314,8 @@ class _StringsLoginStatusDe extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0De extends _StringsLogin0i0En {
-	_StringsLogin0i0De._(_StringsDe root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$De extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$De._(_StringsDe root) : this._root = root, super._(root);
 
 	@override final _StringsDe _root; // ignore: unused_field
 
@@ -1323,8 +1325,8 @@ class _StringsLogin0i0De extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1De extends _StringsLogin0i1En {
-	_StringsLogin0i1De._(_StringsDe root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$De extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$De._(_StringsDe root) : this._root = root, super._(root);
 
 	@override final _StringsDe _root; // ignore: unused_field
 
@@ -1334,8 +1336,8 @@ class _StringsLogin0i1De extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2De extends _StringsLogin0i2En {
-	_StringsLogin0i2De._(_StringsDe root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$De extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$De._(_StringsDe root) : this._root = root, super._(root);
 
 	@override final _StringsDe _root; // ignore: unused_field
 
@@ -1530,9 +1532,9 @@ class _StringsLoginEs extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusEs status = _StringsLoginStatusEs._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0Es._(_root),
-		_StringsLogin0i1Es._(_root),
-		_StringsLogin0i2Es._(_root),
+		_StringsLogin$faq$0i0$Es._(_root),
+		_StringsLogin$faq$0i1$Es._(_root),
+		_StringsLogin$faq$0i2$Es._(_root),
 	];
 }
 
@@ -1759,8 +1761,8 @@ class _StringsLoginStatusEs extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0Es extends _StringsLogin0i0En {
-	_StringsLogin0i0Es._(_StringsEs root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$Es extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Es._(_StringsEs root) : this._root = root, super._(root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
@@ -1770,8 +1772,8 @@ class _StringsLogin0i0Es extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1Es extends _StringsLogin0i1En {
-	_StringsLogin0i1Es._(_StringsEs root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$Es extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Es._(_StringsEs root) : this._root = root, super._(root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
@@ -1781,8 +1783,8 @@ class _StringsLogin0i1Es extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2Es extends _StringsLogin0i2En {
-	_StringsLogin0i2Es._(_StringsEs root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$Es extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Es._(_StringsEs root) : this._root = root, super._(root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
@@ -1976,9 +1978,9 @@ class _StringsLoginIt extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0It._(_root),
-		_StringsLogin0i1It._(_root),
-		_StringsLogin0i2It._(_root),
+		_StringsLogin$faq$0i0$It._(_root),
+		_StringsLogin$faq$0i1$It._(_root),
+		_StringsLogin$faq$0i2$It._(_root),
 	];
 }
 
@@ -2181,8 +2183,8 @@ class _StringsLoginStatusIt extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0It extends _StringsLogin0i0En {
-	_StringsLogin0i0It._(_StringsIt root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$It extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$It._(_StringsIt root) : this._root = root, super._(root);
 
 	@override final _StringsIt _root; // ignore: unused_field
 
@@ -2192,8 +2194,8 @@ class _StringsLogin0i0It extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1It extends _StringsLogin0i1En {
-	_StringsLogin0i1It._(_StringsIt root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$It extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$It._(_StringsIt root) : this._root = root, super._(root);
 
 	@override final _StringsIt _root; // ignore: unused_field
 
@@ -2203,8 +2205,8 @@ class _StringsLogin0i1It extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2It extends _StringsLogin0i2En {
-	_StringsLogin0i2It._(_StringsIt root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$It extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$It._(_StringsIt root) : this._root = root, super._(root);
 
 	@override final _StringsIt _root; // ignore: unused_field
 
@@ -2400,9 +2402,9 @@ class _StringsLoginRu extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusRu status = _StringsLoginStatusRu._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0Ru._(_root),
-		_StringsLogin0i1Ru._(_root),
-		_StringsLogin0i2Ru._(_root),
+		_StringsLogin$faq$0i0$Ru._(_root),
+		_StringsLogin$faq$0i1$Ru._(_root),
+		_StringsLogin$faq$0i2$Ru._(_root),
 	];
 }
 
@@ -2629,8 +2631,8 @@ class _StringsLoginStatusRu extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0Ru extends _StringsLogin0i0En {
-	_StringsLogin0i0Ru._(_StringsRu root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$Ru extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Ru._(_StringsRu root) : this._root = root, super._(root);
 
 	@override final _StringsRu _root; // ignore: unused_field
 
@@ -2640,8 +2642,8 @@ class _StringsLogin0i0Ru extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1Ru extends _StringsLogin0i1En {
-	_StringsLogin0i1Ru._(_StringsRu root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$Ru extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Ru._(_StringsRu root) : this._root = root, super._(root);
 
 	@override final _StringsRu _root; // ignore: unused_field
 
@@ -2651,8 +2653,8 @@ class _StringsLogin0i1Ru extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2Ru extends _StringsLogin0i2En {
-	_StringsLogin0i2Ru._(_StringsRu root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$Ru extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Ru._(_StringsRu root) : this._root = root, super._(root);
 
 	@override final _StringsRu _root; // ignore: unused_field
 
@@ -2848,9 +2850,9 @@ class _StringsLoginTr extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusTr status = _StringsLoginStatusTr._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0Tr._(_root),
-		_StringsLogin0i1Tr._(_root),
-		_StringsLogin0i2Tr._(_root),
+		_StringsLogin$faq$0i0$Tr._(_root),
+		_StringsLogin$faq$0i1$Tr._(_root),
+		_StringsLogin$faq$0i2$Tr._(_root),
 	];
 }
 
@@ -3077,8 +3079,8 @@ class _StringsLoginStatusTr extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0Tr extends _StringsLogin0i0En {
-	_StringsLogin0i0Tr._(_StringsTr root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$Tr extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Tr._(_StringsTr root) : this._root = root, super._(root);
 
 	@override final _StringsTr _root; // ignore: unused_field
 
@@ -3088,8 +3090,8 @@ class _StringsLogin0i0Tr extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1Tr extends _StringsLogin0i1En {
-	_StringsLogin0i1Tr._(_StringsTr root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$Tr extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Tr._(_StringsTr root) : this._root = root, super._(root);
 
 	@override final _StringsTr _root; // ignore: unused_field
 
@@ -3099,8 +3101,8 @@ class _StringsLogin0i1Tr extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2Tr extends _StringsLogin0i2En {
-	_StringsLogin0i2Tr._(_StringsTr root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$Tr extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Tr._(_StringsTr root) : this._root = root, super._(root);
 
 	@override final _StringsTr _root; // ignore: unused_field
 
@@ -3296,9 +3298,9 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0ZhHansCn._(_root),
-		_StringsLogin0i1ZhHansCn._(_root),
-		_StringsLogin0i2ZhHansCn._(_root),
+		_StringsLogin$faq$0i0$ZhHansCn._(_root),
+		_StringsLogin$faq$0i1$ZhHansCn._(_root),
+		_StringsLogin$faq$0i2$ZhHansCn._(_root),
 	];
 }
 
@@ -3525,8 +3527,8 @@ class _StringsLoginStatusZhHansCn extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0ZhHansCn extends _StringsLogin0i0En {
-	_StringsLogin0i0ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$ZhHansCn extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
@@ -3536,8 +3538,8 @@ class _StringsLogin0i0ZhHansCn extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1ZhHansCn extends _StringsLogin0i1En {
-	_StringsLogin0i1ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$ZhHansCn extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
@@ -3547,8 +3549,8 @@ class _StringsLogin0i1ZhHansCn extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2ZhHansCn extends _StringsLogin0i2En {
-	_StringsLogin0i2ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$ZhHansCn extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
@@ -3744,9 +3746,9 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 	]);
 	@override late final _StringsLoginStatusZhHantTw status = _StringsLoginStatusZhHantTw._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin0i0ZhHantTw._(_root),
-		_StringsLogin0i1ZhHantTw._(_root),
-		_StringsLogin0i2ZhHantTw._(_root),
+		_StringsLogin$faq$0i0$ZhHantTw._(_root),
+		_StringsLogin$faq$0i1$ZhHantTw._(_root),
+		_StringsLogin$faq$0i2$ZhHantTw._(_root),
 	];
 }
 
@@ -3973,8 +3975,8 @@ class _StringsLoginStatusZhHantTw extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin0i0ZhHantTw extends _StringsLogin0i0En {
-	_StringsLogin0i0ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$ZhHantTw extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
@@ -3984,8 +3986,8 @@ class _StringsLogin0i0ZhHantTw extends _StringsLogin0i0En {
 }
 
 // Path: login.faq.1
-class _StringsLogin0i1ZhHantTw extends _StringsLogin0i1En {
-	_StringsLogin0i1ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$ZhHantTw extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
@@ -3995,8 +3997,8 @@ class _StringsLogin0i1ZhHantTw extends _StringsLogin0i1En {
 }
 
 // Path: login.faq.2
-class _StringsLogin0i2ZhHantTw extends _StringsLogin0i2En {
-	_StringsLogin0i2ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$ZhHantTw extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 

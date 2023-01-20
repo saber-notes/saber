@@ -54,7 +54,7 @@ void startSyncAfterUsernameLoaded() async {
 }
 
 void setLocale() {
-  if (Prefs.locale.value.isNotEmpty && LocaleSettings.supportedLocalesRaw.contains(Prefs.locale.value)) {
+  if (Prefs.locale.value.isNotEmpty && AppLocaleUtils.supportedLocalesRaw.contains(Prefs.locale.value)) {
     LocaleSettings.setLocaleRaw(Prefs.locale.value);
   } else {
     LocaleSettings.useDeviceLocale();

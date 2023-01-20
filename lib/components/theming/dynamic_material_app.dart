@@ -177,7 +177,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
           routerDelegate: widget.router.routerDelegate,
 
           locale: TranslationProvider.of(context).flutterLocale,
-          supportedLocales: LocaleSettings.supportedLocales,
+          supportedLocales: AppLocaleUtils.supportedLocales,
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
           title: widget.title,

@@ -103,7 +103,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     pref: Prefs.locale,
                     options: [
                       ToggleButtonsOption("", Text(t.settings.systemLanguage)),
-                      ...LocaleSettings.supportedLocales.map((locale) {
+                      ...AppLocaleUtils.supportedLocales.map((locale) {
                         final String localeCode = locale.toLanguageTag();
                         String? localeName;
                         localeName ??= LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode.replaceAll("-", "_")];
