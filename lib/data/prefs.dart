@@ -341,6 +341,9 @@ class PlainPref<T> extends IPref<T> {
 class EncPref<T> extends IPref<T> {
   FlutterSecureStorage? _storage;
 
+  @Deprecated("Use _storage instead, this remains here for macOS compatibility")
+  EncryptedSharedPreferences? _prefs;
+
   EncPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     assert(T == String || T == typeOf<List<String>>());
   }
@@ -348,6 +351,7 @@ class EncPref<T> extends IPref<T> {
   @override
   Future<T?> _load() async {
     _storage ??= const FlutterSecureStorage();
+    _prefs ??= EncryptedSharedPreferences();
 
     T? currentValue = await getValueWithKey(key);
     if (currentValue != null) return currentValue;
@@ -358,30 +362,37 @@ class EncPref<T> extends IPref<T> {
 
       // migrate to new key
       await _save();
-      _storage!.delete(key: key);
+      if (!kIsWeb && Platform.isMacOS) {
+        _prefs!.remove(key);
+      } else {
+        _storage!.delete(key: key);
+      }
 
       return currentValue;
     }
 
     for (String key in deprecatedKeys) {
-      _storage!.delete(key: key);
+      if (!kIsWeb && Platform.isMacOS) {
+        _prefs!.remove(key);
+      } else {
+        _storage!.delete(key: key);
+      }
     }
 
     // try to load from EncryptedSharedPreferences (deprecated)
     try {
-      final prefs = EncryptedSharedPreferences();
       for (String key in [key, ...historicalKeys]) {
-        currentValue = _parseString(await prefs.getString(key));
+        currentValue = _parseString(await _prefs!.getString(key));
 
         // migrate to new key
-        prefs.remove(key);
+        _prefs!.remove(key);
         await _save();
 
         return currentValue;
       }
       for (String key in deprecatedKeys) {
         try {
-          prefs.remove(key);
+          _prefs!.remove(key);
         } catch (e) {
           // ignore
         }
@@ -395,16 +406,22 @@ class EncPref<T> extends IPref<T> {
   @override
   _afterLoad() async {
     _storage = null;
+    _prefs = null;
   }
 
   @override
   Future _save() async {
     _saved = false;
     try {
-      _storage ??= const FlutterSecureStorage();
-
-      if (T == String) return await _storage!.write(key: key, value: value as String);
-      return await _storage!.write(key: key, value: jsonEncode(value));
+      if (!kIsWeb && Platform.isMacOS) {
+        _prefs ??= EncryptedSharedPreferences();
+        if (T == String) return await _prefs!.setString(key, value as String);
+        return await _prefs!.setString(key, jsonEncode(value));
+      } else {
+        _storage ??= const FlutterSecureStorage();
+        if (T == String) return await _storage!.write(key: key, value: value as String);
+        return await _storage!.write(key: key, value: jsonEncode(value));
+      }
     } finally {
       _saved = true;
     }
@@ -413,7 +430,12 @@ class EncPref<T> extends IPref<T> {
   @override
   Future<T?> getValueWithKey(String key) async {
     try {
-      final value = await _storage!.read(key: key);
+      final String? value;
+      if (!kIsWeb && Platform.isMacOS) {
+        value = await _prefs!.getString(key);
+      } else {
+        value = await _storage!.read(key: key);
+      }
       return _parseString(value);
     } catch (e) {
       if (kDebugMode) print("Error loading $key: $e");
@@ -433,8 +455,13 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future<void> delete() async {
-    _storage ??= const FlutterSecureStorage();
-    await _storage!.delete(key: key);
+    if (!kIsWeb && Platform.isMacOS) {
+      _prefs ??= EncryptedSharedPreferences();
+      await _prefs!.remove(key);
+    } else {
+      _storage ??= const FlutterSecureStorage();
+      await _storage!.delete(key: key);
+    }
   }
 }
 
