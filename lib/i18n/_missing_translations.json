@@ -3,7 +3,16 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
+  "cs": {
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    }
+  },
   "de": {
     "settings": {
       "prefCategories": {
@@ -15,12 +24,29 @@
         "platform": "Theme type"
       }
     },
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    },
     "sPenWarning": {
       "title": "S Pen bug warning",
       "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
-  "es": {},
+  "es": {
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    }
+  },
   "it": {
     "settings": {
       "prefCategories": {
@@ -32,13 +58,57 @@
         "platform": "Theme type"
       }
     },
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    },
     "sPenWarning": {
       "title": "S Pen bug warning",
       "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
     }
   },
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "ru": {
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    }
+  },
+  "tr": {
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "login": {
+      "insecureStorage": {
+        "title": "Security warning",
+        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+        "loginTemporarily": "Login temporarily",
+        "useInsecureStorage": "Use insecure storage"
+      }
+    }
+  }
 }

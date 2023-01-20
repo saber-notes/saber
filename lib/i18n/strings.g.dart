@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 978 (108 per locale)
+/// Strings: 982 (109 per locale)
 ///
-/// Built on 2023-01-20 at 22:41 UTC
+/// Built on 2023-01-20 at 22:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -219,6 +219,7 @@ class _StringsLoginEn {
 		_StringsLogin$faq$0i1$En._(_root),
 		_StringsLogin$faq$0i2$En._(_root),
 	];
+	late final _StringsLoginInsecureStorageEn insecureStorage = _StringsLoginInsecureStorageEn._(_root);
 }
 
 // Path: appInfo
@@ -474,6 +475,23 @@ class _StringsLogin$faq$0i2$En {
 	// Translations
 	String get q => 'Why use two passwords?';
 	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Security warning';
+	TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you\'ll need to choose between:\n1. Using insecure storage to save your login details. This isn\'t recommended, but it\'s your choice.\n2. Logging in each time you use the app.\n\nIf you\'d like to help me join the Apple Developer Program, you can '),
+		sponsorLink('become a sponsor'),
+		const TextSpan(text: '!'),
+	]);
+	String get loginTemporarily => 'Login temporarily';
+	String get useInsecureStorage => 'Use insecure storage';
 }
 
 // Path: editor.toolbar
@@ -4192,6 +4210,14 @@ extension on _StringsEn {
 			case 'login.faq.1.a': return 'The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
 			case 'login.faq.2.q': return 'Why use two passwords?';
 			case 'login.faq.2.a': return 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
+			case 'login.insecureStorage.title': return 'Security warning';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: 'Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you\'ll need to choose between:\n1. Using insecure storage to save your login details. This isn\'t recommended, but it\'s your choice.\n2. Logging in each time you use the app.\n\nIf you\'d like to help me join the Apple Developer Program, you can '),
+				sponsorLink('become a sponsor'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return 'Login temporarily';
+			case 'login.insecureStorage.useInsecureStorage': return 'Use insecure storage';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.dirty': return 'DIRTY';
 			case 'appInfo.debug': return 'DEBUG';

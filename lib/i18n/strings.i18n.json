@@ -103,7 +103,13 @@
         "q": "Why use two passwords?",
         "a": "The Nextcloud password is used to access the cloud. The encryption password \"scrambles\" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data."
       }
-    ]
+    ],
+    "insecureStorage": {
+      "title": "Security warning",
+      "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
+      "loginTemporarily": "Login temporarily",
+      "useInsecureStorage": "Use insecure storage"
+    }
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
