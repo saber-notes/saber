@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 972 (108 per locale)
+/// Strings: 978 (108 per locale)
 ///
-/// Built on 2023-01-19 at 16:38 UTC
+/// Built on 2023-01-20 at 01:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -609,6 +609,7 @@ class _StringsCs extends _StringsEn {
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
 	@override late final _StringsUpdateCs update = _StringsUpdateCs._(_root);
 	@override late final _StringsEditorCs editor = _StringsEditorCs._(_root);
+	@override late final _StringsSPenWarningCs sPenWarning = _StringsSPenWarningCs._(_root);
 }
 
 // Path: home
@@ -640,6 +641,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
 	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
 	@override String get systemLanguage => 'Systémový jazyk';
+	@override late final _StringsSettingsPrefCategoriesCs prefCategories = _StringsSettingsPrefCategoriesCs._(_root);
 }
 
 // Path: login
@@ -709,6 +711,17 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorHudCs hud = _StringsEditorHudCs._(_root);
 }
 
+// Path: sPenWarning
+class _StringsSPenWarningCs extends _StringsSPenWarningEn {
+	_StringsSPenWarningCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Varování ohledně chyby při používání S Pen';
+	@override String get description => 'Při používání S Pen můžete narazit na chybu způsobující pád aplikace, která se projeví po pokusu mazat podržením tlačítka na S Pen. Jedná se o chybu ve frameworku Flutter, jejíž oprava bude vydána zhruba do měsíce. Prozatím prosím používejte tlačítko pro smazání umístěné v nástrojové liště.';
+}
+
 // Path: home.tabs
 class _StringsHomeTabsCs extends _StringsHomeTabsEn {
 	_StringsHomeTabsCs._(_StringsCs root) : this._root = root, super._(root);
@@ -753,7 +766,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get appTheme => 'Motiv aplikace';
+	@override String get appTheme => 'Barva motivu';
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
@@ -765,6 +778,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get locale => 'Jazyk aplikace';
+	@override String get platform => 'Motiv';
 }
 
 // Path: settings.prefDescriptions
@@ -813,6 +827,18 @@ class _StringsSettingsStraightenDelayCs extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Vypnuto';
 	@override String get regular => 'Standardně';
 	@override String get slow => 'Dlouze';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesCs extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Obecné';
+	@override String get layout => 'Uspořádání uživatelského rozhraní';
+	@override String get writing => 'Psaní';
 }
 
 // Path: login.feedbacks
@@ -4228,7 +4254,7 @@ extension on _StringsCs {
 			case 'home.welcome': return 'Vítejte v aplikaci Saber';
 			case 'home.noFiles': return 'Žádné poznámky nebyly nalezeny';
 			case 'home.createNewNote': return 'Pro přidání nové poznámky klepněte na tlačítko +';
-			case 'settings.prefLabels.appTheme': return 'Motiv aplikace';
+			case 'settings.prefLabels.appTheme': return 'Barva motivu';
 			case 'settings.prefLabels.customAccentColor': return 'Vlastní barevný odstín';
 			case 'settings.prefLabels.hyperlegibleFont': return 'Lépe čitelný font';
 			case 'settings.prefLabels.shouldCheckForUpdates': return 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
@@ -4240,6 +4266,7 @@ extension on _StringsCs {
 			case 'settings.prefLabels.autoClearWhiteboardOnExit': return 'Smazat tabuli po opuštění aplikace';
 			case 'settings.prefLabels.editorPromptRename': return 'Vybízet k přejmenování nových poznámek';
 			case 'settings.prefLabels.locale': return 'Jazyk aplikace';
+			case 'settings.prefLabels.platform': return 'Motiv';
 			case 'settings.prefDescriptions.hyperlegibleFont': return 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
 			case 'settings.prefDescriptions.editorAutoInvert': return 'Inteligentně ztmaví poznámky ve tmavém motivu';
 			case 'settings.prefDescriptions.preferGreyscale': return 'Pro elektronické čtečky knih s e-ink displejem';
@@ -4253,6 +4280,9 @@ extension on _StringsCs {
 			case 'settings.straightenDelay.regular': return 'Standardně';
 			case 'settings.straightenDelay.slow': return 'Dlouze';
 			case 'settings.systemLanguage': return 'Systémový jazyk';
+			case 'settings.prefCategories.general': return 'Obecné';
+			case 'settings.prefCategories.layout': return 'Uspořádání uživatelského rozhraní';
+			case 'settings.prefCategories.writing': return 'Psaní';
 			case 'login.title': return 'Přihlásit se';
 			case 'login.feedbacks.checkUsername': return 'Zkontrolujte prosím své uživatelské jméno a heslo.';
 			case 'login.feedbacks.enterNcPassword': return 'Zadejte prosím své heslo k NextCloud účtu.';
@@ -4326,6 +4356,8 @@ extension on _StringsCs {
 			case 'editor.quill.typeSomething': return 'Něco sem napište...';
 			case 'editor.hud.unlockZoom': return 'Odemknout přibližování';
 			case 'editor.hud.lockZoom': return 'Zamknout přibližování';
+			case 'sPenWarning.title': return 'Varování ohledně chyby při používání S Pen';
+			case 'sPenWarning.description': return 'Při používání S Pen můžete narazit na chybu způsobující pád aplikace, která se projeví po pokusu mazat podržením tlačítka na S Pen. Jedná se o chybu ve frameworku Flutter, jejíž oprava bude vydána zhruba do měsíce. Prozatím prosím používejte tlačítko pro smazání umístěné v nástrojové liště.';
 			default: return null;
 		}
 	}
