@@ -34,7 +34,8 @@
       "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung",
       "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
       "locale": "Sprache",
-      "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild"
+      "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild",
+      "platform": "Oberfläche"
     },
     "themeModes": {
       "system": "System",
@@ -56,7 +57,12 @@
       "regular": "Normal",
       "slow": "Langsam"
     },
-    "systemLanguage": "Systemsprache"
+    "systemLanguage": "Systemsprache",
+    "prefCategories": {
+      "general": "Allgemein",
+      "layout": "Aussehen",
+      "writing": "Eingabe"
+    }
   },
   "login": {
     "title": "Login",
@@ -97,7 +103,13 @@
         "q": "Wieso zwei Passwörter?",
         "a": "Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort \"verwürfelt\" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar."
       }
-    ]
+    ],
+    "insecureStorage": {
+      "title": "Sicherheitswarnung",
+      "description(rich)": "Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du ${sponsorLink(mich unterstützen)}!",
+      "loginTemporarily": "Vorübergehend anmelden",
+      "useInsecureStorage": "Unsicheren Speicher verwenden"
+    }
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
@@ -160,5 +172,9 @@
       "unlockZoom": "Zoom entsperren",
       "lockZoom": "Zoom sperren"
     }
+  },
+  "sPenWarning": {
+    "title": "S Pen Problemwarnung",
+    "description": "Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen."
   }
 }

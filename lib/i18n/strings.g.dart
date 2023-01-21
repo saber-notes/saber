@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1000 (111 per locale)
+/// Strings: 1010 (112 per locale)
 ///
-/// Built on 2023-01-21 at 14:50 UTC
+/// Built on 2023-01-21 at 14:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1095,6 +1095,7 @@ class _StringsDe extends _StringsEn {
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
 	@override late final _StringsUpdateDe update = _StringsUpdateDe._(_root);
 	@override late final _StringsEditorDe editor = _StringsEditorDe._(_root);
+	@override late final _StringsSPenWarningDe sPenWarning = _StringsSPenWarningDe._(_root);
 }
 
 // Path: home
@@ -1126,6 +1127,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefDescriptionsDe prefDescriptions = _StringsSettingsPrefDescriptionsDe._(_root);
 	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
 	@override String get systemLanguage => 'Systemsprache';
+	@override late final _StringsSettingsPrefCategoriesDe prefCategories = _StringsSettingsPrefCategoriesDe._(_root);
 }
 
 // Path: login
@@ -1149,6 +1151,7 @@ class _StringsLoginDe extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$De._(_root),
 		_StringsLogin$faq$0i2$De._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageDe insecureStorage = _StringsLoginInsecureStorageDe._(_root);
 }
 
 // Path: appInfo
@@ -1193,6 +1196,17 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatDe newerFileFormat = _StringsEditorNewerFileFormatDe._(_root);
 	@override late final _StringsEditorQuillDe quill = _StringsEditorQuillDe._(_root);
 	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningDe extends _StringsSPenWarningEn {
+	_StringsSPenWarningDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'S Pen Problemwarnung';
+	@override String get description => 'Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen.';
 }
 
 // Path: home.tabs
@@ -1251,6 +1265,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get locale => 'Sprache';
 	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
+	@override String get platform => 'Oberfläche';
 }
 
 // Path: settings.themeModes
@@ -1299,6 +1314,18 @@ class _StringsSettingsStraightenDelayDe extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Aus';
 	@override String get regular => 'Normal';
 	@override String get slow => 'Langsam';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Allgemein';
+	@override String get layout => 'Aussehen';
+	@override String get writing => 'Eingabe';
 }
 
 // Path: login.feedbacks
@@ -1380,6 +1407,23 @@ class _StringsLogin$faq$0i2$De extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Wieso zwei Passwörter?';
 	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageDe extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Sicherheitswarnung';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du '),
+		sponsorLink('mich unterstützen'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Vorübergehend anmelden';
+	@override String get useInsecureStorage => 'Unsicheren Speicher verwenden';
 }
 
 // Path: editor.toolbar
@@ -4508,6 +4552,7 @@ extension on _StringsDe {
 			case 'settings.prefLabels.editorPromptRename': return 'Beim Erstellen von Notizen einen Namen erfragen';
 			case 'settings.prefLabels.locale': return 'Sprache';
 			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Zeige die Werkzeugleiste im Vollbild';
+			case 'settings.prefLabels.platform': return 'Oberfläche';
 			case 'settings.themeModes.system': return 'System';
 			case 'settings.themeModes.light': return 'Hell';
 			case 'settings.themeModes.dark': return 'Dunkel';
@@ -4521,6 +4566,9 @@ extension on _StringsDe {
 			case 'settings.straightenDelay.regular': return 'Normal';
 			case 'settings.straightenDelay.slow': return 'Langsam';
 			case 'settings.systemLanguage': return 'Systemsprache';
+			case 'settings.prefCategories.general': return 'Allgemein';
+			case 'settings.prefCategories.layout': return 'Aussehen';
+			case 'settings.prefCategories.writing': return 'Eingabe';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Bitte gib dein Nextcloud-Passwort ein.';
@@ -4554,6 +4602,14 @@ extension on _StringsDe {
 			case 'login.faq.1.a': return 'Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\n\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
 			case 'login.faq.2.q': return 'Wieso zwei Passwörter?';
 			case 'login.faq.2.a': return 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
+			case 'login.insecureStorage.title': return 'Sicherheitswarnung';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: 'Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du '),
+				sponsorLink('mich unterstützen'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return 'Vorübergehend anmelden';
+			case 'login.insecureStorage.useInsecureStorage': return 'Unsicheren Speicher verwenden';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
@@ -4594,6 +4650,8 @@ extension on _StringsDe {
 			case 'editor.quill.typeSomething': return 'Hier tippen...';
 			case 'editor.hud.unlockZoom': return 'Zoom entsperren';
 			case 'editor.hud.lockZoom': return 'Zoom sperren';
+			case 'sPenWarning.title': return 'S Pen Problemwarnung';
+			case 'sPenWarning.description': return 'Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen.';
 			default: return null;
 		}
 	}
