@@ -46,7 +46,7 @@ class _RecentPageState extends State<RecentPage> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final platform = Theme.of(context).platform;
-    final appBarCentered = platform == TargetPlatform.iOS
+    final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
     return Scaffold(
       body: RefreshIndicator(
@@ -65,9 +65,9 @@ class _RecentPageState extends State<RecentPage> {
                   t.home.titles.home,
                   style: TextStyle(color: colorScheme.onBackground),
                 ),
-                centerTitle: appBarCentered,
+                centerTitle: cupertino,
                 titlePadding: EdgeInsetsDirectional.only(
-                  start: appBarCentered ? 0 : 16,
+                  start: cupertino ? 0 : 16,
                   bottom: 16
                 ),
               ),
@@ -88,6 +88,7 @@ class _RecentPageState extends State<RecentPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        shape: cupertino ? const CircleBorder() : null,
         onPressed: () {
           context.push(RoutePaths.edit);
         },

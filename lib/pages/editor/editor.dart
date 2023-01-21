@@ -621,6 +621,9 @@ class _EditorState extends State<Editor> {
 
   @override
   Widget build(BuildContext context) {
+    final platform = Theme.of(context).platform;
+    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+
     final Widget body = Column(
       verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
       children: [
@@ -797,6 +800,7 @@ class _EditorState extends State<Editor> {
       ),
       body: body,
       floatingActionButton: (DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
+        shape: cupertino ? const CircleBorder() : null,
         onPressed: () {
           DynamicMaterialApp.isFullscreen.value = false;
         },
