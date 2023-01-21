@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1010 (112 per locale)
+/// Strings: 1014 (112 per locale)
 ///
-/// Built on 2023-01-21 at 14:53 UTC
+/// Built on 2023-01-21 at 14:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2978,6 +2978,7 @@ class _StringsLoginTr extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$Tr._(_root),
 		_StringsLogin$faq$0i2$Tr._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageTr insecureStorage = _StringsLoginInsecureStorageTr._(_root);
 }
 
 // Path: appInfo
@@ -3233,6 +3234,23 @@ class _StringsLogin$faq$0i2$Tr extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Neden iki şifre kullanılıyor?';
 	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageTr extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Güvenlik uyarısı';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'macOS\'ta Güvenlik Anahtarlığı (Keychain) Paylaşımı ücretli bir Apple Geliştirici hesabı olmadan çalışmıyor. Eğer giriş yapmak isterseniz bunlardan birini seçiniz:\n1. Giriş bilgilerini kaydetmek için güvenli olmayan depolamayı kullan. Bu önerilmez ancak seçim sizin.\n2. Her seferinde yeniden giriş yap.\n\nApple Geliştirici Programına katılmama yardım etmek isterseniz, uygulamayı '),
+		sponsorLink('sponsorlayabilirsiniz'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Geçici olarak giriş yap';
+	@override String get useInsecureStorage => 'Güvenli olmayan depolamayı kullan';
 }
 
 // Path: editor.toolbar
@@ -5121,6 +5139,14 @@ extension on _StringsTr {
 			case 'login.faq.1.a': return 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
 			case 'login.faq.2.q': return 'Neden iki şifre kullanılıyor?';
 			case 'login.faq.2.a': return 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+			case 'login.insecureStorage.title': return 'Güvenlik uyarısı';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: 'macOS\'ta Güvenlik Anahtarlığı (Keychain) Paylaşımı ücretli bir Apple Geliştirici hesabı olmadan çalışmıyor. Eğer giriş yapmak isterseniz bunlardan birini seçiniz:\n1. Giriş bilgilerini kaydetmek için güvenli olmayan depolamayı kullan. Bu önerilmez ancak seçim sizin.\n2. Her seferinde yeniden giriş yap.\n\nApple Geliştirici Programına katılmama yardım etmek isterseniz, uygulamayı '),
+				sponsorLink('sponsorlayabilirsiniz'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return 'Geçici olarak giriş yap';
+			case 'login.insecureStorage.useInsecureStorage': return 'Güvenli olmayan depolamayı kullan';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
 			case 'appInfo.dirty': return 'TEST';
 			case 'appInfo.debug': return 'DEBUG';
