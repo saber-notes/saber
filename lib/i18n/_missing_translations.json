@@ -7,25 +7,25 @@
   "de": {
     "settings": {
       "prefCategories": {
-        "general": "General",
-        "layout": "Layout",
-        "writing": "Writing"
+        "general": "Allgemein",
+        "layout": "Aussehen",
+        "writing": "Eingabe"
       },
       "prefLabels": {
-        "platform": "Theme type"
+        "platform": "Oberfläche"
       }
     },
     "login": {
       "insecureStorage": {
-        "title": "Security warning",
-        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
-        "loginTemporarily": "Login temporarily",
-        "useInsecureStorage": "Use insecure storage"
+        "title": "Sicherheitswarnung",
+        "description(rich)": "Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du ${sponsorLink(mich unterstützen)}!",
+        "loginTemporarily": "Vorübergehend anmelden",
+        "useInsecureStorage": "Unsicheren Speicher verwenden"
       }
     },
     "sPenWarning": {
-      "title": "S Pen bug warning",
-      "description": "If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar."
+      "title": "S Pen Problemwarnung",
+      "description": "Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen."
     }
   },
   "es": {
