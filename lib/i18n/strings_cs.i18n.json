@@ -103,7 +103,13 @@
         "q": "Proč používat dvě hesla?",
         "a": "Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
       }
-    ]
+    ],
+    "insecureStorage": {
+      "title": "Bezpečnostní upozornění",
+      "description(rich)": "Sdílení klíčenky na Macu nefunguje bez členství v placeném programu pro vývojáře od společnosti Apple. Pokud se chcete přihlásit, můžete využít jednu z následujících možností:\n1. Použít pro uložení přihlašovacích údajů nezabezpečené úložiště. Tuto možnost nedoporučuji, ale je to vaše volba.\n2. Přihlásit se pokaždé, když chcete aplikaci použít.\n\nPokud mi chceme pomoct s připojením se do programu pro vývojáře, můžete se ${sponsorLink(stát mým sponzorem)}!",
+      "loginTemporarily": "Přihlásit pouze dočasně",
+      "useInsecureStorage": "Použít nezabezpečené úložiště"
+    }
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.",

@@ -3,16 +3,7 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {
-    "login": {
-      "insecureStorage": {
-        "title": "Bezpečnostní upozornění",
-        "description(rich)": "Sdílení klíčenky na Macu nefunguje bez členství v placeném programu pro vývojáře od společnosti Apple. Pokud se chcete přihlásit, můžete využít jednu z následujících možností:\n1. Použít pro uložení přihlašovacích údajů nezabezpečené úložiště. Tuto možnost nedoporučuji, ale je to vaše volba.\n2. Přihlásit se pokaždé, když chcete aplikaci použít.\n\nPokud mi chceme pomoct s připojením se do programu pro vývojáře, můžete se ${sponsorLink(stát mým sponzorem)}!",
-        "loginTemporarily": "Přihlásit pouze dočasně",
-        "useInsecureStorage": "Použít nezabezpečené úložiště"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefCategories": {
