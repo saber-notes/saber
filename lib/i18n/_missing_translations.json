@@ -4,30 +4,7 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {},
-  "de": {
-    "settings": {
-      "prefCategories": {
-        "general": "Allgemein",
-        "layout": "Aussehen",
-        "writing": "Eingabe"
-      },
-      "prefLabels": {
-        "platform": "Oberfläche"
-      }
-    },
-    "login": {
-      "insecureStorage": {
-        "title": "Sicherheitswarnung",
-        "description(rich)": "Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du ${sponsorLink(mich unterstützen)}!",
-        "loginTemporarily": "Vorübergehend anmelden",
-        "useInsecureStorage": "Unsicheren Speicher verwenden"
-      }
-    },
-    "sPenWarning": {
-      "title": "S Pen Problemwarnung",
-      "description": "Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen."
-    }
-  },
+  "de": {},
   "es": {
     "login": {
       "insecureStorage": {
