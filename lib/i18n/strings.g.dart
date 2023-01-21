@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 982 (109 per locale)
+/// Strings: 986 (109 per locale)
 ///
-/// Built on 2023-01-20 at 22:42 UTC
+/// Built on 2023-01-21 at 01:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -685,6 +685,7 @@ class _StringsLoginCs extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$Cs._(_root),
 		_StringsLogin$faq$0i2$Cs._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageCs insecureStorage = _StringsLoginInsecureStorageCs._(_root);
 }
 
 // Path: appInfo
@@ -940,6 +941,23 @@ class _StringsLogin$faq$0i2$Cs extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Proč používat dvě hesla?';
 	@override String get a => 'Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageCs extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Bezpečnostní upozornění';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'Sdílení klíčenky na Macu nefunguje bez členství v placeném programu pro vývojáře od společnosti Apple. Pokud se chcete přihlásit, můžete využít jednu z následujících možností:\n1. Použít pro uložení přihlašovacích údajů nezabezpečené úložiště. Tuto možnost nedoporučuji, ale je to vaše volba.\n2. Přihlásit se pokaždé, když chcete aplikaci použít.\n\nPokud mi chceme pomoct s připojením se do programu pro vývojáře, můžete se '),
+		sponsorLink('stát mým sponzorem'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Přihlásit pouze dočasně';
+	@override String get useInsecureStorage => 'Použít nezabezpečené úložiště';
 }
 
 // Path: editor.toolbar
@@ -4344,6 +4362,14 @@ extension on _StringsCs {
 			case 'login.faq.1.a': return 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 			case 'login.faq.2.q': return 'Proč používat dvě hesla?';
 			case 'login.faq.2.a': return 'Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+			case 'login.insecureStorage.title': return 'Bezpečnostní upozornění';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: 'Sdílení klíčenky na Macu nefunguje bez členství v placeném programu pro vývojáře od společnosti Apple. Pokud se chcete přihlásit, můžete využít jednu z následujících možností:\n1. Použít pro uložení přihlašovacích údajů nezabezpečené úložiště. Tuto možnost nedoporučuji, ale je to vaše volba.\n2. Přihlásit se pokaždé, když chcete aplikaci použít.\n\nPokud mi chceme pomoct s připojením se do programu pro vývojáře, můžete se '),
+				sponsorLink('stát mým sponzorem'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return 'Přihlásit pouze dočasně';
+			case 'login.insecureStorage.useInsecureStorage': return 'Použít nezabezpečené úložiště';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
 			case 'appInfo.dirty': return 'ZKUŠEBNÍ VERZE';
 			case 'appInfo.debug': return 'LADÍCÍ VERZE';
