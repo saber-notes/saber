@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 986 (109 per locale)
+/// Strings: 990 (110 per locale)
 ///
-/// Built on 2023-01-21 at 01:13 UTC
+/// Built on 2023-01-21 at 03:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3338,6 +3338,7 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$ZhHansCn._(_root),
 		_StringsLogin$faq$0i2$ZhHansCn._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageZhHansCn insecureStorage = _StringsLoginInsecureStorageZhHansCn._(_root);
 }
 
 // Path: appInfo
@@ -3593,6 +3594,23 @@ class _StringsLogin$faq$0i2$ZhHansCn extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => '为什么使用双重密码？';
 	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageZhHansCn extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '安全警告';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: '如果没有付费的 Apple Developer 帐户，钥匙串共享将无法在 macOS 上运行。如果您想登录，您需要在以下选项之间进行选择：\n1.使用不安全存储来保存您的登录详细信息。不推荐这样做，但自行选择。\n2.每次使用该应用时都要登录。\n\n如果您想帮助我加入 Apple Developer Program，您可以 '),
+		sponsorLink('成为赞助者'),
+		const TextSpan(text: '！'),
+	]);
+	@override String get loginTemporarily => '临时登录';
+	@override String get useInsecureStorage => '使用不安全存储';
 }
 
 // Path: editor.toolbar
@@ -5113,6 +5131,14 @@ extension on _StringsZhHansCn {
 			case 'login.faq.1.a': return '加密密码用于在将数据发送到服务器之前对其进行加密。它不存储在服务器上，仅供 Saber 用来加密和解密您的数据。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
 			case 'login.faq.2.q': return '为什么使用双重密码？';
 			case 'login.faq.2.a': return 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
+			case 'login.insecureStorage.title': return '安全警告';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: '如果没有付费的 Apple Developer 帐户，钥匙串共享将无法在 macOS 上运行。如果您想登录，您需要在以下选项之间进行选择：\n1.使用不安全存储来保存您的登录详细信息。不推荐这样做，但自行选择。\n2.每次使用该应用时都要登录。\n\n如果您想帮助我加入 Apple Developer Program，您可以 '),
+				sponsorLink('成为赞助者'),
+				const TextSpan(text: '！'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return '临时登录';
+			case 'login.insecureStorage.useInsecureStorage': return '使用不安全存储';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  版权所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return '点击此处查看更多许可证信息';
