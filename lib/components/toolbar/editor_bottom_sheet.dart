@@ -1,8 +1,10 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -54,7 +56,10 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.delete),
+                        const AdaptiveIcon(
+                          icon: Icons.delete,
+                          cupertinoIcon: CupertinoIcons.delete,
+                        ),
                         const SizedBox(width: 8),
                         Text(t.editor.menu.clearPage),
                       ],
@@ -75,7 +80,10 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.delete_sweep),
+                        const AdaptiveIcon(
+                          icon: Icons.delete_sweep,
+                          cupertinoIcon: CupertinoIcons.delete_solid,
+                        ),
                         const SizedBox(width: 8),
                         Text(t.editor.menu.clearAllPages),
                       ],
