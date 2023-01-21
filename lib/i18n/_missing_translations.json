@@ -82,16 +82,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "login": {
-      "insecureStorage": {
-        "title": "安全警告",
-        "description(rich)": "如果没有付费的 Apple Developer 帐户，钥匙串共享将无法在 macOS 上运行。如果您想登录，您需要在以下选项之间进行选择：\n1.使用不安全存储来保存您的登录详细信息。不推荐这样做，但自行选择。\n2.每次使用该应用时都要登录。\n\n如果您想帮助我加入 Apple Developer Program，您可以 ${sponsorLink(成为赞助者)}！",
-        "loginTemporarily": "临时登录",
-        "useInsecureStorage": "使用不安全存储"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "login": {
       "insecureStorage": {
