@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 990 (110 per locale)
+/// Strings: 1000 (111 per locale)
 ///
-/// Built on 2023-01-21 at 03:59 UTC
+/// Built on 2023-01-21 at 14:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1964,6 +1964,7 @@ class _StringsIt extends _StringsEn {
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
 	@override late final _StringsUpdateIt update = _StringsUpdateIt._(_root);
 	@override late final _StringsEditorIt editor = _StringsEditorIt._(_root);
+	@override late final _StringsSPenWarningIt sPenWarning = _StringsSPenWarningIt._(_root);
 }
 
 // Path: home
@@ -1995,6 +1996,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefDescriptionsIt prefDescriptions = _StringsSettingsPrefDescriptionsIt._(_root);
 	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
 	@override String get systemLanguage => 'Lingua del sistema';
+	@override late final _StringsSettingsPrefCategoriesIt prefCategories = _StringsSettingsPrefCategoriesIt._(_root);
 }
 
 // Path: login
@@ -2018,6 +2020,7 @@ class _StringsLoginIt extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$It._(_root),
 		_StringsLogin$faq$0i2$It._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageIt insecureStorage = _StringsLoginInsecureStorageIt._(_root);
 }
 
 // Path: appInfo
@@ -2062,6 +2065,17 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatIt newerFileFormat = _StringsEditorNewerFileFormatIt._(_root);
 	@override late final _StringsEditorQuillIt quill = _StringsEditorQuillIt._(_root);
 	@override late final _StringsEditorHudIt hud = _StringsEditorHudIt._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningIt extends _StringsSPenWarningEn {
+	_StringsSPenWarningIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Avviso di bug S Pen';
+	@override String get description => 'Se utilizzi una S Pen, potresti riscontrare un bug in cui l\'app si arresta in modo anomalo quando tenti di cancellare con il pulsante S Pen. Questo è un bug nel framework Flutter e la correzione verrà probabilmente rilasciata entro un mese. Nel frattempo, utilizza il pulsante della gomma nella barra degli strumenti.';
 }
 
 // Path: home.tabs
@@ -2120,6 +2134,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get locale => 'Lingua app';
+	@override String get platform => 'Tipo di tema';
 }
 
 // Path: settings.themeModes
@@ -2168,6 +2183,18 @@ class _StringsSettingsStraightenDelayIt extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Off';
 	@override String get regular => 'Regolare';
 	@override String get slow => 'Lento';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesIt extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Generale';
+	@override String get layout => 'Layout';
+	@override String get writing => 'Scrittura';
 }
 
 // Path: login.feedbacks
@@ -2249,6 +2276,23 @@ class _StringsLogin$faq$0i2$It extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Perché usare due password?';
 	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageIt extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Avviso di sicurezza';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'La condivisione del portachiavi non funziona su macOS senza un account sviluppatore Apple a pagamento. Se vuoi accedere, dovrai scegliere tra:\n1. Utilizzo di un archivio non sicuro per salvare i dati di accesso. Questo non è raccomandato, ma è una tua scelta.\n2. Accedi ogni volta che utilizzi l\'app.\n\nSe desideri aiutarmi a partecipare all\'Apple Developer Program, puoi '),
+		sponsorLink('diventa uno sponsor'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Accesso temporaneo';
+	@override String get useInsecureStorage => 'Utilizzare archiviazione non sicura';
 }
 
 // Path: editor.toolbar
@@ -4709,6 +4753,7 @@ extension on _StringsIt {
 			case 'settings.prefLabels.editorPromptRename': return 'Richiede di rinominare nuove note';
 			case 'settings.prefLabels.editorToolbarShowInFullscreen': return 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 			case 'settings.prefLabels.locale': return 'Lingua app';
+			case 'settings.prefLabels.platform': return 'Tipo di tema';
 			case 'settings.themeModes.system': return 'Sistema';
 			case 'settings.themeModes.light': return 'Chiaro';
 			case 'settings.themeModes.dark': return 'Scuro';
@@ -4722,6 +4767,9 @@ extension on _StringsIt {
 			case 'settings.straightenDelay.regular': return 'Regolare';
 			case 'settings.straightenDelay.slow': return 'Lento';
 			case 'settings.systemLanguage': return 'Lingua del sistema';
+			case 'settings.prefCategories.general': return 'Generale';
+			case 'settings.prefCategories.layout': return 'Layout';
+			case 'settings.prefCategories.writing': return 'Scrittura';
 			case 'login.title': return 'Login';
 			case 'login.feedbacks.checkUsername': return 'Ricontrolla il tuo nome utente o e-mail.';
 			case 'login.feedbacks.enterNcPassword': return 'Inserisci la tua password Nextcloud.';
@@ -4755,6 +4803,14 @@ extension on _StringsIt {
 			case 'login.faq.1.a': return 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Non è archiviato sul server e viene utilizzato solo da Sabre per crittografare e decrittografare i tuoi dati.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
 			case 'login.faq.2.q': return 'Perché usare due password?';
 			case 'login.faq.2.a': return 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
+			case 'login.insecureStorage.title': return 'Avviso di sicurezza';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: 'La condivisione del portachiavi non funziona su macOS senza un account sviluppatore Apple a pagamento. Se vuoi accedere, dovrai scegliere tra:\n1. Utilizzo di un archivio non sicuro per salvare i dati di accesso. Questo non è raccomandato, ma è una tua scelta.\n2. Accedi ogni volta che utilizzi l\'app.\n\nSe desideri aiutarmi a partecipare all\'Apple Developer Program, puoi '),
+				sponsorLink('diventa uno sponsor'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return 'Accesso temporaneo';
+			case 'login.insecureStorage.useInsecureStorage': return 'Utilizzare archiviazione non sicura';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Sabre Copyright (C) 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 			case 'appInfo.debug': return 'DEBUG';
 			case 'appInfo.licenseButton': return 'Tocca qui per visualizzare ulteriori informazioni sulla licenza';
@@ -4795,6 +4851,8 @@ extension on _StringsIt {
 			case 'editor.quill.typeSomething': return 'Scrivi qualcosa qui...';
 			case 'editor.hud.unlockZoom': return 'Sblocca zoom';
 			case 'editor.hud.lockZoom': return 'Blocca zoom';
+			case 'sPenWarning.title': return 'Avviso di bug S Pen';
+			case 'sPenWarning.description': return 'Se utilizzi una S Pen, potresti riscontrare un bug in cui l\'app si arresta in modo anomalo quando tenti di cancellare con il pulsante S Pen. Questo è un bug nel framework Flutter e la correzione verrà probabilmente rilasciata entro un mese. Nel frattempo, utilizza il pulsante della gomma nella barra degli strumenti.';
 			default: return null;
 		}
 	}
