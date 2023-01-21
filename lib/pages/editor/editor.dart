@@ -786,6 +786,7 @@ class _EditorState extends State<Editor> {
                 context: context,
                 builder: (context) => bottomSheet(context),
                 isScrollControlled: true,
+                backgroundColor: Colors.transparent,
                 constraints: const BoxConstraints(
                   maxWidth: 500,
                 ),
