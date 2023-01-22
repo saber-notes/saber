@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1014 (112 per locale)
+/// Strings: 1018 (113 per locale)
 ///
-/// Built on 2023-01-21 at 14:55 UTC
+/// Built on 2023-01-22 at 11:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2530,6 +2530,7 @@ class _StringsLoginRu extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$Ru._(_root),
 		_StringsLogin$faq$0i2$Ru._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageRu insecureStorage = _StringsLoginInsecureStorageRu._(_root);
 }
 
 // Path: appInfo
@@ -2785,6 +2786,23 @@ class _StringsLogin$faq$0i2$Ru extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Зачем использовать два пароля?';
 	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageRu extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Предупреждение безопасности';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'Общий доступ к связке ключей не работает в macOS без платной учетной записи разработчика Apple. Если вы хотите войти в систему, вам нужно выбрать между:\n1. Использовать небезопасное хранилище для сохранения данных входа. Это не рекомендуется, но это ваш выбор.\n2. Входить в систему каждый раз, когда вы используете приложение.\n\nЕсли вы хотите помочь мне присоединиться к программе разработчиков Apple, вы можете '),
+		sponsorLink('стать спонсором'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Временный вход';
+	@override String get useInsecureStorage => 'Использовать небезопасное хранилище';
 }
 
 // Path: editor.toolbar
@@ -5013,6 +5031,14 @@ extension on _StringsRu {
 			case 'login.faq.1.a': return 'Пароль шифрования используется для шифрования ваших данных перед отправкой их на сервер. Он не хранится на сервере и используется Sabre только для шифрования и расшифровки ваших данных.\n\nНикто не может получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
 			case 'login.faq.2.q': return 'Зачем использовать два пароля?';
 			case 'login.faq.2.a': return 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+			case 'login.insecureStorage.title': return 'Предупреждение безопасности';
+			case 'login.insecureStorage.description': return ({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+				const TextSpan(text: 'Общий доступ к связке ключей не работает в macOS без платной учетной записи разработчика Apple. Если вы хотите войти в систему, вам нужно выбрать между:\n1. Использовать небезопасное хранилище для сохранения данных входа. Это не рекомендуется, но это ваш выбор.\n2. Входить в систему каждый раз, когда вы используете приложение.\n\nЕсли вы хотите помочь мне присоединиться к программе разработчиков Apple, вы можете '),
+				sponsorLink('стать спонсором'),
+				const TextSpan(text: '!'),
+			]);
+			case 'login.insecureStorage.loginTemporarily': return 'Временный вход';
+			case 'login.insecureStorage.useInsecureStorage': return 'Использовать небезопасное хранилище';
 			case 'appInfo.licenseNotice': return ({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
 			case 'appInfo.dirty': return 'ГРЯЗНАЯ';
 			case 'appInfo.debug': return 'ОТЛАДКА';
