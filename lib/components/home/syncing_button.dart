@@ -79,7 +79,6 @@ class _SyncingButtonState extends State<SyncingButton> {
 
 class _AnimatedCircularProgressIndicator extends ImplicitlyAnimatedWidget {
   const _AnimatedCircularProgressIndicator({
-    super.key,
     required super.duration,
     required this.percentage,
   });

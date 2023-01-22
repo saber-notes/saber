@@ -4,12 +4,12 @@ import 'package:saber/i18n/strings.g.dart';
 
 class ExportBar extends StatelessWidget {
   const ExportBar({
-    Key? key,
+    super.key,
     required this.toggleExportBar,
     required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
-  }) : super(key: key);
+  });
 
   final VoidCallback toggleExportBar;
 

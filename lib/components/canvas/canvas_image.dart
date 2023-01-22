@@ -1,6 +1,5 @@
 
 import 'dart:math';
-import 'dart:typed_data';
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/foundation.dart';
