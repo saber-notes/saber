@@ -16,16 +16,7 @@
     }
   },
   "it": {},
-  "ru": {
-    "login": {
-      "insecureStorage": {
-        "title": "Security warning",
-        "description(rich)": "Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you'll need to choose between:\n1. Using insecure storage to save your login details. This isn't recommended, but it's your choice.\n2. Logging in each time you use the app.\n\nIf you'd like to help me join the Apple Developer Program, you can ${sponsorLink(become a sponsor)}!",
-        "loginTemporarily": "Login temporarily",
-        "useInsecureStorage": "Use insecure storage"
-      }
-    }
-  },
+  "ru": {},
   "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {
