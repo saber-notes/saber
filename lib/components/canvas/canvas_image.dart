@@ -431,18 +431,26 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
+    final platform = Theme.of(context).platform;
+    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+
+    final gridView = GridView.count(
+      crossAxisCount: 2,
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
+      shrinkWrap: true,
       children: [
-        if (Prefs.editorAutoInvert.value) ListTile(
-          onTap: () => setInvertible(!widget.image.invertible),
-          title: Text(t.editor.imageOptions.invertible),
-          trailing: Switch.adaptive(
-            value: widget.image.invertible,
-            onChanged: setInvertible,
+        if (Prefs.editorAutoInvert.value) MergeSemantics(
+          child: _CanvasImageDialogItem(
+            onTap: () => setInvertible(!widget.image.invertible),
+            title: Text(t.editor.imageOptions.invertible),
+            child: Switch.adaptive(
+              value: widget.image.invertible,
+              onChanged: setInvertible,
+            ),
           ),
         ),
-        ListTile(
+        _CanvasImageDialogItem(
           onTap: () {
             final String filePathSanitized = widget.parent.widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
             final String imageFileName = "image$filePathSanitized${widget.image.id}${widget.image.extension}";
@@ -450,18 +458,66 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             Navigator.of(context).pop();
           },
           title: Text(t.editor.imageOptions.download),
-          trailing: const Icon(Icons.download),
+          child: const Icon(Icons.download),
         ),
-        ListTile(
+        _CanvasImageDialogItem(
           onTap: () {
             widget.image.onDeleteImage?.call(widget.image);
             Navigator.of(context).pop();
           },
           title: Text(t.editor.imageOptions.delete),
-          trailing: const Icon(Icons.delete),
+          child: const Icon(Icons.delete),
         ),
       ],
     );
+
+    // issues with intrinsic sizes with each type of dialog
+    if (cupertino) {
+      return AspectRatio(
+        aspectRatio: 1,
+        child: gridView,
+      );
+    } else {
+      return SizedBox(
+        width: 250,
+        child: gridView,
+      );
+    }
   }
 
+}
+
+class _CanvasImageDialogItem extends StatelessWidget {
+  const _CanvasImageDialogItem({
+    // ignore: unused_element
+    super.key,
+    required this.onTap,
+    required this.title,
+    required this.child,
+  });
+
+  final VoidCallback onTap;
+  final Widget title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Material(
+      color: colorScheme.primary.withOpacity(0.05),
+      borderRadius: BorderRadius.circular(8),
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: Column(
+            children: [
+              Expanded(child: child),
+              title,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
