@@ -1,0 +1,3 @@
+ignore:
+  - "packages"
+  - "lib/i18n"
