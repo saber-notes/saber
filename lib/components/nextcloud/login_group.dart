@@ -50,6 +50,15 @@ class LoginInputGroup extends StatefulWidget {
     }
     return null;
   }
+
+  /// Adds "https://" to the beginning of the [url] if it
+  /// doesn't already start with "http://" or "https://".
+  @visibleForTesting
+  static String prefixUrlWithHttps(String url) {
+    if (url.startsWith("http://")) return url;
+    if (url.startsWith("https://")) return url;
+    return "https://$url";
+  }
 }
 
 class _LoginInputGroupState extends State<LoginInputGroup> {
@@ -84,8 +93,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   void _login() async {
     if (!_validate()) return;
 
-    if (!_customServerController.text.contains("https://")) {
-      _customServerController.text = "https://${_customServerController.text}";
+    if (_usingCustomServer) {
+      _customServerController.text = LoginInputGroup.prefixUrlWithHttps(_customServerController.text);
     }
 
     try {

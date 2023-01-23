@@ -131,4 +131,22 @@ void main() => group("Test login validation:", () {
       ), isNull);
     });
   });
+
+  group("URL prefixing with 'https'", () {
+    test("URL starting with 'http' should stay the same", () {
+      String url = "http://example.com";
+      String prefixed = LoginInputGroup.prefixUrlWithHttps(url);
+      expect(prefixed, url);
+    });
+    test("URL starting with 'https' should stay the same", () {
+      String url = "https://example.com";
+      String prefixed = LoginInputGroup.prefixUrlWithHttps(url);
+      expect(prefixed, url);
+    });
+    test("URL without 'https?' should be prefixed", () {
+      String url = "example.com";
+      String prefixed = LoginInputGroup.prefixUrlWithHttps(url);
+      expect(prefixed, "https://$url");
+    });
+  });
 });
