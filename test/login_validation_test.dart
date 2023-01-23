@@ -2,141 +2,67 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 
-String _validUsername = "username";
-String _validPassword = "password";
-String _validUrl = NextcloudClientExtension.defaultNextCloudUri;
-
 void main() => group("Test login validation:", () {
-  test("Test assumed valid login details", () {
-    expect(LoginInputGroup.validate(
-      username: _validUsername,
-      ncPassword: _validPassword,
-      encPassword: _validPassword,
-      customServer: _validUrl,
-    ), isNull);
-  });
-
   group("Email:", () {
+    test("Valid username should pass", () {
+      expect(LoginInputGroup.validateUsername("username"), isNull);
+    });
+    test("Valid email should pass", () {
+      expect(LoginInputGroup.validateUsername("user@example.com"), isNull);
+    });
     test("Empty email should fail", () {
-      expect(LoginInputGroup.validate(
-        username: "",
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: _validUrl,
-      ), isNotNull);
+      expect(LoginInputGroup.validateUsername(""), isNotNull);
     });
     test("Invalid email should fail", () {
-      expect(LoginInputGroup.validate(
-        username: "invalid email @",
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: _validUrl,
-      ), isNotNull);
+      expect(LoginInputGroup.validateUsername("invalid email @"), isNotNull);
     });
   });
 
   group("Nextcloud password:", () {
     test("Empty password should fail", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: "",
-        encPassword: _validPassword,
-        customServer: _validUrl,
-      ), isNotNull);
+      expect(LoginInputGroup.validateNcPassword(""), isNotNull);
     });
     test("Non-empty password should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: "p",
-        encPassword: _validPassword,
-        customServer: _validUrl,
-      ), isNull);
+      expect(LoginInputGroup.validateNcPassword("p"), isNull);
     });
   });
 
   group("Encryption password:", () {
     test("Empty password should fail", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: "",
-        customServer: _validUrl,
-      ), isNotNull);
+      expect(LoginInputGroup.validateEncPassword(""), isNotNull);
     });
     test("Non-empty password should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: "p",
-        customServer: _validUrl,
-      ), isNull);
+      expect(LoginInputGroup.validateEncPassword("p"), isNull);
     });
   });
 
   group("URL:", () {
     test("null URL should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: null,
-      ), isNull);
+      expect(LoginInputGroup.validateCustomServer(null), isNull);
     });
     test("Empty URL should fail", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "",
-      ), isNotNull);
+      expect(LoginInputGroup.validateCustomServer(""), isNotNull);
+    });
+    test("Default URL should pass", () {
+      expect(LoginInputGroup.validateCustomServer(NextcloudClientExtension.defaultNextCloudUri), isNull);
     });
     test("Invalid URL should fail", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "invalid url",
-      ), isNotNull);
+      expect(LoginInputGroup.validateCustomServer("invalid url"), isNotNull);
     });
     test("URL with /nextcloud should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "https://example.com/nextcloud",
-      ), isNull);
+      expect(LoginInputGroup.validateCustomServer("https://example.com/nextcloud"), isNull);
     });
     test("URL with http (not https) should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "http://example.com",
-      ), isNull);
+      expect(LoginInputGroup.validateCustomServer("http://example.com"), isNull);
     });
     test("URL with ftp protocol should fail", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "ftp://example.com",
-      ), isNotNull);
+      expect(LoginInputGroup.validateCustomServer("ftp://example.com"), isNotNull);
     });
     test("IP address without port should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "http://192.168.0.1",
-      ), isNull);
+      expect(LoginInputGroup.validateCustomServer("http://192.168.0.1"), isNull);
     });
     test("IP address with port should pass", () {
-      expect(LoginInputGroup.validate(
-        username: _validUsername,
-        ncPassword: _validPassword,
-        encPassword: _validPassword,
-        customServer: "http://192.168.0.1:8080",
-      ), isNull);
+      expect(LoginInputGroup.validateCustomServer("http://192.168.0.1:8080"), isNull);
     });
   });
 

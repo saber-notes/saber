@@ -27,25 +27,41 @@ class LoginInputGroup extends StatefulWidget {
   @override
   State<LoginInputGroup> createState() => _LoginInputGroupState();
 
-  /// Validates the login details. Returns an error message
-  /// if validation fails, or null if it succeeds.
+  /// Validates a username. Returns null if valid, otherwise a message.
   @visibleForTesting
-  static String? validate({
-    required String username,
-    required String ncPassword,
-    required String encPassword,
-    required String? customServer,
-  }) {
-    if (username.isEmpty || (username.contains('@') && !validator.email(username))) {
+  static String? validateUsername(String? username) {
+    if (username == null || username.isEmpty) {
       return t.login.feedbacks.checkUsername;
     }
-    if (ncPassword.isEmpty) {
+    if (username.contains('@') && !validator.email(username)) {
+      return t.login.feedbacks.checkUsername;
+    }
+    return null;
+  }
+
+  /// Validates a nextcloud password. Returns null if valid, otherwise a message.
+  @visibleForTesting
+  static String? validateNcPassword(String? ncPassword) {
+    if (ncPassword == null || ncPassword.isEmpty) {
       return t.login.feedbacks.enterNcPassword;
     }
-    if (encPassword.isEmpty) {
+    return null;
+  }
+
+  /// Validates an encryption password. Returns null if valid, otherwise a message.
+  @visibleForTesting
+  static String? validateEncPassword(String? encPassword) {
+    if (encPassword == null || encPassword.isEmpty) {
       return t.login.feedbacks.enterEncPassword;
     }
-    if (customServer != null && !validator.url(customServer)) {
+    return null;
+  }
+
+  /// Validates a custom server. Returns null if valid, otherwise a message.
+  @visibleForTesting
+  static String? validateCustomServer(String? customServer) {
+    if (customServer == null) return null;
+    if (!validator.url(customServer)) {
       return t.login.feedbacks.checkUrl;
     }
     return null;
@@ -68,6 +84,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
   bool _isLoading = false;
 
+  final _formKey = GlobalKey<FormState>();
+
   final TextEditingController _customServerController = TextEditingController(
     text: NextcloudClientExtension.defaultNextCloudUri.toString(),
   );
@@ -75,23 +93,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   final TextEditingController _ncPasswordController = TextEditingController();
   final TextEditingController _encPasswordController = TextEditingController();
 
-  /// Returns whether validation passes.
-  /// Updates [_errorMessage] with any resulting validation error.
-  bool _validate() {
-    String? validationError = LoginInputGroup.validate(
-      username: _usernameController.text,
-      ncPassword: _ncPasswordController.text,
-      encPassword: _encPasswordController.text,
-      customServer: _usingCustomServer ? _customServerController.text : null,
-    );
-    setState(() {
-      _errorMessage = validationError;
-    });
-    return validationError == null;
-  }
-
   void _login() async {
-    if (!_validate()) return;
+    bool valid = _formKey.currentState?.validate() ?? false;
+    if (!valid) return;
 
     if (_usingCustomServer) {
       _customServerController.text = LoginInputGroup.prefixUrlWithHttps(_customServerController.text);
@@ -160,118 +164,126 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
-    return AutofillGroup(
-      child: Column(
-        children: [
-          InkWell(
-            onTap: () {
-              _toggleCustomServer(!_usingCustomServer);
-            },
-            child: Row(
-              children: [
-                Checkbox(
-                  value: _usingCustomServer,
-                  onChanged: _toggleCustomServer,
-                ),
-                Expanded(child: Text(t.login.form.useCustomServer)),
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
-
-          Collapsible(
-            collapsed: !_usingCustomServer,
-            axis: CollapsibleAxis.vertical,
-            alignment: Alignment.topCenter,
-            fade: true,
-            maintainState: true,
-            child: Column(children: [
-              const SizedBox(height: 4),
-              AdaptiveTextField(
-                controller: _customServerController,
-                placeholder: t.login.form.customServerUrl,
-                keyboardType: TextInputType.url,
-                autofillHints: const [AutofillHints.url],
-                prefixIcon: const AdaptiveIcon(
-                  icon: Icons.link,
-                  cupertinoIcon: CupertinoIcons.link,
-                ),
+    return Form(
+      key: _formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: AutofillGroup(
+        child: Column(
+          children: [
+            InkWell(
+              onTap: () {
+                _toggleCustomServer(!_usingCustomServer);
+              },
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: _usingCustomServer,
+                    onChanged: _toggleCustomServer,
+                  ),
+                  Expanded(child: Text(t.login.form.useCustomServer)),
+                ],
               ),
-              const SizedBox(height: 8),
-            ])
-          ),
-
-          AdaptiveTextField(
-            controller: _usernameController,
-            autofillHints: const [AutofillHints.username, AutofillHints.email],
-            placeholder: t.login.form.username,
-            prefixIcon: const AdaptiveIcon(
-              icon: Icons.person,
-              cupertinoIcon: CupertinoIcons.person_fill,
-            ),
-          ),
-          const SizedBox(height: 8),
-          AdaptiveTextField(
-            controller: _ncPasswordController,
-            autofillHints: const [AutofillHints.password],
-            placeholder: t.login.form.ncPassword,
-            prefixIcon: const Icon(Icons.lock_person),
-            isPassword: true,
-          ),
-          const SizedBox(height: 8),
-          AdaptiveTextField(
-            controller: _encPasswordController,
-            autofillHints: const [AutofillHints.password],
-            placeholder: t.login.form.encPassword,
-            prefixIcon: const Icon(Icons.sync_lock),
-            isPassword: true,
-          ),
-          const SizedBox(height: 16),
-
-          if (_errorMessage != null) ...[
-            Text(
-              _errorMessage!,
-              style: TextStyle(color: colorScheme.secondary),
             ),
             const SizedBox(height: 8),
+
+            Collapsible(
+              collapsed: !_usingCustomServer,
+              axis: CollapsibleAxis.vertical,
+              alignment: Alignment.topCenter,
+              fade: true,
+              maintainState: true,
+              child: Column(children: [
+                const SizedBox(height: 4),
+                AdaptiveTextField(
+                  controller: _customServerController,
+                  placeholder: t.login.form.customServerUrl,
+                  keyboardType: TextInputType.url,
+                  autofillHints: const [AutofillHints.url],
+                  prefixIcon: const AdaptiveIcon(
+                    icon: Icons.link,
+                    cupertinoIcon: CupertinoIcons.link,
+                  ),
+                  validator: _usingCustomServer ? LoginInputGroup.validateCustomServer : null,
+                ),
+                const SizedBox(height: 8),
+              ])
+            ),
+
+            AdaptiveTextField(
+              controller: _usernameController,
+              autofillHints: const [AutofillHints.username, AutofillHints.email],
+              placeholder: t.login.form.username,
+              prefixIcon: const AdaptiveIcon(
+                icon: Icons.person,
+                cupertinoIcon: CupertinoIcons.person_fill,
+              ),
+              validator: LoginInputGroup.validateUsername,
+            ),
+            const SizedBox(height: 8),
+            AdaptiveTextField(
+              controller: _ncPasswordController,
+              autofillHints: const [AutofillHints.password],
+              placeholder: t.login.form.ncPassword,
+              prefixIcon: const Icon(Icons.lock_person),
+              isPassword: true,
+              validator: LoginInputGroup.validateNcPassword,
+            ),
+            const SizedBox(height: 8),
+            AdaptiveTextField(
+              controller: _encPasswordController,
+              autofillHints: const [AutofillHints.password],
+              placeholder: t.login.form.encPassword,
+              prefixIcon: const Icon(Icons.sync_lock),
+              isPassword: true,
+              validator: LoginInputGroup.validateEncPassword,
+            ),
+            const SizedBox(height: 16),
+
+            if (_errorMessage != null) ...[
+              Text(
+                _errorMessage!,
+                style: TextStyle(color: colorScheme.secondary),
+              ),
+              const SizedBox(height: 8),
+            ],
+
+            Text.rich(
+              t.login.signup(
+                linkToSignup: (text) => TextSpan(
+                  text: text,
+                  style: TextStyle(color: colorScheme.primary),
+                  recognizer: TapGestureRecognizer()..onTap = () {
+                    launchUrl(
+                      NcLoginPage.signupUrl,
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text.rich(
+              t.login.form.agreeToPrivacyPolicy(
+                linkToPrivacyPolicy: (text) => TextSpan(
+                  text: text,
+                  style: TextStyle(color: colorScheme.primary),
+                  recognizer: TapGestureRecognizer()..onTap = () {
+                    launchUrl(
+                      AppInfo.privacyPolicyUrl,
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 16),
+            AdaptiveButton(
+              onPressed: _isLoading ? null : _login,
+              child: _isLoading ? const SpinningLoadingIcon() : Text(t.login.form.login),
+            ),
           ],
-
-          Text.rich(
-            t.login.signup(
-              linkToSignup: (text) => TextSpan(
-                text: text,
-                style: TextStyle(color: colorScheme.primary),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  launchUrl(
-                    NcLoginPage.signupUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text.rich(
-            t.login.form.agreeToPrivacyPolicy(
-              linkToPrivacyPolicy: (text) => TextSpan(
-                text: text,
-                style: TextStyle(color: colorScheme.primary),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  launchUrl(
-                    AppInfo.privacyPolicyUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 16),
-          AdaptiveButton(
-            onPressed: _isLoading ? null : _login,
-            child: _isLoading ? const SpinningLoadingIcon() : Text(t.login.form.login),
-          ),
-        ],
+        ),
       ),
     );
   }

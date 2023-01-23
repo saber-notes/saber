@@ -11,6 +11,7 @@ class AdaptiveTextField extends StatefulWidget {
     this.prefixIcon,
     this.isPassword = false,
     this.keyboardType,
+    this.validator,
   });
 
   final TextEditingController? controller;
@@ -19,6 +20,7 @@ class AdaptiveTextField extends StatefulWidget {
   final String? placeholder;
   final Widget? prefixIcon;
   final bool isPassword;
+  final String? Function(String?)? validator;
 
   @override
   State<StatefulWidget> createState() => _AdaptiveTextFieldState();
@@ -57,32 +59,43 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
     }
 
     if (cupertino) {
-      return CupertinoTextField(
-        controller: widget.controller,
-        autofillHints: widget.autofillHints,
-        keyboardType: keyboardType,
-        obscureText: obscureText,
-        decoration: BoxDecoration(
-          border: Border.all(color: colorScheme.onSurface.withOpacity(0.12)),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        style: TextStyle(color: colorScheme.onSurface),
-        placeholder: widget.placeholder,
-        prefix: widget.prefixIcon != null ? Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: widget.prefixIcon,
-        ) : null,
-        suffix: suffixIcon != null ? Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: suffixIcon,
-        ) : const SizedBox(height: 40),
+      return Row(
+        children: [
+          Expanded(
+            child: CupertinoTextFormFieldRow(
+              controller: widget.controller,
+              autofillHints: widget.autofillHints,
+              keyboardType: keyboardType,
+              obscureText: obscureText,
+              decoration: BoxDecoration(
+                border: Border.all(color: colorScheme.onSurface.withOpacity(0.12)),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              style: TextStyle(color: colorScheme.onSurface),
+              placeholder: widget.placeholder,
+              prefix: widget.prefixIcon != null ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: widget.prefixIcon,
+              ) : null,
+              validator: widget.validator,
+            ),
+          ),
+          suffixIcon != null ? Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: suffixIcon,
+            ),
+          ) : const SizedBox(height: 40),
+        ],
       );
     } else {
-      return TextField(
+      return TextFormField(
         controller: widget.controller,
         autofillHints: widget.autofillHints,
         keyboardType: keyboardType,
         obscureText: obscureText,
+        validator: widget.validator,
         decoration: InputDecoration(
           labelText: widget.placeholder,
           labelStyle: TextStyle(color: colorScheme.onSurface.withOpacity(0.5)),
