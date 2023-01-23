@@ -79,14 +79,18 @@ jobs:
           # get current version code from lib/data/version.dart
           VERSION_CODE=$(grep -oP '(?<=buildNumber = )\d+' lib/data/version.dart)
 
+          # copy default to en-GB
+          echo "Copying default changelog to whatsnew/whatsnew-en-GB.txt"
+          cp metadata/en-US/changelogs/$VERSION_CODE.txt whatsnew/whatsnew-en-GB.txt
+
           # copy changelogs of each language to whatsnew
           for f in metadata/*; do
             if [ -f "$f/changelogs/$VERSION_CODE.txt" ]; then
+              FILE_NAME="whatsnew/whatsnew-$(basename "$f").txt"
+              echo "Copying changelog of $(basename "$f") to $FILE_NAME"
               cp "$f/changelogs/$VERSION_CODE.txt" "whatsnew/whatsnew-$(basename "$f").txt"
             fi
           done
-          # copy default to en-GB
-          cp metadata/en-US/changelogs/$VERSION_CODE.txt whatsnew/whatsnew-en-GB.txt
 
       - name: Upload to Play Store
         uses: r0adkll/upload-google-play@v1
