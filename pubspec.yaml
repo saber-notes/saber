@@ -51,7 +51,7 @@ dependencies:
 
   path_provider: ^2.0.11
 
-  shared_preferences: ^2.0.16
+  shared_preferences: ^2.0.17
   flutter_secure_storage: ^7.0.1
 
   # Don't use encrypted_shared_preferences because it's insecure:
@@ -61,7 +61,7 @@ dependencies:
   # https://github.com/adil192/saber/issues/257
   encrypted_shared_preferences: ^3.0.1
 
-  url_launcher: ^6.1.7
+  url_launcher: ^6.1.8
 
   package_info_plus: ^3.0.2
 
@@ -101,7 +101,7 @@ dependencies:
   flutter_svg: ^1.1.6
 
   # when updated, check if image_picker supports more platforms for Editor.pickPhoto()
-  image_picker: ^0.8.6
+  image_picker: ^0.8.6+1
 
   defer_pointer: ^0.0.2
 
