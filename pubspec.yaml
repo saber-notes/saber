@@ -61,7 +61,7 @@ dependencies:
   # https://github.com/adil192/saber/issues/257
   encrypted_shared_preferences: ^3.0.1
 
-  url_launcher: ^6.1.7
+  url_launcher: ^6.1.8
 
   package_info_plus: ^3.0.2
 
