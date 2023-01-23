@@ -114,6 +114,14 @@ void main() => group("Test login validation:", () {
         customServer: "http://example.com",
       ), isNull);
     });
+    test("URL with ftp protocol should fail", () {
+      expect(LoginInputGroup.validate(
+        username: _validUsername,
+        ncPassword: _validPassword,
+        encPassword: _validPassword,
+        customServer: "ftp://example.com",
+      ), isNotNull);
+    });
     test("IP address without port should pass", () {
       expect(LoginInputGroup.validate(
         username: _validUsername,
@@ -132,7 +140,7 @@ void main() => group("Test login validation:", () {
     });
   });
 
-  group("URL prefixing with 'https'", () {
+  group("URL prefixing:", () {
     test("URL starting with 'http' should stay the same", () {
       String url = "http://example.com";
       String prefixed = LoginInputGroup.prefixUrlWithHttps(url);
