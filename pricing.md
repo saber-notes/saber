@@ -16,7 +16,7 @@ All sponsorships are in USD ($) because of GitHub Sponsors.
 
 - Go to https://github.com/sponsors/adil192
 - Select the amount you want to sponsor me per month
-- Enter your card details or pay with PayPal
+- Enter your card details
 - Email me at adilhanney@disroot.org with your Nextcloud username and
   confirmation of your sponsorship, and I'll upgrade your account!
 
