@@ -24,6 +24,7 @@ class InnerCanvas extends StatefulWidget {
     this.textEditing = false,
     required this.coreInfo,
     required this.currentStroke,
+    this.setAsBackground,
     this.onRenderObjectChange,
   });
 
@@ -35,6 +36,7 @@ class InnerCanvas extends StatefulWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
+  final void Function(EditorImage image)? setAsBackground;
   final ValueChanged<RenderObject>? onRenderObjectChange;
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
@@ -123,6 +125,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     image: editorImage,
                     pageSize: Size(widget.width, widget.height),
                     readOnly: widget.coreInfo.readOnly,
+                    setAsBackground: widget.setAsBackground,
                   ),
               ],
             ),

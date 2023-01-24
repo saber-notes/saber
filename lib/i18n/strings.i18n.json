@@ -150,6 +150,7 @@
       "title": "Image options",
       "invertible": "Invertible",
       "download": "Download",
+      "setAsBackground": "Set as background",
       "delete": "Delete"
     },
     "menu": {

@@ -657,6 +657,9 @@ class _EditorState extends State<Editor> {
                   Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
                   return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                 }(),
+                setAsBackground: (EditorImage image) {
+                  throw UnimplementedError();
+                },
               );
             },
             placeholderPageBuilder: (BuildContext context, int pageIndex) {
@@ -668,6 +671,7 @@ class _EditorState extends State<Editor> {
                 coreInfo: EditorCoreInfo.empty,
                 currentStroke: null,
                 placeholder: true,
+                setAsBackground: null,
               );
             },
           ),
