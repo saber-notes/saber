@@ -445,7 +445,7 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
         MergeSemantics(
           child: _CanvasImageDialogItem(
             onTap: Prefs.editorAutoInvert.value ? setInvertible : null,
-            title: Text(t.editor.imageOptions.invertible),
+            title: t.editor.imageOptions.invertible,
             child: Switch.adaptive(
               value: widget.image.invertible,
               onChanged: Prefs.editorAutoInvert.value ? setInvertible : null,
@@ -464,7 +464,7 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             FileManager.exportFile(imageFileName, widget.image.bytes, isImage: true);
             Navigator.of(context).pop();
           },
-          title: Text(t.editor.imageOptions.download),
+          title: t.editor.imageOptions.download,
           child: const Icon(Icons.download),
         ),
         _CanvasImageDialogItem(
@@ -472,7 +472,7 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             widget.parent.widget.setAsBackground?.call(widget.image);
             Navigator.of(context).pop();
           },
-          title: Text(t.editor.imageOptions.setAsBackground),
+          title: t.editor.imageOptions.setAsBackground,
           child: const Icon(Icons.wallpaper),
         ),
         _CanvasImageDialogItem(
@@ -480,7 +480,7 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             widget.image.onDeleteImage?.call(widget.image);
             Navigator.of(context).pop();
           },
-          title: Text(t.editor.imageOptions.delete),
+          title: t.editor.imageOptions.delete,
           child: const Icon(Icons.delete),
         ),
       ],
@@ -512,7 +512,7 @@ class _CanvasImageDialogItem extends StatelessWidget {
   });
 
   final VoidCallback? onTap;
-  final Widget title;
+  final String title;
   final Widget child;
 
   @override
@@ -528,7 +528,10 @@ class _CanvasImageDialogItem extends StatelessWidget {
           child: Column(
             children: [
               Expanded(child: child),
-              title,
+              Text(
+                title,
+                textAlign: TextAlign.center,
+              ),
             ],
           ),
         ),
