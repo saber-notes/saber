@@ -2,10 +2,12 @@
 import 'dart:math';
 
 import 'package:defer_pointer/defer_pointer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -465,7 +467,10 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             Navigator.of(context).pop();
           },
           title: t.editor.imageOptions.download,
-          child: const Icon(Icons.download),
+          child: const AdaptiveIcon(
+            icon: Icons.download,
+            cupertinoIcon: CupertinoIcons.arrow_down_circle_fill,
+          ),
         ),
         _CanvasImageDialogItem(
           onTap: () {
@@ -473,7 +478,10 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             Navigator.of(context).pop();
           },
           title: t.editor.imageOptions.setAsBackground,
-          child: const Icon(Icons.wallpaper),
+          child: const AdaptiveIcon(
+            icon: Icons.wallpaper,
+            cupertinoIcon: CupertinoIcons.photo_fill_on_rectangle_fill,
+          ),
         ),
         _CanvasImageDialogItem(
           onTap: () {
@@ -481,7 +489,10 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             Navigator.of(context).pop();
           },
           title: t.editor.imageOptions.delete,
-          child: const Icon(Icons.delete),
+          child: const AdaptiveIcon(
+            icon: Icons.delete,
+            cupertinoIcon: CupertinoIcons.trash_fill,
+          ),
         ),
       ],
     );
