@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 
@@ -16,6 +17,7 @@ class Canvas extends StatelessWidget {
     required this.textEditing,
     required this.coreInfo,
     required this.currentStroke,
+    required this.setAsBackground,
     this.placeholder = false,
   });
 
@@ -27,6 +29,8 @@ class Canvas extends StatelessWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
+
+  final void Function(EditorImage image)? setAsBackground;
 
   final bool placeholder;
 
@@ -57,6 +61,7 @@ class Canvas extends StatelessWidget {
                   textEditing: textEditing,
                   coreInfo: coreInfo,
                   currentStroke: currentStroke,
+                  setAsBackground: setAsBackground,
                 ),
               ),
             ),

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1018 (113 per locale)
+/// Strings: 1019 (113 per locale)
 ///
-/// Built on 2023-01-22 at 11:13 UTC
+/// Built on 2023-01-24 at 06:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -546,6 +546,7 @@ class _StringsEditorImageOptionsEn {
 	String get title => 'Image options';
 	String get invertible => 'Invertible';
 	String get download => 'Download';
+	String get setAsBackground => 'Set as background';
 	String get delete => 'Delete';
 }
 
@@ -4405,6 +4406,7 @@ extension on _StringsEn {
 			case 'editor.imageOptions.title': return 'Image options';
 			case 'editor.imageOptions.invertible': return 'Invertible';
 			case 'editor.imageOptions.download': return 'Download';
+			case 'editor.imageOptions.setAsBackground': return 'Set as background';
 			case 'editor.imageOptions.delete': return 'Delete';
 			case 'editor.menu.clearPage': return 'Clear page';
 			case 'editor.menu.clearAllPages': return 'Clear all pages';

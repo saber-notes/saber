@@ -16,6 +16,7 @@ class CanvasImage extends StatefulWidget {
     required this.filePath,
     required this.image,
     required this.pageSize,
+    required this.setAsBackground,
     this.readOnly = false,
   }) : super(key: Key("CanvasImage$filePath/${image.id}"));
 
@@ -23,6 +24,7 @@ class CanvasImage extends StatefulWidget {
   final String filePath;
   final EditorImage image;
   final Size pageSize;
+  final void Function(EditorImage image)? setAsBackground;
   final bool readOnly;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
@@ -464,6 +466,14 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
           },
           title: Text(t.editor.imageOptions.download),
           child: const Icon(Icons.download),
+        ),
+        _CanvasImageDialogItem(
+          onTap: () {
+            widget.parent.widget.setAsBackground?.call(widget.image);
+            Navigator.of(context).pop();
+          },
+          title: Text(t.editor.imageOptions.setAsBackground),
+          child: const Icon(Icons.wallpaper),
         ),
         _CanvasImageDialogItem(
           onTap: () {
