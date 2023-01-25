@@ -72,6 +72,7 @@ Future testPref<T>({
 
   // Delete pref if it already exists
   var pref = prefBuilder();
+  await pref.waitUntilLoaded();
   await pref.delete();
 
   // Check that pref.delete() is idempotent (doesn't throw an error)
