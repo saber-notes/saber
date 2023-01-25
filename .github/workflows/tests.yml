@@ -37,13 +37,15 @@ jobs:
       - run: flutter pub get
 
       - name: Run tests
+        id: tests
         run: flutter test --reporter expanded --coverage
+
+      - name: Upload to Codecov
+        if: success() || steps.tests.conclusion == 'failure' # run even if tests fail
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/lcov.info
 
       - name: Run tests (packages/onyxsdk_pen)
         working-directory: packages/onyxsdk_pen
         run: flutter test --reporter expanded
-
-      - name: Upload to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: coverage/lcov.info
