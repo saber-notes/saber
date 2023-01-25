@@ -658,7 +658,10 @@ class _EditorState extends State<Editor> {
                   return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                 }(),
                 setAsBackground: (EditorImage image) {
-                  throw UnimplementedError();
+                  coreInfo.images.remove(image);
+                  coreInfo.pages[pageIndex].backgroundImage = image;
+                  autosaveAfterDelay();
+                  setState(() {});
                 },
               );
             },

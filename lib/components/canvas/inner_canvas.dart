@@ -57,6 +57,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor = widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
+    final EditorImage? backgroundImage = widget.coreInfo.pages.isNotEmpty
+        ? widget.coreInfo.pages[widget.pageIndex].backgroundImage
+        : null;
+
     Widget quillEditor = Transform.scale(
       scale: InnerCanvas.quillScale,
       alignment: Alignment.topLeft,
@@ -109,6 +113,15 @@ class _InnerCanvasState extends State<InnerCanvas> {
           child: DeferredPointerHandler(
             child: Stack(
               children: [
+                if (backgroundImage != null)
+                  CanvasImage(
+                    filePath: widget.coreInfo.filePath,
+                    image: backgroundImage,
+                    pageSize: Size(widget.width, widget.height),
+                    setAsBackground: null,
+                    isBackground: true,
+                    readOnly: true,
+                  ),
                 Positioned(
                   top: 0,
                   left: 0,

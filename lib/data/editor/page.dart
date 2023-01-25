@@ -1,8 +1,8 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
@@ -33,6 +33,8 @@ class EditorPage {
 
   final QuillStruct quill;
 
+  EditorImage? backgroundImage;
+
   EditorPage({
     Size? size,
     double? width,
@@ -52,12 +54,17 @@ class EditorPage {
           selection: const TextSelection.collapsed(offset: 0),
         ) : QuillController.basic(),
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
-      );
+      ),
+      backgroundImage = json["b"] != null
+        ? EditorImage.fromJson(json["b"] as Map<String, dynamic>)
+        : null;
 
   Map<String, dynamic> toJson() => {
     "w": size.width,
     "h": size.height,
     "q": quill.controller.document.toDelta().toJson(),
+    if (backgroundImage != null)
+      "b": backgroundImage?.toJson(),
   };
 }
 
