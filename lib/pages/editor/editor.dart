@@ -660,6 +660,10 @@ class _EditorState extends State<Editor> {
                 setAsBackground: (EditorImage image) {
                   coreInfo.images.remove(image);
                   coreInfo.pages[pageIndex].backgroundImage = image;
+
+                  // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+                  CanvasImage.activeListener.notifyListeners(); // un-select active image
+
                   autosaveAfterDelay();
                   setState(() {});
                 },
