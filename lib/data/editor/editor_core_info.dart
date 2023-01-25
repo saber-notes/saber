@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'dart:math';
 
@@ -17,7 +16,7 @@ import 'package:worker_manager/worker_manager.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int fileVersion = 6;
+  static const int fileVersion = 7;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 

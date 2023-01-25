@@ -19,6 +19,7 @@ class CanvasImage extends StatefulWidget {
     required this.image,
     required this.pageSize,
     required this.setAsBackground,
+    this.isBackground = false,
     this.readOnly = false,
   }) : super(key: Key("CanvasImage$filePath/${image.id}"));
 
@@ -27,6 +28,7 @@ class CanvasImage extends StatefulWidget {
   final EditorImage image;
   final Size pageSize;
   final void Function(EditorImage image)? setAsBackground;
+  final bool isBackground;
   final bool readOnly;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
@@ -130,6 +132,142 @@ class _CanvasImageState extends State<CanvasImage> {
       imageBrightness = currentBrightness;
     }
 
+    Widget unpositioned = IgnorePointer(
+      ignoring: widget.readOnly,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          MouseRegion(
+            cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                active = !active;
+              },
+              onLongPress: active ? showModal : null,
+              onSecondaryTap: active ? showModal : null,
+              onPanStart: active ? (details) {
+                panStartRect = widget.image.dstRect;
+              } : null,
+              onPanUpdate: active ? (details) {
+                setState(() {
+                  double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
+                  widget.image.dstRect = Rect.fromLTWH(
+                    (widget.image.dstRect.left + details.delta.dx).clamp(
+                      fivePercent - widget.image.dstRect.width,
+                      widget.pageSize.width - fivePercent,
+                    ).toDouble(),
+                    (widget.image.dstRect.top + details.delta.dy).clamp(
+                      fivePercent - widget.image.dstRect.height,
+                      widget.pageSize.height - fivePercent,
+                    ).toDouble(),
+                    widget.image.dstRect.width,
+                    widget.image.dstRect.height,
+                  );
+                });
+              } : null,
+              onPanEnd: active ? (details) {
+                if (panStartRect == widget.image.dstRect) return;
+                widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
+                  widget.image.dstRect.left - panStartRect.left,
+                  widget.image.dstRect.top - panStartRect.top,
+                  widget.image.dstRect.right - panStartRect.right,
+                  widget.image.dstRect.bottom - panStartRect.bottom,
+                ));
+                panStartRect = Rect.zero;
+              } : null,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: active ? colorScheme.onBackground : Colors.transparent,
+                    width: 2,
+                  ),
+                ),
+                child: Center(
+                  child: SizedBox(
+                    width: widget.isBackground
+                      ? widget.pageSize.width
+                      : max(widget.image.dstRect.width, CanvasImage.minImageSize),
+                    height: widget.isBackground
+                      ? widget.pageSize.height
+                      : max(widget.image.dstRect.height, CanvasImage.minImageSize),
+                    child: SizedOverflowBox(
+                      size: widget.image.srcRect.size,
+                      child: Transform.translate(
+                        offset: -widget.image.srcRect.topLeft,
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 500),
+                          switchInCurve: Curves.fastLinearToSlowEaseIn,
+                          switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
+                          child: (){
+                            Uint8List bytes = widget.image.bytes;
+                            String keySuffix = "light";
+                            if (imageBrightness == Brightness.dark) {
+                              if (widget.image.invertedBytesCache != null) {
+                                bytes = widget.image.invertedBytesCache!;
+                                keySuffix = "dark";
+                              } else if (widget.image.invertedThumbnailBytes != null) {
+                                bytes = widget.image.invertedThumbnailBytes!;
+                                keySuffix = "dark-thumbnail";
+                              }
+                            }
+                            return Image.memory(
+                              bytes,
+                              fit: BoxFit.fill,
+                              key: Key("Image${widget.image.id}-$keySuffix"),
+                            );
+                          }(),
+                          layoutBuilder: (currentChild, previousChildren) {
+                            return SizedBox(
+                              width: widget.image.naturalSize.width,
+                              height: widget.image.naturalSize.height,
+                              child: Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  ...previousChildren,
+                                  if (currentChild != null) currentChild
+                                  else Container(
+                                    color: Colors.grey,
+                                    child: const Center(
+                                      child: Icon(Icons.image, color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          for (double x = -20; x <= 20; x += 20)
+            for (double y = -20; y <= 20; y += 20)
+              if (x != 0 || y != 0) // ignore (0,0)
+                _CanvasImageResizeHandle(
+                  active: active,
+                  position: Offset(x, y),
+                  image: widget.image,
+                  parent: this,
+                  afterDrag: () => setState(() {}),
+                ),
+        ],
+      ),
+    );
+
+    if (widget.isBackground) {
+      return AnimatedPositioned(
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        duration: const Duration(milliseconds: 200),
+        child: unpositioned,
+      );
+    }
     return AnimatedPositioned(
       // duration is zero if we're currently dragging the image
       duration: (panStartRect != Rect.zero) ? Duration.zero : const Duration(milliseconds: 200),
@@ -139,127 +277,7 @@ class _CanvasImageState extends State<CanvasImage> {
       width: max(widget.image.dstRect.width, CanvasImage.minInteractiveSize),
       height: max(widget.image.dstRect.height, CanvasImage.minInteractiveSize),
 
-      child: IgnorePointer(
-        ignoring: widget.readOnly,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            MouseRegion(
-              cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () {
-                  active = !active;
-                },
-                onLongPress: active ? showModal : null,
-                onSecondaryTap: active ? showModal : null,
-                onPanStart: active ? (details) {
-                  panStartRect = widget.image.dstRect;
-                } : null,
-                onPanUpdate: active ? (details) {
-                  setState(() {
-                    double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
-                    widget.image.dstRect = Rect.fromLTWH(
-                      (widget.image.dstRect.left + details.delta.dx).clamp(
-                        fivePercent - widget.image.dstRect.width,
-                        widget.pageSize.width - fivePercent,
-                      ).toDouble(),
-                      (widget.image.dstRect.top + details.delta.dy).clamp(
-                        fivePercent - widget.image.dstRect.height,
-                        widget.pageSize.height - fivePercent,
-                      ).toDouble(),
-                      widget.image.dstRect.width,
-                      widget.image.dstRect.height,
-                    );
-                  });
-                } : null,
-                onPanEnd: active ? (details) {
-                  if (panStartRect == widget.image.dstRect) return;
-                  widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
-                    widget.image.dstRect.left - panStartRect.left,
-                    widget.image.dstRect.top - panStartRect.top,
-                    widget.image.dstRect.right - panStartRect.right,
-                    widget.image.dstRect.bottom - panStartRect.bottom,
-                  ));
-                  panStartRect = Rect.zero;
-                } : null,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: active ? colorScheme.onBackground : Colors.transparent,
-                      width: 2,
-                    ),
-                  ),
-                  child: Center(
-                    child: SizedBox(
-                      width: max(widget.image.dstRect.width, CanvasImage.minImageSize),
-                      height: max(widget.image.dstRect.height, CanvasImage.minImageSize),
-                      child: SizedOverflowBox(
-                        size: widget.image.srcRect.size,
-                        child: Transform.translate(
-                          offset: -widget.image.srcRect.topLeft,
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 500),
-                            switchInCurve: Curves.fastLinearToSlowEaseIn,
-                            switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
-                            child: (){
-                              Uint8List bytes = widget.image.bytes;
-                              String keySuffix = "light";
-                              if (imageBrightness == Brightness.dark) {
-                                if (widget.image.invertedBytesCache != null) {
-                                  bytes = widget.image.invertedBytesCache!;
-                                  keySuffix = "dark";
-                                } else if (widget.image.invertedThumbnailBytes != null) {
-                                  bytes = widget.image.invertedThumbnailBytes!;
-                                  keySuffix = "dark-thumbnail";
-                                }
-                              }
-                              return Image.memory(
-                                bytes,
-                                fit: BoxFit.fill,
-                                key: Key("Image${widget.image.id}-$keySuffix"),
-                              );
-                            }(),
-                            layoutBuilder: (currentChild, previousChildren) {
-                              return SizedBox(
-                                width: widget.image.naturalSize.width,
-                                height: widget.image.naturalSize.height,
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: [
-                                    ...previousChildren,
-                                    if (currentChild != null) currentChild
-                                    else Container(
-                                      color: Colors.grey,
-                                      child: const Center(
-                                        child: Icon(Icons.image, color: Colors.white),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            for (double x = -20; x <= 20; x += 20)
-              for (double y = -20; y <= 20; y += 20)
-                if (x != 0 || y != 0) // ignore (0,0)
-                  _CanvasImageResizeHandle(
-                    active: active,
-                    position: Offset(x, y),
-                    image: widget.image,
-                    parent: this,
-                    afterDrag: () => setState(() {}),
-                  ),
-          ],
-        ),
-      ),
+      child: unpositioned,
     );
   }
 
