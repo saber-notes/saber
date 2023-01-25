@@ -78,6 +78,7 @@ Future testPref<T>({
   await pref.delete();
 
   // Re-instantiate the pref
+  pref.dispose();
   pref = prefBuilder();
 
   bool prefChanged = false;
@@ -104,6 +105,7 @@ Future testPref<T>({
   expect(pref.saved, true);
 
   // Re-instantiate the pref and check that the value is the same
+  pref.dispose();
   pref = prefBuilder();
   expect(pref.loaded, false);
   expect(pref.value, defaultValue);
@@ -117,4 +119,6 @@ Future testPref<T>({
 
   // Remove the pref from disk
   await pref.delete();
+
+  pref.dispose();
 }
