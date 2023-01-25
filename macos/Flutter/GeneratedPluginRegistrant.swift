@@ -10,7 +10,7 @@ import dynamic_color
 import flutter_secure_storage_macos
 import package_info_plus
 import pasteboard
-import path_provider_macos
+import path_provider_foundation
 import screen_retriever
 import share_plus
 import shared_preferences_foundation
