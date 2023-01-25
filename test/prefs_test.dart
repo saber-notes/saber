@@ -1,9 +1,12 @@
-
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'utils/test_mock_channel_handlers.dart';
 
 void main() {
   group("Test Prefs:", () {
@@ -32,14 +35,13 @@ void main() {
       );
     });
 
-    // flutter_secure_storage fails in tests due to a MissingPluginException
-    /*test("EncPref", () async {
+    test("EncPref", () async {
       await testPref(
         prefBuilder: () => EncPref("testEncPref", "default"),
         defaultValue: "default",
         alteredValue: "altered",
       );
-    });*/
+    });
   });
 }
 
@@ -59,8 +61,10 @@ Future testPref<T>({
   required T alteredValue,
   bool useJson = false,
 }) async {
-
   TestWidgetsFlutterBinding.ensureInitialized();
+  setupMockFlutterSecureStorage();
+  SharedPreferences.setMockInitialValues({});
+
   // Note that we won't use testingMode because we need the prefs to be saved
   // // Prefs.testingMode = true;
   // Note that we won't use Prefs.init() because we aren't using Pref's prefs

@@ -199,7 +199,7 @@ abstract class IPref<T> extends ValueNotifier<T> {
 
   @override
   get value {
-    if (!loaded) {
+    if (!loaded && !Prefs.testingMode) {
       if (kDebugMode) print("WARNING: Pref '$key' accessed before it was loaded.");
     }
     return super.value;

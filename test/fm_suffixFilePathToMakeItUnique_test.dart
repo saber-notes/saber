@@ -3,8 +3,13 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 
+import 'utils/test_mock_channel_handlers.dart';
+
 void main() {
   test("Test new notes having distinct names", () async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    setupMockPathProvider();
+
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();

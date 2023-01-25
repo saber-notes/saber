@@ -9,8 +9,13 @@ import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 
+import 'utils/test_mock_channel_handlers.dart';
+
 void main() {
   test("Test deleting a file and syncing it", () async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    setupMockPathProvider();
+
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
