@@ -658,6 +658,10 @@ class _EditorState extends State<Editor> {
                   return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                 }(),
                 setAsBackground: (EditorImage image) {
+                  if (coreInfo.pages[pageIndex].backgroundImage != null) {
+                    // restore previous background image as normal image
+                    coreInfo.images.add(coreInfo.pages[pageIndex].backgroundImage!);
+                  }
                   coreInfo.images.remove(image);
                   coreInfo.pages[pageIndex].backgroundImage = image;
 
