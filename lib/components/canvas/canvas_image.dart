@@ -447,6 +447,11 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
             child: Switch.adaptive(
               value: widget.image.invertible,
               onChanged: setInvertible,
+              thumbIcon: MaterialStateProperty.all(
+                widget.image.invertible
+                  ? const Icon(Icons.invert_colors)
+                  : const Icon(Icons.invert_colors_off)
+              ),
             ),
           ),
         ),
