@@ -27,12 +27,16 @@ class CanvasPreview extends StatelessWidget {
       scrollZoomEnabled: false,
 
       child: FittedBox(
-        child: InnerCanvas(
-          width: pageSize.width,
-          height: height ?? pageSize.height * 0.1,
-          isPreview: true,
-          coreInfo: coreInfo,
-          currentStroke: null,
+        child: SizedOverflowBox(
+          size: Size(pageSize.width, height ?? pageSize.height * 0.1),
+          alignment: Alignment.topCenter,
+          child: InnerCanvas(
+            width: pageSize.width,
+            height: pageSize.height,
+            isPreview: true,
+            coreInfo: coreInfo,
+            currentStroke: null,
+          ),
         ),
       ),
     );
