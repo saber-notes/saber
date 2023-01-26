@@ -423,8 +423,8 @@ class _CanvasImageDialog extends StatefulWidget {
   State<_CanvasImageDialog> createState() => _CanvasImageDialogState();
 }
 class _CanvasImageDialogState extends State<_CanvasImageDialog> {
-  void setInvertible(bool value) => setState(() {
-    widget.image.invertible = value;
+  void setInvertible([bool? value]) => setState(() {
+    widget.image.invertible = value ?? !widget.image.invertible;
     widget.image.onMiscChange?.call();
     widget.parent.setState(() {});
   });
@@ -440,13 +440,13 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
       mainAxisSpacing: 8,
       shrinkWrap: true,
       children: [
-        if (Prefs.editorAutoInvert.value) MergeSemantics(
+        MergeSemantics(
           child: _CanvasImageDialogItem(
-            onTap: () => setInvertible(!widget.image.invertible),
+            onTap: Prefs.editorAutoInvert.value ? setInvertible : null,
             title: Text(t.editor.imageOptions.invertible),
             child: Switch.adaptive(
               value: widget.image.invertible,
-              onChanged: setInvertible,
+              onChanged: Prefs.editorAutoInvert.value ? setInvertible : null,
               thumbIcon: MaterialStateProperty.all(
                 widget.image.invertible
                   ? const Icon(Icons.invert_colors)
@@ -501,7 +501,7 @@ class _CanvasImageDialogItem extends StatelessWidget {
     required this.child,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget title;
   final Widget child;
 
