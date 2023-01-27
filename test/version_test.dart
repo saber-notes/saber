@@ -36,7 +36,7 @@ void main() {
     addTearDown(() async {
       // restore changes
       await shell.run("""
-      touch stash-me.txt  # make sure we can stash
+      touch stash-me-2.txt  # make sure we can stash
       git stash --include-untracked
       git stash drop
       """);
