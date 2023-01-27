@@ -241,6 +241,7 @@ If you like Saber, please consider supporting it by:
     - `CFBundleLocalizations` in `ios/Runner/Info.plist`
     - `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
     - `android/app/src/main/res/xml/locales_config.xml`
+    - `lib/data/locales.dart`
     - `README.md` above in the "Translating" section.
 
 </details>
