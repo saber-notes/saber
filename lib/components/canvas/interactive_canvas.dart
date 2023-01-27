@@ -923,13 +923,36 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     _controller.forward();
   }
 
-  // Handle mousewheel scroll events.
+  // Handle mousewheel and web trackpad scroll events.
   void _receivedPointerSignal(PointerSignalEvent event) {
     final double scaleChange;
     if (event is PointerScrollEvent) {
+      if (event.kind == PointerDeviceKind.trackpad || !widget.scrollZoomEnabled) {
+        // Trackpad scroll, so treat it as a pan.
+        if (!_gestureIsSupported(_GestureType.pan)) return;
+
+        final Offset localDelta = PointerEvent.transformDeltaViaPositions(
+          untransformedEndPosition: event.position + event.scrollDelta,
+          untransformedDelta: event.scrollDelta,
+          transform: event.transform,
+        );
+
+        final Offset focalPointScene = _transformationController!.toScene(
+          event.localPosition,
+        );
+        final Offset newFocalPointScene = _transformationController!.toScene(
+          event.localPosition - localDelta,
+        );
+
+        _transformationController!.value = _matrixTranslate(
+            _transformationController!.value,
+            newFocalPointScene - focalPointScene
+        );
+
+        return;
+      }
       // Ignore left and right scroll.
       if (event.scrollDelta.dy == 0.0) return;
-      if (!widget.scrollZoomEnabled) return;
       scaleChange = math.exp(-event.scrollDelta.dy / widget.scaleFactor);
     } else if (event is PointerScaleEvent) {
       scaleChange = event.scale;
