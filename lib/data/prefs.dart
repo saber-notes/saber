@@ -23,6 +23,12 @@ abstract class Prefs {
   @visibleForTesting
   static bool testingMode = false;
 
+  /// If true, a warning will be printed if a pref is accessed before it is loaded.
+  ///
+  /// If [testingMode] is true, the warning will not be printed even if this is true.
+  @visibleForTesting
+  static bool warnIfPrefAccessedBeforeLoaded = true;
+
   /// macOS doesn't support [flutter_secure_storage] without a paid Developer account,
   /// so we use [encrypted_shared_preferences] instead. This is insecure, so we
   /// require the user to explicitly enable it.
@@ -199,7 +205,7 @@ abstract class IPref<T> extends ValueNotifier<T> {
 
   @override
   get value {
-    if (!loaded && !Prefs.testingMode) {
+    if (!loaded && !Prefs.testingMode && Prefs.warnIfPrefAccessedBeforeLoaded) {
       if (kDebugMode) print("WARNING: Pref '$key' accessed before it was loaded.");
     }
     return super.value;

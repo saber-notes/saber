@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/prefs.dart';
@@ -69,6 +68,7 @@ Future testPref<T>({
   // // Prefs.testingMode = true;
   // Note that we won't use Prefs.init() because we aren't using Pref's prefs
   // // Prefs.init();
+  Prefs.warnIfPrefAccessedBeforeLoaded = false;
 
   // Delete pref if it already exists
   var pref = prefBuilder();
