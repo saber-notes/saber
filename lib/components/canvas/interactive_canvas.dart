@@ -1,7 +1,7 @@
 // Adapted for Saber from Flutter's InteractiveViewer class
 // https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
-// Using this commit:
-// https://github.com/flutter/flutter/blob/64a0c19652a63292f7587a52f5f24656291ffd35/packages/flutter/lib/src/widgets/interactive_viewer.dart
+// Using this commit (Flutter 3.7.0):
+// https://github.com/flutter/flutter/blob/e1adc96d5e01b2e5c530f99a16efcce6e86b1ac0/packages/flutter/lib/src/widgets/interactive_viewer.dart
 
 // Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -25,7 +25,12 @@ class InteractiveCanvasViewer extends StatefulWidget {
   InteractiveCanvasViewer({
     super.key,
     this.clipBehavior = Clip.hardEdge,
+    @Deprecated(
+      'Use panAxis instead. '
+          'This feature was deprecated after v3.3.0-0.5.pre.',
+    )
     this.alignPanAxis = false,
+    this.panAxis = PanAxis.free,
     this.boundaryMargin = EdgeInsets.zero,
     this.constrained = true,
     this.scrollZoomEnabled = true,
@@ -34,6 +39,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.maxScale = 2.5,
     this.minScale = 0.8,
     this.isDrawGesture,
+    this.interactionEndFrictionCoefficient = _kDrag,
     this.onInteractionEnd,
     this.onDrawEnd,
     this.onDrawStart,
@@ -42,8 +48,10 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.scaleEnabled = true,
     this.scaleFactor = 200.0,
     this.transformationController,
+    this.alignment,
     required Widget this.child,
   }) : assert(minScale > 0),
+        assert(interactionEndFrictionCoefficient > 0),
         assert(minScale.isFinite),
         assert(maxScale > 0),
         assert(!maxScale.isNaN),
@@ -68,7 +76,12 @@ class InteractiveCanvasViewer extends StatefulWidget {
   InteractiveCanvasViewer.builder({
     super.key,
     this.clipBehavior = Clip.hardEdge,
+    @Deprecated(
+      'Use panAxis instead. '
+          'This feature was deprecated after v3.3.0-0.5.pre.',
+    )
     this.alignPanAxis = false,
+    this.panAxis = PanAxis.free,
     this.boundaryMargin = EdgeInsets.zero,
     this.scrollZoomEnabled = true,
     // These default scale values were eyeballed as reasonable limits for common
@@ -76,6 +89,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.maxScale = 2.5,
     this.minScale = 0.8,
     this.isDrawGesture,
+    this.interactionEndFrictionCoefficient = _kDrag,
     this.onInteractionEnd,
     this.onDrawEnd,
     this.onDrawStart,
@@ -84,8 +98,10 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.scaleEnabled = true,
     this.scaleFactor = 200.0,
     this.transformationController,
+    this.alignment,
     required InteractiveCanvasViewerWidgetBuilder this.builder,
   }) : assert(minScale > 0),
+        assert(interactionEndFrictionCoefficient > 0),
         assert(minScale.isFinite),
         assert(maxScale > 0),
         assert(!maxScale.isNaN),
@@ -102,6 +118,9 @@ class InteractiveCanvasViewer extends StatefulWidget {
         constrained = false,
         child = null;
 
+  /// The alignment of the child's origin, relative to the size of the box.
+  final Alignment? alignment;
+
   /// If set to [Clip.none], the child may extend beyond the size of the InteractiveCanvasViewer,
   /// but it will not receive gestures in these areas.
   /// Be sure that the InteractiveCanvasViewer is the desired size when using [Clip.none].
@@ -109,6 +128,8 @@ class InteractiveCanvasViewer extends StatefulWidget {
   /// Defaults to [Clip.hardEdge].
   final Clip clipBehavior;
 
+  /// This property is deprecated, please use [panAxis] instead.
+  ///
   /// If true, panning is only allowed in the direction of the horizontal axis
   /// or the vertical axis.
   ///
@@ -120,7 +141,24 @@ class InteractiveCanvasViewer extends StatefulWidget {
   /// See also:
   ///  * [constrained], which has an example of creating a table that uses
   ///    alignPanAxis.
+  @Deprecated(
+    'Use panAxis instead. '
+        'This feature was deprecated after v3.3.0-0.5.pre.',
+  )
   final bool alignPanAxis;
+
+  /// When set to [PanAxis.aligned], panning is only allowed in the horizontal
+  /// axis or the vertical axis, diagonal panning is not allowed.
+  ///
+  /// When set to [PanAxis.vertical] or [PanAxis.horizontal] panning is only
+  /// allowed in the specified axis. For example, if set to [PanAxis.vertical],
+  /// panning will only be allowed in the vertical axis. And if set to [PanAxis.horizontal],
+  /// panning will only be allowed in the horizontal axis.
+  ///
+  /// When set to [PanAxis.free] panning is allowed in all directions.
+  ///
+  /// Defaults to [PanAxis.free].
+  final PanAxis panAxis;
 
   /// A margin for the visible boundaries of the child.
   ///
@@ -181,7 +219,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// {@tool dartpad}
   /// This example shows how to create a pannable table. Because the table is
-  /// larger than the entire screen, setting `constrained` to false is necessary
+  /// larger than the entire screen, setting [constrained] to false is necessary
   /// to allow it to be drawn to its full size. The parts of the table that
   /// exceed the screen size can then be panned into view.
   ///
@@ -249,6 +287,13 @@ class InteractiveCanvasViewer extends StatefulWidget {
   /// Cannot be null, and must be a finite number greater than zero and less
   /// than maxScale.
   final double minScale;
+
+  /// Changes the deceleration behavior after a gesture.
+  ///
+  /// Defaults to 0.0000135.
+  ///
+  /// Cannot be null, and must be a finite number greater than zero.
+  final double interactionEndFrictionCoefficient;
 
   /// Called when the user ends a pan or scale gesture on the widget.
   ///
@@ -336,6 +381,10 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///  * [ValueNotifier], the parent class of TransformationController.
   ///  * [TextEditingController] for an example of another similar pattern.
   final TransformationController? transformationController;
+
+  // Used as the coefficient of friction in the inertial translation animation.
+  // This value was eyeballed to give a feel similar to Google Photos.
+  static const double _kDrag = 0.0000135;
 
   /// Returns the closest point to the given point on the given line segment.
   @visibleForTesting
@@ -466,7 +515,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   final GlobalKey _parentKey = GlobalKey();
   Animation<Offset>? _animation;
   late AnimationController _controller;
-  Axis? _panAxis; // Used with alignPanAxis.
+  Axis? _currentAxis; // Used with panAxis.
   Offset? _referenceFocalPoint; // Point where the current gesture began.
   double? _scaleStart; // Scale value at start of scaling gesture.
   double? _rotationStart = 0.0; // Rotation at start of rotation gesture.
@@ -477,10 +526,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   // hardcoded value when the rotation feature is implemented.
   // https://github.com/flutter/flutter/issues/57698
   final bool _rotateEnabled = false;
-
-  // Used as the coefficient of friction in the inertial translation animation.
-  // This value was eyeballed to give a feel similar to Google Photos.
-  static const double _kDrag = 0.0000135;
 
   // The _boundaryRect is calculated by adding the boundaryMargin to the size of
   // the child.
@@ -525,9 +570,26 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
       return matrix.clone();
     }
 
-    final Offset alignedTranslation = widget.alignPanAxis && _panAxis != null
-        ? _alignAxis(translation, _panAxis!)
-        : translation;
+    late final Offset alignedTranslation;
+
+    if (_currentAxis != null) {
+      switch(widget.panAxis){
+        case PanAxis.horizontal:
+          alignedTranslation = _alignAxis(translation, Axis.horizontal);
+          break;
+        case PanAxis.vertical:
+          alignedTranslation = _alignAxis(translation, Axis.vertical);
+          break;
+        case PanAxis.aligned:
+          alignedTranslation = _alignAxis(translation, _currentAxis!);
+          break;
+        case PanAxis.free:
+          alignedTranslation = translation;
+          break;
+      }
+    } else {
+      alignedTranslation = translation;
+    }
 
     final Matrix4 nextMatrix = matrix.clone()..translate(
       alignedTranslation.dx,
@@ -698,7 +760,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     }
 
     _gestureType = null;
-    _panAxis = null;
+    _currentAxis = null;
     _scaleStart = _transformationController!.value.getMaxScaleOnAxis();
     _referenceFocalPoint = _transformationController!.toScene(
       details.localFocalPoint,
@@ -790,7 +852,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         if (details.scale != 1.0) {
           return;
         }
-        _panAxis ??= _getPanAxis(_referenceFocalPoint!, focalPointScene);
+        _currentAxis ??= _getPanAxis(_referenceFocalPoint!, focalPointScene);
         // Translate so that the same point in the scene is underneath the
         // focal point before and after the movement.
         final Offset translationChange = focalPointScene - _referenceFocalPoint!;
@@ -823,31 +885,31 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     _controller.reset();
 
     if (!_gestureIsSupported(_gestureType)) {
-      _panAxis = null;
+      _currentAxis = null;
       return;
     }
 
     // If the scale ended with enough velocity, animate inertial movement.
     if (_gestureType != _GestureType.pan || details.velocity.pixelsPerSecond.distance < kMinFlingVelocity) {
-      _panAxis = null;
+      _currentAxis = null;
       return;
     }
 
     final Vector3 translationVector = _transformationController!.value.getTranslation();
     final Offset translation = Offset(translationVector.x, translationVector.y);
     final FrictionSimulation frictionSimulationX = FrictionSimulation(
-      _kDrag,
+      widget.interactionEndFrictionCoefficient,
       translation.dx,
       details.velocity.pixelsPerSecond.dx,
     );
     final FrictionSimulation frictionSimulationY = FrictionSimulation(
-      _kDrag,
+      widget.interactionEndFrictionCoefficient,
       translation.dy,
       details.velocity.pixelsPerSecond.dy,
     );
     final double tFinal = _getFinalTime(
       details.velocity.pixelsPerSecond.distance,
-      _kDrag,
+      widget.interactionEndFrictionCoefficient,
     );
     _animation = Tween<Offset>(
       begin: translation,
@@ -863,39 +925,44 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
 
   // Handle mousewheel scroll events.
   void _receivedPointerSignal(PointerSignalEvent event) {
+    final double scaleChange;
     if (event is PointerScrollEvent) {
       // Ignore left and right scroll.
       if (event.scrollDelta.dy == 0.0) return;
-      if (!_gestureIsSupported(_GestureType.scale)) return;
       if (!widget.scrollZoomEnabled) return;
-
-      final double scaleChange = math.exp(-event.scrollDelta.dy / widget.scaleFactor);
-
-      final Offset focalPointScene = _transformationController!.toScene(
-        event.localPosition,
-      );
-
-      _transformationController!.value = _matrixScale(
-        _transformationController!.value,
-        scaleChange,
-      );
-
-      // After scaling, translate such that the event's position is at the
-      // same scene point before and after the scale.
-      final Offset focalPointSceneScaled = _transformationController!.toScene(
-        event.localPosition,
-      );
-      _transformationController!.value = _matrixTranslate(
-        _transformationController!.value,
-        focalPointSceneScaled - focalPointScene,
-      );
+      scaleChange = math.exp(-event.scrollDelta.dy / widget.scaleFactor);
+    } else if (event is PointerScaleEvent) {
+      scaleChange = event.scale;
+    } else {
+      return;
     }
+
+    if (!_gestureIsSupported(_GestureType.scale)) return;
+
+    final Offset focalPointScene = _transformationController!.toScene(
+      event.localPosition,
+    );
+
+    _transformationController!.value = _matrixScale(
+      _transformationController!.value,
+      scaleChange,
+    );
+
+    // After scaling, translate such that the event's position is at the
+    // same scene point before and after the scale.
+    final Offset focalPointSceneScaled = _transformationController!.toScene(
+      event.localPosition,
+    );
+    _transformationController!.value = _matrixTranslate(
+      _transformationController!.value,
+      focalPointSceneScaled - focalPointScene,
+    );
   }
 
   // Handle inertia drag animation.
   void _onAnimate() {
     if (!_controller.isAnimating) {
-      _panAxis = null;
+      _currentAxis = null;
       _animation?.removeListener(_onAnimate);
       _animation = null;
       _controller.reset();
@@ -979,6 +1046,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         clipBehavior: widget.clipBehavior,
         constrained: widget.constrained,
         matrix: _transformationController!.value,
+        alignment: widget.alignment,
         child: widget.child!,
       );
     } else {
@@ -993,6 +1061,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
             childKey: _childKey,
             clipBehavior: widget.clipBehavior,
             constrained: widget.constrained,
+            alignment: widget.alignment,
             matrix: matrix,
             child: widget.builder!(
               context,
@@ -1026,6 +1095,7 @@ class _InteractiveCanvasViewerBuilt extends StatelessWidget {
     required this.clipBehavior,
     required this.constrained,
     required this.matrix,
+    required this.alignment,
   });
 
   final Widget child;
@@ -1033,11 +1103,13 @@ class _InteractiveCanvasViewerBuilt extends StatelessWidget {
   final Clip clipBehavior;
   final bool constrained;
   final Matrix4 matrix;
+  final Alignment? alignment;
 
   @override
   Widget build(BuildContext context) {
     Widget child = Transform(
       transform: matrix,
+      alignment: alignment,
       child: KeyedSubtree(
         key: childKey,
         child: this.child,
@@ -1243,4 +1315,21 @@ Axis? _getPanAxis(Offset point1, Offset point2) {
   final double x = point2.dx - point1.dx;
   final double y = point2.dy - point1.dy;
   return x.abs() > y.abs() ? Axis.horizontal : Axis.vertical;
+}
+
+/// This enum is used to specify the behavior of the [InteractiveCanvasViewer] when
+/// the user drags the viewport.
+enum PanAxis{
+  /// The user can only pan the viewport along the horizontal axis.
+  horizontal,
+
+  /// The user can only pan the viewport along the vertical axis.
+  vertical,
+
+  /// The user can pan the viewport along the horizontal and vertical axes
+  /// but not diagonally.
+  aligned,
+
+  /// The user can pan the viewport freely in any direction.
+  free,
 }
