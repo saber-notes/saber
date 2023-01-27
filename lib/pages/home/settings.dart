@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
@@ -13,6 +12,7 @@ import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -105,10 +105,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       ToggleButtonsOption("", Text(t.settings.systemLanguage)),
                       ...AppLocaleUtils.supportedLocales.map((locale) {
                         final String localeCode = locale.toLanguageTag();
-                        String? localeName;
-                        localeName ??= LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode.replaceAll("-", "_")];
-                        localeName ??= localeCode;
-                        return ToggleButtonsOption(localeCode, Text(localeName));
+                        String? localeName = localeNames[localeCode];
+                        assert(localeName != null, "Missing locale name for $localeCode");
+                        return ToggleButtonsOption(
+                          localeCode,
+                          Text(localeName ?? localeCode),
+                        );
                       }),
                     ],
                   ),
