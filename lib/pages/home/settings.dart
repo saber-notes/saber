@@ -93,7 +93,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: AppInfo(),
               ),
               ExpansionTile(
-                initiallyExpanded: kDebugMode,
+                initiallyExpanded: true,
                 leading: const Icon(Icons.app_settings_alt),
                 title: Text(t.settings.prefCategories.general),
                 children: [
@@ -178,7 +178,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
               ExpansionTile(
-                initiallyExpanded: kDebugMode,
+                initiallyExpanded: true,
                 leading: const Icon(Icons.display_settings),
                 title: Text(t.settings.prefCategories.layout),
                 children: [
@@ -215,7 +215,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
               ExpansionTile(
-                initiallyExpanded: kDebugMode,
+                initiallyExpanded: true,
                 leading: const Icon(Icons.brush),
                 title: Text(t.settings.prefCategories.writing),
                 children: [
