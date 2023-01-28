@@ -68,7 +68,7 @@
     "title": "Přihlásit se",
     "feedbacks": {
       "checkUsername": "Zkontrolujte prosím své uživatelské jméno a heslo.",
-      "enterNcPassword": "Zadejte prosím své heslo k NextCloud účtu.",
+      "enterNcPassword": "Zadejte prosím své heslo k Nextcloud účtu.",
       "enterEncPassword": "Zadejte prosím své heslo pro šifrování.",
       "checkUrl": "Zadejte prosím správnou URL adresu.",
       "ncLoginFailed": "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.",
@@ -76,10 +76,10 @@
       "loginSuccess": "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
     },
     "form": {
-      "useCustomServer": "Chci využít vlastní NextCloud server",
-      "customServerUrl": "URL adresa vlastního NextCloud serveru",
+      "useCustomServer": "Chci využít vlastní Nextcloud server",
+      "customServerUrl": "URL adresa vlastního Nextcloud serveru",
       "username": "Přihlašovací jméno nebo e-mail",
-      "ncPassword": "Heslo k NextCloud účtu",
+      "ncPassword": "Heslo k Nextcloud účtu",
       "encPassword": "Heslo pro šifrování",
       "agreeToPrivacyPolicy(rich)": "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}.",
       "login": "Přihlásit se"
@@ -88,20 +88,20 @@
     "status": {
       "loggedIn": "Jste přihlášeni pomocí Nextcloud účtu",
       "loggedOut": "Jste odhlášení",
-      "tapToLogin": "Klepněte pro přihlášení pomocí NextCloud účtu"
+      "tapToLogin": "Klepněte pro přihlášení pomocí Nextcloud účtu"
     },
     "faq": [
       {
-        "q": "Co je to NextCloud?",
-        "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty."
+        "q": "Co je to Nextcloud?",
+        "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
       },
       {
         "q": "K čemu je heslo pro šifrování?",
-        "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
+        "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je využito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
       },
       {
         "q": "Proč používat dvě hesla?",
-        "a": "Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
+        "a": "Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
       }
     ],
     "insecureStorage": {
@@ -112,7 +112,7 @@
     }
   },
   "appInfo": {
-    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.",
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.",
     "dirty": "ZKUŠEBNÍ VERZE",
     "debug": "LADÍCÍ VERZE",
     "sponsorButton": "Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště",
@@ -126,16 +126,16 @@
   },
   "editor": {
     "toolbar": {
-      "toggleColors": "Přepnout barvy (Ctrl C)",
-      "toggleEraser": "Přepnout gumu (Ctrl E)",
+      "toggleColors": "Změnit barvu (Ctrl C)",
+      "toggleEraser": "Guma (Ctrl E)",
       "photo": "Obrázek",
       "text": "Text",
-      "toggleFingerDrawing": "Přepnout kreslení prstem (Ctrl F)",
+      "toggleFingerDrawing": "Možnost kreslení prstem (Ctrl F)",
       "undo": "Zpět",
       "redo": "Obnovit",
       "export": "Exportovat (Ctrl Shift S)",
       "exportAs": "Exportovat jako:",
-      "fullscreen": "Přepnout režim celé obrazovky (F11)"
+      "fullscreen": "Režim celé obrazovky (F11)"
     },
     "pens": {
       "fountainPen": "Plnící pero",
@@ -148,15 +148,29 @@
     },
     "imageOptions": {
       "title": "Možnosti obrázku",
-      "invertible": "Invertování barev podle motivu",
+      "invertible": "Invertovat barvy podle motivu",
       "download": "Stáhnout",
-      "delete": "Odstranit"
+      "delete": "Odstranit",
+      "setAsBackground": "Nastavit na pozadí"
     },
     "menu": {
       "clearPage": "Smazat obsah stránky",
       "clearAllPages": "Smazat všechny stránky",
       "lineHeight": "Výška řádku",
-      "lineHeightDescription": "Velikost každého řádku"
+      "lineHeightDescription": "Velikost jednotlivých řádků",
+      "removeBgImage": "Odstranit obrázek z pozadí",
+      "boxFits": {
+        "fill": "Roztáhnout",
+        "cover": "Vyplnit",
+        "contain": "Přizpůsobit"
+      },
+      "bgPatterns": {
+        "none": "Prázdné",
+        "college": "Linkované s okrajem",
+        "lined": "Linkované",
+        "grid": "Mřížka",
+        "dots": "Tečkované"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Otevřít v režimu pouze pro čtení",
