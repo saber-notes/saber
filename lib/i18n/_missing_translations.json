@@ -6,21 +6,21 @@
   "cs": {
     "editor": {
       "imageOptions": {
-        "setAsBackground": "Set as background"
+        "setAsBackground": "Nastavit na pozadí"
       },
       "menu": {
-        "removeBgImage": "Remove background image",
+        "removeBgImage": "Odstranit obrázek z pozadí",
         "boxFits": {
-          "fill": "Stretch",
-          "cover": "Cover",
-          "contain": "Contain"
+          "fill": "Roztáhnout",
+          "cover": "Vyplnit",
+          "contain": "Přizpůsobit"
         },
         "bgPatterns": {
-          "none": "Blank",
-          "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Grid",
-          "dots": "Dots"
+          "none": "Prázdné",
+          "college": "Linkované s okrajem",
+          "lined": "Linkované",
+          "grid": "Mřížka",
+          "dots": "Tečkované"
         }
       }
     }
