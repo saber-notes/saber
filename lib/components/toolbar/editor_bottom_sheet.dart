@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_background_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -38,10 +39,14 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
     final colorScheme = Theme.of(context).colorScheme;
 
     final Size pageSize;
+    final EditorImage? backgroundImage;
     if (widget.currentPageIndex != null) {
-      pageSize = widget.coreInfo.pages[widget.currentPageIndex!].size;
+      final page = widget.coreInfo.pages[widget.currentPageIndex!];
+      pageSize = page.size;
+      backgroundImage = page.backgroundImage;
     } else {
       pageSize = EditorPage.defaultSize;
+      backgroundImage = null;
     }
 
     return Material(
@@ -128,6 +133,48 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               ),
             ),
             const SizedBox(height: 16),
+            if (backgroundImage != null) ...[
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const AdaptiveIcon(
+                        icon: Icons.hide_image,
+                        cupertinoIcon: CupertinoIcons.clear_fill,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+
+                    for (final BoxFit boxFit in [
+                      BoxFit.fill,
+                      BoxFit.cover,
+                      BoxFit.contain,
+                    ]) ...[
+                      InkWell(
+                        borderRadius: BorderRadius.circular(8),
+                        onTap: () => setState(() {
+                          // backgroundImage.boxFit = boxFit;
+                        }),
+                        child: CanvasBackgroundPreview(
+                          selected: false, // backgroundImage.boxFit == boxFit,
+                          invert: widget.invert,
+                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                          backgroundPattern: widget.coreInfo.backgroundPattern,
+                          backgroundImage: backgroundImage,
+                          overrideBoxFit: boxFit,
+                          pageSize: pageSize,
+                          lineHeight: widget.coreInfo.lineHeight,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
