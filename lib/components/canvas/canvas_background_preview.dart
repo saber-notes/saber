@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 
@@ -12,6 +13,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
     required this.backgroundColor,
     required this.backgroundPattern,
     required this.backgroundImage,
+    this.overrideBoxFit,
     required this.pageSize,
     required this.lineHeight,
   });
@@ -21,6 +23,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
   final Color? backgroundColor;
   final String backgroundPattern;
   final EditorImage? backgroundImage;
+  final BoxFit? overrideBoxFit;
   final Size pageSize;
   final int lineHeight;
 
@@ -57,6 +60,19 @@ class CanvasBackgroundPreview extends StatelessWidget {
                   .withSaturation(selected ? 1 : 0),
                 preview: true,
               ),
+              child: Stack(
+                children: [
+                  if (backgroundImage != null) CanvasImage(
+                    filePath: "",
+                    image: backgroundImage!,
+                    overrideBoxFit: overrideBoxFit,
+                    pageSize: pageSize,
+                    setAsBackground: null,
+                    isBackground: true,
+                    readOnly: true,
+                  ),
+                ]
+              )
             ),
           ),
         ),

@@ -17,6 +17,7 @@ class CanvasImage extends StatefulWidget {
   CanvasImage({
     required this.filePath,
     required this.image,
+    this.overrideBoxFit,
     required this.pageSize,
     required this.setAsBackground,
     this.isBackground = false,
@@ -26,6 +27,7 @@ class CanvasImage extends StatefulWidget {
   /// The path to the note that this image is in.
   final String filePath;
   final EditorImage image;
+  final BoxFit? overrideBoxFit;
   final Size pageSize;
   final void Function(EditorImage image)? setAsBackground;
   final bool isBackground;
@@ -213,7 +215,7 @@ class _CanvasImageState extends State<CanvasImage> {
                             }
                             return Image.memory(
                               bytes,
-                              fit: BoxFit.fill,
+                              fit: widget.overrideBoxFit ?? BoxFit.fill,
                               key: Key("Image${widget.image.id}-$keySuffix"),
                             );
                           }(),
@@ -244,16 +246,17 @@ class _CanvasImageState extends State<CanvasImage> {
               ),
             ),
           ),
-          for (double x = -20; x <= 20; x += 20)
-            for (double y = -20; y <= 20; y += 20)
-              if (x != 0 || y != 0) // ignore (0,0)
-                _CanvasImageResizeHandle(
-                  active: active,
-                  position: Offset(x, y),
-                  image: widget.image,
-                  parent: this,
-                  afterDrag: () => setState(() {}),
-                ),
+          if (!widget.readOnly)
+            for (double x = -20; x <= 20; x += 20)
+              for (double y = -20; y <= 20; y += 20)
+                if (x != 0 || y != 0) // ignore (0,0)
+                  _CanvasImageResizeHandle(
+                    active: active,
+                    position: Offset(x, y),
+                    image: widget.image,
+                    parent: this,
+                    afterDrag: () => setState(() {}),
+                  ),
         ],
       ),
     );
