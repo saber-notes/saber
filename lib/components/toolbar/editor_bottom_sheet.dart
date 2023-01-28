@@ -8,6 +8,7 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/i18n/extensions/box_fit_localized.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class EditorBottomSheet extends StatefulWidget {
@@ -160,7 +161,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           // backgroundImage.boxFit = boxFit;
                         }),
                         child: Tooltip(
-                          message: _boxFitName(boxFit),
+                          message: boxFit.localizedName,
                           child: CanvasBackgroundPreview(
                             selected: false, // backgroundImage.boxFit == boxFit,
                             invert: widget.invert,
@@ -191,7 +192,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                         widget.setBackgroundPattern(backgroundPattern);
                       }),
                       child: Tooltip(
-                        message: _bgPatternName(backgroundPattern),
+                        message: CanvasBackgroundPatterns.localizedName(backgroundPattern),
                         child: CanvasBackgroundPreview(
                           selected: widget.coreInfo.backgroundPattern == backgroundPattern,
                           invert: widget.invert,
@@ -213,35 +214,5 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
         ),
       ),
     );
-  }
-
-  String _boxFitName(BoxFit boxFit) {
-    if (boxFit == BoxFit.fill) {
-      return t.editor.menu.boxFits.fill;
-    } else if (boxFit == BoxFit.cover) {
-      return t.editor.menu.boxFits.cover;
-    } else if (boxFit == BoxFit.contain) {
-      return t.editor.menu.boxFits.contain;
-    } else {
-      if (kDebugMode) throw Exception("Untranslated box fit: $boxFit");
-      return "";
-    }
-  }
-
-  String _bgPatternName(String bgPattern) {
-    if (bgPattern == CanvasBackgroundPatterns.none) {
-      return t.editor.menu.bgPatterns.none;
-    } else if (bgPattern == CanvasBackgroundPatterns.college) {
-      return t.editor.menu.bgPatterns.college;
-    } else if (bgPattern == CanvasBackgroundPatterns.lined) {
-      return t.editor.menu.bgPatterns.lined;
-    } else if (bgPattern == CanvasBackgroundPatterns.grid) {
-      return t.editor.menu.bgPatterns.grid;
-    } else if (bgPattern == CanvasBackgroundPatterns.dots) {
-      return t.editor.menu.bgPatterns.dots;
-    } else {
-      if (kDebugMode) throw Exception("Untranslated background pattern: $bgPattern");
-      return "";
-    }
   }
 }

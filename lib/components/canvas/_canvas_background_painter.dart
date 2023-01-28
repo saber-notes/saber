@@ -2,6 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class CanvasBackgroundPainter extends CustomPainter {
   const CanvasBackgroundPainter({
@@ -143,4 +144,21 @@ abstract class CanvasBackgroundPatterns {
     grid,
     dots,
   ];
+
+  static String localizedName(String pattern) {
+    if (pattern == CanvasBackgroundPatterns.none) {
+      return t.editor.menu.bgPatterns.none;
+    } else if (pattern == CanvasBackgroundPatterns.college) {
+      return t.editor.menu.bgPatterns.college;
+    } else if (pattern == CanvasBackgroundPatterns.lined) {
+      return t.editor.menu.bgPatterns.lined;
+    } else if (pattern == CanvasBackgroundPatterns.grid) {
+      return t.editor.menu.bgPatterns.grid;
+    } else if (pattern == CanvasBackgroundPatterns.dots) {
+      return t.editor.menu.bgPatterns.dots;
+    } else {
+      if (kDebugMode) throw Exception("Untranslated background pattern: $pattern");
+      return "";
+    }
+  }
 }
