@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
-import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/components/canvas/canvas_background_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -138,36 +138,14 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                       onTap: () => setState(() {
                         widget.setBackgroundPattern(backgroundPattern);
                       }),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: colorScheme.primary.withOpacity(0.5).withSaturation(widget.coreInfo.backgroundPattern == backgroundPattern ? 1 : 0),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: FittedBox(
-                            child: SizedBox(
-                              width: pageSize.width / 4,
-                              height: pageSize.height / 4,
-                              child: CustomPaint(
-                                painter: CanvasBackgroundPainter(
-                                  invert: widget.invert,
-                                  backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                                  backgroundPattern: backgroundPattern,
-                                  lineHeight: widget.coreInfo.lineHeight,
-                                  primaryColor: colorScheme.primary.withSaturation(widget.coreInfo.backgroundPattern == backgroundPattern ? 1 : 0),
-                                  secondaryColor: colorScheme.secondary.withSaturation(widget.coreInfo.backgroundPattern == backgroundPattern ? 1 : 0),
-                                  preview: true,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                      child: CanvasBackgroundPreview(
+                        selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                        invert: widget.invert,
+                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                        backgroundPattern: backgroundPattern,
+                        backgroundImage: null, // focus on background pattern
+                        pageSize: pageSize,
+                        lineHeight: widget.coreInfo.lineHeight,
                       ),
                     ),
                     const SizedBox(width: 8),
