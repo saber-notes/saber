@@ -869,6 +869,11 @@ class _EditorState extends State<Editor> {
       },
 
       clearAllPages: clearAllPages,
+
+      redrawAndSave: () => setState(() {
+        if (coreInfo.readOnly) return;
+        autosaveAfterDelay();
+      }),
     );
   }
 

@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:worker_manager/worker_manager.dart';
@@ -53,6 +54,9 @@ class EditorImage {
   /// Whether this image is inverted if Prefs.editorAutoInvert.value
   bool invertible;
 
+  /// The BoxFit used if this is a page's background image
+  BoxFit backgroundFit;
+
   EditorImage({
     required this.id,
     required this.extension,
@@ -64,7 +68,8 @@ class EditorImage {
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-  }): invertible = true {
+  }): invertible = true,
+      backgroundFit = BoxFit.contain {
     _getImage(pageSize: pageSize).then((_) => onLoad?.call());
   }
 
@@ -73,6 +78,7 @@ class EditorImage {
         extension = json['e'] ?? ".jpg",
         pageIndex = json['i'] ?? 0,
         invertible = json['v'] ?? true,
+        backgroundFit = json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
         onLoad = null,
         dstRect = Rect.fromLTWH(
           json['x'] ?? 0,
@@ -102,6 +108,7 @@ class EditorImage {
       'e': extension,
       'i': pageIndex,
       'v': invertible,
+      'f': backgroundFit.index,
       'x': dstRect.left,
       'y': dstRect.top,
       'w': dstRect.width,
