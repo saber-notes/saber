@@ -68,7 +68,7 @@
     "title": "Přihlásit se",
     "feedbacks": {
       "checkUsername": "Zkontrolujte prosím své uživatelské jméno a heslo.",
-      "enterNcPassword": "Zadejte prosím své heslo k NextCloud účtu.",
+      "enterNcPassword": "Zadejte prosím své heslo k Nextcloud účtu.",
       "enterEncPassword": "Zadejte prosím své heslo pro šifrování.",
       "checkUrl": "Zadejte prosím správnou URL adresu.",
       "ncLoginFailed": "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.",
@@ -76,10 +76,10 @@
       "loginSuccess": "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
     },
     "form": {
-      "useCustomServer": "Chci využít vlastní NextCloud server",
-      "customServerUrl": "URL adresa vlastního NextCloud serveru",
+      "useCustomServer": "Chci využít vlastní Nextcloud server",
+      "customServerUrl": "URL adresa vlastního Nextcloud serveru",
       "username": "Přihlašovací jméno nebo e-mail",
-      "ncPassword": "Heslo k NextCloud účtu",
+      "ncPassword": "Heslo k Nextcloud účtu",
       "encPassword": "Heslo pro šifrování",
       "agreeToPrivacyPolicy(rich)": "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}.",
       "login": "Přihlásit se"
@@ -88,12 +88,12 @@
     "status": {
       "loggedIn": "Jste přihlášeni pomocí Nextcloud účtu",
       "loggedOut": "Jste odhlášení",
-      "tapToLogin": "Klepněte pro přihlášení pomocí NextCloud účtu"
+      "tapToLogin": "Klepněte pro přihlášení pomocí Nextcloud účtu"
     },
     "faq": [
       {
-        "q": "Co je to NextCloud?",
-        "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
+        "q": "Co je to Nextcloud?",
+        "a": "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
       },
       {
         "q": "K čemu je heslo pro šifrování?",
@@ -101,7 +101,7 @@
       },
       {
         "q": "Proč používat dvě hesla?",
-        "a": "Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
+        "a": "Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
       }
     ],
     "insecureStorage": {
