@@ -588,7 +588,7 @@ class _EditorState extends State<Editor> {
     if (image == null) return null;
     return PhotoInfo(
       bytes: await image.readAsBytes(),
-      extension: image.path.substring(image.path.lastIndexOf('.')),
+      extension: image.name.substring(image.name.lastIndexOf('.')),
     );
   }
   Future<PhotoInfo?> pickPhotoDesktop() async {
