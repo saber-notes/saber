@@ -150,13 +150,27 @@
       "title": "Možnosti obrázku",
       "invertible": "Invertovat barvy podle motivu",
       "download": "Stáhnout",
-      "delete": "Odstranit"
+      "delete": "Odstranit",
+      "setAsBackground": "Nastavit na pozadí"
     },
     "menu": {
       "clearPage": "Smazat obsah stránky",
       "clearAllPages": "Smazat všechny stránky",
       "lineHeight": "Výška řádku",
-      "lineHeightDescription": "Velikost jednotlivých řádků"
+      "lineHeightDescription": "Velikost jednotlivých řádků",
+      "removeBgImage": "Odstranit obrázek z pozadí",
+      "boxFits": {
+        "fill": "Roztáhnout",
+        "cover": "Vyplnit",
+        "contain": "Přizpůsobit"
+      },
+      "bgPatterns": {
+        "none": "Prázdné",
+        "college": "Linkované s okrajem",
+        "lined": "Linkované",
+        "grid": "Mřížka",
+        "dots": "Tečkované"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Otevřít v režimu pouze pro čtení",

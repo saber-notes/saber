@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1048 (116 per locale)
+/// Strings: 1058 (117 per locale)
 ///
-/// Built on 2023-01-28 at 12:36 UTC
+/// Built on 2023-01-28 at 22:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -713,7 +713,7 @@ class _StringsAppInfoCs extends _StringsAppInfoEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění daných podmínek.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.';
 	@override String get dirty => 'ZKUŠEBNÍ VERZE';
 	@override String get debug => 'LADÍCÍ VERZE';
 	@override String get sponsorButton => 'Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště';
@@ -888,7 +888,7 @@ class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
 
 	// Translations
 	@override String get checkUsername => 'Zkontrolujte prosím své uživatelské jméno a heslo.';
-	@override String get enterNcPassword => 'Zadejte prosím své heslo k NextCloud účtu.';
+	@override String get enterNcPassword => 'Zadejte prosím své heslo k Nextcloud účtu.';
 	@override String get enterEncPassword => 'Zadejte prosím své heslo pro šifrování.';
 	@override String get checkUrl => 'Zadejte prosím správnou URL adresu.';
 	@override String get ncLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
@@ -903,10 +903,10 @@ class _StringsLoginFormCs extends _StringsLoginFormEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Chci využít vlastní NextCloud server';
-	@override String get customServerUrl => 'URL adresa vlastního NextCloud serveru';
+	@override String get useCustomServer => 'Chci využít vlastní Nextcloud server';
+	@override String get customServerUrl => 'URL adresa vlastního Nextcloud serveru';
 	@override String get username => 'Přihlašovací jméno nebo e-mail';
-	@override String get ncPassword => 'Heslo k NextCloud účtu';
+	@override String get ncPassword => 'Heslo k Nextcloud účtu';
 	@override String get encPassword => 'Heslo pro šifrování';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Přihlášením souhlasíte se '),
@@ -925,7 +925,7 @@ class _StringsLoginStatusCs extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedIn => 'Jste přihlášeni pomocí Nextcloud účtu';
 	@override String get loggedOut => 'Jste odhlášení';
-	@override String get tapToLogin => 'Klepněte pro přihlášení pomocí NextCloud účtu';
+	@override String get tapToLogin => 'Klepněte pro přihlášení pomocí Nextcloud účtu';
 }
 
 // Path: login.faq.0
@@ -935,8 +935,8 @@ class _StringsLogin$faq$0i0$Cs extends _StringsLogin$faq$0i0$En {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to NextCloud?';
-	@override String get a => 'Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí NextCloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou nebo vlastní server pro plnou kontrolu nad svými daty.';
+	@override String get q => 'Co je to Nextcloud?';
+	@override String get a => 'Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty.';
 }
 
 // Path: login.faq.1
@@ -947,7 +947,7 @@ class _StringsLogin$faq$0i1$Cs extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'K čemu je heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je použito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je využito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.faq.2
@@ -958,7 +958,7 @@ class _StringsLogin$faq$0i2$Cs extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Proč používat dvě hesla?';
-	@override String get a => 'Heslo k NextCloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu NextCloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
 }
 
 // Path: login.insecureStorage
@@ -985,16 +985,16 @@ class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get toggleColors => 'Přepnout barvy (Ctrl C)';
-	@override String get toggleEraser => 'Přepnout gumu (Ctrl E)';
+	@override String get toggleColors => 'Změnit barvu (Ctrl C)';
+	@override String get toggleEraser => 'Guma (Ctrl E)';
 	@override String get photo => 'Obrázek';
 	@override String get text => 'Text';
-	@override String get toggleFingerDrawing => 'Přepnout kreslení prstem (Ctrl F)';
+	@override String get toggleFingerDrawing => 'Možnost kreslení prstem (Ctrl F)';
 	@override String get undo => 'Zpět';
 	@override String get redo => 'Obnovit';
 	@override String get export => 'Exportovat (Ctrl Shift S)';
 	@override String get exportAs => 'Exportovat jako:';
-	@override String get fullscreen => 'Přepnout režim celé obrazovky (F11)';
+	@override String get fullscreen => 'Režim celé obrazovky (F11)';
 }
 
 // Path: editor.pens
@@ -1028,9 +1028,10 @@ class _StringsEditorImageOptionsCs extends _StringsEditorImageOptionsEn {
 
 	// Translations
 	@override String get title => 'Možnosti obrázku';
-	@override String get invertible => 'Invertování barev podle motivu';
+	@override String get invertible => 'Invertovat barvy podle motivu';
 	@override String get download => 'Stáhnout';
 	@override String get delete => 'Odstranit';
+	@override String get setAsBackground => 'Nastavit na pozadí';
 }
 
 // Path: editor.menu
@@ -1043,7 +1044,10 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Smazat obsah stránky';
 	@override String get clearAllPages => 'Smazat všechny stránky';
 	@override String get lineHeight => 'Výška řádku';
-	@override String get lineHeightDescription => 'Velikost každého řádku';
+	@override String get lineHeightDescription => 'Velikost jednotlivých řádků';
+	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
+	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
+	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -1079,6 +1083,32 @@ class _StringsEditorHudCs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Odemknout přibližování';
 	@override String get lockZoom => 'Zamknout přibližování';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsCs extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Roztáhnout';
+	@override String get cover => 'Vyplnit';
+	@override String get contain => 'Přizpůsobit';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Prázdné';
+	@override String get college => 'Linkované s okrajem';
+	@override String get lined => 'Linkované';
+	@override String get grid => 'Mřížka';
+	@override String get dots => 'Tečkované';
 }
 
 // Path: <root>
