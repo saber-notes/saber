@@ -834,17 +834,29 @@ class _EditorState extends State<Editor> {
       coreInfo: coreInfo,
       currentPageIndex: currentPageIndex,
       setBackgroundPattern: (pattern) => setState(() {
-          if (coreInfo.readOnly) return;
-          coreInfo.backgroundPattern = pattern;
-          Prefs.lastBackgroundPattern.value = pattern;
-          autosaveAfterDelay();
-        }),
+        if (coreInfo.readOnly) return;
+        coreInfo.backgroundPattern = pattern;
+        Prefs.lastBackgroundPattern.value = pattern;
+        autosaveAfterDelay();
+      }),
       setLineHeight: (lineHeight) => setState(() {
-          if (coreInfo.readOnly) return;
-          coreInfo.lineHeight = lineHeight;
-          Prefs.lastLineHeight.value = lineHeight;
-          autosaveAfterDelay();
-        }),
+        if (coreInfo.readOnly) return;
+        coreInfo.lineHeight = lineHeight;
+        Prefs.lastLineHeight.value = lineHeight;
+        autosaveAfterDelay();
+      }),
+      removeBackgroundImage: () => setState(() {
+        if (coreInfo.readOnly) return;
+        if (currentPageIndex == null) return;
+
+        if (coreInfo.pages[currentPageIndex].backgroundImage == null) return;
+
+        // restore background image as normal image
+        coreInfo.images.add(coreInfo.pages[currentPageIndex].backgroundImage!);
+        coreInfo.pages[currentPageIndex].backgroundImage = null;
+
+        autosaveAfterDelay();
+      }),
       clearPage: () {
         if (coreInfo.readOnly) return;
         if (currentPageIndex == null) return;
