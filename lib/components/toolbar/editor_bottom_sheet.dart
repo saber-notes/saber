@@ -19,6 +19,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.currentPageIndex,
     required this.setBackgroundPattern,
     required this.setLineHeight,
+    required this.removeBackgroundImage,
     required this.clearPage,
     required this.clearAllPages,
     required this.redrawAndSave,
@@ -29,6 +30,7 @@ class EditorBottomSheet extends StatefulWidget {
   final int? currentPageIndex;
   final void Function(String) setBackgroundPattern;
   final void Function(int) setLineHeight;
+  final VoidCallback removeBackgroundImage;
   final VoidCallback clearPage;
   final VoidCallback clearAllPages;
   final VoidCallback redrawAndSave;
@@ -143,7 +145,9 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 child: Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => setState(() {
+                        widget.removeBackgroundImage();
+                      }),
                       tooltip: t.editor.menu.removeBgImage,
                       icon: const AdaptiveIcon(
                         icon: Icons.hide_image,
