@@ -90,75 +90,69 @@ class _PreviewCardState extends State<PreviewCard> {
     final colorScheme = Theme.of(context).colorScheme;
     final disableAnimations = MediaQuery.of(context).disableAnimations;
 
-    Widget card = Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      clipBehavior: Clip.antiAlias,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          onSecondaryTap: () => setState(() { expanded = !expanded; }),
-          onLongPress: () => setState(() { expanded = !expanded; }),
-          child: Stack(
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CanvasPreview(
-                    path: widget.filePath,
-                    height: height,
-                    coreInfo: coreInfo,
-                  ),
+    Widget card = MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onSecondaryTap: () => setState(() { expanded = !expanded; }),
+        onLongPress: () => setState(() { expanded = !expanded; }),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CanvasPreview(
+                  path: widget.filePath,
+                  height: height,
+                  coreInfo: coreInfo,
+                ),
 
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+                ),
 
-                  Collapsible(
-                    collapsed: !expanded,
-                    axis: CollapsibleAxis.vertical,
-                    maintainState: true,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            FileManager.deleteFile(widget.filePath + Editor.extension);
-                          },
-                          icon: const Icon(Icons.delete_forever),
-                        ),
-                      ],
-                    ),
+                Collapsible(
+                  collapsed: !expanded,
+                  axis: CollapsibleAxis.vertical,
+                  maintainState: true,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          FileManager.deleteFile(widget.filePath + Editor.extension);
+                        },
+                        icon: const Icon(Icons.delete_forever),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
 
-              UploadingIndicator(
-                filePath: widget.filePath,
-              ),
-            ],
-          ),
+            UploadingIndicator(
+              filePath: widget.filePath,
+            ),
+          ],
         ),
       ),
     );
 
-    if (disableAnimations) {
-      return GestureDetector(
-        onTap: () {
-          context.push(RoutePaths.editFilePath(widget.filePath));
-        },
-        child: card,
-      );
-    }
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: OpenContainer(
+        closedColor: colorScheme.surface,
+        closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        closedBuilder: (context, action) => card,
 
-    return OpenContainer(
-      closedColor: colorScheme.surface,
-      openColor: colorScheme.background,
-      closedBuilder: (context, action) => card,
-      openBuilder: (context, action) => Editor(path: widget.filePath),
-      routeSettings: RouteSettings(
-        name: RoutePaths.editFilePath(widget.filePath),
+        openColor: colorScheme.background,
+        openBuilder: (context, action) => Editor(path: widget.filePath),
+
+        transitionDuration: Duration(milliseconds: disableAnimations ? 0 : 300),
+        routeSettings: RouteSettings(
+          name: RoutePaths.editFilePath(widget.filePath),
+        ),
       ),
     );
   }
