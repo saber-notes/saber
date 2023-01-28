@@ -827,10 +827,12 @@ class _EditorState extends State<Editor> {
   Widget bottomSheet(BuildContext context) {
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+    final int? currentPageIndex = this.currentPageIndex;
 
     return EditorBottomSheet(
       invert: invert,
       coreInfo: coreInfo,
+      currentPageIndex: currentPageIndex,
       setBackgroundPattern: (pattern) => setState(() {
           if (coreInfo.readOnly) return;
           coreInfo.backgroundPattern = pattern;
@@ -845,8 +847,6 @@ class _EditorState extends State<Editor> {
         }),
       clearPage: () {
         if (coreInfo.readOnly) return;
-
-        final int? currentPageIndex = this.currentPageIndex;
         if (currentPageIndex == null) return;
 
         setState(() {

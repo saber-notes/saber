@@ -13,6 +13,7 @@ class EditorBottomSheet extends StatefulWidget {
     super.key,
     required this.invert,
     required this.coreInfo,
+    required this.currentPageIndex,
     required this.setBackgroundPattern,
     required this.setLineHeight,
     required this.clearPage,
@@ -21,6 +22,7 @@ class EditorBottomSheet extends StatefulWidget {
 
   final bool invert;
   final EditorCoreInfo coreInfo;
+  final int? currentPageIndex;
   final void Function(String) setBackgroundPattern;
   final void Function(int) setLineHeight;
   final VoidCallback clearPage;
@@ -34,6 +36,14 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+
+    final Size pageSize;
+    if (widget.currentPageIndex != null) {
+      pageSize = widget.coreInfo.pages[widget.currentPageIndex!].size;
+    } else {
+      pageSize = EditorPage.defaultSize;
+    }
+
     return Material(
       color: colorScheme.surface,
       borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
@@ -142,8 +152,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           borderRadius: BorderRadius.circular(8),
                           child: FittedBox(
                             child: SizedBox(
-                              width: EditorPage.defaultWidth / 4,
-                              height: EditorPage.defaultHeight / 4,
+                              width: pageSize.width / 4,
+                              height: pageSize.height / 4,
                               child: CustomPaint(
                                 painter: CanvasBackgroundPainter(
                                   invert: widget.invert,
