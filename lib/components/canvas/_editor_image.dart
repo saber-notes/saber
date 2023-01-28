@@ -126,7 +126,13 @@ class EditorImage {
   Future<void> _getImage({Size? pageSize, bool allowCalculations = true}) async {
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
-      naturalSize = Size(image.width.toDouble(), image.height.toDouble());
+      try {
+        naturalSize = Size(image.width.toDouble(), image.height.toDouble());
+      } catch (e) {
+        // ImageDescriptor.width,height not supported on web,
+        // so just guess a size
+        naturalSize = const Size(200, 200);
+      }
 
       final Size reducedSize = resize(naturalSize, const Size(1000, 1000));
       if (naturalSize.width != reducedSize.width && allowCalculations) {
