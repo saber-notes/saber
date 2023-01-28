@@ -35,6 +35,7 @@ class CanvasPainter extends CustomPainter {
 
     // highlighter
     Paint highlighterLayerPaint = Paint()
+      ..blendMode = invert ? BlendMode.lighten : BlendMode.darken
       ..color = Colors.white.withAlpha(Highlighter.alpha);
     canvas.saveLayer(canvasRect, highlighterLayerPaint);
     {
