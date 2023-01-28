@@ -5,9 +5,9 @@ I'm offering some storage plans for the Saber Nextcloud server...
 
 | Sponsorship | Storage                                                |
 |-------------|--------------------------------------------------------|
-| Free        | All accounts by default get 500MB of storage.          |
-| Standard    | Sponsor me _any amount_ per month for 2GB of storage.  |
-| Premium     | Sponsor me $5 or more per month for 10GB of storage.   |
+| Free        | All accounts by default get 5GB of storage.            |
+| Standard    | Sponsor me _any amount_ per month for 10GB of storage. |
+| Premium     | Sponsor me $5 or more per month for 50GB of storage.   |
 | Hoarder     | Sponsor me $7 or more per month for 100GB of storage.  |
 
 All sponsorships are in USD ($) because of GitHub Sponsors.
