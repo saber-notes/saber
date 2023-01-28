@@ -126,16 +126,16 @@
   },
   "editor": {
     "toolbar": {
-      "toggleColors": "Přepnout barvy (Ctrl C)",
-      "toggleEraser": "Přepnout gumu (Ctrl E)",
+      "toggleColors": "Změnit barvu (Ctrl C)",
+      "toggleEraser": "Guma (Ctrl E)",
       "photo": "Obrázek",
       "text": "Text",
-      "toggleFingerDrawing": "Přepnout kreslení prstem (Ctrl F)",
+      "toggleFingerDrawing": "Možnost kreslení prstem (Ctrl F)",
       "undo": "Zpět",
       "redo": "Obnovit",
       "export": "Exportovat (Ctrl Shift S)",
       "exportAs": "Exportovat jako:",
-      "fullscreen": "Přepnout režim celé obrazovky (F11)"
+      "fullscreen": "Režim celé obrazovky (F11)"
     },
     "pens": {
       "fountainPen": "Plnící pero",
