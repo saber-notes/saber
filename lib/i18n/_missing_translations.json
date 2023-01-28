@@ -122,28 +122,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "imageOptions": {
-        "setAsBackground": "Set as background"
-      },
-      "menu": {
-        "removeBgImage": "Remove background image",
-        "boxFits": {
-          "fill": "Stretch",
-          "cover": "Cover",
-          "contain": "Contain"
-        },
-        "bgPatterns": {
-          "none": "Blank",
-          "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Grid",
-          "dots": "Dots"
-        }
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "login": {
       "insecureStorage": {

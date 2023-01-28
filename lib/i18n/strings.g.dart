@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1038 (115 per locale)
+/// Strings: 1048 (116 per locale)
 ///
-/// Built on 2023-01-28 at 12:33 UTC
+/// Built on 2023-01-28 at 12:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3808,6 +3808,7 @@ class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
 	@override String get invertible => '反转颜色';
 	@override String get delete => '删除';
 	@override String get download => '下载';
+	@override String get setAsBackground => '设为背景';
 }
 
 // Path: editor.menu
@@ -3821,6 +3822,9 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get clearAllPages => '清除全部页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '每一行的高度';
+	@override String get removeBgImage => '移除背景图片';
+	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
+	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -3856,6 +3860,32 @@ class _StringsEditorHudZhHansCn extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => '解锁缩放';
 	@override String get lockZoom => '锁定缩放';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsZhHansCn extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => '拉伸';
+	@override String get cover => '覆盖';
+	@override String get contain => '包含';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsZhHansCn extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => '空白';
+	@override String get college => 'College-ruled';
+	@override String get lined => '横线';
+	@override String get grid => '网格';
+	@override String get dots => '点';
 }
 
 // Path: <root>
