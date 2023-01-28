@@ -148,7 +148,7 @@
     },
     "imageOptions": {
       "title": "Možnosti obrázku",
-      "invertible": "Invertování barev podle motivu",
+      "invertible": "Invertovat barvy podle motivu",
       "download": "Stáhnout",
       "delete": "Odstranit"
     },
