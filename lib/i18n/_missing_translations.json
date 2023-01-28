@@ -125,21 +125,21 @@
   "zh-Hans-CN": {
     "editor": {
       "imageOptions": {
-        "setAsBackground": "Set as background"
+        "setAsBackground": "设为背景"
       },
       "menu": {
-        "removeBgImage": "Remove background image",
+        "removeBgImage": "移除背景图片",
         "boxFits": {
-          "fill": "Stretch",
-          "cover": "Cover",
-          "contain": "Contain"
+          "fill": "拉伸",
+          "cover": "覆盖",
+          "contain": "包含"
         },
         "bgPatterns": {
-          "none": "Blank",
+          "none": "空白",
           "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Grid",
-          "dots": "Dots"
+          "lined": "横线",
+          "grid": "网格",
+          "dots": "点"
         }
       }
     }
