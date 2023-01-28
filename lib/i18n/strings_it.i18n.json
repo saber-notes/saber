@@ -150,13 +150,27 @@
       "title": "Opzioni immagine",
       "invertible": "Invertibile",
       "delete": "Cancella",
-      "download": "Download"
+      "download": "Download",
+      "setAsBackground": "Imposta come sfondo"
     },
     "menu": {
       "clearPage": "Pulisci pagina",
       "clearAllPages": "Pulisci tutte le pagine",
       "lineHeight": "Altezza della linea",
-      "lineHeightDescription": "La dimensione di ogni riga"
+      "lineHeightDescription": "La dimensione di ogni riga",
+      "removeBgImage": "Rimuovi l'immagine di sfondo",
+      "boxFits": {
+        "fill": "Tratto",
+        "cover": "Copertina",
+        "contain": "Contiene"
+      },
+      "bgPatterns": {
+        "none": "Vuoto",
+        "college": "College-ruled",
+        "lined": "Lined",
+        "grid": "Griglia",
+        "dots": "Punti"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Modalità di sola lettura",

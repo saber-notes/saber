@@ -77,28 +77,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "imageOptions": {
-        "setAsBackground": "Imposta come sfondo"
-      },
-      "menu": {
-        "removeBgImage": "Rimuovi l'immagine di sfondo",
-        "boxFits": {
-          "fill": "Tratto",
-          "cover": "Copertina",
-          "contain": "Contiene"
-        },
-        "bgPatterns": {
-          "none": "Vuoto",
-          "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Griglia",
-          "dots": "Punti"
-        }
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "editor": {
       "imageOptions": {

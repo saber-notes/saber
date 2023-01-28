@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1028 (114 per locale)
+/// Strings: 1038 (115 per locale)
 ///
-/// Built on 2023-01-28 at 10:59 UTC
+/// Built on 2023-01-28 at 12:33 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2395,6 +2395,7 @@ class _StringsEditorImageOptionsIt extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Invertibile';
 	@override String get delete => 'Cancella';
 	@override String get download => 'Download';
+	@override String get setAsBackground => 'Imposta come sfondo';
 }
 
 // Path: editor.menu
@@ -2408,6 +2409,9 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'La dimensione di ogni riga';
+	@override String get removeBgImage => 'Rimuovi l\'immagine di sfondo';
+	@override late final _StringsEditorMenuBoxFitsIt boxFits = _StringsEditorMenuBoxFitsIt._(_root);
+	@override late final _StringsEditorMenuBgPatternsIt bgPatterns = _StringsEditorMenuBgPatternsIt._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -2443,6 +2447,32 @@ class _StringsEditorHudIt extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Sblocca zoom';
 	@override String get lockZoom => 'Blocca zoom';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsIt extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Tratto';
+	@override String get cover => 'Copertina';
+	@override String get contain => 'Contiene';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Vuoto';
+	@override String get college => 'College-ruled';
+	@override String get lined => 'Lined';
+	@override String get grid => 'Griglia';
+	@override String get dots => 'Punti';
 }
 
 // Path: <root>
