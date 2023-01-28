@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1019 (113 per locale)
+/// Strings: 1028 (114 per locale)
 ///
-/// Built on 2023-01-28 at 10:56 UTC
+/// Built on 2023-01-28 at 10:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -554,6 +554,9 @@ class _StringsEditorMenuEn {
 	String get clearAllPages => 'Clear all pages';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'The size of each line';
+	String get removeBgImage => 'Remove background image';
+	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
+	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -589,6 +592,32 @@ class _StringsEditorHudEn {
 	// Translations
 	String get unlockZoom => 'Unlock zoom';
 	String get lockZoom => 'Lock zoom';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get fill => 'Stretch';
+	String get cover => 'Cover';
+	String get contain => 'Contain';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get none => 'Blank';
+	String get college => 'College-ruled';
+	String get lined => 'Lined';
+	String get grid => 'Grid';
+	String get dots => 'Dots';
 }
 
 // Path: <root>

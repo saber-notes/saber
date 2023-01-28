@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -140,6 +141,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   children: [
                     IconButton(
                       onPressed: () {},
+                      tooltip: t.editor.menu.removeBgImage,
                       icon: const AdaptiveIcon(
                         icon: Icons.hide_image,
                         cupertinoIcon: CupertinoIcons.clear_fill,
@@ -157,15 +159,18 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                         onTap: () => setState(() {
                           // backgroundImage.boxFit = boxFit;
                         }),
-                        child: CanvasBackgroundPreview(
-                          selected: false, // backgroundImage.boxFit == boxFit,
-                          invert: widget.invert,
-                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                          backgroundPattern: widget.coreInfo.backgroundPattern,
-                          backgroundImage: backgroundImage,
-                          overrideBoxFit: boxFit,
-                          pageSize: pageSize,
-                          lineHeight: widget.coreInfo.lineHeight,
+                        child: Tooltip(
+                          message: _boxFitName(boxFit),
+                          child: CanvasBackgroundPreview(
+                            selected: false, // backgroundImage.boxFit == boxFit,
+                            invert: widget.invert,
+                            backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                            backgroundPattern: widget.coreInfo.backgroundPattern,
+                            backgroundImage: backgroundImage,
+                            overrideBoxFit: boxFit,
+                            pageSize: pageSize,
+                            lineHeight: widget.coreInfo.lineHeight,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -185,14 +190,17 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                       onTap: () => setState(() {
                         widget.setBackgroundPattern(backgroundPattern);
                       }),
-                      child: CanvasBackgroundPreview(
-                        selected: widget.coreInfo.backgroundPattern == backgroundPattern,
-                        invert: widget.invert,
-                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                        backgroundPattern: backgroundPattern,
-                        backgroundImage: null, // focus on background pattern
-                        pageSize: pageSize,
-                        lineHeight: widget.coreInfo.lineHeight,
+                      child: Tooltip(
+                        message: _bgPatternName(backgroundPattern),
+                        child: CanvasBackgroundPreview(
+                          selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                          invert: widget.invert,
+                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                          backgroundPattern: backgroundPattern,
+                          backgroundImage: null, // focus on background pattern
+                          pageSize: pageSize,
+                          lineHeight: widget.coreInfo.lineHeight,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -205,5 +213,35 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
         ),
       ),
     );
+  }
+
+  String _boxFitName(BoxFit boxFit) {
+    if (boxFit == BoxFit.fill) {
+      return t.editor.menu.boxFits.fill;
+    } else if (boxFit == BoxFit.cover) {
+      return t.editor.menu.boxFits.cover;
+    } else if (boxFit == BoxFit.contain) {
+      return t.editor.menu.boxFits.contain;
+    } else {
+      if (kDebugMode) throw Exception("Untranslated box fit: $boxFit");
+      return "";
+    }
+  }
+
+  String _bgPatternName(String bgPattern) {
+    if (bgPattern == CanvasBackgroundPatterns.none) {
+      return t.editor.menu.bgPatterns.none;
+    } else if (bgPattern == CanvasBackgroundPatterns.college) {
+      return t.editor.menu.bgPatterns.college;
+    } else if (bgPattern == CanvasBackgroundPatterns.lined) {
+      return t.editor.menu.bgPatterns.lined;
+    } else if (bgPattern == CanvasBackgroundPatterns.grid) {
+      return t.editor.menu.bgPatterns.grid;
+    } else if (bgPattern == CanvasBackgroundPatterns.dots) {
+      return t.editor.menu.bgPatterns.dots;
+    } else {
+      if (kDebugMode) throw Exception("Untranslated background pattern: $bgPattern");
+      return "";
+    }
   }
 }

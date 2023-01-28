@@ -157,7 +157,20 @@
       "clearPage": "Clear page",
       "clearAllPages": "Clear all pages",
       "lineHeight": "Line height",
-      "lineHeightDescription": "The size of each line"
+      "lineHeightDescription": "The size of each line",
+      "removeBgImage": "Remove background image",
+      "boxFits": {
+        "fill": "Stretch",
+        "cover": "Cover",
+        "contain": "Contain"
+      },
+      "bgPatterns": {
+        "none": "Blank",
+        "college": "College-ruled",
+        "lined": "Lined",
+        "grid": "Grid",
+        "dots": "Dots"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Read-only mode",
