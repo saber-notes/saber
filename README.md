@@ -234,9 +234,9 @@ If you like Saber, please consider supporting it by:
   - Web splash screen: `flutter pub run flutter_native_splash:create`
 - When updating the **translations**...
   - Run the following commands:
-    - `flutter pub run slang apply --outdir=lib/i18n --locale=XX` if you need to apply _missing_translations.json
+    - `flutter pub run slang apply --locale=XX` if you need to apply _missing_translations.json
     - `flutter pub run slang`
-    - `flutter pub run slang analyze --full --outdir=lib/i18n/`
+    - `flutter pub run slang analyze --full`
   - If you're adding a new language, update:
     - `CFBundleLocalizations` in `ios/Runner/Info.plist`
     - `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
