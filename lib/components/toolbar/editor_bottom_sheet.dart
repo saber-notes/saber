@@ -21,6 +21,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.setLineHeight,
     required this.clearPage,
     required this.clearAllPages,
+    required this.redrawAndSave,
   });
 
   final bool invert;
@@ -30,6 +31,7 @@ class EditorBottomSheet extends StatefulWidget {
   final void Function(int) setLineHeight;
   final VoidCallback clearPage;
   final VoidCallback clearAllPages;
+  final VoidCallback redrawAndSave;
 
   @override
   State<EditorBottomSheet> createState() => _EditorBottomSheetState();
@@ -158,12 +160,13 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                       InkWell(
                         borderRadius: BorderRadius.circular(8),
                         onTap: () => setState(() {
-                          // backgroundImage.boxFit = boxFit;
+                          backgroundImage?.backgroundFit = boxFit;
+                          widget.redrawAndSave();
                         }),
                         child: Tooltip(
                           message: boxFit.localizedName,
                           child: CanvasBackgroundPreview(
-                            selected: false, // backgroundImage.boxFit == boxFit,
+                            selected: backgroundImage.backgroundFit == boxFit,
                             invert: widget.invert,
                             backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
                             backgroundPattern: widget.coreInfo.backgroundPattern,

@@ -213,9 +213,19 @@ class _CanvasImageState extends State<CanvasImage> {
                                 keySuffix = "dark-thumbnail";
                               }
                             }
+
+                            final BoxFit boxFit;
+                            if (widget.overrideBoxFit != null) {
+                              boxFit = widget.overrideBoxFit!;
+                            } else if (widget.isBackground) {
+                              boxFit = widget.image.backgroundFit;
+                            } else {
+                              boxFit = BoxFit.fill;
+                            }
+
                             return Image.memory(
                               bytes,
-                              fit: widget.overrideBoxFit ?? BoxFit.fill,
+                              fit: boxFit,
                               key: Key("Image${widget.image.id}-$keySuffix"),
                             );
                           }(),
