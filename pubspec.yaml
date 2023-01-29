@@ -94,7 +94,7 @@ dependencies:
 
   flutter_colorpicker: ^1.0.3
 
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.1
 
   font_awesome_flutter: ^10.3.0
 
@@ -116,7 +116,7 @@ dependencies:
 
   window_manager: ^0.3.0
 
-  worker_manager: ^4.5.1
+  worker_manager: ^5.0.0
 
   flutter_native_splash: ^2.2.16
 

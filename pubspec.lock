@@ -380,10 +380,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "64008ba5667905effd71b16440c429ed2c57438538e67fcc6773222f3d0ee6c4"
+      sha256: "9dddc4bd91d5e5d390927a95aa75dc8a20e9e8b6defac032735a94a01728b041"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.0"
+    version: "6.3.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -499,10 +499,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: "8f099045e2f2a30e4d4d0a35f40c6bc941a8f2ca0e10ad9d214ee9edd3f37483"
+      sha256: "148c716f5929371d335d29c2952119b34842b1a8e5607e37bb9f68f96e88068a"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "4.0.1"
   html:
     dependency: "direct main"
     description:
@@ -672,10 +672,10 @@ packages:
     dependency: transitive
     description:
       name: logging
-      sha256: c0bbfe94d46aedf9b8b3e695cf3bd48c8e14b35e3b2c639e0aa7755d589ba946
+      sha256: "04094f2eb032cbb06c6f6e8d3607edcfcb0455e2bb6cbc010cb01171dcb64e6d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   matcher:
     dependency: transitive
     description:
@@ -721,7 +721,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "55d3d8d3fa03ad70c4e13c9e4efba9e8a339cfc2"
+      resolved-ref: "4cc98fb06b16debfb2c0452d3a13c573f4949ba6"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -817,10 +817,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_foundation
-      sha256: "6637955e38a5f1851c023482c25a60c93972ea06c8608e2f25ad0064c46c0939"
+      sha256: "62a68e7e1c6c459f9289859e2fae58290c981ce21d1697faf54910fe1faa4c74"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   path_provider_linux:
     dependency: transitive
     description:
@@ -1064,18 +1064,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "33f1d823d976e22ac663e2b3200b36c167bfdd8523488a61a2003defd0ce3f9c"
+      sha256: d04002e1aaffef0a7eb9a6536e3bb8a49d98eeb3406d3904f389a1ad4df0ec53
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.0"
+    version: "3.10.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: ddcff32bbfddcce8ddcb707b8e90d11091a323f3769378e007e1d4ef80f75281
+      sha256: "09d2d884481509c601a81f81f936ab5a6433def22e59b5722d3875715685c085"
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.0"
+    version: "3.10.0"
   source_span:
     dependency: transitive
     description:
@@ -1241,10 +1241,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_windows
-      sha256: "387e227c4b979034cc52afb11d66b04ed9b288ca1f45beeef39b2ea69e714fa5"
+      sha256: b6217370f8eb1fd85c8890c539f5a639a01ab209a36db82c921ebeacefc7a615
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "3.0.3"
   uuid:
     dependency: transitive
     description:
@@ -1321,10 +1321,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: "4d385b0f741745e6b4f5492d39423963c462ce45ea6f0107668bb08a1ffc8a21"
+      sha256: "39a7f37dfc187145adc46ab94d08e7ca1c9468a2f4600a744b22842c83761cc5"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.1"
+    version: "5.0.0"
   xdg_directories:
     dependency: transitive
     description:
@@ -1350,5 +1350,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.18.6 <4.0.0"
+  dart: ">=2.19.0 <4.0.0"
   flutter: ">=3.7.0"
