@@ -102,34 +102,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "login": {
-      "insecureStorage": {
-        "title": "安全警告",
-        "description(rich)": "如果沒有付費的 Apple Developer 帳戶，鑰匙串共享將無法在 macOS 上運行。如果您想登入，您需要在以下選項之間進行選擇：\n1.使用不安全的存儲來保存您的登入詳細資訊。不推薦這麼做，但您可以選擇。\n2.每次使用該應用程式時都要登入。\n\n如果你想幫助我加入 Apple Developer Program，你可以 ${sponsorLink(成為贊助商)}！",
-        "loginTemporarily": "暫時登入",
-        "useInsecureStorage": "使用不安全的存儲"
-      }
-    },
-    "editor": {
-      "imageOptions": {
-        "setAsBackground": "設為背景"
-      },
-      "menu": {
-        "removeBgImage": "移除背景圖片",
-        "boxFits": {
-          "fill": "拉伸",
-          "cover": "覆蓋",
-          "contain": "包含"
-        },
-        "bgPatterns": {
-          "none": "空白",
-          "college": "College-ruled",
-          "lined": "橫線",
-          "grid": "網格",
-          "dots": "點"
-        }
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
