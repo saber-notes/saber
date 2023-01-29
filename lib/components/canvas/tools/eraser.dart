@@ -19,11 +19,10 @@ class Eraser extends Tool {
   });
 
   /// Returns the indices of any [strokes] that are close to the given [eraserPos].
-  List<int> checkForOverlappingStrokes(int pageIndex, Offset eraserPos, List<Stroke> strokes) {
+  List<int> checkForOverlappingStrokes(Offset eraserPos, List<Stroke> strokes) {
     final List<int> indices = [];
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
-      if (stroke.pageIndex != pageIndex) continue;
       if (stroke.polygon.any((strokeVertex) => sqrDistanceBetween(strokeVertex, eraserPos) <= sqrSize)) {
         _erased.add(stroke);
         indices.add(i);

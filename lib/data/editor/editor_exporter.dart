@@ -23,7 +23,7 @@ abstract class EditorExporter {
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
       // Don't export the empty last page
-      if (pageIndex == coreInfo.pages.length - 1 && _isPageEmpty(coreInfo, pageIndex)) {
+      if (pageIndex == coreInfo.pages.length - 1 && coreInfo.pages[pageIndex].isEmpty) {
         continue;
       }
 
@@ -33,19 +33,6 @@ abstract class EditorExporter {
     }
 
     return pdf;
-  }
-
-  static bool _isPageEmpty(EditorCoreInfo coreInfo, int pageIndex) {
-    if (coreInfo.strokes.any((stroke) => stroke.pageIndex == pageIndex)) {
-      return false;
-    }
-    if (coreInfo.images.any((image) => image.pageIndex == pageIndex)) {
-      return false;
-    }
-    if (!coreInfo.pages[pageIndex].quill.controller.document.isEmpty()) {
-      return false;
-    }
-    return true;
   }
 
   static pw.Page _generatePdfPage(EditorCoreInfo coreInfo, int pageIndex) {
@@ -106,13 +93,12 @@ abstract class EditorExporter {
                   pdfGraphics.fillPath();
                 }
 
-                for (Stroke stroke in coreInfo.strokes) {
-                  if (stroke.pageIndex != pageIndex) continue;
+                final page = coreInfo.pages[pageIndex];
+                for (Stroke stroke in page.strokes) {
                   if (stroke.penType != (Highlighter).toString()) continue;
                   drawStroke(stroke);
                 }
-                for (Stroke stroke in coreInfo.strokes) {
-                  if (stroke.pageIndex != pageIndex) continue;
+                for (Stroke stroke in page.strokes) {
                   if (stroke.penType == (Highlighter).toString()) continue;
                   drawStroke(stroke);
                 }
@@ -130,7 +116,7 @@ abstract class EditorExporter {
                       backgroundColor,
                     ),
                   ),
-                  for (EditorImage image in coreInfo.images.where((image) => image.pageIndex == pageIndex))
+                  for (EditorImage image in coreInfo.pages[pageIndex].images)
                     pw.Positioned(
                       left: image.dstRect.left,
                       top: image.dstRect.top,

@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
@@ -44,15 +43,22 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 
   double get height {
-    double fullHeight = coreInfo.pages.isNotEmpty ? coreInfo.pages[0].size.height : EditorPage.defaultHeight;
-    double maxY = coreInfo.strokes.isEmpty ? 0 : coreInfo.strokes.map((stroke) => stroke.maxY).reduce(max);
-    for (EditorImage image in coreInfo.images) {
+    final firstPage = coreInfo.pages.isNotEmpty ? coreInfo.pages[0] : EditorPage();
+    double fullHeight = firstPage.size.height;
+
+    double maxY = 0;
+    if (firstPage.strokes.isNotEmpty) {
+      maxY = firstPage.strokes.map((stroke) => stroke.maxY).reduce(max);
+    }
+    for (EditorImage image in firstPage.images) {
       maxY = max(maxY, image.dstRect.bottom);
     }
-    if (coreInfo.pages.isNotEmpty && !coreInfo.pages[0].quill.controller.document.isEmpty()) {
+    if (!firstPage.quill.controller.document.isEmpty()) {
       // this does not account for text that wraps to the next line
-      maxY = max(maxY, coreInfo.pages[0].quill.controller.document.toPlainText().split("\n").length * coreInfo.lineHeight * 1.0);
+      int linesOfText = firstPage.quill.controller.document.toPlainText().split("\n").length;
+      maxY = max(maxY, linesOfText * coreInfo.lineHeight * 1.0);
     }
+
     return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
   }
 
@@ -73,12 +79,6 @@ class _PreviewCardState extends State<PreviewCard> {
     this.coreInfo = coreInfo.copyWith( // only keep first page
       readOnly: true,
       readOnlyBecauseOfVersion: false,
-      strokes: coreInfo.strokes.where((stroke) => stroke.pageIndex == 0).toList(growable: false),
-      images: coreInfo.images
-          .where((image) => image.pageIndex == 0)
-          .toList(growable: false)
-          // use thumbnail to reduce memory usage
-          ..forEach((image) => image.isThumbnail = true),
       pages: coreInfo.pages.isNotEmpty ? [coreInfo.pages[0]] : [],
     );
 

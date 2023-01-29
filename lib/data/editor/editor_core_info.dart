@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +15,12 @@ import 'package:worker_manager/worker_manager.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int fileVersion = 7;
+  static const int sbnVersion = 8;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
   String filePath;
 
-  final List<Stroke> strokes;
-  final List<EditorImage> images;
   int nextImageId;
   Color? backgroundColor;
   String backgroundPattern;
@@ -37,24 +34,20 @@ class EditorCoreInfo {
     filePath: '',
     readOnly: true,
     readOnlyBecauseOfVersion: false,
-    strokes: [],
-    images: [],
     nextImageId: 0,
     backgroundColor: null,
     backgroundPattern: '',
     lineHeight: Prefs.lastLineHeight.value,
     pages: [EditorPage()],
     initialPageIndex: null,
-  );
+  )..migrateOldStrokesAndImages(strokesJson: null, imagesJson: null);
 
-  bool get isEmpty => strokes.isEmpty && images.isEmpty && pages.every((EditorPage page) => page.quill.controller.document.isEmpty());
+  bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
 
   EditorCoreInfo({
     required this.filePath,
     this.readOnly = true, // default to read-only, until it's loaded with [loadFromFilePath]
   }):
-        strokes = [],
-        images = [],
         nextImageId = 0,
         backgroundPattern = Prefs.lastBackgroundPattern.value,
         lineHeight = Prefs.lastLineHeight.value,
@@ -64,18 +57,13 @@ class EditorCoreInfo {
     required this.filePath,
     required this.readOnly,
     required this.readOnlyBecauseOfVersion,
-    required this.strokes,
-    required this.images,
     required this.nextImageId,
     this.backgroundColor,
     required this.backgroundPattern,
     required this.lineHeight,
     required this.pages,
     required this.initialPageIndex,
-    double? fallbackPageWidth,
-    double? fallbackPageHeight,
   }) {
-    _handleEmptyPages(fallbackPageWidth, fallbackPageHeight);
     _handleEmptyImageIds();
   }
 
@@ -83,48 +71,40 @@ class EditorCoreInfo {
     required String filePath,
     bool readOnly = false,
   }) {
-    bool readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > fileVersion;
+    bool readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
     return EditorCoreInfo._(
       filePath: filePath,
       readOnly: readOnly,
       readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
-      strokes: _parseStrokesJson(json["s"] as List),
-      images: _parseImagesJson(
-        json["i"] as List? ?? [],
-        allowCalculations: !readOnly,
-      ),
       nextImageId: json["ni"] as int? ?? 0,
       backgroundColor: json["b"] != null ? Color(json["b"] as int) : null,
       backgroundPattern: json["p"] as String? ?? CanvasBackgroundPatterns.none,
       lineHeight: json["l"] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(json["z"] as List?),
       initialPageIndex: json["c"] as int?,
-      fallbackPageWidth: json["w"] as double?,
-      fallbackPageHeight: json["h"] as double?,
-    );
+    )
+      ..migrateOldStrokesAndImages(
+        strokesJson: json["s"] as List?,
+        imagesJson: json["i"] as List?,
+        fallbackPageWidth: json["w"] as double?,
+        fallbackPageHeight: json["h"] as double?,
+      );
   }
   /// Old json format is just a list of strokes
   EditorCoreInfo.fromOldJson(List<dynamic> json, {
     required this.filePath,
-  }):
-        strokes = _parseStrokesJson(json),
-        images = [],
-        nextImageId = 0,
-        backgroundPattern = CanvasBackgroundPatterns.none,
-        lineHeight = Prefs.lastLineHeight.value,
-        pages = [] {
-    _handleEmptyPages();
+    this.readOnly = false,
+  }): nextImageId = 0,
+      backgroundPattern = CanvasBackgroundPatterns.none,
+      lineHeight = Prefs.lastLineHeight.value,
+      pages = [] {
+    migrateOldStrokesAndImages(
+      strokesJson: json,
+      imagesJson: null,
+    );
   }
-
-  static List<Stroke> _parseStrokesJson(List<dynamic> strokes) => strokes
-      .map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
-      .toList();
-
-  static List<EditorImage> _parseImagesJson(List<dynamic> images, {required bool allowCalculations}) => images
-      .map((dynamic image) => EditorImage.fromJson(image as Map<String, dynamic>, allowCalculations: allowCalculations))
-      .toList();
 
   static List<EditorPage> _parsePagesJson(List<dynamic>? pages) {
     if (pages == null || pages.isEmpty) return [];
@@ -142,19 +122,51 @@ class EditorCoreInfo {
     }
   }
 
-  void _handleEmptyPages([double? width, double? height]) {
-    if (pages.isNotEmpty) return;
-
-    int maxPageIndex = max(
-      strokes.isNotEmpty ? strokes.map((stroke) => stroke.pageIndex).reduce(max) : 0,
-      images.isNotEmpty ? images.map((image) => image.pageIndex).reduce(max) : 0,
-    );
-    pages = List.generate(maxPageIndex + 1, (index) => EditorPage(width: width, height: height));
+  void _handleEmptyImageIds() {
+    for (EditorPage page in pages) {
+      for (EditorImage image in page.images) {
+        if (image.id == -1) image.id = nextImageId++;
+      }
+    }
   }
 
-  void _handleEmptyImageIds() {
-    for (EditorImage image in images) {
-      if (image.id == -1) image.id = nextImageId++;
+  /// Migrates from fileVersion 7 to 8.
+  /// In version 8, strokes and images are stored in their respective pages.
+  ///
+  /// Also creates a page if there are no pages.
+  void migrateOldStrokesAndImages({
+    required List<dynamic>? strokesJson,
+    required List<dynamic>? imagesJson,
+    double? fallbackPageWidth,
+    double? fallbackPageHeight,
+  }) {
+    if (strokesJson != null) {
+      final strokes = EditorPage.parseStrokesJson(strokesJson);
+      for (Stroke stroke in strokes) {
+        while (stroke.pageIndex >= pages.length) {
+          pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+        }
+        pages[stroke.pageIndex].strokes.add(stroke);
+      }
+    }
+
+    if (imagesJson != null) {
+      final images = EditorPage.parseImagesJson(
+          imagesJson,
+          allowCalculations: !readOnly
+      );
+      for (EditorImage image in images) {
+        while (image.pageIndex >= pages.length) {
+          pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+        }
+        pages[image.pageIndex].images.add(image);
+      }
+    }
+
+    // add a page if there are no pages,
+    // or if the last page is not empty
+    if (pages.isEmpty || !pages.last.isEmpty) {
+      pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
     }
   }
 
@@ -167,7 +179,11 @@ class EditorCoreInfo {
       if (json == null) {
         throw Exception("Failed to parse json from $path");
       } else if (json is List) { // old format
-        return EditorCoreInfo.fromOldJson(json, filePath: path);
+        return EditorCoreInfo.fromOldJson(
+          json,
+          filePath: path,
+          readOnly: readOnly,
+        );
       } else {
         return EditorCoreInfo.fromJson(
           json as Map<String, dynamic>,
@@ -194,9 +210,7 @@ class EditorCoreInfo {
   }
 
   Map<String, dynamic> toJson() => {
-    'v': fileVersion,
-    's': strokes,
-    'i': images,
+    'v': sbnVersion,
     'ni': nextImageId,
     'b': backgroundColor?.value,
     'p': backgroundPattern,
@@ -209,8 +223,6 @@ class EditorCoreInfo {
     String? filePath,
     bool? readOnly,
     bool? readOnlyBecauseOfVersion,
-    List<Stroke>? strokes,
-    List<EditorImage>? images,
     int? nextImageId,
     Color? backgroundColor,
     String? backgroundPattern,
@@ -222,8 +234,6 @@ class EditorCoreInfo {
       filePath: filePath ?? this.filePath,
       readOnly: readOnly ?? this.readOnly,
       readOnlyBecauseOfVersion: readOnlyBecauseOfVersion ?? this.readOnlyBecauseOfVersion,
-      strokes: strokes ?? this.strokes,
-      images: images ?? this.images,
       nextImageId: nextImageId ?? this.nextImageId,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,

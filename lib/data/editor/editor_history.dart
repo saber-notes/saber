@@ -89,12 +89,26 @@ class EditorHistoryItem {
     required this.strokes,
     required this.images,
     this.offset,
-  });
+  }): assert(type != EditorHistoryItemType.move || offset != null, "Offset must be provided for move");
 
   final EditorHistoryItemType type;
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
+
+  EditorHistoryItem copyWith({
+    EditorHistoryItemType? type,
+    List<Stroke>? strokes,
+    List<EditorImage>? images,
+    Rect? offset,
+  }) {
+    return EditorHistoryItem(
+      type: type ?? this.type,
+      strokes: strokes ?? this.strokes,
+      images: images ?? this.images,
+      offset: offset ?? this.offset,
+    );
+  }
 }
 
 enum EditorHistoryItemType {

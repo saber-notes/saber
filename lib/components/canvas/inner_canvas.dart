@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:tuple/tuple.dart';
@@ -57,9 +58,14 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor = widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
-    final EditorImage? backgroundImage = widget.coreInfo.pages.isNotEmpty
-        ? widget.coreInfo.pages[widget.pageIndex].backgroundImage
-        : null;
+    if (widget.coreInfo.pages.isEmpty) {
+      return SizedBox(
+        width: widget.width,
+        height: widget.height,
+      );
+    }
+
+    final page = widget.coreInfo.pages[widget.pageIndex];
 
     Widget quillEditor = Transform.scale(
       scale: InnerCanvas.quillScale,
@@ -98,7 +104,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         ),
         foregroundPainter: CanvasPainter(
           invert: invert,
-          strokes: widget.coreInfo.strokes,
+          strokes: page.strokes,
           currentStroke: widget.currentStroke,
 
           showPageIndicator: !widget.isPreview,
@@ -113,10 +119,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
           child: DeferredPointerHandler(
             child: Stack(
               children: [
-                if (backgroundImage != null)
+                if (page.backgroundImage != null)
                   CanvasImage(
                     filePath: widget.coreInfo.filePath,
-                    image: backgroundImage,
+                    image: page.backgroundImage!,
                     pageSize: Size(widget.width, widget.height),
                     setAsBackground: null,
                     isBackground: true,
@@ -132,7 +138,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     child: quillEditor,
                   ),
                 ),
-                for (final EditorImage editorImage in widget.coreInfo.images)
+                for (final EditorImage editorImage in page.images)
                   CanvasImage(
                     filePath: widget.coreInfo.filePath,
                     image: editorImage,

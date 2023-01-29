@@ -49,7 +49,7 @@ void main() {
     ];
 
     List<Stroke> strokes = [...strokesToErase, ...strokesToKeep];
-    List<int> erasedIndices = eraser.checkForOverlappingStrokes(0, _eraserPos, strokes);
+    List<int> erasedIndices = eraser.checkForOverlappingStrokes(_eraserPos, strokes);
 
     for (int i = 0; i < strokesToErase.length; i++) {
       expect(erasedIndices.contains(i), true, reason: "Stroke at index $i should be erased");
