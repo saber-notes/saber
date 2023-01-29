@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1058 (117 per locale)
+/// Strings: 1072 (119 per locale)
 ///
-/// Built on 2023-01-28 at 22:13 UTC
+/// Built on 2023-01-29 at 04:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4001,6 +4001,7 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$ZhHantTw._(_root),
 		_StringsLogin$faq$0i2$ZhHantTw._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageZhHantTw insecureStorage = _StringsLoginInsecureStorageZhHantTw._(_root);
 }
 
 // Path: appInfo
@@ -4258,6 +4259,23 @@ class _StringsLogin$faq$0i2$ZhHantTw extends _StringsLogin$faq$0i2$En {
 	@override String get a => 'Nextcloud 密碼用於訪問雲端。 而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。 這為您提供了第二層安全保護來保護您的資料。';
 }
 
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageZhHantTw extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '安全警告';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: '如果沒有付費的 Apple Developer 帳戶，鑰匙串共享將無法在 macOS 上運行。如果您想登入，您需要在以下選項之間進行選擇：\n1.使用不安全的存儲來保存您的登入詳細資訊。不推薦這麼做，但您可以選擇。\n2.每次使用該應用程式時都要登入。\n\n如果你想幫助我加入 Apple Developer Program，你可以 '),
+		sponsorLink('成為贊助商'),
+		const TextSpan(text: '！'),
+	]);
+	@override String get loginTemporarily => '暫時登入';
+	@override String get useInsecureStorage => '使用不安全的存儲';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarZhHantTw extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
@@ -4311,6 +4329,7 @@ class _StringsEditorImageOptionsZhHantTw extends _StringsEditorImageOptionsEn {
 	@override String get invertible => '反轉顏色';
 	@override String get delete => '刪除';
 	@override String get download => '下載';
+	@override String get setAsBackground => '設為背景';
 }
 
 // Path: editor.menu
@@ -4324,6 +4343,9 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get clearAllPages => '清除所有頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '每行的高度';
+	@override String get removeBgImage => '移除背景圖片';
+	@override late final _StringsEditorMenuBoxFitsZhHantTw boxFits = _StringsEditorMenuBoxFitsZhHantTw._(_root);
+	@override late final _StringsEditorMenuBgPatternsZhHantTw bgPatterns = _StringsEditorMenuBgPatternsZhHantTw._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -4359,4 +4381,30 @@ class _StringsEditorHudZhHantTw extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => '解鎖縮放';
 	@override String get lockZoom => '鎖定縮放';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsZhHantTw extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => '拉伸';
+	@override String get cover => '覆蓋';
+	@override String get contain => '包含';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsZhHantTw extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => '空白';
+	@override String get college => 'College-ruled';
+	@override String get lined => '橫線';
+	@override String get grid => '網格';
+	@override String get dots => '點';
 }
