@@ -84,6 +84,34 @@ class EditorPage {
       "b": backgroundImage?.toJson(),
   };
 
+  /// Inserts a stroke, while keeping the strokes sorted by
+  /// pen type and color.
+  void insertStroke(Stroke newStroke) {
+    int newStrokeColor = newStroke.strokeProperties.color.value;
+
+    int index = 0;
+    for (final Stroke stroke in strokes) {
+      int penTypeComparison = stroke.penType.compareTo(newStroke.penType);
+      int color = stroke.strokeProperties.color.value;
+      if (penTypeComparison > 0) {
+        break; // this stroke's pen type comes after the new stroke's pen type
+      } else if (penTypeComparison == 0 && color > newStrokeColor) {
+        break; // this stroke's pen color comes after the new stroke's pen color
+      }
+      index++;
+    }
+
+    strokes.insert(index, newStroke);
+  }
+  /// Sorts the strokes by pen type and color.
+  void sortStrokes() {
+    strokes.sort((Stroke a, Stroke b) {
+      int penTypeComparison = a.penType.compareTo(b.penType);
+      if (penTypeComparison != 0) return penTypeComparison;
+      return a.strokeProperties.color.value.compareTo(b.strokeProperties.color.value);
+    });
+  }
+
   static List<Stroke> parseStrokesJson(List<dynamic>? strokes) => strokes
       ?.map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
       .toList() ?? [];

@@ -39,11 +39,9 @@ class CanvasPainter extends CustomPainter {
       ..color = Colors.white.withAlpha(Highlighter.alpha);
     canvas.saveLayer(canvasRect, highlighterLayerPaint);
     {
-      /// sorted by color
       Iterable<Stroke> strokes = this.strokes
           .where((stroke) => stroke.penType == (Highlighter).toString())
-          .toList(growable: false)
-          ..sort((a, b) => a.strokeProperties.color.value - b.strokeProperties.color.value);
+          .toList(growable: false);
       Color? lastColor = strokes.isNotEmpty ? strokes.first.strokeProperties.color : null;
       for (final Stroke stroke in strokes) {
         if (stroke.strokeProperties.color != lastColor) { // new layer for each color

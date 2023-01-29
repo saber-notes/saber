@@ -40,7 +40,9 @@ class EditorCoreInfo {
     lineHeight: Prefs.lastLineHeight.value,
     pages: [EditorPage()],
     initialPageIndex: null,
-  )..migrateOldStrokesAndImages(strokesJson: null, imagesJson: null);
+  )
+    .._migrateOldStrokesAndImages(strokesJson: null, imagesJson: null)
+    .._sortStrokes();
 
   bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
 
@@ -85,12 +87,13 @@ class EditorCoreInfo {
       pages: _parsePagesJson(json["z"] as List?),
       initialPageIndex: json["c"] as int?,
     )
-      ..migrateOldStrokesAndImages(
+      .._migrateOldStrokesAndImages(
         strokesJson: json["s"] as List?,
         imagesJson: json["i"] as List?,
         fallbackPageWidth: json["w"] as double?,
         fallbackPageHeight: json["h"] as double?,
-      );
+      )
+      .._sortStrokes();
   }
   /// Old json format is just a list of strokes
   EditorCoreInfo.fromOldJson(List<dynamic> json, {
@@ -100,10 +103,11 @@ class EditorCoreInfo {
       backgroundPattern = CanvasBackgroundPatterns.none,
       lineHeight = Prefs.lastLineHeight.value,
       pages = [] {
-    migrateOldStrokesAndImages(
+    _migrateOldStrokesAndImages(
       strokesJson: json,
       imagesJson: null,
     );
+    _sortStrokes();
   }
 
   static List<EditorPage> _parsePagesJson(List<dynamic>? pages) {
@@ -134,7 +138,7 @@ class EditorCoreInfo {
   /// In version 8, strokes and images are stored in their respective pages.
   ///
   /// Also creates a page if there are no pages.
-  void migrateOldStrokesAndImages({
+  void _migrateOldStrokesAndImages({
     required List<dynamic>? strokesJson,
     required List<dynamic>? imagesJson,
     double? fallbackPageWidth,
@@ -146,7 +150,7 @@ class EditorCoreInfo {
         while (stroke.pageIndex >= pages.length) {
           pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
         }
-        pages[stroke.pageIndex].strokes.add(stroke);
+        pages[stroke.pageIndex].insertStroke(stroke);
       }
     }
 
@@ -167,6 +171,12 @@ class EditorCoreInfo {
     // or if the last page is not empty
     if (pages.isEmpty || !pages.last.isEmpty) {
       pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+    }
+  }
+
+  void _sortStrokes() {
+    for (EditorPage page in pages) {
+      page.sortStrokes();
     }
   }
 

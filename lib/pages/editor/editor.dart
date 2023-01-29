@@ -202,7 +202,7 @@ class _EditorState extends State<Editor> {
       } else if (item.type == EditorHistoryItemType.erase) { // undo erase
         for (Stroke stroke in item.strokes) {
           createPage(stroke.pageIndex);
-          coreInfo.pages[stroke.pageIndex].strokes.add(stroke);
+          coreInfo.pages[stroke.pageIndex].insertStroke(stroke);
         }
         for (EditorImage image in item.images) {
           createPage(image.pageIndex);
@@ -328,7 +328,7 @@ class _EditorState extends State<Editor> {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         createPage(newStroke.pageIndex);
-        coreInfo.pages[newStroke.pageIndex].strokes.add(newStroke);
+        coreInfo.pages[newStroke.pageIndex].insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.draw,
           strokes: [newStroke],
