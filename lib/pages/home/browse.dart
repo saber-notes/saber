@@ -96,23 +96,26 @@ class _BrowsePageState extends State<BrowsePage> {
                 SyncingButton(),
               ],
             ),
-            SliverList(delegate: SliverChildListDelegate.fixed(
-              failed ? [const NoFiles()] : [
-                if (children != null && (path != null || children!.directories.isNotEmpty)) GridFolders(
+            if (failed) ...[
+              const SliverToBoxAdapter(
+                child: NoFiles(),
+              ),
+            ] else ...[
+              if (children != null && (path != null || children!.directories.isNotEmpty))
+                GridFolders(
                   isAtRoot: path == null,
                   folders: [
-                    for (String directoryPath in children!.directories) directoryPath,
+                    for (String directoryPath in children!.directories)
+                      directoryPath,
                   ],
                   onTap: onDirectoryTap,
-                  physics: const NeverScrollableScrollPhysics(),
                 ),
-                MasonryFiles(
-                  files: [
-                    for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
-                  ],
-                ),
-              ],
-            )),
+              MasonryFiles(
+                files: [
+                  for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
+                ],
+              ),
+            ],
           ],
         ),
       ),

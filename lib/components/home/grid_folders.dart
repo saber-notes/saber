@@ -9,50 +9,45 @@ class GridFolders extends StatelessWidget {
     required this.isAtRoot,
     required this.folders,
     required this.onTap,
-    this.physics = const AlwaysScrollableScrollPhysics(),
   });
 
   final bool isAtRoot;
   final List<String> folders;
   final Function(String) onTap;
-  final ScrollPhysics physics;
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     int indexOffset = isAtRoot ? 0 : 1;
-    return LayoutBuilder(builder: (context, constraints) {
-      return AlignedGridView.count(
-        itemCount: folders.length + indexOffset,
-        crossAxisCount: constraints.maxWidth ~/ 150 + 1,
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(10),
-        physics: physics,
-        itemBuilder: (context, index) {
-          bool isBackFolder = index < indexOffset;
-          return Card(
-            child: InkWell(
-              onTap: () {
-                onTap(isBackFolder ? ".." : folders[index - indexOffset]);
-              },
-              borderRadius: BorderRadius.circular(10),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (isBackFolder) const Icon(Icons.folder_open, size: 50)
-                    else const Icon(Icons.folder, size: 50),
+    return SliverAlignedGrid.count(
+      itemCount: folders.length + indexOffset,
+      crossAxisCount: mediaQuery.size.width ~/ 150 + 1,
+      mainAxisSpacing: 10,
+      itemBuilder: (context, index) {
+        bool isBackFolder = index < indexOffset;
+        return Card(
+          child: InkWell(
+            onTap: () {
+              onTap(isBackFolder ? ".." : folders[index - indexOffset]);
+            },
+            borderRadius: BorderRadius.circular(10),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (isBackFolder) const Icon(Icons.folder_open, size: 50)
+                  else const Icon(Icons.folder, size: 50),
 
-                    const SizedBox(height: 8),
+                  const SizedBox(height: 8),
 
-                    Text(isBackFolder ? t.home.backFolder : folders[index - indexOffset]),
-                  ],
-                ),
+                  Text(isBackFolder ? t.home.backFolder : folders[index - indexOffset]),
+                ],
               ),
             ),
-          );
-        },
-      );
-    });
+          ),
+        );
+      },
+    );
   }
 }

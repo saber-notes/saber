@@ -75,15 +75,17 @@ class _RecentPageState extends State<RecentPage> {
                 SyncingButton(),
               ],
             ),
-            SliverList(delegate: SliverChildListDelegate.fixed(
-              [
-                failed ? const Welcome() : MasonryFiles(
-                  files: [
-                    for (String filePath in filePaths) filePath,
-                  ],
-                ),
-              ],
-            )),
+            if (failed) ...[
+              const SliverToBoxAdapter(
+                child: Welcome(),
+              ),
+            ] else ...[
+              MasonryFiles(
+                files: [
+                  for (String filePath in filePaths) filePath,
+                ],
+              ),
+            ],
           ],
         ),
       ),
