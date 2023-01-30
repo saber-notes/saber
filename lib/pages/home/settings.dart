@@ -242,7 +242,17 @@ class _SettingsPageState extends State<SettingsPage> {
                       ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
                       ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
                     ],
-                    afterChange: (_) => setState(() {}),
+                  ),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.maxImageSize,
+                    subtitle: t.settings.prefDescriptions.maxImageSize,
+                    icon: Icons.image_aspect_ratio,
+                    pref: Prefs.maxImageSize,
+                    options: const <ToggleButtonsOption<double>>[
+                      ToggleButtonsOption(500, Text("500")),
+                      ToggleButtonsOption(1000, Text("1000")),
+                      ToggleButtonsOption(2000, Text("2000")),
+                    ],
                   ),
                   SettingsSwitch(
                     title: t.settings.prefLabels.autoClearWhiteboardOnExit,

@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class EditorImage {
@@ -141,7 +142,9 @@ class EditorImage {
         naturalSize = const Size(200, 200);
       }
 
-      final Size reducedSize = resize(naturalSize, const Size(1000, 1000));
+      await Prefs.maxImageSize.waitUntilLoaded();
+      final Size maxSize = Size.square(Prefs.maxImageSize.value);
+      final Size reducedSize = resize(naturalSize, maxSize);
       if (naturalSize.width != reducedSize.width && allowCalculations) {
         await Future.delayed(Duration.zero); // wait for next event-loop iteration
 

@@ -39,6 +39,7 @@ void main() {
     expect(findIcon(Icons.system_update), findsAtLeastNWidgets(1));
     expect(findIcon(Icons.fullscreen), findsAtLeastNWidgets(1));
     expect(findIcon(Icons.cleaning_services), findsAtLeastNWidgets(1));
+    expect(findIcon(Icons.image_aspect_ratio), findsAtLeastNWidgets(1));
 
     // Dynamic icons...
 

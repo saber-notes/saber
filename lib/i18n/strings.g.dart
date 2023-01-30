@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1086 (120 per locale)
+/// Strings: 1088 (120 per locale)
 ///
-/// Built on 2023-01-30 at 00:41 UTC
+/// Built on 2023-01-30 at 10:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -337,6 +337,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
 	String get editorStraightenLines => 'Press and hold to straighten a line';
+	String get maxImageSize => 'Maximum image size';
 	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 }
@@ -352,6 +353,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get preferGreyscale => 'For e-ink displays';
 	String get autoClearWhiteboardOnExit => 'It will still be synced to your other devices';
+	String get maxImageSize => 'Images larger than this will be compressed';
 	String get editorPromptRename => 'You can always rename notes later';
 }
 

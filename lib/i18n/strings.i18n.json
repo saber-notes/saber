@@ -39,6 +39,7 @@
       "editorAutoInvert": "Invert notes in dark mode",
       "preferGreyscale": "Prefer greyscale colors",
       "editorStraightenLines": "Press and hold to straighten a line",
+      "maxImageSize": "Maximum image size",
       "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
       "editorPromptRename": "Prompt you to rename new notes"
     },
@@ -47,6 +48,7 @@
       "editorAutoInvert": "Smartly darkens notes in dark mode",
       "preferGreyscale": "For e-ink displays",
       "autoClearWhiteboardOnExit": "It will still be synced to your other devices",
+      "maxImageSize": "Images larger than this will be compressed",
       "editorPromptRename": "You can always rename notes later"
     },
     "themeModes": {
