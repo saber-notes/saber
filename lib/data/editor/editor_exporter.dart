@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pdf/pdf.dart';
@@ -13,26 +14,29 @@ abstract class EditorExporter {
     final pw.Document pdf = pw.Document();
     ScreenshotController screenshotController = ScreenshotController();
 
-    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
-      // Don't export the empty last page
-      if (pageIndex == coreInfo.pages.length - 1 && coreInfo.pages[pageIndex].isEmpty) {
-        continue;
-      }
+    List<Uint8List> pageScreenshots = await Future.wait(
+      coreInfo.pages
+        // don't export the empty last page
+        .whereIndexed((index, page) =>
+           index != coreInfo.pages.length - 1 || !page.isEmpty)
+        // screenshot each page
+        .mapIndexed((index, page) => screenshotPage(
+          coreInfo: coreInfo,
+          pageIndex: index,
+          screenshotController: screenshotController,
+          context: context,
+        ))
+    );
+    assert(pageScreenshots.length <= coreInfo.pages.length);
 
+    for (int pageIndex = 0; pageIndex < pageScreenshots.length; ++pageIndex) {
       Size pageSize = coreInfo.pages[pageIndex].size;
-      Uint8List pageImage = await screenshotPage(
-        coreInfo: coreInfo,
-        pageIndex: pageIndex,
-        screenshotController: screenshotController,
-        context: context,
-      );
-
       pdf.addPage(
         pw.Page(
           pageFormat: PdfPageFormat(pageSize.width, pageSize.height),
           build: (pw.Context context) {
             return pw.Image(
-              pw.MemoryImage(pageImage),
+              pw.MemoryImage(pageScreenshots[pageIndex]),
               fit: pw.BoxFit.contain,
               width: pageSize.width,
               height: pageSize.height,
