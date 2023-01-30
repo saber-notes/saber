@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1088 (120 per locale)
+/// Strings: 1090 (121 per locale)
 ///
-/// Built on 2023-01-30 at 10:27 UTC
+/// Built on 2023-01-30 at 11:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3675,6 +3675,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get locale => '应用语言';
 	@override String get platform => '主题类型';
+	@override String get maxImageSize => '最大图片大小';
 }
 
 // Path: settings.prefDescriptions
@@ -3689,6 +3690,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get preferGreyscale => '用于电子墨水显示器';
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
+	@override String get maxImageSize => '更大的图片将会被压缩';
 }
 
 // Path: settings.themeModes

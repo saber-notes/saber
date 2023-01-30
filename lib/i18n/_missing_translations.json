@@ -123,16 +123,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "最大图片大小"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "更大的图片将会被压缩"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
