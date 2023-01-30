@@ -10,23 +10,27 @@ import 'package:saber/i18n/strings.g.dart';
 class PenModal extends StatefulWidget {
   const PenModal({
     super.key,
-    required this.currentTool,
+    required this.getTool,
     required this.setTool,
   });
 
-  final Tool currentTool;
-  final Function setTool;
+  final Tool Function() getTool;
+  final void Function(Pen) setTool;
 
   @override
   State<PenModal> createState() => _PenModalState();
 }
 
 class _PenModalState extends State<PenModal> {
-  late final Pen currentPen = widget.currentTool as Pen;
-
   @override
   Widget build(BuildContext context) {
-    assert(widget.currentTool is Pen);
+    final Tool currentTool = widget.getTool();
+    final Pen currentPen;
+    if (currentTool is Pen) {
+      currentPen = currentTool;
+    } else {
+      return const SizedBox();
+    }
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

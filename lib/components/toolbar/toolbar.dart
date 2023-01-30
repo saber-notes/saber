@@ -217,7 +217,7 @@ class _ToolbarState extends State<Toolbar> {
                       }
                     },
                     modal: PenModal(
-                      currentTool: Pen.currentPen,
+                      getTool: () => Pen.currentPen,
                       setTool: widget.setTool,
                     ),
                     child: FaIcon(Pen.currentPen.icon, size: 16),
@@ -234,7 +234,7 @@ class _ToolbarState extends State<Toolbar> {
                       }
                     },
                     modal: PenModal(
-                      currentTool: Highlighter.currentHighlighter,
+                      getTool: () => Highlighter.currentHighlighter,
                       setTool: widget.setTool,
                     ),
                     child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
