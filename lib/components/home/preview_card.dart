@@ -95,46 +95,49 @@ class _PreviewCardState extends State<PreviewCard> {
       child: GestureDetector(
         onSecondaryTap: () => setState(() { expanded = !expanded; }),
         onLongPress: () => setState(() { expanded = !expanded; }),
-        child: Stack(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CanvasPreview(
-                  path: widget.filePath,
-                  height: height,
-                  coreInfo: coreInfo,
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
-                ),
-
-                Collapsible(
-                  collapsed: !expanded,
-                  axis: CollapsibleAxis.vertical,
-                  maintainState: true,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {
-                          FileManager.deleteFile(widget.filePath + Editor.extension);
-                        },
-                        icon: const Icon(Icons.delete_forever),
-                      ),
-                    ],
+        child: Container(
+          color: colorScheme.primary.withOpacity(0.05),
+          child: Stack(
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CanvasPreview(
+                    path: widget.filePath,
+                    height: height,
+                    coreInfo: coreInfo,
                   ),
-                ),
-              ],
-            ),
-
-            UploadingIndicator(
-              filePath: widget.filePath,
-            ),
-          ],
+        
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+                  ),
+        
+                  Collapsible(
+                    collapsed: !expanded,
+                    axis: CollapsibleAxis.vertical,
+                    maintainState: true,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            FileManager.deleteFile(widget.filePath + Editor.extension);
+                          },
+                          icon: const Icon(Icons.delete_forever),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+        
+              UploadingIndicator(
+                filePath: widget.filePath,
+              ),
+            ],
+          ),
         ),
       ),
     );
