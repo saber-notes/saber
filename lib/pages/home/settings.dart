@@ -233,7 +233,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
                       return "${Prefs.editorStraightenDelay.value}ms";
                     }(),
-                    iconBuilder: (int i) {
+                    iconBuilder: (num i) {
                       return (i <= 0) ? Icons.gesture : Icons.straighten;
                     },
                     pref: Prefs.editorStraightenDelay,
