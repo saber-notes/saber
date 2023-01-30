@@ -1,0 +1,5 @@
+• Improved the appearance of the highlighter on custom backgrounds
+• Performance improvements with the .sbn file format
+• Fixed size indicator not updating when switching between the fountain pen and ballpoint pen
+• Fixed UI regression on the home screen
+• You can now configure how much images are compressed in settings
