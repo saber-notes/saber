@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1072 (119 per locale)
+/// Strings: 1086 (120 per locale)
 ///
-/// Built on 2023-01-29 at 04:12 UTC
+/// Built on 2023-01-30 at 00:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1614,7 +1614,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsEs tooltips = _StringsHomeTooltipsEs._(_root);
 	@override String get backFolder => '(Volver)';
 	@override String get welcome => 'Te damos la bienvenida a Saber';
-	@override String get noFiles => 'No se encontraron archivos';
+	@override String get noFiles => 'No se ha encontrado ninguna nota';
 	@override String get createNewNote => 'Presiona el botón + para crear una nueva nota';
 }
 
@@ -1654,6 +1654,7 @@ class _StringsLoginEs extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$Es._(_root),
 		_StringsLogin$faq$0i2$Es._(_root),
 	];
+	@override late final _StringsLoginInsecureStorageEs insecureStorage = _StringsLoginInsecureStorageEs._(_root);
 }
 
 // Path: appInfo
@@ -1777,7 +1778,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
-	@override String get editorStraightenLines => 'Mantén presionado para enderezar una línea';
+	@override String get editorStraightenLines => 'Mantener presionado para enderezar una línea';
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 }
@@ -1886,7 +1887,7 @@ class _StringsLogin$faq$0i0$Es extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => '¿Qué es Nextcloud?';
-	@override String get a => 'Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puede usar el servidor Sabre Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.';
+	@override String get a => 'Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.';
 }
 
 // Path: login.faq.1
@@ -1897,7 +1898,7 @@ class _StringsLogin$faq$0i1$Es extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => '¿Qué es la contraseña de cifrado?';
-	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y solo Saber lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y Saber solo lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
 }
 
 // Path: login.faq.2
@@ -1911,6 +1912,23 @@ class _StringsLogin$faq$0i2$Es extends _StringsLogin$faq$0i2$En {
 	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
 }
 
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageEs extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Advertencia de seguridad';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'El uso compartido de llaveros no funciona en macOS sin una cuenta de desarrollador de Apple de pago. Si deseas iniciar sesión, deberás elegir entre:\n1. Uso de almacenamiento no seguro para guardar tus datos de inicio de sesión. Esto no es recomendable, pero es tu elección.\n2. Iniciar sesión cada vez que usas la aplicación.\n\nSi deseas ayudarme a unirme al programa para desarrolladores de Apple, puedes '),
+		sponsorLink('convertirte en patrocinador'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Iniciar sesión temporalmente';
+	@override String get useInsecureStorage => 'Usar almacenamiento inseguro';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarEs._(_StringsEs root) : this._root = root, super._(root);
@@ -1918,8 +1936,8 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get toggleColors => 'Cambiar colores (Ctrl C)';
-	@override String get toggleEraser => 'Borrador (Ctrl E)';
+	@override String get toggleColors => 'Paleta de colores (Ctrl C)';
+	@override String get toggleEraser => 'Borrar (Ctrl E)';
 	@override String get photo => 'Foto';
 	@override String get text => 'Texto';
 	@override String get toggleFingerDrawing => 'Dibujar con el dedo (Ctrl F)';
@@ -1963,6 +1981,7 @@ class _StringsEditorImageOptionsEs extends _StringsEditorImageOptionsEn {
 	@override String get title => 'Opciones de imagen';
 	@override String get invertible => 'Invertible';
 	@override String get download => 'Descargar';
+	@override String get setAsBackground => 'Usar como fondo';
 	@override String get delete => 'Eliminar';
 }
 
@@ -1976,7 +1995,10 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Borrar página';
 	@override String get clearAllPages => 'Borrar todas las páginas';
 	@override String get lineHeight => 'Altura de la línea';
-	@override String get lineHeightDescription => 'El tamaño de cada línea';
+	@override String get lineHeightDescription => 'Tamaño de cada línea';
+	@override String get removeBgImage => 'Eliminar imagen de fondo';
+	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
+	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -2012,6 +2034,32 @@ class _StringsEditorHudEs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Desbloquear zoom';
 	@override String get lockZoom => 'Bloquear zoom';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsEs extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Llenar';
+	@override String get cover => 'Cubrir';
+	@override String get contain => 'Contener';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'En blanco';
+	@override String get college => 'Rayado universitario';
+	@override String get lined => 'Rayado';
+	@override String get grid => 'Cuadrículado';
+	@override String get dots => 'Punteado';
 }
 
 // Path: <root>

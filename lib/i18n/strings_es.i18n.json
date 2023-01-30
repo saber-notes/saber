@@ -1,180 +1,200 @@
 {
-	"home": {
-		"tabs": {
-			"home": "Inicio",
-			"browse": "Explorar",
-			"whiteboard": "Pizarra",
-			"settings": "Configuración"
-		},
-		"titles": {
-			"home": "Notas recientes",
-			"browse": "Todas las notas",
-			"whiteboard": "Pizarra",
-			"settings": "Configuración"
-		},
-		"tooltips": {
-			"newNote": "Crear nota",
-			"showUpdateDialog": "Mostrar cuadro de diálogo de actualizaciónes"
-		},
-		"backFolder": "(Volver)",
-		"welcome": "Te damos la bienvenida a Saber",
-		"noFiles": "No se encontraron archivos",
-		"createNewNote": "Presiona el botón + para crear una nueva nota"
-	},
+  "home": {
+    "tabs": {
+      "home": "Inicio",
+      "browse": "Explorar",
+      "whiteboard": "Pizarra",
+      "settings": "Configuración"
+    },
+    "titles": {
+      "home": "Notas recientes",
+      "browse": "Todas las notas",
+      "whiteboard": "Pizarra",
+      "settings": "Configuración"
+    },
+    "tooltips": {
+      "newNote": "Crear nota",
+      "showUpdateDialog": "Mostrar cuadro de diálogo de actualizaciónes"
+    },
+    "backFolder": "(Volver)",
+    "welcome": "Te damos la bienvenida a Saber",
+    "noFiles": "No se ha encontrado ninguna nota",
+    "createNewNote": "Presiona el botón + para crear una nueva nota"
+  },
 
-	"settings": {
-		"prefCategories": {
-			"general": "General",
-			"layout": "Diseño",
-			"writing": "Escritura"
-		},
-		"prefLabels": {
-			"locale": "Idioma de la aplicación",
-			"appTheme": "Tema de la aplicación",
-			"platform": "Tipo de tema",
-			"customAccentColor": "Color de acento personalizado",
-			"hyperlegibleFont": "Fuente hiperlegible",
-			"shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
-			"editorToolbarOnBottom": "Alinear la barra de herramientas del editor en la parte inferior",
-			"editorToolbarShowInFullscreen": "Mostrar la barra de herramientas del editor en el modo de pantalla completa",
-			"editorAutoInvert": "Invertir notas en el modo oscuro",
-			"preferGreyscale": "Preferir colores en escala de grises",
-			"editorStraightenLines": "Mantén presionado para enderezar una línea",
-			"autoClearWhiteboardOnExit": "Borrar la pizarra después de salir de la aplicación",
-        	"editorPromptRename": "Solicitarte cambiar el nombre de nuevas notas"
-		},
-		"prefDescriptions": {
-			"hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
-			"editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
-			"preferGreyscale": "Para pantallas con tinta electrónica",
-			"autoClearWhiteboardOnExit": "Aún se sincronizará con tus otros dispositivos",
-        	"editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde"
-		},
-		"themeModes": {
-			"system": "Sistema",
-			"light": "Claro",
-			"dark": "Oscuro"
-		},
-		"accentColorPicker": {
-			"pickAColor": "Elegir un color"
-		},
-		"straightenDelay": {
-			"off": "Apagado",
-			"regular": "Regular",
-			"slow": "Lento"
-		},
-		"systemLanguage": "Idioma del sistema"
-	},
+  "settings": {
+    "prefCategories": {
+      "general": "General",
+      "layout": "Diseño",
+      "writing": "Escritura"
+    },
+    "prefLabels": {
+      "locale": "Idioma de la aplicación",
+      "appTheme": "Tema de la aplicación",
+      "platform": "Tipo de tema",
+      "customAccentColor": "Color de acento personalizado",
+      "hyperlegibleFont": "Fuente hiperlegible",
+      "shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
+      "editorToolbarOnBottom": "Alinear la barra de herramientas del editor en la parte inferior",
+      "editorToolbarShowInFullscreen": "Mostrar la barra de herramientas del editor en el modo de pantalla completa",
+      "editorAutoInvert": "Invertir notas en el modo oscuro",
+      "preferGreyscale": "Preferir colores en escala de grises",
+      "editorStraightenLines": "Mantener presionado para enderezar una línea",
+      "autoClearWhiteboardOnExit": "Borrar la pizarra después de salir de la aplicación",
+      "editorPromptRename": "Solicitarte cambiar el nombre de nuevas notas"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
+      "editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
+      "preferGreyscale": "Para pantallas con tinta electrónica",
+      "autoClearWhiteboardOnExit": "Aún se sincronizará con tus otros dispositivos",
+      "editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde"
+    },
+    "themeModes": {
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Oscuro"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Elegir un color"
+    },
+    "straightenDelay": {
+      "off": "Apagado",
+      "regular": "Regular",
+      "slow": "Lento"
+    },
+    "systemLanguage": "Idioma del sistema"
+  },
 
-	"login": {
-		"title": "Iniciar sesión",
-		"feedbacks": {
-			"checkUsername": "Por favor verifica tu nombre de usuario o correo electrónico.",
-			"enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
-			"enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
-			"checkUrl": "Por favor introduce una dirección URL válida.",
-			"ncLoginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
-			"loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...",
-			"encLoginFailed": "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
-		},
-		"form": {
-			"useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
-			"customServerUrl": "Dirección URL del servidor personalizada",
-			"username": "Nombre de usuario o correo electrónico",
-			"ncPassword": "Contraseña de Nextcloud",
-			"encPassword": "Contraseña de cifrado",
-			"agreeToPrivacyPolicy(rich)": "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.",
-			"login": "Iniciar sesión"
-		},
-		"signup(rich)": "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}",
-		"status": {
-			"loggedIn": "Sesión iniciada con Nextcloud",
-			"loggedOut": "Desconectado",
-			"tapToLogin": "Toca para iniciar sesión con Nextcloud"
-		},
-		"faq": [
-			{
-			  "q": "¿Qué es Nextcloud?",
-			  "a": "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puede usar el servidor Sabre Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
-			},
-			{
-			  "q": "¿Qué es la contraseña de cifrado?",
-			  "a": "La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y solo Saber lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos."
-			},
-			{
-			  "q": "¿Por qué usar dos contraseñas?",
-			  "a": "La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación \"codifica\" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos."
-			}
-		  ]
-	},
+  "login": {
+    "title": "Iniciar sesión",
+    "feedbacks": {
+      "checkUsername": "Por favor verifica tu nombre de usuario o correo electrónico.",
+      "enterNcPassword": "Por favor ingresa tu contraseña de Nextcloud.",
+      "enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
+      "checkUrl": "Por favor introduce una dirección URL válida.",
+      "ncLoginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
+      "loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...",
+      "encLoginFailed": "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
+    },
+    "form": {
+      "useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
+      "customServerUrl": "Dirección URL del servidor personalizada",
+      "username": "Nombre de usuario o correo electrónico",
+      "ncPassword": "Contraseña de Nextcloud",
+      "encPassword": "Contraseña de cifrado",
+      "agreeToPrivacyPolicy(rich)": "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.",
+      "login": "Iniciar sesión"
+    },
+    "signup(rich)": "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}",
+    "status": {
+      "loggedIn": "Sesión iniciada con Nextcloud",
+      "loggedOut": "Desconectado",
+      "tapToLogin": "Toca para iniciar sesión con Nextcloud"
+    },
+    "faq": [
+      {
+        "q": "¿Qué es Nextcloud?",
+        "a": "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
+      },
+      {
+        "q": "¿Qué es la contraseña de cifrado?",
+        "a": "La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y Saber solo lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos."
+      },
+      {
+        "q": "¿Por qué usar dos contraseñas?",
+        "a": "La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación \"codifica\" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos."
+      }
+    ],
+    "insecureStorage": {
+      "title": "Advertencia de seguridad",
+      "description(rich)": "El uso compartido de llaveros no funciona en macOS sin una cuenta de desarrollador de Apple de pago. Si deseas iniciar sesión, deberás elegir entre:\n1. Uso de almacenamiento no seguro para guardar tus datos de inicio de sesión. Esto no es recomendable, pero es tu elección.\n2. Iniciar sesión cada vez que usas la aplicación.\n\nSi deseas ayudarme a unirme al programa para desarrolladores de Apple, puedes ${sponsorLink(convertirte en patrocinador)}!",
+      "loginTemporarily": "Iniciar sesión temporalmente",
+      "useInsecureStorage": "Usar almacenamiento inseguro"
+    }
+  },
 
-	"appInfo": {
-		"licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
-		"dirty": "DIRTY",
-		"debug": "DEBUG",
-		"sponsorButton": "Toca aquí para patrocinarme o comprar más almacenamiento",
-		"licenseButton": "Toca aquí para ver más información sobre la licencia",
-		"privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
-	},
+  "appInfo": {
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
+    "dirty": "DIRTY",
+    "debug": "DEBUG",
+    "sponsorButton": "Toca aquí para patrocinarme o comprar más almacenamiento",
+    "licenseButton": "Toca aquí para ver más información sobre la licencia",
+    "privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
+  },
 
-	"update": {
-		"updateAvailable": "Actualización disponible",
-		"updateAvailableDescription": "Hay una nueva versión de la aplicación disponible.",
-		"update": "Actualizar"
-	},
-	
-	"editor": {
-		"toolbar": {
-			"toggleColors": "Cambiar colores (Ctrl C)",
-			"toggleEraser": "Borrador (Ctrl E)",
-			"photo": "Foto",
-			"text": "Texto",
-			"toggleFingerDrawing": "Dibujar con el dedo (Ctrl F)",
-			"undo": "Deshacer",
-			"redo": "Rehacer",
-			"export": "Exportar (Ctrl Shift S)",
-			"exportAs": "Exportar cómo:",
-			"fullscreen": "Pantalla completa (F11)"
-		},
-		"pens": {
-			"fountainPen": "Lápiz",
-			"ballpointPen": "Bolígrafo",
-			"highlighter": "Resaltador"
-		},
-		"penOptions": {
-			"size": "Tamaño",
-			"sizeDragHint": "Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño"
-		},
-		"imageOptions": {
-			"title": "Opciones de imagen",
-			"invertible": "Invertible",
-			"download": "Descargar",
-			"delete": "Eliminar"
-		},
-		"menu": {
-			"clearPage": "Borrar página",
-			"clearAllPages": "Borrar todas las páginas",
-			"lineHeight": "Altura de la línea",
-			"lineHeightDescription": "El tamaño de cada línea"
-		},
-		"newerFileFormat": {
-			"readOnlyMode": "Modo de solo lectura",
-			"title": "Esta nota fue editada usando una versión más reciente de Saber",
-			"subtitle": "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?",
-			"allowEditing": "Editar",
-			"cancel": "Cancelar"
-		},
-		"quill": {
-			"typeSomething": "Escribe algo aquí..."
-		},
-		"hud": {
-			"unlockZoom": "Desbloquear zoom",
-			"lockZoom": "Bloquear zoom"
-		}
-	},
+  "update": {
+    "updateAvailable": "Actualización disponible",
+    "updateAvailableDescription": "Hay una nueva versión de la aplicación disponible.",
+    "update": "Actualizar"
+  },
 
-	"sPenWarning": {
-		"title": "Aviso de error del S Pen",
-		"description": "Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas."
-	}
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Paleta de colores (Ctrl C)",
+      "toggleEraser": "Borrar (Ctrl E)",
+      "photo": "Foto",
+      "text": "Texto",
+      "toggleFingerDrawing": "Dibujar con el dedo (Ctrl F)",
+      "undo": "Deshacer",
+      "redo": "Rehacer",
+      "export": "Exportar (Ctrl Shift S)",
+      "exportAs": "Exportar cómo:",
+      "fullscreen": "Pantalla completa (F11)"
+    },
+    "pens": {
+      "fountainPen": "Lápiz",
+      "ballpointPen": "Bolígrafo",
+      "highlighter": "Resaltador"
+    },
+    "penOptions": {
+      "size": "Tamaño",
+      "sizeDragHint": "Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño"
+    },
+    "imageOptions": {
+      "title": "Opciones de imagen",
+      "invertible": "Invertible",
+      "download": "Descargar",
+      "setAsBackground": "Usar como fondo",
+      "delete": "Eliminar"
+    },
+    "menu": {
+      "clearPage": "Borrar página",
+      "clearAllPages": "Borrar todas las páginas",
+      "lineHeight": "Altura de la línea",
+      "lineHeightDescription": "Tamaño de cada línea",
+      "removeBgImage": "Eliminar imagen de fondo",
+      "boxFits": {
+        "fill": "Llenar",
+        "cover": "Cubrir",
+        "contain": "Contener"
+      },
+      "bgPatterns": {
+        "none": "En blanco",
+        "college": "Rayado universitario",
+        "lined": "Rayado",
+        "grid": "Cuadrículado",
+        "dots": "Punteado"
+      }
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Modo de solo lectura",
+      "title": "Esta nota fue editada usando una versión más reciente de Saber",
+      "subtitle": "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?",
+      "allowEditing": "Editar",
+      "cancel": "Cancelar"
+    },
+    "quill": {
+      "typeSomething": "Escribe algo aquí..."
+    },
+    "hud": {
+      "unlockZoom": "Desbloquear zoom",
+      "lockZoom": "Bloquear zoom"
+    }
+  },
+
+  "sPenWarning": {
+    "title": "Aviso de error del S Pen",
+    "description": "Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas."
+  }
 }
