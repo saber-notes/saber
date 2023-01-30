@@ -37,8 +37,8 @@ class FileManager {
   }
 
   static _triggerWriteWatcher() {
-    // Trigger write watcher, limited to once per millisecond
-    final int timestamp = DateTime.now().millisecondsSinceEpoch;
+    // Trigger write watcher, limited to once every 500ms
+    final int timestamp = DateTime.now().millisecondsSinceEpoch ~/ 500;
     if (timestamp > writeWatcher.value) {
       writeWatcher.value = timestamp;
     }
