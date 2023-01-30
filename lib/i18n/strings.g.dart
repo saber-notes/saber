@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1090 (121 per locale)
+/// Strings: 1092 (121 per locale)
 ///
-/// Built on 2023-01-30 at 11:04 UTC
+/// Built on 2023-01-30 at 18:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2262,6 +2262,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get locale => 'Lingua app';
 	@override String get platform => 'Tipo di tema';
+	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
 }
 
 // Path: settings.themeModes
@@ -2298,6 +2299,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
+	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
 }
 
 // Path: settings.straightenDelay
