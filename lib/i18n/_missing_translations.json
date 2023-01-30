@@ -6,10 +6,10 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "maxImageSize": "Maximum image size"
+        "maxImageSize": "Maximální velikost obrázku"
       },
       "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
+        "maxImageSize": "Na větší obrázky bude aplikována komprese"
       }
     }
   },
