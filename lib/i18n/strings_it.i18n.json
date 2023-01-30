@@ -35,7 +35,8 @@
       "editorPromptRename": "Richiede di rinominare nuove note",
       "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
       "locale": "Lingua app",
-      "platform": "Tipo di tema"
+      "platform": "Tipo di tema",
+      "maxImageSize": "Dimensione massima dell'immagine"
     },
     "themeModes": {
       "system": "Sistema",
@@ -50,7 +51,8 @@
       "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
       "preferGreyscale": "Per display e-ink",
       "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
-      "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento"
+      "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
+      "maxImageSize": "Le immagini più grandi verranno compresse"
     },
     "straightenDelay": {
       "off": "Off",

@@ -53,16 +53,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Dimensione massima dell'immagine"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Le immagini più grandi verranno compresse"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "settings": {
       "prefLabels": {
