@@ -123,16 +123,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Maximum image size"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
