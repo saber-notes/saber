@@ -96,6 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 initiallyExpanded: true,
                 leading: const Icon(Icons.app_settings_alt),
                 title: Text(t.settings.prefCategories.general),
+                shape: Border.all(color: Colors.transparent),
                 children: [
                   SettingsDropdown(
                     title: t.settings.prefLabels.locale,
@@ -175,12 +176,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     icon: Icons.system_update,
                     pref: Prefs.shouldCheckForUpdates,
                   ),
+                  const SizedBox(height: 16),
                 ],
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 leading: const Icon(Icons.display_settings),
                 title: Text(t.settings.prefCategories.layout),
+                shape: Border.all(color: Colors.transparent),
                 children: [
                   SettingsSwitch(
                     title: t.settings.prefLabels.editorToolbarOnBottom,
@@ -212,12 +215,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                     pref: Prefs.editorPromptRename,
                   ),
+                  const SizedBox(height: 16),
                 ],
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 leading: const Icon(Icons.brush),
                 title: Text(t.settings.prefCategories.writing),
+                shape: Border.all(color: Colors.transparent),
                 children: [
                   SettingsSwitch(
                     title: t.settings.prefLabels.preferGreyscale,
@@ -260,6 +265,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     icon: Icons.cleaning_services,
                     pref: Prefs.autoClearWhiteboardOnExit,
                   ),
+                  const SizedBox(height: 16),
                 ],
               ),
             ]),
