@@ -7,7 +7,6 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:tuple/tuple.dart';
@@ -187,13 +186,13 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ThemeData(brightness: invert ? Brightness.dark : Brightness.light).textTheme,
     );
     textTheme = textTheme.copyWith(
-      bodyText1: (textTheme.bodyText1 ?? defaultStyle).copyWith(
+      bodyLarge: (textTheme.bodyLarge ?? defaultStyle).copyWith(
         fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 0.7,
         height: 1 / 0.7,
-        color: textTheme.bodyText1?.color ?? defaultStyle.color!,
+        color: textTheme.bodyLarge?.color ?? defaultStyle.color!,
       ),
-      headline1: (textTheme.headline1 ?? defaultStyle).copyWith(
+      displayLarge: (textTheme.displayLarge ?? defaultStyle).copyWith(
         fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
@@ -202,7 +201,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         decorationColor: defaultStyle.color?.withOpacity(0.6),
         decorationThickness: 3,
       ),
-      headline2: (textTheme.headline2 ?? defaultStyle).copyWith(
+      displayMedium: (textTheme.displayMedium ?? defaultStyle).copyWith(
         fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 1,
         height: 1 / 1,
@@ -211,7 +210,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         decorationColor: defaultStyle.color?.withOpacity(0.5),
         decorationThickness: 3,
       ),
-      headline3: (textTheme.headline3 ?? defaultStyle).copyWith(
+      displaySmall: (textTheme.displaySmall ?? defaultStyle).copyWith(
         fontFamilyFallback: fontFamilyFallback,
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
@@ -226,19 +225,19 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     return DefaultStyles(
       h1: DefaultTextBlockStyle(
-        textTheme.headline1!,
+        textTheme.displayLarge!,
         zeroSpacing, zeroSpacing, null
       ),
       h2: DefaultTextBlockStyle(
-        textTheme.headline2!,
+        textTheme.displayMedium!,
         zeroSpacing, zeroSpacing, null
       ),
       h3: DefaultTextBlockStyle(
-        textTheme.headline3!,
+        textTheme.displaySmall!,
         zeroSpacing, zeroSpacing, null
       ),
       paragraph: DefaultTextBlockStyle(
-        textTheme.bodyText1!,
+        textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null
       ),
       bold: const TextStyle(fontWeight: FontWeight.bold),
@@ -252,44 +251,44 @@ class _InnerCanvasState extends State<InnerCanvas> {
       inlineCode: InlineCodeStyle(
         backgroundColor: Colors.grey.withOpacity(0.1),
         radius: const Radius.circular(3),
-        style: GoogleFonts.firaMono(textStyle: textTheme.bodyText1!).copyWith(
+        style: GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!).copyWith(
           // Setting backgroundColor is broken right now, so this always has a white background.
           // Set text color to black to make it readable.
           // https://github.com/singerdmx/flutter-quill/issues/1014
           color: Colors.black,
         ),
-        header1: GoogleFonts.firaMono(textStyle: textTheme.headline1!),
-        header2: GoogleFonts.firaMono(textStyle: textTheme.headline2!),
-        header3: GoogleFonts.firaMono(textStyle: textTheme.headline3!),
+        header1: GoogleFonts.firaMono(textStyle: textTheme.displayLarge!),
+        header2: GoogleFonts.firaMono(textStyle: textTheme.displayMedium!),
+        header3: GoogleFonts.firaMono(textStyle: textTheme.displaySmall!),
       ),
       link: TextStyle(
         color: colorScheme.secondary,
         decoration: TextDecoration.underline,
       ),
       placeHolder: DefaultTextBlockStyle(
-        textTheme.bodyText1!.copyWith(
+        textTheme.bodyLarge!.copyWith(
           color: Colors.grey.withOpacity(0.6),
         ),
         zeroSpacing, zeroSpacing, null
       ),
       lists: DefaultListBlockStyle(
-        textTheme.bodyText1!,
+        textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null, null
       ),
       quote: DefaultTextBlockStyle(
-        TextStyle(color: textTheme.bodyText1!.color!.withOpacity(0.6)),
+        TextStyle(color: textTheme.bodyLarge!.color!.withOpacity(0.6)),
         zeroSpacing, zeroSpacing,
         BoxDecoration(
           border: Border(
             left: BorderSide(
-              color: textTheme.bodyText1!.color!.withOpacity(0.6),
+              color: textTheme.bodyLarge!.color!.withOpacity(0.6),
               width: 4,
             ),
           ),
         ),
       ),
       code: DefaultTextBlockStyle(
-        GoogleFonts.firaMono(textStyle: textTheme.bodyText1!),
+        GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!),
         zeroSpacing, zeroSpacing,
         BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
@@ -297,15 +296,15 @@ class _InnerCanvasState extends State<InnerCanvas> {
         ),
       ),
       indent: DefaultTextBlockStyle(
-        textTheme.bodyText1!,
+        textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null
       ),
       align: DefaultTextBlockStyle(
-        textTheme.bodyText1!,
+        textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null
       ),
       leading: DefaultTextBlockStyle(
-        textTheme.bodyText1!,
+        textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null
       ),
     );
