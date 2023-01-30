@@ -126,10 +126,10 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "maxImageSize": "Maximum image size"
+        "maxImageSize": "最大图片大小"
       },
       "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
+        "maxImageSize": "更大的图片将会被压缩"
       }
     }
   },
