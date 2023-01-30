@@ -35,14 +35,16 @@
       "autoClearWhiteboardOnExit": "Smazat tabuli po opuštění aplikace",
       "editorPromptRename": "Vybízet k přejmenování nových poznámek",
       "locale": "Jazyk aplikace",
-      "platform": "Motiv"
+      "platform": "Motiv",
+      "maxImageSize": "Maximální velikost obrázku"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
       "editorAutoInvert": "Inteligentně ztmaví poznámky ve tmavém motivu",
       "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",
       "autoClearWhiteboardOnExit": "Bude synchronizováno do dalších zařízení",
-      "editorPromptRename": "Poznámky můžete vždy přejmenovat i později"
+      "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
+      "maxImageSize": "Na větší obrázky bude aplikována komprese"
     },
     "themeModes": {
       "system": "Systémový",

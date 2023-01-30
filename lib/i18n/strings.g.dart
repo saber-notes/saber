@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1092 (121 per locale)
+/// Strings: 1094 (121 per locale)
 ///
-/// Built on 2023-01-30 at 18:48 UTC
+/// Built on 2023-01-30 at 18:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -820,6 +820,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get locale => 'Jazyk aplikace';
 	@override String get platform => 'Motiv';
+	@override String get maxImageSize => 'Maximální velikost obrázku';
 }
 
 // Path: settings.prefDescriptions
@@ -834,6 +835,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
+	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
 }
 
 // Path: settings.themeModes
