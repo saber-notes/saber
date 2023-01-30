@@ -85,8 +85,8 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
           ),
-          SliverList(delegate: SliverChildListDelegate.fixed([
-            Column(children: [
+          SliverToBoxAdapter(
+            child: Column(children: [
               const NextcloudProfile(),
               const Padding(
                 padding: EdgeInsets.all(8),
@@ -263,7 +263,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
             ]),
-          ])),
+          ),
         ],
       ),
     );
