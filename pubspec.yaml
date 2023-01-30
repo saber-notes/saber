@@ -139,7 +139,7 @@ dependencies:
   onyxsdk_pen:
     path: packages/onyxsdk_pen
 
-  flex_seed_scheme: ^1.1.0
+  flex_seed_scheme: ^1.2.2
 
   device_info_plus: ^8.0.0
 
