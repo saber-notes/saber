@@ -122,7 +122,7 @@ class _AppState extends State<App> {
   void setupSharingIntent() {
     if (kIsWeb) return;
 
-    try {
+    if (Platform.isAndroid || Platform.isIOS) {
       // for files opened while the app is closed
       ReceiveSharingIntent.getInitialMedia().then((List<SharedMediaFile> files) {
         for (final file in files) {
@@ -137,18 +137,14 @@ class _AppState extends State<App> {
           App.openFile(file);
         }
       });
-    } catch (e) {
-      // ignore MissingPluginException
     }
 
-    try {
+    if (Platform.isAndroid) {
       // this only works for files opened while the app is closed
       OpenAsDefault.getFileIntent.then((File? file) {
         if (file == null) return;
         App.openFile(SharedMediaFile(file.path, null, null, SharedMediaType.FILE));
       });
-    } catch (e) {
-      // ignore MissingPluginException
     }
   }
 
