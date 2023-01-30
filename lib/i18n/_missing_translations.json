@@ -56,10 +56,10 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "maxImageSize": "Maximum image size"
+        "maxImageSize": "Dimensione massima dell'immagine"
       },
       "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
+        "maxImageSize": "Le immagini più grandi verranno compresse"
       }
     }
   },
