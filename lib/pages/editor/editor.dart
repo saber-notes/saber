@@ -565,7 +565,7 @@ class _EditorState extends State<Editor> {
   }
 
   Future exportAsPdf() async {
-    final pdf = await EditorExporter.generatePdf(coreInfo);
+    final pdf = await EditorExporter.generatePdf(coreInfo, context);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
   }
   Future exportAsSbn() async {

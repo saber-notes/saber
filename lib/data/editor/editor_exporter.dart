@@ -1,25 +1,17 @@
+import 'dart:typed_data';
 
-import 'package:flutter/material.dart' show Size;
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:flutter_quill/flutter_quill.dart' show QuillController;
-import 'package:html/dom.dart' as html;
-import 'package:html/parser.dart' show parse;
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:saber/components/canvas/_canvas_background_painter.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/canvas/tools/highlighter.dart';
+import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:vsc_quill_delta_to_html/vsc_quill_delta_to_html.dart';
+import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
-  static pw.TtfFont? _neuchaFont;
-
-  static Future<pw.Document> generatePdf(EditorCoreInfo coreInfo) async {
+  static Future<pw.Document> generatePdf(EditorCoreInfo coreInfo, BuildContext context) async {
     final pw.Document pdf = pw.Document();
-
-    _neuchaFont ??= pw.TtfFont(await rootBundle.load("assets/fonts/Neucha/Neucha-Regular.ttf"));
+    ScreenshotController screenshotController = ScreenshotController();
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
       // Don't export the empty last page
@@ -27,190 +19,65 @@ abstract class EditorExporter {
         continue;
       }
 
+      Size pageSize = coreInfo.pages[pageIndex].size;
+      Uint8List pageImage = await screenshotPage(
+        coreInfo: coreInfo,
+        pageIndex: pageIndex,
+        screenshotController: screenshotController,
+        context: context,
+      );
+
       pdf.addPage(
-        _generatePdfPage(coreInfo, pageIndex)
+        pw.Page(
+          pageFormat: PdfPageFormat(pageSize.width, pageSize.height),
+          build: (pw.Context context) {
+            return pw.Image(
+              pw.MemoryImage(pageImage),
+              fit: pw.BoxFit.contain,
+              width: pageSize.width,
+              height: pageSize.height,
+            );
+          }
+        )
       );
     }
 
     return pdf;
   }
 
-  static pw.Page _generatePdfPage(EditorCoreInfo coreInfo, int pageIndex) {
-    /// Blue at 0.2 opacity against white
-    const PdfColor primaryColor = PdfColor(0.8, 0.8, 1);
-    /// Red at 0.2 opacity against white
-    const PdfColor secondaryColor = PdfColor(1, 0.8, 0.8);
-
-    final Size pageSize = coreInfo.pages[pageIndex].size;
-
-    final PdfColor backgroundColor;
-    if (coreInfo.backgroundColor != null) {
-      backgroundColor = PdfColor.fromInt(coreInfo.backgroundColor!.value);
-    } else {
-      backgroundColor = PdfColors.white;
-    }
-
-    return pw.Page(
-      pageFormat: PdfPageFormat(pageSize.width, pageSize.height),
-      build: (pw.Context context) {
-        return pw.FittedBox(
-          child: pw.SizedBox(
-            width: pageSize.width,
-            height: pageSize.height,
-            child: pw.CustomPaint(
-              size: PdfPoint(pageSize.width, pageSize.height),
-              painter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
-                if (coreInfo.backgroundColor != null) {
-                  pdfGraphics.drawRect(0, 0, pageSize.width, pageSize.height);
-                  pdfGraphics.setFillColor(PdfColor.fromInt(coreInfo.backgroundColor!.value));
-                  pdfGraphics.fillPath();
-                }
-                for (PatternElement element in CanvasBackgroundPainter.getPatternElements(coreInfo.backgroundPattern, pageSize, coreInfo.lineHeight)) {
-                  if (element.isLine) {
-                    pdfGraphics.drawLine(
-                      element.start.dx, pageSize.height - element.start.dy,
-                      element.end.dx, pageSize.height - element.end.dy,
-                    );
-                  } else {
-                    pdfGraphics.drawEllipse(
-                      element.start.dx, pageSize.height - element.start.dy,
-                      4, 4,
-                    );
-                  }
-                  if (element.secondaryColor) {
-                    pdfGraphics.setColor(secondaryColor);
-                  } else {
-                    pdfGraphics.setColor(primaryColor);
-                  }
-                  pdfGraphics.setLineWidth(3);
-                  pdfGraphics.strokePath();
-                }
-              },
-              foregroundPainter: (PdfGraphics pdfGraphics, PdfPoint pdfPoint) {
-                void drawStroke(Stroke stroke) {
-                  pdfGraphics.drawShape(stroke.toSvgPath(pageSize));
-                  pdfGraphics.setFillColor(PdfColor.fromInt(stroke.strokeProperties.color.value).flatten(background: backgroundColor));
-                  pdfGraphics.fillPath();
-                }
-
-                final page = coreInfo.pages[pageIndex];
-                for (Stroke stroke in page.strokes) {
-                  if (stroke.penType != (Highlighter).toString()) continue;
-                  drawStroke(stroke);
-                }
-                for (Stroke stroke in page.strokes) {
-                  if (stroke.penType == (Highlighter).toString()) continue;
-                  drawStroke(stroke);
-                }
-              },
-              child: pw.Stack(
-                children: [
-                  pw.Positioned.fill(
-                    top: coreInfo.lineHeight * 1.2,
-                    left: coreInfo.lineHeight * 0.5,
-                    right: coreInfo.lineHeight * 0.5,
-                    bottom: coreInfo.lineHeight * 0.5,
-                    child: _pdfQuill(
-                      coreInfo.pages[pageIndex].quill.controller,
-                      coreInfo.lineHeight,
-                      backgroundColor,
-                    ),
-                  ),
-                  for (EditorImage image in coreInfo.pages[pageIndex].images)
-                    pw.Positioned(
-                      left: image.dstRect.left,
-                      top: image.dstRect.top,
-                      child: pw.Image(
-                        pw.MemoryImage(image.bytes),
-                        width: image.dstRect.width,
-                        height: image.dstRect.height,
-                      ),
-                    ),
-                ],
-              ),
+  static Future<Uint8List> screenshotPage({
+    required EditorCoreInfo coreInfo,
+    required int pageIndex,
+    required ScreenshotController screenshotController,
+    required BuildContext context,
+  }) async {
+    final pageSize = coreInfo.pages[pageIndex].size;
+    return await screenshotController.captureFromWidget(
+      Localizations( // needed to avoid errors with Quill, but not actually used
+        locale: const Locale("en", "US"),
+        delegates: GlobalMaterialLocalizations.delegates,
+        child: Theme(
+          data: ThemeData(
+            brightness: Brightness.light,
+            colorScheme: const ColorScheme.light(
+              primary: Colors.blue,
+              secondary: Colors.red,
             ),
           ),
-        );
-      },
-    );
-  }
-
-  static pw.Widget _pdfQuill(QuillController controller, num lineHeight, PdfColor backgroundColor) {
-    final converter = QuillDeltaToHtmlConverter(
-      controller.document.toDelta().toJson().cast(),
-    );
-    final html.Document document = parse(converter.convert());
-
-    final html.Element? body = document.body;
-    if (body == null) return pw.SizedBox.shrink();
-
-    return pw.RichText(
-      text: pw.TextSpan(
-        style: pw.TextStyle(
-          font: _neuchaFont!,
+          child: InnerCanvas(
+            pageIndex: pageIndex,
+            width: pageSize.width,
+            height: pageSize.height,
+            isPreview: true,
+            textEditing: false,
+            coreInfo: coreInfo,
+            currentStroke: null,
+          ),
         ),
-        children: [
-          _htmlNodeToTextSpan(body, lineHeight, backgroundColor),
-        ],
       ),
-    );
-  }
-
-  static pw.TextSpan _htmlNodeToTextSpan(html.Node node, num lineHeight, PdfColor backgroundColor) {
-    if (node is html.Text) {
-      return pw.TextSpan(
-        text: node.text,
-      );
-    } else if (node is! html.Element) {
-      return const pw.TextSpan();
-    }
-
-    if (node.localName == "br") {
-      return const pw.TextSpan(text: "\n");
-    }
-
-    final bool isHeading = node.localName == "h1"
-      || node.localName == "h2"
-      || node.localName == "h3";
-
-    /// Block elements have a newline at the end
-    final bool isBlock = node.localName == "p"
-      || node.localName == "div"
-      || node.localName == "ul"
-      || node.localName == "ol"
-      || node.localName == "li"
-      || node.localName == "blockquote"
-      || node.localName == "pre"
-      || isHeading;
-
-    /// Font size as a multiple of the line height
-    final double fontSizePercent = {
-      "h1": 1.15,
-      "h2": 1.0,
-      "h3": 0.9,
-    }[node.localName] ?? 0.7;
-
-    final PdfColor? underlineColor = {
-      "h1": const PdfColor.fromInt(0x99000000),
-      "h2": const PdfColor.fromInt(0x80000000),
-      "h3": const PdfColor.fromInt(0x66000000),
-    }[node.localName];
-
-    return pw.TextSpan(
-      style: pw.TextStyle(
-        fontSize: lineHeight * fontSizePercent,
-        height: 1 / fontSizePercent,
-        fontWeight: node.localName == "b" ? pw.FontWeight.bold : null,
-        fontStyle: node.localName == "i" ? pw.FontStyle.italic : null,
-        decoration: isHeading ? pw.TextDecoration.underline : null,
-        decorationColor: underlineColor?.flatten(background: backgroundColor),
-        decorationThickness: isHeading ? 3 : null,
-      ),
-      children: [
-        ...node.nodes.map((node) => _htmlNodeToTextSpan(node, lineHeight, backgroundColor)),
-
-        if (isBlock) const pw.TextSpan(text: "\n"),
-      ],
+      context: context,
+      pixelRatio: 2,
+      targetSize: pageSize,
     );
   }
 }

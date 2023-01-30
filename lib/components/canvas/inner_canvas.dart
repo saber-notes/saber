@@ -67,6 +67,15 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final page = widget.coreInfo.pages[widget.pageIndex];
 
+    Locale? locale;
+    try {
+      locale = TranslationProvider.of(context).flutterLocale;
+    } catch (e) {
+      /// Error is thrown when using the [screenshot] package
+      /// as we don't have a TranslationProvider
+      locale = null;
+    }
+
     Widget quillEditor = Transform.scale(
       scale: InnerCanvas.quillScale,
       alignment: Alignment.topLeft,
@@ -85,7 +94,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           bottom: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
         ),
         customStyles: _getQuillStyles(context, invert: invert),
-        locale: TranslationProvider.of(context).flutterLocale,
+        locale: locale,
         placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
         showCursor: true,
         keyboardAppearance: invert ? Brightness.dark : Brightness.light,
