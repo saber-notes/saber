@@ -1,11 +1,10 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/prefs.dart';
 
-class SettingsSelection extends StatefulWidget {
+class SettingsSelection<T extends num> extends StatefulWidget {
   const SettingsSelection({
     super.key,
     required this.title,
@@ -23,11 +22,11 @@ class SettingsSelection extends StatefulWidget {
   final String title;
   final String? subtitle;
   final IconData? icon;
-  final IconData? Function(int)? iconBuilder;
+  final IconData? Function(T)? iconBuilder;
 
-  final IPref<int> pref;
-  final List<ToggleButtonsOption<int>> options;
-  final ValueChanged<int>? afterChange;
+  final IPref<T> pref;
+  final List<ToggleButtonsOption<T>> options;
+  final ValueChanged<T>? afterChange;
 
   final double optionsWidth, optionsHeight;
 
@@ -35,7 +34,7 @@ class SettingsSelection extends StatefulWidget {
   State<SettingsSelection> createState() => _SettingsSelectionState();
 }
 
-class _SettingsSelectionState extends State<SettingsSelection> {
+class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>> {
   @override
   void initState() {
     widget.pref.addListener(onChanged);
@@ -73,7 +72,7 @@ class _SettingsSelectionState extends State<SettingsSelection> {
       trailing: AdaptiveToggleButtons(
         value: widget.pref.value,
         options: widget.options,
-        onChange: (int? value) {
+        onChange: (T? value) {
           // setState is automatically called when the pref changes
           if (value != null) {
             widget.pref.value = value;
