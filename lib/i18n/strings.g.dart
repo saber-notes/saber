@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1106 (122 per locale)
+/// Strings: 1108 (123 per locale)
 ///
-/// Built on 2023-01-31 at 11:08 UTC
+/// Built on 2023-01-31 at 14:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4204,6 +4204,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
 	@override String get locale => '應用程式語言';
 	@override String get platform => '主題類型';
+	@override String get maxImageSize => '最大圖片尺寸';
 }
 
 // Path: settings.prefDescriptions
@@ -4218,6 +4219,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get preferGreyscale => '用於電子紙螢幕';
 	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
+	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
 }
 
 // Path: settings.themeModes

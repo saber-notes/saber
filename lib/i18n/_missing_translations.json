@@ -77,14 +77,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "最大圖片尺寸"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "大於此大小的圖片將被壓縮"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }

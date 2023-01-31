@@ -35,14 +35,16 @@
       "editorPromptRename": "提醒您重新命名新筆記",
       "editorToolbarShowInFullscreen": "在全螢幕模式中顯示編輯器工具列",
       "locale": "應用程式語言",
-      "platform": "主題類型"
+      "platform": "主題類型",
+      "maxImageSize": "最大圖片尺寸"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
       "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
       "preferGreyscale": "用於電子紙螢幕",
       "autoClearWhiteboardOnExit": "它仍會同步到您的其他裝置",
-      "editorPromptRename": "您以後隨時可以重新命名筆記"
+      "editorPromptRename": "您以後隨時可以重新命名筆記",
+      "maxImageSize": "大於此大小的圖片將被壓縮"
     },
     "themeModes": {
       "system": "系統",
