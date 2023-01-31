@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -24,9 +26,14 @@ class _RecentPageState extends State<RecentPage> {
   @override
   void initState() {
     findRecentlyAccessedNotes();
-    FileManager.writeWatcher.addListener(findRecentlyAccessedNotes);
+    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
     super.initState();
+  }
+
+  StreamSubscription? fileWriteSubscription;
+  void fileWriteListener(FileOperation event) {
+    findRecentlyAccessedNotes();
   }
 
   Future findRecentlyAccessedNotes() async {
@@ -105,7 +112,7 @@ class _RecentPageState extends State<RecentPage> {
 
   @override
   void dispose() {
-    FileManager.writeWatcher.removeListener(findRecentlyAccessedNotes);
+    fileWriteSubscription?.cancel();
     super.dispose();
   }
 }

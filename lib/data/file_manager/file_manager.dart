@@ -1,4 +1,4 @@
-
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -22,7 +22,11 @@ class FileManager {
   static Future<SharedPreferences> get _prefs async => await SharedPreferences.getInstance();
   static Future<String> get _documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
 
-  static final ValueNotifier<dynamic> writeWatcher = ValueNotifier<int>(0);
+  static final StreamController<FileOperation> fileWriteStream = StreamController.broadcast(
+    onListen: () => _fileWriteStreamIsListening = true,
+    onCancel: () => _fileWriteStreamIsListening = false,
+  );
+  static bool _fileWriteStreamIsListening = false;
 
   static String _sanitisePath(String path) => File(path).path;
 
@@ -31,17 +35,20 @@ class FileManager {
       Directory rootDir = Directory(await _documentsDirectory);
       await rootDir.create(recursive: true);
       rootDir.watch(recursive: true).listen((FileSystemEvent event) {
-        _triggerWriteWatcher();
+        final type = event.type == FileSystemEvent.create
+            || event.type == FileSystemEvent.modify
+            || event.type == FileSystemEvent.move
+          ? FileOperationType.write
+          : FileOperationType.delete;
+        broadcastFileWrite(type, event.path);
       });
     }
   }
 
-  static _triggerWriteWatcher() {
-    // Trigger write watcher, limited to once every 500ms
-    final int timestamp = DateTime.now().millisecondsSinceEpoch ~/ 500;
-    if (timestamp > writeWatcher.value) {
-      writeWatcher.value = timestamp;
-    }
+  static void broadcastFileWrite(FileOperationType type, String path) async {
+    if (!_fileWriteStreamIsListening) return;
+    path = path.replaceFirst(await _documentsDirectory, '');
+    fileWriteStream.add(FileOperation(type, path));
   }
 
   /// Returns the contents of the file at [filePath] as a String.
@@ -81,7 +88,7 @@ class FileManager {
     }
 
     afterWrite() {
-      _triggerWriteWatcher();
+      broadcastFileWrite(FileOperationType.write, filePath);
       if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
     }
 
@@ -127,7 +134,8 @@ class FileManager {
     FileSyncer.addToUploadQueue(toPath);
 
     _renameReferences(fromPath, toPath);
-    _triggerWriteWatcher();
+    broadcastFileWrite(FileOperationType.delete, fromPath);
+    broadcastFileWrite(FileOperationType.write, toPath);
 
     return toPath;
   }
@@ -154,7 +162,7 @@ class FileManager {
     if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
 
     _removeReferences(filePath);
-    _triggerWriteWatcher();
+    broadcastFileWrite(FileOperationType.delete, filePath);
   }
 
   static Future<DirectoryChildren?> getChildrenOfDirectory(String directory) async {
@@ -372,4 +380,15 @@ class DirectoryChildren {
   bool onlyOneChild() => directories.length + files.length <= 1;
 
   bool get isEmpty => directories.isEmpty && files.isEmpty;
+}
+
+enum FileOperationType {
+  write,
+  delete,
+}
+class FileOperation {
+  final FileOperationType type;
+  final String filePath;
+
+  const FileOperation(this.type, this.filePath);
 }

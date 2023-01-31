@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:animations/animations.dart';
@@ -67,9 +68,23 @@ class _PreviewCardState extends State<PreviewCard> {
     if (_coreInfo.isEmpty) {
       findStrokes();
     }
-    FileManager.writeWatcher.addListener(findStrokes);
+    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
     super.initState();
+  }
+
+  StreamSubscription? fileWriteSubscription;
+  void fileWriteListener(FileOperation event) {
+    if (event.filePath != widget.filePath) return;
+    if (event.type == FileOperationType.delete) {
+      setState(() {
+        coreInfo = EditorCoreInfo(filePath: widget.filePath);
+      });
+    } else if (event.type == FileOperationType.write) {
+      findStrokes();
+    } else {
+      throw Exception("Unknown file operation type: ${event.type}");
+    }
   }
 
   Future findStrokes() async {
@@ -162,7 +177,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void dispose() {
-    FileManager.writeWatcher.removeListener(findStrokes);
+    fileWriteSubscription?.cancel();
     super.dispose();
   }
 }

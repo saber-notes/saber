@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -43,14 +45,16 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   DirectoryChildren? children;
   bool areChildrenVisible = false;
 
+  StreamSubscription? fileWriteSubscription;
+
   @override
   void initState() {
     _getInfo();
-    FileManager.writeWatcher.addListener(_getInfo);
+    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(_getInfo);
     super.initState();
   }
 
-  _getInfo() async {
+  _getInfo([FileOperation? _]) async {
     if (widget.isDirectory) children = await FileManager.getChildrenOfDirectory(widget.path ?? "/");
     areChildrenVisible = children != null && children!.onlyOneChild();
     setState(() { });
@@ -124,7 +128,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
   @override
   void dispose() {
-    FileManager.writeWatcher.removeListener(_getInfo);
+    fileWriteSubscription?.cancel();
     super.dispose();
   }
 

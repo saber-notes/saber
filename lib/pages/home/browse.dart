@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -34,9 +36,15 @@ class _BrowsePageState extends State<BrowsePage> {
     path = widget.initialPath;
 
     findChildrenOfPath();
-    FileManager.writeWatcher.addListener(findChildrenOfPath);
+    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
     super.initState();
+  }
+
+  StreamSubscription? fileWriteSubscription;
+  void fileWriteListener(FileOperation event) {
+    if (!event.filePath.startsWith(path ?? '/')) return;
+    findChildrenOfPath();
   }
 
   Future findChildrenOfPath() async {
@@ -135,7 +143,7 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   void dispose() {
-    FileManager.writeWatcher.removeListener(findChildrenOfPath);
+    fileWriteSubscription?.cancel();
     super.dispose();
   }
 }
