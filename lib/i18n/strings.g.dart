@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1094 (121 per locale)
+/// Strings: 1106 (122 per locale)
 ///
-/// Built on 2023-01-30 at 18:53 UTC
+/// Built on 2023-01-31 at 11:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2618,7 +2618,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesRu themeModes = _StringsSettingsThemeModesRu._(_root);
 	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
 	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
-	@override String get systemLanguage => 'System language';
+	@override String get systemLanguage => 'Язык системы';
 }
 
 // Path: login
@@ -2767,6 +2767,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
 	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
+	@override String get maxImageSize => 'Макс. размер изображения';
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 }
@@ -2782,6 +2783,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get editorAutoInvert => 'Интеллектуально затемнять заметки в тёмном режиме';
 	@override String get preferGreyscale => 'Для e-ink экранов';
 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
+	@override String get maxImageSize => 'Большие изображения будут сжаты';
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 }
 
@@ -2967,8 +2969,9 @@ class _StringsEditorImageOptionsRu extends _StringsEditorImageOptionsEn {
 
 	// Translations
 	@override String get title => 'Параметры изображения';
-	@override String get invertible => 'Инвертированное';
+	@override String get invertible => 'Инвертировать';
 	@override String get download => 'Сохранить';
+	@override String get setAsBackground => 'Сделать фоном';
 	@override String get delete => 'Удалить';
 }
 
@@ -2983,6 +2986,9 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Очистить все листы';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Размер каждой строки';
+	@override String get removeBgImage => 'Удалить фоновое изображение';
+	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
+	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -3018,6 +3024,32 @@ class _StringsEditorHudRu extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Разблок. увеличение';
 	@override String get lockZoom => 'Блок. увеличения';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsRu extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Растянуть';
+	@override String get cover => 'Обрезать';
+	@override String get contain => 'Вместить';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsRu extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Пустой';
+	@override String get college => 'Школьная тетрадь';
+	@override String get lined => 'Линии';
+	@override String get grid => 'Сетка';
+	@override String get dots => 'Точки';
 }
 
 // Path: <root>

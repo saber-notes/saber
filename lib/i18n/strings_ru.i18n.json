@@ -39,6 +39,7 @@
       "editorAutoInvert": "Инвертировать заметки в тёмном режиме",
       "preferGreyscale": "Предпочтение оттенкам серого",
       "editorStraightenLines": "Нажать и удерживать, чтобы выпрямить линию",
+      "maxImageSize": "Макс. размер изображения",
       "autoClearWhiteboardOnExit": "Очищать лист при выходе из приложения",
       "editorPromptRename": "Предлагать переименовывать новые заметки"
     },
@@ -47,6 +48,7 @@
       "editorAutoInvert": "Интеллектуально затемнять заметки в тёмном режиме",
       "preferGreyscale": "Для e-ink экранов",
       "autoClearWhiteboardOnExit": "Это будет синхронизировано с другими вашими устройствами",
+      "maxImageSize": "Большие изображения будут сжаты",
       "editorPromptRename": "Вы всегда можете переименовать заметки позже"
     },
     "themeModes": {
@@ -62,7 +64,7 @@
       "regular": "Обычно",
       "slow": "Долго"
     },
-    "systemLanguage": "System language"
+    "systemLanguage": "Язык системы"
   },
   "login": {
     "title": "Авторизация",
@@ -148,15 +150,29 @@
     },
     "imageOptions": {
       "title": "Параметры изображения",
-      "invertible": "Инвертированное",
+      "invertible": "Инвертировать",
       "download": "Сохранить",
+      "setAsBackground": "Сделать фоном",
       "delete": "Удалить"
     },
     "menu": {
       "clearPage": "Очистить лист",
       "clearAllPages": "Очистить все листы",
       "lineHeight": "Высота строки",
-      "lineHeightDescription": "Размер каждой строки"
+      "lineHeightDescription": "Размер каждой строки",
+      "removeBgImage": "Удалить фоновое изображение",
+      "boxFits": {
+        "fill": "Растянуть",
+        "cover": "Обрезать",
+        "contain": "Вместить"
+      },
+      "bgPatterns": {
+        "none": "Пустой",
+        "college": "Школьная тетрадь",
+        "lined": "Линии",
+        "grid": "Сетка",
+        "dots": "Точки"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Режим «Только чтение»",

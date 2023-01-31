@@ -45,36 +45,7 @@
     }
   },
   "it": {},
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Maximum image size"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
-      }
-    },
-    "editor": {
-      "imageOptions": {
-        "setAsBackground": "Set as background"
-      },
-      "menu": {
-        "removeBgImage": "Remove background image",
-        "boxFits": {
-          "fill": "Stretch",
-          "cover": "Cover",
-          "contain": "Contain"
-        },
-        "bgPatterns": {
-          "none": "Blank",
-          "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Grid",
-          "dots": "Dots"
-        }
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {
