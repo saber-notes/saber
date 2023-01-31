@@ -49,6 +49,10 @@ jobs:
 
       - run: flutter pub get
 
+      - name: Mark build as dirty
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        run: cp lib/main_dirty.dart lib/main.dart
+
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           baseHref: /saber/
