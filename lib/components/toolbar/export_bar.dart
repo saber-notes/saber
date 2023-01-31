@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class ExportBar extends StatelessWidget {
+class ExportBar extends StatefulWidget {
   const ExportBar({
     super.key,
     required this.toggleExportBar,
@@ -18,6 +19,34 @@ class ExportBar extends StatelessWidget {
   final Future Function()? exportAsPng;
 
   @override
+  State<ExportBar> createState() => _ExportBarState();
+}
+
+class _ExportBarState extends State<ExportBar> {
+  /// The current export function being executed.
+  /// If this is null, no export is being executed.
+  Future Function()? _currentlyExporting;
+
+  void Function()? _onPressed(Future Function()? exportFunction) {
+    if (_currentlyExporting != null) return null;
+    if (exportFunction == null) return null;
+    return () {
+      setState(() => _currentlyExporting = exportFunction);
+      exportFunction().then((_) {
+        widget.toggleExportBar();
+        setState(() => _currentlyExporting = null);
+      });
+    };
+  }
+  Widget _buttonChild(Future Function()? exportFunction, String text) {
+    if (exportFunction == null || _currentlyExporting != exportFunction) {
+      return Text(text);
+    } else { // if this is currently exporting, show a loading icon
+      return const SpinningLoadingIcon();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
@@ -30,28 +59,16 @@ class ExportBar extends StatelessWidget {
               const SizedBox(width: 8),
 
               TextButton(
-                onPressed: exportAsSbn == null ? null : () {
-                  exportAsSbn?.call().then((_) {
-                    toggleExportBar();
-                  });
-                },
-                child: const Text("SBN"),
+                onPressed: _onPressed(widget.exportAsSbn),
+                child: _buttonChild(widget.exportAsSbn, "SBN"),
               ),
               TextButton(
-                onPressed: exportAsPdf == null ? null : () {
-                  exportAsPdf?.call().then((_) {
-                    toggleExportBar();
-                  });
-                },
-                child: const Text("PDF"),
+                onPressed: _onPressed(widget.exportAsPdf),
+                child: _buttonChild(widget.exportAsPdf, "PDF"),
               ),
               TextButton(
-                onPressed: exportAsPng == null ? null : () {
-                  exportAsPng?.call().then((_) {
-                    toggleExportBar();
-                  });
-                },
-                child: const Text("PNG"),
+                onPressed: _onPressed(widget.exportAsPng),
+                child: _buttonChild(widget.exportAsPng, "PNG"),
               ),
             ],
           ),
