@@ -12,8 +12,8 @@ class Canvas extends StatelessWidget {
   const Canvas({
     super.key,
     required this.path,
+    required this.page,
     required this.pageIndex,
-    required this.innerCanvasKey,
     required this.textEditing,
     required this.coreInfo,
     required this.currentStroke,
@@ -22,9 +22,8 @@ class Canvas extends StatelessWidget {
   });
 
   final String path;
+  final EditorPage page;
   final int pageIndex;
-
-  final GlobalKey<State<InnerCanvas>>? innerCanvasKey;
 
   final bool textEditing;
   final EditorCoreInfo coreInfo;
@@ -54,8 +53,9 @@ class Canvas extends StatelessWidget {
               height: pageSize.height,
               child: OnyxSdkPenArea(
                 child: InnerCanvas(
-                  key: innerCanvasKey,
+                  key: page.innerCanvasKey,
                   pageIndex: pageIndex,
+                  redrawPageListenable: page,
                   width: pageSize.width,
                   height: pageSize.height,
                   textEditing: textEditing,

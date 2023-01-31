@@ -18,6 +18,7 @@ class InnerCanvas extends StatefulWidget {
   const InnerCanvas({
     super.key,
     this.pageIndex = 0,
+    this.redrawPageListenable,
     required this.width,
     required this.height,
     this.isPreview = false,
@@ -29,6 +30,7 @@ class InnerCanvas extends StatefulWidget {
   });
 
   final int pageIndex;
+  final Listenable? redrawPageListenable;
   final double width;
   final double height;
   final bool isPreview;
@@ -111,6 +113,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
           secondaryColor: colorScheme.secondary,
         ),
         foregroundPainter: CanvasPainter(
+          repaint: widget.redrawPageListenable,
+
           invert: invert,
           strokes: page.strokes,
           currentStroke: widget.currentStroke,

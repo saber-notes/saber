@@ -9,6 +9,8 @@ import '_stroke.dart';
 
 class CanvasPainter extends CustomPainter {
   const CanvasPainter({
+    super.repaint,
+
     this.invert = false,
     required this.strokes,
     required this.currentStroke,
@@ -79,7 +81,8 @@ class CanvasPainter extends CustomPainter {
   @override
   bool shouldRepaint(CanvasPainter oldDelegate) {
     return currentStroke != null
-        || strokes.length != oldDelegate.strokes.length;
+      || oldDelegate.currentStroke != null
+      || strokes.length != oldDelegate.strokes.length;
   }
 
   static const double _pageIndicatorFontSize = 20;

@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -65,7 +64,7 @@ class Pen extends Tool {
     onDragUpdate(pageSize, position, pressure, null);
   }
 
-  onDragUpdate(Size pageSize, Offset position, double? pressure, void Function()? setState) {
+  onDragUpdate(Size pageSize, Offset position, double? pressure, VoidCallback? redrawPage) {
     currentStroke!.addPoint(pageSize, position, pressure);
 
     if (Prefs.editorStraightenDelay.value != 0 && lastPosition != null) {
@@ -75,7 +74,7 @@ class Pen extends Tool {
       double speed = sqrDist / elapsedMs;
       Timer newTimer() => Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value - elapsedMs), () {
         currentStroke!.isStraightLine = true;
-        setState?.call();
+        redrawPage?.call();
       });
 
       if (speed < maxSpeedForStraightLine) {

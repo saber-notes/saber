@@ -168,7 +168,7 @@ class _EditorState extends State<Editor> {
       final prevPage = coreInfo.pages[i - 1];
       if (thisPage.isEmpty && prevPage.isEmpty) {
         EditorPage page = coreInfo.pages.removeAt(i);
-        page.quill.changeSubscription?.cancel();
+        page.dispose();
       } else {
         break;
       }
@@ -272,10 +272,8 @@ class _EditorState extends State<Editor> {
       return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1 && Prefs.editorFingerDrawing.value) {
-        setState(() {
-          EditorHistoryItem? item = history.removeAccidentalStroke();
-          if (item != null) undo(item);
-        });
+        EditorHistoryItem? item = history.removeAccidentalStroke();
+        if (item != null) undo(item);
       }
       lastSeenPointerCount = details.pointerCount;
       return false;
@@ -307,21 +305,24 @@ class _EditorState extends State<Editor> {
       removeExcessPages();
     }
 
+    // setState to let canvas know about currentStroke
+    setState(() {});
+
     history.canRedo = false;
   }
   onDrawUpdate(ScaleUpdateDetails details) {
-    Offset position = coreInfo.pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
-    setState(() {
-      if (currentTool is Pen) {
-        (currentTool as Pen).onDragUpdate(coreInfo.pages[dragPageIndex!].size, position, currentPressure, () => setState(() {}));
-      } else if (currentTool is Eraser) {
-        List<Stroke> strokesOnPage = coreInfo.pages[dragPageIndex!].strokes;
-        for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokesOnPage).reversed) {
-          strokesOnPage.removeAt(i);
-        }
-        removeExcessPages();
+    final page = coreInfo.pages[dragPageIndex!];
+    final position = page.renderBox!.globalToLocal(details.focalPoint);
+    if (currentTool is Pen) {
+      (currentTool as Pen).onDragUpdate(page.size, position, currentPressure, page.redrawStrokes);
+      page.redrawStrokes();
+    } else if (currentTool is Eraser) {
+      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes).reversed) {
+        page.strokes.removeAt(i);
       }
-    });
+      page.redrawStrokes();
+      removeExcessPages();
+    }
   }
   onDrawEnd(ScaleEndDetails details) {
     setState(() {
@@ -599,10 +600,11 @@ class _EditorState extends State<Editor> {
             pages: coreInfo.pages,
             initialPageIndex: coreInfo.initialPageIndex,
             pageBuilder: (BuildContext context, int pageIndex) {
+              final page = coreInfo.pages[pageIndex];
               return Canvas(
                 path: coreInfo.filePath,
+                page: page,
                 pageIndex: pageIndex,
-                innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
                 textEditing: currentTool == Tool.textEditing,
                 coreInfo: coreInfo,
                 currentStroke: () {
@@ -610,7 +612,6 @@ class _EditorState extends State<Editor> {
                   return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                 }(),
                 setAsBackground: (EditorImage image) {
-                  final page = coreInfo.pages[pageIndex];
                   if (page.backgroundImage != null) {
                     // restore previous background image as normal image
                     page.images.add(page.backgroundImage!);
@@ -629,8 +630,8 @@ class _EditorState extends State<Editor> {
             placeholderPageBuilder: (BuildContext context, int pageIndex) {
               return Canvas(
                 path: coreInfo.filePath,
+                page: coreInfo.pages[pageIndex],
                 pageIndex: 0,
-                innerCanvasKey: coreInfo.pages[pageIndex].innerCanvasKey,
                 textEditing: false,
                 coreInfo: EditorCoreInfo.empty,
                 currentStroke: null,
@@ -917,7 +918,7 @@ class _EditorState extends State<Editor> {
     _removeKeybindings();
 
     for (EditorPage page in coreInfo.pages) {
-      page.quill.changeSubscription?.cancel();
+      page.dispose();
 
       // dispose of images' cache
       for (EditorImage image in page.images) {
