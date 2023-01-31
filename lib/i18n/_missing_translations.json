@@ -46,36 +46,7 @@
   },
   "it": {},
   "ru": {},
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Maksimum görsel boyutu"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Bundan daha büyük görseller sıkıştırılacak"
-      }
-    },
-    "editor": {
-      "imageOptions": {
-        "setAsBackground": "Arkaplan olarak ayarla"
-      },
-      "menu": {
-        "removeBgImage": "Arkaplan görselini kaldır",
-        "boxFits": {
-          "fill": "Yaydır",
-          "cover": "Kapla",
-          "contain": "İçer"
-        },
-        "bgPatterns": {
-          "none": "Boş",
-          "college": "Std. çizgili defter",
-          "lined": "Çizgili",
-          "grid": "Kareli",
-          "dots": "Noktalı"
-        }
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
