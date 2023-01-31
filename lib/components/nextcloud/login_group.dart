@@ -166,7 +166,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     var colorScheme = Theme.of(context).colorScheme;
     return Form(
       key: _formKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: AutovalidateMode.disabled,
       child: AutofillGroup(
         child: Column(
           children: [
