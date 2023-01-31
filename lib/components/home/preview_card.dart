@@ -171,6 +171,10 @@ class _PreviewCardState extends State<PreviewCard> {
         routeSettings: RouteSettings(
           name: RoutePaths.editFilePath(widget.filePath),
         ),
+
+        onClosed: (_) {
+          findStrokes();
+        },
       ),
     );
   }
