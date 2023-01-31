@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1108 (123 per locale)
+/// Strings: 1120 (124 per locale)
 ///
-/// Built on 2023-01-31 at 14:49 UTC
+/// Built on 2023-01-31 at 21:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3092,7 +3092,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsTr tabs = _StringsHomeTabsTr._(_root);
 	@override late final _StringsHomeTitlesTr titles = _StringsHomeTitlesTr._(_root);
 	@override late final _StringsHomeTooltipsTr tooltips = _StringsHomeTooltipsTr._(_root);
-	@override String get backFolder => '(Back)';
+	@override String get backFolder => '(Geri)';
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get noFiles => 'Dosya yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
@@ -3250,6 +3250,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get locale => 'Uygulama dili';
 	@override String get platform => 'Tema tipi';
+	@override String get maxImageSize => 'Maksimum görsel boyutu';
 }
 
 // Path: settings.prefDescriptions
@@ -3264,6 +3265,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
+	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
 }
 
 // Path: settings.themeModes
@@ -3463,6 +3465,7 @@ class _StringsEditorImageOptionsTr extends _StringsEditorImageOptionsEn {
 	@override String get invertible => '(Rengi) Tersine çevrilebilir';
 	@override String get download => 'İndir';
 	@override String get delete => 'Sil';
+	@override String get setAsBackground => 'Arkaplan olarak ayarla';
 }
 
 // Path: editor.menu
@@ -3476,6 +3479,9 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Her bir satırın boyutu';
+	@override String get removeBgImage => 'Arkaplan görselini kaldır';
+	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
+	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -3511,6 +3517,32 @@ class _StringsEditorHudTr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Yakınlaştırma kilidini aç';
 	@override String get lockZoom => 'Yakınlaştırmayı kilitle';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsTr extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Yaydır';
+	@override String get cover => 'Kapla';
+	@override String get contain => 'İçer';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Boş';
+	@override String get college => 'Std. çizgili defter';
+	@override String get lined => 'Çizgili';
+	@override String get grid => 'Kareli';
+	@override String get dots => 'Noktalı';
 }
 
 // Path: <root>
