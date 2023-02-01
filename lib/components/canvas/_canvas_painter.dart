@@ -48,23 +48,33 @@ class CanvasPainter extends CustomPainter {
     canvas.saveLayer(canvasRect, highlighterLayerPaint);
     {
       Color? lastColor = strokes.isNotEmpty ? strokes.first.strokeProperties.color : null;
-      for (final Stroke stroke in strokes) {
+      for (int i = 0; i < strokes.length; i++) {
+        final Stroke stroke = strokes[i];
         if (stroke.penType != (Highlighter).toString()) continue;
         if (stroke.strokeProperties.color != lastColor) { // new layer for each color
           lastColor = stroke.strokeProperties.color;
           canvas.restore();
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
         }
-        paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
+        if (currentSelection?.indices.contains(i) ?? false) {
+          paint.color = primaryColor;
+        } else {
+          paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
+        }
         canvas.drawPath(stroke.path.shift(stroke.offset), paint);
       }
     }
     canvas.restore();
 
     // pen
-    for (final Stroke stroke in strokes) {
+    for (int i = 0; i < strokes.length; i++) {
+      final Stroke stroke = strokes[i];
       if (stroke.penType == (Highlighter).toString()) continue;
-      paint.color = stroke.strokeProperties.color.withInversion(invert);
+      if (currentSelection?.indices.contains(i) ?? false) {
+        paint.color = primaryColor;
+      } else {
+        paint.color = stroke.strokeProperties.color.withInversion(invert);
+      }
       canvas.drawPath(stroke.path.shift(stroke.offset), paint);
     }
 
