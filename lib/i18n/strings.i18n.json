@@ -129,6 +129,7 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Toggle colors (Ctrl C)",
+      "select": "Select",
       "toggleEraser": "Toggle eraser (Ctrl E)",
       "photo": "Photo",
       "text": "Text",

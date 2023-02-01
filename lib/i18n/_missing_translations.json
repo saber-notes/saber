@@ -3,7 +3,13 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
+  "cs": {
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
+    }
+  },
   "de": {
     "settings": {
       "prefLabels": {
@@ -14,6 +20,9 @@
       }
     },
     "editor": {
+      "toolbar": {
+        "select": "Select"
+      },
       "imageOptions": {
         "setAsBackground": "Set as background"
       },
@@ -42,11 +51,46 @@
       "prefDescriptions": {
         "maxImageSize": "Images larger than this will be compressed"
       }
+    },
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
     }
   },
-  "it": {},
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "it": {
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
+    }
+  },
+  "tr": {
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "toolbar": {
+        "select": "Select"
+      }
+    }
+  }
 }

@@ -10,6 +10,7 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
@@ -245,6 +246,20 @@ class _ToolbarState extends State<Toolbar> {
                     enabled: !widget.readOnly,
                     onPressed: (_) => toggleColorOptions(),
                     child: const Icon(Icons.palette),
+                  ),
+                  ToolbarIconButton(
+                    tooltip: t.editor.toolbar.select,
+                    selected: widget.currentTool is Select,
+                    enabled: !widget.readOnly,
+                    onPressed: (_) => widget.setTool(Select.currentSelect),
+                    child: Icon(CupertinoIcons.lasso, shadows: [
+                      BoxShadow(
+                        color: colorScheme.primary,
+                        blurRadius: 0.1,
+                        spreadRadius: 10,
+                        blurStyle: BlurStyle.solid,
+                      ),
+                    ]),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleEraser,

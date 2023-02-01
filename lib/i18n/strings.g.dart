@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1120 (124 per locale)
+/// Strings: 1121 (124 per locale)
 ///
-/// Built on 2023-01-31 at 21:03 UTC
+/// Built on 2023-02-01 at 09:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -497,6 +497,7 @@ class _StringsEditorToolbarEn {
 
 	// Translations
 	String get toggleColors => 'Toggle colors (Ctrl C)';
+	String get select => 'Select';
 	String get toggleEraser => 'Toggle eraser (Ctrl E)';
 	String get photo => 'Photo';
 	String get text => 'Text';
