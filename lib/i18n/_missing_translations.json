@@ -72,13 +72,7 @@
       }
     }
   },
-  "tr": {
-    "editor": {
-      "toolbar": {
-        "select": "Select"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {

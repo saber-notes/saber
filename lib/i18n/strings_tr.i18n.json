@@ -137,7 +137,8 @@
       "redo": "Yeniden yap",
       "export": "Dışa aktar (Ctrl Shift S)",
       "exportAs": "Farklı formatta dışa aktar:",
-      "fullscreen": "Tam ekrana geç (F11)"
+      "fullscreen": "Tam ekrana geç (F11)",
+      "select": "Seç"
     },
     "pens": {
       "fountainPen": "Dolma kalem",
