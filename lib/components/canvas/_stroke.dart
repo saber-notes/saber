@@ -15,6 +15,9 @@ class Stroke {
 
   late final StrokeProperties strokeProperties;
 
+  /// All points are translated by this offset.
+  Offset offset = Offset.zero;
+
   bool _isComplete = false;
   bool get isComplete => isStraightLine || _isComplete;
   set isComplete(bool value) { _isComplete = value; _polygonNeedsUpdating = true; }
@@ -51,7 +54,8 @@ class Stroke {
   Stroke.fromJson(Map<String, dynamic> json) :
         _isComplete = json['f'],
         pageIndex = json['i'] ?? 0,
-        penType = json['ty'] ?? (Pen).toString() {
+        penType = json['ty'] ?? (Pen).toString(),
+        offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0) {
     strokeProperties = StrokeProperties.fromJson(json);
 
     final List<dynamic> pointsJson = json['p'] as List<dynamic>;
@@ -75,6 +79,8 @@ class Stroke {
     }(),
     'i': pageIndex,
     'ty': penType.toString(),
+    'ox': offset.dx,
+    'oy': offset.dy,
   }..addAll(strokeProperties.toJson());
 
   addPoint(Size pageSize, Offset offset, [ double? pressure ]) {

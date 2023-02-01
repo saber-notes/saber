@@ -23,7 +23,10 @@ class Eraser extends Tool {
     final List<int> indices = [];
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
-      if (stroke.polygon.any((strokeVertex) => sqrDistanceBetween(strokeVertex, eraserPos) <= sqrSize)) {
+      if (stroke.polygon.any((strokeVertex) {
+        Offset translated = strokeVertex + stroke.offset;
+        return sqrDistanceBetween(translated, eraserPos) <= sqrSize;
+      })) {
         _erased.add(stroke);
         indices.add(i);
       }

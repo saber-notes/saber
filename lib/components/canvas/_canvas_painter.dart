@@ -55,7 +55,7 @@ class CanvasPainter extends CustomPainter {
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
         }
         paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
-        canvas.drawPath(stroke.path, paint);
+        canvas.drawPath(stroke.path.shift(stroke.offset), paint);
       }
     }
     canvas.restore();
@@ -64,12 +64,12 @@ class CanvasPainter extends CustomPainter {
     for (final Stroke stroke in strokes) {
       if (stroke.penType == (Highlighter).toString()) continue;
       paint.color = stroke.strokeProperties.color.withInversion(invert);
-      canvas.drawPath(stroke.path, paint);
+      canvas.drawPath(stroke.path.shift(stroke.offset), paint);
     }
 
     if (currentStroke != null) {
       paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
-      canvas.drawPath(currentStroke!.path, paint);
+      canvas.drawPath(currentStroke!.path.shift(currentStroke!.offset), paint);
     }
 
     if (currentSelectionPath != null) {

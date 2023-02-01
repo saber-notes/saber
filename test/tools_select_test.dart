@@ -17,19 +17,28 @@ void main() {
     select.onDragUpdate(const Offset(10, 10));
     select.onDragUpdate(const Offset(10, 0));
 
-    Stroke insideStroke = Stroke(
-      strokeProperties: strokeProperties,
-      pageIndex: 0,
-      penType: "testing pen",
-    )..addPoint(pageSize, const Offset(5, 5));
+    List<Stroke> strokes = [
+      // index 0 is inside
+      Stroke(
+        strokeProperties: strokeProperties,
+        pageIndex: 0,
+        penType: "testing pen",
+      )..addPoint(pageSize, const Offset(5, 5)),
+      // index > 0 is outside
+      Stroke(
+        strokeProperties: strokeProperties,
+        pageIndex: 0,
+        penType: "testing pen",
+      )..addPoint(pageSize, const Offset(15, 15)),
+      // same as index 0, but offset outside
+      Stroke(
+        strokeProperties: strokeProperties,
+        pageIndex: 0,
+        penType: "testing pen",
+      )..addPoint(pageSize, const Offset(5, 5))
+        ..offset = const Offset(10, 10),
+    ];
 
-    Stroke outsideStroke = Stroke(
-      strokeProperties: strokeProperties,
-      pageIndex: 0,
-      penType: "testing pen",
-    )..addPoint(pageSize, const Offset(15, 15));
-
-    List<Stroke> strokes = [insideStroke, outsideStroke]; // index 0 is inside, index 1 is outside
     SelectResult result = select.onDragEnd(strokes, 0);
 
     expect(result.indices.length, 1, reason: "Only one stroke should be selected");

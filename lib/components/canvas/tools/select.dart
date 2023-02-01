@@ -33,7 +33,10 @@ class Select extends Tool {
       // .every: all points must be inside the path
       // .any: at least one point must be inside the path
       // Currently, we use .every
-      if (stroke.polygon.every((strokeVertex) => currentPath.contains(strokeVertex))) {
+      if (stroke.polygon.every((strokeVertex) {
+        Offset translated = strokeVertex + stroke.offset;
+        return currentPath.contains(translated);
+      })) {
         indices.add(i);
       }
     }

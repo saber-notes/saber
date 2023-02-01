@@ -35,6 +35,10 @@ void main() {
     ];
 
     List<Stroke> strokesToKeep = [
+      // center, but offset > 1 size downwards
+      _strokeWithPoint(_eraserPos)
+        ..offset = const Offset(0, 1.1) * eraser.size,
+
       // > 1 size downwards from center
       _strokeWithPoint(_eraserPos + const Offset(0, 1.1) * eraser.size),
 
