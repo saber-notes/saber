@@ -18,7 +18,7 @@ class FileManager {
   // disable constructor
   FileManager._();
 
-  static String appRootDirectoryPrefix = "/Saber";
+  static const String appRootDirectoryPrefix = "/Saber";
   static Future<SharedPreferences> get _prefs async => await SharedPreferences.getInstance();
   static Future<String> get _documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
 
@@ -40,14 +40,16 @@ class FileManager {
             || event.type == FileSystemEvent.move
           ? FileOperationType.write
           : FileOperationType.delete;
-        broadcastFileWrite(type, event.path);
+        /// The path may or may not be relative,
+        /// so remove the root directory path to make sure it's relative.
+        String path = event.path.replaceFirst(rootDir.path, '');
+        broadcastFileWrite(type, path);
       });
     }
   }
 
   static void broadcastFileWrite(FileOperationType type, String path) async {
     if (!_fileWriteStreamIsListening) return;
-    path = path.replaceFirst(await _documentsDirectory, '');
     fileWriteStream.add(FileOperation(type, path));
   }
 
