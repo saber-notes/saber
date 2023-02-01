@@ -137,7 +137,8 @@
       "export": "匯出 (Ctrl Shift S)",
       "exportAs": "匯出為：",
       "text": "文本",
-      "fullscreen": "切換到全螢幕 (F11)"
+      "fullscreen": "切換到全螢幕 (F11)",
+      "select": "選擇"
     },
     "pens": {
       "fountainPen": "鋼筆",
