@@ -13,6 +13,11 @@ class Select extends Tool {
   SelectResult selectResult = SelectResult(-1, const [], Path());
   bool doneSelecting = false;
 
+  unselect() {
+    doneSelecting = false;
+    selectResult.pageIndex = -1;
+  }
+
   void onDragStart(Offset position, int pageIndex) {
     doneSelecting = false;
     selectResult = SelectResult(pageIndex, [], Path());

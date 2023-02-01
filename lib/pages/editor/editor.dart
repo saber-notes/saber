@@ -211,6 +211,20 @@ class _EditorState extends State<Editor> {
           image.newImage = true;
         }
       } else if (item.type == EditorHistoryItemType.move) { // undo move
+        assert(item.offset != null);
+        for (Stroke stroke in item.strokes) {
+          stroke.offset -= Offset(
+            item.offset!.left,
+            item.offset!.top,
+          );
+        }
+        Select select = Select.currentSelect;
+        if (select.doneSelecting) {
+          select.selectResult.path = select.selectResult.path.shift(Offset(
+            -item.offset!.left,
+            -item.offset!.top,
+          ));
+        }
         for (EditorImage image in item.images) {
           image.dstRect = Rect.fromLTRB(
             image.dstRect.left - item.offset!.left,
@@ -221,6 +235,10 @@ class _EditorState extends State<Editor> {
         }
       } else {
         throw Exception('Unknown history item type: ${item.type}');
+      }
+
+      if (item.type != EditorHistoryItemType.move) {
+        Select.currentSelect.unselect();
       }
     });
 
@@ -260,6 +278,9 @@ class _EditorState extends State<Editor> {
   /// The position of the previous draw gesture event.
   /// Used to move a selection.
   Offset previousPosition = Offset.zero;
+  /// The total offset of the current move gesture.
+  /// Used to record a move in the history.
+  Offset moveOffset = Offset.zero;
 
   int? dragPageIndex;
   double? currentPressure;
@@ -323,10 +344,10 @@ class _EditorState extends State<Editor> {
     }
 
     previousPosition = position;
+    moveOffset = Offset.zero;
 
     if (currentTool is! Select) {
-      // delete last selection
-      Select.currentSelect.selectResult.pageIndex = -1;
+      Select.currentSelect.unselect();
     }
 
     // setState to let canvas know about currentStroke
@@ -335,6 +356,7 @@ class _EditorState extends State<Editor> {
   onDrawUpdate(ScaleUpdateDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
+    final offset = position - previousPosition;
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(page.size, position, currentPressure, page.redrawStrokes);
       page.redrawStrokes();
@@ -347,7 +369,6 @@ class _EditorState extends State<Editor> {
     } else if (currentTool is Select) {
       Select select = currentTool as Select;
       if (select.doneSelecting) {
-        final offset = position - previousPosition;
         for (int i in select.selectResult.indices) {
           page.strokes[i].offset += offset;
         }
@@ -358,6 +379,7 @@ class _EditorState extends State<Editor> {
       page.redrawStrokes();
     }
     previousPosition = position;
+    moveOffset += offset;
   }
   onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
@@ -380,7 +402,19 @@ class _EditorState extends State<Editor> {
       } else if (currentTool is Select) {
         Select select = currentTool as Select;
         if (select.doneSelecting) {
-          // todo: add dragging selection around to history
+          history.recordChange(EditorHistoryItem(
+            type: EditorHistoryItemType.move,
+            strokes: select.selectResult.indices
+              .map((i) => page.strokes[i])
+              .toList(),
+            images: [],
+            offset: Rect.fromLTRB(
+              moveOffset.dx,
+              moveOffset.dy,
+              0,
+              0,
+            ),
+          ));
         } else {
           select.onDragEnd(page.strokes);
         }
