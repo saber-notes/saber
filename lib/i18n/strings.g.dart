@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 9
-/// Strings: 1124 (124 per locale)
+/// Locales: 10
+/// Strings: 1251 (125 per locale)
 ///
-/// Built on 2023-02-01 at 14:38 UTC
+/// Built on 2023-02-01 at 16:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -26,6 +26,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	cs(languageCode: 'cs', build: _StringsCs.build),
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
+	fa(languageCode: 'fa', build: _StringsFa.build),
 	it(languageCode: 'it', build: _StringsIt.build),
 	ru(languageCode: 'ru', build: _StringsRu.build),
 	tr(languageCode: 'tr', build: _StringsTr.build),
@@ -2065,6 +2066,500 @@ class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Rayado';
 	@override String get grid => 'Cuadrículado';
 	@override String get dots => 'Punteado';
+}
+
+// Path: <root>
+class _StringsFa extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsFa.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.fa,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+
+	/// Metadata for the translations of <fa>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	@override late final _StringsFa _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeFa home = _StringsHomeFa._(_root);
+	@override late final _StringsSettingsFa settings = _StringsSettingsFa._(_root);
+	@override late final _StringsLoginFa login = _StringsLoginFa._(_root);
+	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
+	@override late final _StringsUpdateFa update = _StringsUpdateFa._(_root);
+	@override late final _StringsEditorFa editor = _StringsEditorFa._(_root);
+	@override late final _StringsSPenWarningFa sPenWarning = _StringsSPenWarningFa._(_root);
+}
+
+// Path: home
+class _StringsHomeFa extends _StringsHomeEn {
+	_StringsHomeFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsFa tabs = _StringsHomeTabsFa._(_root);
+	@override late final _StringsHomeTitlesFa titles = _StringsHomeTitlesFa._(_root);
+	@override late final _StringsHomeTooltipsFa tooltips = _StringsHomeTooltipsFa._(_root);
+	@override String get backFolder => '(بازگشت)';
+	@override String get welcome => 'خوش آمدید';
+	@override String get noFiles => 'فایلی پیدا نشد';
+	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
+}
+
+// Path: settings
+class _StringsSettingsFa extends _StringsSettingsEn {
+	_StringsSettingsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefCategoriesFa prefCategories = _StringsSettingsPrefCategoriesFa._(_root);
+	@override late final _StringsSettingsPrefLabelsFa prefLabels = _StringsSettingsPrefLabelsFa._(_root);
+	@override late final _StringsSettingsPrefDescriptionsFa prefDescriptions = _StringsSettingsPrefDescriptionsFa._(_root);
+	@override late final _StringsSettingsThemeModesFa themeModes = _StringsSettingsThemeModesFa._(_root);
+	@override late final _StringsSettingsAccentColorPickerFa accentColorPicker = _StringsSettingsAccentColorPickerFa._(_root);
+	@override late final _StringsSettingsStraightenDelayFa straightenDelay = _StringsSettingsStraightenDelayFa._(_root);
+	@override String get systemLanguage => 'زبان سیستم';
+}
+
+// Path: login
+class _StringsLoginFa extends _StringsLoginEn {
+	_StringsLoginFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'وارد شدن';
+	@override late final _StringsLoginFeedbacksFa feedbacks = _StringsLoginFeedbacksFa._(_root);
+	@override late final _StringsLoginFormFa form = _StringsLoginFormFa._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'حساب کاربری ندارید؟ '),
+		linkToSignup('Sign up now'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusFa status = _StringsLoginStatusFa._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin$faq$0i0$Fa._(_root),
+		_StringsLogin$faq$0i1$Fa._(_root),
+		_StringsLogin$faq$0i2$Fa._(_root),
+	];
+	@override late final _StringsLoginInsecureStorageFa insecureStorage = _StringsLoginInsecureStorageFa._(_root);
+}
+
+// Path: appInfo
+class _StringsAppInfoFa extends _StringsAppInfoEn {
+	_StringsAppInfoFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nاین برنامه کاملاً بدون گارانتی ارائه می شود. این نرم‌افزار رایگان است و شما می‌توانید تحت شرایط خاصی آن را مجدداً توزیع کنید';
+	@override String get dirty => 'دیرتی';
+	@override String get debug => 'دیباگ';
+	@override String get sponsorButton => 'برای حمایت مالی از من یا خرید فضای ذخیره بیشتر، اینجا ضربه بزنید';
+	@override String get licenseButton => 'برای مشاهده اطلاعات بیشتر مجوز اینجا را ضربه بزنید';
+	@override String get privacyPolicyButton => 'برای مشاهده سیاست حفظ حریم خصوصی اینجا را ضربه بزنید';
+}
+
+// Path: update
+class _StringsUpdateFa extends _StringsUpdateEn {
+	_StringsUpdateFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'به‌روزرسانی‌ در دسترس است';
+	@override String get updateAvailableDescription => 'ورژن جدید برنامه در دسترس است';
+	@override String get update => 'بروزرسانی';
+}
+
+// Path: editor
+class _StringsEditorFa extends _StringsEditorEn {
+	_StringsEditorFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarFa toolbar = _StringsEditorToolbarFa._(_root);
+	@override late final _StringsEditorPensFa pens = _StringsEditorPensFa._(_root);
+	@override late final _StringsEditorPenOptionsFa penOptions = _StringsEditorPenOptionsFa._(_root);
+	@override late final _StringsEditorImageOptionsFa imageOptions = _StringsEditorImageOptionsFa._(_root);
+	@override late final _StringsEditorMenuFa menu = _StringsEditorMenuFa._(_root);
+	@override late final _StringsEditorNewerFileFormatFa newerFileFormat = _StringsEditorNewerFileFormatFa._(_root);
+	@override late final _StringsEditorQuillFa quill = _StringsEditorQuillFa._(_root);
+	@override late final _StringsEditorHudFa hud = _StringsEditorHudFa._(_root);
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningFa extends _StringsSPenWarningEn {
+	_StringsSPenWarningFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'هشدار اشکال S قلم';
+	@override String get description => 'اگر از قلم S استفاده می‌کنید، ممکن است هنگام تلاش برای پاک کردن با دکمه S Pen با اشکالی مواجه شوید که در آن برنامه از کار می‌افتد. این یک اشکال در چارچوب Flutter است و احتمالاً در عرض یک ماه رفع خواهد شد. در ضمن، لطفا از دکمه پاک کن در نوار ابزار استفاده کنید.';
+}
+
+// Path: home.tabs
+class _StringsHomeTabsFa extends _StringsHomeTabsEn {
+	_StringsHomeTabsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'خانه';
+	@override String get browse => 'مرور کردن';
+	@override String get whiteboard => 'وایت برد';
+	@override String get settings => 'تنظیمات';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesFa extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'یادداشت های اخیر';
+	@override String get browse => 'کل یادداشت ها';
+	@override String get whiteboard => 'وایت برد';
+	@override String get settings => 'تنظیمات';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsFa extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'یادداشت جدید';
+	@override String get showUpdateDialog => 'نمایش به روز رسانی';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesFa extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'عمومی';
+	@override String get layout => 'چیدمان';
+	@override String get writing => 'نوشتن';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get locale => 'زبان برنامه';
+	@override String get appTheme => 'تم برنامه';
+	@override String get platform => 'نوع تم';
+	@override String get customAccentColor => 'رنگ سفارشی';
+	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
+	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
+	@override String get editorToolbarOnBottom => 'نوار ابزار ویرایشگر را در پایین تراز کنید';
+	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
+	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
+	@override String get preferGreyscale => 'رنگ های خاکستری را در اولویت قرار دهید';
+	@override String get editorStraightenLines => 'برای کشیدن خط صاف فشار دهید و نگه دارید';
+	@override String get maxImageSize => 'حداکثر اندازه تصویر';
+	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
+	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'خوانایی را برای خوانندگان کم بینا افزایش می دهد';
+	@override String get editorAutoInvert => 'در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند';
+	@override String get preferGreyscale => 'برای نمایشگر های e-ink';
+	@override String get autoClearWhiteboardOnExit => 'همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود';
+	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
+	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesFa extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'سیستم';
+	@override String get light => 'روشن';
+	@override String get dark => 'تاریک';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerFa extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'یک رنگ انتخاب کنید';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayFa extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'خاموش';
+	@override String get regular => 'منظم';
+	@override String get slow => 'آهسته';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'لطفا نام کاربری یا ایمیل خود را دوباره چک کنید';
+	@override String get enterNcPassword => 'لطفا رمز نکست کلاود خود را وارد کنید';
+	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
+	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
+	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
+	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
+	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید ';
+}
+
+// Path: login.form
+class _StringsLoginFormFa extends _StringsLoginFormEn {
+	_StringsLoginFormFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'من می خواهم از یک سرور نکست کلاود سفارشی استفاده کنم';
+	@override String get customServerUrl => 'آدرس اینترنتی سرور سفارشی';
+	@override String get username => 'نام کاربری یا ایمیل';
+	@override String get ncPassword => 'رمز ورود نکست کلاود';
+	@override String get encPassword => 'رمز رمزگذاری';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'با ورود به سیستم، با قوانین موافقت خواهد شد '),
+		linkToPrivacyPolicy('Privacy Policy'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'وارد شدن';
+}
+
+// Path: login.status
+class _StringsLoginStatusFa extends _StringsLoginStatusEn {
+	_StringsLoginStatusFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'وارد شدن با نکست کلاود';
+	@override String get loggedOut => 'خروج';
+	@override String get tapToLogin => 'برای ورود با نکست کلاود ضربه بزنید';
+}
+
+// Path: login.faq.0
+class _StringsLogin$faq$0i0$Fa extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'نکست کلاود چیست؟';
+	@override String get a => 'نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض نکست کلاود ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.';
+}
+
+// Path: login.faq.1
+class _StringsLogin$faq$0i1$Fa extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'رمز عبور رمزنگاری چیست؟';
+	@override String get a => 'رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.';
+}
+
+// Path: login.faq.2
+class _StringsLogin$faq$0i2$Fa extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'چرا از دو رمز عبور استفاده میشود؟';
+	@override String get a => 'رمز عبور نکست کلاود برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageFa extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'هشدار امنیتی';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'به اشتراک گذاری Keychain در سیستم عامل مک بدون حساب برنامه نویس پولی اپل کار نمی کند. اگر می خواهید وارد شوید، باید یکی را انتخاب کنید:\n1. استفاده از فضای ذخیره‌سازی ناامن برای ذخیره جزئیات ورود به سیستم. این توصیه نمی شود، اما این انتخاب شماست.\n2. هر بار که از برنامه استفاده می کنید وارد شوید.\n\nاگر می‌خواهید به من کمک کنید تا به برنامه توسعه‌دهنده اپل بپیوندم، می‌توانید '),
+		sponsorLink('become a sponsor'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'ورود موقت';
+	@override String get useInsecureStorage => 'از فضای ذخیره سازی ناامن استفاده کنید';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarFa extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'تغییر رنگ (Ctrl C)';
+	@override String get select => 'اتخاب';
+	@override String get toggleEraser => 'تغییر پاک کن (Ctrl E)';
+	@override String get photo => 'عکس';
+	@override String get text => 'متن';
+	@override String get toggleFingerDrawing => 'تغییر دادن نقاشی با انگشت (Ctrl F)';
+	@override String get undo => 'واگرد';
+	@override String get redo => 'برگشت';
+	@override String get export => 'صدور (Ctrl Shift S)';
+	@override String get exportAs => 'صدور به عنوان:';
+	@override String get fullscreen => 'تغییر به تمام صفحه (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensFa extends _StringsEditorPensEn {
+	_StringsEditorPensFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'خودنویس';
+	@override String get ballpointPen => 'خودکار';
+	@override String get highlighter => 'هایلایتر';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsFa extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'اندازه';
+	@override String get sizeDragHint => 'برای تغییر اندازه به چپ یا راست بکشید';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsFa extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'گزینه های تصویر';
+	@override String get invertible => 'معکوس پذیر';
+	@override String get download => 'دانلود';
+	@override String get setAsBackground => 'قرار دادن به عنوان تصویر زمینه';
+	@override String get delete => 'حذف';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuFa extends _StringsEditorMenuEn {
+	_StringsEditorMenuFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'پاک کردن صفحه';
+	@override String get clearAllPages => 'تمام صفحات را پاک کنید';
+	@override String get lineHeight => 'ارتفاع خط';
+	@override String get lineHeightDescription => 'اندازه هر خط';
+	@override String get removeBgImage => 'حذف تصویر پس زمینه';
+	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
+	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatFa extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'حالت فقط خواندنی';
+	@override String get title => 'این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است';
+	@override String get subtitle => 'ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟';
+	@override String get allowEditing => 'اجازه ویرایش';
+	@override String get cancel => 'لغو';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillFa extends _StringsEditorQuillEn {
+	_StringsEditorQuillFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'اینجا چیزی تایپ کنید...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudFa extends _StringsEditorHudEn {
+	_StringsEditorHudFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'قفل زوم را باز کنید';
+	@override String get lockZoom => 'قفل زوم';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsFa extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'کش آمدن';
+	@override String get cover => 'پوشش دادن';
+	@override String get contain => 'محتوی';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'جای خالی';
+	@override String get college => 'قوانین کالج';
+	@override String get lined => 'خط کشی شده';
+	@override String get grid => 'توری';
+	@override String get dots => 'نقطه ای';
 }
 
 // Path: <root>

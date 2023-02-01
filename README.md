@@ -166,6 +166,7 @@ All translations are crowd-sourced. Saber has so far been translated into:
 - Czech ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/strings_cs.i18n.json))
 - German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/strings_de.i18n.json))
 - Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/strings_es.i18n.json))
+- Persian ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/strings_fa.i18n.json))
 - Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/strings_it.i18n.json))
 - Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/strings_ru.i18n.json))
 - Turkish ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/strings_tr.i18n.json))
@@ -239,7 +240,6 @@ If you like Saber, please consider supporting it by:
     - `flutter pub run slang analyze --full`
   - If you're adding a new language, update:
     - `CFBundleLocalizations` in `ios/Runner/Info.plist`
-    - `android:supportsRtl` in `android/app/src/main/AndroidManifest.xml`
     - `android/app/src/main/res/xml/locales_config.xml`
     - `lib/data/locales.dart`
     - `README.md` above in the "Translating" section.

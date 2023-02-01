@@ -13,7 +13,7 @@
         android:label="Saber"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:supportsRtl="false"
+        android:supportsRtl="true"
         android:localeConfig="@xml/locales_config"
         android:allowBackup="false"
         android:fullBackupContent="false"
