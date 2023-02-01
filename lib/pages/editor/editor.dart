@@ -18,6 +18,7 @@ import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
+import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -256,6 +257,9 @@ class _EditorState extends State<Editor> {
     return null;
   }
 
+  /// The currently selected area (only contains strokes for now)
+  SelectResult? selectResult;
+
   int? dragPageIndex;
   double? currentPressure;
   /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
@@ -294,21 +298,35 @@ class _EditorState extends State<Editor> {
     }
   }
   onDrawStart(ScaleStartDetails details) {
-    Offset position = coreInfo.pages[dragPageIndex!].renderBox!.globalToLocal(details.focalPoint);
+    final page = coreInfo.pages[dragPageIndex!];
+    final position = page.renderBox!.globalToLocal(details.focalPoint);
+    history.canRedo = false;
+
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(coreInfo.pages[dragPageIndex!].size, position, dragPageIndex!, currentPressure);
+      (currentTool as Pen).onDragStart(page.size, position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
-      List<Stroke> strokesOnPage = coreInfo.pages[dragPageIndex!].strokes;
-      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, strokesOnPage).reversed) {
-        strokesOnPage.removeAt(i);
+      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes).reversed) {
+        page.strokes.removeAt(i);
       }
       removeExcessPages();
+    } else if (currentTool is Select) {
+      if (selectResult != null
+          && selectResult!.pageIndex == dragPageIndex!
+          && selectResult!.path.contains(position)) {
+        // todo: allow dragging selection around
+      } else {
+        selectResult = null;
+        (currentTool as Select).onDragStart(position);
+        history.canRedo = true; // selection doesn't affect history
+      }
     }
 
     // setState to let canvas know about currentStroke
     setState(() {});
 
-    history.canRedo = false;
+    if (currentTool is! Select) {
+      selectResult = null;
+    }
   }
   onDrawUpdate(ScaleUpdateDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
@@ -322,14 +340,21 @@ class _EditorState extends State<Editor> {
       }
       page.redrawStrokes();
       removeExcessPages();
+    } else if (currentTool is Select) {
+      if (selectResult != null) {
+        // todo: allow dragging selection around
+      } else {
+        (currentTool as Select).onDragUpdate(position);
+      }
     }
   }
   onDrawEnd(ScaleEndDetails details) {
+    final page = coreInfo.pages[dragPageIndex!];
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         createPage(newStroke.pageIndex);
-        coreInfo.pages[newStroke.pageIndex].insertStroke(newStroke);
+        page.insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.draw,
           strokes: [newStroke],
@@ -341,6 +366,12 @@ class _EditorState extends State<Editor> {
           strokes: (currentTool as Eraser).onDragEnd(),
           images: [],
         ));
+      } else if (currentTool is Select) {
+        if (selectResult != null) {
+          // todo: add dragging selection around to history
+        } else {
+          selectResult = (currentTool as Select).onDragEnd(page.strokes, dragPageIndex!);
+        }
       }
     });
     autosaveAfterDelay();

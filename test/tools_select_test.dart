@@ -30,9 +30,9 @@ void main() {
     )..addPoint(pageSize, const Offset(15, 15));
 
     List<Stroke> strokes = [insideStroke, outsideStroke]; // index 0 is inside, index 1 is outside
-    List<int> selectedIndices = select.onDragEnd(strokes);
+    SelectResult result = select.onDragEnd(strokes, 0);
 
-    expect(selectedIndices.length, 1, reason: "Only one stroke should be selected");
-    expect(selectedIndices[0], 0, reason: "The first stroke should be selected");
+    expect(result.indices.length, 1, reason: "Only one stroke should be selected");
+    expect(result.indices.first, 0, reason: "The first stroke should be selected");
   });
 }

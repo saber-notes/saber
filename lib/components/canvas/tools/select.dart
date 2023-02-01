@@ -23,7 +23,7 @@ class Select extends Tool {
   }
 
   /// Returns the indices of any [strokes] that are inside the selection area
-  List<int> onDragEnd(List<Stroke> strokes) {
+  SelectResult onDragEnd(List<Stroke> strokes, int pageIndex) {
     Path currentPath = this.currentPath!..close();
     this.currentPath = null;
 
@@ -37,6 +37,15 @@ class Select extends Tool {
         indices.add(i);
       }
     }
-    return indices;
+
+    return SelectResult(pageIndex, indices, currentPath);
   }
+}
+
+class SelectResult {
+  final int pageIndex;
+  final List<int> indices;
+  final Path path;
+
+  const SelectResult(this.pageIndex, this.indices, this.path);
 }
