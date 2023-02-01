@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -25,7 +26,7 @@ class InnerCanvas extends StatefulWidget {
     this.textEditing = false,
     required this.coreInfo,
     required this.currentStroke,
-    required this.currentSelectionPath,
+    required this.currentSelection,
     this.setAsBackground,
     this.onRenderObjectChange,
   });
@@ -39,7 +40,7 @@ class InnerCanvas extends StatefulWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
-  final Path? currentSelectionPath;
+  final SelectResult? currentSelection;
   final void Function(EditorImage image)? setAsBackground;
   final ValueChanged<RenderObject>? onRenderObjectChange;
 
@@ -120,7 +121,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           invert: invert,
           strokes: page.strokes,
           currentStroke: widget.currentStroke,
-          currentSelectionPath: widget.currentSelectionPath,
+          currentSelection: widget.currentSelection,
           primaryColor: colorScheme.primary,
 
           showPageIndicator: !widget.isPreview,

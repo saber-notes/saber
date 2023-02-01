@@ -36,7 +36,7 @@ class CanvasPreview extends StatelessWidget {
             isPreview: true,
             coreInfo: coreInfo,
             currentStroke: null,
-            currentSelectionPath: null,
+            currentSelection: null,
           ),
         ),
       ),

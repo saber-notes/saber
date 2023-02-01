@@ -257,9 +257,8 @@ class _EditorState extends State<Editor> {
     return null;
   }
 
-  /// The currently selected area (only contains strokes for now)
-  SelectResult? selectResult;
-  /// The position of the previous draw gesture event
+  /// The position of the previous draw gesture event.
+  /// Used to move a selection.
   Offset previousPosition = Offset.zero;
 
   int? dragPageIndex;
@@ -312,13 +311,13 @@ class _EditorState extends State<Editor> {
       }
       removeExcessPages();
     } else if (currentTool is Select) {
-      if (selectResult != null
-          && selectResult!.pageIndex == dragPageIndex!
-          && selectResult!.path.contains(position)) {
+      Select select = currentTool as Select;
+      if (select.doneSelecting
+          && select.selectResult.pageIndex == dragPageIndex!
+          && select.selectResult.path.contains(position)) {
         // drag selection in onDrawUpdate
       } else {
-        selectResult = null;
-        (currentTool as Select).onDragStart(position);
+        select.onDragStart(position, dragPageIndex!);
         history.canRedo = true; // selection doesn't affect history
       }
     }
@@ -326,7 +325,8 @@ class _EditorState extends State<Editor> {
     previousPosition = position;
 
     if (currentTool is! Select) {
-      selectResult = null;
+      // delete last selection
+      Select.currentSelect.selectResult.pageIndex = -1;
     }
 
     // setState to let canvas know about currentStroke
@@ -345,13 +345,14 @@ class _EditorState extends State<Editor> {
       page.redrawStrokes();
       removeExcessPages();
     } else if (currentTool is Select) {
-      if (selectResult != null) {
+      Select select = currentTool as Select;
+      if (select.doneSelecting) {
         final offset = position - previousPosition;
-        for (int i in selectResult!.indices) {
+        for (int i in select.selectResult.indices) {
           page.strokes[i].offset += offset;
         }
       } else {
-        (currentTool as Select).onDragUpdate(position);
+        select.onDragUpdate(position);
       }
       page.redrawStrokes();
     }
@@ -376,10 +377,11 @@ class _EditorState extends State<Editor> {
           images: [],
         ));
       } else if (currentTool is Select) {
-        if (selectResult != null) {
+        Select select = currentTool as Select;
+        if (select.doneSelecting) {
           // todo: add dragging selection around to history
         } else {
-          selectResult = (currentTool as Select).onDragEnd(page.strokes, dragPageIndex!);
+          select.onDragEnd(page.strokes);
         }
       }
     });
@@ -652,10 +654,9 @@ class _EditorState extends State<Editor> {
                     ?? Highlighter.currentHighlighter.currentStroke;
                   return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
                 }(),
-                currentSelectionPath: () {
+                currentSelection: () {
                   if (currentTool is! Select) return null;
-                  return (currentTool as Select).currentPath
-                    ?? selectResult?.path;
+                  return (currentTool as Select).selectResult;
                 }(),
                 setAsBackground: (EditorImage image) {
                   if (page.backgroundImage != null) {
@@ -681,7 +682,7 @@ class _EditorState extends State<Editor> {
                 textEditing: false,
                 coreInfo: EditorCoreInfo.empty,
                 currentStroke: null,
-                currentSelectionPath: null,
+                currentSelection: null,
                 placeholder: true,
                 setAsBackground: null,
               );

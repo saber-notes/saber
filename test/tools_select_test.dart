@@ -11,11 +11,13 @@ void main() {
     StrokeProperties strokeProperties = StrokeProperties();
     Size pageSize = const Size(100, 100);
 
-    // Drag gesture in a 10x10 square shape
-    select.onDragStart(const Offset(0, 0));
+    // Drag gesture in a 10x10 square shape, on page 0
+    select.onDragStart(const Offset(0, 0), 0);
     select.onDragUpdate(const Offset(0, 10));
     select.onDragUpdate(const Offset(10, 10));
     select.onDragUpdate(const Offset(10, 0));
+
+    expect(select.selectResult.pageIndex, 0, reason: "The page index should be 0");
 
     List<Stroke> strokes = [
       // index 0 is inside
@@ -39,9 +41,9 @@ void main() {
         ..offset = const Offset(10, 10),
     ];
 
-    SelectResult result = select.onDragEnd(strokes, 0);
+    select.onDragEnd(strokes);
 
-    expect(result.indices.length, 1, reason: "Only one stroke should be selected");
-    expect(result.indices.first, 0, reason: "The first stroke should be selected");
+    expect(select.selectResult.indices.length, 1, reason: "Only one stroke should be selected");
+    expect(select.selectResult.indices.first, 0, reason: "The first stroke should be selected");
   });
 }

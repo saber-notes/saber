@@ -76,7 +76,7 @@ abstract class EditorExporter {
             textEditing: false,
             coreInfo: coreInfo,
             currentStroke: null,
-            currentSelectionPath: null,
+            currentSelection: null,
           ),
         ),
       ),

@@ -10,24 +10,25 @@ class Select extends Tool {
   static final Select _currentSelect = Select._();
   static Select get currentSelect => _currentSelect;
 
-  Path? currentPath;
+  SelectResult selectResult = SelectResult(-1, const [], Path());
+  bool doneSelecting = false;
 
-  onDragStart(Offset position) {
-    currentPath = Path();
-    currentPath!.moveTo(position.dx, position.dy);
+  void onDragStart(Offset position, int pageIndex) {
+    doneSelecting = false;
+    selectResult = SelectResult(pageIndex, [], Path());
+    selectResult.path.moveTo(position.dx, position.dy);
     onDragUpdate(position);
   }
 
-  onDragUpdate(Offset position) {
-    currentPath!.lineTo(position.dx, position.dy);
+  void onDragUpdate(Offset position) {
+    selectResult.path.lineTo(position.dx, position.dy);
   }
 
   /// Returns the indices of any [strokes] that are inside the selection area
-  SelectResult onDragEnd(List<Stroke> strokes, int pageIndex) {
-    Path currentPath = this.currentPath!..close();
-    this.currentPath = null;
+  void onDragEnd(List<Stroke> strokes) {
+    selectResult.path.close();
+    doneSelecting = true;
 
-    final List<int> indices = [];
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
       // .every: all points must be inside the path
@@ -35,20 +36,18 @@ class Select extends Tool {
       // Currently, we use .every
       if (stroke.polygon.every((strokeVertex) {
         Offset translated = strokeVertex + stroke.offset;
-        return currentPath.contains(translated);
+        return selectResult.path.contains(translated);
       })) {
-        indices.add(i);
+        selectResult.indices.add(i);
       }
     }
-
-    return SelectResult(pageIndex, indices, currentPath);
   }
 }
 
 class SelectResult {
-  final int pageIndex;
+  int pageIndex;
   final List<int> indices;
-  final Path path;
+  Path path;
 
-  const SelectResult(this.pageIndex, this.indices, this.path);
+  SelectResult(this.pageIndex, this.indices, this.path);
 }
