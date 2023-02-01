@@ -1,7 +1,6 @@
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -248,7 +247,7 @@ class _ToolbarState extends State<Toolbar> {
                     onPressed: (_) => toggleColorOptions(),
                     child: const Icon(Icons.palette),
                   ),
-                  if (kDebugMode) ToolbarIconButton(
+                  ToolbarIconButton(
                     tooltip: t.editor.toolbar.select,
                     selected: widget.currentTool is Select,
                     enabled: !widget.readOnly,
