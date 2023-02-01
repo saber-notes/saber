@@ -147,6 +147,8 @@ dependencies:
 
   collection: ^1.17.0
 
+  path_drawing: ^1.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

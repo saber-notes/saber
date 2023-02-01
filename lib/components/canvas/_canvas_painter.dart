@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart' hide TextStyle;
+import 'package:path_drawing/path_drawing.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 
@@ -14,6 +15,8 @@ class CanvasPainter extends CustomPainter {
     this.invert = false,
     required this.strokes,
     required this.currentStroke,
+    required this.currentSelectionPath,
+    required this.primaryColor,
 
     required this.showPageIndicator,
     required this.pageIndex,
@@ -23,6 +26,8 @@ class CanvasPainter extends CustomPainter {
   final bool invert;
   final List<Stroke> strokes;
   final Stroke? currentStroke;
+  final Path? currentSelectionPath;
+  final Color primaryColor;
 
   final bool showPageIndicator;
   final int pageIndex;
@@ -65,6 +70,21 @@ class CanvasPainter extends CustomPainter {
     if (currentStroke != null) {
       paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
       canvas.drawPath(currentStroke!.path, paint);
+    }
+
+    if (currentSelectionPath != null) {
+      // draw translucent fill
+      paint.color = primaryColor.withOpacity(0.1);
+      canvas.drawPath(currentSelectionPath!, paint);
+
+      // draw dashed stroke
+      paint.color = primaryColor;
+      paint.strokeWidth = 3;
+      paint.style = PaintingStyle.stroke;
+      canvas.drawPath(dashPath(
+        currentSelectionPath!,
+        dashArray: CircularIntervalList([10, 10]),
+      ), paint);
     }
 
     if (showPageIndicator) {

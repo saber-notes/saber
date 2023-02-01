@@ -25,6 +25,7 @@ class InnerCanvas extends StatefulWidget {
     this.textEditing = false,
     required this.coreInfo,
     required this.currentStroke,
+    required this.currentSelectionPath,
     this.setAsBackground,
     this.onRenderObjectChange,
   });
@@ -38,6 +39,7 @@ class InnerCanvas extends StatefulWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
+  final Path? currentSelectionPath;
   final void Function(EditorImage image)? setAsBackground;
   final ValueChanged<RenderObject>? onRenderObjectChange;
 
@@ -118,6 +120,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
           invert: invert,
           strokes: page.strokes,
           currentStroke: widget.currentStroke,
+          currentSelectionPath: widget.currentSelectionPath,
+          primaryColor: colorScheme.primary,
 
           showPageIndicator: !widget.isPreview,
           pageIndex: widget.pageIndex,

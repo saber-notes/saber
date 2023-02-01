@@ -17,6 +17,7 @@ class Canvas extends StatelessWidget {
     required this.textEditing,
     required this.coreInfo,
     required this.currentStroke,
+    required this.currentSelectionPath,
     required this.setAsBackground,
     this.placeholder = false,
   });
@@ -28,6 +29,7 @@ class Canvas extends StatelessWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
+  final Path? currentSelectionPath;
 
   final void Function(EditorImage image)? setAsBackground;
 
@@ -61,6 +63,7 @@ class Canvas extends StatelessWidget {
                   textEditing: textEditing,
                   coreInfo: coreInfo,
                   currentStroke: currentStroke,
+                  currentSelectionPath: currentSelectionPath,
                   setAsBackground: setAsBackground,
                 ),
               ),

@@ -346,6 +346,7 @@ class _EditorState extends State<Editor> {
       } else {
         (currentTool as Select).onDragUpdate(position);
       }
+      page.redrawStrokes();
     }
   }
   onDrawEnd(ScaleEndDetails details) {
@@ -639,8 +640,14 @@ class _EditorState extends State<Editor> {
                 textEditing: currentTool == Tool.textEditing,
                 coreInfo: coreInfo,
                 currentStroke: () {
-                  Stroke? currentStroke = Pen.currentPen.currentStroke ?? Highlighter.currentHighlighter.currentStroke;
+                  Stroke? currentStroke = Pen.currentPen.currentStroke
+                    ?? Highlighter.currentHighlighter.currentStroke;
                   return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
+                }(),
+                currentSelectionPath: () {
+                  if (currentTool is! Select) return null;
+                  return (currentTool as Select).currentPath
+                    ?? selectResult?.path;
                 }(),
                 setAsBackground: (EditorImage image) {
                   if (page.backgroundImage != null) {
@@ -666,6 +673,7 @@ class _EditorState extends State<Editor> {
                 textEditing: false,
                 coreInfo: EditorCoreInfo.empty,
                 currentStroke: null,
+                currentSelectionPath: null,
                 placeholder: true,
                 setAsBackground: null,
               );

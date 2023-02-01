@@ -782,7 +782,7 @@ packages:
     source: hosted
     version: "1.8.2"
   path_drawing:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_drawing
       sha256: bbb1934c0cbb03091af082a6389ca2080345291ef07a5fa6d6e078ba8682f977
