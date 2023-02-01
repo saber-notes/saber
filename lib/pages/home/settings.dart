@@ -251,7 +251,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   SettingsSelection(
                     title: t.settings.prefLabels.maxImageSize,
                     subtitle: t.settings.prefDescriptions.maxImageSize,
-                    icon: Icons.image_aspect_ratio,
+                    icon: Icons.photo_size_select_large,
                     pref: Prefs.maxImageSize,
                     options: const <ToggleButtonsOption<double>>[
                       ToggleButtonsOption(500, Text("500")),
