@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1121 (124 per locale)
+/// Strings: 1122 (124 per locale)
 ///
-/// Built on 2023-02-01 at 09:23 UTC
+/// Built on 2023-02-01 at 10:26 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3923,6 +3923,7 @@ class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
 	@override String get exportAs => '导出为：';
 	@override String get text => '文本';
 	@override String get fullscreen => '切换全屏 (F11)';
+	@override String get select => '选择';
 }
 
 // Path: editor.pens
