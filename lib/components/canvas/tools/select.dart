@@ -31,13 +31,16 @@ class Select extends Tool {
 
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
-      // .every: all points must be inside the path
-      // .any: at least one point must be inside the path
-      // Currently, we use .every
-      if (stroke.polygon.every((strokeVertex) {
+
+      final pointsInside = stroke.polygon.where((strokeVertex) {
         Offset translated = strokeVertex + stroke.offset;
         return selectResult.path.contains(translated);
-      })) {
+      }).length;
+
+      final ratio = pointsInside / stroke.polygon.length;
+
+      // if more than 70% of the points are inside the path, select the stroke
+      if (ratio > 0.7) {
         selectResult.indices.add(i);
       }
     }
