@@ -59,6 +59,18 @@
     </screenshots>
 
     <releases>
+        <release version="0.8.0" type="development" date="2023-02-01">
+            <description>
+                <ul>
+                    <li>New selection tool! Currently restricted to strokes only</li>
+                    <li>Drawing performance improvements</li>
+                    <li>Scrolling performance improvements</li>
+                    <li>Minor UI changes</li>
+                    <li>PDF exports are now pixel perfect (but are rasterized)</li>
+                    <li>Images on the home screen no longer 'flicker' while syncing</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.7.0" type="development" date="2023-01-30">
             <description>
                 <ul>
