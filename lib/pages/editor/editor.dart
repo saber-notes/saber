@@ -351,6 +351,7 @@ class _EditorState extends State<Editor> {
         for (int i in select.selectResult.indices) {
           page.strokes[i].offset += offset;
         }
+        select.selectResult.path = select.selectResult.path.shift(offset);
       } else {
         select.onDragUpdate(position);
       }
