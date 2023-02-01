@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 9
-/// Strings: 1122 (124 per locale)
+/// Strings: 1123 (124 per locale)
 ///
-/// Built on 2023-02-01 at 10:26 UTC
+/// Built on 2023-02-01 at 10:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3430,6 +3430,7 @@ class _StringsEditorToolbarTr extends _StringsEditorToolbarEn {
 	@override String get export => 'Dışa aktar (Ctrl Shift S)';
 	@override String get exportAs => 'Farklı formatta dışa aktar:';
 	@override String get fullscreen => 'Tam ekrana geç (F11)';
+	@override String get select => 'Seç';
 }
 
 // Path: editor.pens
