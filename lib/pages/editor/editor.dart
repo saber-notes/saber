@@ -259,6 +259,8 @@ class _EditorState extends State<Editor> {
 
   /// The currently selected area (only contains strokes for now)
   SelectResult? selectResult;
+  /// The position of the previous draw gesture event
+  Offset previousPosition = Offset.zero;
 
   int? dragPageIndex;
   double? currentPressure;
@@ -313,7 +315,7 @@ class _EditorState extends State<Editor> {
       if (selectResult != null
           && selectResult!.pageIndex == dragPageIndex!
           && selectResult!.path.contains(position)) {
-        // todo: allow dragging selection around
+        // drag selection in onDrawUpdate
       } else {
         selectResult = null;
         (currentTool as Select).onDragStart(position);
@@ -321,12 +323,14 @@ class _EditorState extends State<Editor> {
       }
     }
 
-    // setState to let canvas know about currentStroke
-    setState(() {});
+    previousPosition = position;
 
     if (currentTool is! Select) {
       selectResult = null;
     }
+
+    // setState to let canvas know about currentStroke
+    setState(() {});
   }
   onDrawUpdate(ScaleUpdateDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
@@ -342,12 +346,16 @@ class _EditorState extends State<Editor> {
       removeExcessPages();
     } else if (currentTool is Select) {
       if (selectResult != null) {
-        // todo: allow dragging selection around
+        final offset = position - previousPosition;
+        for (int i in selectResult!.indices) {
+          page.strokes[i].offset += offset;
+        }
       } else {
         (currentTool as Select).onDragUpdate(position);
       }
       page.redrawStrokes();
     }
+    previousPosition = position;
   }
   onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
