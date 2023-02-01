@@ -60,8 +60,7 @@ class LoginInputGroup extends StatefulWidget {
   /// Validates a custom server. Returns null if valid, otherwise a message.
   @visibleForTesting
   static String? validateCustomServer(String? customServer) {
-    if (customServer == null) return null;
-    if (!validator.url(customServer)) {
+    if (customServer == null || !validator.url(customServer)) {
       return t.login.feedbacks.checkUrl;
     }
     return null;
@@ -203,7 +202,10 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                     icon: Icons.link,
                     cupertinoIcon: CupertinoIcons.link,
                   ),
-                  validator: _usingCustomServer ? LoginInputGroup.validateCustomServer : null,
+                  validator: (String? value) {
+                    if (!_usingCustomServer) return null;
+                    return LoginInputGroup.validateCustomServer(value);
+                  },
                 ),
                 const SizedBox(height: 8),
               ])
