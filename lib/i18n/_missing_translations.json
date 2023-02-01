@@ -79,13 +79,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "toolbar": {
-        "select": "选择"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {
       "toolbar": {
