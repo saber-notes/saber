@@ -37,8 +37,8 @@ void main() => group("Test login validation:", () {
   });
 
   group("URL:", () {
-    test("null URL should pass", () {
-      expect(LoginInputGroup.validateCustomServer(null), isNull);
+    test("null URL should fail", () {
+      expect(LoginInputGroup.validateCustomServer(null), isNotNull);
     });
     test("Empty URL should fail", () {
       expect(LoginInputGroup.validateCustomServer(""), isNotNull);
