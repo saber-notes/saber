@@ -27,26 +27,29 @@ class DynamicMaterialApp extends StatefulWidget {
   final Color defaultSwatch;
   final GoRouter router;
 
-  static ValueNotifier<bool> isFullscreen = ValueNotifier(false)
-    ..addListener(() {
-      if (DynamicMaterialApp.isFullscreen.value) {
-        if (kIsWeb) {
-          web.enterFullScreen();
-        } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-          windowManager.setFullScreen(true);
-        } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-        }
-      } else {
-        if (kIsWeb) {
-          web.exitFullscreen();
-        } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-          windowManager.setFullScreen(false);
-        } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-        }
-      }
-    });
+  static final ValueNotifier<bool> _isFullscreen = ValueNotifier(false);
+  static bool get isFullscreen => _isFullscreen.value;
+
+  static setFullscreen(bool value, {required bool updateSystem}) {
+    _isFullscreen.value = value;
+    if (!updateSystem) return;
+    if (kIsWeb) {
+      value ? web.enterFullScreen() : web.exitFullscreen();
+    } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      windowManager.setFullScreen(value);
+    } else {
+      SystemChrome.setEnabledSystemUIMode(
+        value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge
+      );
+    }
+  }
+
+  static addFullscreenListener(void Function() listener) {
+    _isFullscreen.addListener(listener);
+  }
+  static removeFullscreenListener(void Function() listener) {
+    _isFullscreen.removeListener(listener);
+  }
 
   @override
   State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
@@ -75,14 +78,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
 
   @override
   void onWindowEnterFullScreen() {
-    DynamicMaterialApp.isFullscreen.value = true;
+    DynamicMaterialApp.setFullscreen(true, updateSystem: false);
   }
   @override
   void onWindowLeaveFullScreen() {
-    DynamicMaterialApp.isFullscreen.value = false;
+    DynamicMaterialApp.setFullscreen(false, updateSystem: false);
   }
-  Future<void> _onFullscreenChange(bool fullscreen) async {
-    DynamicMaterialApp.isFullscreen.value = fullscreen;
+  Future<void> _onFullscreenChange(bool systemOverlaysAreVisible) async {
+    DynamicMaterialApp.setFullscreen(!systemOverlaysAreVisible, updateSystem: false);
   }
 
   /// We need to use a custom font if macOS < 10.13,

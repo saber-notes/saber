@@ -79,7 +79,7 @@ class _EditorState extends State<Editor> {
 
   @override
   void initState() {
-    DynamicMaterialApp.isFullscreen.addListener(_setState);
+    DynamicMaterialApp.addFullscreenListener(_setState);
 
     _initAsync();
     _assignKeybindings();
@@ -728,7 +728,7 @@ class _EditorState extends State<Editor> {
         SafeArea(
           child: Collapsible(
             axis: CollapsibleAxis.vertical,
-            collapsed: DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value,
+            collapsed: DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value,
             maintainState: true,
             child: Toolbar(
               readOnly: coreInfo.readOnly,
@@ -820,7 +820,7 @@ class _EditorState extends State<Editor> {
     );
 
     return Scaffold(
-      appBar: DynamicMaterialApp.isFullscreen.value ? null : AppBar(
+      appBar: DynamicMaterialApp.isFullscreen ? null : AppBar(
         toolbarHeight: kToolbarHeight,
         title: widget.customTitle != null ? Text(widget.customTitle!) : TextField(
           decoration: const InputDecoration(
@@ -851,10 +851,10 @@ class _EditorState extends State<Editor> {
         ],
       ),
       body: body,
-      floatingActionButton: (DynamicMaterialApp.isFullscreen.value && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
+      floatingActionButton: (DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
         shape: cupertino ? const CircleBorder() : null,
         onPressed: () {
-          DynamicMaterialApp.isFullscreen.value = false;
+          DynamicMaterialApp.setFullscreen(false, updateSystem: true);
         },
         child: const Icon(Icons.fullscreen_exit),
       ) : null,
@@ -992,7 +992,7 @@ class _EditorState extends State<Editor> {
   void dispose() {
     saveToFile();
 
-    DynamicMaterialApp.isFullscreen.removeListener(_setState);
+    DynamicMaterialApp.removeFullscreenListener(_setState);
 
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();

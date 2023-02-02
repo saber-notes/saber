@@ -39,7 +39,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    DynamicMaterialApp.isFullscreen.addListener(_setState);
+    DynamicMaterialApp.addFullscreenListener(_setState);
     super.initState();
     UpdateManager.showUpdateDialog(context);
     showSPenWarning();
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // hide navbar in fullscreen whiteboard
-    if (widget.subpage == HomePage.whiteboardSubpage && DynamicMaterialApp.isFullscreen.value) {
+    if (widget.subpage == HomePage.whiteboardSubpage && DynamicMaterialApp.isFullscreen) {
       return body;
     }
 
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    DynamicMaterialApp.isFullscreen.removeListener(_setState);
+    DynamicMaterialApp.removeFullscreenListener(_setState);
 
     super.dispose();
   }

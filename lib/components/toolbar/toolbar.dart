@@ -85,7 +85,7 @@ class _ToolbarState extends State<Toolbar> {
   void initState() {
     _assignKeybindings();
 
-    DynamicMaterialApp.isFullscreen.addListener(_setState);
+    DynamicMaterialApp.addFullscreenListener(_setState);
 
     super.initState();
   }
@@ -136,7 +136,7 @@ class _ToolbarState extends State<Toolbar> {
   }
 
   void toggleFullscreen() async {
-    DynamicMaterialApp.isFullscreen.value = !DynamicMaterialApp.isFullscreen.value;
+    DynamicMaterialApp.setFullscreen(!DynamicMaterialApp.isFullscreen, updateSystem: true);
   }
 
   @override
@@ -296,12 +296,12 @@ class _ToolbarState extends State<Toolbar> {
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.fullscreen,
-                    selected: DynamicMaterialApp.isFullscreen.value,
+                    selected: DynamicMaterialApp.isFullscreen,
                     enabled: !widget.readOnly,
                     onPressed: (_) => toggleFullscreen(),
                     child: AdaptiveIcon(
-                      icon: DynamicMaterialApp.isFullscreen.value ? Icons.fullscreen_exit : Icons.fullscreen,
-                      cupertinoIcon: DynamicMaterialApp.isFullscreen.value ? CupertinoIcons.fullscreen_exit : CupertinoIcons.fullscreen,
+                      icon: DynamicMaterialApp.isFullscreen ? Icons.fullscreen_exit : Icons.fullscreen,
+                      cupertinoIcon: DynamicMaterialApp.isFullscreen ? CupertinoIcons.fullscreen_exit : CupertinoIcons.fullscreen,
                     ),
                   ),
                   Row(
@@ -348,8 +348,8 @@ class _ToolbarState extends State<Toolbar> {
 
   @override
   void dispose() {
-    DynamicMaterialApp.isFullscreen.removeListener(_setState);
-    DynamicMaterialApp.isFullscreen.value = false;
+    DynamicMaterialApp.removeFullscreenListener(_setState);
+    DynamicMaterialApp.setFullscreen(false, updateSystem: true);
 
     _removeKeybindings();
     super.dispose();
