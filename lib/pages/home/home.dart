@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
     await Prefs.hasBeenWarnedAboutSPen.waitUntilLoaded();
     if (Prefs.hasBeenWarnedAboutSPen.value) return;
 
+    if (!mounted) return;
     await showDialog(
       context: context,
       builder: (context) => AdaptiveAlertDialog(

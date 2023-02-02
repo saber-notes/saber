@@ -30,6 +30,7 @@ abstract class UpdateManager {
       if (_hasShownUpdateDialog) return; // already shown
     }
 
+    if (!context.mounted) return;
     _hasShownUpdateDialog = true;
     return await showDialog(
       context: context,
