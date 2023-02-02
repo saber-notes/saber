@@ -129,6 +129,7 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Выбор цвета (Ctrl C)",
+      "select": "Выделение",
       "toggleEraser": "Ластик (Ctrl E)",
       "photo": "Фото",
       "text": "Текст",
