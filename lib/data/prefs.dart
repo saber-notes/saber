@@ -1,4 +1,3 @@
-
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
@@ -358,7 +357,7 @@ class PlainPref<T> extends IPref<T> {
 class EncPref<T> extends IPref<T> {
   FlutterSecureStorage? _storage;
 
-  @Deprecated("Use _storage instead, this remains here for macOS compatibility")
+  /// Use _storage instead, this remains here for macOS compatibility
   EncryptedSharedPreferences? _prefs;
 
   EncPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
