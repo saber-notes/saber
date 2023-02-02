@@ -92,11 +92,6 @@ class _AnimatedCircularProgressIndicatorState extends AnimatedWidgetBaseState<_A
   Tween<double>? _valueTween;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
     _valueTween = visitor(
       _valueTween,
