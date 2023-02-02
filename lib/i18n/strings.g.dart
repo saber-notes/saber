@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1251 (125 per locale)
+/// Strings: 1252 (125 per locale)
 ///
-/// Built on 2023-02-01 at 16:05 UTC
+/// Built on 2023-02-02 at 08:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3423,6 +3423,7 @@ class _StringsEditorToolbarRu extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => 'Выбор цвета (Ctrl C)';
+	@override String get select => 'Выделение';
 	@override String get toggleEraser => 'Ластик (Ctrl E)';
 	@override String get photo => 'Фото';
 	@override String get text => 'Текст';
