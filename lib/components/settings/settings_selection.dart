@@ -35,6 +35,8 @@ class SettingsSelection<T extends num> extends StatefulWidget {
 }
 
 class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>> {
+  late FocusNode dropdownFocusNode = FocusNode(debugLabel: "dropdownFocusNode(${widget.pref.key})");
+
   @override
   void initState() {
     widget.pref.addListener(onChanged);
@@ -57,10 +59,17 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
     icon ??= widget.iconBuilder?.call(widget.pref.value);
     icon ??= Icons.settings;
 
+    final mediaQuery = MediaQuery.of(context);
+    final useDropdownInstead = mediaQuery.size.width < 450;
+
     return ListTile(
-      onTap: () { // cycle through options
-        final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);
-        widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
+      onTap: () {
+        if (useDropdownInstead) {
+          dropdownFocusNode.requestFocus();
+        } else { // cycle through options
+          final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);
+          widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
+        }
       },
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(
@@ -69,7 +78,7 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
       ),
       title: Text(widget.title),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
-      trailing: AdaptiveToggleButtons(
+      trailing: !useDropdownInstead ? AdaptiveToggleButtons(
         value: widget.pref.value,
         options: widget.options,
         onChange: (T? value) {
@@ -80,6 +89,24 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
         },
         optionsWidth: widget.optionsWidth,
         optionsHeight: widget.optionsHeight,
+      ) : DropdownButton<T>(
+        value: widget.pref.value,
+        onChanged: (T? value) {
+          if (value == null) return;
+          widget.pref.value = value;
+        },
+        items: widget.options.map((ToggleButtonsOption<T> option) {
+          return DropdownMenuItem<T>(
+            value: option.value,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: option.widget,
+            ),
+          );
+        }).toList(),
+        focusNode: dropdownFocusNode,
+        borderRadius: BorderRadius.circular(32),
+        underline: const SizedBox.shrink(),
       ),
     );
   }
