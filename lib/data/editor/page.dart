@@ -56,12 +56,18 @@ class EditorPage extends Listenable {
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       );
 
-  EditorPage.fromJson(Map<String, dynamic> json, {bool readOnly = false}):
+  EditorPage.fromJson(Map<String, dynamic> json, {
+    required bool readOnly,
+  }):
       size = Size(json["w"] ?? defaultWidth, json["h"] ?? defaultHeight),
-      strokes = parseStrokesJson(json["s"] as List?),
+      strokes = parseStrokesJson(
+        json["s"] as List?,
+        onlyFirstPage: false,
+      ),
       images = parseImagesJson(
         json["i"] as List?,
         allowCalculations: !readOnly,
+        onlyFirstPage: false,
       ),
       quill = QuillStruct(
         controller: json["q"] != null ? QuillController(
@@ -112,12 +118,29 @@ class EditorPage extends Listenable {
     });
   }
 
-  static List<Stroke> parseStrokesJson(List<dynamic>? strokes) => strokes
-      ?.map((dynamic stroke) => Stroke.fromJson(stroke as Map<String, dynamic>))
+  static List<Stroke> parseStrokesJson(List<dynamic>? strokes, {
+    required bool onlyFirstPage,
+  }) => strokes
+      ?.map((dynamic stroke) {
+        final map = stroke as Map<String, dynamic>;
+        if (onlyFirstPage && map['i'] > 0) return null;
+        return Stroke.fromJson(map);
+      })
+      .where((element) => element != null)
+      .cast<Stroke>()
       .toList() ?? [];
 
-  static List<EditorImage> parseImagesJson(List<dynamic>? images, {required bool allowCalculations}) => images
-      ?.map((dynamic image) => EditorImage.fromJson(image as Map<String, dynamic>, allowCalculations: allowCalculations))
+  static List<EditorImage> parseImagesJson(List<dynamic>? images, {
+    required bool allowCalculations,
+    required bool onlyFirstPage,
+  }) => images
+      ?.map((dynamic image) {
+        final map = image as Map<String, dynamic>;
+        if (onlyFirstPage && map['i'] > 0) return null;
+        return EditorImage.fromJson(map, allowCalculations: allowCalculations);
+      })
+      .where((element) => element != null)
+      .cast<EditorImage>()
       .toList() ?? [];
 
   final List<VoidCallback> _listeners = [];

@@ -38,11 +38,14 @@ class EditorCoreInfo {
     backgroundColor: null,
     backgroundPattern: '',
     lineHeight: Prefs.lastLineHeight.value,
-    pages: [EditorPage()],
+    pages: [],
     initialPageIndex: null,
   )
-    .._migrateOldStrokesAndImages(strokesJson: null, imagesJson: null)
-    .._sortStrokes();
+    .._migrateOldStrokesAndImages(
+      strokesJson: null,
+      imagesJson: null,
+      onlyFirstPage: true,
+    );
 
   bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
 
@@ -71,7 +74,8 @@ class EditorCoreInfo {
 
   factory EditorCoreInfo.fromJson(Map<String, dynamic> json, {
     required String filePath,
-    bool readOnly = false,
+    required bool readOnly,
+    required bool onlyFirstPage,
   }) {
     bool readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
@@ -84,7 +88,11 @@ class EditorCoreInfo {
       backgroundColor: json["b"] != null ? Color(json["b"] as int) : null,
       backgroundPattern: json["p"] as String? ?? CanvasBackgroundPatterns.none,
       lineHeight: json["l"] as int? ?? Prefs.lastLineHeight.value,
-      pages: _parsePagesJson(json["z"] as List?),
+      pages: _parsePagesJson(
+        json["z"] as List?,
+        readOnly: readOnly,
+        onlyFirstPage: onlyFirstPage,
+      ),
       initialPageIndex: json["c"] as int?,
     )
       .._migrateOldStrokesAndImages(
@@ -92,6 +100,7 @@ class EditorCoreInfo {
         imagesJson: json["i"] as List?,
         fallbackPageWidth: json["w"] as double?,
         fallbackPageHeight: json["h"] as double?,
+        onlyFirstPage: onlyFirstPage,
       )
       .._sortStrokes();
   }
@@ -99,6 +108,7 @@ class EditorCoreInfo {
   EditorCoreInfo.fromOldJson(List<dynamic> json, {
     required this.filePath,
     this.readOnly = false,
+    required bool onlyFirstPage,
   }): nextImageId = 0,
       backgroundPattern = CanvasBackgroundPatterns.none,
       lineHeight = Prefs.lastLineHeight.value,
@@ -106,14 +116,19 @@ class EditorCoreInfo {
     _migrateOldStrokesAndImages(
       strokesJson: json,
       imagesJson: null,
+      onlyFirstPage: onlyFirstPage,
     );
     _sortStrokes();
   }
 
-  static List<EditorPage> _parsePagesJson(List<dynamic>? pages) {
+  static List<EditorPage> _parsePagesJson(List<dynamic>? pages, {
+    required bool readOnly,
+    required bool onlyFirstPage,
+  }) {
     if (pages == null || pages.isEmpty) return [];
     if (pages[0] is List) { // old format (list of [width, height])
       return pages
+        .take(onlyFirstPage ? 1 : pages.length)
         .map((dynamic page) => EditorPage(
           width: page[0] as double?,
           height: page[1] as double?,
@@ -121,8 +136,12 @@ class EditorCoreInfo {
         .toList();
     } else {
       return pages
-          .map((dynamic page) => EditorPage.fromJson(page as Map<String, dynamic>))
-          .toList();
+        .take(onlyFirstPage ? 1 : pages.length)
+        .map((dynamic page) => EditorPage.fromJson(
+          page as Map<String, dynamic>,
+          readOnly: readOnly,
+        ))
+        .toList();
     }
   }
 
@@ -143,10 +162,15 @@ class EditorCoreInfo {
     required List<dynamic>? imagesJson,
     double? fallbackPageWidth,
     double? fallbackPageHeight,
+    required bool onlyFirstPage,
   }) {
     if (strokesJson != null) {
-      final strokes = EditorPage.parseStrokesJson(strokesJson);
+      final strokes = EditorPage.parseStrokesJson(
+        strokesJson,
+        onlyFirstPage: onlyFirstPage,
+      );
       for (Stroke stroke in strokes) {
+        if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
           pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
         }
@@ -156,10 +180,12 @@ class EditorCoreInfo {
 
     if (imagesJson != null) {
       final images = EditorPage.parseImagesJson(
-          imagesJson,
-          allowCalculations: !readOnly
+        imagesJson,
+        allowCalculations: !readOnly,
+        onlyFirstPage: onlyFirstPage,
       );
       for (EditorImage image in images) {
+        if (onlyFirstPage) assert(image.pageIndex == 0);
         while (image.pageIndex >= pages.length) {
           pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
         }
@@ -169,7 +195,7 @@ class EditorCoreInfo {
 
     // add a page if there are no pages,
     // or if the last page is not empty
-    if (pages.isEmpty || !pages.last.isEmpty) {
+    if (pages.isEmpty || !pages.last.isEmpty && !onlyFirstPage) {
       pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
     }
   }
@@ -180,7 +206,10 @@ class EditorCoreInfo {
     }
   }
 
-  static Future<EditorCoreInfo> loadFromFilePath(String path, {bool readOnly = false}) async {
+  static Future<EditorCoreInfo> loadFromFilePath(String path, {
+    bool readOnly = false,
+    bool onlyFirstPage = false,
+  }) async {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
     if (jsonString == null) return EditorCoreInfo(filePath: path, readOnly: readOnly);
 
@@ -193,12 +222,14 @@ class EditorCoreInfo {
           json,
           filePath: path,
           readOnly: readOnly,
+          onlyFirstPage: onlyFirstPage,
         );
       } else {
         return EditorCoreInfo.fromJson(
           json as Map<String, dynamic>,
           filePath: path,
-          readOnly: readOnly
+          readOnly: readOnly,
+          onlyFirstPage: onlyFirstPage,
         );
       }
     } catch (e) {

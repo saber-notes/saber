@@ -90,12 +90,13 @@ class _PreviewCardState extends State<PreviewCard> {
   Future findStrokes() async {
     if (!mounted) return;
 
-    EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(widget.filePath, readOnly: true);
-    this.coreInfo = coreInfo.copyWith( // only keep first page
+    coreInfo = await EditorCoreInfo.loadFromFilePath(
+      widget.filePath,
       readOnly: true,
-      readOnlyBecauseOfVersion: false,
-      pages: coreInfo.pages.isNotEmpty ? [coreInfo.pages[0]] : [],
-    );
+      onlyFirstPage: true, // only keep first page
+    )
+      ..readOnlyBecauseOfVersion = false;
+    assert(coreInfo.pages.length <= 1);
 
     if (mounted) setState(() {});
   }
