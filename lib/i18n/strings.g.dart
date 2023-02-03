@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1253 (125 per locale)
+/// Strings: 1254 (125 per locale)
 ///
-/// Built on 2023-02-03 at 07:16 UTC
+/// Built on 2023-02-03 at 07:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2940,6 +2940,7 @@ class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	@override String get exportAs => 'Esporta come:';
 	@override String get text => 'Testo';
 	@override String get fullscreen => 'Passa a schermo intero (F11)';
+	@override String get select => 'Selezione';
 }
 
 // Path: editor.pens
