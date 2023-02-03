@@ -54,7 +54,7 @@ class FileManager {
   }
 
   /// Returns the contents of the file at [filePath] as a String.
-  static Future<String?> readFile(String filePath) async {
+  static Future<String?> readFile(String filePath, {int retries = 3}) async {
     filePath = _sanitisePath(filePath);
 
     String? result;
@@ -65,7 +65,15 @@ class FileManager {
       if (await file.exists()) {
         result = await file.readAsString(encoding: utf8);
         if (result.isEmpty) result = null;
+      } else {
+        retries = 0; // don't retry if the file doesn't exist
       }
+    }
+
+    // If result is null, try again in case the file was locked.
+    if (result == null && retries > 0) {
+      await Future.delayed(const Duration(milliseconds: 100));
+      return readFile(filePath, retries: retries - 1);
     }
     return result;
   }

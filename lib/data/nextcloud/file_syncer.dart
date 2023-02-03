@@ -141,13 +141,7 @@ abstract class FileSyncer {
 
       final String localDataEncrypted;
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
-        String? localDataUnencrypted;
-        // try 3 times to read file (may fail because file is locked by another process/thread)
-        for (int i = 0; i < 3; ++i) {
-          if (i > 0) await Future.delayed(const Duration(milliseconds: 100));
-          localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
-          if (localDataUnencrypted != null) break;
-        }
+        String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
         if (localDataUnencrypted == null) {
           if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
           return;
