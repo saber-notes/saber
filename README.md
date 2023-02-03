@@ -9,13 +9,13 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 Android and Linux are the main platforms that are being developed for,
 but if you encounter any bugs on other platforms, please open an [issue][issues].
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/adil192/saber)
-![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)
-![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)
-![GitHub all releases](https://img.shields.io/github/downloads/adil192/saber/total?label=GitHub%20downloads)
-![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=Flathub%20downloads)
-![GitHub Sponsors](https://img.shields.io/github/sponsors/adil192)
-![GitHub](https://img.shields.io/github/license/adil192/saber)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/adil192/saber)](https://github.com/adil192/saber/releases/latest)
+[![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
+[![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)](https://f-droid.org/en/packages/com.adilhanney.saber/)
+[![GitHub all releases](https://img.shields.io/github/downloads/adil192/saber/total?label=GitHub%20downloads)](https://github.com/adil192/saber/releases)
+[![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=Flathub%20downloads)](https://flathub.org/apps/details/com.adilhanney.saber)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
+[![GitHub](https://img.shields.io/github/license/adil192/saber)](https://github.com/adil192/saber/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
 
 [![Build for Android](https://github.com/adil192/saber/actions/workflows/android.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/android.yml)
