@@ -137,7 +137,8 @@
       "redo": "Obnovit",
       "export": "Exportovat (Ctrl Shift S)",
       "exportAs": "Exportovat jako:",
-      "fullscreen": "Režim celé obrazovky (F11)"
+      "fullscreen": "Režim celé obrazovky (F11)",
+      "select": "Výběr"
     },
     "pens": {
       "fountainPen": "Plnící pero",

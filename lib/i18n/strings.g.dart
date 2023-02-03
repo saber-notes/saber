@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1252 (125 per locale)
+/// Strings: 1253 (125 per locale)
 ///
-/// Built on 2023-02-02 at 08:06 UTC
+/// Built on 2023-02-03 at 07:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1001,6 +1001,7 @@ class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
 	@override String get export => 'Exportovat (Ctrl Shift S)';
 	@override String get exportAs => 'Exportovat jako:';
 	@override String get fullscreen => 'Režim celé obrazovky (F11)';
+	@override String get select => 'Výběr';
 }
 
 // Path: editor.pens
