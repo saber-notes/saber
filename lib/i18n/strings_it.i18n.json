@@ -137,7 +137,8 @@
       "export": "Esporta (Ctrl Shift S)",
       "exportAs": "Esporta come:",
       "text": "Testo",
-      "fullscreen": "Passa a schermo intero (F11)"
+      "fullscreen": "Passa a schermo intero (F11)",
+      "select": "Selezione"
     },
     "pens": {
       "fountainPen": "Penna stilografica",
