@@ -2,9 +2,9 @@
 
 A (work-in-progress) cross-platform libre notes app. Please note that this app is still in early stages and not ready to trust with your notes yet.
 
-|         | Android | iOS  | Linux | macOS | Windows | Web  |
-| ------- | ------- | ---- | ----- | ----- | ------- | ---- |
-| Support | ✓       | ✓    | ✓     | ✓     | ✓       | ✓    |
+|         | Android | iOS | Linux | macOS | Windows | Web |
+|---------|---------|-----|-------|-------|---------|-----|
+| Support | ✓       | ✓   | ✓     | ✓     | ✓       | ✗   |
 
 Android and Linux are the main platforms that are being developed for,
 but if you encounter any bugs on other platforms, please open an [issue][issues].
@@ -40,10 +40,6 @@ but if you encounter any bugs on other platforms, please open an [issue][issues]
 Please see [#1 Saber progress][progress].
 
 ## Install
-
-Saber is still in early stages but if you'd like to check it out,
-you can see the online PWA at [saber.adil.hanney.org][saber_web].
-Alternatively, install it natively...
 
 <details open>
 <summary>Tap to show/hide install instructions</summary>
@@ -122,10 +118,6 @@ More information on https://docs.flutter.dev/deployment/android#create-an-upload
 Note: F-Droid releases are built slightly differently:
 `./patches/remove_proprietary_dependencies.sh`
 `flutter build apk -t lib/main_fdroid.dart`
-
-#### The web
-
-`flutter build web`
 
 #### Windows
 
@@ -232,7 +224,6 @@ If you like Saber, please consider supporting it by:
 - When updating the **icons**, run the following commands:
   - General: `flutter pub run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
-  - Web splash screen: `flutter pub run flutter_native_splash:create`
 - When updating the **translations**...
   - Run the following commands:
     - `flutter pub run slang apply --locale=XX` if you need to apply _missing_translations.json
@@ -246,7 +237,6 @@ If you like Saber, please consider supporting it by:
 
 </details>
 
-[saber_web]: https://saber.adil.hanney.org
 [f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
 [flathub]: https://flathub.org/apps/details/com.adilhanney.saber
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber

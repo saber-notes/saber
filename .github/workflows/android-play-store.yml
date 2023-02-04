@@ -32,7 +32,6 @@ jobs:
           rm -rf snap
           rm -rf submodules
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Remove signingConfig

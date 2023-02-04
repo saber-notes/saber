@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -582,7 +582,7 @@ class _EditorState extends State<Editor> {
     if (currentPageIndex == null) return;
 
     PhotoInfo? photoInfo;
-    if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
+    if (Platform.isAndroid || Platform.isIOS) {
       photoInfo = await pickPhotoMobile();
     } else {
       photoInfo = await pickPhotoDesktop();

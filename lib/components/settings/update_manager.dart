@@ -1,17 +1,16 @@
-
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
-import 'package:saber/components/settings/do_update/do_update.dart'
-  if (dart.library.html) 'package:saber/components/settings/do_update/do_update_web.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 abstract class UpdateManager {
   static final Uri versionUrl = Uri.parse("https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart");
@@ -43,7 +42,12 @@ abstract class UpdateManager {
             child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
           ),
           CupertinoDialogAction(
-            onPressed: doUpdate,
+            onPressed: () {
+              launchUrl(
+                AppInfo.releasesUrl,
+                mode: LaunchMode.externalApplication,
+              );
+            },
             child: Text(t.update.update),
           ),
         ],

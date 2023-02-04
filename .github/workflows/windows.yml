@@ -32,7 +32,6 @@ jobs:
           Remove-Item -Recurse snap
           Remove-Item -Recurse submodules
           Remove-Item -Recurse test
-          Remove-Item -Recurse web
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2

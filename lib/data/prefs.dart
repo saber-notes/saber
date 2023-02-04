@@ -143,7 +143,7 @@ abstract class Prefs {
     fileSyncAlreadyDeleted = PlainPref("fileSyncAlreadyDeleted", {});
     lastStorageQuota = PlainPref("lastStorageQuota", null);
 
-    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault && !kIsWeb);
+    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault);
 
     locale = PlainPref("locale", "");
 
@@ -162,7 +162,7 @@ abstract class Prefs {
     username.value = await client.getUsername();
   }
 
-  static bool get isDesktop => !kIsWeb && (Platform.isLinux || Platform.isWindows || Platform.isMacOS);
+  static bool get isDesktop => Platform.isLinux || Platform.isWindows || Platform.isMacOS;
 
 }
 
@@ -373,7 +373,7 @@ class EncPref<T> extends IPref<T> {
     _storage ??= const FlutterSecureStorage();
     _prefs ??= EncryptedSharedPreferences();
 
-    if (!kIsWeb && Platform.isMacOS) {
+    if (Platform.isMacOS) {
       await Prefs.macOSInsecureStorageEnabled.waitUntilLoaded();
       if (!Prefs.macOSInsecureStorageEnabled.value) {
         // insecure storage is disabled
@@ -390,7 +390,7 @@ class EncPref<T> extends IPref<T> {
 
       // migrate to new key
       await _save();
-      if (!kIsWeb && Platform.isMacOS) {
+      if (Platform.isMacOS) {
         _prefs!.remove(key);
       } else {
         _storage!.delete(key: key);
@@ -400,7 +400,7 @@ class EncPref<T> extends IPref<T> {
     }
 
     for (String key in deprecatedKeys) {
-      if (!kIsWeb && Platform.isMacOS) {
+      if (Platform.isMacOS) {
         _prefs!.remove(key);
       } else {
         _storage!.delete(key: key);
@@ -441,7 +441,7 @@ class EncPref<T> extends IPref<T> {
   Future _save() async {
     _saved = false;
     try {
-      if (!kIsWeb && Platform.isMacOS) {
+      if (Platform.isMacOS) {
         if (!Prefs.macOSInsecureStorageEnabled.value) return;
         _prefs ??= EncryptedSharedPreferences();
         if (T == String) return await _prefs!.setString(key, value as String);
@@ -460,7 +460,7 @@ class EncPref<T> extends IPref<T> {
   Future<T?> getValueWithKey(String key) async {
     try {
       final String? value;
-      if (!kIsWeb && Platform.isMacOS) {
+      if (Platform.isMacOS) {
         value = await _prefs!.getString(key);
       } else {
         value = await _storage!.read(key: key);
@@ -484,7 +484,7 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future<void> delete() async {
-    if (!kIsWeb && Platform.isMacOS) {
+    if (Platform.isMacOS) {
       _prefs ??= EncryptedSharedPreferences();
       await _prefs!.remove(key);
     } else {
