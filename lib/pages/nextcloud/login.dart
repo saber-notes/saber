@@ -30,7 +30,7 @@ class NcLoginPage extends StatefulWidget {
 class _NcLoginPageState extends State<NcLoginPage> {
   static bool hasBeenAskedAboutMacOSInsecureStorage = false;
   Future askAboutMacOSInsecureStorage() async {
-    if (kIsWeb || !Platform.isMacOS) return;
+    if (!Platform.isMacOS) return;
     if (Prefs.macOSInsecureStorageEnabled.value) return;
     if (hasBeenAskedAboutMacOSInsecureStorage) return;
     hasBeenAskedAboutMacOSInsecureStorage = true;

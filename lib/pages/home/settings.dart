@@ -48,10 +48,9 @@ class _SettingsPageState extends State<SettingsPage> {
     final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
 
-    final bool requiresManualUpdates = !kIsWeb && FlavorConfig.appStore == null;
+    final bool requiresManualUpdates = FlavorConfig.appStore == null;
 
     final IconData materialIcon = () {
-      if (kIsWeb) return FontAwesomeIcons.firefoxBrowser;
       if (defaultTargetPlatform == TargetPlatform.linux) return FontAwesomeIcons.linux;
       if (defaultTargetPlatform == TargetPlatform.windows) return FontAwesomeIcons.windows;
       return Icons.android;

@@ -1,9 +1,7 @@
-
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide TransformationController;
 import 'package:saber/components/canvas/hud/canvas_hud.dart';
@@ -109,7 +107,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       pressure = event.pressure;
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
       pressure = -event.pressure;
-    } else if (!kIsWeb && Platform.isLinux && event.pressureMin != event.pressureMax) {
+    } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
       // if min == max, then the device isn't pressure sensitive
       pressure = event.pressure;
     }

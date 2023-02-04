@@ -1,9 +1,7 @@
-
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
@@ -46,7 +44,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   void showSPenWarning() async {
-    if (kIsWeb) return;
     if (!Platform.isAndroid) return;
 
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();

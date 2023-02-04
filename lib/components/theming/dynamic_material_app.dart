@@ -1,9 +1,7 @@
-
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -88,7 +86,6 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   /// We need to use a custom font if macOS < 10.13,
   /// see https://github.com/adil192/saber/issues/26
   void decideOnFont() {
-    if (kIsWeb) return;
     if (!Platform.isMacOS) return;
 
     final RegExp numberRegex = RegExp(r'\d+\.\d+'); // e.g. 10.13 or 12.5
