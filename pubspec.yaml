@@ -98,7 +98,7 @@ dependencies:
 
   font_awesome_flutter: ^10.3.0
 
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.0+1
 
   # when updated, check if image_picker supports more platforms for Editor.pickPhoto()
   image_picker: ^0.8.6+1
