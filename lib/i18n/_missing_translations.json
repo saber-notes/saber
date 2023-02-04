@@ -6,10 +6,10 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "Skrýt pozadí poznámek na hlavní obrazovce"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "Pro čistější vzhled"
       }
     }
   },
