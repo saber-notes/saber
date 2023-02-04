@@ -546,11 +546,12 @@ packages:
   icons_launcher:
     dependency: "direct dev"
     description:
-      name: icons_launcher
-      sha256: c8e3ae1263822feafaec8a3c666ec84c2143470e1612f5481f1c875024c5f37e
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.6"
+      path: "."
+      ref: Add-M3-Material-Icons
+      resolved-ref: df0e6ca149131f16049f43fa1cf1bd0cda5bb762
+      url: "https://github.com/adil192/icons_launcher.git"
+    source: git
+    version: "2.0.7"
   image:
     dependency: "direct main"
     description:

@@ -162,7 +162,12 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-  icons_launcher: ^2.0.6
+  # todo: use pub.dev when https://github.com/mrrhak/icons_launcher/pull/28
+  # is merged and a new release is available (> 2.0.7)
+  icons_launcher:
+    git:
+      url: https://github.com/adil192/icons_launcher.git
+      ref: Add-M3-Material-Icons
 
   process_run: ^0.12.5+2
 
@@ -216,6 +221,7 @@ icons_launcher:
       enable: true
       adaptive_background_color: "#ffc800"
       adaptive_foreground_image: "assets/icon/icon_maskable.png"
+      adaptive_monochrome_image: "assets/icon/icon_monochrome.png"
     ios:
       enable: true
       image_path: "assets/icon/icon_opaque.png"
