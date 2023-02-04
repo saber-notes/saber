@@ -41,7 +41,8 @@
       "editorStraightenLines": "برای کشیدن خط صاف فشار دهید و نگه دارید",
       "maxImageSize": "حداکثر اندازه تصویر",
       "autoClearWhiteboardOnExit": "پس از خروج از برنامه، وایت برد پاک شود",
-      "editorPromptRename": "از شما می خواهد که نام یادداشت های جدید را تغییر دهید"
+      "editorPromptRename": "از شما می خواهد که نام یادداشت های جدید را تغییر دهید",
+      "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
@@ -49,7 +50,8 @@
       "preferGreyscale": "برای نمایشگر های e-ink",
       "autoClearWhiteboardOnExit": "همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود",
       "maxImageSize": "تصاویر بزرگتر از این فشرده خواهند شد",
-      "editorPromptRename": "همیشه می توانید بعداً نام یادداشت ها را تغییر دهید"
+      "editorPromptRename": "همیشه می توانید بعداً نام یادداشت ها را تغییر دهید",
+      "hideHomeBackgrounds": "برای ظاهری تمیز تر"
     },
     "themeModes": {
       "system": "سیستم",

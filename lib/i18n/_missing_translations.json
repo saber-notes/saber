@@ -65,16 +65,7 @@
       }
     }
   },
-  "fa": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
-      }
-    }
-  },
+  "fa": {},
   "it": {
     "settings": {
       "prefLabels": {

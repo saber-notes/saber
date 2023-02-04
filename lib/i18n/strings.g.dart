@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1256 (125 per locale)
+/// Strings: 1258 (125 per locale)
 ///
-/// Built on 2023-02-04 at 05:55 UTC
+/// Built on 2023-02-04 at 09:44 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2282,6 +2282,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get maxImageSize => 'حداکثر اندازه تصویر';
 	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
+	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 }
 
 // Path: settings.prefDescriptions
@@ -2297,6 +2298,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get autoClearWhiteboardOnExit => 'همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود';
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
+	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 }
 
 // Path: settings.themeModes
