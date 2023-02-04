@@ -69,10 +69,10 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "Per un aspetto più pulito"
       }
     }
   },
