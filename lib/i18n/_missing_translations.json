@@ -77,16 +77,7 @@
       }
     }
   },
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Ana ekranda arkaplanları gizle"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "Daha sade bir görüntü için"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
