@@ -2,16 +2,16 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'file_manager_nonweb.dart'
-  if (dart.library.html) 'file_manager_web.dart';
 
 /// A collection of cross-platform utility functions for working with a virtual file system.
 class FileManager {
@@ -107,7 +107,39 @@ class FileManager {
   }
 
   static Future exportFile(String fileName, Uint8List bytes, {bool isImage = false}) async {
-    return await fmExportFile(fileName, bytes, isImage: isImage);
+    File? tempFile;
+    Future<File> getTempFile() async {
+      final String tempFolder = (await getTemporaryDirectory()).path;
+      final File file = File("$tempFolder/$fileName");
+      await file.writeAsBytes(bytes);
+      return file;
+    }
+
+    if (Platform.isAndroid || Platform.isIOS) {
+      if (isImage) { // save image to gallery
+        await ImageSave.saveImage(
+          bytes,
+          fileName,
+          albumName: "Saber",
+        );
+      } else { // share file
+        tempFile = await getTempFile();
+        await Share.shareXFiles([XFile(tempFile.path)]);
+      }
+    } else { // desktop, open save-as dialog
+      String? outputFile = await FilePicker.platform.saveFile(
+        fileName: fileName,
+        initialDirectory: (await getDownloadsDirectory())?.path,
+        allowedExtensions: [fileName.split(".").last],
+      );
+      if (outputFile != null) {
+        File file = File(outputFile);
+        await file.writeAsBytes(bytes);
+      }
+    }
+
+    // delete temp file if it isn't null
+    await tempFile?.delete();
   }
 
   /// Moves a file from [fromPath] to [toPath], returning its final path.
