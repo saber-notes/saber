@@ -68,10 +68,10 @@
   "fa": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "برای ظاهری تمیز تر"
       }
     }
   },
