@@ -149,9 +149,11 @@ class _AppState extends State<App> {
     }
   }
 
-  void webDeprecationAlert() {
+  void webDeprecationAlert() async {
     if (!kIsWeb) return;
-    showDialog(
+    await Future.delayed(const Duration(seconds: 5));
+    if (!mounted) return;
+    await showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text("Web deprecated"),
