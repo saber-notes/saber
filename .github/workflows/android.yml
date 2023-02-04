@@ -32,7 +32,6 @@ jobs:
           rm -rf snap
           rm -rf submodules
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Setup Flutter
@@ -103,7 +102,6 @@ jobs:
           rm -rf snap
           rm -rf submodules
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Remove proprietary dependencies
@@ -177,7 +175,6 @@ jobs:
           rm -rf snap
           rm -rf submodules
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Remove proprietary dependencies

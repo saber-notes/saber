@@ -28,7 +28,6 @@ jobs:
           rm -rf macos
           rm -rf metadata
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Install Flutter dependencies
@@ -85,7 +84,6 @@ jobs:
           rm -rf macos
           rm -rf metadata
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Download app archive
@@ -130,7 +128,6 @@ jobs:
           rm -rf macos
           rm -rf metadata
           rm -rf test
-          rm -rf web
           rm -rf windows
 
       - name: Install AppImage dependencies
