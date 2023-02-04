@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/prefs.dart';
 
 import 'inner_canvas.dart';
 
@@ -37,6 +38,7 @@ class CanvasPreview extends StatelessWidget {
             coreInfo: coreInfo,
             currentStroke: null,
             currentSelection: null,
+            hideBackground: Prefs.hideHomeBackgrounds.value,
           ),
         ),
       ),

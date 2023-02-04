@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1254 (125 per locale)
+/// Strings: 1256 (125 per locale)
 ///
-/// Built on 2023-02-03 at 07:18 UTC
+/// Built on 2023-02-04 at 05:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -341,6 +341,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get maxImageSize => 'Maximum image size';
 	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
 	String get editorPromptRename => 'Prompt you to rename new notes';
+	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 }
 
 // Path: settings.prefDescriptions
@@ -356,6 +357,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get autoClearWhiteboardOnExit => 'It will still be synced to your other devices';
 	String get maxImageSize => 'Images larger than this will be compressed';
 	String get editorPromptRename => 'You can always rename notes later';
+	String get hideHomeBackgrounds => 'For a cleaner look';
 }
 
 // Path: settings.themeModes

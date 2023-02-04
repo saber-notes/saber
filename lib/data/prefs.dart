@@ -60,6 +60,8 @@ abstract class Prefs {
   static late final PlainPref<int> editorStraightenDelay;
   static late final PlainPref<bool> editorPromptRename;
 
+  static late final PlainPref<bool> hideHomeBackgrounds;
+
   static late final PlainPref<double> maxImageSize;
 
   static late final PlainPref<bool> autoClearWhiteboardOnExit;
@@ -115,6 +117,8 @@ abstract class Prefs {
     preferGreyscale = PlainPref("preferGreyscale", false);
     editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
     editorPromptRename = PlainPref("editorPromptRename", isDesktop);
+
+    hideHomeBackgrounds = PlainPref("hideHomeBackgrounds", false);
 
     maxImageSize = PlainPref("maxImageSize", 1000);
 

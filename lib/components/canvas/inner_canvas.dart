@@ -1,4 +1,3 @@
-
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -29,6 +28,7 @@ class InnerCanvas extends StatefulWidget {
     required this.currentSelection,
     this.setAsBackground,
     this.onRenderObjectChange,
+    this.hideBackground = false,
   });
 
   final int pageIndex;
@@ -43,6 +43,8 @@ class InnerCanvas extends StatefulWidget {
   final SelectResult? currentSelection;
   final void Function(EditorImage image)? setAsBackground;
   final ValueChanged<RenderObject>? onRenderObjectChange;
+
+  final bool hideBackground;
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
 
@@ -109,8 +111,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
       child: CustomPaint(
         painter: CanvasBackgroundPainter(
           invert: invert,
-          backgroundColor: backgroundColor,
-          backgroundPattern: widget.coreInfo.backgroundPattern,
+          backgroundColor: widget.hideBackground
+              ? InnerCanvas.defaultBackgroundColor
+              : backgroundColor,
+          backgroundPattern: widget.hideBackground
+              ? CanvasBackgroundPatterns.none
+              : widget.coreInfo.backgroundPattern,
           lineHeight: widget.coreInfo.lineHeight,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,

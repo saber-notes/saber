@@ -41,7 +41,8 @@
       "editorStraightenLines": "Press and hold to straighten a line",
       "maxImageSize": "Maximum image size",
       "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
-      "editorPromptRename": "Prompt you to rename new notes"
+      "editorPromptRename": "Prompt you to rename new notes",
+      "hideHomeBackgrounds": "Hide backgrounds on the home screen"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
@@ -49,7 +50,8 @@
       "preferGreyscale": "For e-ink displays",
       "autoClearWhiteboardOnExit": "It will still be synced to your other devices",
       "maxImageSize": "Images larger than this will be compressed",
-      "editorPromptRename": "You can always rename notes later"
+      "editorPromptRename": "You can always rename notes later",
+      "hideHomeBackgrounds": "For a cleaner look"
     },
     "themeModes": {
       "system": "System",

@@ -215,6 +215,15 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                     pref: Prefs.editorPromptRename,
                   ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.hideHomeBackgrounds,
+                    subtitle: t.settings.prefDescriptions.hideHomeBackgrounds,
+                    iconBuilder: (b) {
+                      if (b) return cupertino ? CupertinoIcons.photo : Icons.photo;
+                      return cupertino ? CupertinoIcons.photo_fill : Icons.photo_library;
+                    },
+                    pref: Prefs.hideHomeBackgrounds,
+                  ),
                   const SizedBox(height: 16),
                 ],
               ),

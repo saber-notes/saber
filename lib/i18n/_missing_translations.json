@@ -3,14 +3,25 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  },
   "de": {
     "settings": {
       "prefLabels": {
-        "maxImageSize": "Maximum image size"
+        "maxImageSize": "Maximum image size",
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
       },
       "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
+        "maxImageSize": "Images larger than this will be compressed",
+        "hideHomeBackgrounds": "For a cleaner look"
       }
     },
     "editor": {
@@ -40,10 +51,12 @@
   "es": {
     "settings": {
       "prefLabels": {
-        "maxImageSize": "Maximum image size"
+        "maxImageSize": "Maximum image size",
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
       },
       "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed"
+        "maxImageSize": "Images larger than this will be compressed",
+        "hideHomeBackgrounds": "For a cleaner look"
       }
     },
     "editor": {
@@ -52,10 +65,64 @@
       }
     }
   },
-  "fa": {},
-  "it": {},
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  },
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  },
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  },
+  "tr": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      },
+      "prefDescriptions": {
+        "hideHomeBackgrounds": "For a cleaner look"
+      }
+    }
+  }
 }
