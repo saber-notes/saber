@@ -65,16 +65,7 @@
       }
     }
   },
-  "fa": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "برای ظاهری تمیز تر"
-      }
-    }
-  },
+  "fa": {},
   "it": {
     "settings": {
       "prefLabels": {
