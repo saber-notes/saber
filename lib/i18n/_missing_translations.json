@@ -80,10 +80,10 @@
   "tr": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "Ana ekranda arkaplanları gizle"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "Daha sade bir görüntü için"
       }
     }
   },
