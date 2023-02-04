@@ -10,8 +10,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/web/fullscreen_nonweb.dart'
-  if (dart.library.html) 'package:saber/data/web/fullscreen_web.dart' as web;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -33,9 +31,8 @@ class DynamicMaterialApp extends StatefulWidget {
   static setFullscreen(bool value, {required bool updateSystem}) {
     _isFullscreen.value = value;
     if (!updateSystem) return;
-    if (kIsWeb) {
-      value ? web.enterFullScreen() : web.exitFullscreen();
-    } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       windowManager.setFullScreen(value);
     } else {
       SystemChrome.setEnabledSystemUIMode(
