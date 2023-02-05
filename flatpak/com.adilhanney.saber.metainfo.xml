@@ -59,6 +59,18 @@
     </screenshots>
 
     <releases>
+        <release version="0.8.1" type="development" date="2023-02-05">
+            <description>
+                <ul>
+                    <li>Fixed Android devices flickering in and out of fullscreen</li>
+                    <li>Home screen performance improvements</li>
+                    <li>You can choose to hide the backgrounds of your notes on the home screen for a cleaner look</li>
+                    <li>Added a monochrome icon for Android 13 users</li>
+                    <li>Fixed the navbar overlapping with the home screen on some Android tablets</li>
+                    <li>Discontinued the web version of Saber</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.8.0" type="development" date="2023-02-01">
             <description>
                 <ul>
