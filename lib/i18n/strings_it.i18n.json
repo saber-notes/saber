@@ -36,7 +36,8 @@
       "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
       "locale": "Lingua app",
       "platform": "Tipo di tema",
-      "maxImageSize": "Dimensione massima dell'immagine"
+      "maxImageSize": "Dimensione massima dell'immagine",
+      "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale"
     },
     "themeModes": {
       "system": "Sistema",
@@ -52,7 +53,8 @@
       "preferGreyscale": "Per display e-ink",
       "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
       "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
-      "maxImageSize": "Le immagini più grandi verranno compresse"
+      "maxImageSize": "Le immagini più grandi verranno compresse",
+      "hideHomeBackgrounds": "Per un aspetto più pulito"
     },
     "straightenDelay": {
       "off": "Off",

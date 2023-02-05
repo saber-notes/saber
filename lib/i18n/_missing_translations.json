@@ -66,16 +66,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "Per un aspetto più pulito"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "settings": {
       "prefLabels": {
