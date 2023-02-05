@@ -88,14 +88,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
