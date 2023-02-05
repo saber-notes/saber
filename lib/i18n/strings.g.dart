@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1260 (126 per locale)
+/// Strings: 1262 (126 per locale)
 ///
-/// Built on 2023-02-05 at 04:42 UTC
+/// Built on 2023-02-05 at 09:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2766,6 +2766,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Lingua app';
 	@override String get platform => 'Tipo di tema';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
+	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 }
 
 // Path: settings.themeModes
@@ -2803,6 +2804,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
+	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 }
 
 // Path: settings.straightenDelay
@@ -3754,6 +3756,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Uygulama dili';
 	@override String get platform => 'Tema tipi';
 	@override String get maxImageSize => 'Maksimum görsel boyutu';
+	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 }
 
 // Path: settings.prefDescriptions
@@ -3769,6 +3772,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
+	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 }
 
 // Path: settings.themeModes
