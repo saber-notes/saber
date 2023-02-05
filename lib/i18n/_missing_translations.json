@@ -77,16 +77,7 @@
       }
     }
   },
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
