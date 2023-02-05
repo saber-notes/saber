@@ -109,10 +109,10 @@
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "隱藏主畫面上的背景"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "為了更乾淨的外觀"
       }
     }
   }
