@@ -48,8 +48,14 @@ class FileManager {
     }
   }
 
+  @visibleForTesting
   static void broadcastFileWrite(FileOperationType type, String path) async {
     if (!_fileWriteStreamIsListening) return;
+
+    if (path.endsWith(Editor.extension)) { // remove extension
+      path = path.substring(0, path.length - Editor.extension.length);
+    }
+
     fileWriteStream.add(FileOperation(type, path));
   }
 
