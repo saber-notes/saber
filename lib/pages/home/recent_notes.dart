@@ -83,14 +83,18 @@ class _RecentPageState extends State<RecentPage> {
               ],
             ),
             if (failed) ...[
-              const SliverToBoxAdapter(
-                child: Welcome(),
+              const SliverSafeArea(
+                sliver: SliverToBoxAdapter(
+                  child: Welcome(),
+                ),
               ),
             ] else ...[
-              MasonryFiles(
-                files: [
-                  for (String filePath in filePaths) filePath,
-                ],
+              SliverSafeArea(
+                sliver: MasonryFiles(
+                  files: [
+                    for (String filePath in filePaths) filePath,
+                  ],
+                ),
               ),
             ],
           ],
