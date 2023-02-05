@@ -63,6 +63,25 @@
                 <data android:mimeType="application/sbn" />
                 <data android:mimeType="text/*" />
             </intent-filter>
+
+            <!-- Support opening pdf files -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.pdf"/>
+
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
         </activity>
 
        <!-- https://developer.android.com/guide/topics/resources/app-languages#android12-impl -->

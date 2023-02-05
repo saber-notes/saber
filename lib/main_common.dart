@@ -97,13 +97,24 @@ class App extends StatefulWidget {
 
     if (file.type != SharedMediaType.FILE) return;
 
-    final String? path = await FileManager.importFile(file.path);
-    if (path == null) return;
+    final String extension;
+    if (file.path.contains(".")) {
+      extension = file.path.split(".").last;
+    } else {
+      extension = "sbn";
+    }
 
-    // allow file to finish writing
-    await Future.delayed(const Duration(milliseconds: 100));
+    if (extension == "sbn") {
+      final String? path = await FileManager.importFile(file.path);
+      if (path == null) return;
 
-    _router.push(RoutePaths.editFilePath(path));
+      // allow file to finish writing
+      await Future.delayed(const Duration(milliseconds: 100));
+
+      _router.push(RoutePaths.editFilePath(path));
+    } else if (extension == "pdf") {
+      // todo: import pdf
+    }
   }
 
   @override
