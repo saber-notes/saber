@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1258 (125 per locale)
+/// Strings: 1260 (126 per locale)
 ///
-/// Built on 2023-02-04 at 09:44 UTC
+/// Built on 2023-02-05 at 09:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2766,6 +2766,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Lingua app';
 	@override String get platform => 'Tipo di tema';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
+	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 }
 
 // Path: settings.themeModes
@@ -2803,6 +2804,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
+	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 }
 
 // Path: settings.straightenDelay
