@@ -26,7 +26,6 @@ class BrowsePage extends StatefulWidget {
 }
 class _BrowsePageState extends State<BrowsePage> {
   DirectoryChildren? children;
-  bool failed = false;
 
   final List<String?> pathHistory = [];
   String? path;
@@ -50,7 +49,6 @@ class _BrowsePageState extends State<BrowsePage> {
   Future findChildrenOfPath() async {
     if (!mounted) return;
     children = await FileManager.getChildrenOfDirectory(path ?? '/');
-    failed = children == null || children!.isEmpty;
     if (mounted) setState(() {});
   }
 
@@ -104,22 +102,22 @@ class _BrowsePageState extends State<BrowsePage> {
                 SyncingButton(),
               ],
             ),
-            if (failed) ...[
+            if (children != null && (path != null || children!.directories.isNotEmpty))
+              GridFolders(
+                isAtRoot: path == null,
+                folders: [
+                  for (String directoryPath in children!.directories)
+                    directoryPath,
+                ],
+                onTap: onDirectoryTap,
+              ),
+            if (children == null || children!.isEmpty) ...[
               const SliverSafeArea(
                 sliver: SliverToBoxAdapter(
                   child: NoFiles(),
                 ),
               ),
             ] else ...[
-              if (children != null && (path != null || children!.directories.isNotEmpty))
-                GridFolders(
-                  isAtRoot: path == null,
-                  folders: [
-                    for (String directoryPath in children!.directories)
-                      directoryPath,
-                  ],
-                  onTap: onDirectoryTap,
-                ),
               SliverSafeArea(
                 sliver: MasonryFiles(
                   files: [
