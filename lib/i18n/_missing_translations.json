@@ -106,14 +106,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "隱藏主畫面上的背景"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "為了更乾淨的外觀"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
