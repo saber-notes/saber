@@ -32,7 +32,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
@@ -118,8 +117,6 @@ dependencies:
 
   worker_manager: ^5.0.0
 
-  flutter_native_splash: ^2.2.16
-
   # https://pub.dev/packages/flutter_sharing_intent will have better cross-platform support
   # but it's not yet ready (January 2023)
   # Using a fork because the original uses an old version of kotlin and doesn't support text files
@@ -132,9 +129,6 @@ dependencies:
       url: https://github.com/adil192/open_as_default.git
 
   js: ^0.6.4
-
-  vsc_quill_delta_to_html: ^1.0.0+1
-  html: ^0.15.1
 
   onyxsdk_pen:
     path: packages/onyxsdk_pen
