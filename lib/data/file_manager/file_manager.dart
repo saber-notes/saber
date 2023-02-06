@@ -18,7 +18,8 @@ class FileManager {
   FileManager._();
 
   static const String appRootDirectoryPrefix = "/Saber";
-  static Future<String> get _documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
+  @visibleForTesting
+  static Future<String> get documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
 
   static final StreamController<FileOperation> fileWriteStream = StreamController.broadcast(
     onListen: () => _fileWriteStreamIsListening = true,
@@ -29,7 +30,12 @@ class FileManager {
   static String _sanitisePath(String path) => File(path).path;
 
   static Future<void> init() async {
-    Directory rootDir = Directory(await _documentsDirectory);
+    await watchRootDirectory();
+  }
+
+  @visibleForTesting
+  static Future<void> watchRootDirectory() async {
+    Directory rootDir = Directory(await documentsDirectory);
     await rootDir.create(recursive: true);
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {
       final type = event.type == FileSystemEvent.create
@@ -60,7 +66,7 @@ class FileManager {
     filePath = _sanitisePath(filePath);
 
     String? result;
-    final File file = File(await _documentsDirectory + filePath);
+    final File file = File(await documentsDirectory + filePath);
     if (await file.exists()) {
       result = await file.readAsString(encoding: utf8);
       if (result.isEmpty) result = null;
@@ -82,7 +88,7 @@ class FileManager {
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    final File file = File(await _documentsDirectory + filePath);
+    final File file = File(await documentsDirectory + filePath);
     await _createFileDirectory(filePath);
     Future writeFuture = file.writeAsString(toWrite);
 
@@ -150,8 +156,8 @@ class FileManager {
 
     if (fromPath == toPath) return toPath;
 
-    final File fromFile = File(await _documentsDirectory + fromPath);
-    final File toFile = File(await _documentsDirectory + toPath);
+    final File fromFile = File(await documentsDirectory + fromPath);
+    final File toFile = File(await documentsDirectory + toPath);
     await _createFileDirectory(toPath);
     if (await fromFile.exists()) await fromFile.rename(toFile.path);
 
@@ -168,7 +174,7 @@ class FileManager {
   static Future deleteFile(String filePath, {bool alsoUpload = true}) async {
     filePath = _sanitisePath(filePath);
 
-    final File file = File(await _documentsDirectory + filePath);
+    final File file = File(await documentsDirectory + filePath);
     if (!await file.exists()) return;
     await file.delete();
 
@@ -185,7 +191,7 @@ class FileManager {
     final Iterable<String> allChildren;
     final List<String> directories = [], files = [];
 
-    final String documentsDirectory = await _documentsDirectory;
+    final String documentsDirectory = await FileManager.documentsDirectory;
     final Directory dir = Directory(documentsDirectory + directory);
     if (!await dir.exists()) return null;
 
@@ -237,19 +243,19 @@ class FileManager {
   /// Behaviour is undefined if [filePath] is not a valid path.
   static Future<bool> isDirectory(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final Directory directory = Directory(await _documentsDirectory + filePath);
+    final Directory directory = Directory(await documentsDirectory + filePath);
     return await directory.exists();
   }
 
   static Future<bool> doesFileExist(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final File file = File(await _documentsDirectory + filePath);
+    final File file = File(await documentsDirectory + filePath);
     return await file.exists();
   }
 
   static Future<DateTime> lastModified(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final File file = File(await _documentsDirectory + filePath);
+    final File file = File(await documentsDirectory + filePath);
     return await file.lastModified();
   }
 
@@ -312,7 +318,7 @@ class FileManager {
   static Future _createFileDirectory(String filePath) async {
     assert(filePath.contains('/'), "filePath must be a path, not a file name");
     final String parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
-    await Directory(await _documentsDirectory + parentDirectory).create(recursive: true);
+    await Directory(await documentsDirectory + parentDirectory).create(recursive: true);
   }
 
   static Future _renameReferences(String fromPath, String toPath) async {
