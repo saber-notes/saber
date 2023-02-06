@@ -36,7 +36,8 @@
       "editorPromptRename": "Vybízet k přejmenování nových poznámek",
       "locale": "Jazyk aplikace",
       "platform": "Motiv",
-      "maxImageSize": "Maximální velikost obrázku"
+      "maxImageSize": "Maximální velikost obrázku",
+      "hideHomeBackgrounds": "Skrýt pozadí poznámek na hlavní obrazovce"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
@@ -44,7 +45,8 @@
       "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",
       "autoClearWhiteboardOnExit": "Bude synchronizováno do dalších zařízení",
       "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
-      "maxImageSize": "Na větší obrázky bude aplikována komprese"
+      "maxImageSize": "Na větší obrázky bude aplikována komprese",
+      "hideHomeBackgrounds": "Pro čistější vzhled"
     },
     "themeModes": {
       "system": "Systémový",
