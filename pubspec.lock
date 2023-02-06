@@ -153,14 +153,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
-  csslib:
-    dependency: transitive
-    description:
-      name: csslib
-      sha256: b36c7f7e24c0bdf1bf9a3da461c837d1de64b9f8beb190c9011d8c72a3dfd745
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.17.2"
   csv:
     dependency: transitive
     description:
@@ -360,14 +352,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_native_splash:
-    dependency: "direct main"
-    description:
-      name: flutter_native_splash
-      sha256: "6777a3abb974021a39b5fdd2d46a03ca390e03903b6351f21d10e7ecc969f12d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.16"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -503,22 +487,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.3"
-  html:
-    dependency: "direct main"
-    description:
-      name: html
-      sha256: d9793e10dbe0e6c364f4c59bf3e01fb33a9b2a674bc7a1081693dba0614b6269
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.15.1"
-  html_unescape:
-    dependency: transitive
-    description:
-      name: html_unescape
-      sha256: "15362d7a18f19d7b742ef8dcb811f5fd2a2df98db9f80ea393c075189e0b61e3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   http:
     dependency: "direct main"
     description:
@@ -622,7 +590,7 @@ packages:
     source: hosted
     version: "0.17.0"
   js:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: js
       sha256: "5528c2f391ededb7775ec1daa69e65a2d61276f7552de2b5f7b8d34ee9fd4ab7"
@@ -1310,14 +1278,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.4.0"
-  vsc_quill_delta_to_html:
-    dependency: "direct main"
-    description:
-      name: vsc_quill_delta_to_html
-      sha256: "81c42a47775a6c73a5f2210a9ceeba8430458bdb6c5209ffaf4e54f0d70fc0ee"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1+1"
   watcher:
     dependency: transitive
     description:
