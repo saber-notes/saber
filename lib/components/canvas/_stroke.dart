@@ -9,7 +9,8 @@ import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/fast_math.dart';
 
 class Stroke {
-  final List<Point> _points = [];
+  @visibleForTesting
+  final List<Point> points = [];
   final int pageIndex;
   final String penType;
 
@@ -59,7 +60,7 @@ class Stroke {
     strokeProperties = StrokeProperties.fromJson(json);
 
     final List<dynamic> pointsJson = json['p'] as List<dynamic>;
-    _points.insertAll(0, pointsJson.map(
+    points.insertAll(0, pointsJson.map(
       (point) => PointExtensions.fromJson(Map<String, dynamic>.from(point))
     ).toList());
   }
@@ -67,15 +68,15 @@ class Stroke {
   Map<String, dynamic> toJson() => {
     'f': isComplete,
     'p': (){
-      if (isStraightLine && _points.length > 1) {
-        Point last = snapLineToRightAngle(_points.first, _points.last);
+      if (isStraightLine && points.length > 1) {
+        Point last = snapLineToRightAngle(points.first, points.last);
         return [
-          _points.first.toJson(),
+          points.first.toJson(),
           last.toJson(),
           last.toJson(),
         ];
       }
-      return _points.map((Point point) => point.toJson()).toList();
+      return points.map((Point point) => point.toJson()).toList();
     }(),
     'i': pageIndex,
     'ty': penType.toString(),
@@ -92,21 +93,21 @@ class Stroke {
 
     if (pressure != null) strokeProperties.simulatePressure = false;
 
-    _points.add(point);
+    points.add(point);
     _polygonNeedsUpdating = true;
   }
 
   List<Offset> _getPolygon() {
     final List<Point> points;
     if (isStraightLine) {
-      Point last = snapLineToRightAngle(_points.first, _points.last);
+      Point last = snapLineToRightAngle(this.points.first, this.points.last);
       points = [ // todo: make this play nicer with the eraser
-        _points.first,
+        this.points.first,
         last,
         last,
       ];
     } else {
-      points = _points;
+      points = this.points;
     }
 
     return getStroke(
@@ -140,7 +141,7 @@ class Stroke {
   }
 
   double get maxY {
-    return _points.isEmpty ? 0 : _points.map((Point point) => point.y).reduce(max);
+    return points.isEmpty ? 0 : points.map((Point point) => point.y).reduce(max);
   }
 
   static sqrDistBetweenPoints(Point p1, Point p2) {

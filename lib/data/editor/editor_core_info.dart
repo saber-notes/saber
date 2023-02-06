@@ -213,6 +213,20 @@ class EditorCoreInfo {
     String? jsonString = await FileManager.readFile(path + Editor.extension);
     if (jsonString == null) return EditorCoreInfo(filePath: path, readOnly: readOnly);
 
+    return loadFromFileContents(
+      jsonString,
+      path: path,
+      readOnly: readOnly,
+      onlyFirstPage: onlyFirstPage,
+    );
+  }
+
+  @visibleForTesting
+  static Future<EditorCoreInfo> loadFromFileContents(String jsonString, {
+    required String path,
+    required bool readOnly,
+    required bool onlyFirstPage,
+  }) async {
     try {
       final dynamic json = await Executor().execute(fun1: _jsonDecodeIsolate, arg1: jsonString);
       if (json == null) {
