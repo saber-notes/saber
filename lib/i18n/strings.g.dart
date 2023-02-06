@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1264 (126 per locale)
+/// Strings: 1266 (126 per locale)
 ///
-/// Built on 2023-02-05 at 09:50 UTC
+/// Built on 2023-02-06 at 09:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -825,6 +825,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Jazyk aplikace';
 	@override String get platform => 'Motiv';
 	@override String get maxImageSize => 'Maximální velikost obrázku';
+	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 }
 
 // Path: settings.prefDescriptions
@@ -840,6 +841,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
+	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 }
 
 // Path: settings.themeModes
