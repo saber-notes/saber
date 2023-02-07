@@ -66,6 +66,10 @@
       "general": "Genel",
       "layout": "Yerleşim",
       "writing": "Yazım"
+    },
+    "reset": {
+      "title": "Ayarı sıfırlamak istiyor musunuz?",
+      "button": "Sıfırla"
     }
   },
   "login": {

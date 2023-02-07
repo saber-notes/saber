@@ -101,14 +101,7 @@
       }
     }
   },
-  "tr": {
-    "settings": {
-      "reset": {
-        "title": "Ayarı sıfırlamak istiyor musunuz?",
-        "button": "Sıfırla"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
