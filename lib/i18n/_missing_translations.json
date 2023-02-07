@@ -82,8 +82,8 @@
   "it": {
     "settings": {
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "Ripristinare questa impostazione?",
+        "button": "Ripristina"
       }
     }
   },
