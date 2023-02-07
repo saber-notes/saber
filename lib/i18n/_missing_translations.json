@@ -95,20 +95,7 @@
     }
   },
   "tr": {},
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
-      },
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "reset": {
