@@ -98,14 +98,14 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "在主页隐藏背景"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "更简洁的外观"
       },
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "重置此设置？",
+        "button": "重置"
       }
     }
   },
