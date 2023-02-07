@@ -131,7 +131,7 @@ dependencies:
   js: ^0.6.4
 
   onyxsdk_pen:
-    path: packages/onyxsdk_pen
+    path: packages/onyxsdk_pen_dummy
 
   flex_seed_scheme: ^1.1.0
 
