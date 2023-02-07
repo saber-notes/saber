@@ -66,6 +66,10 @@
       "general": "Generale",
       "layout": "Layout",
       "writing": "Scrittura"
+    },
+    "reset": {
+      "title": "Ripristinare questa impostazione?",
+      "button": "Ripristina"
     }
   },
   "login": {

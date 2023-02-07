@@ -79,14 +79,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "reset": {
-        "title": "Ripristinare questa impostazione?",
-        "button": "Ripristina"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "settings": {
       "prefLabels": {
