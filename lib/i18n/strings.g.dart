@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1268 (126 per locale)
+/// Strings: 1270 (127 per locale)
 ///
-/// Built on 2023-02-07 at 20:06 UTC
+/// Built on 2023-02-07 at 22:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2641,6 +2641,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
 	@override String get systemLanguage => 'Lingua del sistema';
 	@override late final _StringsSettingsPrefCategoriesIt prefCategories = _StringsSettingsPrefCategoriesIt._(_root);
+	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 }
 
 // Path: login
@@ -2843,6 +2844,17 @@ class _StringsSettingsPrefCategoriesIt extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Generale';
 	@override String get layout => 'Layout';
 	@override String get writing => 'Scrittura';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetIt extends _StringsSettingsResetEn {
+	_StringsSettingsResetIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ripristinare questa impostazione?';
+	@override String get button => 'Ripristina';
 }
 
 // Path: login.feedbacks
