@@ -127,7 +127,6 @@ class _AppState extends State<App> {
   @override
   void initState() {
     setupSharingIntent();
-    webDeprecationAlert();
     super.initState();
   }
 
@@ -158,25 +157,6 @@ class _AppState extends State<App> {
         App.openFile(SharedMediaFile(file.path, null, null, SharedMediaType.FILE));
       });
     }
-  }
-
-  void webDeprecationAlert() async {
-    if (!kIsWeb) return;
-    await Future.delayed(const Duration(seconds: 5));
-    if (!mounted) return;
-    await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Web deprecated"),
-        content: const Text("The web version of Saber is deprecated and will no longer be updated."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Dismiss"),
-          ),
-        ],
-      ),
-    );
   }
 
   @override

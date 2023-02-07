@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     UpdateManager.showUpdateDialog(context);
     showSPenWarning();
+    showWebDeprecationAlert();
   }
 
   void showSPenWarning() async {
@@ -72,6 +73,24 @@ class _HomePageState extends State<HomePage> {
     );
 
     Prefs.hasBeenWarnedAboutSPen.value = true;
+  }
+
+  void showWebDeprecationAlert() async {
+    if (!kIsWeb) return;
+
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Web deprecated"),
+        content: const Text("The web version of Saber is deprecated and will no longer be updated."),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text("Dismiss"),
+          ),
+        ],
+      ),
+    );
   }
 
   void _setState() => setState(() {});
