@@ -94,14 +94,7 @@
       }
     }
   },
-  "tr": {
-    "settings": {
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {

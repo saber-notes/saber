@@ -3,7 +3,7 @@
 /// Locales: 10
 /// Strings: 1270 (127 per locale)
 ///
-/// Built on 2023-02-07 at 22:55 UTC
+/// Built on 2023-02-07 at 22:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3643,6 +3643,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
 	@override String get systemLanguage => 'Sistem dili';
 	@override late final _StringsSettingsPrefCategoriesTr prefCategories = _StringsSettingsPrefCategoriesTr._(_root);
+	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 }
 
 // Path: login
@@ -3845,6 +3846,17 @@ class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Genel';
 	@override String get layout => 'Yerleşim';
 	@override String get writing => 'Yazım';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetTr extends _StringsSettingsResetEn {
+	_StringsSettingsResetTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ayarı sıfırlamak istiyor musunuz?';
+	@override String get button => 'Sıfırla';
 }
 
 // Path: login.feedbacks
