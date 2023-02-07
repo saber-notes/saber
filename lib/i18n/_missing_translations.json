@@ -79,14 +79,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    }
-  },
+  "it": {},
   "ru": {
     "settings": {
       "prefLabels": {
