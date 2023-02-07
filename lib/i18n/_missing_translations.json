@@ -95,20 +95,7 @@
     }
   },
   "tr": {},
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "在主页隐藏背景"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "更简洁的外观"
-      },
-      "reset": {
-        "title": "重置此设置？",
-        "button": "重置"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "reset": {

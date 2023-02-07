@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1270 (127 per locale)
+/// Strings: 1276 (127 per locale)
 ///
-/// Built on 2023-02-07 at 22:56 UTC
+/// Built on 2023-02-07 at 22:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4151,6 +4151,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayZhHansCn straightenDelay = _StringsSettingsStraightenDelayZhHansCn._(_root);
 	@override String get systemLanguage => '系统语言';
 	@override late final _StringsSettingsPrefCategoriesZhHansCn prefCategories = _StringsSettingsPrefCategoriesZhHansCn._(_root);
+	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 }
 
 // Path: login
@@ -4290,6 +4291,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => '应用语言';
 	@override String get platform => '主题类型';
 	@override String get maxImageSize => '最大图片大小';
+	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 }
 
 // Path: settings.prefDescriptions
@@ -4305,6 +4307,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get maxImageSize => '更大的图片将会被压缩';
+	@override String get hideHomeBackgrounds => '更简洁的外观';
 }
 
 // Path: settings.themeModes
@@ -4351,6 +4354,17 @@ class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategor
 	@override String get general => '通用';
 	@override String get layout => '布局';
 	@override String get writing => '书写';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetZhHansCn extends _StringsSettingsResetEn {
+	_StringsSettingsResetZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重置此设置？';
+	@override String get button => '重置';
 }
 
 // Path: login.feedbacks

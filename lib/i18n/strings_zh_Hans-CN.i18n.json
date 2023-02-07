@@ -36,7 +36,8 @@
       "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
       "locale": "应用语言",
       "platform": "主题类型",
-      "maxImageSize": "最大图片大小"
+      "maxImageSize": "最大图片大小",
+      "hideHomeBackgrounds": "在主页隐藏背景"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
@@ -44,7 +45,8 @@
       "preferGreyscale": "用于电子墨水显示器",
       "autoClearWhiteboardOnExit": "这将会同步到您的其他设备",
       "editorPromptRename": "您可以总是稍后重命名笔记",
-      "maxImageSize": "更大的图片将会被压缩"
+      "maxImageSize": "更大的图片将会被压缩",
+      "hideHomeBackgrounds": "更简洁的外观"
     },
     "themeModes": {
       "system": "系统",
@@ -64,6 +66,10 @@
       "general": "通用",
       "layout": "布局",
       "writing": "书写"
+    },
+    "reset": {
+      "title": "重置此设置？",
+      "button": "重置"
     }
   },
   "login": {
