@@ -92,7 +92,12 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
           duration: const Duration(milliseconds: 100),
           child: Icon(icon, key: ValueKey(icon)),
         ),
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: widget.pref.value != widget.pref.defaultValue
+              ? const TextStyle(fontWeight: FontWeight.bold)
+              : null,
+        ),
         subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
         trailing: dropdown,
       ),

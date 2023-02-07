@@ -76,7 +76,12 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
         duration: const Duration(milliseconds: 100),
         child: FaIcon(icon, key: ValueKey(icon)),
       ),
-      title: Text(widget.title),
+      title: Text(
+        widget.title,
+        style: widget.pref.value != widget.pref.defaultValue
+            ? const TextStyle(fontWeight: FontWeight.bold)
+            : null,
+      ),
       subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
       trailing: !useDropdownInstead ? AdaptiveToggleButtons(
         value: widget.pref.value,

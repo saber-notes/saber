@@ -173,13 +173,15 @@ abstract class IPref<T> extends ValueNotifier<T> {
   /// The keys that were used in the past for a similar Pref. If one of these keys is found, it will be deleted.
   final List<String> deprecatedKeys;
 
+  final T defaultValue;
+
   bool _loaded = false;
 
   /// Whether this pref has changes that have yet to be saved to disk.
   @protected
   bool _saved = true;
 
-  IPref(this.key, T defaultValue, {
+  IPref(this.key, this.defaultValue, {
     List<String>? historicalKeys,
     List<String>? deprecatedKeys,
   }) : historicalKeys = historicalKeys ?? [],
