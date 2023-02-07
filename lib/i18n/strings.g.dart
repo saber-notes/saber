@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1266 (126 per locale)
+/// Strings: 1268 (126 per locale)
 ///
-/// Built on 2023-02-06 at 09:38 UTC
+/// Built on 2023-02-07 at 20:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -190,6 +190,7 @@ class _StringsSettingsEn {
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
 	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
 	String get systemLanguage => 'System language';
+	late final _StringsSettingsResetEn reset = _StringsSettingsResetEn._(_root);
 }
 
 // Path: login
@@ -392,6 +393,17 @@ class _StringsSettingsStraightenDelayEn {
 	String get off => 'Off';
 	String get regular => 'Regular';
 	String get slow => 'Slow';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetEn {
+	_StringsSettingsResetEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Reset this setting?';
+	String get button => 'Reset';
 }
 
 // Path: login.feedbacks

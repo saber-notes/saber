@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/pages/home/settings.dart';
 
 class SettingsSelection<T extends num> extends StatefulWidget {
   const SettingsSelection({
@@ -70,6 +71,13 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
           final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);
           widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
         }
+      },
+      onLongPress: () {
+        SettingsPage.showResetDialog(
+          context: context,
+          pref: widget.pref,
+          prefTitle: widget.title,
+        );
       },
       contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(

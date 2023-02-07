@@ -5,6 +5,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/home/settings.dart';
 
 class SettingsColor extends StatefulWidget {
   const SettingsColor({
@@ -124,6 +125,13 @@ class _SettingsSwitchState extends State<SettingsColor> {
           // restore to previous accent color
           widget.pref.value = previousColor;
         }
+      },
+      onLongPress: () {
+        SettingsPage.showResetDialog(
+          context: context,
+          pref: widget.pref,
+          prefTitle: widget.title,
+        );
       },
     );
   }

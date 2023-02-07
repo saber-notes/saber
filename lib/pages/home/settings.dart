@@ -10,6 +10,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
@@ -21,6 +22,37 @@ class SettingsPage extends StatefulWidget {
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
+
+  static Future<bool?> showResetDialog({
+    required BuildContext context,
+    required IPref pref,
+    required String prefTitle,
+  }) async {
+    if (pref.value == pref.defaultValue) return null;
+    return await showDialog(
+      context: context,
+      builder: (context) => AdaptiveAlertDialog(
+        title: Text(t.settings.reset.title),
+        content: Text(prefTitle),
+        actions: [
+          CupertinoDialogAction(
+            onPressed: () {
+              Navigator.of(context).pop(false);
+            },
+            child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+          ),
+          CupertinoDialogAction(
+            isDestructiveAction: true,
+            onPressed: () {
+              pref.value = pref.defaultValue;
+              Navigator.of(context).pop(true);
+            },
+            child: Text(t.settings.reset.button),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _SettingsPageState extends State<SettingsPage> {
