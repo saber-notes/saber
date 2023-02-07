@@ -74,8 +74,8 @@
   "fa": {
     "settings": {
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "این تنظیمات را بازنشانی می کنید؟",
+        "button": "بازنشانی"
       }
     }
   },
