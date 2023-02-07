@@ -104,8 +104,8 @@
   "tr": {
     "settings": {
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "Ayarı sıfırlamak istiyor musunuz?",
+        "button": "Sıfırla"
       }
     }
   },
