@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:async';
-import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -581,12 +579,7 @@ class _EditorState extends State<Editor> {
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return;
 
-    PhotoInfo? photoInfo;
-    if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
-      photoInfo = await pickPhotoMobile();
-    } else {
-      photoInfo = await pickPhotoDesktop();
-    }
+    PhotoInfo? photoInfo = await pickPhotoMobile();
     if (photoInfo == null) return;
 
     EditorImage image = EditorImage(
@@ -622,23 +615,6 @@ class _EditorState extends State<Editor> {
     return PhotoInfo(
       bytes: await image.readAsBytes(),
       extension: image.name.substring(image.name.lastIndexOf('.')),
-    );
-  }
-  Future<PhotoInfo?> pickPhotoDesktop() async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: false,
-      withData: true,
-    );
-    if (result == null) return null;
-
-    Uint8List? bytes = result.files.single.bytes;
-    String? extension = result.files.single.extension;
-    if (bytes == null || extension == null) return null;
-
-    return PhotoInfo(
-      bytes: bytes,
-      extension: ".$extension",
     );
   }
 

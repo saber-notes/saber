@@ -36,7 +36,6 @@ void main() {
     // Static icons
     expect(findIcon(Icons.language), findsAtLeastNWidgets(1));
     expect(findIcon(Icons.colorize), findsAtLeastNWidgets(1));
-    expect(findIcon(Icons.system_update), findsAtLeastNWidgets(1));
     expect(findIcon(Icons.fullscreen), findsAtLeastNWidgets(1));
     expect(findIcon(Icons.cleaning_services), findsAtLeastNWidgets(1));
     expect(findIcon(Icons.photo_size_select_large), findsAtLeastNWidgets(1));
@@ -59,7 +58,7 @@ void main() {
     // findsAtLeastNWidgets(2) because of leading + trailing icons
     Prefs.platform.value = -1;
     await tester.pumpAndSettle();
-    expect(findIcon(Icons.android), findsAtLeastNWidgets(2));
+    expect(findIcon(FontAwesomeIcons.firefoxBrowser), findsAtLeastNWidgets(2));
     Prefs.platform.value = TargetPlatform.iOS.index;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.apple), findsAtLeastNWidgets(2));

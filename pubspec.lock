@@ -697,7 +697,7 @@ packages:
   onyxsdk_pen:
     dependency: "direct main"
     description:
-      path: "packages/onyxsdk_pen"
+      path: "packages/onyxsdk_pen_dummy"
       relative: true
     source: path
     version: "1.0.3"

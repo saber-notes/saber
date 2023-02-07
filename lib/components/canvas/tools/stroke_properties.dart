@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 
@@ -6,7 +5,7 @@ class StrokeProperties {
   static const Color defaultColor = Colors.black;
   static const double defaultSize = 10;
   static const double defaultThinning = 0.5;
-  static const double defaultSmoothing = kIsWeb ? 0.5 : 0;
+  static const double defaultSmoothing = 0.5;
   static const double defaultStreamline = 0.5;
   static const double defaultTaperStart = 0.0;
   static const double defaultTaperEnd = 0.0;

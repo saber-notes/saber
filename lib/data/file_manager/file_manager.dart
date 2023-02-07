@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -36,20 +35,7 @@ class FileManager {
 
   @visibleForTesting
   static Future<void> watchRootDirectory() async {
-    if (kIsWeb) return;
-    Directory rootDir = Directory(await documentsDirectory);
-    await rootDir.create(recursive: true);
-    rootDir.watch(recursive: true).listen((FileSystemEvent event) {
-      final type = event.type == FileSystemEvent.create
-          || event.type == FileSystemEvent.modify
-          || event.type == FileSystemEvent.move
-          ? FileOperationType.write
-          : FileOperationType.delete;
-      /// The path may or may not be relative,
-      /// so remove the root directory path to make sure it's relative.
-      String path = event.path.replaceFirst(rootDir.path, '');
-      broadcastFileWrite(type, path);
-    });
+    // non-web only
   }
 
   @visibleForTesting
@@ -67,18 +53,7 @@ class FileManager {
   static Future<String?> readFile(String filePath, {int retries = 3}) async {
     filePath = _sanitisePath(filePath);
 
-    String? result;
-    if (kIsWeb) {
-      result = (await _prefs).getString(filePath);
-    } else {
-      final File file = File(await documentsDirectory + filePath);
-      if (await file.exists()) {
-        result = await file.readAsString(encoding: utf8);
-        if (result.isEmpty) result = null;
-      } else {
-        retries = 0; // don't retry if the file doesn't exist
-      }
-    }
+    String? result = (await _prefs).getString(filePath);
 
     // If result is null, try again in case the file was locked.
     if (result == null && retries > 0) {
@@ -94,18 +69,11 @@ class FileManager {
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    Future writeFuture;
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      writeFuture = Future.wait({
-        prefs.setString(filePath, toWrite),
-        prefs.setInt(_lastModifiedPrefix + filePath, DateTime.now().millisecondsSinceEpoch),
-      });
-    } else {
-      final File file = File(await documentsDirectory + filePath);
-      await _createFileDirectory(filePath);
-      writeFuture = file.writeAsString(toWrite);
-    }
+    final prefs = await _prefs;
+    Future writeFuture = Future.wait({
+      prefs.setString(filePath, toWrite),
+      prefs.setInt(_lastModifiedPrefix + filePath, DateTime.now().millisecondsSinceEpoch),
+    });
 
     afterWrite() {
       broadcastFileWrite(FileOperationType.write, filePath);
@@ -139,16 +107,9 @@ class FileManager {
 
     if (fromPath == toPath) return toPath;
 
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      await prefs.setString(toPath, await readFile(fromPath) ?? "");
-      await prefs.remove(fromPath);
-    } else {
-      final File fromFile = File(await documentsDirectory + fromPath);
-      final File toFile = File(await documentsDirectory + toPath);
-      await _createFileDirectory(toPath);
-      if (await fromFile.exists()) await fromFile.rename(toFile.path);
-    }
+    final prefs = await _prefs;
+    await prefs.setString(toPath, await readFile(fromPath) ?? "");
+    await prefs.remove(fromPath);
 
     FileSyncer.addToUploadQueue(fromPath);
     FileSyncer.addToUploadQueue(toPath);
@@ -163,20 +124,11 @@ class FileManager {
   static Future deleteFile(String filePath, {bool alsoUpload = true}) async {
     filePath = _sanitisePath(filePath);
 
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      if (prefs.containsKey(filePath)) {
-        await prefs.remove(filePath);
-      } else {
-        return;
-      }
+    final prefs = await _prefs;
+    if (prefs.containsKey(filePath)) {
+      await prefs.remove(filePath);
     } else {
-      final File file = File(await documentsDirectory + filePath);
-      if (await file.exists()) {
-        await file.delete();
-      } else {
-        return;
-      }
+      return;
     }
 
     if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
@@ -192,40 +144,15 @@ class FileManager {
     final Iterable<String> allChildren;
     final List<String> directories = [], files = [];
 
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      allChildren = prefs.getKeys()
-          // .where((String file) => file.startsWith('/')) // directory already starts with '/'
-          .where((String file) => file.startsWith(directory)) // filter out other directories
-          .where((String file) => !Editor.reservedFileNames.contains(file)) // filter out reserved file names
-          .map((String file) => file.substring(directory.length)) // remove directory prefix
-          .map((String file) => file.contains('/') ? file.substring(0, file.indexOf('/')) : file) // remove nested folder names
-          .map((String file) => file.endsWith(Editor.extension) ? file.substring(0, file.length - Editor.extension.length) : file) // remove extension
-          .toSet();
-    } else {
-      final String documentsDirectory = await FileManager.documentsDirectory;
-      final Directory dir = Directory(documentsDirectory + directory);
-      if (!await dir.exists()) return null;
-
-      int directoryPrefixLength = directory.endsWith('/') ? directory.length : directory.length + 1; // +1 for the trailing slash
-      allChildren = await dir.list()
-          .map((FileSystemEntity entity) {
-            String filename = entity.path.substring(documentsDirectory.length);
-
-            if (filename.endsWith(Editor.extension)) { // remove extension
-              filename = filename.substring(0, filename.length - Editor.extension.length);
-            }
-
-            if (Editor.reservedFileNames.contains(filename)) return null; // filter out reserved file names
-
-            filename = filename.substring(directoryPrefixLength); // remove directory prefix
-
-            return filename;
-          })
-          .where((String? file) => file != null)
-          .cast<String>()
-          .toList();
-    }
+    final prefs = await _prefs;
+    allChildren = prefs.getKeys()
+    //  .where((String file) => file.startsWith('/')) // directory already starts with '/'
+        .where((String file) => file.startsWith(directory)) // filter out other directories
+        .where((String file) => !Editor.reservedFileNames.contains(file)) // filter out reserved file names
+        .map((String file) => file.substring(directory.length)) // remove directory prefix
+        .map((String file) => file.contains('/') ? file.substring(0, file.indexOf('/')) : file) // remove nested folder names
+        .map((String file) => file.endsWith(Editor.extension) ? file.substring(0, file.length - Editor.extension.length) : file) // remove extension
+        .toSet();
 
     await Future.wait(allChildren.map((child) async {
       if (await FileManager.isDirectory(directory + child)) {
@@ -256,37 +183,22 @@ class FileManager {
   /// Behaviour is undefined if [filePath] is not a valid path.
   static Future<bool> isDirectory(String filePath) async {
     filePath = _sanitisePath(filePath);
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      return !prefs.containsKey(filePath + Editor.extension);
-    } else {
-      final Directory directory = Directory(await documentsDirectory + filePath);
-      return await directory.exists();
-    }
+    final prefs = await _prefs;
+    return !prefs.containsKey(filePath + Editor.extension);
   }
 
   static Future<bool> doesFileExist(String filePath) async {
     filePath = _sanitisePath(filePath);
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      return prefs.containsKey(filePath);
-    } else {
-      final File file = File(await documentsDirectory + filePath);
-      return await file.exists();
-    }
+    final prefs = await _prefs;
+    return prefs.containsKey(filePath);
   }
 
   static Future<DateTime> lastModified(String filePath) async {
     filePath = _sanitisePath(filePath);
-    if (kIsWeb) {
-      final prefs = await _prefs;
-      int? date = prefs.getInt(_lastModifiedPrefix + filePath);
-      if (date == null) return DateTime(2022, 09, 09); // date when lastModifiedPrefix was introduced
-      return DateTime.fromMillisecondsSinceEpoch(date);
-    } else {
-      final File file = File(await documentsDirectory + filePath);
-      return await file.lastModified();
-    }
+    final prefs = await _prefs;
+    int? date = prefs.getInt(_lastModifiedPrefix + filePath);
+    if (date == null) return DateTime(2022, 09, 09); // date when lastModifiedPrefix was introduced
+    return DateTime.fromMillisecondsSinceEpoch(date);
   }
 
   static Future<String> newFilePath([String parentPath = "/"]) async {
@@ -321,37 +233,6 @@ class FileManager {
     }
 
     return newFilePath + (hasExtension ? Editor.extension : "");
-  }
-
-  /// Imports a file from a sharing intent.
-  /// Returns the file path of the imported file.
-  static Future<String?> importFile(String path, {bool awaitWrite = true}) async {
-    assert(!kIsWeb, "importFile is not supported on web");
-    if (kIsWeb) return null;
-
-    final String fileName = path.split('/').last;
-    final String importedPath = await suffixFilePathToMakeItUnique("/$fileName");
-
-    final File tempFile = File(path);
-    final String fileContents;
-    try {
-      fileContents = await tempFile.readAsString();
-    } catch (e) {
-      if (kDebugMode) print("Failed to read file as string when importing $path");
-      return null;
-    }
-
-    await writeFile(importedPath, fileContents, awaitWrite: awaitWrite);
-
-    return importedPath;
-  }
-
-
-  /// Creates the parent directories of filePath if they don't exist.
-  static Future _createFileDirectory(String filePath) async {
-    assert(filePath.contains('/'), "filePath must be a path, not a file name");
-    final String parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
-    await Directory(await documentsDirectory + parentDirectory).create(recursive: true);
   }
 
   static Future _renameReferences(String fromPath, String toPath) async {

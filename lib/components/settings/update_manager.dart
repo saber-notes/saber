@@ -1,113 +1,13 @@
-
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:saber/components/theming/adaptive_alert_dialog.dart';
-import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
-import 'package:saber/data/version.dart' as version;
-import 'package:saber/components/settings/do_update/do_update.dart'
-  if (dart.library.html) 'package:saber/components/settings/do_update/do_update_web.dart';
-import 'package:saber/i18n/strings.g.dart';
 
 abstract class UpdateManager {
   static final Uri versionUrl = Uri.parse("https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart");
   /// The availability of an update.
   static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
 
-  static bool _hasShownUpdateDialog = false;
   static Future<void> showUpdateDialog(BuildContext context, {bool userTriggered = false}) async {
-    if (!userTriggered) {
-      if (status.value == UpdateStatus.upToDate) { // check for updates if not already done
-        await Prefs.shouldCheckForUpdates.waitUntilLoaded();
-        if (!Prefs.shouldCheckForUpdates.value) return;
-        status.value = await _checkForUpdate();
-      }
-      if (status.value != UpdateStatus.updateRecommended) return; // no update available
-      if (_hasShownUpdateDialog) return; // already shown
-    }
-
-    if (!context.mounted) return;
-    _hasShownUpdateDialog = true;
-    return await showDialog(
-      context: context,
-      builder: (context) => AdaptiveAlertDialog(
-        title: Text(t.update.updateAvailable),
-        content: Text(t.update.updateAvailableDescription),
-        actions: [
-          CupertinoDialogAction(
-            onPressed: () => Navigator.pop(context),
-            child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
-          ),
-          CupertinoDialogAction(
-            onPressed: doUpdate,
-            child: Text(t.update.update),
-          ),
-        ],
-      ),
-    );
-  }
-
-  static Future<UpdateStatus> _checkForUpdate() async {
-    const int currentVersion = version.buildNumber;
-
-    final int newestVersion;
-    try {
-      newestVersion = await getNewestVersion() ?? 0;
-    } catch (e) {
-      return UpdateStatus.upToDate;
-    }
-
-    return getUpdateStatus(currentVersion, newestVersion);
-  }
-
-  /// Returns the version number hosted on GitHub (at [versionUrl]).
-  /// If you provide a [latestVersionFile] (i.e. for testing),
-  /// it will be used instead of downloading from GitHub.
-  @visibleForTesting
-  static Future<int?> getNewestVersion([String? latestVersionFile]) async {
-    latestVersionFile ??= await _downloadLatestVersionFileFromGitHub();
-    if (latestVersionFile == null) return null;
-
-    // extract the number from the latest version.dart
-    final RegExp numberRegex = RegExp(r'(\d+)');
-    final RegExpMatch? newestVersionMatch = numberRegex.firstMatch(latestVersionFile);
-    if (newestVersionMatch == null) return null;
-
-    final int newestVersion = int.tryParse(newestVersionMatch[0] ?? "0") ?? 0;
-    if (newestVersion == 0) return null;
-
-    return newestVersion;
-  }
-
-  static Future<String?> _downloadLatestVersionFileFromGitHub() async {
-    // download the latest version.dart
-    final http.Response response;
-    try {
-      response = await http.get(versionUrl);
-    } catch (e) {
-      throw const SocketException("Failed to download version.dart");
-    }
-    if (response.statusCode >= 400) throw SocketException("Failed to download version.dart, HTTP status code ${response.statusCode}");
-
-    return response.body;
-  }
-
-  @visibleForTesting
-  static UpdateStatus getUpdateStatus(int currentVersion, int newestVersion, {bool? alwaysRecommendUpdates}) {
-    alwaysRecommendUpdates ??= kDebugMode || FlavorConfig.dirty;
-
-    if (newestVersion <= currentVersion) {
-      return UpdateStatus.upToDate;
-    } else if (newestVersion ~/ 10 <= currentVersion ~/ 10 + 1 && !alwaysRecommendUpdates) {
-      // ignore 1 minor update so the user isn't prompted too often
-      return UpdateStatus.updateOptional;
-    } else {
-      return UpdateStatus.updateRecommended;
-    }
+    // non-web only
   }
 }
 

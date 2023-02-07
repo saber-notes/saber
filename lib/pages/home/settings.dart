@@ -11,7 +11,6 @@ import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
-import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -48,14 +47,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
 
-    final bool requiresManualUpdates = !kIsWeb && FlavorConfig.appStore == null;
-
-    final IconData materialIcon = () {
-      if (kIsWeb) return FontAwesomeIcons.firefoxBrowser;
-      if (defaultTargetPlatform == TargetPlatform.linux) return FontAwesomeIcons.linux;
-      if (defaultTargetPlatform == TargetPlatform.windows) return FontAwesomeIcons.windows;
-      return Icons.android;
-    }();
+    const IconData materialIcon = FontAwesomeIcons.firefoxBrowser;
 
     return Scaffold(
       body: CustomScrollView(
@@ -146,7 +138,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           if (usesMaterialByDefault) return -1;
                           return TargetPlatform.android.index;
                         }(),
-                        Icon(materialIcon, semanticLabel: "Material"),
+                        const Icon(materialIcon, semanticLabel: "Material"),
                       ),
                       ToggleButtonsOption(
                             () {
@@ -170,11 +162,6 @@ class _SettingsPageState extends State<SettingsPage> {
                       return cupertino ? CupertinoIcons.textformat_alt : Icons.font_download_off;
                     },
                     pref: Prefs.hyperlegibleFont,
-                  ),
-                  if (requiresManualUpdates) SettingsSwitch(
-                    title: t.settings.prefLabels.shouldCheckForUpdates,
-                    icon: Icons.system_update,
-                    pref: Prefs.shouldCheckForUpdates,
                   ),
                   const SizedBox(height: 16),
                 ],

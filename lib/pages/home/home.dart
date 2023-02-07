@@ -1,16 +1,7 @@
-
-import 'dart:io';
-
-import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
-import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
-import 'package:saber/data/prefs.dart';
-import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/pages/home/settings.dart';
@@ -42,42 +33,10 @@ class _HomePageState extends State<HomePage> {
     DynamicMaterialApp.addFullscreenListener(_setState);
     super.initState();
     UpdateManager.showUpdateDialog(context);
-    showSPenWarning();
     showWebDeprecationAlert();
   }
 
-  void showSPenWarning() async {
-    if (kIsWeb) return;
-    if (!Platform.isAndroid) return;
-
-    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-    if (androidInfo.brand.toLowerCase() != "samsung") return;
-
-    await Prefs.hasBeenWarnedAboutSPen.waitUntilLoaded();
-    if (Prefs.hasBeenWarnedAboutSPen.value) return;
-
-    if (!mounted) return;
-    await showDialog(
-      context: context,
-      builder: (context) => AdaptiveAlertDialog(
-        title: Text(t.sPenWarning.title),
-        content: Text(t.sPenWarning.description),
-        actions: [
-          CupertinoDialogAction(
-            onPressed: () => Navigator.pop(context),
-            child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
-          ),
-        ],
-      ),
-    );
-
-    Prefs.hasBeenWarnedAboutSPen.value = true;
-  }
-
   void showWebDeprecationAlert() async {
-    if (!kIsWeb) return;
-
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(

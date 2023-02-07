@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
