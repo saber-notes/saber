@@ -92,8 +92,8 @@
   "zh-Hant-TW": {
     "settings": {
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "重設此設定?",
+        "button": "重設"
       }
     }
   }
