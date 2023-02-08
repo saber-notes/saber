@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1280 (128 per locale)
+/// Strings: 1282 (128 per locale)
 ///
-/// Built on 2023-02-08 at 13:15 UTC
+/// Built on 2023-02-08 at 14:44 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3161,6 +3161,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
 	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
 	@override String get systemLanguage => 'Язык системы';
+	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 }
 
 // Path: login
@@ -3312,6 +3313,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get maxImageSize => 'Макс. размер изображения';
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
+	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 }
 
 // Path: settings.prefDescriptions
@@ -3327,6 +3329,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
+	@override String get hideHomeBackgrounds => 'Для чистого вида';
 }
 
 // Path: settings.themeModes
@@ -3361,6 +3364,17 @@ class _StringsSettingsStraightenDelayRu extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Выкл.';
 	@override String get regular => 'Обычно';
 	@override String get slow => 'Долго';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetRu extends _StringsSettingsResetEn {
+	_StringsSettingsResetRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Сбросить эту настройку?';
+	@override String get button => 'Сбросить';
 }
 
 // Path: login.feedbacks

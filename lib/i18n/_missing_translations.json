@@ -73,20 +73,7 @@
   },
   "fa": {},
   "it": {},
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
-      },
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    }
-  },
+  "ru": {},
   "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
