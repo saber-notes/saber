@@ -73,20 +73,7 @@
   },
   "fa": {},
   "it": {},
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "hideHomeBackgrounds": "Скрыть фон на главном экране"
-      },
-      "prefDescriptions": {
-        "hideHomeBackgrounds": "Для чистого вида"
-      },
-      "reset": {
-        "title": "Сбросить эту настройку?",
-        "button": "Сбросить"
-      }
-    }
-  },
+  "ru": {},
   "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {
