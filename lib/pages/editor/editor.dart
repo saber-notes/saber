@@ -581,65 +581,72 @@ class _EditorState extends State<Editor> {
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return;
 
-    PhotoInfo? photoInfo;
+    List<PhotoInfo> photoInfos;
     if (Platform.isAndroid || Platform.isIOS) {
-      photoInfo = await pickPhotoMobile();
+      photoInfos = await pickPhotoMobile();
     } else {
-      photoInfo = await pickPhotoDesktop();
+      photoInfos = await pickPhotoDesktop();
     }
-    if (photoInfo == null) return;
+    if (photoInfos.isEmpty) return;
 
-    EditorImage image = EditorImage(
-      id: coreInfo.nextImageId++,
-      extension: photoInfo.extension,
-      bytes: photoInfo.bytes,
-      pageIndex: currentPageIndex,
-      pageSize: coreInfo.pages[currentPageIndex].size,
-      onMoveImage: onMoveImage,
-      onDeleteImage: onDeleteImage,
-      onMiscChange: autosaveAfterDelay,
-      onLoad: () => setState(() {}),
-    );
+    List<EditorImage> images = [
+      for (final PhotoInfo photoInfo in photoInfos)
+        EditorImage(
+          id: coreInfo.nextImageId++,
+          extension: photoInfo.extension,
+          bytes: photoInfo.bytes,
+          pageIndex: currentPageIndex,
+          pageSize: coreInfo.pages[currentPageIndex].size,
+          onMoveImage: onMoveImage,
+          onDeleteImage: onDeleteImage,
+          onMiscChange: autosaveAfterDelay,
+          onLoad: () => setState(() {}),
+        ),
+    ];
+
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.draw,
       strokes: [],
-      images: [image],
+      images: images,
     ));
-    coreInfo.pages[currentPageIndex].images.add(image);
+    coreInfo.pages[currentPageIndex].images.addAll(images);
     autosaveAfterDelay();
   }
 
-  Future<PhotoInfo?> pickPhotoMobile() async {
+  Future<List<PhotoInfo>> pickPhotoMobile() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(
-      source: ImageSource.gallery,
+
+    final List<XFile> images = await picker.pickMultiImage(
       maxWidth: 1000,
       maxHeight: 1000,
       imageQuality: 90,
       requestFullMetadata: false,
     );
-    if (image == null) return null;
-    return PhotoInfo(
-      bytes: await image.readAsBytes(),
-      extension: image.name.substring(image.name.lastIndexOf('.')),
-    );
+
+    return [
+      for (final XFile image in images)
+        PhotoInfo(
+          bytes: await image.readAsBytes(),
+          extension: image.name.substring(image.name.lastIndexOf('.')),
+        ),
+    ];
   }
-  Future<PhotoInfo?> pickPhotoDesktop() async {
+  Future<List<PhotoInfo>> pickPhotoDesktop() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.image,
-      allowMultiple: false,
+      allowMultiple: true,
       withData: true,
     );
-    if (result == null) return null;
+    if (result == null) return const [];
 
-    Uint8List? bytes = result.files.single.bytes;
-    String? extension = result.files.single.extension;
-    if (bytes == null || extension == null) return null;
-
-    return PhotoInfo(
-      bytes: bytes,
-      extension: ".$extension",
-    );
+    return [
+      for (final PlatformFile file in result.files)
+        if (file.bytes != null && file.extension != null)
+          PhotoInfo(
+            bytes: file.bytes!,
+            extension: ".${file.extension}",
+          ),
+    ];
   }
 
   Future exportAsPdf() async {
