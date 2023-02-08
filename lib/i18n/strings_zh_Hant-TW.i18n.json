@@ -66,6 +66,10 @@
       "general": "一般",
       "layout": "佈局",
       "writing": "書寫"
+    },
+    "reset": {
+      "title": "重設此設定?",
+      "button": "重設"
     }
   },
   "login": {

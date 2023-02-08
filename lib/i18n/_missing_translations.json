@@ -76,12 +76,5 @@
   "ru": {},
   "tr": {},
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }

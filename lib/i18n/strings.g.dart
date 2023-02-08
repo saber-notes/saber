@@ -4685,6 +4685,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
 	@override String get systemLanguage => '系統語言';
 	@override late final _StringsSettingsPrefCategoriesZhHantTw prefCategories = _StringsSettingsPrefCategoriesZhHantTw._(_root);
+	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 }
 
 // Path: login
@@ -4887,6 +4888,17 @@ class _StringsSettingsPrefCategoriesZhHantTw extends _StringsSettingsPrefCategor
 	@override String get general => '一般';
 	@override String get layout => '佈局';
 	@override String get writing => '書寫';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetZhHantTw extends _StringsSettingsResetEn {
+	_StringsSettingsResetZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '重設此設定?';
+	@override String get button => '重設';
 }
 
 // Path: login.feedbacks
