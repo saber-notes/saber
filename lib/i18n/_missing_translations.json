@@ -6,8 +6,8 @@
   "cs": {
     "settings": {
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "Chcete resetovat tuto volbu?",
+        "button": "Resetovat"
       }
     },
     "editor": {
