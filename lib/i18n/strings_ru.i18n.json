@@ -42,6 +42,7 @@
       "maxImageSize": "Макс. размер изображения",
       "autoClearWhiteboardOnExit": "Очищать лист при выходе из приложения",
       "editorPromptRename": "Предлагать переименовывать новые заметки"
+      "hideHomeBackgrounds": "Скрыть фон на главном экране"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
@@ -50,6 +51,7 @@
       "autoClearWhiteboardOnExit": "Это будет синхронизировано с другими вашими устройствами",
       "maxImageSize": "Большие изображения будут сжаты",
       "editorPromptRename": "Вы всегда можете переименовать заметки позже"
+      "hideHomeBackgrounds": "Для чистого вида"
     },
     "themeModes": {
       "system": "Системная",
@@ -64,7 +66,11 @@
       "regular": "Обычно",
       "slow": "Долго"
     },
-    "systemLanguage": "Язык системы"
+    "systemLanguage": "Язык системы",
+    "reset": {
+      "title": "Сбросить эту настройку?",
+      "button": "Сбросить"
+    }
   },
   "login": {
     "title": "Авторизация",

@@ -76,14 +76,14 @@
   "ru": {
     "settings": {
       "prefLabels": {
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "hideHomeBackgrounds": "Скрыть фон на главном экране"
       },
       "prefDescriptions": {
-        "hideHomeBackgrounds": "For a cleaner look"
+        "hideHomeBackgrounds": "Для чистого вида"
       },
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "Сбросить эту настройку?",
+        "button": "Сбросить"
       }
     }
   },
