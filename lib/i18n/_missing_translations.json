@@ -89,12 +89,5 @@
   },
   "tr": {},
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "reset": {
-        "title": "重設此設定?",
-        "button": "重設"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
