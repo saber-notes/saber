@@ -71,14 +71,7 @@
       }
     }
   },
-  "fa": {
-    "settings": {
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    }
-  },
+  "fa": {},
   "it": {},
   "ru": {
     "settings": {

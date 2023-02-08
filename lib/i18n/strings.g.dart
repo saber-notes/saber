@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1276 (127 per locale)
+/// Strings: 1278 (127 per locale)
 ///
-/// Built on 2023-02-07 at 22:58 UTC
+/// Built on 2023-02-08 at 01:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2145,6 +2145,7 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerFa accentColorPicker = _StringsSettingsAccentColorPickerFa._(_root);
 	@override late final _StringsSettingsStraightenDelayFa straightenDelay = _StringsSettingsStraightenDelayFa._(_root);
 	@override String get systemLanguage => 'زبان سیستم';
+	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
 }
 
 // Path: login
@@ -2347,6 +2348,17 @@ class _StringsSettingsStraightenDelayFa extends _StringsSettingsStraightenDelayE
 	@override String get off => 'خاموش';
 	@override String get regular => 'منظم';
 	@override String get slow => 'آهسته';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetFa extends _StringsSettingsResetEn {
+	_StringsSettingsResetFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'این تنظیمات را بازنشانی می کنید؟';
+	@override String get button => 'بازنشانی';
 }
 
 // Path: login.feedbacks
