@@ -12,7 +12,7 @@ and the changelogs on the
 ## What data does the application use?
 
 Data the application uses includes the user's:
-- Notes
+- Notes (including images and backgrounds)
 - Settings
 - Online cloud service (referred to as "the cloud") credentials including:
   - the cloud server URI
