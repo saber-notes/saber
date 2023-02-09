@@ -67,16 +67,12 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    style: !widget.coreInfo.isEmpty ? TextButton.styleFrom(
-                      backgroundColor: colorScheme.primary,
-                      foregroundColor: colorScheme.onPrimary,
-                    ) : null,
                     onPressed: !widget.coreInfo.isEmpty ? () {
                       widget.clearPage();
                       Navigator.pop(context);
                     } : null,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
                       children: [
                         const AdaptiveIcon(
                           icon: Icons.delete,
@@ -91,16 +87,12 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: ElevatedButton(
-                    style: !widget.coreInfo.isEmpty ? TextButton.styleFrom(
-                      backgroundColor: colorScheme.primary,
-                      foregroundColor: colorScheme.onPrimary,
-                    ) : null,
                     onPressed: !widget.coreInfo.isEmpty ? () {
                       widget.clearAllPages();
                       Navigator.pop(context);
                     } : null,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
                       children: [
                         const AdaptiveIcon(
                           icon: Icons.delete_sweep,
