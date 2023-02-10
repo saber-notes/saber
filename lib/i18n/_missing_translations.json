@@ -96,15 +96,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Фоновое изображение",
-        "backgroundPattern": "Фоновый шаблон",
-        "import": "Импорт"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "editor": {
       "menu": {
