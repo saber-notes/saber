@@ -83,15 +83,7 @@
     }
   },
   "ru": {},
-  "tr": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Arkaplan görseli",
-        "backgroundPattern": "Arkaplan deseni",
-        "import": "İçe aktar"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

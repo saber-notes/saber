@@ -4078,6 +4078,9 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get removeBgImage => 'Arkaplan görselini kaldır';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
+	@override String get backgroundImage => 'Arkaplan görseli';
+	@override String get backgroundPattern => 'Arkaplan deseni';
+	@override String get import => 'İçe aktar';
 }
 
 // Path: editor.newerFileFormat
