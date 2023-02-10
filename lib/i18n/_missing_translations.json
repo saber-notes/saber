@@ -73,15 +73,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Immagine di sfondo",
-        "backgroundPattern": "Modello di sfondo",
-        "import": "Importa"
-      }
-    }
-  },
+  "it": {},
   "ru": {},
   "tr": {},
   "zh-Hans-CN": {},

@@ -179,7 +179,10 @@
         "lined": "Lined",
         "grid": "Griglia",
         "dots": "Punti"
-      }
+      },
+      "backgroundImage": "Immagine di sfondo",
+      "backgroundPattern": "Modello di sfondo",
+      "import": "Importa"
     },
     "newerFileFormat": {
       "readOnlyMode": "Modalità di sola lettura",

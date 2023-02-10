@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1307 (130 per locale)
+/// Strings: 1310 (131 per locale)
 ///
-/// Built on 2023-02-10 at 17:21 UTC
+/// Built on 2023-02-10 at 17:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3059,6 +3059,9 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get removeBgImage => 'Rimuovi l\'immagine di sfondo';
 	@override late final _StringsEditorMenuBoxFitsIt boxFits = _StringsEditorMenuBoxFitsIt._(_root);
 	@override late final _StringsEditorMenuBgPatternsIt bgPatterns = _StringsEditorMenuBgPatternsIt._(_root);
+	@override String get backgroundImage => 'Immagine di sfondo';
+	@override String get backgroundPattern => 'Modello di sfondo';
+	@override String get import => 'Importa';
 }
 
 // Path: editor.newerFileFormat
