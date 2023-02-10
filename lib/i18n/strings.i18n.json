@@ -137,7 +137,7 @@
       "toggleColors": "Toggle colors (Ctrl C)",
       "select": "Select",
       "toggleEraser": "Toggle eraser (Ctrl E)",
-      "photo": "Photo",
+      "photo": "Images",
       "text": "Text",
       "toggleFingerDrawing": "Toggle finger drawing (Ctrl F)",
       "undo": "Undo",
@@ -170,6 +170,7 @@
       "backgroundImage": "Background image",
       "backgroundPattern": "Background pattern",
       "removeBgImage": "Remove background image",
+      "import": "Import",
       "boxFits": {
         "fill": "Stretch",
         "cover": "Cover",

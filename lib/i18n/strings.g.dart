@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1286 (128 per locale)
+/// Strings: 1287 (128 per locale)
 ///
-/// Built on 2023-02-10 at 00:00 UTC
+/// Built on 2023-02-10 at 00:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -514,7 +514,7 @@ class _StringsEditorToolbarEn {
 	String get toggleColors => 'Toggle colors (Ctrl C)';
 	String get select => 'Select';
 	String get toggleEraser => 'Toggle eraser (Ctrl E)';
-	String get photo => 'Photo';
+	String get photo => 'Images';
 	String get text => 'Text';
 	String get toggleFingerDrawing => 'Toggle finger drawing (Ctrl F)';
 	String get undo => 'Undo';
@@ -575,6 +575,7 @@ class _StringsEditorMenuEn {
 	String get backgroundImage => 'Background image';
 	String get backgroundPattern => 'Background pattern';
 	String get removeBgImage => 'Remove background image';
+	String get import => 'Import';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
 	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
 }
