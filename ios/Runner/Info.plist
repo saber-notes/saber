@@ -62,5 +62,12 @@
     <string>Include your photos in your notes</string>
     <key>NSCameraUsageDescription</key>
     <string>Take photos to add to your notes</string>
+    <key>UIBackgroundModes</key>
+    <array>
+       <string>fetch</string>
+       <string>remote-notification</string>
+    </array>
+    <key>UISupportsDocumentBrowser</key>
+    <true/>
 </dict>
 </plist>
