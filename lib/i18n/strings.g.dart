@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1293 (129 per locale)
+/// Strings: 1296 (129 per locale)
 ///
-/// Built on 2023-02-10 at 03:11 UTC
+/// Built on 2023-02-10 at 09:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4568,6 +4568,9 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get removeBgImage => '移除背景图片';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
+	@override String get backgroundImage => '背景图片';
+	@override String get backgroundPattern => '背景图案';
+	@override String get import => '导入';
 }
 
 // Path: editor.newerFileFormat

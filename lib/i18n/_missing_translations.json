@@ -114,14 +114,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "背景图片",
-        "backgroundPattern": "背景图案",
-        "import": "导入"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
