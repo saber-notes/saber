@@ -86,15 +86,7 @@
       }
     }
   },
-  "fa": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "تصویر پس زمینه",
-        "backgroundPattern": "الگوی پس زمینه",
-        "import": "واردکردن"
-      }
-    }
-  },
+  "fa": {},
   "it": {
     "editor": {
       "menu": {

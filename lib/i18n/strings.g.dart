@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1290 (129 per locale)
+/// Strings: 1293 (129 per locale)
 ///
-/// Built on 2023-02-10 at 02:46 UTC
+/// Built on 2023-02-10 at 03:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2533,6 +2533,9 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get removeBgImage => 'حذف تصویر پس زمینه';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
+	@override String get backgroundImage => 'تصویر پس زمینه';
+	@override String get backgroundPattern => 'الگوی پس زمینه';
+	@override String get import => 'واردکردن';
 }
 
 // Path: editor.newerFileFormat
