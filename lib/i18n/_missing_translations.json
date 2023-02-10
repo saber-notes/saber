@@ -86,15 +86,7 @@
       }
     }
   },
-  "fa": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      }
-    }
-  },
+  "fa": {},
   "it": {
     "editor": {
       "menu": {

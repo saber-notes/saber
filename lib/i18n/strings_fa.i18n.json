@@ -179,7 +179,10 @@
         "lined": "خط کشی شده",
         "grid": "توری",
         "dots": "نقطه ای"
-      }
+      },
+      "backgroundImage": "تصویر پس زمینه",
+      "backgroundPattern": "الگوی پس زمینه",
+      "import": "واردکردن"
     },
     "newerFileFormat": {
       "readOnlyMode": "حالت فقط خواندنی",
