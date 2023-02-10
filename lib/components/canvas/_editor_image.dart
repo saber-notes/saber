@@ -227,7 +227,7 @@ class EditorImage {
 
     decoded = image.bakeOrientation(decoded);
 
-    return image.encodePng(decoded) as Uint8List;
+    return image.encodePng(decoded);
   }
 
   /// Inverts each pixel of the image
@@ -235,19 +235,19 @@ class EditorImage {
     image.Image? decoded = image.decodeImage(originalImageBytes);
     if (decoded == null) return null;
 
-    for (int x = 0; x < decoded.width; ++x) {
-      for (int y = 0; y < decoded.height; ++y) {
-        int pixel = decoded.getPixel(x, y);
-        int r = image.getRed(pixel),
-            g = image.getGreen(pixel),
-            b = image.getBlue(pixel),
-            a = image.getAlpha(pixel);
-        Color inverted = Color.fromRGBO(r, g, b, 1).withInversion();
-        int invertedInt = image.getColor(inverted.red, inverted.green, inverted.blue, a);
-        decoded.setPixel(x, y, invertedInt);
-      }
+    for (image.Pixel pixel in decoded) {
+      Color inverted = Color.fromRGBO(
+        pixel.r.toInt(),
+        pixel.g.toInt(),
+        pixel.b.toInt(),
+        1,
+      ).withInversion();
+
+      pixel.r = inverted.red;
+      pixel.g = inverted.green;
+      pixel.b = inverted.blue;
     }
 
-    return image.encodePng(decoded) as Uint8List;
+    return image.encodePng(decoded);
   }
 }
