@@ -69,8 +69,9 @@ class EditorImage {
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-  }): invertible = true,
-      backgroundFit = BoxFit.contain {
+  }) :  assert(extension.startsWith(".")),
+        invertible = true,
+        backgroundFit = BoxFit.contain {
     _getImage(pageSize: pageSize).then((_) => onLoad?.call());
   }
 

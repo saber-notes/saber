@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_color
   flutter_secure_storage_windows
   pasteboard
+  printing
   screen_retriever
   share_plus
   url_launcher_windows
