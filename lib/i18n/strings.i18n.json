@@ -167,6 +167,8 @@
       "clearAllPages": "Clear all pages",
       "lineHeight": "Line height",
       "lineHeightDescription": "The size of each line",
+      "backgroundImage": "Background image",
+      "backgroundPattern": "Background pattern",
       "removeBgImage": "Remove background image",
       "boxFits": {
         "fill": "Stretch",

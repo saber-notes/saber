@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1282 (128 per locale)
+/// Strings: 1286 (128 per locale)
 ///
-/// Built on 2023-02-08 at 14:44 UTC
+/// Built on 2023-02-10 at 00:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -572,6 +572,8 @@ class _StringsEditorMenuEn {
 	String get clearAllPages => 'Clear all pages';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'The size of each line';
+	String get backgroundImage => 'Background image';
+	String get backgroundPattern => 'Background pattern';
 	String get removeBgImage => 'Remove background image';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
 	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
