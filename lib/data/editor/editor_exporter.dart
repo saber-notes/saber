@@ -18,7 +18,7 @@ abstract class EditorExporter {
       coreInfo.pages
         // don't export the empty last page
         .whereIndexed((index, page) =>
-           index != coreInfo.pages.length - 1 || !page.isEmpty)
+           index != coreInfo.pages.length - 1 || page.isNotEmpty)
         // screenshot each page
         .mapIndexed((index, page) => screenshotPage(
           coreInfo: coreInfo,

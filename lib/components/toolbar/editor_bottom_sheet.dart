@@ -73,7 +73,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: !widget.coreInfo.isEmpty ? () {
+                    onPressed: widget.coreInfo.isNotEmpty ? () {
                       widget.clearPage();
                       Navigator.pop(context);
                     } : null,
@@ -93,7 +93,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: !widget.coreInfo.isEmpty ? () {
+                    onPressed: widget.coreInfo.isNotEmpty ? () {
                       widget.clearAllPages();
                       Navigator.pop(context);
                     } : null,

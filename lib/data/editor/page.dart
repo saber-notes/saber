@@ -42,6 +42,7 @@ class EditorPage extends Listenable {
       && images.isEmpty
       && quill.controller.document.isEmpty()
       && backgroundImage == null;
+  bool get isNotEmpty => !isEmpty;
 
   EditorPage({
     Size? size,

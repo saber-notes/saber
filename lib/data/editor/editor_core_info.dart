@@ -48,6 +48,7 @@ class EditorCoreInfo {
     );
 
   bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
+  bool get isNotEmpty => !isEmpty;
 
   EditorCoreInfo({
     required this.filePath,
@@ -195,7 +196,7 @@ class EditorCoreInfo {
 
     // add a page if there are no pages,
     // or if the last page is not empty
-    if (pages.isEmpty || !pages.last.isEmpty && !onlyFirstPage) {
+    if (pages.isEmpty || pages.last.isNotEmpty && !onlyFirstPage) {
       pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
     }
   }
