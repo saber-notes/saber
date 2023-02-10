@@ -179,7 +179,10 @@
         "lined": "横线",
         "grid": "网格",
         "dots": "点"
-      }
+      },
+      "backgroundImage": "背景图片",
+      "backgroundPattern": "背景图案",
+      "import": "导入"
     },
     "newerFileFormat": {
       "title": "此笔记使用新版 Saber 编辑而成",

@@ -114,14 +114,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
