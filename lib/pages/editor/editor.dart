@@ -689,6 +689,7 @@ class _EditorState extends State<Editor> {
         bytes: imageBytes,
         pageIndex: coreInfo.pages.length,
         pageSize: editorPage.size,
+        maxSize: const Size.square(3000), // allow pdf images to be big
         onMoveImage: onMoveImage,
         onDeleteImage: onDeleteImage,
         onMiscChange: autosaveAfterDelay,
