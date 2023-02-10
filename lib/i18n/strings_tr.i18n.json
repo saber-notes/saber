@@ -179,7 +179,10 @@
         "lined": "Çizgili",
         "grid": "Kareli",
         "dots": "Noktalı"
-      }
+      },
+      "backgroundImage": "Arkaplan görseli",
+      "backgroundPattern": "Arkaplan deseni",
+      "import": "İçe aktar"
     },
     "newerFileFormat": {
       "readOnlyMode": "Yalnızca okunabilir mod",

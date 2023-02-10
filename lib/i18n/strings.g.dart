@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1304 (130 per locale)
+/// Strings: 1307 (130 per locale)
 ///
-/// Built on 2023-02-10 at 17:15 UTC
+/// Built on 2023-02-10 at 17:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4078,6 +4078,9 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get removeBgImage => 'Arkaplan görselini kaldır';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
+	@override String get backgroundImage => 'Arkaplan görseli';
+	@override String get backgroundPattern => 'Arkaplan deseni';
+	@override String get import => 'İçe aktar';
 }
 
 // Path: editor.newerFileFormat
