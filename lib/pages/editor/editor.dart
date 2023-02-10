@@ -78,12 +78,19 @@ class _EditorState extends State<Editor> {
 
   QuillStruct? lastFocusedQuill;
 
+  /// Whether the platform can rasterize a pdf
+  bool canRasterPdf = true;
+
   @override
   void initState() {
     DynamicMaterialApp.addFullscreenListener(_setState);
 
     _initAsync();
     _assignKeybindings();
+
+    Printing.info().then((info) {
+      canRasterPdf = info.canRaster;
+    });
 
     super.initState();
   }
@@ -658,13 +665,7 @@ class _EditorState extends State<Editor> {
   /// Returns whether a PDF was picked.
   Future<bool> importPdf() async {
     if (coreInfo.readOnly) return false;
-
-    // check if platform can rasterize a pdf
-    final info = await Printing.info();
-    if (!info.canRaster) {
-      // todo: disable import pdf button
-      return false;
-    }
+    if (!canRasterPdf) return false;
 
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -986,6 +987,7 @@ class _EditorState extends State<Editor> {
 
       pickPhotos: pickPhotos,
       importPdf: importPdf,
+      canRasterPdf: canRasterPdf,
     );
   }
 

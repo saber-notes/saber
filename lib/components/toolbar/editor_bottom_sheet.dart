@@ -24,6 +24,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.redrawAndSave,
     required this.pickPhotos,
     required this.importPdf,
+    required this.canRasterPdf,
   });
 
   final bool invert;
@@ -37,6 +38,7 @@ class EditorBottomSheet extends StatefulWidget {
   final VoidCallback redrawAndSave;
   final Future<int> Function() pickPhotos;
   final Future<bool> Function() importPdf;
+  final bool canRasterPdf;
 
   @override
   State<EditorBottomSheet> createState() => _EditorBottomSheetState();
@@ -237,7 +239,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   child: Text(t.editor.toolbar.photo),
                 ),
                 const SizedBox(width: 8),
-                ElevatedButton(
+                if (widget.canRasterPdf) ElevatedButton(
                   onPressed: () async {
                     bool pdfImported = await widget.importPdf();
                     if (pdfImported) {
