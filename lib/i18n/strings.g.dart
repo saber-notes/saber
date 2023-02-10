@@ -3,7 +3,7 @@
 /// Locales: 10
 /// Strings: 1296 (129 per locale)
 ///
-/// Built on 2023-02-10 at 09:58 UTC
+/// Built on 2023-02-10 at 10:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3549,7 +3549,10 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Очистить все листы';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Размер каждой строки';
+	@override String get backgroundImage => 'Фоновое изображение';
+	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get removeBgImage => 'Удалить фоновое изображение';
+	@override String get import => 'Импорт';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
 	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
 }

@@ -96,15 +96,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "editor": {
       "menu": {
