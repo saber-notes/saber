@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.3"
+  bidi:
+    dependency: transitive
+    description:
+      name: bidi
+      sha256: dc00274c7edabae2ab30c676e736ea1eb0b1b7a1b436cb5fe372e431ccb39ab0
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6"
   boolean_selector:
     dependency: transitive
     description:
@@ -516,7 +524,7 @@ packages:
     description:
       path: "."
       ref: Add-M3-Material-Icons
-      resolved-ref: df0e6ca149131f16049f43fa1cf1bd0cda5bb762
+      resolved-ref: e35a94d83627021a1de101cc9fb79eada4f3f7ec
       url: "https://github.com/adil192/icons_launcher.git"
     source: git
     version: "2.0.7"
@@ -524,10 +532,10 @@ packages:
     dependency: "direct main"
     description:
       name: image
-      sha256: "8e9d133755c3e84c73288363e6343157c383a0c6c56fc51afcc5d4d7180306d6"
+      sha256: "3686865febd85c57a632d87a0fb1f0a8a9ef602fdb68d909c3e9aa29ec70fd24"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.0"
+    version: "4.0.13"
   image_picker:
     dependency: "direct main"
     description:
@@ -826,10 +834,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdf
-      sha256: "10659b915e65832b106f6d1d213e09b789cc1f24bf282ee911e49db35b96be4d"
+      sha256: "6cd57e8e6d052bd1078f18e0dc7cd6701fad6288231c1ce99d66ef5034d14e61"
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.4"
+    version: "3.9.0"
   pedantic:
     dependency: transitive
     description:
