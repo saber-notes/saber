@@ -179,7 +179,10 @@
         "lined": "橫線",
         "grid": "網格",
         "dots": "點"
-      }
+      },
+      "backgroundImage": "背景圖片",
+      "backgroundPattern": "背景圖案",
+      "import": "匯入"
     },
     "newerFileFormat": {
       "title": "這篇筆記是使用較新版本的 Saber 編輯的",

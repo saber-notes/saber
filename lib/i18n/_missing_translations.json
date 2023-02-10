@@ -131,13 +131,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "背景圖片",
-        "backgroundPattern": "背景圖案",
-        "import": "匯入"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
