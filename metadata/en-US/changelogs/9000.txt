@@ -1,0 +1,5 @@
+• You can now import PDFs in the editor menu
+• Long press a setting to reset it to its default value
+• You can now import multiple images at once
+• Syncing reliability improvements
+• Fixed going into fullscreen on the whiteboard for Android devices

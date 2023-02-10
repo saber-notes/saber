@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.0" type="development" date="2023-02-10">
+            <description>
+                <ul>
+                    <li>You can now import PDFs in the editor menu</li>
+                    <li>Long press a setting to reset it to its default value</li>
+                    <li>You can now import multiple images at once</li>
+                    <li>Syncing reliability improvements</li>
+                    <li>Fixed going into fullscreen on the whiteboard for Android devices</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.8.1" type="development" date="2023-02-05">
             <description>
                 <ul>
