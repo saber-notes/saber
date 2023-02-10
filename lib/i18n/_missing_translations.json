@@ -9,6 +9,12 @@
         "title": "Reset this setting?",
         "button": "Reset"
       }
+    },
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
     }
   },
   "de": {
@@ -34,6 +40,8 @@
         "setAsBackground": "Set as background"
       },
       "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern",
         "removeBgImage": "Remove background image",
         "boxFits": {
           "fill": "Stretch",
@@ -68,13 +76,59 @@
     "editor": {
       "toolbar": {
         "select": "Select"
+      },
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
       }
     }
   },
-  "fa": {},
-  "it": {},
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "fa": {
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
+    }
+  },
+  "it": {
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
+    }
+  },
+  "tr": {
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "menu": {
+        "backgroundImage": "Background image",
+        "backgroundPattern": "Background pattern"
+      }
+    }
+  }
 }

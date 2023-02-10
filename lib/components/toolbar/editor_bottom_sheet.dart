@@ -131,6 +131,10 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             ),
             const SizedBox(height: 16),
             if (backgroundImage != null) ...[
+              Text(
+                t.editor.menu.backgroundImage,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -179,6 +183,10 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               ),
               const SizedBox(height: 16),
             ],
+            Text(
+              t.editor.menu.backgroundPattern,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
