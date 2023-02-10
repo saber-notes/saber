@@ -60,9 +60,11 @@ Options:
 
 Option 1 (recommended): Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
 
-Option 2: Download `Saber.flatpak` from the latest [Release][releases] and install with `flatpak --user install Saber.flatpak`
+Option 2: Install the snap from <a href="https://snapcraft.io/saber">Snap-Store</a>
+   
+Option 3: Download `Saber.flatpak` from the latest [Release][releases] and install with `flatpak --user install Saber.flatpak`
 
-Option 3: Download `Saber-latest-x86_64.AppImage` from the latest [Release][releases], make it executable with `chmod +x Saber-latest-x86_64.AppImage`, then run it.
+Option 4: Download `Saber-latest-x86_64.AppImage` from the latest [Release][releases], make it executable with `chmod +x Saber-latest-x86_64.AppImage`, then run it.
 
 #### Windows
 
