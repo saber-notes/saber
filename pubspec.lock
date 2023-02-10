@@ -887,6 +887,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.6.2"
+  printing:
+    dependency: "direct main"
+    description:
+      name: printing
+      sha256: fe654363cd0114b50a0815b24e96957c7e9a60eb4e3b7ccfe71cf3f2b7114cb2
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.10.1"
   process:
     dependency: transitive
     description:

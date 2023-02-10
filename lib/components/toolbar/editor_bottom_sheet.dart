@@ -23,6 +23,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.clearAllPages,
     required this.redrawAndSave,
     required this.pickPhotos,
+    required this.importPdf,
   });
 
   final bool invert;
@@ -35,6 +36,7 @@ class EditorBottomSheet extends StatefulWidget {
   final VoidCallback clearAllPages;
   final VoidCallback redrawAndSave;
   final Future<int> Function() pickPhotos;
+  final Future<bool> Function() importPdf;
 
   @override
   State<EditorBottomSheet> createState() => _EditorBottomSheetState();
@@ -233,6 +235,17 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     }
                   },
                   child: Text(t.editor.toolbar.photo),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: () async {
+                    bool pdfImported = await widget.importPdf();
+                    if (pdfImported) {
+                      if (!mounted) return;
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: const Text("PDF"),
                 ),
               ],
             ),

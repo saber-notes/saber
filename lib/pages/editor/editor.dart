@@ -11,6 +11,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
+import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
@@ -653,6 +654,57 @@ class _EditorState extends State<Editor> {
     ];
   }
 
+  /// Prompts the user to pick a PDF to import.
+  /// Returns whether a PDF was picked.
+  Future<bool> importPdf() async {
+    if (coreInfo.readOnly) return false;
+
+    // check if platform can rasterize a pdf
+    final info = await Printing.info();
+    if (!info.canRaster) {
+      // todo: disable import pdf button
+      return false;
+    }
+
+    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ["pdf"],
+      allowMultiple: false,
+      withData: true,
+    );
+    if (result == null) return false;
+
+    final PlatformFile file = result.files.single;
+    if (file.bytes == null) return false;
+
+    await for (final pdfPage in Printing.raster(file.bytes!)) {
+      final Uint8List imageBytes = await pdfPage.toPng();
+      final editorPage = EditorPage(
+        width: pdfPage.width.toDouble(),
+        height: pdfPage.height.toDouble(),
+      );
+      final image = EditorImage(
+        id: coreInfo.nextImageId++,
+        extension: ".png",
+        bytes: imageBytes,
+        pageIndex: coreInfo.pages.length,
+        pageSize: editorPage.size,
+        onMoveImage: onMoveImage,
+        onDeleteImage: onDeleteImage,
+        onMiscChange: autosaveAfterDelay,
+        onLoad: () => setState(() {}),
+      );
+      coreInfo.pages.add(editorPage);
+      editorPage.backgroundImage = image;
+    }
+
+    // todo: add to history
+
+    autosaveAfterDelay();
+
+    return true;
+  }
+
   Future exportAsPdf() async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
     await FileManager.exportFile("$_filename.pdf", await pdf.save());
@@ -932,6 +984,7 @@ class _EditorState extends State<Editor> {
       }),
 
       pickPhotos: pickPhotos,
+      importPdf: importPdf,
     );
   }
 

@@ -141,6 +141,8 @@ dependencies:
 
   path_drawing: ^1.0.1
 
+  printing: ^5.10.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
