@@ -3,21 +3,7 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {
-    "settings": {
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    },
-    "editor": {
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefLabels": {

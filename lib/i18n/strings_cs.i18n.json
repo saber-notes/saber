@@ -66,6 +66,10 @@
       "general": "Obecné",
       "layout": "Uspořádání uživatelského rozhraní",
       "writing": "Psaní"
+    },
+    "reset": {
+      "title": "Chcete resetovat tuto volbu?",
+      "button": "Resetovat"
     }
   },
   "login": {
@@ -170,12 +174,15 @@
         "contain": "Přizpůsobit"
       },
       "bgPatterns": {
-        "none": "Prázdné",
-        "college": "Linkované s okrajem",
-        "lined": "Linkované",
+        "none": "Žádný",
+        "college": "Linky s okrajem",
+        "lined": "Linky",
         "grid": "Mřížka",
-        "dots": "Tečkované"
-      }
+        "dots": "Tečky"
+      },
+      "backgroundImage": "Obrázek na pozadí",
+      "backgroundPattern": "Vzor na pozadí",
+      "import": "Importovat"
     },
     "newerFileFormat": {
       "readOnlyMode": "Otevřít v režimu pouze pro čtení",
