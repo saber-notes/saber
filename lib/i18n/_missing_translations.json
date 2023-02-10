@@ -86,9 +86,9 @@
   "tr": {
     "editor": {
       "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
+        "backgroundImage": "Arkaplan görseli",
+        "backgroundPattern": "Arkaplan deseni",
+        "import": "İçe aktar"
       }
     }
   },
