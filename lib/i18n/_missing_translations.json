@@ -73,15 +73,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      }
-    }
-  },
+  "it": {},
   "ru": {},
   "tr": {},
   "zh-Hans-CN": {},
