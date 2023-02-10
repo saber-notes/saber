@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1296 (129 per locale)
+/// Strings: 1304 (130 per locale)
 ///
-/// Built on 2023-02-10 at 10:00 UTC
+/// Built on 2023-02-10 at 17:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -701,6 +701,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
 	@override String get systemLanguage => 'Systémový jazyk';
 	@override late final _StringsSettingsPrefCategoriesCs prefCategories = _StringsSettingsPrefCategoriesCs._(_root);
+	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 }
 
 // Path: login
@@ -905,6 +906,17 @@ class _StringsSettingsPrefCategoriesCs extends _StringsSettingsPrefCategoriesEn 
 	@override String get writing => 'Psaní';
 }
 
+// Path: settings.reset
+class _StringsSettingsResetCs extends _StringsSettingsResetEn {
+	_StringsSettingsResetCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Chcete resetovat tuto volbu?';
+	@override String get button => 'Resetovat';
+}
+
 // Path: login.feedbacks
 class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
 	_StringsLoginFeedbacksCs._(_StringsCs root) : this._root = root, super._(root);
@@ -1074,6 +1086,9 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
 	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
+	@override String get backgroundImage => 'Obrázek na pozadí';
+	@override String get backgroundPattern => 'Vzor na pozadí';
+	@override String get import => 'Importovat';
 }
 
 // Path: editor.newerFileFormat
@@ -1130,11 +1145,11 @@ class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get none => 'Prázdné';
-	@override String get college => 'Linkované s okrajem';
-	@override String get lined => 'Linkované';
+	@override String get none => 'Žádný';
+	@override String get college => 'Linky s okrajem';
+	@override String get lined => 'Linky';
 	@override String get grid => 'Mřížka';
-	@override String get dots => 'Tečkované';
+	@override String get dots => 'Tečky';
 }
 
 // Path: <root>

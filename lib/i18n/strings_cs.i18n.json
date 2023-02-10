@@ -66,6 +66,10 @@
       "general": "Obecné",
       "layout": "Uspořádání uživatelského rozhraní",
       "writing": "Psaní"
+    },
+    "reset": {
+      "title": "Chcete resetovat tuto volbu?",
+      "button": "Resetovat"
     }
   },
   "login": {
@@ -175,7 +179,10 @@
         "lined": "Linky",
         "grid": "Mřížka",
         "dots": "Tečky"
-      }
+      },
+      "backgroundImage": "Obrázek na pozadí",
+      "backgroundPattern": "Vzor na pozadí",
+      "import": "Importovat"
     },
     "newerFileFormat": {
       "readOnlyMode": "Otevřít v režimu pouze pro čtení",
