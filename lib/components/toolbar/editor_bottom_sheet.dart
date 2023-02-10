@@ -22,6 +22,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.clearPage,
     required this.clearAllPages,
     required this.redrawAndSave,
+    required this.pickPhotos,
   });
 
   final bool invert;
@@ -33,6 +34,7 @@ class EditorBottomSheet extends StatefulWidget {
   final VoidCallback clearPage;
   final VoidCallback clearAllPages;
   final VoidCallback redrawAndSave;
+  final Future<int> Function() pickPhotos;
 
   @override
   State<EditorBottomSheet> createState() => _EditorBottomSheetState();
@@ -214,6 +216,25 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   ],
                 ],
               ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              t.editor.menu.import,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Wrap(
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    int photosPicked = await widget.pickPhotos();
+                    if (photosPicked > 0) {
+                      if (!mounted) return;
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: Text(t.editor.toolbar.photo),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
           ],
