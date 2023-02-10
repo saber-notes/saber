@@ -131,13 +131,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
