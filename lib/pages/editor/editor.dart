@@ -684,16 +684,23 @@ class _EditorState extends State<Editor> {
 
     await for (final pdfPage in Printing.raster(file.bytes!)) {
       final Uint8List imageBytes = await pdfPage.toPng();
+
+      // resize to [defaultWidth] to keep pen sizes consistent
+      final Size pageSize = Size(
+        EditorPage.defaultWidth,
+        EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
+      );
+
       final editorPage = EditorPage(
-        width: pdfPage.width.toDouble(),
-        height: pdfPage.height.toDouble(),
+        width: pageSize.width,
+        height: pageSize.height,
       );
       final image = EditorImage(
         id: coreInfo.nextImageId++,
         extension: ".png",
         bytes: imageBytes,
         pageIndex: coreInfo.pages.length,
-        pageSize: editorPage.size,
+        pageSize: pageSize,
         maxSize: const Size.square(3000), // allow pdf images to be big
         onMoveImage: onMoveImage,
         onDeleteImage: onDeleteImage,
