@@ -913,6 +913,16 @@ class _EditorState extends State<Editor> {
         actions: [
           IconButton(
             icon: const AdaptiveIcon(
+              icon: Icons.grid_view,
+              cupertinoIcon: CupertinoIcons.rectangle_grid_2x2,
+            ),
+            tooltip: t.editor.pages,
+            onPressed: () {
+              // todo: show page management dialog
+            },
+          ),
+          IconButton(
+            icon: const AdaptiveIcon(
               icon: Icons.more_vert,
               cupertinoIcon: CupertinoIcons.ellipsis_vertical,
             ),
