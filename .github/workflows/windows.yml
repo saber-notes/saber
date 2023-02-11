@@ -11,9 +11,31 @@ env:
   project-id: com.adilhanney.saber
 
 jobs:
+  get-version:
+    name: Get version
+    runs-on: ubuntu-latest
+    outputs:
+      buildName: ${{ steps.get_version.outputs.buildName }}
+      buildNumber: ${{ steps.get_version.outputs.buildNumber }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get version
+        id: get_version
+        run: |
+          # get buildName from lib/data/version.dart
+          buildName=$(grep -oP '(?<=buildName = ").*(?=")' lib/data/version.dart)
+          echo "buildName=$buildName" >> $GITHUB_OUTPUT
+
+          # get buildNumber from lib/data/version.dart
+          buildNumber=$(grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart)
+          echo "buildNumber=$buildNumber" >> $GITHUB_OUTPUT
+
   build-windows:
     name: Build for Windows
     runs-on: windows-latest
+    needs: get-version
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -47,15 +69,23 @@ jobs:
         run: |
           ISCC.exe installers/desktop_inno_script.iss
 
+      - name: Rename exe
+        id: rename
+        run: |
+          $installerName = "SaberInstaller_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.exe"
+          echo "installerName=$installerName" >> $GITHUB_OUTPUT
+  
+          Rename-Item -Path installers/SaberInstaller.exe -NewName $installerName
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-Windows
-          path: installers/SaberInstaller.exe
+          path: installers/${{ steps.rename.outputs.installerName }}
 
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: installers/SaberInstaller.exe
+          file: installers/${{ steps.rename.outputs.installerName }}

@@ -11,9 +11,31 @@ env:
   project-id: com.adilhanney.saber
 
 jobs:
+  get-version:
+    name: Get version
+    runs-on: ubuntu-latest
+    outputs:
+      buildName: ${{ steps.get_version.outputs.buildName }}
+      buildNumber: ${{ steps.get_version.outputs.buildNumber }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get version
+        id: get_version
+        run: |
+          # get buildName from lib/data/version.dart
+          buildName=$(grep -oP '(?<=buildName = ").*(?=")' lib/data/version.dart)
+          echo "buildName=$buildName" >> $GITHUB_OUTPUT
+
+          # get buildNumber from lib/data/version.dart
+          buildNumber=$(grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart)
+          echo "buildNumber=$buildNumber" >> $GITHUB_OUTPUT
+
   build-flutter-app:
     name: Build Flutter app
     runs-on: ubuntu-latest
+    needs: get-version
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -46,25 +68,30 @@ jobs:
         run: flutter build linux --release
 
       - name: Compress Flutter build
-        run: tar -C build/linux/x64/release/bundle -cvf Saber-Linux-Portable.tar.gz .
+        id: compress
+        run: |
+          archiveName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.tar.gz"
+          echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
+
+          tar -C build/linux/x64/release/bundle -cvf $archiveName .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Saber-Archive
-          path: Saber-Linux-Portable.tar.gz
+          path: ${{ steps.compress.outputs.archiveName }}
 
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: Saber-Linux-Portable.tar.gz
+          file: ${{ steps.compress.outputs.archiveName }}
 
   build-flatpak:
     name: Build flatpak
-    needs: build-flutter-app
     runs-on: ubuntu-latest
+    needs: [build-flutter-app, get-version]
     container:
       image: bilelmoussaoui/flatpak-github-actions:freedesktop-22.08
       options: --privileged
@@ -91,28 +118,40 @@ jobs:
         with:
           name: Saber-Archive
 
+      - name: Rename app archive
+        run: |
+          mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
+
       - name: Build .flatpak
         uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
         with:
           bundle: Saber.flatpak
           manifest-path: flatpak/com.adilhanney.saber.json
 
+      - name: Rename .flatpak
+        id: rename
+        run: |
+          flatpakName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.flatpak"
+          echo "flatpakName=$flatpakName" >> $GITHUB_OUTPUT
+
+          mv Saber.flatpak $flatpakName
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Flatpak artifact
-          path: Saber.flatpak
+          path: ${{ steps.rename.outputs.flatpakName }}
 
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: Saber.flatpak
+          file: ${{ steps.rename.outputs.flatpakName }}
 
   build-appimage:
     name: Build AppImage
-    needs: build-flutter-app
+    needs: [build-flutter-app, get-version]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -138,7 +177,11 @@ jobs:
       - name: Download app archive
         uses: actions/download-artifact@v3
         with:
-          name: Saber-Archive # Saber-Linux-Portable.tar.gz
+          name: Saber-Archive
+
+      - name: Rename app archive
+        run: |
+          mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
 
       - name: Download appimage-builder
         working-directory: appimage
@@ -163,6 +206,12 @@ jobs:
           install -Dm644 ../assets/icon/resized/icon-512x512.png AppDir/usr/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
           echo 3. Copying metadata
           install -Dm644 ../flatpak/com.adilhanney.saber.metainfo.xml AppDir/usr/share/metainfo/com.adilhanney.saber.metainfo.xml
+
+      - name: Set AppImage version
+        working-directory: appimage
+        run: |
+          # replace line with "version: latest" with "version: $buildName"
+          sed -i "s/version: latest/version: ${{ needs.get-version.outputs.buildName }}/" AppImageBuilder.yml
 
       - name: Build AppImage
         working-directory: appimage
