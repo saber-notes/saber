@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1310 (131 per locale)
+/// Strings: 1311 (131 per locale)
 ///
-/// Built on 2023-02-10 at 17:24 UTC
+/// Built on 2023-02-11 at 16:34 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -259,6 +259,7 @@ class _StringsEditorEn {
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
 	late final _StringsEditorQuillEn quill = _StringsEditorQuillEn._(_root);
 	late final _StringsEditorHudEn hud = _StringsEditorHudEn._(_root);
+	String get pages => 'Pages';
 }
 
 // Path: sPenWarning

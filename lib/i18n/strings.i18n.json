@@ -197,7 +197,8 @@
     "hud": {
       "unlockZoom": "Unlock zoom",
       "lockZoom": "Lock zoom"
-    }
+    },
+    "pages": "Pages"
   },
   "sPenWarning": {
     "title": "S Pen bug warning",
