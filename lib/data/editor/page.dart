@@ -5,6 +5,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
+import 'package:saber/components/canvas/tools/highlighter.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
 
@@ -103,8 +104,9 @@ class EditorPage extends Listenable {
       int color = stroke.strokeProperties.color.value;
       if (penTypeComparison > 0) {
         break; // this stroke's pen type comes after the new stroke's pen type
-      } else if (penTypeComparison == 0 && color > newStrokeColor) {
-        break; // this stroke's pen color comes after the new stroke's pen color
+      } else if (stroke.penType == (Highlighter).toString()
+          && penTypeComparison == 0 && color > newStrokeColor) {
+        break; // this highlighter color comes after the new highlighter color
       }
       index++;
     }
@@ -116,6 +118,7 @@ class EditorPage extends Listenable {
     strokes.sort((Stroke a, Stroke b) {
       int penTypeComparison = a.penType.compareTo(b.penType);
       if (penTypeComparison != 0) return penTypeComparison;
+      if (a.penType != (Highlighter).toString()) return 0;
       return a.strokeProperties.color.value.compareTo(b.strokeProperties.color.value);
     });
   }
