@@ -54,19 +54,24 @@ Options:
    - Note that the F-Droid build is not optimised for Onyx Boox devices as this would require
      [proprietary dependencies](https://github.com/adil192/saber/issues/219) from Onyx.
 
-3. Download and install `Saber.apk` from the latest [Release][releases].
+3. Download and install `Saber_{version}.apk` from the latest [Release][releases].
 
 #### Linux
 
-Option 1 (recommended): Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
+Option 1 (recommended):
+Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
 
-Option 2: Download `Saber.flatpak` from the latest [Release][releases] and install with `flatpak --user install Saber.flatpak`
+Option 2:
+Download `Saber_{version}.flatpak` from the latest [Release][releases]
+and install with `flatpak --user install Saber_*.flatpak`
 
-Option 3: Download `Saber-latest-x86_64.AppImage` from the latest [Release][releases], make it executable with `chmod +x Saber-latest-x86_64.AppImage`, then run it.
+Option 3:
+Download `Saber-{version}-x86_64.AppImage` from the latest [Release][releases],
+make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 
 #### Windows
 
-Download and install `SaberInstaller.exe` from the latest [Release][releases]
+Download and install `SaberInstaller_{version}.exe` from the latest [Release][releases]
 
 #### iOS
 
@@ -74,7 +79,7 @@ See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
 
 #### macOS
 
-Download `Saber.app.zip` from the latest [Release][releases]
+Download `Saber_{version}.app.zip` from the latest [Release][releases]
 and move the `Saber` app to `/Applications`.
 macOS will warn you that the app is from an unidentified developer when you first open it, so
 you'll need to go to `System Preferences > Security & Privacy` and click `Open Anyway`.
