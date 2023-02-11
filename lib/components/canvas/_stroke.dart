@@ -87,8 +87,10 @@ class Stroke {
   addPoint(Size pageSize, Offset offset, [ double? pressure ]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
 
-    double x = max(min(offset.dx, pageSize.width), 0);
-    double y = max(min(offset.dy, pageSize.height), 0);
+    double size = strokeProperties.size;
+
+    double x = max(min(offset.dx, pageSize.width + size), -size);
+    double y = max(min(offset.dy, pageSize.height + size), -size);
     Point point = Point(x, y, pressure ?? 0.5);
 
     if (pressure != null) strokeProperties.simulatePressure = false;
