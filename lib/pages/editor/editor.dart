@@ -769,7 +769,9 @@ class _EditorState extends State<Editor> {
                 }(),
                 currentSelection: () {
                   if (currentTool is! Select) return null;
-                  return (currentTool as Select).selectResult;
+                  final selectResult = (currentTool as Select).selectResult;
+                  if (selectResult.pageIndex != pageIndex) return null;
+                  return selectResult;
                 }(),
                 setAsBackground: (EditorImage image) {
                   if (page.backgroundImage != null) {
