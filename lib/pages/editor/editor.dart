@@ -25,6 +25,7 @@ import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
+import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
@@ -918,7 +919,14 @@ class _EditorState extends State<Editor> {
             ),
             tooltip: t.editor.pages,
             onPressed: () {
-              // todo: show page management dialog
+              showDialog(
+                context: context,
+                builder: (context) => AdaptiveAlertDialog(
+                  title: Text(t.editor.pages),
+                  content: pageManager(context),
+                  actions: const [],
+                ),
+              );
             },
           ),
           IconButton(
@@ -1013,6 +1021,17 @@ class _EditorState extends State<Editor> {
       pickPhotos: pickPhotos,
       importPdf: importPdf,
       canRasterPdf: canRasterPdf,
+    );
+  }
+
+  Widget pageManager(BuildContext context) {
+    return EditorPageManager(
+      coreInfo: coreInfo,
+      currentPageIndex: currentPageIndex,
+      redrawAndSave: () => setState(() {
+        if (coreInfo.readOnly) return;
+        autosaveAfterDelay();
+      }),
     );
   }
 

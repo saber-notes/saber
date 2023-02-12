@@ -17,7 +17,7 @@ import '_stroke.dart';
 class InnerCanvas extends StatefulWidget {
   const InnerCanvas({
     super.key,
-    this.pageIndex = 0,
+    required this.pageIndex,
     this.redrawPageListenable,
     required this.width,
     required this.height,
