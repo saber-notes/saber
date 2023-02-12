@@ -11,7 +11,7 @@ import 'package:saber/data/fast_math.dart';
 class Stroke {
   @visibleForTesting
   final List<Point> points = [];
-  final int pageIndex;
+  int pageIndex;
   final String penType;
 
   late final StrokeProperties strokeProperties;
