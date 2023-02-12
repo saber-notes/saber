@@ -1,9 +1,19 @@
 #!/bin/bash
 
+# get the current version name from lib/data/version.dart
+function get_version_name {
+  grep -oP '(?<=buildName = ").*(?=")' lib/data/version.dart
+}
+
+# get the current version code from lib/data/version.dart
+function get_version_code {
+  grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart
+}
+
 function print_help {
   echo "This script is used to apply the version to the relevant files."
   echo "Usage: $0 <version-name> <version-code>"
-  echo "e.g. $0 0.5.5 5050"
+  echo "e.g. $0 $(get_version_name) $(get_version_code)"
   exit 0
 }
 
