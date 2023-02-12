@@ -1,0 +1,5 @@
+• You can now re-order pages in the editor
+• Improved the appearance of strokes that go beyond the page
+• Pen (non-highlighter) strokes are sorted chronologically rather than by color
+• Fixed a bug regarding the sizing of off-screen pages in the editor
+• Fixed the selection area being displayed on all pages

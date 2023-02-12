@@ -59,6 +59,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.2" type="development" date="2023-02-12">
+            <description>
+                <ul>
+                    <li>You can now re-order pages in the editor</li>
+                    <li>Improved the appearance of strokes that go beyond the page</li>
+                    <li>Pen (non-highlighter) strokes are sorted chronologically rather than by color</li>
+                    <li>Fixed a bug regarding the sizing of off-screen pages in the editor</li>
+                    <li>Fixed the selection area being displayed on all pages</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.1" type="development" date="2023-02-10">
             <description>
                 <ul>
