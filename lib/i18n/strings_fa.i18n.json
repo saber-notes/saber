@@ -197,7 +197,8 @@
     "hud": {
       "unlockZoom": "قفل زوم را باز کنید",
       "lockZoom": "قفل زوم"
-    }
+    },
+    "pages": "صفحات"
   },
   "sPenWarning": {
     "title": "هشدار اشکال S قلم",
