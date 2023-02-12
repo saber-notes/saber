@@ -252,14 +252,14 @@ class _ToolbarState extends State<Toolbar> {
                     selected: widget.currentTool is Select,
                     enabled: !widget.readOnly,
                     onPressed: (_) => widget.setTool(Select.currentSelect),
-                    child: Icon(CupertinoIcons.lasso, shadows: [
+                    child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
                       BoxShadow(
                         color: colorScheme.primary,
                         blurRadius: 0.1,
                         spreadRadius: 10,
                         blurStyle: BlurStyle.solid,
                       ),
-                    ]),
+                    ] : null),
                   ),
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.toggleEraser,
