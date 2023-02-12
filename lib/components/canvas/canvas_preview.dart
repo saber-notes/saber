@@ -10,28 +10,31 @@ import 'inner_canvas.dart';
 class CanvasPreview extends StatelessWidget {
   const CanvasPreview({
     super.key,
-    required this.path,
+    this.pageIndex = 0,
     required this.height,
     required this.coreInfo,
   });
 
-  final String path;
-
+  final int pageIndex;
   final double? height;
   final EditorCoreInfo coreInfo;
 
   @override
   Widget build(BuildContext context) {
-    Size pageSize = coreInfo.pages.isNotEmpty ? coreInfo.pages[0].size : EditorPage.defaultSize;
+    Size pageSize = coreInfo.pages.isNotEmpty
+        ? coreInfo.pages[pageIndex].size
+        : EditorPage.defaultSize;
+
     return InteractiveCanvasViewer(
       maxScale: 5,
       scrollZoomEnabled: false,
 
       child: FittedBox(
         child: SizedOverflowBox(
-          size: Size(pageSize.width, height ?? pageSize.height * 0.1),
+          size: Size(pageSize.width, height ?? pageSize.height),
           alignment: Alignment.topCenter,
           child: InnerCanvas(
+            pageIndex: pageIndex,
             width: pageSize.width,
             height: pageSize.height,
             isPreview: true,
