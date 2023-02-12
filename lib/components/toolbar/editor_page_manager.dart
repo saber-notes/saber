@@ -24,14 +24,28 @@ class EditorPageManager extends StatelessWidget {
         shrinkWrap: true,
         itemCount: coreInfo.pages.length,
         itemBuilder: (context, pageIndex) {
-          return ListTile(
+          return Padding(
             key: ValueKey(pageIndex),
-            leading: CanvasPreview(
-              pageIndex: pageIndex,
-              height: null,
-              coreInfo: coreInfo,
+            padding: const EdgeInsets.all(8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "${pageIndex + 1} / ${coreInfo.pages.length}",
+                ),
+                ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxWidth: 150,
+                    maxHeight: 250,
+                  ),
+                  child: CanvasPreview(
+                    pageIndex: pageIndex,
+                    height: null,
+                    coreInfo: coreInfo,
+                  ),
+                ),
+              ],
             ),
-            title: Text('Page ${pageIndex + 1}'),
           );
         },
         onReorder: (oldIndex, newIndex) {
