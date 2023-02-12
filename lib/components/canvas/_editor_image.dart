@@ -43,7 +43,7 @@ class EditorImage {
     }
   }
 
-  final int pageIndex;
+  int pageIndex;
   void Function(EditorImage, Rect)? onMoveImage;
   void Function(EditorImage)? onDeleteImage;
   void Function()? onMiscChange;
