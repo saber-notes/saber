@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1313 (131 per locale)
+/// Strings: 1324 (132 per locale)
 ///
-/// Built on 2023-02-13 at 09:20 UTC
+/// Built on 2023-02-13 at 09:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1674,6 +1674,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
 	@override late final _StringsSettingsStraightenDelayEs straightenDelay = _StringsSettingsStraightenDelayEs._(_root);
 	@override String get systemLanguage => 'Idioma del sistema';
+	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
 }
 
 // Path: login
@@ -1741,6 +1742,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatEs newerFileFormat = _StringsEditorNewerFileFormatEs._(_root);
 	@override late final _StringsEditorQuillEs quill = _StringsEditorQuillEs._(_root);
 	@override late final _StringsEditorHudEs hud = _StringsEditorHudEs._(_root);
+	@override String get pages => 'Páginas';
 }
 
 // Path: sPenWarning
@@ -1821,8 +1823,10 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
 	@override String get editorStraightenLines => 'Mantener presionado para enderezar una línea';
+	@override String get maxImageSize => 'Tamaño máximo de la imagen';
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
+	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
 }
 
 // Path: settings.prefDescriptions
@@ -1836,7 +1840,9 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 	@override String get autoClearWhiteboardOnExit => 'Aún se sincronizará con tus otros dispositivos';
+	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
+	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 }
 
 // Path: settings.themeModes
@@ -1871,6 +1877,17 @@ class _StringsSettingsStraightenDelayEs extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Apagado';
 	@override String get regular => 'Regular';
 	@override String get slow => 'Lento';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetEs extends _StringsSettingsResetEn {
+	_StringsSettingsResetEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '¿Quieres restablecer esta configuración?';
+	@override String get button => 'Restablecer';
 }
 
 // Path: login.feedbacks
@@ -1979,6 +1996,7 @@ class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => 'Paleta de colores (Ctrl C)';
+	@override String get select => 'Seleccionar';
 	@override String get toggleEraser => 'Borrar (Ctrl E)';
 	@override String get photo => 'Foto';
 	@override String get text => 'Texto';
@@ -2038,6 +2056,9 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Borrar todas las páginas';
 	@override String get lineHeight => 'Altura de la línea';
 	@override String get lineHeightDescription => 'Tamaño de cada línea';
+	@override String get backgroundImage => 'Imagen de fondo';
+	@override String get backgroundPattern => 'Patrón de fondo';
+	@override String get import => 'Importar';
 	@override String get removeBgImage => 'Eliminar imagen de fondo';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
 	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
