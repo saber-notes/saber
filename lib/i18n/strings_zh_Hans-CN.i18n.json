@@ -22,21 +22,27 @@
     "createNewNote": "点击 + 按钮新建一个笔记"
   },
   "settings": {
+    "prefCategories": {
+      "general": "通用",
+      "layout": "布局",
+      "writing": "书写"
+    },
     "prefLabels": {
+      "locale": "应用语言",
       "appTheme": "应用主题",
+      "platform": "主题类型",
       "customAccentColor": "自定义主题色",
       "hyperlegibleFont": "易读字体",
       "shouldCheckForUpdates": "自动检查 Saber 更新",
+      "shouldAlwaysAlertForUpdates": "有可用更新时立即通知我",
       "editorToolbarOnBottom": "将编辑工具栏与底部对齐",
+      "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
       "preferGreyscale": "使用灰度颜色",
       "editorStraightenLines": "按住拉直线段",
+      "maxImageSize": "最大图片大小",
       "autoClearWhiteboardOnExit": "离开应用后清除白板",
       "editorPromptRename": "提示您重命名新笔记",
-      "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
-      "locale": "应用语言",
-      "platform": "主题类型",
-      "maxImageSize": "最大图片大小",
       "hideHomeBackgrounds": "在主页隐藏背景"
     },
     "prefDescriptions": {
@@ -44,8 +50,8 @@
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
       "preferGreyscale": "用于电子墨水显示器",
       "autoClearWhiteboardOnExit": "这将会同步到您的其他设备",
-      "editorPromptRename": "您可以总是稍后重命名笔记",
       "maxImageSize": "更大的图片将会被压缩",
+      "editorPromptRename": "您可以总是稍后重命名笔记",
       "hideHomeBackgrounds": "更简洁的外观"
     },
     "themeModes": {
@@ -62,11 +68,6 @@
       "slow": "缓慢"
     },
     "systemLanguage": "系统语言",
-    "prefCategories": {
-      "general": "通用",
-      "layout": "布局",
-      "writing": "书写"
-    },
     "reset": {
       "title": "重置此设置？",
       "button": "重置"
@@ -80,8 +81,8 @@
       "enterEncPassword": "请输入您的加密密码。",
       "checkUrl": "请输入有效链接。",
       "ncLoginFailed": "登录失败，请检查您的详细信息和网络连接。",
-      "loginSuccess": "登录成功！我们正在设置中，请稍候……",
-      "encLoginFailed": "登录失败，请检查您的加密密码。"
+      "encLoginFailed": "登录失败，请检查您的加密密码。",
+      "loginSuccess": "登录成功！我们正在设置中，请稍候……"
     },
     "form": {
       "useCustomServer": "我想要使用自定义 Nextcloud 服务器",
@@ -121,11 +122,11 @@
   },
   "appInfo": {
     "licenseNotice": "Saber  版权所有 (C) 2022-$buildYear  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+    "dirty": "DIRTY",
     "debug": "DEBUG",
-    "licenseButton": "点击此处查看更多许可证信息",
-    "privacyPolicyButton": "点击此处查看隐私政策",
     "sponsorButton": "点击此处赞助我或购买更多存储空间",
-    "dirty": "DIRTY"
+    "licenseButton": "点击此处查看更多许可证信息",
+    "privacyPolicyButton": "点击此处查看隐私政策"
   },
   "update": {
     "updateAvailable": "可用更新",
@@ -135,16 +136,16 @@
   "editor": {
     "toolbar": {
       "toggleColors": "切换颜色 (Ctrl C)",
+      "select": "选择",
       "toggleEraser": "切换橡皮擦 (Ctrl E)",
       "photo": "照片",
+      "text": "文本",
       "toggleFingerDrawing": "切换手写 (Ctrl F)",
       "undo": "撤销",
       "redo": "重做",
       "export": "导出 (Ctrl Shift S)",
       "exportAs": "导出为：",
-      "text": "文本",
-      "fullscreen": "切换全屏 (F11)",
-      "select": "选择"
+      "fullscreen": "切换全屏 (F11)"
     },
     "pens": {
       "fountainPen": "钢笔",
@@ -158,16 +159,19 @@
     "imageOptions": {
       "title": "图片选项",
       "invertible": "反转颜色",
-      "delete": "删除",
       "download": "下载",
-      "setAsBackground": "设为背景"
+      "setAsBackground": "设为背景",
+      "delete": "删除"
     },
     "menu": {
       "clearPage": "清除页面",
       "clearAllPages": "清除全部页面",
       "lineHeight": "行高",
       "lineHeightDescription": "每一行的高度",
+      "backgroundImage": "背景图片",
+      "backgroundPattern": "背景图案",
       "removeBgImage": "移除背景图片",
+      "import": "导入",
       "boxFits": {
         "fill": "拉伸",
         "cover": "覆盖",
@@ -179,17 +183,14 @@
         "lined": "横线",
         "grid": "网格",
         "dots": "点"
-      },
-      "backgroundImage": "背景图片",
-      "backgroundPattern": "背景图案",
-      "import": "导入"
+      }
     },
     "newerFileFormat": {
-      "title": "此笔记使用新版 Saber 编辑而成",
-      "cancel": "取消",
       "readOnlyMode": "只读模式",
+      "title": "此笔记使用新版 Saber 编辑而成",
       "subtitle": "编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？",
-      "allowEditing": "允许编辑"
+      "allowEditing": "允许编辑",
+      "cancel": "取消"
     },
     "quill": {
       "typeSomething": "在这里输入..."
