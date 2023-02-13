@@ -52,13 +52,7 @@
       "pages": "Pages"
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "有可用更新时立即通知我"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
