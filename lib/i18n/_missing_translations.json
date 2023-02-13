@@ -53,11 +53,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
