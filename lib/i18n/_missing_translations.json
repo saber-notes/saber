@@ -34,16 +34,7 @@
       }
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Segnalami aggiornamenti non appena sono disponibili"
-      }
-    },
-    "editor": {
-      "pages": "Pagine"
-    }
-  },
+  "it": {},
   "ru": {
     "settings": {
       "prefLabels": {
