@@ -1,12 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
-import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:saber/i18n/strings.g.dart';
@@ -101,13 +99,12 @@ abstract class UpdateManager {
   }
 
   @visibleForTesting
-  static UpdateStatus getUpdateStatus(int currentVersion, int newestVersion, {bool? alwaysRecommendUpdates}) {
-    alwaysRecommendUpdates ??= kDebugMode || FlavorConfig.dirty;
+  static UpdateStatus getUpdateStatus(int currentVersion, int newestVersion) {
+    final int versionDifference = newestVersion ~/ 10 - currentVersion ~/ 10;
 
-    if (newestVersion <= currentVersion) {
+    if (versionDifference <= 0) {
       return UpdateStatus.upToDate;
-    } else if (newestVersion ~/ 10 <= currentVersion ~/ 10 + 1 && !alwaysRecommendUpdates) {
-      // ignore 1 minor update so the user isn't prompted too often
+    } else if (versionDifference <= Prefs.updatesToIgnore.value) {
       return UpdateStatus.updateOptional;
     } else {
       return UpdateStatus.updateRecommended;

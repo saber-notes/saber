@@ -89,6 +89,7 @@ abstract class Prefs {
   static late final PlainPref<Quota?> lastStorageQuota;
 
   static late final PlainPref<bool> shouldCheckForUpdates;
+  static late final PlainPref<int> updatesToIgnore;
 
   static late final PlainPref<String> locale;
 
@@ -144,6 +145,7 @@ abstract class Prefs {
     lastStorageQuota = PlainPref("lastStorageQuota", null);
 
     shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault);
+    updatesToIgnore = PlainPref("updatesToIgnore", (kDebugMode || FlavorConfig.dirty) ? 0 : 1);
 
     locale = PlainPref("locale", "");
 
@@ -497,7 +499,7 @@ class EncPref<T> extends IPref<T> {
 }
 
 /// An [IPref] that transforms the value of another [IPref].
-/// 
+///
 /// Only instantiate this once during the lifetime of the app
 /// (e.g. in a static field) to avoid extraneous
 /// listeners being added to the underlying [IPref].
