@@ -496,4 +496,47 @@ class EncPref<T> extends IPref<T> {
   }
 }
 
+/// An [IPref] that transforms the value of another [IPref].
+/// 
+/// Only instantiate this once during the lifetime of the app
+/// (e.g. in a static field) to avoid extraneous
+/// listeners being added to the underlying [IPref].
+class TransformedPref<T_in, T_out> extends IPref<T_out> {
+  final IPref<T_in> pref;
+  final T_out Function(T_in) transform;
+  final T_in Function(T_out) reverseTransform;
+
+  @override
+  get value => transform(pref.value);
+
+  @override
+  set value(T_out value) => pref.value = reverseTransform(value);
+
+  @override
+  get loaded => pref.loaded;
+
+  @override
+  get saved => pref.saved;
+
+  TransformedPref(this.pref, this.transform, this.reverseTransform)
+      : super(pref.key, transform(pref.defaultValue)) {
+    pref.addListener(notifyListeners);
+  }
+
+  @override
+  Future<void> _afterLoad() async {}
+
+  @override
+  Future<T_out?> _load() async => null;
+
+  @override
+  Future<void> _save() async {}
+
+  @override
+  Future<void> delete() async {}
+
+  @override
+  Future<T_out?> getValueWithKey(String key) async => null;
+}
+
 Type typeOf<T>() => T;

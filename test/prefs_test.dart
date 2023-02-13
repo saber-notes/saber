@@ -41,6 +41,37 @@ void main() {
         alteredValue: "altered",
       );
     });
+
+    test("TransformedPref", () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      SharedPreferences.setMockInitialValues({});
+
+      IPref<int> intPref = PlainPref("testTransformedPref", 0);
+      await intPref.waitUntilLoaded();
+
+      /// Transforms intPref's value to a bool
+      TransformedPref<int, bool> boolPref = TransformedPref(
+        intPref,
+        (int value) => value > 0,
+        (bool value) => value ? 1 : 0,
+      );
+
+      expect(boolPref.loaded, intPref.loaded);
+      expect(boolPref.saved, intPref.saved);
+      expect(boolPref.value, false);
+
+      // Set the value of intPref
+      intPref.value = 1;
+      expect(boolPref.value, true);
+      intPref.value = 0;
+      expect(boolPref.value, false);
+
+      // Set the value of boolPref
+      boolPref.value = true;
+      expect(intPref.value, 1);
+      boolPref.value = false;
+      expect(intPref.value, 0);
+    });
   });
 }
 
