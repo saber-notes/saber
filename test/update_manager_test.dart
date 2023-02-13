@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart';
 
 /// Example current build number.
@@ -9,24 +11,34 @@ import 'package:saber/data/version.dart';
 const int v = 5000;
 
 void main() => group("Update manager:", () {
+  FlavorConfig.setup();
+  Prefs.testingMode = true;
+  Prefs.init();
+
   test("Test version comparison (release mode)", () {
-    expect(UpdateManager.getUpdateStatus(v, v - 10, alwaysRecommendUpdates: false), UpdateStatus.upToDate);
-    expect(UpdateManager.getUpdateStatus(v, v - 1, alwaysRecommendUpdates: false), UpdateStatus.upToDate);
-    expect(UpdateManager.getUpdateStatus(v, v, alwaysRecommendUpdates: false), UpdateStatus.upToDate);
+    Prefs.updatesToIgnore.value = 1;
 
-    expect(UpdateManager.getUpdateStatus(v, v + 1, alwaysRecommendUpdates: false), UpdateStatus.updateOptional);
-    expect(UpdateManager.getUpdateStatus(v, v + 10, alwaysRecommendUpdates: false), UpdateStatus.updateOptional);
-    expect(UpdateManager.getUpdateStatus(v, v + 11, alwaysRecommendUpdates: false), UpdateStatus.updateOptional);
-    expect(UpdateManager.getUpdateStatus(v, v + 19, alwaysRecommendUpdates: false), UpdateStatus.updateOptional);
+    expect(UpdateManager.getUpdateStatus(v, v - 10), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v - 1), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v + 1), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v + 9), UpdateStatus.upToDate);
 
-    expect(UpdateManager.getUpdateStatus(v, v + 20, alwaysRecommendUpdates: false), UpdateStatus.updateRecommended);
-    expect(UpdateManager.getUpdateStatus(v, v + 100, alwaysRecommendUpdates: false), UpdateStatus.updateRecommended);
+    expect(UpdateManager.getUpdateStatus(v, v + 10), UpdateStatus.updateOptional);
+    expect(UpdateManager.getUpdateStatus(v, v + 11), UpdateStatus.updateOptional);
+    expect(UpdateManager.getUpdateStatus(v, v + 19), UpdateStatus.updateOptional);
+
+    expect(UpdateManager.getUpdateStatus(v, v + 20), UpdateStatus.updateRecommended);
+    expect(UpdateManager.getUpdateStatus(v, v + 100), UpdateStatus.updateRecommended);
   });
 
   test("Test version comparison (debug mode)", () {
-    expect(UpdateManager.getUpdateStatus(v, v, alwaysRecommendUpdates: true), UpdateStatus.upToDate);
-    expect(UpdateManager.getUpdateStatus(v, v + 1, alwaysRecommendUpdates: true), UpdateStatus.updateRecommended);
-    expect(UpdateManager.getUpdateStatus(v, v + 10, alwaysRecommendUpdates: true), UpdateStatus.updateRecommended);
+    Prefs.updatesToIgnore.value = 0;
+
+    expect(UpdateManager.getUpdateStatus(v, v), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v + 1), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v + 9), UpdateStatus.upToDate);
+    expect(UpdateManager.getUpdateStatus(v, v + 10), UpdateStatus.updateRecommended);
   });
 
   test("Test that the latest version can be parsed from version.dart", () async {

@@ -22,22 +22,37 @@
     "createNewNote": "Tocca il pulsante + per creare una nuova nota"
   },
   "settings": {
+    "prefCategories": {
+      "general": "Generale",
+      "layout": "Layout",
+      "writing": "Scrittura"
+    },
     "prefLabels": {
+      "locale": "Lingua app",
       "appTheme": "Tema dell'app",
+      "platform": "Tipo di tema",
       "customAccentColor": "Colore personalizzato",
+      "hyperlegibleFont": "Carattere iperleggibile",
       "shouldCheckForUpdates": "Controlla automaticamente gli aggiornamenti di Saber",
+      "shouldAlwaysAlertForUpdates": "Segnalami aggiornamenti non appena sono disponibili",
       "editorToolbarOnBottom": "Allinea la barra degli strumenti dell'editor in basso",
+      "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
       "editorAutoInvert": "Inverti le note in modalità scura",
       "preferGreyscale": "Preferisci i colori in scala di grigi",
-      "hyperlegibleFont": "Carattere iperleggibile",
       "editorStraightenLines": "Tenere premuto per raddrizzare una linea",
+      "maxImageSize": "Dimensione massima dell'immagine",
       "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app",
       "editorPromptRename": "Richiede di rinominare nuove note",
-      "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
-      "locale": "Lingua app",
-      "platform": "Tipo di tema",
-      "maxImageSize": "Dimensione massima dell'immagine",
       "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
+      "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
+      "preferGreyscale": "Per display e-ink",
+      "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
+      "maxImageSize": "Le immagini più grandi verranno compresse",
+      "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
+      "hideHomeBackgrounds": "Per un aspetto più pulito"
     },
     "themeModes": {
       "system": "Sistema",
@@ -47,26 +62,12 @@
     "accentColorPicker": {
       "pickAColor": "Scegli un colore"
     },
-    "prefDescriptions": {
-      "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
-      "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
-      "preferGreyscale": "Per display e-ink",
-      "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
-      "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
-      "maxImageSize": "Le immagini più grandi verranno compresse",
-      "hideHomeBackgrounds": "Per un aspetto più pulito"
-    },
     "straightenDelay": {
       "off": "Off",
       "regular": "Regolare",
       "slow": "Lento"
     },
     "systemLanguage": "Lingua del sistema",
-    "prefCategories": {
-      "general": "Generale",
-      "layout": "Layout",
-      "writing": "Scrittura"
-    },
     "reset": {
       "title": "Ripristinare questa impostazione?",
       "button": "Ripristina"
@@ -80,8 +81,8 @@
       "enterEncPassword": "Inserisci la tua password di crittografia.",
       "checkUrl": "Per favore, inserisci un URL valido.",
       "ncLoginFailed": "Accesso fallito, controlla i tuoi dati e la connessione di rete.",
-      "loginSuccess": "Accesso riuscito! Si prega di attendere mentre configuriamo...",
-      "encLoginFailed": "Accesso non riuscito, controllare la password di crittografia."
+      "encLoginFailed": "Accesso non riuscito, controllare la password di crittografia.",
+      "loginSuccess": "Accesso riuscito! Si prega di attendere mentre configuriamo..."
     },
     "form": {
       "useCustomServer": "Voglio utilizzare un server Nextcloud personalizzato",
@@ -121,11 +122,11 @@
   },
   "appInfo": {
     "licenseNotice": "Sabre Copyright (C) 2022-$buildYear Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",
+    "dirty": "GROSSOLANA",
     "debug": "DEBUG",
-    "licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
-    "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy",
     "sponsorButton": "Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione",
-    "dirty": "GROSSOLANA"
+    "licenseButton": "Tocca qui per visualizzare ulteriori informazioni sulla licenza",
+    "privacyPolicyButton": "Tocca qui per visualizzare l'informativa sulla privacy"
   },
   "update": {
     "updateAvailable": "Aggiornamento disponibile",
@@ -135,21 +136,21 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Attiva/disattiva i colori (Ctrl C)",
+      "select": "Selezione",
       "toggleEraser": "Attiva/disattiva gomma (Ctrl E)",
       "photo": "Foto",
+      "text": "Testo",
       "toggleFingerDrawing": "Attiva/disattiva il disegno con il dito (Ctrl F)",
       "undo": "Annulla",
       "redo": "Rifai",
       "export": "Esporta (Ctrl Shift S)",
       "exportAs": "Esporta come:",
-      "text": "Testo",
-      "fullscreen": "Passa a schermo intero (F11)",
-      "select": "Selezione"
+      "fullscreen": "Passa a schermo intero (F11)"
     },
     "pens": {
       "fountainPen": "Penna stilografica",
-      "highlighter": "Evidenziatore",
-      "ballpointPen": "Penna a sfera"
+      "ballpointPen": "Penna a sfera",
+      "highlighter": "Evidenziatore"
     },
     "penOptions": {
       "size": "Dimesione",
@@ -158,16 +159,19 @@
     "imageOptions": {
       "title": "Opzioni immagine",
       "invertible": "Invertibile",
-      "delete": "Cancella",
       "download": "Download",
-      "setAsBackground": "Imposta come sfondo"
+      "setAsBackground": "Imposta come sfondo",
+      "delete": "Cancella"
     },
     "menu": {
       "clearPage": "Pulisci pagina",
       "clearAllPages": "Pulisci tutte le pagine",
       "lineHeight": "Altezza della linea",
       "lineHeightDescription": "La dimensione di ogni riga",
+      "backgroundImage": "Immagine di sfondo",
+      "backgroundPattern": "Modello di sfondo",
       "removeBgImage": "Rimuovi l'immagine di sfondo",
+      "import": "Importa",
       "boxFits": {
         "fill": "Tratto",
         "cover": "Copertina",
@@ -179,10 +183,7 @@
         "lined": "Lined",
         "grid": "Griglia",
         "dots": "Punti"
-      },
-      "backgroundImage": "Immagine di sfondo",
-      "backgroundPattern": "Modello di sfondo",
-      "import": "Importa"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Modalità di sola lettura",
@@ -197,7 +198,8 @@
     "hud": {
       "unlockZoom": "Sblocca zoom",
       "lockZoom": "Blocca zoom"
-    }
+    },
+    "pages": "Pagine"
   },
   "sPenWarning": {
     "title": "Avviso di bug S Pen",
