@@ -53,11 +53,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "一有更新就告訴我",
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }

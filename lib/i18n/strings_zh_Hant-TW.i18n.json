@@ -22,21 +22,27 @@
     "createNewNote": "點擊 + 按鈕新增一個筆記"
   },
   "settings": {
+    "prefCategories": {
+      "general": "一般",
+      "layout": "佈局",
+      "writing": "書寫"
+    },
     "prefLabels": {
+      "locale": "應用程式語言",
       "appTheme": "應用程式主題",
+      "platform": "主題類型",
       "customAccentColor": "自訂主題色",
       "hyperlegibleFont": "易讀字體",
       "shouldCheckForUpdates": "自動檢查 Saber 更新",
+      "shouldAlwaysAlertForUpdates": "一有更新就告訴我",
       "editorToolbarOnBottom": "將編輯工具列與底部對齊",
+      "editorToolbarShowInFullscreen": "在全螢幕模式中顯示編輯器工具列",
       "editorAutoInvert": "在深色模式下使用反色筆記背景",
       "preferGreyscale": "使用灰度顏色",
       "editorStraightenLines": "按住拉直線條",
+      "maxImageSize": "最大圖片尺寸",
       "autoClearWhiteboardOnExit": "退出應用程式後清除白板",
       "editorPromptRename": "提醒您重新命名新筆記",
-      "editorToolbarShowInFullscreen": "在全螢幕模式中顯示編輯器工具列",
-      "locale": "應用程式語言",
-      "platform": "主題類型",
-      "maxImageSize": "最大圖片尺寸",
       "hideHomeBackgrounds": "隱藏主畫面上的背景"
     },
     "prefDescriptions": {
@@ -44,8 +50,8 @@
       "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
       "preferGreyscale": "用於電子紙螢幕",
       "autoClearWhiteboardOnExit": "它仍會同步到您的其他裝置",
-      "editorPromptRename": "您以後隨時可以重新命名筆記",
       "maxImageSize": "大於此大小的圖片將被壓縮",
+      "editorPromptRename": "您以後隨時可以重新命名筆記",
       "hideHomeBackgrounds": "為了更乾淨的外觀"
     },
     "themeModes": {
@@ -62,11 +68,6 @@
       "slow": "緩慢"
     },
     "systemLanguage": "系統語言",
-    "prefCategories": {
-      "general": "一般",
-      "layout": "佈局",
-      "writing": "書寫"
-    },
     "reset": {
       "title": "重設此設定?",
       "button": "重設"
@@ -80,8 +81,8 @@
       "enterEncPassword": "請輸入您的加密密碼。",
       "checkUrl": "請輸入有效連結。",
       "ncLoginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
-      "loginSuccess": "登入成功！我們正在設定中，請稍後……",
-      "encLoginFailed": "登入失敗，請檢查您的加密密碼。"
+      "encLoginFailed": "登入失敗，請檢查您的加密密碼。",
+      "loginSuccess": "登入成功！我們正在設定中，請稍後……"
     },
     "form": {
       "useCustomServer": "我想要使用自訂 Nextcloud 伺服器",
@@ -121,11 +122,11 @@
   },
   "appInfo": {
     "licenseNotice": "Saber  版權所有 (C) 2022-$buildYear  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",
+    "dirty": "DIRTY",
     "debug": "DEBUG",
-    "licenseButton": "點擊此處查看更多許可證資訊",
-    "privacyPolicyButton": "點擊此處查看隱私權政策",
     "sponsorButton": "點擊此處贊助我或購買更多儲存空間",
-    "dirty": "DIRTY"
+    "licenseButton": "點擊此處查看更多許可證資訊",
+    "privacyPolicyButton": "點擊此處查看隱私權政策"
   },
   "update": {
     "updateAvailable": "可用更新",
@@ -135,16 +136,16 @@
   "editor": {
     "toolbar": {
       "toggleColors": "切換顏色 (Ctrl C)",
+      "select": "選擇",
       "toggleEraser": "切換橡皮擦 (Ctrl E)",
       "photo": "照片",
+      "text": "文本",
       "toggleFingerDrawing": "切換手寫 (Ctrl F)",
       "undo": "復原",
       "redo": "重做",
       "export": "匯出 (Ctrl Shift S)",
       "exportAs": "匯出為：",
-      "text": "文本",
-      "fullscreen": "切換到全螢幕 (F11)",
-      "select": "選擇"
+      "fullscreen": "切換到全螢幕 (F11)"
     },
     "pens": {
       "fountainPen": "鋼筆",
@@ -158,16 +159,19 @@
     "imageOptions": {
       "title": "圖片選項",
       "invertible": "反轉顏色",
-      "delete": "刪除",
       "download": "下載",
-      "setAsBackground": "設為背景"
+      "setAsBackground": "設為背景",
+      "delete": "刪除"
     },
     "menu": {
       "clearPage": "清除頁面",
       "clearAllPages": "清除所有頁面",
       "lineHeight": "行高",
       "lineHeightDescription": "每行的高度",
+      "backgroundImage": "背景圖片",
+      "backgroundPattern": "背景圖案",
       "removeBgImage": "移除背景圖片",
+      "import": "匯入",
       "boxFits": {
         "fill": "拉伸",
         "cover": "覆蓋",
@@ -179,17 +183,14 @@
         "lined": "橫線",
         "grid": "網格",
         "dots": "點"
-      },
-      "backgroundImage": "背景圖片",
-      "backgroundPattern": "背景圖案",
-      "import": "匯入"
+      }
     },
     "newerFileFormat": {
-      "title": "這篇筆記是使用較新版本的 Saber 編輯的",
-      "cancel": "取消",
       "readOnlyMode": "唯讀模式",
+      "title": "這篇筆記是使用較新版本的 Saber 編輯的",
       "subtitle": "編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？",
-      "allowEditing": "允許編輯"
+      "allowEditing": "允許編輯",
+      "cancel": "取消"
     },
     "quill": {
       "typeSomething": "在這裡輸入一些內容..."
