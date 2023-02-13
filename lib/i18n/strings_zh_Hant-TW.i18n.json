@@ -197,7 +197,8 @@
     "hud": {
       "unlockZoom": "解鎖縮放",
       "lockZoom": "鎖定縮放"
-    }
+    },
+    "pages": "頁面"
   },
   "sPenWarning": {
     "title": "S Pen 錯誤警告",
