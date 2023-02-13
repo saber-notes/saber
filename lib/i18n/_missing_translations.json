@@ -37,7 +37,7 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+        "shouldAlwaysAlertForUpdates": "Segnalami aggiornamenti non appena sono disponibili"
       }
     },
     "editor": {
