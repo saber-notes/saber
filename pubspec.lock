@@ -372,10 +372,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "9e19fe0b812a43f585ebdb4e4e9f26d5785a5bb818469421edd557118d613c7b"
+      sha256: cc30e5ce6575a9180d3b6c3c52d77963877fed90197fd76f5ad906657dc7e2f3
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.3"
+    version: "6.3.4"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -532,10 +532,10 @@ packages:
     dependency: "direct main"
     description:
       name: image
-      sha256: "3686865febd85c57a632d87a0fb1f0a8a9ef602fdb68d909c3e9aa29ec70fd24"
+      sha256: "483a389d6ccb292b570c31b3a193779b1b0178e7eb571986d9a49904b6861227"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.13"
+    version: "4.0.15"
   image_picker:
     dependency: "direct main"
     description:
@@ -1057,18 +1057,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "5b0f10645c038b0f65ea581bc367af91a9685f7f548598b5de829473f0e31ff7"
+      sha256: "11496b152f18b9f2955d3199c713e600dc53dab8eb09d6b032a7a462081233e4"
       url: "https://pub.dev"
     source: hosted
-    version: "3.11.1"
+    version: "3.12.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: "0f9d23a6e9db25d439208c2adf6b45d38188193b759f49ef956b56431c76035f"
+      sha256: "34e69a7e73a5d167dfc11da649e5a0a324567817b03303e9e62275d78a0d4fe7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.11.0"
+    version: "3.12.0"
   source_span:
     dependency: transitive
     description:
