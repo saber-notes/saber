@@ -8,49 +8,7 @@
       "pages": "Pages"
     }
   },
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Maximale Bildgröße",
-        "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Bilder, die größer sind, werden komprimiert",
-        "hideHomeBackgrounds": "Für ein sauberes Aussehen"
-      },
-      "reset": {
-        "title": "Diese Einstellung zurücksetzen?",
-        "button": "Zurücksetzen"
-      }
-    },
-    "editor": {
-      "toolbar": {
-        "select": "Auswählen"
-      },
-      "imageOptions": {
-        "setAsBackground": "Als Hintergrund festlegen"
-      },
-      "menu": {
-        "backgroundImage": "Hintergrundbild",
-        "backgroundPattern": "Hintergrundmuster",
-        "removeBgImage": "Hintergrundbild entfernen",
-        "import": "Importieren",
-        "boxFits": {
-          "fill": "Dehnen",
-          "cover": "Abdecken",
-          "contain": "Beinhalten"
-        },
-        "bgPatterns": {
-          "none": "Leer",
-          "college": "College",
-          "lined": "Liniert",
-          "grid": "Kariert",
-          "dots": "Gepunktet"
-        }
-      },
-      "pages": "Seiten"
-    }
-  },
+  "de": {},
   "es": {},
   "fa": {},
   "it": {

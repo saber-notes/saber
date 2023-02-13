@@ -35,7 +35,9 @@
       "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
       "locale": "Sprache",
       "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild",
-      "platform": "Oberfläche"
+      "platform": "Oberfläche",
+      "maxImageSize": "Maximale Bildgröße",
+      "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen"
     },
     "themeModes": {
       "system": "System",
@@ -50,7 +52,9 @@
       "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
       "preferGreyscale": "Für E-Ink-Bildschirme",
       "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert",
-      "editorPromptRename": "Notizen können immer auch später noch umbenannt werden"
+      "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
+      "maxImageSize": "Bilder, die größer sind, werden komprimiert",
+      "hideHomeBackgrounds": "Für ein sauberes Aussehen"
     },
     "straightenDelay": {
       "off": "Aus",
@@ -62,6 +66,10 @@
       "general": "Allgemein",
       "layout": "Aussehen",
       "writing": "Eingabe"
+    },
+    "reset": {
+      "title": "Diese Einstellung zurücksetzen?",
+      "button": "Zurücksetzen"
     }
   },
   "login": {
@@ -135,7 +143,8 @@
       "export": "Exportieren (Strg + Shift + S)",
       "exportAs": "Exportieren als:",
       "text": "Text",
-      "fullscreen": "Vollbild umschalten (F11)"
+      "fullscreen": "Vollbild umschalten (F11)",
+      "select": "Auswählen"
     },
     "pens": {
       "fountainPen": "Füllfederhalter",
@@ -150,13 +159,30 @@
       "title": "Bildoptionen",
       "invertible": "Invertierbar",
       "delete": "Entfernen",
-      "download": "Herunterladen"
+      "download": "Herunterladen",
+      "setAsBackground": "Als Hintergrund festlegen"
     },
     "menu": {
       "clearPage": "Seite löschen",
       "clearAllPages": "Alle Seiten löschen",
       "lineHeight": "Zeilenhöhe",
-      "lineHeightDescription": "Die Höhe jeder Zeile"
+      "lineHeightDescription": "Die Höhe jeder Zeile",
+      "backgroundImage": "Hintergrundbild",
+      "backgroundPattern": "Hintergrundmuster",
+      "removeBgImage": "Hintergrundbild entfernen",
+      "import": "Importieren",
+      "boxFits": {
+        "fill": "Dehnen",
+        "cover": "Abdecken",
+        "contain": "Beinhalten"
+      },
+      "bgPatterns": {
+        "none": "Leer",
+        "college": "College",
+        "lined": "Liniert",
+        "grid": "Kariert",
+        "dots": "Gepunktet"
+      }
     },
     "newerFileFormat": {
       "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
@@ -171,7 +197,8 @@
     "hud": {
       "unlockZoom": "Zoom entsperren",
       "lockZoom": "Zoom sperren"
-    }
+    },
+    "pages": "Seiten"
   },
   "sPenWarning": {
     "title": "S Pen Problemwarnung",

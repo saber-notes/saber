@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1325 (132 per locale)
+/// Strings: 1346 (134 per locale)
 ///
-/// Built on 2023-02-13 at 09:23 UTC
+/// Built on 2023-02-13 at 09:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1213,6 +1213,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
 	@override String get systemLanguage => 'Systemsprache';
 	@override late final _StringsSettingsPrefCategoriesDe prefCategories = _StringsSettingsPrefCategoriesDe._(_root);
+	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
 }
 
 // Path: login
@@ -1281,6 +1282,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatDe newerFileFormat = _StringsEditorNewerFileFormatDe._(_root);
 	@override late final _StringsEditorQuillDe quill = _StringsEditorQuillDe._(_root);
 	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
+	@override String get pages => 'Seiten';
 }
 
 // Path: sPenWarning
@@ -1351,6 +1353,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Sprache';
 	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
 	@override String get platform => 'Oberfläche';
+	@override String get maxImageSize => 'Maximale Bildgröße';
+	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 }
 
 // Path: settings.themeModes
@@ -1387,6 +1391,8 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
+	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
+	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 }
 
 // Path: settings.straightenDelay
@@ -1411,6 +1417,17 @@ class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Allgemein';
 	@override String get layout => 'Aussehen';
 	@override String get writing => 'Eingabe';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetDe extends _StringsSettingsResetEn {
+	_StringsSettingsResetDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Diese Einstellung zurücksetzen?';
+	@override String get button => 'Zurücksetzen';
 }
 
 // Path: login.feedbacks
@@ -1528,6 +1545,7 @@ class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	@override String get exportAs => 'Exportieren als:';
 	@override String get text => 'Text';
 	@override String get fullscreen => 'Vollbild umschalten (F11)';
+	@override String get select => 'Auswählen';
 }
 
 // Path: editor.pens
@@ -1564,6 +1582,7 @@ class _StringsEditorImageOptionsDe extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Invertierbar';
 	@override String get delete => 'Entfernen';
 	@override String get download => 'Herunterladen';
+	@override String get setAsBackground => 'Als Hintergrund festlegen';
 }
 
 // Path: editor.menu
@@ -1577,6 +1596,12 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Alle Seiten löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Die Höhe jeder Zeile';
+	@override String get backgroundImage => 'Hintergrundbild';
+	@override String get backgroundPattern => 'Hintergrundmuster';
+	@override String get removeBgImage => 'Hintergrundbild entfernen';
+	@override String get import => 'Importieren';
+	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
+	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -1612,6 +1637,32 @@ class _StringsEditorHudDe extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Zoom entsperren';
 	@override String get lockZoom => 'Zoom sperren';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsDe extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Dehnen';
+	@override String get cover => 'Abdecken';
+	@override String get contain => 'Beinhalten';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Leer';
+	@override String get college => 'College';
+	@override String get lined => 'Liniert';
+	@override String get grid => 'Kariert';
+	@override String get dots => 'Gepunktet';
 }
 
 // Path: <root>
