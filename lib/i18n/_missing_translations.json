@@ -11,44 +11,44 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "maxImageSize": "Maximum image size",
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+        "maxImageSize": "Maximale Bildgröße",
+        "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen"
       },
       "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed",
-        "hideHomeBackgrounds": "For a cleaner look"
+        "maxImageSize": "Bilder, die größer sind, werden komprimiert",
+        "hideHomeBackgrounds": "Für ein sauberes Aussehen"
       },
       "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
+        "title": "Diese Einstellung zurücksetzen?",
+        "button": "Zurücksetzen"
       }
     },
     "editor": {
       "toolbar": {
-        "select": "Select"
+        "select": "Auswählen"
       },
       "imageOptions": {
-        "setAsBackground": "Set as background"
+        "setAsBackground": "Als Hintergrund festlegen"
       },
       "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "removeBgImage": "Remove background image",
-        "import": "Import",
+        "backgroundImage": "Hintergrundbild",
+        "backgroundPattern": "Hintergrundmuster",
+        "removeBgImage": "Hintergrundbild entfernen",
+        "import": "Importieren",
         "boxFits": {
-          "fill": "Stretch",
-          "cover": "Cover",
-          "contain": "Contain"
+          "fill": "Dehnen",
+          "cover": "Abdecken",
+          "contain": "Beinhalten"
         },
         "bgPatterns": {
-          "none": "Blank",
-          "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Grid",
-          "dots": "Dots"
+          "none": "Leer",
+          "college": "College",
+          "lined": "Liniert",
+          "grid": "Kariert",
+          "dots": "Gepunktet"
         }
       },
-      "pages": "Pages"
+      "pages": "Seiten"
     }
   },
   "es": {},
