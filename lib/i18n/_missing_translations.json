@@ -51,33 +51,7 @@
       "pages": "Pages"
     }
   },
-  "es": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Maximum image size",
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed",
-        "hideHomeBackgrounds": "For a cleaner look"
-      },
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    },
-    "editor": {
-      "toolbar": {
-        "select": "Select"
-      },
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "import": "Import"
-      },
-      "pages": "Pages"
-    }
-  },
+  "es": {},
   "fa": {},
   "it": {
     "editor": {

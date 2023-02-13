@@ -40,15 +40,19 @@
       "editorAutoInvert": "Invertir notas en el modo oscuro",
       "preferGreyscale": "Preferir colores en escala de grises",
       "editorStraightenLines": "Mantener presionado para enderezar una línea",
+      "maxImageSize": "Tamaño máximo de la imagen",
       "autoClearWhiteboardOnExit": "Borrar la pizarra después de salir de la aplicación",
-      "editorPromptRename": "Solicitarte cambiar el nombre de nuevas notas"
+      "editorPromptRename": "Solicitarte cambiar el nombre de nuevas notas",
+      "hideHomeBackgrounds": "Ocultar fondos en la pantalla de inicio"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
       "editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
       "preferGreyscale": "Para pantallas con tinta electrónica",
       "autoClearWhiteboardOnExit": "Aún se sincronizará con tus otros dispositivos",
-      "editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde"
+      "maxImageSize": "Las imágenes más grandes que este valor serán comprimidas",
+      "editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde",
+      "hideHomeBackgrounds": "Para una vista más limpia"
     },
     "themeModes": {
       "system": "Sistema",
@@ -63,7 +67,11 @@
       "regular": "Regular",
       "slow": "Lento"
     },
-    "systemLanguage": "Idioma del sistema"
+    "systemLanguage": "Idioma del sistema",
+    "reset": {
+      "title": "¿Quieres restablecer esta configuración?",
+      "button": "Restablecer"
+    }
   },
 
   "login": {
@@ -132,6 +140,7 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Paleta de colores (Ctrl C)",
+      "select": "Seleccionar",
       "toggleEraser": "Borrar (Ctrl E)",
       "photo": "Foto",
       "text": "Texto",
@@ -163,6 +172,9 @@
       "clearAllPages": "Borrar todas las páginas",
       "lineHeight": "Altura de la línea",
       "lineHeightDescription": "Tamaño de cada línea",
+      "backgroundImage": "Imagen de fondo",
+      "backgroundPattern": "Patrón de fondo",
+      "import": "Importar",
       "removeBgImage": "Eliminar imagen de fondo",
       "boxFits": {
         "fill": "Llenar",
@@ -190,7 +202,8 @@
     "hud": {
       "unlockZoom": "Desbloquear zoom",
       "lockZoom": "Bloquear zoom"
-    }
+    },
+    "pages": "Páginas"
   },
 
   "sPenWarning": {
