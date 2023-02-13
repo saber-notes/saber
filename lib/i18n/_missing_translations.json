@@ -8,49 +8,7 @@
       "pages": "Pages"
     }
   },
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "maxImageSize": "Maximum image size",
-        "hideHomeBackgrounds": "Hide backgrounds on the home screen"
-      },
-      "prefDescriptions": {
-        "maxImageSize": "Images larger than this will be compressed",
-        "hideHomeBackgrounds": "For a cleaner look"
-      },
-      "reset": {
-        "title": "Reset this setting?",
-        "button": "Reset"
-      }
-    },
-    "editor": {
-      "toolbar": {
-        "select": "Select"
-      },
-      "imageOptions": {
-        "setAsBackground": "Set as background"
-      },
-      "menu": {
-        "backgroundImage": "Background image",
-        "backgroundPattern": "Background pattern",
-        "removeBgImage": "Remove background image",
-        "import": "Import",
-        "boxFits": {
-          "fill": "Stretch",
-          "cover": "Cover",
-          "contain": "Contain"
-        },
-        "bgPatterns": {
-          "none": "Blank",
-          "college": "College-ruled",
-          "lined": "Lined",
-          "grid": "Grid",
-          "dots": "Dots"
-        }
-      },
-      "pages": "Pages"
-    }
-  },
+  "de": {},
   "es": {},
   "fa": {},
   "it": {
