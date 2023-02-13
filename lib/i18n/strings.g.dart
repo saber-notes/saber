@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1350 (135 per locale)
+/// Strings: 1351 (135 per locale)
 ///
-/// Built on 2023-02-13 at 19:02 UTC
+/// Built on 2023-02-13 at 23:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4278,13 +4278,13 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsSettingsPrefCategoriesZhHansCn prefCategories = _StringsSettingsPrefCategoriesZhHansCn._(_root);
 	@override late final _StringsSettingsPrefLabelsZhHansCn prefLabels = _StringsSettingsPrefLabelsZhHansCn._(_root);
 	@override late final _StringsSettingsPrefDescriptionsZhHansCn prefDescriptions = _StringsSettingsPrefDescriptionsZhHansCn._(_root);
 	@override late final _StringsSettingsThemeModesZhHansCn themeModes = _StringsSettingsThemeModesZhHansCn._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhHansCn accentColorPicker = _StringsSettingsAccentColorPickerZhHansCn._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHansCn straightenDelay = _StringsSettingsStraightenDelayZhHansCn._(_root);
 	@override String get systemLanguage => '系统语言';
-	@override late final _StringsSettingsPrefCategoriesZhHansCn prefCategories = _StringsSettingsPrefCategoriesZhHansCn._(_root);
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 }
 
@@ -4320,11 +4320,11 @@ class _StringsAppInfoZhHansCn extends _StringsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  版权所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => '点击此处赞助我或购买更多存储空间';
 	@override String get licenseButton => '点击此处查看更多许可证信息';
 	@override String get privacyPolicyButton => '点击此处查看隐私政策';
-	@override String get sponsorButton => '点击此处赞助我或购买更多存储空间';
-	@override String get dirty => 'DIRTY';
 }
 
 // Path: update
@@ -4405,6 +4405,18 @@ class _StringsHomeTooltipsZhHansCn extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => '显示更新对话框';
 }
 
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => '通用';
+	@override String get layout => '布局';
+	@override String get writing => '书写';
+}
+
 // Path: settings.prefLabels
 class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	_StringsSettingsPrefLabelsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -4412,20 +4424,21 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
+	@override String get locale => '应用语言';
 	@override String get appTheme => '应用主题';
+	@override String get platform => '主题类型';
 	@override String get customAccentColor => '自定义主题色';
 	@override String get hyperlegibleFont => '易读字体';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
+	@override String get shouldAlwaysAlertForUpdates => '有可用更新时立即通知我';
 	@override String get editorToolbarOnBottom => '将编辑工具栏与底部对齐';
+	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get preferGreyscale => '使用灰度颜色';
 	@override String get editorStraightenLines => '按住拉直线段';
+	@override String get maxImageSize => '最大图片大小';
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 	@override String get editorPromptRename => '提示您重命名新笔记';
-	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
-	@override String get locale => '应用语言';
-	@override String get platform => '主题类型';
-	@override String get maxImageSize => '最大图片大小';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 }
 
@@ -4440,8 +4453,8 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
 	@override String get preferGreyscale => '用于电子墨水显示器';
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
-	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get maxImageSize => '更大的图片将会被压缩';
+	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 }
 
@@ -4479,18 +4492,6 @@ class _StringsSettingsStraightenDelayZhHansCn extends _StringsSettingsStraighten
 	@override String get slow => '缓慢';
 }
 
-// Path: settings.prefCategories
-class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategoriesEn {
-	_StringsSettingsPrefCategoriesZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get general => '通用';
-	@override String get layout => '布局';
-	@override String get writing => '书写';
-}
-
 // Path: settings.reset
 class _StringsSettingsResetZhHansCn extends _StringsSettingsResetEn {
 	_StringsSettingsResetZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -4514,8 +4515,8 @@ class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
-	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
+	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 }
 
 // Path: login.form
@@ -4608,16 +4609,16 @@ class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => '切换颜色 (Ctrl C)';
+	@override String get select => '选择';
 	@override String get toggleEraser => '切换橡皮擦 (Ctrl E)';
 	@override String get photo => '照片';
+	@override String get text => '文本';
 	@override String get toggleFingerDrawing => '切换手写 (Ctrl F)';
 	@override String get undo => '撤销';
 	@override String get redo => '重做';
 	@override String get export => '导出 (Ctrl Shift S)';
 	@override String get exportAs => '导出为：';
-	@override String get text => '文本';
 	@override String get fullscreen => '切换全屏 (F11)';
-	@override String get select => '选择';
 }
 
 // Path: editor.pens
@@ -4652,9 +4653,9 @@ class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
 	// Translations
 	@override String get title => '图片选项';
 	@override String get invertible => '反转颜色';
-	@override String get delete => '删除';
 	@override String get download => '下载';
 	@override String get setAsBackground => '设为背景';
+	@override String get delete => '删除';
 }
 
 // Path: editor.menu
@@ -4668,12 +4669,12 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get clearAllPages => '清除全部页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '每一行的高度';
-	@override String get removeBgImage => '移除背景图片';
-	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
-	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
 	@override String get backgroundImage => '背景图片';
 	@override String get backgroundPattern => '背景图案';
+	@override String get removeBgImage => '移除背景图片';
 	@override String get import => '导入';
+	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
+	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
 }
 
 // Path: editor.newerFileFormat
@@ -4683,11 +4684,11 @@ class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileForma
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '此笔记使用新版 Saber 编辑而成';
-	@override String get cancel => '取消';
 	@override String get readOnlyMode => '只读模式';
+	@override String get title => '此笔记使用新版 Saber 编辑而成';
 	@override String get subtitle => '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 	@override String get allowEditing => '允许编辑';
+	@override String get cancel => '取消';
 }
 
 // Path: editor.quill
