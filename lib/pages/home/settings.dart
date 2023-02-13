@@ -1,3 +1,4 @@
+import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,12 @@ class SettingsPage extends StatefulWidget {
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
+
+  static final _shouldAlwaysAlertForUpdates = TransformedPref(
+    Prefs.updatesToIgnore,
+    (int value) => value <= 0,
+    (bool value) => value ? 0 : 1,
+  );
 
   static Future<bool?> showResetDialog({
     required BuildContext context,
@@ -202,11 +209,23 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                     pref: Prefs.hyperlegibleFont,
                   ),
-                  if (requiresManualUpdates) SettingsSwitch(
-                    title: t.settings.prefLabels.shouldCheckForUpdates,
-                    icon: Icons.system_update,
-                    pref: Prefs.shouldCheckForUpdates,
-                  ),
+                  if (requiresManualUpdates) ...[
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.shouldCheckForUpdates,
+                      icon: Icons.system_update,
+                      pref: Prefs.shouldCheckForUpdates,
+                      afterChange: (_) => setState(() {}),
+                    ),
+                    Collapsible(
+                      collapsed: !Prefs.shouldCheckForUpdates.value,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsSwitch(
+                        title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
+                        icon: Icons.system_security_update_warning,
+                        pref: SettingsPage._shouldAlwaysAlertForUpdates,
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 16),
                 ],
               ),

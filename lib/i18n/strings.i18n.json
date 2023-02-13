@@ -34,6 +34,7 @@
       "customAccentColor": "Custom accent color",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Automatically check for Saber updates",
+      "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
       "editorToolbarOnBottom": "Align the editor toolbar to the bottom",
       "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
       "editorAutoInvert": "Invert notes in dark mode",

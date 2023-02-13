@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1347 (134 per locale)
+/// Strings: 1348 (134 per locale)
 ///
-/// Built on 2023-02-13 at 09:25 UTC
+/// Built on 2023-02-13 at 18:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -335,6 +335,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get customAccentColor => 'Custom accent color';
 	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
+	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
 	String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';

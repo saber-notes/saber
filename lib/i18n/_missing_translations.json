@@ -4,24 +4,75 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    },
     "editor": {
       "pages": "Pages"
     }
   },
-  "de": {},
-  "es": {},
-  "fa": {},
+  "de": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    }
+  },
+  "es": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    }
+  },
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    }
+  },
   "it": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    },
     "editor": {
       "pages": "Pages"
     }
   },
-  "ru": {},
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    }
+  },
   "tr": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    },
     "editor": {
       "pages": "Pages"
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+      }
+    }
+  }
 }
