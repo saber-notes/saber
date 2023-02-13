@@ -27,7 +27,13 @@
       }
     }
   },
-  "fa": {},
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "shouldAlwaysAlertForUpdates": "一有更新就告訴我"
+      }
+    }
+  },
   "it": {},
   "ru": {
     "settings": {
