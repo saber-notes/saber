@@ -34,6 +34,7 @@
       "customAccentColor": "رنگ سفارشی",
       "hyperlegibleFont": "فونت بیش از حد خوانا",
       "shouldCheckForUpdates": "به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید",
+      "shouldAlwaysAlertForUpdates": "به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید",
       "editorToolbarOnBottom": "نوار ابزار ویرایشگر را در پایین تراز کنید",
       "editorToolbarShowInFullscreen": "نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید",
       "editorAutoInvert": "معکوس کردن رنگ یادداشت ها در حالت تاریک",
@@ -167,7 +168,10 @@
       "clearAllPages": "تمام صفحات را پاک کنید",
       "lineHeight": "ارتفاع خط",
       "lineHeightDescription": "اندازه هر خط",
+      "backgroundImage": "تصویر پس زمینه",
+      "backgroundPattern": "الگوی پس زمینه",
       "removeBgImage": "حذف تصویر پس زمینه",
+      "import": "واردکردن",
       "boxFits": {
         "fill": "کش آمدن",
         "cover": "پوشش دادن",
@@ -179,10 +183,7 @@
         "lined": "خط کشی شده",
         "grid": "توری",
         "dots": "نقطه ای"
-      },
-      "backgroundImage": "تصویر پس زمینه",
-      "backgroundPattern": "الگوی پس زمینه",
-      "import": "واردکردن"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "حالت فقط خواندنی",

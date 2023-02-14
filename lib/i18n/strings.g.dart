@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1354 (135 per locale)
+/// Strings: 1355 (135 per locale)
 ///
-/// Built on 2023-02-14 at 00:27 UTC
+/// Built on 2023-02-14 at 06:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2384,6 +2384,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'رنگ سفارشی';
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
+	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override String get editorToolbarOnBottom => 'نوار ابزار ویرایشگر را در پایین تراز کنید';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
@@ -2622,12 +2623,12 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'تمام صفحات را پاک کنید';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'اندازه هر خط';
-	@override String get removeBgImage => 'حذف تصویر پس زمینه';
-	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
-	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
 	@override String get backgroundImage => 'تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
+	@override String get removeBgImage => 'حذف تصویر پس زمینه';
 	@override String get import => 'واردکردن';
+	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
+	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
 }
 
 // Path: editor.newerFileFormat

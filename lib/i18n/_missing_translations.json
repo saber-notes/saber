@@ -18,13 +18,7 @@
       }
     }
   },
-  "fa": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید"
-      }
-    }
-  },
+  "fa": {},
   "it": {},
   "ru": {
     "settings": {
