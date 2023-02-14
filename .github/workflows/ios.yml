@@ -93,8 +93,10 @@ jobs:
       - name: Build for iOS
         id: build
         run: |
-          flutter build ipa --export-options-plist=$HOME/export_options.plist
-          
+          flutter build ipa \
+            -t lib/main_app_store.dart \
+            --export-options-plist=$HOME/export_options.plist
+
           export ipaPath=$(find $(pwd) -name "*.ipa")
           echo "ipaPath=$ipaPath" >> $GITHUB_OUTPUT
 
