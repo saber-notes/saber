@@ -229,22 +229,21 @@ class EditorCoreInfo {
     required bool onlyFirstPage,
   }) async {
     try {
-      final dynamic json = await Executor().execute(fun1: _jsonDecodeIsolate, arg1: jsonString);
-      if (json == null) {
-        throw Exception("Failed to parse json from $path");
-      } else if (json is List) { // old format
-        return EditorCoreInfo.fromOldJson(
-          json,
-          filePath: path,
-          readOnly: readOnly,
-          onlyFirstPage: onlyFirstPage,
+      // decide whether to use isolate or not
+      if (jsonString.length < 2 * 1024 * 1024) { // 2 MB
+        return _loadFromFileIsolate(
+          jsonString,
+          path,
+          readOnly,
+          onlyFirstPage,
         );
       } else {
-        return EditorCoreInfo.fromJson(
-          json as Map<String, dynamic>,
-          filePath: path,
-          readOnly: readOnly,
-          onlyFirstPage: onlyFirstPage,
+        return await Executor().execute(
+          fun4: _loadFromFileIsolate,
+          arg1: jsonString,
+          arg2: path,
+          arg3: readOnly,
+          arg4: onlyFirstPage,
         );
       }
     } catch (e) {
@@ -256,12 +255,38 @@ class EditorCoreInfo {
     }
   }
 
-  static dynamic _jsonDecodeIsolate(String json, TypeSendPort port) {
+  static EditorCoreInfo _loadFromFileIsolate(
+      String jsonString,
+      String path,
+      bool readOnly,
+      bool onlyFirstPage,
+
+      [TypeSendPort? port]
+  ) {
+    final dynamic json;
     try {
-      return jsonDecode(json);
+      json = jsonDecode(jsonString);
     } catch (e) {
-      if (kDebugMode) print("_jsonDecodeIsolate: $e");
-      return null;
+      if (kDebugMode) print("Failed to parse json from $path: $e");
+      rethrow;
+    }
+
+    if (json == null) {
+      throw Exception("Failed to parse json from $path");
+    } else if (json is List) { // old format
+      return EditorCoreInfo.fromOldJson(
+        json,
+        filePath: path,
+        readOnly: readOnly,
+        onlyFirstPage: onlyFirstPage,
+      );
+    } else {
+      return EditorCoreInfo.fromJson(
+        json as Map<String, dynamic>,
+        filePath: path,
+        readOnly: readOnly,
+        onlyFirstPage: onlyFirstPage,
+      );
     }
   }
 
