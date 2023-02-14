@@ -23,10 +23,7 @@ class Eraser extends Tool {
     final List<int> indices = [];
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
-      if (stroke.polygon.any((strokeVertex) {
-        Offset translated = strokeVertex + stroke.offset;
-        return sqrDistanceBetween(translated, eraserPos) <= sqrSize;
-      })) {
+      if (_shouldStrokeBeErased(eraserPos, stroke, sqrSize)) {
         _erased.add(stroke);
         indices.add(i);
       }
@@ -39,5 +36,16 @@ class Eraser extends Tool {
     final List<Stroke> erased = _erased;
     _erased = [];
     return erased;
+  }
+
+  static bool _shouldStrokeBeErased(Offset eraserPos, Stroke stroke, double sqrSize) {
+    if (stroke.path.contains(eraserPos - stroke.offset)) return true;
+
+    for (Offset strokeVertex in stroke.polygon) {
+      Offset translated = strokeVertex + stroke.offset;
+      if (sqrDistanceBetween(translated, eraserPos) <= sqrSize) return true;
+    }
+
+    return false;
   }
 }

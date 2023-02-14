@@ -103,7 +103,7 @@ class Stroke {
     final List<Point> points;
     if (isStraightLine) {
       Point last = snapLineToRightAngle(this.points.first, this.points.last);
-      points = [ // todo: make this play nicer with the eraser
+      points = [
         this.points.first,
         last,
         last,

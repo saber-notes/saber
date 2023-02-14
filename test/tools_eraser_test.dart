@@ -32,6 +32,16 @@ void main() {
 
       // 0.5 sizes right from center
       _strokeWithPoint(_eraserPos + const Offset(0.5, 0) * eraser.size),
+
+      // straight line that passes through center
+      Stroke(
+        strokeProperties: _strokeProperties,
+        pageIndex: 0,
+        penType: _penType,
+      )
+        ..addPoint(_pageSize, _eraserPos + const Offset(-20, -20) * eraser.size)
+        ..addPoint(_pageSize, _eraserPos + const Offset(20, 20) * eraser.size)
+        ..isStraightLine = true,
     ];
 
     List<Stroke> strokesToKeep = [
