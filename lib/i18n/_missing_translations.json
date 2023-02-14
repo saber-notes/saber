@@ -3,16 +3,7 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Oznámit dostupnost aktualizací co nejdříve od jejich vydání"
-      }
-    },
-    "editor": {
-      "pages": "Stránky"
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefLabels": {

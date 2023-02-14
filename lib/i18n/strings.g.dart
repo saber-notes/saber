@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1352 (135 per locale)
+/// Strings: 1354 (135 per locale)
 ///
-/// Built on 2023-02-13 at 23:20 UTC
+/// Built on 2023-02-14 at 00:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -696,13 +696,13 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsSettingsPrefCategoriesCs prefCategories = _StringsSettingsPrefCategoriesCs._(_root);
 	@override late final _StringsSettingsPrefLabelsCs prefLabels = _StringsSettingsPrefLabelsCs._(_root);
 	@override late final _StringsSettingsPrefDescriptionsCs prefDescriptions = _StringsSettingsPrefDescriptionsCs._(_root);
 	@override late final _StringsSettingsThemeModesCs themeModes = _StringsSettingsThemeModesCs._(_root);
 	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
 	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
 	@override String get systemLanguage => 'Systémový jazyk';
-	@override late final _StringsSettingsPrefCategoriesCs prefCategories = _StringsSettingsPrefCategoriesCs._(_root);
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 }
 
@@ -772,6 +772,7 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatCs newerFileFormat = _StringsEditorNewerFileFormatCs._(_root);
 	@override late final _StringsEditorQuillCs quill = _StringsEditorQuillCs._(_root);
 	@override late final _StringsEditorHudCs hud = _StringsEditorHudCs._(_root);
+	@override String get pages => 'Stránky';
 }
 
 // Path: sPenWarning
@@ -822,6 +823,18 @@ class _StringsHomeTooltipsCs extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Zobrazit dialogové okno aktualizace';
 }
 
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesCs extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Obecné';
+	@override String get layout => 'Uspořádání uživatelského rozhraní';
+	@override String get writing => 'Psaní';
+}
+
 // Path: settings.prefLabels
 class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	_StringsSettingsPrefLabelsCs._(_StringsCs root) : this._root = root, super._(root);
@@ -829,20 +842,21 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
+	@override String get locale => 'Jazyk aplikace';
 	@override String get appTheme => 'Barva motivu';
+	@override String get platform => 'Motiv';
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 	@override String get editorToolbarOnBottom => 'Umístit nabídku editoru do spodní části';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
 	@override String get preferGreyscale => 'Preferovat černobílé barvy';
 	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
+	@override String get maxImageSize => 'Maximální velikost obrázku';
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
-	@override String get locale => 'Jazyk aplikace';
-	@override String get platform => 'Motiv';
-	@override String get maxImageSize => 'Maximální velikost obrázku';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 }
 
@@ -857,8 +871,8 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorAutoInvert => 'Inteligentně ztmaví poznámky ve tmavém motivu';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
-	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
+	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 }
 
@@ -894,18 +908,6 @@ class _StringsSettingsStraightenDelayCs extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Vypnuto';
 	@override String get regular => 'Standardně';
 	@override String get slow => 'Dlouze';
-}
-
-// Path: settings.prefCategories
-class _StringsSettingsPrefCategoriesCs extends _StringsSettingsPrefCategoriesEn {
-	_StringsSettingsPrefCategoriesCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get general => 'Obecné';
-	@override String get layout => 'Uspořádání uživatelského rozhraní';
-	@override String get writing => 'Psaní';
 }
 
 // Path: settings.reset
@@ -1025,6 +1027,7 @@ class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => 'Změnit barvu (Ctrl C)';
+	@override String get select => 'Výběr';
 	@override String get toggleEraser => 'Guma (Ctrl E)';
 	@override String get photo => 'Obrázek';
 	@override String get text => 'Text';
@@ -1034,7 +1037,6 @@ class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
 	@override String get export => 'Exportovat (Ctrl Shift S)';
 	@override String get exportAs => 'Exportovat jako:';
 	@override String get fullscreen => 'Režim celé obrazovky (F11)';
-	@override String get select => 'Výběr';
 }
 
 // Path: editor.pens
@@ -1070,8 +1072,8 @@ class _StringsEditorImageOptionsCs extends _StringsEditorImageOptionsEn {
 	@override String get title => 'Možnosti obrázku';
 	@override String get invertible => 'Invertovat barvy podle motivu';
 	@override String get download => 'Stáhnout';
-	@override String get delete => 'Odstranit';
 	@override String get setAsBackground => 'Nastavit na pozadí';
+	@override String get delete => 'Odstranit';
 }
 
 // Path: editor.menu
@@ -1085,12 +1087,12 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Smazat všechny stránky';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Velikost jednotlivých řádků';
-	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
-	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
-	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
 	@override String get backgroundImage => 'Obrázek na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
+	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
 	@override String get import => 'Importovat';
+	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
+	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
 }
 
 // Path: editor.newerFileFormat

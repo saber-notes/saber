@@ -22,21 +22,27 @@
     "createNewNote": "Pro přidání nové poznámky klepněte na tlačítko +"
   },
   "settings": {
+    "prefCategories": {
+      "general": "Obecné",
+      "layout": "Uspořádání uživatelského rozhraní",
+      "writing": "Psaní"
+    },
     "prefLabels": {
+      "locale": "Jazyk aplikace",
       "appTheme": "Barva motivu",
+      "platform": "Motiv",
       "customAccentColor": "Vlastní barevný odstín",
       "hyperlegibleFont": "Lépe čitelný font",
       "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
+      "shouldAlwaysAlertForUpdates": "Oznámit dostupnost aktualizací co nejdříve od jejich vydání",
       "editorToolbarOnBottom": "Umístit nabídku editoru do spodní části",
       "editorToolbarShowInFullscreen": "Zobrazovat nabídku editoru v režimu celé obrazovky",
       "editorAutoInvert": "V tmavém režimu invertovat poznámky",
       "preferGreyscale": "Preferovat černobílé barvy",
       "editorStraightenLines": "Pro kreslení rovné čáry stisknout a podržet",
+      "maxImageSize": "Maximální velikost obrázku",
       "autoClearWhiteboardOnExit": "Smazat tabuli po opuštění aplikace",
       "editorPromptRename": "Vybízet k přejmenování nových poznámek",
-      "locale": "Jazyk aplikace",
-      "platform": "Motiv",
-      "maxImageSize": "Maximální velikost obrázku",
       "hideHomeBackgrounds": "Skrýt pozadí poznámek na hlavní obrazovce"
     },
     "prefDescriptions": {
@@ -44,8 +50,8 @@
       "editorAutoInvert": "Inteligentně ztmaví poznámky ve tmavém motivu",
       "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",
       "autoClearWhiteboardOnExit": "Bude synchronizováno do dalších zařízení",
-      "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
       "maxImageSize": "Na větší obrázky bude aplikována komprese",
+      "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
       "hideHomeBackgrounds": "Pro čistější vzhled"
     },
     "themeModes": {
@@ -62,11 +68,6 @@
       "slow": "Dlouze"
     },
     "systemLanguage": "Systémový jazyk",
-    "prefCategories": {
-      "general": "Obecné",
-      "layout": "Uspořádání uživatelského rozhraní",
-      "writing": "Psaní"
-    },
     "reset": {
       "title": "Chcete resetovat tuto volbu?",
       "button": "Resetovat"
@@ -135,6 +136,7 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Změnit barvu (Ctrl C)",
+      "select": "Výběr",
       "toggleEraser": "Guma (Ctrl E)",
       "photo": "Obrázek",
       "text": "Text",
@@ -143,8 +145,7 @@
       "redo": "Obnovit",
       "export": "Exportovat (Ctrl Shift S)",
       "exportAs": "Exportovat jako:",
-      "fullscreen": "Režim celé obrazovky (F11)",
-      "select": "Výběr"
+      "fullscreen": "Režim celé obrazovky (F11)"
     },
     "pens": {
       "fountainPen": "Plnící pero",
@@ -159,15 +160,18 @@
       "title": "Možnosti obrázku",
       "invertible": "Invertovat barvy podle motivu",
       "download": "Stáhnout",
-      "delete": "Odstranit",
-      "setAsBackground": "Nastavit na pozadí"
+      "setAsBackground": "Nastavit na pozadí",
+      "delete": "Odstranit"
     },
     "menu": {
       "clearPage": "Smazat obsah stránky",
       "clearAllPages": "Smazat všechny stránky",
       "lineHeight": "Výška řádku",
       "lineHeightDescription": "Velikost jednotlivých řádků",
+      "backgroundImage": "Obrázek na pozadí",
+      "backgroundPattern": "Vzor na pozadí",
       "removeBgImage": "Odstranit obrázek z pozadí",
+      "import": "Importovat",
       "boxFits": {
         "fill": "Roztáhnout",
         "cover": "Vyplnit",
@@ -179,10 +183,7 @@
         "lined": "Linky",
         "grid": "Mřížka",
         "dots": "Tečky"
-      },
-      "backgroundImage": "Obrázek na pozadí",
-      "backgroundPattern": "Vzor na pozadí",
-      "import": "Importovat"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Otevřít v režimu pouze pro čtení",
@@ -197,7 +198,8 @@
     "hud": {
       "unlockZoom": "Odemknout přibližování",
       "lockZoom": "Zamknout přibližování"
-    }
+    },
+    "pages": "Stránky"
   },
   "sPenWarning": {
     "title": "Varování ohledně chyby při používání S Pen",
