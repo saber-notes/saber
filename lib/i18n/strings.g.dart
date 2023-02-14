@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1355 (135 per locale)
+/// Strings: 1356 (135 per locale)
 ///
-/// Built on 2023-02-14 at 06:11 UTC
+/// Built on 2023-02-14 at 06:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3410,6 +3410,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Свой цвет акцента';
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Сообщать об обновлениях, как только они станут доступны';
 	@override String get editorToolbarOnBottom => 'Выровнять панель инструментов редактора по нижнему краю';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
