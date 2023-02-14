@@ -1,1 +1,1 @@
-A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, macOS, and the web!
+A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and macOS!

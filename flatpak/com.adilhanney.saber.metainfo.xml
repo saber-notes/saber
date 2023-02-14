@@ -27,7 +27,7 @@
     </recommends>
 
     <description>
-        <p>A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and the web!</p>
+        <p>A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and macOS!</p>
     </description>
 
     <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>
