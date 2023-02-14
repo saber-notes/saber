@@ -33,6 +33,9 @@ SetupIconFile="{#SourcePath}\..\windows\runner\resources\app_icon.ico"
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+; 64 bit only
+ArchitecturesAllowed=x64 amd64 ia64
+ArchitecturesInstallIn64BitMode=x64 amd64 ia64
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
