@@ -35,7 +35,6 @@
       "customAccentColor": "Color de acento personalizado",
       "hyperlegibleFont": "Fuente hiperlegible",
       "shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
-      "editorToolbarOnBottom": "Alinear la barra de herramientas del editor en la parte inferior",
       "editorToolbarShowInFullscreen": "Mostrar la barra de herramientas del editor en el modo de pantalla completa",
       "editorAutoInvert": "Invertir notas en el modo oscuro",
       "preferGreyscale": "Preferir colores en escala de grises",

@@ -52,7 +52,7 @@ abstract class Prefs {
   static late final PlainPref<int> accentColor;
   static late final PlainPref<bool> hyperlegibleFont;
 
-  static late final PlainPref<bool> editorToolbarOnBottom;
+  static late final PlainPref<AxisDirection> editorToolbarAlignment;
   static late final PlainPref<bool> editorToolbarShowInFullscreen;
   static late final PlainPref<bool> editorFingerDrawing;
   static late final PlainPref<bool> editorAutoInvert;
@@ -111,7 +111,7 @@ abstract class Prefs {
     accentColor = PlainPref("accentColor", 0);
     hyperlegibleFont = PlainPref("hyperlegibleFont", false);
 
-    editorToolbarOnBottom = PlainPref("editorToolbarOnBottom", true);
+    editorToolbarAlignment = PlainPref("editorToolbarAlignment", AxisDirection.down);
     editorToolbarShowInFullscreen = PlainPref("editorToolbarShowInFullscreen", true);
     editorFingerDrawing = PlainPref("editorFingerDrawing", true);
     editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
@@ -250,10 +250,13 @@ class PlainPref<T> extends IPref<T> {
 
   PlainPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
     // Accepted types
-    assert(T == bool || T == int || T == double || T == String
+    assert(
+      T == bool || T == int || T == double || T == String
         || T == typeOf<List<String>>() || T == typeOf<Set<String>>()
         || T == typeOf<Queue<String>>()
-        || T == StrokeProperties || T == typeOf<Quota?>());
+        || T == StrokeProperties || T == typeOf<Quota?>()
+        || T == AxisDirection
+    );
   }
 
   @override
@@ -312,6 +315,8 @@ class PlainPref<T> extends IPref<T> {
         } else {
           return await _prefs!.setStringList(key, [quota.used.toString(), quota.total.toString()]);
         }
+      } else if (T == AxisDirection) {
+        return await _prefs!.setInt(key, (value as AxisDirection).index);
       } else {
         return await _prefs!.setString(key, value as String);
       }
@@ -346,6 +351,9 @@ class PlainPref<T> extends IPref<T> {
           relative: used / total * 100,
           quota: total, // I don't know what this [quota] field is for, but I don't use it
         ) as T;
+      } else if (T == AxisDirection) {
+        final index = _prefs!.getInt(key);
+        return index != null ? AxisDirection.values[index] as T? : null;
       } else {
         return _prefs!.get(key) as T?;
       }

@@ -735,170 +735,190 @@ class _EditorState extends State<Editor> {
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
     final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final isToolbarVertical = Prefs.editorToolbarAlignment.value == AxisDirection.left
+        || Prefs.editorToolbarAlignment.value == AxisDirection.right;
 
-    final Widget body = Column(
-      verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
-      children: [
-        Expanded(
-          child: CanvasGestureDetector(
-            filePath: coreInfo.filePath,
+    final Widget canvas = CanvasGestureDetector(
+      filePath: coreInfo.filePath,
 
-            isDrawGesture: isDrawGesture,
-            onInteractionEnd: onInteractionEnd,
-            onDrawStart: onDrawStart,
-            onDrawUpdate: onDrawUpdate,
-            onDrawEnd: onDrawEnd,
-            onPressureChanged: onPressureChanged,
+      isDrawGesture: isDrawGesture,
+      onInteractionEnd: onInteractionEnd,
+      onDrawStart: onDrawStart,
+      onDrawUpdate: onDrawUpdate,
+      onDrawEnd: onDrawEnd,
+      onPressureChanged: onPressureChanged,
 
-            undo: undo,
-            redo: redo,
+      undo: undo,
+      redo: redo,
 
-            pages: coreInfo.pages,
-            initialPageIndex: coreInfo.initialPageIndex,
-            pageBuilder: (BuildContext context, int pageIndex) {
-              final page = coreInfo.pages[pageIndex];
-              return Canvas(
-                path: coreInfo.filePath,
-                page: page,
-                pageIndex: pageIndex,
-                textEditing: currentTool == Tool.textEditing,
-                coreInfo: coreInfo,
-                currentStroke: () {
-                  Stroke? currentStroke = Pen.currentPen.currentStroke
-                    ?? Highlighter.currentHighlighter.currentStroke;
-                  return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
-                }(),
-                currentSelection: () {
-                  if (currentTool is! Select) return null;
-                  final selectResult = (currentTool as Select).selectResult;
-                  if (selectResult.pageIndex != pageIndex) return null;
-                  return selectResult;
-                }(),
-                setAsBackground: (EditorImage image) {
-                  if (page.backgroundImage != null) {
-                    // restore previous background image as normal image
-                    page.images.add(page.backgroundImage!);
-                  }
-                  page.images.remove(image);
-                  page.backgroundImage = image;
+      pages: coreInfo.pages,
+      initialPageIndex: coreInfo.initialPageIndex,
+      pageBuilder: (BuildContext context, int pageIndex) {
+        final page = coreInfo.pages[pageIndex];
+        return Canvas(
+          path: coreInfo.filePath,
+          page: page,
+          pageIndex: pageIndex,
+          textEditing: currentTool == Tool.textEditing,
+          coreInfo: coreInfo,
+          currentStroke: () {
+            Stroke? currentStroke = Pen.currentPen.currentStroke
+                ?? Highlighter.currentHighlighter.currentStroke;
+            return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
+          }(),
+          currentSelection: () {
+            if (currentTool is! Select) return null;
+            final selectResult = (currentTool as Select).selectResult;
+            if (selectResult.pageIndex != pageIndex) return null;
+            return selectResult;
+          }(),
+          setAsBackground: (EditorImage image) {
+            if (page.backgroundImage != null) {
+              // restore previous background image as normal image
+              page.images.add(page.backgroundImage!);
+            }
+            page.images.remove(image);
+            page.backgroundImage = image;
 
-                  // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-                  CanvasImage.activeListener.notifyListeners(); // un-select active image
+            // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+            CanvasImage.activeListener.notifyListeners(); // un-select active image
 
-                  autosaveAfterDelay();
-                  setState(() {});
-                },
-              );
-            },
-            placeholderPageBuilder: (BuildContext context, int pageIndex) {
-              return Canvas(
-                path: coreInfo.filePath,
-                page: coreInfo.pages[pageIndex],
-                pageIndex: 0,
-                textEditing: false,
-                coreInfo: EditorCoreInfo.empty,
-                currentStroke: null,
-                currentSelection: null,
-                placeholder: true,
-                setAsBackground: null,
-              );
-            },
-          ),
-        ),
-
-        SafeArea(
-          child: Collapsible(
-            axis: CollapsibleAxis.vertical,
-            collapsed: DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value,
-            maintainState: true,
-            child: Toolbar(
-              readOnly: coreInfo.readOnly,
-
-              setTool: (tool) {
-                setState(() {
-                  currentTool = tool;
-
-                  if (currentTool is Highlighter) {
-                    Highlighter.currentHighlighter = currentTool as Highlighter;
-                  } else if (currentTool is Pen) {
-                    Pen.currentPen = currentTool as Pen;
-                  }
-                });
-              },
-              currentTool: currentTool,
-              setColor: (color) {
-                setState(() {
-                  updateColorBar(color);
-
-                  if (currentTool is Highlighter) {
-                    (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
-                  } else if (currentTool is Pen) {
-                    (currentTool as Pen).strokeProperties.color = color;
-                  }
-                });
-              },
-
-              getCurrentQuill: () {
-                for (EditorPage page in coreInfo.pages) {
-                  if (!page.quill.focusNode.hasFocus) continue;
-                  lastFocusedQuill = page.quill;
-                  return page.quill;
-                }
-                return lastFocusedQuill;
-              },
-              textEditing: currentTool == Tool.textEditing,
-              toggleTextEditing: () => setState(() {
-                if (currentTool == Tool.textEditing) {
-                  currentTool = Pen.currentPen;
-                  for (EditorPage page in coreInfo.pages) {
-                    // unselect text, but maintain cursor position
-                    page.quill.controller.moveCursorToPosition(page.quill.controller.selection.extentOffset);
-                    page.quill.focusNode.unfocus();
-                  }
-                } else {
-                  currentTool = Tool.textEditing;
-                  int? pageIndex = currentPageIndex;
-                  if (pageIndex != null) {
-                    lastFocusedQuill = coreInfo.pages[pageIndex].quill;
-                    lastFocusedQuill!.focusNode.requestFocus();
-                  }
-                }
-              }),
-
-              undo: undo,
-              isUndoPossible: history.canUndo,
-              redo: redo,
-              isRedoPossible: history.canRedo,
-              toggleFingerDrawing: () {
-                setState(() {
-                  Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
-                  lastSeenPointerCount = 0;
-                });
-              },
-
-              pickPhoto: pickPhotos,
-
-              exportAsSbn: exportAsSbn,
-              exportAsPdf: exportAsPdf,
-              exportAsPng: null,
-            ),
-          ),
-        ),
-
-        if (coreInfo.readOnlyBecauseOfVersion) Collapsible(
-          collapsed: !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
-          axis: CollapsibleAxis.vertical,
-          child: SafeArea(
-            child: ListTile(
-              onTap: askUserToDisableReadOnly,
-              title: Text(t.editor.newerFileFormat.readOnlyMode),
-              subtitle: Text(t.editor.newerFileFormat.title),
-              trailing: const Icon(Icons.edit_off),
-            ),
-          ),
-        )
-      ],
+            autosaveAfterDelay();
+            setState(() {});
+          },
+        );
+      },
+      placeholderPageBuilder: (BuildContext context, int pageIndex) {
+        return Canvas(
+          path: coreInfo.filePath,
+          page: coreInfo.pages[pageIndex],
+          pageIndex: 0,
+          textEditing: false,
+          coreInfo: EditorCoreInfo.empty,
+          currentStroke: null,
+          currentSelection: null,
+          placeholder: true,
+          setAsBackground: null,
+        );
+      },
     );
+
+    final Widget? readonlyBanner = coreInfo.readOnlyBecauseOfVersion ? Collapsible(
+      collapsed: !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
+      axis: CollapsibleAxis.vertical,
+      child: SafeArea(
+        child: ListTile(
+          onTap: askUserToDisableReadOnly,
+          title: Text(t.editor.newerFileFormat.readOnlyMode),
+          subtitle: Text(t.editor.newerFileFormat.title),
+          trailing: const Icon(Icons.edit_off),
+        ),
+      ),
+    ) : null;
+
+    final Widget toolbar = Collapsible(
+      axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+      collapsed: DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value,
+      maintainState: true,
+      child: SafeArea(
+        child: Toolbar(
+          readOnly: coreInfo.readOnly,
+
+          setTool: (tool) {
+            setState(() {
+              currentTool = tool;
+
+              if (currentTool is Highlighter) {
+                Highlighter.currentHighlighter = currentTool as Highlighter;
+              } else if (currentTool is Pen) {
+                Pen.currentPen = currentTool as Pen;
+              }
+            });
+          },
+          currentTool: currentTool,
+          setColor: (color) {
+            setState(() {
+              updateColorBar(color);
+
+              if (currentTool is Highlighter) {
+                (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
+              } else if (currentTool is Pen) {
+                (currentTool as Pen).strokeProperties.color = color;
+              }
+            });
+          },
+
+          getCurrentQuill: () {
+            for (EditorPage page in coreInfo.pages) {
+              if (!page.quill.focusNode.hasFocus) continue;
+              lastFocusedQuill = page.quill;
+              return page.quill;
+            }
+            return lastFocusedQuill;
+          },
+          textEditing: currentTool == Tool.textEditing,
+          toggleTextEditing: () => setState(() {
+            if (currentTool == Tool.textEditing) {
+              currentTool = Pen.currentPen;
+              for (EditorPage page in coreInfo.pages) {
+                // unselect text, but maintain cursor position
+                page.quill.controller.moveCursorToPosition(page.quill.controller.selection.extentOffset);
+                page.quill.focusNode.unfocus();
+              }
+            } else {
+              currentTool = Tool.textEditing;
+              int? pageIndex = currentPageIndex;
+              if (pageIndex != null) {
+                lastFocusedQuill = coreInfo.pages[pageIndex].quill;
+                lastFocusedQuill!.focusNode.requestFocus();
+              }
+            }
+          }),
+
+          undo: undo,
+          isUndoPossible: history.canUndo,
+          redo: redo,
+          isRedoPossible: history.canRedo,
+          toggleFingerDrawing: () {
+            setState(() {
+              Prefs.editorFingerDrawing.value = !Prefs.editorFingerDrawing.value;
+              lastSeenPointerCount = 0;
+            });
+          },
+
+          pickPhoto: pickPhotos,
+
+          exportAsSbn: exportAsSbn,
+          exportAsPdf: exportAsPdf,
+          exportAsPng: null,
+        ),
+      ),
+    );
+
+    final Widget body;
+    if (isToolbarVertical) {
+      body = Row(
+        textDirection: Prefs.editorToolbarAlignment.value == AxisDirection.left ? TextDirection.ltr : TextDirection.rtl,
+        children: [
+          toolbar,
+          Expanded(child: Column(
+            children: [
+              Expanded(child: canvas),
+              if (readonlyBanner != null) readonlyBanner,
+            ],
+          )),
+        ],
+      );
+    } else {
+      body = Column(
+        verticalDirection: Prefs.editorToolbarAlignment.value == AxisDirection.up ? VerticalDirection.up : VerticalDirection.down,
+        children: [
+          Expanded(child: canvas),
+          toolbar,
+          if (readonlyBanner != null) readonlyBanner,
+        ],
+      );
+    }
 
     return Scaffold(
       appBar: DynamicMaterialApp.isFullscreen ? null : AppBar(

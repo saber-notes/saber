@@ -35,7 +35,6 @@
       "hyperlegibleFont": "易讀字體",
       "shouldCheckForUpdates": "自動檢查 Saber 更新",
       "shouldAlwaysAlertForUpdates": "一有更新就告訴我",
-      "editorToolbarOnBottom": "將編輯工具列與底部對齊",
       "editorToolbarShowInFullscreen": "在全螢幕模式中顯示編輯器工具列",
       "editorAutoInvert": "在深色模式下使用反色筆記背景",
       "preferGreyscale": "使用灰度顏色",

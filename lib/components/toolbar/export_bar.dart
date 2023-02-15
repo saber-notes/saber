@@ -6,11 +6,14 @@ import 'package:saber/i18n/strings.g.dart';
 class ExportBar extends StatefulWidget {
   const ExportBar({
     super.key,
+    required this.axis,
     required this.toggleExportBar,
     required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
   });
+
+  final Axis axis;
 
   final VoidCallback toggleExportBar;
 
@@ -48,30 +51,32 @@ class _ExportBarState extends State<ExportBar> {
 
   @override
   Widget build(BuildContext context) {
+    final children = <Widget>[
+      Text(t.editor.toolbar.exportAs),
+      const SizedBox.square(dimension: 8),
+
+      TextButton(
+        onPressed: _onPressed(widget.exportAsSbn),
+        child: _buttonChild(widget.exportAsSbn, "SBN"),
+      ),
+      TextButton(
+        onPressed: _onPressed(widget.exportAsPdf),
+        child: _buttonChild(widget.exportAsPdf, "PDF"),
+      ),
+      TextButton(
+        onPressed: _onPressed(widget.exportAsPng),
+        child: _buttonChild(widget.exportAsPng, "PNG"),
+      ),
+    ];
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              Text(t.editor.toolbar.exportAs),
-              const SizedBox(width: 8),
-
-              TextButton(
-                onPressed: _onPressed(widget.exportAsSbn),
-                child: _buttonChild(widget.exportAsSbn, "SBN"),
-              ),
-              TextButton(
-                onPressed: _onPressed(widget.exportAsPdf),
-                child: _buttonChild(widget.exportAsPdf, "PDF"),
-              ),
-              TextButton(
-                onPressed: _onPressed(widget.exportAsPng),
-                child: _buttonChild(widget.exportAsPng, "PNG"),
-              ),
-            ],
-          ),
+          scrollDirection: widget.axis,
+          child: widget.axis == Axis.horizontal
+            ? Row(children: children)
+            : Column(children: children),
         ),
       ),
     );
