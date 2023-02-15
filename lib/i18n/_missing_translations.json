@@ -24,7 +24,7 @@
   "tr": {
     "settings": {
       "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
+        "shouldAlwaysAlertForUpdates": "Bir güncelleme mevcut olduğunda uyar"
       }
     },
     "editor": {
