@@ -12,11 +12,13 @@ import 'package:saber/i18n/strings.g.dart';
 class ColorBar extends StatelessWidget {
   const ColorBar({
     super.key,
+    required this.axis,
     required this.setColor,
     required this.currentColor,
     required this.invert,
   });
 
+  final Axis axis;
   final ValueChanged<Color> setColor;
   final Color? currentColor;
   final bool invert;
@@ -44,80 +46,82 @@ class ColorBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
+    final children = <Widget>[
+      // recent colors
+      for (String colorString in Prefs.recentColorsPositioned.value.reversed) ColorOption(
+        isSelected: currentColor?.withAlpha(255).value == int.parse(colorString),
+        enabled: currentColor != null,
+        onTap: () => setColor(Color(int.parse(colorString))),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(int.parse(colorString)).withInversion(invert),
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: colorScheme.onSurface.withOpacity(0.2),
+              width: 1,
+            ),
+          ),
+        ),
+      ),
+      // placeholders for 5 recent colors
+      for (int i = 0; i < 5 - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
+        isSelected: false,
+        enabled: currentColor != null,
+        onTap: null,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: colorScheme.onSurface.withOpacity(0.2),
+              width: 1,
+            ),
+          ),
+        ),
+      ),
+
+      const ColorOptionSeparator(),
+
+      // custom color
+      ColorOption(
+        isSelected: currentColor?.withAlpha(255).value == pickedColor.value,
+        enabled: true,
+        onTap: () => openColorPicker(context),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.transparent,
+            shape: BoxShape.circle,
+          ),
+          child: const Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
+        ),
+      ),
+
+      // color presets
+      for (Color color in colorPresets) ColorOption(
+        isSelected: currentColor?.withAlpha(255).value == color.value,
+        enabled: currentColor != null,
+        onTap: () => setColor(color),
+        child: Container(
+          decoration: BoxDecoration(
+            color: color.withInversion(invert),
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: colorScheme.onSurface.withOpacity(0.2),
+              width: 1,
+            ),
+          ),
+        ),
+      ),
+    ];
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              // recent colors
-              for (String colorString in Prefs.recentColorsPositioned.value.reversed) ColorOption(
-                isSelected: currentColor?.withAlpha(255).value == int.parse(colorString),
-                enabled: currentColor != null,
-                onTap: () => setColor(Color(int.parse(colorString))),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(int.parse(colorString)).withInversion(invert),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: colorScheme.onSurface.withOpacity(0.2),
-                      width: 1,
-                    ),
-                  ),
-                ),
-              ),
-              // placeholders for 5 recent colors
-              for (int i = 0; i < 5 - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
-                isSelected: false,
-                enabled: currentColor != null,
-                onTap: null,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: colorScheme.onSurface.withOpacity(0.2),
-                      width: 1,
-                    ),
-                  ),
-                ),
-              ),
-
-              const ColorOptionSeparator(),
-
-              // custom color
-              ColorOption(
-                isSelected: currentColor?.withAlpha(255).value == pickedColor.value,
-                enabled: true,
-                onTap: () => openColorPicker(context),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.transparent,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
-                ),
-              ),
-
-              // color presets
-              for (Color color in colorPresets) ColorOption(
-                isSelected: currentColor?.withAlpha(255).value == color.value,
-                enabled: currentColor != null,
-                onTap: () => setColor(color),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: color.withInversion(invert),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: colorScheme.onSurface.withOpacity(0.2),
-                      width: 1,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          scrollDirection: axis,
+          child: axis == Axis.horizontal
+              ? Row(children: children)
+              : Column(children: children),
         ),
       ),
     );

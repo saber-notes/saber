@@ -35,7 +35,7 @@
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Automatically check for Saber updates",
       "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
-      "editorToolbarOnBottom": "Align the editor toolbar to the bottom",
+      "editorToolbarAlignment": "Alignment of the editor toolbar",
       "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
       "editorAutoInvert": "Invert notes in dark mode",
       "preferGreyscale": "Prefer greyscale colors",
@@ -68,6 +68,12 @@
       "slow": "Slow"
     },
     "systemLanguage": "System language",
+    "axisDirections": [
+      "Top",
+      "Right",
+      "Bottom",
+      "Left"
+    ],
     "reset": {
       "title": "Reset this setting?",
       "button": "Reset"

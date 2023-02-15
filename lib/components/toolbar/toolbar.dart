@@ -148,201 +148,216 @@ class _ToolbarState extends State<Toolbar> {
 
     QuillStruct? quill = widget.getCurrentQuill();
 
-    return Material(
-      color: colorScheme.background,
-      child: Column(
-        verticalDirection: Prefs.editorToolbarOnBottom.value ? VerticalDirection.down : VerticalDirection.up,
-        children: [
-          Collapsible(
-            axis: CollapsibleAxis.vertical,
-            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-            maintainState: true,
-            collapsed: !showExportOptions,
-            child: ExportBar(
-              toggleExportBar: toggleExportBar,
-              exportAsSbn: widget.exportAsSbn,
-              exportAsPdf: widget.exportAsPdf,
-              exportAsPng: widget.exportAsPng,
-            ),
+    final isToolbarVertical = Prefs.editorToolbarAlignment.value == AxisDirection.left
+        || Prefs.editorToolbarAlignment.value == AxisDirection.right;
+
+    final children = <Widget>[
+      Collapsible(
+        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+        maintainState: true,
+        collapsed: !showExportOptions,
+        child: ExportBar(
+          axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
+          toggleExportBar: toggleExportBar,
+          exportAsSbn: widget.exportAsSbn,
+          exportAsPdf: widget.exportAsPdf,
+          exportAsPng: widget.exportAsPng,
+        ),
+      ),
+      Collapsible(
+        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+        maintainState: true,
+        collapsed: !showColorOptions,
+        child: ColorBar(
+          axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
+          setColor: widget.setColor,
+          currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
+          invert: invert,
+        ),
+      ),
+      Collapsible(
+        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+        maintainState: true,
+        collapsed: !widget.textEditing || quill == null,
+        child: quill != null ? QuillToolbar.basic(
+          // todo: make quill toolbar vertical if [isToolbarVertical]
+          controller: quill.controller,
+          locale: TranslationProvider.of(context).flutterLocale,
+          toolbarIconSize: 22,
+          iconTheme: QuillIconTheme(
+            iconSelectedColor: colorScheme.onPrimary,
+            iconUnselectedColor: colorScheme.primary,
+            iconSelectedFillColor: colorScheme.primary,
+            iconUnselectedFillColor: Colors.transparent,
+            disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
+            disabledIconFillColor: Colors.transparent,
+            borderRadius: 22,
           ),
-          Collapsible(
-            axis: CollapsibleAxis.vertical,
-            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-            maintainState: true,
-            collapsed: !showColorOptions,
-            child: ColorBar(
-              setColor: widget.setColor,
-              currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
-              invert: invert,
-            ),
-          ),
-          Collapsible(
-            axis: CollapsibleAxis.vertical,
-            alignment: Prefs.editorToolbarOnBottom.value ? Alignment.bottomCenter : Alignment.topCenter,
-            maintainState: true,
-            collapsed: !widget.textEditing || quill == null,
-            child: quill != null ? QuillToolbar.basic(
-              controller: quill.controller,
-              locale: TranslationProvider.of(context).flutterLocale,
-              toolbarIconSize: 22,
-              iconTheme: QuillIconTheme(
-                iconSelectedColor: colorScheme.onPrimary,
-                iconUnselectedColor: colorScheme.primary,
-                iconSelectedFillColor: colorScheme.primary,
-                iconUnselectedFillColor: Colors.transparent,
-                disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
-                disabledIconFillColor: Colors.transparent,
-                borderRadius: 22,
+          showFontSize: false,
+          showFontFamily: false,
+          showClearFormat: false,
+        ) : const SizedBox.shrink(),
+      ),
+      Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Wrap(
+            direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
+            alignment: WrapAlignment.center,
+            runSpacing: 8,
+            children: [
+              ToolbarIconButton(
+                tooltip: Pen.currentPen.name,
+                selected: widget.currentTool == Pen.currentPen,
+                enabled: !widget.readOnly,
+                onPressed: (button) {
+                  if (widget.currentTool == Pen.currentPen) {
+                    button.openModal(context);
+                  } else {
+                    widget.setTool(Pen.currentPen);
+                  }
+                },
+                modal: PenModal(
+                  getTool: () => Pen.currentPen,
+                  setTool: widget.setTool,
+                ),
+                child: FaIcon(Pen.currentPen.icon, size: 16),
               ),
-              showFontSize: false,
-              showFontFamily: false,
-              showClearFormat: false,
-            ) : const SizedBox.shrink(),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                runSpacing: 8,
+              ToolbarIconButton(
+                tooltip: t.editor.pens.highlighter,
+                selected: widget.currentTool == Highlighter.currentHighlighter,
+                enabled: !widget.readOnly,
+                onPressed: (button) {
+                  if (widget.currentTool == Highlighter.currentHighlighter) {
+                    button.openModal(context);
+                  } else {
+                    widget.setTool(Highlighter.currentHighlighter);
+                  }
+                },
+                modal: PenModal(
+                  getTool: () => Highlighter.currentHighlighter,
+                  setTool: widget.setTool,
+                ),
+                child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.toggleColors,
+                selected: showColorOptions,
+                enabled: !widget.readOnly,
+                onPressed: (_) => toggleColorOptions(),
+                child: const Icon(Icons.palette),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.select,
+                selected: widget.currentTool is Select,
+                enabled: !widget.readOnly,
+                onPressed: (_) => widget.setTool(Select.currentSelect),
+                child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
+                  BoxShadow(
+                    color: colorScheme.primary,
+                    blurRadius: 0.1,
+                    spreadRadius: 10,
+                    blurStyle: BlurStyle.solid,
+                  ),
+                ] : null),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.toggleEraser,
+                selected: widget.currentTool is Eraser,
+                enabled: !widget.readOnly,
+                onPressed: (_) => toggleEraser(),
+                child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.photo,
+                enabled: !widget.readOnly,
+                onPressed: (_) => widget.pickPhoto(),
+                child: const AdaptiveIcon(
+                  icon: Icons.photo,
+                  cupertinoIcon: CupertinoIcons.photo,
+                ),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.text,
+                selected: widget.textEditing,
+                enabled: !widget.readOnly,
+                onPressed: (_) => widget.toggleTextEditing(),
+                child: const AdaptiveIcon(
+                  icon: Icons.text_fields,
+                  cupertinoIcon: CupertinoIcons.text_cursor,
+                ),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.toggleFingerDrawing,
+                selected: Prefs.editorFingerDrawing.value,
+                enabled: !widget.readOnly,
+                onPressed: (_) => widget.toggleFingerDrawing(),
+                child: const Icon(CupertinoIcons.hand_draw),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.fullscreen,
+                selected: DynamicMaterialApp.isFullscreen,
+                enabled: !widget.readOnly,
+                onPressed: (_) => toggleFullscreen(),
+                child: AdaptiveIcon(
+                  icon: DynamicMaterialApp.isFullscreen ? Icons.fullscreen_exit : Icons.fullscreen,
+                  cupertinoIcon: DynamicMaterialApp.isFullscreen ? CupertinoIcons.fullscreen_exit : CupertinoIcons.fullscreen,
+                ),
+              ),
+              Wrap(
+                direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
                 children: [
                   ToolbarIconButton(
-                    tooltip: Pen.currentPen.name,
-                    selected: widget.currentTool == Pen.currentPen,
-                    enabled: !widget.readOnly,
-                    onPressed: (button) {
-                      if (widget.currentTool == Pen.currentPen) {
-                        button.openModal(context);
-                      } else {
-                        widget.setTool(Pen.currentPen);
-                      }
-                    },
-                    modal: PenModal(
-                      getTool: () => Pen.currentPen,
-                      setTool: widget.setTool,
-                    ),
-                    child: FaIcon(Pen.currentPen.icon, size: 16),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.pens.highlighter,
-                    selected: widget.currentTool == Highlighter.currentHighlighter,
-                    enabled: !widget.readOnly,
-                    onPressed: (button) {
-                      if (widget.currentTool == Highlighter.currentHighlighter) {
-                        button.openModal(context);
-                      } else {
-                        widget.setTool(Highlighter.currentHighlighter);
-                      }
-                    },
-                    modal: PenModal(
-                      getTool: () => Highlighter.currentHighlighter,
-                      setTool: widget.setTool,
-                    ),
-                    child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.toggleColors,
-                    selected: showColorOptions,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => toggleColorOptions(),
-                    child: const Icon(Icons.palette),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.select,
-                    selected: widget.currentTool is Select,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => widget.setTool(Select.currentSelect),
-                    child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
-                      BoxShadow(
-                        color: colorScheme.primary,
-                        blurRadius: 0.1,
-                        spreadRadius: 10,
-                        blurStyle: BlurStyle.solid,
-                      ),
-                    ] : null),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.toggleEraser,
-                    selected: widget.currentTool is Eraser,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => toggleEraser(),
-                    child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.photo,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => widget.pickPhoto(),
+                    tooltip: t.editor.toolbar.undo,
+                    enabled: !widget.readOnly && widget.isUndoPossible,
+                    onPressed: (_) => widget.undo(),
                     child: const AdaptiveIcon(
-                      icon: Icons.photo,
-                      cupertinoIcon: CupertinoIcons.photo,
+                      icon: Icons.undo,
+                      cupertinoIcon: CupertinoIcons.arrow_uturn_left,
                     ),
                   ),
                   ToolbarIconButton(
-                    tooltip: t.editor.toolbar.text,
-                    selected: widget.textEditing,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => widget.toggleTextEditing(),
+                    tooltip: t.editor.toolbar.redo,
+                    enabled: !widget.readOnly && widget.isRedoPossible,
+                    onPressed: (_) => widget.redo(),
                     child: const AdaptiveIcon(
-                      icon: Icons.text_fields,
-                      cupertinoIcon: CupertinoIcons.text_cursor,
-                    ),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.toggleFingerDrawing,
-                    selected: Prefs.editorFingerDrawing.value,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => widget.toggleFingerDrawing(),
-                    child: const Icon(CupertinoIcons.hand_draw),
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.fullscreen,
-                    selected: DynamicMaterialApp.isFullscreen,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => toggleFullscreen(),
-                    child: AdaptiveIcon(
-                      icon: DynamicMaterialApp.isFullscreen ? Icons.fullscreen_exit : Icons.fullscreen,
-                      cupertinoIcon: DynamicMaterialApp.isFullscreen ? CupertinoIcons.fullscreen_exit : CupertinoIcons.fullscreen,
-                    ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.undo,
-                        enabled: !widget.readOnly && widget.isUndoPossible,
-                        onPressed: (_) => widget.undo(),
-                        child: const AdaptiveIcon(
-                          icon: Icons.undo,
-                          cupertinoIcon: CupertinoIcons.arrow_uturn_left,
-                        ),
-                      ),
-                      ToolbarIconButton(
-                        tooltip: t.editor.toolbar.redo,
-                        enabled: !widget.readOnly && widget.isRedoPossible,
-                        onPressed: (_) => widget.redo(),
-                        child: const AdaptiveIcon(
-                          icon: Icons.redo,
-                          cupertinoIcon: CupertinoIcons.arrow_uturn_right,
-                        ),
-                      ),
-                    ],
-                  ),
-                  ToolbarIconButton(
-                    tooltip: t.editor.toolbar.export,
-                    selected: showExportOptions,
-                    enabled: !widget.readOnly,
-                    onPressed: (_) => toggleExportBar(),
-                    child: const AdaptiveIcon(
-                      icon: Icons.share,
-                      cupertinoIcon: CupertinoIcons.share,
+                      icon: Icons.redo,
+                      cupertinoIcon: CupertinoIcons.arrow_uturn_right,
                     ),
                   ),
                 ],
               ),
-            ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.export,
+                selected: showExportOptions,
+                enabled: !widget.readOnly,
+                onPressed: (_) => toggleExportBar(),
+                child: const AdaptiveIcon(
+                  icon: Icons.share,
+                  cupertinoIcon: CupertinoIcons.share,
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
+    ];
+
+    return Material(
+      color: colorScheme.background,
+      child: isToolbarVertical
+        ? Row(
+            textDirection: Prefs.editorToolbarAlignment.value == AxisDirection.left
+              ? TextDirection.rtl
+              : TextDirection.ltr,
+            children: children,
+          )
+        : Column(
+            verticalDirection: Prefs.editorToolbarAlignment.value == AxisDirection.down
+              ? VerticalDirection.down
+              : VerticalDirection.up,
+            children: children,
+          ),
     );
   }
 

@@ -30,6 +30,12 @@ class SettingsPage extends StatefulWidget {
     (bool value) => value ? 0 : 1,
   );
 
+  static final _editorToolbarAlignment = TransformedPref(
+    Prefs.editorToolbarAlignment,
+    (AxisDirection value) => value.index,
+    (int value) => AxisDirection.values[value],
+  );
+
   static Future<bool?> showResetDialog({
     required BuildContext context,
     required IPref pref,
@@ -79,6 +85,19 @@ class _SettingsPageState extends State<SettingsPage> {
     if (defaultTargetPlatform == TargetPlatform.macOS) return false;
     return true;
   }();
+
+  static const cupertinoDirectionIcons = [
+    CupertinoIcons.arrow_up_to_line,
+    CupertinoIcons.arrow_right_to_line,
+    CupertinoIcons.arrow_down_to_line,
+    CupertinoIcons.arrow_left_to_line,
+  ];
+  static const materialDirectionIcons = [
+    Icons.north,
+    Icons.east,
+    Icons.south,
+    Icons.west,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -180,14 +199,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     optionsWidth: 60,
                     options: [
                       ToggleButtonsOption(
-                            () {
+                        () {
                           if (usesMaterialByDefault) return -1;
                           return TargetPlatform.android.index;
                         }(),
                         Icon(materialIcon, semanticLabel: "Material"),
                       ),
                       ToggleButtonsOption(
-                            () {
+                        () {
                           if (!usesMaterialByDefault) return -1;
                           return TargetPlatform.iOS.index;
                         }(),
@@ -235,13 +254,26 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text(t.settings.prefCategories.layout),
                 shape: Border.all(color: Colors.transparent),
                 children: [
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.editorToolbarOnBottom,
-                    iconBuilder: (b) {
-                      if (b) return cupertino ? CupertinoIcons.arrow_down_to_line : Icons.vertical_align_bottom;
-                      return cupertino ? CupertinoIcons.arrow_up_to_line : Icons.vertical_align_top;
+                  SettingsSelection(
+                    title: t.settings.prefLabels.editorToolbarAlignment,
+                    subtitle: t.settings.axisDirections[SettingsPage._editorToolbarAlignment.value],
+                    iconBuilder: (num i) {
+                      if (i is! int || i >= materialDirectionIcons.length) return null;
+                      return cupertino ? cupertinoDirectionIcons[i] : materialDirectionIcons[i];
                     },
-                    pref: Prefs.editorToolbarOnBottom,
+                    pref: SettingsPage._editorToolbarAlignment,
+                    optionsWidth: 60,
+                    options: [
+                      for (final AxisDirection direction in AxisDirection.values)
+                        ToggleButtonsOption(
+                          direction.index,
+                          Icon(
+                            cupertino ? cupertinoDirectionIcons[direction.index] : materialDirectionIcons[direction.index],
+                            semanticLabel: t.settings.axisDirections[direction.index],
+                          ),
+                        ),
+                    ],
+                    afterChange: (_) => setState(() {}),
                   ),
                   SettingsSwitch(
                     title: t.settings.prefLabels.editorToolbarShowInFullscreen,

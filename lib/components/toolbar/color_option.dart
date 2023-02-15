@@ -56,7 +56,7 @@ class ColorOptionSeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         width: 4,
         height: 4,

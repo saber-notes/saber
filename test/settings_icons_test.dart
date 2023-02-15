@@ -74,12 +74,23 @@ void main() {
     expect(findIcon(Icons.font_download), findsAtLeastNWidgets(1));
 
     // Editor toolbar on bottom
-    Prefs.editorToolbarOnBottom.value = false;
+    // findsAtLeastNWidgets(2) because of leading + trailing icons
+    Prefs.editorToolbarAlignment.value = AxisDirection.up;
+    expect(AxisDirection.up.index, 0);
     await tester.pumpAndSettle();
-    expect(findIcon(Icons.vertical_align_top), findsAtLeastNWidgets(1));
-    Prefs.editorToolbarOnBottom.value = true;
+    expect(findIcon(Icons.north), findsAtLeastNWidgets(2));
+    Prefs.editorToolbarAlignment.value = AxisDirection.right;
+    expect(AxisDirection.right.index, 1);
     await tester.pumpAndSettle();
-    expect(findIcon(Icons.vertical_align_bottom), findsAtLeastNWidgets(1));
+    expect(findIcon(Icons.east), findsAtLeastNWidgets(2));
+    Prefs.editorToolbarAlignment.value = AxisDirection.down;
+    expect(AxisDirection.down.index, 2);
+    await tester.pumpAndSettle();
+    expect(findIcon(Icons.south), findsAtLeastNWidgets(2));
+    Prefs.editorToolbarAlignment.value = AxisDirection.left;
+    expect(AxisDirection.left.index, 3);
+    await tester.pumpAndSettle();
+    expect(findIcon(Icons.west), findsAtLeastNWidgets(2));
 
     // Editor auto invert
     Prefs.editorAutoInvert.value = false;

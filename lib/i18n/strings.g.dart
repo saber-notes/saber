@@ -190,6 +190,12 @@ class _StringsSettingsEn {
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
 	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
 	String get systemLanguage => 'System language';
+	List<String> get axisDirections => [
+		'Top',
+		'Right',
+		'Bottom',
+		'Left',
+	];
 	late final _StringsSettingsResetEn reset = _StringsSettingsResetEn._(_root);
 }
 
@@ -336,7 +342,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
-	String get editorToolbarOnBottom => 'Align the editor toolbar to the bottom';
+	String get editorToolbarAlignment => 'Alignment of the editor toolbar';
 	String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
@@ -849,7 +855,6 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
-	@override String get editorToolbarOnBottom => 'Umístit nabídku editoru do spodní části';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
 	@override String get preferGreyscale => 'Preferovat černobílé barvy';
@@ -1346,7 +1351,6 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get appTheme => 'Anwendungsthema';
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
-	@override String get editorToolbarOnBottom => 'Werkzeugleiste am unteren Rand ausrichten';
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
@@ -1872,7 +1876,6 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Color de acento personalizado';
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
-	@override String get editorToolbarOnBottom => 'Alinear la barra de herramientas del editor en la parte inferior';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
@@ -2385,7 +2388,6 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
-	@override String get editorToolbarOnBottom => 'نوار ابزار ویرایشگر را در پایین تراز کنید';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
 	@override String get preferGreyscale => 'رنگ های خاکستری را در اولویت قرار دهید';
@@ -2898,7 +2900,6 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
-	@override String get editorToolbarOnBottom => 'Allinea la barra degli strumenti dell\'editor in basso';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
@@ -3411,7 +3412,6 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать об обновлениях, как только они станут доступны';
-	@override String get editorToolbarOnBottom => 'Выровнять панель инструментов редактора по нижнему краю';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
@@ -3924,7 +3924,6 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
 	@override String get shouldAlwaysAlertForUpdates => 'Bir güncelleme mevcut olduğunda uyar';
-	@override String get editorToolbarOnBottom => 'Editör araç kutusunu aşağıya yerleştir';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
 	@override String get preferGreyscale => 'Gri tonlamayı tercih et';
@@ -4437,7 +4436,6 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易读字体';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '有可用更新时立即通知我';
-	@override String get editorToolbarOnBottom => '将编辑工具栏与底部对齐';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get preferGreyscale => '使用灰度颜色';
@@ -4950,7 +4948,6 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '一有更新就告訴我';
-	@override String get editorToolbarOnBottom => '將編輯工具列與底部對齊';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
 	@override String get preferGreyscale => '使用灰度顏色';

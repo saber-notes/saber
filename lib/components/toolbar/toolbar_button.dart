@@ -71,8 +71,8 @@ class ToolbarIconButton extends StatelessWidget {
             padding: EdgeInsets.only(
               left: 8,
               right: 8,
-              bottom: Prefs.editorToolbarOnBottom.value ? 58 : 0,
-              top: Prefs.editorToolbarOnBottom.value ? 0 : 58,
+              bottom: Prefs.editorToolbarAlignment.value == AxisDirection.down ? 58 : 0,
+              top: Prefs.editorToolbarAlignment.value == AxisDirection.up ? 58 : 0,
             ),
             child: IntrinsicHeight(
               child: Material(
