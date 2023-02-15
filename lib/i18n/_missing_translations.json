@@ -21,16 +21,7 @@
   "fa": {},
   "it": {},
   "ru": {},
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Bir güncelleme mevcut olduğunda uyar"
-      }
-    },
-    "editor": {
-      "pages": "Pages"
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

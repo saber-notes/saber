@@ -22,21 +22,27 @@
     "createNewNote": "Yeni bir not oluşturmak için + butonuna tıklayınız"
   },
   "settings": {
+    "prefCategories": {
+      "general": "Genel",
+      "layout": "Yerleşim",
+      "writing": "Yazım"
+    },
     "prefLabels": {
+      "locale": "Uygulama dili",
       "appTheme": "Uygulama teması",
+      "platform": "Tema tipi",
       "customAccentColor": "Farklı ana renk",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
+      "shouldAlwaysAlertForUpdates": "Bir güncelleme mevcut olduğunda uyar",
       "editorToolbarOnBottom": "Editör araç kutusunu aşağıya yerleştir",
       "editorToolbarShowInFullscreen": "Editör araç kutusunu tam ekranda göster",
       "editorAutoInvert": "Karanlık temada notların rengini tersine çevir",
       "preferGreyscale": "Gri tonlamayı tercih et",
       "editorStraightenLines": "Bir çizgiyi düzleştirmek için basılı tut",
+      "maxImageSize": "Maksimum görsel boyutu",
       "autoClearWhiteboardOnExit": "Uygulamadan çıkıldığında beyaz tahtayı temizle",
       "editorPromptRename": "Notları yeniden adlandırmak için uyar",
-      "locale": "Uygulama dili",
-      "platform": "Tema tipi",
-      "maxImageSize": "Maksimum görsel boyutu",
       "hideHomeBackgrounds": "Ana ekranda arkaplanları gizle"
     },
     "prefDescriptions": {
@@ -44,8 +50,8 @@
       "editorAutoInvert": "Karanlık modda notların rengini değiştirir",
       "preferGreyscale": "E-mürekkep ekranlar için",
       "autoClearWhiteboardOnExit": "Diğer cihazlarınıza senkronize edilmeye devam edecek",
-      "editorPromptRename": "Notlarınızı daha sonra da yeniden adlandırabilirsiniz",
       "maxImageSize": "Bundan daha büyük görseller sıkıştırılacak",
+      "editorPromptRename": "Notlarınızı daha sonra da yeniden adlandırabilirsiniz",
       "hideHomeBackgrounds": "Daha sade bir görüntü için"
     },
     "themeModes": {
@@ -62,11 +68,6 @@
       "slow": "Yavaş"
     },
     "systemLanguage": "Sistem dili",
-    "prefCategories": {
-      "general": "Genel",
-      "layout": "Yerleşim",
-      "writing": "Yazım"
-    },
     "reset": {
       "title": "Ayarı sıfırlamak istiyor musunuz?",
       "button": "Sıfırla"
@@ -135,6 +136,7 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Renklere geç (Ctrl C)",
+      "select": "Seç",
       "toggleEraser": "Silgiyi aktifleştir (Ctrl E)",
       "photo": "Fotoğraf",
       "text": "Metin",
@@ -143,8 +145,7 @@
       "redo": "Yeniden yap",
       "export": "Dışa aktar (Ctrl Shift S)",
       "exportAs": "Farklı formatta dışa aktar:",
-      "fullscreen": "Tam ekrana geç (F11)",
-      "select": "Seç"
+      "fullscreen": "Tam ekrana geç (F11)"
     },
     "pens": {
       "fountainPen": "Dolma kalem",
@@ -159,15 +160,18 @@
       "title": "Görüntü ayarları",
       "invertible": "(Rengi) Tersine çevrilebilir",
       "download": "İndir",
-      "delete": "Sil",
-      "setAsBackground": "Arkaplan olarak ayarla"
+      "setAsBackground": "Arkaplan olarak ayarla",
+      "delete": "Sil"
     },
     "menu": {
       "clearPage": "Sayfayı temizle",
       "clearAllPages": "Tüm sayfaları temizle",
       "lineHeight": "Satır aralığı",
       "lineHeightDescription": "Her bir satırın boyutu",
+      "backgroundImage": "Arkaplan görseli",
+      "backgroundPattern": "Arkaplan deseni",
       "removeBgImage": "Arkaplan görselini kaldır",
+      "import": "İçe aktar",
       "boxFits": {
         "fill": "Yaydır",
         "cover": "Kapla",
@@ -179,10 +183,7 @@
         "lined": "Çizgili",
         "grid": "Kareli",
         "dots": "Noktalı"
-      },
-      "backgroundImage": "Arkaplan görseli",
-      "backgroundPattern": "Arkaplan deseni",
-      "import": "İçe aktar"
+      }
     },
     "newerFileFormat": {
       "readOnlyMode": "Yalnızca okunabilir mod",
@@ -197,7 +198,8 @@
     "hud": {
       "unlockZoom": "Yakınlaştırma kilidini aç",
       "lockZoom": "Yakınlaştırmayı kilitle"
-    }
+    },
+    "pages": "Sayfalar"
   },
   "sPenWarning": {
     "title": "S Pen hata uyarısı",
