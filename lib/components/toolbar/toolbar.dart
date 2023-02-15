@@ -180,7 +180,7 @@ class _ToolbarState extends State<Toolbar> {
         maintainState: true,
         collapsed: !widget.textEditing || quill == null,
         child: quill != null ? QuillToolbar.basic(
-          // todo: make quill toolbar vertical if [isToolbarVertical]
+          axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
           controller: quill.controller,
           locale: TranslationProvider.of(context).flutterLocale,
           toolbarIconSize: 22,
