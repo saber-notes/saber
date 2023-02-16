@@ -156,12 +156,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-  # todo: use pub.dev when https://github.com/mrrhak/icons_launcher/pull/28
-  # is merged and a new release is available (> 2.0.7)
-  icons_launcher:
-    git:
-      url: https://github.com/adil192/icons_launcher.git
-      ref: Add-M3-Material-Icons
+  icons_launcher: ^2.1.0
 
   process_run: ^0.12.5+2
 

@@ -372,10 +372,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: b0c3f7a7a18bc175e6eca8a07d13958e14ef8d538b1f5d8193bfa1de24b42d13
+      sha256: aeba23d6f9a069b7aa8839255d810ebc8d33f6c3b510c1f92b686c2cfbaa4c2f
       url: "https://pub.dev"
     source: hosted
-    version: "6.4.0"
+    version: "6.4.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -530,12 +530,11 @@ packages:
   icons_launcher:
     dependency: "direct dev"
     description:
-      path: "."
-      ref: Add-M3-Material-Icons
-      resolved-ref: "29e693f7784efa58345418a81de8bcfa45c23743"
-      url: "https://github.com/adil192/icons_launcher.git"
-    source: git
-    version: "2.0.7"
+      name: icons_launcher
+      sha256: f8ccfb80b56856b6eac586980bdd9c14f5ec24fb87127514055445ceb9424f4c
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   image:
     dependency: "direct main"
     description:
@@ -1129,10 +1128,10 @@ packages:
     dependency: transitive
     description:
       name: universal_io
-      sha256: "79f78ddad839ee3aae3ec7c01eb4575faf0d5c860f8e5223bc9f9c17f7f03cef"
+      sha256: "070d8fcc12d599497b635f82db6a07f0ba0b756d48126a826b50b0c558745007"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.4"
+    version: "2.1.0"
   uri_to_file:
     dependency: transitive
     description:
