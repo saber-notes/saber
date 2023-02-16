@@ -35,6 +35,7 @@
       "hyperlegibleFont": "فونت بیش از حد خوانا",
       "shouldCheckForUpdates": "به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید",
       "shouldAlwaysAlertForUpdates": "به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید",
+      "editorToolbarAlignment": "تراز کردن نوار ابزار ویرایشگر",
       "editorToolbarShowInFullscreen": "نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید",
       "editorAutoInvert": "معکوس کردن رنگ یادداشت ها در حالت تاریک",
       "preferGreyscale": "رنگ های خاکستری را در اولویت قرار دهید",
@@ -67,6 +68,12 @@
       "slow": "آهسته"
     },
     "systemLanguage": "زبان سیستم",
+    "axisDirections": [
+      "بالا",
+      "راست",
+      "پایین",
+      "چپ"
+    ],
     "reset": {
       "title": "این تنظیمات را بازنشانی می کنید؟",
       "button": "بازنشانی"

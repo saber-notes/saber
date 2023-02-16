@@ -44,19 +44,7 @@
       ]
     }
   },
-  "fa": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "تراز کردن نوار ابزار ویرایشگر"
-      },
-      "axisDirections": [
-        "بالا",
-        "راست",
-        "پایین",
-        "چپ"
-      ]
-    }
-  },
+  "fa": {},
   "it": {
     "settings": {
       "prefLabels": {
