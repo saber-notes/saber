@@ -21,16 +21,7 @@
   "fa": {},
   "it": {},
   "ru": {},
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available"
-      }
-    },
-    "editor": {
-      "pages": "Pages"
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
