@@ -47,13 +47,13 @@
   "fa": {
     "settings": {
       "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "تراز کردن نوار ابزار ویرایشگر"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "بالا",
+        "راست",
+        "پایین",
+        "چپ"
       ]
     }
   },
