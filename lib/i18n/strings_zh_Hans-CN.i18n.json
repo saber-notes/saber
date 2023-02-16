@@ -35,6 +35,7 @@
       "hyperlegibleFont": "易读字体",
       "shouldCheckForUpdates": "自动检查 Saber 更新",
       "shouldAlwaysAlertForUpdates": "有可用更新时立即通知我",
+      "editorToolbarAlignment": "编辑工具栏对齐方式",
       "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
       "preferGreyscale": "使用灰度颜色",
@@ -67,6 +68,12 @@
       "slow": "缓慢"
     },
     "systemLanguage": "系统语言",
+    "axisDirections": [
+      "上",
+      "右",
+      "下",
+      "左"
+    ],
     "reset": {
       "title": "重置此设置？",
       "button": "重置"

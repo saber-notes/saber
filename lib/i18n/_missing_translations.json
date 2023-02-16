@@ -96,18 +96,6 @@
       ]
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
-      },
-      "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
-      ]
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
