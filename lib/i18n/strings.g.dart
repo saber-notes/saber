@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1368 (136 per locale)
+/// Strings: 1373 (137 per locale)
 ///
-/// Built on 2023-02-16 at 18:03 UTC
+/// Built on 2023-02-16 at 18:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2242,6 +2242,12 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerFa accentColorPicker = _StringsSettingsAccentColorPickerFa._(_root);
 	@override late final _StringsSettingsStraightenDelayFa straightenDelay = _StringsSettingsStraightenDelayFa._(_root);
 	@override String get systemLanguage => 'زبان سیستم';
+	@override List<String> get axisDirections => [
+		'بالا',
+		'راست',
+		'پایین',
+		'چپ',
+	];
 	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
 }
 
@@ -2388,6 +2394,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
+	@override String get editorToolbarAlignment => 'تراز کردن نوار ابزار ویرایشگر';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
 	@override String get preferGreyscale => 'رنگ های خاکستری را در اولویت قرار دهید';
