@@ -9,7 +9,6 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -593,12 +592,7 @@ class _EditorState extends State<Editor> {
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return 0;
 
-    List<PhotoInfo> photoInfos;
-    if (Platform.isAndroid || Platform.isIOS) {
-      photoInfos = await pickPhotoMobile();
-    } else {
-      photoInfos = await pickPhotoDesktop();
-    }
+    List<PhotoInfo> photoInfos = await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
 
     List<EditorImage> images = [
@@ -627,25 +621,7 @@ class _EditorState extends State<Editor> {
     return images.length;
   }
 
-  Future<List<PhotoInfo>> pickPhotoMobile() async {
-    final ImagePicker picker = ImagePicker();
-
-    final List<XFile> images = await picker.pickMultiImage(
-      maxWidth: 1000,
-      maxHeight: 1000,
-      imageQuality: 90,
-      requestFullMetadata: false,
-    );
-
-    return [
-      for (final XFile image in images)
-        PhotoInfo(
-          bytes: await image.readAsBytes(),
-          extension: image.name.substring(image.name.lastIndexOf('.')),
-        ),
-    ];
-  }
-  Future<List<PhotoInfo>> pickPhotoDesktop() async {
+  Future<List<PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.image,
       allowMultiple: true,
