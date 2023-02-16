@@ -96,18 +96,6 @@
       ]
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "编辑工具栏对齐方式"
-      },
-      "axisDirections": [
-        "上",
-        "右",
-        "下",
-        "左"
-      ]
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
