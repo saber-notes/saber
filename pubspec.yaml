@@ -99,9 +99,6 @@ dependencies:
 
   flutter_svg: ^2.0.0+1
 
-  # when updated, check if image_picker supports more platforms for Editor.pickPhoto()
-  image_picker: ^0.8.6+1
-
   defer_pointer: ^0.0.2
 
   image: ^4.0.0
