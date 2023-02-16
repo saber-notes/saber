@@ -135,22 +135,43 @@ class SvgEditorImage extends EditorImage {
   }
 
   /// Inverts all the colors in the svg string by replacing
-  /// all "fill" and "stroke" attributes with their inverted values.
+  /// all "fill" and "stroke" attributes (and their css counterparts)
+  /// with their inverted color.
   static String _invertSvgString(String svgString) {
     String invertColorMatch(String colorString) {
-      return fromCssColor(colorString)
-        .withInversion()
-        .toCssString(format: CssColorString.hex);
+      if (colorString == "none" || colorString == "transparent") {
+        return colorString;
+      } else {
+        return fromCssColor(colorString)
+          .withInversion()
+          .toCssString(format: CssColorString.hex);
+      }
     }
 
     return svgString
+      // fill="..."
       .replaceAllMapped(RegExp('fill=["\'][^"\']+["\']'), (match) {
         String colorString = match.group(0)!.substring(6, match.group(0)!.length - 1);
         return 'fill="${invertColorMatch(colorString)}"';
       })
+      // style="fill: ...;"
+      .replaceAllMapped(RegExp('fill:[^;"\']+'), (match) {
+        String colorString = match.group(0)!
+          .substring(5)
+          .trim();
+        return 'fill: ${invertColorMatch(colorString)};';
+      })
+      // stroke="..."
       .replaceAllMapped(RegExp('stroke=["\'][^"\']+["\']'), (match) {
         String colorString = match.group(0)!.substring(8, match.group(0)!.length - 1);
         return 'stroke="${invertColorMatch(colorString)}"';
+      })
+      // style="stroke: ...;"
+      .replaceAllMapped(RegExp('stroke:[^;"\']+'), (match) {
+        String colorString = match.group(0)!
+          .substring(7)
+          .trim();
+        return 'stroke: ${invertColorMatch(colorString)};';
       });
   }
 }
