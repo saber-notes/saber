@@ -102,6 +102,38 @@ class SvgEditorImage extends EditorImage {
     loaded = true;
   }
 
+  @override
+  Widget buildImageWidget({
+    required Brightness imageBrightness,
+    required BoxFit? overrideBoxFit,
+    required bool isBackground,
+  }) {
+    String svgString;
+    String keySuffix;
+    if (imageBrightness == Brightness.light) {
+      svgString = this.svgString;
+      keySuffix = "light";
+    } else {
+      svgString = invertedSvgString ?? this.svgString;
+      keySuffix = "dark";
+    }
+
+    final BoxFit boxFit;
+    if (overrideBoxFit != null) {
+      boxFit = overrideBoxFit;
+    } else if (isBackground) {
+      boxFit = backgroundFit;
+    } else {
+      boxFit = BoxFit.fill;
+    }
+
+    return SvgPicture.string(
+      svgString,
+      fit: boxFit,
+      key: Key("Image$id-$keySuffix"),
+    );
+  }
+
   /// Inverts all the colors in the svg string by replacing
   /// all "fill" and "stroke" attributes with their inverted values.
   static String _invertSvgString(String svgString) {
