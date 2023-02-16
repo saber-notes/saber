@@ -24,18 +24,6 @@ class SettingsPage extends StatefulWidget {
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 
-  static final _shouldAlwaysAlertForUpdates = TransformedPref(
-    Prefs.updatesToIgnore,
-    (int value) => value <= 0,
-    (bool value) => value ? 0 : 1,
-  );
-
-  static final _editorToolbarAlignment = TransformedPref(
-    Prefs.editorToolbarAlignment,
-    (AxisDirection value) => value.index,
-    (int value) => AxisDirection.values[value],
-  );
-
   static Future<bool?> showResetDialog({
     required BuildContext context,
     required IPref pref,
@@ -66,6 +54,32 @@ class SettingsPage extends StatefulWidget {
       ),
     );
   }
+}
+
+abstract class _SettingsPrefs {
+  static final appTheme = TransformedPref(
+    Prefs.appTheme,
+    (ThemeMode value) => value.index,
+    (int value) => ThemeMode.values[value],
+  );
+
+  static final platform = TransformedPref(
+    Prefs.platform,
+    (TargetPlatform value) => value.index,
+    (int value) => TargetPlatform.values[value],
+  );
+
+  static final shouldAlwaysAlertForUpdates = TransformedPref(
+    Prefs.updatesToIgnore,
+    (int value) => value <= 0,
+    (bool value) => value ? 0 : 1,
+  );
+
+  static final editorToolbarAlignment = TransformedPref(
+    Prefs.editorToolbarAlignment,
+    (AxisDirection value) => value.index,
+    (int value) => AxisDirection.values[value],
+  );
 }
 
 class _SettingsPageState extends State<SettingsPage> {
@@ -180,7 +194,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       if (i == ThemeMode.dark.index) return Icons.dark_mode;
                       return null;
                     },
-                    pref: Prefs.appTheme,
+                    pref: _SettingsPrefs.appTheme,
                     optionsWidth: 60,
                     options: [
                       ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
@@ -195,19 +209,19 @@ class _SettingsPageState extends State<SettingsPage> {
                       if (platform == TargetPlatform.macOS) return Icons.apple;
                       return materialIcon;
                     },
-                    pref: Prefs.platform,
+                    pref: _SettingsPrefs.platform,
                     optionsWidth: 60,
                     options: [
                       ToggleButtonsOption(
                         () {
-                          if (usesMaterialByDefault) return -1;
+                          if (usesMaterialByDefault) return defaultTargetPlatform.index;
                           return TargetPlatform.android.index;
                         }(),
                         Icon(materialIcon, semanticLabel: "Material"),
                       ),
                       ToggleButtonsOption(
                         () {
-                          if (!usesMaterialByDefault) return -1;
+                          if (!usesMaterialByDefault) return defaultTargetPlatform.index;
                           return TargetPlatform.iOS.index;
                         }(),
                         const Icon(Icons.apple, semanticLabel: "Cupertino"),
@@ -241,7 +255,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: SettingsSwitch(
                         title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
                         icon: Icons.system_security_update_warning,
-                        pref: SettingsPage._shouldAlwaysAlertForUpdates,
+                        pref: _SettingsPrefs.shouldAlwaysAlertForUpdates,
                       ),
                     ),
                   ],
@@ -256,12 +270,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   SettingsSelection(
                     title: t.settings.prefLabels.editorToolbarAlignment,
-                    subtitle: t.settings.axisDirections[SettingsPage._editorToolbarAlignment.value],
+                    subtitle: t.settings.axisDirections[_SettingsPrefs.editorToolbarAlignment.value],
                     iconBuilder: (num i) {
                       if (i is! int || i >= materialDirectionIcons.length) return null;
                       return cupertino ? cupertinoDirectionIcons[i] : materialDirectionIcons[i];
                     },
-                    pref: SettingsPage._editorToolbarAlignment,
+                    pref: _SettingsPrefs.editorToolbarAlignment,
                     optionsWidth: 60,
                     options: [
                       for (final AxisDirection direction in AxisDirection.values)

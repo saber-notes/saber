@@ -160,9 +160,9 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
         );
 
         final TargetPlatform? platform;
-        if (Prefs.platform.value == TargetPlatform.iOS.index) {
+        if (Prefs.platform.value == TargetPlatform.iOS) {
           platform = TargetPlatform.iOS;
-        } else if (Prefs.platform.value == TargetPlatform.android.index) {
+        } else if (Prefs.platform.value == TargetPlatform.android) {
           platform = TargetPlatform.android;
         } else {
           platform = null;
@@ -179,7 +179,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
 
           title: widget.title,
 
-          themeMode: Prefs.appTheme.loaded ? ThemeMode.values[Prefs.appTheme.value] : ThemeMode.system,
+          themeMode: Prefs.appTheme.loaded ? Prefs.appTheme.value : ThemeMode.system,
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: lightColorScheme,

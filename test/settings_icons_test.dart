@@ -45,25 +45,24 @@ void main() {
 
     // App theme
     // findsAtLeastNWidgets(2) because of leading + trailing icons
-    Prefs.appTheme.value = ThemeMode.system.index;
+    Prefs.appTheme.value = ThemeMode.system;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.brightness_auto), findsAtLeastNWidgets(2));
-    Prefs.appTheme.value = ThemeMode.light.index;
+    Prefs.appTheme.value = ThemeMode.light;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.light_mode), findsAtLeastNWidgets(2));
-    Prefs.appTheme.value = ThemeMode.dark.index;
+    Prefs.appTheme.value = ThemeMode.dark;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.dark_mode), findsAtLeastNWidgets(2));
 
     // Theme type
     // findsAtLeastNWidgets(2) because of leading + trailing icons
-    Prefs.platform.value = -1;
-    await tester.pumpAndSettle();
-    expect(findIcon(Icons.android), findsAtLeastNWidgets(2));
-    Prefs.platform.value = TargetPlatform.iOS.index;
+    Prefs.platform.value = TargetPlatform.iOS;
     await tester.pumpAndSettle();
     expect(findIcon(Icons.apple), findsAtLeastNWidgets(2));
-    Prefs.platform.value = -1;
+    Prefs.platform.value = TargetPlatform.android;
+    await tester.pumpAndSettle();
+    expect(findIcon(Icons.android), findsAtLeastNWidgets(2));
 
     // Hyperlegible font
     Prefs.hyperlegibleFont.value = false;

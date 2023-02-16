@@ -45,9 +45,9 @@ abstract class Prefs {
 
   static late final PlainPref<String> pfp;
 
-  static late final PlainPref<int> appTheme;
-  /// The type of platform to theme. If -1, use [defaultTargetPlatform].
-  static late final PlainPref<int> platform;
+  static late final PlainPref<ThemeMode> appTheme;
+  /// The type of platform to theme. Default value is [defaultTargetPlatform].
+  static late final PlainPref<TargetPlatform> platform;
   /// The accent color of the app. If 0, the system accent color will be used.
   static late final PlainPref<int> accentColor;
   static late final PlainPref<bool> hyperlegibleFont;
@@ -106,8 +106,8 @@ abstract class Prefs {
 
     pfp = PlainPref("pfp", "");
 
-    appTheme = PlainPref("appTheme", ThemeMode.system.index);
-    platform = PlainPref("platform", -1);
+    appTheme = PlainPref("appTheme", ThemeMode.system);
+    platform = PlainPref("platform", defaultTargetPlatform);
     accentColor = PlainPref("accentColor", 0);
     hyperlegibleFont = PlainPref("hyperlegibleFont", false);
 
@@ -255,7 +255,7 @@ class PlainPref<T> extends IPref<T> {
         || T == typeOf<List<String>>() || T == typeOf<Set<String>>()
         || T == typeOf<Queue<String>>()
         || T == StrokeProperties || T == typeOf<Quota?>()
-        || T == AxisDirection
+        || T == AxisDirection || T == ThemeMode || T == TargetPlatform
     );
   }
 
@@ -317,6 +317,10 @@ class PlainPref<T> extends IPref<T> {
         }
       } else if (T == AxisDirection) {
         return await _prefs!.setInt(key, (value as AxisDirection).index);
+      } else if (T == ThemeMode) {
+        return await _prefs!.setInt(key, (value as ThemeMode).index);
+      } else if (T == TargetPlatform) {
+        return await _prefs!.setInt(key, (value as TargetPlatform).index);
       } else {
         return await _prefs!.setString(key, value as String);
       }
@@ -354,6 +358,14 @@ class PlainPref<T> extends IPref<T> {
       } else if (T == AxisDirection) {
         final index = _prefs!.getInt(key);
         return index != null ? AxisDirection.values[index] as T? : null;
+      } else if (T == ThemeMode) {
+        final index = _prefs!.getInt(key);
+        return index != null ? ThemeMode.values[index] as T? : null;
+      } else if (T == TargetPlatform) {
+        final index = _prefs!.getInt(key);
+        if (index == null) return null;
+        if (index == -1) return defaultTargetPlatform as T?;
+        return TargetPlatform.values[index] as T?;
       } else {
         return _prefs!.get(key) as T?;
       }
