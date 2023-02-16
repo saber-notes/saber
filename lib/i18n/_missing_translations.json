@@ -73,13 +73,13 @@
   "ru": {
     "settings": {
       "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "Панель инструментов редактора"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "Сверху",
+        "Справа",
+        "Снизу",
+        "Слева"
       ]
     }
   },
