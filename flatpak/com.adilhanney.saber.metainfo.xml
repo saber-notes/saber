@@ -59,6 +59,18 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.3" type="development" date="2023-02-16">
+            <description>
+                <ul>
+                    <li>The eraser now works properly with straightened lines</li>
+                    <li>More image formats are supported including SVGs</li>
+                    <li>The toolbar can be aligned to the left and right of the screen</li>
+                    <li>Improved performance on app load</li>
+                    <li>Windows users can now install without administrator privileges</li>
+                    <li>Minor visual tweaks</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.2" type="development" date="2023-02-12">
             <description>
                 <ul>
