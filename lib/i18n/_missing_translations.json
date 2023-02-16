@@ -99,13 +99,13 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "编辑工具栏对齐方式"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "上",
+        "右",
+        "下",
+        "左"
       ]
     }
   },
