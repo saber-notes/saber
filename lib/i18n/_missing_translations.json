@@ -6,13 +6,13 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "Umístění nabídky editoru"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "Nahoře",
+        "Vpravo",
+        "Dole",
+        "Vlevo"
       ]
     }
   },
