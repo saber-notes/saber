@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1356 (135 per locale)
+/// Strings: 1358 (135 per locale)
 ///
-/// Built on 2023-02-14 at 06:13 UTC
+/// Built on 2023-02-16 at 02:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3771,13 +3771,13 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsSettingsPrefCategoriesTr prefCategories = _StringsSettingsPrefCategoriesTr._(_root);
 	@override late final _StringsSettingsPrefLabelsTr prefLabels = _StringsSettingsPrefLabelsTr._(_root);
 	@override late final _StringsSettingsPrefDescriptionsTr prefDescriptions = _StringsSettingsPrefDescriptionsTr._(_root);
 	@override late final _StringsSettingsThemeModesTr themeModes = _StringsSettingsThemeModesTr._(_root);
 	@override late final _StringsSettingsAccentColorPickerTr accentColorPicker = _StringsSettingsAccentColorPickerTr._(_root);
 	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
 	@override String get systemLanguage => 'Sistem dili';
-	@override late final _StringsSettingsPrefCategoriesTr prefCategories = _StringsSettingsPrefCategoriesTr._(_root);
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 }
 
@@ -3847,6 +3847,7 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorNewerFileFormatTr newerFileFormat = _StringsEditorNewerFileFormatTr._(_root);
 	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
 	@override late final _StringsEditorHudTr hud = _StringsEditorHudTr._(_root);
+	@override String get pages => 'Sayfalar';
 }
 
 // Path: sPenWarning
@@ -3897,6 +3898,18 @@ class _StringsHomeTooltipsTr extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Güncelleme diyalogunu göster';
 }
 
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Genel';
+	@override String get layout => 'Yerleşim';
+	@override String get writing => 'Yazım';
+}
+
 // Path: settings.prefLabels
 class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	_StringsSettingsPrefLabelsTr._(_StringsTr root) : this._root = root, super._(root);
@@ -3904,20 +3917,21 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String get locale => 'Uygulama dili';
 	@override String get appTheme => 'Uygulama teması';
+	@override String get platform => 'Tema tipi';
 	@override String get customAccentColor => 'Farklı ana renk';
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
+	@override String get shouldAlwaysAlertForUpdates => 'Bir güncelleme mevcut olduğunda uyar';
 	@override String get editorToolbarOnBottom => 'Editör araç kutusunu aşağıya yerleştir';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
 	@override String get preferGreyscale => 'Gri tonlamayı tercih et';
 	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
+	@override String get maxImageSize => 'Maksimum görsel boyutu';
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
-	@override String get locale => 'Uygulama dili';
-	@override String get platform => 'Tema tipi';
-	@override String get maxImageSize => 'Maksimum görsel boyutu';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 }
 
@@ -3932,8 +3946,8 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get editorAutoInvert => 'Karanlık modda notların rengini değiştirir';
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
-	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
+	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 }
 
@@ -3969,18 +3983,6 @@ class _StringsSettingsStraightenDelayTr extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Kapalı';
 	@override String get regular => 'Normal';
 	@override String get slow => 'Yavaş';
-}
-
-// Path: settings.prefCategories
-class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn {
-	_StringsSettingsPrefCategoriesTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get general => 'Genel';
-	@override String get layout => 'Yerleşim';
-	@override String get writing => 'Yazım';
 }
 
 // Path: settings.reset
@@ -4100,6 +4102,7 @@ class _StringsEditorToolbarTr extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => 'Renklere geç (Ctrl C)';
+	@override String get select => 'Seç';
 	@override String get toggleEraser => 'Silgiyi aktifleştir (Ctrl E)';
 	@override String get photo => 'Fotoğraf';
 	@override String get text => 'Metin';
@@ -4109,7 +4112,6 @@ class _StringsEditorToolbarTr extends _StringsEditorToolbarEn {
 	@override String get export => 'Dışa aktar (Ctrl Shift S)';
 	@override String get exportAs => 'Farklı formatta dışa aktar:';
 	@override String get fullscreen => 'Tam ekrana geç (F11)';
-	@override String get select => 'Seç';
 }
 
 // Path: editor.pens
@@ -4145,8 +4147,8 @@ class _StringsEditorImageOptionsTr extends _StringsEditorImageOptionsEn {
 	@override String get title => 'Görüntü ayarları';
 	@override String get invertible => '(Rengi) Tersine çevrilebilir';
 	@override String get download => 'İndir';
-	@override String get delete => 'Sil';
 	@override String get setAsBackground => 'Arkaplan olarak ayarla';
+	@override String get delete => 'Sil';
 }
 
 // Path: editor.menu
@@ -4160,12 +4162,12 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Her bir satırın boyutu';
-	@override String get removeBgImage => 'Arkaplan görselini kaldır';
-	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
-	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
 	@override String get backgroundImage => 'Arkaplan görseli';
 	@override String get backgroundPattern => 'Arkaplan deseni';
+	@override String get removeBgImage => 'Arkaplan görselini kaldır';
 	@override String get import => 'İçe aktar';
+	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
+	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
 }
 
 // Path: editor.newerFileFormat
