@@ -70,19 +70,7 @@
       ]
     }
   },
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
-      },
-      "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
-      ]
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {

@@ -35,6 +35,7 @@
       "hyperlegibleFont": "Гипер разборчивый шрифт",
       "shouldCheckForUpdates": "Автоматически проверять обновления Saber",
       "shouldAlwaysAlertForUpdates": "Сообщать об обновлениях, как только они станут доступны",
+      "editorToolbarAlignment": "Панель инструментов редактора",
       "editorToolbarShowInFullscreen": "Показывать инструменты в полноэкранном режиме",
       "editorAutoInvert": "Инвертировать заметки в тёмном режиме",
       "preferGreyscale": "Предпочтение оттенкам серого",
@@ -67,6 +68,12 @@
       "slow": "Долго"
     },
     "systemLanguage": "Язык системы",
+    "axisDirections": [
+      "Сверху",
+      "Справа",
+      "Снизу",
+      "Слева"
+    ],
     "reset": {
       "title": "Сбросить эту настройку?",
       "button": "Сбросить"
