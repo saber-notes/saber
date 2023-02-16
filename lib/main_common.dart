@@ -27,7 +27,11 @@ void main() async {
   await Future.wait([
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
-    Executor().warmUp(),
+    Executor().warmUp(
+      // ensure there are enough isolates for the first screen
+      // (recently accessed notes)
+      isolatesCount: FileManager.maxRecentlyAccessedFiles,
+    ),
     Prefs.locale.waitUntilLoaded(),
   ]);
 
