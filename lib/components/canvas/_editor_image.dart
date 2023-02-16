@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as image;
+import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:worker_manager/worker_manager.dart';
@@ -82,13 +83,18 @@ class EditorImage {
     this.thumbnailBytes,
     this.invertedThumbnailBytes,
   }) :  assert(extension.startsWith(".")) {
-    _getImage(pageSize: pageSize).then((_) => onLoad?.call());
+    getImage(pageSize: pageSize).then((_) => onLoad?.call());
   }
 
   factory EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) {
+    String? extension = json['e'];
+    if (extension == ".svg") {
+      return SvgEditorImage.fromJson(json, allowCalculations: allowCalculations);
+    }
+
     return EditorImage(
       id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-      extension: json['e'] ?? ".jpg",
+      extension: extension ?? ".jpg",
       bytes: Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
@@ -148,7 +154,8 @@ class EditorImage {
     return json;
   }
 
-  Future<void> _getImage({Size? pageSize, bool allowCalculations = true}) async {
+  @protected
+  Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
       naturalSize = Size(image.width.toDouble(), image.height.toDouble());

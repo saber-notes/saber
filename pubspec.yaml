@@ -143,6 +143,8 @@ dependencies:
 
   printing: ^5.10.1
 
+  from_css_color: ^2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
