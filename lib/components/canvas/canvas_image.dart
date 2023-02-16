@@ -101,11 +101,14 @@ class _CanvasImageState extends State<CanvasImage> {
       await Future.delayed(const Duration(milliseconds: 50));
     }
 
-    if (widget.image.isThumbnail || widget.image.thumbnailBytes == null) {
-      // if image is a thumbnail (or thumbnail sized), we've already inverted it
-      return;
-    } else if (widget.image.invertedBytesCache != null) {
+    if (widget.image.invertedBytesCache != null) {
       // if we've already inverted the image, use the cached version
+      return;
+    } else if (widget.image.extension == ".svg") {
+      // SVGs are inverted when they're loaded
+      return;
+    } else if (widget.image.isThumbnail || widget.image.thumbnailBytes == null) {
+      // if image is a thumbnail (or thumbnail sized), we've already inverted it
       return;
     }
 
@@ -201,34 +204,11 @@ class _CanvasImageState extends State<CanvasImage> {
                           duration: const Duration(milliseconds: 500),
                           switchInCurve: Curves.fastLinearToSlowEaseIn,
                           switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
-                          child: (){
-                            Uint8List bytes = widget.image.bytes;
-                            String keySuffix = "light";
-                            if (imageBrightness == Brightness.dark) {
-                              if (widget.image.invertedBytesCache != null) {
-                                bytes = widget.image.invertedBytesCache!;
-                                keySuffix = "dark";
-                              } else if (widget.image.invertedThumbnailBytes != null) {
-                                bytes = widget.image.invertedThumbnailBytes!;
-                                keySuffix = "dark-thumbnail";
-                              }
-                            }
-
-                            final BoxFit boxFit;
-                            if (widget.overrideBoxFit != null) {
-                              boxFit = widget.overrideBoxFit!;
-                            } else if (widget.isBackground) {
-                              boxFit = widget.image.backgroundFit;
-                            } else {
-                              boxFit = BoxFit.fill;
-                            }
-
-                            return Image.memory(
-                              bytes,
-                              fit: boxFit,
-                              key: Key("Image${widget.image.id}-$keySuffix"),
-                            );
-                          }(),
+                          child: widget.image.buildImageWidget(
+                            imageBrightness: imageBrightness,
+                            overrideBoxFit: widget.overrideBoxFit,
+                            isBackground: widget.isBackground,
+                          ),
                           layoutBuilder: (currentChild, previousChildren) {
                             return SizedBox(
                               width: widget.image.naturalSize.width,
