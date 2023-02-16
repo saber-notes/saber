@@ -3,7 +3,7 @@
 /// Locales: 10
 /// Strings: 1358 (135 per locale)
 ///
-/// Built on 2023-02-16 at 02:10 UTC
+/// Built on 2023-02-16 at 08:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4802,6 +4802,12 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerZhHantTw accentColorPicker = _StringsSettingsAccentColorPickerZhHantTw._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
 	@override String get systemLanguage => '系統語言';
+	@override List<String> get axisDirections => [
+		'置頂',
+		'靠右',
+		'置底',
+		'靠左',
+	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 }
 
@@ -4948,6 +4954,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '一有更新就告訴我';
+	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
 	@override String get preferGreyscale => '使用灰度顏色';
