@@ -636,7 +636,18 @@ class _EditorState extends State<Editor> {
   Future<List<PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: ["bmp", "gif", "jpeg", "jpg", "png", "svg"],
+      // Taken from
+      // https://github.com/brendan-duncan/image/blob/main/doc/formats.md
+      // (plus .svg)
+      allowedExtensions: [
+        "jpg", "jpeg", "png",
+        "gif", "tiff", "bmp",
+        "tga", "ico", "pvrtc",
+
+        "svg",
+
+        "webp", "psd", "exr",
+      ],
       allowMultiple: true,
       withData: true,
     );
