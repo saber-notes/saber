@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:async';
-import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -12,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
@@ -597,17 +597,29 @@ class _EditorState extends State<Editor> {
 
     List<EditorImage> images = [
       for (final PhotoInfo photoInfo in photoInfos)
-        EditorImage(
-          id: coreInfo.nextImageId++,
-          extension: photoInfo.extension,
-          bytes: photoInfo.bytes,
-          pageIndex: currentPageIndex,
-          pageSize: coreInfo.pages[currentPageIndex].size,
-          onMoveImage: onMoveImage,
-          onDeleteImage: onDeleteImage,
-          onMiscChange: autosaveAfterDelay,
-          onLoad: () => setState(() {}),
-        ),
+        if (photoInfo.extension == ".svg")
+          SvgEditorImage(
+            id: coreInfo.nextImageId++,
+            svgString: utf8.decode(photoInfo.bytes),
+            pageIndex: currentPageIndex,
+            pageSize: coreInfo.pages[currentPageIndex].size,
+            onMoveImage: onMoveImage,
+            onDeleteImage: onDeleteImage,
+            onMiscChange: autosaveAfterDelay,
+            onLoad: () => setState(() {}),
+          )
+        else
+          EditorImage(
+            id: coreInfo.nextImageId++,
+            extension: photoInfo.extension,
+            bytes: photoInfo.bytes,
+            pageIndex: currentPageIndex,
+            pageSize: coreInfo.pages[currentPageIndex].size,
+            onMoveImage: onMoveImage,
+            onDeleteImage: onDeleteImage,
+            onMiscChange: autosaveAfterDelay,
+            onLoad: () => setState(() {}),
+          ),
     ];
 
     history.recordChange(EditorHistoryItem(
@@ -623,7 +635,8 @@ class _EditorState extends State<Editor> {
 
   Future<List<PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
+      type: FileType.custom,
+      allowedExtensions: ["bmp", "gif", "jpeg", "jpg", "png", "svg"],
       allowMultiple: true,
       withData: true,
     );
