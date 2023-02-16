@@ -109,17 +109,5 @@
       ]
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "編輯器工具列的對齊方式"
-      },
-      "axisDirections": [
-        "置頂",
-        "靠右",
-        "置底",
-        "靠左"
-      ]
-    }
-  }
+  "zh-Hant-TW": {}
 }
