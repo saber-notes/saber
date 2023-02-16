@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1363 (136 per locale)
+/// Strings: 1368 (136 per locale)
 ///
-/// Built on 2023-02-16 at 10:27 UTC
+/// Built on 2023-02-16 at 18:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3266,6 +3266,12 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
 	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
 	@override String get systemLanguage => 'Язык системы';
+	@override List<String> get axisDirections => [
+		'Сверху',
+		'Справа',
+		'Снизу',
+		'Слева',
+	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 }
 
@@ -3412,6 +3418,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать об обновлениях, как только они станут доступны';
+	@override String get editorToolbarAlignment => 'Панель инструментов редактора';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';

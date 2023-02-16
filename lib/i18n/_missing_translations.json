@@ -70,19 +70,7 @@
       ]
     }
   },
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "Панель инструментов редактора"
-      },
-      "axisDirections": [
-        "Сверху",
-        "Справа",
-        "Снизу",
-        "Слева"
-      ]
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {
