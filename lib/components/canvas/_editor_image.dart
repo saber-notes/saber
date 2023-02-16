@@ -69,44 +69,55 @@ class EditorImage {
     required this.pageIndex,
     required Size pageSize,
     this.maxSize,
+    this.invertible = true,
+    this.backgroundFit = BoxFit.contain,
     required this.onMoveImage,
     required this.onDeleteImage,
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-  }) :  assert(extension.startsWith(".")),
-        invertible = true,
-        backgroundFit = BoxFit.contain {
+    this.dstRect = Rect.zero,
+    this.srcRect = Rect.zero,
+    this.naturalSize = Size.zero,
+    this.thumbnailBytes,
+    this.invertedThumbnailBytes,
+  }) :  assert(extension.startsWith(".")) {
     _getImage(pageSize: pageSize).then((_) => onLoad?.call());
   }
 
-  EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) :
-        id = json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-        extension = json['e'] ?? ".jpg",
-        pageIndex = json['i'] ?? 0,
-        invertible = json['v'] ?? true,
-        backgroundFit = json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
-        onLoad = null,
-        dstRect = Rect.fromLTWH(
-          json['x'] ?? 0,
-          json['y'] ?? 0,
-          json['w'] ?? 0,
-          json['h'] ?? 0,
-        ),
-        srcRect = Rect.fromLTWH(
-          json['sx'] ?? 0,
-          json['sy'] ?? 0,
-          json['sw'] ?? 0,
-          json['sh'] ?? 0,
-        ),
-        naturalSize = Size(
-          json['nw'] ?? 0,
-          json['nh'] ?? 0,
-        ),
-        thumbnailBytes = json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
-        invertedThumbnailBytes = json['it'] != null ? Uint8List.fromList((json['it'] as List<dynamic>).cast<int>()) : null,
-        bytes = Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []) {
-    _getImage(allowCalculations: allowCalculations);
+  factory EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) {
+    return EditorImage(
+      id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      extension: json['e'] ?? ".jpg",
+      bytes: Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
+      pageIndex: json['i'] ?? 0,
+      pageSize: Size.infinite,
+      invertible: json['v'] ?? true,
+      backgroundFit: json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
+      onMoveImage: null,
+      onDeleteImage: null,
+      onMiscChange: null,
+      onLoad: null,
+      newImage: false,
+      dstRect: Rect.fromLTWH(
+        json['x'] ?? 0,
+        json['y'] ?? 0,
+        json['w'] ?? 0,
+        json['h'] ?? 0,
+      ),
+      srcRect: Rect.fromLTWH(
+        json['sx'] ?? 0,
+        json['sy'] ?? 0,
+        json['sw'] ?? 0,
+        json['sh'] ?? 0,
+      ),
+      naturalSize: Size(
+        json['nw'] ?? 0,
+        json['nh'] ?? 0,
+      ),
+      thumbnailBytes: json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
+      invertedThumbnailBytes: json['it'] != null ? Uint8List.fromList((json['it'] as List<dynamic>).cast<int>()) : null,
+    );
   }
 
   Map<String, dynamic> toJson() {
