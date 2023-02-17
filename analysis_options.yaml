@@ -29,5 +29,50 @@ linter:
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
     use_super_parameters: true
 
+    directives_ordering: true
+    always_use_package_imports: true
+    avoid_relative_lib_imports: true
+
+    avoid_slow_async_io: true
+
+    cancel_subscriptions: true
+    close_sinks: true
+
+    always_declare_return_types: true
+    avoid_return_types_on_setters: true
+
+    avoid_positional_boolean_parameters: true
+
+    eol_at_end_of_file: true
+
+    exhaustive_cases: true
+
+    join_return_with_assignment: true
+
+    leading_newlines_in_multiline_strings: true
+
+    prefer_single_quotes: true
+
+    prefer_if_elements_to_conditional_expressions: true
+
+    prefer_int_literals: true
+
+    unnecessary_breaks: true
+
+    unnecessary_to_list_in_spreads: true
+
+    use_colored_box: true
+    use_decorated_box: true
+
+    use_enums: true
+
+    use_if_null_to_convert_nulls_to_bools: true
+
+    use_is_even_rather_than_modulo: true
+
+    use_named_constants: true
+
+    use_string_buffers: true
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
