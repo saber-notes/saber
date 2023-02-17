@@ -108,6 +108,24 @@ jobs:
           zip -r $zipName Saber.app
           popd
 
+      - name: Package for App Store
+        id: package
+        run: |
+          APP_NAME="build/macos/Build/Products/Release/Saber.app"
+          PACKAGE_NAME="build/macos/Build/Products/Release/Saber.pkg"
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+
+          xcrun productbuild --component "$APP_NAME" /Applications/ unsigned.pkg
+          
+          INSTALLER_CERT_NAME=$(keychain list-certificates \
+                  | jq '[.[]
+                    | select(.common_name
+                    | contains("Mac Developer Installer"))
+                    | .common_name][0]' \
+                  | xargs)
+          xcrun productsign --sign "$INSTALLER_CERT_NAME" unsigned.pkg "$PACKAGE_NAME"
+          rm -f unsigned.pkg
+
       - name: Restore keychain
         run: |
           keychain use-login
@@ -124,3 +142,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/macos/Build/Products/Release/${{ steps.compress.outputs.zipName }}
+
+      - name: Publish to App Store
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        run: app-store-connect publish --path ${{ steps.package.outputs.PACKAGE_NAME }}
