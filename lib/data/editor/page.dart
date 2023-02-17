@@ -62,35 +62,35 @@ class EditorPage extends Listenable {
   EditorPage.fromJson(Map<String, dynamic> json, {
     required bool readOnly,
   }):
-      size = Size(json["w"] ?? defaultWidth, json["h"] ?? defaultHeight),
+      size = Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
       strokes = parseStrokesJson(
-        json["s"] as List?,
+        json['s'] as List?,
         onlyFirstPage: false,
       ),
       images = parseImagesJson(
-        json["i"] as List?,
+        json['i'] as List?,
         allowCalculations: !readOnly,
         onlyFirstPage: false,
       ),
       quill = QuillStruct(
-        controller: json["q"] != null ? QuillController(
-          document: Document.fromJson(json["q"] as List),
+        controller: json['q'] != null ? QuillController(
+          document: Document.fromJson(json['q'] as List),
           selection: const TextSelection.collapsed(offset: 0),
         ) : QuillController.basic(),
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       ),
-      backgroundImage = json["b"] != null
-        ? EditorImage.fromJson(json["b"] as Map<String, dynamic>)
+      backgroundImage = json['b'] != null
+        ? EditorImage.fromJson(json['b'] as Map<String, dynamic>)
         : null;
 
   Map<String, dynamic> toJson() => {
-    "w": size.width,
-    "h": size.height,
-    "s": strokes,
-    "i": images,
-    "q": quill.controller.document.toDelta().toJson(),
+    'w': size.width,
+    'h': size.height,
+    's': strokes,
+    'i': images,
+    'q': quill.controller.document.toDelta().toJson(),
     if (backgroundImage != null)
-      "b": backgroundImage?.toJson(),
+      'b': backgroundImage?.toJson(),
   };
 
   /// Inserts a stroke, while keeping the strokes sorted by
@@ -162,7 +162,7 @@ class EditorPage extends Listenable {
 
   @override
   void addListener(VoidCallback listener) {
-    if (_disposed) throw Exception("Cannot add listener to disposed EditorPage");
+    if (_disposed) throw Exception('Cannot add listener to disposed EditorPage');
     _listeners.add(listener);
   }
 

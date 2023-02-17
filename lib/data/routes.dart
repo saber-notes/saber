@@ -7,26 +7,26 @@ import 'package:saber/pages/home/home.dart';
 
 // workaround to assign strings as enum values
 abstract class RoutePaths {
-  static const home = "/home/:subpage";
-  static const edit = "/edit";
-  static const login = "/login";
-  static get all => [home, edit];
+  static const home = '/home/:subpage';
+  static const edit = '/edit';
+  static const login = '/login';
+  static List<String> get all => [home, edit];
 
   static String editFilePath(String filePath) {
-    return "$edit?path=${Uri.encodeQueryComponent(filePath)}";
+    return '$edit?path=${Uri.encodeQueryComponent(filePath)}';
   }
 }
 
 abstract class HomeRoutes {
   static String browseFilePath(String filePath) {
-    return "${getRoute(1)}?path=${Uri.encodeQueryComponent(filePath)}";
+    return '${getRoute(1)}?path=${Uri.encodeQueryComponent(filePath)}';
   }
 
   static final PathFunction _homeFunction = pathToFunction(RoutePaths.home);
 
   static List<_Route> get _routes => <_Route>[
     _Route(
-      routePath: _homeFunction({"subpage": HomePage.recentSubpage}),
+      routePath: _homeFunction({'subpage': HomePage.recentSubpage}),
       label: t.home.tabs.home,
       icon: const AdaptiveIcon(
         icon: Icons.home,
@@ -34,7 +34,7 @@ abstract class HomeRoutes {
       ),
     ),
     _Route(
-      routePath: _homeFunction({"subpage": HomePage.browseSubpage}),
+      routePath: _homeFunction({'subpage': HomePage.browseSubpage}),
       label: t.home.tabs.browse,
       icon: const AdaptiveIcon(
         icon: Icons.folder,
@@ -42,7 +42,7 @@ abstract class HomeRoutes {
       ),
     ),
     _Route(
-      routePath: _homeFunction({"subpage": HomePage.whiteboardSubpage}),
+      routePath: _homeFunction({'subpage': HomePage.whiteboardSubpage}),
       label: t.home.tabs.whiteboard,
       icon: const AdaptiveIcon(
         icon: Icons.draw,
@@ -50,7 +50,7 @@ abstract class HomeRoutes {
       ),
     ),
     _Route(
-      routePath: _homeFunction({"subpage": HomePage.settingsSubpage}),
+      routePath: _homeFunction({'subpage': HomePage.settingsSubpage}),
       label: t.home.tabs.settings,
       icon: const AdaptiveIcon(
         icon: Icons.settings,
@@ -63,10 +63,10 @@ abstract class HomeRoutes {
     return _routes[index].routePath;
   }
 
-  static get navigationDestinations => _routes
+  static List<NavigationDestination> get navigationDestinations => _routes
       .map((e) => e.toNavigationDestination())
       .toList(growable: false);
-  static get navigationRailDestinations => _routes
+  static List<NavigationRailDestination> get navigationRailDestinations => _routes
       .map((e) => e.toNavigationRailDestination())
       .toList(growable: false);
 }

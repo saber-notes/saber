@@ -7,8 +7,8 @@ class StrokeProperties {
   static const double defaultThinning = 0.5;
   static const double defaultSmoothing = 0;
   static const double defaultStreamline = 0.5;
-  static const double defaultTaperStart = 0.0;
-  static const double defaultTaperEnd = 0.0;
+  static const double defaultTaperStart = 0;
+  static const double defaultTaperEnd = 0;
   static const bool defaultCapStart = true;
   static const bool defaultCapEnd = true;
   static const bool defaultPressureEnabled = true;

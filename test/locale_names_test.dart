@@ -4,10 +4,10 @@ import 'package:saber/data/locales.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 void main() {
-  test("Test that all supported languages have a localised name", () {
+  test('Test that all supported languages have a localised name', () {
     for (Locale locale in AppLocaleUtils.supportedLocales) {
       final String localeCode = locale.toLanguageTag();
-      assert(localeNames.containsKey(localeCode), "Missing locale name for $localeCode");
+      assert(localeNames.containsKey(localeCode), 'Missing locale name for $localeCode');
     }
   });
 }

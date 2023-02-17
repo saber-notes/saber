@@ -28,11 +28,11 @@ class GridFolders extends StatelessWidget {
         return Card(
           child: InkWell(
             onTap: () {
-              onTap(isBackFolder ? ".." : folders[index - indexOffset]);
+              onTap(isBackFolder ? '..' : folders[index - indexOffset]);
             },
             borderRadius: BorderRadius.circular(10),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

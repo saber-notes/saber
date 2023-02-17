@@ -3,13 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_switch.dart';
-
-import 'package:saber/components/settings/nextcloud_profile.dart';
-import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
@@ -174,11 +173,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     icon: cupertino ? CupertinoIcons.globe : Icons.language,
                     pref: Prefs.locale,
                     options: [
-                      ToggleButtonsOption("", Text(t.settings.systemLanguage)),
+                      ToggleButtonsOption('', Text(t.settings.systemLanguage)),
                       ...AppLocaleUtils.supportedLocales.map((locale) {
                         final String localeCode = locale.toLanguageTag();
                         String? localeName = localeNames[localeCode];
-                        assert(localeName != null, "Missing locale name for $localeCode");
+                        assert(localeName != null, 'Missing locale name for $localeCode');
                         return ToggleButtonsOption(
                           localeCode,
                           Text(localeName ?? localeCode),
@@ -217,14 +216,14 @@ class _SettingsPageState extends State<SettingsPage> {
                           if (usesMaterialByDefault) return defaultTargetPlatform.index;
                           return TargetPlatform.android.index;
                         }(),
-                        Icon(materialIcon, semanticLabel: "Material"),
+                        Icon(materialIcon, semanticLabel: 'Material'),
                       ),
                       ToggleButtonsOption(
                         () {
                           if (!usesMaterialByDefault) return defaultTargetPlatform.index;
                           return TargetPlatform.iOS.index;
                         }(),
-                        const Icon(Icons.apple, semanticLabel: "Cupertino"),
+                        const Icon(Icons.apple, semanticLabel: 'Cupertino'),
                       ),
                     ],
                   ),
@@ -341,7 +340,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     title: t.settings.prefLabels.editorStraightenLines,
                     subtitle: (){
                       if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
-                      return "${Prefs.editorStraightenDelay.value}ms";
+                      return '${Prefs.editorStraightenDelay.value}ms';
                     }(),
                     iconBuilder: (num i) {
                       return (i <= 0) ? Icons.gesture : Icons.straighten;
@@ -359,9 +358,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     icon: Icons.photo_size_select_large,
                     pref: Prefs.maxImageSize,
                     options: const <ToggleButtonsOption<double>>[
-                      ToggleButtonsOption(500, Text("500")),
-                      ToggleButtonsOption(1000, Text("1000")),
-                      ToggleButtonsOption(2000, Text("2000")),
+                      ToggleButtonsOption(500, Text('500')),
+                      ToggleButtonsOption(1000, Text('1000')),
+                      ToggleButtonsOption(2000, Text('2000')),
                     ],
                   ),
                   SettingsSwitch(

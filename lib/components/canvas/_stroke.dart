@@ -144,7 +144,7 @@ class Stroke {
     }
 
     if (polygon.isEmpty) {
-      return "";
+      return '';
     } else {
       return "M${polygon.map((offset) => toSvgPoint(offset)).join("L")}";
     }
@@ -154,7 +154,7 @@ class Stroke {
     return points.isEmpty ? 0 : points.map((Point point) => point.y).reduce(max);
   }
 
-  static sqrDistBetweenPoints(Point p1, Point p2) {
+  static num sqrDistBetweenPoints(Point p1, Point p2) {
     return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2);
   }
 

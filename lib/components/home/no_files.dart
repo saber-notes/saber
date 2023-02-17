@@ -16,7 +16,7 @@ class NoFiles extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              "assets/images/undraw_researching_re_fuod.svg",
+              'assets/images/undraw_researching_re_fuod.svg',
               width: 300,
               height: 188,
               excludeFromSemantics: true,

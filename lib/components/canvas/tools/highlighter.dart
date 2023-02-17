@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-
-import 'pen.dart';
 
 class Highlighter extends Pen {
   Highlighter() : super(

@@ -17,7 +17,7 @@ class FileManager {
   // disable constructor
   FileManager._();
 
-  static const String appRootDirectoryPrefix = "/Saber";
+  static const String appRootDirectoryPrefix = '/Saber';
   @visibleForTesting
   static Future<String> get documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
 
@@ -105,7 +105,7 @@ class FileManager {
     File? tempFile;
     Future<File> getTempFile() async {
       final String tempFolder = (await getTemporaryDirectory()).path;
-      final File file = File("$tempFolder/$fileName");
+      final File file = File('$tempFolder/$fileName');
       await file.writeAsBytes(bytes);
       return file;
     }
@@ -115,7 +115,7 @@ class FileManager {
         await ImageSave.saveImage(
           bytes,
           fileName,
-          albumName: "Saber",
+          albumName: 'Saber',
         );
       } else { // share file
         tempFile = await getTempFile();
@@ -125,7 +125,7 @@ class FileManager {
       String? outputFile = await FilePicker.platform.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
-        allowedExtensions: [fileName.split(".").last],
+        allowedExtensions: [fileName.split('.').last],
       );
       if (outputFile != null) {
         File file = File(outputFile);
@@ -259,7 +259,7 @@ class FileManager {
     return await file.lastModified();
   }
 
-  static Future<String> newFilePath([String parentPath = "/"]) async {
+  static Future<String> newFilePath([String parentPath = '/']) async {
     assert(parentPath.endsWith('/'));
 
     final DateTime now = DateTime.now();
@@ -287,24 +287,24 @@ class FileManager {
     int i = 1;
     while (await doesFileExist(newFilePath + Editor.extension) && newFilePath + Editor.extension != currentPath) {
       i++;
-      newFilePath = "$filePath ($i)";
+      newFilePath = '$filePath ($i)';
     }
 
-    return newFilePath + (hasExtension ? Editor.extension : "");
+    return newFilePath + (hasExtension ? Editor.extension : '');
   }
 
   /// Imports a file from a sharing intent.
   /// Returns the file path of the imported file.
   static Future<String?> importFile(String path, {bool awaitWrite = true}) async {
     final String fileName = path.split('/').last;
-    final String importedPath = await suffixFilePathToMakeItUnique("/$fileName");
+    final String importedPath = await suffixFilePathToMakeItUnique('/$fileName');
 
     final File tempFile = File(path);
     final String fileContents;
     try {
       fileContents = await tempFile.readAsString();
     } catch (e) {
-      if (kDebugMode) print("Failed to read file as string when importing $path");
+      if (kDebugMode) print('Failed to read file as string when importing $path');
       return null;
     }
 
@@ -316,7 +316,7 @@ class FileManager {
 
   /// Creates the parent directories of filePath if they don't exist.
   static Future _createFileDirectory(String filePath) async {
-    assert(filePath.contains('/'), "filePath must be a path, not a file name");
+    assert(filePath.contains('/'), 'filePath must be a path, not a file name');
     final String parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
     await Directory(await documentsDirectory + parentDirectory).create(recursive: true);
   }

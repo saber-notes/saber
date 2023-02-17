@@ -36,7 +36,7 @@ class ToolbarIconButton extends StatelessWidget {
         color: (selected && enabled) ? colorScheme.primary : null,
         shape: const CircleBorder(),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 6.0),
+      padding: const EdgeInsets.symmetric(horizontal: 6),
       child: IconButton(
         color: (selected && enabled) ? colorScheme.onPrimary : colorScheme.primary,
         disabledColor: colorScheme.onSurface.withOpacity(0.4),
@@ -50,9 +50,9 @@ class ToolbarIconButton extends StatelessWidget {
     );
   }
 
-  openModal(BuildContext context) {
+  void openModal(BuildContext context) {
     if (modal == null) {
-      if (kDebugMode) print("ToolbarIconButton.showModal() called on a button with no modal");
+      if (kDebugMode) print('ToolbarIconButton.showModal() called on a button with no modal');
       return;
     }
 

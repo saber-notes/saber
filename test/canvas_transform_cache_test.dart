@@ -3,16 +3,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 
 final List<CanvasTransformCacheItem> samples = [
-  CanvasTransformCacheItem("file0", Matrix4.rotationZ(0.0)),
-  CanvasTransformCacheItem("file1", Matrix4.rotationZ(0.1)),
-  CanvasTransformCacheItem("file2", Matrix4.rotationZ(0.2)),
-  CanvasTransformCacheItem("file3", Matrix4.rotationZ(0.3)),
-  CanvasTransformCacheItem("file4", Matrix4.rotationZ(0.4)),
-  CanvasTransformCacheItem("file5", Matrix4.rotationZ(0.5)),
+  CanvasTransformCacheItem('file0', Matrix4.rotationZ(0)),
+  CanvasTransformCacheItem('file1', Matrix4.rotationZ(0.1)),
+  CanvasTransformCacheItem('file2', Matrix4.rotationZ(0.2)),
+  CanvasTransformCacheItem('file3', Matrix4.rotationZ(0.3)),
+  CanvasTransformCacheItem('file4', Matrix4.rotationZ(0.4)),
+  CanvasTransformCacheItem('file5', Matrix4.rotationZ(0.5)),
 ];
 
 void main() {
-  test("Test CanvasTransformCache data structure", () {
+  test('Test CanvasTransformCache data structure', () {
     // no items should be in the cache
     for (final sample in samples) {
       expect(CanvasTransformCache.get(sample.filePath), isNull);

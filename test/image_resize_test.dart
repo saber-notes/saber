@@ -8,7 +8,7 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 void main() {
-  test("Test resized image dimensions", () {
+  test('Test resized image dimensions', () {
     Size resized;
 
     resized = EditorImage.resize(const Size(100, 100), const Size(100, 100));
@@ -44,11 +44,11 @@ void main() {
     expect(resized.height, 100);
   });
 
-  test("Test resized image bytes", () async {
+  test('Test resized image bytes', () async {
     WidgetsFlutterBinding.ensureInitialized();
 
     /// 2700x2700 icon png
-    final Uint8List original = (await rootBundle.load("assets/icon/icon.png")).buffer.asUint8List();
+    final Uint8List original = (await rootBundle.load('assets/icon/icon.png')).buffer.asUint8List();
 
     // expect size to be 2700x2700
     image.Image? parsedImage = image.decodeImage(original);

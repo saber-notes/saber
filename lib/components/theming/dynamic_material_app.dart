@@ -26,7 +26,7 @@ class DynamicMaterialApp extends StatefulWidget {
   static final ValueNotifier<bool> _isFullscreen = ValueNotifier(false);
   static bool get isFullscreen => _isFullscreen.value;
 
-  static setFullscreen(bool value, {required bool updateSystem}) {
+  static void setFullscreen(bool value, {required bool updateSystem}) {
     _isFullscreen.value = value;
     if (!updateSystem) return;
 
@@ -92,7 +92,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
     final RegExpMatch? osVersionMatch = numberRegex.firstMatch(Platform.operatingSystemVersion);
     if (osVersionMatch == null) return;
 
-    final double osVersion = double.tryParse(osVersionMatch[0] ?? "0") ?? 0;
+    final double osVersion = double.tryParse(osVersionMatch[0] ?? '0') ?? 0;
     if (osVersion >= 10.13) return;
 
     requiresCustomFont = true;

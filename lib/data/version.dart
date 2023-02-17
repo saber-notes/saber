@@ -5,7 +5,7 @@
 const int buildNumber = 9030;
 
 /// The current app version as a string.
-const String buildName = "0.9.3";
+const String buildName = '0.9.3';
 
 /// The year in which the current version was released.
 const int buildYear = 2023;

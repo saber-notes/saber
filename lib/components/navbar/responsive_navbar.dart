@@ -1,11 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/navbar/horizontal_navbar.dart';
+import 'package:saber/components/navbar/vertical_navbar.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
-
-import 'horizontal_navbar.dart';
-import 'vertical_navbar.dart';
 
 class ResponsiveNavbar extends StatefulWidget {
   const ResponsiveNavbar({
@@ -33,7 +32,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     setState(() {});
   }
 
-  onDestinationSelected(int index) {
+  void onDestinationSelected(int index) {
     if (index == widget.selectedIndex) return;
     context.go(HomeRoutes.getRoute(index));
   }

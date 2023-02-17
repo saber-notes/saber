@@ -116,7 +116,7 @@ class ColorBar extends StatelessWidget {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
           scrollDirection: axis,
           child: axis == Axis.horizontal

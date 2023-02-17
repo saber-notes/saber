@@ -13,7 +13,7 @@ class FileTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(12.0),
+      padding: EdgeInsets.all(12),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: FileTreeBranch(
@@ -55,7 +55,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   }
 
   _getInfo([FileOperation? _]) async {
-    if (widget.isDirectory) children = await FileManager.getChildrenOfDirectory(widget.path ?? "/");
+    if (widget.isDirectory) children = await FileManager.getChildrenOfDirectory(widget.path ?? '/');
     areChildrenVisible = children != null && children!.onlyOneChild();
     setState(() { });
   }
@@ -75,7 +75,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                 if (widget.isDirectory) {
                   areChildrenVisible = !areChildrenVisible;
                 } else {
-                  context.push(RoutePaths.editFilePath(widget.path ?? "/"));
+                  context.push(RoutePaths.editFilePath(widget.path ?? '/'));
                 }
               });
             },
@@ -90,7 +90,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                 const SizedBox(width: 5),
                 Expanded(
                   child: Text(
-                    widget.path!.substring(widget.path!.lastIndexOf("/") + 1),
+                    widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 14,
                     ),

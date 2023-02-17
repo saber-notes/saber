@@ -1,6 +1,6 @@
 
 import 'package:saber/data/flavor_config.dart';
-import 'main_common.dart' as common;
+import 'package:saber/main_common.dart' as common;
 
 void main() {
   // Use default config

@@ -10,8 +10,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart' show clampDouble;
-import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:vector_math/vector_math_64.dart' show Matrix4, Quad, Vector3;
 
@@ -401,7 +401,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     // the point.
     final Vector3 l1P = point - l1;
     final Vector3 l1L2 = l2 - l1;
-    final double fraction = clampDouble(l1P.dot(l1L2) / lengthSquared, 0.0, 1.0);
+    final double fraction = clampDouble(l1P.dot(l1L2) / lengthSquared, 0, 1);
     return l1 + l1L2 * fraction;
   }
 
@@ -518,8 +518,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   Axis? _currentAxis; // Used with panAxis.
   Offset? _referenceFocalPoint; // Point where the current gesture began.
   double? _scaleStart; // Scale value at start of scaling gesture.
-  double? _rotationStart = 0.0; // Rotation at start of rotation gesture.
-  double _currentRotation = 0.0; // Rotation of _transformationController.value.
+  double? _rotationStart = 0; // Rotation at start of rotation gesture.
+  double _currentRotation = 0; // Rotation of _transformationController.value.
   _GestureType? _gestureType;
 
   // TODO(justinmc): Add rotateEnabled parameter to the widget and remove this
@@ -637,7 +637,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     final Matrix4 correctedMatrix = matrix.clone()..setTranslation(Vector3(
       correctedTotalTranslation.dx,
       correctedTotalTranslation.dy,
-      0.0,
+      0,
     ));
 
     // Double check that the corrected translation fits.
@@ -663,7 +663,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     return matrix.clone()..setTranslation(Vector3(
       unidirectionalCorrectedTotalTranslation.dx,
       unidirectionalCorrectedTotalTranslation.dy,
-      0.0,
+      0,
     ));
   }
 
@@ -1142,8 +1142,8 @@ class _InteractiveCanvasViewerBuilt extends StatelessWidget {
     if (!constrained) {
       child = OverflowBox(
         alignment: Alignment.topLeft,
-        minWidth: 0.0,
-        minHeight: 0.0,
+        minWidth: 0,
+        minHeight: 0,
         // maxWidth: double.infinity,
         maxHeight: double.infinity,
         child: child,
@@ -1228,7 +1228,7 @@ enum _GestureType {
 // Given a velocity and drag, calculate the time at which motion will come to
 // a stop, within the margin of effectivelyMotionless.
 double _getFinalTime(double velocity, double drag) {
-  const double effectivelyMotionless = 10.0;
+  const double effectivelyMotionless = 10;
   return math.log(effectivelyMotionless / velocity) / math.log(drag / 100);
 }
 
@@ -1248,22 +1248,22 @@ Quad _transformViewport(Matrix4 matrix, Rect viewport) {
     inverseMatrix.transform3(Vector3(
       viewport.topLeft.dx,
       viewport.topLeft.dy,
-      0.0,
+      0,
     )),
     inverseMatrix.transform3(Vector3(
       viewport.topRight.dx,
       viewport.topRight.dy,
-      0.0,
+      0,
     )),
     inverseMatrix.transform3(Vector3(
       viewport.bottomRight.dx,
       viewport.bottomRight.dy,
-      0.0,
+      0,
     )),
     inverseMatrix.transform3(Vector3(
       viewport.bottomLeft.dx,
       viewport.bottomLeft.dy,
-      0.0,
+      0,
     )),
   );
 }
@@ -1276,10 +1276,10 @@ Quad _getAxisAlignedBoundingBoxWithRotation(Rect rect, double rotation) {
     ..rotateZ(rotation)
     ..translate(-rect.size.width / 2, -rect.size.height / 2);
   final Quad boundariesRotated = Quad.points(
-    rotationMatrix.transform3(Vector3(rect.left, rect.top, 0.0)),
-    rotationMatrix.transform3(Vector3(rect.right, rect.top, 0.0)),
-    rotationMatrix.transform3(Vector3(rect.right, rect.bottom, 0.0)),
-    rotationMatrix.transform3(Vector3(rect.left, rect.bottom, 0.0)),
+    rotationMatrix.transform3(Vector3(rect.left, rect.top, 0)),
+    rotationMatrix.transform3(Vector3(rect.right, rect.top, 0)),
+    rotationMatrix.transform3(Vector3(rect.right, rect.bottom, 0)),
+    rotationMatrix.transform3(Vector3(rect.left, rect.bottom, 0)),
   );
   return InteractiveCanvasViewer.getAxisAlignedBoundingBox(boundariesRotated);
 }
@@ -1323,9 +1323,9 @@ Offset _round(Offset offset) {
 Offset _alignAxis(Offset offset, Axis axis) {
   switch (axis) {
     case Axis.horizontal:
-      return Offset(offset.dx, 0.0);
+      return Offset(offset.dx, 0);
     case Axis.vertical:
-      return Offset(0.0, offset.dy);
+      return Offset(0, offset.dy);
   }
 }
 

@@ -42,7 +42,7 @@ class _CanvasZoomIndicatorState extends State<CanvasZoomIndicator> {
       ),
       padding: const EdgeInsets.all(5),
       child: Text(
-        "${lastZoomLevel.toStringAsFixed(1)}x",
+        '${lastZoomLevel.toStringAsFixed(1)}x',
         style: TextStyle(color: colorScheme.onBackground),
       ),
     );

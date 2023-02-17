@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:saber/components/canvas/_stroke.dart';
 
-import '_tool.dart';
+import 'package:saber/components/canvas/tools/_tool.dart';
 
 double square(double x) => x * x;
 double sqrDistanceBetween(Offset p1, Offset p2) => square(p1.dx - p2.dx) + square(p1.dy - p2.dy);

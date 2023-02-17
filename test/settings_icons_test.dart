@@ -10,7 +10,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
 
 void main() {
-  testWidgets("Test Settings icons are properly chosen", (tester) async {
+  testWidgets('Test Settings icons are properly chosen', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     FlavorConfig.setup();
     Prefs.testingMode = true;

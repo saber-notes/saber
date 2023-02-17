@@ -78,29 +78,29 @@ class EditorCoreInfo {
     required bool readOnly,
     required bool onlyFirstPage,
   }) {
-    bool readOnlyBecauseOfVersion = (json["v"] as int? ?? 0) > sbnVersion;
+    bool readOnlyBecauseOfVersion = (json['v'] as int? ?? 0) > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
     return EditorCoreInfo._(
       filePath: filePath,
       readOnly: readOnly,
       readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
-      nextImageId: json["ni"] as int? ?? 0,
-      backgroundColor: json["b"] != null ? Color(json["b"] as int) : null,
-      backgroundPattern: json["p"] as String? ?? CanvasBackgroundPatterns.none,
-      lineHeight: json["l"] as int? ?? Prefs.lastLineHeight.value,
+      nextImageId: json['ni'] as int? ?? 0,
+      backgroundColor: json['b'] != null ? Color(json['b'] as int) : null,
+      backgroundPattern: json['p'] as String? ?? CanvasBackgroundPatterns.none,
+      lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(
-        json["z"] as List?,
+        json['z'] as List?,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
       ),
-      initialPageIndex: json["c"] as int?,
+      initialPageIndex: json['c'] as int?,
     )
       .._migrateOldStrokesAndImages(
-        strokesJson: json["s"] as List?,
-        imagesJson: json["i"] as List?,
-        fallbackPageWidth: json["w"] as double?,
-        fallbackPageHeight: json["h"] as double?,
+        strokesJson: json['s'] as List?,
+        imagesJson: json['i'] as List?,
+        fallbackPageWidth: json['w'] as double?,
+        fallbackPageHeight: json['h'] as double?,
         onlyFirstPage: onlyFirstPage,
       )
       .._sortStrokes();
@@ -267,12 +267,12 @@ class EditorCoreInfo {
     try {
       json = jsonDecode(jsonString);
     } catch (e) {
-      if (kDebugMode) print("Failed to parse json from $path: $e");
+      if (kDebugMode) print('Failed to parse json from $path: $e');
       rethrow;
     }
 
     if (json == null) {
-      throw Exception("Failed to parse json from $path");
+      throw Exception('Failed to parse json from $path');
     } else if (json is List) { // old format
       return EditorCoreInfo.fromOldJson(
         json,

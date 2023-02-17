@@ -12,10 +12,10 @@ import 'package:url_launcher/url_launcher.dart';
 class AppInfo extends StatefulWidget {
   const AppInfo({super.key});
 
-  static final Uri sponsorUrl = Uri.parse("https://github.com/sponsors/adil192");
-  static final Uri privacyPolicyUrl = Uri.parse("https://github.com/adil192/saber/blob/main/privacy_policy.md");
-  static final Uri licenseUrl = Uri.parse("https://github.com/adil192/saber/blob/main/LICENSE.md");
-  static final Uri releasesUrl = Uri.parse("https://github.com/adil192/saber/releases");
+  static final Uri sponsorUrl = Uri.parse('https://github.com/sponsors/adil192');
+  static final Uri privacyPolicyUrl = Uri.parse('https://github.com/adil192/saber/blob/main/privacy_policy.md');
+  static final Uri licenseUrl = Uri.parse('https://github.com/adil192/saber/blob/main/LICENSE.md');
+  static final Uri releasesUrl = Uri.parse('https://github.com/adil192/saber/releases');
 
   @override
   State<AppInfo> createState() => _AppInfoState();
@@ -28,20 +28,20 @@ class _AppInfoState extends State<AppInfo> {
     super.initState();
   }
 
-  String info = "v$buildNumber";
+  String info = 'v$buildNumber';
   void _getInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     List<String> info = [
-      "v${packageInfo.version}",
+      'v${packageInfo.version}',
       FlavorConfig.flavor,
-      FlavorConfig.dirty ? t.appInfo.dirty : "",
-      kDebugMode ? t.appInfo.debug : "",
-      "($buildNumber)",
+      if (FlavorConfig.dirty) t.appInfo.dirty else '',
+      if (kDebugMode) t.appInfo.debug else '',
+      '($buildNumber)',
     ];
 
     setState(() {
-      this.info = info.where((s) => s.isNotEmpty).join(" ");
+      this.info = info.where((s) => s.isNotEmpty).join(' ');
     });
   }
 
@@ -53,11 +53,11 @@ class _AppInfoState extends State<AppInfo> {
     );
   }
 
-  _showAboutDialog() => showAboutDialog(
+  void _showAboutDialog() => showAboutDialog(
     context: context,
     applicationVersion: info,
     applicationIcon: Image.asset(
-      "assets/icon/icon.png",
+      'assets/icon/icon.png',
       width: 50,
       height: 50,
     ),

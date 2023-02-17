@@ -11,8 +11,8 @@ extension BoxFitLocalized on BoxFit {
     } else if (this == BoxFit.contain) {
       return t.editor.menu.boxFits.contain;
     } else {
-      if (kDebugMode) throw Exception("Untranslated box fit: $this");
-      return "";
+      if (kDebugMode) throw Exception('Untranslated box fit: $this');
+      return '';
     }
   }
 }

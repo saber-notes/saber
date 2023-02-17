@@ -112,7 +112,7 @@ void main() {
           foundH2 = false,
           foundH3 = false;
       for (final Operation operation in controller.document.toDelta().toList()) {
-        final header = operation.attributes?["header"];
+        final header = operation.attributes?['header'];
         if (header == null) continue;
         if (header == 1) {
           foundH1 = true;

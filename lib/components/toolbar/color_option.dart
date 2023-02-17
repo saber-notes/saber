@@ -21,7 +21,7 @@ class ColorOption extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       child: InkWell(
         borderRadius: BorderRadius.circular(diameter / 2),
         onTap: enabled ? onTap : null,
@@ -36,7 +36,7 @@ class ColorOption extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(3.0),
+            padding: const EdgeInsets.all(3),
             child: AnimatedOpacity(
               opacity: enabled ? 1 : 0.5,
               duration: const Duration(milliseconds: 200),
@@ -56,7 +56,7 @@ class ColorOptionSeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(4),
       child: Container(
         width: 4,
         height: 4,

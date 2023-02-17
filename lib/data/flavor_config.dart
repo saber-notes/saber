@@ -21,7 +21,7 @@ class FlavorConfig {
     bool? shouldCheckForUpdatesByDefault,
     bool? dirty,
   }) {
-    _flavor = flavor ?? "";
+    _flavor = flavor ?? '';
     _appStore = appStore;
     _shouldCheckForUpdatesByDefault = shouldCheckForUpdatesByDefault ?? true;
     _dirty = dirty ?? false;

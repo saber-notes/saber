@@ -82,19 +82,19 @@ class EditorImage {
     this.naturalSize = Size.zero,
     this.thumbnailBytes,
     this.invertedThumbnailBytes,
-  }) :  assert(extension.startsWith(".")) {
+  }) :  assert(extension.startsWith('.')) {
     getImage(pageSize: pageSize).then((_) => onLoad?.call());
   }
 
   factory EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) {
     String? extension = json['e'];
-    if (extension == ".svg") {
+    if (extension == '.svg') {
       return SvgEditorImage.fromJson(json, allowCalculations: allowCalculations);
     }
 
     return EditorImage(
       id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-      extension: extension ?? ".jpg",
+      extension: extension ?? '.jpg',
       bytes: Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
@@ -166,7 +166,7 @@ class EditorImage {
       }
       final Size reducedSize = resize(naturalSize, maxSize!);
       if (naturalSize.width != reducedSize.width && allowCalculations) {
-        await Future.delayed(Duration.zero); // wait for next event-loop iteration
+        await null; // wait for next event-loop iteration
 
         Uint8List? resized = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: reducedSize);
         if (resized != null) bytes = resized;
@@ -194,7 +194,7 @@ class EditorImage {
       thumbnailSize = resize(naturalSize, const Size(300, 300));
       // if [naturalSize] is big enough to warrant a thumbnail
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
-        await Future.delayed(Duration.zero); // wait for next event-loop iteration
+        await null; // wait for next event-loop iteration
         thumbnailBytes = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
       } else { // no need to resize
         thumbnailBytes = null; // will fall back to full-size image
@@ -220,14 +220,14 @@ class EditorImage {
     required bool isBackground,
   }) {
     Uint8List bytes = this.bytes;
-    String keySuffix = "light";
+    String keySuffix = 'light';
     if (imageBrightness == Brightness.dark) {
       if (invertedBytesCache != null) {
         bytes = invertedBytesCache!;
-        keySuffix = "dark";
+        keySuffix = 'dark';
       } else if (invertedThumbnailBytes != null) {
         bytes = invertedThumbnailBytes!;
-        keySuffix = "dark-thumbnail";
+        keySuffix = 'dark-thumbnail';
       }
     }
 
@@ -243,7 +243,7 @@ class EditorImage {
     return Image.memory(
       bytes,
       fit: boxFit,
-      key: Key("Image$id-$keySuffix"),
+      key: Key('Image$id-$keySuffix'),
     );
   }
 

@@ -1,5 +1,5 @@
-import 'dart:convert';
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -11,7 +11,9 @@ import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
+import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
@@ -25,16 +27,13 @@ import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
+import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
-
-import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/toolbar/toolbar.dart';
-import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 
@@ -43,7 +42,7 @@ class Editor extends StatefulWidget {
     super.key,
     String? path,
     this.customTitle,
-  }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath("/"),
+  }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath('/'),
         needsNaming = path == null;
 
   final Future<String> initialPath;
@@ -60,7 +59,7 @@ class Editor extends StatefulWidget {
 }
 
 class _EditorState extends State<Editor> {
-  late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: "");
+  late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
   EditorHistory history = EditorHistory();
 
@@ -110,7 +109,7 @@ class _EditorState extends State<Editor> {
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
     if (coreInfo.readOnly) {
-      if (kDebugMode) print("Loaded file as read-only");
+      if (kDebugMode) print('Loaded file as read-only');
     }
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
@@ -184,7 +183,7 @@ class _EditorState extends State<Editor> {
     }
   }
 
-  undo([EditorHistoryItem? item]) {
+  void undo([EditorHistoryItem? item]) {
     if (item == null) {
       if (!history.canUndo) return;
 
@@ -253,7 +252,7 @@ class _EditorState extends State<Editor> {
     autosaveAfterDelay();
   }
 
-  redo() {
+  void redo() {
     if (!history.canRedo) return;
     EditorHistoryItem item = history.redo();
 
@@ -323,7 +322,7 @@ class _EditorState extends State<Editor> {
     } else if (currentTool == Tool.textEditing) {
       return true;
     } else {
-      if (kDebugMode) print("Non-stylus found, rejected stroke");
+      if (kDebugMode) print('Non-stylus found, rejected stroke');
       return false;
     }
   }
@@ -442,7 +441,7 @@ class _EditorState extends State<Editor> {
       lastSeenPointerCount = 0;
     });
   }
-  onPressureChanged(double? pressure) {
+  void onPressureChanged(double? pressure) {
     currentPressure = pressure == 0.0 ? null : pressure;
     if (currentPressure == null) return;
 
@@ -522,7 +521,7 @@ class _EditorState extends State<Editor> {
   void renameFile(String newName) {
     _renameTimer?.cancel();
 
-    if (newName.contains("/") || newName.isEmpty) { // if invalid name, don't rename
+    if (newName.contains('/') || newName.isEmpty) { // if invalid name, don't rename
       _renameTimer = Timer(const Duration(milliseconds: 5000), () {
         filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
           text: _filename,
@@ -558,7 +557,7 @@ class _EditorState extends State<Editor> {
 
     // migrate from old pref format
     if (Prefs.recentColorsChronological.value.length != Prefs.recentColorsPositioned.value.length) {
-      if (kDebugMode) print("MIGRATING recentColors: ${Prefs.recentColorsChronological.value.length} vs ${Prefs.recentColorsPositioned.value.length}");
+      if (kDebugMode) print('MIGRATING recentColors: ${Prefs.recentColorsChronological.value.length} vs ${Prefs.recentColorsPositioned.value.length}');
       Prefs.recentColorsChronological.value = List.of(Prefs.recentColorsPositioned.value);
     }
 
@@ -597,7 +596,7 @@ class _EditorState extends State<Editor> {
 
     List<EditorImage> images = [
       for (final PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == ".svg")
+        if (photoInfo.extension == '.svg')
           SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
@@ -640,13 +639,13 @@ class _EditorState extends State<Editor> {
       // https://github.com/brendan-duncan/image/blob/main/doc/formats.md
       // (plus .svg)
       allowedExtensions: [
-        "jpg", "jpeg", "png",
-        "gif", "tiff", "bmp",
-        "tga", "ico", "pvrtc",
+        'jpg', 'jpeg', 'png',
+        'gif', 'tiff', 'bmp',
+        'tga', 'ico', 'pvrtc',
 
-        "svg",
+        'svg',
 
-        "webp", "psd", "exr",
+        'webp', 'psd', 'exr',
       ],
       allowMultiple: true,
       withData: true,
@@ -658,7 +657,7 @@ class _EditorState extends State<Editor> {
         if (file.bytes != null && file.extension != null)
           PhotoInfo(
             bytes: file.bytes!,
-            extension: ".${file.extension}",
+            extension: '.${file.extension}',
           ),
     ];
   }
@@ -671,7 +670,7 @@ class _EditorState extends State<Editor> {
 
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: ["pdf"],
+      allowedExtensions: ['pdf'],
       allowMultiple: false,
       withData: true,
     );
@@ -698,7 +697,7 @@ class _EditorState extends State<Editor> {
       );
       final image = EditorImage(
         id: coreInfo.nextImageId++,
-        extension: ".png",
+        extension: '.png',
         bytes: imageBytes,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
@@ -723,12 +722,12 @@ class _EditorState extends State<Editor> {
 
   Future exportAsPdf() async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
-    await FileManager.exportFile("$_filename.pdf", await pdf.save());
+    await FileManager.exportFile('$_filename.pdf', await pdf.save());
   }
   Future exportAsSbn() async {
     final content = _saveToString();
     final encoded = utf8.encode(content) as Uint8List;
-    await FileManager.exportFile("$_filename.sbn", encoded);
+    await FileManager.exportFile('$_filename.sbn', encoded);
   }
 
   @override

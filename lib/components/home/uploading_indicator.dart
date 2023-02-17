@@ -47,7 +47,7 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
         opacity: isInUploadQueue ? 1 : 0,
         duration: const Duration(milliseconds: 200),
         child: const Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8),
           child: Icon(Icons.upload),
         ),
       ),

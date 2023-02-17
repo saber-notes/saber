@@ -80,13 +80,13 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
               validator: widget.validator,
             ),
           ),
-          suffixIcon != null ? Align(
+          if (suffixIcon != null) Align(
             alignment: Alignment.topCenter,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: suffixIcon,
             ),
-          ) : const SizedBox(height: 40),
+          ) else const SizedBox(height: 40),
         ],
       );
     } else {

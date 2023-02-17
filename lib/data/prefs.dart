@@ -94,60 +94,60 @@ abstract class Prefs {
   static late final PlainPref<String> locale;
 
   static void init() {
-    macOSInsecureStorageEnabled = PlainPref("macOSInsecureStorageEnabled", false);
+    macOSInsecureStorageEnabled = PlainPref('macOSInsecureStorageEnabled', false);
 
-    url = EncPref("url", "");
-    username = EncPref("username", "");
-    ncPassword = EncPref("ncPassword", "");
-    encPassword = EncPref("encPassword", "");
+    url = EncPref('url', '');
+    username = EncPref('username', '');
+    ncPassword = EncPref('ncPassword', '');
+    encPassword = EncPref('encPassword', '');
 
-    key = EncPref("key", "");
-    iv = EncPref("iv", "");
+    key = EncPref('key', '');
+    iv = EncPref('iv', '');
 
-    pfp = PlainPref("pfp", "");
+    pfp = PlainPref('pfp', '');
 
-    appTheme = PlainPref("appTheme", ThemeMode.system);
-    platform = PlainPref("platform", defaultTargetPlatform);
-    accentColor = PlainPref("accentColor", 0);
-    hyperlegibleFont = PlainPref("hyperlegibleFont", false);
+    appTheme = PlainPref('appTheme', ThemeMode.system);
+    platform = PlainPref('platform', defaultTargetPlatform);
+    accentColor = PlainPref('accentColor', 0);
+    hyperlegibleFont = PlainPref('hyperlegibleFont', false);
 
-    editorToolbarAlignment = PlainPref("editorToolbarAlignment", AxisDirection.down);
-    editorToolbarShowInFullscreen = PlainPref("editorToolbarShowInFullscreen", true);
-    editorFingerDrawing = PlainPref("editorFingerDrawing", true);
-    editorAutoInvert = PlainPref("editorAutoInvert", true, historicalKeys: ["editorAutoDarken"]);
-    preferGreyscale = PlainPref("preferGreyscale", false);
-    editorStraightenDelay = PlainPref("editorStraightenDelay", 500);
-    editorPromptRename = PlainPref("editorPromptRename", isDesktop);
+    editorToolbarAlignment = PlainPref('editorToolbarAlignment', AxisDirection.down);
+    editorToolbarShowInFullscreen = PlainPref('editorToolbarShowInFullscreen', true);
+    editorFingerDrawing = PlainPref('editorFingerDrawing', true);
+    editorAutoInvert = PlainPref('editorAutoInvert', true, historicalKeys: ['editorAutoDarken']);
+    preferGreyscale = PlainPref('preferGreyscale', false);
+    editorStraightenDelay = PlainPref('editorStraightenDelay', 500);
+    editorPromptRename = PlainPref('editorPromptRename', isDesktop);
 
-    hideHomeBackgrounds = PlainPref("hideHomeBackgrounds", false);
+    hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
 
-    maxImageSize = PlainPref("maxImageSize", 1000);
+    maxImageSize = PlainPref('maxImageSize', 1000);
 
-    autoClearWhiteboardOnExit = PlainPref("autoClearWhiteboardOnExit", false);
+    autoClearWhiteboardOnExit = PlainPref('autoClearWhiteboardOnExit', false);
 
-    recentColorsChronological = PlainPref("recentColorsChronological", []);
-    recentColorsPositioned = PlainPref("recentColorsPositioned", [], historicalKeys: ["recentColors"]);
+    recentColorsChronological = PlainPref('recentColorsChronological', []);
+    recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: ['recentColors']);
 
-    lastFountainPenProperties = PlainPref("lastFountainPenProperties", StrokeProperties.fountainPen, deprecatedKeys: ["lastPenColor"]);
-    lastBallpointPenProperties = PlainPref("lastBallpointPenProperties", StrokeProperties.ballpointPen);
-    lastHighlighterProperties = PlainPref("lastHighlighterProperties", StrokeProperties.highlighter, deprecatedKeys: ["lastHighlighterColor"]);
+    lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: ['lastPenColor']);
+    lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
+    lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: ['lastHighlighterColor']);
 
-    lastBackgroundPattern = PlainPref("lastBackgroundPattern", CanvasBackgroundPatterns.none);
-    lastLineHeight = PlainPref("lastLineHeight", 40);
+    lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPatterns.none);
+    lastLineHeight = PlainPref('lastLineHeight', 40);
 
-    hasDraggedSizeIndicatorBefore = PlainPref("hasDraggedSizeIndicatorBefore", false);
-    hasBeenWarnedAboutSPen = PlainPref("hasBeenWarnedAboutSPen", false);
+    hasDraggedSizeIndicatorBefore = PlainPref('hasDraggedSizeIndicatorBefore', false);
+    hasBeenWarnedAboutSPen = PlainPref('hasBeenWarnedAboutSPen', false);
 
-    recentFiles = PlainPref("recentFiles", [], historicalKeys: ["recentlyAccessed"]);
+    recentFiles = PlainPref('recentFiles', [], historicalKeys: ['recentlyAccessed']);
 
-    fileSyncUploadQueue = PlainPref("fileSyncUploadQueue", Queue<String>());
-    fileSyncAlreadyDeleted = PlainPref("fileSyncAlreadyDeleted", {});
-    lastStorageQuota = PlainPref("lastStorageQuota", null);
+    fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
+    fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
+    lastStorageQuota = PlainPref('lastStorageQuota', null);
 
-    shouldCheckForUpdates = PlainPref("shouldCheckForUpdates", FlavorConfig.shouldCheckForUpdatesByDefault);
-    updatesToIgnore = PlainPref("updatesToIgnore", (kDebugMode || FlavorConfig.dirty) ? 0 : 1);
+    shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault);
+    updatesToIgnore = PlainPref('updatesToIgnore', (kDebugMode || FlavorConfig.dirty) ? 0 : 1);
 
-    locale = PlainPref("locale", "");
+    locale = PlainPref('locale', '');
 
     _migrateEmailToUsername();
   }
@@ -156,7 +156,7 @@ abstract class Prefs {
     await username.waitUntilLoaded();
     await ncPassword.waitUntilLoaded();
 
-    if (!username.value.contains("@")) return;
+    if (!username.value.contains('@')) return;
 
     final client = NextcloudClientExtension.withSavedDetails();
     if (client == null) return;
@@ -221,8 +221,8 @@ abstract class IPref<T> extends ValueNotifier<T> {
     }
     return super.value;
   }
-  get loaded => _loaded;
-  get saved => _saved;
+  bool get loaded => _loaded;
+  bool get saved => _saved;
 
   Future<void> waitUntilLoaded() async {
     while (!loaded) {
@@ -370,7 +370,7 @@ class PlainPref<T> extends IPref<T> {
         return _prefs!.get(key) as T?;
       }
     } catch (e) {
-      if (kDebugMode) print("Error loading $key: $e");
+      if (kDebugMode) print('Error loading $key: $e');
       return null;
     }
   }
@@ -491,7 +491,7 @@ class EncPref<T> extends IPref<T> {
       }
       return _parseString(value);
     } catch (e) {
-      if (kDebugMode) print("Error loading $key: $e");
+      if (kDebugMode) print('Error loading $key: $e');
       return null;
     }
   }
@@ -535,10 +535,10 @@ class TransformedPref<T_in, T_out> extends IPref<T_out> {
   set value(T_out value) => pref.value = reverseTransform(value);
 
   @override
-  get loaded => pref.loaded;
+  dynamic get loaded => pref.loaded;
 
   @override
-  get saved => pref.saved;
+  dynamic get saved => pref.saved;
 
   TransformedPref(this.pref, this.transform, this.reverseTransform)
       : super(pref.key, transform(pref.defaultValue)) {

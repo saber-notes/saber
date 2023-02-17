@@ -247,7 +247,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                       Navigator.pop(context);
                     }
                   },
-                  child: const Text("PDF"),
+                  child: const Text('PDF'),
                 ),
               ],
             ),

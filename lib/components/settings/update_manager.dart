@@ -11,7 +11,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class UpdateManager {
-  static final Uri versionUrl = Uri.parse("https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart");
+  static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart');
   /// The availability of an update.
   static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
 
@@ -79,7 +79,7 @@ abstract class UpdateManager {
     final RegExpMatch? newestVersionMatch = numberRegex.firstMatch(latestVersionFile);
     if (newestVersionMatch == null) return null;
 
-    final int newestVersion = int.tryParse(newestVersionMatch[0] ?? "0") ?? 0;
+    final int newestVersion = int.tryParse(newestVersionMatch[0] ?? '0') ?? 0;
     if (newestVersion == 0) return null;
 
     return newestVersion;
@@ -91,9 +91,9 @@ abstract class UpdateManager {
     try {
       response = await http.get(versionUrl);
     } catch (e) {
-      throw const SocketException("Failed to download version.dart");
+      throw const SocketException('Failed to download version.dart');
     }
-    if (response.statusCode >= 400) throw SocketException("Failed to download version.dart, HTTP status code ${response.statusCode}");
+    if (response.statusCode >= 400) throw SocketException('Failed to download version.dart, HTTP status code ${response.statusCode}');
 
     return response.body;
   }

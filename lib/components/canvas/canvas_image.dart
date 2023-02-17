@@ -22,7 +22,7 @@ class CanvasImage extends StatefulWidget {
     required this.setAsBackground,
     this.isBackground = false,
     this.readOnly = false,
-  }) : super(key: Key("CanvasImage$filePath/${image.id}"));
+  }) : super(key: Key('CanvasImage$filePath/${image.id}'));
 
   /// The path to the note that this image is in.
   final String filePath;
@@ -86,7 +86,7 @@ class _CanvasImageState extends State<CanvasImage> {
     super.initState();
   }
 
-  disableActive() {
+  void disableActive() {
     if (!active) return;
     setState(() {
       active = false;
@@ -104,7 +104,7 @@ class _CanvasImageState extends State<CanvasImage> {
     if (widget.image.invertedBytesCache != null) {
       // if we've already inverted the image, use the cached version
       return;
-    } else if (widget.image.extension == ".svg") {
+    } else if (widget.image.extension == '.svg') {
       // SVGs are inverted when they're loaded
       return;
     } else if (widget.image.isThumbnail || widget.image.thumbnailBytes == null) {

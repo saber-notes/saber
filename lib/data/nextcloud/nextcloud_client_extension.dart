@@ -10,14 +10,14 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
 extension NextcloudClientExtension on NextcloudClient {
-  static const String defaultNextCloudUri = "https://nc.saber.adil.hanney.org";
+  static const String defaultNextCloudUri = 'https://nc.saber.adil.hanney.org';
 
   static String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
-  static String configFilePath = "$appRootDirectoryPrefix/config.sbc";
+  static String configFilePath = '$appRootDirectoryPrefix/config.sbc';
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
-  static const String reproducibleSalt = r"8MnPs64@R&mF8XjWeLrD";
+  static const String reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
 
   static NextcloudClient? withSavedDetails() {
     String url = Prefs.url.value;

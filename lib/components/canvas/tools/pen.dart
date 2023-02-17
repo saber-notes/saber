@@ -2,13 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
+import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-
-import '../_stroke.dart';
-import 'stroke_properties.dart';
-import '_tool.dart';
 
 class Pen extends Tool {
   @protected

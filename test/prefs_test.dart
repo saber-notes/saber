@@ -8,25 +8,25 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'utils/test_mock_channel_handlers.dart';
 
 void main() {
-  group("Test Prefs:", () {
-    test("PlainPref<String>", () async {
+  group('Test Prefs:', () {
+    test('PlainPref<String>', () async {
       await testPref<String>(
-        prefBuilder: () => PlainPref("testPlainPrefString", "default"),
-        defaultValue: "default",
-        alteredValue: "altered",
+        prefBuilder: () => PlainPref('testPlainPrefString', 'default'),
+        defaultValue: 'default',
+        alteredValue: 'altered',
       );
     });
-    test("PlainPref<bool>", () async {
+    test('PlainPref<bool>', () async {
       await testPref<bool>(
-        prefBuilder: () => PlainPref("testPlainPrefBool", false),
+        prefBuilder: () => PlainPref('testPlainPrefBool', false),
         defaultValue: false,
         alteredValue: true,
       );
     });
-    test("PlainPref<StrokeProperties>", () async {
+    test('PlainPref<StrokeProperties>', () async {
       final defaultValue = StrokeProperties();
       await testPref<StrokeProperties>(
-        prefBuilder: () => PlainPref("testPlainPrefStrokeProperties", defaultValue),
+        prefBuilder: () => PlainPref('testPlainPrefStrokeProperties', defaultValue),
         defaultValue: defaultValue,
         alteredValue: defaultValue.copy()
           ..size = StrokeProperties.defaultSize / 2,
@@ -34,19 +34,19 @@ void main() {
       );
     });
 
-    test("EncPref", () async {
+    test('EncPref', () async {
       await testPref(
-        prefBuilder: () => EncPref("testEncPref", "default"),
-        defaultValue: "default",
-        alteredValue: "altered",
+        prefBuilder: () => EncPref('testEncPref', 'default'),
+        defaultValue: 'default',
+        alteredValue: 'altered',
       );
     });
 
-    test("TransformedPref", () async {
+    test('TransformedPref', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       SharedPreferences.setMockInitialValues({});
 
-      IPref<int> intPref = PlainPref("testTransformedPref", 0);
+      IPref<int> intPref = PlainPref('testTransformedPref', 0);
       await intPref.waitUntilLoaded();
 
       /// Transforms intPref's value to a bool

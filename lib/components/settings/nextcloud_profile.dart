@@ -78,10 +78,10 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                 color: colorScheme.primary.withOpacity(0.5),
                 backgroundColor: colorScheme.primary.withOpacity(0.1),
                 strokeWidth: 8,
-                semanticsLabel: "Storage usage",
-                semanticsValue: snapshot.data != null ? "${snapshot.data}%" : null,
+                semanticsLabel: 'Storage usage',
+                semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
               ),
-              Text(quota != null ? "${readableBytes(quota.used)} / ${readableBytes(quota.total)}" : "     ... B / ... B     "),
+              Text(quota != null ? '${readableBytes(quota.used)} / ${readableBytes(quota.total)}' : '     ... B / ... B     '),
             ],
           );
         },
@@ -97,23 +97,23 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
   String readableBytes(int bytes) {
     if (bytes < 1024) {
-      return "$bytes B";
+      return '$bytes B';
     } else if (bytes < 1024 * 2) { // e.g. 1.5 KB
-      return "${(bytes / 1024).toStringAsFixed(1)} KB";
+      return '${(bytes / 1024).toStringAsFixed(1)} KB';
     } else if (bytes < 1024 * 1024) {
-      return "${(bytes / 1024).round()} KB";
+      return '${(bytes / 1024).round()} KB';
     } else if (bytes < 1024 * 1024 * 2) { // e.g. 1.5 MB
-      return "${(bytes / 1024 / 1024).toStringAsFixed(1)} MB";
+      return '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
     } else if (bytes < 1024 * 1024 * 1024) {
-      return "${(bytes / 1024 / 1024).round()} MB";
+      return '${(bytes / 1024 / 1024).round()} MB';
     } else if (bytes < 1024 * 1024 * 1024 * 2) { // e.g. 1.5 GB
-      return "${(bytes / 1024 / 1024 / 1024).toStringAsFixed(1)} GB";
+      return '${(bytes / 1024 / 1024 / 1024).toStringAsFixed(1)} GB';
     } else if (bytes < 1024 * 1024 * 1024 * 1024) {
-      return "${(bytes / 1024 / 1024 / 1024).round()} GB";
+      return '${(bytes / 1024 / 1024 / 1024).round()} GB';
     } else if (bytes < 1024 * 1024 * 1024 * 1024 * 2) { // e.g. 1.5 TB
-      return "${(bytes / 1024 / 1024 / 1024 / 1024).toStringAsFixed(1)} TB";
+      return '${(bytes / 1024 / 1024 / 1024 / 1024).toStringAsFixed(1)} TB';
     } else {
-      return "${(bytes / 1024 / 1024 / 1024 / 1024).round()} TB";
+      return '${(bytes / 1024 / 1024 / 1024 / 1024).round()} TB';
     }
   }
 }

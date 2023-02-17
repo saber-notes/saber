@@ -21,7 +21,7 @@ import 'package:url_launcher/url_launcher.dart';
 class NcLoginPage extends StatefulWidget {
   const NcLoginPage({super.key});
 
-  static final Uri signupUrl = Uri.parse("https://nc.saber.adil.hanney.org/index.php/apps/registration/");
+  static final Uri signupUrl = Uri.parse('https://nc.saber.adil.hanney.org/index.php/apps/registration/');
 
   @override
   State<NcLoginPage> createState() => _NcLoginPageState();
@@ -116,7 +116,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     Prefs.username.value = username;
     Prefs.ncPassword.value = loginDetails.ncPassword;
 
-    Prefs.pfp.value = "";
+    Prefs.pfp.value = '';
     client.core.getAvatar(userId: username, size: 512)
         .then((Uint8List avatar) {
       Prefs.pfp.value = base64Encode(avatar);
@@ -144,7 +144,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
               children: [
                 const SizedBox(height: 16),
                 SvgPicture.asset(
-                  "assets/images/undraw_cloud_sync_re_02p1.svg",
+                  'assets/images/undraw_cloud_sync_re_02p1.svg',
                   width: 350,
                   height: 240,
                   excludeFromSemantics: true,

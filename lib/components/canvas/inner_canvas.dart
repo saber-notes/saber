@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/_canvas_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:tuple/tuple.dart';
-
-import '_canvas_painter.dart';
-import '_stroke.dart';
 
 class InnerCanvas extends StatefulWidget {
   const InnerCanvas({
@@ -189,12 +188,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final TextStyle dekko = GoogleFonts.dekko(); // Preload fallback font
     List<String> fontFamilyFallback = [
-      "Neucha",
-      dekko.fontFamily ?? "Dekko",
-      "Dekko",
-      "Kalam",
-      "handwriting",
-      "sans-serif",
+      'Neucha',
+      dekko.fontFamily ?? 'Dekko',
+      'Dekko',
+      'Kalam',
+      'handwriting',
+      'sans-serif',
     ];
 
     TextTheme textTheme = GoogleFonts.neuchaTextTheme( // neucha is a handwriting font

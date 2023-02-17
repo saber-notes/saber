@@ -16,7 +16,7 @@ import 'package:saber/pages/editor/editor.dart';
 class PreviewCard extends StatefulWidget {
   PreviewCard({
     required this.filePath,
-  }) : super(key: ValueKey("PreviewCard$filePath"));
+  }) : super(key: ValueKey('PreviewCard$filePath'));
 
   final String filePath;
 
@@ -56,7 +56,7 @@ class _PreviewCardState extends State<PreviewCard> {
     }
     if (!firstPage.quill.controller.document.isEmpty()) {
       // this does not account for text that wraps to the next line
-      int linesOfText = firstPage.quill.controller.document.toPlainText().split("\n").length;
+      int linesOfText = firstPage.quill.controller.document.toPlainText().split('\n').length;
       maxY = max(maxY, linesOfText * coreInfo.lineHeight * 1.0);
     }
 
@@ -83,7 +83,7 @@ class _PreviewCardState extends State<PreviewCard> {
     } else if (event.type == FileOperationType.write) {
       findStrokes();
     } else {
-      throw Exception("Unknown file operation type: ${event.type}");
+      throw Exception('Unknown file operation type: ${event.type}');
     }
   }
 
@@ -125,7 +125,7 @@ class _PreviewCardState extends State<PreviewCard> {
         
                   Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf("/") + 1)),
+                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf('/') + 1)),
                   ),
         
                   Collapsible(

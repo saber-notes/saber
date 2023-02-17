@@ -120,22 +120,22 @@ class PatternElement {
 
 abstract class CanvasBackgroundPatterns {
   /// No background pattern
-  static const String none = "";
+  static const String none = '';
 
   /// College ruled paper: horizontal lines with one
   /// vertical line along the left margin
-  static const String college = "college";
+  static const String college = 'college';
 
   /// Horizontal lines. This is the same as college ruled paper
   /// but without the vertical line
-  static const String lined = "lined";
+  static const String lined = 'lined';
 
   /// A grid of squares
-  static const String grid = "grid";
+  static const String grid = 'grid';
 
   /// A grid of dots. This is the same as "grid" except it has dots on the
   /// corners instead of the whole square border.
-  static const String dots = "dots";
+  static const String dots = 'dots';
 
   static const List<String> all = [
     none,
@@ -157,8 +157,8 @@ abstract class CanvasBackgroundPatterns {
     } else if (pattern == CanvasBackgroundPatterns.dots) {
       return t.editor.menu.bgPatterns.dots;
     } else {
-      if (kDebugMode) throw Exception("Untranslated background pattern: $pattern");
-      return "";
+      if (kDebugMode) throw Exception('Untranslated background pattern: $pattern');
+      return '';
     }
   }
 }

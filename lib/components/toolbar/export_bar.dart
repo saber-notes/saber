@@ -57,21 +57,21 @@ class _ExportBarState extends State<ExportBar> {
 
       TextButton(
         onPressed: _onPressed(widget.exportAsSbn),
-        child: _buttonChild(widget.exportAsSbn, "SBN"),
+        child: _buttonChild(widget.exportAsSbn, 'SBN'),
       ),
       TextButton(
         onPressed: _onPressed(widget.exportAsPdf),
-        child: _buttonChild(widget.exportAsPdf, "PDF"),
+        child: _buttonChild(widget.exportAsPdf, 'PDF'),
       ),
       TextButton(
         onPressed: _onPressed(widget.exportAsPng),
-        child: _buttonChild(widget.exportAsPng, "PNG"),
+        child: _buttonChild(widget.exportAsPng, 'PNG'),
       ),
     ];
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: widget.axis == Axis.horizontal

@@ -68,25 +68,25 @@ void setLocale() {
 class App extends StatefulWidget {
   const App({super.key});
 
-  static String initialLocation = pathToFunction(RoutePaths.home)({"subpage": HomePage.recentSubpage});
+  static String initialLocation = pathToFunction(RoutePaths.home)({'subpage': HomePage.recentSubpage});
   static final GoRouter _router = GoRouter(
     initialLocation: initialLocation,
     routes: <GoRoute>[
       GoRoute(
-        path: "/",
+        path: '/',
         redirect: (context, state) => initialLocation,
       ),
       GoRoute(
         path: RoutePaths.home,
         builder: (context, state) => HomePage(
-          subpage: state.params["subpage"] ?? HomePage.recentSubpage,
-          path: state.queryParams["path"],
+          subpage: state.params['subpage'] ?? HomePage.recentSubpage,
+          path: state.queryParams['path'],
         ),
       ),
       GoRoute(
         path: RoutePaths.edit,
         builder: (context, state) => Editor(
-          path: state.queryParams["path"],
+          path: state.queryParams['path'],
         ),
       ),
       GoRoute(
@@ -97,18 +97,18 @@ class App extends StatefulWidget {
   );
 
   static void openFile(SharedMediaFile file) async {
-    if (kDebugMode) print("Opening file: (${file.type}) ${file.path}");
+    if (kDebugMode) print('Opening file: (${file.type}) ${file.path}');
 
     if (file.type != SharedMediaType.FILE) return;
 
     final String extension;
-    if (file.path.contains(".")) {
-      extension = file.path.split(".").last;
+    if (file.path.contains('.')) {
+      extension = file.path.split('.').last;
     } else {
-      extension = "sbn";
+      extension = 'sbn';
     }
 
-    if (extension == "sbn") {
+    if (extension == 'sbn') {
       final String? path = await FileManager.importFile(file.path);
       if (path == null) return;
 
@@ -116,7 +116,7 @@ class App extends StatefulWidget {
       await Future.delayed(const Duration(milliseconds: 100));
 
       _router.push(RoutePaths.editFilePath(path));
-    } else if (extension == "pdf") {
+    } else if (extension == 'pdf') {
       // todo: import pdf
     }
   }

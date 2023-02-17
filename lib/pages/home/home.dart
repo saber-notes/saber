@@ -27,10 +27,10 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 
-  static const String recentSubpage = "recent";
-  static const String browseSubpage = "browse";
-  static const String whiteboardSubpage = "whiteboard";
-  static const String settingsSubpage = "settings";
+  static const String recentSubpage = 'recent';
+  static const String browseSubpage = 'browse';
+  static const String whiteboardSubpage = 'whiteboard';
+  static const String settingsSubpage = 'settings';
   static const List<String> subpages = [recentSubpage, browseSubpage, whiteboardSubpage, settingsSubpage];
 }
 
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
 
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-    if (androidInfo.brand.toLowerCase() != "samsung") return;
+    if (androidInfo.brand.toLowerCase() != 'samsung') return;
 
     await Prefs.hasBeenWarnedAboutSPen.waitUntilLoaded();
     if (Prefs.hasBeenWarnedAboutSPen.value) return;

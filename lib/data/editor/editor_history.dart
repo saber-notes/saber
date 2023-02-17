@@ -29,7 +29,7 @@ class EditorHistory {
   /// Please check [canUndo] first: this method will
   /// throw an exception if there is nothing to undo.
   EditorHistoryItem undo() {
-    if (_past.isEmpty) throw Exception("Nothing to undo");
+    if (_past.isEmpty) throw Exception('Nothing to undo');
     final EditorHistoryItem item = _past.removeLast();
     _future.add(item);
     return item;
@@ -41,7 +41,7 @@ class EditorHistory {
   /// Please check [canRedo] first: this method will
   /// throw an exception if there is nothing to redo.
   EditorHistoryItem redo() {
-    if (_future.isEmpty) throw Exception("Nothing to redo");
+    if (_future.isEmpty) throw Exception('Nothing to redo');
     final EditorHistoryItem item = _future.removeLast();
     _past.add(item);
     return item;
@@ -59,9 +59,9 @@ class EditorHistory {
   EditorHistoryItem? removeAccidentalStroke() {
     _isRedoPossible = true;
     if (_past.isEmpty) return null;
-    assert(_past.last.type == EditorHistoryItemType.draw, "Accidental stroke is not a draw");
-    assert(_past.last.strokes.length == 1, "Accidental strokes should be single-stroke");
-    assert(_past.last.images.isEmpty, "Accidental strokes should not contain images");
+    assert(_past.last.type == EditorHistoryItemType.draw, 'Accidental stroke is not a draw');
+    assert(_past.last.strokes.length == 1, 'Accidental strokes should be single-stroke');
+    assert(_past.last.images.isEmpty, 'Accidental strokes should not contain images');
     return _past.removeLast();
   }
 
@@ -89,7 +89,7 @@ class EditorHistoryItem {
     required this.strokes,
     required this.images,
     this.offset,
-  }): assert(type != EditorHistoryItemType.move || offset != null, "Offset must be provided for move");
+  }): assert(type != EditorHistoryItemType.move || offset != null, 'Offset must be provided for move');
 
   final EditorHistoryItemType type;
   final List<Stroke> strokes;

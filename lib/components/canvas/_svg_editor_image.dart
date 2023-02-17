@@ -26,13 +26,13 @@ class SvgEditorImage extends EditorImage {
     super.srcRect,
     super.naturalSize,
   }) :  super(
-          extension: ".svg",
+          extension: '.svg',
           bytes: Uint8List(0),
         );
 
   factory SvgEditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) {
     String? extension = json['e'] as String?;
-    assert(extension == null || extension == ".svg");
+    assert(extension == null || extension == '.svg');
     return SvgEditorImage(
       id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       svgString: json['b'] as String,
@@ -112,10 +112,10 @@ class SvgEditorImage extends EditorImage {
     String keySuffix;
     if (imageBrightness == Brightness.light) {
       svgString = this.svgString;
-      keySuffix = "light";
+      keySuffix = 'light';
     } else {
       svgString = invertedSvgString ?? this.svgString;
-      keySuffix = "dark";
+      keySuffix = 'dark';
     }
 
     final BoxFit boxFit;
@@ -130,7 +130,7 @@ class SvgEditorImage extends EditorImage {
     return SvgPicture.string(
       svgString,
       fit: boxFit,
-      key: Key("Image$id-$keySuffix"),
+      key: Key('Image$id-$keySuffix'),
     );
   }
 
@@ -139,7 +139,7 @@ class SvgEditorImage extends EditorImage {
   /// with their inverted color.
   static String _invertSvgString(String svgString) {
     String invertColorMatch(String colorString) {
-      if (colorString == "none" || colorString == "transparent") {
+      if (colorString == 'none' || colorString == 'transparent') {
         return colorString;
       } else {
         return fromCssColor(colorString)

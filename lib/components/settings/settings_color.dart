@@ -17,7 +17,7 @@ class SettingsColor extends StatefulWidget {
 
     required this.pref,
     this.afterChange,
-  }): assert(icon == null || iconBuilder == null, "Cannot set both icon and iconBuilder");
+  }): assert(icon == null || iconBuilder == null, 'Cannot set both icon and iconBuilder');
 
   final String title;
   final String? subtitle;
@@ -50,7 +50,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
     setState(() { });
   }
 
-  get colorPickerDialog => AdaptiveAlertDialog(
+  AdaptiveAlertDialog get colorPickerDialog => AdaptiveAlertDialog(
     title: Text(t.settings.accentColorPicker.pickAColor),
     content: SingleChildScrollView(
       child: ColorPicker(
@@ -88,7 +88,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
             ? const TextStyle(fontWeight: FontWeight.bold)
             : null,
       ),
-      subtitle: Text(widget.subtitle ?? "", style: const TextStyle(fontSize: 13)),
+      subtitle: Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

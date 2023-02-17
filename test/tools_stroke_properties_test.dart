@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 
 void main() {
-  test("Test strokeProperties copy function", () { // also tests json serialization
+  test('Test strokeProperties copy function', () { // also tests json serialization
     /// StrokeProperties with non-default values
     final StrokeProperties strokeProperties = StrokeProperties(
       color: const Color(0xFF123456),

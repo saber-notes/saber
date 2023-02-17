@@ -13,7 +13,7 @@ import 'package:saber/pages/editor/editor.dart';
 abstract class FileSyncer {
 
   /// the file extension of an encrypted base64 note
-  static const String encExtension = ".sbe";
+  static const String encExtension = '.sbe';
 
   static PlainPref<Queue<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
@@ -32,12 +32,12 @@ abstract class FileSyncer {
   /// (instead of actually deleting it) so we can sync the file
   /// as this keeps the last-modified date intact.
   /// This is currently just an empty string.
-  static const String deletedFileDummyContent = "";
+  static const String deletedFileDummyContent = '';
 
   /// List of files to ignore on the server.
   /// Prefix with a slash so we can use [filePath.endsWith]
   static const List<String> _ignoredFiles = [
-    "/Readme.md",
+    '/Readme.md',
   ];
 
   static void startSync() async {
@@ -141,7 +141,7 @@ abstract class FileSyncer {
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
         String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
         if (localDataUnencrypted == null) {
-          if (kDebugMode) print("Failed to read file $filePathUnencrypted to upload");
+          if (kDebugMode) print('Failed to read file $filePathUnencrypted to upload');
           return;
         }
         localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
@@ -190,13 +190,13 @@ abstract class FileSyncer {
       // without the leading slash; remove "Saber/"
       filePathEncrypted = filePathEncrypted.substring(FileManager.appRootDirectoryPrefix.length);
     } else {
-      if (kDebugMode) print("remote file not in app root: $filePathEncrypted");
+      if (kDebugMode) print('remote file not in app root: $filePathEncrypted');
       return;
     }
 
     // ignored files
     for (final String ignoredFile in _ignoredFiles) {
-      if (("/$filePathEncrypted").endsWith(ignoredFile)) {
+      if (('/$filePathEncrypted').endsWith(ignoredFile)) {
         return;
       }
     }
@@ -205,7 +205,7 @@ abstract class FileSyncer {
     if (filePathEncrypted.endsWith(encExtension)) {
       filePathEncrypted = filePathEncrypted.substring(0, filePathEncrypted.length - encExtension.length);
     } else {
-      if (kDebugMode) print("remote file not in recognised encrypted format: $filePathRemote");
+      if (kDebugMode) print('remote file not in recognised encrypted format: $filePathRemote');
       return;
     } // todo: also sync config.sbc
 
@@ -264,13 +264,13 @@ abstract class FileSyncer {
 
     try {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
-      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll("][", ","));
+      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll('][', ','));
       final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
       final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      if (kDebugMode) print("Failed to download file ${file.localPath} ${file.remotePath}");
+      if (kDebugMode) print('Failed to download file ${file.localPath} ${file.remotePath}');
       return false;
     }
   }

@@ -63,7 +63,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
               child: Stack(
                 children: [
                   if (backgroundImage != null) CanvasImage(
-                    filePath: "",
+                    filePath: '',
                     image: backgroundImage!,
                     overrideBoxFit: overrideBoxFit,
                     pageSize: pageSize,

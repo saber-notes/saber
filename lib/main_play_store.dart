@@ -3,12 +3,12 @@
 
 
 import 'package:saber/data/flavor_config.dart';
-import 'main_common.dart' as common;
+import 'package:saber/main_common.dart' as common;
 
 void main() {
   FlavorConfig.setup(
-    flavor: "Google Play",
-    appStore: "Google Play",
+    flavor: 'Google Play',
+    appStore: 'Google Play',
     shouldCheckForUpdatesByDefault: false,
   );
 

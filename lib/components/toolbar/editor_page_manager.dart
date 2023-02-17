@@ -31,7 +31,7 @@ class EditorPageManager extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "${pageIndex + 1} / ${coreInfo.pages.length}",
+                  '${pageIndex + 1} / ${coreInfo.pages.length}',
                 ),
                 ConstrainedBox(
                   constraints: const BoxConstraints(

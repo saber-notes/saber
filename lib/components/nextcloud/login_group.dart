@@ -70,9 +70,9 @@ class LoginInputGroup extends StatefulWidget {
   /// doesn't already start with "http://" or "https://".
   @visibleForTesting
   static String prefixUrlWithHttps(String url) {
-    if (url.startsWith("http://")) return url;
-    if (url.startsWith("https://")) return url;
-    return "https://$url";
+    if (url.startsWith('http://')) return url;
+    if (url.startsWith('https://')) return url;
+    return 'https://$url';
   }
 }
 
@@ -306,7 +306,7 @@ class LoginDetailsStruct {
 }
 
 abstract class LoginFailure implements Exception {
-  final String message = "Login failed";
+  final String message = 'Login failed';
 }
 class NcLoginFailure implements LoginFailure {
   @override
