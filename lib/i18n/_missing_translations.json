@@ -33,19 +33,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "Allineamento della barra degli strumenti dell'editor"
-      },
-      "axisDirections": [
-        "Sopra",
-        "Destra",
-        "In basso",
-        "Sotto"
-      ]
-    }
-  },
+  "it": {},
   "ru": {},
   "tr": {
     "settings": {
