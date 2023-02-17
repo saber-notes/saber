@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1373 (137 per locale)
+/// Strings: 1378 (137 per locale)
 ///
-/// Built on 2023-02-16 at 18:05 UTC
+/// Built on 2023-02-17 at 01:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -709,6 +709,12 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
 	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
 	@override String get systemLanguage => 'Systémový jazyk';
+	@override List<String> get axisDirections => [
+		'Nahoře',
+		'Vpravo',
+		'Dole',
+		'Vlevo',
+	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 }
 
@@ -855,6 +861,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
+	@override String get editorToolbarAlignment => 'Umístění nabídky editoru';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
 	@override String get preferGreyscale => 'Preferovat černobílé barvy';

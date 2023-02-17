@@ -35,6 +35,7 @@
       "hyperlegibleFont": "Lépe čitelný font",
       "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
       "shouldAlwaysAlertForUpdates": "Oznámit dostupnost aktualizací co nejdříve od jejich vydání",
+      "editorToolbarAlignment": "Umístění nabídky editoru",
       "editorToolbarShowInFullscreen": "Zobrazovat nabídku editoru v režimu celé obrazovky",
       "editorAutoInvert": "V tmavém režimu invertovat poznámky",
       "preferGreyscale": "Preferovat černobílé barvy",
@@ -67,6 +68,12 @@
       "slow": "Dlouze"
     },
     "systemLanguage": "Systémový jazyk",
+    "axisDirections": [
+      "Nahoře",
+      "Vpravo",
+      "Dole",
+      "Vlevo"
+    ],
     "reset": {
       "title": "Chcete resetovat tuto volbu?",
       "button": "Resetovat"
