@@ -21,12 +21,20 @@ class Stroke {
 
   bool _isComplete = false;
   bool get isComplete => isStraightLine || _isComplete;
-  set isComplete(bool value) { _isComplete = value; _polygonNeedsUpdating = true; }
+  set isComplete(bool value) {
+    if (value == _isComplete) return;
+    _isComplete = value;
+    _polygonNeedsUpdating = true;
+  }
 
   /// Whether to draw a straight line from the first point to the last point.
   bool _isStraightLine = false;
   bool get isStraightLine => _isStraightLine;
-  set isStraightLine(bool value) { _isStraightLine = value; _polygonNeedsUpdating = true; }
+  set isStraightLine(bool value) {
+    if (value == _isStraightLine) return;
+    _isStraightLine = value;
+    _polygonNeedsUpdating = true;
+  }
 
   bool _polygonNeedsUpdating = true;
 
