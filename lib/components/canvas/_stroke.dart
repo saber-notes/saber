@@ -30,19 +30,19 @@ class Stroke {
 
   bool _polygonNeedsUpdating = true;
 
-  List<Offset>? _polygon;
-  Path? _path;
+  List<Offset> _polygon = const [];
+  Path _path = Path();
   List<Offset> get polygon {
     if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon!;
+    return _polygon;
   }
   Path get path {
     if (_polygonNeedsUpdating) _updatePolygon();
-    return _path!;
+    return _path;
   }
   void _updatePolygon() {
     _polygon = _getPolygon();
-    _path = Path()..addPolygon(_polygon!, true);
+    _path = Path()..addPolygon(_polygon, true);
     _polygonNeedsUpdating = false;
   }
 
