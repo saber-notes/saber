@@ -7,14 +7,14 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "shouldAlwaysAlertForUpdates": "Benachrichtige mich, sobald eine neue Version verfügbar ist",
+        "editorToolbarAlignment": "Position der Werkzeugleiste"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "Oben",
+        "Rechts",
+        "Unten",
+        "Links"
       ]
     }
   },
