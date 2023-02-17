@@ -1,5 +1,8 @@
 name: Build for macOS
 
+# Using instructions from
+# https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-codemagic-cli-tools
+
 on:
   # Enable manual run
   workflow_dispatch:
@@ -36,6 +39,11 @@ jobs:
     name: Build for macOS
     runs-on: macos-latest
     needs: get-version
+    env:
+      APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
+      APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
+      APP_STORE_CONNECT_PRIVATE_KEY: ${{secrets.APP_STORE_CONNECT_PRIVATE_KEY}}
+      APP_STORE_CERTIFICATE_KEY: ${{secrets.APP_STORE_CERTIFICATE_KEY}}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -56,13 +64,36 @@ jobs:
           rm -rf test
           rm -rf windows
 
-      - name: Get Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           architecture: x64
 
+      - name: Install Codemagic CLI Tools
+        run: pip3 install codemagic-cli-tools
+
+      - name: Setup keychain
+        run: |
+          keychain initialize
+
+          app-store-connect fetch-signing-files $(xcode-project detect-bundle-id) \
+            --platform MAC_OS \
+            --type MAC_APP_STORE \
+            --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
+            --create
+
+          app-store-connect list-certificates \
+            --type MAC_INSTALLER_DISTRIBUTION \
+            --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
+            --save
+    
+          keychain add-certificates
+
+          xcode-project use-profiles
+
       - run: flutter pub get
+      - run: find . -name "Podfile" -execdir pod install \;
 
       - name: Build for macOS
         run: flutter build macos
@@ -76,6 +107,10 @@ jobs:
           pushd build/macos/Build/Products/Release
           zip -r $zipName Saber.app
           popd
+
+      - name: Restore keychain
+        run: |
+          keychain use-login
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
