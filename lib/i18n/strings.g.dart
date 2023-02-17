@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1378 (137 per locale)
+/// Strings: 1383 (138 per locale)
 ///
-/// Built on 2023-02-17 at 01:27 UTC
+/// Built on 2023-02-17 at 15:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2768,6 +2768,12 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerIt accentColorPicker = _StringsSettingsAccentColorPickerIt._(_root);
 	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
 	@override String get systemLanguage => 'Lingua del sistema';
+	@override List<String> get axisDirections => [
+		'Sopra',
+		'Destra',
+		'In basso',
+		'Sotto',
+	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 }
 
@@ -2914,6 +2920,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
+	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';

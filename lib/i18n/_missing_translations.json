@@ -33,19 +33,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
-      },
-      "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
-      ]
-    }
-  },
+  "it": {},
   "ru": {},
   "tr": {
     "settings": {
