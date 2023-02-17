@@ -36,13 +36,13 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "Allineamento della barra degli strumenti dell'editor"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "Sopra",
+        "Destra",
+        "In basso",
+        "Sotto"
       ]
     }
   },
