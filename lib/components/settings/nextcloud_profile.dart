@@ -30,7 +30,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     super.initState();
   }
 
-  onPfpChange() {
+  void onPfpChange() {
     var pfpBase64 = Prefs.pfp.value;
     pfpBytes = pfpBase64.isNotEmpty ? base64Decode(pfpBase64) : null;
     setState(() {});

@@ -12,7 +12,7 @@ void main() {
     Size pageSize = const Size(100, 100);
 
     // Drag gesture in a 10x10 square shape, on page 0
-    select.onDragStart(const Offset(0, 0), 0);
+    select.onDragStart(Offset.zero, 0);
     select.onDragUpdate(const Offset(0, 10));
     select.onDragUpdate(const Offset(10, 10));
     select.onDragUpdate(const Offset(10, 0));

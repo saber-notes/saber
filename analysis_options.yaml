@@ -41,8 +41,6 @@ linter:
     always_declare_return_types: true
     avoid_return_types_on_setters: true
 
-    avoid_positional_boolean_parameters: true
-
     eol_at_end_of_file: true
 
     exhaustive_cases: true

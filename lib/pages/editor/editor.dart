@@ -145,7 +145,7 @@ class _EditorState extends State<Editor> {
   Keybinding? _ctrlZ;
   Keybinding? _ctrlY;
   Keybinding? _ctrlShiftZ;
-  _assignKeybindings() {
+  void _assignKeybindings() {
     _ctrlZ = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyZ)], inclusive: true);
     _ctrlY = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyY)], inclusive: true);
     _ctrlShiftZ = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyZ)], inclusive: true);
@@ -154,7 +154,7 @@ class _EditorState extends State<Editor> {
     Keybinder.bind(_ctrlY!, redo);
     Keybinder.bind(_ctrlShiftZ!, redo);
   }
-  _removeKeybindings() {
+  void _removeKeybindings() {
     if (_ctrlZ != null) Keybinder.remove(_ctrlZ!);
     if (_ctrlY != null) Keybinder.remove(_ctrlY!);
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
@@ -326,7 +326,7 @@ class _EditorState extends State<Editor> {
       return false;
     }
   }
-  onDrawStart(ScaleStartDetails details) {
+  void onDrawStart(ScaleStartDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
@@ -360,7 +360,7 @@ class _EditorState extends State<Editor> {
     // setState to let canvas know about currentStroke
     setState(() {});
   }
-  onDrawUpdate(ScaleUpdateDetails details) {
+  void onDrawUpdate(ScaleUpdateDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
@@ -388,7 +388,7 @@ class _EditorState extends State<Editor> {
     previousPosition = position;
     moveOffset += offset;
   }
-  onDrawEnd(ScaleEndDetails details) {
+  void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     setState(() {
       if (currentTool is Pen) {
@@ -434,7 +434,7 @@ class _EditorState extends State<Editor> {
       currentTool = Pen.currentPen;
     }
   }
-  onInteractionEnd(ScaleEndDetails details) {
+  void onInteractionEnd(ScaleEndDetails details) {
     // reset after 1ms to keep track of the same gesture only
     _lastSeenPointerCountTimer?.cancel();
     _lastSeenPointerCountTimer = Timer(const Duration(milliseconds: 10), () {
@@ -451,7 +451,7 @@ class _EditorState extends State<Editor> {
     }
   }
 
-  onMoveImage(EditorImage image, Rect offset) {
+  void onMoveImage(EditorImage image, Rect offset) {
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.move,
       strokes: [],
@@ -462,7 +462,7 @@ class _EditorState extends State<Editor> {
     setState(() {});
     autosaveAfterDelay();
   }
-  onDeleteImage(EditorImage image) {
+  void onDeleteImage(EditorImage image) {
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.erase,
       strokes: [],
@@ -474,18 +474,18 @@ class _EditorState extends State<Editor> {
     autosaveAfterDelay();
   }
 
-  listenToQuillChanges(QuillStruct quill, int pageIndex) {
+  void listenToQuillChanges(QuillStruct quill, int pageIndex) {
     quill.changeSubscription?.cancel();
     quill.changeSubscription = quill.controller.changes.listen((event) {
       onQuillChange(pageIndex);
     });
   }
-  onQuillChange(int pageIndex) {
+  void onQuillChange(int pageIndex) {
     createPage(pageIndex); // create empty last page
     autosaveAfterDelay();
   }
 
-  autosaveAfterDelay() {
+  void autosaveAfterDelay() {
     _hasEdited = true;
     _delayedSaveTimer?.cancel();
     _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {

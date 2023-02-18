@@ -39,10 +39,10 @@ class DynamicMaterialApp extends StatefulWidget {
     }
   }
 
-  static addFullscreenListener(void Function() listener) {
+  static void addFullscreenListener(void Function() listener) {
     _isFullscreen.addListener(listener);
   }
-  static removeFullscreenListener(void Function() listener) {
+  static void removeFullscreenListener(void Function() listener) {
     _isFullscreen.removeListener(listener);
   }
 

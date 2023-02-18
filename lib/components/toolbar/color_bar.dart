@@ -87,12 +87,12 @@ class ColorBar extends StatelessWidget {
         isSelected: currentColor?.withAlpha(255).value == pickedColor.value,
         enabled: true,
         onTap: () => openColorPicker(context),
-        child: Container(
-          decoration: const BoxDecoration(
+        child: const DecoratedBox(
+          decoration: BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.circle,
           ),
-          child: const Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
+          child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
         ),
       ),
 
@@ -128,12 +128,12 @@ class ColorBar extends StatelessWidget {
   }
 
   static Color pickedColor = const Color.fromRGBO(255, 0, 0, 1);
-  openColorPicker(BuildContext context) async {
+  void openColorPicker(BuildContext context) async {
     bool? confirmChange = await showDialog(
       context: context,
       builder: (BuildContext context) => _colorPickerDialog(context),
     );
-    if (confirmChange == true) {
+    if (confirmChange ?? false) {
       setColor(pickedColor.withInversion(invert));
     }
   }

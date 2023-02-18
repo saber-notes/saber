@@ -54,7 +54,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
     super.initState();
   }
 
-  _getInfo([FileOperation? _]) async {
+  void _getInfo([FileOperation? _]) async {
     if (widget.isDirectory) children = await FileManager.getChildrenOfDirectory(widget.path ?? '/');
     areChildrenVisible = children != null && children!.onlyOneChild();
     setState(() { });
@@ -104,7 +104,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
 
         if ((widget.path == null || areChildrenVisible) && children != null) Padding(
-          padding: (widget.path != null) ? const EdgeInsets.only(left: 25) : const EdgeInsets.only(),
+          padding: (widget.path != null) ? const EdgeInsets.only(left: 25) : EdgeInsets.zero,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

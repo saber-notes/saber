@@ -51,7 +51,7 @@ class _BrowsePageState extends State<BrowsePage> {
     if (mounted) setState(() {});
   }
 
-  onDirectoryTap(String folder) {
+  void onDirectoryTap(String folder) {
     if (folder == '..') {
       path = pathHistory.isEmpty ? null : pathHistory.removeLast();
     } else {

@@ -26,7 +26,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         color: colorScheme.surface
       ),

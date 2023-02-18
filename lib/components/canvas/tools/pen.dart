@@ -61,7 +61,7 @@ class Pen extends Tool {
 
   static Pen currentPen = Pen.fountainPen();
 
-  onDragStart(Size pageSize, Offset position, int pageIndex, double? pressure) {
+  void onDragStart(Size pageSize, Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
       strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
@@ -72,7 +72,7 @@ class Pen extends Tool {
     onDragUpdate(pageSize, position, pressure, null);
   }
 
-  onDragUpdate(Size pageSize, Offset position, double? pressure, VoidCallback? redrawPage) {
+  void onDragUpdate(Size pageSize, Offset position, double? pressure, VoidCallback? redrawPage) {
     currentStroke!.addPoint(pageSize, position, pressure);
 
     /// The distance between the first point and the current point.

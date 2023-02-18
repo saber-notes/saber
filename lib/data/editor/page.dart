@@ -19,8 +19,8 @@ class EditorPage extends Listenable {
   late final CanvasKey innerCanvasKey = CanvasKey();
   RenderBox? _renderBox;
   RenderBox? get renderBox {
-    _renderBox ??= innerCanvasKey.currentState?.context.findRenderObject() as RenderBox?;
-    return _renderBox;
+    return _renderBox
+      ??= innerCanvasKey.currentState?.context.findRenderObject() as RenderBox?;
   }
 
   bool _isRendered = false;

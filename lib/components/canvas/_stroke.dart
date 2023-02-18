@@ -92,7 +92,7 @@ class Stroke {
     'oy': offset.dy,
   }..addAll(strokeProperties.toJson());
 
-  addPoint(Size pageSize, Offset offset, [ double? pressure ]) {
+  void addPoint(Size pageSize, Offset offset, [ double? pressure ]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
 
     double size = strokeProperties.size;

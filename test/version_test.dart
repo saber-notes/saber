@@ -11,12 +11,12 @@ const String dummyChangelog = 'Release notes will be added here.';
 void main() {
   test('Check for dummy text in changelogs', () async {
     final File androidMetadata = File('metadata/en-US/changelogs/$buildNumber.txt');
-    expect(await androidMetadata.exists(), true);
+    expect(androidMetadata.existsSync(), true);
     final String androidMetadataContents = await androidMetadata.readAsString();
     expect(androidMetadataContents.contains(dummyChangelog), false, reason: 'Dummy text found in Android changelog');
 
     final File flatpakMetadata = File('flatpak/com.adilhanney.saber.metainfo.xml');
-    expect(await flatpakMetadata.exists(), true);
+    expect(flatpakMetadata.existsSync(), true);
     final String flatpakMetadataContents = await flatpakMetadata.readAsString();
     expect(flatpakMetadataContents.contains(dummyChangelog), false, reason: 'Dummy text found in Flatpak changelog');
   });

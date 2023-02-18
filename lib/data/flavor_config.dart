@@ -15,7 +15,7 @@ class FlavorConfig {
   /// If a build is dirty, it has commits that are ahead of the latest release.
   static bool get dirty => _dirty;
 
-  static setup({
+  static void setup({
     String? flavor,
     String? appStore,
     bool? shouldCheckForUpdatesByDefault,

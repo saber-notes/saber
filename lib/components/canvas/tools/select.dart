@@ -13,7 +13,7 @@ class Select extends Tool {
   SelectResult selectResult = SelectResult(-1, const [], Path());
   bool doneSelecting = false;
 
-  unselect() {
+  void unselect() {
     doneSelecting = false;
     selectResult.pageIndex = -1;
   }

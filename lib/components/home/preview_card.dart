@@ -111,7 +111,7 @@ class _PreviewCardState extends State<PreviewCard> {
       child: GestureDetector(
         onSecondaryTap: () => setState(() { expanded = !expanded; }),
         onLongPress: () => setState(() { expanded = !expanded; }),
-        child: Container(
+        child: ColoredBox(
           color: colorScheme.primary.withOpacity(0.05),
           child: Stack(
             children: [

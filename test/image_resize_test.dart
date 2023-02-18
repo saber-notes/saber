@@ -35,7 +35,7 @@ void main() {
     expect(resized.width, 50);
     expect(resized.height, 50);
 
-    resized = EditorImage.resize(const Size(100, 100), const Size(0, 0));
+    resized = EditorImage.resize(const Size(100, 100), Size.zero);
     expect(resized.width, 0);
     expect(resized.height, 0);
 

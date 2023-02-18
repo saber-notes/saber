@@ -97,7 +97,7 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _ctrlC;
   Keybinding? _ctrlShiftS;
   Keybinding? _f11;
-  _assignKeybindings() {
+  void _assignKeybindings() {
     _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
     _ctrlE = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
     _ctrlC = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
@@ -109,7 +109,7 @@ class _ToolbarState extends State<Toolbar> {
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
     Keybinder.bind(_f11!, toggleFullscreen);
   }
-  _removeKeybindings() {
+  void _removeKeybindings() {
     if (_ctrlF != null) Keybinder.remove(_ctrlF!);
     if (_ctrlE != null) Keybinder.remove(_ctrlE!);
     if (_ctrlC != null) Keybinder.remove(_ctrlC!);

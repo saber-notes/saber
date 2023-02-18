@@ -38,7 +38,7 @@ class Canvas extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: FittedBox(
-        child: Container(
+        child: DecoratedBox(
           decoration: BoxDecoration(
             boxShadow: [BoxShadow(
               color: Colors.black.withOpacity(0.1), // dark regardless of theme

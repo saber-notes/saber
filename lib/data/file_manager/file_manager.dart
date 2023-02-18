@@ -67,7 +67,7 @@ class FileManager {
 
     String? result;
     final File file = File(await documentsDirectory + filePath);
-    if (await file.exists()) {
+    if (file.existsSync()) {
       result = await file.readAsString(encoding: utf8);
       if (result.isEmpty) result = null;
     } else {
@@ -92,7 +92,7 @@ class FileManager {
     await _createFileDirectory(filePath);
     Future writeFuture = file.writeAsString(toWrite);
 
-    afterWrite() {
+    void afterWrite() {
       broadcastFileWrite(FileOperationType.write, filePath);
       if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
     }
@@ -159,7 +159,7 @@ class FileManager {
     final File fromFile = File(await documentsDirectory + fromPath);
     final File toFile = File(await documentsDirectory + toPath);
     await _createFileDirectory(toPath);
-    if (await fromFile.exists()) await fromFile.rename(toFile.path);
+    if (fromFile.existsSync()) await fromFile.rename(toFile.path);
 
     FileSyncer.addToUploadQueue(fromPath);
     FileSyncer.addToUploadQueue(toPath);
@@ -175,7 +175,7 @@ class FileManager {
     filePath = _sanitisePath(filePath);
 
     final File file = File(await documentsDirectory + filePath);
-    if (!await file.exists()) return;
+    if (!file.existsSync()) return;
     await file.delete();
 
     if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
@@ -193,7 +193,7 @@ class FileManager {
 
     final String documentsDirectory = await FileManager.documentsDirectory;
     final Directory dir = Directory(documentsDirectory + directory);
-    if (!await dir.exists()) return null;
+    if (!dir.existsSync()) return null;
 
     int directoryPrefixLength = directory.endsWith('/') ? directory.length : directory.length + 1; // +1 for the trailing slash
     allChildren = await dir.list()
@@ -206,9 +206,7 @@ class FileManager {
 
         if (Editor.reservedFileNames.contains(filename)) return null; // filter out reserved file names
 
-        filename = filename.substring(directoryPrefixLength); // remove directory prefix
-
-        return filename;
+        return filename.substring(directoryPrefixLength); // remove directory prefix
       })
       .where((String? file) => file != null)
       .cast<String>()
@@ -244,19 +242,19 @@ class FileManager {
   static Future<bool> isDirectory(String filePath) async {
     filePath = _sanitisePath(filePath);
     final Directory directory = Directory(await documentsDirectory + filePath);
-    return await directory.exists();
+    return directory.existsSync();
   }
 
   static Future<bool> doesFileExist(String filePath) async {
     filePath = _sanitisePath(filePath);
     final File file = File(await documentsDirectory + filePath);
-    return await file.exists();
+    return file.existsSync();
   }
 
   static Future<DateTime> lastModified(String filePath) async {
     filePath = _sanitisePath(filePath);
     final File file = File(await documentsDirectory + filePath);
-    return await file.lastModified();
+    return file.lastModifiedSync();
   }
 
   static Future<String> newFilePath([String parentPath = '/']) async {

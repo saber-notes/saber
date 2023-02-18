@@ -76,7 +76,7 @@ class _CanvasImageState extends State<CanvasImage> {
       widget.image.newImage = false;
     }
 
-    if (Prefs.appTheme.value == ThemeMode.system.index || Prefs.appTheme.value == ThemeMode.dark.index) {
+    if (Prefs.appTheme.value == ThemeMode.system || Prefs.appTheme.value == ThemeMode.dark) {
       // invert the image pre-emptively if we're likely to switch to dark mode
       invertImage();
     }
@@ -181,7 +181,7 @@ class _CanvasImageState extends State<CanvasImage> {
                 ));
                 panStartRect = Rect.zero;
               } : null,
-              child: Container(
+              child: DecoratedBox(
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: active ? colorScheme.onBackground : Colors.transparent,
@@ -217,13 +217,15 @@ class _CanvasImageState extends State<CanvasImage> {
                                 fit: StackFit.expand,
                                 children: [
                                   ...previousChildren,
-                                  if (currentChild != null) currentChild
-                                  else Container(
-                                    color: Colors.grey,
-                                    child: const Center(
-                                      child: Icon(Icons.image, color: Colors.white),
+                                  if (currentChild != null)
+                                    currentChild
+                                  else
+                                    const ColoredBox(
+                                      color: Colors.grey,
+                                      child: Center(
+                                        child: Icon(Icons.image, color: Colors.white),
+                                      ),
                                     ),
-                                  ),
                                 ],
                               ),
                             );
@@ -473,7 +475,7 @@ class _CanvasImageDialogState extends State<_CanvasImageDialog> {
         _CanvasImageDialogItem(
           onTap: () {
             final String filePathSanitized = widget.parent.widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
-            final String imageFileName = "image$filePathSanitized${widget.image.id}${widget.image.extension}";
+            final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
             FileManager.exportFile(imageFileName, widget.image.bytes, isImage: true);
             Navigator.of(context).pop();
           },
