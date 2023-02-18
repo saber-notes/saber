@@ -22,21 +22,37 @@
     "createNewNote": "Drücke die + Schaltfläche, um eine neue Notiz zu erstellen"
   },
   "settings": {
+    "prefCategories": {
+      "general": "Allgemein",
+      "layout": "Aussehen",
+      "writing": "Eingabe"
+    },
     "prefLabels": {
+      "locale": "Sprache",
       "appTheme": "Anwendungsthema",
+      "platform": "Oberfläche",
       "customAccentColor": "Benutzerdefinierte Akzentfarbe",
+      "hyperlegibleFont": "Hyperlesbare Schrift",
       "shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
+      "shouldAlwaysAlertForUpdates": "Benachrichtige mich, sobald eine neue Version verfügbar ist",
+      "editorToolbarAlignment": "Position der Werkzeugleiste",
+      "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild",
       "editorAutoInvert": "Notizen im Dunkelmodus invertieren",
       "preferGreyscale": "Graustufen bevorzugen",
-      "hyperlegibleFont": "Hyperlesbare Schrift",
       "editorStraightenLines": "Drücke und halte für eine gerade Linie",
+      "maxImageSize": "Maximale Bildgröße",
       "autoClearWhiteboardOnExit": "Lösche das Whiteboard nach Verlassen der Andwendung",
       "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
-      "locale": "Sprache",
-      "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild",
-      "platform": "Oberfläche",
-      "maxImageSize": "Maximale Bildgröße",
       "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
+      "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
+      "preferGreyscale": "Für E-Ink-Bildschirme",
+      "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert",
+      "maxImageSize": "Bilder, die größer sind, werden komprimiert",
+      "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
+      "hideHomeBackgrounds": "Für ein sauberes Aussehen"
     },
     "themeModes": {
       "system": "System",
@@ -46,26 +62,18 @@
     "accentColorPicker": {
       "pickAColor": "Wähle eine Farbe"
     },
-    "prefDescriptions": {
-      "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
-      "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
-      "preferGreyscale": "Für E-Ink-Bildschirme",
-      "autoClearWhiteboardOnExit": "Es wird dennoch mit deinen anderen Geräten synchronisiert",
-      "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
-      "maxImageSize": "Bilder, die größer sind, werden komprimiert",
-      "hideHomeBackgrounds": "Für ein sauberes Aussehen"
-    },
     "straightenDelay": {
       "off": "Aus",
       "regular": "Normal",
       "slow": "Langsam"
     },
     "systemLanguage": "Systemsprache",
-    "prefCategories": {
-      "general": "Allgemein",
-      "layout": "Aussehen",
-      "writing": "Eingabe"
-    },
+    "axisDirections": [
+      "Oben",
+      "Rechts",
+      "Unten",
+      "Links"
+    ],
     "reset": {
       "title": "Diese Einstellung zurücksetzen?",
       "button": "Zurücksetzen"
@@ -79,8 +87,8 @@
       "enterEncPassword": "Bitte gib dein Verschlüsselungspasswort ein.",
       "checkUrl": "Bitte gib eine gültige URL an.",
       "ncLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.",
-      "loginSuccess": "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...",
-      "encLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
+      "encLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.",
+      "loginSuccess": "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
     },
     "form": {
       "useCustomServer": "Ich möchte einen eigenen Nextcloud-Server verwenden",
@@ -120,11 +128,11 @@
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
+    "dirty": "TESTVERSION",
     "debug": "DEBUG",
-    "licenseButton": "Hier tippen, um weitere Lizenzinformationen anzuzeigen",
-    "privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen",
     "sponsorButton": "Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen",
-    "dirty": "TESTVERSION"
+    "licenseButton": "Hier tippen, um weitere Lizenzinformationen anzuzeigen",
+    "privacyPolicyButton": "Hier tippen, um die Datenschutzrichtlinie anzuzeigen"
   },
   "update": {
     "updateAvailable": "Aktualisierung verfügbar",
@@ -134,21 +142,21 @@
   "editor": {
     "toolbar": {
       "toggleColors": "Farben umschalten (Strg + C)",
+      "select": "Auswählen",
       "toggleEraser": "Radierer umschalten (Strg + E)",
       "photo": "Foto",
+      "text": "Text",
       "toggleFingerDrawing": "Fingerzeichnen umschalten (Strg + F)",
       "undo": "Rückgängig",
       "redo": "Wiederholen",
       "export": "Exportieren (Strg + Shift + S)",
       "exportAs": "Exportieren als:",
-      "text": "Text",
-      "fullscreen": "Vollbild umschalten (F11)",
-      "select": "Auswählen"
+      "fullscreen": "Vollbild umschalten (F11)"
     },
     "pens": {
       "fountainPen": "Füllfederhalter",
-      "highlighter": "Textmarker",
-      "ballpointPen": "Kugelschreiber"
+      "ballpointPen": "Kugelschreiber",
+      "highlighter": "Textmarker"
     },
     "penOptions": {
       "size": "Dicke",
@@ -157,9 +165,9 @@
     "imageOptions": {
       "title": "Bildoptionen",
       "invertible": "Invertierbar",
-      "delete": "Entfernen",
       "download": "Herunterladen",
-      "setAsBackground": "Als Hintergrund festlegen"
+      "setAsBackground": "Als Hintergrund festlegen",
+      "delete": "Entfernen"
     },
     "menu": {
       "clearPage": "Seite löschen",
@@ -184,11 +192,11 @@
       }
     },
     "newerFileFormat": {
-      "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
-      "cancel": "Abbruch",
       "readOnlyMode": "Schreibgeschützter Modus",
+      "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
       "subtitle": "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?",
-      "allowEditing": "Schreibschutz aufheben"
+      "allowEditing": "Schreibschutz aufheben",
+      "cancel": "Abbruch"
     },
     "quill": {
       "typeSomething": "Hier tippen..."

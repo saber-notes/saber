@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 10
-/// Strings: 1383 (138 per locale)
+/// Strings: 1389 (138 per locale)
 ///
-/// Built on 2023-02-17 at 15:15 UTC
+/// Built on 2023-02-18 at 11:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1221,13 +1221,19 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsSettingsPrefCategoriesDe prefCategories = _StringsSettingsPrefCategoriesDe._(_root);
 	@override late final _StringsSettingsPrefLabelsDe prefLabels = _StringsSettingsPrefLabelsDe._(_root);
+	@override late final _StringsSettingsPrefDescriptionsDe prefDescriptions = _StringsSettingsPrefDescriptionsDe._(_root);
 	@override late final _StringsSettingsThemeModesDe themeModes = _StringsSettingsThemeModesDe._(_root);
 	@override late final _StringsSettingsAccentColorPickerDe accentColorPicker = _StringsSettingsAccentColorPickerDe._(_root);
-	@override late final _StringsSettingsPrefDescriptionsDe prefDescriptions = _StringsSettingsPrefDescriptionsDe._(_root);
 	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
 	@override String get systemLanguage => 'Systemsprache';
-	@override late final _StringsSettingsPrefCategoriesDe prefCategories = _StringsSettingsPrefCategoriesDe._(_root);
+	@override List<String> get axisDirections => [
+		'Oben',
+		'Rechts',
+		'Unten',
+		'Links',
+	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
 }
 
@@ -1263,11 +1269,11 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
+	@override String get dirty => 'TESTVERSION';
 	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
 	@override String get licenseButton => 'Hier tippen, um weitere Lizenzinformationen anzuzeigen';
 	@override String get privacyPolicyButton => 'Hier tippen, um die Datenschutzrichtlinie anzuzeigen';
-	@override String get sponsorButton => 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
-	@override String get dirty => 'TESTVERSION';
 }
 
 // Path: update
@@ -1348,6 +1354,18 @@ class _StringsHomeTooltipsDe extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
 }
 
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Allgemein';
+	@override String get layout => 'Aussehen';
+	@override String get writing => 'Eingabe';
+}
+
 // Path: settings.prefLabels
 class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	_StringsSettingsPrefLabelsDe._(_StringsDe root) : this._root = root, super._(root);
@@ -1355,20 +1373,38 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
+	@override String get locale => 'Sprache';
 	@override String get appTheme => 'Anwendungsthema';
+	@override String get platform => 'Oberfläche';
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
+	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
+	@override String get shouldAlwaysAlertForUpdates => 'Benachrichtige mich, sobald eine neue Version verfügbar ist';
+	@override String get editorToolbarAlignment => 'Position der Werkzeugleiste';
+	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
-	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
+	@override String get maxImageSize => 'Maximale Bildgröße';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Andwendung';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
-	@override String get locale => 'Sprache';
-	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
-	@override String get platform => 'Oberfläche';
-	@override String get maxImageSize => 'Maximale Bildgröße';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
+	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
+	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
+	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
+	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
+	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
+	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 }
 
 // Path: settings.themeModes
@@ -1393,22 +1429,6 @@ class _StringsSettingsAccentColorPickerDe extends _StringsSettingsAccentColorPic
 	@override String get pickAColor => 'Wähle eine Farbe';
 }
 
-// Path: settings.prefDescriptions
-class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescriptionsEn {
-	_StringsSettingsPrefDescriptionsDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
-	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
-	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
-	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
-	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
-	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
-	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
-}
-
 // Path: settings.straightenDelay
 class _StringsSettingsStraightenDelayDe extends _StringsSettingsStraightenDelayEn {
 	_StringsSettingsStraightenDelayDe._(_StringsDe root) : this._root = root, super._(root);
@@ -1419,18 +1439,6 @@ class _StringsSettingsStraightenDelayDe extends _StringsSettingsStraightenDelayE
 	@override String get off => 'Aus';
 	@override String get regular => 'Normal';
 	@override String get slow => 'Langsam';
-}
-
-// Path: settings.prefCategories
-class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn {
-	_StringsSettingsPrefCategoriesDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get general => 'Allgemein';
-	@override String get layout => 'Aussehen';
-	@override String get writing => 'Eingabe';
 }
 
 // Path: settings.reset
@@ -1456,8 +1464,8 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
+	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 }
 
 // Path: login.form
@@ -1550,16 +1558,16 @@ class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => 'Farben umschalten (Strg + C)';
+	@override String get select => 'Auswählen';
 	@override String get toggleEraser => 'Radierer umschalten (Strg + E)';
 	@override String get photo => 'Foto';
+	@override String get text => 'Text';
 	@override String get toggleFingerDrawing => 'Fingerzeichnen umschalten (Strg + F)';
 	@override String get undo => 'Rückgängig';
 	@override String get redo => 'Wiederholen';
 	@override String get export => 'Exportieren (Strg + Shift + S)';
 	@override String get exportAs => 'Exportieren als:';
-	@override String get text => 'Text';
 	@override String get fullscreen => 'Vollbild umschalten (F11)';
-	@override String get select => 'Auswählen';
 }
 
 // Path: editor.pens
@@ -1570,8 +1578,8 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 
 	// Translations
 	@override String get fountainPen => 'Füllfederhalter';
-	@override String get highlighter => 'Textmarker';
 	@override String get ballpointPen => 'Kugelschreiber';
+	@override String get highlighter => 'Textmarker';
 }
 
 // Path: editor.penOptions
@@ -1594,9 +1602,9 @@ class _StringsEditorImageOptionsDe extends _StringsEditorImageOptionsEn {
 	// Translations
 	@override String get title => 'Bildoptionen';
 	@override String get invertible => 'Invertierbar';
-	@override String get delete => 'Entfernen';
 	@override String get download => 'Herunterladen';
 	@override String get setAsBackground => 'Als Hintergrund festlegen';
+	@override String get delete => 'Entfernen';
 }
 
 // Path: editor.menu
@@ -1625,11 +1633,11 @@ class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
-	@override String get cancel => 'Abbruch';
 	@override String get readOnlyMode => 'Schreibgeschützter Modus';
+	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
 	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
 	@override String get allowEditing => 'Schreibschutz aufheben';
+	@override String get cancel => 'Abbruch';
 }
 
 // Path: editor.quill

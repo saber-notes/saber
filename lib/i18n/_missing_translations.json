@@ -4,20 +4,7 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {},
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
-      },
-      "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
-      ]
-    }
-  },
+  "de": {},
   "es": {
     "settings": {
       "prefLabels": {
