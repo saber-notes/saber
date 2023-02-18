@@ -25,7 +25,7 @@ jobs:
         id: get_version
         run: |
           # get buildName from lib/data/version.dart
-          buildName=$(grep -oP '(?<=buildName = ").*(?=")' lib/data/version.dart)
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
           echo "buildName=$buildName" >> $GITHUB_OUTPUT
 
           # get buildNumber from lib/data/version.dart

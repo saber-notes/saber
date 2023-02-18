@@ -29,6 +29,7 @@ void main() {
     final shell = Shell(verbose: false);
 
     // Initial commit to hide any unrelated changes...
+    printOnFailure('Stashing any existing changes...');
     await shell.run('''
     touch stash-me.txt  # make sure we can stash
     git stash --include-untracked
@@ -52,10 +53,13 @@ void main() {
     expect(before.outText.isEmpty, true, reason: 'Git status is not initially clean');
 
     // Run `./apply_version.sh` to update the version in code...
-    await shell.run('./apply_version.sh $buildName $buildNumber');
+    const command = './apply_version.sh $buildName $buildNumber';
+    printOnFailure('Running: $command');
+    await shell.run(command);
 
     // expect that script didn't need to change anything
     final after = await shell.run('git status --porcelain');
+    printOnFailure('Git status after running $command: ${after.outText}');
     expect(after.outText.isEmpty, true, reason: './apply_version.sh found inconsistencies');
   });
 }

@@ -2,7 +2,7 @@
 
 # get the current version name from lib/data/version.dart
 function get_version_name {
-  grep -oP '(?<=buildName = ").*(?=")' lib/data/version.dart
+  grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart
 }
 
 # get the current version code from lib/data/version.dart
@@ -54,7 +54,7 @@ echo " - Updating buildNumber in lib/data/version.dart" # e.g. const int buildNu
 sed -i "s/buildNumber = .*/buildNumber = $BUILD_NUMBER;/g" lib/data/version.dart
 
 echo " - Updating buildName in lib/data/version.dart" # e.g. const String buildName = "0.5.5";
-sed -i "s/buildName = .*/buildName = \"$BUILD_NAME\";/g" lib/data/version.dart
+sed -i "s/buildName = .*/buildName = '$BUILD_NAME';/g" lib/data/version.dart
 
 echo " - Updating buildYear in lib/data/version.dart" # e.g. const int buildYear = 2023;
 sed -i "s/buildYear = .*/buildYear = $YEAR;/g" lib/data/version.dart
