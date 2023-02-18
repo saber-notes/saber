@@ -3,7 +3,7 @@
 /// Locales: 10
 /// Strings: 1389 (138 per locale)
 ///
-/// Built on 2023-02-18 at 11:00 UTC
+/// Built on 2023-02-18 at 16:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1974,8 +1974,8 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
-	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
 	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
+	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
 }
 
 // Path: login.form
@@ -2130,8 +2130,8 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Tamaño de cada línea';
 	@override String get backgroundImage => 'Imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
-	@override String get import => 'Importar';
 	@override String get removeBgImage => 'Eliminar imagen de fondo';
+	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
 	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
 }

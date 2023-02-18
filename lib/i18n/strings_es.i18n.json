@@ -21,7 +21,6 @@
     "noFiles": "No se ha encontrado ninguna nota",
     "createNewNote": "Presiona el botón + para crear una nueva nota"
   },
-
   "settings": {
     "prefCategories": {
       "general": "General",
@@ -72,7 +71,6 @@
       "button": "Restablecer"
     }
   },
-
   "login": {
     "title": "Iniciar sesión",
     "feedbacks": {
@@ -81,8 +79,8 @@
       "enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
       "checkUrl": "Por favor introduce una dirección URL válida.",
       "ncLoginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
-      "loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...",
-      "encLoginFailed": "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
+      "encLoginFailed": "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.",
+      "loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
     },
     "form": {
       "useCustomServer": "Quiero utilizar un servidor de Nextcloud personalizado",
@@ -120,7 +118,6 @@
       "useInsecureStorage": "Usar almacenamiento inseguro"
     }
   },
-
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
     "dirty": "DIRTY",
@@ -129,13 +126,11 @@
     "licenseButton": "Toca aquí para ver más información sobre la licencia",
     "privacyPolicyButton": "Toca aquí para ver nuestra política de privacidad"
   },
-
   "update": {
     "updateAvailable": "Actualización disponible",
     "updateAvailableDescription": "Hay una nueva versión de la aplicación disponible.",
     "update": "Actualizar"
   },
-
   "editor": {
     "toolbar": {
       "toggleColors": "Paleta de colores (Ctrl C)",
@@ -173,8 +168,8 @@
       "lineHeightDescription": "Tamaño de cada línea",
       "backgroundImage": "Imagen de fondo",
       "backgroundPattern": "Patrón de fondo",
-      "import": "Importar",
       "removeBgImage": "Eliminar imagen de fondo",
+      "import": "Importar",
       "boxFits": {
         "fill": "Llenar",
         "cover": "Cubrir",
@@ -204,7 +199,6 @@
     },
     "pages": "Páginas"
   },
-
   "sPenWarning": {
     "title": "Aviso de error del S Pen",
     "description": "Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas."
