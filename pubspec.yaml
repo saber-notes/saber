@@ -73,7 +73,7 @@ dependencies:
 
   vector_math: ^2.1.2
 
-  intl: ^0.17.0
+  intl: ^0.18.0
 
   crypto: ^3.0.2
   encrypt: ^5.0.1
@@ -107,7 +107,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^6.4.0
+  flutter_quill: ^6.4.4
 
   tuple: ^2.0.1
 
@@ -159,6 +159,9 @@ dev_dependencies:
   icons_launcher: ^2.1.0
 
   process_run: ^0.12.5+2
+
+dependency_overrides:
+  intl: ^0.18.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

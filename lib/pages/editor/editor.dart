@@ -55,10 +55,11 @@ class Editor extends StatefulWidget {
   static List<String> reservedFileNames = [Whiteboard.filePath];
 
   @override
-  State<Editor> createState() => _EditorState();
+  State<Editor> createState() => EditorState();
 }
 
-class _EditorState extends State<Editor> {
+@visibleForTesting
+class EditorState extends State<Editor> {
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
   EditorHistory history = EditorHistory();
