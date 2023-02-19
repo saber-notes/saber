@@ -25,12 +25,15 @@ class SvgEditorImage extends EditorImage {
     super.dstRect,
     super.srcRect,
     super.naturalSize,
+    super.isThumbnail,
   }) :  super(
           extension: '.svg',
           bytes: Uint8List(0),
         );
 
-  factory SvgEditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) {
+  factory SvgEditorImage.fromJson(Map<String, dynamic> json, {
+    bool isThumbnail = false,
+  }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
     return SvgEditorImage(
@@ -61,6 +64,7 @@ class SvgEditorImage extends EditorImage {
         json['nw'] ?? 0,
         json['nh'] ?? 0,
       ),
+      isThumbnail: isThumbnail,
     );
   }
 

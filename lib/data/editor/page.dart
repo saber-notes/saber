@@ -69,7 +69,7 @@ class EditorPage extends Listenable {
       ),
       images = parseImagesJson(
         json['i'] as List?,
-        allowCalculations: !readOnly,
+        isThumbnail: readOnly,
         onlyFirstPage: false,
       ),
       quill = QuillStruct(
@@ -136,13 +136,13 @@ class EditorPage extends Listenable {
       .toList() ?? [];
 
   static List<EditorImage> parseImagesJson(List<dynamic>? images, {
-    required bool allowCalculations,
+    required bool isThumbnail,
     required bool onlyFirstPage,
   }) => images
       ?.map((dynamic image) {
         final map = image as Map<String, dynamic>;
         if (onlyFirstPage && map['i'] > 0) return null;
-        return EditorImage.fromJson(map, allowCalculations: allowCalculations);
+        return EditorImage.fromJson(map, isThumbnail: isThumbnail);
       })
       .where((element) => element != null)
       .cast<EditorImage>()

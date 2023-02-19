@@ -182,7 +182,7 @@ class EditorCoreInfo {
     if (imagesJson != null) {
       final images = EditorPage.parseImagesJson(
         imagesJson,
-        allowCalculations: !readOnly,
+        isThumbnail: readOnly,
         onlyFirstPage: onlyFirstPage,
       );
       for (EditorImage image in images) {

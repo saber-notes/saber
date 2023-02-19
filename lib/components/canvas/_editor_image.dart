@@ -82,14 +82,20 @@ class EditorImage {
     this.naturalSize = Size.zero,
     this.thumbnailBytes,
     this.invertedThumbnailBytes,
+    bool isThumbnail = false,
   }) :  assert(extension.startsWith('.')) {
-    getImage(pageSize: pageSize).then((_) => onLoad?.call());
+    _isThumbnail = isThumbnail;
+    getImage(
+      pageSize: pageSize,
+    ).then((_) => onLoad?.call());
   }
 
-  factory EditorImage.fromJson(Map<String, dynamic> json, {bool allowCalculations = true}) {
+  factory EditorImage.fromJson(Map<String, dynamic> json, {
+    bool isThumbnail = false,
+  }) {
     String? extension = json['e'];
     if (extension == '.svg') {
-      return SvgEditorImage.fromJson(json, allowCalculations: allowCalculations);
+      return SvgEditorImage.fromJson(json, isThumbnail: isThumbnail);
     }
 
     return EditorImage(
@@ -123,6 +129,7 @@ class EditorImage {
       ),
       thumbnailBytes: json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
       invertedThumbnailBytes: json['it'] != null ? Uint8List.fromList((json['it'] as List<dynamic>).cast<int>()) : null,
+      isThumbnail: isThumbnail,
     );
   }
 
@@ -155,7 +162,7 @@ class EditorImage {
   }
 
   @protected
-  Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
+  Future<void> getImage({Size? pageSize}) async {
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
       naturalSize = Size(image.width.toDouble(), image.height.toDouble());
@@ -165,14 +172,14 @@ class EditorImage {
         maxSize = Size.square(Prefs.maxImageSize.value);
       }
       final Size reducedSize = resize(naturalSize, maxSize!);
-      if (naturalSize.width != reducedSize.width && allowCalculations) {
+      if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
         Uint8List? resized = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: reducedSize);
         if (resized != null) bytes = resized;
 
         naturalSize = reducedSize;
-      } else if (allowCalculations) { // otherwise make sure orientation is baked in
+      } else if (!isThumbnail) { // otherwise make sure orientation is baked in
         Uint8List? rotated = await Executor().execute(fun1: _bakeOrientationIsolate, arg1: bytes);
         if (rotated != null) bytes = rotated;
       }
@@ -190,7 +197,7 @@ class EditorImage {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
 
-    if ((thumbnailBytes?.isEmpty ?? true) && allowCalculations) {
+    if ((thumbnailBytes?.isEmpty ?? true) && !isThumbnail) {
       thumbnailSize = resize(naturalSize, const Size(300, 300));
       // if [naturalSize] is big enough to warrant a thumbnail
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
@@ -204,7 +211,7 @@ class EditorImage {
       isThumbnail = true; // updates bytes and srcRect
     }
 
-    if (invertible && (invertedThumbnailBytes?.isEmpty ?? true) && allowCalculations) {
+    if (invertible && (invertedThumbnailBytes?.isEmpty ?? true) && !isThumbnail) {
       invertedThumbnailBytes = await Executor().execute(fun1: invertImageIsolate, arg1: thumbnailBytes ?? bytes);
     }
     if (isThumbnail) {
