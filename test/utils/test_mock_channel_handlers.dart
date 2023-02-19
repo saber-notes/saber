@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -25,6 +26,18 @@ void setupMockPathProvider() {
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
     if (methodCall.method == 'getApplicationDocumentsDirectory') {
       return '/tmp/saber-test';
+    }
+    return null;
+  });
+}
+
+void setupMockPrinting() {
+  const channel = MethodChannel('net.nfet.printing');
+  TestWidgetsFlutterBinding.ensureInitialized();
+  TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+      .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+    if (methodCall.method == 'printingInfo') {
+      return {}; // [PrintingInfo.unavailable]
     }
     return null;
   });
