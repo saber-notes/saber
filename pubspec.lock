@@ -371,11 +371,12 @@ packages:
   flutter_quill:
     dependency: "direct main"
     description:
-      name: flutter_quill
-      sha256: aeba23d6f9a069b7aa8839255d810ebc8d33f6c3b510c1f92b686c2cfbaa4c2f
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.4.1"
+      path: "."
+      ref: HEAD
+      resolved-ref: "70fb6017965bc687308d5ecd63a6a636fbb19833"
+      url: "https://github.com/adil192/flutter-quill.git"
+    source: git
+    version: "6.4.3"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -491,10 +492,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "6dd6b05db749756996b727521b9b9b4ee0968ea4aeb59af2e59383683d6ef34f"
+      sha256: "7a79232827c851f6b9f08c3c7254a1eaff7bc6aa147e103e51f951c5c10b0ccc"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.7"
+    version: "6.0.9"
   google_fonts:
     dependency: "direct main"
     description:
@@ -523,10 +524,10 @@ packages:
     dependency: transitive
     description:
       name: i18n_extension
-      sha256: "8ab52a56a5151817f7278450ff60e504b04a33110515d0f1f06d621dfa5b5783"
+      sha256: f3b60575f30ba835d405fcb41ac28ce8efe7caa5812fd93074eaffae7877cb70
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "7.0.0"
   icons_launcher:
     dependency: "direct dev"
     description:
@@ -560,10 +561,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
       url: "https://pub.dev"
     source: hosted
-    version: "0.17.0"
+    version: "0.18.0"
   js:
     dependency: transitive
     description:
@@ -1128,10 +1129,10 @@ packages:
     dependency: transitive
     description:
       name: universal_io
-      sha256: "070d8fcc12d599497b635f82db6a07f0ba0b756d48126a826b50b0c558745007"
+      sha256: "06866290206d196064fd61df4c7aea1ffe9a4e7c4ccaa8fcded42dd41948005d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   uri_to_file:
     dependency: transitive
     description:
