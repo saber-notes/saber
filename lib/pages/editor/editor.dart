@@ -731,12 +731,33 @@ class EditorState extends State<Editor> {
     await FileManager.exportFile('$_filename.sbn', encoded);
   }
 
+  void setAndroidNavBarColor() async {
+    await null;
+    if (!mounted) return;
+
+    final theme = Theme.of(context);
+    final brightness = theme.brightness;
+    final otherBrightness = brightness == Brightness.dark
+        ? Brightness.light
+        : Brightness.dark;
+    final overlayStyle = brightness == Brightness.dark
+        ? SystemUiOverlayStyle.dark
+        : SystemUiOverlayStyle.light;
+
+    SystemChrome.setSystemUIOverlayStyle(overlayStyle.copyWith(
+      systemNavigationBarColor: theme.colorScheme.surface,
+      systemNavigationBarIconBrightness: otherBrightness,
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
     final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     final isToolbarVertical = Prefs.editorToolbarAlignment.value == AxisDirection.left
         || Prefs.editorToolbarAlignment.value == AxisDirection.right;
+
+    setAndroidNavBarColor();
 
     final Widget canvas = CanvasGestureDetector(
       filePath: coreInfo.filePath,

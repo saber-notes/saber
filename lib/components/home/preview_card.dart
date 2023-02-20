@@ -4,9 +4,11 @@ import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -103,7 +105,8 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.of(context).disableAnimations;
 
     Widget card = MouseRegion(
@@ -157,6 +160,7 @@ class _PreviewCardState extends State<PreviewCard> {
       ),
     );
 
+    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 300);
     return Padding(
       padding: const EdgeInsets.all(8),
       child: OpenContainer(
@@ -167,13 +171,18 @@ class _PreviewCardState extends State<PreviewCard> {
         openColor: colorScheme.background,
         openBuilder: (context, action) => Editor(path: widget.filePath),
 
-        transitionDuration: Duration(milliseconds: disableAnimations ? 0 : 300),
+        transitionDuration: transitionDuration,
         routeSettings: RouteSettings(
           name: RoutePaths.editFilePath(widget.filePath),
         ),
 
-        onClosed: (_) {
+        onClosed: (_) async {
           findStrokes();
+
+          await Future.delayed(transitionDuration);
+          if (!mounted) return;
+          if (!GoRouter.of(context).location.startsWith('/home')) return;
+          ResponsiveNavbar.setAndroidNavBarColor(theme);
         },
       ),
     );
