@@ -39,34 +39,34 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth >= 600) { // tablet/desktop
-        return Scaffold(
-          body: Row(children: [
-            IntrinsicWidth(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 300),
-                child: VerticalNavbar(
-                  destinations: HomeRoutes.navigationRailDestinations,
-                  selectedIndex: widget.selectedIndex,
-                  onDestinationSelected: onDestinationSelected,
-                ),
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    if (screenWidth >= 600) { // tablet/desktop
+      return Scaffold(
+        body: Row(children: [
+          IntrinsicWidth(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 300),
+              child: VerticalNavbar(
+                destinations: HomeRoutes.navigationRailDestinations,
+                selectedIndex: widget.selectedIndex,
+                onDestinationSelected: onDestinationSelected,
               ),
             ),
-            Expanded(child: widget.body),
-          ]),
-        );
-      } // else mobile
-
-      return Scaffold(
-        body: widget.body,
-        bottomNavigationBar: HorizontalNavbar(
-          destinations: HomeRoutes.navigationDestinations,
-          selectedIndex: widget.selectedIndex,
-          onDestinationSelected: onDestinationSelected,
-        ),
+          ),
+          Expanded(child: widget.body),
+        ]),
       );
-    });
+    } // else mobile
+
+    return Scaffold(
+      body: widget.body,
+      bottomNavigationBar: HorizontalNavbar(
+        destinations: HomeRoutes.navigationDestinations,
+        selectedIndex: widget.selectedIndex,
+        onDestinationSelected: onDestinationSelected,
+      ),
+    );
   }
 
   @override
