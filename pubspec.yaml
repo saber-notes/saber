@@ -107,7 +107,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^6.4.0
+  flutter_quill: ^6.4.2
 
   tuple: ^2.0.1
 
