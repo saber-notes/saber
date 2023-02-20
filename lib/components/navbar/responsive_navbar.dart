@@ -19,7 +19,7 @@ class ResponsiveNavbar extends StatefulWidget {
   @override
   State<ResponsiveNavbar> createState() => _ResponsiveNavbarState();
 
-  static bool _isLargeScreen = true;
+  static bool isLargeScreen = true;
   static void setAndroidNavBarColor(ThemeData theme) async {
     await null;
 
@@ -35,7 +35,7 @@ class ResponsiveNavbar extends StatefulWidget {
       systemNavigationBarColor: ElevationOverlay.applySurfaceTint(
         theme.scaffoldBackgroundColor,
         theme.colorScheme.surfaceTint,
-        _isLargeScreen ? 0 : 3,
+        isLargeScreen ? 0 : 3,
       ),
       systemNavigationBarIconBrightness: otherBrightness,
     ));
@@ -60,11 +60,11 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    ResponsiveNavbar._isLargeScreen = screenWidth >= 600;
+    ResponsiveNavbar.isLargeScreen = screenWidth >= 600;
 
     ResponsiveNavbar.setAndroidNavBarColor(Theme.of(context));
 
-    if (ResponsiveNavbar._isLargeScreen) {
+    if (ResponsiveNavbar.isLargeScreen) {
       return Scaffold(
         body: Row(children: [
           IntrinsicWidth(

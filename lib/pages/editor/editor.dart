@@ -22,6 +22,7 @@ import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/home/preview_card.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -732,10 +733,16 @@ class EditorState extends State<Editor> {
   }
 
   void setAndroidNavBarColor() async {
+    final theme = Theme.of(context);
+
+    // whiteboard on mobile should keep home screen navbar color
+    if (coreInfo.filePath == Whiteboard.filePath && !ResponsiveNavbar.isLargeScreen) {
+      return ResponsiveNavbar.setAndroidNavBarColor(theme);
+    }
+
     await null;
     if (!mounted) return;
 
-    final theme = Theme.of(context);
     final brightness = theme.brightness;
     final otherBrightness = brightness == Brightness.dark
         ? Brightness.light
