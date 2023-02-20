@@ -24,6 +24,7 @@ void main() {
         path: path,
         readOnly: true,
         onlyFirstPage: false,
+        alwaysUseIsolate: true,
       );
 
       // make sure the file was loaded
@@ -78,6 +79,7 @@ void main() {
         path: path,
         readOnly: true,
         onlyFirstPage: false,
+        alwaysUseIsolate: true,
       );
 
       // make sure the file was loaded
@@ -137,6 +139,7 @@ void main() {
         path: path,
         readOnly: true,
         onlyFirstPage: false,
+        alwaysUseIsolate: true,
       );
 
       // make sure the file was loaded

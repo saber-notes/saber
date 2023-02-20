@@ -227,10 +227,11 @@ class EditorCoreInfo {
     required String path,
     required bool readOnly,
     required bool onlyFirstPage,
+    bool alwaysUseIsolate = false,
   }) async {
     try {
-      // decide whether to use isolate or not
-      if (jsonString.length < 2 * 1024 * 1024) { // 2 MB
+      if (jsonString.length < 2 * 1024 * 1024 && !alwaysUseIsolate) { // 2 MB
+        // if the file is small, just use the main isolate
         return _loadFromFileIsolate(
           jsonString,
           path,
