@@ -1,0 +1,214 @@
+{
+  "home": {
+    "tabs": {
+      "home": "Início",
+      "browse": "Explorar",
+      "whiteboard": "Quadro branco",
+      "settings": "Configurações"
+    },
+    "titles": {
+      "home": "Notas recentes",
+      "browse": "Todas as notas",
+      "whiteboard": "Quadro branco",
+      "settings": "Configurações"
+    },
+    "tooltips": {
+      "newNote": "Nova nota",
+      "showUpdateDialog": "Mostrar caixa de diálogo de atualização"
+    },
+    "backFolder": "(Retornar)",
+    "welcome": "Bem-vindo(a) ao Saber",
+    "noFiles": "Nenhum arquivo encontrado",
+    "createNewNote": "Toque no botão + para criar uma nova nota"
+  },
+  "settings": {
+    "prefCategories": {
+      "general": "Geral",
+      "layout": "Leiaute",
+      "writing": "Escrita"
+    },
+    "prefLabels": {
+      "locale": "Idioma do aplicativo",
+      "appTheme": "Tema do aplicativo",
+      "platform": "Tipo do tema",
+      "customAccentColor": "Cor de destaque personalizada",
+      "hyperlegibleFont": "Fonte hiperlegível",
+      "shouldCheckForUpdates": "Verifique automaticamente as atualizações do Saber",
+      "shouldAlwaysAlertForUpdates": "Me informe sobre as atualizações assim que elas estiverem disponíveis",
+      "editorToolbarAlignment": "Alinhamento da barra de ferramentas do editor",
+      "editorToolbarShowInFullscreen": "Mostrar a barra de ferramentas do editor no modo de tela cheia",
+      "editorAutoInvert": "Inverter as notas no modo escuro",
+      "preferGreyscale": "Preferir as cores em tons de cinza",
+      "editorStraightenLines": "Pressione e segure para endireitar uma linha",
+      "maxImageSize": "Tamanho máximo da imagem",
+      "autoClearWhiteboardOnExit": "Limpe o quadro branco depois de sair do aplicativo",
+      "editorPromptRename": "Solicitar que você renomeie novas notas",
+      "hideHomeBackgrounds": "Ocultar planos de fundo na tela inicial"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão",
+      "editorAutoInvert": "Escurece as notas de forma inteligente no modo escuro",
+      "preferGreyscale": "Para telas e-ink",
+      "autoClearWhiteboardOnExit": "Ainda será sincronizado com seus outros dispositivos",
+      "maxImageSize": "Imagens maiores que isso serão compactadas",
+      "editorPromptRename": "Você sempre pode renomear notas mais tarde",
+      "hideHomeBackgrounds": "Para uma aparência mais limpa"
+    },
+    "themeModes": {
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Escuro"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Escolha uma cor"
+    },
+    "straightenDelay": {
+      "off": "Desligado",
+      "regular": "Regular",
+      "slow": "Lento"
+    },
+    "systemLanguage": "Idioma do sistema",
+    "axisDirections": [
+      "Cima",
+      "Direita",
+      "Baixo",
+      "Esquerda"
+    ],
+    "reset": {
+      "title": "Redefinir esta configuração?",
+      "button": "Redefinir"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "feedbacks": {
+      "checkUsername": "Por favor, verifique seu nome de usuário ou e-mail.",
+      "enterNcPassword": "Por favor, digite sua senha do Nextcloud.",
+      "enterEncPassword": "Por favor, digite sua senha de criptografia.",
+      "checkUrl": "Por favor, insira uma URL válida.",
+      "ncLoginFailed": "Falha no login, por favor verifique seus dados e conexão de rede.",
+      "encLoginFailed": "Falha no login, por favor verifique sua senha de criptografia.",
+      "loginSuccess": "Login bem-sucedido! Aguarde enquanto configuramos..."
+    },
+    "form": {
+      "useCustomServer": "Eu quero usar um servidor Nextcloud personalizado",
+      "customServerUrl": "URL do servidor personalizado",
+      "username": "Nome de usuário ou email",
+      "ncPassword": "Senha do Nextcloud",
+      "encPassword": "Senha de criptografia",
+      "agreeToPrivacyPolicy(rich)": "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}.",
+      "login": "Login"
+    },
+    "signup(rich)": "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!",
+    "status": {
+      "loggedIn": "Logado com Nextcloud",
+      "loggedOut": "Desconectado",
+      "tapToLogin": "Toque para fazer login com o Nextcloud"
+    },
+    "faq": [
+      {
+        "q": "O que é o Nextcloud?",
+        "a": "O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para controle total de seus dados."
+      },
+      {
+        "q": "O que é uma senha de criptografia?",
+        "a": "A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenado no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados."
+      },
+      {
+        "q": "Por que usar duas senhas?",
+        "a": "A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia \"embaralha\" seus dados antes que eles cheguem à nuvem.\n\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, suas anotações permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger seus dados."
+      }
+    ],
+    "insecureStorage": {
+      "title": "Aviso de segurança",
+      "description(rich)": "O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar armazenamento não-seguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode ${sponsorLink(tornar-se um patrocinador)}!",
+      "loginTemporarily": "Login temporário",
+      "useInsecureStorage": "Usar armazenamento não-seguro"
+    }
+  },
+  "appInfo": {
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa vem com absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.",
+    "dirty": "DIRTY",
+    "debug": "DEBUG",
+    "sponsorButton": "Toque aqui para me patrocinar ou comprar mais armazenamento",
+    "licenseButton": "Toque aqui para ver mais informações de licença",
+    "privacyPolicyButton": "Toque aqui para ver a política de privacidade"
+  },
+  "update": {
+    "updateAvailable": "Atualização disponível",
+    "updateAvailableDescription": "Uma nova versão do aplicativo está disponível.",
+    "update": "Atualizar"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Paleta de cores (Ctrl C)",
+      "select": "Selecionar",
+      "toggleEraser": "Borracha (Ctrl E)",
+      "photo": "Imagens",
+      "text": "Texto",
+      "toggleFingerDrawing": "Desenhar com o dedo (Ctrl F)",
+      "undo": "Desfazer",
+      "redo": "Refazer",
+      "export": "Exportar (Ctrl Shift S)",
+      "exportAs": "Exportar como:",
+      "fullscreen": "Tela cheia (F11)"
+    },
+    "pens": {
+      "fountainPen": "Caneta tinteiro",
+      "ballpointPen": "Caneta esferográfica",
+      "highlighter": "Caneta marca-texto"
+    },
+    "penOptions": {
+      "size": "Tamanho",
+      "sizeDragHint": "Arraste para a esquerda ou para a direita para alterar o tamanho"
+    },
+    "imageOptions": {
+      "title": "Opções de imagem",
+      "invertible": "Invertível",
+      "download": "Download",
+      "setAsBackground": "Definir como plano de fundo",
+      "delete": "Excluir"
+    },
+    "menu": {
+      "clearPage": "Limpar a página",
+      "clearAllPages": "Limpar todas as páginas",
+      "lineHeight": "Altura da linha",
+      "lineHeightDescription": "O tamanho de cada linha",
+      "backgroundImage": "Imagem de fundo",
+      "backgroundPattern": "Padrão de fundo",
+      "removeBgImage": "Remover imagem de fundo",
+      "import": "Importar",
+      "boxFits": {
+        "fill": "Esticar",
+        "cover": "Cobrir",
+        "contain": "Conter"
+      },
+      "bgPatterns": {
+        "none": "Em branco",
+        "college": "Pautado universitário",
+        "lined": "Pautado",
+        "grid": "Grade",
+        "dots": "Pontos"
+      }
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Modo somente leitura",
+      "title": "Esta nota foi editada usando uma versão mais recente do Saber",
+      "subtitle": "A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?",
+      "allowEditing": "Permitir edição",
+      "cancel": "Cancelar"
+    },
+    "quill": {
+      "typeSomething": "Digite algo aqui..."
+    },
+    "hud": {
+      "unlockZoom": "Desbloquear o zoom",
+      "lockZoom": "Bloquear o zoom"
+    },
+    "pages": "Páginas"
+  },
+  "sPenWarning": {
+    "title": "Aviso de bug da S Pen",
+    "description": "Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas."
+  }
+}
