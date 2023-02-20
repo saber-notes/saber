@@ -1,4 +1,3 @@
-
 import 'dart:math' hide atan2;
 
 import 'package:flutter/material.dart';
@@ -38,8 +37,8 @@ class Stroke {
 
   bool _polygonNeedsUpdating = true;
 
-  List<Offset> _polygon = const [];
-  Path _path = Path();
+  late List<Offset> _polygon = const [];
+  late Path _path = Path();
   List<Offset> get polygon {
     if (_polygonNeedsUpdating) _updatePolygon();
     return _polygon;
