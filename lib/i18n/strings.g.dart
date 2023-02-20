@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 10
-/// Strings: 1389 (138 per locale)
+/// Locales: 11
+/// Strings: 1529 (139 per locale)
 ///
-/// Built on 2023-02-18 at 16:12 UTC
+/// Built on 2023-02-20 at 14:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -28,6 +28,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	es(languageCode: 'es', build: _StringsEs.build),
 	fa(languageCode: 'fa', build: _StringsFa.build),
 	it(languageCode: 'it', build: _StringsIt.build),
+	ptBr(languageCode: 'pt', countryCode: 'BR', build: _StringsPtBr.build),
 	ru(languageCode: 'ru', build: _StringsRu.build),
 	tr(languageCode: 'tr', build: _StringsTr.build),
 	zhHansCn(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN', build: _StringsZhHansCn.build),
@@ -3233,6 +3234,525 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Lined';
 	@override String get grid => 'Griglia';
 	@override String get dots => 'Punti';
+}
+
+// Path: <root>
+class _StringsPtBr extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsPtBr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.ptBr,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+
+	/// Metadata for the translations of <pt-BR>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	@override late final _StringsPtBr _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomePtBr home = _StringsHomePtBr._(_root);
+	@override late final _StringsSettingsPtBr settings = _StringsSettingsPtBr._(_root);
+	@override late final _StringsLoginPtBr login = _StringsLoginPtBr._(_root);
+	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
+	@override late final _StringsUpdatePtBr update = _StringsUpdatePtBr._(_root);
+	@override late final _StringsEditorPtBr editor = _StringsEditorPtBr._(_root);
+	@override late final _StringsSPenWarningPtBr sPenWarning = _StringsSPenWarningPtBr._(_root);
+}
+
+// Path: home
+class _StringsHomePtBr extends _StringsHomeEn {
+	_StringsHomePtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsPtBr tabs = _StringsHomeTabsPtBr._(_root);
+	@override late final _StringsHomeTitlesPtBr titles = _StringsHomeTitlesPtBr._(_root);
+	@override late final _StringsHomeTooltipsPtBr tooltips = _StringsHomeTooltipsPtBr._(_root);
+	@override String get backFolder => '(Retornar)';
+	@override String get welcome => 'Bem-vindo(a) ao Saber';
+	@override String get noFiles => 'Nenhum arquivo encontrado';
+	@override String get createNewNote => 'Toque no botão + para criar uma nova nota';
+}
+
+// Path: settings
+class _StringsSettingsPtBr extends _StringsSettingsEn {
+	_StringsSettingsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefCategoriesPtBr prefCategories = _StringsSettingsPrefCategoriesPtBr._(_root);
+	@override late final _StringsSettingsPrefLabelsPtBr prefLabels = _StringsSettingsPrefLabelsPtBr._(_root);
+	@override late final _StringsSettingsPrefDescriptionsPtBr prefDescriptions = _StringsSettingsPrefDescriptionsPtBr._(_root);
+	@override late final _StringsSettingsThemeModesPtBr themeModes = _StringsSettingsThemeModesPtBr._(_root);
+	@override late final _StringsSettingsAccentColorPickerPtBr accentColorPicker = _StringsSettingsAccentColorPickerPtBr._(_root);
+	@override late final _StringsSettingsStraightenDelayPtBr straightenDelay = _StringsSettingsStraightenDelayPtBr._(_root);
+	@override String get systemLanguage => 'Idioma do sistema';
+	@override List<String> get axisDirections => [
+		'Cima',
+		'Direita',
+		'Baixo',
+		'Esquerda',
+	];
+	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
+}
+
+// Path: login
+class _StringsLoginPtBr extends _StringsLoginEn {
+	_StringsLoginPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Login';
+	@override late final _StringsLoginFeedbacksPtBr feedbacks = _StringsLoginFeedbacksPtBr._(_root);
+	@override late final _StringsLoginFormPtBr form = _StringsLoginFormPtBr._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'Ainda não tem uma conta? '),
+		linkToSignup('Registre-se agora'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusPtBr status = _StringsLoginStatusPtBr._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin$faq$0i0$PtBr._(_root),
+		_StringsLogin$faq$0i1$PtBr._(_root),
+		_StringsLogin$faq$0i2$PtBr._(_root),
+	];
+	@override late final _StringsLoginInsecureStoragePtBr insecureStorage = _StringsLoginInsecureStoragePtBr._(_root);
+}
+
+// Path: appInfo
+class _StringsAppInfoPtBr extends _StringsAppInfoEn {
+	_StringsAppInfoPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa vem com absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.';
+	@override String get dirty => 'DIRTY';
+	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => 'Toque aqui para me patrocinar ou comprar mais armazenamento';
+	@override String get licenseButton => 'Toque aqui para ver mais informações de licença';
+	@override String get privacyPolicyButton => 'Toque aqui para ver a política de privacidade';
+}
+
+// Path: update
+class _StringsUpdatePtBr extends _StringsUpdateEn {
+	_StringsUpdatePtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Atualização disponível';
+	@override String get updateAvailableDescription => 'Uma nova versão do aplicativo está disponível.';
+	@override String get update => 'Atualizar';
+}
+
+// Path: editor
+class _StringsEditorPtBr extends _StringsEditorEn {
+	_StringsEditorPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarPtBr toolbar = _StringsEditorToolbarPtBr._(_root);
+	@override late final _StringsEditorPensPtBr pens = _StringsEditorPensPtBr._(_root);
+	@override late final _StringsEditorPenOptionsPtBr penOptions = _StringsEditorPenOptionsPtBr._(_root);
+	@override late final _StringsEditorImageOptionsPtBr imageOptions = _StringsEditorImageOptionsPtBr._(_root);
+	@override late final _StringsEditorMenuPtBr menu = _StringsEditorMenuPtBr._(_root);
+	@override late final _StringsEditorNewerFileFormatPtBr newerFileFormat = _StringsEditorNewerFileFormatPtBr._(_root);
+	@override late final _StringsEditorQuillPtBr quill = _StringsEditorQuillPtBr._(_root);
+	@override late final _StringsEditorHudPtBr hud = _StringsEditorHudPtBr._(_root);
+	@override String get pages => 'Páginas';
+}
+
+// Path: sPenWarning
+class _StringsSPenWarningPtBr extends _StringsSPenWarningEn {
+	_StringsSPenWarningPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Aviso de bug da S Pen';
+	@override String get description => 'Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas.';
+}
+
+// Path: home.tabs
+class _StringsHomeTabsPtBr extends _StringsHomeTabsEn {
+	_StringsHomeTabsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Início';
+	@override String get browse => 'Explorar';
+	@override String get whiteboard => 'Quadro branco';
+	@override String get settings => 'Configurações';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesPtBr extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Notas recentes';
+	@override String get browse => 'Todas as notas';
+	@override String get whiteboard => 'Quadro branco';
+	@override String get settings => 'Configurações';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsPtBr extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nova nota';
+	@override String get showUpdateDialog => 'Mostrar caixa de diálogo de atualização';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesPtBr extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Geral';
+	@override String get layout => 'Leiaute';
+	@override String get writing => 'Escrita';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get locale => 'Idioma do aplicativo';
+	@override String get appTheme => 'Tema do aplicativo';
+	@override String get platform => 'Tipo do tema';
+	@override String get customAccentColor => 'Cor de destaque personalizada';
+	@override String get hyperlegibleFont => 'Fonte hiperlegível';
+	@override String get shouldCheckForUpdates => 'Verifique automaticamente as atualizações do Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Me informe sobre as atualizações assim que elas estiverem disponíveis';
+	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
+	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
+	@override String get editorAutoInvert => 'Inverter as notas no modo escuro';
+	@override String get preferGreyscale => 'Preferir as cores em tons de cinza';
+	@override String get editorStraightenLines => 'Pressione e segure para endireitar uma linha';
+	@override String get maxImageSize => 'Tamanho máximo da imagem';
+	@override String get autoClearWhiteboardOnExit => 'Limpe o quadro branco depois de sair do aplicativo';
+	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
+	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão';
+	@override String get editorAutoInvert => 'Escurece as notas de forma inteligente no modo escuro';
+	@override String get preferGreyscale => 'Para telas e-ink';
+	@override String get autoClearWhiteboardOnExit => 'Ainda será sincronizado com seus outros dispositivos';
+	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
+	@override String get editorPromptRename => 'Você sempre pode renomear notas mais tarde';
+	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesPtBr extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Sistema';
+	@override String get light => 'Claro';
+	@override String get dark => 'Escuro';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerPtBr extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Escolha uma cor';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayPtBr extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Desligado';
+	@override String get regular => 'Regular';
+	@override String get slow => 'Lento';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetPtBr extends _StringsSettingsResetEn {
+	_StringsSettingsResetPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Redefinir esta configuração?';
+	@override String get button => 'Redefinir';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'Por favor, verifique seu nome de usuário ou e-mail.';
+	@override String get enterNcPassword => 'Por favor, digite sua senha do Nextcloud.';
+	@override String get enterEncPassword => 'Por favor, digite sua senha de criptografia.';
+	@override String get checkUrl => 'Por favor, insira uma URL válida.';
+	@override String get ncLoginFailed => 'Falha no login, por favor verifique seus dados e conexão de rede.';
+	@override String get encLoginFailed => 'Falha no login, por favor verifique sua senha de criptografia.';
+	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
+}
+
+// Path: login.form
+class _StringsLoginFormPtBr extends _StringsLoginFormEn {
+	_StringsLoginFormPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'Eu quero usar um servidor Nextcloud personalizado';
+	@override String get customServerUrl => 'URL do servidor personalizado';
+	@override String get username => 'Nome de usuário ou email';
+	@override String get ncPassword => 'Senha do Nextcloud';
+	@override String get encPassword => 'Senha de criptografia';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'Ao fazer login, você concorda com a '),
+		linkToPrivacyPolicy('Política de Privacidade'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'Login';
+}
+
+// Path: login.status
+class _StringsLoginStatusPtBr extends _StringsLoginStatusEn {
+	_StringsLoginStatusPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Logado com Nextcloud';
+	@override String get loggedOut => 'Desconectado';
+	@override String get tapToLogin => 'Toque para fazer login com o Nextcloud';
+}
+
+// Path: login.faq.0
+class _StringsLogin$faq$0i0$PtBr extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'O que é o Nextcloud?';
+	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para controle total de seus dados.';
+}
+
+// Path: login.faq.1
+class _StringsLogin$faq$0i1$PtBr extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'O que é uma senha de criptografia?';
+	@override String get a => 'A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenado no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados.';
+}
+
+// Path: login.faq.2
+class _StringsLogin$faq$0i2$PtBr extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Por que usar duas senhas?';
+	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" seus dados antes que eles cheguem à nuvem.\n\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, suas anotações permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger seus dados.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStoragePtBr extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStoragePtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Aviso de segurança';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar armazenamento não-seguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode '),
+		sponsorLink('tornar-se um patrocinador'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Login temporário';
+	@override String get useInsecureStorage => 'Usar armazenamento não-seguro';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarPtBr extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'Paleta de cores (Ctrl C)';
+	@override String get select => 'Selecionar';
+	@override String get toggleEraser => 'Borracha (Ctrl E)';
+	@override String get photo => 'Imagens';
+	@override String get text => 'Texto';
+	@override String get toggleFingerDrawing => 'Desenhar com o dedo (Ctrl F)';
+	@override String get undo => 'Desfazer';
+	@override String get redo => 'Refazer';
+	@override String get export => 'Exportar (Ctrl Shift S)';
+	@override String get exportAs => 'Exportar como:';
+	@override String get fullscreen => 'Tela cheia (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensPtBr extends _StringsEditorPensEn {
+	_StringsEditorPensPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Caneta tinteiro';
+	@override String get ballpointPen => 'Caneta esferográfica';
+	@override String get highlighter => 'Caneta marca-texto';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsPtBr extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Tamanho';
+	@override String get sizeDragHint => 'Arraste para a esquerda ou para a direita para alterar o tamanho';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsPtBr extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Opções de imagem';
+	@override String get invertible => 'Invertível';
+	@override String get download => 'Download';
+	@override String get setAsBackground => 'Definir como plano de fundo';
+	@override String get delete => 'Excluir';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
+	_StringsEditorMenuPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Limpar a página';
+	@override String get clearAllPages => 'Limpar todas as páginas';
+	@override String get lineHeight => 'Altura da linha';
+	@override String get lineHeightDescription => 'O tamanho de cada linha';
+	@override String get backgroundImage => 'Imagem de fundo';
+	@override String get backgroundPattern => 'Padrão de fundo';
+	@override String get removeBgImage => 'Remover imagem de fundo';
+	@override String get import => 'Importar';
+	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
+	@override late final _StringsEditorMenuBgPatternsPtBr bgPatterns = _StringsEditorMenuBgPatternsPtBr._(_root);
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatPtBr extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Modo somente leitura';
+	@override String get title => 'Esta nota foi editada usando uma versão mais recente do Saber';
+	@override String get subtitle => 'A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?';
+	@override String get allowEditing => 'Permitir edição';
+	@override String get cancel => 'Cancelar';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillPtBr extends _StringsEditorQuillEn {
+	_StringsEditorQuillPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Digite algo aqui...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudPtBr extends _StringsEditorHudEn {
+	_StringsEditorHudPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Desbloquear o zoom';
+	@override String get lockZoom => 'Bloquear o zoom';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsPtBr extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Esticar';
+	@override String get cover => 'Cobrir';
+	@override String get contain => 'Conter';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Em branco';
+	@override String get college => 'Pautado universitário';
+	@override String get lined => 'Pautado';
+	@override String get grid => 'Grade';
+	@override String get dots => 'Pontos';
 }
 
 // Path: <root>
