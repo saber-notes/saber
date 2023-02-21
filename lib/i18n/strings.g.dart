@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 11
-/// Strings: 1541 (140 per locale)
+/// Strings: 1548 (140 per locale)
 ///
-/// Built on 2023-02-21 at 22:04 UTC
+/// Built on 2023-02-21 at 22:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4342,6 +4342,12 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerTr accentColorPicker = _StringsSettingsAccentColorPickerTr._(_root);
 	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
 	@override String get systemLanguage => 'Sistem dili';
+	@override List<String> get axisDirections => [
+		'Üst',
+		'Sağ',
+		'Aşağı',
+		'Sol',
+	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 }
 
@@ -4488,6 +4494,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
 	@override String get shouldAlwaysAlertForUpdates => 'Bir güncelleme mevcut olduğunda uyar';
+	@override String get editorToolbarAlignment => 'Editör araç çubuğunun yerleşimi';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
 	@override String get preferGreyscale => 'Gri tonlamayı tercih et';
@@ -4766,6 +4773,8 @@ class _StringsEditorHudTr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Yakınlaştırma kilidini aç';
 	@override String get lockZoom => 'Yakınlaştırmayı kilitle';
+	@override String get unlockPan => 'Tek parmakla kaydırma kilidini aç';
+	@override String get lockPan => 'Tek parmakla kaydırmayı kilitle';
 }
 
 // Path: editor.menu.boxFits
