@@ -53,19 +53,19 @@
   "tr": {
     "settings": {
       "prefLabels": {
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "Editör araç çubuğunun yerleşimi"
       },
       "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
+        "Üst",
+        "Sağ",
+        "Aşağı",
+        "Sol"
       ]
     },
     "editor": {
       "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
+        "unlockPan": "Tek parmakla kaydırma kilidini aç",
+        "lockPan": "Tek parmakla kaydırmayı kilitle"
       }
     }
   },
