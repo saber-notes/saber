@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 11
-/// Strings: 1539 (139 per locale)
+/// Strings: 1541 (140 per locale)
 ///
-/// Built on 2023-02-21 at 14:31 UTC
+/// Built on 2023-02-21 at 22:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2691,6 +2691,8 @@ class _StringsEditorHudFa extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'قفل زوم را باز کنید';
 	@override String get lockZoom => 'قفل زوم';
+	@override String get unlockPan => 'تحرک تک انگشتی را فعال کنید';
+	@override String get lockPan => 'تحرک تک انگشتی را غیرفعال کنید';
 }
 
 // Path: editor.menu.boxFits
