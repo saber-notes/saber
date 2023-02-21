@@ -124,6 +124,14 @@ class _CanvasImageState extends State<CanvasImage> {
   }
 
   @override
+  void didUpdateWidget(covariant CanvasImage oldWidget) {
+    if (widget.readOnly && active) {
+      active = false;
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 

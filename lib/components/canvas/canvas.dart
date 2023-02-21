@@ -18,6 +18,7 @@ class Canvas extends StatelessWidget {
     required this.currentStroke,
     required this.currentSelection,
     required this.setAsBackground,
+    required this.currentToolIsSelect,
     this.placeholder = false,
   });
 
@@ -31,6 +32,8 @@ class Canvas extends StatelessWidget {
   final SelectResult? currentSelection;
 
   final void Function(EditorImage image)? setAsBackground;
+
+  final bool currentToolIsSelect;
 
   final bool placeholder;
 
@@ -62,6 +65,7 @@ class Canvas extends StatelessWidget {
                   currentStroke: currentStroke,
                   currentSelection: currentSelection,
                   setAsBackground: setAsBackground,
+                  currentToolIsSelect: currentToolIsSelect,
                 ),
               ),
             ),

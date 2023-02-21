@@ -41,6 +41,7 @@ class CanvasPreview extends StatelessWidget {
             currentStroke: null,
             currentSelection: null,
             hideBackground: Prefs.hideHomeBackgrounds.value,
+            currentToolIsSelect: false,
           ),
         ),
       ),

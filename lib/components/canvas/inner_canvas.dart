@@ -28,6 +28,7 @@ class InnerCanvas extends StatefulWidget {
     this.setAsBackground,
     this.onRenderObjectChange,
     this.hideBackground = false,
+    required this.currentToolIsSelect,
   });
 
   final int pageIndex;
@@ -44,6 +45,7 @@ class InnerCanvas extends StatefulWidget {
   final ValueChanged<RenderObject>? onRenderObjectChange;
 
   final bool hideBackground;
+  final bool currentToolIsSelect;
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
 
@@ -165,8 +167,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     filePath: widget.coreInfo.filePath,
                     image: editorImage,
                     pageSize: Size(widget.width, widget.height),
-                    readOnly: widget.coreInfo.readOnly,
                     setAsBackground: widget.setAsBackground,
+                    readOnly: widget.coreInfo.readOnly
+                        || !widget.currentToolIsSelect,
                   ),
               ],
             ),
