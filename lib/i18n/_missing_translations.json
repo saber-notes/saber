@@ -40,14 +40,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "editor": {
-      "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {},
   "ru": {},
   "tr": {},
