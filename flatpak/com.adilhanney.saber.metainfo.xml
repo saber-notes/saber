@@ -59,6 +59,20 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.4" type="development" date="2023-02-21">
+            <description>
+                <ul>
+                    <li>You can lock panning to 2-finger panning only to avoid accidents.</li>
+                    <li>There's now a minimum length for straightened lines to avoid accidental straightening of letters.</li>
+                    <li>Fixed a bug where images weren't thumbnailed on the home page.</li>
+                    <li>Zoom/pan locks are now remembered across app restarts.</li>
+                    <li>Your last-used tool will be reselected when you open a new note.</li>
+                    <li>Images can now only be moved with the select tool. This prevents you accidentally selecting an image when writing.</li>
+                    <li>Recoloured the 3 button navbar on some Android devices.</li>
+                    <li>Svg compatibility improvements.</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.3" type="development" date="2023-02-16">
             <description>
                 <ul>
