@@ -1,0 +1,215 @@
+{
+  "home": {
+    "tabs": {
+      "home": "Accueil",
+      "browse": "Parcourir",
+      "whiteboard": "Tableau blanc",
+      "settings": "Paramètres"
+    },
+    "titles": {
+      "home": "Notes récentes",
+      "browse": "Toutes les notes",
+      "whiteboard": "Tableau blanc",
+      "settings": "Paramètres"
+    },
+    "tooltips": {
+      "newNote": "Nouvelle note",
+      "showUpdateDialog": "Afficher le dialogue de mise à jour"
+    },
+    "backFolder": "(Retour)",
+    "welcome": "Bienvenue dans Saber",
+    "noFiles": "Aucun fichier trouvé",
+    "createNewNote": "Presser le bouton + pour créer une nouvelle note"
+  },
+  "settings": {
+    "prefCategories": {
+      "general": "Général",
+      "layout": "Disposition",
+      "writing": "Tracé"
+    },
+    "prefLabels": {
+      "locale": "Langue",
+      "appTheme": "Thème de l'application",
+      "platform": "Type de thème",
+      "customAccentColor": "Couleur d'accentuation personnalisée",
+      "hyperlegibleFont": "Fonte Hyperlegible",
+      "shouldCheckForUpdates": "Rechercher automatiquement les mises à jour",
+      "shouldAlwaysAlertForUpdates": "Me prévenir dès qu'une mise à jour est disponible",
+      "editorToolbarAlignment": "Position de la barre d'outils",
+      "editorToolbarShowInFullscreen": "Afficher la barre d'outils en mode plein écran",
+      "editorAutoInvert": "Inverser les couleurs en mode sombre",
+      "preferGreyscale": "Préférer les nuances de gris",
+      "editorStraightenLines": "Presser et maintenir le tracé pour obtenir une ligne droite",
+      "maxImageSize": "Taille d'image maximum",
+      "autoClearWhiteboardOnExit": "Effacer le tableau blanc quand vous fermez l'application",
+      "editorPromptRename": "Vous rappeler de renommer les notes",
+      "hideHomeBackgrounds": "Cacher le fond de la page d'accueil"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
+      "editorAutoInvert": "Assombrit les notes de façon intelligente en mode sombre",
+      "preferGreyscale": "Pour les couleurs de stylos proposées",
+      "autoClearWhiteboardOnExit": "Il restera synchronisé avec vos autres appareils",
+      "maxImageSize": "les images plus grandes seront compressées",
+      "editorPromptRename": "Vous pourrez toujours les renommer plus tard",
+      "hideHomeBackgrounds": "Pour une apparence plus sobre"
+    },
+    "themeModes": {
+      "system": "Système",
+      "light": "Clair",
+      "dark": "Foncé"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Choisir une couleur"
+    },
+    "straightenDelay": {
+      "off": "Desactivé",
+      "regular": "Normal",
+      "slow": "Lent"
+    },
+    "systemLanguage": "Langue système",
+    "axisDirections": [
+      "Haut",
+      "Droite",
+      "Bas",
+      "Gauche"
+    ],
+    "reset": {
+      "title": "Rétablir les valeurs par défaut ?",
+      "button": "Défaut"
+    }
+  },
+  "login": {
+    "title": "Connexion",
+    "feedbacks": {
+      "checkUsername": "Veuillez verifier votre nom d'utilisateur ou votre e-mail.",
+      "enterNcPassword": "Veuiller saisir votre mot de passe Nextcloud.",
+      "enterEncPassword": "Veuillez saisir votre mot de passe de cryptage.",
+      "checkUrl": "Veuillez saisir une URL valide.",
+      "ncLoginFailed": "La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.",
+      "encLoginFailed": "La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.",
+      "loginSuccess": "Connexion reussie ! Veuillez patienter pendant la configuration..."
+    },
+    "form": {
+      "useCustomServer": "Je veux utiliser un serveur Nextcloud personnalisé",
+      "customServerUrl": "URL du serveur personnalisé",
+      "username": "Nom d'utilisateur ou adresse mel",
+      "ncPassword": "Mot de passe Nextcloud",
+      "encPassword": "Mot de passe de cryptage",
+      "agreeToPrivacyPolicy(rich)": "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}.",
+      "login": "Se connecter"
+    },
+    "signup(rich)": "Pas encore de compte ? ${linkToSignup(Sign up now)} !",
+    "status": {
+      "loggedIn": "Connecté avec Nextcloud",
+      "loggedOut": "Déconnecté",
+      "tapToLogin": "Appuyer pour vous connecter avec Nextcloud"
+      
+    },
+    "faq": [
+      {
+        "q": "Qu'est-ce que Nextcloud ?",
+        "a": "Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données."
+      },
+      {
+        "q": "Qu'est-ce qu'un mot de passe de cryptage ?",
+        "a": "Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Il n'est pas stocké sur le serveur et n'est utilisé par Saber que pour chiffrer et déchiffrer vos données.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela signifie également que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données."      },
+      {
+        "q": "Pourquoi utiliser deux mots de passe ?",
+        "a": "Le mot de passe Nextcloud est utilisé pour accéder au cloud. Le mot de passe de cryptage \"brouille\" vos données avant même qu'elles n'atteignent le cloud.\n\nMême si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela vous fournit une deuxième couche de sécurité pour protéger vos données."      }
+    ],
+    "insecureStorage": {
+      "title": "Alerte de sécurité",
+      "description(rich)": "Le partage de trousseau (keychain) ne fonctionne pas sur macOS sans un compte développeur Apple payant. Si vous souhaitez vous connecter, vous devrez choisir entre :\n1. Utiliser un stockage non sécurisé pour enregistrer vos informations de connexion. Ce n'est pas recommandé, mais c'est votre choix.\n2. Vous connecter à chaque fois que vous utilisez l'application.\n\nSi vous souhaitez m'aider à rejoindre le programme pour développeurs Apple, vous pouvez ${sponsorLink(become a sponsor)}!",
+      "loginTemporarily": "Se connecter temporairemement",
+      "useInsecureStorage": "Utiliser un stockage non sécurisé"
+    }
+  },
+  "appInfo": {
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nCe programme est livré sans aucune garantie. Il s'agit d'un logiciel libre, et vous pouvez le diffuser sous certaines conditions.",
+    "dirty": "DIRTY",
+    "debug": "DEBUG",
+    "sponsorButton": "Appuyer ici pour me soutenir ou acheter ou acheter plus d'espace de stockage",
+    "licenseButton": "Appuyer ici pour plus d'information de licence",
+    "privacyPolicyButton": "Appuyez ici pour voir la politique de confidentialité"
+  },
+  "update": {
+    "updateAvailable": "Mise à jour disponible",
+    "updateAvailableDescription": "Une nouvelle version de l'application est disponible.",
+    "update": "Mettre à jour"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Afficher/cacher les couleurs (Ctrl C)",
+      "select": "Sélectionner",
+      "toggleEraser": "Activer/désactiver la gomme (Ctrl E)",
+      "photo": "Images",
+      "text": "Texte",
+      "toggleFingerDrawing": "Activer/désactiver le tracé (Ctrl F)",
+      "undo": "Annuler",
+      "redo": "Refaire",
+      "export": "Exporter (Ctrl Shift S)",
+      "exportAs": "Exporter comme :",
+      "fullscreen": "Basculer en plein ecran (F11)"
+    },
+    "pens": {
+      "fountainPen": "Stylo encre",
+      "ballpointPen": "Stylo bille",
+      "highlighter": "Surligneur"
+    },
+    "penOptions": {
+      "size": "Taille",
+      "sizeDragHint": "Glisser vers la gauche ou la droite pour changer la taille"
+    },
+    "imageOptions": {
+      "title": "Options d'image",
+      "invertible": "Couleurs inversibles",
+      "download": "Télécharger",
+      "setAsBackground": "Utiliser comme fond",
+      "delete": "Effacer"
+    },
+    "menu": {
+      "clearPage": "Effacer la page",
+      "clearAllPages": "Effacer toutes les pages",
+      "lineHeight": "Hauteur de ligne",
+      "lineHeightDescription": "La hauteur de chaque ligne",
+      "backgroundImage": "Image de fond",
+      "backgroundPattern": "Texture de fond",
+      "removeBgImage": "Effacer l'image de fond",
+      "import": "Importer",
+      "boxFits": {
+        "fill": "S'ajuste",
+        "cover": "Couvre",
+        "contain": "Contient"
+      },
+      "bgPatterns": {
+        "none": "Vide",
+        "college": "Lignes et marge",
+        "lined": "Lignes",
+        "grid": "Grille",
+        "dots": "Points"
+      }
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Mode lecture seule",
+      "title": "Cette note a été modifiée avec une version plus récente de Saber",
+      "subtitle": "Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?",
+      "allowEditing": "Autoriser les modifications",
+      "cancel": "Annuler"
+    },
+    "quill": {
+      "typeSomething": "Taper du texte ici..."
+    },
+    "hud": {
+      "unlockZoom": "Déverrouiller le zoom",
+      "lockZoom": "Vérrouiller le zoom",
+      "unlockPan": "Activer le panning à un seul doigt",
+      "lockPan": "Désactiver le panning à un seul doigt"
+    },
+    "pages": "Pages"
+  },
+  "sPenWarning": {
+    "title": "Alerte bug S Pen",
+    "description": "Si vous utilisez un S Pen, il peut arriver que l'application se bloque lorsque vous essayez d'effacer avec le bouton. Il s'agit d'un bug dans le \"framework Flutter\", et le correctif sera probablement publié d'ici un mois. En attendant, veuillez utiliser le bouton gomme dans la barre d'outils."
+  }
+}
