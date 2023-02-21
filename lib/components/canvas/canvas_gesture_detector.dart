@@ -2,11 +2,13 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide TransformationController;
 import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 class CanvasGestureDetector extends StatefulWidget {
@@ -59,10 +61,10 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
-  double? zoomLockedValue;
+  late double? zoomLockedValue = Prefs.lastZoomLock.value ? 1 : null;
   /// Whether single-finger panning is locked.
   /// Two-finger panning is always enabled.
-  bool panLock = false;
+  late bool panLock = Prefs.lastPanLock.value;
 
   @override
   void initState() {
@@ -166,10 +168,12 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
               zoomLockedValue = zoomLock
                   ? _transformationController.value.getMaxScaleOnAxis()
                   : null;
+              Prefs.lastZoomLock.value = zoomLock;
             }),
             panLock: panLock,
             setPanLock: (bool panLock) => setState(() {
               this.panLock = panLock;
+              Prefs.lastPanLock.value = panLock;
             }),
           ),
         ),
