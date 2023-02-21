@@ -83,13 +83,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
