@@ -371,12 +371,11 @@ packages:
   flutter_quill:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "70fb6017965bc687308d5ecd63a6a636fbb19833"
-      url: "https://github.com/adil192/flutter-quill.git"
-    source: git
-    version: "6.4.3"
+      name: flutter_quill
+      sha256: "7c7652fa32c8c1791d671acf58e72e571b9f4c43fc192ca11c245f9ab9a1a473"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.4.4"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -666,7 +665,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: e690ed2456ba508b5789a7a9f1a20b93aa221c17
+      resolved-ref: "658ad9f26b64102e2c00d4de36d4dc45428d2aa9"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1298,10 +1297,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: "39a7f37dfc187145adc46ab94d08e7ca1c9468a2f4600a744b22842c83761cc5"
+      sha256: "42501e49ee0acad9eeda562984e3dcfe6fe3d26f2d8dc410bd76308a86447eb5"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.3"
   xdg_directories:
     dependency: transitive
     description:

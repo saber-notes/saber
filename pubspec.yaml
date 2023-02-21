@@ -107,10 +107,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  # todo: use pub.dev when the new release (> 6.4.3) is available
-  flutter_quill:
-    git:
-      url: https://github.com/adil192/flutter-quill.git
+  flutter_quill: ^6.4.4
 
   tuple: ^2.0.1
 
