@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:from_css_color/from_css_color.dart';
@@ -143,10 +144,19 @@ class SvgEditorImage extends EditorImage {
   /// with their inverted color.
   static String _invertSvgString(String svgString) {
     String invertColorMatch(String colorString) {
-      if (colorString == 'none' || colorString == 'transparent') {
+      colorString = colorString.toLowerCase();
+      if (colorString == 'none' || colorString == 'transparent'
+          || colorString == 'currentcolor') {
         return colorString;
       } else {
-        return fromCssColor(colorString)
+        Color color;
+        try {
+          color = fromCssColor(colorString);
+        } on FormatException {
+          if (kDebugMode) rethrow;
+          return colorString;
+        }
+        return color
           .withInversion()
           .toCssString(format: CssColorString.hex);
       }
