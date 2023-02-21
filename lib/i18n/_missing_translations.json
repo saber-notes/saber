@@ -63,14 +63,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {
