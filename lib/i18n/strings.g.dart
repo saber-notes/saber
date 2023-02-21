@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 11
-/// Strings: 1535 (139 per locale)
+/// Strings: 1537 (139 per locale)
 ///
-/// Built on 2023-02-21 at 12:16 UTC
+/// Built on 2023-02-21 at 12:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5281,6 +5281,8 @@ class _StringsEditorHudZhHansCn extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => '解锁缩放';
 	@override String get lockZoom => '锁定缩放';
+	@override String get unlockPan => '启用单指平移';
+	@override String get lockPan => '禁用单指平移';
 }
 
 // Path: editor.menu.boxFits

@@ -83,13 +83,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "hud": {
-        "unlockPan": "启用单指平移",
-        "lockPan": "禁用单指平移"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
