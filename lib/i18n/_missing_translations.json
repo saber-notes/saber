@@ -40,14 +40,7 @@
     }
   },
   "fa": {},
-  "it": {
-    "editor": {
-      "hud": {
-        "unlockPan": "Attiva la panoramica con un solo dito",
-        "lockPan": "Disabilita la panoramica con un solo dito"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {},
   "ru": {},
   "tr": {},
