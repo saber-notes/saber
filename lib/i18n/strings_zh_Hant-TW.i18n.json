@@ -203,7 +203,9 @@
     },
     "hud": {
       "unlockZoom": "解鎖縮放",
-      "lockZoom": "鎖定縮放"
+      "lockZoom": "鎖定縮放",
+      "unlockPan": "啟用單指平移",
+      "lockPan": "禁用單指平移"
     },
     "pages": "頁面"
   },
