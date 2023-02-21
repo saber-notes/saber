@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 11
-/// Strings: 1531 (139 per locale)
+/// Strings: 1535 (139 per locale)
 ///
-/// Built on 2023-02-21 at 06:49 UTC
+/// Built on 2023-02-21 at 12:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4248,6 +4248,8 @@ class _StringsEditorHudRu extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Разблок. увеличение';
 	@override String get lockZoom => 'Блок. увеличения';
+	@override String get unlockPan => 'Разрешить панораму одним пальцем';
+	@override String get lockPan => 'Запретить панораму одним пальцем';
 }
 
 // Path: editor.menu.boxFits
@@ -5798,6 +5800,8 @@ class _StringsEditorHudZhHantTw extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => '解鎖縮放';
 	@override String get lockZoom => '鎖定縮放';
+	@override String get unlockPan => '啟用單指平移';
+	@override String get lockPan => '禁用單指平移';
 }
 
 // Path: editor.menu.boxFits
