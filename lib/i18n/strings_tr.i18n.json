@@ -35,6 +35,7 @@
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
       "shouldAlwaysAlertForUpdates": "Bir güncelleme mevcut olduğunda uyar",
+      "editorToolbarAlignment": "Editör araç çubuğunun yerleşimi",
       "editorToolbarShowInFullscreen": "Editör araç kutusunu tam ekranda göster",
       "editorAutoInvert": "Karanlık temada notların rengini tersine çevir",
       "preferGreyscale": "Gri tonlamayı tercih et",
@@ -67,6 +68,12 @@
       "slow": "Yavaş"
     },
     "systemLanguage": "Sistem dili",
+    "axisDirections": [
+      "Üst",
+      "Sağ",
+      "Aşağı",
+      "Sol"
+    ],
     "reset": {
       "title": "Ayarı sıfırlamak istiyor musunuz?",
       "button": "Sıfırla"
@@ -196,7 +203,9 @@
     },
     "hud": {
       "unlockZoom": "Yakınlaştırma kilidini aç",
-      "lockZoom": "Yakınlaştırmayı kilitle"
+      "lockZoom": "Yakınlaştırmayı kilitle",
+      "unlockPan": "Tek parmakla kaydırma kilidini aç",
+      "lockPan": "Tek parmakla kaydırmayı kilitle"
     },
     "pages": "Sayfalar"
   },

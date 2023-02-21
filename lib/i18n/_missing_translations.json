@@ -50,25 +50,6 @@
   },
   "pt-BR": {},
   "ru": {},
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "editorToolbarAlignment": "Editör araç çubuğunun yerleşimi"
-      },
-      "axisDirections": [
-        "Üst",
-        "Sağ",
-        "Aşağı",
-        "Sol"
-      ]
-    },
-    "editor": {
-      "hud": {
-        "unlockPan": "Tek parmakla kaydırma kilidini aç",
-        "lockPan": "Tek parmakla kaydırmayı kilitle"
-      }
-    }
-  },
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
