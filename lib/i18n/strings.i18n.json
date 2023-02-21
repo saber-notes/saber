@@ -203,7 +203,9 @@
     },
     "hud": {
       "unlockZoom": "Unlock zoom",
-      "lockZoom": "Lock zoom"
+      "lockZoom": "Lock zoom",
+      "unlockPan": "Enable single-finger panning",
+      "lockPan": "Disable single-finger panning"
     },
     "pages": "Pages"
   },

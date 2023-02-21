@@ -1,21 +1,26 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide TransformationController;
+import 'package:saber/components/canvas/hud/canvas_gesture_lock_btn.dart';
 import 'package:saber/components/canvas/hud/canvas_zoom_indicator.dart';
-import 'package:saber/components/canvas/hud/canvas_zoom_lock.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class CanvasHud extends StatefulWidget {
   const CanvasHud({
     super.key,
     required this.transformationController,
     required this.zoomLock,
-    required this.onZoomLockChanged,
+    required this.setZoomLock,
+    required this.panLock,
+    required this.setPanLock,
   });
 
   final TransformationController transformationController;
   final bool zoomLock;
-  final ValueChanged<bool> onZoomLockChanged;
+  final ValueChanged<bool> setZoomLock;
+  final bool panLock;
+  final ValueChanged<bool> setPanLock;
 
   @override
   State<CanvasHud> createState() => _CanvasHudState();
@@ -52,9 +57,21 @@ class _CanvasHudState extends State<CanvasHud> {
           Positioned(
             top: 5,
             left: 5,
-            child: CanvasZoomLock(
-              zoomLock: widget.zoomLock,
-              onZoomLockChanged: widget.onZoomLockChanged,
+            child: CanvasGestureLockBtn(
+              lock: widget.zoomLock,
+              setLock: widget.setZoomLock,
+              icon: widget.zoomLock ? Icons.lock : Icons.lock_open,
+              tooltip: widget.zoomLock ? t.editor.hud.unlockZoom : t.editor.hud.lockZoom,
+            ),
+          ),
+          Positioned(
+            top: 45,
+            left: 5,
+            child: CanvasGestureLockBtn(
+              lock: widget.panLock,
+              setLock: widget.setPanLock,
+              icon: widget.panLock ? Icons.pinch : Icons.swipe_down,
+              tooltip: widget.panLock ? t.editor.hud.unlockPan : t.editor.hud.lockPan,
             ),
           ),
           Positioned(

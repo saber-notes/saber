@@ -3,8 +3,22 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
-  "de": {},
+  "cs": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
+  "de": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
   "es": {
     "settings": {
       "prefLabels": {
@@ -17,12 +31,46 @@
         "Bottom",
         "Left"
       ]
+    },
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
     }
   },
-  "fa": {},
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
+  "fa": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
+  "it": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
+  "pt-BR": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
   "tr": {
     "settings": {
       "prefLabels": {
@@ -34,8 +82,28 @@
         "Bottom",
         "Left"
       ]
+    },
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "hud": {
+        "unlockPan": "Enable single-finger panning",
+        "lockPan": "Disable single-finger panning"
+      }
+    }
+  }
 }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 11
-/// Strings: 1529 (139 per locale)
+/// Strings: 1531 (139 per locale)
 ///
-/// Built on 2023-02-20 at 14:45 UTC
+/// Built on 2023-02-21 at 06:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -622,6 +622,8 @@ class _StringsEditorHudEn {
 	// Translations
 	String get unlockZoom => 'Unlock zoom';
 	String get lockZoom => 'Lock zoom';
+	String get unlockPan => 'Enable single-finger panning';
+	String get lockPan => 'Disable single-finger panning';
 }
 
 // Path: editor.menu.boxFits

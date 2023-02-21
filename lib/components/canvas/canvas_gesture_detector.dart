@@ -59,6 +59,9 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   bool zoomLock = false;
   double? zoomLockedValue;
+  /// Whether single-finger panning is locked.
+  /// Two-finger panning is always enabled.
+  bool panLock = false;
 
   @override
   void initState() {
@@ -130,6 +133,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                 return InteractiveCanvasViewer.builder(
                   minScale: zoomLockedValue ?? 0.01,
                   maxScale: zoomLockedValue ?? 5,
+                  panEnabled: !panLock,
 
                   transformationController: _transformationController,
 
@@ -157,11 +161,15 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           child: CanvasHud(
             transformationController: _transformationController,
             zoomLock: zoomLock,
-            onZoomLockChanged: (bool zoomLock) => setState(() {
+            setZoomLock: (bool zoomLock) => setState(() {
               this.zoomLock = zoomLock;
               zoomLockedValue = zoomLock
                   ? _transformationController.value.getMaxScaleOnAxis()
                   : null;
+            }),
+            panLock: panLock,
+            setPanLock: (bool panLock) => setState(() {
+              this.panLock = panLock;
             }),
           ),
         ),
