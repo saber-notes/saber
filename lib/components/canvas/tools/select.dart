@@ -13,6 +13,9 @@ class Select extends Tool {
   SelectResult selectResult = SelectResult(-1, const [], Path());
   bool doneSelecting = false;
 
+  @override
+  ToolId get toolId => ToolId.select;
+
   void unselect() {
     doneSelecting = false;
     selectResult.pageIndex = -1;

@@ -18,6 +18,9 @@ class Eraser extends Tool {
     this.size = 10
   });
 
+  @override
+  ToolId get toolId => ToolId.eraser;
+
   /// Returns the indices of any [strokes] that are close to the given [eraserPos].
   List<int> checkForOverlappingStrokes(Offset eraserPos, List<Stroke> strokes) {
     final List<int> indices = [];

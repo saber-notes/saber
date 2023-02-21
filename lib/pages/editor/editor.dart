@@ -67,7 +67,33 @@ class EditorState extends State<Editor> {
 
   late bool needsNaming = widget.needsNaming && Prefs.editorPromptRename.value;
 
-  Tool currentTool = Pen.currentPen;
+  late Tool _currentTool = () {
+    switch (Prefs.lastTool.value) {
+      case ToolId.fountainPen:
+        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+          Pen.currentPen = Pen.fountainPen();
+        }
+        return Pen.currentPen;
+      case ToolId.ballpointPen:
+        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+          Pen.currentPen = Pen.ballpointPen();
+        }
+        return Pen.currentPen;
+      case ToolId.highlighter:
+        return Highlighter.currentHighlighter;
+      case ToolId.eraser:
+        return Eraser();
+      case ToolId.select:
+        return Select.currentSelect;
+      case ToolId.textEditing:
+        return Tool.textEditing;
+    }
+  }();
+  Tool get currentTool => _currentTool;
+  set currentTool(Tool tool) {
+    _currentTool = tool;
+    Prefs.lastTool.value = tool.toolId;
+  }
 
   /// Whether the note has changed since it was last saved
   bool _hasEdited = false;

@@ -18,6 +18,7 @@ class Pen extends Tool {
     required this.sizeMax,
     required this.sizeStep,
     required this.icon,
+    required this.toolId,
   });
 
   Pen.fountainPen() :
@@ -26,7 +27,8 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = fountainPenIcon,
-        strokeProperties = Prefs.lastFountainPenProperties.value;
+        strokeProperties = Prefs.lastFountainPenProperties.value,
+        toolId = ToolId.fountainPen;
 
   Pen.ballpointPen() :
         name = t.editor.pens.ballpointPen,
@@ -34,11 +36,16 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = ballpointPenIcon,
-        strokeProperties = Prefs.lastBallpointPenProperties.value;
+        strokeProperties = Prefs.lastBallpointPenProperties.value,
+        toolId = ToolId.ballpointPen;
 
   final String name;
   final double sizeMin, sizeMax, sizeStep;
   final IconData icon;
+
+  @override
+  final ToolId toolId;
+
   static const IconData fountainPenIcon = FontAwesomeIcons.penFancy;
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
 

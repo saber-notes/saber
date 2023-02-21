@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:nextcloud/nextcloud.dart' show NextcloudProvisioningApiUserDetails_Quota;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -69,6 +70,7 @@ abstract class Prefs {
   static late final PlainPref<List<String>> recentColorsChronological;
   static late final PlainPref<List<String>> recentColorsPositioned;
 
+  static late final PlainPref<ToolId> lastTool;
   static late final PlainPref<StrokeProperties>
       lastFountainPenProperties,
       lastBallpointPenProperties,
@@ -129,6 +131,7 @@ abstract class Prefs {
     recentColorsChronological = PlainPref('recentColorsChronological', []);
     recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: ['recentColors']);
 
+    lastTool = PlainPref('lastTool', ToolId.fountainPen);
     lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: ['lastPenColor']);
     lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
     lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: ['lastHighlighterColor']);
@@ -259,6 +262,7 @@ class PlainPref<T> extends IPref<T> {
         || T == typeOf<Queue<String>>()
         || T == StrokeProperties || T == typeOf<Quota?>()
         || T == AxisDirection || T == ThemeMode || T == TargetPlatform
+        || T == ToolId
     );
   }
 
@@ -324,6 +328,8 @@ class PlainPref<T> extends IPref<T> {
         return await _prefs!.setInt(key, (value as ThemeMode).index);
       } else if (T == TargetPlatform) {
         return await _prefs!.setInt(key, (value as TargetPlatform).index);
+      } else if (T == ToolId) {
+        return await _prefs!.setString(key, (value as ToolId).id);
       } else {
         return await _prefs!.setString(key, value as String);
       }
@@ -369,6 +375,12 @@ class PlainPref<T> extends IPref<T> {
         if (index == null) return null;
         if (index == -1) return defaultTargetPlatform as T?;
         return TargetPlatform.values[index] as T?;
+      } else if (T == ToolId) {
+        String id = _prefs!.getString(key)!;
+        return ToolId.values
+            .cast<ToolId?>()
+            .firstWhere((toolId) => toolId?.id == id, orElse: () => null)
+            as T?;
       } else {
         return _prefs!.get(key) as T?;
       }
