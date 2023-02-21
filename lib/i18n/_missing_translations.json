@@ -101,8 +101,8 @@
   "zh-Hant-TW": {
     "editor": {
       "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
+        "unlockPan": "啟用單指平移",
+        "lockPan": "禁用單指平移"
       }
     }
   }
