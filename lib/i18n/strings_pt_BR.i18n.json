@@ -204,7 +204,7 @@
     "hud": {
       "unlockZoom": "Desbloquear o zoom",
       "lockZoom": "Bloquear o zoom",
-       "unlockPan": "Ativar rolagem com um dedo",
+      "unlockPan": "Ativar rolagem com um dedo",
       "lockPan": "Desativar rolagem com um dedo"
     },
     "pages": "Páginas"

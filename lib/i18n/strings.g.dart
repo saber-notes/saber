@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 11
-/// Strings: 1537 (139 per locale)
+/// Strings: 1539 (139 per locale)
 ///
-/// Built on 2023-02-21 at 12:18 UTC
+/// Built on 2023-02-21 at 14:31 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3338,7 +3338,7 @@ class _StringsAppInfoPtBr extends _StringsAppInfoEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa vem com absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toque aqui para me patrocinar ou comprar mais armazenamento';
@@ -3453,7 +3453,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
 	@override String get editorAutoInvert => 'Inverter as notas no modo escuro';
-	@override String get preferGreyscale => 'Preferir as cores em tons de cinza';
+	@override String get preferGreyscale => 'Preferir as cores em escala de cinza';
 	@override String get editorStraightenLines => 'Pressione e segure para endireitar uma linha';
 	@override String get maxImageSize => 'Tamanho máximo da imagem';
 	@override String get autoClearWhiteboardOnExit => 'Limpe o quadro branco depois de sair do aplicativo';
@@ -3473,7 +3473,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get preferGreyscale => 'Para telas e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Ainda será sincronizado com seus outros dispositivos';
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
-	@override String get editorPromptRename => 'Você sempre pode renomear notas mais tarde';
+	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 }
 
@@ -3529,12 +3529,12 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Por favor, verifique seu nome de usuário ou e-mail.';
-	@override String get enterNcPassword => 'Por favor, digite sua senha do Nextcloud.';
-	@override String get enterEncPassword => 'Por favor, digite sua senha de criptografia.';
+	@override String get checkUsername => 'Por favor, verifique o seu nome de usuário ou e-mail.';
+	@override String get enterNcPassword => 'Por favor, digite a sua senha do Nextcloud.';
+	@override String get enterEncPassword => 'Por favor, digite a sua senha de criptografia.';
 	@override String get checkUrl => 'Por favor, insira uma URL válida.';
-	@override String get ncLoginFailed => 'Falha no login, por favor verifique seus dados e conexão de rede.';
-	@override String get encLoginFailed => 'Falha no login, por favor verifique sua senha de criptografia.';
+	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
+	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
 }
 
@@ -3547,7 +3547,7 @@ class _StringsLoginFormPtBr extends _StringsLoginFormEn {
 	// Translations
 	@override String get useCustomServer => 'Eu quero usar um servidor Nextcloud personalizado';
 	@override String get customServerUrl => 'URL do servidor personalizado';
-	@override String get username => 'Nome de usuário ou email';
+	@override String get username => 'Nome de usuário ou e-mail';
 	@override String get ncPassword => 'Senha do Nextcloud';
 	@override String get encPassword => 'Senha de criptografia';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
@@ -3565,7 +3565,7 @@ class _StringsLoginStatusPtBr extends _StringsLoginStatusEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Logado com Nextcloud';
+	@override String get loggedIn => 'Logado com o Nextcloud';
 	@override String get loggedOut => 'Desconectado';
 	@override String get tapToLogin => 'Toque para fazer login com o Nextcloud';
 }
@@ -3578,7 +3578,7 @@ class _StringsLogin$faq$0i0$PtBr extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'O que é o Nextcloud?';
-	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para controle total de seus dados.';
+	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para o controle total dos seus dados.';
 }
 
 // Path: login.faq.1
@@ -3589,7 +3589,7 @@ class _StringsLogin$faq$0i1$PtBr extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'O que é uma senha de criptografia?';
-	@override String get a => 'A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenado no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados.';
+	@override String get a => 'A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenada no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados.';
 }
 
 // Path: login.faq.2
@@ -3612,12 +3612,12 @@ class _StringsLoginInsecureStoragePtBr extends _StringsLoginInsecureStorageEn {
 	// Translations
 	@override String get title => 'Aviso de segurança';
 	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar armazenamento não-seguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode '),
+		const TextSpan(text: 'O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar o armazenamento inseguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode '),
 		sponsorLink('tornar-se um patrocinador'),
 		const TextSpan(text: '!'),
 	]);
 	@override String get loginTemporarily => 'Login temporário';
-	@override String get useInsecureStorage => 'Usar armazenamento não-seguro';
+	@override String get useInsecureStorage => 'Usar o armazenamento inseguro';
 }
 
 // Path: editor.toolbar
@@ -3649,7 +3649,7 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	// Translations
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
-	@override String get highlighter => 'Caneta marca-texto';
+	@override String get highlighter => 'Marcador';
 }
 
 // Path: editor.penOptions
@@ -3729,6 +3729,8 @@ class _StringsEditorHudPtBr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Desbloquear o zoom';
 	@override String get lockZoom => 'Bloquear o zoom';
+	@override String get unlockPan => 'Ativar rolagem com um dedo';
+	@override String get lockPan => 'Desativar rolagem com um dedo';
 }
 
 // Path: editor.menu.boxFits
@@ -3751,7 +3753,7 @@ class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
 
 	// Translations
 	@override String get none => 'Em branco';
-	@override String get college => 'Pautado universitário';
+	@override String get college => 'Pautado com margem';
 	@override String get lined => 'Pautado';
 	@override String get grid => 'Grade';
 	@override String get dots => 'Pontos';

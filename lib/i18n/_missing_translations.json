@@ -55,14 +55,7 @@
       }
     }
   },
-  "pt-BR": {
-    "editor": {
-      "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {},
   "tr": {
     "settings": {
