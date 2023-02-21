@@ -733,6 +733,8 @@ class EditorState extends State<Editor> {
   }
 
   void setAndroidNavBarColor() async {
+    if (coreInfo.filePath.isEmpty) return; // not loaded yet
+
     final theme = Theme.of(context);
 
     // whiteboard on mobile should keep home screen navbar color
