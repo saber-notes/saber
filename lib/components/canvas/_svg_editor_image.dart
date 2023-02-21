@@ -136,6 +136,11 @@ class SvgEditorImage extends EditorImage {
       svgString,
       fit: boxFit,
       key: Key('Image$id-$keySuffix'),
+      theme: SvgTheme(
+        currentColor: imageBrightness == Brightness.light
+            ? Colors.black
+            : Colors.white,
+      ),
     );
   }
 
