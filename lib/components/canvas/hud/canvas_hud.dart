@@ -38,7 +38,7 @@ class _CanvasHudState extends State<CanvasHud> {
 
   void _onTransformationChanged() {
     _hideTimer?.cancel();
-    _hideTimer = Timer(const Duration(milliseconds: 2000), () {
+    _hideTimer = Timer(const Duration(seconds: 5), () {
       setState(() => opacity = 0);
     });
 
