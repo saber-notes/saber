@@ -77,6 +77,7 @@ abstract class EditorExporter {
             coreInfo: coreInfo,
             currentStroke: null,
             currentSelection: null,
+            currentToolIsSelect: false,
           ),
         ),
       ),

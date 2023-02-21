@@ -842,6 +842,7 @@ class EditorState extends State<Editor> {
             autosaveAfterDelay();
             setState(() {});
           },
+          currentToolIsSelect: currentTool is Select,
         );
       },
       placeholderPageBuilder: (BuildContext context, int pageIndex) {
@@ -855,6 +856,7 @@ class EditorState extends State<Editor> {
           currentSelection: null,
           placeholder: true,
           setAsBackground: null,
+          currentToolIsSelect: currentTool is Select,
         );
       },
     );
