@@ -38,7 +38,7 @@
       "editorToolbarAlignment": "Alinhamento da barra de ferramentas do editor",
       "editorToolbarShowInFullscreen": "Mostrar a barra de ferramentas do editor no modo de tela cheia",
       "editorAutoInvert": "Inverter as notas no modo escuro",
-      "preferGreyscale": "Preferir as cores em tons de cinza",
+      "preferGreyscale": "Preferir as cores em escala de cinza",
       "editorStraightenLines": "Pressione e segure para endireitar uma linha",
       "maxImageSize": "Tamanho máximo da imagem",
       "autoClearWhiteboardOnExit": "Limpe o quadro branco depois de sair do aplicativo",
@@ -51,7 +51,7 @@
       "preferGreyscale": "Para telas e-ink",
       "autoClearWhiteboardOnExit": "Ainda será sincronizado com seus outros dispositivos",
       "maxImageSize": "Imagens maiores que isso serão compactadas",
-      "editorPromptRename": "Você sempre pode renomear notas mais tarde",
+      "editorPromptRename": "Você pode sempre renomear as notas mais tarde",
       "hideHomeBackgrounds": "Para uma aparência mais limpa"
     },
     "themeModes": {
@@ -82,18 +82,18 @@
   "login": {
     "title": "Login",
     "feedbacks": {
-      "checkUsername": "Por favor, verifique seu nome de usuário ou e-mail.",
-      "enterNcPassword": "Por favor, digite sua senha do Nextcloud.",
-      "enterEncPassword": "Por favor, digite sua senha de criptografia.",
+      "checkUsername": "Por favor, verifique o seu nome de usuário ou e-mail.",
+      "enterNcPassword": "Por favor, digite a sua senha do Nextcloud.",
+      "enterEncPassword": "Por favor, digite a sua senha de criptografia.",
       "checkUrl": "Por favor, insira uma URL válida.",
-      "ncLoginFailed": "Falha no login, por favor verifique seus dados e conexão de rede.",
-      "encLoginFailed": "Falha no login, por favor verifique sua senha de criptografia.",
+      "ncLoginFailed": "Falha no login, por favor verifique os seus dados e a conexão de rede.",
+      "encLoginFailed": "Falha no login, por favor verifique a sua senha de criptografia.",
       "loginSuccess": "Login bem-sucedido! Aguarde enquanto configuramos..."
     },
     "form": {
       "useCustomServer": "Eu quero usar um servidor Nextcloud personalizado",
       "customServerUrl": "URL do servidor personalizado",
-      "username": "Nome de usuário ou email",
+      "username": "Nome de usuário ou e-mail",
       "ncPassword": "Senha do Nextcloud",
       "encPassword": "Senha de criptografia",
       "agreeToPrivacyPolicy(rich)": "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}.",
@@ -101,18 +101,18 @@
     },
     "signup(rich)": "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!",
     "status": {
-      "loggedIn": "Logado com Nextcloud",
+      "loggedIn": "Logado com o Nextcloud",
       "loggedOut": "Desconectado",
       "tapToLogin": "Toque para fazer login com o Nextcloud"
     },
     "faq": [
       {
         "q": "O que é o Nextcloud?",
-        "a": "O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para controle total de seus dados."
+        "a": "O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para o controle total dos seus dados."
       },
       {
         "q": "O que é uma senha de criptografia?",
-        "a": "A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenado no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados."
+        "a": "A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenada no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados."
       },
       {
         "q": "Por que usar duas senhas?",
@@ -121,13 +121,13 @@
     ],
     "insecureStorage": {
       "title": "Aviso de segurança",
-      "description(rich)": "O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar armazenamento não-seguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode ${sponsorLink(tornar-se um patrocinador)}!",
+      "description(rich)": "O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar o armazenamento inseguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode ${sponsorLink(tornar-se um patrocinador)}!",
       "loginTemporarily": "Login temporário",
-      "useInsecureStorage": "Usar armazenamento não-seguro"
+      "useInsecureStorage": "Usar o armazenamento inseguro"
     }
   },
   "appInfo": {
-    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa vem com absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.",
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.",
     "dirty": "DIRTY",
     "debug": "DEBUG",
     "sponsorButton": "Toque aqui para me patrocinar ou comprar mais armazenamento",
@@ -156,7 +156,7 @@
     "pens": {
       "fountainPen": "Caneta tinteiro",
       "ballpointPen": "Caneta esferográfica",
-      "highlighter": "Caneta marca-texto"
+      "highlighter": "Marcador"
     },
     "penOptions": {
       "size": "Tamanho",
@@ -185,7 +185,7 @@
       },
       "bgPatterns": {
         "none": "Em branco",
-        "college": "Pautado universitário",
+        "college": "Pautado com margem",
         "lined": "Pautado",
         "grid": "Grade",
         "dots": "Pontos"
@@ -203,7 +203,9 @@
     },
     "hud": {
       "unlockZoom": "Desbloquear o zoom",
-      "lockZoom": "Bloquear o zoom"
+      "lockZoom": "Bloquear o zoom",
+      "unlockPan": "Ativar rolagem com um dedo",
+      "lockPan": "Desativar rolagem com um dedo"
     },
     "pages": "Páginas"
   },
