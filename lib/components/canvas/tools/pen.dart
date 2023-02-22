@@ -82,6 +82,8 @@ class Pen extends Tool {
   void onDragUpdate(Size pageSize, Offset position, double? pressure, VoidCallback? redrawPage) {
     currentStroke!.addPoint(pageSize, position, pressure);
 
+    if (currentStroke!.isStraightLine) return;
+
     /// The distance between the first point and the current point.
     double sqrLength = (position - firstPosition).distanceSquared;
     /// The minimum distance between the first point and the current point
