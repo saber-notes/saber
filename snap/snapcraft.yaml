@@ -1,36 +1,64 @@
-name: saber
-version: 0.9.4
-summary: Handwritten notes
-description: A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and macOS!
-
-confinement: strict
-base: core18
-grade: devel
+name: saber # you probably want to 'snapcraft register <name>'
+base: core18 # the base snap is the execution environment for this snap
+version: '0.9.4' # just for humans, typically '1.2+git' or '1.3.2'
+summary: A cross-platform libre handwritten notes app # 79 char long summary
+description: |
+  A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and the web!
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+license: GPL-3.0+
+compression: lzo
+architectures:
+  - build-on: amd64
 
 slots:
-  dbus-saber:
+  saber-svc:
     interface: dbus
     bus: session
     name: com.adilhanney.saber
-
-apps:
-  saber:
-    command: saber
-    extensions: [flutter-stable]
-    plugs:
-      - network
-    slots:
-      - dbus-saber
-
 parts:
-  saber:
+  desktop:
     source: .
+    plugin: dump
+    after:
+      - saber
+  saber:
+    # See 'snapcraft plugins'
     plugin: flutter
-    flutter-target: lib/main_snap.dart
+    source: https://github.com/adil192/saber.git
+    source-tag: v${SNAPCRAFT_PROJECT_VERSION}
+    flutter-target: lib/main.dart
     build-packages:
       - libsecret-1-dev
       - libjsoncpp-dev
+      - zenity
     stage-packages:
-      - libsecret-1-dev
-      - libjsoncpp1-dev
-
+      - libjsoncpp1
+      - libsecret-1-0
+      - zenity
+  cleanup:
+    after:  # Make this part run last; list all your other parts here
+      - saber
+      - desktop
+    plugin: nil
+    build-snaps:  # List all content-snaps and base snaps you're using here
+      - core18
+      - gnome-3-28
+    override-prime: |
+      set -eux
+      for snap in "core18" "gnome-3-28"; do  # List all content-snaps and base snaps you're using here
+        cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
+      done
+apps:
+  saber:
+    command: bin/saber
+    extensions: [flutter-stable]
+    common-id: com.adilhanney.saber
+    desktop: snap/local/saber.desktop
+    environment:
+      HOME: $SNAP_REAL_HOME
+    plugs:
+      - home
+      - network
+    slots:
+      - saber-svc
