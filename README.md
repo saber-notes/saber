@@ -164,6 +164,7 @@ All translations are crowd-sourced. Saber has so far been translated into:
 - German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/strings_de.i18n.json))
 - Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/strings_es.i18n.json))
 - Persian ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/strings_fa.i18n.json))
+- French ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/strings_fr.i18n.json))
 - Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/strings_it.i18n.json))
 - Brazilian Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/strings_pt_BR.i18n.json))
 - Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/strings_ru.i18n.json))
