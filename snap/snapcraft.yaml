@@ -17,9 +17,29 @@ slots:
     bus: session
     name: com.adilhanney.saber
 parts:
+    flutter-git:
+    source: https://github.com/flutter/flutter.git
+    source-tag: 3.7.0
+    plugin: nil
+    override-build: |
+      set -eux
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      mkdir -p $CRAFT_PART_INSTALL/usr/libexec
+      cp -r $CRAFT_PART_SRC $CRAFT_PART_INSTALL/usr/libexec/flutter
+      ln -sf $CRAFT_PART_INSTALL/usr/libexec/flutter/bin/flutter $CRAFT_PART_INSTALL/usr/bin/flutter
+      export PATH="$CRAFT_PART_INSTALL/usr/bin:$PATH"
+      flutter doctor
+    build-packages:
+      - clang
+      - cmake
+      - curl
+      - ninja-build
+      - unzip
+    override-prime: ''
   saber:
     # See 'snapcraft plugins'
-    plugin: flutter
+    after: [flutter-git]
+    plugin:  nil
     source: .
     source-tag: v${SNAPCRAFT_PROJECT_VERSION}
     flutter-target: lib/main.dart
@@ -31,9 +51,16 @@ parts:
       - libjsoncpp25
       - libsecret-1-0
       - zenity
+    override-build: |
+      set -eux
+      flutter pub get || true
+      flutter build linux --release -v    
+      mkdir -p $CRAFT_PART_INSTALL/bin
+      cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
   cleanup:
     after:  # Make this part run last; list all your other parts here
       - saber
+      - flutter-git
     plugin: nil
     build-snaps:  # List all content-snaps and base snaps you're using here
       - core22
