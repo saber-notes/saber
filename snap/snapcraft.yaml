@@ -67,7 +67,7 @@ parts:
       - gnome-42-2204-sdk
     override-prime: |
       set -eux
-      for snap in "core18" "gnome-3-28-1804"; do  # List all content-snaps and base snaps you're using here
+      for snap in "core22" "gnome-42-2204" "gnome-42-2204-sdk"; do  # List all content-snaps and base snaps you're using here
         cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
 apps:
