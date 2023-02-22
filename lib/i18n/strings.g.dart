@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1694 (141 per locale)
+/// Strings: 1695 (141 per locale)
 ///
-/// Built on 2023-02-22 at 04:13 UTC
+/// Built on 2023-02-22 at 12:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5986,6 +5986,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorQuillZhHantTw quill = _StringsEditorQuillZhHantTw._(_root);
 	@override late final _StringsEditorHudZhHantTw hud = _StringsEditorHudZhHantTw._(_root);
 	@override String get pages => '頁面';
+	@override String get untitled => '無標題';
 }
 
 // Path: sPenWarning
