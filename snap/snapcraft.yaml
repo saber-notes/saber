@@ -54,7 +54,7 @@ apps:
     command: bin/saber
     extensions: [flutter-stable]
     common-id: com.adilhanney.saber
-    desktop: snap/local/saber.desktop
+    desktop: meta/gui/saber.desktop
     environment:
       HOME: $SNAP_REAL_HOME
     plugs:
