@@ -75,7 +75,7 @@ apps:
     command: bin/saber
     extensions: [gnome]
     common-id: com.adilhanney.saber
-    desktop: $SNAP/meta/gui/saber.desktop
+    desktop: meta/gui/saber.desktop
     environment:
       HOME: $SNAP_REAL_HOME
     plugs:
