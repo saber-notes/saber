@@ -207,7 +207,8 @@
       "unlockPan": "启用单指平移",
       "lockPan": "禁用单指平移"
     },
-    "pages": "页面"
+    "pages": "页面",
+    "untitled": "未命名"
   },
   "sPenWarning": {
     "title": "S Pen 错误警告",
