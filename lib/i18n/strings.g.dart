@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1696 (141 per locale)
+/// Strings: 1697 (141 per locale)
 ///
-/// Built on 2023-02-22 at 12:42 UTC
+/// Built on 2023-02-22 at 12:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4423,6 +4423,7 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorQuillRu quill = _StringsEditorQuillRu._(_root);
 	@override late final _StringsEditorHudRu hud = _StringsEditorHudRu._(_root);
 	@override String get pages => 'Листы';
+	@override String get untitled => 'Без названия';
 }
 
 // Path: sPenWarning
