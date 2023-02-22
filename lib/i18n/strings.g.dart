@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1695 (141 per locale)
+/// Strings: 1696 (141 per locale)
 ///
-/// Built on 2023-02-22 at 12:40 UTC
+/// Built on 2023-02-22 at 12:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2338,6 +2338,7 @@ class _StringsEditorFa extends _StringsEditorEn {
 	@override late final _StringsEditorQuillFa quill = _StringsEditorQuillFa._(_root);
 	@override late final _StringsEditorHudFa hud = _StringsEditorHudFa._(_root);
 	@override String get pages => 'صفحات';
+	@override String get untitled => 'بدون عنوان';
 }
 
 // Path: sPenWarning
