@@ -17,15 +17,10 @@ slots:
     bus: session
     name: com.adilhanney.saber
 parts:
-  desktop:
-    source: .
-    plugin: dump
-    after:
-      - saber
   saber:
     # See 'snapcraft plugins'
     plugin: flutter
-    source: https://github.com/adil192/saber.git
+    source: .
     source-tag: v${SNAPCRAFT_PROJECT_VERSION}
     flutter-target: lib/main.dart
     build-packages:
@@ -39,13 +34,13 @@ parts:
   cleanup:
     after:  # Make this part run last; list all your other parts here
       - saber
-      - desktop
     plugin: nil
     build-snaps:  # List all content-snaps and base snaps you're using here
       - core18
+      - gnome-3-28-1804
     override-prime: |
       set -eux
-      for snap in "core18"; do  # List all content-snaps and base snaps you're using here
+      for snap in "core18" "gnome-3-28-1804"; do  # List all content-snaps and base snaps you're using here
         cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
 apps:
