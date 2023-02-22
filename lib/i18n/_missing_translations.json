@@ -8,7 +8,8 @@
       "hud": {
         "unlockPan": "Enable single-finger panning",
         "lockPan": "Disable single-finger panning"
-      }
+      },
+      "untitled": "Untitled"
     }
   },
   "de": {
@@ -16,7 +17,8 @@
       "hud": {
         "unlockPan": "Enable single-finger panning",
         "lockPan": "Disable single-finger panning"
-      }
+      },
+      "untitled": "Untitled"
     }
   },
   "es": {
@@ -36,15 +38,48 @@
       "hud": {
         "unlockPan": "Enable single-finger panning",
         "lockPan": "Disable single-finger panning"
-      }
+      },
+      "untitled": "Untitled"
     }
   },
-  "fa": {},
-  "fr": {},
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "fa": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "fr": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "it": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "pt-BR": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "ru": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "tr": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "zh-Hans-CN": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "untitled": "Untitled"
+    }
+  }
 }

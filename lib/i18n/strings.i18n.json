@@ -207,7 +207,8 @@
       "unlockPan": "Enable single-finger panning",
       "lockPan": "Disable single-finger panning"
     },
-    "pages": "Pages"
+    "pages": "Pages",
+    "untitled": "Untitled"
   },
   "sPenWarning": {
     "title": "S Pen bug warning",
