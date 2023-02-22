@@ -43,10 +43,9 @@ parts:
     plugin: nil
     build-snaps:  # List all content-snaps and base snaps you're using here
       - core18
-      - gnome-3-28
     override-prime: |
       set -eux
-      for snap in "core18" "gnome-3-28"; do  # List all content-snaps and base snaps you're using here
+      for snap in "core18"; do  # List all content-snaps and base snaps you're using here
         cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
 apps:
