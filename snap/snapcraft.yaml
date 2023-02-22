@@ -17,7 +17,7 @@ slots:
     bus: session
     name: com.adilhanney.saber
 parts:
-    flutter-git:
+  flutter-git:
     source: https://github.com/flutter/flutter.git
     source-tag: 3.7.0
     plugin: nil
