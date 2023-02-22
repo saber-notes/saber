@@ -55,7 +55,6 @@ parts:
       set -eux
       flutter pub get || true
       flutter build linux --release -v
-      craftctl set version="$(jq -r '.version' build/flutter_assets/version.json)"
       mkdir -p $CRAFT_PART_INSTALL/bin
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
   cleanup:
