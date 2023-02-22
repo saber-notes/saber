@@ -51,7 +51,6 @@ parts:
       - libsecret-1-0
       - zenity
     override-build: |
-      craftctl default
       set -eux
       flutter pub get || true
       flutter build linux --release -v
