@@ -42,7 +42,6 @@ parts:
     plugin:  nil
     source: .
     source-tag: v${SNAPCRAFT_PROJECT_VERSION}
-    flutter-target: lib/main.dart
     build-packages:
       - libsecret-1-dev
       - libjsoncpp-dev
