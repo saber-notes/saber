@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
@@ -10,6 +11,11 @@ import 'package:saber/components/canvas/color_extensions.dart';
 class SvgEditorImage extends EditorImage {
   String svgString;
   String? invertedSvgString;
+
+  @override
+  Uint8List get bytes => Uint8List.fromList(utf8.encode(svgString));
+  @override
+  set bytes(Uint8List bytes) {}
 
   SvgEditorImage({
     required super.id,
