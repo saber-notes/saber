@@ -10,6 +10,7 @@ license: GPL-3.0
 compression: lzo
 architectures:
   - build-on: amd64
+    build-for: amd64
 
 plugs:
   saber-svc:
