@@ -4,6 +4,14 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    },
     "editor": {
       "hud": {
         "unlockPan": "Enable single-finger panning",
@@ -13,6 +21,14 @@
     }
   },
   "de": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    },
     "editor": {
       "hud": {
         "unlockPan": "Enable single-finger panning",
@@ -25,7 +41,11 @@
     "settings": {
       "prefLabels": {
         "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
-        "editorToolbarAlignment": "Alignment of the editor toolbar"
+        "editorToolbarAlignment": "Alignment of the editor toolbar",
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
       },
       "axisDirections": [
         "Top",
@@ -42,20 +62,90 @@
       "untitled": "Untitled"
     }
   },
-  "fa": {},
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    }
+  },
   "fr": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    },
     "editor": {
       "untitled": "Untitled"
     }
   },
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    }
+  },
+  "pt-BR": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    }
+  },
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    }
+  },
   "tr": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    },
     "editor": {
       "untitled": "Untitled"
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "editorOpaqueBackgrounds": "Opaque backgrounds"
+      },
+      "prefDescriptions": {
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+      }
+    }
+  }
 }

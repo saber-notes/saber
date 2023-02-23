@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Alignment of the editor toolbar",
       "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
       "editorAutoInvert": "Invert notes in dark mode",
+      "editorOpaqueBackgrounds": "Opaque backgrounds",
       "preferGreyscale": "Prefer greyscale colors",
       "editorStraightenLines": "Press and hold to straighten a line",
       "maxImageSize": "Maximum image size",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
       "editorAutoInvert": "Smartly darkens notes in dark mode",
+      "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs",
       "preferGreyscale": "For e-ink displays",
       "autoClearWhiteboardOnExit": "It will still be synced to your other devices",
       "maxImageSize": "Images larger than this will be compressed",

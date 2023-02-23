@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -151,97 +152,102 @@ class _CanvasImageState extends State<CanvasImage> {
 
     Widget unpositioned = IgnorePointer(
       ignoring: widget.readOnly,
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          MouseRegion(
-            cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                active = !active;
-              },
-              onLongPress: active ? showModal : null,
-              onSecondaryTap: active ? showModal : null,
-              onPanStart: active ? (details) {
-                panStartRect = widget.image.dstRect;
-              } : null,
-              onPanUpdate: active ? (details) {
-                setState(() {
-                  double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
-                  widget.image.dstRect = Rect.fromLTWH(
-                    (widget.image.dstRect.left + details.delta.dx).clamp(
-                      fivePercent - widget.image.dstRect.width,
-                      widget.pageSize.width - fivePercent,
-                    ).toDouble(),
-                    (widget.image.dstRect.top + details.delta.dy).clamp(
-                      fivePercent - widget.image.dstRect.height,
-                      widget.pageSize.height - fivePercent,
-                    ).toDouble(),
-                    widget.image.dstRect.width,
-                    widget.image.dstRect.height,
-                  );
-                });
-              } : null,
-              onPanEnd: active ? (details) {
-                if (panStartRect == widget.image.dstRect) return;
-                widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
-                  widget.image.dstRect.left - panStartRect.left,
-                  widget.image.dstRect.top - panStartRect.top,
-                  widget.image.dstRect.right - panStartRect.right,
-                  widget.image.dstRect.bottom - panStartRect.bottom,
-                ));
-                panStartRect = Rect.zero;
-              } : null,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: active ? colorScheme.onBackground : Colors.transparent,
-                    width: 2,
+      child: ColoredBox(
+        color: Prefs.editorOpaqueBackgrounds.value && widget.isBackground
+            ? Colors.white.withInversion(imageBrightness == Brightness.dark)
+            : Colors.transparent,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            MouseRegion(
+              cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {
+                  active = !active;
+                },
+                onLongPress: active ? showModal : null,
+                onSecondaryTap: active ? showModal : null,
+                onPanStart: active ? (details) {
+                  panStartRect = widget.image.dstRect;
+                } : null,
+                onPanUpdate: active ? (details) {
+                  setState(() {
+                    double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
+                    widget.image.dstRect = Rect.fromLTWH(
+                      (widget.image.dstRect.left + details.delta.dx).clamp(
+                        fivePercent - widget.image.dstRect.width,
+                        widget.pageSize.width - fivePercent,
+                      ).toDouble(),
+                      (widget.image.dstRect.top + details.delta.dy).clamp(
+                        fivePercent - widget.image.dstRect.height,
+                        widget.pageSize.height - fivePercent,
+                      ).toDouble(),
+                      widget.image.dstRect.width,
+                      widget.image.dstRect.height,
+                    );
+                  });
+                } : null,
+                onPanEnd: active ? (details) {
+                  if (panStartRect == widget.image.dstRect) return;
+                  widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
+                    widget.image.dstRect.left - panStartRect.left,
+                    widget.image.dstRect.top - panStartRect.top,
+                    widget.image.dstRect.right - panStartRect.right,
+                    widget.image.dstRect.bottom - panStartRect.bottom,
+                  ));
+                  panStartRect = Rect.zero;
+                } : null,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: active ? colorScheme.onBackground : Colors.transparent,
+                      width: 2,
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: SizedBox(
-                    width: widget.isBackground
-                      ? widget.pageSize.width
-                      : max(widget.image.dstRect.width, CanvasImage.minImageSize),
-                    height: widget.isBackground
-                      ? widget.pageSize.height
-                      : max(widget.image.dstRect.height, CanvasImage.minImageSize),
-                    child: SizedOverflowBox(
-                      size: widget.image.srcRect.size,
-                      child: Transform.translate(
-                        offset: -widget.image.srcRect.topLeft,
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 500),
-                          switchInCurve: Curves.fastLinearToSlowEaseIn,
-                          switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
-                          child: widget.image.buildImageWidget(
-                            imageBrightness: imageBrightness,
-                            overrideBoxFit: widget.overrideBoxFit,
-                            isBackground: widget.isBackground,
-                          ),
-                          layoutBuilder: (currentChild, previousChildren) {
-                            return SizedBox(
-                              width: widget.image.naturalSize.width,
-                              height: widget.image.naturalSize.height,
-                              child: Stack(
-                                fit: StackFit.expand,
-                                children: [
-                                  ...previousChildren,
-                                  if (currentChild != null)
-                                    currentChild
-                                  else
-                                    const ColoredBox(
-                                      color: Colors.grey,
-                                      child: Center(
-                                        child: Icon(Icons.image, color: Colors.white),
+                  child: Center(
+                    child: SizedBox(
+                      width: widget.isBackground
+                        ? widget.pageSize.width
+                        : max(widget.image.dstRect.width, CanvasImage.minImageSize),
+                      height: widget.isBackground
+                        ? widget.pageSize.height
+                        : max(widget.image.dstRect.height, CanvasImage.minImageSize),
+                      child: SizedOverflowBox(
+                        size: widget.image.srcRect.size,
+                        child: Transform.translate(
+                          offset: -widget.image.srcRect.topLeft,
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 500),
+                            switchInCurve: Curves.fastLinearToSlowEaseIn,
+                            switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
+                            child: widget.image.buildImageWidget(
+                              imageBrightness: imageBrightness,
+                              overrideBoxFit: widget.overrideBoxFit,
+                              isBackground: widget.isBackground,
+                            ),
+                            layoutBuilder: (currentChild, previousChildren) {
+                              return SizedBox(
+                                width: widget.image.naturalSize.width,
+                                height: widget.image.naturalSize.height,
+                                child: Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    ...previousChildren,
+                                    if (currentChild != null)
+                                      currentChild
+                                    else
+                                      const ColoredBox(
+                                        color: Colors.grey,
+                                        child: Center(
+                                          child: Icon(Icons.image, color: Colors.white),
+                                        ),
                                       ),
-                                    ),
-                                ],
-                              ),
-                            );
-                          },
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -249,19 +255,19 @@ class _CanvasImageState extends State<CanvasImage> {
                 ),
               ),
             ),
-          ),
-          if (!widget.readOnly)
-            for (double x = -20; x <= 20; x += 20)
-              for (double y = -20; y <= 20; y += 20)
-                if (x != 0 || y != 0) // ignore (0,0)
-                  _CanvasImageResizeHandle(
-                    active: active,
-                    position: Offset(x, y),
-                    image: widget.image,
-                    parent: this,
-                    afterDrag: () => setState(() {}),
-                  ),
-        ],
+            if (!widget.readOnly)
+              for (double x = -20; x <= 20; x += 20)
+                for (double y = -20; y <= 20; y += 20)
+                  if (x != 0 || y != 0) // ignore (0,0)
+                    _CanvasImageResizeHandle(
+                      active: active,
+                      position: Offset(x, y),
+                      image: widget.image,
+                      parent: this,
+                      afterDrag: () => setState(() {}),
+                    ),
+          ],
+        ),
       ),
     );
 

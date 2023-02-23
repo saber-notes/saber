@@ -57,6 +57,7 @@ abstract class Prefs {
   static late final PlainPref<bool> editorToolbarShowInFullscreen;
   static late final PlainPref<bool> editorFingerDrawing;
   static late final PlainPref<bool> editorAutoInvert;
+  static late final PlainPref<bool> editorOpaqueBackgrounds;
   static late final PlainPref<bool> preferGreyscale;
   static late final PlainPref<int> editorStraightenDelay;
   static late final PlainPref<bool> editorPromptRename;
@@ -118,6 +119,7 @@ abstract class Prefs {
     editorToolbarShowInFullscreen = PlainPref('editorToolbarShowInFullscreen', true);
     editorFingerDrawing = PlainPref('editorFingerDrawing', true);
     editorAutoInvert = PlainPref('editorAutoInvert', true, historicalKeys: ['editorAutoDarken']);
+    editorOpaqueBackgrounds = PlainPref('editorOpaqueBackgrounds', true);
     preferGreyscale = PlainPref('preferGreyscale', false);
     editorStraightenDelay = PlainPref('editorStraightenDelay', 500);
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);

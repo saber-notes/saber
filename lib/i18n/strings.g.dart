@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1699 (141 per locale)
+/// Strings: 1701 (141 per locale)
 ///
-/// Built on 2023-02-23 at 00:16 UTC
+/// Built on 2023-02-23 at 10:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -348,6 +348,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorToolbarAlignment => 'Alignment of the editor toolbar';
 	String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';
+	String get editorOpaqueBackgrounds => 'Opaque backgrounds';
 	String get preferGreyscale => 'Prefer greyscale colors';
 	String get editorStraightenLines => 'Press and hold to straighten a line';
 	String get maxImageSize => 'Maximum image size';
@@ -365,6 +366,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	// Translations
 	String get hyperlegibleFont => 'Atkinson Hyperlegible increases legibility for readers with low vision';
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
+	String get editorOpaqueBackgrounds => 'Remove transparency from background images and PDFs';
 	String get preferGreyscale => 'For e-ink displays';
 	String get autoClearWhiteboardOnExit => 'It will still be synced to your other devices';
 	String get maxImageSize => 'Images larger than this will be compressed';
