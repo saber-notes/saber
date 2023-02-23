@@ -58,14 +58,22 @@ Options:
 
 #### Linux
 
-Option 1 (recommended):
-Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
+**Installing as a flatpak is recommended**
 
-Option 2:
+<p>
+<a href='https://flathub.org/apps/details/com.adilhanney.saber'><img width='150' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+</p>
+<p>
+  
+<a href="https://snapcraft.io/saber">
+  <img width='150' alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+</a>
+
+</p>
+
 Download `Saber_{version}.flatpak` from the latest [Release][releases]
 and install with `flatpak --user install Saber_*.flatpak`
-
-Option 3:
+   
 Download `Saber-{version}-x86_64.AppImage` from the latest [Release][releases],
 make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 
