@@ -11,7 +11,12 @@ compression: lzo
 architectures:
   - build-on: amd64
 
-slots:
+plugs:
+  saber-svc:
+    bus: session
+    interface: dbus
+    name: com.adilhanney.saber
+parts:
   saber:
     # See 'snapcraft plugins'
     plugin:  flutter
@@ -49,5 +54,4 @@ apps:
     plugs:
       - home
       - network
-    slots:
       - saber-svc
