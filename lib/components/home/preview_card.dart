@@ -121,9 +121,15 @@ class _PreviewCardState extends State<PreviewCard> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CanvasPreview(
-                    height: height,
-                    coreInfo: coreInfo,
+                  AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 3000),
+                    switchInCurve: Curves.fastLinearToSlowEaseIn,
+                    switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
+                    child: CanvasPreview(
+                      key: ValueKey(coreInfo),
+                      height: height,
+                      coreInfo: coreInfo,
+                    ),
                   ),
         
                   Padding(
