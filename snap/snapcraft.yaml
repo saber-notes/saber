@@ -33,7 +33,6 @@ parts:
   cleanup:
     after:  # Make this part run last; list all your other parts here
       - saber
-      - flutter-git
     plugin: nil
     build-snaps:  # List all content-snaps and base snaps you're using here
       - core18
