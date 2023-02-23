@@ -207,7 +207,8 @@
       "unlockPan": "Attiva la panoramica con un solo dito",
       "lockPan": "Disabilita la panoramica con un solo dito"
     },
-    "pages": "Pagine"
+    "pages": "Pagine",
+    "untitled": "Senza titolo"
   },
   "sPenWarning": {
     "title": "Avviso di bug S Pen",
