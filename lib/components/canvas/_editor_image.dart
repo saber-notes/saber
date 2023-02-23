@@ -229,7 +229,7 @@ class EditorImage {
       invertedThumbnailBytes = await Executor().execute(
         fun2: invertImageIsolate,
         arg1: thumbnailBytes ?? bytes,
-        arg2: extension,
+        arg2: thumbnailBytes != null ? '.png' : extension, // thumbnail is always png
       );
     }
     if (isThumbnail) {
