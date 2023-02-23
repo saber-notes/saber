@@ -45,7 +45,7 @@ parts:
 apps:
   saber:
     command: bin/saber
-    extensions: [gnome]
+    extensions: [flutter-stable]
     common-id: com.adilhanney.saber
     desktop: meta/gui/saber.desktop
     environment:
