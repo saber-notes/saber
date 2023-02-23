@@ -33,7 +33,7 @@
       "platform": "Tipo do tema",
       "customAccentColor": "Cor de destaque personalizada",
       "hyperlegibleFont": "Fonte hiperlegível",
-      "shouldCheckForUpdates": "Verifique automaticamente as atualizações do Saber",
+      "shouldCheckForUpdates": "Verificar automaticamente as atualizações do Saber",
       "shouldAlwaysAlertForUpdates": "Me informe sobre as atualizações assim que elas estiverem disponíveis",
       "editorToolbarAlignment": "Alinhamento da barra de ferramentas do editor",
       "editorToolbarShowInFullscreen": "Mostrar a barra de ferramentas do editor no modo de tela cheia",
@@ -41,13 +41,13 @@
       "preferGreyscale": "Preferir as cores em escala de cinza",
       "editorStraightenLines": "Pressione e segure para endireitar uma linha",
       "maxImageSize": "Tamanho máximo da imagem",
-      "autoClearWhiteboardOnExit": "Limpe o quadro branco depois de sair do aplicativo",
+      "autoClearWhiteboardOnExit": "Limpar o quadro branco depois de sair do aplicativo",
       "editorPromptRename": "Solicitar que você renomeie novas notas",
       "hideHomeBackgrounds": "Ocultar planos de fundo na tela inicial"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão",
-      "editorAutoInvert": "Escurece as notas de forma inteligente no modo escuro",
+      "editorAutoInvert": "Escurecer as notas de forma inteligente no modo escuro",
       "preferGreyscale": "Para telas e-ink",
       "autoClearWhiteboardOnExit": "Ainda será sincronizado com seus outros dispositivos",
       "maxImageSize": "Imagens maiores que isso serão compactadas",
@@ -64,14 +64,14 @@
     },
     "straightenDelay": {
       "off": "Desligado",
-      "regular": "Regular",
+      "regular": "Normal",
       "slow": "Lento"
     },
     "systemLanguage": "Idioma do sistema",
     "axisDirections": [
-      "Cima",
+      "Em cima",
       "Direita",
-      "Baixo",
+      "Embaixo",
       "Esquerda"
     ],
     "reset": {
@@ -82,10 +82,10 @@
   "login": {
     "title": "Login",
     "feedbacks": {
-      "checkUsername": "Por favor, verifique o seu nome de usuário ou e-mail.",
-      "enterNcPassword": "Por favor, digite a sua senha do Nextcloud.",
-      "enterEncPassword": "Por favor, digite a sua senha de criptografia.",
-      "checkUrl": "Por favor, insira uma URL válida.",
+      "checkUsername": "Por favor verifique o seu nome de usuário ou e-mail.",
+      "enterNcPassword": "Por favor digite a sua senha do Nextcloud.",
+      "enterEncPassword": "Por favor digite a sua senha de criptografia.",
+      "checkUrl": "Por favor insira uma URL válida.",
       "ncLoginFailed": "Falha no login, por favor verifique os seus dados e a conexão de rede.",
       "encLoginFailed": "Falha no login, por favor verifique a sua senha de criptografia.",
       "loginSuccess": "Login bem-sucedido! Aguarde enquanto configuramos..."
@@ -202,8 +202,8 @@
       "typeSomething": "Digite algo aqui..."
     },
     "hud": {
-      "unlockZoom": "Desbloquear o zoom",
-      "lockZoom": "Bloquear o zoom",
+      "unlockZoom": "Desbloquear zoom",
+      "lockZoom": "Bloquear zoom",
       "unlockPan": "Ativar rolagem com um dedo",
       "lockPan": "Desativar rolagem com um dedo"
     },
@@ -212,6 +212,6 @@
   },
   "sPenWarning": {
     "title": "Aviso de bug da S Pen",
-    "description": "Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas."
+    "description": "Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão da S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas."
   }
 }

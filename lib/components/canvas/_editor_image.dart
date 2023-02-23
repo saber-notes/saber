@@ -175,12 +175,21 @@ class EditorImage {
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
-        Uint8List? resized = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: reducedSize);
+        Uint8List? resized = await Executor().execute(
+          fun3: resizeImageIsolate,
+          arg1: bytes,
+          arg2: reducedSize,
+          arg3: extension,
+        );
         if (resized != null) bytes = resized;
 
         naturalSize = reducedSize;
       } else if (!isThumbnail) { // otherwise make sure orientation is baked in
-        Uint8List? rotated = await Executor().execute(fun1: _bakeOrientationIsolate, arg1: bytes);
+        Uint8List? rotated = await Executor().execute(
+          fun2: _bakeOrientationIsolate,
+          arg1: bytes,
+          arg2: extension,
+        );
         if (rotated != null) bytes = rotated;
       }
 
@@ -202,7 +211,12 @@ class EditorImage {
       // if [naturalSize] is big enough to warrant a thumbnail
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
         await null; // wait for next event-loop iteration
-        thumbnailBytes = await Executor().execute(fun2: resizeImageIsolate, arg1: bytes, arg2: thumbnailSize);
+        thumbnailBytes = await Executor().execute(
+          fun3: resizeImageIsolate,
+          arg1: bytes,
+          arg2: thumbnailSize,
+          arg3: extension,
+        );
       } else { // no need to resize
         thumbnailBytes = null; // will fall back to full-size image
       }
@@ -212,7 +226,11 @@ class EditorImage {
     }
 
     if (invertible && (invertedThumbnailBytes?.isEmpty ?? true) && !isThumbnail) {
-      invertedThumbnailBytes = await Executor().execute(fun1: invertImageIsolate, arg1: thumbnailBytes ?? bytes);
+      invertedThumbnailBytes = await Executor().execute(
+        fun2: invertImageIsolate,
+        arg1: thumbnailBytes ?? bytes,
+        arg2: extension,
+      );
     }
     if (isThumbnail) {
       isThumbnail = true;
@@ -275,8 +293,8 @@ class EditorImage {
   /// Resizes the image to [newSize].
   /// Also bakes the image orientation into the image data.
   @visibleForTesting
-  static Uint8List? resizeImageIsolate(Uint8List bytes, Size newSize, TypeSendPort port) {
-    image.Image? decoded = image.decodeImage(bytes);
+  static Uint8List? resizeImageIsolate(Uint8List bytes, Size newSize, String? extension, TypeSendPort port) {
+    image.Image? decoded = _decodeImage(bytes, extension);
     if (decoded == null) return null;
 
     decoded = image.copyResize(decoded, width: newSize.width.toInt(), height: newSize.height.toInt());
@@ -287,8 +305,8 @@ class EditorImage {
 
   /// Bakes the image orientation into the image data.
   /// This is only necessary if [_resizeImageIsolate] is not called.
-  static Uint8List? _bakeOrientationIsolate(Uint8List bytes, TypeSendPort port) {
-    image.Image? decoded = image.decodeImage(bytes);
+  static Uint8List? _bakeOrientationIsolate(Uint8List bytes, String? extension, TypeSendPort port) {
+    image.Image? decoded = _decodeImage(bytes, extension);
     if (decoded == null) return null;
 
     decoded = image.bakeOrientation(decoded);
@@ -297,8 +315,8 @@ class EditorImage {
   }
 
   /// Inverts each pixel of the image
-  static Uint8List? invertImageIsolate(Uint8List originalImageBytes, TypeSendPort port) {
-    image.Image? decoded = image.decodeImage(originalImageBytes);
+  static Uint8List? invertImageIsolate(Uint8List originalImageBytes, String? extension, TypeSendPort port) {
+    image.Image? decoded = _decodeImage(originalImageBytes, extension);
     if (decoded == null) return null;
 
     for (image.Pixel pixel in decoded) {
@@ -315,5 +333,21 @@ class EditorImage {
     }
 
     return image.encodePng(decoded);
+  }
+
+  /// Decodes the image from [bytes].
+  ///
+  /// This is faster than [image.decodeImage] since the image format is known.
+  ///
+  /// If [extension] is null, or parsing fails,
+  /// we just fall back to [image.decodeImage].
+  /// This is because we can't be sure that the extension is correct.
+  static image.Image? _decodeImage(Uint8List bytes, String? extension) {
+    if (extension != null) {
+      final decoded = image.decodeNamedImage('image$extension', bytes);
+      if (decoded != null) return decoded;
+    }
+
+    return image.decodeImage(bytes);
   }
 }

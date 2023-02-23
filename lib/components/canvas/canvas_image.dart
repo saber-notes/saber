@@ -115,7 +115,11 @@ class _CanvasImageState extends State<CanvasImage> {
     if (invertStarted) return;
     invertStarted = true;
 
-    Uint8List? inverted = await Executor().execute(fun1: EditorImage.invertImageIsolate, arg1: widget.image.bytes);
+    Uint8List? inverted = await Executor().execute(
+      fun2: EditorImage.invertImageIsolate,
+      arg1: widget.image.bytes,
+      arg2: widget.image.extension,
+    );
     if (!mounted) return;
     if (inverted == null) return;
     setState(() {
