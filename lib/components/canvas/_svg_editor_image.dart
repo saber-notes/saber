@@ -148,7 +148,7 @@ class SvgEditorImage extends EditorImage {
   /// all "fill" and "stroke" attributes (and their css counterparts)
   /// with their inverted color.
   static String _invertSvgString(String svgString) {
-    const properties = ['fill', 'stroke'];
+    const properties = ['fill', 'stroke', 'color'];
     for (final String property in properties) {
       svgString = svgString
           // property="..."
