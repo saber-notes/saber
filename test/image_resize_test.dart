@@ -51,19 +51,24 @@ void main() {
     final Uint8List original = (await rootBundle.load('assets/icon/icon.png')).buffer.asUint8List();
 
     // expect size to be 2700x2700
-    image.Image? parsedImage = image.decodeImage(original);
+    image.Image? parsedImage = image.decodePng(original);
     expect(parsedImage, isNotNull);
     expect(parsedImage!.width, 2700);
     expect(parsedImage.height, 2700);
 
-    await _testImageResizeIsolate(original, const Size(100, 100));
-    await _testImageResizeIsolate(original, const Size(3000, 3000));
+    await _testImageResizeIsolate(original, const Size(100, 100), '.png');
+    await _testImageResizeIsolate(original, const Size(3000, 3000), '.png');
   });
 }
 
-Future _testImageResizeIsolate(Uint8List original, Size resized) async {
-  Uint8List? bytes = await Executor().execute(fun2: EditorImage.resizeImageIsolate, arg1: original, arg2: resized);
-  image.Image? parsedImage = image.decodeImage(bytes!);
+Future _testImageResizeIsolate(Uint8List original, Size resized, String extension) async {
+  Uint8List? bytes = await Executor().execute(
+    fun3: EditorImage.resizeImageIsolate,
+    arg1: original,
+    arg2: resized,
+    arg3: extension,
+  );
+  image.Image? parsedImage = image.decodePng(bytes!);
   expect(parsedImage, isNotNull);
   expect(parsedImage!.width, resized.width);
   expect(parsedImage.height, resized.height);
