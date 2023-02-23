@@ -3,7 +3,7 @@
 /// Locales: 12
 /// Strings: 1699 (141 per locale)
 ///
-/// Built on 2023-02-23 at 00:13 UTC
+/// Built on 2023-02-23 at 00:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3828,9 +3828,9 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 	@override late final _StringsSettingsStraightenDelayPtBr straightenDelay = _StringsSettingsStraightenDelayPtBr._(_root);
 	@override String get systemLanguage => 'Idioma do sistema';
 	@override List<String> get axisDirections => [
-		'Cima',
+		'Em cima',
 		'Direita',
-		'Baixo',
+		'Embaixo',
 		'Esquerda',
 	];
 	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
@@ -3914,7 +3914,7 @@ class _StringsSPenWarningPtBr extends _StringsSPenWarningEn {
 
 	// Translations
 	@override String get title => 'Aviso de bug da S Pen';
-	@override String get description => 'Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas.';
+	@override String get description => 'Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão da S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas.';
 }
 
 // Path: home.tabs
@@ -3978,7 +3978,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get platform => 'Tipo do tema';
 	@override String get customAccentColor => 'Cor de destaque personalizada';
 	@override String get hyperlegibleFont => 'Fonte hiperlegível';
-	@override String get shouldCheckForUpdates => 'Verifique automaticamente as atualizações do Saber';
+	@override String get shouldCheckForUpdates => 'Verificar automaticamente as atualizações do Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Me informe sobre as atualizações assim que elas estiverem disponíveis';
 	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
@@ -3986,7 +3986,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'Preferir as cores em escala de cinza';
 	@override String get editorStraightenLines => 'Pressione e segure para endireitar uma linha';
 	@override String get maxImageSize => 'Tamanho máximo da imagem';
-	@override String get autoClearWhiteboardOnExit => 'Limpe o quadro branco depois de sair do aplicativo';
+	@override String get autoClearWhiteboardOnExit => 'Limpar o quadro branco depois de sair do aplicativo';
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
 }
@@ -3999,7 +3999,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão';
-	@override String get editorAutoInvert => 'Escurece as notas de forma inteligente no modo escuro';
+	@override String get editorAutoInvert => 'Escurecer as notas de forma inteligente no modo escuro';
 	@override String get preferGreyscale => 'Para telas e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Ainda será sincronizado com seus outros dispositivos';
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
@@ -4037,7 +4037,7 @@ class _StringsSettingsStraightenDelayPtBr extends _StringsSettingsStraightenDela
 
 	// Translations
 	@override String get off => 'Desligado';
-	@override String get regular => 'Regular';
+	@override String get regular => 'Normal';
 	@override String get slow => 'Lento';
 }
 
@@ -4059,10 +4059,10 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get checkUsername => 'Por favor, verifique o seu nome de usuário ou e-mail.';
-	@override String get enterNcPassword => 'Por favor, digite a sua senha do Nextcloud.';
-	@override String get enterEncPassword => 'Por favor, digite a sua senha de criptografia.';
-	@override String get checkUrl => 'Por favor, insira uma URL válida.';
+	@override String get checkUsername => 'Por favor verifique o seu nome de usuário ou e-mail.';
+	@override String get enterNcPassword => 'Por favor digite a sua senha do Nextcloud.';
+	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
+	@override String get checkUrl => 'Por favor insira uma URL válida.';
 	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
 	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
@@ -4257,8 +4257,8 @@ class _StringsEditorHudPtBr extends _StringsEditorHudEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get unlockZoom => 'Desbloquear o zoom';
-	@override String get lockZoom => 'Bloquear o zoom';
+	@override String get unlockZoom => 'Desbloquear zoom';
+	@override String get lockZoom => 'Bloquear zoom';
 	@override String get unlockPan => 'Ativar rolagem com um dedo';
 	@override String get lockPan => 'Desativar rolagem com um dedo';
 }
