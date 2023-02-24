@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:from_css_color/from_css_color.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:worker_manager/worker_manager.dart';
 
 void main() {
   group('Test inverting an svg:', () {
@@ -89,6 +93,26 @@ void main() {
       const svg = '<linearGradient id="gradient"><stop stop-color="#ffffff" stop-opacity="0.4"/></linearGradient><elem fill="url(#gradient)">...</elem>';
       final inverted = SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<linearGradient id="gradient"><stop stop-color="#000" stop-opacity="0.4"/></linearGradient><elem fill="url(#gradient)">...</elem>');
+    });
+
+    test('<image xlink:href="data:image/png;base64,...">', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+
+      final iconAsset = await rootBundle.load('assets/icon/resized/icon-16x16.png');
+      final iconBytes = iconAsset.buffer.asUint8List();
+      final iconBase64 = base64Encode(iconBytes);
+
+      final iconInvertedBytes = await Executor().execute(
+        fun2: EditorImage.invertImageIsolate,
+        arg1: iconBytes,
+        arg2: '.png',
+      );
+      expect(iconInvertedBytes, isNotNull, reason: 'Failed to invert image');
+      final iconInvertedBase64 = base64Encode(iconInvertedBytes!);
+
+      final svg = '<image xlink:href="data:image/png;base64,$iconBase64" />';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<image xlink:href="data:image/png;base64,$iconInvertedBase64" />');
     });
   });
 }
