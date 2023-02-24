@@ -6,21 +6,27 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
   PreviewCard({
     required this.filePath,
+    required this.width,
   }) : super(key: ValueKey('PreviewCard$filePath'));
 
   final String filePath;
+  final double width;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -45,13 +51,30 @@ class _PreviewCardState extends State<PreviewCard> {
     _mapFilePathToEditorInfo[widget.filePath] = _coreInfo = coreInfo;
   }
 
-  double get height {
-    final firstPage = coreInfo.pages.isNotEmpty ? coreInfo.pages[0] : EditorPage();
-    double fullHeight = firstPage.size.height;
+  /// The cropped height of the first page
+  /// as a percentage of the width of the canvas
+  /// (cropped to its content for a masonry layout).
+  /// The cropped height (not ratio) will be between 10% and 100% of the
+  /// maximum height of the first page.
+  double get heightWidthRatio {
+    final EditorPage firstPage;
+    if (coreInfo.pages.isEmpty) {
+      firstPage = EditorPage();
+    } else {
+      firstPage = coreInfo.pages.first;
+    }
 
+    // avoid dividing by zero (this should never happen)
+    assert(firstPage.size.height != 0);
+    assert(firstPage.size.width != 0);
+    if (firstPage.size.height == 0 || firstPage.size.width == 0) {
+      return 0;
+    }
+
+    /// The maximum y value of any stroke, image, or text.
     double maxY = 0;
-    if (firstPage.strokes.isNotEmpty) {
-      maxY = firstPage.strokes.map((stroke) => stroke.maxY).reduce(max);
+    for (Stroke stroke in firstPage.strokes) {
+      maxY = max(maxY, stroke.maxY);
     }
     for (EditorImage image in firstPage.images) {
       maxY = max(maxY, image.dstRect.bottom);
@@ -62,7 +85,18 @@ class _PreviewCardState extends State<PreviewCard> {
       maxY = max(maxY, linesOfText * coreInfo.lineHeight * 1.0);
     }
 
-    return min(fullHeight, max(maxY, 0) + fullHeight * 0.1);
+    /// The height of the first page (uncropped).
+    /// e.g. the default height is 1400 [EditorPage.defaultHeight]
+    /// and the default width is 1000 [EditorPage.defaultWidth].
+    double fullHeight = firstPage.size.height;
+    /// The height of the canvas (cropped),
+    /// adjusted to be between 10% and 100% of the full height.
+    final canvasHeight = min(
+        fullHeight,
+        max(maxY, 0) + (0.1 * fullHeight)
+    );
+
+    return canvasHeight / firstPage.size.width;
   }
 
   @override
@@ -108,6 +142,12 @@ class _PreviewCardState extends State<PreviewCard> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.of(context).disableAnimations;
+    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 300);
+    final background = coreInfo.backgroundColor
+        ?? InnerCanvas.defaultBackgroundColor;
+    final invert = theme.brightness == Brightness.dark
+        && Prefs.editorAutoInvert.value;
+    final heightWidthRatio = this.heightWidthRatio;
 
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -121,14 +161,24 @@ class _PreviewCardState extends State<PreviewCard> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 3000),
-                    switchInCurve: Curves.fastLinearToSlowEaseIn,
-                    switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
-                    child: CanvasPreview(
-                      key: ValueKey(coreInfo),
-                      height: height,
-                      coreInfo: coreInfo,
+                  AnimatedContainer(
+                    duration: transitionDuration,
+                    width: widget.width,
+                    height: heightWidthRatio * widget.width,
+                    color: background.withInversion(invert),
+                    child: ClipRect(
+                      child: OverflowBox(
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 300),
+                          child: CanvasPreview(
+                            key: ValueKey(coreInfo),
+                            height: heightWidthRatio == 0
+                                ? null
+                                : heightWidthRatio * coreInfo.pages.first.size.width,
+                            coreInfo: coreInfo,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
         
@@ -166,31 +216,27 @@ class _PreviewCardState extends State<PreviewCard> {
       ),
     );
 
-    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 300);
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: OpenContainer(
-        closedColor: colorScheme.surface,
-        closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        closedBuilder: (context, action) => card,
+    return OpenContainer(
+      closedColor: colorScheme.surface,
+      closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      closedBuilder: (context, action) => card,
 
-        openColor: colorScheme.background,
-        openBuilder: (context, action) => Editor(path: widget.filePath),
+      openColor: colorScheme.background,
+      openBuilder: (context, action) => Editor(path: widget.filePath),
 
-        transitionDuration: transitionDuration,
-        routeSettings: RouteSettings(
-          name: RoutePaths.editFilePath(widget.filePath),
-        ),
-
-        onClosed: (_) async {
-          findStrokes();
-
-          await Future.delayed(transitionDuration);
-          if (!mounted) return;
-          if (!GoRouter.of(context).location.startsWith('/home')) return;
-          ResponsiveNavbar.setAndroidNavBarColor(theme);
-        },
+      transitionDuration: transitionDuration,
+      routeSettings: RouteSettings(
+        name: RoutePaths.editFilePath(widget.filePath),
       ),
+
+      onClosed: (_) async {
+        findStrokes();
+
+        await Future.delayed(transitionDuration);
+        if (!mounted) return;
+        if (!GoRouter.of(context).location.startsWith('/home')) return;
+        ResponsiveNavbar.setAndroidNavBarColor(theme);
+      },
     );
   }
 
