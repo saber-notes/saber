@@ -108,7 +108,7 @@ class SvgEditorImage extends EditorImage {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
 
-    invertedSvgString ??= _invertSvgString(svgString);
+    invertedSvgString ??= invertSvgString(svgString);
 
     loaded = true;
   }
@@ -153,7 +153,8 @@ class SvgEditorImage extends EditorImage {
   /// Inverts all the colors in the svg string by replacing
   /// all "fill" and "stroke" attributes (and their css counterparts)
   /// with their inverted color.
-  static String _invertSvgString(String svgString) {
+  @visibleForTesting
+  static String invertSvgString(String svgString) {
     const properties = ['fill', 'stroke', 'color'];
     for (final String property in properties) {
       svgString = svgString
@@ -171,16 +172,16 @@ class SvgEditorImage extends EditorImage {
             String colorString = match.group(0)!
                 .substring(property.length + 1)
                 .trim();
-            return '$property: ${_invertColorMatch(colorString)};';
+            return '$property: ${_invertColorMatch(colorString)}';
           });
     }
     return svgString;
   }
 
   static String _invertColorMatch(String colorString) {
-    colorString = colorString.toLowerCase();
-    if (colorString == 'none' || colorString == 'transparent'
-        || colorString == 'currentcolor' || colorString.startsWith('url(')) {
+    String lower = colorString.toLowerCase();
+    if (lower == 'none' || lower == 'transparent'
+        || lower == 'currentcolor' || lower.startsWith('url(')) {
       return colorString;
     } else {
       Color color;

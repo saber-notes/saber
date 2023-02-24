@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:from_css_color/from_css_color.dart';
+import 'package:saber/components/canvas/_svg_editor_image.dart';
+import 'package:saber/components/canvas/color_extensions.dart';
+
+void main() {
+  group('Test inverting an svg:', () {
+    test('fill="___"', () {
+      const svg = '<elem fill="white">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem fill="#000">...</elem>');
+    });
+    test('style="fill: ___"', () {
+      const color = Color(0xFF123456);
+      final colorHex = color.toCssString();
+      final invertedHex = color.withInversion().toCssString();
+
+      expect(colorHex, '#123456');
+      expect(invertedHex, '#a9cbed');
+
+      final svg = '<elem style="fill: $colorHex">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem style="fill: $invertedHex">...</elem>');
+    });
+    test('fill="(translucent hex)"', () {
+      const color = Color(0x80123456);
+      final colorHex = color.toCssString();
+      final invertedHex = color.withInversion().toCssString();
+
+      expect(colorHex, '#12345680');
+      expect(invertedHex, '#a9cbed80');
+
+      final svg = '<elem fill="$colorHex">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem fill="$invertedHex">...</elem>');
+    });
+    test('fill="(translucent rgba)"', () {
+      final colorRgba = const Color(0x80123456)
+          .toCssString(format: CssColorString.rgb);
+      expect(colorRgba, 'rgba(18,52,86,0.5)');
+
+      /// Using [fromCssColor] to account for rounding errors
+      final color = fromCssColor(colorRgba);
+      final invertedHex = color.withInversion().toCssString();
+      expect(invertedHex, '#a9cbed7f'); // observe that this is 7f, not 80
+
+      final svg = '<elem fill="$colorRgba">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem fill="$invertedHex">...</elem>');
+    });
+    test('fill="none"', () {
+      const svg = '<elem fill="none">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, svg); // unchanged
+    });
+    test('fill="transparent"', () {
+      const svg = '<elem fill="transparent">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, svg); // unchanged
+    });
+    test('fill="currentColor"', () {
+      const svg = '<elem fill="currentColor">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, svg); // unchanged
+    });
+    test('stroke="___"', () {
+      const svg = '<elem stroke="#000">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem stroke="#fff">...</elem>');
+    });
+    test('style="stroke: ___"', () {
+      const svg = '<elem style="stroke: #000;">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem style="stroke: #fff;">...</elem>');
+    });
+    test('color="___"', () {
+      const svg = '<elem color="#000">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem color="#fff">...</elem>');
+    });
+    test('style="color: ___"', () {
+      const svg = '<elem style="color: #000;">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<elem style="color: #fff;">...</elem>');
+    });
+    test('fill="url(#gradient)"', () {
+      const svg = '<linearGradient id="gradient"><stop stop-color="#ffffff" stop-opacity="0.4"/></linearGradient><elem fill="url(#gradient)">...</elem>';
+      final inverted = SvgEditorImage.invertSvgString(svg);
+      expect(inverted, '<linearGradient id="gradient"><stop stop-color="#000" stop-opacity="0.4"/></linearGradient><elem fill="url(#gradient)">...</elem>');
+    });
+  });
+}
