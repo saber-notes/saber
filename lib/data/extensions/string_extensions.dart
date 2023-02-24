@@ -7,18 +7,28 @@ extension StringExtensions on String {
     Pattern exp,
     Future<String> Function(Match match) replace,
   ) async {
-    StringBuffer replaced = StringBuffer();
+    final buffer = StringBuffer();
+    final matches = exp.allMatches(this).toList();
 
-    int currentIndex = 0;
-    for (Match match in exp.allMatches(this)) {
-      String prefix = substring(currentIndex, match.start);
-      currentIndex = match.end;
-      replaced
+    /// Pre-calculate all replacements asynchronously
+    final replacements = await Future.wait([
+      for (Match match in matches)
+        replace(match),
+    ]);
+
+    int stringIndex = 0;
+    for (int matchIndex = 0; matchIndex < matches.length; matchIndex++) {
+      final match = matches[matchIndex];
+      final prefix = substring(stringIndex, match.start);
+
+      buffer
         ..write(prefix)
-        ..write(await replace(match));
+        ..write(replacements[matchIndex]);
+
+      stringIndex = match.end;
     }
 
-    replaced.write(substring(currentIndex));
-    return replaced.toString();
+    buffer.write(substring(stringIndex));
+    return buffer.toString();
   }
 }
