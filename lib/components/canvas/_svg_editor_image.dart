@@ -6,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
+import 'package:saber/data/extensions/string_extensions.dart';
+import 'package:worker_manager/worker_manager.dart';
 
 class SvgEditorImage extends EditorImage {
   String svgString;
@@ -174,6 +176,26 @@ class SvgEditorImage extends EditorImage {
             return '$property: ${_invertColorMatch(colorString)}';
           });
     }
+
+    // invert any embedded images (in base64 data urls)
+    // ignore: join_return_with_assignment
+    svgString = await svgString.replaceAllMappedAsync(RegExp('data:image/([^;]+);base64,([^"\']+)'), (match) async {
+      try {
+        final format = match.group(1)!;
+        final bytes = base64.decode(match.group(2)!);
+        final invertedBytes = await Executor().execute(
+          fun2: EditorImage.invertImageIsolate,
+          arg1: bytes,
+          arg2: '.$format',
+        );
+        if (invertedBytes == null) return match.group(0)!;
+        return 'data:image/png;base64,${base64.encode(invertedBytes)}';
+      } catch (e) {
+        if (kDebugMode) rethrow;
+        return match.group(0)!;
+      }
+    });
+
     return svgString;
   }
 
