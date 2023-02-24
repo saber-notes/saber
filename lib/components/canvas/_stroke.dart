@@ -2,7 +2,7 @@ import 'dart:math' hide atan2;
 
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
-import 'package:saber/components/canvas/point_extensions.dart';
+import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/fast_math.dart';

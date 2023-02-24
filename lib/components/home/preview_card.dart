@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
-import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';

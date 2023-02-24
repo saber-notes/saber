@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
-import 'package:saber/components/canvas/color_extensions.dart';
+import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 void main() {
