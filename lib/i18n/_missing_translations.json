@@ -37,31 +37,7 @@
       "untitled": "Untitled"
     }
   },
-  "es": {
-    "settings": {
-      "prefLabels": {
-        "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
-        "editorToolbarAlignment": "Alignment of the editor toolbar",
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
-      },
-      "axisDirections": [
-        "Top",
-        "Right",
-        "Bottom",
-        "Left"
-      ]
-    },
-    "editor": {
-      "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
-      },
-      "untitled": "Untitled"
-    }
-  },
+  "es": {},
   "fa": {
     "settings": {
       "prefLabels": {

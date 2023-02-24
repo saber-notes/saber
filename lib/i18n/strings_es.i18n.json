@@ -34,8 +34,11 @@
       "customAccentColor": "Color de acento personalizado",
       "hyperlegibleFont": "Fuente hiperlegible",
       "shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
+      "shouldAlwaysAlertForUpdates": "Avísame sobre nuevas actualizaciones tan pronto como estén disponibles",
+      "editorToolbarAlignment": "Alineación de la barra de herramientas del editor",
       "editorToolbarShowInFullscreen": "Mostrar la barra de herramientas del editor en el modo de pantalla completa",
       "editorAutoInvert": "Invertir notas en el modo oscuro",
+      "editorOpaqueBackgrounds": "Fondos opacos",
       "preferGreyscale": "Preferir colores en escala de grises",
       "editorStraightenLines": "Mantener presionado para enderezar una línea",
       "maxImageSize": "Tamaño máximo de la imagen",
@@ -46,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
       "editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
+      "editorOpaqueBackgrounds": "Elimina la transparencia de las imágenes de fondo y los archivos PDF",
       "preferGreyscale": "Para pantallas con tinta electrónica",
       "autoClearWhiteboardOnExit": "Aún se sincronizará con tus otros dispositivos",
       "maxImageSize": "Las imágenes más grandes que este valor serán comprimidas",
@@ -66,6 +70,12 @@
       "slow": "Lento"
     },
     "systemLanguage": "Idioma del sistema",
+    "axisDirections": [
+      "Arriba",
+      "Derecha",
+      "Abajo",
+      "Izquierda"
+    ],
     "reset": {
       "title": "¿Quieres restablecer esta configuración?",
       "button": "Restablecer"
@@ -195,9 +205,12 @@
     },
     "hud": {
       "unlockZoom": "Desbloquear zoom",
-      "lockZoom": "Bloquear zoom"
+      "lockZoom": "Bloquear zoom",
+      "unlockPan": "Habilitar la panorámica con un solo dedo",
+      "lockPan": "Deshabilitar la panorámica con un solo dedo"
     },
-    "pages": "Páginas"
+    "pages": "Páginas",
+    "untitled": "Sin título"
   },
   "sPenWarning": {
     "title": "Aviso de error del S Pen",

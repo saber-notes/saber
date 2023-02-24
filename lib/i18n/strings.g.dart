@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1701 (141 per locale)
+/// Strings: 1712 (142 per locale)
 ///
-/// Built on 2023-02-23 at 10:48 UTC
+/// Built on 2023-02-24 at 23:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1754,6 +1754,12 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
 	@override late final _StringsSettingsStraightenDelayEs straightenDelay = _StringsSettingsStraightenDelayEs._(_root);
 	@override String get systemLanguage => 'Idioma del sistema';
+	@override List<String> get axisDirections => [
+		'Arriba',
+		'Derecha',
+		'Abajo',
+		'Izquierda',
+	];
 	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
 }
 
@@ -1823,6 +1829,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorQuillEs quill = _StringsEditorQuillEs._(_root);
 	@override late final _StringsEditorHudEs hud = _StringsEditorHudEs._(_root);
 	@override String get pages => 'Páginas';
+	@override String get untitled => 'Sin título';
 }
 
 // Path: sPenWarning
@@ -1898,8 +1905,11 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Color de acento personalizado';
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
+	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre nuevas actualizaciones tan pronto como estén disponibles';
+	@override String get editorToolbarAlignment => 'Alineación de la barra de herramientas del editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
+	@override String get editorOpaqueBackgrounds => 'Fondos opacos';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
 	@override String get editorStraightenLines => 'Mantener presionado para enderezar una línea';
 	@override String get maxImageSize => 'Tamaño máximo de la imagen';
@@ -1917,6 +1927,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
 	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
+	@override String get editorOpaqueBackgrounds => 'Elimina la transparencia de las imágenes de fondo y los archivos PDF';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 	@override String get autoClearWhiteboardOnExit => 'Aún se sincronizará con tus otros dispositivos';
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
@@ -2176,6 +2187,8 @@ class _StringsEditorHudEs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Desbloquear zoom';
 	@override String get lockZoom => 'Bloquear zoom';
+	@override String get unlockPan => 'Habilitar la panorámica con un solo dedo';
+	@override String get lockPan => 'Deshabilitar la panorámica con un solo dedo';
 }
 
 // Path: editor.menu.boxFits
