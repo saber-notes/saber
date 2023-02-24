@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:from_css_color/from_css_color.dart';
@@ -11,12 +10,12 @@ import 'package:worker_manager/worker_manager.dart';
 
 void main() {
   group('Test inverting an svg:', () {
-    test('fill="___"', () {
+    test('fill="___"', () async {
       const svg = '<elem fill="white">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem fill="#000">...</elem>');
     });
-    test('style="fill: ___"', () {
+    test('style="fill: ___"', () async {
       const color = Color(0xFF123456);
       final colorHex = color.toCssString();
       final invertedHex = color.withInversion().toCssString();
@@ -25,10 +24,10 @@ void main() {
       expect(invertedHex, '#a9cbed');
 
       final svg = '<elem style="fill: $colorHex">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem style="fill: $invertedHex">...</elem>');
     });
-    test('fill="(translucent hex)"', () {
+    test('fill="(translucent hex)"', () async {
       const color = Color(0x80123456);
       final colorHex = color.toCssString();
       final invertedHex = color.withInversion().toCssString();
@@ -37,10 +36,10 @@ void main() {
       expect(invertedHex, '#a9cbed80');
 
       final svg = '<elem fill="$colorHex">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem fill="$invertedHex">...</elem>');
     });
-    test('fill="(translucent rgba)"', () {
+    test('fill="(translucent rgba)"', () async {
       final colorRgba = const Color(0x80123456)
           .toCssString(format: CssColorString.rgb);
       expect(colorRgba, 'rgba(18,52,86,0.5)');
@@ -51,47 +50,47 @@ void main() {
       expect(invertedHex, '#a9cbed7f'); // observe that this is 7f, not 80
 
       final svg = '<elem fill="$colorRgba">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem fill="$invertedHex">...</elem>');
     });
-    test('fill="none"', () {
+    test('fill="none"', () async {
       const svg = '<elem fill="none">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, svg); // unchanged
     });
-    test('fill="transparent"', () {
+    test('fill="transparent"', () async {
       const svg = '<elem fill="transparent">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, svg); // unchanged
     });
-    test('fill="currentColor"', () {
+    test('fill="currentColor"', () async {
       const svg = '<elem fill="currentColor">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, svg); // unchanged
     });
-    test('stroke="___"', () {
+    test('stroke="___"', () async {
       const svg = '<elem stroke="#000">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem stroke="#fff">...</elem>');
     });
-    test('style="stroke: ___"', () {
+    test('style="stroke: ___"', () async {
       const svg = '<elem style="stroke: #000;">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem style="stroke: #fff;">...</elem>');
     });
-    test('color="___"', () {
+    test('color="___"', () async {
       const svg = '<elem color="#000">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem color="#fff">...</elem>');
     });
-    test('style="color: ___"', () {
+    test('style="color: ___"', () async {
       const svg = '<elem style="color: #000;">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<elem style="color: #fff;">...</elem>');
     });
-    test('fill="url(#gradient)"', () {
+    test('fill="url(#gradient)"', () async {
       const svg = '<linearGradient id="gradient"><stop stop-color="#ffffff" stop-opacity="0.4"/></linearGradient><elem fill="url(#gradient)">...</elem>';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<linearGradient id="gradient"><stop stop-color="#000" stop-opacity="0.4"/></linearGradient><elem fill="url(#gradient)">...</elem>');
     });
 
@@ -111,7 +110,7 @@ void main() {
       final iconInvertedBase64 = base64Encode(iconInvertedBytes!);
 
       final svg = '<image xlink:href="data:image/png;base64,$iconBase64" />';
-      final inverted = SvgEditorImage.invertSvgString(svg);
+      final inverted = await SvgEditorImage.invertSvgString(svg);
       expect(inverted, '<image xlink:href="data:image/png;base64,$iconInvertedBase64" />');
     });
   });

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +107,7 @@ class SvgEditorImage extends EditorImage {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
 
-    invertedSvgString ??= invertSvgString(svgString);
+    invertedSvgString ??= await invertSvgString(svgString);
 
     loaded = true;
   }
@@ -154,7 +153,7 @@ class SvgEditorImage extends EditorImage {
   /// all "fill" and "stroke" attributes (and their css counterparts)
   /// with their inverted color.
   @visibleForTesting
-  static String invertSvgString(String svgString) {
+  static Future<String> invertSvgString(String svgString) async {
     const properties = ['fill', 'stroke', 'color'];
     for (final String property in properties) {
       svgString = svgString
