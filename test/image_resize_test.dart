@@ -47,14 +47,14 @@ void main() {
   test('Test resized image bytes', () async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    /// 2700x2700 icon png
-    final Uint8List original = (await rootBundle.load('assets/icon/icon.png')).buffer.asUint8List();
+    /// 128x128 icon png
+    final Uint8List original = (await rootBundle.load('assets/icon/resized/icon-128x128.png')).buffer.asUint8List();
 
-    // expect size to be 2700x2700
+    // expect size to be 128x128
     image.Image? parsedImage = image.decodePng(original);
     expect(parsedImage, isNotNull);
-    expect(parsedImage!.width, 2700);
-    expect(parsedImage.height, 2700);
+    expect(parsedImage!.width, 128);
+    expect(parsedImage.height, 128);
 
     await _testImageResizeIsolate(original, const Size(100, 100), '.png');
     await _testImageResizeIsolate(original, const Size(3000, 3000), '.png');

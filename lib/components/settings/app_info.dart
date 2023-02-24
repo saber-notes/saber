@@ -57,7 +57,7 @@ class _AppInfoState extends State<AppInfo> {
     context: context,
     applicationVersion: info,
     applicationIcon: Image.asset(
-      'assets/icon/icon.png',
+      'assets/icon/resized/icon-128x128.png',
       width: 50,
       height: 50,
     ),

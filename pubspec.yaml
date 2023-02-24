@@ -175,7 +175,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icon/icon.png
+    - assets/icon/resized/icon-16x16.png
+    - assets/icon/resized/icon-128x128.png
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
