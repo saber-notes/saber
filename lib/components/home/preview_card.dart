@@ -82,7 +82,7 @@ class _PreviewCardState extends State<PreviewCard> {
     if (!firstPage.quill.controller.document.isEmpty()) {
       // this does not account for text that wraps to the next line
       int linesOfText = firstPage.quill.controller.document.toPlainText().split('\n').length;
-      maxY = max(maxY, linesOfText * coreInfo.lineHeight * 1.0);
+      maxY = max(maxY, linesOfText * coreInfo.lineHeight * 1.5); // ×1.5 fudge factor
     }
 
     /// The height of the first page (uncropped).
