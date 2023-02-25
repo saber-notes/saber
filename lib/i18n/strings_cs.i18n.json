@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Umístění nabídky editoru",
       "editorToolbarShowInFullscreen": "Zobrazovat nabídku editoru v režimu celé obrazovky",
       "editorAutoInvert": "V tmavém režimu invertovat poznámky",
+      "editorOpaqueBackgrounds": "Neprůhledná pozadí",
       "preferGreyscale": "Preferovat černobílé barvy",
       "editorStraightenLines": "Pro kreslení rovné čáry stisknout a podržet",
       "maxImageSize": "Maximální velikost obrázku",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
       "editorAutoInvert": "Inteligentně ztmaví poznámky ve tmavém motivu",
+      "editorOpaqueBackgrounds": "Odstraní průhlednost z obrázků a PDF na pozadí",
       "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",
       "autoClearWhiteboardOnExit": "Bude synchronizováno do dalších zařízení",
       "maxImageSize": "Na větší obrázky bude aplikována komprese",
@@ -203,9 +205,12 @@
     },
     "hud": {
       "unlockZoom": "Odemknout přibližování",
-      "lockZoom": "Zamknout přibližování"
+      "lockZoom": "Zamknout přibližování",
+      "unlockPan": "Zapnout posouvání jedním prsem",
+      "lockPan": "Vypnout posouvání jedním prsem"
     },
-    "pages": "Stránky"
+    "pages": "Stránky",
+    "untitled": "Nepojmenovaná poznámka"
   },
   "sPenWarning": {
     "title": "Varování ohledně chyby při používání S Pen",
