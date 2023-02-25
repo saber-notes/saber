@@ -622,6 +622,9 @@ class EditorState extends State<Editor> {
     List<PhotoInfo> photoInfos = await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
 
+    // use the Select tool so that the user can move the new image
+    currentTool = Select.currentSelect;
+
     List<EditorImage> images = [
       for (final PhotoInfo photoInfo in photoInfos)
         if (photoInfo.extension == '.svg')
