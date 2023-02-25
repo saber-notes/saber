@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1712 (142 per locale)
+/// Strings: 1714 (142 per locale)
 ///
-/// Built on 2023-02-24 at 23:05 UTC
+/// Built on 2023-02-25 at 10:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3998,6 +3998,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
 	@override String get editorAutoInvert => 'Inverter as notas no modo escuro';
+	@override String get editorOpaqueBackgrounds => 'Planos de fundo opacos';
 	@override String get preferGreyscale => 'Preferir as cores em escala de cinza';
 	@override String get editorStraightenLines => 'Pressione e segure para endireitar uma linha';
 	@override String get maxImageSize => 'Tamanho máximo da imagem';
@@ -4015,6 +4016,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão';
 	@override String get editorAutoInvert => 'Escurecer as notas de forma inteligente no modo escuro';
+	@override String get editorOpaqueBackgrounds => 'Remover a transparência das imagens de plano de fundo e dos PDFs';
 	@override String get preferGreyscale => 'Para telas e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Ainda será sincronizado com seus outros dispositivos';
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
@@ -4233,9 +4235,9 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get clearAllPages => 'Limpar todas as páginas';
 	@override String get lineHeight => 'Altura da linha';
 	@override String get lineHeightDescription => 'O tamanho de cada linha';
-	@override String get backgroundImage => 'Imagem de fundo';
-	@override String get backgroundPattern => 'Padrão de fundo';
-	@override String get removeBgImage => 'Remover imagem de fundo';
+	@override String get backgroundImage => 'Imagem de plano de fundo';
+	@override String get backgroundPattern => 'Padrão de plano de fundo';
+	@override String get removeBgImage => 'Remover imagem de plano de fundo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
 	@override late final _StringsEditorMenuBgPatternsPtBr bgPatterns = _StringsEditorMenuBgPatternsPtBr._(_root);
