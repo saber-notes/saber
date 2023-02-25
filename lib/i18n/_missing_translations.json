@@ -6,10 +6,10 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "Neprůhledná pozadí"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "Odstraní průhlednost z obrázků a PDF na pozadí"
       }
     },
     "editor": {
