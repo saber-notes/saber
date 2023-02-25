@@ -71,6 +71,11 @@ class _PreviewCardState extends State<PreviewCard> {
       return 0;
     }
 
+    // if we have a background image, show full height
+    if (firstPage.backgroundImage != null) {
+      return firstPage.size.height / firstPage.size.width;
+    }
+
     /// The maximum y value of any stroke, image, or text.
     double maxY = 0;
     for (Stroke stroke in firstPage.strokes) {
