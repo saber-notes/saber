@@ -96,14 +96,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
