@@ -25,10 +25,10 @@
   "fa": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "پس زمینه مات"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "حذف شفافیت از تصاویر پس زمینه و PDFها"
       }
     }
   },
