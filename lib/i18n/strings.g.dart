@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1718 (143 per locale)
+/// Strings: 1720 (143 per locale)
 ///
-/// Built on 2023-02-25 at 10:05 UTC
+/// Built on 2023-02-25 at 10:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3476,6 +3476,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
+	@override String get editorOpaqueBackgrounds => 'Sfondi opachi';
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
 	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
@@ -3493,6 +3494,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
 	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
+	@override String get editorOpaqueBackgrounds => 'Rimuovi la trasparenza dalle immagini di sfondo e dai PDF';
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
