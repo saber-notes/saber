@@ -48,19 +48,7 @@
       }
     }
   },
-  "fr": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
-      }
-    },
-    "editor": {
-      "untitled": "Untitled"
-    }
-  },
+  "fr": {},
   "it": {},
   "pt-BR": {},
   "ru": {
