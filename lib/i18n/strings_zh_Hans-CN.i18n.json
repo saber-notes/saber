@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "编辑工具栏对齐方式",
       "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
+      "editorOpaqueBackgrounds": "不透明背景",
       "preferGreyscale": "使用灰度颜色",
       "editorStraightenLines": "按住拉直线段",
       "maxImageSize": "最大图片大小",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
+      "editorOpaqueBackgrounds": "移除背景图像和 PDF 的透明度",
       "preferGreyscale": "用于电子墨水显示器",
       "autoClearWhiteboardOnExit": "这将会同步到您的其他设备",
       "maxImageSize": "更大的图片将会被压缩",
