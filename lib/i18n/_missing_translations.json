@@ -64,10 +64,10 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "Sfondi opachi"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "Rimuovi la trasparenza dalle immagini di sfondo e dai PDF"
       }
     }
   },
