@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Alinhamento da barra de ferramentas do editor",
       "editorToolbarShowInFullscreen": "Mostrar a barra de ferramentas do editor no modo de tela cheia",
       "editorAutoInvert": "Inverter as notas no modo escuro",
+      "editorOpaqueBackgrounds": "Planos de fundo opacos",
       "preferGreyscale": "Preferir as cores em escala de cinza",
       "editorStraightenLines": "Pressione e segure para endireitar uma linha",
       "maxImageSize": "Tamanho máximo da imagem",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão",
       "editorAutoInvert": "Escurecer as notas de forma inteligente no modo escuro",
+      "editorOpaqueBackgrounds": "Remover a transparência das imagens de plano de fundo e dos PDFs",
       "preferGreyscale": "Para telas e-ink",
       "autoClearWhiteboardOnExit": "Ainda será sincronizado com seus outros dispositivos",
       "maxImageSize": "Imagens maiores que isso serão compactadas",
@@ -174,9 +176,9 @@
       "clearAllPages": "Limpar todas as páginas",
       "lineHeight": "Altura da linha",
       "lineHeightDescription": "O tamanho de cada linha",
-      "backgroundImage": "Imagem de fundo",
-      "backgroundPattern": "Padrão de fundo",
-      "removeBgImage": "Remover imagem de fundo",
+      "backgroundImage": "Imagem de plano de fundo",
+      "backgroundPattern": "Padrão de plano de fundo",
+      "removeBgImage": "Remover imagem de plano de fundo",
       "import": "Importar",
       "boxFits": {
         "fill": "Esticar",
