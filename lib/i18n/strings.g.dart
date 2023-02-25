@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1720 (143 per locale)
+/// Strings: 1723 (143 per locale)
 ///
-/// Built on 2023-02-25 at 10:07 UTC
+/// Built on 2023-02-25 at 10:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2875,6 +2875,7 @@ class _StringsEditorFr extends _StringsEditorEn {
 	@override late final _StringsEditorQuillFr quill = _StringsEditorQuillFr._(_root);
 	@override late final _StringsEditorHudFr hud = _StringsEditorHudFr._(_root);
 	@override String get pages => 'Pages';
+	@override String get untitled => 'Untitled';
 }
 
 // Path: sPenWarning
@@ -2954,6 +2955,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Position de la barre d\'outils';
 	@override String get editorToolbarShowInFullscreen => 'Afficher la barre d\'outils en mode plein écran';
 	@override String get editorAutoInvert => 'Inverser les couleurs en mode sombre';
+	@override String get editorOpaqueBackgrounds => 'Fonds opaques';
 	@override String get preferGreyscale => 'Préférer les nuances de gris';
 	@override String get editorStraightenLines => 'Presser et maintenir le tracé pour obtenir une ligne droite';
 	@override String get maxImageSize => 'Taille d\'image maximum';
@@ -2971,6 +2973,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes';
 	@override String get editorAutoInvert => 'Assombrit les notes de façon intelligente en mode sombre';
+	@override String get editorOpaqueBackgrounds => 'Supprime la transparence du fond dans les images et les PDF';
 	@override String get preferGreyscale => 'Pour les couleurs de stylos proposées';
 	@override String get autoClearWhiteboardOnExit => 'Il restera synchronisé avec vos autres appareils';
 	@override String get maxImageSize => 'les images plus grandes seront compressées';

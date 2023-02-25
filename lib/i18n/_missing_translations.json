@@ -48,19 +48,7 @@
       }
     }
   },
-  "fr": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "Fonds opaques"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Supprime la transparence du fond dans les images et les PDF"
-      }
-    },
-    "editor": {
-      "untitled": "Untitled"
-    }
-  },
+  "fr": {},
   "it": {},
   "pt-BR": {},
   "ru": {

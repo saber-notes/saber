@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Position de la barre d'outils",
       "editorToolbarShowInFullscreen": "Afficher la barre d'outils en mode plein écran",
       "editorAutoInvert": "Inverser les couleurs en mode sombre",
+      "editorOpaqueBackgrounds": "Fonds opaques",
       "preferGreyscale": "Préférer les nuances de gris",
       "editorStraightenLines": "Presser et maintenir le tracé pour obtenir une ligne droite",
       "maxImageSize": "Taille d'image maximum",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
       "editorAutoInvert": "Assombrit les notes de façon intelligente en mode sombre",
+      "editorOpaqueBackgrounds": "Supprime la transparence du fond dans les images et les PDF",
       "preferGreyscale": "Pour les couleurs de stylos proposées",
       "autoClearWhiteboardOnExit": "Il restera synchronisé avec vos autres appareils",
       "maxImageSize": "les images plus grandes seront compressées",
@@ -104,7 +106,6 @@
       "loggedIn": "Connecté avec Nextcloud",
       "loggedOut": "Déconnecté",
       "tapToLogin": "Appuyer pour vous connecter avec Nextcloud"
-      
     },
     "faq": [
       {
@@ -113,10 +114,12 @@
       },
       {
         "q": "Qu'est-ce qu'un mot de passe de cryptage ?",
-        "a": "Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Il n'est pas stocké sur le serveur et n'est utilisé par Saber que pour chiffrer et déchiffrer vos données.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela signifie également que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données."      },
+        "a": "Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Il n'est pas stocké sur le serveur et n'est utilisé par Saber que pour chiffrer et déchiffrer vos données.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela signifie également que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données."
+      },
       {
         "q": "Pourquoi utiliser deux mots de passe ?",
-        "a": "Le mot de passe Nextcloud est utilisé pour accéder au cloud. Le mot de passe de cryptage \"brouille\" vos données avant même qu'elles n'atteignent le cloud.\n\nMême si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela vous fournit une deuxième couche de sécurité pour protéger vos données."      }
+        "a": "Le mot de passe Nextcloud est utilisé pour accéder au cloud. Le mot de passe de cryptage \"brouille\" vos données avant même qu'elles n'atteignent le cloud.\n\nMême si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela vous fournit une deuxième couche de sécurité pour protéger vos données."
+      }
     ],
     "insecureStorage": {
       "title": "Alerte de sécurité",
@@ -206,7 +209,8 @@
       "unlockPan": "Activer le panning à un seul doigt",
       "lockPan": "Désactiver le panning à un seul doigt"
     },
-    "pages": "Pages"
+    "pages": "Pages",
+    "untitled": "Untitled"
   },
   "sPenWarning": {
     "title": "Alerte bug S Pen",
