@@ -51,10 +51,10 @@
   "fr": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "Fonds opaques"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "Supprime la transparence du fond dans les images et les PDF"
       }
     },
     "editor": {
