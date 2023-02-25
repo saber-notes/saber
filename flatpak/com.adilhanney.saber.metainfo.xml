@@ -59,6 +59,19 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.5" type="development" date="2023-02-24">
+            <description>
+                <ul>
+                    <li>Dots are no longer tiny on pressure-sensitive devices.</li>
+                    <li>Background images/PDFs are now made opaque by default.</li>
+                    <li>Performance improvements for importing and inverting images/PDFs.</li>
+                    <li>Fixed a bug with monochrome images.</li>
+                    <li>Svg compatibility improvements, including embedded images.</li>
+                    <li>Refreshing note previews after a sync is now animated.</li>
+                    <li>Upgraded to Flutter 3.7.5.</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.4" type="development" date="2023-02-21">
             <description>
                 <ul>
