@@ -96,14 +96,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "不透明背景"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "去除背景圖片和PDF的透明度"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }

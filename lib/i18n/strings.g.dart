@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1716 (143 per locale)
+/// Strings: 1718 (143 per locale)
 ///
-/// Built on 2023-02-25 at 10:03 UTC
+/// Built on 2023-02-25 at 10:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6089,6 +6089,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
+	@override String get editorOpaqueBackgrounds => '不透明背景';
 	@override String get preferGreyscale => '使用灰度顏色';
 	@override String get editorStraightenLines => '按住拉直線條';
 	@override String get maxImageSize => '最大圖片尺寸';
@@ -6106,6 +6107,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
+	@override String get editorOpaqueBackgrounds => '去除背景圖片和PDF的透明度';
 	@override String get preferGreyscale => '用於電子紙螢幕';
 	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
