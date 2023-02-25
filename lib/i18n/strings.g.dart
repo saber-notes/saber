@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1728 (144 per locale)
+/// Strings: 1730 (144 per locale)
 ///
-/// Built on 2023-02-25 at 17:46 UTC
+/// Built on 2023-02-25 at 17:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2438,6 +2438,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'تراز کردن نوار ابزار ویرایشگر';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
+	@override String get editorOpaqueBackgrounds => 'پس زمینه مات';
 	@override String get preferGreyscale => 'رنگ های خاکستری را در اولویت قرار دهید';
 	@override String get editorStraightenLines => 'برای کشیدن خط صاف فشار دهید و نگه دارید';
 	@override String get maxImageSize => 'حداکثر اندازه تصویر';
@@ -2455,6 +2456,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'خوانایی را برای خوانندگان کم بینا افزایش می دهد';
 	@override String get editorAutoInvert => 'در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند';
+	@override String get editorOpaqueBackgrounds => 'حذف شفافیت از تصاویر پس زمینه و PDFها';
 	@override String get preferGreyscale => 'برای نمایشگر های e-ink';
 	@override String get autoClearWhiteboardOnExit => 'همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود';
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';

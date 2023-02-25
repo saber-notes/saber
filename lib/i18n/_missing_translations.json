@@ -22,16 +22,7 @@
     }
   },
   "es": {},
-  "fa": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "پس زمینه مات"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "حذف شفافیت از تصاویر پس زمینه و PDFها"
-      }
-    }
-  },
+  "fa": {},
   "fr": {},
   "it": {},
   "pt-BR": {},
