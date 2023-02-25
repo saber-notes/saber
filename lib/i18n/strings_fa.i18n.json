@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "تراز کردن نوار ابزار ویرایشگر",
       "editorToolbarShowInFullscreen": "نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید",
       "editorAutoInvert": "معکوس کردن رنگ یادداشت ها در حالت تاریک",
+      "editorOpaqueBackgrounds": "پس زمینه مات",
       "preferGreyscale": "رنگ های خاکستری را در اولویت قرار دهید",
       "editorStraightenLines": "برای کشیدن خط صاف فشار دهید و نگه دارید",
       "maxImageSize": "حداکثر اندازه تصویر",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
       "editorAutoInvert": "در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند",
+      "editorOpaqueBackgrounds": "حذف شفافیت از تصاویر پس زمینه و PDFها",
       "preferGreyscale": "برای نمایشگر های e-ink",
       "autoClearWhiteboardOnExit": "همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود",
       "maxImageSize": "تصاویر بزرگتر از این فشرده خواهند شد",
