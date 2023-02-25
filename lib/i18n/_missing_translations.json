@@ -98,10 +98,10 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "不透明背景"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "移除背景图像和 PDF 的透明度"
       }
     }
   },
