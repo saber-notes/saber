@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Allineamento della barra degli strumenti dell'editor",
       "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
       "editorAutoInvert": "Inverti le note in modalità scura",
+      "editorOpaqueBackgrounds": "Sfondi opachi",
       "preferGreyscale": "Preferisci i colori in scala di grigi",
       "editorStraightenLines": "Tenere premuto per raddrizzare una linea",
       "maxImageSize": "Dimensione massima dell'immagine",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
       "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
+      "editorOpaqueBackgrounds": "Rimuovi la trasparenza dalle immagini di sfondo e dai PDF",
       "preferGreyscale": "Per display e-ink",
       "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
       "maxImageSize": "Le immagini più grandi verranno compresse",
