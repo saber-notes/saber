@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1714 (142 per locale)
+/// Strings: 1716 (143 per locale)
 ///
-/// Built on 2023-02-25 at 10:01 UTC
+/// Built on 2023-02-25 at 10:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5565,6 +5565,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => '编辑工具栏对齐方式';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
+	@override String get editorOpaqueBackgrounds => '不透明背景';
 	@override String get preferGreyscale => '使用灰度颜色';
 	@override String get editorStraightenLines => '按住拉直线段';
 	@override String get maxImageSize => '最大图片大小';
@@ -5582,6 +5583,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
+	@override String get editorOpaqueBackgrounds => '移除背景图像和 PDF 的透明度';
 	@override String get preferGreyscale => '用于电子墨水显示器';
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 	@override String get maxImageSize => '更大的图片将会被压缩';

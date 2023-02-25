@@ -95,16 +95,7 @@
       "untitled": "Untitled"
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "不透明背景"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "移除背景图像和 PDF 的透明度"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
