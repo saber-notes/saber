@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1723 (143 per locale)
+/// Strings: 1728 (144 per locale)
 ///
-/// Built on 2023-02-25 at 10:10 UTC
+/// Built on 2023-02-25 at 17:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -792,6 +792,7 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorQuillCs quill = _StringsEditorQuillCs._(_root);
 	@override late final _StringsEditorHudCs hud = _StringsEditorHudCs._(_root);
 	@override String get pages => 'Stránky';
+	@override String get untitled => 'Nepojmenovaná poznámka';
 }
 
 // Path: sPenWarning
@@ -871,6 +872,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Umístění nabídky editoru';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
+	@override String get editorOpaqueBackgrounds => 'Neprůhledná pozadí';
 	@override String get preferGreyscale => 'Preferovat černobílé barvy';
 	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
 	@override String get maxImageSize => 'Maximální velikost obrázku';
@@ -888,6 +890,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
 	@override String get editorAutoInvert => 'Inteligentně ztmaví poznámky ve tmavém motivu';
+	@override String get editorOpaqueBackgrounds => 'Odstraní průhlednost z obrázků a PDF na pozadí';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
@@ -1147,6 +1150,8 @@ class _StringsEditorHudCs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Odemknout přibližování';
 	@override String get lockZoom => 'Zamknout přibližování';
+	@override String get unlockPan => 'Zapnout posouvání jedním prsem';
+	@override String get lockPan => 'Vypnout posouvání jedním prsem';
 }
 
 // Path: editor.menu.boxFits
