@@ -174,8 +174,8 @@
     "menu": {
       "clearPage": "Clear page",
       "clearAllPages": "Clear all pages",
-      "lineHeight": "Line height",
-      "lineHeightDescription": "The size of each line",
+      "lineHeight": "Font Size",
+      "lineHeightDescription": "The size of the default text",
       "backgroundImage": "Background image",
       "backgroundPattern": "Background pattern",
       "removeBgImage": "Remove background image",
