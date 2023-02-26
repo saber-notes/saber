@@ -29,10 +29,10 @@
   "ru": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "Непрозрачные фоны"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "Удалить прозрачность фоновых изображений и PDF-файлов"
       }
     }
   },
