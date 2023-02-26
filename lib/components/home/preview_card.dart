@@ -153,6 +153,9 @@ class _PreviewCardState extends State<PreviewCard> {
     final invert = theme.brightness == Brightness.dark
         && Prefs.editorAutoInvert.value;
     final heightWidthRatio = this.heightWidthRatio;
+    final firstPageWidth = coreInfo.pages.isEmpty
+        ? EditorPage.defaultWidth
+        : coreInfo.pages.first.size.width;
 
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -179,7 +182,7 @@ class _PreviewCardState extends State<PreviewCard> {
                             key: ValueKey(coreInfo),
                             height: heightWidthRatio == 0
                                 ? null
-                                : heightWidthRatio * coreInfo.pages.first.size.width,
+                                : heightWidthRatio * firstPageWidth,
                             coreInfo: coreInfo,
                           ),
                         ),
