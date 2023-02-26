@@ -4,9 +4,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart' hide TextStyle;
 import 'package:path_drawing/path_drawing.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/select.dart';
+import 'package:saber/data/extensions/color_extensions.dart';
 
 class CanvasPainter extends CustomPainter {
   const CanvasPainter({

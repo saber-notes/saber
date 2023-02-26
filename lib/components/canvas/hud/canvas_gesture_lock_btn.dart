@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:saber/i18n/strings.g.dart';
 
 class CanvasGestureLockBtn extends StatelessWidget {
   const CanvasGestureLockBtn({
