@@ -218,7 +218,7 @@ abstract class FileSyncer {
       webDavFile: file,
     );
     if (await _shouldLocalFileBeKept(syncFile)) return;
-    if (Editor.reservedFileNames.contains(syncFile.localPath)) {
+    if (Editor.isReservedPath(syncFile.localPath)) {
       _downloadQueue.addFirst(syncFile);
     } else {
       _downloadQueue.add(syncFile);

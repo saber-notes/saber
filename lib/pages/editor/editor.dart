@@ -52,8 +52,15 @@ class Editor extends StatefulWidget {
   final String? customTitle;
 
   static const String extension = '.sbn';
-  /// Hidden files used by other functions of the app
-  static List<String> reservedFileNames = [Whiteboard.filePath];
+
+  /// Returns true if [path] belongs to a hidden file
+  /// used by other functions of the app
+  static bool isReservedPath(String path) {
+    return _reservedFilePaths.any((regex) => regex.hasMatch(path));
+  }
+  static final List<RegExp> _reservedFilePaths = [
+    RegExp(RegExp.escape(Whiteboard.filePath)),
+  ];
 
   @override
   State<Editor> createState() => EditorState();
