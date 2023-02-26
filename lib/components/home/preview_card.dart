@@ -54,8 +54,10 @@ class _PreviewCardState extends State<PreviewCard> {
   /// The cropped height of the first page
   /// as a percentage of the width of the canvas
   /// (cropped to its content for a masonry layout).
+  ///
   /// The cropped height (not ratio) will be between 10% and 100% of the
-  /// maximum height of the first page.
+  /// maximum height of the first page,
+  /// or 0 if an error occurs.
   double get heightWidthRatio {
     final EditorPage firstPage;
     if (coreInfo.pages.isEmpty) {
@@ -180,9 +182,7 @@ class _PreviewCardState extends State<PreviewCard> {
                           duration: const Duration(milliseconds: 300),
                           child: CanvasPreview(
                             key: ValueKey(coreInfo),
-                            height: heightWidthRatio == 0
-                                ? null
-                                : heightWidthRatio * firstPageWidth,
+                            height: heightWidthRatio * firstPageWidth,
                             coreInfo: coreInfo,
                           ),
                         ),
