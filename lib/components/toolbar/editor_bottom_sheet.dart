@@ -70,6 +70,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
           children: [
             const SizedBox(height: 16),
             Wrap(
+              spacing: 8,
               children: [
                 ElevatedButton(
                   onPressed: widget.coreInfo.isNotEmpty ? () {
@@ -87,7 +88,6 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     ],
                   ),
                 ),
-                const SizedBox(width: 8),
                 ElevatedButton(
                   onPressed: widget.coreInfo.isNotEmpty ? () {
                     widget.clearAllPages();
@@ -221,6 +221,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Wrap(
+              spacing: 8,
               children: [
                 ElevatedButton(
                   onPressed: () async {
@@ -232,7 +233,6 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   },
                   child: Text(t.editor.toolbar.photo),
                 ),
-                const SizedBox(width: 8),
                 if (widget.canRasterPdf) ElevatedButton(
                   onPressed: () async {
                     bool pdfImported = await widget.importPdf();
