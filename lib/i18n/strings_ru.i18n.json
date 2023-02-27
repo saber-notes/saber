@@ -49,7 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
       "editorAutoInvert": "Интеллектуально затемнять заметки в тёмном режиме",
-      "editorOpaqueackgrounds": "Удалить прозрачность из фоновых изображений и PDF-файлов",
+      "editorOpaqueBackgrounds": "Удалить прозрачность фоновых изображений и PDF-файлов",
       "preferGreyscale": "Для e-ink экранов",
       "autoClearWhiteboardOnExit": "Это будет синхронизировано с другими вашими устройствами",
       "maxImageSize": "Большие изображения будут сжаты",
