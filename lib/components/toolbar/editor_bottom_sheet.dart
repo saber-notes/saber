@@ -69,45 +69,39 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
           shrinkWrap: true,
           children: [
             const SizedBox(height: 16),
-            Row(
+            Wrap(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: widget.coreInfo.isNotEmpty ? () {
-                      widget.clearPage();
-                      Navigator.pop(context);
-                    } : null,
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      children: [
-                        const AdaptiveIcon(
-                          icon: Icons.delete,
-                          cupertinoIcon: CupertinoIcons.delete,
-                        ),
-                        const SizedBox(width: 8),
-                        Text(t.editor.menu.clearPage),
-                      ],
-                    ),
+                ElevatedButton(
+                  onPressed: widget.coreInfo.isNotEmpty ? () {
+                    widget.clearPage();
+                    Navigator.pop(context);
+                  } : null,
+                  child: Wrap(
+                    children: [
+                      const AdaptiveIcon(
+                        icon: Icons.delete,
+                        cupertinoIcon: CupertinoIcons.delete,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(t.editor.menu.clearPage),
+                    ],
                   ),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: widget.coreInfo.isNotEmpty ? () {
-                      widget.clearAllPages();
-                      Navigator.pop(context);
-                    } : null,
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      children: [
-                        const AdaptiveIcon(
-                          icon: Icons.delete_sweep,
-                          cupertinoIcon: CupertinoIcons.delete_solid,
-                        ),
-                        const SizedBox(width: 8),
-                        Text(t.editor.menu.clearAllPages),
-                      ],
-                    )
+                ElevatedButton(
+                  onPressed: widget.coreInfo.isNotEmpty ? () {
+                    widget.clearAllPages();
+                    Navigator.pop(context);
+                  } : null,
+                  child: Wrap(
+                    children: [
+                      const AdaptiveIcon(
+                        icon: Icons.delete_sweep,
+                        cupertinoIcon: CupertinoIcons.delete_solid,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(t.editor.menu.clearAllPages),
+                    ],
                   ),
                 ),
               ],
