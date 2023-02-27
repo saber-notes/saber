@@ -17,6 +17,16 @@ class NextcloudProfile extends StatefulWidget {
 
   @override
   State<NextcloudProfile> createState() => _NextcloudProfileState();
+
+  @visibleForTesting
+  static Future<Quota?> getStorageQuota() async {
+    final client = NextcloudClientExtension.withSavedDetails();
+    if (client == null) return null;
+
+    final user = await client.provisioningApi.getCurrentUser();
+    Prefs.lastStorageQuota.value = user.ocs.data.quota;
+    return Prefs.lastStorageQuota.value;
+  }
 }
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
@@ -34,15 +44,6 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     var pfpBase64 = Prefs.pfp.value;
     pfpBytes = pfpBase64.isNotEmpty ? base64Decode(pfpBase64) : null;
     setState(() {});
-  }
-
-  Future<Quota?> getStorageQuota() async {
-    final client = NextcloudClientExtension.withSavedDetails();
-    if (client == null) return null;
-
-    final user = await client.provisioningApi.getCurrentUser();
-    Prefs.lastStorageQuota.value = user.ocs.data.quota;
-    return Prefs.lastStorageQuota.value;
   }
 
   @override
@@ -66,7 +67,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       title: Text(heading),
       subtitle: Text(subheading),
       trailing: loggedIn ? FutureBuilder(
-        future: getStorageQuota(),
+        future: NextcloudProfile.getStorageQuota(),
         initialData: Prefs.lastStorageQuota.value,
         builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
           final Quota? quota = snapshot.data;
