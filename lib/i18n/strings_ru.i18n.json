@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Панель инструментов редактора",
       "editorToolbarShowInFullscreen": "Показывать инструменты в полноэкранном режиме",
       "editorAutoInvert": "Инвертировать заметки в тёмном режиме",
+      "editorOpaqueBackgrounds": "Непрозрачные фоны",
       "preferGreyscale": "Предпочтение оттенкам серого",
       "editorStraightenLines": "Нажать и удерживать, чтобы выпрямить линию",
       "maxImageSize": "Макс. размер изображения",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
       "editorAutoInvert": "Интеллектуально затемнять заметки в тёмном режиме",
+      "editorOpaqueBackgrounds": "Удалить прозрачность фоновых изображений и PDF-файлов",
       "preferGreyscale": "Для e-ink экранов",
       "autoClearWhiteboardOnExit": "Это будет синхронизировано с другими вашими устройствами",
       "maxImageSize": "Большие изображения будут сжаты",

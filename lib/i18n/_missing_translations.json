@@ -26,16 +26,7 @@
   "fr": {},
   "it": {},
   "pt-BR": {},
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1730 (144 per locale)
+/// Strings: 1732 (144 per locale)
 ///
-/// Built on 2023-02-25 at 17:49 UTC
+/// Built on 2023-02-27 at 03:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4534,6 +4534,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Панель инструментов редактора';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
+	@override String get editorOpaqueBackgrounds => 'Непрозрачные фоны';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
 	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
 	@override String get maxImageSize => 'Макс. размер изображения';
@@ -4551,6 +4552,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
 	@override String get editorAutoInvert => 'Интеллектуально затемнять заметки в тёмном режиме';
+	@override String get editorOpaqueBackgrounds => 'Удалить прозрачность фоновых изображений и PDF-файлов';
 	@override String get preferGreyscale => 'Для e-ink экранов';
 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
