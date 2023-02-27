@@ -665,7 +665,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "658ad9f26b64102e2c00d4de36d4dc45428d2aa9"
+      resolved-ref: fed77a4bfe989093c0c606adb8118c15edaeb780
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1024,18 +1024,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "11496b152f18b9f2955d3199c713e600dc53dab8eb09d6b032a7a462081233e4"
+      sha256: feb53186f35ea464db77bf957c8309f802a8ff9fef305581120ebcd400170f9f
       url: "https://pub.dev"
     source: hosted
-    version: "3.12.0"
+    version: "3.13.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: "34e69a7e73a5d167dfc11da649e5a0a324567817b03303e9e62275d78a0d4fe7"
+      sha256: "7454bd2fe78fa7f2e53cf6b58c8ba6e4dc6f45c05e5cc44eb8baac7557f2c77d"
       url: "https://pub.dev"
     source: hosted
-    version: "3.12.0"
+    version: "3.13.0"
   source_span:
     dependency: transitive
     description:
@@ -1289,10 +1289,10 @@ packages:
     dependency: "direct main"
     description:
       name: window_manager
-      sha256: "5bdd29dc5f1f3185fc90696373a571d77968e03e5e820fb1ecdbdade3f5d8fff"
+      sha256: "492806c69879f0d28e95472bbe5e8d5940ac8c6e99cc07052fe14946974555ba"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   worker_manager:
     dependency: "direct main"
     description:
