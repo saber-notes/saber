@@ -211,9 +211,5 @@
     },
     "pages": "Páginas",
     "untitled": "Sem título"
-  },
-  "sPenWarning": {
-    "title": "Aviso de bug da S Pen",
-    "description": "Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão da S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas."
   }
 }

@@ -206,9 +206,5 @@
       "lockZoom": "Zoom sperren"
     },
     "pages": "Seiten"
-  },
-  "sPenWarning": {
-    "title": "S Pen Problemwarnung",
-    "description": "Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen."
   }
 }

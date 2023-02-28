@@ -211,9 +211,5 @@
     },
     "pages": "Páginas",
     "untitled": "Sin título"
-  },
-  "sPenWarning": {
-    "title": "Aviso de error del S Pen",
-    "description": "Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas."
   }
 }

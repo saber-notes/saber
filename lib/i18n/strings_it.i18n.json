@@ -211,9 +211,5 @@
     },
     "pages": "Pagine",
     "untitled": "Senza titolo"
-  },
-  "sPenWarning": {
-    "title": "Avviso di bug S Pen",
-    "description": "Se utilizzi una S Pen, potresti riscontrare un bug in cui l'app si arresta in modo anomalo quando tenti di cancellare con il pulsante S Pen. Questo è un bug nel framework Flutter e la correzione verrà probabilmente rilasciata entro un mese. Nel frattempo, utilizza il pulsante della gomma nella barra degli strumenti."
   }
 }

@@ -208,9 +208,5 @@
       "lockPan": "Tek parmakla kaydırmayı kilitle"
     },
     "pages": "Sayfalar"
-  },
-  "sPenWarning": {
-    "title": "S Pen hata uyarısı",
-    "description": "S Pen kullanıcıları, yazıları silmek için S Pen butonunu kullandıklarında uygulamanın çökmesine neden olan bir hata ile karşılaşıyorlar. Bu hata Flutter framework'ten kaynaklanmakta ve çözümü muhtemelen bir ay içerisinde yayınlanacak. Bu sırada, lütfen araç kutusundaki silgiyi kullanın."
   }
 }

@@ -211,9 +211,5 @@
     },
     "pages": "Pages",
     "untitled": "Untitled"
-  },
-  "sPenWarning": {
-    "title": "Alerte bug S Pen",
-    "description": "Si vous utilisez un S Pen, il peut arriver que l'application se bloque lorsque vous essayez d'effacer avec le bouton. Il s'agit d'un bug dans le \"framework Flutter\", et le correctif sera probablement publié d'ici un mois. En attendant, veuillez utiliser le bouton gomme dans la barre d'outils."
   }
 }

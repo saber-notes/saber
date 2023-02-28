@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1732 (144 per locale)
+/// Strings: 1708 (142 per locale)
 ///
-/// Built on 2023-02-27 at 03:55 UTC
+/// Built on 2023-02-28 at 07:31 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -159,7 +159,6 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
-	late final _StringsSPenWarningEn sPenWarning = _StringsSPenWarningEn._(_root);
 }
 
 // Path: home
@@ -269,17 +268,6 @@ class _StringsEditorEn {
 	late final _StringsEditorHudEn hud = _StringsEditorHudEn._(_root);
 	String get pages => 'Pages';
 	String get untitled => 'Untitled';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningEn {
-	_StringsSPenWarningEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'S Pen bug warning';
-	String get description => 'If you are using an S Pen, you may experience a bug where the app will crash when trying to erase with the S Pen button. This is a bug in the Flutter framework, and the fix will likely be released within a month. In the meantime, please use the eraser button in the toolbar.';
 }
 
 // Path: home.tabs
@@ -683,7 +671,6 @@ class _StringsCs extends _StringsEn {
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
 	@override late final _StringsUpdateCs update = _StringsUpdateCs._(_root);
 	@override late final _StringsEditorCs editor = _StringsEditorCs._(_root);
-	@override late final _StringsSPenWarningCs sPenWarning = _StringsSPenWarningCs._(_root);
 }
 
 // Path: home
@@ -793,17 +780,6 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorHudCs hud = _StringsEditorHudCs._(_root);
 	@override String get pages => 'Stránky';
 	@override String get untitled => 'Nepojmenovaná poznámka';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningCs extends _StringsSPenWarningEn {
-	_StringsSPenWarningCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Varování ohledně chyby při používání S Pen';
-	@override String get description => 'Při používání S Pen můžete narazit na chybu způsobující pád aplikace, která se projeví po pokusu mazat podržením tlačítka na S Pen. Jedná se o chybu ve frameworku Flutter, jejíž oprava bude vydána zhruba do měsíce. Prozatím prosím používejte tlačítko pro smazání umístěné v nástrojové liště.';
 }
 
 // Path: home.tabs
@@ -1207,7 +1183,6 @@ class _StringsDe extends _StringsEn {
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
 	@override late final _StringsUpdateDe update = _StringsUpdateDe._(_root);
 	@override late final _StringsEditorDe editor = _StringsEditorDe._(_root);
-	@override late final _StringsSPenWarningDe sPenWarning = _StringsSPenWarningDe._(_root);
 }
 
 // Path: home
@@ -1316,17 +1291,6 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorQuillDe quill = _StringsEditorQuillDe._(_root);
 	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
 	@override String get pages => 'Seiten';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningDe extends _StringsSPenWarningEn {
-	_StringsSPenWarningDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'S Pen Problemwarnung';
-	@override String get description => 'Wenn du einen S Pen verwendest, kann es sein, dass deine App abstürzt, wenn du versuchst, mit dem Radiergummi-Knopf zu radieren. Das ist ein Problem im Flutter Framework und wird vermutlich in einem Monat behoben sein. Bis dahin kannst du den Radiergummi-Knopf in der Werkzeugleiste nutzen.';
 }
 
 // Path: home.tabs
@@ -1726,7 +1690,6 @@ class _StringsEs extends _StringsEn {
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
-	@override late final _StringsSPenWarningEs sPenWarning = _StringsSPenWarningEs._(_root);
 }
 
 // Path: home
@@ -1835,17 +1798,6 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorHudEs hud = _StringsEditorHudEs._(_root);
 	@override String get pages => 'Páginas';
 	@override String get untitled => 'Sin título';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningEs extends _StringsSPenWarningEn {
-	_StringsSPenWarningEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Aviso de error del S Pen';
-	@override String get description => 'Si utilizas un S Pen, es posible que la aplicación se bloquee al intentar borrar con el botón del S Pen. Se trata de un error de Flutter, y la solución se publicará probablemente dentro de un mes. Mientras tanto, utiliza el botón de borrar de la barra de herramientas.';
 }
 
 // Path: home.tabs
@@ -2249,7 +2201,6 @@ class _StringsFa extends _StringsEn {
 	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
 	@override late final _StringsUpdateFa update = _StringsUpdateFa._(_root);
 	@override late final _StringsEditorFa editor = _StringsEditorFa._(_root);
-	@override late final _StringsSPenWarningFa sPenWarning = _StringsSPenWarningFa._(_root);
 }
 
 // Path: home
@@ -2359,17 +2310,6 @@ class _StringsEditorFa extends _StringsEditorEn {
 	@override late final _StringsEditorHudFa hud = _StringsEditorHudFa._(_root);
 	@override String get pages => 'صفحات';
 	@override String get untitled => 'بدون عنوان';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningFa extends _StringsSPenWarningEn {
-	_StringsSPenWarningFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'هشدار اشکال S قلم';
-	@override String get description => 'اگر از قلم S استفاده می‌کنید، ممکن است هنگام تلاش برای پاک کردن با دکمه S Pen با اشکالی مواجه شوید که در آن برنامه از کار می‌افتد. این یک اشکال در چارچوب Flutter است و احتمالاً در عرض یک ماه رفع خواهد شد. در ضمن، لطفا از دکمه پاک کن در نوار ابزار استفاده کنید.';
 }
 
 // Path: home.tabs
@@ -2773,7 +2713,6 @@ class _StringsFr extends _StringsEn {
 	@override late final _StringsAppInfoFr appInfo = _StringsAppInfoFr._(_root);
 	@override late final _StringsUpdateFr update = _StringsUpdateFr._(_root);
 	@override late final _StringsEditorFr editor = _StringsEditorFr._(_root);
-	@override late final _StringsSPenWarningFr sPenWarning = _StringsSPenWarningFr._(_root);
 }
 
 // Path: home
@@ -2883,17 +2822,6 @@ class _StringsEditorFr extends _StringsEditorEn {
 	@override late final _StringsEditorHudFr hud = _StringsEditorHudFr._(_root);
 	@override String get pages => 'Pages';
 	@override String get untitled => 'Untitled';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningFr extends _StringsSPenWarningEn {
-	_StringsSPenWarningFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Alerte bug S Pen';
-	@override String get description => 'Si vous utilisez un S Pen, il peut arriver que l\'application se bloque lorsque vous essayez d\'effacer avec le bouton. Il s\'agit d\'un bug dans le "framework Flutter", et le correctif sera probablement publié d\'ici un mois. En attendant, veuillez utiliser le bouton gomme dans la barre d\'outils.';
 }
 
 // Path: home.tabs
@@ -3297,7 +3225,6 @@ class _StringsIt extends _StringsEn {
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
 	@override late final _StringsUpdateIt update = _StringsUpdateIt._(_root);
 	@override late final _StringsEditorIt editor = _StringsEditorIt._(_root);
-	@override late final _StringsSPenWarningIt sPenWarning = _StringsSPenWarningIt._(_root);
 }
 
 // Path: home
@@ -3407,17 +3334,6 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorHudIt hud = _StringsEditorHudIt._(_root);
 	@override String get pages => 'Pagine';
 	@override String get untitled => 'Senza titolo';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningIt extends _StringsSPenWarningEn {
-	_StringsSPenWarningIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Avviso di bug S Pen';
-	@override String get description => 'Se utilizzi una S Pen, potresti riscontrare un bug in cui l\'app si arresta in modo anomalo quando tenti di cancellare con il pulsante S Pen. Questo è un bug nel framework Flutter e la correzione verrà probabilmente rilasciata entro un mese. Nel frattempo, utilizza il pulsante della gomma nella barra degli strumenti.';
 }
 
 // Path: home.tabs
@@ -3821,7 +3737,6 @@ class _StringsPtBr extends _StringsEn {
 	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
 	@override late final _StringsUpdatePtBr update = _StringsUpdatePtBr._(_root);
 	@override late final _StringsEditorPtBr editor = _StringsEditorPtBr._(_root);
-	@override late final _StringsSPenWarningPtBr sPenWarning = _StringsSPenWarningPtBr._(_root);
 }
 
 // Path: home
@@ -3931,17 +3846,6 @@ class _StringsEditorPtBr extends _StringsEditorEn {
 	@override late final _StringsEditorHudPtBr hud = _StringsEditorHudPtBr._(_root);
 	@override String get pages => 'Páginas';
 	@override String get untitled => 'Sem título';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningPtBr extends _StringsSPenWarningEn {
-	_StringsSPenWarningPtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Aviso de bug da S Pen';
-	@override String get description => 'Se você estiver usando uma S Pen, poderá enfrentar um bug em que o aplicativo falhará ao tentar apagar com o botão da S Pen. Este é um bug na estrutura do Flutter e a correção provavelmente será lançada dentro um mês. Enquanto isso, use o botão de borracha na barra de ferramentas.';
 }
 
 // Path: home.tabs
@@ -4345,7 +4249,6 @@ class _StringsRu extends _StringsEn {
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
 	@override late final _StringsUpdateRu update = _StringsUpdateRu._(_root);
 	@override late final _StringsEditorRu editor = _StringsEditorRu._(_root);
-	@override late final _StringsSPenWarningRu sPenWarning = _StringsSPenWarningRu._(_root);
 }
 
 // Path: home
@@ -4455,17 +4358,6 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorHudRu hud = _StringsEditorHudRu._(_root);
 	@override String get pages => 'Листы';
 	@override String get untitled => 'Без названия';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningRu extends _StringsSPenWarningEn {
-	_StringsSPenWarningRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Предупреждение для S Pen';
-	@override String get description => 'Если вы используете S Pen, то можете получить ошибку, из-за которой приложение даст сбой при попытке стереть с помощью кнопки S Pen. Это ошибка в рамках Flutter и исправление, вероятно, будет выпущено в течение месяца. В то же время, пожалуйста, используйте кнопку «Ластик» на панели инструментов.';
 }
 
 // Path: home.tabs
@@ -4869,7 +4761,6 @@ class _StringsTr extends _StringsEn {
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
 	@override late final _StringsUpdateTr update = _StringsUpdateTr._(_root);
 	@override late final _StringsEditorTr editor = _StringsEditorTr._(_root);
-	@override late final _StringsSPenWarningTr sPenWarning = _StringsSPenWarningTr._(_root);
 }
 
 // Path: home
@@ -4978,17 +4869,6 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
 	@override late final _StringsEditorHudTr hud = _StringsEditorHudTr._(_root);
 	@override String get pages => 'Sayfalar';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningTr extends _StringsSPenWarningEn {
-	_StringsSPenWarningTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'S Pen hata uyarısı';
-	@override String get description => 'S Pen kullanıcıları, yazıları silmek için S Pen butonunu kullandıklarında uygulamanın çökmesine neden olan bir hata ile karşılaşıyorlar. Bu hata Flutter framework\'ten kaynaklanmakta ve çözümü muhtemelen bir ay içerisinde yayınlanacak. Bu sırada, lütfen araç kutusundaki silgiyi kullanın.';
 }
 
 // Path: home.tabs
@@ -5390,7 +5270,6 @@ class _StringsZhHansCn extends _StringsEn {
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
-	@override late final _StringsSPenWarningZhHansCn sPenWarning = _StringsSPenWarningZhHansCn._(_root);
 }
 
 // Path: home
@@ -5500,17 +5379,6 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorHudZhHansCn hud = _StringsEditorHudZhHansCn._(_root);
 	@override String get pages => '页面';
 	@override String get untitled => '未命名';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningZhHansCn extends _StringsSPenWarningEn {
-	_StringsSPenWarningZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'S Pen 错误警告';
-	@override String get description => '如果您使用的是 S Pen，您可能会遇到一个错误，即在尝试使用 S Pen 按钮进行擦除时应用会崩溃。这是 Flutter 框架中的一个错误，修复可能会在一个月内发布。同时，请使用工具栏中的橡皮擦按钮。';
 }
 
 // Path: home.tabs
@@ -5914,7 +5782,6 @@ class _StringsZhHantTw extends _StringsEn {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
-	@override late final _StringsSPenWarningZhHantTw sPenWarning = _StringsSPenWarningZhHantTw._(_root);
 }
 
 // Path: home
@@ -6024,17 +5891,6 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorHudZhHantTw hud = _StringsEditorHudZhHantTw._(_root);
 	@override String get pages => '頁面';
 	@override String get untitled => '無標題';
-}
-
-// Path: sPenWarning
-class _StringsSPenWarningZhHantTw extends _StringsSPenWarningEn {
-	_StringsSPenWarningZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'S Pen 錯誤警告';
-	@override String get description => '如果您使用的是 S Pen，您可能會遇到一個錯誤，即在嘗試使用 S Pen 按鈕進行擦除時應用程式會崩潰。這是 Flutter 框架中的一個錯誤，修復可能會在一個月內發布。同時，請使用工具欄中的橡皮擦按鈕。';
 }
 
 // Path: home.tabs
