@@ -3,7 +3,7 @@
 /// Locales: 12
 /// Strings: 1708 (142 per locale)
 ///
-/// Built on 2023-02-28 at 07:31 UTC
+/// Built on 2023-03-01 at 04:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2821,7 +2821,7 @@ class _StringsEditorFr extends _StringsEditorEn {
 	@override late final _StringsEditorQuillFr quill = _StringsEditorQuillFr._(_root);
 	@override late final _StringsEditorHudFr hud = _StringsEditorHudFr._(_root);
 	@override String get pages => 'Pages';
-	@override String get untitled => 'Untitled';
+	@override String get untitled => 'Sans titre';
 }
 
 // Path: home.tabs
@@ -2911,7 +2911,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get editorOpaqueBackgrounds => 'Supprime la transparence du fond dans les images et les PDF';
 	@override String get preferGreyscale => 'Pour les couleurs de stylos proposées';
 	@override String get autoClearWhiteboardOnExit => 'Il restera synchronisé avec vos autres appareils';
-	@override String get maxImageSize => 'les images plus grandes seront compressées';
+	@override String get maxImageSize => 'Les images plus grandes seront compressées';
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 }
@@ -3167,9 +3167,9 @@ class _StringsEditorHudFr extends _StringsEditorHudEn {
 
 	// Translations
 	@override String get unlockZoom => 'Déverrouiller le zoom';
-	@override String get lockZoom => 'Vérrouiller le zoom';
-	@override String get unlockPan => 'Activer le panning à un seul doigt';
-	@override String get lockPan => 'Désactiver le panning à un seul doigt';
+	@override String get lockZoom => 'Verrouiller le zoom';
+	@override String get unlockPan => 'Activer le défilement à un seul doigt';
+	@override String get lockPan => 'Désactiver le défilement à un seul doigt';
 }
 
 // Path: editor.menu.boxFits

@@ -52,7 +52,7 @@
       "editorOpaqueBackgrounds": "Supprime la transparence du fond dans les images et les PDF",
       "preferGreyscale": "Pour les couleurs de stylos proposées",
       "autoClearWhiteboardOnExit": "Il restera synchronisé avec vos autres appareils",
-      "maxImageSize": "les images plus grandes seront compressées",
+      "maxImageSize": "Les images plus grandes seront compressées",
       "editorPromptRename": "Vous pourrez toujours les renommer plus tard",
       "hideHomeBackgrounds": "Pour une apparence plus sobre"
     },
@@ -205,11 +205,11 @@
     },
     "hud": {
       "unlockZoom": "Déverrouiller le zoom",
-      "lockZoom": "Vérrouiller le zoom",
-      "unlockPan": "Activer le panning à un seul doigt",
-      "lockPan": "Désactiver le panning à un seul doigt"
+      "lockZoom": "Verrouiller le zoom",
+      "unlockPan": "Activer le défilement à un seul doigt",
+      "lockPan": "Désactiver le défilement à un seul doigt"
     },
     "pages": "Pages",
-    "untitled": "Untitled"
+    "untitled": "Sans titre"
   }
 }
