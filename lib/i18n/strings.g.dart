@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1708 (142 per locale)
+/// Strings: 1711 (142 per locale)
 ///
-/// Built on 2023-03-01 at 04:09 UTC
+/// Built on 2023-03-02 at 12:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4869,6 +4869,7 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
 	@override late final _StringsEditorHudTr hud = _StringsEditorHudTr._(_root);
 	@override String get pages => 'Sayfalar';
+	@override String get untitled => 'İsimsiz';
 }
 
 // Path: home.tabs
@@ -4937,6 +4938,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Editör araç çubuğunun yerleşimi';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
+	@override String get editorOpaqueBackgrounds => 'Opak arkaplan';
 	@override String get preferGreyscale => 'Gri tonlamayı tercih et';
 	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
 	@override String get maxImageSize => 'Maksimum görsel boyutu';
@@ -4954,6 +4956,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
 	@override String get editorAutoInvert => 'Karanlık modda notların rengini değiştirir';
+	@override String get editorOpaqueBackgrounds => 'PDF\'ler ve arkaplan resimlerinden transparanlığı kaldırır';
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
