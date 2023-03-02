@@ -203,6 +203,9 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
+  shaders:
+    - shaders/invert.frag
+
 
 # flutter pub run icons_launcher:create
 icons_launcher:
