@@ -249,22 +249,9 @@ class EditorImage extends ChangeNotifier {
   }
 
   Widget buildImageWidget({
-    required Brightness imageBrightness,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
   }) {
-    Uint8List bytes = this.bytes;
-    String keySuffix = 'light';
-    if (imageBrightness == Brightness.dark) {
-      if (invertedBytesCache != null) {
-        bytes = invertedBytesCache!;
-        keySuffix = 'dark';
-      } else if (invertedThumbnailBytes != null) {
-        bytes = invertedThumbnailBytes!;
-        keySuffix = 'dark-thumbnail';
-      }
-    }
-
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
       boxFit = overrideBoxFit;
@@ -277,7 +264,6 @@ class EditorImage extends ChangeNotifier {
     return Image.memory(
       bytes,
       fit: boxFit,
-      key: Key('Image$id-$keySuffix'),
     );
   }
 

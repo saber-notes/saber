@@ -116,20 +116,9 @@ class SvgEditorImage extends EditorImage {
 
   @override
   Widget buildImageWidget({
-    required Brightness imageBrightness,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
   }) {
-    String svgString;
-    String keySuffix;
-    if (imageBrightness == Brightness.light) {
-      svgString = this.svgString;
-      keySuffix = 'light';
-    } else {
-      svgString = invertedSvgString ?? this.svgString;
-      keySuffix = 'dark';
-    }
-
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
       boxFit = overrideBoxFit;
@@ -142,11 +131,8 @@ class SvgEditorImage extends EditorImage {
     return SvgPicture.string(
       svgString,
       fit: boxFit,
-      key: Key('Image$id-$keySuffix'),
-      theme: SvgTheme(
-        currentColor: imageBrightness == Brightness.light
-            ? Colors.black
-            : Colors.white,
+      theme: const SvgTheme(
+        currentColor: Colors.black,
       ),
     );
   }

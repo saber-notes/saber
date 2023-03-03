@@ -1,17 +1,18 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/invert_shader.dart';
+import 'package:saber/components/canvas/shader_sampler.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:worker_manager/worker_manager.dart';
 
 class CanvasImage extends StatefulWidget {
   CanvasImage({
@@ -66,7 +67,7 @@ class _CanvasImageState extends State<CanvasImage> {
 
   Brightness imageBrightness = Brightness.light;
 
-  bool invertStarted = false;
+  ui.FragmentShader shader = InvertShader.create();
 
   Rect panStartRect = Rect.zero;
   Offset panStartPosition = Offset.zero;
@@ -76,11 +77,6 @@ class _CanvasImageState extends State<CanvasImage> {
     if (widget.image.newImage) { // if the image is new, make it [active]
       active = true;
       widget.image.newImage = false;
-    }
-
-    if (Prefs.appTheme.value == ThemeMode.system || Prefs.appTheme.value == ThemeMode.dark) {
-      // invert the image pre-emptively if we're likely to switch to dark mode
-      invertImage();
     }
 
     widget.image.addListener(imageListener);
@@ -98,40 +94,6 @@ class _CanvasImageState extends State<CanvasImage> {
 
   void imageListener() {
     setState(() {});
-  }
-
-  Future invertImage() async {
-    if (!mounted) return;
-
-    // wait for thumbnail to be inverted if needed
-    while (!widget.image.loaded) {
-      await Future.delayed(const Duration(milliseconds: 50));
-    }
-
-    if (widget.image.invertedBytesCache != null) {
-      // if we've already inverted the image, use the cached version
-      return;
-    } else if (widget.image.extension == '.svg') {
-      // SVGs are inverted when they're loaded
-      return;
-    } else if (widget.image.isThumbnail || widget.image.thumbnailBytes == null) {
-      // if image is a thumbnail (or thumbnail sized), we've already inverted it
-      return;
-    }
-
-    if (invertStarted) return;
-    invertStarted = true;
-
-    Uint8List? inverted = await Executor().execute(
-      fun2: EditorImage.invertImageIsolate,
-      arg1: widget.image.bytes,
-      arg2: widget.image.extension,
-    );
-    if (!mounted) return;
-    if (inverted == null) return;
-    setState(() {
-      widget.image.invertedBytesCache = inverted;
-    });
   }
 
   @override
@@ -154,9 +116,6 @@ class _CanvasImageState extends State<CanvasImage> {
     if (!widget.image.invertible) currentBrightness = Brightness.light;
 
     if (Prefs.editorAutoInvert.value && currentBrightness != imageBrightness) {
-      if (currentBrightness == Brightness.dark) {
-        invertImage();
-      }
       imageBrightness = currentBrightness;
     }
 
@@ -227,36 +186,15 @@ class _CanvasImageState extends State<CanvasImage> {
                         size: widget.image.srcRect.size,
                         child: Transform.translate(
                           offset: -widget.image.srcRect.topLeft,
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 500),
-                            switchInCurve: Curves.fastLinearToSlowEaseIn,
-                            switchOutCurve: Curves.fastLinearToSlowEaseIn.flipped,
+                          child: ShaderSampler(
+                            shaderEnabled: imageBrightness == Brightness.dark,
+                            shaderBuilder: (ui.Image image, Size size) {
+                              return shader..setImageSampler(0, image);
+                            },
                             child: widget.image.buildImageWidget(
-                              imageBrightness: imageBrightness,
                               overrideBoxFit: widget.overrideBoxFit,
                               isBackground: widget.isBackground,
                             ),
-                            layoutBuilder: (currentChild, previousChildren) {
-                              return SizedBox(
-                                width: widget.image.naturalSize.width,
-                                height: widget.image.naturalSize.height,
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: [
-                                    ...previousChildren,
-                                    if (currentChild != null)
-                                      currentChild
-                                    else
-                                      const ColoredBox(
-                                        color: Colors.grey,
-                                        child: Center(
-                                          child: Icon(Icons.image, color: Colors.white),
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                              );
-                            },
                           ),
                         ),
                       ),
