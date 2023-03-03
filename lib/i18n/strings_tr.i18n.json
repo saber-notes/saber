@@ -38,6 +38,7 @@
       "editorToolbarAlignment": "Editör araç çubuğunun yerleşimi",
       "editorToolbarShowInFullscreen": "Editör araç kutusunu tam ekranda göster",
       "editorAutoInvert": "Karanlık temada notların rengini tersine çevir",
+      "editorOpaqueBackgrounds": "Opak arkaplan",
       "preferGreyscale": "Gri tonlamayı tercih et",
       "editorStraightenLines": "Bir çizgiyi düzleştirmek için basılı tut",
       "maxImageSize": "Maksimum görsel boyutu",
@@ -48,6 +49,7 @@
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur",
       "editorAutoInvert": "Karanlık modda notların rengini değiştirir",
+      "editorOpaqueBackgrounds": "PDF'ler ve arkaplan resimlerinden transparanlığı kaldırır",
       "preferGreyscale": "E-mürekkep ekranlar için",
       "autoClearWhiteboardOnExit": "Diğer cihazlarınıza senkronize edilmeye devam edecek",
       "maxImageSize": "Bundan daha büyük görseller sıkıştırılacak",
@@ -207,6 +209,7 @@
       "unlockPan": "Tek parmakla kaydırma kilidini aç",
       "lockPan": "Tek parmakla kaydırmayı kilitle"
     },
-    "pages": "Sayfalar"
+    "pages": "Sayfalar",
+    "untitled": "İsimsiz"
   }
 }
