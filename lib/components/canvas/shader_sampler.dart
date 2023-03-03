@@ -34,6 +34,7 @@ class _ShaderSamplerState extends State<ShaderSampler> {
   @override
   void didUpdateWidget(covariant ShaderSampler oldWidget) {
     _controller.allowSnapshotting = widget.shaderEnabled;
+    _controller.clear();
     super.didUpdateWidget(oldWidget);
   }
 
