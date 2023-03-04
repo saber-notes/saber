@@ -1,12 +1,14 @@
+import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 
 void main() {
-  test('Test that the select tool selects the right points', () async {
+  test('Test that the select tool selects the right strokes', () async {
     Select select = Select.currentSelect;
     StrokeProperties strokeProperties = StrokeProperties();
     Size pageSize = const Size(100, 100);
@@ -41,9 +43,64 @@ void main() {
         ..offset = const Offset(10, 10),
     ];
 
-    select.onDragEnd(strokes);
+    select.onDragEnd(strokes, const []);
 
-    expect(select.selectResult.indices.length, 1, reason: 'Only one stroke should be selected');
-    expect(select.selectResult.indices.first, 0, reason: 'The first stroke should be selected');
+    expect(select.selectResult.strokeIndices.length, 1, reason: 'Only one stroke should be selected');
+    expect(select.selectResult.strokeIndices.first, 0, reason: 'The first stroke should be selected');
+    expect(select.selectResult.imageIndices.length, 0, reason: 'No images should be selected');
   });
+
+  test('Test that the select tool selects the right images', () async {
+    Select select = Select.currentSelect;
+
+    // Drag gesture in a 10x10 square shape, on page 0
+    select.onDragStart(Offset.zero, 0);
+    select.onDragUpdate(const Offset(0, 10));
+    select.onDragUpdate(const Offset(10, 10));
+    select.onDragUpdate(const Offset(10, 0));
+
+    expect(select.selectResult.pageIndex, 0, reason: 'The page index should be 0');
+
+    List<EditorImage> images = [
+      // index 0 is inside (100% in the selection)
+      TestImage(
+        dstRect: const Rect.fromLTWH(0, 0, 10, 10),
+      ),
+      // index 1 is inside (> 70% in the selection)
+      TestImage(
+        dstRect: const Rect.fromLTWH(0, 0, 10 / 0.75, 10 / 0.75),
+      ),
+      // index 2 is outside (< 70% in the selection)
+      TestImage(
+        dstRect: const Rect.fromLTWH(0, 0, 10 / 0.6, 10 / 0.6),
+      ),
+    ];
+
+    select.onDragEnd(const [], images);
+
+    expect(select.selectResult.imageIndices.length, 2, reason: 'Two images should be selected');
+    expect(select.selectResult.imageIndices.contains(0), true, reason: 'The first image should be selected');
+    expect(select.selectResult.imageIndices.contains(1), true, reason: 'The second image should be selected');
+    expect(select.selectResult.strokeIndices.length, 0, reason: 'No strokes should be selected');
+  });
+}
+
+class TestImage extends EditorImage {
+  TestImage({
+    required super.dstRect,
+  })  : super(
+          id: -1,
+          extension: '.png',
+          bytes: Uint8List(0),
+          pageIndex: 0,
+          pageSize: const Size(100, 100),
+          onMoveImage: null,
+          onDeleteImage: null,
+          onMiscChange: null,
+        );
+
+  @override
+  Future<void> getImage({Size? pageSize}) async {
+    // do nothing
+  }
 }

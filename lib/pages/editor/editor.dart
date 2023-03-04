@@ -411,8 +411,11 @@ class EditorState extends State<Editor> {
     } else if (currentTool is Select) {
       Select select = currentTool as Select;
       if (select.doneSelecting) {
-        for (int i in select.selectResult.indices) {
+        for (int i in select.selectResult.strokeIndices) {
           page.strokes[i].offset += offset;
+        }
+        for (int i in select.selectResult.imageIndices) {
+          page.images[i].dstRect = page.images[i].dstRect.shift(offset);
         }
         select.selectResult.path = select.selectResult.path.shift(offset);
       } else {
@@ -446,19 +449,21 @@ class EditorState extends State<Editor> {
         if (select.doneSelecting) {
           history.recordChange(EditorHistoryItem(
             type: EditorHistoryItemType.move,
-            strokes: select.selectResult.indices
+            strokes: select.selectResult.strokeIndices
               .map((i) => page.strokes[i])
               .toList(),
-            images: [],
+            images: select.selectResult.imageIndices
+              .map((i) => page.images[i])
+              .toList(),
             offset: Rect.fromLTRB(
               moveOffset.dx,
               moveOffset.dy,
-              0,
-              0,
+              moveOffset.dx,
+              moveOffset.dy,
             ),
           ));
         } else {
-          select.onDragEnd(page.strokes);
+          select.onDragEnd(page.strokes, page.images);
         }
       }
     });

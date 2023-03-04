@@ -162,14 +162,16 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     child: quillEditor,
                   ),
                 ),
-                for (final EditorImage editorImage in page.images)
+                for (int i = 0; i < page.images.length; i++)
                   CanvasImage(
                     filePath: widget.coreInfo.filePath,
-                    image: editorImage,
+                    image: page.images[i],
                     pageSize: Size(widget.width, widget.height),
                     setAsBackground: widget.setAsBackground,
                     readOnly: widget.coreInfo.readOnly
                         || !widget.currentToolIsSelect,
+                    selected: widget.currentSelection?.imageIndices.contains(i)
+                        ?? false,
                   ),
               ],
             ),

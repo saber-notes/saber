@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
 import 'package:saber/components/canvas/tools/_tool.dart';
@@ -10,7 +10,16 @@ class Select extends Tool {
   static final Select _currentSelect = Select._();
   static Select get currentSelect => _currentSelect;
 
-  SelectResult selectResult = SelectResult(-1, const [], Path());
+  /// The minimum ratio of points inside a stroke or image
+  /// for it to be selected.
+  static const double minPercentInside = 0.7;
+
+  SelectResult selectResult = SelectResult(
+    pageIndex: -1,
+    strokeIndices: const [],
+    imageIndices: const [],
+    path: Path(),
+  );
   bool doneSelecting = false;
 
   @override
@@ -23,7 +32,12 @@ class Select extends Tool {
 
   void onDragStart(Offset position, int pageIndex) {
     doneSelecting = false;
-    selectResult = SelectResult(pageIndex, [], Path());
+    selectResult = SelectResult(
+      pageIndex: pageIndex,
+      strokeIndices: [],
+      imageIndices: [],
+      path: Path(),
+    );
     selectResult.path.moveTo(position.dx, position.dy);
     onDragUpdate(position);
   }
@@ -32,8 +46,10 @@ class Select extends Tool {
     selectResult.path.lineTo(position.dx, position.dy);
   }
 
-  /// Returns the indices of any [strokes] that are inside the selection area
-  void onDragEnd(List<Stroke> strokes) {
+  /// Adds the indices of any [strokes] that are inside the selection area
+  /// to [selectResult.indices].
+  void onDragEnd(List<Stroke> strokes, List<EditorImage> images) {
+
     selectResult.path.close();
     doneSelecting = true;
 
@@ -48,8 +64,35 @@ class Select extends Tool {
       final ratio = pointsInside / stroke.polygon.length;
 
       // if more than 70% of the points are inside the path, select the stroke
-      if (ratio > 0.7) {
-        selectResult.indices.add(i);
+      if (ratio > minPercentInside) {
+        selectResult.strokeIndices.add(i);
+      }
+    }
+
+    // test 5x5 grid of points inside each image
+    for (int i = 0; i < images.length; i++) {
+      final EditorImage image = images[i];
+
+      const int gridSize = 5;
+      final double gridCellWidth = image.dstRect.width / (gridSize - 1);
+      final double gridCellHeight = image.dstRect.height / (gridSize - 1);
+
+      int pointsInside = 0;
+      for (int x = 0; x < gridSize; x++) {
+        for (int y = 0; y < gridSize; y++) {
+          if (selectResult.path.contains(Offset(
+            image.dstRect.left + gridCellWidth * x,
+            image.dstRect.top + gridCellHeight * y,
+          ))) {
+            pointsInside++;
+          }
+        }
+      }
+
+      // times 0.8 because the grid is not perfectly accurate
+      final int minPointsInside = (gridSize * gridSize * minPercentInside * 0.8).floor();
+      if (pointsInside >= minPointsInside) {
+        selectResult.imageIndices.add(i);
       }
     }
   }
@@ -57,8 +100,14 @@ class Select extends Tool {
 
 class SelectResult {
   int pageIndex;
-  final List<int> indices;
+  final List<int> strokeIndices;
+  final List<int> imageIndices;
   Path path;
 
-  SelectResult(this.pageIndex, this.indices, this.path);
+  SelectResult({
+    required this.pageIndex,
+    required this.strokeIndices,
+    required this.imageIndices,
+    required this.path,
+  });
 }

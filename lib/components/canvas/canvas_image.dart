@@ -22,6 +22,7 @@ class CanvasImage extends StatefulWidget {
     required this.setAsBackground,
     this.isBackground = false,
     this.readOnly = false,
+    this.selected = false,
   }) : super(key: Key('CanvasImage$filePath/${image.id}'));
 
   /// The path to the note that this image is in.
@@ -32,6 +33,7 @@ class CanvasImage extends StatefulWidget {
   final void Function(EditorImage image)? setAsBackground;
   final bool isBackground;
   final bool readOnly;
+  final bool selected;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
   static ChangeNotifier activeListener = ChangeNotifier();
@@ -254,6 +256,10 @@ class _CanvasImageState extends State<CanvasImage> {
                 ),
               ),
             ),
+            if (widget.selected) // tint image if selected
+              ColoredBox(
+                color: colorScheme.primary.withOpacity(0.5),
+              ),
             if (!widget.readOnly)
               for (double x = -20; x <= 20; x += 20)
                 for (double y = -20; y <= 20; y += 20)
