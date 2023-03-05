@@ -296,8 +296,10 @@ class _CanvasImageState extends State<CanvasImage> {
       );
     }
     return AnimatedPositioned(
-      // duration is zero if we're currently dragging the image
-      duration: (panStartRect != Rect.zero) ? Duration.zero : const Duration(milliseconds: 200),
+      // no animation if the image is being dragged or it's selected
+      duration: (panStartRect != Rect.zero || widget.selected)
+          ? Duration.zero
+          : const Duration(milliseconds: 200),
 
       left: widget.image.dstRect.left,
       top: widget.image.dstRect.top,
