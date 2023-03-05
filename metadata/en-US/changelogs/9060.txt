@@ -1,0 +1,8 @@
+• Fixed bug with incorrect display of notes on the home screen while loading
+• The select tool can now also select images
+• You can now zoom below 1.0x
+• The full height of pages with background images will be shown on the home screen
+• Fixed bug where the Nextcloud storage would infinity load
+• Minor UI tweaks
+• Remove defunct S Pen warning
+• Upgrade to Flutter 3.7.6
