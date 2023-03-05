@@ -58,6 +58,8 @@ class CanvasGestureDetector extends StatefulWidget {
 class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   final TransformationController _transformationController = TransformationController();
 
+  late BoxConstraints containerBounds = const BoxConstraints();
+
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
   late double? zoomLockedValue = Prefs.lastZoomLock.value ? 1 : null;
@@ -68,6 +70,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   @override
   void initState() {
     setInitialTransform();
+    _transformationController.addListener(onTransformChanged);
     super.initState();
   }
 
@@ -107,6 +110,44 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     }
   }
 
+  /// Corrects the transform if it's out of bounds.
+  /// If the scale is less than 1, centers the pages horizontally.
+  /// Otherwise, prevents the user from scrolling past the edges.
+  void onTransformChanged() {
+    final scale = _transformationController.value.getMaxScaleOnAxis();
+    final translation = _transformationController.value.getTranslation();
+
+    double adjustmentX = 0;
+    double adjustmentY = 0;
+
+    // horizontally center pages if zoomed out
+    if (scale < 1) {
+      final center = containerBounds.maxWidth * (1 - scale) / 2;
+      adjustmentX = center - translation.x;
+    }
+
+    // if zoomed in, don't allow scrolling past the edges
+    else {
+      late final minX = containerBounds.maxWidth * (1 - scale);
+      if (translation.x > 0) {
+        adjustmentX = -translation.x;
+      } else if (translation.x < minX) {
+        adjustmentX = minX - translation.x;
+      }
+
+      if (translation.y > 0) {
+        adjustmentY = -translation.y;
+      }
+    }
+
+    if (adjustmentX.abs() > 0.1 || adjustmentY.abs() > 0.1) {
+      _transformationController.value.leftTranslate(
+        adjustmentX,
+        adjustmentY,
+      );
+    }
+  }
+
   void _listenerPointerEvent(PointerEvent event) {
     double? pressure;
     if (event.kind == PointerDeviceKind.stylus) {
@@ -122,6 +163,8 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Stack(
       children: [
         Listener(
@@ -131,11 +174,20 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
             onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
             onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
             child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
+              builder: (BuildContext context, BoxConstraints containerBounds) {
+                this.containerBounds = containerBounds;
+
                 return InteractiveCanvasViewer.builder(
                   minScale: zoomLockedValue ?? 0.01,
                   maxScale: zoomLockedValue ?? 5,
                   panEnabled: !panLock,
+
+                  // we need a non-zero boundary margin so we can zoom out
+                  // past the size of the page (for minScale < 1)
+                  boundaryMargin: EdgeInsets.symmetric(
+                    vertical: max(screenSize.width - screenSize.height, 0),
+                    horizontal: max(screenSize.height - screenSize.width, 0),
+                  ),
 
                   transformationController: _transformationController,
 
@@ -151,7 +203,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                       pageBuilder: widget.pageBuilder,
                       placeholderPageBuilder: widget.placeholderPageBuilder,
                       boundingBox: _axisAlignedBoundingBox(viewport),
-                      containerWidth: constraints.maxWidth,
+                      containerWidth: containerBounds.maxWidth,
                     );
                   },
                 );
@@ -183,6 +235,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   @override
   void dispose() {
     CanvasTransformCache.add(widget.filePath, _transformationController.value);
+    _transformationController.removeListener(onTransformChanged);
     _transformationController.dispose();
 
     super.dispose();
