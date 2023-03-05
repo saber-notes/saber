@@ -9,7 +9,9 @@ import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:worker_manager/worker_manager.dart';
 
-class EditorImage {
+/// The data for an image in the editor.
+/// This is listenable for changes to the image's position ([dstRect]).
+class EditorImage extends ChangeNotifier {
   /// id for this image, unique within a note
   int id;
 
@@ -51,8 +53,14 @@ class EditorImage {
   final VoidCallback? onLoad;
 
   Rect srcRect = Rect.zero;
-  Rect dstRect = Rect.zero;
   Size naturalSize = Size.zero;
+
+  Rect _dstRect = Rect.zero;
+  Rect get dstRect => _dstRect;
+  set dstRect(Rect dstRect) {
+    _dstRect = dstRect;
+    notifyListeners();
+  }
 
   /// If the image is new, it will be [active] (draggable) when loaded
   bool newImage = false;
@@ -77,13 +85,14 @@ class EditorImage {
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-    this.dstRect = Rect.zero,
+    Rect dstRect = Rect.zero,
     this.srcRect = Rect.zero,
     this.naturalSize = Size.zero,
     this.thumbnailBytes,
     this.invertedThumbnailBytes,
     bool isThumbnail = false,
   }) :  assert(extension.startsWith('.')) {
+    this.dstRect = dstRect;
     _isThumbnail = isThumbnail;
     getImage(
       pageSize: pageSize,

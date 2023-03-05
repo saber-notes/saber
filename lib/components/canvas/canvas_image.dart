@@ -83,6 +83,7 @@ class _CanvasImageState extends State<CanvasImage> {
       invertImage();
     }
 
+    widget.image.addListener(imageListener);
     CanvasImage.activeListener.addListener(disableActive);
 
     super.initState();
@@ -93,6 +94,10 @@ class _CanvasImageState extends State<CanvasImage> {
     setState(() {
       active = false;
     });
+  }
+
+  void imageListener() {
+    setState(() {});
   }
 
   Future invertImage() async {
@@ -133,6 +138,10 @@ class _CanvasImageState extends State<CanvasImage> {
   void didUpdateWidget(covariant CanvasImage oldWidget) {
     if (widget.readOnly && active) {
       active = false;
+    }
+    if (widget.image != oldWidget.image) {
+      oldWidget.image.removeListener(imageListener);
+      widget.image.addListener(imageListener);
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -301,6 +310,7 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   void dispose() {
+    widget.image.removeListener(imageListener);
     CanvasImage.activeListener.removeListener(disableActive);
     super.dispose();
   }
