@@ -287,11 +287,14 @@ class _CanvasImageState extends State<CanvasImage> {
 
     if (widget.isBackground) {
       return AnimatedPositioned(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.fastLinearToSlowEaseIn,
+
         left: 0,
         top: 0,
         right: 0,
         bottom: 0,
-        duration: const Duration(milliseconds: 200),
+
         child: unpositioned,
       );
     }
@@ -299,7 +302,8 @@ class _CanvasImageState extends State<CanvasImage> {
       // no animation if the image is being dragged or it's selected
       duration: (panStartRect != Rect.zero || widget.selected)
           ? Duration.zero
-          : const Duration(milliseconds: 200),
+          : const Duration(milliseconds: 300),
+      curve: Curves.fastLinearToSlowEaseIn,
 
       left: widget.image.dstRect.left,
       top: widget.image.dstRect.top,
