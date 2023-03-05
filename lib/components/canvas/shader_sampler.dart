@@ -10,11 +10,13 @@ class ShaderSampler extends StatefulWidget {
   const ShaderSampler({
     super.key,
     this.shaderEnabled = true,
+    this.prepareForSnapshot,
     required this.shaderBuilder,
     required this.child,
   });
 
   final bool shaderEnabled;
+  final Future<void> Function()? prepareForSnapshot;
   final ShaderBuilder shaderBuilder;
   final Widget child;
 
@@ -24,16 +26,28 @@ class ShaderSampler extends StatefulWidget {
 
 class _ShaderSamplerState extends State<ShaderSampler> {
   late final SnapshotController _controller;
+  bool preparedForSnapshot = false;
 
   @override
   void initState() {
-    _controller = SnapshotController(allowSnapshotting: widget.shaderEnabled);
+    _controller = SnapshotController(allowSnapshotting: false);
+
+    if (widget.prepareForSnapshot != null) {
+      widget.prepareForSnapshot!().then((_) {
+        preparedForSnapshot = true;
+        _controller.allowSnapshotting = widget.shaderEnabled;
+      });
+    } else {
+      preparedForSnapshot = true;
+      _controller.allowSnapshotting = widget.shaderEnabled;
+    }
+
     super.initState();
   }
 
   @override
   void didUpdateWidget(covariant ShaderSampler oldWidget) {
-    _controller.allowSnapshotting = widget.shaderEnabled;
+    _controller.allowSnapshotting = widget.shaderEnabled && preparedForSnapshot;
     _controller.clear();
     super.didUpdateWidget(oldWidget);
   }

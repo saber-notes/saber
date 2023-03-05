@@ -67,7 +67,7 @@ class _CanvasImageState extends State<CanvasImage> {
 
   Brightness imageBrightness = Brightness.light;
 
-  ui.FragmentShader shader = InvertShader.create();
+  late ui.FragmentShader shader = InvertShader.create();
 
   Rect panStartRect = Rect.zero;
   Offset panStartPosition = Offset.zero;
@@ -188,8 +188,13 @@ class _CanvasImageState extends State<CanvasImage> {
                           offset: -widget.image.srcRect.topLeft,
                           child: ShaderSampler(
                             shaderEnabled: imageBrightness == Brightness.dark,
+                            prepareForSnapshot: () => precacheImage(
+                              MemoryImage(widget.image.bytes),
+                              context,
+                            ),
                             shaderBuilder: (ui.Image image, Size size) {
-                              return shader..setImageSampler(0, image);
+                              shader.setImageSampler(0, image);
+                              return shader;
                             },
                             child: widget.image.buildImageWidget(
                               overrideBoxFit: widget.overrideBoxFit,
