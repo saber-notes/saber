@@ -148,6 +148,23 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     }
   }
 
+  /// Resets the zoom level to 1.0x
+  void resetZoom() {
+    final translation = _transformationController.value.getTranslation();
+    final scale = _transformationController.value.getMaxScaleOnAxis();
+
+    print('translation: $translation');
+    print('scale: $scale');
+
+    if (scale == 1) return;
+
+    _transformationController.value = Matrix4.translationValues(
+      0,
+      translation.y / scale + containerBounds.maxHeight / 2,
+      0,
+    );
+  }
+
   void _listenerPointerEvent(PointerEvent event) {
     double? pressure;
     if (event.kind == PointerDeviceKind.stylus) {
@@ -221,6 +238,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   : null;
               Prefs.lastZoomLock.value = zoomLock;
             }),
+            resetZoom: zoomLockedValue != null ? null : resetZoom,
             panLock: panLock,
             setPanLock: (bool panLock) => setState(() {
               this.panLock = panLock;

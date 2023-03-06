@@ -12,6 +12,7 @@ class CanvasHud extends StatefulWidget {
     required this.transformationController,
     required this.zoomLock,
     required this.setZoomLock,
+    required this.resetZoom,
     required this.panLock,
     required this.setPanLock,
   });
@@ -19,6 +20,7 @@ class CanvasHud extends StatefulWidget {
   final TransformationController transformationController;
   final bool zoomLock;
   final ValueChanged<bool> setZoomLock;
+  final VoidCallback? resetZoom;
   final bool panLock;
   final ValueChanged<bool> setPanLock;
 
@@ -81,6 +83,7 @@ class _CanvasHudState extends State<CanvasHud> {
               animation: widget.transformationController,
               builder: (context, _) => CanvasZoomIndicator(
                 scale: widget.transformationController.value.getMaxScaleOnAxis(),
+                resetZoom: widget.resetZoom,
               ),
             ),
           ),
