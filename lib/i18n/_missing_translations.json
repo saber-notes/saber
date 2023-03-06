@@ -6,7 +6,7 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
+        "dontSavePresetColors": "Mezi naposledy použité barvy neukládat přednastavené barvy"
       }
     }
   },
