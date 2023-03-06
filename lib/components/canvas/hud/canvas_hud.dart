@@ -77,8 +77,11 @@ class _CanvasHudState extends State<CanvasHud> {
           Positioned(
             top: 5,
             right: 5,
-            child: CanvasZoomIndicator(
-              transformationController: widget.transformationController,
+            child: AnimatedBuilder(
+              animation: widget.transformationController,
+              builder: (context, _) => CanvasZoomIndicator(
+                scale: widget.transformationController.value.getMaxScaleOnAxis(),
+              ),
             ),
           ),
         ],

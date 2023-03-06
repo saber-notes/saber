@@ -1,36 +1,12 @@
 import 'package:flutter/material.dart' hide TransformationController;
-import 'package:saber/components/canvas/interactive_canvas.dart';
 
-class CanvasZoomIndicator extends StatefulWidget {
+class CanvasZoomIndicator extends StatelessWidget {
   const CanvasZoomIndicator({
     super.key,
-    required this.transformationController,
+    required this.scale,
   });
 
-  final TransformationController transformationController;
-
-  @override
-  State<CanvasZoomIndicator> createState() => _CanvasZoomIndicatorState();
-}
-
-class _CanvasZoomIndicatorState extends State<CanvasZoomIndicator> {
-  double lastZoomLevel = 1;
-
-  @override
-  void initState() {
-    lastZoomLevel = widget.transformationController.value.getMaxScaleOnAxis();
-    widget.transformationController.addListener(_onTransformationChanged);
-    super.initState();
-  }
-
-  void _onTransformationChanged() {
-    final double zoomLevel = widget.transformationController.value.getMaxScaleOnAxis();
-    if (zoomLevel != lastZoomLevel) {
-      setState(() {
-        lastZoomLevel = zoomLevel;
-      });
-    }
-  }
+  final double scale;
 
   @override
   Widget build(BuildContext context) {
@@ -42,15 +18,9 @@ class _CanvasZoomIndicatorState extends State<CanvasZoomIndicator> {
       ),
       padding: const EdgeInsets.all(5),
       child: Text(
-        '${lastZoomLevel.toStringAsFixed(1)}x',
+        '${scale.toStringAsFixed(1)}x',
         style: TextStyle(color: colorScheme.onBackground),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    widget.transformationController.removeListener(_onTransformationChanged);
-    super.dispose();
   }
 }
