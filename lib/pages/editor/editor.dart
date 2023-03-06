@@ -623,7 +623,7 @@ class EditorState extends State<Editor> {
       } else {
         // if not full, add the new color to the end
         Prefs.recentColorsChronological.value.add(newColorString);
-        Prefs.recentColorsPositioned.value.add(newColorString);
+        Prefs.recentColorsPositioned.value.insert(0, newColorString);
       }
       Prefs.recentColorsChronological.notifyListeners();
       Prefs.recentColorsPositioned.notifyListeners();
