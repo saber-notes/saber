@@ -3,11 +3,18 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "cs": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
   "de": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds"
+        "editorOpaqueBackgrounds": "Opaque backgrounds",
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
       },
       "prefDescriptions": {
         "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
@@ -21,13 +28,67 @@
       "untitled": "Untitled"
     }
   },
-  "es": {},
-  "fa": {},
-  "fr": {},
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
-  "tr": {},
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "es": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "fr": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "pt-BR": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "tr": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "dontSavePresetColors": "Don't save preset colors in recent colors"
+      }
+    }
+  }
 }

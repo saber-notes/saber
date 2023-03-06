@@ -26,6 +26,7 @@ import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
@@ -593,6 +594,12 @@ class EditorState extends State<Editor> {
   }
 
   void updateColorBar(Color color) {
+    if (Prefs.dontSavePresetColors.value) {
+      if (ColorBar.colorPresets.contains(color)) {
+        return;
+      }
+    }
+
     final String newColorString = color.value.toString();
 
     // migrate from old pref format

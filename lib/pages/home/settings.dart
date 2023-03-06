@@ -325,6 +325,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                     pref: Prefs.hideHomeBackgrounds,
                   ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.dontSavePresetColors,
+                    icon: Icons.palette,
+                    pref: Prefs.dontSavePresetColors,
+                  ),
                   const SizedBox(height: 16),
                 ],
               ),

@@ -44,7 +44,8 @@
       "maxImageSize": "Maximum image size",
       "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
       "editorPromptRename": "Prompt you to rename new notes",
-      "hideHomeBackgrounds": "Hide backgrounds on the home screen"
+      "hideHomeBackgrounds": "Hide backgrounds on the home screen",
+      "dontSavePresetColors": "Don't save preset colors in recent colors"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1711 (142 per locale)
+/// Strings: 1712 (142 per locale)
 ///
-/// Built on 2023-03-02 at 12:30 UTC
+/// Built on 2023-03-06 at 18:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -343,6 +343,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
+	String get dontSavePresetColors => 'Don\'t save preset colors in recent colors';
 }
 
 // Path: settings.prefDescriptions
