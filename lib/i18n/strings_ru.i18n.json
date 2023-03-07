@@ -45,6 +45,7 @@
       "autoClearWhiteboardOnExit": "Очищать лист при выходе из приложения",
       "editorPromptRename": "Предлагать переименовывать новые заметки",
       "hideHomeBackgrounds": "Скрыть фон на главном экране"
+      "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
