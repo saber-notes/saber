@@ -49,12 +49,17 @@ class EditorPage extends Listenable {
     Size? size,
     double? width,
     double? height,
+
+    List<Stroke>? strokes,
+    List<EditorImage>? images,
+    QuillStruct? quill,
+    this.backgroundImage,
   }): assert((size == null) || (width == null && height == null),
         "size and width/height shouldn't both be specified"),
       size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
-      strokes = [],
-      images = [],
-      quill = QuillStruct(
+      strokes = strokes ?? [],
+      images = images ?? [],
+      quill = quill ?? QuillStruct(
         controller: QuillController.basic(),
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       );
@@ -177,6 +182,20 @@ class EditorPage extends Listenable {
     quill.focusNode.dispose();
     quill.controller.dispose();
   }
+
+  EditorPage copyWith({
+    Size? size,
+    List<Stroke>? strokes,
+    List<EditorImage>? images,
+    QuillStruct? quill,
+    EditorImage? backgroundImage,
+  }) => EditorPage(
+    size: size ?? this.size,
+    strokes: strokes ?? this.strokes,
+    images: images ?? this.images,
+    quill: quill ?? this.quill,
+    backgroundImage: backgroundImage ?? this.backgroundImage,
+  );
 }
 
 class QuillStruct {
