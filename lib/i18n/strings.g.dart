@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1714 (142 per locale)
+/// Strings: 1715 (142 per locale)
 ///
-/// Built on 2023-03-07 at 07:36 UTC
+/// Built on 2023-03-07 at 07:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5459,6 +5459,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
+	@override String get dontSavePresetColors => '不在最近使用的颜色中保存预设颜色';
 }
 
 // Path: settings.prefDescriptions
