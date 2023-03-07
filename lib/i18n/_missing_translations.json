@@ -71,12 +71,6 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

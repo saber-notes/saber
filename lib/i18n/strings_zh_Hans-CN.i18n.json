@@ -44,7 +44,8 @@
       "maxImageSize": "最大图片大小",
       "autoClearWhiteboardOnExit": "离开应用后清除白板",
       "editorPromptRename": "提示您重命名新笔记",
-      "hideHomeBackgrounds": "在主页隐藏背景"
+      "hideHomeBackgrounds": "在主页隐藏背景",
+      "dontSavePresetColors": "不在最近使用的颜色中保存预设颜色"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
