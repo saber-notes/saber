@@ -78,11 +78,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "不要在最近的顏色中儲存預設顏色"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
