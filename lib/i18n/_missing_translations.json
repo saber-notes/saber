@@ -74,7 +74,7 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
+        "dontSavePresetColors": "不在最近使用的颜色中保存预设颜色"
       }
     }
   },
