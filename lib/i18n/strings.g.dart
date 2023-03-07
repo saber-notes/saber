@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1715 (142 per locale)
+/// Strings: 1716 (143 per locale)
 ///
-/// Built on 2023-03-07 at 07:38 UTC
+/// Built on 2023-03-07 at 07:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4435,6 +4435,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
+	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 }
 
 // Path: settings.prefDescriptions

@@ -44,7 +44,7 @@
       "maxImageSize": "Макс. размер изображения",
       "autoClearWhiteboardOnExit": "Очищать лист при выходе из приложения",
       "editorPromptRename": "Предлагать переименовывать новые заметки",
-      "hideHomeBackgrounds": "Скрыть фон на главном экране"
+      "hideHomeBackgrounds": "Скрыть фон на главном экране",
       "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах"
     },
     "prefDescriptions": {

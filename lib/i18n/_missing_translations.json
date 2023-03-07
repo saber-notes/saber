@@ -57,13 +57,7 @@
       }
     }
   },
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {
