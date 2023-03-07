@@ -40,7 +40,7 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
+        "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti"
       }
     }
   },
