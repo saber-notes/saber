@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1712 (142 per locale)
+/// Strings: 1713 (142 per locale)
 ///
-/// Built on 2023-03-06 at 18:41 UTC
+/// Built on 2023-03-07 at 07:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -856,6 +856,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
+	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 }
 
 // Path: settings.prefDescriptions
