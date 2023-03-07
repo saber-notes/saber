@@ -44,13 +44,7 @@
       }
     }
   },
-  "pt-BR": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Não salvar as cores predefinidas nas cores recentes"
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {},
   "tr": {
     "settings": {
