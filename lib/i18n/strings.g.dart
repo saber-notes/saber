@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1716 (143 per locale)
+/// Strings: 1717 (143 per locale)
 ///
-/// Built on 2023-03-07 at 07:39 UTC
+/// Built on 2023-03-07 at 12:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2899,6 +2899,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Effacer le tableau blanc quand vous fermez l\'application';
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
+	@override String get dontSavePresetColors => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 }
 
 // Path: settings.prefDescriptions

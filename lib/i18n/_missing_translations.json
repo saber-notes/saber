@@ -36,13 +36,7 @@
       }
     }
   },
-  "fr": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
-      }
-    }
-  },
+  "fr": {},
   "it": {
     "settings": {
       "prefLabels": {

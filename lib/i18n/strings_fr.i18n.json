@@ -44,7 +44,8 @@
       "maxImageSize": "Taille d'image maximum",
       "autoClearWhiteboardOnExit": "Effacer le tableau blanc quand vous fermez l'application",
       "editorPromptRename": "Vous rappeler de renommer les notes",
-      "hideHomeBackgrounds": "Cacher le fond de la page d'accueil"
+      "hideHomeBackgrounds": "Cacher le fond de la page d'accueil",
+      "dontSavePresetColors": "Ne pas conserver les couleurs pré-définies parmi les couleurs récentes"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
