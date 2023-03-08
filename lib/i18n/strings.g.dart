@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 12
-/// Strings: 1720 (143 per locale)
+/// Locales: 13
+/// Strings: 1864 (143 per locale)
 ///
-/// Built on 2023-03-08 at 14:16 UTC
+/// Built on 2023-03-08 at 19:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -28,6 +28,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	es(languageCode: 'es', build: _StringsEs.build),
 	fa(languageCode: 'fa', build: _StringsFa.build),
 	fr(languageCode: 'fr', build: _StringsFr.build),
+	hu(languageCode: 'hu', build: _StringsHu.build),
 	it(languageCode: 'it', build: _StringsIt.build),
 	ptBr(languageCode: 'pt', countryCode: 'BR', build: _StringsPtBr.build),
 	ru(languageCode: 'ru', build: _StringsRu.build),
@@ -3200,6 +3201,519 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Lignes';
 	@override String get grid => 'Grille';
 	@override String get dots => 'Points';
+}
+
+// Path: <root>
+class _StringsHu extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsHu.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.hu,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+
+	/// Metadata for the translations of <hu>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	@override late final _StringsHu _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeHu home = _StringsHomeHu._(_root);
+	@override late final _StringsSettingsHu settings = _StringsSettingsHu._(_root);
+	@override late final _StringsLoginHu login = _StringsLoginHu._(_root);
+	@override late final _StringsAppInfoHu appInfo = _StringsAppInfoHu._(_root);
+	@override late final _StringsUpdateHu update = _StringsUpdateHu._(_root);
+	@override late final _StringsEditorHu editor = _StringsEditorHu._(_root);
+}
+
+// Path: home
+class _StringsHomeHu extends _StringsHomeEn {
+	_StringsHomeHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsHu tabs = _StringsHomeTabsHu._(_root);
+	@override late final _StringsHomeTitlesHu titles = _StringsHomeTitlesHu._(_root);
+	@override late final _StringsHomeTooltipsHu tooltips = _StringsHomeTooltipsHu._(_root);
+	@override String get backFolder => '(Vissza)';
+	@override String get welcome => 'Üdvözli a Saber';
+	@override String get noFiles => 'Nem található ilyen fájl';
+	@override String get createNewNote => 'Kattintson a + gombora egy új jegyzet létrehozásához';
+}
+
+// Path: settings
+class _StringsSettingsHu extends _StringsSettingsEn {
+	_StringsSettingsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefCategoriesHu prefCategories = _StringsSettingsPrefCategoriesHu._(_root);
+	@override late final _StringsSettingsPrefLabelsHu prefLabels = _StringsSettingsPrefLabelsHu._(_root);
+	@override late final _StringsSettingsPrefDescriptionsHu prefDescriptions = _StringsSettingsPrefDescriptionsHu._(_root);
+	@override late final _StringsSettingsThemeModesHu themeModes = _StringsSettingsThemeModesHu._(_root);
+	@override late final _StringsSettingsAccentColorPickerHu accentColorPicker = _StringsSettingsAccentColorPickerHu._(_root);
+	@override late final _StringsSettingsStraightenDelayHu straightenDelay = _StringsSettingsStraightenDelayHu._(_root);
+	@override String get systemLanguage => 'Rendszerspecifikus nyelve';
+	@override List<String> get axisDirections => [
+		'Fel',
+		'Jobbra',
+		'Le',
+		'Balra',
+	];
+	@override late final _StringsSettingsResetHu reset = _StringsSettingsResetHu._(_root);
+}
+
+// Path: login
+class _StringsLoginHu extends _StringsLoginEn {
+	_StringsLoginHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Bejelentkezés';
+	@override late final _StringsLoginFeedbacksHu feedbacks = _StringsLoginFeedbacksHu._(_root);
+	@override late final _StringsLoginFormHu form = _StringsLoginFormHu._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'Még nincsen fiókja? '),
+		linkToSignup('Regisztrálás'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusHu status = _StringsLoginStatusHu._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin$faq$0i0$Hu._(_root),
+		_StringsLogin$faq$0i1$Hu._(_root),
+		_StringsLogin$faq$0i2$Hu._(_root),
+	];
+	@override late final _StringsLoginInsecureStorageHu insecureStorage = _StringsLoginInsecureStorageHu._(_root);
+}
+
+// Path: appInfo
+class _StringsAppInfoHu extends _StringsAppInfoEn {
+	_StringsAppInfoHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String licenseNotice({required Object buildYear}) => 'Saber Copyright (C) 2022-${buildYear} Adil Hanney \nEz a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.';
+	@override String get dirty => 'DIRTY';
+	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => 'Ide kattintva támogathat engem vagy vásárolhat több tárhelyet';
+	@override String get licenseButton => 'További licencinformációk megtekintéséhez kattintson ide';
+	@override String get privacyPolicyButton => 'Kattintson ide az adatvédelmi nyilatkozat megtekintéséhez';
+}
+
+// Path: update
+class _StringsUpdateHu extends _StringsUpdateEn {
+	_StringsUpdateHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Frissítés elérhető';
+	@override String get updateAvailableDescription => 'A szoftver egy új verziója elérhető';
+	@override String get update => 'Frissítés';
+}
+
+// Path: editor
+class _StringsEditorHu extends _StringsEditorEn {
+	_StringsEditorHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarHu toolbar = _StringsEditorToolbarHu._(_root);
+	@override late final _StringsEditorPensHu pens = _StringsEditorPensHu._(_root);
+	@override late final _StringsEditorPenOptionsHu penOptions = _StringsEditorPenOptionsHu._(_root);
+	@override late final _StringsEditorImageOptionsHu imageOptions = _StringsEditorImageOptionsHu._(_root);
+	@override late final _StringsEditorMenuHu menu = _StringsEditorMenuHu._(_root);
+	@override late final _StringsEditorNewerFileFormatHu newerFileFormat = _StringsEditorNewerFileFormatHu._(_root);
+	@override late final _StringsEditorQuillHu quill = _StringsEditorQuillHu._(_root);
+	@override late final _StringsEditorHudHu hud = _StringsEditorHudHu._(_root);
+	@override String get pages => 'Oldalak';
+	@override String get untitled => 'Névtelen';
+}
+
+// Path: home.tabs
+class _StringsHomeTabsHu extends _StringsHomeTabsEn {
+	_StringsHomeTabsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Kezdőlap';
+	@override String get browse => 'Böngészés';
+	@override String get whiteboard => 'Tábla';
+	@override String get settings => 'Beállítások';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesHu extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Legutóbbi jegyzetek';
+	@override String get browse => 'Minden jegyzet';
+	@override String get whiteboard => 'Whiteboard';
+	@override String get settings => 'Beállítások';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsHu extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Új jegyzet';
+	@override String get showUpdateDialog => 'Frissítési párbeszédablak megjelenítése';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesHu extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'Általános';
+	@override String get layout => 'Elrendezés';
+	@override String get writing => 'Írás';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get locale => 'Alkalmazás nyelve';
+	@override String get appTheme => 'Alkalmazás témája';
+	@override String get platform => 'Téma típusa';
+	@override String get customAccentColor => 'Egyéni akcentusszín';
+	@override String get hyperlegibleFont => 'Hyperlegible betűtipus';
+	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
+	@override String get shouldAlwaysAlertForUpdates => 'Értesítsen a frissítésekről, amint azok elérhetővé válnak';
+	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
+	@override String get editorToolbarShowInFullscreen => 'A szerkesztő eszköztár megjelenítése teljes képernyős módban';
+	@override String get editorAutoInvert => 'Jegyzetek színének felcserélése sötét módban';
+	@override String get editorOpaqueBackgrounds => 'Áttetsző hátterek';
+	@override String get preferGreyscale => 'Szürkeárnyalatos színek előnyben részesítése';
+	@override String get editorStraightenLines => 'Nyomja meg és tartsa lenyomva egy vonal kiegyenesítéséhez';
+	@override String get maxImageSize => 'Maximális képméret';
+	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
+	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
+	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
+	@override String get dontSavePresetColors => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára';
+	@override String get editorAutoInvert => 'Intelligens módon sötétíti a jegyzeteket sötét módban';
+	@override String get editorOpaqueBackgrounds => 'Átlátszóság eltávolítása a háttérképről és a PDF-ekből';
+	@override String get preferGreyscale => 'E-tinta kijelzőkhöz';
+	@override String get autoClearWhiteboardOnExit => 'Továbbra is szinkronizálva lesz a többi eszközzel';
+	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
+	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
+	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesHu extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Rendszer';
+	@override String get light => 'Világos';
+	@override String get dark => 'Sötét';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerHu extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Szín kiválasztása';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayHu extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Ki';
+	@override String get regular => 'Normál';
+	@override String get slow => 'Lassú';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetHu extends _StringsSettingsResetEn {
+	_StringsSettingsResetHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Visszaállítsa ezt a beállítást?';
+	@override String get button => 'Visszaállítás';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét';
+	@override String get enterNcPassword => 'Kérem, adja meg a Nextcloud jelszavát';
+	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
+	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
+	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
+	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
+	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
+}
+
+// Path: login.form
+class _StringsLoginFormHu extends _StringsLoginFormEn {
+	_StringsLoginFormHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'Egyéni Nextcloud-kiszolgálót szeretnék használni';
+	@override String get customServerUrl => 'Egyéni kiszolgáló URL-címe';
+	@override String get username => 'Felhasnálónév vagy e-mail';
+	@override String get ncPassword => 'Nextcloud jelszó';
+	@override String get encPassword => 'Titkosítási jelszó';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'A bejelentkezéssel elfogadja a '),
+		linkToPrivacyPolicy('Adatvédelmi irányelvek'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'Bejelentkezés';
+}
+
+// Path: login.status
+class _StringsLoginStatusHu extends _StringsLoginStatusEn {
+	_StringsLoginStatusHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Bejelentkezve a Nextclouddal';
+	@override String get loggedOut => 'Kijelentkezve';
+	@override String get tapToLogin => 'Kattintson a Nextclouddal való bejelentkezéshez';
+}
+
+// Path: login.faq.0
+class _StringsLogin$faq$0i0$Hu extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Hu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Mi az a Nextclound?';
+	@override String get a => 'A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja a Saber Nextcloud alapértelmezett kiszolgálóját, használhat egy harmadik féltől származó kiszolgálót, vagy saját szerverét, hogy teljes körű felügyeletet biztosítson adatai felett.';
+}
+
+// Path: login.faq.1
+class _StringsLogin$faq$0i1$Hu extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Hu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Mi az a titkosítási jelszó?';
+	@override String get a => 'nki sem férhet hozzá a szerveren lévő jegyzetekhez. Ez azt is jelenti, hogy ha elfelejti a titkosítási jelszavát, elveszíti a hozzáférést az adataihoz.';
+}
+
+// Path: login.faq.2
+class _StringsLogin$faq$0i2$Hu extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Hu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Miért használjon két jelszót?';
+	@override String get a => 'A Nextcloud jelszóval lehet hozzáférni a felhőszolgáltatáshoz. A titkosítási jelszó " titkosítja" az adatait, mielőtt azok egyáltalán eljutnának a felhőbe. \n\nMég ha valaki hozzáférne is a Nextcloud-fiókjához, a jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági szintet biztosít adatai védelméhez.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageHu extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Biztonsági figyelmeztetés';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'A kulcstároló megosztása nem működik macOS-en fizetett Apple Developer-fiók nélkül. Ha be szeretne jelentkezni, választania kell a következők közül: \n1. Bizonytalan tároló használata a bejelentkezési adatok mentésére. Ez nem ajánlott, de ez az Ön döntése.\n2. Bejelentkezés minden egyes alkalommal, amikor használja az alkalmazást. \n\nHa szeretne segíteni nekem csatlakozni az Apple Fejlesztői Programhoz, akkor '),
+		sponsorLink('legyen Ön is támogató'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'Ideiglenes bejelentkezés';
+	@override String get useInsecureStorage => 'Bizonytalan tároló használata';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarHu extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'Színek váltása (Ctrl+C)';
+	@override String get select => 'Kiválasztás';
+	@override String get toggleEraser => 'Radír ki-be kapcsolása (Ctrl+E)';
+	@override String get photo => 'Képek';
+	@override String get text => 'Szöveg';
+	@override String get toggleFingerDrawing => 'Ujjal való rajzolásra váltása (Ctrl+F)';
+	@override String get undo => 'Visszavonás';
+	@override String get redo => 'Mégis';
+	@override String get export => 'Exportálás (Ctrl+Shift+S)';
+	@override String get exportAs => 'Exportálás mint:';
+	@override String get fullscreen => 'Teljes képernyő bekapcsolása (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensHu extends _StringsEditorPensEn {
+	_StringsEditorPensHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'Töltőtoll';
+	@override String get ballpointPen => 'Golyóstoll';
+	@override String get highlighter => 'Kiemelő';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsHu extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Méret';
+	@override String get sizeDragHint => 'Húzza balra vagy jobbra a méret megváltoztatásához';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsHu extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Kép opciók';
+	@override String get invertible => 'Megfordítható';
+	@override String get download => 'Letöltés';
+	@override String get setAsBackground => 'Beállítás háttérképként';
+	@override String get delete => 'Törlés';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuHu extends _StringsEditorMenuEn {
+	_StringsEditorMenuHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Oldal törlése';
+	@override String get clearAllPages => 'Összes oldal törlése';
+	@override String get lineHeight => 'Vonalmagasság';
+	@override String get lineHeightDescription => 'Az egyes sorok mérete';
+	@override String get backgroundImage => 'Háttérkép';
+	@override String get backgroundPattern => 'Háttérminta';
+	@override String get removeBgImage => 'Háttérkép törlése';
+	@override String get import => 'Importálás';
+	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
+	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatHu extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'Csak olvasható mód';
+	@override String get title => 'Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve';
+	@override String get subtitle => 'A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?';
+	@override String get allowEditing => 'Szerkesztés engedélyezése';
+	@override String get cancel => 'Mégse';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillHu extends _StringsEditorQuillEn {
+	_StringsEditorQuillHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Gépeljen ide valamit...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudHu extends _StringsEditorHudEn {
+	_StringsEditorHudHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Nagyítás feloldása';
+	@override String get lockZoom => 'Nagyítás feloldása';
+	@override String get unlockPan => 'Egyujjas lapozás engedélyezése';
+	@override String get lockPan => 'Egyujjas lapozás letiltása';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsHu extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Nyújtás';
+	@override String get cover => 'Átfed';
+	@override String get contain => 'Tartalmaz';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsHu extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Üres';
+	@override String get college => 'College-ruled';
+	@override String get lined => 'Vonalas';
+	@override String get grid => 'Kockás';
+	@override String get dots => 'Pontozott';
 }
 
 // Path: <root>

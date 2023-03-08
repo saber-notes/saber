@@ -149,7 +149,7 @@
       "toggleEraser": "Radír ki-be kapcsolása (Ctrl+E)",
       "photo": "Képek",
       "text": "Szöveg",
-        "toggleFingerDrawing": "Ujjal való rajzolásra váltása (Ctrl+F)",
+      "toggleFingerDrawing": "Ujjal való rajzolásra váltása (Ctrl+F)",
       "undo": "Visszavonás",
       "redo": "Mégis",
       "export": "Exportálás (Ctrl+Shift+S)",
@@ -207,7 +207,7 @@
     "hud": {
       "unlockZoom": "Nagyítás feloldása",
       "lockZoom": "Nagyítás feloldása",
-        "unlockPan": "Egyujjas lapozás engedélyezése",
+      "unlockPan": "Egyujjas lapozás engedélyezése",
       "lockPan": "Egyujjas lapozás letiltása"
     },
     "pages": "Oldalak",
