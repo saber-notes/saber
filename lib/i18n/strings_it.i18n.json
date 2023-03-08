@@ -44,7 +44,8 @@
       "maxImageSize": "Dimensione massima dell'immagine",
       "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app",
       "editorPromptRename": "Richiede di rinominare nuove note",
-      "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale"
+      "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale",
+      "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
