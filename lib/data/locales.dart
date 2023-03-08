@@ -11,6 +11,7 @@ const Map<String, String> localeNames = {
   'es' : 'español',
   'fa' : 'فارسی',
   'fr' : 'français',
+  'hu': 'magyar',
   'it' : 'italiano',
   'pt-BR' : 'português (Brasil)',
   'ru' : 'русский',
