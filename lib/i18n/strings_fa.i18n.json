@@ -44,7 +44,8 @@
       "maxImageSize": "حداکثر اندازه تصویر",
       "autoClearWhiteboardOnExit": "پس از خروج از برنامه، وایت برد پاک شود",
       "editorPromptRename": "از شما می خواهد که نام یادداشت های جدید را تغییر دهید",
-      "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید"
+      "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید",
+      "dontSavePresetColors": "رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",

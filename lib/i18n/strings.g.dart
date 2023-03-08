@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 12
-/// Strings: 1719 (143 per locale)
+/// Strings: 1720 (143 per locale)
 ///
-/// Built on 2023-03-08 at 14:13 UTC
+/// Built on 2023-03-08 at 14:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2387,6 +2387,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
+	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 }
 
 // Path: settings.prefDescriptions
