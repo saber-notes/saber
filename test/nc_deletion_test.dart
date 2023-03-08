@@ -11,6 +11,7 @@ import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
+import 'utils/test_random.dart';
 
 void main() {
   test('Test deleting a file and syncing it', () async {
@@ -32,7 +33,10 @@ void main() {
 
     await client.loadEncryptionKey();
 
-    const String filePathLocal = '/test.deletion';
+    // Use a random file name to avoid conflicts with simultaneous tests
+    final String filePathLocal = '/test.deletion.${randomString(10)}';
+    printOnFailure('File path local: $filePathLocal');
+
     const String fileContent = 'test.deletion';
     final String filePathRemote = await () async {
       final Encrypter encrypter = await client.encrypter;

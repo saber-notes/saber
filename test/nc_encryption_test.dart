@@ -4,6 +4,8 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 
+import 'utils/test_random.dart';
+
 void main() {
   test('Test encrypting and decrypting a filename', () async {
     FlavorConfig.setup();
@@ -24,7 +26,9 @@ void main() {
       rethrow;
     }
 
-    const String filePathUnencrypted = '/test.issue.118';
+    // Use a random file name to avoid conflicts with simultaneous tests
+    final String filePathUnencrypted = '/test.issue.118.${randomString(10)}';
+    printOnFailure('File path unencrypted: $filePathUnencrypted');
 
     final Encrypter encrypter = await client.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
