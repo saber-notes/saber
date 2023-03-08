@@ -63,7 +63,7 @@
       "dark": "Escuro"
     },
     "accentColorPicker": {
-      "pickAColor": "Escolha uma cor"
+      "pickAColor": "Selecionar uma cor"
     },
     "straightenDelay": {
       "off": "Desligado",
@@ -130,7 +130,7 @@
     }
   },
   "appInfo": {
-    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.",
+    "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software livre e você pode redistribuí-lo sob certas condições.",
     "dirty": "DIRTY",
     "debug": "DEBUG",
     "sponsorButton": "Toque aqui para me patrocinar ou comprar mais armazenamento",
