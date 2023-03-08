@@ -1,0 +1,216 @@
+{
+  "home": {
+    "tabs": {
+      "home": "Kezdőlap",
+      "browse": "Böngészés",
+      "whiteboard": "Tábla",
+      "settings": "Beállítások"
+    },
+    "titles": {
+      "home": "Legutóbbi jegyzetek",
+      "browse": "Minden jegyzet",
+      "whiteboard": "Whiteboard",
+      "settings": "Beállítások"
+    },
+    "tooltips": {
+      "newNote": "Új jegyzet",
+      "showUpdateDialog": "Frissítési párbeszédablak megjelenítése"
+    },
+    "backFolder": "(Vissza)",
+    "welcome": "Üdvözli a Saber",
+    "noFiles": "Nem található ilyen fájl",
+    "createNewNote": "Kattintson a + gombora egy új jegyzet létrehozásához"
+  },
+  "settings": {
+    "prefCategories": {
+      "general": "Általános",
+      "layout": "Elrendezés",
+      "writing": "Írás"
+    },
+    "prefLabels": {
+      "locale": "Alkalmazás nyelve",
+      "appTheme": "Alkalmazás témája",
+      "platform": "Téma típusa",
+      "customAccentColor": "Egyéni akcentusszín",
+      "hyperlegibleFont": "Hyperlegible betűtipus",
+      "shouldCheckForUpdates": "Automatikusan ellenőrzi a Saber frissítéseket",
+      "shouldAlwaysAlertForUpdates": "Értesítsen a frissítésekről, amint azok elérhetővé válnak",
+      "editorToolbarAlignment": "A szerkesztő eszköztár igazítása",
+      "editorToolbarShowInFullscreen": "A szerkesztő eszköztár megjelenítése teljes képernyős módban",
+      "editorAutoInvert": "Jegyzetek színének felcserélése sötét módban",
+      "editorOpaqueBackgrounds": "Áttetsző hátterek",
+      "preferGreyscale": "Szürkeárnyalatos színek előnyben részesítése",
+      "editorStraightenLines": "Nyomja meg és tartsa lenyomva egy vonal kiegyenesítéséhez",
+      "maxImageSize": "Maximális képméret",
+      "autoClearWhiteboardOnExit": "A tábla törlése az alkalmazásból való kilépés után",
+      "editorPromptRename": "Új jegyzetek átnevezésére való felszólítás",
+      "hideHomeBackgrounds": "Hátterek elrejtése a kezdőképernyőn",
+      "dontSavePresetColors": "Ne mentse az előre beállított színeket a legutóbbi színek között"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára",
+      "editorAutoInvert": "Intelligens módon sötétíti a jegyzeteket sötét módban",
+      "editorOpaqueBackgrounds": "Átlátszóság eltávolítása a háttérképről és a PDF-ekből",
+      "preferGreyscale": "E-tinta kijelzőkhöz",
+      "autoClearWhiteboardOnExit": "Továbbra is szinkronizálva lesz a többi eszközzel",
+      "maxImageSize": "Az ennél nagyobb képek tömörítve lesznek",
+      "editorPromptRename": "A jegyzeteket később bármikor átnevezheti",
+      "hideHomeBackgrounds": "Egy letisztultabb megjelenítésért"
+    },
+    "themeModes": {
+      "system": "Rendszer",
+      "light": "Világos",
+      "dark": "Sötét"
+    },
+    "accentColorPicker": {
+      "pickAColor": "Szín kiválasztása"
+    },
+    "straightenDelay": {
+      "off": "Ki",
+      "regular": "Normál",
+      "slow": "Lassú"
+    },
+    "systemLanguage": "Rendszerspecifikus nyelve",
+    "axisDirections": [
+      "Fel",
+      "Jobbra",
+      "Le",
+      "Balra"
+    ],
+    "reset": {
+      "title": "Visszaállítsa ezt a beállítást?",
+      "button": "Visszaállítás"
+    }
+  },
+  "login": {
+    "title": "Bejelentkezés",
+    "feedbacks": {
+      "checkUsername": "Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét",
+      "enterNcPassword": "Kérem, adja meg a Nextcloud jelszavát",
+      "enterEncPassword": "Kérem, adja meg a titkosítási jelszavát",
+      "checkUrl": "Kérem adjon meg egy érvényes URL-címet",
+      "ncLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát",
+      "encLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát",
+      "loginSuccess": "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
+    },
+    "form": {
+      "useCustomServer": "Egyéni Nextcloud-kiszolgálót szeretnék használni",
+      "customServerUrl": "Egyéni kiszolgáló URL-címe",
+      "username": "Felhasnálónév vagy e-mail",
+      "ncPassword": "Nextcloud jelszó",
+      "encPassword": "Titkosítási jelszó",
+      "agreeToPrivacyPolicy(rich)": "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}.",
+      "login": "Bejelentkezés"
+    },
+    "signup(rich)": "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!",
+    "status": {
+      "loggedIn": "Bejelentkezve a Nextclouddal",
+      "loggedOut": "Kijelentkezve",
+      "tapToLogin": "Kattintson a Nextclouddal való bejelentkezéshez"
+    },
+    "faq": [
+      {
+        "q": "Mi az a Nextclound?",
+        "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja a Saber Nextcloud alapértelmezett kiszolgálóját, használhat egy harmadik féltől származó kiszolgálót, vagy saját szerverét, hogy teljes körű felügyeletet biztosítson adatai felett."
+      },
+      {
+        "q": "Mi az a titkosítási jelszó?",
+        "a": "nki sem férhet hozzá a szerveren lévő jegyzetekhez. Ez azt is jelenti, hogy ha elfelejti a titkosítási jelszavát, elveszíti a hozzáférést az adataihoz."
+      },
+      {
+        "q": "Miért használjon két jelszót?",
+        "a": "A Nextcloud jelszóval lehet hozzáférni a felhőszolgáltatáshoz. A titkosítási jelszó \" titkosítja\" az adatait, mielőtt azok egyáltalán eljutnának a felhőbe. \n\nMég ha valaki hozzáférne is a Nextcloud-fiókjához, a jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági szintet biztosít adatai védelméhez."
+      }
+    ],
+    "insecureStorage": {
+      "title": "Biztonsági figyelmeztetés",
+      "description(rich)": "A kulcstároló megosztása nem működik macOS-en fizetett Apple Developer-fiók nélkül. Ha be szeretne jelentkezni, választania kell a következők közül: \n1. Bizonytalan tároló használata a bejelentkezési adatok mentésére. Ez nem ajánlott, de ez az Ön döntése.\n2. Bejelentkezés minden egyes alkalommal, amikor használja az alkalmazást. \n\nHa szeretne segíteni nekem csatlakozni az Apple Fejlesztői Programhoz, akkor ${sponsorLink(legyen Ön is támogató)}!",
+      "loginTemporarily": "Ideiglenes bejelentkezés",
+      "useInsecureStorage": "Bizonytalan tároló használata"
+    }
+  },
+  "appInfo": {
+    "licenseNotice": "Saber Copyright (C) 2022-$buildYear Adil Hanney \nEz a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.",
+    "dirty": "DIRTY",
+    "debug": "DEBUG",
+    "sponsorButton": "Ide kattintva támogathat engem vagy vásárolhat több tárhelyet",
+    "licenseButton": "További licencinformációk megtekintéséhez kattintson ide",
+    "privacyPolicyButton": "Kattintson ide az adatvédelmi nyilatkozat megtekintéséhez"
+  },
+  "update": {
+    "updateAvailable": "Frissítés elérhető",
+    "updateAvailableDescription": "A szoftver egy új verziója elérhető",
+    "update": "Frissítés"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "Színek váltása (Ctrl+C)",
+      "select": "Kiválasztás",
+      "toggleEraser": "Radír ki-be kapcsolása (Ctrl+E)",
+      "photo": "Képek",
+      "text": "Szöveg",
+        "toggleFingerDrawing": "Ujjal való rajzolásra váltása (Ctrl+F)",
+      "undo": "Visszavonás",
+      "redo": "Mégis",
+      "export": "Exportálás (Ctrl+Shift+S)",
+      "exportAs": "Exportálás mint:",
+      "fullscreen": "Teljes képernyő bekapcsolása (F11)"
+    },
+    "pens": {
+      "fountainPen": "Töltőtoll",
+      "ballpointPen": "Golyóstoll",
+      "highlighter": "Kiemelő"
+    },
+    "penOptions": {
+      "size": "Méret",
+      "sizeDragHint": "Húzza balra vagy jobbra a méret megváltoztatásához"
+    },
+    "imageOptions": {
+      "title": "Kép opciók",
+      "invertible": "Megfordítható",
+      "download": "Letöltés",
+      "setAsBackground": "Beállítás háttérképként",
+      "delete": "Törlés"
+    },
+    "menu": {
+      "clearPage": "Oldal törlése",
+      "clearAllPages": "Összes oldal törlése",
+      "lineHeight": "Vonalmagasság",
+      "lineHeightDescription": "Az egyes sorok mérete",
+      "backgroundImage": "Háttérkép",
+      "backgroundPattern": "Háttérminta",
+      "removeBgImage": "Háttérkép törlése",
+      "import": "Importálás",
+      "boxFits": {
+        "fill": "Nyújtás",
+        "cover": "Átfed",
+        "contain": "Tartalmaz"
+      },
+      "bgPatterns": {
+        "none": "Üres",
+        "college": "College-ruled",
+        "lined": "Vonalas",
+        "grid": "Kockás",
+        "dots": "Pontozott"
+      }
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "Csak olvasható mód",
+      "title": "Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve",
+      "subtitle": "A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?",
+      "allowEditing": "Szerkesztés engedélyezése",
+      "cancel": "Mégse"
+    },
+    "quill": {
+      "typeSomething": "Gépeljen ide valamit..."
+    },
+    "hud": {
+      "unlockZoom": "Nagyítás feloldása",
+      "lockZoom": "Nagyítás feloldása",
+        "unlockPan": "Egyujjas lapozás engedélyezése",
+      "lockPan": "Egyujjas lapozás letiltása"
+    },
+    "pages": "Oldalak",
+    "untitled": "Névtelen"
+  }
+}
