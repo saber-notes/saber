@@ -158,21 +158,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "printPageIndicators": "打印页码"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "在导出中显示页码"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "同时控制文本大小"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1855 (142 per locale)
+/// Strings: 1858 (142 per locale)
 ///
-/// Built on 2023-03-09 at 02:58 UTC
+/// Built on 2023-03-09 at 14:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5972,6 +5972,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get dontSavePresetColors => '不在最近使用的颜色中保存预设颜色';
+	@override String get printPageIndicators => '打印页码';
 }
 
 // Path: settings.prefDescriptions
@@ -5989,6 +5990,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get maxImageSize => '更大的图片将会被压缩';
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
+	@override String get printPageIndicators => '在导出中显示页码';
 }
 
 // Path: settings.themeModes
@@ -6201,6 +6203,7 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get clearPage => '清除页面';
 	@override String get clearAllPages => '清除全部页面';
 	@override String get lineHeight => '行高';
+	@override String get lineHeightDescription => '同时控制文本大小';
 	@override String get backgroundImage => '背景图片';
 	@override String get backgroundPattern => '背景图案';
 	@override String get removeBgImage => '移除背景图片';
