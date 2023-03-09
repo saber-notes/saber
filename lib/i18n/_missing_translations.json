@@ -69,15 +69,15 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "Stampa indicatori di pagina"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Inoltre controlla la dimensione del testo"
       }
     }
   },
