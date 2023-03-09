@@ -3,7 +3,7 @@
 /// Locales: 13
 /// Strings: 1864 (143 per locale)
 ///
-/// Built on 2023-03-08 at 19:01 UTC
+/// Built on 2023-03-09 at 02:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4328,7 +4328,7 @@ class _StringsAppInfoPtBr extends _StringsAppInfoEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software gratuito e você pode redistribuí-lo sob certas condições.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software livre e você pode redistribuí-lo sob certas condições.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toque aqui para me patrocinar ou comprar mais armazenamento';
@@ -4479,7 +4479,7 @@ class _StringsSettingsAccentColorPickerPtBr extends _StringsSettingsAccentColorP
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pickAColor => 'Escolha uma cor';
+	@override String get pickAColor => 'Selecionar uma cor';
 }
 
 // Path: settings.straightenDelay
