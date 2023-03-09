@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1876 (144 per locale)
+/// Strings: 1879 (144 per locale)
 ///
-/// Built on 2023-03-09 at 22:15 UTC
+/// Built on 2023-03-09 at 22:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3936,6 +3936,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
+	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 }
 
 // Path: settings.prefDescriptions
@@ -3953,6 +3954,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
+	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 }
 
 // Path: settings.themeModes
@@ -4165,6 +4167,7 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Pulisci pagina';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get lineHeight => 'Altezza della linea';
+	@override String get lineHeightDescription => 'Inoltre controlla la dimensione del testo';
 	@override String get backgroundImage => 'Immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get removeBgImage => 'Rimuovi l\'immagine di sfondo';

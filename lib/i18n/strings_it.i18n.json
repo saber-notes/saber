@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "Svuota la lavagna dopo essere uscito dall'app",
       "editorPromptRename": "Richiede di rinominare nuove note",
       "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale",
-      "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti"
+      "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti",
+      "printPageIndicators": "Stampa indicatori di pagina"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "Sarà comunque sincronizzato con gli altri tuoi dispositivi",
       "maxImageSize": "Le immagini più grandi verranno compresse",
       "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
-      "hideHomeBackgrounds": "Per un aspetto più pulito"
+      "hideHomeBackgrounds": "Per un aspetto più pulito",
+      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni"
     },
     "themeModes": {
       "system": "Sistema",
@@ -176,6 +178,7 @@
       "clearPage": "Pulisci pagina",
       "clearAllPages": "Pulisci tutte le pagine",
       "lineHeight": "Altezza della linea",
+      "lineHeightDescription": "Inoltre controlla la dimensione del testo",
       "backgroundImage": "Immagine di sfondo",
       "backgroundPattern": "Modello di sfondo",
       "removeBgImage": "Rimuovi l'immagine di sfondo",
