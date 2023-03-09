@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "退出應用程式後清除白板",
       "editorPromptRename": "提醒您重新命名新筆記",
       "hideHomeBackgrounds": "隱藏主畫面上的背景",
-      "dontSavePresetColors": "不要在最近的顏色中儲存預設顏色"
+      "dontSavePresetColors": "不要在最近的顏色中儲存預設顏色",
+      "printPageIndicators": "列印頁碼"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "它仍會同步到您的其他裝置",
       "maxImageSize": "大於此大小的圖片將被壓縮",
       "editorPromptRename": "您以後隨時可以重新命名筆記",
-      "hideHomeBackgrounds": "為了更乾淨的外觀"
+      "hideHomeBackgrounds": "為了更乾淨的外觀",
+      "printPageIndicators": "在匯出中顯示頁碼"
     },
     "themeModes": {
       "system": "系統",
@@ -176,6 +178,7 @@
       "clearPage": "清除頁面",
       "clearAllPages": "清除所有頁面",
       "lineHeight": "行高",
+      "lineHeightDescription": "同時控制文字大小",
       "backgroundImage": "背景圖片",
       "backgroundPattern": "背景圖案",
       "removeBgImage": "移除背景圖片",
