@@ -161,15 +161,15 @@
   "zh-Hans-CN": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "打印页码"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "在导出中显示页码"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "同时控制文本大小"
       }
     }
   },
