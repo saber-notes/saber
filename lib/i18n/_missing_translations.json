@@ -6,15 +6,15 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "Tisknout čísla stránek"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "V exportech budou zobrazena čísla stránek"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Ovlivňuje také velikost textu"
       }
     }
   },
