@@ -7,24 +7,24 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "editorOpaqueBackgrounds": "Opaque backgrounds",
-        "dontSavePresetColors": "Don't save preset colors in recent colors",
-        "printPageIndicators": "Print page indicators"
+        "editorOpaqueBackgrounds": "Undurchsichtige Hintergründe",
+        "dontSavePresetColors": "Farbvorlagen nicht in den zuletzt genutzten Farben speichern",
+        "printPageIndicators": "Seitennummerierung drucken"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs",
-        "printPageIndicators": "Show page indicators in exports"
+        "editorOpaqueBackgrounds": "Hintergrundbilder und PDFs undurchsichtig machen",
+        "printPageIndicators": "Seitennummerierung bei Export anzeigen"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Beeinflusst die Schriftgröße"
       },
       "hud": {
-        "unlockPan": "Enable single-finger panning",
-        "lockPan": "Disable single-finger panning"
+        "unlockPan": "Verschieben mit einem Finger aktivieren",
+        "lockPan": "Verschieben mit einem Finger deaktivieren"
       },
-      "untitled": "Untitled"
+      "untitled": "Unbenannt"
     }
   },
   "es": {
