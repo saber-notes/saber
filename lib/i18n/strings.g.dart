@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1864 (143 per locale)
+/// Strings: 1852 (142 per locale)
 ///
-/// Built on 2023-03-09 at 02:16 UTC
+/// Built on 2023-03-09 at 02:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1087,7 +1087,6 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Smazat obsah stránky';
 	@override String get clearAllPages => 'Smazat všechny stránky';
 	@override String get lineHeight => 'Výška řádku';
-	@override String get lineHeightDescription => 'Velikost jednotlivých řádků';
 	@override String get backgroundImage => 'Obrázek na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
@@ -1596,7 +1595,6 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Seite löschen';
 	@override String get clearAllPages => 'Alle Seiten löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
-	@override String get lineHeightDescription => 'Die Höhe jeder Zeile';
 	@override String get backgroundImage => 'Hintergrundbild';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get removeBgImage => 'Hintergrundbild entfernen';
@@ -2105,7 +2103,6 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Borrar página';
 	@override String get clearAllPages => 'Borrar todas las páginas';
 	@override String get lineHeight => 'Altura de la línea';
-	@override String get lineHeightDescription => 'Tamaño de cada línea';
 	@override String get backgroundImage => 'Imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get removeBgImage => 'Eliminar imagen de fondo';
@@ -2618,7 +2615,6 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get clearPage => 'پاک کردن صفحه';
 	@override String get clearAllPages => 'تمام صفحات را پاک کنید';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineHeightDescription => 'اندازه هر خط';
 	@override String get backgroundImage => 'تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get removeBgImage => 'حذف تصویر پس زمینه';
@@ -3131,7 +3127,6 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Effacer la page';
 	@override String get clearAllPages => 'Effacer toutes les pages';
 	@override String get lineHeight => 'Hauteur de ligne';
-	@override String get lineHeightDescription => 'La hauteur de chaque ligne';
 	@override String get backgroundImage => 'Image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get removeBgImage => 'Effacer l\'image de fond';
@@ -3644,7 +3639,6 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Oldal törlése';
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get lineHeightDescription => 'Az egyes sorok mérete';
 	@override String get backgroundImage => 'Háttérkép';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get removeBgImage => 'Háttérkép törlése';
@@ -4157,7 +4151,6 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Pulisci pagina';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get lineHeight => 'Altezza della linea';
-	@override String get lineHeightDescription => 'La dimensione di ogni riga';
 	@override String get backgroundImage => 'Immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get removeBgImage => 'Rimuovi l\'immagine di sfondo';
@@ -4670,7 +4663,6 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Limpar a página';
 	@override String get clearAllPages => 'Limpar todas as páginas';
 	@override String get lineHeight => 'Altura da linha';
-	@override String get lineHeightDescription => 'O tamanho de cada linha';
 	@override String get backgroundImage => 'Imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get removeBgImage => 'Remover imagem de plano de fundo';
@@ -5183,7 +5175,6 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Очистить лист';
 	@override String get clearAllPages => 'Очистить все листы';
 	@override String get lineHeight => 'Высота строки';
-	@override String get lineHeightDescription => 'Размер каждой строки';
 	@override String get backgroundImage => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get removeBgImage => 'Удалить фоновое изображение';
@@ -5695,7 +5686,6 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Sayfayı temizle';
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
 	@override String get lineHeight => 'Satır aralığı';
-	@override String get lineHeightDescription => 'Her bir satırın boyutu';
 	@override String get backgroundImage => 'Arkaplan görseli';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get removeBgImage => 'Arkaplan görselini kaldır';
@@ -6208,7 +6198,6 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get clearPage => '清除页面';
 	@override String get clearAllPages => '清除全部页面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '每一行的高度';
 	@override String get backgroundImage => '背景图片';
 	@override String get backgroundPattern => '背景图案';
 	@override String get removeBgImage => '移除背景图片';
@@ -6721,7 +6710,6 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get clearPage => '清除頁面';
 	@override String get clearAllPages => '清除所有頁面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '每行的高度';
 	@override String get backgroundImage => '背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get removeBgImage => '移除背景圖片';
