@@ -71,13 +71,7 @@
       }
     }
   },
-  "pt-BR": {
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Also controls the text size"
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {
     "editor": {
       "menu": {

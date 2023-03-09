@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1852 (142 per locale)
+/// Strings: 1853 (142 per locale)
 ///
-/// Built on 2023-03-09 at 02:39 UTC
+/// Built on 2023-03-09 at 02:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4663,6 +4663,7 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Limpar a página';
 	@override String get clearAllPages => 'Limpar todas as páginas';
 	@override String get lineHeight => 'Altura da linha';
+	@override String get lineHeightDescription => 'Também controla o tamanho do texto';
 	@override String get backgroundImage => 'Imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get removeBgImage => 'Remover imagem de plano de fundo';
