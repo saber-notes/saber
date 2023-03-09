@@ -158,21 +158,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "settings": {
-      "prefLabels": {
-        "printPageIndicators": "Print page indicators"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Also controls the text size"
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
