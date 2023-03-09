@@ -107,29 +107,6 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               ],
             ),
             const SizedBox(height: 16),
-            ListTile(
-              title: Text(t.editor.menu.lineHeight),
-              subtitle: Text(t.editor.menu.lineHeightDescription),
-              trailing: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(widget.coreInfo.lineHeight.toString()),
-                  SizedBox(
-                    width: 200,
-                    child: Slider(
-                      value: widget.coreInfo.lineHeight.toDouble(),
-                      min: 20,
-                      max: 100,
-                      divisions: 8,
-                      onChanged: (double value) => setState(() {
-                        widget.setLineHeight(value.toInt());
-                      }),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
             if (backgroundImage != null) ...[
               Text(
                 t.editor.menu.backgroundImage,
@@ -212,6 +189,29 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     ),
                     const SizedBox(width: 8),
                   ],
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            ListTile(
+              title: Text(t.editor.menu.lineHeight),
+              subtitle: Text(t.editor.menu.lineHeightDescription),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(widget.coreInfo.lineHeight.toString()),
+                  SizedBox(
+                    width: 200,
+                    child: Slider(
+                      value: widget.coreInfo.lineHeight.toDouble(),
+                      min: 20,
+                      max: 100,
+                      divisions: 8,
+                      onChanged: (double value) => setState(() {
+                        widget.setLineHeight(value.toInt());
+                      }),
+                    ),
+                  ),
                 ],
               ),
             ),

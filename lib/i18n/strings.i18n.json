@@ -176,7 +176,7 @@
       "clearPage": "Clear page",
       "clearAllPages": "Clear all pages",
       "lineHeight": "Line height",
-      "lineHeightDescription": "The size of each line",
+      "lineHeightDescription": "Also controls the text size",
       "backgroundImage": "Background image",
       "backgroundPattern": "Background pattern",
       "removeBgImage": "Remove background image",

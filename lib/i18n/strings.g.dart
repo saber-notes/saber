@@ -3,7 +3,7 @@
 /// Locales: 13
 /// Strings: 1864 (143 per locale)
 ///
-/// Built on 2023-03-09 at 02:01 UTC
+/// Built on 2023-03-09 at 02:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -574,7 +574,7 @@ class _StringsEditorMenuEn {
 	String get clearPage => 'Clear page';
 	String get clearAllPages => 'Clear all pages';
 	String get lineHeight => 'Line height';
-	String get lineHeightDescription => 'The size of each line';
+	String get lineHeightDescription => 'Also controls the text size';
 	String get backgroundImage => 'Background image';
 	String get backgroundPattern => 'Background pattern';
 	String get removeBgImage => 'Remove background image';
