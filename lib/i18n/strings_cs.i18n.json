@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "Smazat tabuli po opuštění aplikace",
       "editorPromptRename": "Vybízet k přejmenování nových poznámek",
       "hideHomeBackgrounds": "Skrýt pozadí poznámek na hlavní obrazovce",
-      "dontSavePresetColors": "Mezi naposledy použité barvy neukládat přednastavené barvy"
+      "dontSavePresetColors": "Mezi naposledy použité barvy neukládat přednastavené barvy",
+      "printPageIndicators": "Tisknout čísla stránek"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "Bude synchronizováno do dalších zařízení",
       "maxImageSize": "Na větší obrázky bude aplikována komprese",
       "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
-      "hideHomeBackgrounds": "Pro čistější vzhled"
+      "hideHomeBackgrounds": "Pro čistější vzhled",
+      "printPageIndicators": "V exportech budou zobrazena čísla stránek"
     },
     "themeModes": {
       "system": "Systémový",
@@ -176,6 +178,7 @@
       "clearPage": "Smazat obsah stránky",
       "clearAllPages": "Smazat všechny stránky",
       "lineHeight": "Výška řádku",
+      "lineHeightDescription": "Ovlivňuje také velikost textu",
       "backgroundImage": "Obrázek na pozadí",
       "backgroundPattern": "Vzor na pozadí",
       "removeBgImage": "Odstranit obrázek z pozadí",
