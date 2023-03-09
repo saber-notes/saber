@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "Clear the whiteboard after you exit the app",
       "editorPromptRename": "Prompt you to rename new notes",
       "hideHomeBackgrounds": "Hide backgrounds on the home screen",
-      "dontSavePresetColors": "Don't save preset colors in recent colors"
+      "dontSavePresetColors": "Don't save preset colors in recent colors",
+      "printPageIndicators": "Print page indicators"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "It will still be synced to your other devices",
       "maxImageSize": "Images larger than this will be compressed",
       "editorPromptRename": "You can always rename notes later",
-      "hideHomeBackgrounds": "For a cleaner look"
+      "hideHomeBackgrounds": "For a cleaner look",
+      "printPageIndicators": "Show page indicators in exports"
     },
     "themeModes": {
       "system": "System",

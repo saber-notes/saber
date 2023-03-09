@@ -330,6 +330,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     icon: Icons.palette,
                     pref: Prefs.dontSavePresetColors,
                   ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.printPageIndicators,
+                    subtitle: t.settings.prefDescriptions.printPageIndicators,
+                    icon: Icons.numbers,
+                    pref: Prefs.printPageIndicators,
+                  ),
                   const SizedBox(height: 16),
                 ],
               ),

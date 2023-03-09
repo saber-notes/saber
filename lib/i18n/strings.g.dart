@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1853 (142 per locale)
+/// Strings: 1855 (142 per locale)
 ///
-/// Built on 2023-03-09 at 02:41 UTC
+/// Built on 2023-03-09 at 02:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -345,6 +345,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 	String get dontSavePresetColors => 'Don\'t save preset colors in recent colors';
+	String get printPageIndicators => 'Print page indicators';
 }
 
 // Path: settings.prefDescriptions
@@ -362,6 +363,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get maxImageSize => 'Images larger than this will be compressed';
 	String get editorPromptRename => 'You can always rename notes later';
 	String get hideHomeBackgrounds => 'For a cleaner look';
+	String get printPageIndicators => 'Show page indicators in exports';
 }
 
 // Path: settings.themeModes

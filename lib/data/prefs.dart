@@ -64,6 +64,7 @@ abstract class Prefs {
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> dontSavePresetColors;
+  static late final PlainPref<bool> printPageIndicators;
 
   static late final PlainPref<double> maxImageSize;
 
@@ -126,6 +127,7 @@ abstract class Prefs {
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     dontSavePresetColors = PlainPref('dontSavePresetColors', false);
+    printPageIndicators = PlainPref('printPageIndicators', false);
 
     maxImageSize = PlainPref('maxImageSize', 1000);
 

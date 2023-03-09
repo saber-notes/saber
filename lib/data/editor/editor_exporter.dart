@@ -119,7 +119,7 @@ abstract class EditorExporter {
             pageIndex: pageIndex,
             width: pageSize.width,
             height: pageSize.height,
-            isPreview: true,
+            isPrint: true,
             textEditing: false,
             coreInfo: coreInfo.copyWith(
               pages: coreInfo.pages.map((page) => page.copyWith(

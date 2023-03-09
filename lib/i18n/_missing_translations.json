@@ -4,6 +4,14 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
@@ -14,10 +22,12 @@
     "settings": {
       "prefLabels": {
         "editorOpaqueBackgrounds": "Opaque backgrounds",
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
+        "dontSavePresetColors": "Don't save preset colors in recent colors",
+        "printPageIndicators": "Print page indicators"
       },
       "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs"
+        "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs",
+        "printPageIndicators": "Show page indicators in exports"
       }
     },
     "editor": {
@@ -34,7 +44,11 @@
   "es": {
     "settings": {
       "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
+        "dontSavePresetColors": "Don't save preset colors in recent colors",
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
       }
     },
     "editor": {
@@ -44,6 +58,14 @@
     }
   },
   "fa": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
@@ -51,6 +73,14 @@
     }
   },
   "fr": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
@@ -58,6 +88,14 @@
     }
   },
   "hu": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
@@ -65,14 +103,39 @@
     }
   },
   "it": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
       }
     }
   },
-  "pt-BR": {},
+  "pt-BR": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    }
+  },
   "ru": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
@@ -82,7 +145,11 @@
   "tr": {
     "settings": {
       "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors"
+        "dontSavePresetColors": "Don't save preset colors in recent colors",
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
       }
     },
     "editor": {
@@ -92,6 +159,14 @@
     }
   },
   "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
@@ -99,6 +174,14 @@
     }
   },
   "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "printPageIndicators": "Print page indicators"
+      },
+      "prefDescriptions": {
+        "printPageIndicators": "Show page indicators in exports"
+      }
+    },
     "editor": {
       "menu": {
         "lineHeightDescription": "Also controls the text size"
