@@ -180,8 +180,6 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return Stack(
       children: [
         Listener(
@@ -195,15 +193,15 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                 this.containerBounds = containerBounds;
 
                 return InteractiveCanvasViewer.builder(
-                  minScale: zoomLockedValue ?? 0.01,
+                  minScale: zoomLockedValue ?? 0.3,
                   maxScale: zoomLockedValue ?? 5,
                   panEnabled: !panLock,
 
                   // we need a non-zero boundary margin so we can zoom out
                   // past the size of the page (for minScale < 1)
-                  boundaryMargin: EdgeInsets.symmetric(
-                    vertical: max(screenSize.width - screenSize.height, 0),
-                    horizontal: max(screenSize.height - screenSize.width, 0),
+                  boundaryMargin: const EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: double.maxFinite,
                   ),
 
                   transformationController: _transformationController,
