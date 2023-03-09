@@ -45,7 +45,7 @@
       "autoClearWhiteboardOnExit": "Очищать лист при выходе из приложения",
       "editorPromptRename": "Предлагать переименовывать новые заметки",
       "hideHomeBackgrounds": "Скрыть фон на главном экране",
-      "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах"
+      "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах",
       "printPageIndicators": "Печатать номера страниц"
     },
     "prefDescriptions": {
@@ -56,7 +56,7 @@
       "autoClearWhiteboardOnExit": "Это будет синхронизировано с другими вашими устройствами",
       "maxImageSize": "Большие изображения будут сжаты",
       "editorPromptRename": "Вы всегда можете переименовать заметки позже",
-      "hideHomeBackgrounds": "Для чистого вида"
+      "hideHomeBackgrounds": "Для чистого вида",
       "printPageIndicators": "Показывать номера страниц при экспорте"
     },
     "themeModes": {
