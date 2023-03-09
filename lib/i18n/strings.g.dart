@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1864 (143 per locale)
+/// Strings: 1867 (143 per locale)
 ///
-/// Built on 2023-03-09 at 14:25 UTC
+/// Built on 2023-03-09 at 22:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -860,6 +860,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
+	@override String get printPageIndicators => 'Tisknout čísla stránek';
 }
 
 // Path: settings.prefDescriptions
@@ -877,6 +878,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
+	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 }
 
 // Path: settings.themeModes
@@ -1089,6 +1091,7 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Smazat obsah stránky';
 	@override String get clearAllPages => 'Smazat všechny stránky';
 	@override String get lineHeight => 'Výška řádku';
+	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu';
 	@override String get backgroundImage => 'Obrázek na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
