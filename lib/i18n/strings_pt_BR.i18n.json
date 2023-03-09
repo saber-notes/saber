@@ -176,6 +176,7 @@
       "clearPage": "Limpar a página",
       "clearAllPages": "Limpar todas as páginas",
       "lineHeight": "Altura da linha",
+      "lineHeightDescription": "Também controla o tamanho do texto",
       "backgroundImage": "Imagem de plano de fundo",
       "backgroundPattern": "Padrão de plano de fundo",
       "removeBgImage": "Remover imagem de plano de fundo",
