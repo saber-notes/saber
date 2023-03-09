@@ -162,15 +162,15 @@
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "列印頁碼"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "在匯出中顯示頁碼"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "同時控制文字大小"
       }
     }
   }
