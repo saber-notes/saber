@@ -130,15 +130,15 @@
   "ru": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "Печатать номера страниц"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "Показывать номера страниц при экспорте"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Также управляет размером текста"
       }
     }
   },
