@@ -4,29 +4,7 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "cs": {},
-  "de": {
-    "settings": {
-      "prefLabels": {
-        "editorOpaqueBackgrounds": "Undurchsichtige Hintergründe",
-        "dontSavePresetColors": "Farbvorlagen nicht in den zuletzt genutzten Farben speichern",
-        "printPageIndicators": "Seitennummerierung drucken"
-      },
-      "prefDescriptions": {
-        "editorOpaqueBackgrounds": "Hintergrundbilder und PDFs undurchsichtig machen",
-        "printPageIndicators": "Seitennummerierung bei Export anzeigen"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Beeinflusst die Schriftgröße"
-      },
-      "hud": {
-        "unlockPan": "Verschieben mit einem Finger aktivieren",
-        "lockPan": "Verschieben mit einem Finger deaktivieren"
-      },
-      "untitled": "Unbenannt"
-    }
-  },
+  "de": {},
   "es": {
     "settings": {
       "prefLabels": {

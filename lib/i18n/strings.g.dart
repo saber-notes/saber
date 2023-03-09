@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1867 (143 per locale)
+/// Strings: 1876 (144 per locale)
 ///
-/// Built on 2023-03-09 at 22:13 UTC
+/// Built on 2023-03-09 at 22:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1298,6 +1298,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorQuillDe quill = _StringsEditorQuillDe._(_root);
 	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
 	@override String get pages => 'Seiten';
+	@override String get untitled => 'Unbenannt';
 }
 
 // Path: home.tabs
@@ -1366,12 +1367,15 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorToolbarAlignment => 'Position der Werkzeugleiste';
 	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
+	@override String get editorOpaqueBackgrounds => 'Undurchsichtige Hintergründe';
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
 	@override String get maxImageSize => 'Maximale Bildgröße';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Andwendung';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
+	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
+	@override String get printPageIndicators => 'Seitennummerierung drucken';
 }
 
 // Path: settings.prefDescriptions
@@ -1383,11 +1387,13 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
 	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
+	@override String get editorOpaqueBackgrounds => 'Hintergrundbilder und PDFs undurchsichtig machen';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
 	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
+	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 }
 
 // Path: settings.themeModes
@@ -1600,6 +1606,7 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Seite löschen';
 	@override String get clearAllPages => 'Alle Seiten löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
+	@override String get lineHeightDescription => 'Beeinflusst die Schriftgröße';
 	@override String get backgroundImage => 'Hintergrundbild';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get removeBgImage => 'Hintergrundbild entfernen';
@@ -1641,6 +1648,8 @@ class _StringsEditorHudDe extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Zoom entsperren';
 	@override String get lockZoom => 'Zoom sperren';
+	@override String get unlockPan => 'Verschieben mit einem Finger aktivieren';
+	@override String get lockPan => 'Verschieben mit einem Finger deaktivieren';
 }
 
 // Path: editor.menu.boxFits
