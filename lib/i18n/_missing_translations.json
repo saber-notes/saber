@@ -127,21 +127,7 @@
       }
     }
   },
-  "ru": {
-    "settings": {
-      "prefLabels": {
-        "printPageIndicators": "Печатать номера страниц"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Показывать номера страниц при экспорте"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Также управляет размером текста"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "settings": {
       "prefLabels": {

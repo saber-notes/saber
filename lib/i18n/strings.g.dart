@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1861 (143 per locale)
+/// Strings: 1864 (143 per locale)
 ///
-/// Built on 2023-03-09 at 14:15 UTC
+/// Built on 2023-03-09 at 14:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4949,6 +4949,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
+	@override String get printPageIndicators => 'Печатать номера страниц';
 }
 
 // Path: settings.prefDescriptions
@@ -4966,6 +4967,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
+	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 }
 
 // Path: settings.themeModes
@@ -5178,6 +5180,7 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Очистить лист';
 	@override String get clearAllPages => 'Очистить все листы';
 	@override String get lineHeight => 'Высота строки';
+	@override String get lineHeightDescription => 'Также управляет размером текста';
 	@override String get backgroundImage => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get removeBgImage => 'Удалить фоновое изображение';
