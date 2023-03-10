@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1881 (144 per locale)
+/// Strings: 1885 (145 per locale)
 ///
-/// Built on 2023-03-10 at 19:41 UTC
+/// Built on 2023-03-10 at 19:44 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1888,6 +1888,8 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
+	@override String get dontSavePresetColors => 'No guardar colores preestablecidos en los colores recientes';
+	@override String get printPageIndicators => 'Indicadores de página de impresión';
 }
 
 // Path: settings.prefDescriptions
@@ -1905,6 +1907,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
+	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 }
 
 // Path: settings.themeModes
@@ -2117,6 +2120,7 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Borrar página';
 	@override String get clearAllPages => 'Borrar todas las páginas';
 	@override String get lineHeight => 'Altura de la línea';
+	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
 	@override String get backgroundImage => 'Imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get removeBgImage => 'Eliminar imagen de fondo';
