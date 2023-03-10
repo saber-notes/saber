@@ -802,7 +802,7 @@ class EditorState extends State<Editor> {
         : SystemUiOverlayStyle.light;
 
     SystemChrome.setSystemUIOverlayStyle(overlayStyle.copyWith(
-      systemNavigationBarColor: theme.colorScheme.surface,
+      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: otherBrightness,
     ));
   }

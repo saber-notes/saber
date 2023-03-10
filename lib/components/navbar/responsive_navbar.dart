@@ -32,11 +32,7 @@ class ResponsiveNavbar extends StatefulWidget {
         : SystemUiOverlayStyle.light;
 
     SystemChrome.setSystemUIOverlayStyle(overlayStyle.copyWith(
-      systemNavigationBarColor: ElevationOverlay.applySurfaceTint(
-        theme.scaffoldBackgroundColor,
-        theme.colorScheme.surfaceTint,
-        isLargeScreen ? 0 : 3,
-      ),
+      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: otherBrightness,
     ));
   }
