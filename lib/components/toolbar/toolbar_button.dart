@@ -13,6 +13,7 @@ class ToolbarIconButton extends StatelessWidget {
 
     this.modal,
 
+    required this.padding,
     required this.child,
   });
 
@@ -25,6 +26,7 @@ class ToolbarIconButton extends StatelessWidget {
 
   final Widget? modal;
 
+  final EdgeInsets padding;
   final Widget child;
 
   @override
@@ -36,7 +38,7 @@ class ToolbarIconButton extends StatelessWidget {
         color: (selected && enabled) ? colorScheme.primary : null,
         shape: const CircleBorder(),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: padding,
       child: IconButton(
         color: (selected && enabled) ? colorScheme.onPrimary : colorScheme.primary,
         disabledColor: colorScheme.onSurface.withOpacity(0.4),
