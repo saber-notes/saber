@@ -67,16 +67,7 @@
     }
   },
   "it": {},
-  "pt-BR": {
-    "settings": {
-      "prefLabels": {
-        "printPageIndicators": "Print page indicators"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {},
   "tr": {
     "settings": {

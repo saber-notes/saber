@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 13
-/// Strings: 1879 (144 per locale)
+/// Strings: 1881 (144 per locale)
 ///
-/// Built on 2023-03-09 at 22:19 UTC
+/// Built on 2023-03-10 at 19:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4451,6 +4451,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
 	@override String get dontSavePresetColors => 'Não salvar as cores predefinidas nas cores recentes';
+	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 }
 
 // Path: settings.prefDescriptions
@@ -4468,6 +4469,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
+	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 }
 
 // Path: settings.themeModes
