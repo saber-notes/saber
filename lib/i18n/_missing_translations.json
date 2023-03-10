@@ -70,10 +70,10 @@
   "pt-BR": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "Imprimir os indicadores de página"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "Mostrar os indicadores de página nas exportações"
       }
     }
   },
