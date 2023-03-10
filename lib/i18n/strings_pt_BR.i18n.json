@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "Limpar o quadro branco depois de sair do aplicativo",
       "editorPromptRename": "Solicitar que você renomeie novas notas",
       "hideHomeBackgrounds": "Ocultar planos de fundo na tela inicial",
-      "dontSavePresetColors": "Não salvar as cores predefinidas nas cores recentes"
+      "dontSavePresetColors": "Não salvar as cores predefinidas nas cores recentes",
+      "printPageIndicators": "Imprimir os indicadores de página"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "Ainda será sincronizado com seus outros dispositivos",
       "maxImageSize": "Imagens maiores que isso serão compactadas",
       "editorPromptRename": "Você pode sempre renomear as notas mais tarde",
-      "hideHomeBackgrounds": "Para uma aparência mais limpa"
+      "hideHomeBackgrounds": "Para uma aparência mais limpa",
+      "printPageIndicators": "Mostrar os indicadores de página nas exportações"
     },
     "themeModes": {
       "system": "Sistema",
