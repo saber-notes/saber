@@ -5,22 +5,7 @@
   ],
   "cs": {},
   "de": {},
-  "es": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors",
-        "printPageIndicators": "Print page indicators"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Also controls the text size"
-      }
-    }
-  },
+  "es": {},
   "fa": {
     "settings": {
       "prefLabels": {
