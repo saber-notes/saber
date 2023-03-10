@@ -71,7 +71,9 @@ make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 
 #### Windows
 
-Download and install `SaberInstaller_{version}.exe` from the latest [Release][releases]
+Download and install `SaberInstaller_{version}.exe` from the latest [Release][releases].
+
+If you get missing dll errors, make sure you have [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installed.
 
 #### iOS
 
