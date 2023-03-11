@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:tuple/tuple.dart';
 
 class EditorHistory {
   static const int maxHistoryLength = 100;
@@ -47,8 +49,29 @@ class EditorHistory {
     return item;
   }
 
+  /// Allows you to see the last item in the [_past] stack
+  /// without removing it.
+  ///
+  /// Please check [canUndo] first: this method will
+  /// throw an exception if there is nothing to undo.
+  EditorHistoryItem peekUndo() {
+    if (_past.isEmpty) throw Exception('Nothing to undo');
+    return _past.last;
+  }
+
+  /// Allows you to see the last item in the [_future] stack
+  /// without removing it.
+  ///
+  /// Please check [canRedo] first: this method will
+  /// throw an exception if there is nothing to redo.
+  EditorHistoryItem peekRedo() {
+    if (_future.isEmpty) throw Exception('Nothing to redo');
+    return _future.last;
+  }
+
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
+    assert(item.type != EditorHistoryItemType.quillUndoneChange, 'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.');
     _past.add(item);
     if (_past.length > maxHistoryLength) _past.removeAt(0);
     _isRedoPossible = false;
@@ -89,24 +112,33 @@ class EditorHistoryItem {
     required this.strokes,
     required this.images,
     this.offset,
-  }): assert(type != EditorHistoryItemType.move || offset != null, 'Offset must be provided for move');
+    this.quillPageIndex,
+    this.quillChange,
+  }): assert(type != EditorHistoryItemType.move || offset != null, 'Offset must be provided for move'),
+      assert(type != EditorHistoryItemType.quillChange || quillPageIndex != null, 'Page index must be provided for quill change');
 
   final EditorHistoryItemType type;
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
+  final int? quillPageIndex;
+  final Tuple3<Delta, Delta, ChangeSource>? quillChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Rect? offset,
+    int? quillPageIndex,
+    Tuple3<Delta, Delta, ChangeSource>? quillChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       offset: offset ?? this.offset,
+      quillPageIndex: quillPageIndex ?? this.quillPageIndex,
+      quillChange: quillChange ?? this.quillChange,
     );
   }
 }
@@ -115,4 +147,6 @@ enum EditorHistoryItemType {
   draw,
   erase,
   move,
+  quillChange,
+  quillUndoneChange,
 }

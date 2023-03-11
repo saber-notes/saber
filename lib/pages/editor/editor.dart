@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -38,6 +39,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
+import 'package:tuple/tuple.dart';
 
 class Editor extends StatefulWidget {
   Editor({
@@ -282,6 +284,16 @@ class EditorState extends State<Editor> {
             );
           }
           break;
+
+        case EditorHistoryItemType.quillChange:
+          final quill = coreInfo.pages[item.quillPageIndex!].quill;
+          quill.controller.undo();
+          break;
+
+        case EditorHistoryItemType.quillUndoneChange:
+          final quill = coreInfo.pages[item.quillPageIndex!].quill;
+          quill.controller.redo();
+          break;
       }
 
       if (item.type != EditorHistoryItemType.move) {
@@ -311,6 +323,12 @@ class EditorState extends State<Editor> {
           -item.offset!.right,
           -item.offset!.bottom,
         )));
+        break;
+      case EditorHistoryItemType.quillChange:
+        undo(item.copyWith(type: EditorHistoryItemType.quillUndoneChange));
+        break;
+      case EditorHistoryItemType.quillUndoneChange: // this will never happen
+        throw Exception('history should not contain quillUndoneChange items');
     }
   }
 
@@ -523,12 +541,41 @@ class EditorState extends State<Editor> {
   void listenToQuillChanges(QuillStruct quill, int pageIndex) {
     quill.changeSubscription?.cancel();
     quill.changeSubscription = quill.controller.changes.listen((event) {
-      onQuillChange(pageIndex);
+      _addQuillChangeToHistory(
+        quill: quill,
+        pageIndex: pageIndex,
+        event: event,
+      );
+      createPage(pageIndex); // create empty last page
+      autosaveAfterDelay();
     });
   }
-  void onQuillChange(int pageIndex) {
-    createPage(pageIndex); // create empty last page
-    autosaveAfterDelay();
+  void _addQuillChangeToHistory({
+    required QuillStruct quill,
+    required int pageIndex,
+    required Tuple3<flutter_quill.Delta, flutter_quill.Delta, flutter_quill.ChangeSource> event,
+  }) {
+    final eventWasUndo = quill.controller.hasRedo;
+    if (eventWasUndo) return;
+
+    // the change subscription sometimes fires multiple times for the same change
+    // so compare the "before" of each change to merge them
+    if (history.canUndo && !history.canRedo) {
+      final lastChange = history.peekUndo();
+      if (lastChange.type == EditorHistoryItemType.quillChange &&
+          lastChange.quillPageIndex == pageIndex &&
+          lastChange.quillChange!.item1 == event.item1) {
+        history.undo(); // remove the last change, to be replaced
+      }
+    }
+
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.quillChange,
+      strokes: const [],
+      images: const [],
+      quillPageIndex: pageIndex,
+      quillChange: event,
+    ));
   }
 
   void autosaveAfterDelay() {
