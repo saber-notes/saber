@@ -235,49 +235,53 @@ class EditorState extends State<Editor> {
     }
 
     setState(() {
-      if (item!.type == EditorHistoryItemType.draw) { // undo draw
-        for (Stroke stroke in item.strokes) {
-          coreInfo.pages[stroke.pageIndex].strokes.remove(stroke);
-        }
-        for (EditorImage image in item.images) {
-          coreInfo.pages[image.pageIndex].images.remove(image);
-        }
-        removeExcessPages();
-      } else if (item.type == EditorHistoryItemType.erase) { // undo erase
-        for (Stroke stroke in item.strokes) {
-          createPage(stroke.pageIndex);
-          coreInfo.pages[stroke.pageIndex].insertStroke(stroke);
-        }
-        for (EditorImage image in item.images) {
-          createPage(image.pageIndex);
-          coreInfo.pages[image.pageIndex].images.add(image);
-          image.newImage = true;
-        }
-      } else if (item.type == EditorHistoryItemType.move) { // undo move
-        assert(item.offset != null);
-        for (Stroke stroke in item.strokes) {
-          stroke.offset -= Offset(
-            item.offset!.left,
-            item.offset!.top,
-          );
-        }
-        Select select = Select.currentSelect;
-        if (select.doneSelecting) {
-          select.selectResult.path = select.selectResult.path.shift(Offset(
-            -item.offset!.left,
-            -item.offset!.top,
-          ));
-        }
-        for (EditorImage image in item.images) {
-          image.dstRect = Rect.fromLTRB(
-            image.dstRect.left - item.offset!.left,
-            image.dstRect.top - item.offset!.top,
-            image.dstRect.right - item.offset!.right,
-            image.dstRect.bottom - item.offset!.bottom,
-          );
-        }
-      } else {
-        throw Exception('Unknown history item type: ${item.type}');
+      switch (item!.type) {
+        case EditorHistoryItemType.draw:
+          for (Stroke stroke in item.strokes) {
+            coreInfo.pages[stroke.pageIndex].strokes.remove(stroke);
+          }
+          for (EditorImage image in item.images) {
+            coreInfo.pages[image.pageIndex].images.remove(image);
+          }
+          removeExcessPages();
+          break;
+
+        case EditorHistoryItemType.erase:
+          for (Stroke stroke in item.strokes) {
+            createPage(stroke.pageIndex);
+            coreInfo.pages[stroke.pageIndex].insertStroke(stroke);
+          }
+          for (EditorImage image in item.images) {
+            createPage(image.pageIndex);
+            coreInfo.pages[image.pageIndex].images.add(image);
+            image.newImage = true;
+          }
+          break;
+
+        case EditorHistoryItemType.move:
+          assert(item.offset != null);
+          for (Stroke stroke in item.strokes) {
+            stroke.offset -= Offset(
+              item.offset!.left,
+              item.offset!.top,
+            );
+          }
+          Select select = Select.currentSelect;
+          if (select.doneSelecting) {
+            select.selectResult.path = select.selectResult.path.shift(Offset(
+              -item.offset!.left,
+              -item.offset!.top,
+            ));
+          }
+          for (EditorImage image in item.images) {
+            image.dstRect = Rect.fromLTRB(
+              image.dstRect.left - item.offset!.left,
+              image.dstRect.top - item.offset!.top,
+              image.dstRect.right - item.offset!.right,
+              image.dstRect.bottom - item.offset!.bottom,
+            );
+          }
+          break;
       }
 
       if (item.type != EditorHistoryItemType.move) {
@@ -292,20 +296,21 @@ class EditorState extends State<Editor> {
     if (!history.canRedo) return;
     EditorHistoryItem item = history.redo();
 
-    if (item.type == EditorHistoryItemType.draw) { // redo draw
-      undo(item.copyWith(type: EditorHistoryItemType.erase));
-    } else if (item.type == EditorHistoryItemType.erase) { // redo erase
-      undo(item.copyWith(type: EditorHistoryItemType.draw));
-    } else if (item.type == EditorHistoryItemType.move) { // redo move
-      assert(item.offset != null);
-      undo(item.copyWith(offset: Rect.fromLTRB(
-        -item.offset!.left,
-        -item.offset!.top,
-        -item.offset!.right,
-        -item.offset!.bottom,
-      )));
-    } else {
-      throw Exception('Unknown history item type: ${item.type}');
+    switch (item.type) {
+      case EditorHistoryItemType.draw:
+        undo(item.copyWith(type: EditorHistoryItemType.erase));
+        break;
+      case EditorHistoryItemType.erase:
+        undo(item.copyWith(type: EditorHistoryItemType.draw));
+        break;
+      case EditorHistoryItemType.move:
+        assert(item.offset != null);
+        undo(item.copyWith(offset: Rect.fromLTRB(
+          -item.offset!.left,
+          -item.offset!.top,
+          -item.offset!.right,
+          -item.offset!.bottom,
+        )));
     }
   }
 
