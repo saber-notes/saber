@@ -178,9 +178,7 @@ class EditorPage extends Listenable {
 
   void dispose() {
     _disposed = true;
-    quill.changeSubscription?.cancel();
-    quill.focusNode.dispose();
-    quill.controller.dispose();
+    quill.dispose();
   }
 
   EditorPage copyWith({
@@ -207,4 +205,10 @@ class QuillStruct {
     required this.controller,
     required this.focusNode,
   });
+
+  void dispose() {
+    changeSubscription?.cancel();
+    focusNode.dispose();
+    controller.dispose();
+  }
 }
