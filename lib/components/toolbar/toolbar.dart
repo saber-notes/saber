@@ -200,6 +200,8 @@ class _ToolbarState extends State<Toolbar> {
             disabledIconFillColor: Colors.transparent,
             borderRadius: 22,
           ),
+          showUndo: false,
+          showRedo: false,
           showFontSize: false,
           showFontFamily: false,
           showClearFormat: false,
