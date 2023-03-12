@@ -18,14 +18,19 @@ abstract class EditorExporter {
   static const Color _secondaryColor = Colors.red;
 
   static Future<pw.Document> generatePdf(EditorCoreInfo coreInfo, BuildContext context) async {
+    coreInfo = coreInfo.copyWith(
+      pages: coreInfo.pages
+        // don't export the empty last page
+        .whereIndexed((index, page) =>
+           index != coreInfo.pages.length - 1 || page.isNotEmpty)
+        .toList(),
+    );
+
     final pw.Document pdf = pw.Document();
     ScreenshotController screenshotController = ScreenshotController();
 
     List<Uint8List> pageScreenshots = await Future.wait(
       coreInfo.pages
-        // don't export the empty last page
-        .whereIndexed((index, page) =>
-           index != coreInfo.pages.length - 1 || page.isNotEmpty)
         // screenshot each page
         .mapIndexed((index, page) => screenshotPage(
           coreInfo: coreInfo,
