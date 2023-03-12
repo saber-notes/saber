@@ -93,6 +93,6 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_JSON }}
           packageName: com.adilhanney.saber
           releaseFiles: output/Saber.aab
-          track: beta
+          track: production
           status: completed
           whatsNewDirectory: whatsnew
