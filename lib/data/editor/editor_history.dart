@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:tuple/tuple.dart';
 
 class EditorHistory {
   static const int maxHistoryLength = 100;
@@ -122,7 +120,7 @@ class EditorHistoryItem {
   final List<EditorImage> images;
   final Rect? offset;
   final int? quillPageIndex;
-  final Tuple3<Delta, Delta, ChangeSource>? quillChange;
+  final DocChange? quillChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
@@ -130,7 +128,7 @@ class EditorHistoryItem {
     List<EditorImage>? images,
     Rect? offset,
     int? quillPageIndex,
-    Tuple3<Delta, Delta, ChangeSource>? quillChange,
+    DocChange? quillChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,

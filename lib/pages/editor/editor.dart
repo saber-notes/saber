@@ -39,7 +39,6 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
-import 'package:tuple/tuple.dart';
 
 class Editor extends StatefulWidget {
   Editor({
@@ -553,7 +552,7 @@ class EditorState extends State<Editor> {
   void _addQuillChangeToHistory({
     required QuillStruct quill,
     required int pageIndex,
-    required Tuple3<flutter_quill.Delta, flutter_quill.Delta, flutter_quill.ChangeSource> event,
+    required flutter_quill.DocChange event,
   }) {
     final eventWasUndo = quill.controller.hasRedo;
     if (eventWasUndo) return;
@@ -564,7 +563,7 @@ class EditorState extends State<Editor> {
       final lastChange = history.peekUndo();
       if (lastChange.type == EditorHistoryItemType.quillChange &&
           lastChange.quillPageIndex == pageIndex &&
-          lastChange.quillChange!.item1 == event.item1) {
+          lastChange.quillChange!.before == event.before) {
         history.undo(); // remove the last change, to be replaced
       }
     }

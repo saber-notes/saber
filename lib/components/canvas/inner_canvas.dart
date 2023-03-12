@@ -11,7 +11,6 @@ import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:tuple/tuple.dart';
 
 class InnerCanvas extends StatefulWidget {
   const InnerCanvas({
@@ -243,7 +242,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
     );
 
-    const zeroSpacing = Tuple2<double, double>(0, 0);
+    const zeroSpacing = VerticalSpacing(0, 0);
 
     return DefaultStyles(
       h1: DefaultTextBlockStyle(
