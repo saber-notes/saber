@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Fixes 'grep: -P supports only unibyte and UTF-8 locales'
+# for Git Bash on Windows
+export LC_ALL=en_US.utf8
+
 # get the current version name from lib/data/version.dart
 function get_version_name {
   grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart
