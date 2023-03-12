@@ -59,6 +59,22 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.7" type="development" date="2023-03-12">
+            <description>
+                <ul>
+                    <li>Tap the zoom indicator to reset the zoom level.</li>
+                    <li>Fixed a bug where you couldn't zoom below 1.0x on landscape screens.</li>
+                    <li>Improved the quality of PDFs exported from the app, by using vector graphics for strokes.</li>
+                    <li>Added a setting for whether to show page indicators in exported PDFs.</li>
+                    <li>Added a setting for whether you want to save preset colors in your recent colors.</li>
+                    <li>Fixed a bug where recent colors would be saved in reverse order for new users.</li>
+                    <li>Fixed toolbar spacing when aligned to the left or right.</li>
+                    <li>Minor visual improvements.</li>
+                    <li>Initial progress towards merging the undo/redo buttons of Saber and the text tool.</li>
+                    <li>Upgrade to Flutter 3.7.7.</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.6" type="development" date="2023-03-05">
             <description>
                 <ul>

@@ -1,0 +1,10 @@
+• Tap the zoom indicator to reset the zoom level.
+• Fixed a bug where you couldn't zoom below 1.0x on landscape screens.
+• Improved the quality of PDFs exported from the app, by using vector graphics for strokes.
+• Added a setting for whether to show page indicators in exported PDFs.
+• Added a setting for whether you want to save preset colors in your recent colors.
+• Fixed a bug where recent colors would be saved in reverse order for new users.
+• Fixed toolbar spacing when aligned to the left or right.
+• Minor visual improvements.
+• Initial progress towards merging the undo/redo buttons of Saber and the text tool.
+• Upgrade to Flutter 3.7.7.
