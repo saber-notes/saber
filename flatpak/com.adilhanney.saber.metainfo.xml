@@ -59,7 +59,7 @@
     </screenshots>
 
     <releases>
-        <release version="0.9.7" type="development" date="2023-03-12">
+        <release version="0.9.8" type="development" date="2023-03-12">
             <description>
                 <ul>
                     <li>Tap the zoom indicator to reset the zoom level.</li>
