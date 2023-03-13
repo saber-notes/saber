@@ -63,7 +63,16 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       onTap: () {
         context.push(RoutePaths.login);
       },
-      leading: pfpBytes == null ? const Icon(Icons.account_circle, size: 50) : Image.memory(pfpBytes!, width: 50, height: 50),
+      leading: pfpBytes == null
+          ? const Icon(Icons.account_circle, size: 48)
+          : ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.memory(
+                pfpBytes!,
+                width: 48,
+                height: 48,
+              ),
+            ),
       title: Text(heading),
       subtitle: Text(subheading),
       trailing: loggedIn ? FutureBuilder(
