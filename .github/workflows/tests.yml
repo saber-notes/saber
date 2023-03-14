@@ -39,7 +39,6 @@ jobs:
         run: flutter test --reporter expanded --coverage
 
       - name: Upload to Codecov
-        if: success() || steps.tests.conclusion == 'failure' # run even if tests fail
         uses: codecov/codecov-action@v3
         with:
           files: coverage/lcov.info
