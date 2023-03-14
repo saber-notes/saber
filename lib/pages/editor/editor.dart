@@ -167,6 +167,19 @@ class EditorState extends State<Editor> {
       }
     }
 
+    if (currentTool == Tool.textEditing) {
+      int pageIndex;
+      if (coreInfo.initialPageIndex != null) {
+        pageIndex = coreInfo.initialPageIndex!;
+      } else {
+        pageIndex = 0;
+      }
+
+      assert(coreInfo.initialPageIndex! < coreInfo.pages.length);
+      lastFocusedQuill = coreInfo.pages[pageIndex].quill;
+      lastFocusedQuill!.focusNode.requestFocus();
+    }
+
     if (coreInfo.filePath == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
       // clear whiteboard (and add to history)
       clearAllPages();
