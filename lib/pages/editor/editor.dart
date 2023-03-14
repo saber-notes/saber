@@ -394,8 +394,8 @@ class EditorState extends State<Editor> {
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(page.size, position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
-      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes).reversed) {
-        page.strokes.removeAt(i);
+      for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
+        page.strokes.remove(stroke);
       }
       removeExcessPages();
     } else if (currentTool is Select) {
@@ -428,8 +428,8 @@ class EditorState extends State<Editor> {
       (currentTool as Pen).onDragUpdate(page.size, position, currentPressure, page.redrawStrokes);
       page.redrawStrokes();
     } else if (currentTool is Eraser) {
-      for (int i in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes).reversed) {
-        page.strokes.removeAt(i);
+      for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
+        page.strokes.remove(stroke);
       }
       page.redrawStrokes();
       removeExcessPages();

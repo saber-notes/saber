@@ -21,17 +21,17 @@ class Eraser extends Tool {
   @override
   ToolId get toolId => ToolId.eraser;
 
-  /// Returns the indices of any [strokes] that are close to the given [eraserPos].
-  List<int> checkForOverlappingStrokes(Offset eraserPos, List<Stroke> strokes) {
-    final List<int> indices = [];
+  /// Returns any [strokes] that are close to the given [eraserPos].
+  List<Stroke> checkForOverlappingStrokes(Offset eraserPos, List<Stroke> strokes) {
+    final List<Stroke> overlapping = [];
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
       if (_shouldStrokeBeErased(eraserPos, stroke, sqrSize)) {
+        overlapping.add(stroke);
         _erased.add(stroke);
-        indices.add(i);
       }
     }
-    return indices;
+    return overlapping;
   }
 
   /// Returns the strokes that have been erased during this drag.

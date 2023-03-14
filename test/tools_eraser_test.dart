@@ -63,14 +63,14 @@ void main() {
     ];
 
     List<Stroke> strokes = [...strokesToErase, ...strokesToKeep];
-    List<int> erasedIndices = eraser.checkForOverlappingStrokes(_eraserPos, strokes);
+    List<Stroke> erased = eraser.checkForOverlappingStrokes(_eraserPos, strokes);
 
-    for (int i = 0; i < strokesToErase.length; i++) {
-      expect(erasedIndices.contains(i), true, reason: 'Stroke at index $i should be erased');
+    for (Stroke stroke in strokesToErase) {
+      expect(erased.contains(stroke), true, reason: 'Stroke should be erased: $stroke');
     }
 
-    for (int i = strokesToErase.length; i < strokes.length; i++) {
-      expect(erasedIndices.contains(i), false, reason: 'Stroke at index $i should not be erased');
+    for (Stroke stroke in strokesToKeep) {
+      expect(erased.contains(stroke), false, reason: 'Stroke should not be erased: $stroke');
     }
 
     List<Stroke> erasedStrokes = eraser.onDragEnd();
