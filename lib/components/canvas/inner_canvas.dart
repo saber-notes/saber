@@ -172,7 +172,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     setAsBackground: widget.setAsBackground,
                     readOnly: widget.coreInfo.readOnly
                         || !widget.currentToolIsSelect,
-                    selected: widget.currentSelection?.imageIndices.contains(i)
+                    selected: widget.currentSelection
+                        ?.images.contains(page.images[i])
                         ?? false,
                   ),
               ],

@@ -436,11 +436,11 @@ class EditorState extends State<Editor> {
     } else if (currentTool is Select) {
       Select select = currentTool as Select;
       if (select.doneSelecting) {
-        for (int i in select.selectResult.strokeIndices) {
-          page.strokes[i].offset += offset;
+        for (Stroke stroke in select.selectResult.strokes) {
+          stroke.offset += offset;
         }
-        for (int i in select.selectResult.imageIndices) {
-          page.images[i].dstRect = page.images[i].dstRect.shift(offset);
+        for (EditorImage image in select.selectResult.images) {
+          image.dstRect = image.dstRect.shift(offset);
         }
         select.selectResult.path = select.selectResult.path.shift(offset);
       } else {
@@ -474,12 +474,8 @@ class EditorState extends State<Editor> {
         if (select.doneSelecting) {
           history.recordChange(EditorHistoryItem(
             type: EditorHistoryItemType.move,
-            strokes: select.selectResult.strokeIndices
-              .map((i) => page.strokes[i])
-              .toList(),
-            images: select.selectResult.imageIndices
-              .map((i) => page.images[i])
-              .toList(),
+            strokes: select.selectResult.strokes,
+            images: select.selectResult.images,
             offset: Rect.fromLTRB(
               moveOffset.dx,
               moveOffset.dy,

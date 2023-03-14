@@ -45,9 +45,9 @@ void main() {
 
     select.onDragEnd(strokes, const []);
 
-    expect(select.selectResult.strokeIndices.length, 1, reason: 'Only one stroke should be selected');
-    expect(select.selectResult.strokeIndices.first, 0, reason: 'The first stroke should be selected');
-    expect(select.selectResult.imageIndices.length, 0, reason: 'No images should be selected');
+    expect(select.selectResult.strokes.length, 1, reason: 'Only one stroke should be selected');
+    expect(select.selectResult.strokes.first, strokes[0], reason: 'The first stroke should be selected');
+    expect(select.selectResult.images.isEmpty, true, reason: 'No images should be selected');
   });
 
   test('Test that the select tool selects the right images', () async {
@@ -78,10 +78,10 @@ void main() {
 
     select.onDragEnd(const [], images);
 
-    expect(select.selectResult.imageIndices.length, 2, reason: 'Two images should be selected');
-    expect(select.selectResult.imageIndices.contains(0), true, reason: 'The first image should be selected');
-    expect(select.selectResult.imageIndices.contains(1), true, reason: 'The second image should be selected');
-    expect(select.selectResult.strokeIndices.length, 0, reason: 'No strokes should be selected');
+    expect(select.selectResult.images.length, 2, reason: 'Two images should be selected');
+    expect(select.selectResult.images.contains(images[0]), true, reason: 'The first image should be selected');
+    expect(select.selectResult.images.contains(images[1]), true, reason: 'The second image should be selected');
+    expect(select.selectResult.strokes.length, 0, reason: 'No strokes should be selected');
   });
 }
 

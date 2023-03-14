@@ -16,8 +16,8 @@ class Select extends Tool {
 
   SelectResult selectResult = SelectResult(
     pageIndex: -1,
-    strokeIndices: const [],
-    imageIndices: const [],
+    strokes: const [],
+    images: const [],
     path: Path(),
   );
   bool doneSelecting = false;
@@ -34,8 +34,8 @@ class Select extends Tool {
     doneSelecting = false;
     selectResult = SelectResult(
       pageIndex: pageIndex,
-      strokeIndices: [],
-      imageIndices: [],
+      strokes: [],
+      images: [],
       path: Path(),
     );
     selectResult.path.moveTo(position.dx, position.dy);
@@ -65,7 +65,7 @@ class Select extends Tool {
 
       // if more than 70% of the points are inside the path, select the stroke
       if (ratio > minPercentInside) {
-        selectResult.strokeIndices.add(i);
+        selectResult.strokes.add(stroke);
       }
     }
 
@@ -92,7 +92,7 @@ class Select extends Tool {
       // times 0.8 because the grid is not perfectly accurate
       final int minPointsInside = (gridSize * gridSize * minPercentInside * 0.8).floor();
       if (pointsInside >= minPointsInside) {
-        selectResult.imageIndices.add(i);
+        selectResult.images.add(image);
       }
     }
   }
@@ -100,14 +100,14 @@ class Select extends Tool {
 
 class SelectResult {
   int pageIndex;
-  final List<int> strokeIndices;
-  final List<int> imageIndices;
+  final List<Stroke> strokes;
+  final List<EditorImage> images;
   Path path;
 
   SelectResult({
     required this.pageIndex,
-    required this.strokeIndices,
-    required this.imageIndices,
+    required this.strokes,
+    required this.images,
     required this.path,
   });
 }

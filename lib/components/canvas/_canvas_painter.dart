@@ -55,7 +55,7 @@ class CanvasPainter extends CustomPainter {
           canvas.restore();
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
         }
-        if (currentSelection?.strokeIndices.contains(i) ?? false) {
+        if (currentSelection?.strokes.contains(stroke) ?? false) {
           paint.color = primaryColor;
         } else {
           paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
@@ -69,7 +69,7 @@ class CanvasPainter extends CustomPainter {
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
       if (stroke.penType == (Highlighter).toString()) continue;
-      if (currentSelection?.strokeIndices.contains(i) ?? false) {
+      if (currentSelection?.strokes.contains(stroke) ?? false) {
         paint.color = primaryColor;
       } else {
         paint.color = stroke.strokeProperties.color.withInversion(invert);
