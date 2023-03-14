@@ -33,7 +33,7 @@
       "platform": "نوع المظهر",
       "customAccentColor": "لون التمييز المخصص",
       "hyperlegibleFont": "Hyperlegible خط",
-      "shouldCheckForUpdates": "تحقق تلقائيًا من وجود تحديثات Sabre",
+      "shouldCheckForUpdates": "تحقق تلقائيًا من وجود تحديثات Saber",
       "shouldAlwaysAlertForUpdates": "أخبرني عن التحديثات بمجرد توفرها",
       "editorToolbarAlignment": "محاذاة شريط أدوات المحرر",
       "editorToolbarShowInFullscreen": "أظهر شريط أدوات المحرر في وضع ملء الشاشة",
@@ -72,7 +72,7 @@
       "regular": "عادي",
       "slow": "بطيء"
     },
-    "systemLanguage": "System language",
+    "systemLanguage": "لغة النظام",
     "axisDirections": [
       "أعلى",
       "يمين",
