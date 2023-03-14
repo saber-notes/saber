@@ -5,9 +5,11 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_color
   flutter_secure_storage_linux
+  irondash_engine_context
   pasteboard
   printing
   screen_retriever
+  super_native_extensions
   url_launcher_linux
   window_manager
 )

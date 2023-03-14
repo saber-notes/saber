@@ -532,6 +532,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.17.0"
+  irondash_engine_context:
+    dependency: transitive
+    description:
+      name: irondash_engine_context
+      sha256: "086fbbcaef07b821b304b0371e472c687715f326219b69b18dc5c962dab09b55"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
+  irondash_message_channel:
+    dependency: transitive
+    description:
+      name: irondash_message_channel
+      sha256: "081ff9631a2c6782a47ef4fdf9c97206053af1bb174e2a25851692b04f3bc126"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   js:
     dependency: transitive
     description:
@@ -1044,6 +1060,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  super_clipboard:
+    dependency: "direct main"
+    description:
+      name: super_clipboard
+      sha256: "2c6dc61c974d23becd0011bff9848774e0ca8e946cb02e8c595be688199a4dae"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0+1"
+  super_native_extensions:
+    dependency: transitive
+    description:
+      name: super_native_extensions
+      sha256: "9c9dd91c155364b764040c7bd3f53e88ee7ebad01d3339b9fd904e15907a9e7f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0+1"
   sync_http:
     dependency: transitive
     description:
