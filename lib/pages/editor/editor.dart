@@ -364,7 +364,9 @@ class EditorState extends State<Editor> {
       lastSeenPointerCount = lastSeenPointerCount;
       return false;
     } else if (details.pointerCount >= 2) { // is a zoom gesture, remove accidental stroke
-      if (lastSeenPointerCount == 1 && Prefs.editorFingerDrawing.value) {
+      if (lastSeenPointerCount == 1
+          && Prefs.editorFingerDrawing.value
+          && (currentTool is Pen || currentTool is Eraser)) {
         EditorHistoryItem? item = history.removeAccidentalStroke();
         if (item != null) undo(item);
       }
