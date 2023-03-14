@@ -55,6 +55,8 @@ class Editor extends StatefulWidget {
 
   static const String extension = '.sbn';
 
+  static const double gapBetweenPages = 16;
+
   /// Returns true if [path] belongs to a hidden file
   /// used by other functions of the app
   static bool isReservedPath(String path) {

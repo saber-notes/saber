@@ -8,6 +8,7 @@ import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 class CanvasGestureDetector extends StatefulWidget {
@@ -319,11 +320,11 @@ class _PagesBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = [
-      const SizedBox.square(dimension: 16),
-      const SizedBox.square(dimension: 16),
+      const SizedBox.square(dimension: Editor.gapBetweenPages),
+      const SizedBox.square(dimension: Editor.gapBetweenPages),
     ];
 
-    double topOfPage = 16 * 2;
+    double topOfPage = Editor.gapBetweenPages * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final Size pageSize = pages[pageIndex].size;
       final double pageWidth = min(pageSize.width, containerWidth); // because of FittedBox
@@ -338,12 +339,12 @@ class _PagesBuilder extends StatelessWidget {
         children.add(pageBuilder(context, pageIndex));
       }
 
-      children.add(const SizedBox.square(dimension: 16));
+      children.add(const SizedBox.square(dimension: Editor.gapBetweenPages));
 
-      topOfPage = bottomOfPage + 16;
+      topOfPage = bottomOfPage + Editor.gapBetweenPages;
     }
 
-    children.add(const SizedBox.square(dimension: 16));
+    children.add(const SizedBox.square(dimension: Editor.gapBetweenPages));
     return Column(children: children);
   }
 }
