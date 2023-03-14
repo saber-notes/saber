@@ -162,18 +162,18 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 All translations are crowd-sourced. Saber has so far been translated into:
 - English ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json))
-- Czech ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/strings_cs.i18n.json))
-- German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/strings_de.i18n.json))
-- Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/strings_es.i18n.json))
-- Persian ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/strings_fa.i18n.json))
-- French ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/strings_fr.i18n.json))
-- Hungarian ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/strings_hu.i18n.json))
-- Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/strings_it.i18n.json))
-- Brazilian Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/strings_pt_BR.i18n.json))
-- Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/strings_ru.i18n.json))
-- Turkish ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/strings_tr.i18n.json))
-- Chinese Simplified ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/strings_zh_Hans-CN.i18n.json))
-- Chinese Traditional ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/strings_zh_Hant-TW.i18n.json))
+- Czech ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.json))
+- German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.json))
+- Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.json))
+- Persian ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fa.i18n.json))
+- French ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.json))
+- Hungarian ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.json))
+- Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.json))
+- Brazilian Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.json))
+- Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.json))
+- Turkish ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.json))
+- Chinese Simplified ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.json))
+- Chinese Traditional ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.json))
 
 ### Extending existing languages
 
@@ -202,8 +202,8 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 
 1. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
    e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
-2. Use [this link](https://github.com/adil192/saber/new/main/lib/i18n)
-   to create a new file called `lib/i18n/strings_XX.i18n.json` where `XX` is your locale code.
+2. Use [this link](https://github.com/adil192/saber/new/main/lib/i18n/community)
+   to create a new file called `lib/i18n/community/strings_XX.i18n.json` where `XX` is your locale code.
 3. Copy the contents of an existing file like
    [`lib/i18n/strings.i18n.json`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json)
    and replace the translations with your own.
