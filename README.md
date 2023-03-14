@@ -203,7 +203,8 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 1. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
    e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
 2. Use [this link](https://github.com/adil192/saber/new/main/lib/i18n/community)
-   to create a new file called `lib/i18n/community/strings_XX.i18n.json` where `XX` is your locale code.
+   to create a new file in `lib/i18n/community/` called `strings_XX.i18n.json`
+   where `XX` is your locale code.
 3. Copy the contents of an existing file like
    [`lib/i18n/strings.i18n.json`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json)
    and replace the translations with your own.
