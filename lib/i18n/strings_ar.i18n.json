@@ -1,0 +1,218 @@
+{
+  "home": {
+    "tabs": {
+      "home": "الرئيسية",
+      "browse": "تصفح",
+      "whiteboard": "السبورة",
+      "settings": "الإعدادات"
+    },
+    "titles": {
+      "home": "الملاحظات الأخيرة",
+      "browse": "جميع المحلاظات",
+      "whiteboard": "السبورة",
+      "settings": "الإعدادات"
+    },
+    "tooltips": {
+      "newNote": "محلاظة جديدة",
+      "showUpdateDialog": "إظهار مربع حوار التحديث"
+    },
+    "backFolder": "(عودة)",
+    "welcome": "مرحباً بك في Saber",
+    "noFiles": "لم يتم العثور على ملفات",
+    "createNewNote": "اضغط على زر + لإنشاء ملاحظة جديدة"
+  },
+  "settings": {
+    "prefCategories": {
+      "general": "عام",
+      "layout": "تخطيط",
+      "writing": "كتابة"
+    },
+    "prefLabels": {
+      "locale": "لغة التطبيق",
+      "appTheme": "مظهر التطبيث",
+      "platform": "نوع المظهر",
+      "customAccentColor": "لون التمييز المخصص",
+      "hyperlegibleFont": "Hyperlegible خط",
+      "shouldCheckForUpdates": "تحقق تلقائيًا من وجود تحديثات Saber",
+      "shouldAlwaysAlertForUpdates": "أخبرني عن التحديثات بمجرد توفرها",
+      "editorToolbarAlignment": "محاذاة شريط أدوات المحرر",
+      "editorToolbarShowInFullscreen": "أظهر شريط أدوات المحرر في وضع ملء الشاشة",
+      "editorAutoInvert": "اقلب الملاحظات في الوضع المظلم",
+      "editorOpaqueBackgrounds": "خلفيات معتمة",
+      "preferGreyscale": "تفضيل الألوان الرمادية",
+      "editorStraightenLines": "اضغط مع الاستمرار لتصويب الخط",
+      "maxImageSize": "الحجم الأقصى للصورة",
+      "autoClearWhiteboardOnExit": "امسح السبورة بعد الخروج من التطبيق",
+      "editorPromptRename": "مطالبتك بإعادة تسمية الملاحظات الجديدة",
+      "hideHomeBackgrounds": "إخفاء الخلفيات على الشاشة الرئيسية",
+      "dontSavePresetColors": "لا تحفظ الألوان المعينة مسبقًا كألوان حديثة",
+      "printPageIndicators": "طباعة مؤشرات الصفحة"
+    },
+    "prefDescriptions": {
+      "hyperlegibleFont": "يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية",
+      "editorAutoInvert": "يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم",
+      "editorOpaqueBackgrounds": "قم بإزالة الشفافية من صور الخلفية وملفات PDF",
+      "preferGreyscale": "لشاشات الحبر الإلكتروني",
+      "autoClearWhiteboardOnExit": "ستظل متزامنة مع أجهزتك الأخرى",
+      "maxImageSize": "سيتم ضغط الصور الأكبر من هذا",
+      "editorPromptRename": "يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا",
+      "hideHomeBackgrounds": "للحصول على مظهر أنظف",
+      "printPageIndicators": "تظهر مؤشرات الصفحة في الصادرات"
+    },
+    "themeModes": {
+      "system": "النظام",
+      "light": "ساطع",
+      "dark": "داكن"
+    },
+    "accentColorPicker": {
+      "pickAColor": "اختر لوناً"
+    },
+    "straightenDelay": {
+      "off": "مغلق",
+      "regular": "عادي",
+      "slow": "بطيء"
+    },
+    "systemLanguage": "لغة النظام",
+    "axisDirections": [
+      "أعلى",
+      "يمين",
+      "أسفل",
+      "يسار"
+    ],
+    "reset": {
+      "title": "إعادة تعيين هذا الإعداد؟",
+      "button": "إعادة تعيين"
+    }
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "feedbacks": {
+      "checkUsername": "يرجى التحقق مرة أخرى من اسم المستخدم أو البريد الإلكتروني الخاص بك.",
+      "enterNcPassword": "الرجاء إدخال كلمة مرور Nextcloud الخاصة بك.",
+      "enterEncPassword": "الرجاء إدخال كلمة مرور التشفير الخاصة بك.",
+      "checkUrl": "أدخل رابط URL صالح من فضلك.",
+      "ncLoginFailed": "فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.",
+      "encLoginFailed": "فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.",
+      "loginSuccess": "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
+    },
+    "form": {
+      "useCustomServer": "أريد استخدام خادم Nextcloud مخصص",
+      "customServerUrl": "عنوان URL مخصص للخادم",
+      "username": "اسم المستخدم أو البريد الالكتروني",
+      "ncPassword": "Nextcloud كلمة المرور",
+      "encPassword": "كلمة مرور التشفير",
+      "agreeToPrivacyPolicy(rich)": "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}.",
+      "login": "تسجيل الدخول"
+    },
+    "signup(rich)": "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!",
+    "status": {
+      "loggedIn": "تم تسجيل الدخول باستخدام Nextcloud",
+      "loggedOut": "تسجيل الخروج",
+      "tapToLogin": "انقر لتسجيل الدخول باستخدام Nextcloud"
+    },
+    "faq": [
+      {
+        "q": "ما هو Nextcloud؟",
+        "a": "Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك."
+      },
+      {
+        "q": "ما هي كلمة مرور التشفير؟",
+        "a": "تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. لا يتم تخزينها على الخادم ، وتستخدمها Saber فقط لتشفير بياناتك وفك تشفيرها.\n\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك."
+      },
+      {
+        "q": "لماذا نستخدم كلمتين من كلمات المرور؟",
+        "a": "يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير \"تشويش\" بياناتك قبل أن تصل إلى السحابة.\n\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ، فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك."
+      }
+    ],
+    "insecureStorage": {
+      "title": "تحذير أمني",
+      "description(rich)": "لا تعمل Keychain Sharing على macOS بدون حساب Apple Developer مدفوع. إذا كنت تريد تسجيل الدخول، فستحتاج إلى الاختيار بين:\n1. استخدام مساحة تخزين غير آمنة لحفظ تفاصيل تسجيل الدخول الخاصة بك. هذا غير مستحسن، لكنه اختيارك.\n2. تسجيل الدخول في كل مرة تستخدم فيها التطبيق.\n\nإذا كنت ترغب في مساعدتي في الانضمام إلى برنامج مطوري Apple ،فيمكنك ${sponsorLink(تصبح راعياً)}!",
+      "loginTemporarily": "تسجيل الدخول بشكل مؤقت",
+      "useInsecureStorage": "استخدم التخزين غير الآمن"
+    }
+  },
+  "appInfo": {
+    "licenseNotice": "Saber حقوق نشر (C) 2022-$buildYear  Adil Hanney\nهذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.",
+    "dirty": "قذر",
+    "debug": "تصحيح أخطاء",
+    "sponsorButton": "انقر هنا لتدعمني أو شراء المزيد من مساحة التخزين",
+    "licenseButton": "انقر هنا لعرض المزيد من معلومات الترخيص",
+    "privacyPolicyButton": "انقر هنا لعرض سياسة الخصوصية"
+  },
+  "update": {
+    "updateAvailable": "تحديث متاح",
+    "updateAvailableDescription": "يتوفر إصدار جديد من التطبيق.",
+    "update": "تحديث"
+  },
+  "editor": {
+    "toolbar": {
+      "toggleColors": "تبديل الألوان (Ctrl C)",
+      "select": "اختر",
+      "toggleEraser": "تبديل الممحاة (Ctrl E)",
+      "photo": "صور",
+      "text": "نص",
+      "toggleFingerDrawing": "تبديل رسم الإصبع (Ctrl F)",
+      "undo": "تراجع",
+      "redo": "إعادة",
+      "export": "تصدير (Ctrl Shift S)",
+      "exportAs": "تصدير كـ:",
+      "fullscreen": "تبديل ملء الشاشة (F11)"
+    },
+    "pens": {
+      "fountainPen": "قلم حبر",
+      "ballpointPen": "قلم برأس كروي",
+      "highlighter": "هايلايتر"
+    },
+    "penOptions": {
+      "size": "حجم",
+      "sizeDragHint": "اسحب لليسار أو لليمين لتغيير الحجم"
+    },
+    "imageOptions": {
+      "title": "خيارات الصورة",
+      "invertible": "قابل للعكس",
+      "download": "تحميل",
+      "setAsBackground": "تعيين كخلفية",
+      "delete": "حذف"
+    },
+    "menu": {
+      "clearPage": "صفحة واضحة",
+      "clearAllPages": "امسح كل الصفحات",
+      "lineHeight": "ارتفاع خط",
+      "lineHeightDescription": "يتحكم أيضًا في حجم النص",
+      "backgroundImage": "الصورة الخلفية",
+      "backgroundPattern": "نمط الخلفية",
+      "removeBgImage": "إزالة صورة الخلفية",
+      "import": "يستورد",
+      "boxFits": {
+        "fill": "تمتد",
+        "cover": "غطاء",
+        "contain": "يحتوي"
+      },
+      "bgPatterns": {
+        "none": "فارغ",
+        "college": "كلية تحكم",
+        "lined": "مبطن",
+        "grid": "شبكة",
+        "dots": "نقاط"
+      }
+    },
+    "newerFileFormat": {
+      "readOnlyMode": "وضع القراءة فقط",
+      "title": "تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber",
+      "subtitle": "قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟",
+      "allowEditing": "السماح بالتعديل",
+      "cancel": "إلغاء"
+    },
+    "quill": {
+      "typeSomething": "اكتب شيئًا هنا..."
+    },
+    "hud": {
+      "unlockZoom": "إلغاء قفل التكبير",
+      "lockZoom": "قفل التكبير",
+      "unlockPan": "تمكين التحريك بإصبع واحد",
+      "lockPan": "تعطيل التحريك بإصبع واحد"
+    },
+    "pages": "صفحات",
+    "untitled": "بدون عنوان"
+  }
+}

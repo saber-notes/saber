@@ -6,6 +6,7 @@
 /// (see https://pub.dev/packages/flutter_localized_locales)
 const Map<String, String> localeNames = {
   'en': 'English',
+  'ar': 'العربية',
   'cs' : 'čeština',
   'de' : 'Deutsch',
   'es' : 'español',

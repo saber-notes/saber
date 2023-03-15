@@ -162,6 +162,7 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 All translations are crowd-sourced. Saber has so far been translated into:
 - English ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json))
+- Arabic ([ar](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ar.i18n.json))
 - Czech ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.json))
 - German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.json))
 - Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.json))

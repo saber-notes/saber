@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 13
-/// Strings: 1885 (145 per locale)
+/// Locales: 14
+/// Strings: 2031 (145 per locale)
 ///
-/// Built on 2023-03-14 at 05:52 UTC
+/// Built on 2023-03-15 at 06:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -23,6 +23,7 @@ const AppLocale _baseLocale = AppLocale.en;
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	en(languageCode: 'en', build: _StringsEn.build),
+	ar(languageCode: 'ar', build: _StringsAr.build),
 	cs(languageCode: 'cs', build: _StringsCs.build),
 	de(languageCode: 'de', build: _StringsDe.build),
 	es(languageCode: 'es', build: _StringsEs.build),
@@ -643,6 +644,521 @@ class _StringsEditorMenuBgPatternsEn {
 	String get lined => 'Lined';
 	String get grid => 'Grid';
 	String get dots => 'Dots';
+}
+
+// Path: <root>
+class _StringsAr extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsAr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.ar,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+
+	/// Metadata for the translations of <ar>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	@override late final _StringsAr _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeAr home = _StringsHomeAr._(_root);
+	@override late final _StringsSettingsAr settings = _StringsSettingsAr._(_root);
+	@override late final _StringsLoginAr login = _StringsLoginAr._(_root);
+	@override late final _StringsAppInfoAr appInfo = _StringsAppInfoAr._(_root);
+	@override late final _StringsUpdateAr update = _StringsUpdateAr._(_root);
+	@override late final _StringsEditorAr editor = _StringsEditorAr._(_root);
+}
+
+// Path: home
+class _StringsHomeAr extends _StringsHomeEn {
+	_StringsHomeAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsAr tabs = _StringsHomeTabsAr._(_root);
+	@override late final _StringsHomeTitlesAr titles = _StringsHomeTitlesAr._(_root);
+	@override late final _StringsHomeTooltipsAr tooltips = _StringsHomeTooltipsAr._(_root);
+	@override String get backFolder => '(عودة)';
+	@override String get welcome => 'مرحباً بك في Saber';
+	@override String get noFiles => 'لم يتم العثور على ملفات';
+	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
+}
+
+// Path: settings
+class _StringsSettingsAr extends _StringsSettingsEn {
+	_StringsSettingsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefCategoriesAr prefCategories = _StringsSettingsPrefCategoriesAr._(_root);
+	@override late final _StringsSettingsPrefLabelsAr prefLabels = _StringsSettingsPrefLabelsAr._(_root);
+	@override late final _StringsSettingsPrefDescriptionsAr prefDescriptions = _StringsSettingsPrefDescriptionsAr._(_root);
+	@override late final _StringsSettingsThemeModesAr themeModes = _StringsSettingsThemeModesAr._(_root);
+	@override late final _StringsSettingsAccentColorPickerAr accentColorPicker = _StringsSettingsAccentColorPickerAr._(_root);
+	@override late final _StringsSettingsStraightenDelayAr straightenDelay = _StringsSettingsStraightenDelayAr._(_root);
+	@override String get systemLanguage => 'لغة النظام';
+	@override List<String> get axisDirections => [
+		'أعلى',
+		'يمين',
+		'أسفل',
+		'يسار',
+	];
+	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
+}
+
+// Path: login
+class _StringsLoginAr extends _StringsLoginEn {
+	_StringsLoginAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'تسجيل الدخول';
+	@override late final _StringsLoginFeedbacksAr feedbacks = _StringsLoginFeedbacksAr._(_root);
+	@override late final _StringsLoginFormAr form = _StringsLoginFormAr._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'لا تملك حسابا حتى الآن؟ '),
+		linkToSignup('سجل حساباً الأن'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusAr status = _StringsLoginStatusAr._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin$faq$0i0$Ar._(_root),
+		_StringsLogin$faq$0i1$Ar._(_root),
+		_StringsLogin$faq$0i2$Ar._(_root),
+	];
+	@override late final _StringsLoginInsecureStorageAr insecureStorage = _StringsLoginInsecureStorageAr._(_root);
+}
+
+// Path: appInfo
+class _StringsAppInfoAr extends _StringsAppInfoEn {
+	_StringsAppInfoAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String licenseNotice({required Object buildYear}) => 'Saber حقوق نشر (C) 2022-${buildYear}  Adil Hanney\nهذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.';
+	@override String get dirty => 'قذر';
+	@override String get debug => 'تصحيح أخطاء';
+	@override String get sponsorButton => 'انقر هنا لتدعمني أو شراء المزيد من مساحة التخزين';
+	@override String get licenseButton => 'انقر هنا لعرض المزيد من معلومات الترخيص';
+	@override String get privacyPolicyButton => 'انقر هنا لعرض سياسة الخصوصية';
+}
+
+// Path: update
+class _StringsUpdateAr extends _StringsUpdateEn {
+	_StringsUpdateAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'تحديث متاح';
+	@override String get updateAvailableDescription => 'يتوفر إصدار جديد من التطبيق.';
+	@override String get update => 'تحديث';
+}
+
+// Path: editor
+class _StringsEditorAr extends _StringsEditorEn {
+	_StringsEditorAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarAr toolbar = _StringsEditorToolbarAr._(_root);
+	@override late final _StringsEditorPensAr pens = _StringsEditorPensAr._(_root);
+	@override late final _StringsEditorPenOptionsAr penOptions = _StringsEditorPenOptionsAr._(_root);
+	@override late final _StringsEditorImageOptionsAr imageOptions = _StringsEditorImageOptionsAr._(_root);
+	@override late final _StringsEditorMenuAr menu = _StringsEditorMenuAr._(_root);
+	@override late final _StringsEditorNewerFileFormatAr newerFileFormat = _StringsEditorNewerFileFormatAr._(_root);
+	@override late final _StringsEditorQuillAr quill = _StringsEditorQuillAr._(_root);
+	@override late final _StringsEditorHudAr hud = _StringsEditorHudAr._(_root);
+	@override String get pages => 'صفحات';
+	@override String get untitled => 'بدون عنوان';
+}
+
+// Path: home.tabs
+class _StringsHomeTabsAr extends _StringsHomeTabsEn {
+	_StringsHomeTabsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'الرئيسية';
+	@override String get browse => 'تصفح';
+	@override String get whiteboard => 'السبورة';
+	@override String get settings => 'الإعدادات';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesAr extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'الملاحظات الأخيرة';
+	@override String get browse => 'جميع المحلاظات';
+	@override String get whiteboard => 'السبورة';
+	@override String get settings => 'الإعدادات';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsAr extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'محلاظة جديدة';
+	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesAr extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'عام';
+	@override String get layout => 'تخطيط';
+	@override String get writing => 'كتابة';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get locale => 'لغة التطبيق';
+	@override String get appTheme => 'مظهر التطبيث';
+	@override String get platform => 'نوع المظهر';
+	@override String get customAccentColor => 'لون التمييز المخصص';
+	@override String get hyperlegibleFont => 'Hyperlegible خط';
+	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'أخبرني عن التحديثات بمجرد توفرها';
+	@override String get editorToolbarAlignment => 'محاذاة شريط أدوات المحرر';
+	@override String get editorToolbarShowInFullscreen => 'أظهر شريط أدوات المحرر في وضع ملء الشاشة';
+	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
+	@override String get editorOpaqueBackgrounds => 'خلفيات معتمة';
+	@override String get preferGreyscale => 'تفضيل الألوان الرمادية';
+	@override String get editorStraightenLines => 'اضغط مع الاستمرار لتصويب الخط';
+	@override String get maxImageSize => 'الحجم الأقصى للصورة';
+	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
+	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
+	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
+	@override String get dontSavePresetColors => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
+	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية';
+	@override String get editorAutoInvert => 'يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم';
+	@override String get editorOpaqueBackgrounds => 'قم بإزالة الشفافية من صور الخلفية وملفات PDF';
+	@override String get preferGreyscale => 'لشاشات الحبر الإلكتروني';
+	@override String get autoClearWhiteboardOnExit => 'ستظل متزامنة مع أجهزتك الأخرى';
+	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
+	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
+	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
+	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesAr extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'النظام';
+	@override String get light => 'ساطع';
+	@override String get dark => 'داكن';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerAr extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'اختر لوناً';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayAr extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'مغلق';
+	@override String get regular => 'عادي';
+	@override String get slow => 'بطيء';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetAr extends _StringsSettingsResetEn {
+	_StringsSettingsResetAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'إعادة تعيين هذا الإعداد؟';
+	@override String get button => 'إعادة تعيين';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'يرجى التحقق مرة أخرى من اسم المستخدم أو البريد الإلكتروني الخاص بك.';
+	@override String get enterNcPassword => 'الرجاء إدخال كلمة مرور Nextcloud الخاصة بك.';
+	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
+	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
+	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
+	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
+	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
+}
+
+// Path: login.form
+class _StringsLoginFormAr extends _StringsLoginFormEn {
+	_StringsLoginFormAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'أريد استخدام خادم Nextcloud مخصص';
+	@override String get customServerUrl => 'عنوان URL مخصص للخادم';
+	@override String get username => 'اسم المستخدم أو البريد الالكتروني';
+	@override String get ncPassword => 'Nextcloud كلمة المرور';
+	@override String get encPassword => 'كلمة مرور التشفير';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'بتسجيل الدخول، فإنك توافق على '),
+		linkToPrivacyPolicy('سياسة الخصوصية'),
+		const TextSpan(text: '.'),
+	]);
+	@override String get login => 'تسجيل الدخول';
+}
+
+// Path: login.status
+class _StringsLoginStatusAr extends _StringsLoginStatusEn {
+	_StringsLoginStatusAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'تم تسجيل الدخول باستخدام Nextcloud';
+	@override String get loggedOut => 'تسجيل الخروج';
+	@override String get tapToLogin => 'انقر لتسجيل الدخول باستخدام Nextcloud';
+}
+
+// Path: login.faq.0
+class _StringsLogin$faq$0i0$Ar extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'ما هو Nextcloud؟';
+	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
+}
+
+// Path: login.faq.1
+class _StringsLogin$faq$0i1$Ar extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'ما هي كلمة مرور التشفير؟';
+	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. لا يتم تخزينها على الخادم ، وتستخدمها Saber فقط لتشفير بياناتك وفك تشفيرها.\n\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
+}
+
+// Path: login.faq.2
+class _StringsLogin$faq$0i2$Ar extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
+	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش" بياناتك قبل أن تصل إلى السحابة.\n\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ، فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
+}
+
+// Path: login.insecureStorage
+class _StringsLoginInsecureStorageAr extends _StringsLoginInsecureStorageEn {
+	_StringsLoginInsecureStorageAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'تحذير أمني';
+	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
+		const TextSpan(text: 'لا تعمل Keychain Sharing على macOS بدون حساب Apple Developer مدفوع. إذا كنت تريد تسجيل الدخول، فستحتاج إلى الاختيار بين:\n1. استخدام مساحة تخزين غير آمنة لحفظ تفاصيل تسجيل الدخول الخاصة بك. هذا غير مستحسن، لكنه اختيارك.\n2. تسجيل الدخول في كل مرة تستخدم فيها التطبيق.\n\nإذا كنت ترغب في مساعدتي في الانضمام إلى برنامج مطوري Apple ،فيمكنك '),
+		sponsorLink('تصبح راعياً'),
+		const TextSpan(text: '!'),
+	]);
+	@override String get loginTemporarily => 'تسجيل الدخول بشكل مؤقت';
+	@override String get useInsecureStorage => 'استخدم التخزين غير الآمن';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarAr extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => 'تبديل الألوان (Ctrl C)';
+	@override String get select => 'اختر';
+	@override String get toggleEraser => 'تبديل الممحاة (Ctrl E)';
+	@override String get photo => 'صور';
+	@override String get text => 'نص';
+	@override String get toggleFingerDrawing => 'تبديل رسم الإصبع (Ctrl F)';
+	@override String get undo => 'تراجع';
+	@override String get redo => 'إعادة';
+	@override String get export => 'تصدير (Ctrl Shift S)';
+	@override String get exportAs => 'تصدير كـ:';
+	@override String get fullscreen => 'تبديل ملء الشاشة (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensAr extends _StringsEditorPensEn {
+	_StringsEditorPensAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => 'قلم حبر';
+	@override String get ballpointPen => 'قلم برأس كروي';
+	@override String get highlighter => 'هايلايتر';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsAr extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'حجم';
+	@override String get sizeDragHint => 'اسحب لليسار أو لليمين لتغيير الحجم';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsAr extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'خيارات الصورة';
+	@override String get invertible => 'قابل للعكس';
+	@override String get download => 'تحميل';
+	@override String get setAsBackground => 'تعيين كخلفية';
+	@override String get delete => 'حذف';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuAr extends _StringsEditorMenuEn {
+	_StringsEditorMenuAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'صفحة واضحة';
+	@override String get clearAllPages => 'امسح كل الصفحات';
+	@override String get lineHeight => 'ارتفاع خط';
+	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
+	@override String get backgroundImage => 'الصورة الخلفية';
+	@override String get backgroundPattern => 'نمط الخلفية';
+	@override String get removeBgImage => 'إزالة صورة الخلفية';
+	@override String get import => 'يستورد';
+	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
+	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatAr extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => 'وضع القراءة فقط';
+	@override String get title => 'تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber';
+	@override String get subtitle => 'قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟';
+	@override String get allowEditing => 'السماح بالتعديل';
+	@override String get cancel => 'إلغاء';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillAr extends _StringsEditorQuillEn {
+	_StringsEditorQuillAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'اكتب شيئًا هنا...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudAr extends _StringsEditorHudEn {
+	_StringsEditorHudAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'إلغاء قفل التكبير';
+	@override String get lockZoom => 'قفل التكبير';
+	@override String get unlockPan => 'تمكين التحريك بإصبع واحد';
+	@override String get lockPan => 'تعطيل التحريك بإصبع واحد';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsAr extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'تمتد';
+	@override String get cover => 'غطاء';
+	@override String get contain => 'يحتوي';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'فارغ';
+	@override String get college => 'كلية تحكم';
+	@override String get lined => 'مبطن';
+	@override String get grid => 'شبكة';
+	@override String get dots => 'نقاط';
 }
 
 // Path: <root>
