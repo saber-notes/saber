@@ -36,9 +36,7 @@ class CanvasPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Rect canvasRect = Offset.zero & size;
-    Paint paint = Paint()
-      ..color = Colors.black
-      ..strokeCap = StrokeCap.round;
+    Paint paint = Paint();
 
     // highlighter
     Paint highlighterLayerPaint = Paint()
