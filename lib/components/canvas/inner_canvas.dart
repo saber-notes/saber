@@ -138,7 +138,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           totalPages: widget.coreInfo.pages.length,
         ),
         isComplex: true,
-        willChange: widget.currentStroke != null,
+        willChange: true,
         child: SizedBox(
           width: widget.width,
           height: widget.height,
