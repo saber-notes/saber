@@ -44,6 +44,8 @@ class Toolbar extends StatefulWidget {
 
     required this.pickPhoto,
 
+    required this.paste,
+
     required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
@@ -67,6 +69,8 @@ class Toolbar extends StatefulWidget {
   final VoidCallback toggleFingerDrawing;
 
   final VoidCallback pickPhoto;
+
+  final VoidCallback paste;
 
   final Future Function()? exportAsSbn;
   final Future Function()? exportAsPdf;
@@ -100,17 +104,21 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _ctrlC;
   Keybinding? _ctrlShiftS;
   Keybinding? _f11;
+  Keybinding? _ctrlV;
   void _assignKeybindings() {
     _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
     _ctrlE = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
     _ctrlC = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
     _ctrlShiftS = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyS)], inclusive: true);
     _f11 = Keybinding([KeyCode.from(LogicalKeyboardKey.f11)], inclusive: true);
+    _ctrlV = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyV)], inclusive: true);
+
     Keybinder.bind(_ctrlF!, widget.toggleFingerDrawing);
     Keybinder.bind(_ctrlE!, toggleEraser);
     Keybinder.bind(_ctrlC!, toggleColorOptions);
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
     Keybinder.bind(_f11!, toggleFullscreen);
+    Keybinder.bind(_ctrlV!, widget.paste);
   }
   void _removeKeybindings() {
     if (_ctrlF != null) Keybinder.remove(_ctrlF!);
@@ -118,6 +126,7 @@ class _ToolbarState extends State<Toolbar> {
     if (_ctrlC != null) Keybinder.remove(_ctrlC!);
     if (_ctrlShiftS != null) Keybinder.remove(_ctrlShiftS!);
     if (_f11 != null) Keybinder.remove(_f11!);
+    if (_ctrlV != null) Keybinder.remove(_ctrlV!);
   }
 
   void toggleEraser() {

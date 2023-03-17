@@ -39,6 +39,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
+import 'package:super_clipboard/super_clipboard.dart';
 
 class Editor extends StatefulWidget {
   Editor({
@@ -700,13 +701,15 @@ class EditorState extends State<Editor> {
 
   /// Prompts the user to pick photos from their device.
   /// Returns the number of photos picked.
-  Future<int> pickPhotos() async {
+  ///
+  /// If [photoInfos] is provided, it will be used instead of the file picker.
+  Future<int> pickPhotos([List<PhotoInfo>? photoInfos]) async {
     if (coreInfo.readOnly) return 0;
 
     final int? currentPageIndex = this.currentPageIndex;
     if (currentPageIndex == null) return 0;
 
-    List<PhotoInfo> photoInfos = await _pickPhotosWithFilePicker();
+    photoInfos ??= await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
 
     // use the Select tool so that the user can move the new image
@@ -836,6 +839,52 @@ class EditorState extends State<Editor> {
     autosaveAfterDelay();
 
     return true;
+  }
+
+  Future paste() async {
+    const formats = [
+      Formats.jpeg, Formats.png,
+      Formats.gif, Formats.tiff, Formats.bmp,
+      Formats.ico,
+
+      Formats.svg,
+
+      Formats.webp,
+    ];
+
+    final List<PhotoInfo> photoInfos = [];
+    Future processFile(DataReaderFile file, SimpleFileFormat format) async {
+      final stream = file.getStream();
+      final List<int> bytes = [];
+      await for (final chunk in stream) {
+        bytes.addAll(chunk);
+      }
+
+      assert(format.uniformTypeIdentifiers != null);
+      assert(format.uniformTypeIdentifiers!.isNotEmpty);
+      print('image.$format'); // todo: see if this is correct
+
+      String filename = file.fileName
+          ?? format.uniformTypeIdentifiers?.first
+          ?? 'image.$format';
+
+      photoInfos.add(PhotoInfo(
+        bytes: Uint8List.fromList(bytes),
+        extension: filename.substring(filename.lastIndexOf('.')),
+      ));
+    }
+
+    final reader = await ClipboardReader.readClipboard();
+    final futures = <Future>[];
+    for (SimpleFileFormat format in formats) {
+      if (!reader.canProvide(format)) continue;
+      reader.getFile(format, (file) {
+        futures.add(processFile(file, format));
+      });
+    }
+    await Future.wait(futures);
+
+    await pickPhotos(photoInfos);
   }
 
   Future exportAsPdf() async {
@@ -1035,6 +1084,7 @@ class EditorState extends State<Editor> {
           },
 
           pickPhoto: pickPhotos,
+          paste: paste,
 
           exportAsSbn: exportAsSbn,
           exportAsPdf: exportAsPdf,
