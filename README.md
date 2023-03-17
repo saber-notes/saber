@@ -104,7 +104,14 @@ git clone https://github.com/adil192/saber.git
 flutter pub get
 ```
 
-### 4. Build for...
+### 4. Install additional dependencies
+
+Setup for the [super_clipboard](https://pub.dev/packages/super_clipboard)
+package can be summarised as:
+- Install [Rust](https://www.rust-lang.org/tools/install)
+- Install NDK 25.2.9519653 if you're building for Android
+
+### 5. Build for...
 
 #### Linux
 
