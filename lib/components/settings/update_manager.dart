@@ -1,6 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:saber/components/settings/app_info.dart';
@@ -12,6 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 abstract class UpdateManager {
   static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart');
+  static final Uri apiUrl = Uri.parse('https://api.github.com/repos/adil192/saber/releases/latest');
   /// The availability of an update.
   static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
 
@@ -110,6 +114,39 @@ abstract class UpdateManager {
       return UpdateStatus.updateRecommended;
     }
   }
+
+  @visibleForTesting
+  static Future<String?> getLatestDownloadUrl([
+    String? apiResponse,
+    TargetPlatform? platform,
+  ]) async {
+    platform ??= defaultTargetPlatform;
+
+    if (!_platformFileRegex.containsKey(platform)) return null;
+
+    if (apiResponse == null) {
+      final http.Response response;
+      try {
+        response = await http.get(apiUrl);
+      } catch (e) {
+        throw const SocketException('Failed to fetch latest release');
+      }
+      if (response.statusCode >= 400) throw SocketException('Failed to fetch latest release, HTTP status code ${response.statusCode}');
+      apiResponse = response.body;
+    }
+
+    final Map<String, dynamic> json = jsonDecode(apiResponse);
+    final RegExp platformFileRegex = _platformFileRegex[platform]!;
+    return (json['assets'] as List)
+        .firstWhereOrNull((asset) => platformFileRegex.hasMatch(asset['name']))
+        ?['browser_download_url'];
+  }
+
+  static final Map<TargetPlatform, RegExp> _platformFileRegex = {
+    TargetPlatform.iOS: RegExp(r'\.*\.ipa'),
+    TargetPlatform.macOS: RegExp(r'\.*\.app\.zip'),
+    TargetPlatform.windows: RegExp(r'\.*\.exe'),
+  };
 }
 
 enum UpdateStatus {
@@ -117,6 +154,6 @@ enum UpdateStatus {
   upToDate,
   /// An update is available, but the user doesn't need to be notified
   updateOptional,
-  // An update is available and the user should be notified
+  /// An update is available and the user should be notified
   updateRecommended,
 }
