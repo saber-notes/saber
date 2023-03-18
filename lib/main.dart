@@ -6,6 +6,7 @@ void main() {
   // Use default config
   FlavorConfig.setup(
     flavor: null,
+    dirty: null,
   );
 
   common.main();
