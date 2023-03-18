@@ -653,6 +653,14 @@ packages:
       url: "https://github.com/adil192/open_as_default.git"
     source: git
     version: "0.0.4"
+  open_filex:
+    dependency: "direct main"
+    description:
+      name: open_filex
+      sha256: "854aefd72dfd74219dc8c8d1767c34ec1eae64b8399a5be317bddb1ec2108915"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.2"
   package_info_plus:
     dependency: "direct main"
     description:

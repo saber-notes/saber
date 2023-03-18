@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:open_filex/open_filex.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
@@ -31,6 +33,8 @@ abstract class UpdateManager {
       if (_hasShownUpdateDialog) return; // already shown
     }
 
+    String? directDownloadLink = await getLatestDownloadUrl();
+
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
     return await showDialog(
@@ -45,10 +49,14 @@ abstract class UpdateManager {
           ),
           CupertinoDialogAction(
             onPressed: () {
-              launchUrl(
-                AppInfo.releasesUrl,
-                mode: LaunchMode.externalApplication,
-              );
+              if (directDownloadLink != null) {
+                _directlyDownloadUpdate(directDownloadLink);
+              } else {
+                launchUrl(
+                  AppInfo.releasesUrl,
+                  mode: LaunchMode.externalApplication,
+                );
+              }
             },
             child: Text(t.update.update),
           ),
@@ -149,6 +157,19 @@ abstract class UpdateManager {
 
     TargetPlatform.windows: RegExp(r'\.*\.exe'),
   };
+
+  /// Downloads the update file from [downloadUrl] and installs it.
+  static Future _directlyDownloadUpdate(String downloadUrl) async {
+    final Uint8List bytes = await http.readBytes(Uri.parse(downloadUrl));
+
+    final tempDir = await getTemporaryDirectory();
+    final fileName = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1);
+
+    final file = File('${tempDir.path}/$fileName');
+    await file.writeAsBytes(bytes);
+
+    OpenFilex.open(file.path);
+  }
 }
 
 enum UpdateStatus {
