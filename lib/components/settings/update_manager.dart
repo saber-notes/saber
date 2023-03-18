@@ -143,8 +143,10 @@ abstract class UpdateManager {
   }
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {
-    TargetPlatform.iOS: RegExp(r'\.*\.ipa'),
-    TargetPlatform.macOS: RegExp(r'\.*\.app\.zip'),
+    // todo: iOS and macOS need to be downloaded from the App Store
+    // TargetPlatform.iOS: RegExp(r'\.*\.ipa'),
+    // TargetPlatform.macOS: RegExp(r'\.*\.app\.zip'),
+
     TargetPlatform.windows: RegExp(r'\.*\.exe'),
   };
 }

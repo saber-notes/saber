@@ -14,16 +14,12 @@ void main() {
 
     test('on iOS', () async {
       final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.iOS);
-      expect(url, isNotNull);
-      expect(url, startsWith('http'));
-      expect(url, endsWith('.ipa'));
+      expect(url, isNull);
     });
 
     test('on macOS', () async {
       final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.macOS);
-      expect(url, isNotNull);
-      expect(url, startsWith('http'));
-      expect(url, endsWith('.app.zip'));
+      expect(url, isNull);
     });
 
     test('on Windows', () async {
