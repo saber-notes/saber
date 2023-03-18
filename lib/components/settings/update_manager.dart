@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
@@ -34,33 +35,44 @@ abstract class UpdateManager {
     }
 
     String? directDownloadLink = await getLatestDownloadUrl();
+    bool directDownloadStarted = false;
 
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
     return await showDialog(
       context: context,
-      builder: (context) => AdaptiveAlertDialog(
-        title: Text(t.update.updateAvailable),
-        content: Text(t.update.updateAvailableDescription),
-        actions: [
-          CupertinoDialogAction(
-            onPressed: () => Navigator.pop(context),
-            child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
-          ),
-          CupertinoDialogAction(
-            onPressed: () {
-              if (directDownloadLink != null) {
-                _directlyDownloadUpdate(directDownloadLink);
-              } else {
-                launchUrl(
-                  AppInfo.releasesUrl,
-                  mode: LaunchMode.externalApplication,
-                );
-              }
-            },
-            child: Text(t.update.update),
-          ),
-        ],
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AdaptiveAlertDialog(
+          title: Text(t.update.updateAvailable),
+          content: Text(t.update.updateAvailableDescription),
+          actions: [
+            CupertinoDialogAction(
+              onPressed: () => Navigator.pop(context),
+              child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
+            ),
+            CupertinoDialogAction(
+              onPressed: directDownloadStarted ? null : () {
+                if (directDownloadLink != null) {
+                  _directlyDownloadUpdate(directDownloadLink)
+                    .then((_) => Navigator.pop(context));
+                  setState(() => directDownloadStarted = true);
+                } else {
+                  launchUrl(
+                    AppInfo.releasesUrl,
+                    mode: LaunchMode.externalApplication,
+                  );
+                }
+              },
+              child: (){
+                if (directDownloadStarted) {
+                  return const SpinningLoadingIcon();
+                } else {
+                  return Text(t.update.update);
+                }
+              }(),
+            ),
+          ],
+        ),
       ),
     );
   }
