@@ -4,7 +4,9 @@ import 'package:saber/main_common.dart' as common;
 
 void main() {
   // Use default config
-  FlavorConfig.setup();
+  FlavorConfig.setup(
+    flavor: null,
+  );
 
   common.main();
 }

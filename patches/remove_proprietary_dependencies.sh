@@ -23,3 +23,7 @@ fi
 # Reduce minSdkVersion to 18
 echo "Reducing minSdkVersion to 18"
 sed -i -e 's!minSdkVersion 23!minSdkVersion 18!' android/app/build.gradle
+
+# Update flavor
+echo "Updating flavor to FOSS"
+sed -i -e "s!flavor: null,!flavor: 'FOSS',!" lib/main.dart
