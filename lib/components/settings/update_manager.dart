@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:saber/i18n/strings.g.dart';
@@ -142,6 +143,10 @@ abstract class UpdateManager {
   ]) async {
     platform ??= defaultTargetPlatform;
 
+    if (platform == TargetPlatform.android) {
+      if (FlavorConfig.flavor.isNotEmpty) return null;
+    }
+
     if (!_platformFileRegex.containsKey(platform)) return null;
 
     if (apiResponse == null) {
@@ -164,10 +169,13 @@ abstract class UpdateManager {
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {
     // todo: iOS and macOS need to be downloaded from the App Store
-    // TargetPlatform.iOS: RegExp(r'\.*\.ipa'),
-    // TargetPlatform.macOS: RegExp(r'\.*\.app\.zip'),
+    // TargetPlatform.iOS: RegExp(r'\.ipa'),
+    // TargetPlatform.macOS: RegExp(r'\.app\.zip'),
 
-    TargetPlatform.windows: RegExp(r'\.*\.exe'),
+    TargetPlatform.windows: RegExp(r'\.exe'),
+
+    // e.g. Saber_v0.9.8_9080.apk not Saber_FOSS_v0.9.8_9080.apk
+    TargetPlatform.android: RegExp(r'Saber_v.*\.apk'),
   };
 
   /// Downloads the update file from [downloadUrl] and installs it.

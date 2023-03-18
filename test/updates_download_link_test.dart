@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/data/flavor_config.dart';
 
 void main() {
   group('getLatestDownloadUrl', () {
     late final String apiResponse;
     setUpAll(() async {
+      FlavorConfig.setup();
       final file = File('test/samples/github_releases_api.json');
       apiResponse = await file.readAsString();
     });
@@ -36,7 +38,10 @@ void main() {
 
     test('on Android', () async {
       final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.android);
-      expect(url, isNull);
+      expect(url, isNotNull);
+      expect(url, startsWith('http'));
+      expect(url, endsWith('.apk'));
+      expect(url, isNot(contains('FOSS')));
     });
   });
 }
