@@ -193,7 +193,8 @@
         "college": "College-ruled",
         "lined": "Lined",
         "grid": "Griglia",
-        "dots": "Punti"
+        "dots": "Punti",
+        "staffs": "Personale"
       }
     },
     "newerFileFormat": {
