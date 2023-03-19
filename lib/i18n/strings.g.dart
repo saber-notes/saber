@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2036 (145 per locale)
+/// Strings: 2037 (145 per locale)
 ///
-/// Built on 2023-03-19 at 15:59 UTC
+/// Built on 2023-03-19 at 16:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1160,6 +1160,7 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'مبطن';
 	@override String get grid => 'شبكة';
 	@override String get dots => 'نقاط';
+	@override String get staffs => 'موظفون';
 }
 
 // Path: <root>
