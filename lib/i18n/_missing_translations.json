@@ -93,15 +93,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "staffs": "Personale"
-        }
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "editor": {
       "menu": {
