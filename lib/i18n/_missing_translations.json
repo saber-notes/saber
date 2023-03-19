@@ -139,15 +139,7 @@
       }
     }
   },
-  "zh-Hans-CN": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "staffs": "五线谱"
-        }
-      }
-    }
-  },
+  "zh-Hans-CN": {},
   "zh-Hant-TW": {
     "editor": {
       "menu": {

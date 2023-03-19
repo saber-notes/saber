@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2032 (145 per locale)
+/// Strings: 2033 (145 per locale)
 ///
-/// Built on 2023-03-19 at 01:56 UTC
+/// Built on 2023-03-19 at 12:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6811,6 +6811,7 @@ class _StringsEditorMenuBgPatternsZhHansCn extends _StringsEditorMenuBgPatternsE
 	@override String get lined => '横线';
 	@override String get grid => '网格';
 	@override String get dots => '点';
+	@override String get staffs => '五线谱';
 }
 
 // Path: <root>
