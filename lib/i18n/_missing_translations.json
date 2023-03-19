@@ -140,13 +140,5 @@
     }
   },
   "zh-Hans-CN": {},
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "staffs": "Staffs"
-        }
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
