@@ -22,15 +22,7 @@
       }
     }
   },
-  "es": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "staffs": "Staffs"
-        }
-      }
-    }
-  },
+  "es": {},
   "fa": {
     "settings": {
       "prefLabels": {
