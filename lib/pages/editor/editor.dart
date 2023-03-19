@@ -553,12 +553,16 @@ class EditorState extends State<Editor> {
   void listenToQuillChanges(QuillStruct quill, int pageIndex) {
     quill.changeSubscription?.cancel();
     quill.changeSubscription = quill.controller.changes.listen((event) {
+      final undoRedoButtonsNeedUpdating = !history.canUndo || history.canRedo;
       _addQuillChangeToHistory(
         quill: quill,
         pageIndex: pageIndex,
         event: event,
       );
       createPage(pageIndex); // create empty last page
+      if (undoRedoButtonsNeedUpdating) {
+        setState(() {});
+      }
       autosaveAfterDelay();
     });
   }
