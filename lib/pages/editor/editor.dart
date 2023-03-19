@@ -842,47 +842,55 @@ class EditorState extends State<Editor> {
   }
 
   Future paste() async {
-    const formats = [
-      Formats.jpeg, Formats.png,
-      Formats.gif, Formats.tiff, Formats.bmp,
-      Formats.ico,
+    /// Maps image formats to their file extension.
+    const Map<SimpleFileFormat, String> formats = {
+      Formats.jpeg: '.jpeg',
+      Formats.png: '.png',
+      Formats.gif: '.gif',
+      Formats.tiff: '.tiff',
+      Formats.bmp: '.bmp',
+      Formats.ico: '.ico',
 
-      Formats.svg,
+      Formats.svg: '.svg',
 
-      Formats.webp,
-    ];
-
-    final List<PhotoInfo> photoInfos = [];
-    Future processFile(DataReaderFile file, SimpleFileFormat format) async {
-      final stream = file.getStream();
-      final List<int> bytes = [];
-      await for (final chunk in stream) {
-        bytes.addAll(chunk);
-      }
-
-      assert(format.uniformTypeIdentifiers != null);
-      assert(format.uniformTypeIdentifiers!.isNotEmpty);
-      print('image.$format'); // todo: see if this is correct
-
-      String filename = file.fileName
-          ?? format.uniformTypeIdentifiers?.first
-          ?? 'image.$format';
-
-      photoInfos.add(PhotoInfo(
-        bytes: Uint8List.fromList(bytes),
-        extension: filename.substring(filename.lastIndexOf('.')),
-      ));
-    }
+      Formats.webp: '.webp',
+    };
 
     final reader = await ClipboardReader.readClipboard();
-    final futures = <Future>[];
-    for (SimpleFileFormat format in formats) {
+    final List<PhotoInfo> photoInfos = [];
+    final List<ReadProgress> progresses = [];
+
+    for (SimpleFileFormat format in formats.keys) {
       if (!reader.canProvide(format)) continue;
-      reader.getFile(format, (file) {
-        futures.add(processFile(file, format));
-      });
+      final progress = reader.getFile(
+        format,
+        (file) async {
+          final stream = file.getStream();
+          final List<int> bytes = [];
+          await for (final chunk in stream) {
+            bytes.addAll(chunk);
+          }
+
+          String extension;
+          if (file.fileName != null) {
+            extension = file.fileName!.substring(file.fileName!.lastIndexOf('.'));
+          } else {
+            extension = formats[format]!;
+          }
+
+          photoInfos.add(PhotoInfo(
+            bytes: Uint8List.fromList(bytes),
+            extension: extension,
+          ));
+        },
+      );
+      if (progress != null) progresses.add(progress);
     }
-    await Future.wait(futures);
+
+    while (progresses.isNotEmpty) {
+      progresses.removeWhere((progress) => progress.fraction.value == 1);
+      await Future.delayed(const Duration(milliseconds: 50));
+    }
 
     await pickPhotos(photoInfos);
   }
