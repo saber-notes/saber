@@ -94,15 +94,7 @@
     }
   },
   "it": {},
-  "pt-BR": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "staffs": "Staffs"
-        }
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {
     "editor": {
       "menu": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2035 (145 per locale)
+/// Strings: 2036 (145 per locale)
 ///
-/// Built on 2023-03-19 at 12:42 UTC
+/// Built on 2023-03-19 at 15:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5271,6 +5271,7 @@ class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Pautado';
 	@override String get grid => 'Grade';
 	@override String get dots => 'Pontos';
+	@override String get staffs => 'Pautas';
 }
 
 // Path: <root>
