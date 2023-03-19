@@ -3,10 +3,42 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "ar": {},
-  "cs": {},
-  "de": {},
-  "es": {},
+  "ar": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
+  "cs": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
+  "de": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
+  "es": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
   "fa": {
     "settings": {
       "prefLabels": {
@@ -18,7 +50,10 @@
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Also controls the text size",
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
       }
     }
   },
@@ -33,7 +68,10 @@
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Also controls the text size",
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
       }
     }
   },
@@ -48,13 +86,40 @@
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Also controls the text size",
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
       }
     }
   },
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
+  "it": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
+  "pt-BR": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
   "tr": {
     "settings": {
       "prefLabels": {
@@ -67,10 +132,29 @@
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size"
+        "lineHeightDescription": "Also controls the text size",
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
       }
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "staffs": "Staffs"
+        }
+      }
+    }
+  }
 }

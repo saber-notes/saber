@@ -75,7 +75,12 @@ void _testPatternWithLineHeight(final String pattern, final int lineHeight) {
         expect(position != lastPosition, true, reason: 'Lines should be spaced apart');
 
         double spacing = (position - lastPosition).abs();
-        expect((spacing - lineHeight).abs(), lessThan(epsilon), reason: 'Lines should be spaced by 1 lineHeight');
+        double diffFromALine = spacing % lineHeight;
+        if (diffFromALine > lineHeight / 2) {
+          diffFromALine = lineHeight - diffFromALine;
+        }
+        printOnFailure('spacing: $spacing, lineHeight: $lineHeight, diffFromALine: $diffFromALine');
+        expect(diffFromALine, lessThan(epsilon), reason: 'Lines should be spaced in intervals of lineHeight');
 
         lastPosition = position;
       }

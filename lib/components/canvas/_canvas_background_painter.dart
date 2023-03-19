@@ -104,6 +104,18 @@ class CanvasBackgroundPainter extends CustomPainter {
           );
         }
       }
+    } else if (pattern == CanvasBackgroundPatterns.staffs) {
+      for (double topOfStaff = lineHeight * 2;
+           topOfStaff + lineHeight * 5 < size.height;
+           topOfStaff += lineHeight * 7) {
+        for (int line = 0; line < 5; line++) {
+          yield PatternElement(
+            Offset(lineHeight.toDouble(), topOfStaff + lineHeight * line),
+            Offset(size.width - lineHeight, topOfStaff + lineHeight * line),
+            isLine: true,
+          );
+        }
+      }
     }
   }
 }
@@ -137,12 +149,16 @@ abstract class CanvasBackgroundPatterns {
   /// corners instead of the whole square border.
   static const String dots = 'dots';
 
+  /// Music staffs
+  static const String staffs = 'staffs';
+
   static const List<String> all = [
     none,
     college,
     lined,
     grid,
     dots,
+    staffs,
   ];
 
   static String localizedName(String pattern) {
@@ -156,6 +172,8 @@ abstract class CanvasBackgroundPatterns {
       return t.editor.menu.bgPatterns.grid;
     } else if (pattern == CanvasBackgroundPatterns.dots) {
       return t.editor.menu.bgPatterns.dots;
+    } else if (pattern == CanvasBackgroundPatterns.staffs) {
+      return t.editor.menu.bgPatterns.staffs;
     } else {
       if (kDebugMode) throw Exception('Untranslated background pattern: $pattern');
       return '';

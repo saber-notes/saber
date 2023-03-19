@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2031 (145 per locale)
+/// Strings: 2032 (145 per locale)
 ///
-/// Built on 2023-03-15 at 06:13 UTC
+/// Built on 2023-03-19 at 01:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -644,6 +644,7 @@ class _StringsEditorMenuBgPatternsEn {
 	String get lined => 'Lined';
 	String get grid => 'Grid';
 	String get dots => 'Dots';
+	String get staffs => 'Staffs';
 }
 
 // Path: <root>
