@@ -1,0 +1,7 @@
+• New background pattern for music staffs
+• The update process has been streamlined for Windows and non-FOSS Android users
+• Visual C++ Redistributable is now included in the Windows installer
+• Slight performance improvements with large files
+• Fixed pdf page indicators including the empty last page
+• Hidden duplicate buttons in the Quill toolbar
+• Minor visual tweaks

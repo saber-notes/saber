@@ -59,6 +59,19 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.9" type="development" date="2023-03-20">
+            <description>
+                <ul>
+                    <li>New background pattern for music staffs</li>
+                    <li>The update process has been streamlined for Windows and non-FOSS Android users</li>
+                    <li>Visual C++ Redistributable is now included in the Windows installer</li>
+                    <li>Slight performance improvements with large files</li>
+                    <li>Fixed pdf page indicators including the empty last page</li>
+                    <li>Hidden duplicate buttons in the Quill toolbar</li>
+                    <li>Minor visual tweaks</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.8" type="development" date="2023-03-12">
             <description>
                 <ul>
