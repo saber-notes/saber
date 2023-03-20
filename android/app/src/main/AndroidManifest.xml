@@ -9,6 +9,9 @@
     <!-- Needed for reading files opened with the app -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- Install update APKs -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
    <application
         android:label="Saber"
         android:name="${applicationName}"

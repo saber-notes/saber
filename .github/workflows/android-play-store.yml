@@ -37,6 +37,9 @@ jobs:
       - name: Remove signingConfig
         run: ./patches/remove_signing_android.sh
 
+      - name: Remove REQUEST_INSTALL_PACKAGES permission
+        run: ./patches/remove_request_install_packages_permission.sh
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
