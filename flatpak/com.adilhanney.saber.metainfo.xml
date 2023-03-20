@@ -59,6 +59,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.10" type="development" date="2023-03-20">
+            <description>
+                <ul>
+                    <li>Fixed updating issue on Android devices</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.9" type="development" date="2023-03-20">
             <description>
                 <ul>
