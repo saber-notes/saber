@@ -192,8 +192,9 @@
         "none": "Žádný",
         "college": "Linky s okrajem",
         "lined": "Linky",
-        "grid": "Mřížka",
-        "dots": "Tečky"
+        "grid": "Čtverečky",
+        "dots": "Mřížka z teček",
+        "staffs": "Notová osnova"
       }
     },
     "newerFileFormat": {

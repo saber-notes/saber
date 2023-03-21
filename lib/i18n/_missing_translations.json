@@ -4,15 +4,7 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "ar": {},
-  "cs": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "staffs": "Staffs"
-        }
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "editor": {
       "menu": {
