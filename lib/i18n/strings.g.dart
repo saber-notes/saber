@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2038 (145 per locale)
+/// Strings: 2039 (145 per locale)
 ///
-/// Built on 2023-03-19 at 21:51 UTC
+/// Built on 2023-03-21 at 15:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5789,6 +5789,7 @@ class _StringsEditorMenuBgPatternsRu extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Линии';
 	@override String get grid => 'Сетка';
 	@override String get dots => 'Точки';
+	@override String get staffs => 'Персональный';
 }
 
 // Path: <root>
