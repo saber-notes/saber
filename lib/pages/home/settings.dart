@@ -368,6 +368,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
                       ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
                     ],
+                    afterChange: (_) => setState(() {}),
                   ),
                   SettingsSelection(
                     title: t.settings.prefLabels.maxImageSize,
