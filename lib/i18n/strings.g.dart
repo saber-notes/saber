@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2039 (145 per locale)
+/// Strings: 2040 (145 per locale)
 ///
-/// Built on 2023-03-21 at 15:21 UTC
+/// Built on 2023-03-21 at 15:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1674,8 +1674,9 @@ class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
 	@override String get none => 'Žádný';
 	@override String get college => 'Linky s okrajem';
 	@override String get lined => 'Linky';
-	@override String get grid => 'Mřížka';
-	@override String get dots => 'Tečky';
+	@override String get grid => 'Čtverečky';
+	@override String get dots => 'Mřížka z teček';
+	@override String get staffs => 'Notová osnova';
 }
 
 // Path: <root>
