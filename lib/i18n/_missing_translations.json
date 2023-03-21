@@ -75,18 +75,18 @@
   "tr": {
     "settings": {
       "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors",
-        "printPageIndicators": "Print page indicators"
+        "dontSavePresetColors": "Ön tanımlı renkleri son kullanılanlara kaydetme",
+        "printPageIndicators": "Sayfa belirteçlerini yazdır"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "Çıktılarda sayfa belirteçlerini göster"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size",
+        "lineHeightDescription": "Metnin boyutunu da kontrol eder",
         "bgPatterns": {
-          "staffs": "Staffs"
+          "staffs": "Porte (müzik)"
         }
       }
     }
