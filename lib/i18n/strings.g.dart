@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2040 (145 per locale)
+/// Strings: 2045 (146 per locale)
 ///
-/// Built on 2023-03-22 at 09:20 UTC
+/// Built on 2023-03-22 at 09:22 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6004,6 +6004,8 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
+	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
+	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 }
 
 // Path: settings.prefDescriptions
@@ -6021,6 +6023,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
+	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 }
 
 // Path: settings.themeModes
@@ -6233,6 +6236,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Sayfayı temizle';
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
 	@override String get lineHeight => 'Satır aralığı';
+	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
 	@override String get backgroundImage => 'Arkaplan görseli';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get removeBgImage => 'Arkaplan görselini kaldır';
@@ -6302,6 +6306,7 @@ class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Çizgili';
 	@override String get grid => 'Kareli';
 	@override String get dots => 'Noktalı';
+	@override String get staffs => 'Porte (müzik)';
 }
 
 // Path: <root>

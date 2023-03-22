@@ -72,25 +72,7 @@
   "it": {},
   "pt-BR": {},
   "ru": {},
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Don't save preset colors in recent colors",
-        "printPageIndicators": "Print page indicators"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Also controls the text size",
-        "bgPatterns": {
-          "staffs": "Staffs"
-        }
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }

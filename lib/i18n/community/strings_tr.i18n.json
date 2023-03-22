@@ -44,7 +44,9 @@
       "maxImageSize": "Maksimum görsel boyutu",
       "autoClearWhiteboardOnExit": "Uygulamadan çıkıldığında beyaz tahtayı temizle",
       "editorPromptRename": "Notları yeniden adlandırmak için uyar",
-      "hideHomeBackgrounds": "Ana ekranda arkaplanları gizle"
+      "hideHomeBackgrounds": "Ana ekranda arkaplanları gizle",
+      "dontSavePresetColors": "Ön tanımlı renkleri son kullanılanlara kaydetme",
+      "printPageIndicators": "Sayfa belirteçlerini yazdır"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur",
@@ -54,7 +56,8 @@
       "autoClearWhiteboardOnExit": "Diğer cihazlarınıza senkronize edilmeye devam edecek",
       "maxImageSize": "Bundan daha büyük görseller sıkıştırılacak",
       "editorPromptRename": "Notlarınızı daha sonra da yeniden adlandırabilirsiniz",
-      "hideHomeBackgrounds": "Daha sade bir görüntü için"
+      "hideHomeBackgrounds": "Daha sade bir görüntü için",
+      "printPageIndicators": "Çıktılarda sayfa belirteçlerini göster"
     },
     "themeModes": {
       "system": "Sistem teması",
@@ -175,6 +178,7 @@
       "clearPage": "Sayfayı temizle",
       "clearAllPages": "Tüm sayfaları temizle",
       "lineHeight": "Satır aralığı",
+      "lineHeightDescription": "Metnin boyutunu da kontrol eder",
       "backgroundImage": "Arkaplan görseli",
       "backgroundPattern": "Arkaplan deseni",
       "removeBgImage": "Arkaplan görselini kaldır",
@@ -189,7 +193,8 @@
         "college": "Std. çizgili defter",
         "lined": "Çizgili",
         "grid": "Kareli",
-        "dots": "Noktalı"
+        "dots": "Noktalı",
+        "staffs": "Porte (müzik)"
       }
     },
     "newerFileFormat": {
