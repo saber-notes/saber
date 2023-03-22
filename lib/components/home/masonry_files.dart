@@ -13,18 +13,21 @@ class MasonryFiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    return SliverMasonryGrid.count(
-      childCount: files.length,
-      crossAxisCount: mediaQuery.size.width ~/ 300 + 1,
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
-      itemBuilder: (context, index) => LayoutBuilder(
-        builder: (context, constraints) {
-          return PreviewCard(
-            filePath: files[index],
-            width: constraints.maxWidth,
-          );
-        }
+    return SliverPadding(
+      padding: const EdgeInsets.all(10),
+      sliver: SliverMasonryGrid.count(
+        childCount: files.length,
+        crossAxisCount: mediaQuery.size.width ~/ 300 + 1,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        itemBuilder: (context, index) => LayoutBuilder(
+          builder: (context, constraints) {
+            return PreviewCard(
+              filePath: files[index],
+              width: constraints.maxWidth,
+            );
+          }
+        ),
       ),
     );
   }
