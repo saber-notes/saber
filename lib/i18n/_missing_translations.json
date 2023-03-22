@@ -72,25 +72,7 @@
   "it": {},
   "pt-BR": {},
   "ru": {},
-  "tr": {
-    "settings": {
-      "prefLabels": {
-        "dontSavePresetColors": "Ön tanımlı renkleri son kullanılanlara kaydetme",
-        "printPageIndicators": "Sayfa belirteçlerini yazdır"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Çıktılarda sayfa belirteçlerini göster"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Metnin boyutunu da kontrol eder",
-        "bgPatterns": {
-          "staffs": "Porte (müzik)"
-        }
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {},
   "zh-Hant-TW": {}
 }
