@@ -59,6 +59,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.9.11" type="development" date="2023-03-22">
+            <description>
+                <ul>
+                    <li>Improved home page transitions</li>
+                    <li>Performance improvements for the home page</li>
+                    <li>Fixed the weirdness with moving the cursor when editing text</li>
+                    <li>Fixed a minor bug on the Settings page</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.10" type="development" date="2023-03-20">
             <description>
                 <ul>

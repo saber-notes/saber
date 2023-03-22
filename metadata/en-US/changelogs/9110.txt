@@ -1,0 +1,4 @@
+• Improved home page transitions
+• Performance improvements for the home page
+• Fixed the weirdness with moving the cursor when editing text
+• Fixed a minor bug on the Settings page
