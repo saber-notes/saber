@@ -149,7 +149,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.of(context).disableAnimations;
-    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 5000);
+    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 300);
     final background = coreInfo.backgroundColor
         ?? InnerCanvas.defaultBackgroundColor;
     final invert = theme.brightness == Brightness.dark
