@@ -45,10 +45,12 @@ class _PreviewCardState extends State<PreviewCard> {
 
   bool expanded = false;
 
+  late double heightWidthRatio = _getHeightWidthRatio();
   late EditorCoreInfo _coreInfo = getCachedCoreInfo(widget.filePath);
   EditorCoreInfo get coreInfo => _coreInfo;
   set coreInfo(EditorCoreInfo coreInfo) {
     _mapFilePathToEditorInfo[widget.filePath] = _coreInfo = coreInfo;
+    heightWidthRatio = _getHeightWidthRatio();
   }
 
   /// The cropped height of the first page
@@ -58,7 +60,7 @@ class _PreviewCardState extends State<PreviewCard> {
   /// The cropped height (not ratio) will be between 10% and 100% of the
   /// maximum height of the first page,
   /// or 0 if an error occurs.
-  double get heightWidthRatio {
+  double _getHeightWidthRatio() {
     final EditorPage firstPage;
     if (coreInfo.pages.isEmpty) {
       firstPage = EditorPage();
@@ -154,7 +156,6 @@ class _PreviewCardState extends State<PreviewCard> {
         ?? InnerCanvas.defaultBackgroundColor;
     final invert = theme.brightness == Brightness.dark
         && Prefs.editorAutoInvert.value;
-    final heightWidthRatio = this.heightWidthRatio;
     final firstPageWidth = coreInfo.pages.isEmpty
         ? EditorPage.defaultWidth
         : coreInfo.pages.first.size.width;
