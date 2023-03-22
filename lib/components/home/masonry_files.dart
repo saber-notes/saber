@@ -20,13 +20,8 @@ class MasonryFiles extends StatelessWidget {
         crossAxisCount: mediaQuery.size.width ~/ 300 + 1,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
-        itemBuilder: (context, index) => LayoutBuilder(
-          builder: (context, constraints) {
-            return PreviewCard(
-              filePath: files[index],
-              width: constraints.maxWidth,
-            );
-          }
+        itemBuilder: (context, index) => PreviewCard(
+          filePath: files[index],
         ),
       ),
     );

@@ -24,21 +24,19 @@ class CanvasPreview extends StatelessWidget {
         ? coreInfo.pages[pageIndex].size
         : EditorPage.defaultSize;
 
-    return FittedBox(
-      child: SizedOverflowBox(
-        size: Size(pageSize.width, height ?? pageSize.height),
-        alignment: Alignment.topCenter,
-        child: InnerCanvas(
-          pageIndex: pageIndex,
-          width: pageSize.width,
-          height: pageSize.height,
-          isPreview: true,
-          coreInfo: coreInfo,
-          currentStroke: null,
-          currentSelection: null,
-          hideBackground: Prefs.hideHomeBackgrounds.value,
-          currentToolIsSelect: false,
-        ),
+    return SizedOverflowBox(
+      size: Size(pageSize.width, height ?? pageSize.height),
+      alignment: Alignment.topCenter,
+      child: InnerCanvas(
+        pageIndex: pageIndex,
+        width: pageSize.width,
+        height: pageSize.height,
+        isPreview: true,
+        coreInfo: coreInfo,
+        currentStroke: null,
+        currentSelection: null,
+        hideBackground: Prefs.hideHomeBackgrounds.value,
+        currentToolIsSelect: false,
       ),
     );
   }

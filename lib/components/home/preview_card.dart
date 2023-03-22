@@ -22,11 +22,9 @@ import 'package:saber/pages/editor/editor.dart';
 class PreviewCard extends StatefulWidget {
   PreviewCard({
     required this.filePath,
-    required this.width,
   }) : super(key: ValueKey('PreviewCard$filePath'));
 
   final String filePath;
-  final double width;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -151,7 +149,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.of(context).disableAnimations;
-    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 300);
+    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 5000);
     final background = coreInfo.backgroundColor
         ?? InnerCanvas.defaultBackgroundColor;
     final invert = theme.brightness == Brightness.dark
@@ -172,19 +170,21 @@ class _PreviewCardState extends State<PreviewCard> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  AnimatedContainer(
-                    duration: transitionDuration,
-                    width: widget.width,
-                    height: heightWidthRatio * widget.width,
-                    color: background.withInversion(invert),
-                    child: ClipRect(
-                      child: OverflowBox(
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 300),
-                          child: CanvasPreview(
-                            key: ValueKey(coreInfo),
-                            height: heightWidthRatio * firstPageWidth,
-                            coreInfo: coreInfo,
+                  FittedBox(
+                    child: AnimatedContainer(
+                      duration: transitionDuration,
+                      width: firstPageWidth,
+                      height: heightWidthRatio * firstPageWidth,
+                      color: background.withInversion(invert),
+                      child: ClipRect(
+                        child: OverflowBox(
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 300),
+                            child: CanvasPreview(
+                              key: ValueKey(coreInfo),
+                              height: heightWidthRatio * firstPageWidth,
+                              coreInfo: coreInfo,
+                            ),
                           ),
                         ),
                       ),

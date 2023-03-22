@@ -38,10 +38,12 @@ class EditorPageManager extends StatelessWidget {
                     maxWidth: 150,
                     maxHeight: 250,
                   ),
-                  child: CanvasPreview(
-                    pageIndex: pageIndex,
-                    height: null,
-                    coreInfo: coreInfo,
+                  child: FittedBox(
+                    child: CanvasPreview(
+                      pageIndex: pageIndex,
+                      height: null,
+                      coreInfo: coreInfo,
+                    ),
                   ),
                 ),
               ],
