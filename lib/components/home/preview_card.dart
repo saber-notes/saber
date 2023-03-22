@@ -177,14 +177,12 @@ class _PreviewCardState extends State<PreviewCard> {
                       height: heightWidthRatio * firstPageWidth,
                       color: background.withInversion(invert),
                       child: ClipRect(
-                        child: OverflowBox(
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 300),
-                            child: CanvasPreview(
-                              key: ValueKey(coreInfo),
-                              height: heightWidthRatio * firstPageWidth,
-                              coreInfo: coreInfo,
-                            ),
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 300),
+                          child: CanvasPreview(
+                            key: ValueKey(coreInfo),
+                            height: heightWidthRatio * firstPageWidth,
+                            coreInfo: coreInfo,
                           ),
                         ),
                       ),
