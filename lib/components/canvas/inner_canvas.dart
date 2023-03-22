@@ -51,9 +51,6 @@ class InnerCanvas extends StatefulWidget {
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
 
-  /// Quill text size / UI size is quite small due to the canvas resolution, so we need to scale it up.
-  static const double quillScale = 2;
-
   @override
   State<InnerCanvas> createState() => _InnerCanvasState();
 }
@@ -85,30 +82,26 @@ class _InnerCanvasState extends State<InnerCanvas> {
       locale = null;
     }
 
-    Widget quillEditor = Transform.scale(
-      scale: InnerCanvas.quillScale,
-      alignment: Alignment.topLeft,
-      child: widget.coreInfo.pages.isNotEmpty ? QuillEditor(
-        controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
-        scrollController: ScrollController(),
-        scrollable: false,
-        autoFocus: false,
-        readOnly: false,
-        expands: true,
-        focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
-        padding: EdgeInsets.only(
-          top: widget.coreInfo.lineHeight * 1.2 / InnerCanvas.quillScale,
-          left: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
-          right: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
-          bottom: widget.coreInfo.lineHeight * 0.5 / InnerCanvas.quillScale,
-        ),
-        customStyles: _getQuillStyles(context, invert: invert),
-        locale: locale,
-        placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
-        showCursor: true,
-        keyboardAppearance: invert ? Brightness.dark : Brightness.light,
-      ) : null,
-    );
+    Widget? quillEditor = widget.coreInfo.pages.isNotEmpty ? QuillEditor(
+      controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
+      scrollController: ScrollController(),
+      scrollable: false,
+      autoFocus: false,
+      readOnly: false,
+      expands: true,
+      focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
+      padding: EdgeInsets.only(
+        top: widget.coreInfo.lineHeight * 1.2,
+        left: widget.coreInfo.lineHeight * 0.5,
+        right: widget.coreInfo.lineHeight * 0.5,
+        bottom: widget.coreInfo.lineHeight * 0.5,
+      ),
+      customStyles: _getQuillStyles(context, invert: invert),
+      locale: locale,
+      placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
+      showCursor: true,
+      keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+    ) : null;
 
     return RepaintBoundary(
       child: CustomPaint(
@@ -157,8 +150,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
                 Positioned(
                   top: 0,
                   left: 0,
-                  width: widget.width / InnerCanvas.quillScale,
-                  height: widget.height / InnerCanvas.quillScale,
+                  width: widget.width,
+                  height: widget.height,
                   child: IgnorePointer(
                     ignoring: widget.coreInfo.readOnly || !widget.textEditing,
                     child: quillEditor,
@@ -189,7 +182,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final colorScheme = Theme.of(context).colorScheme;
 
     /// lineHeight in local space
-    final double lineHeight = widget.coreInfo.lineHeight / InnerCanvas.quillScale;
+    final num lineHeight = widget.coreInfo.lineHeight;
 
     /// Blank TextStyle with the correct color
     final TextStyle defaultStyle = TextStyle(color: invert ? Colors.white : Colors.black);
