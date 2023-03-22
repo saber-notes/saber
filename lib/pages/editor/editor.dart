@@ -174,8 +174,8 @@ class EditorState extends State<Editor> {
       } else {
         pageIndex = 0;
       }
+      assert(pageIndex < coreInfo.pages.length);
 
-      assert(coreInfo.initialPageIndex! < coreInfo.pages.length);
       lastFocusedQuill = coreInfo.pages[pageIndex].quill;
       lastFocusedQuill!.focusNode.requestFocus();
     }
