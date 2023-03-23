@@ -18,17 +18,17 @@
   "fa": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "چاپ نشانگرهای صفحه"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size",
+        "lineHeightDescription": "همچنین اندازه متن را کنترل می کند",
         "bgPatterns": {
-          "staffs": "Staffs"
+          "staffs": "کارکنان"
         }
       }
     }
