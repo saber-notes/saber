@@ -87,7 +87,7 @@ jobs:
             --type MAC_INSTALLER_DISTRIBUTION \
             --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
             --save
-    
+
           keychain add-certificates
 
           xcode-project use-profiles
@@ -116,7 +116,7 @@ jobs:
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_OUTPUT
 
           xcrun productbuild --component "$APP_NAME" /Applications/ unsigned.pkg
-          
+
           INSTALLER_CERT_NAME=$(keychain list-certificates \
                   | jq '[.[]
                     | select(.common_name
