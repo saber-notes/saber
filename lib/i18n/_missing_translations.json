@@ -15,24 +15,7 @@
     }
   },
   "es": {},
-  "fa": {
-    "settings": {
-      "prefLabels": {
-        "printPageIndicators": "چاپ نشانگرهای صفحه"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "همچنین اندازه متن را کنترل می کند",
-        "bgPatterns": {
-          "staffs": "کارکنان"
-        }
-      }
-    }
-  },
+  "fa": {},
   "fr": {
     "settings": {
       "prefLabels": {

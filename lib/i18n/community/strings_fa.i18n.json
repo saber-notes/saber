@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "پس از خروج از برنامه، وایت برد پاک شود",
       "editorPromptRename": "از شما می خواهد که نام یادداشت های جدید را تغییر دهید",
       "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید",
-      "dontSavePresetColors": "رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید"
+      "dontSavePresetColors": "رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید",
+      "printPageIndicators": "چاپ نشانگرهای صفحه"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود",
       "maxImageSize": "تصاویر بزرگتر از این فشرده خواهند شد",
       "editorPromptRename": "همیشه می توانید بعداً نام یادداشت ها را تغییر دهید",
-      "hideHomeBackgrounds": "برای ظاهری تمیز تر"
+      "hideHomeBackgrounds": "برای ظاهری تمیز تر",
+      "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی"
     },
     "themeModes": {
       "system": "سیستم",
@@ -176,6 +178,7 @@
       "clearPage": "پاک کردن صفحه",
       "clearAllPages": "تمام صفحات را پاک کنید",
       "lineHeight": "ارتفاع خط",
+      "lineHeightDescription": "همچنین اندازه متن را کنترل می کند",
       "backgroundImage": "تصویر پس زمینه",
       "backgroundPattern": "الگوی پس زمینه",
       "removeBgImage": "حذف تصویر پس زمینه",
@@ -190,7 +193,8 @@
         "college": "قوانین کالج",
         "lined": "خط کشی شده",
         "grid": "توری",
-        "dots": "نقطه ای"
+        "dots": "نقطه ای",
+        "staffs": "کارکنان"
       }
     },
     "newerFileFormat": {
