@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2045 (146 per locale)
+/// Strings: 2049 (146 per locale)
 ///
-/// Built on 2023-03-22 at 09:22 UTC
+/// Built on 2023-03-24 at 23:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2921,6 +2921,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
+	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 }
 
 // Path: settings.prefDescriptions
@@ -2938,6 +2939,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
+	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 }
 
 // Path: settings.themeModes
@@ -3150,6 +3152,7 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get clearPage => 'پاک کردن صفحه';
 	@override String get clearAllPages => 'تمام صفحات را پاک کنید';
 	@override String get lineHeight => 'ارتفاع خط';
+	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
 	@override String get backgroundImage => 'تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get removeBgImage => 'حذف تصویر پس زمینه';
@@ -3219,6 +3222,7 @@ class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'خط کشی شده';
 	@override String get grid => 'توری';
 	@override String get dots => 'نقطه ای';
+	@override String get staffs => 'کارکنان';
 }
 
 // Path: <root>
