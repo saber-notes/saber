@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2049 (146 per locale)
+/// Strings: 2053 (146 per locale)
 ///
-/// Built on 2023-03-24 at 23:21 UTC
+/// Built on 2023-03-26 at 15:26 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -219,6 +219,8 @@ class _StringsLoginEn {
 		_StringsLogin$faq$0i0$En._(_root),
 		_StringsLogin$faq$0i1$En._(_root),
 		_StringsLogin$faq$0i2$En._(_root),
+		_StringsLogin$faq$0i3$En._(_root),
+		_StringsLogin$faq$0i4$En._(_root),
 	];
 	late final _StringsLoginInsecureStorageEn insecureStorage = _StringsLoginInsecureStorageEn._(_root);
 }
@@ -476,7 +478,7 @@ class _StringsLogin$faq$0i1$En {
 
 	// Translations
 	String get q => 'What is the encryption password?';
-	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. It is not stored on the server, and is only used by Saber to encrypt and decrypt your data.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
+	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and is not related to your Nextcloud account/password.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
 }
 
 // Path: login.faq.2
@@ -488,6 +490,28 @@ class _StringsLogin$faq$0i2$En {
 	// Translations
 	String get q => 'Why use two passwords?';
 	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'How do I login if I use 2FA?';
+	String get a => 'Instead of your regular Nextcloud password, you\'ll need to create an "app password". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'Can I use the same password for both?';
+	String get a => 'Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.';
 }
 
 // Path: login.insecureStorage
