@@ -19,15 +19,15 @@
   "fr": {
     "settings": {
       "prefLabels": {
-        "printPageIndicators": "Print page indicators"
+        "printPageIndicators": "Imprimer les numéros de pages"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators": "Montrer les numéros de pages dans les exportations"
       }
     },
     "editor": {
       "menu": {
-        "lineHeightDescription": "Also controls the text size",
+        "lineHeightDescription": "Contrôle aussi la taille du texte",
         "bgPatterns": {
           "staffs": "Staffs"
         }
