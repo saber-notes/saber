@@ -1,7 +1,3 @@
-
-import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart' show NextcloudProvisioningApiUserDetails_Quota;
@@ -30,8 +26,6 @@ class NextcloudProfile extends StatefulWidget {
 }
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
-  Uint8List? pfpBytes;
-
   @override
   void initState() {
     onPfpChange();
@@ -41,8 +35,6 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   void onPfpChange() {
-    var pfpBase64 = Prefs.pfp.value;
-    pfpBytes = pfpBase64.isNotEmpty ? base64Decode(pfpBase64) : null;
     setState(() {});
   }
 
@@ -63,12 +55,12 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       onTap: () {
         context.push(RoutePaths.login);
       },
-      leading: pfpBytes == null
+      leading: Prefs.pfp.value == null
           ? const Icon(Icons.account_circle, size: 48)
           : ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.memory(
-                pfpBytes!,
+                Prefs.pfp.value!,
                 width: 48,
                 height: 48,
               ),

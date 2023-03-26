@@ -44,7 +44,7 @@ abstract class Prefs {
   static late final EncPref<String> key;
   static late final EncPref<String> iv;
 
-  static late final PlainPref<String> pfp;
+  static late final PlainPref<Uint8List?> pfp;
 
   static late final PlainPref<ThemeMode> appTheme;
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
@@ -109,7 +109,7 @@ abstract class Prefs {
     key = EncPref('key', '');
     iv = EncPref('iv', '');
 
-    pfp = PlainPref('pfp', '');
+    pfp = PlainPref('pfp', null);
 
     appTheme = PlainPref('appTheme', ThemeMode.system);
     platform = PlainPref('platform', defaultTargetPlatform);
@@ -262,6 +262,7 @@ class PlainPref<T> extends IPref<T> {
     // Accepted types
     assert(
       T == bool || T == int || T == double || T == String
+        || T == typeOf<Uint8List?>()
         || T == typeOf<List<String>>() || T == typeOf<Set<String>>()
         || T == typeOf<Queue<String>>()
         || T == StrokeProperties || T == typeOf<Quota?>()
@@ -311,6 +312,13 @@ class PlainPref<T> extends IPref<T> {
         return await _prefs!.setInt(key, value as int);
       } else if (T == double) {
         return await _prefs!.setDouble(key, value as double);
+      } else if (T == typeOf<Uint8List?>()) {
+        Uint8List? bytes = value as Uint8List?;
+        if (bytes == null) {
+          return await _prefs!.remove(key);
+        } else {
+          return await _prefs!.setString(key, base64Encode(bytes));
+        }
       } else if (T == typeOf<List<String>>()) {
         return await _prefs!.setStringList(key, value as List<String>);
       } else if (T == typeOf<Set<String>>()) {
@@ -347,6 +355,10 @@ class PlainPref<T> extends IPref<T> {
     try {
       if (!_prefs!.containsKey(key)) {
         return null;
+      } else if (T == typeOf<Uint8List?>()) {
+        String? base64 = _prefs!.getString(key);
+        if (base64 == null) return null;
+        return base64Decode(base64) as T;
       } else if (T == typeOf<List<String>>()) {
         return _prefs!.getStringList(key) as T?;
       } else if (T == typeOf<Set<String>>()) {

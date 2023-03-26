@@ -1,5 +1,3 @@
-
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -116,10 +114,10 @@ class _NcLoginPageState extends State<NcLoginPage> {
     Prefs.username.value = username;
     Prefs.ncPassword.value = loginDetails.ncPassword;
 
-    Prefs.pfp.value = '';
+    Prefs.pfp.value = null;
     client.core.getAvatar(userId: username, size: 512)
-        .then((Uint8List avatar) {
-      Prefs.pfp.value = base64Encode(avatar);
+        .then((Uint8List pfp) {
+      Prefs.pfp.value = pfp;
     });
 
     Prefs.lastStorageQuota.value = null;
