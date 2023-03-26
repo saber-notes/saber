@@ -122,6 +122,14 @@
       {
         "q": "¿Por qué usar dos contraseñas?",
         "a": "La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación \"codifica\" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos."
+      },
+      {
+        "q": "¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?",
+        "a": "En vez de usar tu contraseña habitual de Nextcloud, deberás crear una \"contraseña de aplicación\". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada."
+      },
+      {
+        "q": "¿Puedo usar la misma contraseña para ambos?",
+        "a": "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
       }
     ],
     "insecureStorage": {
