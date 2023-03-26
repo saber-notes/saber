@@ -154,7 +154,7 @@ abstract class Prefs {
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     lastStorageQuota = PlainPref('lastStorageQuota', null);
 
-    shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault);
+    shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
     updatesToIgnore = PlainPref('updatesToIgnore', (kDebugMode || FlavorConfig.dirty) ? 0 : 1);
 
     locale = PlainPref('locale', '');
