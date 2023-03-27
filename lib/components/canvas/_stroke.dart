@@ -174,4 +174,40 @@ class Stroke {
       return Point(first.x, last.y);
     }
   }
+
+  bool isLineRoughlyStraight() => deviationFromStraightLine() < 0.01;
+
+  /// Calculates something like the RMSD (root mean square deviation) of the
+  /// points from a straight line between the first and last points.
+  ///
+  /// The lower the value, the more straight the line is.
+  ///
+  /// Note that we've taken some shortcuts for performance:
+  ///  - We don't take the square root at the end.
+  @visibleForTesting
+  double deviationFromStraightLine() {
+    if (points.length < 2) return double.infinity;
+
+    final start = points.first;
+    final end = points.last;
+
+    final dx = end.x - start.x;
+    final dy = end.y - start.y;
+    if (dx == 0 && dy == 0) {
+      // todo: check if the stroke is a polygon if the start and end points are close together
+      return double.infinity;
+    }
+
+    final length = sqrt(dx * dx + dy * dy);
+    final unit = Offset(dx / length, dy / length);
+
+    double sum = 0;
+    for (final point in points) {
+      final t = (point.x - start.x) * unit.dx + (point.y - start.y) * unit.dy;
+      final projected = Offset(start.x + t * unit.dx, start.y + t * unit.dy);
+      final distance = pow(point.x - projected.dx, 2) + pow(point.y - projected.dy, 2);
+      sum += distance;
+    }
+    return sum / points.length / strokeProperties.size / strokeProperties.size;
+  }
 }
