@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2061 (147 per locale)
+/// Strings: 2065 (147 per locale)
 ///
-/// Built on 2023-03-27 at 17:46 UTC
+/// Built on 2023-03-27 at 21:22 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1275,6 +1275,8 @@ class _StringsLoginCs extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Cs._(_root),
 		_StringsLogin$faq$0i1$Cs._(_root),
 		_StringsLogin$faq$0i2$Cs._(_root),
+		_StringsLogin$faq$0i3$Cs._(_root),
+		_StringsLogin$faq$0i4$Cs._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageCs insecureStorage = _StringsLoginInsecureStorageCs._(_root);
 }
@@ -1532,7 +1534,7 @@ class _StringsLogin$faq$0i1$Cs extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'K čemu je heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je využito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.faq.2
@@ -1544,6 +1546,28 @@ class _StringsLogin$faq$0i2$Cs extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Proč používat dvě hesla?';
 	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Cs extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Jak se přihlásím, když používám 2FA?';
+	@override String get a => 'Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit "heslo aplikace". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Cs extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?';
+	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru.';
 }
 
 // Path: login.insecureStorage

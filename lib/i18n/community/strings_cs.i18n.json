@@ -117,11 +117,19 @@
       },
       {
         "q": "K čemu je heslo pro šifrování?",
-        "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Není uloženo na serveru a je využito pouze aplikací Saber pro zašifrování a dešifrování dat.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
+        "a": "Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\n\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům."
       },
       {
         "q": "Proč používat dvě hesla?",
         "a": "Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování \"utají\" vaše data ještě před tím, než se na cloud dostanou.\n\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat."
+      },
+      {
+        "q": "Jak se přihlásím, když používám 2FA?",
+        "a": "Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit \"heslo aplikace\". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká."
+      },
+      {
+        "q": "Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?",
+        "a": "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru."
       }
     ],
     "insecureStorage": {
