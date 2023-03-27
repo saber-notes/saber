@@ -356,10 +356,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "60101d160b0eff277c7b05bc245dc61e0683dc8b46b8361adf2814e05c6f1e39"
+      sha256: "8592b6752635e680a9b640cf198cf4a674eb4efa1b4654137043379c87de648d"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.1"
+    version: "7.0.3"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -459,10 +459,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: b4bb06205ec607278b6fc23db238278417bca84a3905779cc68d1eb7afae37e2
+      sha256: "432409518740645ce7f28802171b78783197d01149fad44f9b8ae55f40277139"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.0"
+    version: "6.5.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -633,7 +633,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "76327354779e2b9f961686a94c474dd1c5232847"
+      resolved-ref: cc3b6df6b2ab6d46a3ffe6580df57288c6631161
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -713,10 +713,10 @@ packages:
     dependency: "direct main"
     description:
       name: path_provider
-      sha256: "04890b994ee89bfa80bf3080bfec40d5a92c5c7a785ebb02c13084a099d2b6f9"
+      sha256: c7edf82217d4b2952b2129a61d3ad60f1075b9299e629e149a8d2e39c2e6aad4
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.13"
+    version: "2.0.14"
   path_provider_android:
     dependency: transitive
     description:
@@ -769,10 +769,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdf
-      sha256: "6cd57e8e6d052bd1078f18e0dc7cd6701fad6288231c1ce99d66ef5034d14e61"
+      sha256: "0e41fae3c0d7674ec2d76831f5c582158a018f0ef054f4bea399dab78f78db1b"
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.0"
+    version: "3.10.0"
   pedantic:
     dependency: transitive
     description:
@@ -818,18 +818,18 @@ packages:
     dependency: transitive
     description:
       name: pointycastle
-      sha256: "57b6b78df14175658f09c5dfcfc51a46ad9561a3504fe679913dab404d0cc0f2"
+      sha256: c3120a968135aead39699267f4c74bc9a08e4e909e86bc1b0af5bfd78691123c
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.0"
+    version: "3.7.2"
   printing:
     dependency: "direct main"
     description:
       name: printing
-      sha256: fe654363cd0114b50a0815b24e96957c7e9a60eb4e3b7ccfe71cf3f2b7114cb2
+      sha256: ccc32aee7998dbeb33d1c820cb445443f3a386ee77866f5df4a7224fa3cee850
       url: "https://pub.dev"
     source: hosted
-    version: "5.10.1"
+    version: "5.10.2"
   process:
     dependency: transitive
     description:
@@ -931,10 +931,10 @@ packages:
     dependency: "direct main"
     description:
       name: shared_preferences
-      sha256: ee6257848f822b8481691f20c3e6d2bfee2e9eccb2a3d249907fcfb198c55b41
+      sha256: "78528fd87d0d08ffd3e69551173c026e8eacc7b7079c82eb6a77413957b7e394"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.18"
+    version: "2.0.20"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -1113,10 +1113,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "845530e5e05db5500c1a4c1446785d60cbd8f9bd45e21e7dd643a3273bb4bbd1"
+      sha256: dd729390aa936bf1bdf5cd1bc7468ff340263f80a2c4f569416507667de8e3c8
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.25"
+    version: "6.0.26"
   url_launcher_ios:
     dependency: transitive
     description:
