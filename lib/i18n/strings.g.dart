@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2053 (146 per locale)
+/// Strings: 2061 (147 per locale)
 ///
-/// Built on 2023-03-26 at 15:26 UTC
+/// Built on 2023-03-27 at 17:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -478,7 +478,7 @@ class _StringsLogin$faq$0i1$En {
 
 	// Translations
 	String get q => 'What is the encryption password?';
-	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and is not related to your Nextcloud account/password.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
+	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it\'s not related to your Nextcloud account/password.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
 }
 
 // Path: login.faq.2
@@ -5393,6 +5393,8 @@ class _StringsLoginRu extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Ru._(_root),
 		_StringsLogin$faq$0i1$Ru._(_root),
 		_StringsLogin$faq$0i2$Ru._(_root),
+		_StringsLogin$faq$0i3$Ru._(_root),
+		_StringsLogin$faq$0i4$Ru._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageRu insecureStorage = _StringsLoginInsecureStorageRu._(_root);
 }
@@ -5650,7 +5652,7 @@ class _StringsLogin$faq$0i1$Ru extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Что такое пароль шифрования?';
-	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед отправкой их на сервер. Он не хранится на сервере и используется Sabre только для шифрования и расшифровки ваших данных.\n\nНикто не может получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Sabre, и он не связан с вашей учетной записью/паролем Nextcloud.\n\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
 }
 
 // Path: login.faq.2
@@ -5662,6 +5664,28 @@ class _StringsLogin$faq$0i2$Ru extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Зачем использовать два пароля?';
 	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\n\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Ru extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Как мне войти, если я использую 2FA?';
+	@override String get a => 'Вместо обычного пароля Nextcloud Вам нужно будет создать "Пароль приложения". Вы можете сделать это в настройках Nextcloud в разделе «Безопасность» -> «Устройства и сеансы» -> «Создать новый пароль приложения». Ваш пароль шифрования не изменится.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Ru extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Могу ли я использовать один и тот же пароль для обоих?';
+	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
 }
 
 // Path: login.insecureStorage
@@ -6941,6 +6965,8 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$ZhHantTw._(_root),
 		_StringsLogin$faq$0i1$ZhHantTw._(_root),
 		_StringsLogin$faq$0i2$ZhHantTw._(_root),
+		_StringsLogin$faq$0i3$ZhHantTw._(_root),
+		_StringsLogin$faq$0i4$ZhHantTw._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageZhHantTw insecureStorage = _StringsLoginInsecureStorageZhHantTw._(_root);
 }
@@ -7187,7 +7213,7 @@ class _StringsLogin$faq$0i0$ZhHantTw extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => '什麼是 Nextcloud？';
-	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。 您可以使用預設的 Sabre Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
+	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Sabre Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
 }
 
 // Path: login.faq.1
@@ -7198,7 +7224,7 @@ class _StringsLogin$faq$0i1$ZhHantTw extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => '加密密碼是什麼？';
-	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。 它不存儲在伺服器上，僅供 Saber 用來加密和解密您的資料。\n\n沒有您的加密密碼，任何人都無法訪問您儲存在伺服器上的筆記。 這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。';
+	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在首次登入 Saber 時選擇它，它與您的 Nextcloud 帳戶/密碼無關。\n\n沒有您的加密密碼，任何人都無法訪問您在伺服器上的筆記。這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。';
 }
 
 // Path: login.faq.2
@@ -7209,7 +7235,29 @@ class _StringsLogin$faq$0i2$ZhHantTw extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => '為什麼要使用兩個密碼？';
-	@override String get a => 'Nextcloud 密碼用於訪問雲端。 而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。 這為您提供了第二層安全保護來保護您的資料。';
+	@override String get a => 'Nextcloud 密碼用於訪問雲端。而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$ZhHantTw extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如果我使用2FA，我應該如何登入？';
+	@override String get a => '您需要創建一個"應用程式密碼"，而不是一般的 Nextcloud 密碼。您可以在安全 > 裝置和會話 > 創建新應用密碼下的 Nextcloud 設定中執行此操作。您的加密密碼不受影響。';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$ZhHantTw extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '我可以讓兩個密碼相同嗎？';
+	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送到伺服器，因此有權訪問伺服器的人將能夠解密您的筆記。只有在您信任伺服器所有者的情況下才使用相同的密碼。';
 }
 
 // Path: login.insecureStorage

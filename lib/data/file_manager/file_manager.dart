@@ -44,9 +44,11 @@ class FileManager {
           || event.type == FileSystemEvent.move
           ? FileOperationType.write
           : FileOperationType.delete;
-      /// The path may or may not be relative,
-      /// so remove the root directory path to make sure it's relative.
-      String path = event.path.replaceFirst(rootDir.path, '');
+      String path = event.path
+          .replaceAll('\\', '/')
+          // The path may or may not be relative,
+          // so remove the root directory path to make sure it's relative.
+          .replaceFirst(rootDir.path, '');
       broadcastFileWrite(type, path);
     });
   }

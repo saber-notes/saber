@@ -68,6 +68,7 @@ dependencies:
     git:
       url: https://github.com/provokateurin/nextcloud-neon
       path: packages/nextcloud
+      ref: 2e7c569e2a15327151f250b0614d8299065f2848
 
   collapsible: ^1.0.0
 
