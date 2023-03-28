@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2069 (147 per locale)
+/// Strings: 2073 (148 per locale)
 ///
-/// Built on 2023-03-28 at 11:02 UTC
+/// Built on 2023-03-28 at 11:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3487,6 +3487,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get dontSavePresetColors => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
+	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 }
 
 // Path: settings.prefDescriptions
@@ -3504,6 +3505,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Les images plus grandes seront compressées';
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
+	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 }
 
 // Path: settings.themeModes
@@ -3738,6 +3740,7 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get clearPage => 'Effacer la page';
 	@override String get clearAllPages => 'Effacer toutes les pages';
 	@override String get lineHeight => 'Hauteur de ligne';
+	@override String get lineHeightDescription => 'Contrôle aussi la taille du texte';
 	@override String get backgroundImage => 'Image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get removeBgImage => 'Effacer l\'image de fond';
@@ -3807,6 +3810,7 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Lignes';
 	@override String get grid => 'Grille';
 	@override String get dots => 'Points';
+	@override String get staffs => 'Staffs';
 }
 
 // Path: <root>
