@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2065 (147 per locale)
+/// Strings: 2069 (147 per locale)
 ///
-/// Built on 2023-03-27 at 21:22 UTC
+/// Built on 2023-03-28 at 11:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3361,6 +3361,8 @@ class _StringsLoginFr extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Fr._(_root),
 		_StringsLogin$faq$0i1$Fr._(_root),
 		_StringsLogin$faq$0i2$Fr._(_root),
+		_StringsLogin$faq$0i3$Fr._(_root),
+		_StringsLogin$faq$0i4$Fr._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageFr insecureStorage = _StringsLoginInsecureStorageFr._(_root);
 }
@@ -3615,8 +3617,8 @@ class _StringsLogin$faq$0i1$Fr extends _StringsLogin$faq$0i1$En {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qu\'est-ce qu\'un mot de passe de cryptage ?';
-	@override String get a => 'Le mot de passe de cryptage est utilisé pour crypter vos données avant qu\'elles ne soient envoyées au serveur. Il n\'est pas stocké sur le serveur et n\'est utilisé par Saber que pour chiffrer et déchiffrer vos données.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela signifie également que si vous oubliez votre mot de passe de cryptage, vous perdrez l\'accès à vos données.';
+	@override String get q => 'Qu\'est-ce que le mot de passe de cryptage ?';
+	@override String get a => 'Le mot de passe de cryptage est utilisé pour crypter vos données avant qu\'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l\'accès à vos données.';
 }
 
 // Path: login.faq.2
@@ -3627,7 +3629,29 @@ class _StringsLogin$faq$0i2$Fr extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Pourquoi utiliser deux mots de passe ?';
-	@override String get a => 'Le mot de passe Nextcloud est utilisé pour accéder au cloud. Le mot de passe de cryptage "brouille" vos données avant même qu\'elles n\'atteignent le cloud.\n\nMême si quelqu\'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela vous fournit une deuxième couche de sécurité pour protéger vos données.';
+	@override String get a => 'Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu\'elles n\'atteignent le nuage.\n\nMême si quelqu\'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Fr extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Comment me connecter si j\'utilise 2FA ?';
+	@override String get a => 'Au lieu d\'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un "mot de passe d\'application". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d\'application. Votre mot de passe de cryptage reste inchangé.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Fr extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Puis-je utiliser le même mot de passe pour les deux ?';
+	@override String get a => 'Oui, mais c\'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N\'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.';
 }
 
 // Path: login.insecureStorage
