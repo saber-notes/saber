@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2077 (148 per locale)
+/// Strings: 2081 (148 per locale)
 ///
-/// Built on 2023-03-28 at 11:07 UTC
+/// Built on 2023-03-28 at 11:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2869,6 +2869,8 @@ class _StringsLoginFa extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Fa._(_root),
 		_StringsLogin$faq$0i1$Fa._(_root),
 		_StringsLogin$faq$0i2$Fa._(_root),
+		_StringsLogin$faq$0i3$Fa._(_root),
+		_StringsLogin$faq$0i4$Fa._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageFa insecureStorage = _StringsLoginInsecureStorageFa._(_root);
 }
@@ -3067,7 +3069,7 @@ class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
 
 	// Translations
 	@override String get checkUsername => 'لطفا نام کاربری یا ایمیل خود را دوباره چک کنید';
-	@override String get enterNcPassword => 'لطفا رمز نکست کلاود خود را وارد کنید';
+	@override String get enterNcPassword => 'لطفا رمز Nextcloud خود را وارد کنید';
 	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
 	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
 	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
@@ -3082,10 +3084,10 @@ class _StringsLoginFormFa extends _StringsLoginFormEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'من می خواهم از یک سرور نکست کلاود سفارشی استفاده کنم';
+	@override String get useCustomServer => 'من می خواهم از یک سرور Nextcloud سفارشی استفاده کنم';
 	@override String get customServerUrl => 'آدرس اینترنتی سرور سفارشی';
 	@override String get username => 'نام کاربری یا ایمیل';
-	@override String get ncPassword => 'رمز ورود نکست کلاود';
+	@override String get ncPassword => 'رمز ورود Nextcloud';
 	@override String get encPassword => 'رمز رمزگذاری';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'با ورود به سیستم، با قوانین موافقت خواهد شد '),
@@ -3102,9 +3104,9 @@ class _StringsLoginStatusFa extends _StringsLoginStatusEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'وارد شدن با نکست کلاود';
+	@override String get loggedIn => 'وارد شدن با Nextcloud';
 	@override String get loggedOut => 'خروج';
-	@override String get tapToLogin => 'برای ورود با نکست کلاود ضربه بزنید';
+	@override String get tapToLogin => 'برای ورود با Nextcloud ضربه بزنید';
 }
 
 // Path: login.faq.0
@@ -3114,8 +3116,8 @@ class _StringsLogin$faq$0i0$Fa extends _StringsLogin$faq$0i0$En {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'نکست کلاود چیست؟';
-	@override String get a => 'نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض نکست کلاود ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.';
+	@override String get q => 'Nextcloud چیست؟';
+	@override String get a => 'نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض Nextcloud ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.';
 }
 
 // Path: login.faq.1
@@ -3137,7 +3139,29 @@ class _StringsLogin$faq$0i2$Fa extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'چرا از دو رمز عبور استفاده میشود؟';
-	@override String get a => 'رمز عبور نکست کلاود برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
+	@override String get a => 'رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Fa extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'اگر از 2FA استفاده کنم چگونه وارد سیستم شوم؟';
+	@override String get a => 'به جای رمز عبور عادی Nextcloud خود، باید یک "گذرواژه برنامه" ایجاد کنید. می‌توانید این کار را در تنظیمات Nextcloud خود در بخش امنیت > دستگاه‌ها و جلسات > ایجاد رمز عبور برنامه جدید انجام دهید. رمز رمزگذاری شما تحت تأثیر قرار نمیگیرد است.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Fa extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟';
+	@override String get a => 'بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.';
 }
 
 // Path: login.insecureStorage
