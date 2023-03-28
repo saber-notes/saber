@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2073 (148 per locale)
+/// Strings: 2077 (148 per locale)
 ///
-/// Built on 2023-03-28 at 11:04 UTC
+/// Built on 2023-03-28 at 11:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2329,6 +2329,8 @@ class _StringsLoginEs extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Es._(_root),
 		_StringsLogin$faq$0i1$Es._(_root),
 		_StringsLogin$faq$0i2$Es._(_root),
+		_StringsLogin$faq$0i3$Es._(_root),
+		_StringsLogin$faq$0i4$Es._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageEs insecureStorage = _StringsLoginInsecureStorageEs._(_root);
 }
@@ -2586,7 +2588,7 @@ class _StringsLogin$faq$0i1$Es extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => '¿Qué es la contraseña de cifrado?';
-	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. No se almacenan en el servidor y Saber solo lo utiliza para cifrar y descifrar sus datos.\n\nNadie puede acceder a sus notas en el servidor sin tu contraseña de cifrado. Esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.\n\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
 }
 
 // Path: login.faq.2
@@ -2598,6 +2600,28 @@ class _StringsLogin$faq$0i2$Es extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => '¿Por qué usar dos contraseñas?';
 	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Es extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?';
+	@override String get a => 'En vez de usar tu contraseña habitual de Nextcloud, deberás crear una "contraseña de aplicación". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Es extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Puedo usar la misma contraseña para ambos?';
+	@override String get a => 'Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.';
 }
 
 // Path: login.insecureStorage
