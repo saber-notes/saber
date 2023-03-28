@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2081 (148 per locale)
+/// Strings: 2085 (148 per locale)
 ///
-/// Built on 2023-03-28 at 11:09 UTC
+/// Built on 2023-03-28 at 15:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6033,6 +6033,8 @@ class _StringsLoginTr extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Tr._(_root),
 		_StringsLogin$faq$0i1$Tr._(_root),
 		_StringsLogin$faq$0i2$Tr._(_root),
+		_StringsLogin$faq$0i3$Tr._(_root),
+		_StringsLogin$faq$0i4$Tr._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageTr insecureStorage = _StringsLoginInsecureStorageTr._(_root);
 }
@@ -6290,7 +6292,7 @@ class _StringsLogin$faq$0i1$Tr extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Şifreleme parolası nedir?';
-	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Bu parola sunucuda saklanmıyor, yalnızca Saber tarafından verilerinizin şifrelenmesi ve şifresinin çözülmesinde kullanılıyor.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
 }
 
 // Path: login.faq.2
@@ -6302,6 +6304,28 @@ class _StringsLogin$faq$0i2$Tr extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Neden iki şifre kullanılıyor?';
 	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Tr extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Eğer Çift Faktörlü Koruma (2FA) kullanıyorsam nasıl giriş yapacağım?';
+	@override String get a => 'Nextcloud parolanız yerine üreteceğiniz "uygulama parolası" ile giriş yapacaksınız. Bu parolayı Nextcloud ayarlarınız içerisinde Güvenlik > Cihazlar & oturumlar > Yeni uygulama parolası üret aşamalarını takip ederek gerçekleştirebilirsiniz. Şifreleme parolanız bundan etkilenmez.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Tr extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Her ikisi için de aynı parolayı kullanabilir miyim?';
+	@override String get a => 'Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın.';
 }
 
 // Path: login.insecureStorage
