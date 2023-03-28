@@ -114,12 +114,20 @@
         "a": "Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données."
       },
       {
-        "q": "Qu'est-ce qu'un mot de passe de cryptage ?",
-        "a": "Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Il n'est pas stocké sur le serveur et n'est utilisé par Saber que pour chiffrer et déchiffrer vos données.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela signifie également que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données."
+        "q": "Qu'est-ce que le mot de passe de cryptage ?",
+        "a": "Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.\n\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données."
       },
       {
         "q": "Pourquoi utiliser deux mots de passe ?",
-        "a": "Le mot de passe Nextcloud est utilisé pour accéder au cloud. Le mot de passe de cryptage \"brouille\" vos données avant même qu'elles n'atteignent le cloud.\n\nMême si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela vous fournit une deuxième couche de sécurité pour protéger vos données."
+        "a": "Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage \"brouille\" vos données avant même qu'elles n'atteignent le nuage.\n\nMême si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données."
+      },
+      {
+           "q": "Comment me connecter si j'utilise 2FA ?",
+        "a": "Au lieu d'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un \"mot de passe d'application\". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d'application. Votre mot de passe de cryptage reste inchangé."
+      },
+      {
+        "q": "Puis-je utiliser le même mot de passe pour les deux ?",
+        "a": "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
       }
     ],
     "insecureStorage": {
