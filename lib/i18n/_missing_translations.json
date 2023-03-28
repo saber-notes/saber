@@ -16,24 +16,7 @@
   },
   "es": {},
   "fa": {},
-  "fr": {
-    "settings": {
-      "prefLabels": {
-        "printPageIndicators": "Print page indicators"
-      },
-      "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
-      }
-    },
-    "editor": {
-      "menu": {
-        "lineHeightDescription": "Also controls the text size",
-        "bgPatterns": {
-          "staffs": "Staffs"
-        }
-      }
-    }
-  },
+  "fr": {},
   "hu": {
     "settings": {
       "prefLabels": {

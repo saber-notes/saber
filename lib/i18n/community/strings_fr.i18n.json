@@ -45,7 +45,8 @@
       "autoClearWhiteboardOnExit": "Effacer le tableau blanc quand vous fermez l'application",
       "editorPromptRename": "Vous rappeler de renommer les notes",
       "hideHomeBackgrounds": "Cacher le fond de la page d'accueil",
-      "dontSavePresetColors": "Ne pas conserver les couleurs pré-définies parmi les couleurs récentes"
+      "dontSavePresetColors": "Ne pas conserver les couleurs pré-définies parmi les couleurs récentes",
+      "printPageIndicators": "Imprimer les numéros de pages"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
@@ -55,7 +56,8 @@
       "autoClearWhiteboardOnExit": "Il restera synchronisé avec vos autres appareils",
       "maxImageSize": "Les images plus grandes seront compressées",
       "editorPromptRename": "Vous pourrez toujours les renommer plus tard",
-      "hideHomeBackgrounds": "Pour une apparence plus sobre"
+      "hideHomeBackgrounds": "Pour une apparence plus sobre",
+      "printPageIndicators": "Montrer les numéros de pages dans les exportations"
     },
     "themeModes": {
       "system": "Système",
@@ -122,7 +124,7 @@
         "a": "Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage \"brouille\" vos données avant même qu'elles n'atteignent le nuage.\n\nMême si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données."
       },
       {
-           "q": "Comment me connecter si j'utilise 2FA ?",
+        "q": "Comment me connecter si j'utilise 2FA ?",
         "a": "Au lieu d'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un \"mot de passe d'application\". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d'application. Votre mot de passe de cryptage reste inchangé."
       },
       {
@@ -184,6 +186,7 @@
       "clearPage": "Effacer la page",
       "clearAllPages": "Effacer toutes les pages",
       "lineHeight": "Hauteur de ligne",
+      "lineHeightDescription": "Contrôle aussi la taille du texte",
       "backgroundImage": "Image de fond",
       "backgroundPattern": "Texture de fond",
       "removeBgImage": "Effacer l'image de fond",
@@ -198,7 +201,8 @@
         "college": "Lignes et marge",
         "lined": "Lignes",
         "grid": "Grille",
-        "dots": "Points"
+        "dots": "Points",
+        "staffs": "Staffs"
       }
     },
     "newerFileFormat": {
