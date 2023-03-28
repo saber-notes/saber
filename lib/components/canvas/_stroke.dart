@@ -91,14 +91,10 @@ class Stroke {
     'oy': offset.dy,
   }..addAll(strokeProperties.toJson());
 
-  void addPoint(Size pageSize, Offset offset, [ double? pressure ]) {
+  void addPoint(Offset offset, [ double? pressure ]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
 
-    double size = strokeProperties.size;
-
-    double x = max(min(offset.dx, pageSize.width + size), -size);
-    double y = max(min(offset.dy, pageSize.height + size), -size);
-    Point point = Point(x, y, pressure ?? 0.5);
+    Point point = Point(offset.dx, offset.dy, pressure ?? 0.5);
 
     if (pressure != null) strokeProperties.simulatePressure = false;
 

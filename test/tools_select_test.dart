@@ -11,7 +11,6 @@ void main() {
   test('Test that the select tool selects the right strokes', () async {
     Select select = Select.currentSelect;
     StrokeProperties strokeProperties = StrokeProperties();
-    Size pageSize = const Size(100, 100);
 
     // Drag gesture in a 10x10 square shape, on page 0
     select.onDragStart(Offset.zero, 0);
@@ -27,19 +26,19 @@ void main() {
         strokeProperties: strokeProperties,
         pageIndex: 0,
         penType: 'testing pen',
-      )..addPoint(pageSize, const Offset(5, 5)),
+      )..addPoint(const Offset(5, 5)),
       // index > 0 is outside
       Stroke(
         strokeProperties: strokeProperties,
         pageIndex: 0,
         penType: 'testing pen',
-      )..addPoint(pageSize, const Offset(15, 15)),
+      )..addPoint(const Offset(15, 15)),
       // same as index 0, but offset outside
       Stroke(
         strokeProperties: strokeProperties,
         pageIndex: 0,
         penType: 'testing pen',
-      )..addPoint(pageSize, const Offset(5, 5))
+      )..addPoint(const Offset(5, 5))
         ..offset = const Offset(10, 10),
     ];
 

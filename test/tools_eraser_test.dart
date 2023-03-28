@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -10,7 +9,6 @@ const String _penType = 'testing pen';
 final StrokeProperties _strokeProperties = StrokeProperties(
   size: 1, // small size so we have more precision in test
 );
-const Size _pageSize = Size(100, 100);
 const Offset _eraserPos = Offset(50, 50);
 
 void main() {
@@ -39,8 +37,8 @@ void main() {
         pageIndex: 0,
         penType: _penType,
       )
-        ..addPoint(_pageSize, _eraserPos + const Offset(-20, -20) * eraser.size)
-        ..addPoint(_pageSize, _eraserPos + const Offset(20, 20) * eraser.size)
+        ..addPoint(_eraserPos + const Offset(-20, -20) * eraser.size)
+        ..addPoint(_eraserPos + const Offset(20, 20) * eraser.size)
         ..isStraightLine = true,
     ];
 
@@ -83,4 +81,4 @@ Stroke _strokeWithPoint(Offset point) => Stroke(
   strokeProperties: _strokeProperties,
   pageIndex: 0,
   penType: _penType,
-)..addPoint(_pageSize, point);
+)..addPoint(point);

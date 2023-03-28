@@ -68,7 +68,7 @@ class Pen extends Tool {
 
   static Pen currentPen = Pen.fountainPen();
 
-  void onDragStart(Size pageSize, Offset position, int pageIndex, double? pressure) {
+  void onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
       strokeProperties: strokeProperties.copy(),
       pageIndex: pageIndex,
@@ -76,11 +76,11 @@ class Pen extends Tool {
     );
     firstPosition = position;
     lastPosition = position;
-    onDragUpdate(pageSize, position, pressure, null);
+    onDragUpdate(position, pressure, null);
   }
 
-  void onDragUpdate(Size pageSize, Offset position, double? pressure, VoidCallback? redrawPage) {
-    currentStroke!.addPoint(pageSize, position, pressure);
+  void onDragUpdate(Offset position, double? pressure, VoidCallback? redrawPage) {
+    currentStroke!.addPoint(position, pressure);
 
     if (currentStroke!.isStraightLine) return;
 

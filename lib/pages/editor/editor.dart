@@ -407,7 +407,7 @@ class EditorState extends State<Editor> {
     history.canRedo = false;
 
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragStart(page.size, position, dragPageIndex!, currentPressure);
+      (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
         page.strokes.remove(stroke);
@@ -440,7 +440,7 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragUpdate(page.size, position, currentPressure, page.redrawStrokes);
+      (currentTool as Pen).onDragUpdate(position, currentPressure, page.redrawStrokes);
       page.redrawStrokes();
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
