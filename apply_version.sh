@@ -70,7 +70,7 @@ echo " - Updating version in snap/snapcraft.yaml" # e.g. version: 0.5.5
 sed -i "s/version: .*/version: $BUILD_NAME/g" snap/snapcraft.yaml
 
 echo " - Updating VERSION_AS_NUMBER in windows/runner/Runner.rc" # e.g. #define VERSION_AS_NUMBER 0,5,5,0
-BUILD_NAME_WITH_COMMAS=$(echo $BUILD_NAME | sed 's/\./,/g')
+BUILD_NAME_WITH_COMMAS=$(echo "$BUILD_NAME" | sed 's/\./,/g')
 sed -i "s/#define VERSION_AS_NUMBER .*/#define VERSION_AS_NUMBER $BUILD_NAME_WITH_COMMAS,0/g" windows/runner/Runner.rc
 
 echo " - Updating VERSION_AS_STRING in windows/runner/Runner.rc" # e.g. #define VERSION_AS_STRING "0.5.5.0"
