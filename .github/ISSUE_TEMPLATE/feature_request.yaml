@@ -1,40 +1,36 @@
-name: Bug Report
-description: Create a report to help us improve
-title: "[BUG] "
-labels: ["bug"]
+name: Feature Request
+description: Suggest an idea for this project
+title: "[FEAT] "
+labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to suggest a new feature!
   - type: textarea
-    id: describe-the-bug
+    id: motivation
     attributes:
-      label: Describe the bug
-      description: A clear and concise description of what the bug is.
-      placeholder: Tell us what you see!
+      label: Motivation
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: A clear and concise description of what the problem is. E.g. I'm always frustrated when [...]
     validations:
       required: true
   - type: textarea
-    id: to-reproduce
+    id: solution
     attributes:
-      label: To reproduce
-      description: Steps to reproduce the behavior
-      placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
+      label: Solution
+      description: Describe the solution you'd like
+      placeholder: A clear and concise description of what you want to happen.
     validations:
       required: true
   - type: textarea
-    id: expected-behavior
+    id: alternatives
     attributes:
-      label: Expected behavior
-      description: A clear and concise description of what you expected to happen.
-      placeholder: Tell us what you expected!
+      label: Alternatives
+      description: Describe alternatives you've considered
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
     validations:
-      required: true
+      required: false
   - type: input
     id: version
     attributes:
@@ -58,7 +54,7 @@ body:
     attributes:
       label: Anything else?
       description: |
-        Links? References? Anything that will give us more context about the issue you are encountering!
+        Links? References? Anything that will give us more context about the feature you are suggesting!
         Screen recordings are especially useful!
     validations:
       required: false
