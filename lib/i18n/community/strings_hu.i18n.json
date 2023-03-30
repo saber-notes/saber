@@ -108,7 +108,7 @@
       "loggedOut": "Kijelentkezve",
       "tapToLogin": "Kattintson a Nextclouddal való bejelentkezéshez"
     },
-    "faq": [
+    "faq(OUTDATED)": [
       {
         "q": "Mi az a Nextclound?",
         "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja a Saber Nextcloud alapértelmezett kiszolgálóját, használhat egy harmadik féltől származó kiszolgálót, vagy saját szerverét, hogy teljes körű felügyeletet biztosítson adatai felett."

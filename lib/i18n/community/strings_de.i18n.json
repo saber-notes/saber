@@ -110,7 +110,7 @@
       "loggedOut": "Nicht angemeldet",
       "tapToLogin": "Hier tippen, um dich mit Nextcloud anzumelden"
     },
-    "faq": [
+    "faq(OUTDATED)": [
       {
         "q": "Was ist Nextcloud?",
         "a": "Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."

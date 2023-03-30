@@ -110,7 +110,7 @@
       "loggedOut": "已注销",
       "tapToLogin": "点击以使用 Nextcloud 登录"
     },
-    "faq": [
+    "faq(OUTDATED)": [
       {
         "q": "Nextcloud 是什么？",
         "a": "Nextcloud 是一个私人文件同步服务器。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。"
