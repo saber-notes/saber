@@ -1,0 +1,4 @@
+• Fixed the file watcher on Windows
+• Updated the login FAQ section
+• Fixed some bugs with PDF exporting
+• Upgraded to Flutter 3.7.8
