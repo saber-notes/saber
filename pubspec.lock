@@ -459,10 +459,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "432409518740645ce7f28802171b78783197d01149fad44f9b8ae55f40277139"
+      sha256: "7f25c4bb371b74b6f32f74946707db4595fa66e68ddc7f0da4a4dafb18a21480"
       url: "https://pub.dev"
     source: hosted
-    version: "6.5.0"
+    version: "6.5.1"
   google_fonts:
     dependency: "direct main"
     description:
@@ -729,10 +729,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_foundation
-      sha256: "12eee51abdf4d34c590f043f45073adbb45514a108bd9db4491547a2fd891059"
+      sha256: "818b2dc38b0f178e0ea3f7cf3b28146faab11375985d815942a68eee11c2d0f7"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.1"
   path_provider_linux:
     dependency: transitive
     description:
@@ -769,10 +769,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdf
-      sha256: "0e41fae3c0d7674ec2d76831f5c582158a018f0ef054f4bea399dab78f78db1b"
+      sha256: "586d3debf5432e5377044754032cfa53ab45e9abf371d4865e9ad5019570e246"
       url: "https://pub.dev"
     source: hosted
-    version: "3.10.0"
+    version: "3.10.1"
   pedantic:
     dependency: transitive
     description:
@@ -826,10 +826,10 @@ packages:
     dependency: "direct main"
     description:
       name: printing
-      sha256: ccc32aee7998dbeb33d1c820cb445443f3a386ee77866f5df4a7224fa3cee850
+      sha256: c5c19dd852e95aa140141df13fa304f079a20c4a14a66de5275a0f811240aeec
       url: "https://pub.dev"
     source: hosted
-    version: "5.10.2"
+    version: "5.10.3"
   process:
     dependency: transitive
     description:
@@ -963,10 +963,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_platform_interface
-      sha256: "824bfd02713e37603b2bdade0842e47d56e7db32b1dcdd1cae533fb88e2913fc"
+      sha256: fb5cf25c0235df2d0640ac1b1174f6466bd311f621574997ac59018a6664548d
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "2.2.0"
   shared_preferences_web:
     dependency: transitive
     description:
@@ -992,18 +992,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "0b00009932e16278eb7e898153538653e5a6eefc88c437e2bd8f3af1de326acf"
+      sha256: cf850695aa80d7144bf97be38a7ff46c7aa14ec9277b205a15dfbf427b5a98bc
       url: "https://pub.dev"
     source: hosted
-    version: "3.14.0"
+    version: "3.15.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: a85e7787a7f14f3982829e14f7f6bad510744d7a255736979a4c7450427ad615
+      sha256: ce5b1caba362a895aabd433a9152ffe826019967d0001f7e9f1cf0b0c5f17f05
       url: "https://pub.dev"
     source: hosted
-    version: "3.14.0"
+    version: "3.15.0"
   source_span:
     dependency: transitive
     description:
