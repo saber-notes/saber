@@ -66,7 +66,7 @@ abstract class EditorExporter {
                       final bounds = stroke.path.shift(stroke.offset).getBounds();
                       final radius = max(bounds.size.width, stroke.strokeProperties.size * 0.5) / 2;
                       pdfGraphics.drawEllipse(
-                        bounds.center.dx, bounds.center.dy,
+                        bounds.center.dx, pageSize.height - bounds.center.dy,
                         radius, radius,
                       );
                     } else {
