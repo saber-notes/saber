@@ -91,14 +91,12 @@ class Stroke {
     'oy': offset.dy,
   }..addAll(strokeProperties.toJson());
 
-  void addPoint(Offset offset, [ double? pressure ]) {
+  void addPoint(Offset point, [ double? pressure ]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
-
-    Point point = Point(offset.dx, offset.dy, pressure ?? 0.5);
 
     if (pressure != null) strokeProperties.simulatePressure = false;
 
-    points.add(point);
+    points.add(Point(point.dx, point.dy, pressure ?? 0.5));
     _polygonNeedsUpdating = true;
   }
 
@@ -134,14 +132,15 @@ class Stroke {
   }
 
   String toSvgPath(Size pageSize) {
-    String toSvgPoint(Offset offset) {
-      return '${offset.dx} ${pageSize.height - offset.dy}';
+    String toSvgPoint(Offset point) {
+      return '${point.dx + offset.dx} '
+          '${pageSize.height - (point.dy + offset.dy)}';
     }
 
     if (polygon.isEmpty) {
       return '';
     } else {
-      return "M${polygon.map((offset) => toSvgPoint(offset)).join("L")}";
+      return "M${polygon.map((point) => toSvgPoint(point)).join("L")}";
     }
   }
 
@@ -184,6 +183,7 @@ class Stroke {
   ///
   /// Note that we've taken some shortcuts for performance:
   ///  - We don't take the square root at the end.
+  ///  - We ignore [offset] since it makes no difference.
   @visibleForTesting
   double deviationFromStraightLine() {
     if (points.length < 2) return double.infinity;
