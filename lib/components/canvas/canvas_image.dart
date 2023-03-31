@@ -193,6 +193,8 @@ class _CanvasImageState extends State<CanvasImage> {
                               context,
                             ),
                             shaderBuilder: (ui.Image image, Size size) {
+                              shader.setFloat(0, size.width);
+                              shader.setFloat(1, size.height);
                               shader.setImageSampler(0, image);
                               return shader;
                             },

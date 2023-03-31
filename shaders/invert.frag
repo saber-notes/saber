@@ -2,6 +2,8 @@
 
 #include <flutter/runtime_effect.glsl>
 
+/// The image size
+uniform vec2 uSize;
 /// The widget captured as a texture.
 layout(location = 0) uniform sampler2D uTexture;
 
@@ -95,7 +97,8 @@ vec3 hslToRgb(float h, float s, float l) {
 
 void main() {
     // Get the (uninverted) color of the current pixel.
-    vec4 color = texture(uTexture, FlutterFragCoord().xy);
+    vec2 uv = FlutterFragCoord().xy / uSize;
+    vec4 color = texture(uTexture, uv);
 
     // Convert the color to HSL
     vec3 hsl = rgbToHsl(color.x, color.y, color.z);
