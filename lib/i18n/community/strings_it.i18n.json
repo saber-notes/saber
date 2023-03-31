@@ -110,18 +110,26 @@
       "loggedOut": "Disconnesso",
       "tapToLogin": "Tocca per accedere con Nextcloud"
     },
-    "faq(OUTDATED)": [
+    "faq": [
       {
-        "q": "Cos'è Nextcloud?",
-        "a": "Nextcloud è, tra le altre cose, un server di sincronizzazione file privato. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati."
+        "q": "Che cos'è Nextcloud?",
+        "a": "Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati."
       },
       {
-        "q": "Cos'è la password di crittografia?",
-        "a": "La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Non è archiviato sul server e viene utilizzato solo da Sabre per crittografare e decrittografare i tuoi dati.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati."
+        "q": "Qual è la password di crittografia?",
+        "a": "La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati."
       },
       {
         "q": "Perché usare due password?",
         "a": "La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia \"codifica\" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati."
+      },
+      {
+        "q": "Come faccio ad accedere se utilizzo 2FA?",
+        "a": "Invece della tua normale password Nextcloud, dovrai creare una \"password per l'app\". Puoi farlo nelle impostazioni di Nextcloud in Sicurezza > Dispositivi e sessioni > Crea una nuova password per l'app. La tua password di crittografia rimane inalterata."
+      },
+      {
+        "q": "Posso usare la stessa password per entrambi?",
+        "a": "Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server."
       }
     ],
     "insecureStorage": {
