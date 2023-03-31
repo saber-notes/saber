@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2089 (149 per locale)
+/// Strings: 2093 (149 per locale)
 ///
-/// Built on 2023-03-31 at 07:28 UTC
+/// Built on 2023-03-31 at 07:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4461,6 +4461,8 @@ class _StringsLoginIt extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$It._(_root),
 		_StringsLogin$faq$0i1$It._(_root),
 		_StringsLogin$faq$0i2$It._(_root),
+		_StringsLogin$faq$0i3$It._(_root),
+		_StringsLogin$faq$0i4$It._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageIt insecureStorage = _StringsLoginInsecureStorageIt._(_root);
 }
@@ -4706,8 +4708,8 @@ class _StringsLogin$faq$0i0$It extends _StringsLogin$faq$0i0$En {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Cos\'è Nextcloud?';
-	@override String get a => 'Nextcloud è, tra le altre cose, un server di sincronizzazione file privato. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.';
+	@override String get q => 'Che cos\'è Nextcloud?';
+	@override String get a => 'Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.';
 }
 
 // Path: login.faq.1
@@ -4717,8 +4719,8 @@ class _StringsLogin$faq$0i1$It extends _StringsLogin$faq$0i1$En {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Cos\'è la password di crittografia?';
-	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Non è archiviato sul server e viene utilizzato solo da Sabre per crittografare e decrittografare i tuoi dati.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+	@override String get q => 'Qual è la password di crittografia?';
+	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\n\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
 }
 
 // Path: login.faq.2
@@ -4730,6 +4732,28 @@ class _StringsLogin$faq$0i2$It extends _StringsLogin$faq$0i2$En {
 	// Translations
 	@override String get q => 'Perché usare due password?';
 	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$It extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Come faccio ad accedere se utilizzo 2FA?';
+	@override String get a => 'Invece della tua normale password Nextcloud, dovrai creare una "password per l\'app". Puoi farlo nelle impostazioni di Nextcloud in Sicurezza > Dispositivi e sessioni > Crea una nuova password per l\'app. La tua password di crittografia rimane inalterata.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$It extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Posso usare la stessa password per entrambi?';
+	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
 }
 
 // Path: login.insecureStorage
