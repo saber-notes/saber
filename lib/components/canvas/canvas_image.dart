@@ -187,10 +187,9 @@ class _CanvasImageState extends State<CanvasImage> {
                           offset: -widget.image.srcRect.topLeft,
                           child: ShaderSampler(
                             shaderEnabled: imageBrightness == Brightness.dark,
-                            prepareForSnapshot: () => precacheImage(
-                              MemoryImage(widget.image.bytes),
-                              context,
-                            ),
+                            prepareForSnapshot: () async {
+                              await widget.image.precache(context);
+                            },
                             shaderBuilder: (ui.Image image, Size size) {
                               shader.setFloat(0, size.width);
                               shader.setFloat(1, size.height);

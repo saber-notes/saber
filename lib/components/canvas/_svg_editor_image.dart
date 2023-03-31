@@ -108,6 +108,13 @@ class SvgEditorImage extends EditorImage {
   }
 
   @override
+  Future<void> precache(BuildContext context) async {
+    final loader = SvgStringLoader(svgString);
+    final pictureInfo = await vg.loadPicture(loader, null);
+    pictureInfo.picture.dispose();
+  }
+
+  @override
   Widget buildImageWidget({
     required BoxFit? overrideBoxFit,
     required bool isBackground,

@@ -227,6 +227,11 @@ class EditorImage extends ChangeNotifier {
     loaded = true;
   }
 
+  Future<void> precache(BuildContext context) => precacheImage(
+    MemoryImage(bytes),
+    context,
+  );
+
   Widget buildImageWidget({
     required BoxFit? overrideBoxFit,
     required bool isBackground,
