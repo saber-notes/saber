@@ -43,10 +43,7 @@ vec3 rgbToHsl(float r, float g, float b) {
     float l = (cmax + cmin) / 2.0;
 
     // Calculate saturation
-    float s = 0.0;
-    if (delta != 0.0) {
-        s = delta / (1 - abs(2 * l - 1));
-    }
+    float s = delta / (1 - abs(2 * l - 1));
 
     return vec3(h, s, l);
 }
