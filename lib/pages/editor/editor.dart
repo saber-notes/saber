@@ -644,7 +644,7 @@ class EditorState extends State<Editor> {
       });
     }
   }
-  Future _renameFileNow(String newName) async {
+  Future<void> _renameFileNow(String newName) async {
     if (newName == _filename) return;
 
     coreInfo.filePath = await FileManager.moveFile(coreInfo.filePath + Editor.extension, newName + Editor.extension);
@@ -1271,13 +1271,19 @@ class EditorState extends State<Editor> {
 
   @override
   void dispose() {
-    saveToFile();
+    (() async {
+      if (_renameTimer?.isActive ?? false) {
+        _renameTimer!.cancel();
+        await _renameFileNow(filenameTextEditingController.text);
+        filenameTextEditingController.dispose();
+      }
+      await saveToFile();
+    })();
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
 
     _delayedSaveTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
-    filenameTextEditingController.dispose();
 
     _removeKeybindings();
 
