@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2085 (148 per locale)
+/// Strings: 2089 (149 per locale)
 ///
-/// Built on 2023-03-30 at 13:33 UTC
+/// Built on 2023-03-31 at 07:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4977,6 +4977,8 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$PtBr._(_root),
 		_StringsLogin$faq$0i1$PtBr._(_root),
 		_StringsLogin$faq$0i2$PtBr._(_root),
+		_StringsLogin$faq$0i3$PtBr._(_root),
+		_StringsLogin$faq$0i4$PtBr._(_root),
 	];
 	@override late final _StringsLoginInsecureStoragePtBr insecureStorage = _StringsLoginInsecureStoragePtBr._(_root);
 }
@@ -5223,7 +5225,7 @@ class _StringsLogin$faq$0i0$PtBr extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'O que é o Nextcloud?';
-	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar seu próprio servidor para o controle total dos seus dados.';
+	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar o seu próprio servidor para controle total dos seus dados.';
 }
 
 // Path: login.faq.1
@@ -5234,7 +5236,7 @@ class _StringsLogin$faq$0i1$PtBr extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'O que é uma senha de criptografia?';
-	@override String get a => 'A senha de criptografia é usada para criptografar seus dados antes de eles serem enviados ao servidor. Ela não é armazenada no servidor e é usada apenas pelo Saber para criptografar e descriptografar seus dados.\n\nNinguém pode acessar suas notas no servidor sem sua senha de criptografia. Isso também significa que, se você esquecer sua senha de criptografia, perderá o acesso aos seus dados.';
+	@override String get a => 'A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.\n\nNinguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.';
 }
 
 // Path: login.faq.2
@@ -5245,7 +5247,29 @@ class _StringsLogin$faq$0i2$PtBr extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Por que usar duas senhas?';
-	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" seus dados antes que eles cheguem à nuvem.\n\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, suas anotações permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger seus dados.';
+	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.\n\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$PtBr extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Como eu faço login usando autenticação de dois fatores (2FA)?';
+	@override String get a => 'Em vez de sua senha regular do Nextcloud, você precisará criar uma "senha de aplicativo". Você pode fazer isso nas configurações do Nextcloud em Segurança > Dispositivos e sessões > Criar nova senha de aplicativo. A sua senha de criptografia não é afetada.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$PtBr extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Posso usar a mesma senha para ambos?';
+	@override String get a => 'Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. ';
 }
 
 // Path: login.insecureStorage
