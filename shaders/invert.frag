@@ -2,94 +2,47 @@
 
 #include <flutter/runtime_effect.glsl>
 
+// Color space conversion functions from https://chilliant.com/rgb2hsv.html
+// Credit to Ian Taylor
+
 /// The image size
 uniform vec2 uSize;
 /// The widget captured as a texture.
-layout(location = 0) uniform sampler2D uTexture;
+uniform sampler2D uTexture;
 
 /// Output color at a given pixel.
 /// Represented as a vec4 of RGBA values between 0 and 1.
 out vec4 fragColor;
 
-
-/// Converts an RGB color to HSL
-/// where h is between 0 and 360, s is between 0 and 1, and l is between 0 and 1.
-/// Ported from https://css-tricks.com/converting-color-spaces-in-javascript/
-vec3 rgbToHsl(float r, float g, float b) {
-    // Find greatest and smallest channel values
-    float cmin = min(min(r,g),b);
-    float cmax = max(max(r,g),b);
-    float delta = cmax - cmin;
-
-    // Calculate hue
-    float h;
-    if (delta == 0.0) {
-        h = 0.0;
-    } else if (cmax == r) {
-        h = mod((g - b) / delta, 6.0);
-    } else if (cmax == g) {
-        h = (b - r) / delta + 2.0;
-    } else {
-        h = (r - g) / delta + 4.0;
-    }
-    h = round(h * 60.0);
-
-    // Make negative hues positive behind 360°
-    if (h < 0) {
-        h += 360.0;
-    }
-
-    // Calculate lightness
-    float l = (cmax + cmin) / 2.0;
-
-    // Calculate saturation
-    float s = delta / (1 - abs(2 * l - 1));
-
-    return vec3(h, s, l);
+vec3 HUEtoRGB(float H) {
+    float R = abs(H * 6 - 3) - 1;
+    float G = 2 - abs(H * 6 - 2);
+    float B = 2 - abs(H * 6 - 4);
+    return clamp(vec3(R, G, B), 0.0, 1.0);
 }
 
-/// Helper function for [hslToRgb].
-/// Copied from https://github.com/Jam3/glsl-hsl2rgb/blob/master/index.glsl
-float _hueToRgb(float f1, float f2, float hue) {
-    if (hue < 0.0)
-        hue += 1.0;
-    else if (hue > 1.0)
-        hue -= 1.0;
-    float res;
-    if ((6.0 * hue) < 1.0)
-        res = f1 + (f2 - f1) * 6.0 * hue;
-    else if ((2.0 * hue) < 1.0)
-        res = f2;
-    else if ((3.0 * hue) < 2.0)
-        res = f1 + (f2 - f1) * ((2.0 / 3.0) - hue) * 6.0;
-    else
-        res = f1;
-    return res;
+float Epsilon = 1e-10;
+
+vec3 RGBtoHCV(vec3 RGB) {
+    // Based on work by Sam Hocevar and Emil Persson
+    vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);
+    vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);
+    float C = Q.x - min(Q.w, Q.y);
+    float H = abs((Q.w - Q.y) / (6 * C + Epsilon) + Q.z);
+    return vec3(H, C, Q.x);
 }
 
-/// Converts a HSL color to RGB.
-/// Copied from https://github.com/Jam3/glsl-hsl2rgb/blob/master/index.glsl
-vec3 hslToRgb(float h, float s, float l) {
-    float r = l;
-    float g = l;
-    float b = l;
+vec3 HSLtoRGB(vec3 HSL) {
+    vec3 RGB = HUEtoRGB(HSL.x);
+    float C = (1 - abs(2 * HSL.z - 1)) * HSL.y;
+    return (RGB - 0.5) * C + HSL.z;
+}
 
-    if (s != 0.0) { // not achromatic
-        float f2;
-
-        if (l < 0.5)
-            f2 = l * (1.0 + s);
-        else
-            f2 = l + s - l * s;
-
-        float f1 = 2.0 * l - f2;
-
-        r = _hueToRgb(f1, f2, h + (1.0/3.0));
-        g = _hueToRgb(f1, f2, h);
-        b = _hueToRgb(f1, f2, h - (1.0/3.0));
-    }
-
-    return vec3(r, g, b);
+vec3 RGBtoHSL(vec3 RGB) {
+    vec3 HCV = RGBtoHCV(RGB);
+    float L = HCV.z - HCV.y * 0.5;
+    float S = HCV.y / (1 - abs(L * 2 - 1) + Epsilon);
+    return vec3(HCV.x, S, L);
 }
 
 void main() {
@@ -98,13 +51,13 @@ void main() {
     vec4 color = texture(uTexture, uv);
 
     // Convert the color to HSL
-    vec3 hsl = rgbToHsl(color.x, color.y, color.z);
+    vec3 hsl = RGBtoHSL(color.xyz);
 
     // Invert lightness
     hsl.z = 1.0 - hsl.z;
 
     // Convert back to RGB
-    vec3 invertedRgb = hslToRgb(hsl.x, hsl.y, hsl.z);
+    vec3 invertedRgb = HSLtoRGB(hsl);
 
     // Set the output color to the inverted color
     // (with the same alpha value as the original color).
