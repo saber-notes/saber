@@ -1289,11 +1289,6 @@ class EditorState extends State<Editor> {
 
     for (EditorPage page in coreInfo.pages) {
       page.dispose();
-
-      // dispose of images' cache
-      for (EditorImage image in page.images) {
-        image.invertedBytesCache = null;
-      }
     }
 
     // manually save pen properties since the listeners don't fire if a property is changed

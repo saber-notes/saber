@@ -3,15 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:from_css_color/from_css_color.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/data/extensions/color_extensions.dart';
-import 'package:saber/data/extensions/string_extensions.dart';
-import 'package:worker_manager/worker_manager.dart';
 
 class SvgEditorImage extends EditorImage {
   String svgString;
-  String? invertedSvgString;
 
   @override
   Uint8List get bytes => Uint8List.fromList(utf8.encode(svgString));
@@ -109,8 +104,6 @@ class SvgEditorImage extends EditorImage {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
 
-    invertedSvgString ??= await invertSvgString(svgString);
-
     loaded = true;
   }
 
@@ -135,72 +128,5 @@ class SvgEditorImage extends EditorImage {
         currentColor: Colors.black,
       ),
     );
-  }
-
-  /// Inverts all the colors in the svg string by replacing
-  /// all "fill" and "stroke" attributes (and their css counterparts)
-  /// with their inverted color.
-  @visibleForTesting
-  static Future<String> invertSvgString(String svgString) async {
-    const properties = ['fill', 'stroke', 'color'];
-    for (final String property in properties) {
-      svgString = svgString
-          // property="..."
-          .replaceAllMapped(RegExp('$property=["\'][^"\']+["\']'), (match) {
-            String colorString = match.group(0)!
-                .substring(
-                  property.length + 2,
-                  match.group(0)!.length - 1,
-                );
-            return '$property="${_invertColorMatch(colorString)}"';
-          })
-          // style="property: ...;"
-          .replaceAllMapped(RegExp('$property:[^;"\']+'), (match) {
-            String colorString = match.group(0)!
-                .substring(property.length + 1)
-                .trim();
-            return '$property: ${_invertColorMatch(colorString)}';
-          });
-    }
-
-    // invert any embedded images (in base64 data urls)
-    // ignore: join_return_with_assignment
-    svgString = await svgString.replaceAllMappedAsync(RegExp('data:image/([^;]+);base64,([^"\']+)'), (match) async {
-      try {
-        final format = match.group(1)!;
-        final bytes = base64.decode(match.group(2)!);
-        final invertedBytes = await Executor().execute(
-          fun2: EditorImage.invertImageIsolate,
-          arg1: bytes,
-          arg2: '.$format',
-        );
-        if (invertedBytes == null) return match.group(0)!;
-        return 'data:image/png;base64,${base64.encode(invertedBytes)}';
-      } catch (e) {
-        if (kDebugMode) rethrow;
-        return match.group(0)!;
-      }
-    });
-
-    return svgString;
-  }
-
-  static String _invertColorMatch(String colorString) {
-    String lower = colorString.toLowerCase();
-    if (lower == 'none' || lower == 'transparent'
-        || lower == 'currentcolor' || lower.startsWith('url(')) {
-      return colorString;
-    } else {
-      Color color;
-      try {
-        color = fromCssColor(colorString);
-      } on FormatException {
-        if (kDebugMode) rethrow;
-        return colorString;
-      }
-      return color
-          .withInversion()
-          .toCssString(format: CssColorString.hex);
-    }
   }
 }

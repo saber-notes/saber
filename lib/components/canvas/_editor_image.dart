@@ -1,11 +1,9 @@
-
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_svg_editor_image.dart';
-import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:worker_manager/worker_manager.dart';
 
@@ -20,10 +18,8 @@ class EditorImage extends ChangeNotifier {
   final String extension;
 
   Uint8List bytes;
-  Uint8List? invertedBytesCache;
 
   Uint8List? thumbnailBytes;
-  Uint8List? invertedThumbnailBytes;
   Size thumbnailSize = Size.zero;
 
   /// The maximum image size allowed for this image.
@@ -40,9 +36,6 @@ class EditorImage extends ChangeNotifier {
       bytes = thumbnailBytes!;
       final scale = thumbnailSize.width / naturalSize.width;
       srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale, srcRect.width * scale, srcRect.height * scale);
-    }
-    if (isThumbnail && invertedThumbnailBytes != null) {
-      invertedBytesCache = invertedThumbnailBytes;
     }
   }
 
@@ -89,7 +82,6 @@ class EditorImage extends ChangeNotifier {
     this.srcRect = Rect.zero,
     this.naturalSize = Size.zero,
     this.thumbnailBytes,
-    this.invertedThumbnailBytes,
     bool isThumbnail = false,
   }) :  assert(extension.startsWith('.')) {
     this.dstRect = dstRect;
@@ -137,7 +129,6 @@ class EditorImage extends ChangeNotifier {
         json['nh'] ?? 0,
       ),
       thumbnailBytes: json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
-      invertedThumbnailBytes: json['it'] != null ? Uint8List.fromList((json['it'] as List<dynamic>).cast<int>()) : null,
       isThumbnail: isThumbnail,
     );
   }
@@ -165,7 +156,6 @@ class EditorImage extends ChangeNotifier {
     if (naturalSize.height != 0) json['nh'] = naturalSize.height;
 
     if (thumbnailBytes != null) json['t'] = thumbnailBytes!;
-    if (invertible && invertedThumbnailBytes != null) json['it'] = invertedThumbnailBytes!;
 
     return json;
   }
@@ -234,17 +224,6 @@ class EditorImage extends ChangeNotifier {
       isThumbnail = true; // updates bytes and srcRect
     }
 
-    if (invertible && (invertedThumbnailBytes?.isEmpty ?? true) && !isThumbnail) {
-      invertedThumbnailBytes = await Executor().execute(
-        fun2: invertImageIsolate,
-        arg1: thumbnailBytes ?? bytes,
-        arg2: thumbnailBytes != null ? '.png' : extension, // thumbnail is always png
-      );
-    }
-    if (isThumbnail) {
-      isThumbnail = true;
-    }
-
     loaded = true;
   }
 
@@ -305,27 +284,6 @@ class EditorImage extends ChangeNotifier {
     if (decoded == null) return null;
 
     decoded = image.bakeOrientation(decoded);
-
-    return image.encodePng(decoded);
-  }
-
-  /// Inverts each pixel of the image
-  static Uint8List? invertImageIsolate(Uint8List originalImageBytes, String? extension, TypeSendPort port) {
-    image.Image? decoded = _decodeImage(originalImageBytes, extension);
-    if (decoded == null) return null;
-
-    for (image.Pixel pixel in decoded) {
-      Color inverted = Color.fromRGBO(
-        pixel.r.toInt(),
-        pixel.g.toInt(),
-        pixel.b.toInt(),
-        1,
-      ).withInversion();
-
-      pixel.r = inverted.red;
-      pixel.g = inverted.green;
-      pixel.b = inverted.blue;
-    }
 
     return image.encodePng(decoded);
   }

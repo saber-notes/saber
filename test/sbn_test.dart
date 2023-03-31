@@ -168,7 +168,6 @@ void main() {
       expect(image.naturalSize, const Size(256, 256));
       expect(image.bytes.isNotEmpty, true);
       expect(image.thumbnailBytes, null); // (too small for thumbnail)
-      expect(image.invertedThumbnailBytes?.isNotEmpty, true);
       expect(image.isThumbnail, true);
     });
   });
