@@ -392,9 +392,9 @@ class EditorState extends State<Editor> {
     dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
     if (dragPageIndex == null) return false;
 
-    if (Prefs.editorFingerDrawing.value || currentPressure != null) {
-      return true;
-    } else if (currentTool == Tool.textEditing) {
+    if (currentTool == Tool.textEditing) {
+      return false;
+    } else if (Prefs.editorFingerDrawing.value || currentPressure != null) {
       return true;
     } else {
       if (kDebugMode) print('Non-stylus found, rejected stroke');
