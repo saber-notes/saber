@@ -639,7 +639,7 @@ class EditorState extends State<Editor> {
         );
       });
     } else { // rename after a delay
-      _renameTimer = Timer(const Duration(milliseconds: 500), () {
+      _renameTimer = Timer(const Duration(milliseconds: 5000), () {
         _renameFileNow(newName);
       });
     }
