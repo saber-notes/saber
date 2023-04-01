@@ -35,7 +35,11 @@ class _ShaderSamplerState extends State<ShaderSampler> {
     if (widget.prepareForSnapshot != null) {
       widget.prepareForSnapshot!().then((_) {
         preparedForSnapshot = true;
-        _controller.allowSnapshotting = widget.shaderEnabled;
+        try {
+          _controller.allowSnapshotting = widget.shaderEnabled;
+        } catch (e) {
+          // ignore if controller has been disposed
+        }
       });
     } else {
       preparedForSnapshot = true;
