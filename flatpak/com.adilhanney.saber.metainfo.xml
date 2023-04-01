@@ -59,6 +59,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.10.0" type="development" date="2023-04-01">
+            <description>
+                <ul>
+                    <li>Major performance improvements with inverting images</li>
+                    <li>Reliability improvements when renaming notes</li>
+                    <li>Fixed panning with one finger while using the text tool</li>
+                    <li>Upgraded to Flutter 3.7.9</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.9.12" type="development" date="2023-03-30">
             <description>
                 <ul>
