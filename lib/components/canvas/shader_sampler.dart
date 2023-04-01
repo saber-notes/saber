@@ -63,6 +63,7 @@ class _ShaderSamplerState extends State<ShaderSampler> {
         shaderBuilder: widget.shaderBuilder,
       ),
       controller: _controller,
+      autoresize: true,
       child: widget.child,
     );
   }
