@@ -91,7 +91,12 @@ class _ShaderSnapshotPainter extends SnapshotPainter {
     final shader = shaderBuilder(image, size);
     final Paint paint = Paint()
       ..shader = shader;
-    context.canvas.drawRect(offset & size, paint);
+    context.pushTransform(
+      true,
+      Offset.zero,
+      Matrix4.translationValues(offset.dx, offset.dy, 0),
+      (context, offset) => context.canvas.drawRect(Offset.zero & size, paint),
+    );
   }
 
   @override
