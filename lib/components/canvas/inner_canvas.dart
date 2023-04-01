@@ -9,6 +9,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -107,12 +108,24 @@ class _InnerCanvasState extends State<InnerCanvas> {
       child: CustomPaint(
         painter: CanvasBackgroundPainter(
           invert: invert,
-          backgroundColor: widget.hideBackground
-              ? InnerCanvas.defaultBackgroundColor
-              : backgroundColor,
-          backgroundPattern: widget.hideBackground
-              ? CanvasBackgroundPatterns.none
-              : widget.coreInfo.backgroundPattern,
+          backgroundColor: () {
+            if (page.backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
+              return Colors.white;
+            } else if (widget.hideBackground) {
+              return InnerCanvas.defaultBackgroundColor;
+            } else {
+              return backgroundColor;
+            }
+          }(),
+          backgroundPattern: () {
+            if (page.backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
+              return CanvasBackgroundPatterns.none;
+            } else if (widget.hideBackground) {
+              return CanvasBackgroundPatterns.none;
+            } else {
+              return widget.coreInfo.backgroundPattern;
+            }
+          }(),
           lineHeight: widget.coreInfo.lineHeight,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,

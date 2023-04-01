@@ -120,86 +120,81 @@ class _CanvasImageState extends State<CanvasImage> {
 
     Widget unpositioned = IgnorePointer(
       ignoring: widget.readOnly,
-      child: ColoredBox(
-        color: Prefs.editorOpaqueBackgrounds.value && widget.isBackground
-            ? Colors.white
-            : Colors.transparent,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            MouseRegion(
-              cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () {
-                  active = !active;
-                },
-                onLongPress: active ? showModal : null,
-                onSecondaryTap: active ? showModal : null,
-                onPanStart: active ? (details) {
-                  panStartRect = widget.image.dstRect;
-                } : null,
-                onPanUpdate: active ? (details) {
-                  setState(() {
-                    double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
-                    widget.image.dstRect = Rect.fromLTWH(
-                      (widget.image.dstRect.left + details.delta.dx).clamp(
-                        fivePercent - widget.image.dstRect.width,
-                        widget.pageSize.width - fivePercent,
-                      ).toDouble(),
-                      (widget.image.dstRect.top + details.delta.dy).clamp(
-                        fivePercent - widget.image.dstRect.height,
-                        widget.pageSize.height - fivePercent,
-                      ).toDouble(),
-                      widget.image.dstRect.width,
-                      widget.image.dstRect.height,
-                    );
-                  });
-                } : null,
-                onPanEnd: active ? (details) {
-                  if (panStartRect == widget.image.dstRect) return;
-                  widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
-                    widget.image.dstRect.left - panStartRect.left,
-                    widget.image.dstRect.top - panStartRect.top,
-                    widget.image.dstRect.right - panStartRect.right,
-                    widget.image.dstRect.bottom - panStartRect.bottom,
-                  ));
-                  panStartRect = Rect.zero;
-                } : null,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: active ? colorScheme.onBackground : Colors.transparent,
-                      width: 2,
-                    ),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          MouseRegion(
+            cursor: active ? SystemMouseCursors.grab : MouseCursor.defer,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                active = !active;
+              },
+              onLongPress: active ? showModal : null,
+              onSecondaryTap: active ? showModal : null,
+              onPanStart: active ? (details) {
+                panStartRect = widget.image.dstRect;
+              } : null,
+              onPanUpdate: active ? (details) {
+                setState(() {
+                  double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
+                  widget.image.dstRect = Rect.fromLTWH(
+                    (widget.image.dstRect.left + details.delta.dx).clamp(
+                      fivePercent - widget.image.dstRect.width,
+                      widget.pageSize.width - fivePercent,
+                    ).toDouble(),
+                    (widget.image.dstRect.top + details.delta.dy).clamp(
+                      fivePercent - widget.image.dstRect.height,
+                      widget.pageSize.height - fivePercent,
+                    ).toDouble(),
+                    widget.image.dstRect.width,
+                    widget.image.dstRect.height,
+                  );
+                });
+              } : null,
+              onPanEnd: active ? (details) {
+                if (panStartRect == widget.image.dstRect) return;
+                widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
+                  widget.image.dstRect.left - panStartRect.left,
+                  widget.image.dstRect.top - panStartRect.top,
+                  widget.image.dstRect.right - panStartRect.right,
+                  widget.image.dstRect.bottom - panStartRect.bottom,
+                ));
+                panStartRect = Rect.zero;
+              } : null,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: active ? colorScheme.onBackground : Colors.transparent,
+                    width: 2,
                   ),
-                  child: Center(
-                    child: SizedBox(
-                      width: widget.isBackground
-                        ? widget.pageSize.width
-                        : max(widget.image.dstRect.width, CanvasImage.minImageSize),
-                      height: widget.isBackground
-                        ? widget.pageSize.height
-                        : max(widget.image.dstRect.height, CanvasImage.minImageSize),
-                      child: SizedOverflowBox(
-                        size: widget.image.srcRect.size,
-                        child: Transform.translate(
-                          offset: -widget.image.srcRect.topLeft,
-                          child: ShaderSampler(
-                            shaderEnabled: imageBrightness == Brightness.dark,
-                            prepareForSnapshot: () async {
-                              await widget.image.precache(context);
-                            },
-                            shaderBuilder: (ui.Image image, Size size) {
-                              shader.setFloat(0, size.width);
-                              shader.setFloat(1, size.height);
-                              shader.setImageSampler(0, image);
-                              return shader;
-                            },
-                            child: widget.image.buildImageWidget(
-                              overrideBoxFit: widget.overrideBoxFit,
-                              isBackground: widget.isBackground,
-                            ),
+                ),
+                child: Center(
+                  child: SizedBox(
+                    width: widget.isBackground
+                      ? widget.pageSize.width
+                      : max(widget.image.dstRect.width, CanvasImage.minImageSize),
+                    height: widget.isBackground
+                      ? widget.pageSize.height
+                      : max(widget.image.dstRect.height, CanvasImage.minImageSize),
+                    child: SizedOverflowBox(
+                      size: widget.image.srcRect.size,
+                      child: Transform.translate(
+                        offset: -widget.image.srcRect.topLeft,
+                        child: ShaderSampler(
+                          shaderEnabled: imageBrightness == Brightness.dark,
+                          prepareForSnapshot: () async {
+                            await widget.image.precache(context);
+                          },
+                          shaderBuilder: (ui.Image image, Size size) {
+                            shader.setFloat(0, size.width);
+                            shader.setFloat(1, size.height);
+                            shader.setImageSampler(0, image);
+                            return shader;
+                          },
+                          child: widget.image.buildImageWidget(
+                            overrideBoxFit: widget.overrideBoxFit,
+                            isBackground: widget.isBackground,
                           ),
                         ),
                       ),
@@ -208,23 +203,23 @@ class _CanvasImageState extends State<CanvasImage> {
                 ),
               ),
             ),
-            if (widget.selected) // tint image if selected
-              ColoredBox(
-                color: colorScheme.primary.withOpacity(0.5),
-              ),
-            if (!widget.readOnly)
-              for (double x = -20; x <= 20; x += 20)
-                for (double y = -20; y <= 20; y += 20)
-                  if (x != 0 || y != 0) // ignore (0,0)
-                    _CanvasImageResizeHandle(
-                      active: active,
-                      position: Offset(x, y),
-                      image: widget.image,
-                      parent: this,
-                      afterDrag: () => setState(() {}),
-                    ),
-          ],
-        ),
+          ),
+          if (widget.selected) // tint image if selected
+            ColoredBox(
+              color: colorScheme.primary.withOpacity(0.5),
+            ),
+          if (!widget.readOnly)
+            for (double x = -20; x <= 20; x += 20)
+              for (double y = -20; y <= 20; y += 20)
+                if (x != 0 || y != 0) // ignore (0,0)
+                  _CanvasImageResizeHandle(
+                    active: active,
+                    position: Offset(x, y),
+                    image: widget.image,
+                    parent: this,
+                    afterDrag: () => setState(() {}),
+                  ),
+        ],
       ),
     );
 
