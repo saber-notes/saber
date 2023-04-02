@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -65,6 +66,7 @@ class EditorPage extends Listenable {
       );
 
   factory EditorPage.fromJson(Map<String, dynamic> json, {
+    required List<Uint8List> assets,
     required bool readOnly,
   }) {
     return EditorPage(
@@ -75,6 +77,7 @@ class EditorPage extends Listenable {
       ),
       images: parseImagesJson(
         json['i'] as List?,
+        assets: assets,
         isThumbnail: readOnly,
         onlyFirstPage: false,
       ),
@@ -86,19 +89,23 @@ class EditorPage extends Listenable {
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       ),
       backgroundImage: json['b'] != null
-          ? parseImageJson(json['b'], isThumbnail: false)
+          ? parseImageJson(
+              json['b'],
+              assets: assets,
+              isThumbnail: false,
+            )
           : null,
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson(List<Uint8List> assets) => {
     'w': size.width,
     'h': size.height,
     's': strokes,
-    'i': images,
+    'i': images.map((image) => image.toJson(assets)).toList(),
     'q': quill.controller.document.toDelta().toJson(),
     if (backgroundImage != null)
-      'b': backgroundImage?.toJson(),
+      'b': backgroundImage?.toJson(assets)
   };
 
   /// Inserts a stroke, while keeping the strokes sorted by
@@ -144,21 +151,31 @@ class EditorPage extends Listenable {
       .toList() ?? [];
 
   static List<EditorImage> parseImagesJson(List<dynamic>? images, {
+    required List<Uint8List> assets,
     required bool isThumbnail,
     required bool onlyFirstPage,
   }) => images
       ?.cast<Map<String, dynamic>>()
       .map((Map<String, dynamic> image) {
         if (onlyFirstPage && image['i'] > 0) return null;
-        return parseImageJson(image, isThumbnail: isThumbnail);
+        return parseImageJson(
+          image,
+          assets: assets,
+          isThumbnail: isThumbnail,
+        );
       })
       .where((element) => element != null)
       .cast<EditorImage>()
       .toList() ?? [];
 
   static EditorImage parseImageJson(Map<String, dynamic> json, {
+    required List<Uint8List> assets,
     required bool isThumbnail,
-  }) => EditorImage.fromJson(json, isThumbnail: isThumbnail);
+  }) => EditorImage.fromJson(
+    json,
+    assets: assets,
+    isThumbnail: isThumbnail,
+  );
 
   final List<VoidCallback> _listeners = [];
   bool _disposed = false;

@@ -15,7 +15,7 @@ import 'package:worker_manager/worker_manager.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int sbnVersion = 10;
+  static const int sbnVersion = 11;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
@@ -44,6 +44,7 @@ class EditorCoreInfo {
     .._migrateOldStrokesAndImages(
       strokesJson: null,
       imagesJson: null,
+      assets: const [],
       onlyFirstPage: true,
     );
 
@@ -91,6 +92,7 @@ class EditorCoreInfo {
       lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(
         json['z'] as List?,
+        assets: json['a'] as List<Uint8List>?,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
       ),
@@ -99,6 +101,7 @@ class EditorCoreInfo {
       .._migrateOldStrokesAndImages(
         strokesJson: json['s'] as List?,
         imagesJson: json['i'] as List?,
+        assets: json['a'] as List<Uint8List>?,
         fallbackPageWidth: json['w'] as double?,
         fallbackPageHeight: json['h'] as double?,
         onlyFirstPage: onlyFirstPage,
@@ -117,12 +120,14 @@ class EditorCoreInfo {
     _migrateOldStrokesAndImages(
       strokesJson: json,
       imagesJson: null,
+      assets: null,
       onlyFirstPage: onlyFirstPage,
     );
     _sortStrokes();
   }
 
   static List<EditorPage> _parsePagesJson(List<dynamic>? pages, {
+    required List<Uint8List>? assets,
     required bool readOnly,
     required bool onlyFirstPage,
   }) {
@@ -140,6 +145,7 @@ class EditorCoreInfo {
         .take(onlyFirstPage ? 1 : pages.length)
         .map((dynamic page) => EditorPage.fromJson(
           page as Map<String, dynamic>,
+          assets: assets ?? const [],
           readOnly: readOnly,
         ))
         .toList();
@@ -161,6 +167,7 @@ class EditorCoreInfo {
   void _migrateOldStrokesAndImages({
     required List<dynamic>? strokesJson,
     required List<dynamic>? imagesJson,
+    required List<Uint8List>? assets,
     double? fallbackPageWidth,
     double? fallbackPageHeight,
     required bool onlyFirstPage,
@@ -182,6 +189,7 @@ class EditorCoreInfo {
     if (imagesJson != null) {
       final images = EditorPage.parseImagesJson(
         imagesJson,
+        assets: assets ?? const [],
         isThumbnail: readOnly,
         onlyFirstPage: onlyFirstPage,
       );
@@ -291,15 +299,24 @@ class EditorCoreInfo {
     }
   }
 
-  Map<String, dynamic> toJson() => {
-    'v': sbnVersion,
-    'ni': nextImageId,
-    'b': backgroundColor?.value,
-    'p': backgroundPattern,
-    'l': lineHeight,
-    'z': pages,
-    'c': initialPageIndex,
-  };
+  Map<String, dynamic> toJson() {
+    /// This will be populated in various [toJson] methods.
+    final List<Uint8List> assets = [];
+
+    final json = {
+      'v': sbnVersion,
+      'ni': nextImageId,
+      'b': backgroundColor?.value,
+      'p': backgroundPattern,
+      'l': lineHeight,
+      'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
+      'c': initialPageIndex,
+    };
+
+    json['a'] = assets.map((Uint8List asset) => base64Encode(asset)).toList();
+
+    return json;
+  }
 
   EditorCoreInfo copyWith({
     String? filePath,

@@ -35,13 +35,28 @@ class SvgEditorImage extends EditorImage {
         );
 
   factory SvgEditorImage.fromJson(Map<String, dynamic> json, {
+    required List<Uint8List> assets,
     bool isThumbnail = false,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
+
+    final assetIndex = json['a'] as int?;
+    final String svgString;
+    if (assetIndex != null) {
+      svgString = utf8.decode(assets[assetIndex]);
+    } else if (json['b'] != null) {
+      svgString = json['b'] as String;
+    } else {
+      if (kDebugMode) {
+        print('SvgEditorImage.fromJson: no svg string found');
+      }
+      svgString = '';
+    }
+
     return SvgEditorImage(
       id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-      svgString: json['b'] as String,
+      svgString: svgString,
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -72,15 +87,23 @@ class SvgEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson() {
-    final json = super.toJson();
+  Map<String, dynamic> toJson(List<Uint8List> assets) {
+    final json = super.toJson(
+      assets,
+    );
 
     // remove non-svg fields
-    json.remove('b'); // bytes
     json.remove('t'); // thumbnail bytes
-    json.remove('it'); // inverted thumbnail bytes
+    assert(!json.containsKey('a'));
+    assert(!json.containsKey('b'));
 
-    json['b'] = svgString;
+    Uint8List svgBytes = Uint8List.fromList(utf8.encode(svgString));
+    int assetIndex = assets.indexOf(svgBytes);
+    if (assetIndex == -1) {
+      assetIndex = assets.length;
+      assets.add(svgBytes);
+    }
+    json['a'] = assetIndex;
 
     return json;
   }

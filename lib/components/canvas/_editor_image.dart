@@ -92,17 +92,36 @@ class EditorImage extends ChangeNotifier {
   }
 
   factory EditorImage.fromJson(Map<String, dynamic> json, {
+    required List<Uint8List> assets,
     bool isThumbnail = false,
   }) {
     String? extension = json['e'];
     if (extension == '.svg') {
-      return SvgEditorImage.fromJson(json, isThumbnail: isThumbnail);
+      return SvgEditorImage.fromJson(
+        json,
+        assets: assets,
+        isThumbnail: isThumbnail,
+      );
+    }
+
+    final assetIndex = json['a'] as int?;
+    final Uint8List bytes;
+    if (assetIndex != null) {
+      bytes = assets[assetIndex];
+    } else if (json['b'] != null) {
+      bytes = Uint8List.fromList((json['b'] as List<dynamic>).cast<int>());
+    } else {
+      if (kDebugMode) {
+        throw Exception('EditorImage.fromJson: image bytes not found');
+      }
+      bytes = Uint8List(0);
     }
 
     return EditorImage(
-      id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
+      id: json['id'] ?? -1,
       extension: extension ?? '.jpg',
-      bytes: Uint8List.fromList((json['b'] as List<dynamic>?)?.cast<int>() ?? []),
+      bytes: bytes,
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -133,7 +152,7 @@ class EditorImage extends ChangeNotifier {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson(List<Uint8List> assets) {
     final json = {
       'id': id,
       'e': extension,
@@ -144,8 +163,16 @@ class EditorImage extends ChangeNotifier {
       'y': dstRect.top,
       'w': dstRect.width,
       'h': dstRect.height,
-      'b': bytes,
     };
+
+    if (bytes.isNotEmpty) {
+      int assetIndex = assets.indexOf(bytes);
+      if (assetIndex == -1) {
+        assetIndex = assets.length;
+        assets.add(bytes);
+      }
+      json['a'] = assetIndex;
+    }
 
     if (srcRect.left != 0) json['sx'] = srcRect.left;
     if (srcRect.top != 0) json['sy'] = srcRect.top;
