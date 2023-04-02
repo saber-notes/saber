@@ -64,29 +64,32 @@ class EditorPage extends Listenable {
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       );
 
-  EditorPage.fromJson(Map<String, dynamic> json, {
+  factory EditorPage.fromJson(Map<String, dynamic> json, {
     required bool readOnly,
-  }):
-      size = Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
-      strokes = parseStrokesJson(
+  }) {
+    return EditorPage(
+      size: Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
+      strokes: parseStrokesJson(
         json['s'] as List?,
         onlyFirstPage: false,
       ),
-      images = parseImagesJson(
+      images: parseImagesJson(
         json['i'] as List?,
         isThumbnail: readOnly,
         onlyFirstPage: false,
       ),
-      quill = QuillStruct(
+      quill: QuillStruct(
         controller: json['q'] != null ? QuillController(
           document: Document.fromJson(json['q'] as List),
           selection: const TextSelection.collapsed(offset: 0),
         ) : QuillController.basic(),
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       ),
-      backgroundImage = json['b'] != null
-        ? EditorImage.fromJson(json['b'] as Map<String, dynamic>)
-        : null;
+      backgroundImage: json['b'] != null
+          ? parseImageJson(json['b'], isThumbnail: false)
+          : null,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     'w': size.width,
@@ -144,14 +147,18 @@ class EditorPage extends Listenable {
     required bool isThumbnail,
     required bool onlyFirstPage,
   }) => images
-      ?.map((dynamic image) {
-        final map = image as Map<String, dynamic>;
-        if (onlyFirstPage && map['i'] > 0) return null;
-        return EditorImage.fromJson(map, isThumbnail: isThumbnail);
+      ?.cast<Map<String, dynamic>>()
+      .map((Map<String, dynamic> image) {
+        if (onlyFirstPage && image['i'] > 0) return null;
+        return parseImageJson(image, isThumbnail: isThumbnail);
       })
       .where((element) => element != null)
       .cast<EditorImage>()
       .toList() ?? [];
+
+  static EditorImage parseImageJson(Map<String, dynamic> json, {
+    required bool isThumbnail,
+  }) => EditorImage.fromJson(json, isThumbnail: isThumbnail);
 
   final List<VoidCallback> _listeners = [];
   bool _disposed = false;
