@@ -44,6 +44,7 @@
 				"chmod +x /app/Saber/saber",
 				"mkdir -p /app/bin",
 				"ln -s /app/Saber/saber /app/bin/saber",
+				"ln -s /app/Saber/lib/* /app/lib/",
 
 				"install -Dm644 com.adilhanney.saber.metainfo.xml -t /app/share/metainfo/",
 
