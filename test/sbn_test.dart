@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
+import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 
@@ -171,8 +172,8 @@ void main() {
       expect(image.isThumbnail, true);
     });
 
-    test('v11 image', () async {
-      const path = 'test/sbn_examples/v11_image.sbn';
+    test('v11 image (png)', () async {
+      const path = 'test/sbn_examples/v11_image_png.sbn';
       File file = File(path);
       String contents = await file.readAsString();
 
@@ -211,6 +212,51 @@ void main() {
       expect(image.bytes.isNotEmpty, true);
       expect(image.thumbnailBytes, null); // (too small for thumbnail)
       expect(image.isThumbnail, true);
+    });
+
+    test('v11 image (svg)', () async {
+      const path = 'test/sbn_examples/v11_image_svg.sbn';
+      File file = File(path);
+      String contents = await file.readAsString();
+
+      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
+        contents,
+        path: path,
+        readOnly: true,
+        onlyFirstPage: false,
+        alwaysUseIsolate: true,
+      );
+
+      // make sure the file was loaded
+      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
+
+      expect(coreInfo.nextImageId, 1);
+      expect(coreInfo.pages.length, 2);
+      expect(coreInfo.pages[0].isEmpty, false);
+      expect(coreInfo.pages[1].isEmpty, true);
+
+      final page = coreInfo.pages[0];
+      expect(page.size.width, 1000);
+      expect(page.size.height, 1400);
+      expect(page.quill.controller.document.isEmpty(), true);
+      expect(page.strokes.length, 0);
+      expect(page.images.length, 1);
+
+      expect(page.images[0] is SvgEditorImage, true);
+      final image = page.images[0] as SvgEditorImage;
+      expect(image.id, 0);
+      expect(image.extension, '.svg');
+      expect(image.pageIndex, 0);
+      expect(image.invertible, true);
+      expect(image.backgroundFit, BoxFit.contain);
+      expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
+      expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
+      expect(image.naturalSize, const Size(256, 256));
+      expect(image.thumbnailBytes, null);
+      expect(image.isThumbnail, true);
+
+      expect(image.svgString.isNotEmpty, true);
+      expect(image.svgString, "<svg width='100px' height='100px' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='50'/></svg>");
     });
   });
 }

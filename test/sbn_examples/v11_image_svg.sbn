@@ -1,0 +1,34 @@
+{
+  "v": 9,
+  "ni": 1,
+  "l": 40,
+  "z": [
+    {
+      "w": 1000.0,
+      "h": 1400.0,
+      "s": [],
+      "i": [
+        {
+          "id": 0,
+          "e": ".svg",
+          "i": 0,
+          "v": true,
+          "f": 1,
+          "a": 0,
+          "x": 178.0,
+          "y": 242.0,
+          "w": 256.0,
+          "h": 255.0,
+          "sw": 256.0,
+          "sh": 256.0,
+          "nw": 256.0,
+          "nh": 256.0
+        }
+      ]
+    }
+  ],
+  "c": 0,
+  "a": [
+    "PHN2ZyB3aWR0aD0nMTAwcHgnIGhlaWdodD0nMTAwcHgnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxjaXJjbGUgY3g9JzUwJyBjeT0nNTAnIHI9JzUwJy8+PC9zdmc+"
+  ]
+}
