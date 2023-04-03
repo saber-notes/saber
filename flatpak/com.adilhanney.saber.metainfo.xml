@@ -59,6 +59,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.11.0" type="development" date="2023-04-03">
+            <description>
+                <ul>
+                    <li>(Partial) support for pasting images from the clipboard</li>
+                    <li>Images that are used multiple times are now only stored once</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.10.0" type="development" date="2023-04-01">
             <description>
                 <ul>
