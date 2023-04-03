@@ -82,6 +82,10 @@ class EditorCoreInfo {
     bool readOnlyBecauseOfVersion = (json['v'] as int? ?? 0) > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
+    List<Uint8List>? assets = (json['a'] as List<dynamic>?)
+        ?.map((list) => Uint8List.fromList(list.cast<int>().toList()))
+        .toList();
+
     return EditorCoreInfo._(
       filePath: filePath,
       readOnly: readOnly,
@@ -92,7 +96,7 @@ class EditorCoreInfo {
       lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(
         json['z'] as List?,
-        assets: json['a'] as List<Uint8List>?,
+        assets: assets,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
       ),
@@ -101,7 +105,7 @@ class EditorCoreInfo {
       .._migrateOldStrokesAndImages(
         strokesJson: json['s'] as List?,
         imagesJson: json['i'] as List?,
-        assets: json['a'] as List<Uint8List>?,
+        assets: assets,
         fallbackPageWidth: json['w'] as double?,
         fallbackPageHeight: json['h'] as double?,
         onlyFirstPage: onlyFirstPage,
