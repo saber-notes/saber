@@ -870,6 +870,10 @@ class EditorState extends State<Editor> {
           await for (final chunk in stream) {
             bytes.addAll(chunk);
           }
+          if (bytes.isEmpty) {
+            if (kDebugMode) print('Pasted empty file: $file (${formats[format]})');
+            return;
+          }
 
           String extension;
           if (file.fileName != null) {
