@@ -59,6 +59,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.11.1" type="development" date="2023-04-03">
+            <description>
+                <ul>
+                    <li>Fixed pasting images taken from the Windows Snipping Tool</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.11.0" type="development" date="2023-04-03">
             <description>
                 <ul>
