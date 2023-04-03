@@ -83,7 +83,7 @@ class EditorCoreInfo {
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
     List<Uint8List>? assets = (json['a'] as List<dynamic>?)
-        ?.map((list) => Uint8List.fromList(list.cast<int>().toList()))
+        ?.map((base64) => base64Decode(base64 as String))
         .toList();
 
     return EditorCoreInfo._(
