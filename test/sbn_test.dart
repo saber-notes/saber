@@ -28,7 +28,7 @@ void main() {
       );
 
       // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load v9_single_stroke.sbn');
+      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
 
       expect(coreInfo.backgroundColor, null);
       expect(coreInfo.initialPageIndex, 0);
@@ -83,7 +83,7 @@ void main() {
       );
 
       // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load v9_quill.sbn');
+      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
 
       expect(coreInfo.backgroundColor, null);
       expect(coreInfo.initialPageIndex, 0);
@@ -144,6 +144,48 @@ void main() {
 
       // make sure the file was loaded
       expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load v9_image.sbn');
+
+      expect(coreInfo.nextImageId, 1);
+      expect(coreInfo.pages.length, 2);
+      expect(coreInfo.pages[0].isEmpty, false);
+      expect(coreInfo.pages[1].isEmpty, true);
+
+      final page = coreInfo.pages[0];
+      expect(page.size.width, 1000);
+      expect(page.size.height, 1400);
+      expect(page.quill.controller.document.isEmpty(), true);
+      expect(page.strokes.length, 0);
+      expect(page.images.length, 1);
+
+      final image = page.images[0];
+      expect(image.id, 0);
+      expect(image.extension, '.png');
+      expect(image.pageIndex, 0);
+      expect(image.invertible, true);
+      expect(image.backgroundFit, BoxFit.contain);
+      expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
+      expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
+      expect(image.naturalSize, const Size(256, 256));
+      expect(image.bytes.isNotEmpty, true);
+      expect(image.thumbnailBytes, null); // (too small for thumbnail)
+      expect(image.isThumbnail, true);
+    });
+
+    test('v11 image', () async {
+      const path = 'test/sbn_examples/v11_image.sbn';
+      File file = File(path);
+      String contents = await file.readAsString();
+
+      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
+        contents,
+        path: path,
+        readOnly: true,
+        onlyFirstPage: false,
+        alwaysUseIsolate: true,
+      );
+
+      // make sure the file was loaded
+      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
 
       expect(coreInfo.nextImageId, 1);
       expect(coreInfo.pages.length, 2);
