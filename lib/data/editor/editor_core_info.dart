@@ -241,17 +241,18 @@ class EditorCoreInfo {
     required bool onlyFirstPage,
     bool alwaysUseIsolate = false,
   }) async {
+    EditorCoreInfo coreInfo;
     try {
       if (jsonString.length < 2 * 1024 * 1024 && !alwaysUseIsolate) { // 2 MB
         // if the file is small, just use the main isolate
-        return _loadFromFileIsolate(
+        coreInfo = _loadFromFileIsolate(
           jsonString,
           path,
           readOnly,
           onlyFirstPage,
         );
       } else {
-        return await Executor().execute(
+        coreInfo = await Executor().execute(
           fun4: _loadFromFileIsolate,
           arg1: jsonString,
           arg2: path,
@@ -263,9 +264,17 @@ class EditorCoreInfo {
       if (kDebugMode) {
         rethrow;
       } else {
-        return EditorCoreInfo(filePath: path, readOnly: readOnly);
+        coreInfo = EditorCoreInfo(filePath: path, readOnly: readOnly);
       }
     }
+
+    for (final page in coreInfo.pages) {
+      for (final image in page.images) {
+        image.waitingForIsolateToFinish = false;
+      }
+    }
+
+    return coreInfo;
   }
 
   static EditorCoreInfo _loadFromFileIsolate(

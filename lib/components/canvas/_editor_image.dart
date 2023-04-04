@@ -1,3 +1,4 @@
+import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
@@ -18,6 +19,8 @@ class EditorImage extends ChangeNotifier {
   final String extension;
 
   Uint8List bytes;
+
+  bool waitingForIsolateToFinish = true;
 
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
@@ -189,6 +192,13 @@ class EditorImage extends ChangeNotifier {
 
   @protected
   Future<void> getImage({Size? pageSize}) async {
+    do {
+      // wait for isolate to finish since
+      // [ImageDescriptor] can't be used in an isolate
+      await Future.delayed(const Duration(milliseconds: 10));
+    } while (waitingForIsolateToFinish);
+    assert(Isolate.current.debugName == 'main');
+
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
       naturalSize = Size(image.width.toDouble(), image.height.toDouble());
