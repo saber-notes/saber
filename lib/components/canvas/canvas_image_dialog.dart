@@ -15,6 +15,8 @@ class CanvasImageDialog extends StatefulWidget {
 
     required this.isBackground,
     required this.toggleAsBackground,
+
+    this.singleRow = false
   });
 
   final String filePath;
@@ -22,7 +24,9 @@ class CanvasImageDialog extends StatefulWidget {
   final VoidCallback setStateOfImage;
 
   final bool isBackground;
-  final void Function(EditorImage)? toggleAsBackground;
+  final VoidCallback? toggleAsBackground;
+
+  final bool singleRow;
 
   @override
   State<CanvasImageDialog> createState() => _CanvasImageDialogState();
@@ -39,69 +43,71 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
     final platform = Theme.of(context).platform;
     final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
-    final gridView = GridView.count(
-      crossAxisCount: 2,
-      crossAxisSpacing: 8,
-      mainAxisSpacing: 8,
-      shrinkWrap: true,
-      children: [
-        MergeSemantics(
-          child: _CanvasImageDialogItem(
-            onTap: Prefs.editorAutoInvert.value ? setInvertible : null,
-            title: t.editor.imageOptions.invertible,
-            child: Switch.adaptive(
-              value: widget.image.invertible,
-              onChanged: Prefs.editorAutoInvert.value ? setInvertible : null,
-              thumbIcon: MaterialStateProperty.all(
-                  widget.image.invertible
-                      ? const Icon(Icons.invert_colors)
-                      : const Icon(Icons.invert_colors_off)
-              ),
+    final children = <Widget>[
+
+      MergeSemantics(
+        child: _CanvasImageDialogItem(
+          onTap: Prefs.editorAutoInvert.value ? setInvertible : null,
+          title: t.editor.imageOptions.invertible,
+          child: Switch.adaptive(
+            value: widget.image.invertible,
+            onChanged: Prefs.editorAutoInvert.value ? setInvertible : null,
+            thumbIcon: MaterialStateProperty.all(
+                widget.image.invertible
+                    ? const Icon(Icons.invert_colors)
+                    : const Icon(Icons.invert_colors_off)
             ),
           ),
         ),
-        _CanvasImageDialogItem(
-          onTap: () {
-            final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
-            final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
-            FileManager.exportFile(imageFileName, widget.image.bytes, isImage: true);
-            Navigator.of(context).pop();
-          },
-          title: t.editor.imageOptions.download,
-          child: const AdaptiveIcon(
-            icon: Icons.download,
-            cupertinoIcon: CupertinoIcons.arrow_down_circle_fill,
-          ),
+      ),
+      _CanvasImageDialogItem(
+        onTap: () {
+          final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
+          final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
+          FileManager.exportFile(imageFileName, widget.image.bytes, isImage: true);
+          Navigator.of(context).pop();
+        },
+        title: t.editor.imageOptions.download,
+        child: const AdaptiveIcon(
+          icon: Icons.download,
+          cupertinoIcon: CupertinoIcons.arrow_down_circle_fill,
         ),
-        _CanvasImageDialogItem(
-          onTap: () {
-            widget.toggleAsBackground?.call(widget.image);
-            Navigator.of(context).pop();
-          },
-          title: t.editor.imageOptions.setAsBackground,
-          child: const AdaptiveIcon(
-            icon: Icons.wallpaper,
-            cupertinoIcon: CupertinoIcons.photo_fill_on_rectangle_fill,
-          ),
+      ),
+      _CanvasImageDialogItem(
+        onTap: () {
+          widget.toggleAsBackground?.call();
+          Navigator.of(context).pop();
+        },
+        title: t.editor.imageOptions.setAsBackground,
+        child: const AdaptiveIcon(
+          icon: Icons.wallpaper,
+          cupertinoIcon: CupertinoIcons.photo_fill_on_rectangle_fill,
         ),
-        _CanvasImageDialogItem(
-          onTap: () {
-            widget.image.onDeleteImage?.call(widget.image);
-            Navigator.of(context).pop();
-          },
-          title: t.editor.imageOptions.delete,
-          child: const AdaptiveIcon(
-            icon: Icons.delete,
-            cupertinoIcon: CupertinoIcons.trash_fill,
-          ),
+      ),
+      _CanvasImageDialogItem(
+        onTap: () {
+          widget.image.onDeleteImage?.call(widget.image);
+          Navigator.of(context).pop();
+        },
+        title: t.editor.imageOptions.delete,
+        child: const AdaptiveIcon(
+          icon: Icons.delete,
+          cupertinoIcon: CupertinoIcons.trash_fill,
         ),
-      ],
-    );
+      ),
+    ];
 
+    final gridView = GridView.count(
+      crossAxisCount: widget.singleRow ? children.length : 2,
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
+      shrinkWrap: true,
+      children: children,
+    );
     // issues with intrinsic sizes with each type of dialog
     if (cupertino) {
       return AspectRatio(
-        aspectRatio: 1,
+        aspectRatio: widget.singleRow ? children.length / 1 : 2,
         child: gridView,
       );
     } else {

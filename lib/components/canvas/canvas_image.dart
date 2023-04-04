@@ -269,7 +269,9 @@ class _CanvasImageState extends State<CanvasImage> {
             setStateOfImage: () => setState(() {}),
 
             isBackground: false,
-            toggleAsBackground: widget.setAsBackground,
+            toggleAsBackground: () {
+              widget.setAsBackground?.call(widget.image);
+            },
           ),
           actions: const [],
         );

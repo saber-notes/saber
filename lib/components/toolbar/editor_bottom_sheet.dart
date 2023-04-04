@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_background_preview.dart';
+import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -157,6 +158,15 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     ],
                   ],
                 ),
+              ),
+              const SizedBox(height: 16),
+              CanvasImageDialog(
+                filePath: widget.coreInfo.filePath,
+                image: backgroundImage,
+                setStateOfImage: () => setState(() {}),
+                isBackground: true,
+                toggleAsBackground: widget.removeBackgroundImage,
+                singleRow: true,
               ),
               const SizedBox(height: 16),
             ],
