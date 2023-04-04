@@ -69,6 +69,11 @@ Option 3:
 Download `Saber-{version}-x86_64.AppImage` from the latest [Release][releases],
 make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 
+Option 4:
+There's an unofficial [snap][snap] available. For any issues with the snap,
+please file an issue here: https://github.com/soumyaDghosh/saber.
+`sudo snap install saber`
+
 #### Windows
 
 Download and install `SaberInstaller_{version}.exe` from the latest [Release][releases].
@@ -259,6 +264,7 @@ If you like Saber, please consider supporting it by:
 [f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
 [flathub]: https://flathub.org/apps/details/com.adilhanney.saber
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
+[snap]: https://snapcraft.io/saber
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
