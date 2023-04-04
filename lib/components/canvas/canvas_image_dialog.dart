@@ -11,7 +11,7 @@ class CanvasImageDialog extends StatefulWidget {
     super.key,
     required this.filePath,
     required this.image,
-    required this.setStateOfImage,
+    required this.redrawImage,
 
     required this.isBackground,
     required this.toggleAsBackground,
@@ -21,7 +21,7 @@ class CanvasImageDialog extends StatefulWidget {
 
   final String filePath;
   final EditorImage image;
-  final VoidCallback setStateOfImage;
+  final VoidCallback redrawImage;
 
   final bool isBackground;
   final VoidCallback? toggleAsBackground;
@@ -35,7 +35,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
   void setInvertible([bool? value]) => setState(() {
     widget.image.invertible = value ?? !widget.image.invertible;
     widget.image.onMiscChange?.call();
-    widget.setStateOfImage();
+    widget.redrawImage();
   });
 
   @override

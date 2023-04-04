@@ -1221,6 +1221,7 @@ class EditorState extends State<Editor> {
 
         autosaveAfterDelay();
       }),
+      redrawImage: () => setState(() {}),
       clearPage: () {
         if (coreInfo.readOnly) return;
         if (currentPageIndex == null) return;

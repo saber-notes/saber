@@ -20,6 +20,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.setBackgroundPattern,
     required this.setLineHeight,
     required this.removeBackgroundImage,
+    required this.redrawImage,
     required this.clearPage,
     required this.clearAllPages,
     required this.redrawAndSave,
@@ -34,6 +35,7 @@ class EditorBottomSheet extends StatefulWidget {
   final void Function(String) setBackgroundPattern;
   final void Function(int) setLineHeight;
   final VoidCallback removeBackgroundImage;
+  final VoidCallback redrawImage;
   final VoidCallback clearPage;
   final VoidCallback clearAllPages;
   final VoidCallback redrawAndSave;
@@ -163,7 +165,9 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               CanvasImageDialog(
                 filePath: widget.coreInfo.filePath,
                 image: backgroundImage,
-                setStateOfImage: () => setState(() {}),
+                redrawImage: () => setState(() {
+                  widget.redrawImage();
+                }),
                 isBackground: true,
                 toggleAsBackground: widget.removeBackgroundImage,
                 singleRow: true,

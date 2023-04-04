@@ -266,7 +266,7 @@ class _CanvasImageState extends State<CanvasImage> {
           content: CanvasImageDialog(
             filePath: widget.filePath,
             image: widget.image,
-            setStateOfImage: () => setState(() {}),
+            redrawImage: () => setState(() {}),
 
             isBackground: false,
             toggleAsBackground: () {
