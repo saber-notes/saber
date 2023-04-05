@@ -89,6 +89,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
       _CanvasImageDialogItem(
         onTap: () {
           widget.image.onDeleteImage?.call(widget.image);
+          widget.redrawImage();
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.delete,
