@@ -160,6 +160,9 @@ class EditorState extends State<Editor> {
       createPage(-1);
     } else {
       for (EditorPage page in coreInfo.pages) {
+        page.backgroundImage?.onMoveImage = onMoveImage;
+        page.backgroundImage?.onDeleteImage = onDeleteImage;
+        page.backgroundImage?.onMiscChange = autosaveAfterDelay;
         for (EditorImage image in page.images) {
           image.onMoveImage = onMoveImage;
           image.onDeleteImage = onDeleteImage;
