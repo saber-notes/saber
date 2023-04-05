@@ -43,36 +43,36 @@
   },
   "de": {
     "login": {
-      "faq(OUTDATED)": [
-        {
-          "q": "What is Nextcloud?",
-          "a": "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
+    "faq(OUTDATED)": [
+      {
+        "q": "Was ist Nextcloud?",
+        "a": "Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
+      },
+      {
+        "q": "Was ist das Verchlüsselungspasswort?",
+        "a": "Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\n\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst."
+      },
+      {
+        "q": "Wieso zwei Passwörter?",
+        "a": "Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort \"verwürfelt\" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar."
+      },
+      {
+          "q": "Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?",
+          "a": "Anstatt dein normales Nextcloud Password zu verwenden, musst du ein \"App Password\" erstellen. Das kannst du in den Nextcloud Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft dein Verschlüsselungspassword nicht."
         },
         {
-          "q": "What is the encryption password?",
-          "a": "The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.\n\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data."
-        },
-        {
-          "q": "Why use two passwords?",
-          "a": "The Nextcloud password is used to access the cloud. The encryption password \"scrambles\" your data before it ever reaches the cloud.\n\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data."
-        },
-        {
-          "q": "How do I login if I use 2FA?",
-          "a": "Instead of your regular Nextcloud password, you'll need to create an \"app password\". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected."
-        },
-        {
-          "q": "Can I use the same password for both?",
-          "a": "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
+          "q": "Kann ich dasselbe Passwort für beide verwenden?",
+          "a": "Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust."
         }
-      ]
-    },
+    ],
+      },
     "editor": {
       "imageOptions": {
-        "removeAsBackground": "Remove as background"
+        "removeAsBackground": "Hintergrund entfernen"
       },
       "menu": {
         "bgPatterns": {
-          "staffs": "Staffs"
+          "staffs": "Notenpapier"
         }
       }
     }
