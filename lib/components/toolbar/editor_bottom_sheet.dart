@@ -119,18 +119,6 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    IconButton(
-                      onPressed: () => setState(() {
-                        widget.removeBackgroundImage();
-                      }),
-                      tooltip: t.editor.menu.removeBgImage,
-                      icon: const AdaptiveIcon(
-                        icon: Icons.hide_image,
-                        cupertinoIcon: CupertinoIcons.clear_fill,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-
                     for (final BoxFit boxFit in [
                       BoxFit.fill,
                       BoxFit.cover,
