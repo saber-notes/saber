@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2082 (148 per locale)
+/// Strings: 2088 (149 per locale)
 ///
-/// Built on 2023-04-05 at 16:49 UTC
+/// Built on 2023-04-05 at 16:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1813,6 +1813,8 @@ class _StringsLoginDe extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$De._(_root),
 		_StringsLogin$faq$0i1$De._(_root),
 		_StringsLogin$faq$0i2$De._(_root),
+		_StringsLogin$faq$0i3$De._(_root),
+		_StringsLogin$faq$0i4$De._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageDe insecureStorage = _StringsLoginInsecureStorageDe._(_root);
 }
@@ -2084,6 +2086,28 @@ class _StringsLogin$faq$0i2$De extends _StringsLogin$faq$0i2$En {
 	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\n\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
 }
 
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$De extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?';
+	@override String get a => 'Anstatt dein normales Nextcloud Password zu verwenden, musst du ein "App Password" erstellen. Das kannst du in den Nextcloud Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft dein Verschlüsselungspassword nicht.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$De extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Kann ich dasselbe Passwort für beide verwenden?';
+	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust.';
+}
+
 // Path: login.insecureStorage
 class _StringsLoginInsecureStorageDe extends _StringsLoginInsecureStorageEn {
 	_StringsLoginInsecureStorageDe._(_StringsDe root) : this._root = root, super._(root);
@@ -2155,6 +2179,7 @@ class _StringsEditorImageOptionsDe extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Invertierbar';
 	@override String get download => 'Herunterladen';
 	@override String get setAsBackground => 'Als Hintergrund festlegen';
+	@override String get removeAsBackground => 'Hintergrund entfernen';
 	@override String get delete => 'Entfernen';
 }
 
@@ -2237,6 +2262,7 @@ class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Liniert';
 	@override String get grid => 'Kariert';
 	@override String get dots => 'Gepunktet';
+	@override String get staffs => 'Notenpapier';
 }
 
 // Path: <root>
