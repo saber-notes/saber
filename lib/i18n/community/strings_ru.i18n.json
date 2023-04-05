@@ -180,6 +180,7 @@
       "invertible": "Инвертировать",
       "download": "Сохранить",
       "setAsBackground": "Сделать фоном",
+      "removeAsBackground": "Удалить фон",
       "delete": "Удалить"
     },
     "menu": {
