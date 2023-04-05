@@ -1,0 +1,2 @@
+• Fixed error when loading large files with lots of images
+• Added more options in the background image section of the editor menu

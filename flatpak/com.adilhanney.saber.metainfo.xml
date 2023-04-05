@@ -59,6 +59,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.11.2" type="development" date="2023-04-05">
+            <description>
+                <ul>
+                    <li>Fixed error when loading large files with lots of images</li>
+                    <li>Added more options in the background image section of the editor menu</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.11.1" type="development" date="2023-04-03">
             <description>
                 <ul>
