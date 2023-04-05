@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2088 (149 per locale)
+/// Strings: 2089 (149 per locale)
 ///
-/// Built on 2023-04-05 at 16:53 UTC
+/// Built on 2023-04-05 at 16:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6464,6 +6464,7 @@ class _StringsEditorImageOptionsTr extends _StringsEditorImageOptionsEn {
 	@override String get invertible => '(Rengi) Tersine çevrilebilir';
 	@override String get download => 'İndir';
 	@override String get setAsBackground => 'Arkaplan olarak ayarla';
+	@override String get removeAsBackground => 'Arkaplanı kaldır';
 	@override String get delete => 'Sil';
 }
 
