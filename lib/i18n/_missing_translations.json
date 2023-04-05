@@ -157,13 +157,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Remove as background"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "editor": {
       "imageOptions": {

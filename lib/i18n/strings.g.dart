@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2081 (148 per locale)
+/// Strings: 2082 (148 per locale)
 ///
-/// Built on 2023-04-05 at 16:48 UTC
+/// Built on 2023-04-05 at 16:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5898,6 +5898,7 @@ class _StringsEditorImageOptionsRu extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Инвертировать';
 	@override String get download => 'Сохранить';
 	@override String get setAsBackground => 'Сделать фоном';
+	@override String get removeAsBackground => 'Удалить фон';
 	@override String get delete => 'Удалить';
 }
 
