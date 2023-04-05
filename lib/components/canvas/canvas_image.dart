@@ -57,9 +57,11 @@ class _CanvasImageState extends State<CanvasImage> {
       CanvasImage.activeListener.notifyListeners(); // de-activate all other images
     }
 
-    setState(() {
-      _active = value;
-    });
+    _active = value;
+
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Brightness imageBrightness = Brightness.light;
