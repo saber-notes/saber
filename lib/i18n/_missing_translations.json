@@ -123,13 +123,7 @@
     }
   },
   "ru": {},
-  "tr": {
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Arkaplanı kaldır"
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
