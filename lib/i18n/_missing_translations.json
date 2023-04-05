@@ -157,13 +157,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Удалить фон"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "editor": {
       "imageOptions": {
