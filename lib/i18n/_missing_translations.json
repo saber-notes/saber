@@ -27,9 +27,20 @@
           "a": "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
         }
       ]
+    },
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
     }
   },
-  "cs": {},
+  "cs": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
   "de": {
     "login": {
       "faq(OUTDATED)": [
@@ -56,6 +67,9 @@
       ]
     },
     "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      },
       "menu": {
         "bgPatterns": {
           "staffs": "Staffs"
@@ -63,9 +77,27 @@
       }
     }
   },
-  "es": {},
-  "fa": {},
-  "fr": {},
+  "es": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
+  "fa": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
+  "fr": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
   "hu": {
     "settings": {
       "prefLabels": {
@@ -100,6 +132,9 @@
       ]
     },
     "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      },
       "menu": {
         "lineHeightDescription": "Also controls the text size",
         "bgPatterns": {
@@ -108,10 +143,34 @@
       }
     }
   },
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
-  "tr": {},
+  "it": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
+  "pt-BR": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
+  "tr": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  },
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
@@ -136,7 +195,18 @@
           "a": "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
         }
       ]
+    },
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "editor": {
+      "imageOptions": {
+        "removeAsBackground": "Remove as background"
+      }
+    }
+  }
 }

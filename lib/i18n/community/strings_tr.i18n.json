@@ -189,7 +189,6 @@
       "lineHeightDescription": "Metnin boyutunu da kontrol eder",
       "backgroundImage": "Arkaplan görseli",
       "backgroundPattern": "Arkaplan deseni",
-      "removeBgImage": "Arkaplan görselini kaldır",
       "import": "İçe aktar",
       "boxFits": {
         "fill": "Yaydır",

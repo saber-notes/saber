@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2093 (149 per locale)
+/// Strings: 2080 (148 per locale)
 ///
-/// Built on 2023-03-31 at 07:30 UTC
+/// Built on 2023-04-05 at 00:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -585,6 +585,7 @@ class _StringsEditorImageOptionsEn {
 	String get invertible => 'Invertible';
 	String get download => 'Download';
 	String get setAsBackground => 'Set as background';
+	String get removeAsBackground => 'Remove as background';
 	String get delete => 'Delete';
 }
 
@@ -601,7 +602,6 @@ class _StringsEditorMenuEn {
 	String get lineHeightDescription => 'Also controls the text size';
 	String get backgroundImage => 'Background image';
 	String get backgroundPattern => 'Background pattern';
-	String get removeBgImage => 'Remove background image';
 	String get import => 'Import';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
 	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
@@ -1117,7 +1117,6 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
 	@override String get backgroundImage => 'الصورة الخلفية';
 	@override String get backgroundPattern => 'نمط الخلفية';
-	@override String get removeBgImage => 'إزالة صورة الخلفية';
 	@override String get import => 'يستورد';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
@@ -1657,7 +1656,6 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu';
 	@override String get backgroundImage => 'Obrázek na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
-	@override String get removeBgImage => 'Odstranit obrázek z pozadí';
 	@override String get import => 'Importovat';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
 	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
@@ -2173,7 +2171,6 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Beeinflusst die Schriftgröße';
 	@override String get backgroundImage => 'Hintergrundbild';
 	@override String get backgroundPattern => 'Hintergrundmuster';
-	@override String get removeBgImage => 'Hintergrundbild entfernen';
 	@override String get import => 'Importieren';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
 	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
@@ -2711,7 +2708,6 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
 	@override String get backgroundImage => 'Imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
-	@override String get removeBgImage => 'Eliminar imagen de fondo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
 	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
@@ -3251,7 +3247,6 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
 	@override String get backgroundImage => 'تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
-	@override String get removeBgImage => 'حذف تصویر پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
@@ -3791,7 +3786,6 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Contrôle aussi la taille du texte';
 	@override String get backgroundImage => 'Image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
-	@override String get removeBgImage => 'Effacer l\'image de fond';
 	@override String get import => 'Importer';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
 	@override late final _StringsEditorMenuBgPatternsFr bgPatterns = _StringsEditorMenuBgPatternsFr._(_root);
@@ -4304,7 +4298,6 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override String get lineHeight => 'Vonalmagasság';
 	@override String get backgroundImage => 'Háttérkép';
 	@override String get backgroundPattern => 'Háttérminta';
-	@override String get removeBgImage => 'Háttérkép törlése';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
@@ -4843,7 +4836,6 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Inoltre controlla la dimensione del testo';
 	@override String get backgroundImage => 'Immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
-	@override String get removeBgImage => 'Rimuovi l\'immagine di sfondo';
 	@override String get import => 'Importa';
 	@override late final _StringsEditorMenuBoxFitsIt boxFits = _StringsEditorMenuBoxFitsIt._(_root);
 	@override late final _StringsEditorMenuBgPatternsIt bgPatterns = _StringsEditorMenuBgPatternsIt._(_root);
@@ -5383,7 +5375,6 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Também controla o tamanho do texto';
 	@override String get backgroundImage => 'Imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
-	@override String get removeBgImage => 'Remover imagem de plano de fundo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
 	@override late final _StringsEditorMenuBgPatternsPtBr bgPatterns = _StringsEditorMenuBgPatternsPtBr._(_root);
@@ -5923,7 +5914,6 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Также управляет размером текста';
 	@override String get backgroundImage => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
-	@override String get removeBgImage => 'Удалить фоновое изображение';
 	@override String get import => 'Импорт';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
 	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
@@ -6463,7 +6453,6 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
 	@override String get backgroundImage => 'Arkaplan görseli';
 	@override String get backgroundPattern => 'Arkaplan deseni';
-	@override String get removeBgImage => 'Arkaplan görselini kaldır';
 	@override String get import => 'İçe aktar';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
@@ -6979,7 +6968,6 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => '同时控制文本大小';
 	@override String get backgroundImage => '背景图片';
 	@override String get backgroundPattern => '背景图案';
-	@override String get removeBgImage => '移除背景图片';
 	@override String get import => '导入';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
@@ -7519,7 +7507,6 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get lineHeightDescription => '同時控制文字大小';
 	@override String get backgroundImage => '背景圖片';
 	@override String get backgroundPattern => '背景圖案';
-	@override String get removeBgImage => '移除背景圖片';
 	@override String get import => '匯入';
 	@override late final _StringsEditorMenuBoxFitsZhHantTw boxFits = _StringsEditorMenuBoxFitsZhHantTw._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHantTw bgPatterns = _StringsEditorMenuBgPatternsZhHantTw._(_root);

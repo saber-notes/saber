@@ -189,7 +189,6 @@
       "lineHeightDescription": "Controla también el tamaño del texto",
       "backgroundImage": "Imagen de fondo",
       "backgroundPattern": "Patrón de fondo",
-      "removeBgImage": "Eliminar imagen de fondo",
       "import": "Importar",
       "boxFits": {
         "fill": "Llenar",

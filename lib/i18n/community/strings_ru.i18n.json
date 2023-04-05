@@ -189,7 +189,6 @@
       "lineHeightDescription": "Также управляет размером текста",
       "backgroundImage": "Фоновое изображение",
       "backgroundPattern": "Фоновый шаблон",
-      "removeBgImage": "Удалить фоновое изображение",
       "import": "Импорт",
       "boxFits": {
         "fill": "Растянуть",

@@ -78,7 +78,9 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           widget.toggleAsBackground?.call();
           Navigator.of(context).pop();
         },
-        title: t.editor.imageOptions.setAsBackground,
+        title: widget.isBackground
+            ? t.editor.imageOptions.removeAsBackground
+            : t.editor.imageOptions.setAsBackground,
         child: const AdaptiveIcon(
           icon: Icons.wallpaper,
           cupertinoIcon: CupertinoIcons.photo_fill_on_rectangle_fill,

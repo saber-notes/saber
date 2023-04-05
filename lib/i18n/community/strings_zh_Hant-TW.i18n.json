@@ -189,7 +189,6 @@
       "lineHeightDescription": "同時控制文字大小",
       "backgroundImage": "背景圖片",
       "backgroundPattern": "背景圖案",
-      "removeBgImage": "移除背景圖片",
       "import": "匯入",
       "boxFits": {
         "fill": "拉伸",

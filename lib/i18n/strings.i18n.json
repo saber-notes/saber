@@ -180,6 +180,7 @@
       "invertible": "Invertible",
       "download": "Download",
       "setAsBackground": "Set as background",
+      "removeAsBackground": "Remove as background",
       "delete": "Delete"
     },
     "menu": {
@@ -189,7 +190,6 @@
       "lineHeightDescription": "Also controls the text size",
       "backgroundImage": "Background image",
       "backgroundPattern": "Background pattern",
-      "removeBgImage": "Remove background image",
       "import": "Import",
       "boxFits": {
         "fill": "Stretch",
