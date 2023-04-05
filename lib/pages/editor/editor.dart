@@ -1325,6 +1325,8 @@ class EditorState extends State<Editor> {
 
   /// The index of the page that is currently centered on screen.
   int? get currentPageIndex {
+    if (!mounted) return null;
+
     final Size windowSize = MediaQuery.of(context).size;
     late Offset centre = Offset(windowSize.width / 2, windowSize.height / 2);
 
