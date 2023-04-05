@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2089 (149 per locale)
+/// Strings: 2090 (149 per locale)
 ///
-/// Built on 2023-04-05 at 16:56 UTC
+/// Built on 2023-04-05 at 21:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4846,6 +4846,7 @@ class _StringsEditorImageOptionsIt extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Invertibile';
 	@override String get download => 'Download';
 	@override String get setAsBackground => 'Imposta come sfondo';
+	@override String get removeAsBackground => 'Rimuovi come sfondo';
 	@override String get delete => 'Cancella';
 }
 

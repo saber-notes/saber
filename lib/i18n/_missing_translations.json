@@ -108,13 +108,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Rimuovi come sfondo"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "editor": {
       "imageOptions": {
