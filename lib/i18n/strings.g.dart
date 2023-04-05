@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2080 (148 per locale)
+/// Strings: 2081 (148 per locale)
 ///
-/// Built on 2023-04-05 at 00:05 UTC
+/// Built on 2023-04-05 at 16:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7491,6 +7491,7 @@ class _StringsEditorImageOptionsZhHantTw extends _StringsEditorImageOptionsEn {
 	@override String get invertible => '反轉顏色';
 	@override String get download => '下載';
 	@override String get setAsBackground => '設為背景';
+	@override String get removeAsBackground => '移除作為背景';
 	@override String get delete => '刪除';
 }
 

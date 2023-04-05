@@ -202,11 +202,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Remove as background"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
