@@ -10,6 +10,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
+import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -806,7 +807,12 @@ class EditorState extends State<Editor> {
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
-    await for (final pdfPage in Printing.raster(file.bytes!)) {
+    final raster = Printing.raster(
+      file.bytes!,
+      dpi: PdfPageFormat.inch * 4,
+    );
+
+    await for (final pdfPage in raster) {
       final Uint8List imageBytes = await pdfPage.toPng();
 
       // resize to [defaultWidth] to keep pen sizes consistent
