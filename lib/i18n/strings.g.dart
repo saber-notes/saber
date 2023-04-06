@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2092 (149 per locale)
+/// Strings: 2093 (149 per locale)
 ///
-/// Built on 2023-04-06 at 20:06 UTC
+/// Built on 2023-04-06 at 20:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1640,6 +1640,7 @@ class _StringsEditorImageOptionsCs extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Invertovat barvy podle motivu';
 	@override String get download => 'Stáhnout';
 	@override String get setAsBackground => 'Nastavit na pozadí';
+	@override String get removeAsBackground => 'Odstranit obrázek z pozadí';
 	@override String get delete => 'Odstranit';
 }
 
