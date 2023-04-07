@@ -197,6 +197,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                   controller: _customServerController,
                   placeholder: t.login.form.customServerUrl,
                   keyboardType: TextInputType.url,
+                  textInputAction: TextInputAction.next,
                   autofillHints: const [AutofillHints.url],
                   prefixIcon: const AdaptiveIcon(
                     icon: Icons.link,
@@ -214,6 +215,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             AdaptiveTextField(
               controller: _usernameController,
               keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
               autofillHints: const [AutofillHints.username, AutofillHints.email],
               placeholder: t.login.form.username,
               prefixIcon: const AdaptiveIcon(
@@ -225,6 +227,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             const SizedBox(height: 8),
             AdaptiveTextField(
               controller: _ncPasswordController,
+              textInputAction: TextInputAction.next,
               autofillHints: const [AutofillHints.password],
               placeholder: t.login.form.ncPassword,
               prefixIcon: const Icon(Icons.lock_person),
@@ -234,6 +237,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
             const SizedBox(height: 8),
             AdaptiveTextField(
               controller: _encPasswordController,
+              textInputAction: TextInputAction.done,
               autofillHints: const [AutofillHints.password],
               placeholder: t.login.form.encPassword,
               prefixIcon: const Icon(Icons.sync_lock),

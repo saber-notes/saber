@@ -11,12 +11,14 @@ class AdaptiveTextField extends StatefulWidget {
     this.prefixIcon,
     this.isPassword = false,
     this.keyboardType,
+    this.textInputAction,
     this.validator,
   });
 
   final TextEditingController? controller;
   final Iterable<String>? autofillHints;
   final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
   final String? placeholder;
   final Widget? prefixIcon;
   final bool isPassword;
@@ -66,6 +68,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
               controller: widget.controller,
               autofillHints: widget.autofillHints,
               keyboardType: keyboardType,
+              textInputAction: widget.textInputAction,
               obscureText: obscureText,
               decoration: BoxDecoration(
                 border: Border.all(color: colorScheme.onSurface.withOpacity(0.12)),
@@ -94,6 +97,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
         controller: widget.controller,
         autofillHints: widget.autofillHints,
         keyboardType: keyboardType,
+        textInputAction: widget.textInputAction,
         obscureText: obscureText,
         validator: widget.validator,
         decoration: InputDecoration(
