@@ -18,25 +18,33 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class UpdateManager {
-  static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart');
-  static final Uri apiUrl = Uri.parse('https://api.github.com/repos/adil192/saber/releases/latest');
+  static final Uri versionUrl = Uri.parse(
+      'https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart');
+  static final Uri apiUrl =
+      Uri.parse('https://api.github.com/repos/adil192/saber/releases/latest');
+
   /// The availability of an update.
-  static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
+  static final ValueNotifier<UpdateStatus> status =
+      ValueNotifier(UpdateStatus.upToDate);
 
   static bool _hasShownUpdateDialog = false;
-  static Future<void> showUpdateDialog(BuildContext context, {bool userTriggered = false}) async {
+  static Future<void> showUpdateDialog(BuildContext context,
+      {bool userTriggered = false}) async {
     if (!userTriggered) {
-      if (status.value == UpdateStatus.upToDate) { // check for updates if not already done
+      if (status.value == UpdateStatus.upToDate) {
+        // check for updates if not already done
         await Prefs.shouldCheckForUpdates.waitUntilLoaded();
         if (!Prefs.shouldCheckForUpdates.value) return;
         status.value = await _checkForUpdate();
       }
-      if (status.value != UpdateStatus.updateRecommended) return; // no update available
+      if (status.value != UpdateStatus.updateRecommended)
+        return; // no update available
       if (_hasShownUpdateDialog) return; // already shown
     }
 
     String? directDownloadLink = await getLatestDownloadUrl();
     bool directDownloadStarted = false;
+    String changeLogText = await getNewestVersionChangelog();
 
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
@@ -45,26 +53,38 @@ abstract class UpdateManager {
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AdaptiveAlertDialog(
           title: Text(t.update.updateAvailable),
-          content: Text(t.update.updateAvailableDescription),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(t.update.updateAvailableDescription),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(changeLogText),
+              ),
+            ],
+          ),
           actions: [
             CupertinoDialogAction(
               onPressed: () => Navigator.pop(context),
-              child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
+              child: Text(
+                  MaterialLocalizations.of(context).modalBarrierDismissLabel),
             ),
             CupertinoDialogAction(
-              onPressed: directDownloadStarted ? null : () {
-                if (directDownloadLink != null) {
-                  _directlyDownloadUpdate(directDownloadLink)
-                    .then((_) => Navigator.pop(context));
-                  setState(() => directDownloadStarted = true);
-                } else {
-                  launchUrl(
-                    AppInfo.releasesUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
-                }
-              },
-              child: (){
+              onPressed: directDownloadStarted
+                  ? null
+                  : () {
+                      if (directDownloadLink != null) {
+                        _directlyDownloadUpdate(directDownloadLink)
+                            .then((_) => Navigator.pop(context));
+                        setState(() => directDownloadStarted = true);
+                      } else {
+                        launchUrl(
+                          AppInfo.releasesUrl,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      }
+                    },
+              child: () {
                 if (directDownloadStarted) {
                   return const SpinningLoadingIcon();
                 } else {
@@ -101,7 +121,8 @@ abstract class UpdateManager {
 
     // extract the number from the latest version.dart
     final RegExp numberRegex = RegExp(r'(\d+)');
-    final RegExpMatch? newestVersionMatch = numberRegex.firstMatch(latestVersionFile);
+    final RegExpMatch? newestVersionMatch =
+        numberRegex.firstMatch(latestVersionFile);
     if (newestVersionMatch == null) return null;
 
     final int newestVersion = int.tryParse(newestVersionMatch[0] ?? '0') ?? 0;
@@ -118,7 +139,9 @@ abstract class UpdateManager {
     } catch (e) {
       throw const SocketException('Failed to download version.dart');
     }
-    if (response.statusCode >= 400) throw SocketException('Failed to download version.dart, HTTP status code ${response.statusCode}');
+    if (response.statusCode >= 400)
+      throw SocketException(
+          'Failed to download version.dart, HTTP status code ${response.statusCode}');
 
     return response.body;
   }
@@ -156,15 +179,16 @@ abstract class UpdateManager {
       } catch (e) {
         throw const SocketException('Failed to fetch latest release');
       }
-      if (response.statusCode >= 400) throw SocketException('Failed to fetch latest release, HTTP status code ${response.statusCode}');
+      if (response.statusCode >= 400)
+        throw SocketException(
+            'Failed to fetch latest release, HTTP status code ${response.statusCode}');
       apiResponse = response.body;
     }
 
     final Map<String, dynamic> json = jsonDecode(apiResponse);
     final RegExp platformFileRegex = _platformFileRegex[platform]!;
-    return (json['assets'] as List)
-        .firstWhereOrNull((asset) => platformFileRegex.hasMatch(asset['name']))
-        ?['browser_download_url'];
+    return (json['assets'] as List).firstWhereOrNull((asset) =>
+        platformFileRegex.hasMatch(asset['name']))?['browser_download_url'];
   }
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {
@@ -190,13 +214,36 @@ abstract class UpdateManager {
 
     OpenFilex.open(file.path);
   }
+
+  static Future<String> getNewestVersionChangelog() async {
+    final int newestVersion;
+    newestVersion = await getNewestVersion() ?? 0;
+    return getChangelogText(newestVersion);
+  }
+
+  static Future<String> getChangelogText(int newestVersion) async {
+    return await downloadChangelogText(newestVersion);
+  }
+
+  static Future<String> downloadChangelogText(int newestVersion) async {
+    String changeLog = '';
+    var downloadUrl =
+        'https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/changelogs/$newestVersion.txt';
+    var response = await http.get(Uri.parse(downloadUrl));
+    if (response.statusCode == 200) {
+      changeLog = response.body;
+    }
+    return changeLog;
+  }
 }
 
 enum UpdateStatus {
   /// The app is up to date, or we failed to check for an update.
   upToDate,
+
   /// An update is available, but the user doesn't need to be notified
   updateOptional,
+
   /// An update is available and the user should be notified
   updateRecommended,
 }
