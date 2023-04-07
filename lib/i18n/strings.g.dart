@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2093 (149 per locale)
 ///
-/// Built on 2023-04-07 at 18:04 UTC
+/// Built on 2023-04-07 at 18:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7186,7 +7186,7 @@ class _StringsUpdateZhHantTw extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => '可用更新';
-	@override String get updateAvailableDescription => '該應用程式的新版本可用。';
+	@override String get updateAvailableDescription => '新版本的應用程式已推出，有了以下變化:';
 	@override String get update => '更新';
 }
 

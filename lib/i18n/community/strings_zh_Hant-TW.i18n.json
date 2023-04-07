@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "可用更新",
-    "updateAvailableDescription(OUTDATED)": "新版本的應用程式已推出，有了以下變化:",
+    "updateAvailableDescription": "新版本的應用程式已推出，有了以下變化:",
     "update": "更新"
   },
   "editor": {
