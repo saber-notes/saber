@@ -28,17 +28,39 @@
         }
       ]
     },
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
       }
     }
   },
-  "cs": {},
-  "de": {},
-  "es": {},
-  "fa": {},
+  "cs": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
+  "de": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
+  "es": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
+  "fa": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
   "fr": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
@@ -78,6 +100,9 @@
         }
       ]
     },
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
@@ -90,16 +115,31 @@
       }
     }
   },
-  "it": {},
+  "it": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
   "pt-BR": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
       }
     }
   },
-  "ru": {},
-  "tr": {},
+  "ru": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
+  "tr": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
@@ -125,11 +165,18 @@
         }
       ]
     },
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
       }
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  }
 }
