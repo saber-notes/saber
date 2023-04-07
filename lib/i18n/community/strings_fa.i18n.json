@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "به‌روزرسانی‌ در دسترس است",
-    "updateAvailableDescription": "ورژن جدید برنامه در دسترس است",
+    "updateAvailableDescription(OUTDATED)": "ورژن جدید برنامه در دسترس است",
     "update": "بروزرسانی"
   },
   "editor": {

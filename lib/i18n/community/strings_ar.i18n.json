@@ -141,7 +141,7 @@
   },
   "update": {
     "updateAvailable": "تحديث متاح",
-    "updateAvailableDescription": "يتوفر إصدار جديد من التطبيق.",
+    "updateAvailableDescription(OUTDATED)": "يتوفر إصدار جديد من التطبيق.",
     "update": "تحديث"
   },
   "editor": {

@@ -141,7 +141,7 @@
   },
   "update": {
     "updateAvailable": "可用更新",
-    "updateAvailableDescription": "该应用程序的新版本可用。",
+    "updateAvailableDescription(OUTDATED)": "该应用程序的新版本可用。",
     "update": "更新"
   },
   "editor": {

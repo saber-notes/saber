@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Güncelleme var",
-    "updateAvailableDescription": "Uygulamanın yeni bir versiyonu mevcut.",
+    "updateAvailableDescription(OUTDATED)": "Uygulamanın yeni bir versiyonu mevcut.",
     "update": "Güncelle"
   },
   "editor": {

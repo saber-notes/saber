@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Доступно обновление",
-    "updateAvailableDescription": "Доступна новая версия приложения.",
+    "updateAvailableDescription(OUTDATED)": "Доступна новая версия приложения.",
     "update": "Обновить"
   },
   "editor": {

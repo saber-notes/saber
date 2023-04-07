@@ -22,6 +22,7 @@ abstract class UpdateManager {
   static final Uri apiUrl = Uri.parse('https://api.github.com/repos/adil192/saber/releases/latest');
   /// The availability of an update.
   static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
+  static int? newestVersion;
 
   static bool _hasShownUpdateDialog = false;
   static Future<void> showUpdateDialog(BuildContext context, {bool userTriggered = false}) async {
@@ -38,6 +39,8 @@ abstract class UpdateManager {
     String? directDownloadLink = await getLatestDownloadUrl();
     bool directDownloadStarted = false;
 
+    String changelog = await getLatestChangelog();
+
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
     return await showDialog(
@@ -45,7 +48,15 @@ abstract class UpdateManager {
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AdaptiveAlertDialog(
           title: Text(t.update.updateAvailable),
-          content: Text(t.update.updateAvailableDescription),
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(t.update.updateAvailableDescription),
+              if (changelog.isNotEmpty)
+                Text(changelog),
+            ],
+          ),
           actions: [
             CupertinoDialogAction(
               onPressed: () => Navigator.pop(context),
@@ -55,7 +66,7 @@ abstract class UpdateManager {
               onPressed: directDownloadStarted ? null : () {
                 if (directDownloadLink != null) {
                   _directlyDownloadUpdate(directDownloadLink)
-                    .then((_) => Navigator.pop(context));
+                      .then((_) => Navigator.pop(context));
                   setState(() => directDownloadStarted = true);
                 } else {
                   launchUrl(
@@ -81,14 +92,13 @@ abstract class UpdateManager {
   static Future<UpdateStatus> _checkForUpdate() async {
     const int currentVersion = version.buildNumber;
 
-    final int newestVersion;
     try {
-      newestVersion = await getNewestVersion() ?? 0;
+      newestVersion = await getNewestVersion();
     } catch (e) {
       return UpdateStatus.upToDate;
     }
 
-    return getUpdateStatus(currentVersion, newestVersion);
+    return getUpdateStatus(currentVersion, newestVersion ?? 0);
   }
 
   /// Returns the version number hosted on GitHub (at [versionUrl]).
@@ -97,7 +107,6 @@ abstract class UpdateManager {
   @visibleForTesting
   static Future<int?> getNewestVersion([String? latestVersionFile]) async {
     latestVersionFile ??= await _downloadLatestVersionFileFromGitHub();
-    if (latestVersionFile == null) return null;
 
     // extract the number from the latest version.dart
     final RegExp numberRegex = RegExp(r'(\d+)');
@@ -110,7 +119,7 @@ abstract class UpdateManager {
     return newestVersion;
   }
 
-  static Future<String?> _downloadLatestVersionFileFromGitHub() async {
+  static Future<String> _downloadLatestVersionFileFromGitHub() async {
     // download the latest version.dart
     final http.Response response;
     try {
@@ -164,7 +173,7 @@ abstract class UpdateManager {
     final RegExp platformFileRegex = _platformFileRegex[platform]!;
     return (json['assets'] as List)
         .firstWhereOrNull((asset) => platformFileRegex.hasMatch(asset['name']))
-        ?['browser_download_url'];
+    ?['browser_download_url'];
   }
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {
@@ -189,6 +198,24 @@ abstract class UpdateManager {
     await file.writeAsBytes(bytes);
 
     OpenFilex.open(file.path);
+  }
+
+  @visibleForTesting
+  static Future<String> getLatestChangelog() async {
+    assert(newestVersion != null);
+
+    // download the latest changelog
+    final url = 'https://raw.githubusercontent.com/adil192/saber/main/'
+        'metadata/en-US/changelogs/$newestVersion.txt';
+    final http.Response response;
+    try {
+      response = await http.get(Uri.parse(url));
+    } catch (e) {
+      throw SocketException('Failed to download changelog from $url');
+    }
+    if (response.statusCode >= 400) throw SocketException('Failed to download changelog from $url, HTTP status code ${response.statusCode}');
+
+    return response.body;
   }
 }
 
