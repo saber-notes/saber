@@ -54,13 +54,13 @@ void main() {
     expect(before.outText.isEmpty, true, reason: 'Git status is not initially clean');
 
     // Run `./apply_version.sh` to update the version in code...
-    const command = './apply_version.sh $buildName $buildNumber';
+    const command = 'bash ./apply_version.sh $buildName $buildNumber';
     printOnFailure('Running: $command');
     await shell.run(command);
 
     // expect that script didn't need to change anything
-    final after = await shell.run('git status --porcelain');
-    printOnFailure('Git status after running $command: ${after.outText}');
+    final after = await shell.run('git diff -w'); // ignore whitespace
+    printOnFailure('Git diff after running $command:\n ${after.outText}');
     expect(after.outText.isEmpty, true, reason: './apply_version.sh found inconsistencies');
   });
 
