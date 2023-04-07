@@ -99,6 +99,8 @@ class Pen extends Tool {
       currentStroke!.isStraightLine = false;
     } else if (Prefs.editorStraightenDelay.value != 0 && elapsedMs != 0) {
       Timer newTimer() => Timer(Duration(milliseconds: Prefs.editorStraightenDelay.value - elapsedMs), () {
+        if (currentStroke == null) return;
+        if (!currentStroke!.isLineRoughlyStraight()) return;
         currentStroke!.isStraightLine = true;
         redrawPage?.call();
       });
