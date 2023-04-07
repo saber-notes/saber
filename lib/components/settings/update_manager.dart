@@ -49,13 +49,12 @@ abstract class UpdateManager {
         builder: (context, setState) => AdaptiveAlertDialog(
           title: Text(t.update.updateAvailable),
           content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(t.update.updateAvailableDescription),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text(changelog),
-              ),
+              if (changelog.isNotEmpty)
+                Text(changelog),
             ],
           ),
           actions: [
