@@ -12,6 +12,7 @@ class AdaptiveTextField extends StatefulWidget {
     this.isPassword = false,
     this.keyboardType,
     this.textInputAction,
+    required this.focusOrder,
     this.validator,
   });
 
@@ -19,6 +20,7 @@ class AdaptiveTextField extends StatefulWidget {
   final Iterable<String>? autofillHints;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final NumericFocusOrder focusOrder;
   final String? placeholder;
   final Widget? prefixIcon;
   final bool isPassword;
@@ -64,51 +66,63 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
       return Row(
         children: [
           Expanded(
-            child: CupertinoTextFormFieldRow(
-              controller: widget.controller,
-              autofillHints: widget.autofillHints,
-              keyboardType: keyboardType,
-              textInputAction: widget.textInputAction,
-              obscureText: obscureText,
-              decoration: BoxDecoration(
-                border: Border.all(color: colorScheme.onSurface.withOpacity(0.12)),
-                borderRadius: BorderRadius.circular(8),
+            child: FocusTraversalOrder(
+              order: widget.focusOrder,
+              child: CupertinoTextFormFieldRow(
+                controller: widget.controller,
+                autofillHints: widget.autofillHints,
+                keyboardType: keyboardType,
+                textInputAction: widget.textInputAction,
+                obscureText: obscureText,
+                decoration: BoxDecoration(
+                  border: Border.all(color: colorScheme.onSurface.withOpacity(0.12)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                style: TextStyle(color: colorScheme.onSurface),
+                placeholder: widget.placeholder,
+                prefix: widget.prefixIcon != null ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: widget.prefixIcon,
+                ) : null,
+                validator: widget.validator,
               ),
-              style: TextStyle(color: colorScheme.onSurface),
-              placeholder: widget.placeholder,
-              prefix: widget.prefixIcon != null ? Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: widget.prefixIcon,
-              ) : null,
-              validator: widget.validator,
             ),
           ),
           if (suffixIcon != null) Align(
             alignment: Alignment.topCenter,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: suffixIcon,
+              child: FocusTraversalOrder(
+                order: NumericFocusOrder(widget.focusOrder.order + 100),
+                child: suffixIcon!,
+              ),
             ),
           ) else const SizedBox(height: 40),
         ],
       );
     } else {
-      return TextFormField(
-        controller: widget.controller,
-        autofillHints: widget.autofillHints,
-        keyboardType: keyboardType,
-        textInputAction: widget.textInputAction,
-        obscureText: obscureText,
-        validator: widget.validator,
-        decoration: InputDecoration(
-          labelText: widget.placeholder,
-          labelStyle: TextStyle(color: colorScheme.onSurface.withOpacity(0.5)),
-          prefixIcon: widget.prefixIcon,
-          suffixIcon: suffixIcon,
-          contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: colorScheme.onSurface.withOpacity(0.12)),
-            borderRadius: BorderRadius.circular(8),
+      return FocusTraversalOrder(
+        order: widget.focusOrder,
+        child: TextFormField(
+          controller: widget.controller,
+          autofillHints: widget.autofillHints,
+          keyboardType: keyboardType,
+          textInputAction: widget.textInputAction,
+          obscureText: obscureText,
+          validator: widget.validator,
+          decoration: InputDecoration(
+            labelText: widget.placeholder,
+            labelStyle: TextStyle(color: colorScheme.onSurface.withOpacity(0.5)),
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: suffixIcon != null ? FocusTraversalOrder(
+              order: NumericFocusOrder(widget.focusOrder.order + 100),
+              child: suffixIcon!,
+            ) : null,
+            contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: colorScheme.onSurface.withOpacity(0.12)),
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
       );
