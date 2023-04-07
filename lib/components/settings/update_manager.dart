@@ -201,7 +201,8 @@ abstract class UpdateManager {
   }
 
   @visibleForTesting
-  static Future<String> getLatestChangelog() async {
+  static Future<String> getLatestChangelog([int? newestVersion]) async {
+    newestVersion ??= UpdateManager.newestVersion;
     assert(newestVersion != null);
 
     // download the latest changelog

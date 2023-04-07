@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:process_run/shell.dart';
+import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/version.dart';
 
 const String dummyChangelog = 'Release notes will be added here.';
@@ -61,5 +62,11 @@ void main() {
     final after = await shell.run('git status --porcelain');
     printOnFailure('Git status after running $command: ${after.outText}');
     expect(after.outText.isEmpty, true, reason: './apply_version.sh found inconsistencies');
+  });
+
+  test('Test that changelog can be downloaded from GitHub', () async {
+    final changelog = await UpdateManager.getLatestChangelog(buildNumber);
+    expect(changelog, isNotEmpty);
+    expect(changelog.contains(dummyChangelog), false, reason: 'Dummy text found in changelog downloaded from GitHub');
   });
 }
