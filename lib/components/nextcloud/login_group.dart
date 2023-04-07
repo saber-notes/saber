@@ -213,6 +213,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
             AdaptiveTextField(
               controller: _usernameController,
+              keyboardType: TextInputType.emailAddress,
               autofillHints: const [AutofillHints.username, AutofillHints.email],
               placeholder: t.login.form.username,
               prefixIcon: const AdaptiveIcon(
