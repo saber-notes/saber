@@ -88,7 +88,7 @@ void main() {
     test('of a quadratic curve', () {
       final stroke = getEmptyStroke();
 
-      for (double x = 0; x < 10; x++) {
+      for (double x = 0; x < 50; x++) {
         stroke.addPoint(Offset(x, x * x));
       }
 
@@ -99,7 +99,7 @@ void main() {
       const scale = 0.0000001;
       final stroke = getEmptyStroke(size: StrokeProperties.defaultSize * scale);
 
-      for (double x = 0; x < 10; x++) {
+      for (double x = 0; x < 50; x++) {
         stroke.addPoint(Offset(x * scale, x * x * scale));
       }
 

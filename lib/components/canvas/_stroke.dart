@@ -174,7 +174,7 @@ class Stroke {
     }
   }
 
-  bool isLineRoughlyStraight() => deviationFromStraightLine() < 0.01;
+  bool isLineRoughlyStraight() => deviationFromStraightLine() < 0.5;
 
   /// Calculates something like the RMSD (root mean square deviation) of the
   /// points from a straight line between the first and last points.
