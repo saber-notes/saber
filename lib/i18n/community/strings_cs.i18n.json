@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Aktualizace k dispozici",
-    "updateAvailableDescription": "Je k dispozici nová verze aplikace.",
+    "updateAvailableDescription(OUTDATED)": "Je k dispozici nová verze aplikace.",
     "update": "Aktualizovat"
   },
   "editor": {

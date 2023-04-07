@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Aggiornamento disponibile",
-    "updateAvailableDescription": "È disponibile una nuova versione dell'app.",
+    "updateAvailableDescription(OUTDATED)": "È disponibile una nuova versione dell'app.",
     "update": "Aggiornamento"
   },
   "editor": {

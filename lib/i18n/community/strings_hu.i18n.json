@@ -139,7 +139,7 @@
   },
   "update": {
     "updateAvailable": "Frissítés elérhető",
-    "updateAvailableDescription": "A szoftver egy új verziója elérhető",
+    "updateAvailableDescription(OUTDATED)": "A szoftver egy új verziója elérhető",
     "update": "Frissítés"
   },
   "editor": {
