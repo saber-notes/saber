@@ -37,11 +37,7 @@
       }
     }
   },
-  "cs": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
-    }
-  },
+  "cs": {},
   "de": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
