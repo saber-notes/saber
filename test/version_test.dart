@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:process_run/shell.dart';
 import 'package:saber/components/settings/update_manager.dart';
+import 'package:saber/data/locales.dart';
 import 'package:saber/data/version.dart';
 
 const String dummyChangelog = 'Release notes will be added here.';
@@ -68,5 +69,14 @@ void main() {
     final changelog = await UpdateManager.getLatestChangelog(buildNumber);
     expect(changelog, isNotEmpty);
     expect(changelog.contains(dummyChangelog), false, reason: 'Dummy text found in changelog downloaded from GitHub');
+  });
+
+  test('Test that changelog has been translated', () {
+    for (final localeCode in localeNames.keys) {
+      if (localeCode == 'en') continue;
+
+      final File file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
+      expect(file.existsSync(), true, reason: 'Changelog for $localeCode does not exist');
+    }
   });
 }
