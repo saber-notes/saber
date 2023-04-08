@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2093 (149 per locale)
 ///
-/// Built on 2023-04-07 at 18:11 UTC
+/// Built on 2023-04-08 at 17:26 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4512,7 +4512,7 @@ class _StringsUpdateIt extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Aggiornamento disponibile';
-	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app.';
+	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app, con queste modifiche:';
 	@override String get update => 'Aggiornamento';
 }
 
