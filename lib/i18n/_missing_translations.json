@@ -37,11 +37,7 @@
       }
     }
   },
-  "cs": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "Je k dispozici nová verze aplikace, která zahrnuje tyto změny:"
-    }
-  },
+  "cs": {},
   "de": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"

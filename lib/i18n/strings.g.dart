@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2093 (149 per locale)
 ///
-/// Built on 2023-04-08 at 17:26 UTC
+/// Built on 2023-04-08 at 17:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1303,7 +1303,7 @@ class _StringsUpdateCs extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Aktualizace k dispozici';
-	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace.';
+	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace, která zahrnuje tyto změny:';
 	@override String get update => 'Aktualizovat';
 }
 
