@@ -12,6 +12,7 @@ import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:saber/i18n/strings.g.dart';
@@ -39,7 +40,22 @@ abstract class UpdateManager {
     String? directDownloadLink = await getLatestDownloadUrl();
     bool directDownloadStarted = false;
 
-    String changelog = await getLatestChangelog();
+    final currentLocale = LocaleSettings.currentLocale;
+    final String? localeCode;
+    if (currentLocale != AppLocale.en) {
+      localeCode = currentLocale.languageTag;
+    } else {
+      localeCode = null;
+    }
+
+    final String? englishChangelog = await getChangelog();
+    final String? translatedChangelog;
+    if (localeCode != null) {
+      translatedChangelog = await getChangelog(localeCode: localeCode);
+    } else {
+      translatedChangelog = null;
+    }
+    bool showTranslatedChangelog = translatedChangelog != null;
 
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
@@ -53,8 +69,24 @@ abstract class UpdateManager {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(t.update.updateAvailableDescription),
-              if (changelog.isNotEmpty)
-                Text(changelog),
+
+              if (showTranslatedChangelog)
+                Text(translatedChangelog!)
+              else if (englishChangelog != null)
+                Text(englishChangelog),
+
+              if (translatedChangelog != null && englishChangelog != null)
+                TextButton(
+                  onPressed: () => setState(() {
+                    showTranslatedChangelog = !showTranslatedChangelog;
+                  }),
+                  child: Text(
+                    showTranslatedChangelog
+                        ? localeNames[localeCode] ?? localeCode!
+                        : localeNames['en']!,
+                  ),
+                ),
+
             ],
           ),
           actions: [
@@ -201,21 +233,26 @@ abstract class UpdateManager {
   }
 
   @visibleForTesting
-  static Future<String> getLatestChangelog([int? newestVersion]) async {
+  static Future<String?> getChangelog({
+    int? newestVersion,
+    String localeCode = 'en-US',
+  }) async {
     newestVersion ??= UpdateManager.newestVersion;
     assert(newestVersion != null);
 
-    // download the latest changelog
     final url = 'https://raw.githubusercontent.com/adil192/saber/main/'
-        'metadata/en-US/changelogs/$newestVersion.txt';
+        'metadata/$localeCode/changelogs/$newestVersion.txt';
+    if (kDebugMode) print('Downloading changelog from $url');
+
     final http.Response response;
     try {
       response = await http.get(Uri.parse(url));
     } catch (e) {
-      throw SocketException('Failed to download changelog from $url');
+      return null;
     }
-    if (response.statusCode >= 400) throw SocketException('Failed to download changelog from $url, HTTP status code ${response.statusCode}');
+    if (response.statusCode >= 400) return null;
 
+    if (response.body.isEmpty) return null;
     return response.body;
   }
 }

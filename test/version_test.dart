@@ -66,9 +66,12 @@ void main() {
   });
 
   test('Test that changelog can be downloaded from GitHub', () async {
-    final changelog = await UpdateManager.getLatestChangelog(buildNumber);
+    final changelog = await UpdateManager.getChangelog(
+      newestVersion: buildNumber,
+    );
+    expect(changelog, isNotNull);
     expect(changelog, isNotEmpty);
-    expect(changelog.contains(dummyChangelog), false, reason: 'Dummy text found in changelog downloaded from GitHub');
+    expect(changelog!.contains(dummyChangelog), false, reason: 'Dummy text found in changelog downloaded from GitHub');
   });
 
   test('Test that changelog has been translated', () {
