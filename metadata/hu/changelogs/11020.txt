@@ -1,0 +1,2 @@
+• Hiba javítása nagy, sok képet tartalmazó fájlok betöltésekor
+• További opciók hozzáadva a szerkesztő menü háttérkép részéhez

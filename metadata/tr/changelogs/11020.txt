@@ -1,0 +1,2 @@
+• Çok sayıda görüntü içeren büyük dosyaları yüklerken oluşan hata düzeltildi
+• Düzenleyici menüsünün arka plan resmi bölümüne daha fazla seçenek eklendi

@@ -1,0 +1,2 @@
+• Se corrigió el error al cargar archivos grandes con muchas imágenes
+• Se agregaron más opciones en la sección de imagen de fondo del menú del editor

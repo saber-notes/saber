@@ -1,0 +1,2 @@
+• Fehler beim Laden großer Dateien mit vielen Bildern behoben
+• Weitere Optionen im Hintergrundbildbereich des Editormenüs hinzugefügt

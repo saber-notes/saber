@@ -1,0 +1,2 @@
+• Correction d'une erreur lors du chargement de fichiers volumineux avec beaucoup d'images
+• Ajout de plus d'options dans la section image d'arrière-plan du menu de l'éditeur

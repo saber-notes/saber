@@ -1,0 +1,2 @@
+• Opravena chyba při načítání velkých souborů se spoustou obrázků
+• Přidány další možnosti v sekci obrázku na pozadí v nabídce editoru
