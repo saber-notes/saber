@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2093 (149 per locale)
 ///
-/// Built on 2023-04-08 at 17:28 UTC
+/// Built on 2023-04-08 at 17:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6131,7 +6131,7 @@ class _StringsUpdateTr extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Güncelleme var';
-	@override String get updateAvailableDescription => 'Uygulamanın yeni bir versiyonu mevcut.';
+	@override String get updateAvailableDescription => 'Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:';
 	@override String get update => 'Güncelle';
 }
 

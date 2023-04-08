@@ -123,11 +123,7 @@
     }
   },
   "ru": {},
-  "tr": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
