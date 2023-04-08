@@ -123,11 +123,7 @@
     }
   },
   "ru": {},
-  "tr": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:"
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
