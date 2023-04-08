@@ -23,7 +23,7 @@ void main() {
   });
 
   test('Test that versions in code are valid', () async {
-    // We will use git's history to see if ./apply_version.sh
+    // We will use git's history to see if ./scripts/apply_version.sh
     // changes anything. If it does, then the versions in the
     // code are not valid.
 
@@ -53,15 +53,15 @@ void main() {
     final before = await shell.run('git status --porcelain');
     expect(before.outText.isEmpty, true, reason: 'Git status is not initially clean');
 
-    // Run `./apply_version.sh` to update the version in code...
-    const command = 'bash ./apply_version.sh $buildName $buildNumber';
+    // Run `./scripts/apply_version.sh` to update the version in code...
+    const command = 'bash ./scripts/apply_version.sh $buildName $buildNumber';
     printOnFailure('Running: $command');
     await shell.run(command);
 
     // expect that script didn't need to change anything
     final after = await shell.run('git diff -w'); // ignore whitespace
     printOnFailure('Git diff after running $command:\n ${after.outText}');
-    expect(after.outText.isEmpty, true, reason: './apply_version.sh found inconsistencies');
+    expect(after.outText.isEmpty, true, reason: './scripts/apply_version.sh found inconsistencies');
   });
 
   test('Test that changelog can be downloaded from GitHub', () async {

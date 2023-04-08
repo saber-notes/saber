@@ -241,8 +241,8 @@ If you like Saber, please consider supporting it by:
 <summary>Show/hide development notes</summary>
 
 - When updating the **app version**:
-  - Run `./apply_version.sh <version-name> <version-code>`
-    (Run `./apply_version.sh --help` for more info)
+  - Run `./scripts/apply_version.sh <version-name> <version-code>`
+    (Run `./scripts/apply_version.sh --help` for more info)
   - Update the changelogs in `metadata/en-US/changelogs/`
     and `flatpak/com.adilhanney.saber.metainfo.xml` as directed by the script.
 - When updating the **icons**, run the following commands:
