@@ -145,6 +145,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  csslib:
+    dependency: transitive
+    description:
+      name: csslib
+      sha256: b36c7f7e24c0bdf1bf9a3da461c837d1de64b9f8beb190c9011d8c72a3dfd745
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.17.2"
   csv:
     dependency: transitive
     description:
@@ -471,6 +479,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.3"
+  html:
+    dependency: transitive
+    description:
+      name: html
+      sha256: "79d498e6d6761925a34ee5ea8fa6dfef38607781d2fa91e37523474282af55cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.2"
   http:
     dependency: "direct main"
     description:
@@ -999,6 +1015,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
+  simplytranslate:
+    dependency: "direct dev"
+    description:
+      name: simplytranslate
+      sha256: d212f313866850178926d6536f87296bf4eee86c667598f4b5883e1a60731638
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1261,6 +1285,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  web_scraper:
+    dependency: transitive
+    description:
+      name: web_scraper
+      sha256: "34d41de25c1aaeeca2cd91c1d062ee3126f59db6c84ec32da17d44d082ecc177"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   webdriver:
     dependency: transitive
     description:

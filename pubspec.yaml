@@ -163,6 +163,8 @@ dev_dependencies:
 
   process_run: ^0.12.5+2
 
+  simplytranslate: ^1.2.2
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
