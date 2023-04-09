@@ -72,7 +72,11 @@ void _testPatternWithLineHeight(final String pattern, final int lineHeight) {
           continue;
         }
 
-        expect(position != lastPosition, true, reason: 'Lines should be spaced apart');
+        if (pattern != CanvasBackgroundPatterns.cornell) {
+          // Cornell has two lines on the same row, so they shouldn't be spaced apart
+
+          expect(position != lastPosition, true, reason: 'Lines should be spaced apart');
+        }
 
         double spacing = (position - lastPosition).abs();
         double diffFromALine = spacing % lineHeight;
