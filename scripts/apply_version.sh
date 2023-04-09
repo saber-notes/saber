@@ -105,4 +105,5 @@ echo
 echo "Make sure to update the two changelog files:"
 echo " - metadata/en-US/changelogs/$BUILD_NUMBER.txt"
 echo " - flatpak/com.adilhanney.saber.metainfo.xml"
-echo "Done!"
+echo "And then run:"
+echo " - dart scripts/translate_changelogs.dart"
