@@ -74,20 +74,39 @@ jobs:
           name: Saber-Android-PlayStore
           path: output/Saber.aab
 
+  upload-to-play-store:
+    name: Upload to Play Store
+    runs-on: ubuntu-latest
+    needs: build-aab
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: Saber-Android-PlayStore
+          path: output
+
       - name: Prepare whatsnew directory from metadata/*/changelogs
         run: |
           mkdir -p whatsnew
+
+          # fix grep: -P supports only unibyte and UTF-8 locales
+          export LC_ALL=en_US.utf8
 
           # get current version code from lib/data/version.dart
           VERSION_CODE=$(grep -oP '(?<=buildNumber = )\d+' lib/data/version.dart)
 
           # copy changelogs of each language to whatsnew
-          for f in metadata/*; do
-            if [ -f "$f/changelogs/$VERSION_CODE.txt" ]; then
-              FILE_NAME="whatsnew/whatsnew-$(basename "$f").txt"
-              echo "Copying changelog of $(basename "$f") to $FILE_NAME"
-              cp "$f/changelogs/$VERSION_CODE.txt" "whatsnew/whatsnew-$(basename "$f").txt"
-            fi
+          for dir in metadata/*/changelogs; do
+              # get language code from directory name
+              # e.g. metadata/en-US/changelogs -> en-US
+              lang=${dir#metadata/}
+              lang=${lang%/changelogs}
+
+              # copy changelog file to whatsnew
+              cp "$dir/$VERSION_CODE.txt" "whatsnew/whatsnew-${lang}"
           done
 
       - name: Upload to Play Store
