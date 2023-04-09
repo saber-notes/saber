@@ -1,0 +1,6 @@
+• Les traits ne sont maintenant redressés que s'ils sont déjà à peu près droits
+• Augmentation de la résolution des importations PDF : il s'agit d'une solution temporaire jusqu'à ce que nous ayons des importations PDF sans perte
+• Les mises à jour ultérieures verront leurs journaux des modifications affichés dans l'application
+• Amélioration de l'UX de connexion
+• Corrections de bugs mineurs
+• Mise à niveau vers Flutter 3.7.10

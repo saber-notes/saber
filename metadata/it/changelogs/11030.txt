@@ -1,0 +1,6 @@
+• I tratti ora vengono raddrizzati solo se sono già approssimativamente diritti
+• Aumentata la risoluzione delle importazioni di PDF: questa è una soluzione temporanea fino a quando non avremo importazioni di PDF senza perdita di dati
+• Gli aggiornamenti successivi avranno i loro log delle modifiche visualizzati in-app
+• Migliorata la UX di accesso
+• Correzioni di bug minori
+• Aggiornato a Flutter 3.7.10

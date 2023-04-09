@@ -1,0 +1,6 @@
+• Tahy jsou nyní narovnány pouze tehdy, pokud jsou již zhruba rovné
+• Zvýšené rozlišení importů PDF: toto je dočasná oprava, dokud nebudeme mít bezztrátové importy PDF
+• U následných aktualizací se v aplikaci zobrazí seznam změn
+• Vylepšené uživatelské rozhraní pro přihlášení
+• Opravy drobných chyb
+• Upgradováno na Flutter 3.7.10
