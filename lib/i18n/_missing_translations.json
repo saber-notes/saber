@@ -34,23 +34,57 @@
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
+      },
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
       }
     }
   },
-  "cs": {},
+  "cs": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
+    }
+  },
   "de": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
     }
   },
   "es": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
     }
   },
   "fa": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
     }
   },
   "fr": {
@@ -60,6 +94,11 @@
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
+      },
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
       }
     }
   },
@@ -106,12 +145,21 @@
       "menu": {
         "lineHeightDescription": "Also controls the text size",
         "bgPatterns": {
-          "staffs": "Staffs"
+          "staffs": "Staffs",
+          "cornell": "Cornell"
         }
       }
     }
   },
-  "it": {},
+  "it": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
+    }
+  },
   "pt-BR": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
@@ -119,11 +167,32 @@
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
+      },
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
       }
     }
   },
-  "ru": {},
-  "tr": {},
+  "ru": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
+    }
+  },
+  "tr": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
+    }
+  },
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
@@ -155,8 +224,21 @@
     "editor": {
       "imageOptions": {
         "removeAsBackground": "Remove as background"
+      },
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
       }
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "cornell": "Cornell"
+        }
+      }
+    }
+  }
 }

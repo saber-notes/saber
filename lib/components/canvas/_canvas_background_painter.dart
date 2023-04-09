@@ -116,6 +116,36 @@ class CanvasBackgroundPainter extends CustomPainter {
           );
         }
       }
+    } else if (pattern == CanvasBackgroundPatterns.cornell) {
+      // half-width line for name field
+      yield PatternElement(
+        Offset(lineHeight.toDouble(), lineHeight * 2),
+        Offset(size.width / 2 - lineHeight / 2, lineHeight * 2),
+        isLine: true,
+      );
+      // half-width line for date field
+      yield PatternElement(
+        Offset(size.width / 2 + lineHeight / 2, lineHeight * 2),
+        Offset(size.width - lineHeight, lineHeight * 2),
+        isLine: true,
+      );
+      // full-width line for title field
+      yield PatternElement(
+        Offset(lineHeight.toDouble(), lineHeight * 3),
+        Offset(size.width - lineHeight, lineHeight * 3),
+        isLine: true,
+      );
+
+      // lines for main notes
+      final left = size.width * 0.35; // 35% width reserved for cues column
+      final bottom = size.height * 0.7; // 30% height reserved for summary
+      for (double y = lineHeight * 5; y < bottom; y += lineHeight) {
+        yield PatternElement(
+          Offset(left, y),
+          Offset(size.width - lineHeight, y),
+          isLine: true,
+        );
+      }
     }
   }
 }
@@ -152,6 +182,9 @@ abstract class CanvasBackgroundPatterns {
   /// Music staffs
   static const String staffs = 'staffs';
 
+  // Cornell notes
+  static const String cornell = 'cornell';
+
   static const List<String> all = [
     none,
     college,
@@ -159,6 +192,7 @@ abstract class CanvasBackgroundPatterns {
     grid,
     dots,
     staffs,
+    cornell,
   ];
 
   static String localizedName(String pattern) {
@@ -174,6 +208,8 @@ abstract class CanvasBackgroundPatterns {
       return t.editor.menu.bgPatterns.dots;
     } else if (pattern == CanvasBackgroundPatterns.staffs) {
       return t.editor.menu.bgPatterns.staffs;
+    } else if (pattern == CanvasBackgroundPatterns.cornell) {
+      return t.editor.menu.bgPatterns.cornell;
     } else {
       if (kDebugMode) throw Exception('Untranslated background pattern: $pattern');
       return '';
