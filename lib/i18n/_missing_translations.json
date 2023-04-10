@@ -110,15 +110,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Корнелл"
-        }
-      }
-    }
-  },
+  "ru": {},
   "tr": {},
   "zh-Hans-CN": {
     "login": {
