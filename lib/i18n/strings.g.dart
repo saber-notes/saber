@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2103 (150 per locale)
+/// Strings: 2104 (150 per locale)
 ///
-/// Built on 2023-04-10 at 17:42 UTC
+/// Built on 2023-04-10 at 17:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4962,6 +4962,7 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Griglia';
 	@override String get dots => 'Punti';
 	@override String get staffs => 'Personale';
+	@override String get cornell => 'Metodo Cornell';
 }
 
 // Path: <root>
