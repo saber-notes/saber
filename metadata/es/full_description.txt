@@ -1,0 +1,1 @@
+¡Una aplicación de notas a mano multiplataforma, disponible para Android, iOS, Linux, Windows y macOS!
