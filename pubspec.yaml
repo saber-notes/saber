@@ -110,7 +110,7 @@ dependencies:
 
   flutter_quill: ^7.0.0
 
-  window_manager: ^0.3.0
+  window_manager: ^0.3.2
 
   worker_manager: ^5.0.0
 
