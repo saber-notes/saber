@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2104 (150 per locale)
+/// Strings: 2105 (150 per locale)
 ///
-/// Built on 2023-04-10 at 17:45 UTC
+/// Built on 2023-04-10 at 17:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6582,6 +6582,7 @@ class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Kareli';
 	@override String get dots => 'Noktalı';
 	@override String get staffs => 'Porte (müzik)';
+	@override String get cornell => 'Cornell not şablonu';
 }
 
 // Path: <root>
