@@ -94,15 +94,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Metodo Cornell"
-        }
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
