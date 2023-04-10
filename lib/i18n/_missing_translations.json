@@ -17,7 +17,11 @@
       }
     }
   },
-  "es": {},
+  "es": {
+    "update": {
+      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+    }
+  },
   "fa": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
