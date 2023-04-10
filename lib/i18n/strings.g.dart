@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2102 (150 per locale)
+/// Strings: 2103 (150 per locale)
 ///
-/// Built on 2023-04-10 at 01:28 UTC
+/// Built on 2023-04-10 at 11:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7636,4 +7636,5 @@ class _StringsEditorMenuBgPatternsZhHantTw extends _StringsEditorMenuBgPatternsE
 	@override String get grid => '網格';
 	@override String get dots => '點';
 	@override String get staffs => '五線譜';
+	@override String get cornell => '康乃爾';
 }
