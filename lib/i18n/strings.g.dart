@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2103 (150 per locale)
 ///
-/// Built on 2023-04-10 at 11:57 UTC
+/// Built on 2023-04-10 at 17:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2410,8 +2410,8 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Actualización disponible';
-	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible.';
 	@override String get update => 'Actualizar';
+	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible. Novedades en esta versión:';
 }
 
 // Path: editor
@@ -2831,7 +2831,7 @@ class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Cuadrículado';
 	@override String get dots => 'Punteado';
 	@override String get staffs => 'Pentagrama';
-	@override String get cornell => 'Cornell';
+	@override String get cornell => 'Método Cornell';
 }
 
 // Path: <root>
