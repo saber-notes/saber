@@ -26,6 +26,11 @@
         <internet>always</internet>
     </recommends>
 
+    <provides>
+        <mediatype>application/json</mediatype>
+        <mediatype>application/sbn</mediatype>
+    </provides>
+
     <description>
         <p>A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and macOS!</p>
     </description>
