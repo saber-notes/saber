@@ -149,8 +149,8 @@
   },
   "update": {
     "updateAvailable": "Actualización disponible",
-    "updateAvailableDescription(OUTDATED)": "Hay una nueva versión de la aplicación disponible.",
-    "update": "Actualizar"
+    "update": "Actualizar",
+    "updateAvailableDescription": "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:"
   },
   "editor": {
     "toolbar": {
@@ -203,7 +203,7 @@
         "grid": "Cuadrículado",
         "dots": "Punteado",
         "staffs": "Pentagrama",
-        "cornell": "Cornell"
+        "cornell": "Método Cornell"
       }
     },
     "newerFileFormat": {
