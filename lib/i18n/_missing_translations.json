@@ -20,12 +20,12 @@
   "es": {},
   "fa": {
     "update": {
-      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+      "updateAvailableDescription(OUTDATED)": "نسخه جدیدی از برنامه با این تغییرات در دسترس است:"
     },
     "editor": {
       "menu": {
         "bgPatterns": {
-          "cornell": "Cornell"
+          "cornell": "کرنل"
         }
       }
     }
