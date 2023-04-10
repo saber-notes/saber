@@ -119,15 +119,7 @@
       }
     }
   },
-  "tr": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Cornell not şablonu"
-        }
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
