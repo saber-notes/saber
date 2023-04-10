@@ -243,7 +243,17 @@ We have 2 formats for app store descriptions:
        If you spot a mistake, please edit the translated changelog in
        `metadata/XX/changelogs/<version-code>.txt` where `XX` is your locale code.
 
-2. Flathub (optional):
+2. Linux .desktop file:
+
+   i. Open
+   [`flatpak/com.adilhanney.saber.desktop`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.desktop)
+   and add a line for the `Comment` key with the following format where `XX` is your locale code:
+    ```ini
+    Comment[XX]=Your translation
+    ```
+   If you also need to translate the `Name` key, do the same thing.
+
+3. Flathub (optional):
 
    i. Since this is slightly more technical, you can skip the Flathub part if you
       want to and I'll copy the translations from the above section.
