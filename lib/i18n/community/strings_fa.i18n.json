@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "به‌روزرسانی‌ در دسترس است",
-    "updateAvailableDescription(OUTDATED)": "ورژن جدید برنامه در دسترس است",
+    "updateAvailableDescription": "نسخه جدیدی از برنامه با این تغییرات در دسترس است:",
     "update": "بروزرسانی"
   },
   "editor": {
@@ -202,7 +202,8 @@
         "lined": "خط کشی شده",
         "grid": "توری",
         "dots": "نقطه ای",
-        "staffs": "کارکنان"
+        "staffs": "کارکنان",
+        "cornell": "کرنل"
       }
     },
     "newerFileFormat": {

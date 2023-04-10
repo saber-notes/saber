@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2106 (150 per locale)
+/// Strings: 2107 (150 per locale)
 ///
-/// Built on 2023-04-10 at 17:49 UTC
+/// Built on 2023-04-10 at 18:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2951,7 +2951,7 @@ class _StringsUpdateFa extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'به‌روزرسانی‌ در دسترس است';
-	@override String get updateAvailableDescription => 'ورژن جدید برنامه در دسترس است';
+	@override String get updateAvailableDescription => 'نسخه جدیدی از برنامه با این تغییرات در دسترس است:';
 	@override String get update => 'بروزرسانی';
 }
 
@@ -3372,6 +3372,7 @@ class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'توری';
 	@override String get dots => 'نقطه ای';
 	@override String get staffs => 'کارکنان';
+	@override String get cornell => 'کرنل';
 }
 
 // Path: <root>
