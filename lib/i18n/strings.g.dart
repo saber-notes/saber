@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2095 (149 per locale)
+/// Strings: 2101 (150 per locale)
 ///
-/// Built on 2023-04-10 at 01:19 UTC
+/// Built on 2023-04-10 at 01:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -760,6 +760,8 @@ class _StringsLoginAr extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$Ar._(_root),
 		_StringsLogin$faq$0i1$Ar._(_root),
 		_StringsLogin$faq$0i2$Ar._(_root),
+		_StringsLogin$faq$0i3$Ar._(_root),
+		_StringsLogin$faq$0i4$Ar._(_root),
 	];
 	@override late final _StringsLoginInsecureStorageAr insecureStorage = _StringsLoginInsecureStorageAr._(_root);
 }
@@ -787,7 +789,7 @@ class _StringsUpdateAr extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'تحديث متاح';
-	@override String get updateAvailableDescription => 'يتوفر إصدار جديد من التطبيق.';
+	@override String get updateAvailableDescription => 'يتوفر إصدار جديد من التطبيق مع هذه التغييرات:';
 	@override String get update => 'تحديث';
 }
 
@@ -1006,7 +1008,7 @@ class _StringsLogin$faq$0i0$Ar extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'ما هو Nextcloud؟';
-	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
+	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Sabre Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
 }
 
 // Path: login.faq.1
@@ -1017,7 +1019,7 @@ class _StringsLogin$faq$0i1$Ar extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'ما هي كلمة مرور التشفير؟';
-	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. لا يتم تخزينها على الخادم ، وتستخدمها Saber فقط لتشفير بياناتك وفك تشفيرها.\n\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
+	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Sabre ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\n\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
 }
 
 // Path: login.faq.2
@@ -1028,7 +1030,29 @@ class _StringsLogin$faq$0i2$Ar extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
-	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش" بياناتك قبل أن تصل إلى السحابة.\n\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ، فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
+	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.\n\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Ar extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'كيف يمكنني تسجيل الدخول إذا كنت أستخدم المصادقة الثنائية (2FA)؟';
+	@override String get a => 'بدلاً من كلمة مرور Nextcloud العادية، ستحتاج إلى إنشاء "كلمة مرور التطبيق". يمكنك القيام بذلك في إعدادات Nextcloud الخاصة بك ضمن الأمان> الأجهزة والجلسات> إنشاء كلمة مرور جديدة للتطبيق. كلمة مرور التشفير الخاصة بك لا تتأثر.';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Ar extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'هل يمكنني استخدام نفس كلمة المرور لكليهما؟';
+	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
 }
 
 // Path: login.insecureStorage
@@ -1102,6 +1126,7 @@ class _StringsEditorImageOptionsAr extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'قابل للعكس';
 	@override String get download => 'تحميل';
 	@override String get setAsBackground => 'تعيين كخلفية';
+	@override String get removeAsBackground => 'إزالة كخلفية';
 	@override String get delete => 'حذف';
 }
 
@@ -1185,6 +1210,7 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'شبكة';
 	@override String get dots => 'نقاط';
 	@override String get staffs => 'موظفون';
+	@override String get cornell => 'كورنيل';
 }
 
 // Path: <root>
