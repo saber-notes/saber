@@ -226,6 +226,39 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 
 Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) for more information.
 
+### Translating app store descriptions
+
+We have 2 formats for app store descriptions:
+
+1. F-Droid/Play Store:
+
+   i. Open `metadata/en-US/` and copy the
+      [`full_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/full_description.txt)
+      and
+      [`short_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/short_description.txt)
+      files into the `metadata/XX/` folder where `XX` is your locale code.
+      Then translate the contents of the files.
+
+   ii. Changelogs are automatically translated from the English version.
+       If you spot a mistake, please edit the translated changelog in
+       `metadata/XX/changelogs/<version-code>.txt` where `XX` is your locale code.
+
+2. Flathub (optional):
+
+   i. Since this is slightly more technical, you can skip the Flathub part if you
+      want to and I'll copy the translations from the above section.
+   
+   ii. In [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
+       before the `</description>` closing tag, add a line for your translation
+       with the following format where `XX` is your locale code:
+    ```html
+    <p language="XX">Your translation</p>
+    ```
+
+   iii. In the same file, you can translate the changelogs by doing the same
+        thing in the `<release>` tags before their `</description>` closing tag.
+
+
 ## Supporting Saber
 
 If you like Saber, please consider supporting it by:
