@@ -20,13 +20,6 @@
   "es": {
     "update": {
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
-    },
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Cornell"
-        }
-      }
     }
   },
   "fa": {

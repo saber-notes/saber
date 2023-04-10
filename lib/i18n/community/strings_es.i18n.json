@@ -202,7 +202,8 @@
         "lined": "Rayado",
         "grid": "Cuadrículado",
         "dots": "Punteado",
-        "staffs": "Pentagrama"
+        "staffs": "Pentagrama",
+        "cornell": "Cornell"
       }
     },
     "newerFileFormat": {
