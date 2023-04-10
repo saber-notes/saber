@@ -179,13 +179,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Cornell"
-        }
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
