@@ -202,7 +202,8 @@
         "lined": "Linky",
         "grid": "Čtverečky",
         "dots": "Tečkovaná mřížka",
-        "staffs": "Notová osnova"
+        "staffs": "Notová osnova",
+        "cornell": "Cornellova metoda"
       }
     },
     "newerFileFormat": {
