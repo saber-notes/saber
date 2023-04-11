@@ -2,6 +2,7 @@ import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_canvas_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -73,14 +74,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final page = widget.coreInfo.pages[widget.pageIndex];
 
-    Locale? locale;
-    try {
-      locale = TranslationProvider.of(context).flutterLocale;
-    } catch (e) {
-      /// Error is thrown when using the [screenshot] package
-      /// as we don't have a TranslationProvider
-      locale = null;
-    }
+    final rtl = intl.Bidi.isRtlLanguage(
+        LocaleSettings.currentLocale.languageTag
+    );
 
     Widget? quillEditor = widget.coreInfo.pages.isNotEmpty ? QuillEditor(
       controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
@@ -97,7 +93,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         bottom: widget.coreInfo.lineHeight * 0.5,
       ),
       customStyles: _getQuillStyles(context, invert: invert),
-      locale: locale,
+      locale: LocaleSettings.currentLocale.flutterLocale,
       placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
       showCursor: true,
       keyboardAppearance: invert ? Brightness.dark : Brightness.light,
@@ -128,6 +124,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           lineHeight: widget.coreInfo.lineHeight,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,
+          rtl: rtl,
         ),
         foregroundPainter: CanvasPainter(
           repaint: widget.redrawPageListenable,

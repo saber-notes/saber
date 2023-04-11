@@ -7,6 +7,9 @@ void main() {
     for (final pattern in CanvasBackgroundPattern.values) {
       _testPatternWithLineHeight(pattern, 10);
       _testPatternWithLineHeight(pattern, 50);
+
+      _testRtlPattern(pattern, false);
+      _testRtlPattern(pattern, true);
     }
   });
 }
@@ -17,7 +20,12 @@ void _testPatternWithLineHeight(final CanvasBackgroundPattern pattern, final int
     /// We can't directly compare doubles, so check if they're within a small range (±epsilon)
     final double epsilon = lineHeight / 100;
 
-    List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(pattern, size, lineHeight).toList();
+    List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(
+      pattern: pattern,
+      size: size,
+      lineHeight: lineHeight,
+      rtl: false,
+    ).toList();
 
     if (pattern == CanvasBackgroundPattern.none) {
       expect(elements.isEmpty, true, reason: 'No elements should be returned for the none pattern');
@@ -89,5 +97,39 @@ void _testPatternWithLineHeight(final CanvasBackgroundPattern pattern, final int
         lastPosition = position;
       }
     }
+  });
+}
+
+void _testRtlPattern(final CanvasBackgroundPattern pattern, final bool rtl) {
+  test("'$pattern' in ${rtl ? 'rtl' : 'ltr'}", () {
+    const size = Size(1000, 1000);
+
+    List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(
+      pattern: pattern,
+      size: size,
+      lineHeight: 10,
+      rtl: rtl,
+    ).toList();
+
+    int linesOnLeft = 0;
+    int linesOnRight = 0;
+    for (final element in elements) {
+      if (!element.isLine) continue;
+
+      // ignore horizontal lines
+      if (element.start.dy == element.end.dy) continue;
+
+      if (element.start.dx < size.width / 2) {
+        linesOnLeft++;
+      } else if (element.start.dx > size.width / 2) {
+        linesOnRight++;
+      }
+    }
+
+    final isCorrectlyRtl = rtl
+      ? linesOnRight >= linesOnLeft * 0.9
+      : linesOnLeft >= linesOnRight * 0.9;
+    printOnFailure('linesOnLeft: $linesOnLeft, linesOnRight: $linesOnRight');
+    expect(isCorrectlyRtl, true, reason: 'Lines should be on the left in ltr and on the right in rtl');
   });
 }

@@ -13,6 +13,7 @@ class CanvasBackgroundPainter extends CustomPainter {
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
     this.preview = false,
+    required this.rtl,
   });
 
   final bool invert;
@@ -24,6 +25,7 @@ class CanvasBackgroundPainter extends CustomPainter {
   final Color primaryColor, secondaryColor;
   /// Whether to draw the background pattern in a preview mode (more opaque).
   final bool preview;
+  final bool rtl;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -34,7 +36,12 @@ class CanvasBackgroundPainter extends CustomPainter {
     canvas.drawRect(canvasRect, paint);
 
     paint.strokeWidth = 3;
-    for (PatternElement element in getPatternElements(backgroundPattern, size, lineHeight)) {
+    for (PatternElement element in getPatternElements(
+      pattern: backgroundPattern,
+      size: size,
+      lineHeight: lineHeight,
+      rtl: rtl,
+    )) {
       if (element.secondaryColor) {
         paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
       } else {
@@ -58,7 +65,12 @@ class CanvasBackgroundPainter extends CustomPainter {
         || oldDelegate.primaryColor != primaryColor
         || oldDelegate.secondaryColor != secondaryColor;
 
-  static Iterable<PatternElement> getPatternElements(CanvasBackgroundPattern pattern, Size size, int lineHeight) sync* {
+  static Iterable<PatternElement> getPatternElements({
+    required CanvasBackgroundPattern pattern,
+    required Size size,
+    required int lineHeight,
+    required bool rtl,
+  }) sync* {
     switch (pattern) {
       case CanvasBackgroundPattern.none:
         return;
@@ -74,9 +86,12 @@ class CanvasBackgroundPainter extends CustomPainter {
         }
         if (pattern == CanvasBackgroundPattern.college) {
           // vertical line
+          final double x = rtl
+              ? size.width - lineHeight * 2
+              : lineHeight * 2;
           yield PatternElement(
-            Offset(lineHeight * 2, 0),
-            Offset(lineHeight * 2, size.height),
+            Offset(x, 0),
+            Offset(x, size.height),
             isLine: true,
             secondaryColor: true,
           );

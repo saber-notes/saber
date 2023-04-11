@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class CanvasBackgroundPreview extends StatelessWidget {
   const CanvasBackgroundPreview({
@@ -36,6 +38,9 @@ class CanvasBackgroundPreview extends StatelessWidget {
       pageSize.height / pageSize.width * 150,
     );
     final canvasSize = pageSize / 2;
+    final rtl = intl.Bidi.isRtlLanguage(
+      LocaleSettings.currentLocale.languageTag
+    );
     return Container(
       width: previewSize.width,
       height: previewSize.height,
@@ -77,6 +82,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
                   secondaryColor: colorScheme.secondary
                       .withSaturation(selected ? 1 : 0),
                   preview: true,
+                  rtl: rtl,
                 ),
               ),
             ),
