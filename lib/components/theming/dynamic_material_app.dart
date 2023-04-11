@@ -104,7 +104,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
         ThemeData(brightness: brightness).textTheme,
       );
     } else if (requiresCustomFont) {
-      return GoogleFonts.robotoTextTheme(
+      return GoogleFonts.interTextTheme(
         ThemeData(brightness: brightness).textTheme,
       );
     } else {

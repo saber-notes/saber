@@ -180,6 +180,7 @@ flutter:
     - assets/icon/resized/icon-16x16.png
     - assets/icon/resized/icon-128x128.png
     - assets/images/
+    - assets/google_fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

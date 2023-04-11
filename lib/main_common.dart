@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
@@ -39,6 +40,11 @@ void main() async {
 
   setLocale();
   Prefs.locale.addListener(setLocale);
+
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
 
   runApp(TranslationProvider(child: const App()));
   startSyncAfterUsernameLoaded();
