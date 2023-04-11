@@ -78,7 +78,7 @@ abstract class Prefs {
       lastFountainPenProperties,
       lastBallpointPenProperties,
       lastHighlighterProperties;
-  static late final PlainPref<String> lastBackgroundPattern;
+  static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
   static late final PlainPref<bool> lastZoomLock, lastPanLock;
 
@@ -141,7 +141,7 @@ abstract class Prefs {
     lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
     lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: ['lastHighlighterColor']);
 
-    lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPatterns.none);
+    lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
     lastLineHeight = PlainPref('lastLineHeight', 40);
     lastZoomLock = PlainPref('lastZoomLock', false);
     lastPanLock = PlainPref('lastPanLock', false);
@@ -267,7 +267,7 @@ class PlainPref<T> extends IPref<T> {
         || T == typeOf<Queue<String>>()
         || T == StrokeProperties || T == typeOf<Quota?>()
         || T == AxisDirection || T == ThemeMode || T == TargetPlatform
-        || T == ToolId
+        || T == ToolId || T == CanvasBackgroundPattern
     );
   }
 
@@ -342,6 +342,8 @@ class PlainPref<T> extends IPref<T> {
         return await _prefs!.setInt(key, (value as TargetPlatform).index);
       } else if (T == ToolId) {
         return await _prefs!.setString(key, (value as ToolId).id);
+      } else if (T == CanvasBackgroundPattern) {
+        return await _prefs!.setString(key, (value as CanvasBackgroundPattern).name);
       } else {
         return await _prefs!.setString(key, value as String);
       }
@@ -396,6 +398,12 @@ class PlainPref<T> extends IPref<T> {
         return ToolId.values
             .cast<ToolId?>()
             .firstWhere((toolId) => toolId?.id == id, orElse: () => null)
+            as T?;
+      } else if (T == CanvasBackgroundPattern) {
+        String name = _prefs!.getString(key)!;
+        return CanvasBackgroundPattern.values
+            .cast<CanvasBackgroundPattern?>()
+            .firstWhere((pattern) => pattern!.name == name, orElse: () => null)
             as T?;
       } else {
         return _prefs!.get(key) as T?;

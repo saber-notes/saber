@@ -35,7 +35,7 @@ void main() {
       expect(coreInfo.initialPageIndex, 0);
       expect(coreInfo.lineHeight, 90);
       expect(coreInfo.nextImageId, 0);
-      expect(coreInfo.backgroundPattern, CanvasBackgroundPatterns.none);
+      expect(coreInfo.backgroundPattern, CanvasBackgroundPattern.none);
 
       expect(coreInfo.pages.length, 2);
       expect(coreInfo.pages[0].isEmpty, false);
@@ -90,7 +90,7 @@ void main() {
       expect(coreInfo.initialPageIndex, 0);
       expect(coreInfo.lineHeight, 90);
       expect(coreInfo.nextImageId, 0);
-      expect(coreInfo.backgroundPattern, CanvasBackgroundPatterns.lined);
+      expect(coreInfo.backgroundPattern, CanvasBackgroundPattern.lined);
 
       expect(coreInfo.pages.length, 2);
       expect(coreInfo.pages[0].isEmpty, false);

@@ -32,7 +32,7 @@ class EditorBottomSheet extends StatefulWidget {
   final bool invert;
   final EditorCoreInfo coreInfo;
   final int? currentPageIndex;
-  final void Function(String) setBackgroundPattern;
+  final void Function(CanvasBackgroundPattern) setBackgroundPattern;
   final void Function(int) setLineHeight;
   final VoidCallback removeBackgroundImage;
   final VoidCallback redrawImage;
@@ -170,14 +170,14 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  for (final String backgroundPattern in CanvasBackgroundPatterns.all) ...[
+                  for (final backgroundPattern in CanvasBackgroundPattern.values) ...[
                     InkWell(
                       borderRadius: BorderRadius.circular(8),
                       onTap: () => setState(() {
                         widget.setBackgroundPattern(backgroundPattern);
                       }),
                       child: Tooltip(
-                        message: CanvasBackgroundPatterns.localizedName(backgroundPattern),
+                        message: CanvasBackgroundPattern.localizedName(backgroundPattern),
                         child: CanvasBackgroundPreview(
                           selected: widget.coreInfo.backgroundPattern == backgroundPattern,
                           invert: widget.invert,

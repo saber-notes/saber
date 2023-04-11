@@ -22,7 +22,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
   final bool selected;
   final bool invert;
   final Color? backgroundColor;
-  final String backgroundPattern;
+  final CanvasBackgroundPattern backgroundPattern;
   final EditorImage? backgroundImage;
   final BoxFit? overrideBoxFit;
   final Size pageSize;
@@ -66,7 +66,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
                   }(),
                   backgroundPattern: () {
                     if (backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
-                      return CanvasBackgroundPatterns.none;
+                      return CanvasBackgroundPattern.none;
                     } else {
                       return backgroundPattern;
                     }

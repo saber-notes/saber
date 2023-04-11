@@ -4,14 +4,14 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 
 void main() {
   group('Test canvas background patterns:', () {
-    for (String pattern in CanvasBackgroundPatterns.all) {
+    for (final pattern in CanvasBackgroundPattern.values) {
       _testPatternWithLineHeight(pattern, 10);
       _testPatternWithLineHeight(pattern, 50);
     }
   });
 }
 
-void _testPatternWithLineHeight(final String pattern, final int lineHeight) {
+void _testPatternWithLineHeight(final CanvasBackgroundPattern pattern, final int lineHeight) {
   test("'$pattern' with line height $lineHeight", () {
     const Size size = Size(1000, 1000);
     /// We can't directly compare doubles, so check if they're within a small range (±epsilon)
@@ -19,7 +19,7 @@ void _testPatternWithLineHeight(final String pattern, final int lineHeight) {
 
     List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(pattern, size, lineHeight).toList();
 
-    if (pattern == CanvasBackgroundPatterns.none) {
+    if (pattern == CanvasBackgroundPattern.none) {
       expect(elements.isEmpty, true, reason: 'No elements should be returned for the none pattern');
       return;
     } else {
@@ -72,7 +72,7 @@ void _testPatternWithLineHeight(final String pattern, final int lineHeight) {
           continue;
         }
 
-        if (pattern != CanvasBackgroundPatterns.cornell) {
+        if (pattern != CanvasBackgroundPattern.cornell) {
           // Cornell has two lines on the same row, so they shouldn't be spaced apart
 
           expect(position != lastPosition, true, reason: 'Lines should be spaced apart');

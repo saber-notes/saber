@@ -8,7 +8,7 @@ class CanvasBackgroundPainter extends CustomPainter {
   const CanvasBackgroundPainter({
     required this.invert,
     required this.backgroundColor,
-    this.backgroundPattern = CanvasBackgroundPatterns.none,
+    this.backgroundPattern = CanvasBackgroundPattern.none,
     required this.lineHeight,
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
@@ -18,7 +18,7 @@ class CanvasBackgroundPainter extends CustomPainter {
   final bool invert;
   final Color backgroundColor;
   /// The pattern to use for the background. See [CanvasBackgroundPatterns].
-  final String backgroundPattern;
+  final CanvasBackgroundPattern backgroundPattern;
   /// The height between each line in the background pattern
   final int lineHeight;
   final Color primaryColor, secondaryColor;
@@ -58,12 +58,12 @@ class CanvasBackgroundPainter extends CustomPainter {
         || oldDelegate.primaryColor != primaryColor
         || oldDelegate.secondaryColor != secondaryColor;
 
-  static Iterable<PatternElement> getPatternElements(String pattern, Size size, int lineHeight) sync* {
+  static Iterable<PatternElement> getPatternElements(CanvasBackgroundPattern pattern, Size size, int lineHeight) sync* {
     switch (pattern) {
-      case CanvasBackgroundPatterns.none:
+      case CanvasBackgroundPattern.none:
         return;
-      case CanvasBackgroundPatterns.college:
-      case CanvasBackgroundPatterns.lined:
+      case CanvasBackgroundPattern.college:
+      case CanvasBackgroundPattern.lined:
         // horizontal lines
         for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
           yield PatternElement(
@@ -72,7 +72,7 @@ class CanvasBackgroundPainter extends CustomPainter {
             isLine: true,
           );
         }
-        if (pattern == CanvasBackgroundPatterns.college) {
+        if (pattern == CanvasBackgroundPattern.college) {
           // vertical line
           yield PatternElement(
             Offset(lineHeight * 2, 0),
@@ -82,7 +82,7 @@ class CanvasBackgroundPainter extends CustomPainter {
           );
         }
         break;
-      case CanvasBackgroundPatterns.grid:
+      case CanvasBackgroundPattern.grid:
         for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
           yield PatternElement(
             Offset(0, y),
@@ -98,7 +98,7 @@ class CanvasBackgroundPainter extends CustomPainter {
           );
         }
         break;
-      case CanvasBackgroundPatterns.dots:
+      case CanvasBackgroundPattern.dots:
         for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
           for (double x = 0; x <= size.width; x += lineHeight) {
             yield PatternElement(
@@ -109,7 +109,7 @@ class CanvasBackgroundPainter extends CustomPainter {
           }
         }
         break;
-      case CanvasBackgroundPatterns.staffs:
+      case CanvasBackgroundPattern.staffs:
         for (double topOfStaff = lineHeight * 2;
              topOfStaff + lineHeight * 5 < size.height;
              topOfStaff += lineHeight * 7) {
@@ -122,7 +122,7 @@ class CanvasBackgroundPainter extends CustomPainter {
           }
         }
         break;
-      case CanvasBackgroundPatterns.cornell:
+      case CanvasBackgroundPattern.cornell:
         // half-width line for name field
         yield PatternElement(
           Offset(lineHeight.toDouble(), lineHeight * 2),
@@ -168,59 +168,50 @@ class PatternElement {
   PatternElement(this.start, this.end, {this.isLine = true, this.secondaryColor = false});
 }
 
-abstract class CanvasBackgroundPatterns {
+enum CanvasBackgroundPattern {
   /// No background pattern
-  static const String none = '';
+  none(''),
 
   /// College ruled paper: horizontal lines with one
   /// vertical line along the left margin
-  static const String college = 'college';
+  college('college'),
 
   /// Horizontal lines. This is the same as college ruled paper
   /// but without the vertical line
-  static const String lined = 'lined';
+  lined('lined'),
 
   /// A grid of squares
-  static const String grid = 'grid';
+  grid('grid'),
 
   /// A grid of dots. This is the same as "grid" except it has dots on the
   /// corners instead of the whole square border.
-  static const String dots = 'dots';
+  dots('dots'),
 
   /// Music staffs
-  static const String staffs = 'staffs';
+  staffs('staffs'),
 
-  // Cornell notes
-  static const String cornell = 'cornell';
+  /// Cornell notes
+  cornell('cornell');
 
-  static const List<String> all = [
-    none,
-    college,
-    lined,
-    grid,
-    dots,
-    staffs,
-    cornell,
-  ];
+  final String name;
+  const CanvasBackgroundPattern(this.name);
 
-  static String localizedName(String pattern) {
+  static String localizedName(CanvasBackgroundPattern pattern) {
     switch (pattern) {
-      case CanvasBackgroundPatterns.none:
+      case CanvasBackgroundPattern.none:
         return t.editor.menu.bgPatterns.none;
-      case CanvasBackgroundPatterns.college:
+      case CanvasBackgroundPattern.college:
         return t.editor.menu.bgPatterns.college;
-      case CanvasBackgroundPatterns.lined:
+      case CanvasBackgroundPattern.lined:
         return t.editor.menu.bgPatterns.lined;
-      case CanvasBackgroundPatterns.grid:
+      case CanvasBackgroundPattern.grid:
         return t.editor.menu.bgPatterns.grid;
-      case CanvasBackgroundPatterns.dots:
+      case CanvasBackgroundPattern.dots:
         return t.editor.menu.bgPatterns.dots;
-      case CanvasBackgroundPatterns.staffs:
+      case CanvasBackgroundPattern.staffs:
         return t.editor.menu.bgPatterns.staffs;
-      case CanvasBackgroundPatterns.cornell:
+      case CanvasBackgroundPattern.cornell:
         return t.editor.menu.bgPatterns.cornell;
     }
-    if (kDebugMode) throw Exception('Untranslated background pattern: $pattern');
-    return '';
   }
 }

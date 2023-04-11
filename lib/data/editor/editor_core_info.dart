@@ -23,7 +23,7 @@ class EditorCoreInfo {
 
   int nextImageId;
   Color? backgroundColor;
-  String backgroundPattern;
+  CanvasBackgroundPattern backgroundPattern;
   int lineHeight;
   List<EditorPage> pages;
 
@@ -36,7 +36,7 @@ class EditorCoreInfo {
     readOnlyBecauseOfVersion: false,
     nextImageId: 0,
     backgroundColor: null,
-    backgroundPattern: '',
+    backgroundPattern: CanvasBackgroundPattern.none,
     lineHeight: Prefs.lastLineHeight.value,
     pages: [],
     initialPageIndex: null,
@@ -92,7 +92,13 @@ class EditorCoreInfo {
       readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
       nextImageId: json['ni'] as int? ?? 0,
       backgroundColor: json['b'] != null ? Color(json['b'] as int) : null,
-      backgroundPattern: json['p'] as String? ?? CanvasBackgroundPatterns.none,
+      backgroundPattern: (){
+        final String? pattern = json['p'] as String?;
+        for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
+          if (p.name == pattern) return p;
+        }
+        return CanvasBackgroundPattern.none;
+      }(),
       lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(
         json['z'] as List?,
@@ -118,7 +124,7 @@ class EditorCoreInfo {
     this.readOnly = false,
     required bool onlyFirstPage,
   }): nextImageId = 0,
-      backgroundPattern = CanvasBackgroundPatterns.none,
+      backgroundPattern = CanvasBackgroundPattern.none,
       lineHeight = Prefs.lastLineHeight.value,
       pages = [] {
     _migrateOldStrokesAndImages(
@@ -320,7 +326,7 @@ class EditorCoreInfo {
       'v': sbnVersion,
       'ni': nextImageId,
       'b': backgroundColor?.value,
-      'p': backgroundPattern,
+      'p': backgroundPattern.name,
       'l': lineHeight,
       'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
       'c': initialPageIndex,
@@ -337,7 +343,7 @@ class EditorCoreInfo {
     bool? readOnlyBecauseOfVersion,
     int? nextImageId,
     Color? backgroundColor,
-    String? backgroundPattern,
+    CanvasBackgroundPattern? backgroundPattern,
     int? lineHeight,
     QuillController? quillController,
     List<EditorPage>? pages,

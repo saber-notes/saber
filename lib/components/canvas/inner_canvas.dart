@@ -118,9 +118,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
           }(),
           backgroundPattern: () {
             if (page.backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
-              return CanvasBackgroundPatterns.none;
+              return CanvasBackgroundPattern.none;
             } else if (widget.hideBackground) {
-              return CanvasBackgroundPatterns.none;
+              return CanvasBackgroundPattern.none;
             } else {
               return widget.coreInfo.backgroundPattern;
             }
