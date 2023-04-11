@@ -65,6 +65,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.11.4" type="development" date="2023-04-11">
+            <description>
+                <ul>
+                    <li>Added a template for Cornell notes</li>
+                    <li>Better previews of the different background patterns</li>
+                    <li>Fixed the home screen sometimes messing up after lots of changes</li>
+                    <li>Fonts are now bundled with the app, so they aren't downloaded on first use</li>
+                </ul>
+            </description>
+        </release>  
         <release version="0.11.3" type="development" date="2023-04-09">
             <description>
                 <ul>

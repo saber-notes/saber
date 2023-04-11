@@ -1,0 +1,4 @@
+• Sablon hozzáadása a Cornell-jegyzetekhez
+• A különböző háttérminták jobb előnézetei
+• Javítva a kezdőképernyő, amely sok változtatás után néha összeomlott
+• A betűtípusok mostantól az alkalmazásban vannak, így nem töltődnek le első használatkor

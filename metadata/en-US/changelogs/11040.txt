@@ -1,0 +1,4 @@
+• Added a template for Cornell notes
+• Better previews of the different background patterns
+• Fixed the home screen sometimes messing up after lots of changes
+• Fonts are now bundled with the app, so they aren't downloaded on first use

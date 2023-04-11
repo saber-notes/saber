@@ -1,0 +1,4 @@
+• Adicionado um modelo para notas Cornell
+• Melhores visualizações dos diferentes padrões de fundo
+• Corrigida a tela inicial às vezes bagunçando depois de muitas alterações
+• As fontes agora são fornecidas com o aplicativo, portanto, não são baixadas no primeiro uso

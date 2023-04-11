@@ -97,7 +97,7 @@ else
             </description>
         </release>\
   """
-  awk -v release="$RELEASE_TAG" 'NR==62{print release}1' flatpak/com.adilhanney.saber.metainfo.xml > flatpak/com.adilhanney.saber.metainfo.xml.tmp
+  awk -v release="$RELEASE_TAG" 'NR==68{print release}1' flatpak/com.adilhanney.saber.metainfo.xml > flatpak/com.adilhanney.saber.metainfo.xml.tmp
   mv flatpak/com.adilhanney.saber.metainfo.xml.tmp flatpak/com.adilhanney.saber.metainfo.xml
 fi
 

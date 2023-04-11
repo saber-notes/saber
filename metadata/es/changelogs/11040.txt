@@ -1,0 +1,4 @@
+• Se agregó una plantilla para las notas de Cornell
+• Mejores vistas previas de los diferentes patrones de fondo
+• Se arregló la pantalla de inicio que a veces fallaba después de muchos cambios
+• Las fuentes ahora se incluyen con la aplicación, por lo que no se descargan en el primer uso
