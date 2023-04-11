@@ -59,95 +59,103 @@ class CanvasBackgroundPainter extends CustomPainter {
         || oldDelegate.secondaryColor != secondaryColor;
 
   static Iterable<PatternElement> getPatternElements(String pattern, Size size, int lineHeight) sync* {
-    if (pattern == CanvasBackgroundPatterns.none) {
-      return;
-    } else if (pattern == CanvasBackgroundPatterns.college || pattern == CanvasBackgroundPatterns.lined) {
-      // horizontal lines
-      for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
-        yield PatternElement(
-          Offset(0, y),
-          Offset(size.width, y),
-          isLine: true,
-        );
-      }
-      if (pattern == CanvasBackgroundPatterns.college) {
-        // vertical line
-        yield PatternElement(
-          Offset(lineHeight * 2, 0),
-          Offset(lineHeight * 2, size.height),
-          isLine: true,
-          secondaryColor: true,
-        );
-      }
-    } else if (pattern == CanvasBackgroundPatterns.grid) {
-      for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
-        yield PatternElement(
-          Offset(0, y),
-          Offset(size.width, y),
-          isLine: true,
-        );
-      }
-      for (double x = 0; x < size.width; x += lineHeight) {
-        yield PatternElement(
-          Offset(x, lineHeight * 2),
-          Offset(x, size.height),
-          isLine: true,
-        );
-      }
-    } else if (pattern == CanvasBackgroundPatterns.dots) {
-      for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
-        for (double x = 0; x <= size.width; x += lineHeight) {
+    switch (pattern) {
+      case CanvasBackgroundPatterns.none:
+        return;
+      case CanvasBackgroundPatterns.college:
+      case CanvasBackgroundPatterns.lined:
+        // horizontal lines
+        for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
           yield PatternElement(
-            Offset(x, y),
-            Offset(x, y),
-            isLine: false,
-          );
-        }
-      }
-    } else if (pattern == CanvasBackgroundPatterns.staffs) {
-      for (double topOfStaff = lineHeight * 2;
-           topOfStaff + lineHeight * 5 < size.height;
-           topOfStaff += lineHeight * 7) {
-        for (int line = 0; line < 5; line++) {
-          yield PatternElement(
-            Offset(lineHeight.toDouble(), topOfStaff + lineHeight * line),
-            Offset(size.width - lineHeight, topOfStaff + lineHeight * line),
+            Offset(0, y),
+            Offset(size.width, y),
             isLine: true,
           );
         }
-      }
-    } else if (pattern == CanvasBackgroundPatterns.cornell) {
-      // half-width line for name field
-      yield PatternElement(
-        Offset(lineHeight.toDouble(), lineHeight * 2),
-        Offset(size.width / 2 - lineHeight / 2, lineHeight * 2),
-        isLine: true,
-      );
-      // half-width line for date field
-      yield PatternElement(
-        Offset(size.width / 2 + lineHeight / 2, lineHeight * 2),
-        Offset(size.width - lineHeight, lineHeight * 2),
-        isLine: true,
-      );
-      // full-width line for title field
-      yield PatternElement(
-        Offset(lineHeight.toDouble(), lineHeight * 3),
-        Offset(size.width - lineHeight, lineHeight * 3),
-        isLine: true,
-      );
-
-      // lines for main notes
-      final left = size.width * 0.35; // 35% width reserved for cues column
-      final bottom = size.height * 0.7; // 30% height reserved for summary
-      for (double y = lineHeight * 5; y < bottom; y += lineHeight) {
+        if (pattern == CanvasBackgroundPatterns.college) {
+          // vertical line
+          yield PatternElement(
+            Offset(lineHeight * 2, 0),
+            Offset(lineHeight * 2, size.height),
+            isLine: true,
+            secondaryColor: true,
+          );
+        }
+        break;
+      case CanvasBackgroundPatterns.grid:
+        for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
+          yield PatternElement(
+            Offset(0, y),
+            Offset(size.width, y),
+            isLine: true,
+          );
+        }
+        for (double x = 0; x < size.width; x += lineHeight) {
+          yield PatternElement(
+            Offset(x, lineHeight * 2),
+            Offset(x, size.height),
+            isLine: true,
+          );
+        }
+        break;
+      case CanvasBackgroundPatterns.dots:
+        for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
+          for (double x = 0; x <= size.width; x += lineHeight) {
+            yield PatternElement(
+              Offset(x, y),
+              Offset(x, y),
+              isLine: false,
+            );
+          }
+        }
+        break;
+      case CanvasBackgroundPatterns.staffs:
+        for (double topOfStaff = lineHeight * 2;
+             topOfStaff + lineHeight * 5 < size.height;
+             topOfStaff += lineHeight * 7) {
+          for (int line = 0; line < 5; line++) {
+            yield PatternElement(
+              Offset(lineHeight.toDouble(), topOfStaff + lineHeight * line),
+              Offset(size.width - lineHeight, topOfStaff + lineHeight * line),
+              isLine: true,
+            );
+          }
+        }
+        break;
+      case CanvasBackgroundPatterns.cornell:
+        // half-width line for name field
         yield PatternElement(
-          Offset(left, y),
-          Offset(size.width - lineHeight, y),
+          Offset(lineHeight.toDouble(), lineHeight * 2),
+          Offset(size.width / 2 - lineHeight / 2, lineHeight * 2),
           isLine: true,
         );
-      }
+        // half-width line for date field
+        yield PatternElement(
+          Offset(size.width / 2 + lineHeight / 2, lineHeight * 2),
+          Offset(size.width - lineHeight, lineHeight * 2),
+          isLine: true,
+        );
+        // full-width line for title field
+        yield PatternElement(
+          Offset(lineHeight.toDouble(), lineHeight * 3),
+          Offset(size.width - lineHeight, lineHeight * 3),
+          isLine: true,
+        );
+
+        // lines for main notes
+        final left = size.width * 0.35; // 35% width reserved for cues column
+        final bottom = size.height * 0.7; // 30% height reserved for summary
+        for (double y = lineHeight * 5; y < bottom; y += lineHeight) {
+          yield PatternElement(
+            Offset(left, y),
+            Offset(size.width - lineHeight, y),
+            isLine: true,
+          );
+        }
+        break;
     }
   }
+
 }
 
 class PatternElement {
@@ -196,23 +204,23 @@ abstract class CanvasBackgroundPatterns {
   ];
 
   static String localizedName(String pattern) {
-    if (pattern == CanvasBackgroundPatterns.none) {
-      return t.editor.menu.bgPatterns.none;
-    } else if (pattern == CanvasBackgroundPatterns.college) {
-      return t.editor.menu.bgPatterns.college;
-    } else if (pattern == CanvasBackgroundPatterns.lined) {
-      return t.editor.menu.bgPatterns.lined;
-    } else if (pattern == CanvasBackgroundPatterns.grid) {
-      return t.editor.menu.bgPatterns.grid;
-    } else if (pattern == CanvasBackgroundPatterns.dots) {
-      return t.editor.menu.bgPatterns.dots;
-    } else if (pattern == CanvasBackgroundPatterns.staffs) {
-      return t.editor.menu.bgPatterns.staffs;
-    } else if (pattern == CanvasBackgroundPatterns.cornell) {
-      return t.editor.menu.bgPatterns.cornell;
-    } else {
-      if (kDebugMode) throw Exception('Untranslated background pattern: $pattern');
-      return '';
+    switch (pattern) {
+      case CanvasBackgroundPatterns.none:
+        return t.editor.menu.bgPatterns.none;
+      case CanvasBackgroundPatterns.college:
+        return t.editor.menu.bgPatterns.college;
+      case CanvasBackgroundPatterns.lined:
+        return t.editor.menu.bgPatterns.lined;
+      case CanvasBackgroundPatterns.grid:
+        return t.editor.menu.bgPatterns.grid;
+      case CanvasBackgroundPatterns.dots:
+        return t.editor.menu.bgPatterns.dots;
+      case CanvasBackgroundPatterns.staffs:
+        return t.editor.menu.bgPatterns.staffs;
+      case CanvasBackgroundPatterns.cornell:
+        return t.editor.menu.bgPatterns.cornell;
     }
+    if (kDebugMode) throw Exception('Untranslated background pattern: $pattern');
+    return '';
   }
 }
