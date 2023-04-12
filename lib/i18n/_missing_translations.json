@@ -72,11 +72,11 @@
   "it": {},
   "pt-BR": {
     "update": {
-      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+      "updateAvailableDescription(OUTDATED)": "Uma nova versão do aplicativo está disponível, com estas mudanças:"
     },
     "editor": {
       "imageOptions": {
-        "removeAsBackground": "Remove as background"
+        "removeAsBackground": "Remover como plano de fundo"
       },
       "menu": {
         "bgPatterns": {
