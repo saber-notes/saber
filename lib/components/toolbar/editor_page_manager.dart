@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide TransformationController;
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
+import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 
 class EditorPageManager extends StatelessWidget {
@@ -10,11 +12,13 @@ class EditorPageManager extends StatelessWidget {
     required this.coreInfo,
     required this.currentPageIndex,
     required this.redrawAndSave,
+    required this.transformationController,
   });
 
   final EditorCoreInfo coreInfo;
   final int? currentPageIndex;
   final VoidCallback redrawAndSave;
+  final TransformationController transformationController;
 
   @override
   Widget build(BuildContext context) {
@@ -24,29 +28,42 @@ class EditorPageManager extends StatelessWidget {
         shrinkWrap: true,
         itemCount: coreInfo.pages.length,
         itemBuilder: (context, pageIndex) {
-          return Padding(
-            key: ValueKey(pageIndex),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  '${pageIndex + 1} / ${coreInfo.pages.length}',
+          return InkWell(
+            onTap: () {
+              transformationController.value = Matrix4.translationValues(
+                0,
+                -CanvasGestureDetector.getTopOfPage(
+                  pageIndex: pageIndex,
+                  pages: coreInfo.pages,
+                  screenWidth: MediaQuery.of(context).size.width,
                 ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: 150,
-                    maxHeight: 250,
+                0,
+              );
+            },
+            child: Padding(
+              key: ValueKey(pageIndex),
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    '${pageIndex + 1} / ${coreInfo.pages.length}',
                   ),
-                  child: FittedBox(
-                    child: CanvasPreview(
-                      pageIndex: pageIndex,
-                      height: null,
-                      coreInfo: coreInfo,
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 150,
+                      maxHeight: 250,
+                    ),
+                    child: FittedBox(
+                      child: CanvasPreview(
+                        pageIndex: pageIndex,
+                        height: null,
+                        coreInfo: coreInfo,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },

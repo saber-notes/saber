@@ -1304,6 +1304,7 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         autosaveAfterDelay();
       }),
+      transformationController: _transformationController,
     );
   }
 
