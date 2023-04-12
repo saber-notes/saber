@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2109 (150 per locale)
+/// Strings: 2111 (150 per locale)
 ///
-/// Built on 2023-04-12 at 14:00 UTC
+/// Built on 2023-04-12 at 14:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5085,7 +5085,7 @@ class _StringsUpdatePtBr extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Atualização disponível';
-	@override String get updateAvailableDescription => 'Uma nova versão do aplicativo está disponível.';
+	@override String get updateAvailableDescription => 'Uma nova versão do aplicativo está disponível, com estas mudanças:';
 	@override String get update => 'Atualizar';
 }
 
@@ -5422,6 +5422,7 @@ class _StringsEditorImageOptionsPtBr extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Invertível';
 	@override String get download => 'Download';
 	@override String get setAsBackground => 'Definir como plano de fundo';
+	@override String get removeAsBackground => 'Remover como plano de fundo';
 	@override String get delete => 'Excluir';
 }
 
@@ -5505,6 +5506,7 @@ class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Grade';
 	@override String get dots => 'Pontos';
 	@override String get staffs => 'Pentagrama';
+	@override String get cornell => 'Cornell';
 }
 
 // Path: <root>

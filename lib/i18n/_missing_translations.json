@@ -70,21 +70,7 @@
     }
   },
   "it": {},
-  "pt-BR": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "Uma nova versão do aplicativo está disponível, com estas mudanças:"
-    },
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Remover como plano de fundo"
-      },
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Cornell"
-        }
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {},
   "tr": {},
   "zh-Hans-CN": {
