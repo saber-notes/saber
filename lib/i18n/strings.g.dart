@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2107 (150 per locale)
+/// Strings: 2109 (150 per locale)
 ///
-/// Built on 2023-04-10 at 18:15 UTC
+/// Built on 2023-04-12 at 14:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3492,7 +3492,7 @@ class _StringsUpdateFr extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Mise à jour disponible';
-	@override String get updateAvailableDescription => 'Une nouvelle version de l\'application est disponible.';
+	@override String get updateAvailableDescription => 'Une nouvelle version de cette application est disponible, avec les changements suivants :';
 	@override String get update => 'Mettre à jour';
 }
 
@@ -3829,6 +3829,7 @@ class _StringsEditorImageOptionsFr extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Couleurs inversibles';
 	@override String get download => 'Télécharger';
 	@override String get setAsBackground => 'Utiliser comme fond';
+	@override String get removeAsBackground => 'Supprimer de l\'arrière-plan';
 	@override String get delete => 'Effacer';
 }
 
@@ -3912,6 +3913,7 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Grille';
 	@override String get dots => 'Points';
 	@override String get staffs => 'Staffs';
+	@override String get cornell => 'Cornell';
 }
 
 // Path: <root>

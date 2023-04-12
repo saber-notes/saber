@@ -19,21 +19,7 @@
   },
   "es": {},
   "fa": {},
-  "fr": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "Une nouvelle version de cette application est disponible, avec les changements suivants :"
-    },
-    "editor": {
-      "imageOptions": {
-        "removeAsBackground": "Supprimer de l'arrière-plan"
-      },
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Cornell"
-        }
-      }
-    }
-  },
+  "fr": {},
   "hu": {
     "settings": {
       "prefLabels": {

@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Mise à jour disponible",
-    "updateAvailableDescription(OUTDATED)": "Une nouvelle version de l'application est disponible.",
+    "updateAvailableDescription": "Une nouvelle version de cette application est disponible, avec les changements suivants :",
     "update": "Mettre à jour"
   },
   "editor": {
@@ -180,6 +180,7 @@
       "invertible": "Couleurs inversibles",
       "download": "Télécharger",
       "setAsBackground": "Utiliser comme fond",
+      "removeAsBackground": "Supprimer de l'arrière-plan",
       "delete": "Effacer"
     },
     "menu": {
@@ -201,7 +202,8 @@
         "lined": "Lignes",
         "grid": "Grille",
         "dots": "Points",
-        "staffs": "Staffs"
+        "staffs": "Staffs",
+        "cornell": "Cornell"
       }
     },
     "newerFileFormat": {
