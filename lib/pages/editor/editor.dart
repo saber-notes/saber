@@ -76,6 +76,8 @@ class Editor extends StatefulWidget {
 class EditorState extends State<Editor> {
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
+  final TransformationController _transformationController = TransformationController();
+
   EditorHistory history = EditorHistory();
 
   late bool needsNaming = widget.needsNaming && Prefs.editorPromptRename.value;
@@ -1019,6 +1021,8 @@ class EditorState extends State<Editor> {
           currentToolIsSelect: currentTool is Select,
         );
       },
+
+      transformationController: _transformationController,
     );
 
     final Widget? readonlyBanner = coreInfo.readOnlyBecauseOfVersion ? Collapsible(

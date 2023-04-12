@@ -12,7 +12,7 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 class CanvasGestureDetector extends StatefulWidget {
-  const CanvasGestureDetector({
+  CanvasGestureDetector({
     super.key,
 
     required this.filePath,
@@ -31,7 +31,9 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.initialPageIndex,
     required this.pageBuilder,
     required this.placeholderPageBuilder,
-  });
+
+    TransformationController? transformationController,
+  })  : _transformationController = transformationController ?? TransformationController();
 
   final String filePath;
 
@@ -52,13 +54,13 @@ class CanvasGestureDetector extends StatefulWidget {
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
   final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
 
+  late final TransformationController _transformationController;
+
   @override
   State<CanvasGestureDetector> createState() => _CanvasGestureDetectorState();
 }
 
 class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
-  final TransformationController _transformationController = TransformationController();
-
   late BoxConstraints containerBounds = const BoxConstraints();
 
   /// If zooming is locked, this is the zoom level.
@@ -71,7 +73,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   @override
   void initState() {
     setInitialTransform();
-    _transformationController.addListener(onTransformChanged);
+    widget._transformationController.addListener(onTransformChanged);
     super.initState();
   }
 
@@ -93,17 +95,17 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     if (widget.filePath.isEmpty) return;
 
     // don't override user's scroll
-    if (!_transformationController.value.isIdentity()) return;
+    if (!widget._transformationController.value.isIdentity()) return;
 
     final transformCacheItem = CanvasTransformCache.get(widget.filePath);
 
     if (transformCacheItem != null) {
       // if we're opening the same note, restore the last transform
-      _transformationController.value = transformCacheItem.transform;
+      widget._transformationController.value = transformCacheItem.transform;
       return;
     } else if (widget.initialPageIndex != null) {
       // if we're opening a different note, scroll to the last recorded page
-      _transformationController.value = Matrix4.translationValues(
+      widget._transformationController.value = Matrix4.translationValues(
         0,
         -getTopOfPage(widget.initialPageIndex!),
         0,
@@ -115,8 +117,8 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// If the scale is less than 1, centers the pages horizontally.
   /// Otherwise, prevents the user from scrolling past the edges.
   void onTransformChanged() {
-    final scale = _transformationController.value.getMaxScaleOnAxis();
-    final translation = _transformationController.value.getTranslation();
+    final scale = widget._transformationController.value.getMaxScaleOnAxis();
+    final translation = widget._transformationController.value.getTranslation();
 
     double adjustmentX = 0;
     double adjustmentY = 0;
@@ -142,7 +144,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     }
 
     if (adjustmentX.abs() > 0.1 || adjustmentY.abs() > 0.1) {
-      _transformationController.value.leftTranslate(
+      widget._transformationController.value.leftTranslate(
         adjustmentX,
         adjustmentY,
       );
@@ -151,12 +153,12 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   /// Resets the zoom level to 1.0x
   void resetZoom() {
-    final translation = _transformationController.value.getTranslation();
-    final scale = _transformationController.value.getMaxScaleOnAxis();
+    final translation = widget._transformationController.value.getTranslation();
+    final scale = widget._transformationController.value.getMaxScaleOnAxis();
 
     if (scale == 1) return;
 
-    _transformationController.value = Matrix4.translationValues(
+    widget._transformationController.value = Matrix4.translationValues(
       0,
       translation.y / scale + containerBounds.maxHeight / 2,
       0,
@@ -204,7 +206,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                     horizontal: screenSize.width * 2,
                   ),
 
-                  transformationController: _transformationController,
+                  transformationController: widget._transformationController,
 
                   isDrawGesture: widget.isDrawGesture,
                   onInteractionEnd: widget.onInteractionEnd,
@@ -228,11 +230,11 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         ),
         Positioned.fill(
           child: CanvasHud(
-            transformationController: _transformationController,
+            transformationController: widget._transformationController,
             zoomLock: zoomLockedValue != null,
             setZoomLock: (bool zoomLock) => setState(() {
               zoomLockedValue = zoomLock
-                  ? _transformationController.value.getMaxScaleOnAxis()
+                  ? widget._transformationController.value.getMaxScaleOnAxis()
                   : null;
               Prefs.lastZoomLock.value = zoomLock;
             }),
@@ -250,9 +252,9 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
-    CanvasTransformCache.add(widget.filePath, _transformationController.value);
-    _transformationController.removeListener(onTransformChanged);
-    _transformationController.dispose();
+    CanvasTransformCache.add(widget.filePath, widget._transformationController.value);
+    widget._transformationController.removeListener(onTransformChanged);
+    widget._transformationController.dispose();
 
     super.dispose();
   }
