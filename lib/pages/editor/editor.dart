@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart' hide TransformationController;
 import 'package:flutter/foundation.dart' show kDebugMode;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide TransformationController;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
@@ -18,6 +18,7 @@ import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -229,6 +230,8 @@ class EditorState extends State<Editor> {
     }
   }
   void removeExcessPages() {
+    bool removedAPage = false;
+
     // remove excess pages if all pages >= this one are empty
     for (int i = coreInfo.pages.length - 1; i >= 1; --i) {
       final thisPage = coreInfo.pages[i];
@@ -236,8 +239,33 @@ class EditorState extends State<Editor> {
       if (thisPage.isEmpty && prevPage.isEmpty) {
         EditorPage page = coreInfo.pages.removeAt(i);
         page.dispose();
+        removedAPage = true;
       } else {
         break;
+      }
+    }
+
+    if (removedAPage) {
+      // scroll to the last page (only if we're below the last page)
+
+      final currentY = _transformationController.value.getTranslation().y;
+      late final topOfLastPage = -CanvasGestureDetector.getTopOfPage(
+        pageIndex: coreInfo.pages.length - 1,
+        pages: coreInfo.pages,
+        screenWidth: MediaQuery.of(context).size.width,
+      );
+      final bottomOfLastPage = -CanvasGestureDetector.getTopOfPage(
+        pageIndex: coreInfo.pages.length,
+        pages: coreInfo.pages,
+        screenWidth: MediaQuery.of(context).size.width,
+      );
+
+      if (currentY < bottomOfLastPage) {
+        _transformationController.value = Matrix4.translationValues(
+          0,
+          topOfLastPage,
+          0,
+        );
       }
     }
   }
