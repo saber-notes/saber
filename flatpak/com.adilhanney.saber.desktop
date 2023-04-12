@@ -4,6 +4,7 @@ Type=Application
 
 Name=Saber
 Comment=A cross-platform libre handwritten notes app.
+Comment[cs]=Volně dostupná multiplatformní aplikace pro ručně psané poznámky
 Categories=Office;WordProcessor;
 
 Icon=com.adilhanney.saber
