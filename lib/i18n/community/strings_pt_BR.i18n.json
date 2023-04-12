@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Atualização disponível",
-    "updateAvailableDescription(OUTDATED)": "Uma nova versão do aplicativo está disponível.",
+    "updateAvailableDescription": "Uma nova versão do aplicativo está disponível, com estas mudanças:",
     "update": "Atualizar"
   },
   "editor": {
@@ -180,6 +180,7 @@
       "invertible": "Invertível",
       "download": "Download",
       "setAsBackground": "Definir como plano de fundo",
+      "removeAsBackground": "Remover como plano de fundo",
       "delete": "Excluir"
     },
     "menu": {
@@ -201,7 +202,8 @@
         "lined": "Pautado",
         "grid": "Grade",
         "dots": "Pontos",
-        "staffs": "Pentagrama"
+        "staffs": "Pentagrama",
+        "cornell": "Cornell"
       }
     },
     "newerFileFormat": {
