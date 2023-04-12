@@ -26,9 +26,11 @@ class EditorPageManager extends StatelessWidget {
       width: 300,
       child: ReorderableListView.builder(
         shrinkWrap: true,
+        buildDefaultDragHandles: false,
         itemCount: coreInfo.pages.length,
         itemBuilder: (context, pageIndex) {
           return InkWell(
+            key: ValueKey(pageIndex),
             onTap: () {
               transformationController.value = Matrix4.translationValues(
                 0,
@@ -41,7 +43,6 @@ class EditorPageManager extends StatelessWidget {
               );
             },
             child: Padding(
-              key: ValueKey(pageIndex),
               padding: const EdgeInsets.all(8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -59,6 +60,18 @@ class EditorPageManager extends StatelessWidget {
                         pageIndex: pageIndex,
                         height: null,
                         coreInfo: coreInfo,
+                      ),
+                    ),
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.resizeUpDown,
+                    child: ReorderableDragStartListener(
+                      index: pageIndex,
+                      child: const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Icon(
+                          Icons.drag_handle,
+                        ),
                       ),
                     ),
                   ),
