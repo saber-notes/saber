@@ -21,11 +21,11 @@
   "fa": {},
   "fr": {
     "update": {
-      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+      "updateAvailableDescription(OUTDATED)": "Une nouvelle version de cette application est disponible, avec les changements suivants :"
     },
     "editor": {
       "imageOptions": {
-        "removeAsBackground": "Remove as background"
+        "removeAsBackground": "Supprimer de l'arrière-plan"
       },
       "menu": {
         "bgPatterns": {
