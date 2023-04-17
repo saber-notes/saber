@@ -90,12 +90,16 @@ echo
 CHANGELOG_FILE="metadata/en-US/changelogs/$BUILD_NUMBER.txt"
 if [ -f "$CHANGELOG_FILE" ]; then
   echo " - Changelog file already exists at $CHANGELOG_FILE"
-  echo " - Assuming that the <release> tag exists in flatpak/com.adilhanney.saber.metainfo.xml"
 else
   echo " - (*) Creating a blank changelog file at $CHANGELOG_FILE"
   echo "• $DUMMY_CHANGELOG" > "$CHANGELOG_FILE"
+fi
 
-  echo " - (*) Add <release> tag to flatpak/com.adilhanney.saber.metainfo.xml"
+FLATPAK_FILE="flatpak/com.adilhanney.saber.metainfo.xml"
+if grep -q "$BUILD_NAME" "$FLATPAK_FILE"; then
+  echo " - <release> tag already exists in $FLATPAK_FILE"
+else
+  echo " - (*) Adding <release> tag to $FLATPAK_FILE"
   # shellcheck disable=SC1078,SC1079
   RELEASE_TAG="""\
         <release version=\"$BUILD_NAME\" type=\"development\" date=\"$DATE\">
@@ -105,15 +109,15 @@ else
                 </ul>
             </description>
         </release>\
-  """
-  awk -v release="$RELEASE_TAG" 'NR==68{print release}1' flatpak/com.adilhanney.saber.metainfo.xml > flatpak/com.adilhanney.saber.metainfo.xml.tmp
-  mv flatpak/com.adilhanney.saber.metainfo.xml.tmp flatpak/com.adilhanney.saber.metainfo.xml
+"""
+  awk -v release="$RELEASE_TAG" 'NR==68{print release}1' "$FLATPAK_FILE" > "${FLATPAK_FILE}.tmp"
+  mv "${FLATPAK_FILE}.tmp" "$FLATPAK_FILE"
 fi
 
 echo
 echo "Make sure to update the two changelog files:"
-echo " - metadata/en-US/changelogs/$BUILD_NUMBER.txt"
-echo " - flatpak/com.adilhanney.saber.metainfo.xml"
+echo " - $CHANGELOG_FILE"
+echo " - $FLATPAK_FILE"
 echo "And then run:"
 echo " - dart scripts/translate_changelogs.dart"
 
