@@ -55,7 +55,7 @@ void main() {
     expect(before.outText.isEmpty, true, reason: 'Git status is not initially clean');
 
     // Run `./scripts/apply_version.sh` to update the version in code...
-    const command = 'bash ./scripts/apply_version.sh $buildName $buildNumber';
+    const command = 'bash ./scripts/apply_version.sh $buildName $buildNumber -q';
     printOnFailure('Running: $command');
     await shell.run(command);
 

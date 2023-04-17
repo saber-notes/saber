@@ -10,7 +10,8 @@ export LC_ALL=en_US.utf8
 # E.g. if you are using VS Code, you can set this to
 # EDITOR="code"
 #
-# If you leave this empty, the script will not open them.
+# If you leave this empty, the script will not open any files.
+# This is the same as using the -q flag.
 EDITOR="${LOCALAPPDATA}\JetBrains\Toolbox\scripts\studio.cmd"
 
 # get the current version name from lib/data/version.dart
@@ -25,8 +26,13 @@ function get_version_code {
 
 function print_help {
   echo "This script is used to apply the version to the relevant files."
-  echo "Usage: $0 <version-name> <version-code>"
+  echo "Usage: $0 <version-name> <version-code> [-q]"
   echo "e.g. $0 $(get_version_name) $(get_version_code)"
+
+  echo
+  echo "Options:"
+  echo "  -q: Quiet mode. Doesn't automatically open files that need to be manually edited."
+
   exit 0
 }
 
@@ -35,8 +41,8 @@ if [ "$1" == "-h" ] || [ "$1" == "--help" ] || [ "$1" == "" ]; then
   print_help
 fi
 
-# check if we have 2 arguments
-if [ "$#" -ne 2 ]; then
+# check if we have 2-3 arguments
+if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
   print_help
 fi
 
@@ -45,6 +51,21 @@ BUILD_NAME=$1
 BUILD_NUMBER=$2
 DATE=$(date +%Y-%m-%d)
 YEAR=$(date +%Y)
+
+# -q flag
+if [ "$3" == "-q" ]; then
+  EDITOR=""
+elif [ "$3" != "" ]; then
+  print_help
+fi
+
+# Check if the editor exists
+if [ "$EDITOR" != "" ] && [ ! -f "$EDITOR" ]; then
+  echo "Editor not found: $EDITOR"
+  echo "Please set the EDITOR variable in this script to the path of your editor executable,"
+  echo "or use the -q flag to not open any files."
+  exit 1
+fi
 
 # check if the build name is valid
 if [[ ! $BUILD_NAME =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
