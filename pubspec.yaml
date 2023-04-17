@@ -90,7 +90,7 @@ dependencies:
   regexed_validator: ^2.0.0+1
 
   slang: ^3.9.0
-  slang_flutter:
+  slang_flutter: ^3.16.0
 
   flutter_colorpicker: ^1.0.3
 
