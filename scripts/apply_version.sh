@@ -4,6 +4,15 @@
 # for Git Bash on Windows
 export LC_ALL=en_US.utf8
 
+# Path to an editor executable with which to open
+# the files you need to manually edit.
+#
+# E.g. if you are using VS Code, you can set this to
+# EDITOR="code"
+#
+# If you leave this empty, the script will not open them.
+EDITOR="${LOCALAPPDATA}\JetBrains\Toolbox\scripts\studio.cmd"
+
 # get the current version name from lib/data/version.dart
 function get_version_name {
   grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart
@@ -107,3 +116,10 @@ echo " - metadata/en-US/changelogs/$BUILD_NUMBER.txt"
 echo " - flatpak/com.adilhanney.saber.metainfo.xml"
 echo "And then run:"
 echo " - dart scripts/translate_changelogs.dart"
+
+if [ "$EDITOR" != "" ]; then
+  echo
+  echo "Opening the changelog files in $EDITOR..."
+  "$EDITOR" "$CHANGELOG_FILE"
+  "$EDITOR" flatpak/com.adilhanney.saber.metainfo.xml
+fi
