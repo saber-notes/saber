@@ -63,7 +63,7 @@ abstract class EditorExporter {
                     .where((stroke) => stroke.penType != (Highlighter).toString());
                   for (Stroke stroke in strokes) {
                     if (stroke.polygon.length <= 13) { // a dot
-                      final bounds = stroke.path.shift(stroke.offset).getBounds();
+                      final bounds = stroke.path.getBounds();
                       final radius = max(bounds.size.width, stroke.strokeProperties.size * 0.5) / 2;
                       pdfGraphics.drawEllipse(
                         bounds.center.dx, pageSize.height - bounds.center.dy,

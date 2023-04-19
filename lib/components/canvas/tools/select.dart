@@ -57,8 +57,7 @@ class Select extends Tool {
       final Stroke stroke = strokes[i];
 
       final pointsInside = stroke.polygon.where((strokeVertex) {
-        Offset translated = strokeVertex + stroke.offset;
-        return selectResult.path.contains(translated);
+        return selectResult.path.contains(strokeVertex);
       }).length;
 
       final ratio = pointsInside / stroke.polygon.length;

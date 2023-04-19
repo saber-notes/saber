@@ -312,10 +312,10 @@ class EditorState extends State<Editor> {
         case EditorHistoryItemType.move:
           assert(item.offset != null);
           for (Stroke stroke in item.strokes) {
-            stroke.offset -= Offset(
+            stroke.shift(Offset(
               item.offset!.left,
               item.offset!.top,
-            );
+            ));
           }
           Select select = Select.currentSelect;
           if (select.doneSelecting) {
@@ -487,7 +487,7 @@ class EditorState extends State<Editor> {
       Select select = currentTool as Select;
       if (select.doneSelecting) {
         for (Stroke stroke in select.selectResult.strokes) {
-          stroke.offset += offset;
+          stroke.shift(offset);
         }
         for (EditorImage image in select.selectResult.images) {
           image.dstRect = image.dstRect.shift(offset);

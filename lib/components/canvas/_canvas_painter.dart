@@ -59,7 +59,7 @@ class CanvasPainter extends CustomPainter {
         } else {
           paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
         }
-        canvas.drawPath(stroke.path.shift(stroke.offset), paint);
+        canvas.drawPath(stroke.path, paint);
       }
     }
     if (needToRestoreCanvasLayer) canvas.restore();
@@ -75,11 +75,11 @@ class CanvasPainter extends CustomPainter {
       }
 
       if (stroke.polygon.length <= 13) { // a dot
-        final bounds = stroke.path.shift(stroke.offset).getBounds();
+        final bounds = stroke.path.getBounds();
         final radius = max(bounds.size.width, stroke.strokeProperties.size * 0.5) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
       } else {
-        canvas.drawPath(stroke.path.shift(stroke.offset), paint);
+        canvas.drawPath(stroke.path, paint);
       }
     }
 
@@ -87,11 +87,11 @@ class CanvasPainter extends CustomPainter {
       paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
 
       if (currentStroke!.polygon.length <= 13) { // a dot
-        final bounds = currentStroke!.path.shift(currentStroke!.offset).getBounds();
+        final bounds = currentStroke!.path.getBounds();
         final radius = max(bounds.size.width, currentStroke!.strokeProperties.size * 0.5) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
       } else {
-        canvas.drawPath(currentStroke!.path.shift(currentStroke!.offset), paint);
+        canvas.drawPath(currentStroke!.path, paint);
       }
     }
 

@@ -49,25 +49,24 @@ void main() {
       expect(page.strokes.length, 1);
 
       final stroke = page.strokes[0];
+      final offset = const Offset(10, 14);
       expect(stroke.isComplete, true);
       expect(stroke.pageIndex, 0);
-      expect(stroke.offset.dx, 10);
-      expect(stroke.offset.dy, 14);
       expect(stroke.penType, (Pen).toString());
       expect(stroke.strokeProperties.size, 25);
       expect(stroke.points.length, 3);
 
       expect(stroke.points[0].p, 0.1);
-      expect(stroke.points[0].x, 0);
-      expect(stroke.points[0].y, 0);
+      expect(stroke.points[0].x, 0 + offset.dx);
+      expect(stroke.points[0].y, 0 + offset.dy);
 
       expect(stroke.points[1].p, 0.5);
-      expect(stroke.points[1].x, 200);
-      expect(stroke.points[1].y, 200);
+      expect(stroke.points[1].x, 200 + offset.dx);
+      expect(stroke.points[1].y, 200 + offset.dy);
 
       expect(stroke.points[2].p, 0.9);
-      expect(stroke.points[2].x, 555.555555555555);
-      expect(stroke.points[2].y, 555.555555555555);
+      expect(stroke.points[2].x, 555.555555555555 + offset.dx);
+      expect(stroke.points[2].y, 555.555555555555 + offset.dy);
     });
 
     test('v9 quill', () async {

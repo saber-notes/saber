@@ -20,9 +20,6 @@ class Stroke {
 
   late final StrokeProperties strokeProperties;
 
-  /// All points are translated by this offset.
-  Offset offset = Offset.zero;
-
   bool _isComplete = false;
   bool get isComplete => isStraightLine || _isComplete;
   set isComplete(bool value) {
@@ -58,6 +55,16 @@ class Stroke {
     _polygonNeedsUpdating = false;
   }
 
+  void shift(Offset offset) {
+    if (offset == Offset.zero) return;
+
+    for (int i = 0; i < points.length; i++) {
+      points[i] += offset;
+    }
+
+    _polygonNeedsUpdating = true;
+  }
+
   Stroke({
     required this.strokeProperties,
     required this.pageIndex,
@@ -67,14 +74,15 @@ class Stroke {
   Stroke.fromJson(Map<String, dynamic> json) :
         _isComplete = json['f'],
         pageIndex = json['i'] ?? 0,
-        penType = json['ty'] ?? (Pen).toString(),
-        offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0) {
+        penType = json['ty'] ?? (Pen).toString() {
     strokeProperties = StrokeProperties.fromJson(json);
 
-    final List<dynamic> pointsJson = json['p'] as List<dynamic>;
-    points.insertAll(0, pointsJson.map(
-      (point) => PointExtensions.fromJson(Map<String, dynamic>.from(point))
-    ).toList());
+    final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
+    final pointsJson = json['p'] as List<dynamic>;
+    points.insertAll(0, pointsJson.map((point) => PointExtensions.fromJson(
+      json: Map<String, dynamic>.from(point),
+      offset: offset,
+    )).toList());
   }
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() => {
@@ -92,8 +100,6 @@ class Stroke {
     }(),
     'i': pageIndex,
     'ty': penType.toString(),
-    'ox': offset.dx,
-    'oy': offset.dy,
   }..addAll(strokeProperties.toJson());
 
   void addPoint(Offset point, [ double? pressure ]) {
@@ -138,8 +144,8 @@ class Stroke {
 
   String toSvgPath(Size pageSize) {
     String toSvgPoint(Offset point) {
-      return '${point.dx + offset.dx} '
-          '${pageSize.height - (point.dy + offset.dy)}';
+      return '${point.dx} '
+          '${pageSize.height - point.dy}';
     }
 
     if (polygon.isEmpty) {

@@ -33,13 +33,6 @@ void main() {
         pageIndex: 0,
         penType: 'testing pen',
       )..addPoint(const Offset(15, 15)),
-      // same as index 0, but offset outside
-      Stroke(
-        strokeProperties: strokeProperties,
-        pageIndex: 0,
-        penType: 'testing pen',
-      )..addPoint(const Offset(5, 5))
-        ..offset = const Offset(10, 10),
     ];
 
     select.onDragEnd(strokes, const []);
