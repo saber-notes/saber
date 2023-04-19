@@ -10,6 +10,11 @@ import 'package:saber/data/fast_math.dart';
 class Stroke {
   @visibleForTesting
   final List<Point> points = [];
+
+  /// Note that [isEmpty] is also true if there is only one point,
+  /// since it was just initially added in [onDrawStart].
+  bool get isEmpty => points.length <= 1;
+
   int pageIndex;
   final String penType;
 

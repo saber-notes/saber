@@ -506,6 +506,7 @@ class EditorState extends State<Editor> {
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
+        if (newStroke.isEmpty) return;
         createPage(newStroke.pageIndex);
         page.insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(
@@ -514,12 +515,15 @@ class EditorState extends State<Editor> {
           images: [],
         ));
       } else if (currentTool is Eraser) {
+        final erased = (currentTool as Eraser).onDragEnd();
+        if (erased.isEmpty) return;
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
-          strokes: (currentTool as Eraser).onDragEnd(),
+          strokes: erased,
           images: [],
         ));
       } else if (currentTool is Select) {
+        if (moveOffset == Offset.zero) return;
         Select select = currentTool as Select;
         if (select.doneSelecting) {
           history.recordChange(EditorHistoryItem(

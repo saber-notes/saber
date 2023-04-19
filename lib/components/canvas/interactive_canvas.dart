@@ -747,11 +747,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   // Handle the start of a gesture. All of pan, scale, and rotate are handled
   // with GestureDetector's scale gesture.
   void _onScaleStart(ScaleStartDetails details) {
-    if (widget.isDrawGesture?.call(details) ?? false) {
-      isCurrentGestureADrawGesture = true;
-      return widget.onDrawStart?.call(details);
-    }
-
     if (_controller.isAnimating) {
       _controller.stop();
       _controller.reset();
@@ -766,15 +761,16 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
       details.localFocalPoint,
     );
     _rotationStart = _currentRotation;
+
+    if (widget.isDrawGesture?.call(details) ?? false) {
+      isCurrentGestureADrawGesture = true;
+      widget.onDrawStart?.call(details);
+    }
   }
 
   // Handle an update to an ongoing gesture. All of pan, scale, and rotate are
   // handled with GestureDetector's scale gesture.
   void _onScaleUpdate(ScaleUpdateDetails details) {
-    if (isCurrentGestureADrawGesture) {
-      return widget.onDrawUpdate?.call(details);
-    }
-
     final double scale = _transformationController!.value.getMaxScaleOnAxis();
     final Offset focalPointScene = _transformationController!.toScene(
       details.localFocalPoint,
@@ -852,17 +848,22 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         if (details.scale != 1.0) {
           return;
         }
-        _currentAxis ??= _getPanAxis(_referenceFocalPoint!, focalPointScene);
-        // Translate so that the same point in the scene is underneath the
-        // focal point before and after the movement.
-        final Offset translationChange = focalPointScene - _referenceFocalPoint!;
-        _transformationController!.value = _matrixTranslate(
-          _transformationController!.value,
-          translationChange,
-        );
-        _referenceFocalPoint = _transformationController!.toScene(
-          details.localFocalPoint,
-        );
+
+        if (isCurrentGestureADrawGesture) {
+          widget.onDrawUpdate?.call(details);
+        } else {
+          _currentAxis ??= _getPanAxis(_referenceFocalPoint!, focalPointScene);
+          // Translate so that the same point in the scene is underneath the
+          // focal point before and after the movement.
+          final Offset translationChange = focalPointScene - _referenceFocalPoint!;
+          _transformationController!.value = _matrixTranslate(
+            _transformationController!.value,
+            translationChange,
+          );
+          _referenceFocalPoint = _transformationController!.toScene(
+            details.localFocalPoint,
+          );
+        }
         break;
     }
   }
