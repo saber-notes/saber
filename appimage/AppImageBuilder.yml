@@ -21,6 +21,7 @@ AppDir:
     include:
     - libgtk-3-0
     - librsvg2-common
+    - zenity
   files:
     include: []
     exclude:
