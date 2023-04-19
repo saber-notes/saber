@@ -42,16 +42,17 @@ class CanvasPainter extends CustomPainter {
     Paint highlighterLayerPaint = Paint()
       ..blendMode = invert ? BlendMode.lighten : BlendMode.darken
       ..color = Colors.white.withAlpha(Highlighter.alpha);
-    canvas.saveLayer(canvasRect, highlighterLayerPaint);
+    bool needToRestoreCanvasLayer = false;
     {
-      Color? lastColor = strokes.isNotEmpty ? strokes.first.strokeProperties.color : null;
+      Color? lastColor;
       for (int i = 0; i < strokes.length; i++) {
         final Stroke stroke = strokes[i];
         if (stroke.penType != (Highlighter).toString()) continue;
         if (stroke.strokeProperties.color != lastColor) { // new layer for each color
           lastColor = stroke.strokeProperties.color;
-          canvas.restore();
+          if (needToRestoreCanvasLayer) canvas.restore();
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
+          needToRestoreCanvasLayer = true;
         }
         if (currentSelection?.strokes.contains(stroke) ?? false) {
           paint.color = primaryColor;
@@ -61,7 +62,7 @@ class CanvasPainter extends CustomPainter {
         canvas.drawPath(stroke.path.shift(stroke.offset), paint);
       }
     }
-    canvas.restore();
+    if (needToRestoreCanvasLayer) canvas.restore();
 
     // pen
     for (int i = 0; i < strokes.length; i++) {
