@@ -98,16 +98,6 @@ jobs:
       - name: Build for macOS
         run: flutter build macos
 
-      - name: Compress macOS build
-        id: compress
-        run: |
-          zipName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.app.zip"
-          echo "zipName=$zipName" >> $GITHUB_OUTPUT
-
-          pushd build/macos/Build/Products/Release
-          zip -r $zipName Saber.app
-          popd
-
       - name: Package for App Store
         id: package
         run: |
@@ -125,6 +115,16 @@ jobs:
                   | xargs)
           xcrun productsign --sign "$INSTALLER_CERT_NAME" unsigned.pkg "$PACKAGE_NAME"
           rm -f unsigned.pkg
+
+      - name: Compress macOS build
+        id: compress
+        run: |
+          zipName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.app.zip"
+          echo "zipName=$zipName" >> $GITHUB_OUTPUT
+
+          pushd build/macos/Build/Products/Release
+          zip -r $zipName Saber.app
+          popd
 
       - name: Restore keychain
         run: |
