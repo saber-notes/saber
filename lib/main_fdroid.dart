@@ -2,7 +2,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/main_common.dart' as common;
 
-void main() {
+Future<void> main() async {
   FlavorConfig.setup(
     flavor: 'F-Droid',
     appStore: 'F-Droid',
@@ -11,5 +11,5 @@ void main() {
 
   GoogleFonts.config.allowRuntimeFetching = false;
 
-  common.main();
+  await common.main();
 }

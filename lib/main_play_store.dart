@@ -5,12 +5,12 @@
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/main_common.dart' as common;
 
-void main() {
+Future<void> main() async {
   FlavorConfig.setup(
     flavor: 'Google Play',
     appStore: 'Google Play',
     shouldCheckForUpdatesByDefault: false,
   );
 
-  common.main();
+  await common.main();
 }

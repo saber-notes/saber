@@ -21,7 +21,7 @@ import 'package:saber/pages/nextcloud/login.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
