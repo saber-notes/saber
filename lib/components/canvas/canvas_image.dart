@@ -60,7 +60,11 @@ class _CanvasImageState extends State<CanvasImage> {
     _active = value;
 
     if (mounted) {
-      setState(() {});
+      try {
+        setState(() {});
+      } catch (e) {
+        // setState throws error if widget is currently building
+      }
     }
   }
 
@@ -85,10 +89,7 @@ class _CanvasImageState extends State<CanvasImage> {
   }
 
   void disableActive() {
-    if (!active) return;
-    setState(() {
-      active = false;
-    });
+    active = false;
   }
 
   void imageListener() {
