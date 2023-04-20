@@ -22,10 +22,12 @@ class EditorPageManager extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final platform = Theme.of(context).platform;
+    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     return SizedBox(
-      width: 300,
+      width: cupertino ? null : 300,
+      height: cupertino ? 600 : null,
       child: ReorderableListView.builder(
-        shrinkWrap: true,
         buildDefaultDragHandles: false,
         itemCount: coreInfo.pages.length,
         itemBuilder: (context, pageIndex) {
@@ -51,8 +53,8 @@ class EditorPageManager extends StatelessWidget {
                     '${pageIndex + 1} / ${coreInfo.pages.length}',
                   ),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      maxWidth: 150,
+                    constraints: BoxConstraints(
+                      maxWidth: cupertino ? 100 : 150,
                       maxHeight: 250,
                     ),
                     child: FittedBox(
