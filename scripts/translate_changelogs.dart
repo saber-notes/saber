@@ -30,17 +30,24 @@ void main() async {
   final localeCodes = localeNames.keys.toList();
   localeCodes.shuffle();
 
-  for (final localeCode in localeCodes) {
-    if (localeCode == 'en') continue;
+  final String total = localeCodes.length.toString();
 
+  for (int i = 0; i < localeCodes.length; i++) {
+    final localeCode = localeCodes[i];
     final localeName = localeNames[localeCode];
+
+    /// The step number and total number of steps.
+    /// e.g. 1/10
+    final stepPrefix = '${(i + 1).toString().padLeft(total.length)}/$total';
+
+    if (localeCode == 'en') continue;
 
     final file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
     if (file.existsSync()) {
-      print('Skipped $localeCode ($localeName) because it already exists.');
+      print('$stepPrefix. Skipped $localeCode ($localeName) because it already exists.');
       continue;
     } else {
-      print('Translating to $localeCode ($localeName)...');
+      print('$stepPrefix. Translating to $localeCode ($localeName)...');
     }
 
     final String nearestLocaleCode;
@@ -51,12 +58,11 @@ void main() async {
     } else if (LanguageList.contains(localeCode.substring(0, localeCode.indexOf('-')))) {
       nearestLocaleCode = localeCode.substring(0, localeCode.indexOf('-'));
     } else {
-      print('Language not supported, skipping...');
+      print('${' ' * stepPrefix.length}  - Language not supported, skipping...');
       continue;
     }
-
     if (localeCode != nearestLocaleCode) {
-      print('Language not supported, using $nearestLocaleCode instead...');
+      print('${' ' * stepPrefix.length}  - Selected $nearestLocaleCode');
     }
 
     Translation? translation;
