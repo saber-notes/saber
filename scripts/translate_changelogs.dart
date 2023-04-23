@@ -27,6 +27,13 @@ void main() async {
   print('English changelog for $buildName ($buildNumber):');
   print(englishChangelog);
 
+  if (englishChangelog.length > 500) {
+    print('Warning: The English changelog has length ${englishChangelog.length}, '
+        'but Google Play only allows 500 characters.');
+    print('Please shorten the changelog and try again.');
+    return;
+  }
+
   final localeCodes = localeNames.keys.toList();
   localeCodes.shuffle();
 
@@ -58,7 +65,7 @@ void main() async {
     } else if (LanguageList.contains(localeCode.substring(0, localeCode.indexOf('-')))) {
       nearestLocaleCode = localeCode.substring(0, localeCode.indexOf('-'));
     } else {
-      print('${' ' * stepPrefix.length}  - Language not supported, skipping...');
+      print('${' ' * stepPrefix.length}  ! Language not supported, skipping...');
       continue;
     }
     if (localeCode != nearestLocaleCode) {
@@ -79,13 +86,29 @@ void main() async {
       }
     }
     if (translation == null) {
-      print('Translation failed, skipping...');
+      print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
       continue;
     }
 
-    String translatedChangelog = translation.translations.text;
+    var translatedChangelog = translation.translations.text;
     if (!translatedChangelog.endsWith('\n')) {
+      // translations sometimes don't end with a newline
       translatedChangelog += '\n';
+    }
+
+    if (translatedChangelog.length > 500) {
+      final oldLength = translatedChangelog.length;
+      const suffix = '\n...\n';
+      var linesRemoved = -1; // -1 to account for removing the trailing newline
+      while (translatedChangelog.length > 500 - suffix.length) {
+        final lastNewlineIndex = translatedChangelog.lastIndexOf('\n');
+        translatedChangelog = translatedChangelog.substring(0, lastNewlineIndex);
+        linesRemoved++;
+      }
+      translatedChangelog += suffix;
+      print('${' ' * stepPrefix.length}  ! Removed $linesRemoved lines to '
+          'shorten the changelog from $oldLength to '
+          '${translatedChangelog.length} characters (max 500).');
     }
 
     await file.create(recursive: true);
