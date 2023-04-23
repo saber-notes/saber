@@ -222,6 +222,8 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   maxScale: zoomLockedValue ?? 5,
                   panEnabled: !panLock,
 
+                  interactionEndFrictionCoefficient: InteractiveCanvasViewer.kDrag * 100,
+
                   // we need a non-zero boundary margin so we can zoom out
                   // past the size of the page (for minScale < 1)
                   boundaryMargin: EdgeInsets.symmetric(

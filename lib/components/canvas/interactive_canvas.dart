@@ -39,7 +39,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.maxScale = 2.5,
     this.minScale = 0.8,
     this.isDrawGesture,
-    this.interactionEndFrictionCoefficient = _kDrag,
+    this.interactionEndFrictionCoefficient = kDrag,
     this.onInteractionEnd,
     this.onDrawEnd,
     this.onDrawStart,
@@ -89,7 +89,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     this.maxScale = 2.5,
     this.minScale = 0.8,
     this.isDrawGesture,
-    this.interactionEndFrictionCoefficient = _kDrag,
+    this.interactionEndFrictionCoefficient = kDrag,
     this.onInteractionEnd,
     this.onDrawEnd,
     this.onDrawStart,
@@ -384,7 +384,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
 
   // Used as the coefficient of friction in the inertial translation animation.
   // This value was eyeballed to give a feel similar to Google Photos.
-  static const double _kDrag = 0.0000135;
+  static const double kDrag = 0.0000135;
 
   /// Returns the closest point to the given point on the given line segment.
   @visibleForTesting
