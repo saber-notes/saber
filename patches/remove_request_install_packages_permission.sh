@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Remove REQUEST_INSTALL_PACKAGES permission
 echo -n "Removing REQUEST_INSTALL_PACKAGES permission: "

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # find "path: packages/onyxsdk_pen" and replace with "path: packages/onyxsdk_pen_dummy"
 echo -n "Replacing onyxsdk_pen with onyxsdk_pen_dummy: "
