@@ -1,0 +1,6 @@
+• Belirli arka plan kalıpları artık sağdan sola yazılan bir dil kullanıp kullanmadığınıza yanıt veriyor
+• Hızlı bir şekilde kaydırmak için sayfalar açılır penceresindeki bir sayfaya dokunun
+• Dizüstü bilgisayar dokunmatik yüzeyi kullanıcıları artık yakınlaştırmak için kıstırabilir
+• Ekranda herhangi bir vurgulayıcı vuruşunuz olmadığı zamanlar için küçük performans iyileştirmesi
+• iOS temasını kullanırken oluşan bazı hatalar düzeltildi
+• Düzenleyicide artan kaydırma duyarlılığı

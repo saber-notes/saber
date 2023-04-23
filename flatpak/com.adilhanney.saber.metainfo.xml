@@ -65,6 +65,18 @@
         </screenshot>
     </screenshots>
 
+        <release version="0.11.5" type="development" date="2023-04-23">
+            <description>
+                <ul>
+                    <li>Certain background patterns now respond to whether you're using a right-to-left language</li>
+                    <li>Tap a page in the pages popup to quickly scroll to it</li>
+                    <li>Laptop touchpad users can now pinch to zoom</li>
+                    <li>Small performance improvement for when you don't have any highlighter strokes on screen</li>
+                    <li>Fixed some bugs when using the iOS theme</li>
+                    <li>Increased scrolling responsiveness in the editor</li>
+                </ul>
+            </description>
+        </release>
     <releases>
         <release version="0.11.4" type="development" date="2023-04-11">
             <description>

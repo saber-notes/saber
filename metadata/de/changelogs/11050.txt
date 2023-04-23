@@ -1,0 +1,6 @@
+• Bestimmte Hintergrundmuster reagieren jetzt darauf, ob Sie eine rechts-nach-links-Sprache verwenden
+• Tippen Sie im Seiten-Popup auf eine Seite, um schnell dorthin zu blättern
+• Benutzer von Laptop-Touchpads können jetzt zum Zoomen zwei Finger zusammendrücken
+• Kleine Leistungsverbesserung, wenn Sie keine Textmarkerstriche auf dem Bildschirm haben
+• Einige Fehler bei der Verwendung des iOS-Designs behoben
+• Erhöhte Reaktionsfähigkeit beim Scrollen im Editor
