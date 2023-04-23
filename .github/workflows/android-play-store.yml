@@ -89,11 +89,12 @@ jobs:
           path: output
 
       - name: Prepare whatsnew directory from metadata/*/changelogs
+        working-directory: ${{ github.workspace }}
         run: |
-          mkdir -p whatsnew
+          # display changelogs for debugging
+          find metadata -name '*.txt'
 
-          # fix grep: -P supports only unibyte and UTF-8 locales
-          export LC_ALL=en_US.utf8
+          mkdir -p whatsnew
 
           # get current version code from lib/data/version.dart
           VERSION_CODE=$(grep -oP '(?<=buildNumber = )\d+' lib/data/version.dart)
