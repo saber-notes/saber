@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
+  auto_screenshot:
+    dependency: "direct dev"
+    description:
+      name: auto_screenshot
+      sha256: "90762a1e1e56c43a1c0e861ba0f3f6e87add452cc80187edd67e8170f3be5e4b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   barcode:
     dependency: transitive
     description:
@@ -81,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  checked_yaml:
+    dependency: transitive
+    description:
+      name: checked_yaml
+      sha256: "3d1505d91afa809d177efd4eed5bb0eb65805097a1463abdd2add076effae311"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   clock:
     dependency: transitive
     description:

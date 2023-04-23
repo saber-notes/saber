@@ -167,6 +167,8 @@ dev_dependencies:
 
   simplytranslate: ^1.2.2
 
+  auto_screenshot: ^0.0.2
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -233,3 +235,26 @@ icons_launcher:
     macos:
       enable: true
       image_path: "assets/icon/icon_opaque.png"
+
+auto_screenshot:
+  bundle_id: 
+    android: com.adilhanney.saber
+    ios: com.adilhanney.saber
+  devices:
+    - iPhone 8 Plus
+    - iPhone 14 Plus
+
+    - iPad Pro (12.9-inch) (2nd generation)
+    - iPad Pro (12.9-inch) (6th generation)
+
+    - Pixel_6_Pro_API_33
+    - Nexus_10_API_33
+  base_url:
+    android: https://saber.adil.hanney.org
+    ios: applinks://saber.adil.hanney.org
+  screenshot:
+    - home/recent
+    - edit?path=/Algebraic Structures 2 Week 1
+    - home/whiteboard
+    - home/settings
+    - login
