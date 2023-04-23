@@ -1,0 +1,6 @@
+• Certain background patterns now respond to whether you're using a right-to-left language
+• Tap a page in the pages popup to quickly scroll to it
+• Laptop touchpad users can now pinch to zoom
+• Small performance improvement for when you don't have any highlighter strokes on screen
+• Fixed some bugs when using the iOS theme
+• Increased scrolling responsiveness in the editor
