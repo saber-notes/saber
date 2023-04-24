@@ -98,11 +98,7 @@ abstract class Prefs {
 
   static late final PlainPref<String> locale;
 
-  static bool _initialized = false;
   static void init() {
-    if (_initialized) return;
-    _initialized = true;
-
     macOSInsecureStorageEnabled = PlainPref('macOSInsecureStorageEnabled', false);
 
     url = EncPref('url', '');

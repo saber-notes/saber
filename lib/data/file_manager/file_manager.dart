@@ -36,8 +36,6 @@ class FileManager {
 
   @visibleForTesting
   static Future<void> watchRootDirectory() async {
-    if (Platform.isIOS) return; // iOS doesn't support watching directories
-
     Directory rootDir = Directory(await documentsDirectory);
     await rootDir.create(recursive: true);
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {

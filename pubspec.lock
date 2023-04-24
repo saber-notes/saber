@@ -303,7 +303,7 @@ packages:
     source: hosted
     version: "1.0.3"
   flutter_driver:
-    dependency: "direct dev"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
