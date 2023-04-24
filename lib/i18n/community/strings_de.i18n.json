@@ -149,7 +149,7 @@
   },
   "update": {
     "updateAvailable": "Aktualisierung verfügbar",
-    "updateAvailableDescription(OUTDATED)": "Eine neue Version der Anwendung ist verfügbar.",
+    "updateAvailableDescription": "Eine neue Version der App ist verfügbar, mit folgenden Änderungen:",
     "update": "Aktualisieren"
   },
   "editor": {
@@ -202,7 +202,8 @@
         "lined": "Liniert",
         "grid": "Kariert",
         "dots": "Gepunktet",
-        "staffs": "Notenpapier"
+        "staffs": "Notenpapier",
+        "cornell": "Cornell-Stil"
       }
     },
     "newerFileFormat": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2111 (150 per locale)
+/// Strings: 2112 (150 per locale)
 ///
-/// Built on 2023-04-12 at 14:03 UTC
+/// Built on 2023-04-24 at 15:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1871,7 +1871,7 @@ class _StringsUpdateDe extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Aktualisierung verfügbar';
-	@override String get updateAvailableDescription => 'Eine neue Version der Anwendung ist verfügbar.';
+	@override String get updateAvailableDescription => 'Eine neue Version der App ist verfügbar, mit folgenden Änderungen:';
 	@override String get update => 'Aktualisieren';
 }
 
@@ -2292,6 +2292,7 @@ class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Kariert';
 	@override String get dots => 'Gepunktet';
 	@override String get staffs => 'Notenpapier';
+	@override String get cornell => 'Cornell-Stil';
 }
 
 // Path: <root>
