@@ -5,18 +5,7 @@
   ],
   "ar": {},
   "cs": {},
-  "de": {
-    "update": {
-      "updateAvailableDescription(OUTDATED)": "Eine neue Version der App ist verfügbar, mit folgenden Änderungen:"
-    },
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "cornell": "Cornell-Stil"
-        }
-      }
-    }
-  },
+  "de": {},
   "es": {},
   "fa": {},
   "fr": {},
