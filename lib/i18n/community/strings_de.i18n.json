@@ -203,7 +203,8 @@
         "lined": "Liniert",
         "grid": "Kariert",
         "dots": "Gepunktet",
-        "staffs": "Notenpapier"
+        "staffs": "Notenpapier",
+        "cornell": "Cornell"
       }
     },
     "newerFileFormat": {
