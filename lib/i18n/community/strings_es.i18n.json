@@ -73,12 +73,12 @@
       "slow": "Lento"
     },
     "systemLanguage": "Idioma del sistema",
-    "axisDirections": [
-      "Arriba",
-      "Derecha",
-      "Abajo",
-      "Izquierda"
-    ],
+    "axisDirections": {
+      "0": "Arriba",
+      "1": "Derecha",
+      "2": "Abajo",
+      "3": "Izquierda"
+    },
     "reset": {
       "title": "¿Quieres restablecer esta configuración?",
       "button": "Restablecer"
@@ -110,28 +110,28 @@
       "loggedOut": "Desconectado",
       "tapToLogin": "Toca para iniciar sesión con Nextcloud"
     },
-    "faq": [
-      {
+    "faq": {
+      "0": {
         "q": "¿Qué es Nextcloud?",
         "a": "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
       },
-      {
+      "1": {
         "q": "¿Qué es la contraseña de cifrado?",
         "a": "La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.\n\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos."
       },
-      {
+      "2": {
         "q": "¿Por qué usar dos contraseñas?",
         "a": "La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación \"codifica\" tus datos antes de que lleguen a la nube.\n\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos."
       },
-      {
+      "3": {
         "q": "¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?",
         "a": "En vez de usar tu contraseña habitual de Nextcloud, deberás crear una \"contraseña de aplicación\". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada."
       },
-      {
+      "4": {
         "q": "¿Puedo usar la misma contraseña para ambos?",
         "a": "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
       }
-    ],
+    },
     "insecureStorage": {
       "title": "Advertencia de seguridad",
       "description(rich)": "El uso compartido de llaveros no funciona en macOS sin una cuenta de desarrollador de Apple de pago. Si deseas iniciar sesión, deberás elegir entre:\n1. Uso de almacenamiento no seguro para guardar tus datos de inicio de sesión. Esto no es recomendable, pero es tu elección.\n2. Iniciar sesión cada vez que usas la aplicación.\n\nSi deseas ayudarme a unirme al programa para desarrolladores de Apple, puedes ${sponsorLink(convertirte en patrocinador)}!",

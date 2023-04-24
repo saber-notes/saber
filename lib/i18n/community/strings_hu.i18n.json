@@ -71,12 +71,12 @@
       "slow": "Lassú"
     },
     "systemLanguage": "Rendszerspecifikus nyelve",
-    "axisDirections": [
-      "Fel",
-      "Jobbra",
-      "Le",
-      "Balra"
-    ],
+    "axisDirections": {
+      "0": "Fel",
+      "1": "Jobbra",
+      "2": "Le",
+      "3": "Balra"
+    },
     "reset": {
       "title": "Visszaállítsa ezt a beállítást?",
       "button": "Visszaállítás"
@@ -108,20 +108,20 @@
       "loggedOut": "Kijelentkezve",
       "tapToLogin": "Kattintson a Nextclouddal való bejelentkezéshez"
     },
-    "faq(OUTDATED)": [
-      {
+    "faq(OUTDATED)": {
+      "0": {
         "q": "Mi az a Nextclound?",
         "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja a Saber Nextcloud alapértelmezett kiszolgálóját, használhat egy harmadik féltől származó kiszolgálót, vagy saját szerverét, hogy teljes körű felügyeletet biztosítson adatai felett."
       },
-      {
+      "1": {
         "q": "Mi az a titkosítási jelszó?",
         "a": "nki sem férhet hozzá a szerveren lévő jegyzetekhez. Ez azt is jelenti, hogy ha elfelejti a titkosítási jelszavát, elveszíti a hozzáférést az adataihoz."
       },
-      {
+      "2": {
         "q": "Miért használjon két jelszót?",
         "a": "A Nextcloud jelszóval lehet hozzáférni a felhőszolgáltatáshoz. A titkosítási jelszó \" titkosítja\" az adatait, mielőtt azok egyáltalán eljutnának a felhőbe. \n\nMég ha valaki hozzáférne is a Nextcloud-fiókjához, a jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági szintet biztosít adatai védelméhez."
       }
-    ],
+    },
     "insecureStorage": {
       "title": "Biztonsági figyelmeztetés",
       "description(rich)": "A kulcstároló megosztása nem működik macOS-en fizetett Apple Developer-fiók nélkül. Ha be szeretne jelentkezni, választania kell a következők közül: \n1. Bizonytalan tároló használata a bejelentkezési adatok mentésére. Ez nem ajánlott, de ez az Ön döntése.\n2. Bejelentkezés minden egyes alkalommal, amikor használja az alkalmazást. \n\nHa szeretne segíteni nekem csatlakozni az Apple Fejlesztői Programhoz, akkor ${sponsorLink(legyen Ön is támogató)}!",
