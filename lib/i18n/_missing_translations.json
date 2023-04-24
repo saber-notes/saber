@@ -7,12 +7,12 @@
   "cs": {},
   "de": {
     "update": {
-      "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
+      "updateAvailableDescription(OUTDATED)": "Eine neue Version der App ist verfügbar, mit folgenden Änderungen:"
     },
     "editor": {
       "menu": {
         "bgPatterns": {
-          "cornell": "Cornell"
+          "cornell": "Cornell-Stil"
         }
       }
     }
