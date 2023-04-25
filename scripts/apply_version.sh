@@ -12,7 +12,7 @@ export LC_ALL=en_US.utf8
 #
 # If you leave this empty, the script will not open any files.
 # This is the same as using the -q flag.
-EDITOR="${LOCALAPPDATA}\JetBrains\Toolbox\scripts\studio.cmd"
+EDITOR=$(which code)
 
 # get the current version name from lib/data/version.dart
 function get_version_name {

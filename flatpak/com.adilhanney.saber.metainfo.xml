@@ -66,6 +66,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.11.6" type="development" date="2023-04-25">
+            <description>
+                <ul>
+                    <li>Prepare the macOS app for App Store submission</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.11.5" type="development" date="2023-04-23">
             <description>
                 <ul>
