@@ -53,13 +53,6 @@ dependencies:
   shared_preferences: ^2.0.17
   flutter_secure_storage: ^8.0.0
 
-  # Don't use encrypted_shared_preferences because it's insecure:
-  # https://github.com/roulljdh/encrypted_shared_preferences/issues/10.
-  # This remains to migrate existing users to flutter_secure_storage, and also
-  # because flutter_secure_storage doesn't support macOS without a paid Apple Developer account:
-  # https://github.com/adil192/saber/issues/257
-  encrypted_shared_preferences: ^3.0.1
-
   url_launcher: ^6.1.8
 
   package_info_plus: ^3.0.2
