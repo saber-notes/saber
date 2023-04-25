@@ -131,13 +131,7 @@
         "q": "Kann ich dasselbe Passwort für beide verwenden?",
         "a": "Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust."
       }
-    ],
-    "insecureStorage": {
-      "title": "Sicherheitswarnung",
-      "description(rich)": "Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du ${sponsorLink(mich unterstützen)}!",
-      "loginTemporarily": "Vorübergehend anmelden",
-      "useInsecureStorage": "Unsicheren Speicher verwenden"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",

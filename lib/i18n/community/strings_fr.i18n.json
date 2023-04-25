@@ -131,13 +131,7 @@
         "q": "Puis-je utiliser le même mot de passe pour les deux ?",
         "a": "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
       }
-    ],
-    "insecureStorage": {
-      "title": "Alerte de sécurité",
-      "description(rich)": "Le partage de trousseau (keychain) ne fonctionne pas sur macOS sans un compte développeur Apple payant. Si vous souhaitez vous connecter, vous devrez choisir entre :\n1. Utiliser un stockage non sécurisé pour enregistrer vos informations de connexion. Ce n'est pas recommandé, mais c'est votre choix.\n2. Vous connecter à chaque fois que vous utilisez l'application.\n\nSi vous souhaitez m'aider à rejoindre le programme pour développeurs Apple, vous pouvez ${sponsorLink(become a sponsor)}!",
-      "loginTemporarily": "Se connecter temporairemement",
-      "useInsecureStorage": "Utiliser un stockage non sécurisé"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nCe programme est livré sans aucune garantie. Il s'agit d'un logiciel libre, et vous pouvez le diffuser sous certaines conditions.",

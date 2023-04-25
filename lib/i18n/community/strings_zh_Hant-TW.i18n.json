@@ -131,13 +131,7 @@
         "q": "我可以讓兩個密碼相同嗎？",
         "a": "可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送到伺服器，因此有權訪問伺服器的人將能夠解密您的筆記。只有在您信任伺服器所有者的情況下才使用相同的密碼。"
       }
-    ],
-    "insecureStorage": {
-      "title": "安全警告",
-      "description(rich)": "如果沒有付費的 Apple Developer 帳戶，鑰匙串共享將無法在 macOS 上運行。如果您想登入，您需要在以下選項之間進行選擇：\n1.使用不安全的存儲來保存您的登入詳細資訊。不推薦這麼做，但您可以選擇。\n2.每次使用該應用程式時都要登入。\n\n如果你想幫助我加入 Apple Developer Program，你可以 ${sponsorLink(成為贊助商)}！",
-      "loginTemporarily": "暫時登入",
-      "useInsecureStorage": "使用不安全的存儲"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  版權所有 (C) 2022-$buildYear  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.",

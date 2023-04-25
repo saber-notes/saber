@@ -131,13 +131,7 @@
         "q": "Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?",
         "a": "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru."
       }
-    ],
-    "insecureStorage": {
-      "title": "Bezpečnostní upozornění",
-      "description(rich)": "Sdílení klíčenky na Macu nefunguje bez členství v placeném programu pro vývojáře od společnosti Apple. Pokud se chcete přihlásit, můžete využít jednu z následujících možností:\n1. Použít pro uložení přihlašovacích údajů nezabezpečené úložiště. Tuto možnost nedoporučuji, ale je to vaše volba.\n2. Přihlásit se pokaždé, když chcete aplikaci použít.\n\nPokud mi chceme pomoct s připojením se do programu pro vývojáře, můžete se ${sponsorLink(stát mým sponzorem)}!",
-      "loginTemporarily": "Přihlásit pouze dočasně",
-      "useInsecureStorage": "Použít nezabezpečené úložiště"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.",

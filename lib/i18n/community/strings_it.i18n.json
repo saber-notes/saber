@@ -131,13 +131,7 @@
         "q": "Posso usare la stessa password per entrambi?",
         "a": "Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server."
       }
-    ],
-    "insecureStorage": {
-      "title": "Avviso di sicurezza",
-      "description(rich)": "La condivisione del portachiavi non funziona su macOS senza un account sviluppatore Apple a pagamento. Se vuoi accedere, dovrai scegliere tra:\n1. Utilizzo di un archivio non sicuro per salvare i dati di accesso. Questo non è raccomandato, ma è una tua scelta.\n2. Accedi ogni volta che utilizzi l'app.\n\nSe desideri aiutarmi a partecipare all'Apple Developer Program, puoi ${sponsorLink(diventa uno sponsor)}!",
-      "loginTemporarily": "Accesso temporaneo",
-      "useInsecureStorage": "Utilizzare archiviazione non sicura"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Sabre Copyright (C) 2022-$buildYear Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.",

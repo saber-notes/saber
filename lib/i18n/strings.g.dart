@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2112 (150 per locale)
+/// Strings: 2056 (146 per locale)
 ///
-/// Built on 2023-04-24 at 15:55 UTC
+/// Built on 2023-04-25 at 17:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -222,7 +222,6 @@ class _StringsLoginEn {
 		_StringsLogin$faq$0i3$En._(_root),
 		_StringsLogin$faq$0i4$En._(_root),
 	];
-	late final _StringsLoginInsecureStorageEn insecureStorage = _StringsLoginInsecureStorageEn._(_root);
 }
 
 // Path: appInfo
@@ -514,23 +513,6 @@ class _StringsLogin$faq$0i4$En {
 	String get a => 'Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Security warning';
-	TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'Keychain Sharing does not work on macOS without a paid Apple Developer account. If you want to login, you\'ll need to choose between:\n1. Using insecure storage to save your login details. This isn\'t recommended, but it\'s your choice.\n2. Logging in each time you use the app.\n\nIf you\'d like to help me join the Apple Developer Program, you can '),
-		sponsorLink('become a sponsor'),
-		const TextSpan(text: '!'),
-	]);
-	String get loginTemporarily => 'Login temporarily';
-	String get useInsecureStorage => 'Use insecure storage';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarEn {
 	_StringsEditorToolbarEn._(this._root);
@@ -763,7 +745,6 @@ class _StringsLoginAr extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Ar._(_root),
 		_StringsLogin$faq$0i4$Ar._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageAr insecureStorage = _StringsLoginInsecureStorageAr._(_root);
 }
 
 // Path: appInfo
@@ -1055,23 +1036,6 @@ class _StringsLogin$faq$0i4$Ar extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageAr extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageAr._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'تحذير أمني';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'لا تعمل Keychain Sharing على macOS بدون حساب Apple Developer مدفوع. إذا كنت تريد تسجيل الدخول، فستحتاج إلى الاختيار بين:\n1. استخدام مساحة تخزين غير آمنة لحفظ تفاصيل تسجيل الدخول الخاصة بك. هذا غير مستحسن، لكنه اختيارك.\n2. تسجيل الدخول في كل مرة تستخدم فيها التطبيق.\n\nإذا كنت ترغب في مساعدتي في الانضمام إلى برنامج مطوري Apple ،فيمكنك '),
-		sponsorLink('تصبح راعياً'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'تسجيل الدخول بشكل مؤقت';
-	@override String get useInsecureStorage => 'استخدم التخزين غير الآمن';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarAr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1304,7 +1268,6 @@ class _StringsLoginCs extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Cs._(_root),
 		_StringsLogin$faq$0i4$Cs._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageCs insecureStorage = _StringsLoginInsecureStorageCs._(_root);
 }
 
 // Path: appInfo
@@ -1596,23 +1559,6 @@ class _StringsLogin$faq$0i4$Cs extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageCs extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Bezpečnostní upozornění';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'Sdílení klíčenky na Macu nefunguje bez členství v placeném programu pro vývojáře od společnosti Apple. Pokud se chcete přihlásit, můžete využít jednu z následujících možností:\n1. Použít pro uložení přihlašovacích údajů nezabezpečené úložiště. Tuto možnost nedoporučuji, ale je to vaše volba.\n2. Přihlásit se pokaždé, když chcete aplikaci použít.\n\nPokud mi chceme pomoct s připojením se do programu pro vývojáře, můžete se '),
-		sponsorLink('stát mým sponzorem'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Přihlásit pouze dočasně';
-	@override String get useInsecureStorage => 'Použít nezabezpečené úložiště';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarCs._(_StringsCs root) : this._root = root, super._(root);
@@ -1845,7 +1791,6 @@ class _StringsLoginDe extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$De._(_root),
 		_StringsLogin$faq$0i4$De._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageDe insecureStorage = _StringsLoginInsecureStorageDe._(_root);
 }
 
 // Path: appInfo
@@ -2137,23 +2082,6 @@ class _StringsLogin$faq$0i4$De extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageDe extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Sicherheitswarnung';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'Das Teilen von Schlüsseln geht auf macOS nur mit einem bezahlten Apple Entwickleraccount. Wenn du dich anmelden willst, hast du zwei Möglichkeiten:\n1. Unsicheren Speicher verwenden, um deine Anmeldedaten zu speichern. Das ist zwar nicht empfohlen, aber deine Wahl.\n2. Dich jedes Mal erneut anmelden, wenn du die App nutzt.\n\nWenn du mir helfen willst, dem Apple Entwicklerprogramm beizutreten, kannst du '),
-		sponsorLink('mich unterstützen'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Vorübergehend anmelden';
-	@override String get useInsecureStorage => 'Unsicheren Speicher verwenden';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarDe._(_StringsDe root) : this._root = root, super._(root);
@@ -2385,7 +2313,6 @@ class _StringsLoginEs extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Es._(_root),
 		_StringsLogin$faq$0i4$Es._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageEs insecureStorage = _StringsLoginInsecureStorageEs._(_root);
 }
 
 // Path: appInfo
@@ -2677,23 +2604,6 @@ class _StringsLogin$faq$0i4$Es extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageEs extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Advertencia de seguridad';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'El uso compartido de llaveros no funciona en macOS sin una cuenta de desarrollador de Apple de pago. Si deseas iniciar sesión, deberás elegir entre:\n1. Uso de almacenamiento no seguro para guardar tus datos de inicio de sesión. Esto no es recomendable, pero es tu elección.\n2. Iniciar sesión cada vez que usas la aplicación.\n\nSi deseas ayudarme a unirme al programa para desarrolladores de Apple, puedes '),
-		sponsorLink('convertirte en patrocinador'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Iniciar sesión temporalmente';
-	@override String get useInsecureStorage => 'Usar almacenamiento inseguro';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarEs._(_StringsEs root) : this._root = root, super._(root);
@@ -2926,7 +2836,6 @@ class _StringsLoginFa extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Fa._(_root),
 		_StringsLogin$faq$0i4$Fa._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageFa insecureStorage = _StringsLoginInsecureStorageFa._(_root);
 }
 
 // Path: appInfo
@@ -3218,23 +3127,6 @@ class _StringsLogin$faq$0i4$Fa extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageFa extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'هشدار امنیتی';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'به اشتراک گذاری Keychain در سیستم عامل مک بدون حساب برنامه نویس پولی اپل کار نمی کند. اگر می خواهید وارد شوید، باید یکی را انتخاب کنید:\n1. استفاده از فضای ذخیره‌سازی ناامن برای ذخیره جزئیات ورود به سیستم. این توصیه نمی شود، اما این انتخاب شماست.\n2. هر بار که از برنامه استفاده می کنید وارد شوید.\n\nاگر می‌خواهید به من کمک کنید تا به برنامه توسعه‌دهنده اپل بپیوندم، می‌توانید '),
-		sponsorLink('become a sponsor'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'ورود موقت';
-	@override String get useInsecureStorage => 'از فضای ذخیره سازی ناامن استفاده کنید';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarFa extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarFa._(_StringsFa root) : this._root = root, super._(root);
@@ -3467,7 +3359,6 @@ class _StringsLoginFr extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Fr._(_root),
 		_StringsLogin$faq$0i4$Fr._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageFr insecureStorage = _StringsLoginInsecureStorageFr._(_root);
 }
 
 // Path: appInfo
@@ -3759,23 +3650,6 @@ class _StringsLogin$faq$0i4$Fr extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Oui, mais c\'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N\'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageFr extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Alerte de sécurité';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'Le partage de trousseau (keychain) ne fonctionne pas sur macOS sans un compte développeur Apple payant. Si vous souhaitez vous connecter, vous devrez choisir entre :\n1. Utiliser un stockage non sécurisé pour enregistrer vos informations de connexion. Ce n\'est pas recommandé, mais c\'est votre choix.\n2. Vous connecter à chaque fois que vous utilisez l\'application.\n\nSi vous souhaitez m\'aider à rejoindre le programme pour développeurs Apple, vous pouvez '),
-		sponsorLink('become a sponsor'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Se connecter temporairemement';
-	@override String get useInsecureStorage => 'Utiliser un stockage non sécurisé';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarFr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarFr._(_StringsFr root) : this._root = root, super._(root);
@@ -4006,7 +3880,6 @@ class _StringsLoginHu extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$Hu._(_root),
 		_StringsLogin$faq$0i2$Hu._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageHu insecureStorage = _StringsLoginInsecureStorageHu._(_root);
 }
 
 // Path: appInfo
@@ -4274,23 +4147,6 @@ class _StringsLogin$faq$0i2$Hu extends _StringsLogin$faq$0i2$En {
 	@override String get a => 'A Nextcloud jelszóval lehet hozzáférni a felhőszolgáltatáshoz. A titkosítási jelszó " titkosítja" az adatait, mielőtt azok egyáltalán eljutnának a felhőbe. \n\nMég ha valaki hozzáférne is a Nextcloud-fiókjához, a jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági szintet biztosít adatai védelméhez.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageHu extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageHu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Biztonsági figyelmeztetés';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'A kulcstároló megosztása nem működik macOS-en fizetett Apple Developer-fiók nélkül. Ha be szeretne jelentkezni, választania kell a következők közül: \n1. Bizonytalan tároló használata a bejelentkezési adatok mentésére. Ez nem ajánlott, de ez az Ön döntése.\n2. Bejelentkezés minden egyes alkalommal, amikor használja az alkalmazást. \n\nHa szeretne segíteni nekem csatlakozni az Apple Fejlesztői Programhoz, akkor '),
-		sponsorLink('legyen Ön is támogató'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Ideiglenes bejelentkezés';
-	@override String get useInsecureStorage => 'Bizonytalan tároló használata';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarHu extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarHu._(_StringsHu root) : this._root = root, super._(root);
@@ -4519,7 +4375,6 @@ class _StringsLoginIt extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$It._(_root),
 		_StringsLogin$faq$0i4$It._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageIt insecureStorage = _StringsLoginInsecureStorageIt._(_root);
 }
 
 // Path: appInfo
@@ -4811,23 +4666,6 @@ class _StringsLogin$faq$0i4$It extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageIt extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Avviso di sicurezza';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'La condivisione del portachiavi non funziona su macOS senza un account sviluppatore Apple a pagamento. Se vuoi accedere, dovrai scegliere tra:\n1. Utilizzo di un archivio non sicuro per salvare i dati di accesso. Questo non è raccomandato, ma è una tua scelta.\n2. Accedi ogni volta che utilizzi l\'app.\n\nSe desideri aiutarmi a partecipare all\'Apple Developer Program, puoi '),
-		sponsorLink('diventa uno sponsor'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Accesso temporaneo';
-	@override String get useInsecureStorage => 'Utilizzare archiviazione non sicura';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarIt._(_StringsIt root) : this._root = root, super._(root);
@@ -5060,7 +4898,6 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$PtBr._(_root),
 		_StringsLogin$faq$0i4$PtBr._(_root),
 	];
-	@override late final _StringsLoginInsecureStoragePtBr insecureStorage = _StringsLoginInsecureStoragePtBr._(_root);
 }
 
 // Path: appInfo
@@ -5352,23 +5189,6 @@ class _StringsLogin$faq$0i4$PtBr extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. ';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStoragePtBr extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStoragePtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Aviso de segurança';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'O compartilhamento de chaveiro não funciona no macOS sem uma conta paga de desenvolvedor da Apple. Se quiser fazer login, você precisará escolher entre:\n1. Usar o armazenamento inseguro para salvar seus detalhes de login. Isso não é não é recomendado, mas a escolha é sua.\n2. Fazer login sempre que usar o aplicativo.\n\nSe quiser me ajudar a ingressar no Programa de Desenvolvedores da Apple, você pode '),
-		sponsorLink('tornar-se um patrocinador'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Login temporário';
-	@override String get useInsecureStorage => 'Usar o armazenamento inseguro';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarPtBr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -5601,7 +5421,6 @@ class _StringsLoginRu extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Ru._(_root),
 		_StringsLogin$faq$0i4$Ru._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageRu insecureStorage = _StringsLoginInsecureStorageRu._(_root);
 }
 
 // Path: appInfo
@@ -5893,23 +5712,6 @@ class _StringsLogin$faq$0i4$Ru extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageRu extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Предупреждение безопасности';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'Общий доступ к связке ключей не работает в macOS без платной учетной записи разработчика Apple. Если вы хотите войти в систему, вам нужно выбрать между:\n1. Использовать небезопасное хранилище для сохранения данных входа. Это не рекомендуется, но это ваш выбор.\n2. Входить в систему каждый раз, когда вы используете приложение.\n\nЕсли вы хотите помочь мне присоединиться к программе разработчиков Apple, вы можете '),
-		sponsorLink('стать спонсором'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Временный вход';
-	@override String get useInsecureStorage => 'Использовать небезопасное хранилище';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarRu extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarRu._(_StringsRu root) : this._root = root, super._(root);
@@ -6142,7 +5944,6 @@ class _StringsLoginTr extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$Tr._(_root),
 		_StringsLogin$faq$0i4$Tr._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageTr insecureStorage = _StringsLoginInsecureStorageTr._(_root);
 }
 
 // Path: appInfo
@@ -6434,23 +6235,6 @@ class _StringsLogin$faq$0i4$Tr extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın.';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageTr extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Güvenlik uyarısı';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: 'macOS\'ta Güvenlik Anahtarlığı (Keychain) Paylaşımı ücretli bir Apple Geliştirici hesabı olmadan çalışmıyor. Eğer giriş yapmak isterseniz bunlardan birini seçiniz:\n1. Giriş bilgilerini kaydetmek için güvenli olmayan depolamayı kullan. Bu önerilmez ancak seçim sizin.\n2. Her seferinde yeniden giriş yap.\n\nApple Geliştirici Programına katılmama yardım etmek isterseniz, uygulamayı '),
-		sponsorLink('sponsorlayabilirsiniz'),
-		const TextSpan(text: '!'),
-	]);
-	@override String get loginTemporarily => 'Geçici olarak giriş yap';
-	@override String get useInsecureStorage => 'Güvenli olmayan depolamayı kullan';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarTr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarTr._(_StringsTr root) : this._root = root, super._(root);
@@ -6681,7 +6465,6 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		_StringsLogin$faq$0i1$ZhHansCn._(_root),
 		_StringsLogin$faq$0i2$ZhHansCn._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageZhHansCn insecureStorage = _StringsLoginInsecureStorageZhHansCn._(_root);
 }
 
 // Path: appInfo
@@ -6951,23 +6734,6 @@ class _StringsLogin$faq$0i2$ZhHansCn extends _StringsLogin$faq$0i2$En {
 	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
 }
 
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageZhHansCn extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '安全警告';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: '如果没有付费的 Apple Developer 帐户，钥匙串共享将无法在 macOS 上运行。如果您想登录，您需要在以下选项之间进行选择：\n1.使用不安全存储来保存您的登录详细信息。不推荐这样做，但自行选择。\n2.每次使用该应用时都要登录。\n\n如果您想帮助我加入 Apple Developer Program，您可以 '),
-		sponsorLink('成为赞助者'),
-		const TextSpan(text: '！'),
-	]);
-	@override String get loginTemporarily => '临时登录';
-	@override String get useInsecureStorage => '使用不安全存储';
-}
-
 // Path: editor.toolbar
 class _StringsEditorToolbarZhHansCn extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -7198,7 +6964,6 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 		_StringsLogin$faq$0i3$ZhHantTw._(_root),
 		_StringsLogin$faq$0i4$ZhHantTw._(_root),
 	];
-	@override late final _StringsLoginInsecureStorageZhHantTw insecureStorage = _StringsLoginInsecureStorageZhHantTw._(_root);
 }
 
 // Path: appInfo
@@ -7488,23 +7253,6 @@ class _StringsLogin$faq$0i4$ZhHantTw extends _StringsLogin$faq$0i4$En {
 	// Translations
 	@override String get q => '我可以讓兩個密碼相同嗎？';
 	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送到伺服器，因此有權訪問伺服器的人將能夠解密您的筆記。只有在您信任伺服器所有者的情況下才使用相同的密碼。';
-}
-
-// Path: login.insecureStorage
-class _StringsLoginInsecureStorageZhHantTw extends _StringsLoginInsecureStorageEn {
-	_StringsLoginInsecureStorageZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '安全警告';
-	@override TextSpan description({required InlineSpanBuilder sponsorLink}) => TextSpan(children: [
-		const TextSpan(text: '如果沒有付費的 Apple Developer 帳戶，鑰匙串共享將無法在 macOS 上運行。如果您想登入，您需要在以下選項之間進行選擇：\n1.使用不安全的存儲來保存您的登入詳細資訊。不推薦這麼做，但您可以選擇。\n2.每次使用該應用程式時都要登入。\n\n如果你想幫助我加入 Apple Developer Program，你可以 '),
-		sponsorLink('成為贊助商'),
-		const TextSpan(text: '！'),
-	]);
-	@override String get loginTemporarily => '暫時登入';
-	@override String get useInsecureStorage => '使用不安全的存儲';
 }
 
 // Path: editor.toolbar

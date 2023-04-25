@@ -131,13 +131,7 @@
         "q": "Her ikisi için de aynı parolayı kullanabilir miyim?",
         "a": "Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın."
       }
-    ],
-    "insecureStorage": {
-      "title": "Güvenlik uyarısı",
-      "description(rich)": "macOS'ta Güvenlik Anahtarlığı (Keychain) Paylaşımı ücretli bir Apple Geliştirici hesabı olmadan çalışmıyor. Eğer giriş yapmak isterseniz bunlardan birini seçiniz:\n1. Giriş bilgilerini kaydetmek için güvenli olmayan depolamayı kullan. Bu önerilmez ancak seçim sizin.\n2. Her seferinde yeniden giriş yap.\n\nApple Geliştirici Programına katılmama yardım etmek isterseniz, uygulamayı ${sponsorLink(sponsorlayabilirsiniz)}!",
-      "loginTemporarily": "Geçici olarak giriş yap",
-      "useInsecureStorage": "Güvenli olmayan depolamayı kullan"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.",

@@ -131,13 +131,7 @@
         "q": "¿Puedo usar la misma contraseña para ambos?",
         "a": "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
       }
-    ],
-    "insecureStorage": {
-      "title": "Advertencia de seguridad",
-      "description(rich)": "El uso compartido de llaveros no funciona en macOS sin una cuenta de desarrollador de Apple de pago. Si deseas iniciar sesión, deberás elegir entre:\n1. Uso de almacenamiento no seguro para guardar tus datos de inicio de sesión. Esto no es recomendable, pero es tu elección.\n2. Iniciar sesión cada vez que usas la aplicación.\n\nSi deseas ayudarme a unirme al programa para desarrolladores de Apple, puedes ${sponsorLink(convertirte en patrocinador)}!",
-      "loginTemporarily": "Iniciar sesión temporalmente",
-      "useInsecureStorage": "Usar almacenamiento inseguro"
-    }
+    ]
   },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
