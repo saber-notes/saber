@@ -153,7 +153,7 @@ class FileManager {
     fromPath = _sanitisePath(fromPath);
     toPath = _sanitisePath(toPath);
 
-    if (!toPath.contains('/', 1)) { // if toPath is a relative path
+    if (!toPath.contains('/')) { // if toPath is a relative path
       toPath = fromPath.substring(0, fromPath.lastIndexOf('/') + 1) + toPath;
     }
 
