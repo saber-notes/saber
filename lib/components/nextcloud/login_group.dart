@@ -1,3 +1,4 @@
+import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
@@ -268,7 +269,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                     recognizer: TapGestureRecognizer()..onTap = () {
                       launchUrl(
                         NcLoginPage.signupUrl,
-                        mode: LaunchMode.externalApplication,
+                        mode: Platform.isIOS
+                            ? LaunchMode.inAppWebView
+                            : LaunchMode.externalApplication
                       );
                     },
                   ),
