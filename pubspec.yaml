@@ -228,7 +228,7 @@ icons_launcher:
       image_path: "assets/icon/icon_opaque.png"
 
 auto_screenshot:
-  bundle_id: 
+  bundle_id:
     android: com.adilhanney.saber
     ios: com.adilhanney.saber
   devices:

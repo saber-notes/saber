@@ -17,6 +17,7 @@ but if you encounter any bugs on other platforms, please open an [issue][issues]
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
 [![GitHub](https://img.shields.io/github/license/adil192/saber)](https://github.com/adil192/saber/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
+[![CodeFactor](https://www.codefactor.io/repository/github/adil192/saber/badge/main)](https://www.codefactor.io/repository/github/adil192/saber/overview/main)
 
 [![Build for Android](https://github.com/adil192/saber/actions/workflows/android.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/android.yml)
 [![Build for iOS](https://github.com/adil192/saber/actions/workflows/ios.yml/badge.svg?event=push)](https://github.com/adil192/saber/actions/workflows/ios.yml)
