@@ -1268,23 +1268,8 @@ class EditorState extends State<Editor> {
       }),
       redrawImage: () => setState(() {}),
       clearPage: () {
-        if (coreInfo.readOnly) return;
         if (currentPageIndex == null) return;
-        final page = coreInfo.pages[currentPageIndex];
-
-        setState(() {
-          List<Stroke> removedStrokes = page.strokes.toList();
-          List<EditorImage> removedImages = page.images.toList();
-          page.strokes.clear();
-          page.images.clear();
-          removeExcessPages();
-          history.recordChange(EditorHistoryItem(
-            type: EditorHistoryItemType.erase,
-            strokes: removedStrokes,
-            images: removedImages,
-          ));
-          autosaveAfterDelay();
-        });
+        clearPage(currentPageIndex);
       },
 
       clearAllPages: clearAllPages,
@@ -1308,10 +1293,34 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         autosaveAfterDelay();
       }),
+      deletePage: (int pageIndex) => setState(() {
+        // todo: add to history
+        if (coreInfo.readOnly) return;
+        coreInfo.pages.removeAt(pageIndex);
+        createPage(pageIndex - 1);
+        autosaveAfterDelay();
+      }),
       transformationController: _transformationController,
     );
   }
 
+  void clearPage(int pageIndex) {
+    if (coreInfo.readOnly) return;
+    final page = coreInfo.pages[pageIndex];
+    setState(() {
+      List<Stroke> removedStrokes = page.strokes.toList();
+      List<EditorImage> removedImages = page.images.toList();
+      page.strokes.clear();
+      page.images.clear();
+      removeExcessPages();
+      history.recordChange(EditorHistoryItem(
+        type: EditorHistoryItemType.erase,
+        strokes: removedStrokes,
+        images: removedImages,
+      ));
+      autosaveAfterDelay();
+    });
+  }
   void clearAllPages() {
     if (coreInfo.readOnly) return;
     setState(() {
