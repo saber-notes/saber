@@ -36,24 +36,24 @@
   },
   "cs": {
     "profile": {
-      "title": "My profile",
-      "logout": "Log out",
+      "title": "Můj profil",
+      "logout": "Odhlásit se",
       "faq": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "Ztratím po odhlášení svoje poznámky?",
+          "a": "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "Jak změním své heslo k Nextcloud účtu?",
+          "a": "Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit."
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "Jak změním své heslo pro šifrování?",
+          "a": "1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).\n\n2. Přejděte na webovou stránku vašeho serveru a smažte složku 'Saber'. Tím ze serveru odstraníte všechny poznámky.\n\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních."
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "Jak odstraním svůj účet?",
+          "a": "Přejděte na webovou stránku svého serveru a přihlašte se. Poté přejděte do Nastavení > Smazat účet.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru."
         }
       ]
     },
