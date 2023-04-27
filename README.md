@@ -42,6 +42,26 @@ Please see [#1 Saber progress][progress].
 
 ## Install
 
+[<img src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'
+    alt='Google Play'
+    height=80>][google_play]
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+    alt="Get it on F-Droid"
+    height=80>][f-droid]
+[<img src="https://appimage.org/images/logo3.svg"
+    alt="Get it as an AppImage"
+    height=80>][releases]
+
+&nbsp;
+[<img src="https://user-images.githubusercontent.com/21128619/234731304-658da233-d7da-4130-bbed-53bc1a3a3d01.svg"
+    alt="Download on the App Store"
+    height=60>][app_store]
+&nbsp;&nbsp;
+[<img src="https://dl.flathub.org/assets/badges/flathub-badge-en.png"
+    alt="Get it on Flathub"
+    height=60>][flathub]
+
+
 <details open>
 <summary>Tap to show/hide install instructions</summary>
 
@@ -309,6 +329,7 @@ If you like Saber, please consider supporting it by:
 [flathub]: https://flathub.org/apps/details/com.adilhanney.saber
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
+[app_store]: https://apps.apple.com/us/app/saber/id1671523739
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
