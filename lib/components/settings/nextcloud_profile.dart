@@ -53,7 +53,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     var colorScheme = Theme.of(context).colorScheme;
     return ListTile(
       onTap: () {
-        context.push(RoutePaths.login);
+        context.push(loggedIn ? RoutePaths.profile : RoutePaths.login);
       },
       leading: Prefs.pfp.value == null
           ? const Icon(Icons.account_circle, size: 48)

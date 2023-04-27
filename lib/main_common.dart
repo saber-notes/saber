@@ -17,7 +17,8 @@ import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
-import 'package:saber/pages/nextcloud/login.dart';
+import 'package:saber/pages/user/login.dart';
+import 'package:saber/pages/user/profile_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 
@@ -100,6 +101,10 @@ class App extends StatefulWidget {
       GoRoute(
         path: RoutePaths.login,
         builder: (context, state) => const NcLoginPage(),
+      ),
+      GoRoute(
+        path: RoutePaths.profile,
+        builder: (context, state) => const ProfilePage(),
       ),
     ],
   );

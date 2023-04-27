@@ -10,7 +10,7 @@ abstract class RoutePaths {
   static const home = '/home/:subpage';
   static const edit = '/edit';
   static const login = '/login';
-  static List<String> get all => [home, edit];
+  static const profile = '/profile';
 
   static String editFilePath(String filePath) {
     return '$edit?path=${Uri.encodeQueryComponent(filePath)}';
