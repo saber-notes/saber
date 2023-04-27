@@ -1,0 +1,1 @@
+• Le lien d'inscription s'ouvre désormais dans une vue Web intégrée à l'application pour les utilisateurs iOS afin de se conformer aux directives de l'App Store

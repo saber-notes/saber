@@ -1,0 +1,1 @@
+• Il collegamento di registrazione ora si apre in una visualizzazione Web in-app per gli utenti iOS al fine di rispettare le linee guida dell'App Store

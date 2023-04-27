@@ -70,6 +70,7 @@
             <description>
                 <ul>
                     <li>Prepare the macOS app for App Store submission</li>
+                    <li>The signup link now opens in an in-app web view for iOS users in order to comply with App Store guidelines</li>
                 </ul>
             </description>
         </release>

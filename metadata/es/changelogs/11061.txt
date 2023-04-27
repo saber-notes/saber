@@ -1,0 +1,1 @@
+• El enlace de registro ahora se abre en una vista web en la aplicación para usuarios de iOS para cumplir con las pautas de la App Store
