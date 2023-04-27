@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2066 (147 per locale)
+/// Strings: 2076 (148 per locale)
 ///
-/// Built on 2023-04-27 at 21:36 UTC
+/// Built on 2023-04-27 at 23:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6959,6 +6959,7 @@ class _StringsZhHantTw extends _StringsEn {
 	@override late final _StringsHomeZhHantTw home = _StringsHomeZhHantTw._(_root);
 	@override late final _StringsSettingsZhHantTw settings = _StringsSettingsZhHantTw._(_root);
 	@override late final _StringsLoginZhHantTw login = _StringsLoginZhHantTw._(_root);
+	@override late final _StringsProfileZhHantTw profile = _StringsProfileZhHantTw._(_root);
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
@@ -7025,6 +7026,23 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$ZhHantTw._(_root),
 		_StringsLogin$faq$0i3$ZhHantTw._(_root),
 		_StringsLogin$faq$0i4$ZhHantTw._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileZhHantTw extends _StringsProfileEn {
+	_StringsProfileZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '我的個人資料';
+	@override String get logout => '登出';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$ZhHantTw._(_root),
+		_StringsProfile$faq$0i1$ZhHantTw._(_root),
+		_StringsProfile$faq$0i2$ZhHantTw._(_root),
+		_StringsProfile$faq$0i3$ZhHantTw._(_root),
 	];
 }
 
@@ -7315,6 +7333,50 @@ class _StringsLogin$faq$0i4$ZhHantTw extends _StringsLogin$faq$0i4$En {
 	// Translations
 	@override String get q => '我可以讓兩個密碼相同嗎？';
 	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送到伺服器，因此有權訪問伺服器的人將能夠解密您的筆記。只有在您信任伺服器所有者的情況下才使用相同的密碼。';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$ZhHantTw extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如果我登出了，筆記會不會消失？';
+	@override String get a => '不，您的筆記將保存在您的裝置和伺服器上。在您重新登入前，它不會與伺服器同步。在登出前，確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可看到同步進度）。';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$ZhHantTw extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如何更改我的 Nextcloud 密碼？';
+	@override String get a => '進入你的伺服器網站並登入，然後進入設定 > 安全 > 更改密碼。更改密碼後，您需要登出並重新登入到 Saber。';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$ZhHantTw extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如何更改我的加密密碼？';
+	@override String get a => '1. 登出 Saber，確保在登出前已完成同步，這樣你就不會丟失任何資料（在主畫面上可看到同步進度）。\n\n2. 進入您的伺服器網站，刪除「Saber」資料夾。這將從伺服器上刪除您所有的筆記。\n\n3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。\n\n4. 不要忘記在您的其他裝置上登出並重新登入 Saber。';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$ZhHantTw extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如何刪除我的帳戶？';
+	@override String get a => '進入你的伺服器網站並登入，然後進入設定 > 刪除帳戶。\n\n如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除。在此期間，你可以聯繫我 adilhanney@disroot.org ，以取消刪除\n\n如果您使用的是第三方伺服器，可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。';
 }
 
 // Path: editor.toolbar
