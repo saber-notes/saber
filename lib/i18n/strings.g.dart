@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2056 (146 per locale)
+/// Strings: 2066 (147 per locale)
 ///
-/// Built on 2023-04-25 at 17:20 UTC
+/// Built on 2023-04-27 at 21:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -155,6 +155,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
+	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
@@ -221,6 +222,23 @@ class _StringsLoginEn {
 		_StringsLogin$faq$0i2$En._(_root),
 		_StringsLogin$faq$0i3$En._(_root),
 		_StringsLogin$faq$0i4$En._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileEn {
+	_StringsProfileEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'My profile';
+	String get logout => 'Log out';
+	List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$En._(_root),
+		_StringsProfile$faq$0i1$En._(_root),
+		_StringsProfile$faq$0i2$En._(_root),
+		_StringsProfile$faq$0i3$En._(_root),
 	];
 }
 
@@ -511,6 +529,50 @@ class _StringsLogin$faq$0i4$En {
 	// Translations
 	String get q => 'Can I use the same password for both?';
 	String get a => 'Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'Will I lose my notes if I log out?';
+	String get a => 'No. Your notes will remain both on your device and on the server. They won\'t be synced with the server until you log back in. Make sure syncing is complete before logging out so you don\'t lose any data (see the sync progress on the home screen).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'How do I change my Nextcloud password?';
+	String get a => 'Go to your server website and log in. Then go to Settings > Security > Change password. You\'ll need to log out and log back in to Saber after changing your password.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'How do I change my encryption password?';
+	String get a => '1. Log out of Saber. Make sure syncing is complete before logging out so you don\'t lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$En._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'How can I delete my account?';
+	String get a => 'Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you\'ll need to consult the server\'s privacy policy for more information.';
 }
 
 // Path: editor.toolbar
