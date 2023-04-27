@@ -107,10 +107,7 @@ See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
 
 #### macOS
 
-Download `Saber_{version}.app.zip` from the latest [Release][releases]
-and move the `Saber` app to `/Applications`.
-macOS will warn you that the app is from an unidentified developer when you first open it, so
-you'll need to go to `System Preferences > Security & Privacy` and click `Open Anyway`.
+Download Saber on the [App Store][app_store].
 
 </details>
 
