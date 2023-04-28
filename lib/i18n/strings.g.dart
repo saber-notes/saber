@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2111 (150 per locale)
+/// Strings: 2122 (151 per locale)
 ///
-/// Built on 2023-04-28 at 17:03 UTC
+/// Built on 2023-04-28 at 17:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4434,6 +4434,7 @@ class _StringsIt extends _StringsEn {
 	@override late final _StringsHomeIt home = _StringsHomeIt._(_root);
 	@override late final _StringsSettingsIt settings = _StringsSettingsIt._(_root);
 	@override late final _StringsLoginIt login = _StringsLoginIt._(_root);
+	@override late final _StringsProfileIt profile = _StringsProfileIt._(_root);
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
 	@override late final _StringsUpdateIt update = _StringsUpdateIt._(_root);
 	@override late final _StringsEditorIt editor = _StringsEditorIt._(_root);
@@ -4500,6 +4501,23 @@ class _StringsLoginIt extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$It._(_root),
 		_StringsLogin$faq$0i3$It._(_root),
 		_StringsLogin$faq$0i4$It._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileIt extends _StringsProfileEn {
+	_StringsProfileIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Il mio profilo';
+	@override String get logout => 'Log out';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$It._(_root),
+		_StringsProfile$faq$0i1$It._(_root),
+		_StringsProfile$faq$0i2$It._(_root),
+		_StringsProfile$faq$0i3$It._(_root),
 	];
 }
 
@@ -4792,6 +4810,50 @@ class _StringsLogin$faq$0i4$It extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
 }
 
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$It extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Perderò i miei appunti se esco?';
+	@override String get a => 'No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server fino a quando non effettui nuovamente l\'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$It extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Come cambio la mia password Nextcloud?';
+	@override String get a => 'Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Sabre dopo aver cambiato la tua password.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$It extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Come posso modificare la mia password crittografata?';
+	@override String get a => '1. Disconnettersi da Sabre. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Sabre. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Sabre anche sugli altri tuoi dispositivi.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$It extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Come posso eliminare il mio account?';
+	@override String get a => 'Vai al sito Web del tuo server e accedi. Quindi vai su Impostazioni > Elimina account.\n\nSe stai utilizzando il server Sabre ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all\'indirizzo adilhanney@disroot.org durante questo periodo per annullare l\'eliminazione.\n\nSe stai utilizzando un server di terze parti, potrebbe non esserci un\'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarIt extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarIt._(_StringsIt root) : this._root = root, super._(root);
@@ -4926,6 +4988,7 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Vuoto';
 	@override String get college => 'College-ruled';
+	@override String get collegeRtl => 'College governato (inverso)';
 	@override String get lined => 'Lined';
 	@override String get grid => 'Griglia';
 	@override String get dots => 'Punti';
