@@ -233,24 +233,24 @@
   },
   "it": {
     "profile": {
-      "title": "My profile",
+      "title": "Il mio profilo",
       "logout": "Log out",
       "faq": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "Perderò i miei appunti se esco?",
+          "a": "No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale)."
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "Come cambio la mia password Nextcloud?",
+          "a": "Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Sabre dopo aver cambiato la tua password."
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "Come posso modificare la mia password crittografata?",
+          "a": "1. Disconnettersi da Sabre. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Sabre. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Sabre anche sugli altri tuoi dispositivi."
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "Come posso eliminare il mio account?",
+          "a": "Vai al sito Web del tuo server e accedi. Quindi vai su Impostazioni > Elimina account.\n\nSe stai utilizzando il server Sabre ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all'indirizzo adilhanney@disroot.org durante questo periodo per annullare l'eliminazione.\n\nSe stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni."
         }
       ]
     },
@@ -288,7 +288,7 @@
     "editor": {
       "menu": {
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "College governato (inverso)"
         }
       }
     }
