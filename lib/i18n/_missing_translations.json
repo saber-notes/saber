@@ -326,31 +326,31 @@
   "ru": {},
   "tr": {
     "profile": {
-      "title": "My profile",
-      "logout": "Log out",
+      "title": "Profilim",
+      "logout": "Çıkış yap",
       "faq": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "Çıkış yaparsam notlarımı kaybedecek miyim?",
+          "a": "Hayır. Notlarınız hem cihazınızda hem de sunucuda saklanacak. Siz tekrar giriş yapıncaya dek sunucu ile senkronize edilmeyecekler. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz)."
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "Nextcloud parolamı nasıl değiştireceğim?",
+          "a": "Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Güvenlik > Parolayı değiştir aşamalarını takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrar giriş yapmanız gerekecek."
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "Şifreleme parolamı nasıl değiştireceğim?",
+          "a": "1. Saber'dan çıkış yapın. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz).\n\n2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu aşama ile sunucuda tutulan notlarınızın tamamı silinecek.\n\n3. Saber'a tekrar giriş yapın. Giriş yaparken yeni bir şifreleme parolası belirleyebileceksiniz.\n\n4. Oturum açtığınız başka cihazlar varsa onlarda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın."
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "Hesabımı nasıl sileceğim?",
+          "a": "Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Hesabı sil aşamalarını takip edin.\n\nEğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecektir. Bana adilhanney@disroot.org adresinden ulaşarak silme işlemini iptal edebilirsiniz.\n\nEğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silmeniz mümkün olmayabilir, daha fazla bilgi edinmek için ilgili sunucunun gizlilik politikasını incelemelisiniz."
         }
       ]
     },
     "editor": {
       "menu": {
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "Std. çizgili defter (Tersine çevrik)"
         }
       }
     }
