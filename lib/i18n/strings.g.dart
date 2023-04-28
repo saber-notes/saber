@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2077 (148 per locale)
+/// Strings: 2087 (149 per locale)
 ///
-/// Built on 2023-04-28 at 05:25 UTC
+/// Built on 2023-04-28 at 05:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5417,6 +5417,7 @@ class _StringsRu extends _StringsEn {
 	@override late final _StringsHomeRu home = _StringsHomeRu._(_root);
 	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
 	@override late final _StringsLoginRu login = _StringsLoginRu._(_root);
+	@override late final _StringsProfileRu profile = _StringsProfileRu._(_root);
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
 	@override late final _StringsUpdateRu update = _StringsUpdateRu._(_root);
 	@override late final _StringsEditorRu editor = _StringsEditorRu._(_root);
@@ -5483,6 +5484,23 @@ class _StringsLoginRu extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Ru._(_root),
 		_StringsLogin$faq$0i3$Ru._(_root),
 		_StringsLogin$faq$0i4$Ru._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileRu extends _StringsProfileEn {
+	_StringsProfileRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Мой профиль';
+	@override String get logout => 'Выйти';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Ru._(_root),
+		_StringsProfile$faq$0i1$Ru._(_root),
+		_StringsProfile$faq$0i2$Ru._(_root),
+		_StringsProfile$faq$0i3$Ru._(_root),
 	];
 }
 
@@ -5773,6 +5791,50 @@ class _StringsLogin$faq$0i4$Ru extends _StringsLogin$faq$0i4$En {
 	// Translations
 	@override String get q => 'Могу ли я использовать один и тот же пароль для обоих?';
 	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Ru extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Потеряю ли я свои заметки при выходе?';
+	@override String get a => 'Нет. Ваши заметки останутся как на вашем устройстве, так и на сервере. Они не будут синхронизированы с сервером, пока вы снова не войдете в систему. Перед выходом из системы убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Ru extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Как изменить свой пароль Nextcloud?';
+	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в Sabre после смены пароля.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Ru extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Как изменить пароль шифрования?';
+	@override String get a => '1. Выйдите из Sabre. Прежде чем выйти из системы, убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n\n2. Перейдите на веб-сайт своего сервера и удалите папку «Sabre». Это приведет к удалению всех ваших заметок с сервера.\n\n3. Войдите в Sabre. Вы можете выбрать новый пароль шифрования при входе в систему.\n\n4. Не забудьте выйти и снова войти в Sabre на других своих устройствах.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Ru extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Как я могу удалить свою учётную запись?';
+	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем выберите «Параметры пользователя» > «Удалить учётную запись».\n\nЕсли вы используете официальный сервер Sabre, ваша учетная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера для получения дополнительной информации.';
 }
 
 // Path: editor.toolbar
