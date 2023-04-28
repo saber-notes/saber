@@ -421,7 +421,7 @@
     "editor": {
       "menu": {
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "College-ruled (反向)"
         }
       }
     }
