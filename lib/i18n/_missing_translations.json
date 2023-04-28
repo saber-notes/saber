@@ -323,15 +323,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "collegeRtl": "Школьная тетрадь (Поворот)"
-        }
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "profile": {
       "title": "My profile",
