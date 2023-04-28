@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2089 (149 per locale)
+/// Strings: 2100 (150 per locale)
 ///
-/// Built on 2023-04-28 at 17:00 UTC
+/// Built on 2023-04-28 at 17:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6003,6 +6003,7 @@ class _StringsTr extends _StringsEn {
 	@override late final _StringsHomeTr home = _StringsHomeTr._(_root);
 	@override late final _StringsSettingsTr settings = _StringsSettingsTr._(_root);
 	@override late final _StringsLoginTr login = _StringsLoginTr._(_root);
+	@override late final _StringsProfileTr profile = _StringsProfileTr._(_root);
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
 	@override late final _StringsUpdateTr update = _StringsUpdateTr._(_root);
 	@override late final _StringsEditorTr editor = _StringsEditorTr._(_root);
@@ -6069,6 +6070,23 @@ class _StringsLoginTr extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Tr._(_root),
 		_StringsLogin$faq$0i3$Tr._(_root),
 		_StringsLogin$faq$0i4$Tr._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileTr extends _StringsProfileEn {
+	_StringsProfileTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Profilim';
+	@override String get logout => 'Çıkış yap';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Tr._(_root),
+		_StringsProfile$faq$0i1$Tr._(_root),
+		_StringsProfile$faq$0i2$Tr._(_root),
+		_StringsProfile$faq$0i3$Tr._(_root),
 	];
 }
 
@@ -6361,6 +6379,50 @@ class _StringsLogin$faq$0i4$Tr extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın.';
 }
 
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Tr extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Çıkış yaparsam notlarımı kaybedecek miyim?';
+	@override String get a => 'Hayır. Notlarınız hem cihazınızda hem de sunucuda saklanacak. Siz tekrar giriş yapıncaya dek sunucu ile senkronize edilmeyecekler. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Tr extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Nextcloud parolamı nasıl değiştireceğim?';
+	@override String get a => 'Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Güvenlik > Parolayı değiştir aşamalarını takip edin. Parolanızı değiştirdikten sonra Saber\'dan çıkış yapıp tekrar giriş yapmanız gerekecek.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Tr extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Şifreleme parolamı nasıl değiştireceğim?';
+	@override String get a => '1. Saber\'dan çıkış yapın. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz).\n\n2. Sunucu websitesine gidin ve \'Saber\' klasörünü silin. Bu aşama ile sunucuda tutulan notlarınızın tamamı silinecek.\n\n3. Saber\'a tekrar giriş yapın. Giriş yaparken yeni bir şifreleme parolası belirleyebileceksiniz.\n\n4. Oturum açtığınız başka cihazlar varsa onlarda da Saber\'dan çıkış yapıp tekrar giriş yapmayı unutmayın.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Tr extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Hesabımı nasıl sileceğim?';
+	@override String get a => 'Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Hesabı sil aşamalarını takip edin.\n\nEğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecektir. Bana adilhanney@disroot.org adresinden ulaşarak silme işlemini iptal edebilirsiniz.\n\nEğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silmeniz mümkün olmayabilir, daha fazla bilgi edinmek için ilgili sunucunun gizlilik politikasını incelemelisiniz.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarTr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarTr._(_StringsTr root) : this._root = root, super._(root);
@@ -6495,6 +6557,7 @@ class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Boş';
 	@override String get college => 'Std. çizgili defter';
+	@override String get collegeRtl => 'Std. çizgili defter (Tersine çevrik)';
 	@override String get lined => 'Çizgili';
 	@override String get grid => 'Kareli';
 	@override String get dots => 'Noktalı';
