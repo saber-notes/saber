@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2100 (150 per locale)
+/// Strings: 2111 (150 per locale)
 ///
-/// Built on 2023-04-28 at 17:01 UTC
+/// Built on 2023-04-28 at 17:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2832,6 +2832,7 @@ class _StringsFa extends _StringsEn {
 	@override late final _StringsHomeFa home = _StringsHomeFa._(_root);
 	@override late final _StringsSettingsFa settings = _StringsSettingsFa._(_root);
 	@override late final _StringsLoginFa login = _StringsLoginFa._(_root);
+	@override late final _StringsProfileFa profile = _StringsProfileFa._(_root);
 	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
 	@override late final _StringsUpdateFa update = _StringsUpdateFa._(_root);
 	@override late final _StringsEditorFa editor = _StringsEditorFa._(_root);
@@ -2898,6 +2899,23 @@ class _StringsLoginFa extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Fa._(_root),
 		_StringsLogin$faq$0i3$Fa._(_root),
 		_StringsLogin$faq$0i4$Fa._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileFa extends _StringsProfileEn {
+	_StringsProfileFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'پروفایل من';
+	@override String get logout => 'خروج';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Fa._(_root),
+		_StringsProfile$faq$0i1$Fa._(_root),
+		_StringsProfile$faq$0i2$Fa._(_root),
+		_StringsProfile$faq$0i3$Fa._(_root),
 	];
 }
 
@@ -3190,6 +3208,50 @@ class _StringsLogin$faq$0i4$Fa extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.';
 }
 
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Fa extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'آیا در صورت خروج از سیستم یادداشت های خود را گم می کنم؟';
+	@override String get a => 'خیر. یادداشت‌های شما هم روی دستگاه و هم روی سرور باقی می‌مانند. تا زمانی که دوباره وارد سیستم نشوید با سرور همگام‌سازی نمی‌شوند. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Fa extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'چگونه رمز عبور Nextcloud خود را تغییر دهم؟';
+	@override String get a => 'به وب سایت سرور خود بروید و وارد شوید. سپس به تنظیمات > امنیت > تغییر رمز عبور بروید. پس از تغییر رمز عبور، باید از سیستم خارج شوید و دوباره وارد Saber شوید.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Fa extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'چگونه رمز رمزگذاری خود را تغییر دهم؟';
+	@override String get a => '1. از Saber خارج شوید. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید).\n\n2. به وب سایت سرور خود بروید و پوشه \'Saber\' خود را حذف کنید. با این کار تمام یادداشت های شما از سرور حذف می شود.\n\n3. دوباره وارد سابر شوید. هنگام ورود به سیستم می‌توانید رمز رمزگذاری جدیدی انتخاب کنید.\n\n4. فراموش نکنید که از سیستم خارج شوید و در دستگاه های دیگر خود نیز دوباره وارد Saber شوید.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Fa extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'چگونه می توانم حساب کاربری خود را حذف کنم؟';
+	@override String get a => 'به وب‌سایت سرور خود بروید و وارد شوید. سپس به تنظیمات > حذف حساب بروید.\n\nاگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.\n\nاگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarFa extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarFa._(_StringsFa root) : this._root = root, super._(root);
@@ -3324,6 +3386,7 @@ class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'جای خالی';
 	@override String get college => 'قوانین کالج';
+	@override String get collegeRtl => 'تحت حاکمیت دانشگاهی (معکوس)';
 	@override String get lined => 'خط کشی شده';
 	@override String get grid => 'توری';
 	@override String get dots => 'نقطه ای';
