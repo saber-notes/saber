@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2122 (151 per locale)
+/// Strings: 2133 (152 per locale)
 ///
-/// Built on 2023-04-28 at 17:08 UTC
+/// Built on 2023-04-28 at 18:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1264,6 +1264,7 @@ class _StringsCs extends _StringsEn {
 	@override late final _StringsHomeCs home = _StringsHomeCs._(_root);
 	@override late final _StringsSettingsCs settings = _StringsSettingsCs._(_root);
 	@override late final _StringsLoginCs login = _StringsLoginCs._(_root);
+	@override late final _StringsProfileCs profile = _StringsProfileCs._(_root);
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
 	@override late final _StringsUpdateCs update = _StringsUpdateCs._(_root);
 	@override late final _StringsEditorCs editor = _StringsEditorCs._(_root);
@@ -1330,6 +1331,23 @@ class _StringsLoginCs extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Cs._(_root),
 		_StringsLogin$faq$0i3$Cs._(_root),
 		_StringsLogin$faq$0i4$Cs._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileCs extends _StringsProfileEn {
+	_StringsProfileCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Můj profil';
+	@override String get logout => 'Odhlásit se';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Cs._(_root),
+		_StringsProfile$faq$0i1$Cs._(_root),
+		_StringsProfile$faq$0i2$Cs._(_root),
+		_StringsProfile$faq$0i3$Cs._(_root),
 	];
 }
 
@@ -1622,6 +1640,50 @@ class _StringsLogin$faq$0i4$Cs extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru.';
 }
 
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Cs extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Ztratím po odhlášení svoje poznámky?';
+	@override String get a => 'Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Cs extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Jak změním své heslo k Nextcloud účtu?';
+	@override String get a => 'Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Cs extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Jak změním své heslo pro šifrování?';
+	@override String get a => '1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).\n\n2. Přejděte na webovou stránku vašeho serveru a smažte složku \'Saber\'. Tím ze serveru odstraníte všechny poznámky.\n\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Cs extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Jak odstraním svůj účet?';
+	@override String get a => 'Přejděte na webovou stránku svého serveru a přihlašte se. Poté přejděte do Nastavení > Smazat účet.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarCs extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarCs._(_StringsCs root) : this._root = root, super._(root);
@@ -1756,6 +1818,7 @@ class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Žádný';
 	@override String get college => 'Linky s okrajem';
+	@override String get collegeRtl => 'Linky s okrajem (obráceně)';
 	@override String get lined => 'Linky';
 	@override String get grid => 'Čtverečky';
 	@override String get dots => 'Tečkovaná mřížka';

@@ -133,6 +133,28 @@
       }
     ]
   },
+  "profile": {
+    "title": "Můj profil",
+    "logout": "Odhlásit se",
+    "faq": [
+      {
+        "q": "Ztratím po odhlášení svoje poznámky?",
+        "a": "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."
+      },
+      {
+        "q": "Jak změním své heslo k Nextcloud účtu?",
+        "a": "Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit."
+      },
+      {
+        "q": "Jak změním své heslo pro šifrování?",
+        "a": "1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).\n\n2. Přejděte na webovou stránku vašeho serveru a smažte složku 'Saber'. Tím ze serveru odstraníte všechny poznámky.\n\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních."
+      },
+      {
+        "q": "Jak odstraním svůj účet?",
+        "a": "Přejděte na webovou stránku svého serveru a přihlašte se. Poté přejděte do Nastavení > Smazat účet.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru."
+      }
+    ]
+  },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.",
     "dirty": "ZKUŠEBNÍ VERZE",
@@ -193,6 +215,7 @@
       "bgPatterns": {
         "none": "Žádný",
         "college": "Linky s okrajem",
+        "collegeRtl": "Linky s okrajem (obráceně)",
         "lined": "Linky",
         "grid": "Čtverečky",
         "dots": "Tečkovaná mřížka",
