@@ -101,11 +101,7 @@ Download and install `SaberInstaller_{version}.exe` from the latest [Release][re
 
 If you get missing dll errors, make sure you have [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installed.
 
-#### iOS
-
-See [#4 How to install on iOS](https://github.com/adil192/saber/discussions/4)
-
-#### macOS
+#### iOS and macOS
 
 Download Saber on the [App Store][app_store].
 
