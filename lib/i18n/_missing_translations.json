@@ -327,7 +327,7 @@
     "editor": {
       "menu": {
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "Школьная тетрадь (Поворот)"
         }
       }
     }
