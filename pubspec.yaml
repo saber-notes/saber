@@ -225,7 +225,7 @@ icons_launcher:
       enable: true
     macos:
       enable: true
-      image_path: "assets/icon/icon_opaque.png"
+      image_path: "assets/icon/icon_macos.png"
 
 auto_screenshot:
   bundle_id:
