@@ -1,0 +1,3 @@
+• Toque su nombre de usuario en la página de configuración para ir a la nueva página de perfil
+• Ahora puede usar patrones de fondo de derecha a izquierda y de izquierda a derecha
+• Se mejoró el ícono de macOS

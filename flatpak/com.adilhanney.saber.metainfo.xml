@@ -66,6 +66,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.11.7" type="development" date="2023-04-28">
+            <description>
+                <ul>
+                    <li>Tap your username on the settings page to go to the new profile page</li>
+                    <li>You can now use both right-to-left and left-to-right background patterns</li>
+                    <li>Improved the macOS icon</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.11.6" type="development" date="2023-04-25">
             <description>
                 <ul>
