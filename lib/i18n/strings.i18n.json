@@ -215,6 +215,7 @@
       "bgPatterns": {
         "none": "Blank",
         "college": "College-ruled",
+        "collegeRtl": "College-ruled (Reverse)",
         "lined": "Lined",
         "grid": "Grid",
         "dots": "Dots",

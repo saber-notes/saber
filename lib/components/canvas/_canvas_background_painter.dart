@@ -13,7 +13,6 @@ class CanvasBackgroundPainter extends CustomPainter {
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
     this.preview = false,
-    required this.rtl,
   });
 
   final bool invert;
@@ -25,7 +24,6 @@ class CanvasBackgroundPainter extends CustomPainter {
   final Color primaryColor, secondaryColor;
   /// Whether to draw the background pattern in a preview mode (more opaque).
   final bool preview;
-  final bool rtl;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -40,7 +38,6 @@ class CanvasBackgroundPainter extends CustomPainter {
       pattern: backgroundPattern,
       size: size,
       lineHeight: lineHeight,
-      rtl: rtl,
     )) {
       if (element.secondaryColor) {
         paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
@@ -69,12 +66,12 @@ class CanvasBackgroundPainter extends CustomPainter {
     required CanvasBackgroundPattern pattern,
     required Size size,
     required int lineHeight,
-    required bool rtl,
   }) sync* {
     switch (pattern) {
       case CanvasBackgroundPattern.none:
         return;
-      case CanvasBackgroundPattern.college:
+      case CanvasBackgroundPattern.collegeLtr:
+      case CanvasBackgroundPattern.collegeRtl:
       case CanvasBackgroundPattern.lined:
         // horizontal lines
         for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
@@ -84,14 +81,19 @@ class CanvasBackgroundPainter extends CustomPainter {
             isLine: true,
           );
         }
-        if (pattern == CanvasBackgroundPattern.college) {
-          // vertical line
-          final double x = rtl
-              ? size.width - lineHeight * 2
-              : lineHeight * 2;
+
+        // vertical line
+        if (pattern == CanvasBackgroundPattern.collegeLtr) {
           yield PatternElement(
-            Offset(x, 0),
-            Offset(x, size.height),
+            Offset(lineHeight * 2, 0),
+            Offset(lineHeight * 2, size.height),
+            isLine: true,
+            secondaryColor: true,
+          );
+        } else if (pattern == CanvasBackgroundPattern.collegeRtl) {
+          yield PatternElement(
+            Offset(size.width - lineHeight * 2, 0),
+            Offset(size.width - lineHeight * 2, size.height),
             isLine: true,
             secondaryColor: true,
           );
@@ -187,9 +189,12 @@ enum CanvasBackgroundPattern {
   /// No background pattern
   none(''),
 
-  /// College ruled paper: horizontal lines with one
+  /// College ruled paper (ltr): horizontal lines with one
   /// vertical line along the left margin
-  college('college'),
+  collegeLtr('college'),
+  /// College ruled paper (rtl): horizontal lines with one
+  /// vertical line along the right margin
+  collegeRtl('college-rtl'),
 
   /// Horizontal lines. This is the same as college ruled paper
   /// but without the vertical line
@@ -215,8 +220,10 @@ enum CanvasBackgroundPattern {
     switch (pattern) {
       case CanvasBackgroundPattern.none:
         return t.editor.menu.bgPatterns.none;
-      case CanvasBackgroundPattern.college:
+      case CanvasBackgroundPattern.collegeLtr:
         return t.editor.menu.bgPatterns.college;
+      case CanvasBackgroundPattern.collegeRtl:
+        return t.editor.menu.bgPatterns.collegeRtl;
       case CanvasBackgroundPattern.lined:
         return t.editor.menu.bgPatterns.lined;
       case CanvasBackgroundPattern.grid:
