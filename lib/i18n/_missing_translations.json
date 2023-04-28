@@ -323,15 +323,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
-        }
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "profile": {
       "title": "My profile",
