@@ -30,5 +30,22 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ar</string>
+		<string>cs</string>
+		<string>de</string>
+		<string>es</string>
+		<string>fa</string>
+		<string>fr</string>
+		<string>hu</string>
+		<string>it</string>
+		<string>pt_BR</string>
+		<string>ru</string>
+		<string>tr</string>
+		<string>zh_CN</string>
+		<string>zh_TW</string>
+	</array>
 </dict>
 </plist>

@@ -312,6 +312,7 @@ If you like Saber, please consider supporting it by:
     - `flutter pub run slang analyze --full`
   - If you're adding a new language, update:
     - `CFBundleLocalizations` in `ios/Runner/Info.plist`
+    - `CFBundleLocalizations` in `macos/Runner/Info.plist`
     - `android/app/src/main/res/xml/locales_config.xml`
     - `lib/data/locales.dart`
     - `README.md` above in the "Translating" section.
