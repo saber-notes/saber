@@ -417,13 +417,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
-        }
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
