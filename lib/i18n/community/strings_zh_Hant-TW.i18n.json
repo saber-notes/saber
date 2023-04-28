@@ -215,6 +215,7 @@
       "bgPatterns": {
         "none": "空白",
         "college": "College-ruled",
+        "collegeRtl": "College-ruled (反向)",
         "lined": "橫線",
         "grid": "網格",
         "dots": "點",

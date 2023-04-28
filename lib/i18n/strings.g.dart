@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2088 (149 per locale)
+/// Strings: 2089 (149 per locale)
 ///
-/// Built on 2023-04-28 at 16:58 UTC
+/// Built on 2023-04-28 at 17:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7577,6 +7577,7 @@ class _StringsEditorMenuBgPatternsZhHantTw extends _StringsEditorMenuBgPatternsE
 	// Translations
 	@override String get none => '空白';
 	@override String get college => 'College-ruled';
+	@override String get collegeRtl => 'College-ruled (反向)';
 	@override String get lined => '橫線';
 	@override String get grid => '網格';
 	@override String get dots => '點';
