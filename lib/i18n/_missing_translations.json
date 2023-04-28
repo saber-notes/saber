@@ -246,7 +246,7 @@
         },
         {
           "q": "Come posso modificare la mia password crittografata?",
-          "a": "1. Disconnettersi da Sabre. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Sabre. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Sabre anche sugli altri tuoi dispositivi."
+          "a": "1. Disconnettersi da Sabre. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella \"Saber\". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Sabre. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Sabre anche sugli altri tuoi dispositivi."
         },
         {
           "q": "Come posso eliminare il mio account?",
@@ -257,7 +257,7 @@
     "editor": {
       "menu": {
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "College governato (inverso)"
         }
       }
     }
@@ -288,7 +288,7 @@
     "editor": {
       "menu": {
         "bgPatterns": {
-          "collegeRtl": "College governato (inverso)"
+          "collegeRtl": "College-ruled (Reverse)"
         }
       }
     }
