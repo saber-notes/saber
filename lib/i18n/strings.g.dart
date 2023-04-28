@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2076 (148 per locale)
+/// Strings: 2077 (148 per locale)
 ///
-/// Built on 2023-04-27 at 23:11 UTC
+/// Built on 2023-04-28 at 05:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -709,6 +709,7 @@ class _StringsEditorMenuBgPatternsEn {
 	// Translations
 	String get none => 'Blank';
 	String get college => 'College-ruled';
+	String get collegeRtl => 'College-ruled (Reverse)';
 	String get lined => 'Lined';
 	String get grid => 'Grid';
 	String get dots => 'Dots';

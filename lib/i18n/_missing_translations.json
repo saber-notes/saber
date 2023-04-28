@@ -25,6 +25,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "cs": {
@@ -49,6 +56,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "de": {
@@ -73,6 +87,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "es": {
@@ -97,6 +118,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "fa": {
@@ -121,6 +149,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "fr": {
@@ -145,6 +180,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "hu": {
@@ -212,6 +254,7 @@
       "menu": {
         "lineHeightDescription": "Also controls the text size",
         "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)",
           "staffs": "Staffs",
           "cornell": "Cornell"
         }
@@ -240,6 +283,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "pt-BR": {
@@ -264,6 +314,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "ru": {
@@ -288,6 +345,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "tr": {
@@ -312,6 +376,13 @@
           "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
         }
       ]
+    },
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
     }
   },
   "zh-Hans-CN": {
@@ -370,10 +441,19 @@
       },
       "menu": {
         "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)",
           "cornell": "Cornell"
         }
       }
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "editor": {
+      "menu": {
+        "bgPatterns": {
+          "collegeRtl": "College-ruled (Reverse)"
+        }
+      }
+    }
+  }
 }

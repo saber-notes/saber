@@ -8,8 +8,7 @@ void main() {
       _testPatternWithLineHeight(pattern, 10);
       _testPatternWithLineHeight(pattern, 50);
 
-      _testRtlPattern(pattern, false);
-      _testRtlPattern(pattern, true);
+      _testRtlPattern(pattern);
     }
   });
 }
@@ -24,7 +23,6 @@ void _testPatternWithLineHeight(final CanvasBackgroundPattern pattern, final int
       pattern: pattern,
       size: size,
       lineHeight: lineHeight,
-      rtl: false,
     ).toList();
 
     if (pattern == CanvasBackgroundPattern.none) {
@@ -100,15 +98,14 @@ void _testPatternWithLineHeight(final CanvasBackgroundPattern pattern, final int
   });
 }
 
-void _testRtlPattern(final CanvasBackgroundPattern pattern, final bool rtl) {
-  test("'$pattern' in ${rtl ? 'rtl' : 'ltr'}", () {
+void _testRtlPattern(final CanvasBackgroundPattern pattern) {
+  test("'$pattern'", () {
     const size = Size(1000, 1000);
 
     List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(
       pattern: pattern,
       size: size,
       lineHeight: 10,
-      rtl: rtl,
     ).toList();
 
     int linesOnLeft = 0;
@@ -126,6 +123,7 @@ void _testRtlPattern(final CanvasBackgroundPattern pattern, final bool rtl) {
       }
     }
 
+    final rtl = pattern.name.contains('rtl');
     final isCorrectlyRtl = rtl
       ? linesOnRight >= linesOnLeft * 0.9
       : linesOnLeft >= linesOnRight * 0.9;

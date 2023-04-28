@@ -124,7 +124,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
           lineHeight: widget.coreInfo.lineHeight,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,
-          rtl: rtl,
         ),
         foregroundPainter: CanvasPainter(
           repaint: widget.redrawPageListenable,

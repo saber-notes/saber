@@ -38,9 +38,6 @@ class CanvasBackgroundPreview extends StatelessWidget {
       pageSize.height / pageSize.width * 150,
     );
     final canvasSize = pageSize / 2;
-    final rtl = intl.Bidi.isRtlLanguage(
-      LocaleSettings.currentLocale.languageTag
-    );
     return Container(
       width: previewSize.width,
       height: previewSize.height,
@@ -82,7 +79,6 @@ class CanvasBackgroundPreview extends StatelessWidget {
                   secondaryColor: colorScheme.secondary
                       .withSaturation(selected ? 1 : 0),
                   preview: true,
-                  rtl: rtl,
                 ),
               ),
             ),
