@@ -324,37 +324,7 @@
     }
   },
   "ru": {},
-  "tr": {
-    "profile": {
-      "title": "Profilim",
-      "logout": "Çıkış yap",
-      "faq": [
-        {
-          "q": "Çıkış yaparsam notlarımı kaybedecek miyim?",
-          "a": "Hayır. Notlarınız hem cihazınızda hem de sunucuda saklanacak. Siz tekrar giriş yapıncaya dek sunucu ile senkronize edilmeyecekler. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz)."
-        },
-        {
-          "q": "Nextcloud parolamı nasıl değiştireceğim?",
-          "a": "Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Güvenlik > Parolayı değiştir aşamalarını takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrar giriş yapmanız gerekecek."
-        },
-        {
-          "q": "Şifreleme parolamı nasıl değiştireceğim?",
-          "a": "1. Saber'dan çıkış yapın. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz).\n\n2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu aşama ile sunucuda tutulan notlarınızın tamamı silinecek.\n\n3. Saber'a tekrar giriş yapın. Giriş yaparken yeni bir şifreleme parolası belirleyebileceksiniz.\n\n4. Oturum açtığınız başka cihazlar varsa onlarda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın."
-        },
-        {
-          "q": "Hesabımı nasıl sileceğim?",
-          "a": "Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Hesabı sil aşamalarını takip edin.\n\nEğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecektir. Bana adilhanney@disroot.org adresinden ulaşarak silme işlemini iptal edebilirsiniz.\n\nEğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silmeniz mümkün olmayabilir, daha fazla bilgi edinmek için ilgili sunucunun gizlilik politikasını incelemelisiniz."
-        }
-      ]
-    },
-    "editor": {
-      "menu": {
-        "bgPatterns": {
-          "collegeRtl": "Std. çizgili defter (Tersine çevrik)"
-        }
-      }
-    }
-  },
+  "tr": {},
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
