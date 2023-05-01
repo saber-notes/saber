@@ -87,7 +87,7 @@ dependencies:
 
   flutter_colorpicker: ^1.0.3
 
-  google_fonts: ^4.0.1
+  google_fonts: ^4.0.4
 
   font_awesome_flutter: ^10.3.0
 
