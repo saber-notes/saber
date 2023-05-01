@@ -785,7 +785,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
     } else {
       _gestureType ??= _getGestureType(details);
     }
-    if (!_gestureIsSupported(_gestureType)) {
+    if (!_gestureIsSupported(_gestureType) && !isCurrentGestureADrawGesture) {
       return;
     }
 
