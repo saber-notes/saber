@@ -49,7 +49,7 @@ void main() {
       expect(page.strokes.length, 1);
 
       final stroke = page.strokes[0];
-      final offset = const Offset(10, 14);
+      const offset = Offset(10, 14);
       expect(stroke.isComplete, true);
       expect(stroke.pageIndex, 0);
       expect(stroke.penType, (Pen).toString());
