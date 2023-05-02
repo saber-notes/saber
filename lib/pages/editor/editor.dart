@@ -6,7 +6,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart' hide TransformationController;
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart' hide TransformationController;
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
@@ -690,7 +689,7 @@ class EditorState extends State<Editor> {
 
   String get _filename => coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
   String _saveToString() {
-    coreInfo.initialPageIndex = currentPageIndex ?? coreInfo.initialPageIndex;
+    coreInfo.initialPageIndex = currentPageIndex;
     return json.encode(coreInfo);
   }
   Future<void> saveToFile() async {
@@ -790,8 +789,7 @@ class EditorState extends State<Editor> {
   Future<int> pickPhotos([List<PhotoInfo>? photoInfos]) async {
     if (coreInfo.readOnly) return 0;
 
-    final int? currentPageIndex = this.currentPageIndex;
-    if (currentPageIndex == null) return 0;
+    final currentPageIndex = this.currentPageIndex;
 
     photoInfos ??= await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
@@ -1168,11 +1166,8 @@ class EditorState extends State<Editor> {
               }
             } else {
               currentTool = Tool.textEditing;
-              int? pageIndex = currentPageIndex;
-              if (pageIndex != null) {
-                lastFocusedQuill = coreInfo.pages[pageIndex].quill;
-                lastFocusedQuill!.focusNode.requestFocus();
-              }
+              lastFocusedQuill = coreInfo.pages[currentPageIndex].quill;
+              lastFocusedQuill!.focusNode.requestFocus();
             }
           }),
 
@@ -1284,7 +1279,7 @@ class EditorState extends State<Editor> {
   Widget bottomSheet(BuildContext context) {
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
-    final int? currentPageIndex = this.currentPageIndex;
+    final int currentPageIndex = this.currentPageIndex;
 
     return EditorBottomSheet(
       invert: invert,
@@ -1304,7 +1299,6 @@ class EditorState extends State<Editor> {
       }),
       removeBackgroundImage: () => setState(() {
         if (coreInfo.readOnly) return;
-        if (currentPageIndex == null) return;
 
         final page = coreInfo.pages[currentPageIndex];
         if (page.backgroundImage == null) return;
@@ -1315,7 +1309,6 @@ class EditorState extends State<Editor> {
       }),
       redrawImage: () => setState(() {}),
       clearPage: () {
-        if (currentPageIndex == null) return;
         clearPage(currentPageIndex);
       },
 
@@ -1424,24 +1417,27 @@ class EditorState extends State<Editor> {
     });
   }
 
+  late int _lastCurrentPageIndex = coreInfo.initialPageIndex ?? 0;
   /// The index of the page that is currently centered on screen.
-  int? get currentPageIndex {
-    if (!mounted) return null;
+  int get currentPageIndex {
+    if (!mounted) return _lastCurrentPageIndex;
 
-    final Size windowSize = MediaQuery.of(context).size;
-    late Offset centre = Offset(windowSize.width / 2, windowSize.height / 2);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final scrollY = _transformationController.value.getTranslation().y;
 
-    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; ++pageIndex) {
-      final page = coreInfo.pages[pageIndex];
-      if (page.renderBox == null) continue;
-      final localCenter = page.renderBox!.globalToLocal(centre);
+    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
+      final bottomOfPage = -CanvasGestureDetector.getTopOfPage(
+        pageIndex: pageIndex + 1, // top of next page
+        pages: coreInfo.pages,
+        screenWidth: screenWidth,
+      );
 
-      if (page.renderBox!.hitTest(BoxHitTestResult(), position: localCenter)) {
-        return pageIndex;
+      if (scrollY < bottomOfPage) {
+        return _lastCurrentPageIndex = pageIndex;
       }
     }
 
-    return null;
+    return _lastCurrentPageIndex = coreInfo.pages.length - 1;
   }
 
   @override
