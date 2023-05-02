@@ -1055,7 +1055,7 @@ class _StringsLogin$faq$0i0$Ar extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'ما هو Nextcloud؟';
-	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Sabre Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
+	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
 }
 
 // Path: login.faq.1
@@ -1066,7 +1066,7 @@ class _StringsLogin$faq$0i1$Ar extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'ما هي كلمة مرور التشفير؟';
-	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Sabre ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\n\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
+	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\n\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
 }
 
 // Path: login.faq.2
@@ -4594,7 +4594,7 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Sabre Copyright (C) 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber Copyright (C) 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 	@override String get dirty => 'GROSSOLANA';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione';
@@ -4895,7 +4895,7 @@ class _StringsProfile$faq$0i1$It extends _StringsProfile$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Come cambio la mia password Nextcloud?';
-	@override String get a => 'Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Sabre dopo aver cambiato la tua password.';
+	@override String get a => 'Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.';
 }
 
 // Path: profile.faq.2
@@ -4906,7 +4906,7 @@ class _StringsProfile$faq$0i2$It extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Come posso modificare la mia password crittografata?';
-	@override String get a => '1. Disconnettersi da Sabre. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Sabre. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Sabre anche sugli altri tuoi dispositivi.';
+	@override String get a => '1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.';
 }
 
 // Path: profile.faq.3
@@ -4917,7 +4917,7 @@ class _StringsProfile$faq$0i3$It extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Come posso eliminare il mio account?';
-	@override String get a => 'Vai al sito Web del tuo server e accedi. Quindi vai su Impostazioni > Elimina account.\n\nSe stai utilizzando il server Sabre ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all\'indirizzo adilhanney@disroot.org durante questo periodo per annullare l\'eliminazione.\n\nSe stai utilizzando un server di terze parti, potrebbe non esserci un\'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.';
+	@override String get a => 'Vai al sito Web del tuo server e accedi. Quindi vai su Impostazioni > Elimina account.\n\nSe stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all\'indirizzo adilhanney@disroot.org durante questo periodo per annullare l\'eliminazione.\n\nSe stai utilizzando un server di terze parti, potrebbe non esserci un\'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.';
 }
 
 // Path: editor.toolbar
@@ -5941,7 +5941,7 @@ class _StringsLogin$faq$0i0$Ru extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'Что такое Nextcloud?';
-	@override String get a => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Sabre Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
+	@override String get a => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Saber Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
 }
 
 // Path: login.faq.1
@@ -5952,7 +5952,7 @@ class _StringsLogin$faq$0i1$Ru extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Что такое пароль шифрования?';
-	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Sabre, и он не связан с вашей учетной записью/паролем Nextcloud.\n\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\n\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
 }
 
 // Path: login.faq.2
@@ -6007,7 +6007,7 @@ class _StringsProfile$faq$0i1$Ru extends _StringsProfile$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Как изменить свой пароль Nextcloud?';
-	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в Sabre после смены пароля.';
+	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в Saber после смены пароля.';
 }
 
 // Path: profile.faq.2
@@ -6018,7 +6018,7 @@ class _StringsProfile$faq$0i2$Ru extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Как изменить пароль шифрования?';
-	@override String get a => '1. Выйдите из Sabre. Прежде чем выйти из системы, убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n\n2. Перейдите на веб-сайт своего сервера и удалите папку «Sabre». Это приведет к удалению всех ваших заметок с сервера.\n\n3. Войдите в Sabre. Вы можете выбрать новый пароль шифрования при входе в систему.\n\n4. Не забудьте выйти и снова войти в Sabre на других своих устройствах.';
+	@override String get a => '1. Выйдите из Saber. Прежде чем выйти из системы, убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n\n2. Перейдите на веб-сайт своего сервера и удалите папку «Saber». Это приведет к удалению всех ваших заметок с сервера.\n\n3. Войдите в Saber. Вы можете выбрать новый пароль шифрования при входе в систему.\n\n4. Не забудьте выйти и снова войти в Saber на других своих устройствах.';
 }
 
 // Path: profile.faq.3
@@ -6029,7 +6029,7 @@ class _StringsProfile$faq$0i3$Ru extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Как я могу удалить свою учётную запись?';
-	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем выберите «Параметры пользователя» > «Удалить учётную запись».\n\nЕсли вы используете официальный сервер Sabre, ваша учетная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера для получения дополнительной информации.';
+	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем выберите «Параметры пользователя» > «Удалить учётную запись».\n\nЕсли вы используете официальный сервер Saber, ваша учетная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера для получения дополнительной информации.';
 }
 
 // Path: editor.toolbar
@@ -6116,7 +6116,7 @@ class _StringsEditorNewerFileFormatRu extends _StringsEditorNewerFileFormatEn {
 
 	// Translations
 	@override String get readOnlyMode => 'Режим «Только чтение»';
-	@override String get title => 'Эта заметка была отредактирована в более новой версии Sabre.';
+	@override String get title => 'Эта заметка была отредактирована в более новой версии Saber.';
 	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
 	@override String get allowEditing => 'Разрешить редактирование';
 	@override String get cancel => 'Отмена';
@@ -7610,7 +7610,7 @@ class _StringsLogin$faq$0i0$ZhHantTw extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => '什麼是 Nextcloud？';
-	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Sabre Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
+	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
 }
 
 // Path: login.faq.1
