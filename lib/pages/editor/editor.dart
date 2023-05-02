@@ -1334,6 +1334,20 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         autosaveAfterDelay();
       }),
+      insertPageAfter: (int pageIndex) => setState(() {
+        if (coreInfo.readOnly) return;
+        final page = EditorPage();
+        coreInfo.pages.insert(pageIndex + 1, page);
+        listenToQuillChanges(page.quill, pageIndex + 1);
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.insertPage,
+          pageIndex: pageIndex + 1,
+          strokes: const [],
+          images: const [],
+          page: page,
+        ));
+        autosaveAfterDelay();
+      }),
       duplicatePage: (int pageIndex) => setState(() {
         if (coreInfo.readOnly) return;
         final page = coreInfo.pages[pageIndex];
@@ -1355,8 +1369,8 @@ class EditorState extends State<Editor> {
           ),
           backgroundImage: page.backgroundImage?.copy()?..pageIndex += 1,
         );
-        listenToQuillChanges(newPage.quill, pageIndex + 1);
         coreInfo.pages.insert(pageIndex + 1, newPage);
+        listenToQuillChanges(newPage.quill, pageIndex + 1);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.insertPage,
           pageIndex: pageIndex,
