@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2133 (152 per locale)
+/// Strings: 2136 (152 per locale)
 ///
-/// Built on 2023-04-28 at 18:07 UTC
+/// Built on 2023-05-02 at 17:34 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -642,6 +642,9 @@ class _StringsEditorMenuEn {
 	// Translations
 	String get clearPage => 'Clear page';
 	String get clearAllPages => 'Clear all pages';
+	String get insertPage => 'Insert page below';
+	String get duplicatePage => 'Duplicate page';
+	String get deletePage => 'Delete page';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'Also controls the text size';
 	String get backgroundImage => 'Background image';

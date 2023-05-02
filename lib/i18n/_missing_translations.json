@@ -28,13 +28,24 @@
     },
     "editor": {
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
       }
     }
   },
-  "cs": {},
+  "cs": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  },
   "de": {
     "profile": {
       "title": "My profile",
@@ -60,6 +71,9 @@
     },
     "editor": {
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
@@ -91,13 +105,24 @@
     },
     "editor": {
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
       }
     }
   },
-  "fa": {},
+  "fa": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  },
   "fr": {
     "profile": {
       "title": "My profile",
@@ -123,6 +148,9 @@
     },
     "editor": {
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
@@ -192,6 +220,9 @@
         "removeAsBackground": "Remove as background"
       },
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "lineHeightDescription": "Also controls the text size",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)",
@@ -201,7 +232,15 @@
       }
     }
   },
-  "it": {},
+  "it": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  },
   "pt-BR": {
     "profile": {
       "title": "My profile",
@@ -227,14 +266,33 @@
     },
     "editor": {
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
       }
     }
   },
-  "ru": {},
-  "tr": {},
+  "ru": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  },
+  "tr": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  },
   "zh-Hans-CN": {
     "login": {
       "faq(OUTDATED)": [
@@ -290,6 +348,9 @@
         "removeAsBackground": "Remove as background"
       },
       "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page",
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)",
           "cornell": "Cornell"
@@ -297,5 +358,13 @@
       }
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  }
 }

@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class EditorPageManager extends StatefulWidget {
   const EditorPageManager({
@@ -108,6 +109,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
+                        tooltip: t.editor.menu.insertPage,
                         icon: const AdaptiveIcon(
                           icon: Icons.insert_page_break,
                           cupertinoIcon: CupertinoIcons.add,
@@ -118,6 +120,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         }),
                       ),
                       IconButton(
+                        tooltip: t.editor.menu.duplicatePage,
                         icon: const AdaptiveIcon(
                           icon: Icons.content_copy,
                           cupertinoIcon: CupertinoIcons.doc_on_clipboard,
@@ -128,6 +131,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         }),
                       ),
                       IconButton(
+                        tooltip: t.editor.menu.clearPage,
                         icon: const Icon(Icons.cleaning_services),
                         onPressed: () => setState(() {
                           widget.clearPage(pageIndex);
@@ -135,6 +139,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         }),
                       ),
                       IconButton(
+                        tooltip: t.editor.menu.deletePage,
                         icon: const AdaptiveIcon(
                           icon: Icons.delete,
                           cupertinoIcon: CupertinoIcons.delete,
