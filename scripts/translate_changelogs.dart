@@ -39,6 +39,7 @@ void main() async {
 
   final String total = localeCodes.length.toString();
 
+  var someTranslationsFailed = false;
   for (int i = 0; i < localeCodes.length; i++) {
     final localeCode = localeCodes[i];
     final localeName = localeNames[localeCode];
@@ -47,11 +48,14 @@ void main() async {
     /// e.g. 1/10
     final stepPrefix = '${(i + 1).toString().padLeft(total.length)}/$total';
 
-    if (localeCode == 'en') continue;
+    if (localeCode == 'en') {
+      print('$stepPrefix. Skipped $localeCode ($localeName)');
+      continue;
+    }
 
     final file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
     if (file.existsSync()) {
-      print('$stepPrefix. Skipped $localeCode ($localeName) because it already exists.');
+      print('$stepPrefix. Skipped $localeCode ($localeName) because it already exists');
       continue;
     } else {
       print('$stepPrefix. Translating to $localeCode ($localeName)...');
@@ -66,27 +70,24 @@ void main() async {
       nearestLocaleCode = localeCode.substring(0, localeCode.indexOf('-'));
     } else {
       print('${' ' * stepPrefix.length}  ! Language not supported, skipping...');
+      someTranslationsFailed = true;
       continue;
     }
     if (localeCode != nearestLocaleCode) {
       print('${' ' * stepPrefix.length}  - Selected $nearestLocaleCode');
     }
 
-    Translation? translation;
-    for (int _ = 0; _ < 10; _++) {
-      try {
-        translation = await translator.translateSimply(
-          englishChangelog,
-          from: 'en',
-          to: nearestLocaleCode,
-        );
-      } catch (e) {
-        await Future.delayed(const Duration(milliseconds: 100));
-        // try again
-      }
-    }
-    if (translation == null) {
+    Translation translation;
+    try {
+      translation = await translator.translateSimply(
+        englishChangelog,
+        from: 'en',
+        to: nearestLocaleCode,
+        retries: 10,
+      );
+    } catch (e) {
       print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
+      someTranslationsFailed = true;
       continue;
     }
 
@@ -113,5 +114,9 @@ void main() async {
 
     await file.create(recursive: true);
     await file.writeAsString(translatedChangelog);
+  }
+
+  if (someTranslationsFailed) {
+    print('\nSome translations failed: please re-run this script.');
   }
 }
