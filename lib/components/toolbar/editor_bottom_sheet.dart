@@ -82,10 +82,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   } : null,
                   child: Wrap(
                     children: [
-                      const AdaptiveIcon(
-                        icon: Icons.delete,
-                        cupertinoIcon: CupertinoIcons.delete,
-                      ),
+                      const Icon(Icons.cleaning_services),
                       const SizedBox(width: 8),
                       Text(t.editor.menu.clearPage),
                     ],
@@ -98,10 +95,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   } : null,
                   child: Wrap(
                     children: [
-                      const AdaptiveIcon(
-                        icon: Icons.delete_sweep,
-                        cupertinoIcon: CupertinoIcons.delete_solid,
-                      ),
+                      const Icon(Icons.cleaning_services),
                       const SizedBox(width: 8),
                       Text(t.editor.menu.clearAllPages),
                     ],

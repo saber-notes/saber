@@ -1365,6 +1365,7 @@ class EditorState extends State<Editor> {
         ));
         autosaveAfterDelay();
       }),
+      clearPage: clearPage,
       deletePage: (int pageIndex) => setState(() {
         if (coreInfo.readOnly) return;
         final page = coreInfo.pages.removeAt(pageIndex);

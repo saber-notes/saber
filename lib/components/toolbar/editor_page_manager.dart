@@ -12,16 +12,22 @@ class EditorPageManager extends StatefulWidget {
     required this.coreInfo,
     required this.currentPageIndex,
     required this.redrawAndSave,
+
     required this.duplicatePage,
+    required this.clearPage,
     required this.deletePage,
+
     required this.transformationController,
   });
 
   final EditorCoreInfo coreInfo;
   final int? currentPageIndex;
   final VoidCallback redrawAndSave;
+
   final void Function(int) duplicatePage;
+  final void Function(int) clearPage;
   final void Function(int) deletePage;
+
   final TransformationController transformationController;
 
   @override
@@ -100,6 +106,12 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         onPressed: () => setState(() {
                           widget.duplicatePage(pageIndex);
                           scrollToPage(pageIndex + 1);
+                        }),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.cleaning_services),
+                        onPressed: () => setState(() {
+                          widget.clearPage(pageIndex);
                         }),
                       ),
                       IconButton(
