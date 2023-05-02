@@ -232,15 +232,7 @@
       }
     }
   },
-  "it": {
-    "editor": {
-      "menu": {
-        "insertPage": "Inserisci pagina sotto",
-        "duplicatePage": "Pagina duplicata",
-        "deletePage": "Elimina pagina"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "profile": {
       "title": "My profile",
