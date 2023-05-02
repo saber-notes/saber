@@ -1,0 +1,4 @@
+• Agora você pode inserir uma nova página após a outra na caixa de diálogo de gerenciamento de página
+• Agora você pode duplicar uma página na caixa de diálogo de gerenciamento de página
+• Agora você pode excluir uma página na caixa de diálogo de gerenciamento de página
+• Corrigido um erro em que a entrada da caneta era desativada se a panorâmica com um dedo fosse desativada

@@ -1,0 +1,4 @@
+• È ora possibile inserire una nuova pagina dopo l'altra nella finestra di dialogo di gestione delle pagine
+• È ora possibile duplicare una pagina nella finestra di dialogo di gestione delle pagine
+• È ora possibile eliminare una pagina nella finestra di dialogo di gestione delle pagine
+• Risolto un bug per cui l'input dello stilo era disabilitato se la panoramica con un dito era disabilitata
