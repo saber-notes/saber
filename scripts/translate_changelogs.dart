@@ -97,6 +97,13 @@ void main() async {
       translatedChangelog += '\n';
     }
 
+    // Response might be something like "Invalid request: request (276) exceeds text limit (250)"
+    if (!translatedChangelog.contains('•')) {
+      print('${' ' * stepPrefix.length}  ! Translation invalid, skipping...');
+      someTranslationsFailed = true;
+      continue;
+    }
+
     if (translatedChangelog.length > 500) {
       final oldLength = translatedChangelog.length;
       const suffix = '\n...\n';
