@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2139 (152 per locale)
+/// Strings: 2153 (153 per locale)
 ///
-/// Built on 2023-05-02 at 20:07 UTC
+/// Built on 2023-05-02 at 21:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -744,6 +744,7 @@ class _StringsAr extends _StringsEn {
 	@override late final _StringsHomeAr home = _StringsHomeAr._(_root);
 	@override late final _StringsSettingsAr settings = _StringsSettingsAr._(_root);
 	@override late final _StringsLoginAr login = _StringsLoginAr._(_root);
+	@override late final _StringsProfileAr profile = _StringsProfileAr._(_root);
 	@override late final _StringsAppInfoAr appInfo = _StringsAppInfoAr._(_root);
 	@override late final _StringsUpdateAr update = _StringsUpdateAr._(_root);
 	@override late final _StringsEditorAr editor = _StringsEditorAr._(_root);
@@ -810,6 +811,23 @@ class _StringsLoginAr extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Ar._(_root),
 		_StringsLogin$faq$0i3$Ar._(_root),
 		_StringsLogin$faq$0i4$Ar._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileAr extends _StringsProfileEn {
+	_StringsProfileAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'ملفي الشخصي';
+	@override String get logout => 'تسجيل الخروج';
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Ar._(_root),
+		_StringsProfile$faq$0i1$Ar._(_root),
+		_StringsProfile$faq$0i2$Ar._(_root),
+		_StringsProfile$faq$0i3$Ar._(_root),
 	];
 }
 
@@ -1102,6 +1120,50 @@ class _StringsLogin$faq$0i4$Ar extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
 }
 
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Ar extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'هل سأفقد ملاحظاتي إذا قمت بتسجيل الخروج؟';
+	@override String get a => 'لا. ستظل ملاحظاتك على كل من جهازك وعلى الخادم. لن تتم مزامنتها مع الخادم حتى تقوم بتسجيل الدخول مرة أخرى. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Ar extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'كيف يمكنني تغيير كلمة المرور الخاصة بي على Nextcloud؟';
+	@override String get a => 'انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات > الأمان > تغيير كلمة المرور. ستحتاج إلى تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber بعد تغيير كلمة المرور الخاصة بك.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Ar extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'كيف يمكنني تغيير كلمة مرور التشفير الخاصة بي؟';
+	@override String get a => '1. تسجيل الخروج من Saber. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).\n\n2. اذهب إلى موقع الخادم الخاص بك واحذف مجلد "Saber" الخاص بك. سيؤدي هذا إلى حذف كافة ملاحظاتك من الخادم.\n\n3. قم بتسجيل الدخول مرة أخرى إلى Saber. يمكنك اختيار كلمة مرور تشفير جديدة عند تسجيل الدخول.\n\n4. لا تنس تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber على أجهزتك الأخرى أيضًا.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Ar extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'كيف يمكنني حذف حسابي؟';
+	@override String get a => 'انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات> حذف الحساب.\n\nإذا كنت تستخدم خادم Saber الرسمي، فسيتم حذف حسابك بعد فترة سماح مدتها أسبوع. يمكنك الاتصال بي على adilhanney@disroot.org خلال هذه الفترة لإلغاء الحذف.\n\nإذا كنت تستخدم خادم جهة خارجية، فقد لا يكون هناك خيار لحذف حسابك: ستحتاج إلى استشارة خصوصية الخادم سياسة لمزيد من المعلومات.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarAr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1169,6 +1231,9 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'صفحة واضحة';
 	@override String get clearAllPages => 'امسح كل الصفحات';
+	@override String get insertPage => 'أدخل الصفحة أدناه';
+	@override String get duplicatePage => 'تكرار الصفحة';
+	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
 	@override String get backgroundImage => 'الصورة الخلفية';
@@ -1236,6 +1301,7 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'فارغ';
 	@override String get college => 'كلية تحكم';
+	@override String get collegeRtl => 'محكوم الكلية (عكسي)';
 	@override String get lined => 'مبطن';
 	@override String get grid => 'شبكة';
 	@override String get dots => 'نقاط';
