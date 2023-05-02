@@ -5,34 +5,34 @@
   ],
   "ar": {
     "profile": {
-      "title": "My profile",
-      "logout": "Log out",
+      "title": "ملفي الشخصي",
+      "logout": "تسجيل الخروج",
       "faq": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "هل سأفقد ملاحظاتي إذا قمت بتسجيل الخروج؟",
+          "a": "لا. ستظل ملاحظاتك على كل من جهازك وعلى الخادم. لن تتم مزامنتها مع الخادم حتى تقوم بتسجيل الدخول مرة أخرى. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية)."
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "كيف يمكنني تغيير كلمة المرور الخاصة بي على Nextcloud؟",
+          "a": "انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات > الأمان > تغيير كلمة المرور. ستحتاج إلى تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Sabre بعد تغيير كلمة المرور الخاصة بك."
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "كيف يمكنني تغيير كلمة مرور التشفير الخاصة بي؟",
+          "a": "1. تسجيل الخروج من Sabre. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).\n\n2. اذهب إلى موقع الخادم الخاص بك واحذف مجلد "Sabre" الخاص بك. سيؤدي هذا إلى حذف كافة ملاحظاتك من الخادم.\n\n3. قم بتسجيل الدخول مرة أخرى إلى Sabre. يمكنك اختيار كلمة مرور تشفير جديدة عند تسجيل الدخول.\n\n4. لا تنس تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Sabre على أجهزتك الأخرى أيضًا."
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "كيف يمكنني حذف حسابي؟",
+          "a": "انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات> حذف الحساب.\n\nإذا كنت تستخدم خادم Sabre الرسمي، فسيتم حذف حسابك بعد فترة سماح مدتها أسبوع. يمكنك الاتصال بي على adilhanney@disroot.org خلال هذه الفترة لإلغاء الحذف.\n\nإذا كنت تستخدم خادم جهة خارجية، فقد لا يكون هناك خيار لحذف حسابك: ستحتاج إلى استشارة خصوصية الخادم سياسة لمزيد من المعلومات."
         }
       ]
     },
     "editor": {
       "menu": {
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page",
+        "insertPage": "أدخل الصفحة أدناه",
+        "duplicatePage": "تكرار الصفحة",
+        "deletePage": "حذف الصفحة",
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "محكوم الكلية (عكسي)"
         }
       }
     }
@@ -232,7 +232,15 @@
       }
     }
   },
-  "it": {},
+  "it": {
+    "editor": {
+      "menu": {
+        "insertPage": "Insert page below",
+        "duplicatePage": "Duplicate page",
+        "deletePage": "Delete page"
+      }
+    }
+  },
   "pt-BR": {
     "profile": {
       "title": "My profile",
