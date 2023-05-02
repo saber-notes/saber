@@ -136,7 +136,7 @@
   "profile": {
     "title": "Il mio profilo",
     "logout": "Log out",
-    "faq": [
+    "faq(OUTDATED)": [
       {
         "q": "Perderò i miei appunti se esco?",
         "a": "No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale)."

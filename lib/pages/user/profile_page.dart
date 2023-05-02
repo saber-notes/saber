@@ -48,24 +48,42 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(Prefs.username.value),
                 const SizedBox(height: 16),
-                TextButton(
-                  onPressed: () {
-                    launchUrl(
-                      Uri.parse(Prefs.url.value),
-                      mode: Platform.isIOS
-                          ? LaunchMode.inAppWebView
-                          : LaunchMode.externalApplication
-                    );
-                  },
-                  child: Text(Prefs.url.value),
-                ),
-                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     logout();
                     Navigator.of(context).pop();
                   },
                   child: Text(t.profile.logout),
+                ),
+                const SizedBox(height: 16),
+                Text(t.profile.quickLinks.title),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        launchUrl(
+                          Uri.parse(Prefs.url.value),
+                          mode: Platform.isIOS
+                              ? LaunchMode.inAppWebView
+                              : LaunchMode.externalApplication
+                        );
+                      },
+                      child: Text(t.profile.quickLinks.serverHomepage),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        launchUrl(
+                          Uri.parse('${Prefs.url.value}/index.php/settings/user/drop_account'),
+                          mode: Platform.isIOS
+                              ? LaunchMode.inAppWebView
+                              : LaunchMode.externalApplication
+                        );
+                      },
+                      child: Text(t.profile.quickLinks.deleteAccount),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 16),
 

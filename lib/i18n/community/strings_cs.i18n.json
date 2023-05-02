@@ -136,7 +136,7 @@
   "profile": {
     "title": "Můj profil",
     "logout": "Odhlásit se",
-    "faq": [
+    "faq(OUTDATED)": [
       {
         "q": "Ztratím po odhlášení svoje poznámky?",
         "a": "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."

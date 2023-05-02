@@ -136,7 +136,7 @@
   "profile": {
     "title": "Profilim",
     "logout": "Çıkış yap",
-    "faq": [
+    "faq(OUTDATED)": [
       {
         "q": "Çıkış yaparsam notlarımı kaybedecek miyim?",
         "a": "Hayır. Notlarınız hem cihazınızda hem de sunucuda saklanacak. Siz tekrar giriş yapıncaya dek sunucu ile senkronize edilmeyecekler. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz)."

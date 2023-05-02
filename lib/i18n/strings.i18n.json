@@ -136,6 +136,11 @@
   "profile": {
     "title": "My profile",
     "logout": "Log out",
+    "quickLinks": {
+      "title": "Quick links",
+      "serverHomepage": "Server homepage",
+      "deleteAccount": "Delete account"
+    },
     "faq": [
       {
         "q": "Will I lose my notes if I log out?",
@@ -151,7 +156,7 @@
       },
       {
         "q": "How can I delete my account?",
-        "a": "Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+        "a": "Tap on the \"@:profile.quickLinks.deleteAccount\" button above, and login if needed.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
       }
     ]
   },

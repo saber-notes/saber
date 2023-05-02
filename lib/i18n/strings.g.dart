@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2153 (153 per locale)
+/// Strings: 2156 (154 per locale)
 ///
-/// Built on 2023-05-02 at 21:57 UTC
+/// Built on 2023-05-02 at 21:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -234,6 +234,7 @@ class _StringsProfileEn {
 	// Translations
 	String get title => 'My profile';
 	String get logout => 'Log out';
+	late final _StringsProfileQuickLinksEn quickLinks = _StringsProfileQuickLinksEn._(_root);
 	List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$En._(_root),
 		_StringsProfile$faq$0i1$En._(_root),
@@ -531,6 +532,18 @@ class _StringsLogin$faq$0i4$En {
 	String get a => 'Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Quick links';
+	String get serverHomepage => 'Server homepage';
+	String get deleteAccount => 'Delete account';
+}
+
 // Path: profile.faq.0
 class _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$En._(this._root);
@@ -572,7 +585,7 @@ class _StringsProfile$faq$0i3$En {
 
 	// Translations
 	String get q => 'How can I delete my account?';
-	String get a => 'Go to your server website and log in. Then go to Settings > Delete account.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you\'ll need to consult the server\'s privacy policy for more information.';
+	String get a => 'Tap on the "${_root.profile.quickLinks.deleteAccount}" button above, and login if needed.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you\'ll need to consult the server\'s privacy policy for more information.';
 }
 
 // Path: editor.toolbar
