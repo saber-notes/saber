@@ -1,0 +1,5 @@
+• Mostantól új oldalakat szúrhat be a másik után az oldalkezelő párbeszédablakban
+• Mostantól lemásolhat egy oldalt az oldalkezelő párbeszédpanelen
+• Most már törölhet egy oldalt az oldalkezelő párbeszédpanelen
+• Kijavítottunk egy hibát, amely miatt az érintőceruza bevitele le volt tiltva, ha az egyujjas pásztázás le volt tiltva
+• Közvetlen hivatkozás hozzáadva a fióktörlési oldalhoz

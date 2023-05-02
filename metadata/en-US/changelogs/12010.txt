@@ -1,0 +1,5 @@
+• You can now insert a new page after another in the page management dialog
+• You can now duplicate a page in the page management dialog
+• You can now delete a page in the page management dialog
+• Fixed a bug where stylus input was disabled if one-finger panning was disabled
+• Added a direct link to the account deletion page

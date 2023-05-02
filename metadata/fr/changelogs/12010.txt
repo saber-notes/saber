@@ -1,0 +1,5 @@
+• Vous pouvez désormais insérer une nouvelle page après l'autre dans la boîte de dialogue de gestion des pages
+• Vous pouvez désormais dupliquer une page dans la boîte de dialogue de gestion des pages
+• Vous pouvez désormais supprimer une page dans la boîte de dialogue de gestion des pages
+• Correction d'un bogue où la saisie au stylet était désactivée si le panoramique à un doigt était désactivé
+• Ajout d'un lien direct vers la page de suppression de compte
