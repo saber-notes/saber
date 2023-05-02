@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2136 (152 per locale)
+/// Strings: 2139 (152 per locale)
 ///
-/// Built on 2023-05-02 at 17:34 UTC
+/// Built on 2023-05-02 at 20:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4987,6 +4987,9 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Pulisci pagina';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
+	@override String get insertPage => 'Inserisci pagina sotto';
+	@override String get duplicatePage => 'Pagina duplicata';
+	@override String get deletePage => 'Elimina pagina';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'Inoltre controlla la dimensione del testo';
 	@override String get backgroundImage => 'Immagine di sfondo';
