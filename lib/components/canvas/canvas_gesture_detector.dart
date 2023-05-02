@@ -70,8 +70,13 @@ class CanvasGestureDetector extends StatefulWidget {
 
     for (int i = 0; i < pageIndex && i < pages.length; i++) {
       final pageSize = pages[i].size;
+
+      /// Since we use a FittedBox, the actual width of the page
+      /// is the minimum of the page width and the screen width.
+      final pageWidthFitted = min(pageSize.width, screenWidth);
+
       top += 16;
-      top += screenWidth / pageSize.width * pageSize.height;
+      top += pageSize.height * (pageWidthFitted / pageSize.width);
     }
 
     // Slight upwards offset so that the page is not flush with the top of the screen.
