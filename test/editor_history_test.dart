@@ -7,11 +7,13 @@ void main() {
 
     final EditorHistoryItem item1 = EditorHistoryItem(
       type: EditorHistoryItemType.draw,
+      pageIndex: 0,
       strokes: [],
       images: [],
     );
     final EditorHistoryItem item2 = EditorHistoryItem(
       type: EditorHistoryItemType.draw,
+      pageIndex: 0,
       strokes: [],
       images: [],
     );

@@ -309,8 +309,44 @@ class EditorState extends State<Editor> {
           }
           break;
 
+        case EditorHistoryItemType.deletePage:
+          // make sure we already have a (blank/otherwise) page at this index
+          createPage(item.pageIndex - 1);
+
+          // insert the page at the correct index
+          coreInfo.pages.insert(item.pageIndex, item.page!);
+
+          // fix the page indices of all pages after this one
+          for (int i = item.pageIndex + 1; i < coreInfo.pages.length; ++i) {
+            final page = coreInfo.pages[i];
+            for (Stroke stroke in page.strokes) {
+              stroke.pageIndex = i;
+            }
+            for (EditorImage image in page.images) {
+              image.pageIndex = i;
+            }
+            page.backgroundImage?.pageIndex = i;
+          }
+          break;
+
+        case EditorHistoryItemType.insertPage:
+          // remove the page at the given index
+          coreInfo.pages.removeAt(item.pageIndex);
+
+          // fix the page indices of all pages after this one
+          for (int i = item.pageIndex; i < coreInfo.pages.length; ++i) {
+            final page = coreInfo.pages[i];
+            for (Stroke stroke in page.strokes) {
+              stroke.pageIndex = i;
+            }
+            for (EditorImage image in page.images) {
+              image.pageIndex = i;
+            }
+            page.backgroundImage?.pageIndex = i;
+          }
+          break;
+
         case EditorHistoryItemType.move:
-          assert(item.offset != null);
           for (Stroke stroke in item.strokes) {
             stroke.shift(Offset(
               item.offset!.left,
@@ -335,12 +371,12 @@ class EditorState extends State<Editor> {
           break;
 
         case EditorHistoryItemType.quillChange:
-          final quill = coreInfo.pages[item.quillPageIndex!].quill;
+          final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.undo();
           break;
 
         case EditorHistoryItemType.quillUndoneChange:
-          final quill = coreInfo.pages[item.quillPageIndex!].quill;
+          final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.redo();
           break;
       }
@@ -364,8 +400,13 @@ class EditorState extends State<Editor> {
       case EditorHistoryItemType.erase:
         undo(item.copyWith(type: EditorHistoryItemType.draw));
         break;
+      case EditorHistoryItemType.deletePage:
+        undo(item.copyWith(type: EditorHistoryItemType.insertPage));
+        break;
+      case EditorHistoryItemType.insertPage:
+        undo(item.copyWith(type: EditorHistoryItemType.deletePage));
+        break;
       case EditorHistoryItemType.move:
-        assert(item.offset != null);
         undo(item.copyWith(offset: Rect.fromLTRB(
           -item.offset!.left,
           -item.offset!.top,
@@ -511,6 +552,7 @@ class EditorState extends State<Editor> {
         page.insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.draw,
+          pageIndex: dragPageIndex!,
           strokes: [newStroke],
           images: [],
         ));
@@ -519,6 +561,7 @@ class EditorState extends State<Editor> {
         if (erased.isEmpty) return;
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
+          pageIndex: dragPageIndex!,
           strokes: erased,
           images: [],
         ));
@@ -528,6 +571,7 @@ class EditorState extends State<Editor> {
         if (select.doneSelecting) {
           history.recordChange(EditorHistoryItem(
             type: EditorHistoryItemType.move,
+            pageIndex: dragPageIndex!,
             strokes: select.selectResult.strokes,
             images: select.selectResult.images,
             offset: Rect.fromLTRB(
@@ -569,6 +613,7 @@ class EditorState extends State<Editor> {
   void onMoveImage(EditorImage image, Rect offset) {
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.move,
+      pageIndex: image.pageIndex,
       strokes: [],
       images: [image],
       offset: offset,
@@ -580,6 +625,7 @@ class EditorState extends State<Editor> {
   void onDeleteImage(EditorImage image) {
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.erase,
+      pageIndex: image.pageIndex,
       strokes: [],
       images: [image],
     ));
@@ -618,7 +664,7 @@ class EditorState extends State<Editor> {
     if (history.canUndo && !history.canRedo) {
       final lastChange = history.peekUndo();
       if (lastChange.type == EditorHistoryItemType.quillChange &&
-          lastChange.quillPageIndex == pageIndex &&
+          lastChange.pageIndex == pageIndex &&
           lastChange.quillChange!.before == event.before) {
         history.undo(); // remove the last change, to be replaced
       }
@@ -626,9 +672,9 @@ class EditorState extends State<Editor> {
 
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.quillChange,
+      pageIndex: pageIndex,
       strokes: const [],
       images: const [],
-      quillPageIndex: pageIndex,
       quillChange: event,
     ));
   }
@@ -782,6 +828,7 @@ class EditorState extends State<Editor> {
 
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.draw,
+      pageIndex: currentPageIndex,
       strokes: [],
       images: images,
     ));
@@ -1294,10 +1341,16 @@ class EditorState extends State<Editor> {
         autosaveAfterDelay();
       }),
       deletePage: (int pageIndex) => setState(() {
-        // todo: add to history
         if (coreInfo.readOnly) return;
-        coreInfo.pages.removeAt(pageIndex);
+        final page = coreInfo.pages.removeAt(pageIndex);
         createPage(pageIndex - 1);
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.deletePage,
+          pageIndex: pageIndex,
+          strokes: const [],
+          images: const [],
+          page: page,
+        ));
         autosaveAfterDelay();
       }),
       transformationController: _transformationController,
@@ -1315,6 +1368,7 @@ class EditorState extends State<Editor> {
       removeExcessPages();
       history.recordChange(EditorHistoryItem(
         type: EditorHistoryItemType.erase,
+        pageIndex: pageIndex,
         strokes: removedStrokes,
         images: removedImages,
       ));
@@ -1335,6 +1389,7 @@ class EditorState extends State<Editor> {
       removeExcessPages();
       history.recordChange(EditorHistoryItem(
         type: EditorHistoryItemType.erase,
+        pageIndex: 0,
         strokes: removedStrokes,
         images: removedImages,
       ));

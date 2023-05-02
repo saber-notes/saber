@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 
 class EditorHistory {
   static const int maxHistoryLength = 100;
@@ -70,6 +71,8 @@ class EditorHistory {
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
     assert(item.type != EditorHistoryItemType.quillUndoneChange, 'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.');
+    assert(item.type != EditorHistoryItemType.insertPage, 'EditorHistoryItemType.insertPage is just a hack to make undoing page deletion easier. It should just be recorded as a deletePage.');
+
     _past.add(item);
     if (_past.length > maxHistoryLength) _past.removeAt(0);
     _isRedoPossible = false;
@@ -107,35 +110,42 @@ class EditorHistory {
 class EditorHistoryItem {
   EditorHistoryItem({
     required this.type,
+    required this.pageIndex,
     required this.strokes,
     required this.images,
     this.offset,
-    this.quillPageIndex,
+    this.page,
     this.quillChange,
-  }): assert(type != EditorHistoryItemType.move || offset != null, 'Offset must be provided for move'),
-      assert(type != EditorHistoryItemType.quillChange || quillPageIndex != null, 'Page index must be provided for quill change');
+  })  : assert(type != EditorHistoryItemType.move || offset != null, 'Offset must be provided for move'),
+        assert(type != EditorHistoryItemType.deletePage || page != null, 'Page must be provided for deletePage'),
+        assert(type != EditorHistoryItemType.insertPage || page != null, 'Page must be provided for insertPage'),
+        assert(type != EditorHistoryItemType.quillChange || quillChange != null, 'Quill change must be provided for quillChange'),
+        assert(type != EditorHistoryItemType.quillUndoneChange || quillChange != null, 'Quill change must be provided for quillUndoneChange');
 
   final EditorHistoryItemType type;
+  final int pageIndex;
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
-  final int? quillPageIndex;
+  final EditorPage? page;
   final DocChange? quillChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
+    int? pageIndex,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Rect? offset,
-    int? quillPageIndex,
+    EditorPage? page,
     DocChange? quillChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
+      pageIndex: pageIndex ?? this.pageIndex,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       offset: offset ?? this.offset,
-      quillPageIndex: quillPageIndex ?? this.quillPageIndex,
+      page: page ?? this.page,
       quillChange: quillChange ?? this.quillChange,
     );
   }
@@ -144,6 +154,8 @@ class EditorHistoryItem {
 enum EditorHistoryItemType {
   draw,
   erase,
+  deletePage,
+  insertPage,
   move,
   quillChange,
   quillUndoneChange,
