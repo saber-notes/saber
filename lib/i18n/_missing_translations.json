@@ -235,9 +235,9 @@
   "it": {
     "editor": {
       "menu": {
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page"
+        "insertPage": "Inserisci pagina sotto",
+        "duplicatePage": "Pagina duplicata",
+        "deletePage": "Elimina pagina"
       }
     }
   },
