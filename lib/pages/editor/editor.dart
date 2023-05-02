@@ -262,7 +262,8 @@ class EditorState extends State<Editor> {
       if (currentY < bottomOfLastPage) {
         _transformationController.value = Matrix4.translationValues(
           0,
-          topOfLastPage,
+          // Slight upwards offset so that the page is not flush with the top of the screen
+          topOfLastPage + 50,
           0,
         );
       }

@@ -36,13 +36,15 @@ class EditorPageManager extends StatefulWidget {
 
 class _EditorPageManagerState extends State<EditorPageManager> {
   void scrollToPage(int pageIndex) {
+    final topOfPage = -CanvasGestureDetector.getTopOfPage(
+      pageIndex: pageIndex,
+      pages: widget.coreInfo.pages,
+      screenWidth: MediaQuery.of(context).size.width,
+    );
     widget.transformationController.value = Matrix4.translationValues(
       0,
-      -CanvasGestureDetector.getTopOfPage(
-        pageIndex: pageIndex,
-        pages: widget.coreInfo.pages,
-        screenWidth: MediaQuery.of(context).size.width,
-      ),
+      // Slight upwards offset so that the page is not flush with the top of the screen
+      topOfPage + 50,
       0,
     );
   }

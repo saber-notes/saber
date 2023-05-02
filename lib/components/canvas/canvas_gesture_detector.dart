@@ -79,8 +79,7 @@ class CanvasGestureDetector extends StatefulWidget {
       top += pageSize.height * (pageWidthFitted / pageSize.width);
     }
 
-    // Slight upwards offset so that the page is not flush with the top of the screen.
-    return top - 50;
+    return top;
   }
 }
 
@@ -129,13 +128,15 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       return;
     } else if (widget.initialPageIndex != null) {
       // if we're opening a different note, scroll to the last recorded page
+      final topOfPage = -CanvasGestureDetector.getTopOfPage(
+        pageIndex: widget.initialPageIndex!,
+        pages: widget.pages,
+        screenWidth: MediaQuery.of(context).size.width,
+      );
       widget._transformationController.value = Matrix4.translationValues(
         0,
-        -CanvasGestureDetector.getTopOfPage(
-          pageIndex: widget.initialPageIndex!,
-          pages: widget.pages,
-          screenWidth: MediaQuery.of(context).size.width,
-        ),
+        // Slight upwards offset so that the page is not flush with the top of the screen
+        topOfPage + 50,
         0,
       );
     }
