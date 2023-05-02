@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart' hide TransformationController;
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 
 class EditorPageManager extends StatefulWidget {
@@ -106,14 +108,20 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.insert_page_break),
+                        icon: const AdaptiveIcon(
+                          icon: Icons.insert_page_break,
+                          cupertinoIcon: CupertinoIcons.add,
+                        ),
                         onPressed: () => setState(() {
                           widget.insertPageAfter(pageIndex);
                           scrollToPage(pageIndex + 1);
                         }),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.content_copy),
+                        icon: const AdaptiveIcon(
+                          icon: Icons.content_copy,
+                          cupertinoIcon: CupertinoIcons.doc_on_clipboard,
+                        ),
                         onPressed: () => setState(() {
                           widget.duplicatePage(pageIndex);
                           scrollToPage(pageIndex + 1);
@@ -127,7 +135,10 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         }),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.delete),
+                        icon: const AdaptiveIcon(
+                          icon: Icons.delete,
+                          cupertinoIcon: CupertinoIcons.delete,
+                        ),
                         onPressed: () => setState(() {
                           widget.deletePage(pageIndex);
                           scrollToPage(pageIndex);
