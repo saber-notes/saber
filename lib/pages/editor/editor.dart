@@ -1333,6 +1333,38 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         autosaveAfterDelay();
       }),
+      duplicatePage: (int pageIndex) => setState(() {
+        if (coreInfo.readOnly) return;
+        final page = coreInfo.pages[pageIndex];
+        final newPage = page.copyWith(
+          strokes: page.strokes
+              .map((stroke) => stroke.copy()..pageIndex += 1)
+              .toList(),
+          images: page.images
+              .map((image) => image.copy()..pageIndex += 1)
+              .toList(),
+          quill: QuillStruct(
+            controller: flutter_quill.QuillController(
+              document: flutter_quill.Document.fromDelta(
+                page.quill.controller.document.toDelta()
+              ),
+              selection: const TextSelection.collapsed(offset: 0),
+            ),
+            focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
+          ),
+          backgroundImage: page.backgroundImage?.copy()?..pageIndex += 1,
+        );
+        listenToQuillChanges(newPage.quill, pageIndex + 1);
+        coreInfo.pages.insert(pageIndex + 1, newPage);
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.insertPage,
+          pageIndex: pageIndex,
+          strokes: const [],
+          images: const [],
+          page: newPage,
+        ));
+        autosaveAfterDelay();
+      }),
       deletePage: (int pageIndex) => setState(() {
         if (coreInfo.readOnly) return;
         final page = coreInfo.pages.removeAt(pageIndex);

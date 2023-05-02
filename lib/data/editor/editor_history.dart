@@ -71,7 +71,6 @@ class EditorHistory {
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
     assert(item.type != EditorHistoryItemType.quillUndoneChange, 'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.');
-    assert(item.type != EditorHistoryItemType.insertPage, 'EditorHistoryItemType.insertPage is just a hack to make undoing page deletion easier. It should just be recorded as a deletePage.');
 
     _past.add(item);
     if (_past.length > maxHistoryLength) _past.removeAt(0);

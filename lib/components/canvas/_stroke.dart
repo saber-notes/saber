@@ -221,4 +221,10 @@ class Stroke {
     }
     return sum / points.length / strokeProperties.size / strokeProperties.size;
   }
+
+  Stroke copy() => Stroke(
+    strokeProperties: strokeProperties.copy(),
+    pageIndex: pageIndex,
+    penType: penType,
+  )..points.addAll(points);
 }

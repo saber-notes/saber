@@ -345,4 +345,24 @@ class EditorImage extends ChangeNotifier {
 
     return image.decodeImage(bytes);
   }
+
+  EditorImage copy() => EditorImage(
+    id: id,
+    extension: extension,
+    bytes: bytes,
+    pageIndex: pageIndex,
+    pageSize: Size.infinite,
+    invertible: invertible,
+    backgroundFit: backgroundFit,
+    onMoveImage: onMoveImage,
+    onDeleteImage: onDeleteImage,
+    onMiscChange: onMiscChange,
+    onLoad: onLoad,
+    newImage: true,
+    dstRect: dstRect,
+    srcRect: srcRect,
+    naturalSize: naturalSize,
+    thumbnailBytes: thumbnailBytes,
+    isThumbnail: isThumbnail,
+  );
 }
