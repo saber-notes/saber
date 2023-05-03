@@ -451,34 +451,34 @@
   "zh-Hant-TW": {
     "profile": {
       "quickLinks": {
-        "title": "Quick links",
-        "serverHomepage": "Server homepage",
-        "deleteAccount": "Delete account"
+        "title": "快速連結",
+        "serverHomepage": "伺服器主頁",
+        "deleteAccount": "刪除帳戶"
       },
       "faq(OUTDATED)": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "如果我登出了，我的筆記會不會不見？",
+          "a": "您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。"
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "如何更改我的Nextcloud密碼？",
+          "a": "進入您的伺服器網站並登入，然後進入設定>安全>更改密碼。更改密碼後，您需要登出並重新登入到Saber。"
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "如何更改我的加密密碼？",
+          "a": "1. 登出Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n\n3. 重新登入到Saber，您可以在登入時選擇一個新的加密密碼。\n\n4. 也不要忘記在您的其他裝置上登出並重新登入Saber。"
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Tap on the \"@:profile.quickLinks.deleteAccount\" button above, and login if needed.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "如何刪除我的帳戶？",
+          "a": "點擊上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。\n\n如果您使用的是官方Saber伺服器，您的帳戶將在一周的寬限期後被刪除，您可以在此期間由電子郵件聯繫我：adilhanney@disroot.org，以取消刪除。如果您使用的是第三方伺服器，則可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。"
         }
       ]
     },
     "editor": {
       "menu": {
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page"
+        "insertPage": "插入以下頁面",
+        "duplicatePage": "複製頁面",
+        "deletePage": "刪除頁面"
       }
     }
   }
