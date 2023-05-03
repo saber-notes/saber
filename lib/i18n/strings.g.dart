@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2156 (154 per locale)
+/// Strings: 2162 (154 per locale)
 ///
-/// Built on 2023-05-02 at 21:59 UTC
+/// Built on 2023-05-03 at 12:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3056,6 +3056,7 @@ class _StringsProfileFa extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'پروفایل من';
 	@override String get logout => 'خروج';
+	@override late final _StringsProfileQuickLinksFa quickLinks = _StringsProfileQuickLinksFa._(_root);
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Fa._(_root),
 		_StringsProfile$faq$0i1$Fa._(_root),
@@ -3353,6 +3354,18 @@ class _StringsLogin$faq$0i4$Fa extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksFa extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'لینک های سریع';
+	@override String get serverHomepage => 'صفحه اصلی سرور';
+	@override String get deleteAccount => 'حذف حساب';
+}
+
 // Path: profile.faq.0
 class _StringsProfile$faq$0i0$Fa extends _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$Fa._(_StringsFa root) : this._root = root, super._(root);
@@ -3360,7 +3373,7 @@ class _StringsProfile$faq$0i0$Fa extends _StringsProfile$faq$0i0$En {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'آیا در صورت خروج از سیستم یادداشت های خود را گم می کنم؟';
+	@override String get q => 'ایا اگر خارج شوم یادداشت هایم را از دست خواهم داد؟';
 	@override String get a => 'خیر. یادداشت‌های شما هم روی دستگاه و هم روی سرور باقی می‌مانند. تا زمانی که دوباره وارد سیستم نشوید با سرور همگام‌سازی نمی‌شوند. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید).';
 }
 
@@ -3394,7 +3407,7 @@ class _StringsProfile$faq$0i3$Fa extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'چگونه می توانم حساب کاربری خود را حذف کنم؟';
-	@override String get a => 'به وب‌سایت سرور خود بروید و وارد شوید. سپس به تنظیمات > حذف حساب بروید.\n\nاگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.\n\nاگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید.';
+	@override String get a => 'روی دکمه "${_root.profile.quickLinks.deleteAccount}" در بالا ضربه بزنید و در صورت نیاز وارد شوید.\n\nاگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.\n\nاگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید. سیاست برای اطلاعات بیشتر';
 }
 
 // Path: editor.toolbar
@@ -3464,6 +3477,9 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'پاک کردن صفحه';
 	@override String get clearAllPages => 'تمام صفحات را پاک کنید';
+	@override String get insertPage => 'درج صفحه در زیر';
+	@override String get duplicatePage => 'تکرار صفحه';
+	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
 	@override String get backgroundImage => 'تصویر پس زمینه';
