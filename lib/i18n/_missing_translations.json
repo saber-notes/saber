@@ -127,34 +127,34 @@
   "fa": {
     "profile": {
       "quickLinks": {
-        "title": "Quick links",
-        "serverHomepage": "Server homepage",
-        "deleteAccount": "Delete account"
+        "title": "لینک های سریع",
+        "serverHomepage": "صفحه اصلی سرور",
+        "deleteAccount": "حذف حساب"
       },
       "faq(OUTDATED)": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "ایا اگر خارج شوم یادداشت هایم را از دست خواهم داد؟",
+          "a": "خیر. یادداشت‌های شما هم روی دستگاه و هم روی سرور باقی می‌مانند. تا زمانی که دوباره وارد سیستم نشوید با سرور همگام‌سازی نمی‌شوند. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید)."
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "چگونه رمز عبور Nextcloud خود را تغییر دهم؟",
+          "a": "به وب سایت سرور خود بروید و وارد شوید. سپس به تنظیمات > امنیت > تغییر رمز عبور بروید. پس از تغییر رمز عبور، باید از سیستم خارج شوید و دوباره وارد Saber شوید."
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "چگونه رمز رمزگذاری خود را تغییر دهم؟",
+          "a": "1. از Saber خارج شوید. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید).\n\n2. به وب سایت سرور خود بروید و پوشه 'Saber' خود را حذف کنید. با این کار تمام یادداشت های شما از سرور حذف می شود.\n\n3. دوباره وارد سابر شوید. هنگام ورود به سیستم می‌توانید رمز رمزگذاری جدیدی انتخاب کنید.\n\n4. فراموش نکنید که از سیستم خارج شوید و در دستگاه های دیگر خود نیز دوباره وارد Saber شوید."
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Tap on the \"@:profile.quickLinks.deleteAccount\" button above, and login if needed.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "چگونه می توانم حساب کاربری خود را حذف کنم؟",
+          "a": "روی دکمه \"@:profile.quickLinks.deleteAccount\" در بالا ضربه بزنید و در صورت نیاز وارد شوید.\n\nاگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.\n\nاگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید. سیاست برای اطلاعات بیشتر"
         }
       ]
     },
     "editor": {
       "menu": {
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page"
+        "insertPage": "درج صفحه در زیر",
+        "duplicatePage": "تکرار صفحه",
+        "deletePage": "حذف صفحه"
       }
     }
   },
