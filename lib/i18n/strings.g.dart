@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2168 (154 per locale)
+/// Strings: 2174 (155 per locale)
 ///
-/// Built on 2023-05-03 at 13:03 UTC
+/// Built on 2023-05-03 at 13:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5786,6 +5786,7 @@ class _StringsProfileRu extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Мой профиль';
 	@override String get logout => 'Выйти';
+	@override late final _StringsProfileQuickLinksRu quickLinks = _StringsProfileQuickLinksRu._(_root);
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Ru._(_root),
 		_StringsProfile$faq$0i1$Ru._(_root),
@@ -6083,6 +6084,18 @@ class _StringsLogin$faq$0i4$Ru extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksRu extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Быстрые ссылки';
+	@override String get serverHomepage => 'Домашняя страница сервера';
+	@override String get deleteAccount => 'Удалить учётную запись';
+}
+
 // Path: profile.faq.0
 class _StringsProfile$faq$0i0$Ru extends _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$Ru._(_StringsRu root) : this._root = root, super._(root);
@@ -6090,7 +6103,7 @@ class _StringsProfile$faq$0i0$Ru extends _StringsProfile$faq$0i0$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Потеряю ли я свои заметки при выходе?';
+	@override String get q => 'Потеряю ли я свои заметки, если выйду из системы?';
 	@override String get a => 'Нет. Ваши заметки останутся как на вашем устройстве, так и на сервере. Они не будут синхронизированы с сервером, пока вы снова не войдете в систему. Перед выходом из системы убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).';
 }
 
@@ -6112,8 +6125,8 @@ class _StringsProfile$faq$0i2$Ru extends _StringsProfile$faq$0i2$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Как изменить пароль шифрования?';
-	@override String get a => '1. Выйдите из Saber. Прежде чем выйти из системы, убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n\n2. Перейдите на веб-сайт своего сервера и удалите папку «Saber». Это приведет к удалению всех ваших заметок с сервера.\n\n3. Войдите в Saber. Вы можете выбрать новый пароль шифрования при входе в систему.\n\n4. Не забудьте выйти и снова войти в Saber на других своих устройствах.';
+	@override String get q => 'Как изменить свой пароль шифрования?';
+	@override String get a => '1. Выйдите из Saber. Перед выходом убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n\n2. Перейдите на веб-сайт своего сервера и удалите папку «Saber». Это приведет к удалению всех ваших заметок с сервера.\n\n3. Снова войдите в Saber. Вы можете создать новый пароль шифрования при входе в систему.\n\n4. Не забудьте выйти и снова войти в Saber на других своих устройствах.';
 }
 
 // Path: profile.faq.3
@@ -6124,7 +6137,7 @@ class _StringsProfile$faq$0i3$Ru extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Как я могу удалить свою учётную запись?';
-	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем выберите «Параметры пользователя» > «Удалить учётную запись».\n\nЕсли вы используете официальный сервер Saber, ваша учетная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера для получения дополнительной информации.';
+	@override String get a => 'Нажмите кнопку "${_root.profile.quickLinks.deleteAccount}" выше и войдите в систему, если необходимо.\n\nЕсли вы используете официальный сервер Sabre, ваша учётная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера, для получения дополнительной информации.';
 }
 
 // Path: editor.toolbar
@@ -6194,6 +6207,9 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Очистить лист';
 	@override String get clearAllPages => 'Очистить все листы';
+	@override String get insertPage => 'Вставить страницу ниже';
+	@override String get duplicatePage => 'Дубликат страницы';
+	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста';
 	@override String get backgroundImage => 'Фоновое изображение';
