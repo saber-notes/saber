@@ -42,24 +42,29 @@ Please see [#1 Saber progress][progress].
 
 ## Install
 
-[<img src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'
-    alt='Google Play'
+[<img src='https://github.com/adil192/saber/blob/main/assets_raw/badges/google-play-badge.png'
+    alt='Get it on Google Play'
     height=80>][google_play]
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/f-droid-badge.png"
     alt="Get it on F-Droid"
     height=80>][f-droid]
-[<img src="https://appimage.org/images/logo3.svg"
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+    alt="Download on the App Store"
+    height=80>][app_store]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="Get it as an AppImage"
     height=80>][releases]
-
 &nbsp;
-[<img src="https://user-images.githubusercontent.com/21128619/234731304-658da233-d7da-4130-bbed-53bc1a3a3d01.svg"
-    alt="Download on the App Store"
-    height=60>][app_store]
-&nbsp;&nbsp;
-[<img src="https://dl.flathub.org/assets/badges/flathub-badge-en.png"
-    alt="Get it on Flathub"
-    height=60>][flathub]
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+    alt="Download on Flathub"
+    height=80>][flathub]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
+    alt="Get it from the Snap Store"
+    height=80>][snap]
 
 
 <details open>
