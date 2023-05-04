@@ -2,12 +2,33 @@
 
 A (work-in-progress) cross-platform libre notes app. Please note that this app is still in early stages and not ready to trust with your notes yet.
 
-|         | Android | iOS | Linux | macOS | Windows | Web |
-|---------|---------|-----|-------|-------|---------|-----|
-| Support | ✓       | ✓   | ✓     | ✓     | ✓       | ✗   |
-
-Android and Linux are the main platforms that are being developed for,
-but if you encounter any bugs on other platforms, please open an [issue][issues].
+[<img src='https://github.com/adil192/saber/blob/main/assets_raw/badges/google-play-badge.png'
+    alt='Get it on Google Play'
+    height=80>][google_play]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+    alt="Get it on F-Droid"
+    height=80>][f-droid]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+    alt="Download on the App Store"
+    height=80>][app_store]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
+    alt="Download for Windows"
+    height=80>][releases]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+    alt="Download on Flathub"
+    height=80>][flathub]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
+    alt="Get it as an AppImage"
+    height=80>][releases]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
+    alt="Get it from the Snap Store"
+    height=80>][snap]
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/adil192/saber)](https://github.com/adil192/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
@@ -42,36 +63,7 @@ Please see [#1 Saber progress][progress].
 
 ## Install
 
-[<img src='https://github.com/adil192/saber/blob/main/assets_raw/badges/google-play-badge.png'
-    alt='Get it on Google Play'
-    height=80>][google_play]
-&nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/f-droid-badge.png"
-    alt="Get it on F-Droid"
-    height=80>][f-droid]
-&nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/app-store-badge.svg"
-    alt="Download on the App Store"
-    height=80>][app_store]
-&nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
-    alt="Get it as an AppImage"
-    height=80>][releases]
-&nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
-    alt="Download on Flathub"
-    height=80>][flathub]
-&nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
-    alt="Get it from the Snap Store"
-    height=80>][snap]
-&nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
-    alt="Download for Windows"
-    height=80>][releases]
-
-
-<details open>
+<details>
 <summary>Tap to show/hide install instructions</summary>
 
 #### Android
