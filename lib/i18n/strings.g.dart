@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2174 (155 per locale)
+/// Strings: 2180 (155 per locale)
 ///
-/// Built on 2023-05-03 at 13:05 UTC
+/// Built on 2023-05-04 at 16:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1425,6 +1425,7 @@ class _StringsProfileCs extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Můj profil';
 	@override String get logout => 'Odhlásit se';
+	@override late final _StringsProfileQuickLinksCs quickLinks = _StringsProfileQuickLinksCs._(_root);
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Cs._(_root),
 		_StringsProfile$faq$0i1$Cs._(_root),
@@ -1722,6 +1723,18 @@ class _StringsLogin$faq$0i4$Cs extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksCs extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Rychlé odkazy';
+	@override String get serverHomepage => 'Webové stránky serveru';
+	@override String get deleteAccount => 'Odstranit účet';
+}
+
 // Path: profile.faq.0
 class _StringsProfile$faq$0i0$Cs extends _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$Cs._(_StringsCs root) : this._root = root, super._(root);
@@ -1763,7 +1776,7 @@ class _StringsProfile$faq$0i3$Cs extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Jak odstraním svůj účet?';
-	@override String get a => 'Přejděte na webovou stránku svého serveru a přihlašte se. Poté přejděte do Nastavení > Smazat účet.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.';
+	@override String get a => 'Klepněte na tlačítko "${_root.profile.quickLinks.deleteAccount}" umístěné výše a přihlašte se, pokud to bude vyžadováno.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.';
 }
 
 // Path: editor.toolbar
@@ -1833,6 +1846,9 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Smazat obsah stránky';
 	@override String get clearAllPages => 'Smazat všechny stránky';
+	@override String get insertPage => 'Přidat stránku za tuto';
+	@override String get duplicatePage => 'Duplikovat stránku';
+	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu';
 	@override String get backgroundImage => 'Obrázek na pozadí';
@@ -6137,7 +6153,7 @@ class _StringsProfile$faq$0i3$Ru extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Как я могу удалить свою учётную запись?';
-	@override String get a => 'Нажмите кнопку "${_root.profile.quickLinks.deleteAccount}" выше и войдите в систему, если необходимо.\n\nЕсли вы используете официальный сервер Sabre, ваша учётная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера, для получения дополнительной информации.';
+	@override String get a => 'Нажмите кнопку "${_root.profile.quickLinks.deleteAccount}" выше и войдите в систему, если необходимо.\n\nЕсли вы используете официальный сервер Saber, ваша учётная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.\n\nЕсли вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера, для получения дополнительной информации.';
 }
 
 // Path: editor.toolbar

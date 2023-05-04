@@ -136,7 +136,12 @@
   "profile": {
     "title": "Můj profil",
     "logout": "Odhlásit se",
-    "faq(OUTDATED)": [
+    "quickLinks": {
+      "title": "Rychlé odkazy",
+      "serverHomepage": "Webové stránky serveru",
+      "deleteAccount": "Odstranit účet"
+    },
+    "faq": [
       {
         "q": "Ztratím po odhlášení svoje poznámky?",
         "a": "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."
@@ -151,7 +156,7 @@
       },
       {
         "q": "Jak odstraním svůj účet?",
-        "a": "Přejděte na webovou stránku svého serveru a přihlašte se. Poté přejděte do Nastavení > Smazat účet.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru."
+        "a": "Klepněte na tlačítko \"@:profile.quickLinks.deleteAccount\" umístěné výše a přihlašte se, pokud to bude vyžadováno.\n\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\n\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru."
       }
     ]
   },
@@ -202,6 +207,9 @@
     "menu": {
       "clearPage": "Smazat obsah stránky",
       "clearAllPages": "Smazat všechny stránky",
+      "insertPage": "Přidat stránku za tuto",
+      "duplicatePage": "Duplikovat stránku",
+      "deletePage": "Odstranit stránku",
       "lineHeight": "Výška řádku",
       "lineHeightDescription": "Ovlivňuje také velikost textu",
       "backgroundImage": "Obrázek na pozadí",
