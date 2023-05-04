@@ -65,6 +65,10 @@ Please see [#1 Saber progress][progress].
 [<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
     alt="Get it from the Snap Store"
     height=80>][snap]
+&nbsp;
+[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
+    alt="Download for Windows"
+    height=80>][releases]
 
 
 <details open>
