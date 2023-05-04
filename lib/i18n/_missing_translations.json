@@ -40,9 +40,9 @@
     },
     "editor": {
       "menu": {
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page"
+        "insertPage": "Přidat stránku za tuto",
+        "duplicatePage": "Duplikovat stránku",
+        "deletePage": "Odstranit stránku"
       }
     }
   },
