@@ -106,6 +106,14 @@ sed -i "s/#define VERSION_AS_NUMBER .*/#define VERSION_AS_NUMBER $BUILD_NAME_WIT
 echo " - Updating VERSION_AS_STRING in windows/runner/Runner.rc" # e.g. #define VERSION_AS_STRING "0.5.5.0"
 sed -i "s/#define VERSION_AS_STRING .*/#define VERSION_AS_STRING \"$BUILD_NAME.0\"/g" windows/runner/Runner.rc
 
+echo " - Updating Windows download link in README.md"
+# e.g. [download_windows]: https://github.com/adil192/saber/releases/download/v0.11.0/SaberInstaller_v0.11.0_11000.exe
+sed -i "s|\[download_windows\]: .*|\[download_windows\]: https://github.com/adil192/saber/releases/download/v${BUILD_NAME}/SaberInstaller_v${BUILD_NAME}_${BUILD_NUMBER}.exe|g" README.md
+
+echo " - Updating AppImage download link in README.md"
+# e.g. [download_appimage]: https://github.com/adil192/saber/releases/download/v0.11.0/Saber-0.11.0-x86_64.AppImage
+sed -i "s|\[download_appimage\]: .*|\[download_appimage\]: https://github.com/adil192/saber/releases/download/v${BUILD_NAME}/Saber-${BUILD_NAME}-x86_64.AppImage|g" README.md
+
 echo
 
 CHANGELOG_FILE="metadata/en-US/changelogs/$BUILD_NUMBER.txt"

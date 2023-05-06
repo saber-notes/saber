@@ -16,7 +16,7 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 &nbsp;
 [<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
     alt="Download for Windows"
-    height=80>][releases]
+    height=80>][download_windows]
 &nbsp;
 [<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
     alt="Download on Flathub"
@@ -24,7 +24,7 @@ A (work-in-progress) cross-platform libre notes app. Please note that this app i
 &nbsp;
 [<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="Get it as an AppImage"
-    height=80>][releases]
+    height=80>][download_appimage]
 &nbsp;
 [<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
     alt="Get it from the Snap Store"
@@ -325,6 +325,8 @@ If you like Saber, please consider supporting it by:
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
+[download_windows]: https://github.com/adil192/saber/releases/download/v0.12.0/SaberInstaller_v0.12.0_12000.exe
+[download_appimage]: https://github.com/adil192/saber/releases/download/v0.12.0/Saber-0.12.0-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
