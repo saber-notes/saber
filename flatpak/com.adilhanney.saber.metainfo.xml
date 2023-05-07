@@ -66,6 +66,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.2" type="development" date="2023-05-07">
+            <description>
+                <ul>
+                    <li>Fixed layout issue with the text editing toolbar</li>
+                    <li>Fixed misspellings of Saber in some translations</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.0" type="development" date="2023-05-02">
             <description>
                 <ul>
