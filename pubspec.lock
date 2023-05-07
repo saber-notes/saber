@@ -672,8 +672,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/nextcloud"
-      ref: "2e7c569e2a15327151f250b0614d8299065f2848"
-      resolved-ref: "2e7c569e2a15327151f250b0614d8299065f2848"
+      ref: HEAD
+      resolved-ref: ce12fcd1b3abe53eee587594a07e663d83aad2e1
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1349,6 +1349,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.2"
+  xml_annotation:
+    dependency: transitive
+    description:
+      name: xml_annotation
+      sha256: "4c67438bd8cbe4c717b66f3991631ea3cdd372dc77255f9fd166a6b6e1cf6965"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   yaml:
     dependency: transitive
     description:
