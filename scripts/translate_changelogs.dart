@@ -3,6 +3,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:io';
+import 'dart:math';
 
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/version.dart';
@@ -21,7 +22,11 @@ Future<String> getEnglishChangelog() async {
 }
 
 void main() async {
-  final translator = SimplyTranslator(EngineType.google);
+  final random = Random();
+
+  final useLibreEngine = random.nextBool();
+  print('Using ${useLibreEngine ? 'Libre' : 'Google'} translation engine...\n');
+  final translator = SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
 
   final englishChangelog = await getEnglishChangelog();
   print('English changelog for $buildName ($buildNumber):');
@@ -35,7 +40,7 @@ void main() async {
   }
 
   final localeCodes = localeNames.keys.toList();
-  localeCodes.shuffle();
+  localeCodes.shuffle(random);
 
   final String total = localeCodes.length.toString();
 
