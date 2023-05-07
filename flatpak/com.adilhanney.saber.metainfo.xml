@@ -66,6 +66,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.3" type="development" date="2023-05-07">
+            <description>
+                <ul>
+                    <li>Support for Nextcloud 26</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.2" type="development" date="2023-05-07">
             <description>
                 <ul>
