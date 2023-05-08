@@ -124,6 +124,7 @@ class EditorImage extends ChangeNotifier {
         json,
         assets: assets,
         isThumbnail: isThumbnail,
+        onMainThread: onMainThread,
       );
     }
 
