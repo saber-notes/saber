@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/shader_sampler.dart';
 
 class SvgEditorImage extends EditorImage {
@@ -15,8 +14,6 @@ class SvgEditorImage extends EditorImage {
   Uint8List get bytes => Uint8List.fromList(utf8.encode(svgString));
   @override
   set bytes(Uint8List bytes) {}
-
-  late final ui.FragmentShader _shader = InvertShader.create();
 
   SvgEditorImage({
     required super.id,
@@ -165,10 +162,10 @@ class SvgEditorImage extends EditorImage {
         await precache(context);
       },
       shaderBuilder: (ui.Image image, Size size) {
-        _shader.setFloat(0, size.width);
-        _shader.setFloat(1, size.height);
-        _shader.setImageSampler(0, image);
-        return _shader;
+        invertShader.setFloat(0, size.width);
+        invertShader.setFloat(1, size.height);
+        invertShader.setImageSampler(0, image);
+        return invertShader;
       },
       child: SvgPicture.string(
         svgString,
