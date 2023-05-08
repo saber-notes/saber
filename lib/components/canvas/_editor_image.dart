@@ -21,8 +21,6 @@ class EditorImage extends ChangeNotifier {
   Uint8List bytes;
   ui.Image? uiImage;
 
-  bool waitingForIsolateToFinish = true;
-
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
 
@@ -87,17 +85,34 @@ class EditorImage extends ChangeNotifier {
     this.naturalSize = Size.zero,
     this.thumbnailBytes,
     bool isThumbnail = false,
+    /// If [onMainThread], the image will be loaded automatically.
+    /// Otherwise, [getImage] must be called manually.
+    bool onMainThread = true,
   }) :  assert(extension.startsWith('.')) {
     this.dstRect = dstRect;
     _isThumbnail = isThumbnail;
-    getImage(
+
+    if (onMainThread) {
+      loadOnMainThread(
+        pageSize: pageSize,
+      );
+    }
+  }
+
+  void loadOnMainThread({
+    required Size pageSize,
+  }) async {
+    assert(Isolate.current.debugName == 'main');
+    await getImage(
       pageSize: pageSize,
-    ).then((_) => onLoad?.call());
+    );
+    onLoad?.call();
   }
 
   factory EditorImage.fromJson(Map<String, dynamic> json, {
     required List<Uint8List> assets,
     bool isThumbnail = false,
+    required bool onMainThread,
   }) {
     String? extension = json['e'];
     if (extension == '.svg') {
@@ -153,6 +168,7 @@ class EditorImage extends ChangeNotifier {
       ),
       thumbnailBytes: json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
       isThumbnail: isThumbnail,
+      onMainThread: onMainThread,
     );
   }
 
@@ -191,13 +207,7 @@ class EditorImage extends ChangeNotifier {
     return json;
   }
 
-  @protected
   Future<void> getImage({Size? pageSize}) async {
-    do {
-      // wait for isolate to finish since
-      // [ImageDescriptor] can't be used in an isolate
-      await Future.delayed(const Duration(milliseconds: 10));
-    } while (waitingForIsolateToFinish);
     assert(Isolate.current.debugName == 'main');
 
     var imageDescriptor = await ui.ImageDescriptor.encoded(await ui.ImmutableBuffer.fromUint8List(bytes));
@@ -372,6 +382,7 @@ class EditorImage extends ChangeNotifier {
     naturalSize: naturalSize,
     thumbnailBytes: thumbnailBytes,
     isThumbnail: isThumbnail,
+    onMainThread: true,
   );
 }
 

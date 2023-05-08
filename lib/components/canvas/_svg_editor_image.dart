@@ -37,6 +37,7 @@ class SvgEditorImage extends EditorImage {
   }) :  super(
           extension: '.svg',
           bytes: Uint8List(0),
+          onMainThread: true, // doesn't matter for SVGs
         );
 
   factory SvgEditorImage.fromJson(Map<String, dynamic> json, {

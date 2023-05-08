@@ -175,6 +175,7 @@ class EditorPage extends Listenable {
     json,
     assets: assets,
     isThumbnail: isThumbnail,
+    onMainThread: false,
   );
 
   final List<VoidCallback> _listeners = [];
