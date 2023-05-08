@@ -90,7 +90,8 @@ class _ShaderSnapshotPainter extends SnapshotPainter {
   void paintSnapshot(PaintingContext context, Offset offset, Size size, ui.Image image, Size sourceSize, double pixelRatio) {
     final shader = shaderBuilder(image, size);
     final Paint paint = Paint()
-      ..shader = shader;
+      ..shader = shader
+      ..filterQuality = FilterQuality.high;
     context.pushTransform(
       true,
       Offset.zero,

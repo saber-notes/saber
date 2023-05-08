@@ -424,7 +424,9 @@ class _CanvasImagePainter extends CustomPainter {
       canvas.translate(dstRect.left, dstRect.top);
       canvas.drawRect(
         Offset.zero & dstRect.size,
-        Paint()..shader = invertShader,
+        Paint()
+          ..shader = invertShader
+          ..filterQuality = FilterQuality.high,
       );
     } else {
       // non-inverted image
@@ -432,7 +434,8 @@ class _CanvasImagePainter extends CustomPainter {
         uiImage,
         image.srcRect,
         dstRect,
-        Paint(),
+        Paint()
+          ..filterQuality = FilterQuality.high,
       );
     }
   }
