@@ -51,43 +51,46 @@ class _CanvasHudState extends State<CanvasHud> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      opacity: opacity,
-      duration: const Duration(milliseconds: 200),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 5,
-            left: 5,
-            child: CanvasGestureLockBtn(
-              lock: widget.zoomLock,
-              setLock: widget.setZoomLock,
-              icon: widget.zoomLock ? Icons.lock : Icons.lock_open,
-              tooltip: widget.zoomLock ? t.editor.hud.unlockZoom : t.editor.hud.lockZoom,
-            ),
-          ),
-          Positioned(
-            top: 45,
-            left: 5,
-            child: CanvasGestureLockBtn(
-              lock: widget.panLock,
-              setLock: widget.setPanLock,
-              icon: widget.panLock ? Icons.pinch : Icons.swipe_down,
-              tooltip: widget.panLock ? t.editor.hud.unlockPan : t.editor.hud.lockPan,
-            ),
-          ),
-          Positioned(
-            top: 5,
-            right: 5,
-            child: AnimatedBuilder(
-              animation: widget.transformationController,
-              builder: (context, _) => CanvasZoomIndicator(
-                scale: widget.transformationController.value.getMaxScaleOnAxis(),
-                resetZoom: widget.resetZoom,
+    return IgnorePointer(
+      ignoring: opacity < 0.5,
+      child: AnimatedOpacity(
+        opacity: opacity,
+        duration: const Duration(milliseconds: 200),
+        child: Stack(
+          children: [
+            Positioned(
+              top: 5,
+              left: 5,
+              child: CanvasGestureLockBtn(
+                lock: widget.zoomLock,
+                setLock: widget.setZoomLock,
+                icon: widget.zoomLock ? Icons.lock : Icons.lock_open,
+                tooltip: widget.zoomLock ? t.editor.hud.unlockZoom : t.editor.hud.lockZoom,
               ),
             ),
-          ),
-        ],
+            Positioned(
+              top: 45,
+              left: 5,
+              child: CanvasGestureLockBtn(
+                lock: widget.panLock,
+                setLock: widget.setPanLock,
+                icon: widget.panLock ? Icons.pinch : Icons.swipe_down,
+                tooltip: widget.panLock ? t.editor.hud.unlockPan : t.editor.hud.lockPan,
+              ),
+            ),
+            Positioned(
+              top: 5,
+              right: 5,
+              child: AnimatedBuilder(
+                animation: widget.transformationController,
+                builder: (context, _) => CanvasZoomIndicator(
+                  scale: widget.transformationController.value.getMaxScaleOnAxis(),
+                  resetZoom: widget.resetZoom,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
