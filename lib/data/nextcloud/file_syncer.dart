@@ -53,12 +53,15 @@ abstract class FileSyncer {
     if (_client == null) return;
 
     // Get list of remote files from server
-    List<WebDavFile> remoteFiles;
+    List<WebDavResponse> remoteFiles;
     try {
       remoteFiles = await _client!.webdav.ls(
           FileManager.appRootDirectoryPrefix,
-          props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
-      );
+          prop: WebDavPropfindProp.fromBools(
+            davgetlastmodified: true,
+            davgetcontentlength: true,
+          ),
+      ).then((value) => value.responses);
     } on SocketException { // network error
       filesDone.value = filesDoneLimit;
       downloadCancellable.cancelled = true;
@@ -68,7 +71,7 @@ abstract class FileSyncer {
     if (downloadCancellable.cancelled) return;
 
     // Add each file to download queue if needed
-    await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
+    await Future.wait(remoteFiles.map((WebDavResponse file) => _addToDownloadQueue(file)));
     _sortDownloadQueue();
     filesDone.value = 1;
 
@@ -175,11 +178,15 @@ abstract class FileSyncer {
     }
   }
 
-  static Future _addToDownloadQueue(WebDavFile file) async {
+  static Future _addToDownloadQueue(WebDavResponse file) async {
     final Encrypter encrypter = await _client!.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
 
-    final String filePathRemote = file.path;
+    final String? filePathRemote = file.href;
+    if (filePathRemote == null) {
+      if (kDebugMode) throw Exception('file.href is null');
+      return;
+    }
     String filePathEncrypted = filePathRemote;
 
     // remove parent directory from path
@@ -215,7 +222,7 @@ abstract class FileSyncer {
     final syncFile = SyncFile(
       remotePath: filePathRemote,
       localPath: filePathUnencrypted,
-      webDavFile: file,
+      webDavResponse: file,
     );
     if (await _shouldLocalFileBeKept(syncFile)) return;
     if (Editor.isReservedPath(syncFile.localPath)) {
@@ -229,7 +236,9 @@ abstract class FileSyncer {
   /// Also filters out already-deleted files
   static void _sortDownloadQueue() {
     // list of remotely deleted files
-    final emptyFiles = _downloadQueue.where((SyncFile file) => (file.webDavFile!.size ?? 0) == 0).toList(growable: false);
+    final emptyFiles = _downloadQueue
+        .where((SyncFile file) => (file.webDavResponse!.propstats.single.prop.davgetcontentlength ?? 0) == 0)
+        .toList(growable: false);
 
     // move empty files to end of queue, or remove them if they are already deleted locally
     for (final SyncFile file in emptyFiles) {
@@ -245,7 +254,7 @@ abstract class FileSyncer {
 
   @visibleForTesting
   static Future<bool> downloadFile(SyncFile file, { bool awaitWrite = false }) async {
-    if (file.webDavFile!.size == 0) { // deleted file
+    if (file.webDavResponse!.propstats.single.prop.davgetcontentlength == 0) { // deleted file
       FileManager.deleteFile(file.localPath);
       Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
       Prefs.fileSyncAlreadyDeleted.notifyListeners();
@@ -285,17 +294,24 @@ abstract class FileSyncer {
 
     // get remote file
     try {
-      file.webDavFile ??= (await _client!.webdav.ls(
+      file.webDavResponse ??= await _client!.webdav.ls(
         file.remotePath,
-        props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
-      ))[0];
+        prop: WebDavPropfindProp.fromBools(
+          davgetlastmodified: true,
+          davgetcontentlength: true,
+        ),
+      ).then((value) => value.responses.single);
     } catch (e) {
       // remote file doesn't exist; keep local
       return true;
     }
 
     // file exists locally, check if it's newer
-    final DateTime? lastModifiedRemote = file.webDavFile!.lastModified;
+    final DateTime? lastModifiedRemote = () {
+      final string = file.webDavResponse!.propstats.single.prop.davgetlastmodified;
+      if (string == null) return null;
+      return DateTime.parse(string);
+    }();
     final DateTime lastModifiedLocal = await FileManager.lastModified(file.localPath);
     if (lastModifiedRemote != null && lastModifiedRemote.isAfter(lastModifiedLocal)) {
       // remote is newer; keep remote
@@ -310,8 +326,8 @@ abstract class FileSyncer {
 class SyncFile {
   final String remotePath;
   final String localPath;
-  WebDavFile? webDavFile;
-  SyncFile({required this.remotePath, required this.localPath, this.webDavFile});
+  WebDavResponse? webDavResponse;
+  SyncFile({required this.remotePath, required this.localPath, this.webDavResponse});
 }
 
 class CancellableStruct {
