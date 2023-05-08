@@ -1,5 +1,5 @@
 import 'dart:isolate';
-import 'dart:ui';
+import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +19,7 @@ class EditorImage extends ChangeNotifier {
   final String extension;
 
   Uint8List bytes;
+  ui.Image? uiImage;
 
   bool waitingForIsolateToFinish = true;
 
@@ -199,9 +200,9 @@ class EditorImage extends ChangeNotifier {
     } while (waitingForIsolateToFinish);
     assert(Isolate.current.debugName == 'main');
 
+    var imageDescriptor = await ui.ImageDescriptor.encoded(await ui.ImmutableBuffer.fromUint8List(bytes));
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      ImageDescriptor image = await ImageDescriptor.encoded(await ImmutableBuffer.fromUint8List(bytes));
-      naturalSize = Size(image.width.toDouble(), image.height.toDouble());
+      naturalSize = Size(imageDescriptor.width.toDouble(), imageDescriptor.height.toDouble());
 
       if (maxSize == null) {
         await Prefs.maxImageSize.waitUntilLoaded();
@@ -211,15 +212,15 @@ class EditorImage extends ChangeNotifier {
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
-        Uint8List? resized = await Executor().execute(
+        bytes = await Executor().execute(
           fun3: resizeImageIsolate,
           arg1: bytes,
           arg2: reducedSize,
           arg3: extension,
-        );
-        if (resized != null) bytes = resized;
+        ) ?? bytes;
 
         naturalSize = reducedSize;
+        imageDescriptor = await ui.ImageDescriptor.encoded(await ui.ImmutableBuffer.fromUint8List(bytes));
       } else if (!isThumbnail) { // otherwise make sure orientation is baked in
         Uint8List? rotated = await Executor().execute(
           fun2: _bakeOrientationIsolate,
@@ -237,6 +238,10 @@ class EditorImage extends ChangeNotifier {
         dstRect = dstRect.topLeft & dstSize;
       }
     }
+
+    uiImage = await imageDescriptor.instantiateCodec()
+      .then((codec) => codec.getNextFrame())
+      .then((frame) => frame.image);
 
     if (naturalSize.shortestSide == 0) {
       naturalSize = Size(srcRect.width, srcRect.height);
@@ -272,6 +277,8 @@ class EditorImage extends ChangeNotifier {
   Widget buildImageWidget({
     required BoxFit? overrideBoxFit,
     required bool isBackground,
+    required Brightness imageBrightness,
+    required BuildContext context,
   }) {
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
@@ -282,9 +289,10 @@ class EditorImage extends ChangeNotifier {
       boxFit = BoxFit.fill;
     }
 
-    return Image.memory(
-      bytes,
-      fit: boxFit,
+    return CustomPaint(
+      painter: _CanvasImagePainter(
+        image: this,
+      ),
     );
   }
 
@@ -365,4 +373,31 @@ class EditorImage extends ChangeNotifier {
     thumbnailBytes: thumbnailBytes,
     isThumbnail: isThumbnail,
   );
+}
+
+class _CanvasImagePainter extends CustomPainter {
+  const _CanvasImagePainter({
+    required this.image,
+  });
+  final EditorImage image;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final uiImage = image.uiImage;
+    if (uiImage == null) return;
+
+    canvas.drawImageRect(
+      uiImage,
+      Offset.zero & Size(uiImage.width.toDouble(), uiImage.height.toDouble()),
+      Offset.zero & size,
+      Paint(),
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return oldDelegate is! _CanvasImagePainter
+        || oldDelegate.image != image
+        || oldDelegate.image.uiImage != image.uiImage;
+  }
 }
