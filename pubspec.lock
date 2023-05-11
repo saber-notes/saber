@@ -371,10 +371,11 @@ packages:
   flutter_quill:
     dependency: "direct main"
     description:
-      name: flutter_quill
-      sha256: "611840d8fa61dbfc6f9c00d97a57ca7180ab8ec72fbca37f9f804b8dbda0adf8"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "100566104847bff564d1cdb8e37073370e1f6e4b"
+      url: "https://github.com/singerdmx/flutter-quill.git"
+    source: git
     version: "7.1.17+1"
   flutter_secure_storage:
     dependency: "direct main"
@@ -954,10 +955,11 @@ packages:
   screenshot:
     dependency: "direct main"
     description:
-      name: screenshot
-      sha256: "30bb9fade6eb2578a1fc2e84f6b184141fc86883cda10988d4500ff00eb728e2"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: ab1d6fa40e6e419272d71e884e9fbb1ac95cba65
+      url: "https://github.com/SachinGanesh/screenshot.git"
+    source: git
     version: "1.3.0"
   share_plus:
     dependency: "direct main"

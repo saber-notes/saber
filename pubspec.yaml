@@ -162,6 +162,16 @@ dev_dependencies:
 dependency_overrides:
   intl: ^0.18.0
 
+  # todo: remove when https://github.com/singerdmx/flutter-quill/issues/1209 is on pub.dev
+  flutter_quill:
+    git:
+      url: https://github.com/singerdmx/flutter-quill.git
+
+  # todo: remove when https://github.com/SachinGanesh/screenshot/pull/132 is on pub.dev
+  screenshot:
+    git:
+      url: https://github.com/SachinGanesh/screenshot.git
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
