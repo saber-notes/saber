@@ -258,12 +258,8 @@ class EditorCoreInfo {
           onlyFirstPage,
         );
       } else {
-        coreInfo = await Executor().execute(
-          fun4: _loadFromFileIsolate,
-          arg1: jsonString,
-          arg2: path,
-          arg3: readOnly,
-          arg4: onlyFirstPage,
+        coreInfo = await workerManager.execute(
+          () => _loadFromFileIsolate(jsonString, path, readOnly, onlyFirstPage),
         );
       }
     } catch (e) {
@@ -291,8 +287,6 @@ class EditorCoreInfo {
       String path,
       bool readOnly,
       bool onlyFirstPage,
-
-      [TypeSendPort? port]
   ) {
     final dynamic json;
     try {

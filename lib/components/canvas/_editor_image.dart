@@ -227,20 +227,15 @@ class EditorImage extends ChangeNotifier {
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
-        bytes = await Executor().execute(
-          fun3: resizeImageIsolate,
-          arg1: bytes,
-          arg2: reducedSize,
-          arg3: extension,
+        bytes = await workerManager.execute(
+          () => resizeImageIsolate(bytes, reducedSize, extension),
         ) ?? bytes;
 
         naturalSize = reducedSize;
         imageDescriptor = await ui.ImageDescriptor.encoded(await ui.ImmutableBuffer.fromUint8List(bytes));
       } else if (!isThumbnail) { // otherwise make sure orientation is baked in
-        Uint8List? rotated = await Executor().execute(
-          fun2: _bakeOrientationIsolate,
-          arg1: bytes,
-          arg2: extension,
+        Uint8List? rotated = await workerManager.execute(
+          () => _bakeOrientationIsolate(bytes, extension),
         );
         if (rotated != null) bytes = rotated;
       }
@@ -267,11 +262,8 @@ class EditorImage extends ChangeNotifier {
       // if [naturalSize] is big enough to warrant a thumbnail
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
         await null; // wait for next event-loop iteration
-        thumbnailBytes = await Executor().execute(
-          fun3: resizeImageIsolate,
-          arg1: bytes,
-          arg2: thumbnailSize,
-          arg3: extension,
+        thumbnailBytes = await workerManager.execute(
+          () => resizeImageIsolate(bytes, thumbnailSize, extension),
         );
       } else { // no need to resize
         thumbnailBytes = null; // will fall back to full-size image
@@ -335,7 +327,7 @@ class EditorImage extends ChangeNotifier {
   /// Resizes the image to [newSize].
   /// Also bakes the image orientation into the image data.
   @visibleForTesting
-  static Uint8List? resizeImageIsolate(Uint8List bytes, Size newSize, String? extension, TypeSendPort port) {
+  static Uint8List? resizeImageIsolate(Uint8List bytes, Size newSize, String? extension) {
     image.Image? decoded = _decodeImage(bytes, extension);
     if (decoded == null) return null;
 
@@ -347,7 +339,7 @@ class EditorImage extends ChangeNotifier {
 
   /// Bakes the image orientation into the image data.
   /// This is only necessary if [_resizeImageIsolate] is not called.
-  static Uint8List? _bakeOrientationIsolate(Uint8List bytes, String? extension, TypeSendPort port) {
+  static Uint8List? _bakeOrientationIsolate(Uint8List bytes, String? extension) {
     image.Image? decoded = _decodeImage(bytes, extension);
     if (decoded == null) return null;
 

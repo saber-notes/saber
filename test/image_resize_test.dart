@@ -62,11 +62,8 @@ void main() {
 }
 
 Future _testImageResizeIsolate(Uint8List original, Size resized, String extension) async {
-  Uint8List? bytes = await Executor().execute(
-    fun3: EditorImage.resizeImageIsolate,
-    arg1: original,
-    arg2: resized,
-    arg3: extension,
+  Uint8List? bytes = await workerManager.execute(
+    () => EditorImage.resizeImageIsolate(original, resized, extension),
   );
   image.Image? parsedImage = image.decodePng(bytes!);
   expect(parsedImage, isNotNull);
