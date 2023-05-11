@@ -56,9 +56,11 @@ abstract class FileSyncer {
     List<WebDavFile> remoteFiles;
     try {
       remoteFiles = await _client!.webdav.ls(
-          FileManager.appRootDirectoryPrefix,
-          props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
-      );
+        FileManager.appRootDirectoryPrefix,
+        prop: WebDavPropfindProp.fromBools(
+          davgetlastmodified: true,
+        ),
+      ).then((multistatus) => multistatus.toWebDavFiles(_client!.webdav));
     } on SocketException { // network error
       filesDone.value = filesDoneLimit;
       downloadCancellable.cancelled = true;
@@ -285,10 +287,13 @@ abstract class FileSyncer {
 
     // get remote file
     try {
-      file.webDavFile ??= (await _client!.webdav.ls(
+      file.webDavFile ??= await _client!.webdav.ls(
         file.remotePath,
-        props: {WebDavProps.davLastModified.name, WebDavProps.davContentLength.name}
-      ))[0];
+        prop: WebDavPropfindProp.fromBools(
+          davgetlastmodified: true,
+          davgetcontentlength: true,
+        ),
+      ).then((multistatus) => multistatus.toWebDavFiles(_client!.webdav).single);
     } catch (e) {
       // remote file doesn't exist; keep local
       return true;

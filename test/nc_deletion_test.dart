@@ -53,7 +53,9 @@ void main() {
     await FileSyncer.uploadFileFromQueue();
 
     // Check that the file exists on Nextcloud
-    webDavFile = await webdav.getProps(filePathRemote, props: {WebDavProps.davLastModified.name});
+    webDavFile = await webdav.ls(filePathRemote, prop: WebDavPropfindProp.fromBools(
+      davgetlastmodified: true,
+    )).then((multistatus) => multistatus.toWebDavFiles(webdav).single);
     expect(webDavFile.lastModified != null, true, reason: 'File does not exist on Nextcloud');
 
     // Delete the file
@@ -64,7 +66,9 @@ void main() {
     await FileSyncer.uploadFileFromQueue();
 
     // Check that the file is empty on Nextcloud
-    webDavFile = await webdav.getProps(filePathRemote, props: {WebDavProps.davContentLength.name});
+    webDavFile = await webdav.ls(filePathRemote, prop: WebDavPropfindProp.fromBools(
+      davgetcontentlength: true,
+    )).then((multistatus) => multistatus.toWebDavFiles(webdav).single);
     expect(webDavFile.size, 0, reason: 'File is not empty on Nextcloud');
 
     // Sync the file from Nextcloud
