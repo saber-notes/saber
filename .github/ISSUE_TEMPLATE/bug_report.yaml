@@ -48,9 +48,14 @@ body:
       label: Device
       description: Please complete the following information
       value: |
-        - Device: [e.g. Google Pixel 6]
-        - OS: [e.g. Android 13]
-        - Browser (if applicable): [e.g. Firefox]
+        - Device:
+        - OS:
+
+        <!--
+        Example:
+        - Device: Google Pixel 6 Pro
+        - OS: Android 13
+        -->
     validations:
       required: true
   - type: textarea
