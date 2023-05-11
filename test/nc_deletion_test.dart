@@ -29,7 +29,6 @@ void main() {
 
     final client = NextcloudClientExtension.withSavedDetails()!;
     final webdav = client.webdav;
-    late WebDavFile webDavFile;
 
     await client.loadEncryptionKey();
 
@@ -53,10 +52,10 @@ void main() {
     await FileSyncer.uploadFileFromQueue();
 
     // Check that the file exists on Nextcloud
-    webDavFile = await webdav.ls(filePathRemote, prop: WebDavPropfindProp.fromBools(
-      davgetlastmodified: true,
-    )).then((multistatus) => multistatus.toWebDavFiles(webdav).single);
-    expect(webDavFile.lastModified != null, true, reason: 'File does not exist on Nextcloud');
+    printOnFailure('Checking if $filePathRemote exists on Nextcloud');
+    final webDavFiles = await webdav.ls(filePathRemote)
+        .then((multistatus) => multistatus.toWebDavFiles(webdav));
+    expect(webDavFiles.length, 1, reason: 'File should exist on Nextcloud');
 
     // Delete the file
     FileManager.deleteFile(filePathLocal, alsoUpload: false);
@@ -66,10 +65,10 @@ void main() {
     await FileSyncer.uploadFileFromQueue();
 
     // Check that the file is empty on Nextcloud
-    webDavFile = await webdav.ls(filePathRemote, prop: WebDavPropfindProp.fromBools(
+    final webDavFile = await webdav.ls(filePathRemote, prop: WebDavPropfindProp.fromBools(
       davgetcontentlength: true,
     )).then((multistatus) => multistatus.toWebDavFiles(webdav).single);
-    expect(webDavFile.size, 0, reason: 'File is not empty on Nextcloud');
+    expect(webDavFile.size, 0, reason: 'File should be empty on Nextcloud');
 
     // Sync the file from Nextcloud
     SyncFile syncFile = SyncFile(

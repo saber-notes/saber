@@ -6,5 +6,7 @@ final _r = Random();
 ///
 /// From https://stackoverflow.com/a/63433194/.
 String randomString(int len) {
-  return String.fromCharCodes(List.generate(len, (index) => _r.nextInt(33) + 89));
+  final start = 'a'.codeUnitAt(0);
+  final end = 'z'.codeUnitAt(0);
+  return String.fromCharCodes(List.generate(len, (_) => _r.nextInt(end - start) + start));
 }

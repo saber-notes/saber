@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
 
@@ -43,6 +44,8 @@ void main() {
   });
 
   test('Test that the select tool selects the right images', () async {
+    await InvertShader.init();
+
     Select select = Select.currentSelect;
 
     // Drag gesture in a 10x10 square shape, on page 0
