@@ -68,7 +68,7 @@ class EditorImage extends ChangeNotifier {
   BoxFit backgroundFit;
 
   @protected
-  late final ui.FragmentShader invertShader = InvertShader.create();
+  ui.FragmentShader? invertShader;
 
   EditorImage({
     required this.id,
@@ -107,6 +107,9 @@ class EditorImage extends ChangeNotifier {
     required Size pageSize,
   }) async {
     assert(Isolate.current.debugName == 'main');
+    assert(invertShader == null);
+
+    invertShader = InvertShader.create();
     await getImage(
       pageSize: pageSize,
     );

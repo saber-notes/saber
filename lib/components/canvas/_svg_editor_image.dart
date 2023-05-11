@@ -164,9 +164,9 @@ class SvgEditorImage extends EditorImage {
         await precache(context);
       },
       shaderBuilder: (ui.Image image, Size size) {
-        invertShader.setFloat(0, size.width);
-        invertShader.setFloat(1, size.height);
-        invertShader.setImageSampler(0, image);
+        invertShader?.setFloat(0, size.width);
+        invertShader?.setFloat(1, size.height);
+        invertShader?.setImageSampler(0, image);
         return invertShader;
       },
       child: SvgPicture.string(
