@@ -289,6 +289,7 @@ abstract class FileSyncer {
     try {
       file.webDavFile ??= await _client!.webdav.ls(
         file.remotePath,
+        depth: '0',
         prop: WebDavPropfindProp.fromBools(
           davgetlastmodified: true,
           davgetcontentlength: true,
