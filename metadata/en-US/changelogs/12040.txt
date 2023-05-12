@@ -1,0 +1,4 @@
+• Fixed syncing with Nextcloud 26
+• Fixed a bug where new images didn't display correctly until you reopened the note
+• Efficiency improvements with images at the cost of longer loading times
+• Performance improvements thanks to Flutter 3.10

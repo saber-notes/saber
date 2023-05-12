@@ -1,0 +1,4 @@
+• Opravená synchronizace s Nextcloud 26
+• Opravena chyba, kdy se nové obrázky nezobrazovaly správně, dokud znovu neotevřete poznámku
+• Zlepšení efektivity s obrázky za cenu delší doby načítání
+• Zlepšení výkonu díky Flutter 3.10

@@ -66,6 +66,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.4" type="development" date="2023-05-12">
+            <description>
+                <ul>
+                    <li>Fixed syncing with Nextcloud 26</li>
+                    <li>Fixed a bug where new images didn't display correctly until you reopened the note</li>
+                    <li>Efficiency improvements with images at the cost of longer loading times</li>
+                    <li>Performance improvements thanks to Flutter 3.10</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.3" type="development" date="2023-05-07">
             <description>
                 <ul>
