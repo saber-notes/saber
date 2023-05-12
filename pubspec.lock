@@ -133,10 +133,10 @@ packages:
     dependency: transitive
     description:
       name: cookie_jar
-      sha256: d1cc6516a190ba667941f722b6365d202caff3dacb38de24268b8d6ff1ec8a1d
+      sha256: "700cda09e47e90c749a3bcaf6daef3cdef4eca246db63eceabceeb29cef93bcc"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "4.0.2"
   cross_file:
     dependency: transitive
     description:
@@ -371,12 +371,11 @@ packages:
   flutter_quill:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "100566104847bff564d1cdb8e37073370e1f6e4b"
-      url: "https://github.com/singerdmx/flutter-quill.git"
-    source: git
-    version: "7.1.17+1"
+      name: flutter_quill
+      sha256: "31df7aed6d7091f66e434ff919aa6aa7d4d943ca5afe6d7086380c4c3d64c72b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.1.18"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -476,10 +475,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "73a50070c125c90f9960aad4da9e4a95d94558230727f145ac634528da1e75e3"
+      sha256: "80e37516b8d452d982fc32bd7bb22adbd20e422612ef2b3e1df8b8350cbf199b"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0"
+    version: "7.0.1"
   google_fonts:
     dependency: "direct main"
     description:
@@ -674,7 +673,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: ce12fcd1b3abe53eee587594a07e663d83aad2e1
+      resolved-ref: d3519b3bbf271461b3a2fea41a6984bcb440e13a
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
