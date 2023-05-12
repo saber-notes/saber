@@ -32,7 +32,7 @@ class SettingsSelection<T extends num> extends StatefulWidget {
   final double optionsWidth, optionsHeight;
 
   @override
-  State<SettingsSelection> createState() => _SettingsSelectionState();
+  State<SettingsSelection> createState() => _SettingsSelectionState<T>();
 }
 
 class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>> {
