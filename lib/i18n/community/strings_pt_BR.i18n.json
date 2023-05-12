@@ -133,6 +133,33 @@
       }
     ]
   },
+  "profile": {
+    "title": "Meu perfil",
+    "logout": "Sair",
+    "quickLinks": {
+      "title": "Links rápidos",
+      "serverHomepage": "Página inicial do servidor",
+      "deleteAccount": "Apagar conta"
+    },
+    "faq": [
+      {
+        "q": "Eu perderei as minhas notas se eu sair da minha conta?",
+        "a": "Não. As suas notas permanecerão tanto no seu dispositivo quanto no servidor. Elas não serão sincronizadas com o servidor até você fazer login novamente. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial)."
+      },
+      {
+        "q": "Como eu mudo a minha senha do Nextcloud?",
+        "a": "Vá para o website do seu servidor e faça login. Então vá para Configurações > Segurança > Mudar senha. Você precisará sair da conta e fazer login novamente no Saber depois de mudar a sua senha."
+      },
+      {
+        "q": "Como eu mudo a minha senha de criptografia?",
+        "a": "1. Saia da sua conta do Saber. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).\n\n2. Vá para o website do seu servidor e apague a sua pasta do Saber. Isso apagará todas as suas notas do servidor.\n\n3. Faça login na sua conta do Saber. Você pode escolher uma nova senha de criptografia quando fizer login.\n\n4. Não se esqueça de sair e fazer login novamente no Saber em seus outros dispositivos também."
+      },
+      {
+        "q": "Como eu posso apagar a minha conta?",
+        "a": "Toque no \"@:profile.quickLinks.deleteAccount\" botão acima, e faça login se necessário.\n\nSe você estiver usando o servidor oficial do Saber, a sua conta será apagada depois de um período de carência de uma semana. Você pode entrar em contato comigo em adilhanney@disroot.org durante esse período para cancelar a exclusão.\n\nSe você estiver usando um servidor de terceiros, pode ser que não haja uma opção de apagar a sua conta: você precisará consultar a política de privacidade do servidor para mais informações."
+      }
+    ]
+  },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software livre e você pode redistribuí-lo sob certas condições.",
     "dirty": "DIRTY",
@@ -180,6 +207,9 @@
     "menu": {
       "clearPage": "Limpar a página",
       "clearAllPages": "Limpar todas as páginas",
+      "insertPage": "Inserir página abaixo",
+      "duplicatePage": "Duplicar página",
+      "deletePage": "Apagar página",
       "lineHeight": "Altura da linha",
       "lineHeightDescription": "Também controla o tamanho do texto",
       "backgroundImage": "Imagem de plano de fundo",
@@ -193,6 +223,7 @@
       "bgPatterns": {
         "none": "Em branco",
         "college": "Pautado com margem",
+        "collegeRtl": "Pautado com margem (Invertido)",
         "lined": "Pautado",
         "grid": "Grade",
         "dots": "Pontos",
