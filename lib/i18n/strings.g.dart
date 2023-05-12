@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2183 (155 per locale)
+/// Strings: 2200 (157 per locale)
 ///
-/// Built on 2023-05-12 at 14:55 UTC
+/// Built on 2023-05-12 at 14:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5213,6 +5213,7 @@ class _StringsPtBr extends _StringsEn {
 	@override late final _StringsHomePtBr home = _StringsHomePtBr._(_root);
 	@override late final _StringsSettingsPtBr settings = _StringsSettingsPtBr._(_root);
 	@override late final _StringsLoginPtBr login = _StringsLoginPtBr._(_root);
+	@override late final _StringsProfilePtBr profile = _StringsProfilePtBr._(_root);
 	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
 	@override late final _StringsUpdatePtBr update = _StringsUpdatePtBr._(_root);
 	@override late final _StringsEditorPtBr editor = _StringsEditorPtBr._(_root);
@@ -5279,6 +5280,24 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$PtBr._(_root),
 		_StringsLogin$faq$0i3$PtBr._(_root),
 		_StringsLogin$faq$0i4$PtBr._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfilePtBr extends _StringsProfileEn {
+	_StringsProfilePtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Meu perfil';
+	@override String get logout => 'Sair';
+	@override late final _StringsProfileQuickLinksPtBr quickLinks = _StringsProfileQuickLinksPtBr._(_root);
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$PtBr._(_root),
+		_StringsProfile$faq$0i1$PtBr._(_root),
+		_StringsProfile$faq$0i2$PtBr._(_root),
+		_StringsProfile$faq$0i3$PtBr._(_root),
 	];
 }
 
@@ -5571,6 +5590,62 @@ class _StringsLogin$faq$0i4$PtBr extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. ';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksPtBr extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Links rápidos';
+	@override String get serverHomepage => 'Página inicial do servidor';
+	@override String get deleteAccount => 'Apagar conta';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$PtBr extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Eu perderei as minhas notas se eu sair da minha conta?';
+	@override String get a => 'Não. As suas notas permanecerão tanto no seu dispositivo quanto no servidor. Elas não serão sincronizadas com o servidor até você fazer login novamente. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$PtBr extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Como eu mudo a minha senha do Nextcloud?';
+	@override String get a => 'Vá para o website do seu servidor e faça login. Então vá para Configurações > Segurança > Mudar senha. Você precisará sair da conta e fazer login novamente no Saber depois de mudar a sua senha.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$PtBr extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Como eu mudo a minha senha de criptografia?';
+	@override String get a => '1. Saia da sua conta do Saber. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).\n\n2. Vá para o website do seu servidor e apague a sua pasta do Saber. Isso apagará todas as suas notas do servidor.\n\n3. Faça login na sua conta do Saber. Você pode escolher uma nova senha de criptografia quando fizer login.\n\n4. Não se esqueça de sair e fazer login novamente no Saber em seus outros dispositivos também.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$PtBr extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Como eu posso apagar a minha conta?';
+	@override String get a => 'Toque no "${_root.profile.quickLinks.deleteAccount}" botão acima, e faça login se necessário.\n\nSe você estiver usando o servidor oficial do Saber, a sua conta será apagada depois de um período de carência de uma semana. Você pode entrar em contato comigo em adilhanney@disroot.org durante esse período para cancelar a exclusão.\n\nSe você estiver usando um servidor de terceiros, pode ser que não haja uma opção de apagar a sua conta: você precisará consultar a política de privacidade do servidor para mais informações.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarPtBr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -5638,6 +5713,9 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Limpar a página';
 	@override String get clearAllPages => 'Limpar todas as páginas';
+	@override String get insertPage => 'Inserir página abaixo';
+	@override String get duplicatePage => 'Duplicar página';
+	@override String get deletePage => 'Apagar página';
 	@override String get lineHeight => 'Altura da linha';
 	@override String get lineHeightDescription => 'Também controla o tamanho do texto';
 	@override String get backgroundImage => 'Imagem de plano de fundo';
@@ -5705,6 +5783,7 @@ class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Em branco';
 	@override String get college => 'Pautado com margem';
+	@override String get collegeRtl => 'Pautado com margem (Invertido)';
 	@override String get lined => 'Pautado';
 	@override String get grid => 'Grade';
 	@override String get dots => 'Pontos';
