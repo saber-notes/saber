@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2180 (155 per locale)
+/// Strings: 2183 (155 per locale)
 ///
-/// Built on 2023-05-04 at 16:35 UTC
+/// Built on 2023-05-12 at 14:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4690,6 +4690,7 @@ class _StringsProfileIt extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Il mio profilo';
 	@override String get logout => 'Log out';
+	@override late final _StringsProfileQuickLinksIt quickLinks = _StringsProfileQuickLinksIt._(_root);
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$It._(_root),
 		_StringsProfile$faq$0i1$It._(_root),
@@ -4987,6 +4988,18 @@ class _StringsLogin$faq$0i4$It extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksIt extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Collegamenti veloci';
+	@override String get serverHomepage => 'Homepage del server';
+	@override String get deleteAccount => 'Elimina account';
+}
+
 // Path: profile.faq.0
 class _StringsProfile$faq$0i0$It extends _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$It._(_StringsIt root) : this._root = root, super._(root);
@@ -4994,8 +5007,8 @@ class _StringsProfile$faq$0i0$It extends _StringsProfile$faq$0i0$En {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Perderò i miei appunti se esco?';
-	@override String get a => 'No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server fino a quando non effettui nuovamente l\'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).';
+	@override String get q => 'Perderò i miei appunti se mi disconnetto?';
+	@override String get a => 'No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l\'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).';
 }
 
 // Path: profile.faq.1
@@ -5016,7 +5029,7 @@ class _StringsProfile$faq$0i2$It extends _StringsProfile$faq$0i2$En {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Come posso modificare la mia password crittografata?';
+	@override String get q => 'Come cambio la mia password di crittografia?';
 	@override String get a => '1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).\n\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n\n3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.\n\n4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.';
 }
 
@@ -5028,7 +5041,7 @@ class _StringsProfile$faq$0i3$It extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Come posso eliminare il mio account?';
-	@override String get a => 'Vai al sito Web del tuo server e accedi. Quindi vai su Impostazioni > Elimina account.\n\nSe stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all\'indirizzo adilhanney@disroot.org durante questo periodo per annullare l\'eliminazione.\n\nSe stai utilizzando un server di terze parti, potrebbe non esserci un\'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.';
+	@override String get a => 'Tocca il pulsante "${_root.profile.quickLinks.deleteAccount}" in alto e, se necessario, accedi.\n\nSe stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all\'indirizzo adilhanney@disroot.org durante questo periodo per annullare l\'eliminazione.\n\nSe stai utilizzando un server di terze parti, potrebbe non esserci un\'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.';
 }
 
 // Path: editor.toolbar
