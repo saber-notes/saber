@@ -124,7 +124,7 @@ dependencies:
 
   device_info_plus: ^9.0.0
 
-  screenshot: ^1.3.0
+  screenshot: ^2.0.0
 
   collection: ^1.17.0
 
@@ -161,11 +161,6 @@ dev_dependencies:
 
 dependency_overrides:
   intl: ^0.18.0
-
-  # todo: remove when https://github.com/SachinGanesh/screenshot/pull/132 is on pub.dev
-  screenshot:
-    git:
-      url: https://github.com/SachinGanesh/screenshot.git
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

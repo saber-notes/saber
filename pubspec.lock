@@ -673,7 +673,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: d3519b3bbf271461b3a2fea41a6984bcb440e13a
+      resolved-ref: a525503d2a24ae1840433858b1547c0ca6e23197
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -954,12 +954,11 @@ packages:
   screenshot:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: ab1d6fa40e6e419272d71e884e9fbb1ac95cba65
-      url: "https://github.com/SachinGanesh/screenshot.git"
-    source: git
-    version: "1.3.0"
+      name: screenshot
+      sha256: "65d4050f542ecccd985b73fadab25730448a00bc6eb9dc40dd164f655ad8efb2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -1186,10 +1185,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "22f8db4a72be26e9e3a4aa3f194b1f7afbc76d20ec141f84be1d787db2155cbd"
+      sha256: "7aac14be5f4731b923cc697ae2d42043945076cd0dbb8806baecc92c1dc88891"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.31"
+    version: "6.0.33"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1298,10 +1297,10 @@ packages:
     dependency: transitive
     description:
       name: watcher
-      sha256: "6a7f46926b01ce81bfc339da6a7f20afbe7733eff9846f6d6a5466aa4c6667c0"
+      sha256: "3d2ad6751b3c16cf07c7fca317a1413b3f26530319181b37e3b9039b84fc01d8"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.1.0"
   web_scraper:
     dependency: transitive
     description:
@@ -1346,10 +1345,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: "8ca52094a89a304ce703a639439f61b55435fe4b0b9265e393a510be762997d5"
+      sha256: "1ac74a95ddf1de0a23decabff84753819cea53213268b52f5a0f093c96f9d629"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.0.1"
   xdg_directories:
     dependency: transitive
     description:
