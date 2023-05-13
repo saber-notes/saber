@@ -1,11 +1,9 @@
 import 'dart:convert';
-import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/components/canvas/shader_sampler.dart';
 
 class SvgEditorImage extends EditorImage {
   String svgString;
@@ -146,8 +144,6 @@ class SvgEditorImage extends EditorImage {
   Widget buildImageWidget({
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required Brightness imageBrightness,
-    required BuildContext context,
   }) {
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
@@ -158,23 +154,11 @@ class SvgEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return ShaderSampler(
-      shaderEnabled: imageBrightness == Brightness.dark,
-      prepareForSnapshot: () async {
-        await precache(context);
-      },
-      shaderBuilder: (ui.Image image, Size size) {
-        invertShader?.setFloat(0, size.width);
-        invertShader?.setFloat(1, size.height);
-        invertShader?.setImageSampler(0, image);
-        return invertShader;
-      },
-      child: SvgPicture.string(
-        svgString,
-        fit: boxFit,
-        theme: const SvgTheme(
-          currentColor: Colors.black,
-        ),
+    return SvgPicture.string(
+      svgString,
+      fit: boxFit,
+      theme: const SvgTheme(
+        currentColor: Colors.black,
       ),
     );
   }

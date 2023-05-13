@@ -182,11 +182,21 @@ class _CanvasImageState extends State<CanvasImage> {
                       size: widget.image.srcRect.size,
                       child: Transform.translate(
                         offset: -widget.image.srcRect.topLeft,
-                        child: widget.image.buildImageWidget(
-                          overrideBoxFit: widget.overrideBoxFit,
-                          isBackground: widget.isBackground,
-                          imageBrightness: imageBrightness,
-                          context: context,
+                        child: ShaderSampler(
+                          shaderEnabled: imageBrightness == Brightness.dark,
+                          prepareForSnapshot: () async {
+                            await widget.image.precache(context);
+                          },
+                          shaderBuilder: (ui.Image image, Size size) {
+                            shader.setFloat(0, size.width);
+                            shader.setFloat(1, size.height);
+                            shader.setImageSampler(0, image);
+                            return shader;
+                          },
+                          child: widget.image.buildImageWidget(
+                            overrideBoxFit: widget.overrideBoxFit,
+                            isBackground: widget.isBackground,
+                          ),
                         ),
                       ),
                     ),

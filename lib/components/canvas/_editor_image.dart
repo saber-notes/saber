@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_svg_editor_image.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:worker_manager/worker_manager.dart';
 
@@ -20,7 +19,6 @@ class EditorImage extends ChangeNotifier {
   final String extension;
 
   Uint8List bytes;
-  ui.Image? uiImage;
 
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
@@ -67,9 +65,6 @@ class EditorImage extends ChangeNotifier {
   /// The BoxFit used if this is a page's background image
   BoxFit backgroundFit;
 
-  @protected
-  ui.FragmentShader? invertShader;
-
   EditorImage({
     required this.id,
     required this.extension,
@@ -107,9 +102,6 @@ class EditorImage extends ChangeNotifier {
     required Size pageSize,
   }) async {
     assert(Isolate.current.debugName == 'main');
-    assert(invertShader == null);
-
-    invertShader = InvertShader.create();
     await getImage(
       pageSize: pageSize,
     );
@@ -218,9 +210,10 @@ class EditorImage extends ChangeNotifier {
   Future<void> getImage({Size? pageSize}) async {
     assert(Isolate.current.debugName == 'main');
 
-    var imageDescriptor = await ui.ImageDescriptor.encoded(await ui.ImmutableBuffer.fromUint8List(bytes));
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      naturalSize = Size(imageDescriptor.width.toDouble(), imageDescriptor.height.toDouble());
+      naturalSize = await ui.ImmutableBuffer.fromUint8List(bytes)
+          .then((buffer) => ui.ImageDescriptor.encoded(buffer))
+          .then((descriptor) => Size(descriptor.width.toDouble(), descriptor.height.toDouble()));
 
       if (maxSize == null) {
         await Prefs.maxImageSize.waitUntilLoaded();
@@ -235,7 +228,6 @@ class EditorImage extends ChangeNotifier {
         ) ?? bytes;
 
         naturalSize = reducedSize;
-        imageDescriptor = await ui.ImageDescriptor.encoded(await ui.ImmutableBuffer.fromUint8List(bytes));
       } else if (!isThumbnail) { // otherwise make sure orientation is baked in
         Uint8List? rotated = await workerManager.execute(
           () => _bakeOrientationIsolate(bytes, extension),
@@ -251,10 +243,6 @@ class EditorImage extends ChangeNotifier {
         dstRect = dstRect.topLeft & dstSize;
       }
     }
-
-    uiImage = await imageDescriptor.instantiateCodec()
-      .then((codec) => codec.getNextFrame())
-      .then((frame) => frame.image);
 
     if (naturalSize.shortestSide == 0) {
       naturalSize = Size(srcRect.width, srcRect.height);
@@ -287,8 +275,6 @@ class EditorImage extends ChangeNotifier {
   Widget buildImageWidget({
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required Brightness imageBrightness,
-    required BuildContext context,
   }) {
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
@@ -299,13 +285,9 @@ class EditorImage extends ChangeNotifier {
       boxFit = BoxFit.fill;
     }
 
-    return CustomPaint(
-      painter: _CanvasImagePainter(
-        image: this,
-        boxFit: boxFit,
-        invert: imageBrightness == Brightness.dark,
-        invertShader: invertShader,
-      ),
+    return Image.memory(
+      bytes,
+      fit: boxFit,
     );
   }
 
@@ -387,56 +369,4 @@ class EditorImage extends ChangeNotifier {
     isThumbnail: isThumbnail,
     onMainThread: true,
   );
-}
-
-class _CanvasImagePainter extends CustomPainter {
-  const _CanvasImagePainter({
-    required this.image,
-    required this.boxFit,
-    required this.invert,
-    required this.invertShader,
-  });
-
-  final EditorImage image;
-  final BoxFit boxFit;
-  final bool invert;
-  final ui.FragmentShader? invertShader;
-
-  @override
-  void paint(Canvas canvas, Size canvasSize) {
-    final uiImage = image.uiImage;
-    if (uiImage == null) return;
-
-    final fittedSizes = applyBoxFit(boxFit, image.srcRect.size, canvasSize);
-    final dstRect = Alignment.center.inscribe(fittedSizes.destination, Offset.zero & canvasSize);
-
-    if (invert && invertShader != null) {
-      invertShader!.setFloat(0, dstRect.width);
-      invertShader!.setFloat(1, dstRect.height);
-      invertShader!.setImageSampler(0, uiImage);
-
-      // We need to translate the canvas to the dstRect's origin
-      // so the shader is drawn in the correct location.
-      canvas.translate(dstRect.left, dstRect.top);
-      canvas.drawRect(
-        Offset.zero & dstRect.size,
-        Paint()..shader = invertShader,
-      );
-    } else {
-      // non-inverted image
-      canvas.drawImageRect(
-        uiImage,
-        image.srcRect,
-        dstRect,
-        Paint(),
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return oldDelegate is! _CanvasImagePainter
-        || oldDelegate.image != image
-        || oldDelegate.image.uiImage != image.uiImage;
-  }
 }
