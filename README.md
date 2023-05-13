@@ -304,13 +304,13 @@ If you like Saber, please consider supporting it by:
   - Update the changelogs in `metadata/en-US/changelogs/`
     and `flatpak/com.adilhanney.saber.metainfo.xml` as directed by the script.
 - When updating the **icons**, run the following commands:
-  - General: `flutter pub run icons_launcher:create`
+  - General: `dart run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
 - When updating the **translations**...
   - Run the following commands:
-    - `flutter pub run slang apply --locale=XX` if you need to apply _missing_translations.json
-    - `flutter pub run slang`
-    - `flutter pub run slang analyze --full`
+    - `dart run slang apply --locale=XX` if you need to apply _missing_translations.json
+    - `dart run slang`
+    - `dart run slang analyze --full`
   - If you're adding a new language, update:
     - `CFBundleLocalizations` in `ios/Runner/Info.plist`
     - `CFBundleLocalizations` in `macos/Runner/Info.plist`

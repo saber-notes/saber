@@ -209,7 +209,7 @@ flutter:
     - shaders/invert.frag
 
 
-# flutter pub run icons_launcher:create
+# dart run icons_launcher:create
 icons_launcher:
   image_path: "assets/icon/icon.png"
   platforms:
