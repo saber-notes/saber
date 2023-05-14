@@ -1462,19 +1462,31 @@ class EditorState extends State<Editor> {
     final screenWidth = MediaQuery.of(context).size.width;
     final scrollY = _transformationController.value.getTranslation().y;
 
-    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
+    return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
+      scrollY: scrollY,
+      screenWidth: screenWidth,
+      pages: coreInfo.pages,
+    );
+  }
+  @visibleForTesting
+  static int getPageIndexFromScrollPosition({
+    required double scrollY,
+    required double screenWidth,
+    required List<EditorPage> pages,
+  }) {
+    for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final bottomOfPage = CanvasGestureDetector.getTopOfPage(
         pageIndex: pageIndex + 1, // top of next page
-        pages: coreInfo.pages,
+        pages: pages,
         screenWidth: screenWidth,
       );
 
       if (scrollY < bottomOfPage) {
-        return _lastCurrentPageIndex = pageIndex;
+        return pageIndex;
       }
     }
-
-    return _lastCurrentPageIndex = coreInfo.pages.length - 1;
+    // below the last page
+    return pages.length - 1;
   }
 
   @override
