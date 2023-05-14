@@ -295,7 +295,6 @@ class EditorState extends State<Editor> {
             coreInfo.pages[image.pageIndex].images.remove(image);
           }
           removeExcessPages();
-          break;
 
         case EditorHistoryItemType.erase:
           for (Stroke stroke in item.strokes) {
@@ -307,7 +306,6 @@ class EditorState extends State<Editor> {
             coreInfo.pages[image.pageIndex].images.add(image);
             image.newImage = true;
           }
-          break;
 
         case EditorHistoryItemType.deletePage:
           // make sure we already have a (blank/otherwise) page at this index
@@ -327,7 +325,6 @@ class EditorState extends State<Editor> {
             }
             page.backgroundImage?.pageIndex = i;
           }
-          break;
 
         case EditorHistoryItemType.insertPage:
           // remove the page at the given index
@@ -344,7 +341,6 @@ class EditorState extends State<Editor> {
             }
             page.backgroundImage?.pageIndex = i;
           }
-          break;
 
         case EditorHistoryItemType.move:
           for (Stroke stroke in item.strokes) {
@@ -368,17 +364,14 @@ class EditorState extends State<Editor> {
               image.dstRect.bottom - item.offset!.bottom,
             );
           }
-          break;
 
         case EditorHistoryItemType.quillChange:
           final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.undo();
-          break;
 
         case EditorHistoryItemType.quillUndoneChange:
           final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.redo();
-          break;
       }
 
       if (item.type != EditorHistoryItemType.move) {
@@ -396,16 +389,12 @@ class EditorState extends State<Editor> {
     switch (item.type) {
       case EditorHistoryItemType.draw:
         undo(item.copyWith(type: EditorHistoryItemType.erase));
-        break;
       case EditorHistoryItemType.erase:
         undo(item.copyWith(type: EditorHistoryItemType.draw));
-        break;
       case EditorHistoryItemType.deletePage:
         undo(item.copyWith(type: EditorHistoryItemType.insertPage));
-        break;
       case EditorHistoryItemType.insertPage:
         undo(item.copyWith(type: EditorHistoryItemType.deletePage));
-        break;
       case EditorHistoryItemType.move:
         undo(item.copyWith(offset: Rect.fromLTRB(
           -item.offset!.left,
@@ -413,10 +402,8 @@ class EditorState extends State<Editor> {
           -item.offset!.right,
           -item.offset!.bottom,
         )));
-        break;
       case EditorHistoryItemType.quillChange:
         undo(item.copyWith(type: EditorHistoryItemType.quillUndoneChange));
-        break;
       case EditorHistoryItemType.quillUndoneChange: // this will never happen
         throw Exception('history should not contain quillUndoneChange items');
     }

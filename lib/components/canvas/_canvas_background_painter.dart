@@ -98,7 +98,6 @@ class CanvasBackgroundPainter extends CustomPainter {
             secondaryColor: true,
           );
         }
-        break;
       case CanvasBackgroundPattern.grid:
         for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
           yield PatternElement(
@@ -114,7 +113,6 @@ class CanvasBackgroundPainter extends CustomPainter {
             isLine: true,
           );
         }
-        break;
       case CanvasBackgroundPattern.dots:
         for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
           for (double x = 0; x <= size.width; x += lineHeight) {
@@ -125,7 +123,6 @@ class CanvasBackgroundPainter extends CustomPainter {
             );
           }
         }
-        break;
       case CanvasBackgroundPattern.staffs:
         for (double topOfStaff = lineHeight * 2;
              topOfStaff + lineHeight * 5 < size.height;
@@ -138,7 +135,6 @@ class CanvasBackgroundPainter extends CustomPainter {
             );
           }
         }
-        break;
       case CanvasBackgroundPattern.cornell:
         // half-width line for name field
         yield PatternElement(
@@ -169,7 +165,6 @@ class CanvasBackgroundPainter extends CustomPainter {
             isLine: true,
           );
         }
-        break;
     }
   }
 

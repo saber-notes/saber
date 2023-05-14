@@ -576,16 +576,12 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
       switch(widget.panAxis){
         case PanAxis.horizontal:
           alignedTranslation = _alignAxis(translation, Axis.horizontal);
-          break;
         case PanAxis.vertical:
           alignedTranslation = _alignAxis(translation, Axis.vertical);
-          break;
         case PanAxis.aligned:
           alignedTranslation = _alignAxis(translation, _currentAxis!);
-          break;
         case PanAxis.free:
           alignedTranslation = translation;
-          break;
       }
     } else {
       alignedTranslation = translation;
@@ -825,7 +821,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
         if (_round(_referenceFocalPoint!) != _round(focalPointSceneCheck)) {
           _referenceFocalPoint = focalPointSceneCheck;
         }
-        break;
 
       case _GestureType.rotate:
         if (details.rotation == 0.0) {
@@ -838,7 +833,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
           details.localFocalPoint,
         );
         _currentRotation = desiredRotation;
-        break;
 
       case _GestureType.pan:
         assert(_referenceFocalPoint != null);
@@ -864,7 +858,6 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
             details.localFocalPoint,
           );
         }
-        break;
     }
   }
 

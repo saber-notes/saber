@@ -5,7 +5,7 @@ final Map<String, String> _mockSecureStorage = <String, String>{};
 void setupMockFlutterSecureStorage() {
   const channel = MethodChannel('plugins.it_nomads.com/flutter_secure_storage');
   TestWidgetsFlutterBinding.ensureInitialized();
-  TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
     if (methodCall.method == 'delete') {
       _mockSecureStorage.remove(methodCall.arguments['key'] as String);
@@ -21,7 +21,7 @@ void setupMockFlutterSecureStorage() {
 void setupMockPathProvider() {
   const channel = MethodChannel('plugins.flutter.io/path_provider');
   TestWidgetsFlutterBinding.ensureInitialized();
-  TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
     if (methodCall.method == 'getApplicationDocumentsDirectory') {
       return '/tmp/saber-test';
@@ -33,7 +33,7 @@ void setupMockPathProvider() {
 void setupMockPrinting() {
   const channel = MethodChannel('net.nfet.printing');
   TestWidgetsFlutterBinding.ensureInitialized();
-  TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
     if (methodCall.method == 'printingInfo') {
       return {}; // [PrintingInfo.unavailable]
