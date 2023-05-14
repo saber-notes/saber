@@ -1463,7 +1463,7 @@ class EditorState extends State<Editor> {
     final scrollY = _transformationController.value.getTranslation().y;
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
-      final bottomOfPage = -CanvasGestureDetector.getTopOfPage(
+      final bottomOfPage = CanvasGestureDetector.getTopOfPage(
         pageIndex: pageIndex + 1, // top of next page
         pages: coreInfo.pages,
         screenWidth: screenWidth,
