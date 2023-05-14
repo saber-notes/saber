@@ -169,7 +169,7 @@
       "delete": "删除"
     },
     "menu": {
-      "clearPage": "清除页面",
+      "clearPage(OUTDATED)": "清除页面 $page/$totalPages",
       "clearAllPages": "清除全部页面",
       "lineHeight": "行高",
       "lineHeightDescription": "同时控制文本大小",

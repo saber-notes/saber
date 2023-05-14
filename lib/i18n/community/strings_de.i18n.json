@@ -178,7 +178,7 @@
       "delete": "Entfernen"
     },
     "menu": {
-      "clearPage": "Seite löschen",
+      "clearPage(OUTDATED)": "Seite löschen $page/$totalPages",
       "clearAllPages": "Alle Seiten löschen",
       "lineHeight": "Zeilenhöhe",
       "lineHeightDescription": "Beeinflusst die Schriftgröße",

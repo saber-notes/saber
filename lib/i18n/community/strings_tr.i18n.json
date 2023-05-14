@@ -200,7 +200,7 @@
       "delete": "Sil"
     },
     "menu": {
-      "clearPage": "Sayfayı temizle",
+      "clearPage(OUTDATED)": "Sayfayı temizle $page/$totalPages",
       "clearAllPages": "Tüm sayfaları temizle",
       "lineHeight": "Satır aralığı",
       "lineHeightDescription": "Metnin boyutunu da kontrol eder",

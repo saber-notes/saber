@@ -77,7 +77,12 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   children: [
                     const Icon(Icons.cleaning_services),
                     const SizedBox(width: 8),
-                    Text(t.editor.menu.clearPage),
+                    Text(t.editor.menu.clearPage(
+                      page: widget.currentPageIndex == null
+                          ? '?'
+                          : widget.currentPageIndex! + 1,
+                      totalPages: widget.coreInfo.pages.length,
+                    )),
                   ],
                 ),
               ),

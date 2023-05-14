@@ -178,7 +178,7 @@
       "delete": "Eliminar"
     },
     "menu": {
-      "clearPage": "Borrar página",
+      "clearPage(OUTDATED)": "Borrar página $page/$totalPages",
       "clearAllPages": "Borrar todas las páginas",
       "lineHeight": "Altura de la línea",
       "lineHeightDescription": "Controla también el tamaño del texto",

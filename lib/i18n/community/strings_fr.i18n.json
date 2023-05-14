@@ -205,7 +205,7 @@
       "delete": "Effacer"
     },
     "menu": {
-      "clearPage": "Effacer la page",
+      "clearPage(OUTDATED)": "Effacer la page $page/$totalPages",
       "clearAllPages": "Effacer toutes les pages",
       "insertPage": "Insérer une page après",
       "duplicatePage": "Dupliquer la page",

@@ -167,7 +167,7 @@
       "delete": "Törlés"
     },
     "menu": {
-      "clearPage": "Oldal törlése",
+      "clearPage(OUTDATED)": "Oldal törlése $page/$totalPages",
       "clearAllPages": "Összes oldal törlése",
       "lineHeight": "Vonalmagasság",
       "backgroundImage": "Háttérkép",

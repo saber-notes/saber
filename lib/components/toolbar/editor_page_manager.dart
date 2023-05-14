@@ -131,7 +131,10 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         }),
                       ),
                       IconButton(
-                        tooltip: t.editor.menu.clearPage,
+                        tooltip: t.editor.menu.clearPage(
+                          page: pageIndex + 1,
+                          totalPages: widget.coreInfo.pages.length,
+                        ),
                         icon: const Icon(Icons.cleaning_services),
                         onPressed: () => setState(() {
                           widget.clearPage(pageIndex);

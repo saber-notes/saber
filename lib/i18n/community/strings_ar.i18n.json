@@ -200,7 +200,7 @@
       "delete": "حذف"
     },
     "menu": {
-      "clearPage": "صفحة واضحة",
+      "clearPage(OUTDATED)": "$page/$totalPages صفحة واضحة",
       "clearAllPages": "امسح كل الصفحات",
       "insertPage": "أدخل الصفحة أدناه",
       "duplicatePage": "تكرار الصفحة",

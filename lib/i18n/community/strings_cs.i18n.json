@@ -205,7 +205,7 @@
       "delete": "Odstranit"
     },
     "menu": {
-      "clearPage": "Smazat obsah stránky",
+      "clearPage(OUTDATED)": "Smazat obsah stránky $page/$totalPages",
       "clearAllPages": "Smazat všechny stránky",
       "insertPage": "Přidat stránku za tuto",
       "duplicatePage": "Duplikovat stránku",

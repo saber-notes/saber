@@ -205,7 +205,7 @@
       "delete": "Удалить"
     },
     "menu": {
-      "clearPage": "Очистить лист",
+      "clearPage(OUTDATED)": "Очистить лист $page/$totalPages",
       "clearAllPages": "Очистить все листы",
       "insertPage": "Вставить страницу ниже",
       "duplicatePage": "Дубликат страницы",

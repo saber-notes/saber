@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2217 (158 per locale)
 ///
-/// Built on 2023-05-14 at 13:39 UTC
+/// Built on 2023-05-14 at 15:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -653,7 +653,7 @@ class _StringsEditorMenuEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get clearPage => 'Clear page';
+	String clearPage({required Object page, required Object totalPages}) => 'Clear page ${page}/${totalPages}';
 	String get clearAllPages => 'Clear all pages';
 	String get insertPage => 'Insert page below';
 	String get duplicatePage => 'Duplicate page';
@@ -1242,7 +1242,7 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'صفحة واضحة';
+	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} صفحة واضحة';
 	@override String get clearAllPages => 'امسح كل الصفحات';
 	@override String get insertPage => 'أدخل الصفحة أدناه';
 	@override String get duplicatePage => 'تكرار الصفحة';
@@ -1844,7 +1844,7 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Smazat obsah stránky';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Smazat obsah stránky ${page}/${totalPages}';
 	@override String get clearAllPages => 'Smazat všechny stránky';
 	@override String get insertPage => 'Přidat stránku za tuto';
 	@override String get duplicatePage => 'Duplikovat stránku';
@@ -2371,7 +2371,7 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Seite löschen';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Seite löschen ${page}/${totalPages}';
 	@override String get clearAllPages => 'Alle Seiten löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Beeinflusst die Schriftgröße';
@@ -2893,7 +2893,7 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Borrar página';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Borrar página ${page}/${totalPages}';
 	@override String get clearAllPages => 'Borrar todas las páginas';
 	@override String get lineHeight => 'Altura de la línea';
 	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
@@ -3491,7 +3491,7 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'پاک کردن صفحه';
+	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} پاک کردن صفحه';
 	@override String get clearAllPages => 'تمام صفحات را پاک کنید';
 	@override String get insertPage => 'درج صفحه در زیر';
 	@override String get duplicatePage => 'تکرار صفحه';
@@ -4093,7 +4093,7 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Effacer la page';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Effacer la page ${page}/${totalPages}';
 	@override String get clearAllPages => 'Effacer toutes les pages';
 	@override String get insertPage => 'Insérer une page après';
 	@override String get duplicatePage => 'Dupliquer la page';
@@ -4593,7 +4593,7 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Oldal törlése';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Oldal törlése ${page}/${totalPages}';
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
 	@override String get backgroundImage => 'Háttérkép';
@@ -5188,7 +5188,7 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Pulisci pagina';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Pulisci pagina ${page}/${totalPages}';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get insertPage => 'Inserisci pagina sotto';
 	@override String get duplicatePage => 'Pagina duplicata';
@@ -5790,7 +5790,7 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Limpar a página';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Limpar a página ${page}/${totalPages}';
 	@override String get clearAllPages => 'Limpar todas as páginas';
 	@override String get insertPage => 'Inserir página abaixo';
 	@override String get duplicatePage => 'Duplicar página';
@@ -6392,7 +6392,7 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Очистить лист';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Очистить лист ${page}/${totalPages}';
 	@override String get clearAllPages => 'Очистить все листы';
 	@override String get insertPage => 'Вставить страницу ниже';
 	@override String get duplicatePage => 'Дубликат страницы';
@@ -6981,7 +6981,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Sayfayı temizle';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Sayfayı temizle ${page}/${totalPages}';
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
@@ -7480,7 +7480,7 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => '清除页面';
+	@override String clearPage({required Object page, required Object totalPages}) => '清除页面 ${page}/${totalPages}';
 	@override String get clearAllPages => '清除全部页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同时控制文本大小';
@@ -8077,7 +8077,7 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => '清除頁面';
+	@override String clearPage({required Object page, required Object totalPages}) => '清除頁面 ${page}/${totalPages}';
 	@override String get clearAllPages => '清除所有頁面';
 	@override String get insertPage => '插入以下頁面';
 	@override String get duplicatePage => '複製頁面';
