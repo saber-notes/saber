@@ -84,14 +84,10 @@ Option 1 (recommended):
 Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
 
 Option 2:
-Download `Saber_{version}.flatpak` from the latest [Release][releases]
-and install with `flatpak --user install Saber_*.flatpak`
-
-Option 3:
 Download `Saber-{version}-x86_64.AppImage` from the latest [Release][releases],
 make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 
-Option 4:
+Option 3:
 There's an unofficial [snap][snap] available. For any issues with the snap,
 please file an issue here: https://github.com/soumyaDghosh/saber.
 `sudo snap install saber`
