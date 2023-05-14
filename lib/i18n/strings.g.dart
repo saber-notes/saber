@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2200 (157 per locale)
+/// Strings: 2217 (158 per locale)
 ///
-/// Built on 2023-05-12 at 14:58 UTC
+/// Built on 2023-05-14 at 13:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3595,6 +3595,7 @@ class _StringsFr extends _StringsEn {
 	@override late final _StringsHomeFr home = _StringsHomeFr._(_root);
 	@override late final _StringsSettingsFr settings = _StringsSettingsFr._(_root);
 	@override late final _StringsLoginFr login = _StringsLoginFr._(_root);
+	@override late final _StringsProfileFr profile = _StringsProfileFr._(_root);
 	@override late final _StringsAppInfoFr appInfo = _StringsAppInfoFr._(_root);
 	@override late final _StringsUpdateFr update = _StringsUpdateFr._(_root);
 	@override late final _StringsEditorFr editor = _StringsEditorFr._(_root);
@@ -3661,6 +3662,24 @@ class _StringsLoginFr extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Fr._(_root),
 		_StringsLogin$faq$0i3$Fr._(_root),
 		_StringsLogin$faq$0i4$Fr._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileFr extends _StringsProfileEn {
+	_StringsProfileFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mon profil';
+	@override String get logout => 'Déconnexion';
+	@override late final _StringsProfileQuickLinksFr quickLinks = _StringsProfileQuickLinksFr._(_root);
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Fr._(_root),
+		_StringsProfile$faq$0i1$Fr._(_root),
+		_StringsProfile$faq$0i2$Fr._(_root),
+		_StringsProfile$faq$0i3$Fr._(_root),
 	];
 }
 
@@ -3953,6 +3972,62 @@ class _StringsLogin$faq$0i4$Fr extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Oui, mais c\'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N\'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksFr extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Raccourcis';
+	@override String get serverHomepage => 'Page d\'accueil du serveur';
+	@override String get deleteAccount => 'Supprimer le compte';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Fr extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Vais-je perdre mes notes si je me déconnecte ?';
+	@override String get a => 'Non. Vos notes seront conservées à la fois sur votre poste et sur le serveur. Elles ne seront pas synchronisées avec le serveur jusqu\'à votre prochaine connexion. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter pour ne perdre aucune donnée (consultez la barre de progression sur l\'écran d\'accueil).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Fr extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Comment changer mon mot de passe Nextcloud ?';
+	@override String get a => 'Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans Saber après avoir changé votre mot de passe.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Fr extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Comment changer mon mot de passe de chiffrement ?';
+	@override String get a => '1. Déconnectez-vous de Saber. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter afin de ne perdre aucune donnée (consultez la barre de progression sur l\'écran d\'accueil).\n\n2. Sur le site web du serveur supprimez votre dossier \'Saber\'. Cela supprimera toutes vos notes sur le serveur.\n\n3. Connectez-vous à nouveau dans Saber. Vous pourrez choisir un nouveau mot de passe de chiffrement à la connexion.\n\n4. N\'oubliez pas de vous déconnecter et vous re-connecter dans Saber sur votre poste également.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Fr extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Comment puis-je supprimer mon compte ?';
+	@override String get a => 'Cliquez sur le button "${_root.profile.quickLinks.deleteAccount}" ci-dessus, et connectez-vous si nécessaire.\n\nSi vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d\'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.\n\nSi vous utilisez un autre serveur, il n\'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d\'informations.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarFr extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarFr._(_StringsFr root) : this._root = root, super._(root);
@@ -4020,6 +4095,9 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearPage => 'Effacer la page';
 	@override String get clearAllPages => 'Effacer toutes les pages';
+	@override String get insertPage => 'Insérer une page après';
+	@override String get duplicatePage => 'Dupliquer la page';
+	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
 	@override String get lineHeightDescription => 'Contrôle aussi la taille du texte';
 	@override String get backgroundImage => 'Image de fond';
@@ -4087,6 +4165,7 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Vide';
 	@override String get college => 'Lignes et marge';
+	@override String get collegeRtl => 'College-ruled (Reverse)';
 	@override String get lined => 'Lignes';
 	@override String get grid => 'Grille';
 	@override String get dots => 'Points';
