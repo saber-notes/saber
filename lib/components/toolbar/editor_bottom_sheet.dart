@@ -48,8 +48,6 @@ class EditorBottomSheet extends StatefulWidget {
 class _EditorBottomSheetState extends State<EditorBottomSheet> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     final Size pageSize;
     final EditorImage? backgroundImage;
     if (widget.currentPageIndex != null) {
@@ -61,121 +59,73 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
       backgroundImage = null;
     }
 
-    return Material(
-      color: colorScheme.surface,
-      borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            const SizedBox(height: 16),
-            Wrap(
-              spacing: 8,
-              children: [
-                ElevatedButton(
-                  onPressed: widget.coreInfo.isNotEmpty ? () {
-                    widget.clearPage();
-                    Navigator.pop(context);
-                  } : null,
-                  child: Wrap(
-                    children: [
-                      const Icon(Icons.cleaning_services),
-                      const SizedBox(width: 8),
-                      Text(t.editor.menu.clearPage),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: widget.coreInfo.isNotEmpty ? () {
-                    widget.clearAllPages();
-                    Navigator.pop(context);
-                  } : null,
-                  child: Wrap(
-                    children: [
-                      const Icon(Icons.cleaning_services),
-                      const SizedBox(width: 8),
-                      Text(t.editor.menu.clearAllPages),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            if (backgroundImage != null) ...[
-              Text(
-                t.editor.menu.backgroundImage,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 8,
+            children: [
+              ElevatedButton(
+                onPressed: widget.coreInfo.isNotEmpty ? () {
+                  widget.clearPage();
+                  Navigator.pop(context);
+                } : null,
+                child: Wrap(
                   children: [
-                    for (final BoxFit boxFit in [
-                      BoxFit.fill,
-                      BoxFit.cover,
-                      BoxFit.contain,
-                    ]) ...[
-                      InkWell(
-                        borderRadius: BorderRadius.circular(8),
-                        onTap: () => setState(() {
-                          backgroundImage?.backgroundFit = boxFit;
-                          widget.redrawAndSave();
-                        }),
-                        child: Tooltip(
-                          message: boxFit.localizedName,
-                          child: CanvasBackgroundPreview(
-                            selected: backgroundImage.backgroundFit == boxFit,
-                            invert: widget.invert,
-                            backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                            backgroundPattern: widget.coreInfo.backgroundPattern,
-                            backgroundImage: backgroundImage,
-                            overrideBoxFit: boxFit,
-                            pageSize: pageSize,
-                            lineHeight: widget.coreInfo.lineHeight,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                    ],
+                    const Icon(Icons.cleaning_services),
+                    const SizedBox(width: 8),
+                    Text(t.editor.menu.clearPage),
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
-              CanvasImageDialog(
-                filePath: widget.coreInfo.filePath,
-                image: backgroundImage,
-                redrawImage: () => setState(() {
-                  widget.redrawImage();
-                }),
-                isBackground: true,
-                toggleAsBackground: widget.removeBackgroundImage,
-                singleRow: true,
+              ElevatedButton(
+                onPressed: widget.coreInfo.isNotEmpty ? () {
+                  widget.clearAllPages();
+                  Navigator.pop(context);
+                } : null,
+                child: Wrap(
+                  children: [
+                    const Icon(Icons.cleaning_services),
+                    const SizedBox(width: 8),
+                    Text(t.editor.menu.clearAllPages),
+                  ],
+                ),
               ),
-              const SizedBox(height: 16),
             ],
+          ),
+          const SizedBox(height: 16),
+          if (backgroundImage != null) ...[
             Text(
-              t.editor.menu.backgroundPattern,
+              t.editor.menu.backgroundImage,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  for (final backgroundPattern in CanvasBackgroundPattern.values) ...[
+                  for (final BoxFit boxFit in [
+                    BoxFit.fill,
+                    BoxFit.cover,
+                    BoxFit.contain,
+                  ]) ...[
                     InkWell(
                       borderRadius: BorderRadius.circular(8),
                       onTap: () => setState(() {
-                        widget.setBackgroundPattern(backgroundPattern);
+                        backgroundImage?.backgroundFit = boxFit;
+                        widget.redrawAndSave();
                       }),
                       child: Tooltip(
-                        message: CanvasBackgroundPattern.localizedName(backgroundPattern),
+                        message: boxFit.localizedName,
                         child: CanvasBackgroundPreview(
-                          selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                          selected: backgroundImage.backgroundFit == boxFit,
                           invert: widget.invert,
                           backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                          backgroundPattern: backgroundPattern,
-                          backgroundImage: null, // focus on background pattern
+                          backgroundPattern: widget.coreInfo.backgroundPattern,
+                          backgroundImage: backgroundImage,
+                          overrideBoxFit: boxFit,
                           pageSize: pageSize,
                           lineHeight: widget.coreInfo.lineHeight,
                         ),
@@ -187,63 +137,107 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              t.editor.menu.lineHeight,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            Text(
-              t.editor.menu.lineHeightDescription,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            Row(
-              children: [
-                Text(widget.coreInfo.lineHeight.toString()),
-                Expanded(
-                  child: Slider(
-                    value: widget.coreInfo.lineHeight.toDouble(),
-                    min: 20,
-                    max: 100,
-                    divisions: 8,
-                    onChanged: (double value) => setState(() {
-                      widget.setLineHeight(value.toInt());
-                    }),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              t.editor.menu.import,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            Wrap(
-              spacing: 8,
-              children: [
-                ElevatedButton(
-                  onPressed: () async {
-                    int photosPicked = await widget.pickPhotos();
-                    if (photosPicked > 0) {
-                      if (!mounted) return;
-                      Navigator.pop(context);
-                    }
-                  },
-                  child: Text(t.editor.toolbar.photo),
-                ),
-                if (widget.canRasterPdf) ElevatedButton(
-                  onPressed: () async {
-                    bool pdfImported = await widget.importPdf();
-                    if (pdfImported) {
-                      if (!mounted) return;
-                      Navigator.pop(context);
-                    }
-                  },
-                  child: const Text('PDF'),
-                ),
-              ],
+            CanvasImageDialog(
+              filePath: widget.coreInfo.filePath,
+              image: backgroundImage,
+              redrawImage: () => setState(() {
+                widget.redrawImage();
+              }),
+              isBackground: true,
+              toggleAsBackground: widget.removeBackgroundImage,
+              singleRow: true,
             ),
             const SizedBox(height: 16),
           ],
-        ),
+          Text(
+            t.editor.menu.backgroundPattern,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                for (final backgroundPattern in CanvasBackgroundPattern.values) ...[
+                  InkWell(
+                    borderRadius: BorderRadius.circular(8),
+                    onTap: () => setState(() {
+                      widget.setBackgroundPattern(backgroundPattern);
+                    }),
+                    child: Tooltip(
+                      message: CanvasBackgroundPattern.localizedName(backgroundPattern),
+                      child: CanvasBackgroundPreview(
+                        selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                        invert: widget.invert,
+                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                        backgroundPattern: backgroundPattern,
+                        backgroundImage: null, // focus on background pattern
+                        pageSize: pageSize,
+                        lineHeight: widget.coreInfo.lineHeight,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            t.editor.menu.lineHeight,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Text(
+            t.editor.menu.lineHeightDescription,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          Row(
+            children: [
+              Text(widget.coreInfo.lineHeight.toString()),
+              Expanded(
+                child: Slider(
+                  value: widget.coreInfo.lineHeight.toDouble(),
+                  min: 20,
+                  max: 100,
+                  divisions: 8,
+                  onChanged: (double value) => setState(() {
+                    widget.setLineHeight(value.toInt());
+                  }),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Text(
+            t.editor.menu.import,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Wrap(
+            spacing: 8,
+            children: [
+              ElevatedButton(
+                onPressed: () async {
+                  int photosPicked = await widget.pickPhotos();
+                  if (photosPicked > 0) {
+                    if (!mounted) return;
+                    Navigator.pop(context);
+                  }
+                },
+                child: Text(t.editor.toolbar.photo),
+              ),
+              if (widget.canRasterPdf) ElevatedButton(
+                onPressed: () async {
+                  bool pdfImported = await widget.importPdf();
+                  if (pdfImported) {
+                    if (!mounted) return;
+                    Navigator.pop(context);
+                  }
+                },
+                child: const Text('PDF'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+        ],
       ),
     );
   }

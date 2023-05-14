@@ -1027,6 +1027,7 @@ class EditorState extends State<Editor> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final platform = Theme.of(context).platform;
     final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     final isToolbarVertical = Prefs.editorToolbarAlignment.value == AxisDirection.left
@@ -1257,7 +1258,8 @@ class EditorState extends State<Editor> {
                 context: context,
                 builder: (context) => bottomSheet(context),
                 isScrollControlled: true,
-                backgroundColor: Colors.transparent,
+                showDragHandle: true,
+                backgroundColor: colorScheme.surface,
                 constraints: const BoxConstraints(
                   maxWidth: 500,
                 ),
