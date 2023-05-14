@@ -70,7 +70,7 @@ jobs:
       - name: Compress Flutter build
         id: compress
         run: |
-          archiveName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.tar.gz"
+          archiveName="Saber_v${{ needs.get-version.outputs.buildName }}.tar.gz"
           echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
 
           tar -C build/linux/x64/release/bundle -cvf $archiveName .
@@ -131,7 +131,7 @@ jobs:
       - name: Rename .flatpak
         id: rename
         run: |
-          flatpakName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.flatpak"
+          flatpakName="Saber_v${{ needs.get-version.outputs.buildName }}.flatpak"
           echo "flatpakName=$flatpakName" >> $GITHUB_OUTPUT
 
           mv Saber.flatpak $flatpakName

@@ -97,7 +97,7 @@ jobs:
             -t lib/main_app_store.dart \
             --export-options-plist=$HOME/export_options.plist
 
-          export ipaPath="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.ipa"
+          export ipaPath="Saber_v${{ needs.get-version.outputs.buildName }}.ipa"
           mv $(find $(pwd) -name "*.ipa") $ipaPath
           echo "ipaPath=$ipaPath" >> $GITHUB_OUTPUT
 

@@ -89,7 +89,7 @@ jobs:
       - name: Rename signed apk
         id: rename_apk
         run: |
-          apkName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.apk"
+          apkName="Saber_v${{ needs.get-version.outputs.buildName }}.apk"
           mv ${{ steps.sign_app.outputs.signedFile }} output/$apkName
           echo "apkName=$apkName" >> $GITHUB_OUTPUT
 
@@ -167,7 +167,7 @@ jobs:
       - name: Rename signed apk
         id: rename_apk
         run: |
-          apkName="Saber_FOSS_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.apk"
+          apkName="Saber_FOSS_v${{ needs.get-version.outputs.buildName }}.apk"
           mv ${{ steps.sign_app.outputs.signedFile }} output/$apkName
           echo "apkName=$apkName" >> $GITHUB_OUTPUT
 
@@ -248,7 +248,7 @@ jobs:
       - name: Rename signed apk
         id: rename_apk
         run: |
-          apkName="Saber_FOSS_alt_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.apk"
+          apkName="Saber_FOSS_alt_v${{ needs.get-version.outputs.buildName }}.apk"
           mv ${{ steps.sign_app.outputs.signedFile }} output/$apkName
           echo "apkName=$apkName" >> $GITHUB_OUTPUT
 

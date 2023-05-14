@@ -215,7 +215,7 @@ abstract class UpdateManager {
 
     TargetPlatform.windows: RegExp(r'\.exe'),
 
-    // e.g. Saber_v0.9.8_9080.apk not Saber_FOSS_v0.9.8_9080.apk
+    // e.g. Saber_v0.9.8.apk not Saber_FOSS_v0.9.8.apk
     TargetPlatform.android: RegExp(r'Saber_v.*\.apk'),
   };
 

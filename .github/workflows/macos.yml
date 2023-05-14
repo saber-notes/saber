@@ -119,7 +119,7 @@ jobs:
       - name: Compress macOS build
         id: compress
         run: |
-          zipName="Saber_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.app.zip"
+          zipName="Saber_v${{ needs.get-version.outputs.buildName }}.app.zip"
           echo "zipName=$zipName" >> $GITHUB_OUTPUT
 
           pushd build/macos/Build/Products/Release

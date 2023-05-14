@@ -78,7 +78,7 @@ jobs:
         id: rename
         shell: bash
         run: |
-          installerName="SaberInstaller_v${{ needs.get-version.outputs.buildName }}_${{ needs.get-version.outputs.buildNumber }}.exe"
+          installerName="SaberInstaller_v${{ needs.get-version.outputs.buildName }}.exe"
           echo "installerName=$installerName" >> $GITHUB_OUTPUT
 
           mv installers/SaberInstaller.exe installers/$installerName
