@@ -101,15 +101,14 @@ class _BrowsePageState extends State<BrowsePage> {
                 SyncingButton(),
               ],
             ),
-            if (children != null && (path != null || children!.directories.isNotEmpty))
-              GridFolders(
-                isAtRoot: path == null,
-                folders: [
-                  for (String directoryPath in children!.directories)
-                    directoryPath,
-                ],
-                onTap: onDirectoryTap,
-              ),
+            GridFolders(
+              isAtRoot: path?.isEmpty ?? true,
+              folders: [
+                for (String directoryPath in children?.directories ?? const [])
+                  directoryPath,
+              ],
+              onTap: onDirectoryTap,
+            ),
             if (children == null || children!.isEmpty) ...[
               const SliverSafeArea(
                 sliver: SliverToBoxAdapter(
