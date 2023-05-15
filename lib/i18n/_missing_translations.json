@@ -247,7 +247,7 @@
     },
     "editor": {
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+        "clearPage(OUTDATED)": "Limpar a página $page/$totalPages"
       }
     }
   },
