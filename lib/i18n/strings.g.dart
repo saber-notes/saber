@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2217 (158 per locale)
+/// Strings: 2203 (157 per locale)
 ///
-/// Built on 2023-05-14 at 15:05 UTC
+/// Built on 2023-05-15 at 03:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -171,7 +171,6 @@ class _StringsHomeEn {
 	late final _StringsHomeTabsEn tabs = _StringsHomeTabsEn._(_root);
 	late final _StringsHomeTitlesEn titles = _StringsHomeTitlesEn._(_root);
 	late final _StringsHomeTooltipsEn tooltips = _StringsHomeTooltipsEn._(_root);
-	String get backFolder => '(Back)';
 	String get welcome => 'Welcome to Saber';
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
@@ -773,7 +772,6 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsAr tabs = _StringsHomeTabsAr._(_root);
 	@override late final _StringsHomeTitlesAr titles = _StringsHomeTitlesAr._(_root);
 	@override late final _StringsHomeTooltipsAr tooltips = _StringsHomeTooltipsAr._(_root);
-	@override String get backFolder => '(عودة)';
 	@override String get welcome => 'مرحباً بك في Saber';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
@@ -1362,7 +1360,6 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeTabsCs tabs = _StringsHomeTabsCs._(_root);
 	@override late final _StringsHomeTitlesCs titles = _StringsHomeTitlesCs._(_root);
 	@override late final _StringsHomeTooltipsCs tooltips = _StringsHomeTooltipsCs._(_root);
-	@override String get backFolder => '(Zpět)';
 	@override String get welcome => 'Vítejte v aplikaci Saber';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
@@ -1963,7 +1960,6 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeTabsDe tabs = _StringsHomeTabsDe._(_root);
 	@override late final _StringsHomeTitlesDe titles = _StringsHomeTitlesDe._(_root);
 	@override late final _StringsHomeTooltipsDe tooltips = _StringsHomeTooltipsDe._(_root);
-	@override String get backFolder => '(Zurück)';
 	@override String get welcome => 'Willkommen bei Saber';
 	@override String get noFiles => 'Keine Dateien gefunden';
 	@override String get createNewNote => 'Drücke die + Schaltfläche, um eine neue Notiz zu erstellen';
@@ -2486,7 +2482,6 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeTabsEs tabs = _StringsHomeTabsEs._(_root);
 	@override late final _StringsHomeTitlesEs titles = _StringsHomeTitlesEs._(_root);
 	@override late final _StringsHomeTooltipsEs tooltips = _StringsHomeTooltipsEs._(_root);
-	@override String get backFolder => '(Volver)';
 	@override String get welcome => 'Te damos la bienvenida a Saber';
 	@override String get noFiles => 'No se ha encontrado ninguna nota';
 	@override String get createNewNote => 'Presiona el botón + para crear una nueva nota';
@@ -3009,7 +3004,6 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeTabsFa tabs = _StringsHomeTabsFa._(_root);
 	@override late final _StringsHomeTitlesFa titles = _StringsHomeTitlesFa._(_root);
 	@override late final _StringsHomeTooltipsFa tooltips = _StringsHomeTooltipsFa._(_root);
-	@override String get backFolder => '(بازگشت)';
 	@override String get welcome => 'خوش آمدید';
 	@override String get noFiles => 'فایلی پیدا نشد';
 	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
@@ -3611,7 +3605,6 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsFr tabs = _StringsHomeTabsFr._(_root);
 	@override late final _StringsHomeTitlesFr titles = _StringsHomeTitlesFr._(_root);
 	@override late final _StringsHomeTooltipsFr tooltips = _StringsHomeTooltipsFr._(_root);
-	@override String get backFolder => '(Retour)';
 	@override String get welcome => 'Bienvenue dans Saber';
 	@override String get noFiles => 'Aucun fichier trouvé';
 	@override String get createNewNote => 'Presser le bouton + pour créer une nouvelle note';
@@ -4212,7 +4205,6 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeTabsHu tabs = _StringsHomeTabsHu._(_root);
 	@override late final _StringsHomeTitlesHu titles = _StringsHomeTitlesHu._(_root);
 	@override late final _StringsHomeTooltipsHu tooltips = _StringsHomeTooltipsHu._(_root);
-	@override String get backFolder => '(Vissza)';
 	@override String get welcome => 'Üdvözli a Saber';
 	@override String get noFiles => 'Nem található ilyen fájl';
 	@override String get createNewNote => 'Kattintson a + gombora egy új jegyzet létrehozásához';
@@ -4706,7 +4698,6 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeTabsIt tabs = _StringsHomeTabsIt._(_root);
 	@override late final _StringsHomeTitlesIt titles = _StringsHomeTitlesIt._(_root);
 	@override late final _StringsHomeTooltipsIt tooltips = _StringsHomeTooltipsIt._(_root);
-	@override String get backFolder => '(Indietro)';
 	@override String get welcome => 'Benvenuto su Saber';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
@@ -5308,7 +5299,6 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsPtBr tabs = _StringsHomeTabsPtBr._(_root);
 	@override late final _StringsHomeTitlesPtBr titles = _StringsHomeTitlesPtBr._(_root);
 	@override late final _StringsHomeTooltipsPtBr tooltips = _StringsHomeTooltipsPtBr._(_root);
-	@override String get backFolder => '(Retornar)';
 	@override String get welcome => 'Bem-vindo(a) ao Saber';
 	@override String get noFiles => 'Nenhum arquivo encontrado';
 	@override String get createNewNote => 'Toque no botão + para criar uma nova nota';
@@ -5910,7 +5900,6 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeTabsRu tabs = _StringsHomeTabsRu._(_root);
 	@override late final _StringsHomeTitlesRu titles = _StringsHomeTitlesRu._(_root);
 	@override late final _StringsHomeTooltipsRu tooltips = _StringsHomeTooltipsRu._(_root);
-	@override String get backFolder => '(Назад)';
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get noFiles => 'Файлов ещё нет';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
@@ -6512,7 +6501,6 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsTr tabs = _StringsHomeTabsTr._(_root);
 	@override late final _StringsHomeTitlesTr titles = _StringsHomeTitlesTr._(_root);
 	@override late final _StringsHomeTooltipsTr tooltips = _StringsHomeTooltipsTr._(_root);
-	@override String get backFolder => '(Geri)';
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get noFiles => 'Dosya yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
@@ -7097,7 +7085,6 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeTabsZhHansCn tabs = _StringsHomeTabsZhHansCn._(_root);
 	@override late final _StringsHomeTitlesZhHansCn titles = _StringsHomeTitlesZhHansCn._(_root);
 	@override late final _StringsHomeTooltipsZhHansCn tooltips = _StringsHomeTooltipsZhHansCn._(_root);
-	@override String get backFolder => '(返回)';
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get noFiles => '未找到文件';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
@@ -7595,7 +7582,6 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeTabsZhHantTw tabs = _StringsHomeTabsZhHantTw._(_root);
 	@override late final _StringsHomeTitlesZhHantTw titles = _StringsHomeTitlesZhHantTw._(_root);
 	@override late final _StringsHomeTooltipsZhHantTw tooltips = _StringsHomeTooltipsZhHantTw._(_root);
-	@override String get backFolder => '(返回)';
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get noFiles => '未找到檔案';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';

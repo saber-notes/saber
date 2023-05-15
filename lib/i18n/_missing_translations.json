@@ -10,9 +10,20 @@
         "serverHomepage": "Server homepage",
         "deleteAccount": "Delete account"
       }
+    },
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
     }
   },
-  "cs": {},
+  "cs": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  },
   "de": {
     "profile": {
       "title": "My profile",
@@ -43,6 +54,7 @@
     },
     "editor": {
       "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page",
@@ -82,6 +94,7 @@
     },
     "editor": {
       "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page",
@@ -91,8 +104,20 @@
       }
     }
   },
-  "fa": {},
-  "fr": {},
+  "fa": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  },
+  "fr": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  },
   "hu": {
     "settings": {
       "prefLabels": {
@@ -161,6 +186,7 @@
         "removeAsBackground": "Remove as background"
       },
       "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page",
@@ -173,9 +199,27 @@
       }
     }
   },
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
+  "it": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  },
+  "pt-BR": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  },
+  "ru": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  },
   "tr": {
     "profile": {
       "quickLinks": {
@@ -204,6 +248,7 @@
     },
     "editor": {
       "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page"
@@ -270,6 +315,7 @@
         "removeAsBackground": "Remove as background"
       },
       "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page",
@@ -280,5 +326,11 @@
       }
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "editor": {
+      "menu": {
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
+    }
+  }
 }
