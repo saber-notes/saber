@@ -22,18 +22,7 @@
       }
     }
   },
-  "cs": {
-    "login": {
-      "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
-      }
-    },
-    "editor": {
-      "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "login": {
       "feedbacks": {

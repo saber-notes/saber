@@ -91,6 +91,7 @@
       "enterEncPassword": "Zadejte prosím své heslo pro šifrování.",
       "checkUrl": "Zadejte prosím správnou URL adresu.",
       "ncLoginFailed": "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.",
+      "ncUnsupportedFailure": "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s.",
       "encLoginFailed": "Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.",
       "loginSuccess": "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
     },
@@ -204,7 +205,7 @@
       "delete": "Odstranit"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Smazat obsah stránky $page/$totalPages",
+      "clearPage": "Smazat obsah stránky $page/$totalPages",
       "clearAllPages": "Smazat všechny stránky",
       "insertPage": "Přidat stránku za tuto",
       "duplicatePage": "Duplikovat stránku",

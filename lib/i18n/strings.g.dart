@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2204 (157 per locale)
+/// Strings: 2205 (157 per locale)
 ///
-/// Built on 2023-05-17 at 01:22 UTC
+/// Built on 2023-05-17 at 02:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1630,6 +1630,7 @@ class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Zadejte prosím své heslo pro šifrování.';
 	@override String get checkUrl => 'Zadejte prosím správnou URL adresu.';
 	@override String get ncLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Zadaný server používá Nextcloud ${v}, ale tato verze aplikace Saber podporuje pouze Nextcloud ${s}.';
 	@override String get encLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.';
 	@override String get loginSuccess => 'Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...';
 }
