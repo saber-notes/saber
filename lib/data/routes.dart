@@ -7,10 +7,12 @@ import 'package:saber/pages/home/home.dart';
 
 // workaround to assign strings as enum values
 abstract class RoutePaths {
-  static const home = '/home/:subpage';
+  static const home = '$prefixOfHome/:subpage';
   static const edit = '/edit';
   static const login = '/login';
   static const profile = '/profile';
+
+  static const prefixOfHome = '/home';
 
   static String editFilePath(String filePath) {
     return '$edit?path=${Uri.encodeQueryComponent(filePath)}';

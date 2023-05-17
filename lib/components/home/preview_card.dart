@@ -124,14 +124,20 @@ class _PreviewCardState extends State<PreviewCard> {
         coreInfo = EditorCoreInfo(filePath: widget.filePath);
       });
     } else if (event.type == FileOperationType.write) {
-      findStrokes();
+      findStrokes(fromFileListener: true);
     } else {
       throw Exception('Unknown file operation type: ${event.type}');
     }
   }
 
-  Future findStrokes() async {
+  Future findStrokes({bool fromFileListener = false}) async {
     if (!mounted) return;
+
+    if (fromFileListener) {
+      // don't refresh if we're not on the home page
+      final location = GoRouter.of(context).location;
+      if (!location.startsWith(RoutePaths.prefixOfHome)) return;
+    }
 
     coreInfo = await EditorCoreInfo.loadFromFilePath(
       widget.filePath,
@@ -241,7 +247,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
         await Future.delayed(transitionDuration);
         if (!mounted) return;
-        if (!GoRouter.of(context).location.startsWith('/home')) return;
+        if (!GoRouter.of(context).location.startsWith(RoutePaths.prefixOfHome)) return;
         ResponsiveNavbar.setAndroidNavBarColor(theme);
       },
     );

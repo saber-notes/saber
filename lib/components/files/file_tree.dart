@@ -57,7 +57,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   void _getInfo([FileOperation? _]) async {
     if (widget.isDirectory) children = await FileManager.getChildrenOfDirectory(widget.path ?? '/');
     areChildrenVisible = children != null && children!.onlyOneChild();
-    setState(() { });
+    if (mounted) setState(() { });
   }
 
   @override

@@ -42,12 +42,20 @@ class _BrowsePageState extends State<BrowsePage> {
   StreamSubscription? fileWriteSubscription;
   void fileWriteListener(FileOperation event) {
     if (!event.filePath.startsWith(path ?? '/')) return;
-    findChildrenOfPath();
+    findChildrenOfPath(fromFileListener: true);
   }
 
-  Future findChildrenOfPath() async {
+  Future findChildrenOfPath({bool fromFileListener = false}) async {
     if (!mounted) return;
+
+    if (fromFileListener) {
+      // don't refresh if we're not on the home page
+      final location = GoRouter.of(context).location;
+      if (!location.startsWith(RoutePaths.prefixOfHome)) return;
+    }
+
     children = await FileManager.getChildrenOfDirectory(path ?? '/');
+
     if (mounted) setState(() {});
   }
 

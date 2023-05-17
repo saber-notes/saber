@@ -32,12 +32,19 @@ class _RecentPageState extends State<RecentPage> {
 
   StreamSubscription? fileWriteSubscription;
   void fileWriteListener(FileOperation event) {
-    findRecentlyAccessedNotes();
+    findRecentlyAccessedNotes(fromFileListener: true);
   }
 
-  Future findRecentlyAccessedNotes() async {
+  Future findRecentlyAccessedNotes({bool fromFileListener = false}) async {
     if (!mounted) return;
-    List<String> children = await FileManager.getRecentlyAccessed();
+
+    if (fromFileListener) {
+      // don't refresh if we're not on the home page
+      final location = GoRouter.of(context).location;
+      if (!location.startsWith(RoutePaths.prefixOfHome)) return;
+    }
+
+    final children = await FileManager.getRecentlyAccessed();
     filePaths.clear();
     if (children.isEmpty) {
       failed = true;
@@ -45,6 +52,7 @@ class _RecentPageState extends State<RecentPage> {
       failed = false;
       filePaths.addAll(children);
     }
+
     if (mounted) setState(() {});
   }
 
