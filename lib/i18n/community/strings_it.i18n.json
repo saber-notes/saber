@@ -204,7 +204,7 @@
       "delete": "Cancella"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Pulisci pagina $page/$totalPages",
+      "clearPage": "Pulisci pagina $page/$totalPages totali",
       "clearAllPages": "Pulisci tutte le pagine",
       "insertPage": "Inserisci pagina sotto",
       "duplicatePage": "Pagina duplicata",
