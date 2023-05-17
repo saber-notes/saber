@@ -115,13 +115,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
         _errorMessage = t.login.feedbacks.loginSuccess;
       });
       FileSyncer.startSync();
-    } on NcLoginFailure {
+    } on LoginFailure catch (e) {
       setState(() {
-        _errorMessage = t.login.feedbacks.ncLoginFailed;
-      });
-    } on EncLoginFailure {
-      setState(() {
-        _errorMessage = t.login.feedbacks.encLoginFailed;
+        _errorMessage = e.message;
       });
     } finally {
       setState(() {
@@ -331,9 +327,21 @@ class NcLoginFailure implements LoginFailure {
   final String message = t.login.feedbacks.ncLoginFailed;
 }
 class NcUnsupportedFailure implements LoginFailure {
-  // todo: add a specific message about the supported Nextcloud version
+  /// The Nextcloud version of the server
+  final int? currentVersion;
+  /// The Nextcloud version supported with the [nextcloud] package
+  final int supportedVersion;
+
+  NcUnsupportedFailure({
+    required this.currentVersion,
+    required this.supportedVersion,
+  });
+
   @override
-  final String message = t.login.feedbacks.ncLoginFailed;
+  late final String message = t.login.feedbacks.ncUnsupportedFailure(
+    v: currentVersion ?? '?',
+    s: supportedVersion,
+  );
 }
 class EncLoginFailure implements LoginFailure {
   @override

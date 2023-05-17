@@ -26,14 +26,21 @@ class _NcLoginPageState extends State<NcLoginPage> {
       password: loginDetails.ncPassword,
     );
 
+    final NextcloudCoreServerCapabilities_Ocs_Data capabilities;
     final bool ncServerIsSupported;
     try {
-      ncServerIsSupported = await client.core.isSupported();
+      capabilities = await client.core.getCapabilities()
+        .then((capabilities) => capabilities.ocs.data);
+      ncServerIsSupported = await client.core.isSupported(capabilities);
     } catch (e) {
       throw NcLoginFailure();
     }
     if (!ncServerIsSupported) {
-      throw NcUnsupportedFailure();
+      throw NcUnsupportedFailure(
+        currentVersion: capabilities.version.major,
+        // todo: don't hardcode 26 (https://github.com/provokateurin/nextcloud-neon/issues/322)
+        supportedVersion: 26,
+      );
     }
 
     final String username;

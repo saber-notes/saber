@@ -4,6 +4,11 @@
     "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "ar": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "profile": {
       "quickLinks": {
         "title": "Quick links",
@@ -18,6 +23,11 @@
     }
   },
   "cs": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
@@ -25,6 +35,11 @@
     }
   },
   "de": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "profile": {
       "title": "My profile",
       "logout": "Log out",
@@ -65,6 +80,11 @@
     }
   },
   "es": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "profile": {
       "title": "My profile",
       "logout": "Log out",
@@ -105,6 +125,11 @@
     }
   },
   "fa": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
@@ -112,6 +137,11 @@
     }
   },
   "fr": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
@@ -128,6 +158,9 @@
       }
     },
     "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      },
       "faq(OUTDATED)": [
         {
           "q": "What is Nextcloud?",
@@ -200,6 +233,11 @@
     }
   },
   "it": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
@@ -207,6 +245,11 @@
     }
   },
   "pt-BR": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
@@ -214,6 +257,11 @@
     }
   },
   "ru": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
@@ -221,6 +269,11 @@
     }
   },
   "tr": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "profile": {
       "quickLinks": {
         "title": "Quick links",
@@ -257,6 +310,9 @@
   },
   "zh-Hans-CN": {
     "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      },
       "faq(OUTDATED)": [
         {
           "q": "What is Nextcloud?",
@@ -327,6 +383,11 @@
     }
   },
   "zh-Hant-TW": {
+    "login": {
+      "feedbacks": {
+        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+      }
+    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
