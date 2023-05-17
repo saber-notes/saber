@@ -204,7 +204,7 @@
       "delete": "Excluir"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Limpar a página $page/$totalPages",
+      "clearPage": "Limpar a página $page/$totalPages",
       "clearAllPages": "Limpar todas as páginas",
       "insertPage": "Inserir página abaixo",
       "duplicatePage": "Duplicar página",
