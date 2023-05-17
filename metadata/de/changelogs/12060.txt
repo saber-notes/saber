@@ -1,0 +1,4 @@
+• Leistungsverbesserungen bei großen Notizen
+• Problem behoben, bei dem das Editor-Menü immer denkt, dass man sich auf der letzten Seite einer Notiz befindet
+• Dem Editormenü wurde ein Ziehpunkt hinzugefügt
+• Sie erhalten jetzt eine Meldung, wenn Sie versuchen, sich bei einem nicht unterstützten Nextcloud-Server anzumelden

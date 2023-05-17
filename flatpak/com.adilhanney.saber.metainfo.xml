@@ -66,6 +66,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.6" type="development" date="2023-05-17">
+            <description>
+                <ul>
+                    <li>Performance improvements with large notes</li>
+                    <li>Fixed the editor menu always thinking you're on the last page of a note</li>
+                    <li>Added a drag handle to the editor menu</li>
+                    <li>You'll now get a message if you try to login to an unsupported Nextcloud server</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.5" type="development" date="2023-05-14">
             <description>
                 <ul>

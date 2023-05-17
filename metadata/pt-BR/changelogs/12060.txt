@@ -1,0 +1,4 @@
+• Melhorias de desempenho com notas grandes
+• Corrigido o menu do editor sempre pensando que você está na última página de uma nota
+• Adicionada uma alça de arrastar ao menu do editor
+• Agora você receberá uma mensagem se tentar fazer login em um servidor Nextcloud não suportado

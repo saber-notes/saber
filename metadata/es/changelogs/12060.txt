@@ -1,0 +1,4 @@
+• Mejoras de rendimiento con notas grandes
+• Se arregló el menú del editor siempre pensando que estás en la última página de una nota
+• Se agregó un controlador de arrastre al menú del editor.
+• Ahora recibirá un mensaje si intenta iniciar sesión en un servidor Nextcloud no compatible

@@ -1,0 +1,4 @@
+• Zlepšení výkonu s velkými poznámkami
+• Opravena nabídka editoru, která si vždy myslela, že jste na poslední stránce poznámky
+• Do nabídky editoru přidán táhlo přetažení
+• Nyní obdržíte zprávu, pokud se pokusíte přihlásit k nepodporovanému serveru Nextcloud
