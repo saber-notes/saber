@@ -316,7 +316,12 @@ class EditorImage extends ChangeNotifier {
     image.Image? decoded = _decodeImage(bytes, extension);
     if (decoded == null) return null;
 
-    decoded = image.copyResize(decoded, width: newSize.width.toInt(), height: newSize.height.toInt());
+    decoded = image.copyResize(
+      decoded,
+      width: newSize.width.toInt(),
+      height: newSize.height.toInt(),
+      interpolation: image.Interpolation.cubic,
+    );
     decoded = image.bakeOrientation(decoded);
 
     return image.encodePng(decoded);
