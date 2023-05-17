@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2204 (157 per locale)
 ///
-/// Built on 2023-05-17 at 00:38 UTC
+/// Built on 2023-05-17 at 01:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5180,7 +5180,7 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => 'Pulisci pagina ${page}/${totalPages}';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Pulisci pagina ${page}/${totalPages} totali';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get insertPage => 'Inserisci pagina sotto';
 	@override String get duplicatePage => 'Pagina duplicata';
