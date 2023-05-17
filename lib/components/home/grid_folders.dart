@@ -23,7 +23,8 @@ class GridFolders extends StatelessWidget {
     /// The cards that come before the actual folders
     final extraCards = <FolderCardType>[
       if (!isAtRoot) FolderCardType.BackFolder,
-      FolderCardType.NewFolder,
+      // todo: implement new folder button
+      // FolderCardType.NewFolder,
     ];
 
     return SliverAlignedGrid.count(
