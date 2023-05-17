@@ -238,7 +238,7 @@
   "ru": {
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure": "На данном сервере запущен Nextcloud $v. Но, эта версия Sabre поддерживает только Nextcloud $s."
       }
     },
     "editor": {
