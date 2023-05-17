@@ -26,6 +26,16 @@ class _NcLoginPageState extends State<NcLoginPage> {
       password: loginDetails.ncPassword,
     );
 
+    final bool ncServerIsSupported;
+    try {
+      ncServerIsSupported = await client.core.isSupported();
+    } catch (e) {
+      throw NcLoginFailure();
+    }
+    if (!ncServerIsSupported) {
+      throw NcUnsupportedFailure();
+    }
+
     final String username;
     try {
       username = await client.getUsername();

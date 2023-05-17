@@ -330,6 +330,11 @@ class NcLoginFailure implements LoginFailure {
   @override
   final String message = t.login.feedbacks.ncLoginFailed;
 }
+class NcUnsupportedFailure implements LoginFailure {
+  // todo: add a specific message about the supported Nextcloud version
+  @override
+  final String message = t.login.feedbacks.ncLoginFailed;
+}
 class EncLoginFailure implements LoginFailure {
   @override
   final String message = t.login.feedbacks.encLoginFailed;
