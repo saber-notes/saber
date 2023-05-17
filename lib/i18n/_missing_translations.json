@@ -25,12 +25,12 @@
   "cs": {
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure": "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s."
       }
     },
     "editor": {
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+        "clearPage(OUTDATED)": "Smazat obsah stránky $page/$totalPages"
       }
     }
   },
