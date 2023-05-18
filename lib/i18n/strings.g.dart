@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2205 (157 per locale)
+/// Strings: 2206 (157 per locale)
 ///
-/// Built on 2023-05-17 at 02:30 UTC
+/// Built on 2023-05-18 at 19:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6171,6 +6171,7 @@ class _StringsLoginFeedbacksRu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Введите пароль шифрования.';
 	@override String get checkUrl => 'Пожалуйста, введите корректный URL адрес.';
 	@override String get ncLoginFailed => 'Ошибка входа. Проверьте свои данные и подключение к сети.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'На данном сервере запущен Nextcloud ${v}. Но, эта версия Saber поддерживает только Nextcloud ${s}.';
 	@override String get encLoginFailed => 'Не удалось войти. Проверьте пароль шифрования.';
 	@override String get loginSuccess => 'Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…';
 }
