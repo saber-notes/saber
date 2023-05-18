@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2206 (157 per locale)
 ///
-/// Built on 2023-05-18 at 19:35 UTC
+/// Built on 2023-05-18 at 19:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2131,7 +2131,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
 	@override String get maxImageSize => 'Maximale Bildgröße';
-	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Andwendung';
+	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
