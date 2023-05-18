@@ -236,11 +236,6 @@
     }
   },
   "ru": {
-    "login": {
-      "feedbacks": {
-        "ncUnsupportedFailure": "На данном сервере запущен Nextcloud $v. Но, эта версия Sabre поддерживает только Nextcloud $s."
-      }
-    },
     "editor": {
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
