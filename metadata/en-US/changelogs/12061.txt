@@ -1,0 +1,2 @@
+• Thumbnails should be slightly better quality for new images
+• F-Droid users will see smaller download sizes

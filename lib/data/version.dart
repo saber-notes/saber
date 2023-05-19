@@ -2,7 +2,7 @@
 // Run `./scripts/apply_version.sh --help` for more information.
 
 /// The current app version as an ordinal number.
-const int buildNumber = 12060;
+const int buildNumber = 12061;
 
 /// The current app version as a string.
 const String buildName = '0.12.6';
