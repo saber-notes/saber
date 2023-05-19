@@ -1,0 +1,2 @@
+• As miniaturas devem ter uma qualidade um pouco melhor para novas imagens
+• Os usuários do F-Droid verão tamanhos de download menores
