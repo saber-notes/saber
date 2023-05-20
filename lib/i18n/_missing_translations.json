@@ -44,32 +44,7 @@
       }
     }
   },
-  "cs": {
-    "editor": {
-      "colors": {
-        "colorPicker": "Vybrat vlastní barvu",
-        "black": "Černá",
-        "darkGrey": "Tmavě šedá",
-        "grey": "Šedá",
-        "lightGrey": "Světle šedá",
-        "white": "Bílá",
-        "red": "Červená",
-        "green": "Zelená",
-        "blue": "Modrá",
-        "yellow": "Žlutá",
-        "purple": "Purpurová",
-        "orange": "Oranžová",
-        "pastelRed": "Pastelová červená",
-        "pastelOrange": "Pastelová oranžová",
-        "pastelYellow": "Pastelová žlutá",
-        "pastelGreen": "Pastelová zelená",
-        "pastelCyan": "Pastelová azurová",
-        "pastelBlue": "Pastelová modrá",
-        "pastelPurple": "Pastelová purpurová",
-        "pastelPink": "Pastelová růžová"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "login": {
       "feedbacks": {
