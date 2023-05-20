@@ -59,6 +59,9 @@ class CanvasGestureDetector extends StatefulWidget {
   @override
   State<CanvasGestureDetector> createState() => _CanvasGestureDetectorState();
 
+  static const double kMinScale = 0.3;
+  static const double kMaxScale = 5;
+
   static double getTopOfPage({
     required int pageIndex,
     required List<EditorPage> pages,
@@ -224,8 +227,8 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                 this.containerBounds = containerBounds;
 
                 return InteractiveCanvasViewer.builder(
-                  minScale: zoomLockedValue ?? 0.3,
-                  maxScale: zoomLockedValue ?? 5,
+                  minScale: zoomLockedValue ?? CanvasGestureDetector.kMinScale,
+                  maxScale: zoomLockedValue ?? CanvasGestureDetector.kMaxScale,
                   panEnabled: !panLock,
 
                   interactionEndFrictionCoefficient: InteractiveCanvasViewer.kDrag * 100,
