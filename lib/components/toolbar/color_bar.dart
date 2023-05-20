@@ -22,7 +22,9 @@ class ColorBar extends StatelessWidget {
   final Color? currentColor;
   final bool invert;
 
-  static List<Color> get colorPresets => Prefs.preferGreyscale.value ? greyScaleColorOptions : normalColorOptions;
+  static List<Color> get colorPresets => Prefs.preferGreyscale.value
+      ? greyScaleColorOptions
+      : normalColorOptions;
   static final List<Color> normalColorOptions = [
     Colors.black,
     Colors.red,
@@ -32,6 +34,17 @@ class ColorBar extends StatelessWidget {
     Colors.purple,
     Colors.orange,
     Colors.white,
+    ..._pastelColorOptions,
+  ];
+  static const List<Color> _pastelColorOptions = [
+    Color.fromRGBO(255, 173, 173, 1),
+    Color.fromRGBO(255, 214, 165, 1),
+    Color.fromRGBO(253, 255, 182, 1),
+    Color.fromRGBO(202, 255, 191, 1),
+    Color.fromRGBO(155, 246, 255, 1),
+    Color.fromRGBO(160, 196, 255, 1),
+    Color.fromRGBO(189, 178, 255, 1),
+    Color.fromRGBO(255, 198, 255, 1),
   ];
   static final List<Color> greyScaleColorOptions = [
     Colors.black,
