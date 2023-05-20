@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2226 (159 per locale)
+/// Strings: 2246 (160 per locale)
 ///
-/// Built on 2023-05-20 at 19:33 UTC
+/// Built on 2023-05-20 at 20:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1499,6 +1499,7 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarCs toolbar = _StringsEditorToolbarCs._(_root);
 	@override late final _StringsEditorPensCs pens = _StringsEditorPensCs._(_root);
 	@override late final _StringsEditorPenOptionsCs penOptions = _StringsEditorPenOptionsCs._(_root);
+	@override late final _StringsEditorColorsCs colors = _StringsEditorColorsCs._(_root);
 	@override late final _StringsEditorImageOptionsCs imageOptions = _StringsEditorImageOptionsCs._(_root);
 	@override late final _StringsEditorMenuCs menu = _StringsEditorMenuCs._(_root);
 	@override late final _StringsEditorNewerFileFormatCs newerFileFormat = _StringsEditorNewerFileFormatCs._(_root);
@@ -1622,7 +1623,7 @@ class _StringsSettingsAccentColorPickerCs extends _StringsSettingsAccentColorPic
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get pickAColor => 'Vyberte barvu';
+	@override String get pickAColor => 'Výběr vlastní barvy';
 }
 
 // Path: settings.straightenDelay
@@ -1849,6 +1850,35 @@ class _StringsEditorPenOptionsCs extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => 'Velikost';
 	@override String get sizeDragHint => 'Posunem vlevo nebo vpravo změníte velikost';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsCs extends _StringsEditorColorsEn {
+	_StringsEditorColorsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Vybrat vlastní barvu';
+	@override String get black => 'Černá';
+	@override String get darkGrey => 'Tmavě šedá';
+	@override String get grey => 'Šedá';
+	@override String get lightGrey => 'Světle šedá';
+	@override String get white => 'Bílá';
+	@override String get red => 'Červená';
+	@override String get green => 'Zelená';
+	@override String get blue => 'Modrá';
+	@override String get yellow => 'Žlutá';
+	@override String get purple => 'Purpurová';
+	@override String get orange => 'Oranžová';
+	@override String get pastelRed => 'Pastelová červená';
+	@override String get pastelOrange => 'Pastelová oranžová';
+	@override String get pastelYellow => 'Pastelová žlutá';
+	@override String get pastelGreen => 'Pastelová zelená';
+	@override String get pastelCyan => 'Pastelová azurová';
+	@override String get pastelBlue => 'Pastelová modrá';
+	@override String get pastelPurple => 'Pastelová purpurová';
+	@override String get pastelPink => 'Pastelová růžová';
 }
 
 // Path: editor.imageOptions
