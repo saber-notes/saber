@@ -41,6 +41,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:super_clipboard/super_clipboard.dart';
+import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 class Editor extends StatefulWidget {
   Editor({
@@ -228,17 +229,28 @@ class EditorState extends State<Editor> {
     if (_ctrlMinus != null) Keybinder.remove(_ctrlMinus!);
   }
 
-  void zoomIn() => _zoomInOrOut(zoomIn: true);
-  void zoomOut() => _zoomInOrOut(zoomIn: false);
-  void _zoomInOrOut({required bool zoomIn}) {
-    final oldScale = _transformationController.value.getMaxScaleOnAxis();
-    final newScale = oldScale + (zoomIn ? 0.1 : -0.1);
+  void zoomIn() => _transformationController.value = zoomInOrOut(
+    zoomIn: true,
+    currentScale: _transformationController.value.getMaxScaleOnAxis(),
+    translation: _transformationController.value.getTranslation(),
+  ) ?? _transformationController.value;
+  void zoomOut() => _transformationController.value = zoomInOrOut(
+    zoomIn: false,
+    currentScale: _transformationController.value.getMaxScaleOnAxis(),
+    translation: _transformationController.value.getTranslation(),
+  ) ?? _transformationController.value;
+  @visibleForTesting
+  static Matrix4? zoomInOrOut({
+    required bool zoomIn,
+    required double currentScale,
+    required Vector3 translation,
+  }) {
+    final newScale = currentScale + (zoomIn ? 0.1 : -0.1);
 
-    if (newScale < CanvasGestureDetector.kMinScale) return;
-    if (newScale > CanvasGestureDetector.kMaxScale) return;
+    if (newScale < CanvasGestureDetector.kMinScale) return null;
+    if (newScale > CanvasGestureDetector.kMaxScale) return null;
 
-    final translation = _transformationController.value.getTranslation();
-    _transformationController.value = Matrix4.identity()
+    return Matrix4.identity()
       ..translate(translation.x, translation.y)
       ..scale(newScale);
   }
