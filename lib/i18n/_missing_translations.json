@@ -17,12 +17,59 @@
       }
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       }
     }
   },
-  "cs": {},
+  "cs": {
+    "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      }
+    }
+  },
   "de": {
     "login": {
       "feedbacks": {
@@ -57,6 +104,28 @@
       ]
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
@@ -102,6 +171,28 @@
       ]
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
@@ -120,6 +211,28 @@
       }
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       }
@@ -132,6 +245,28 @@
       }
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       }
@@ -204,6 +339,28 @@
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "imageOptions": {
         "removeAsBackground": "Remove as background"
       },
@@ -226,6 +383,30 @@
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
       }
+    },
+    "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      }
     }
   },
   "pt-BR": {
@@ -233,10 +414,56 @@
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
       }
+    },
+    "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      }
     }
   },
   "ru": {
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       }
@@ -274,6 +501,28 @@
       ]
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages",
         "insertPage": "Insert page below",
@@ -341,6 +590,28 @@
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "imageOptions": {
         "removeAsBackground": "Remove as background"
       },
@@ -363,6 +634,28 @@
       }
     },
     "editor": {
+      "colors": {
+        "colorPicker": "Color picker",
+        "black": "Black",
+        "darkGrey": "Dark grey",
+        "grey": "Grey",
+        "lightGrey": "Light grey",
+        "white": "White",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "yellow": "Yellow",
+        "purple": "Purple",
+        "orange": "Orange",
+        "pastelRed": "Pastel red",
+        "pastelOrange": "Pastel orange",
+        "pastelYellow": "Pastel yellow",
+        "pastelGreen": "Pastel green",
+        "pastelCyan": "Pastel cyan",
+        "pastelBlue": "Pastel blue",
+        "pastelPurple": "Pastel purple",
+        "pastelPink": "Pastel pink"
+      },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       }

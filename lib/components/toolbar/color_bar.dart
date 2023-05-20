@@ -8,6 +8,8 @@ import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
+typedef NamedColor = ({String name, Color color});
+
 class ColorBar extends StatelessWidget {
   const ColorBar({
     super.key,
@@ -22,37 +24,49 @@ class ColorBar extends StatelessWidget {
   final Color? currentColor;
   final bool invert;
 
-  static List<Color> get colorPresets => Prefs.preferGreyscale.value
+  static List<NamedColor> get colorPresets => Prefs.preferGreyscale.value
       ? greyScaleColorOptions
       : normalColorOptions;
-  static final List<Color> normalColorOptions = [
-    Colors.black,
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-    Colors.purple,
-    Colors.orange,
-    Colors.white,
+  static final List<NamedColor> normalColorOptions = [
+    (name: t.editor.colors.black, color: Colors.black),
+    (name: t.editor.colors.red, color: Colors.red),
+    (name: t.editor.colors.orange, color: Colors.orange),
+    (name: t.editor.colors.yellow, color: Colors.yellow),
+    (name: t.editor.colors.green, color: Colors.green),
+    (name: t.editor.colors.blue, color: Colors.blue),
+    (name: t.editor.colors.purple, color: Colors.purple),
+    (name: t.editor.colors.white, color: Colors.white),
     ..._pastelColorOptions,
   ];
-  static const List<Color> _pastelColorOptions = [
-    Color.fromRGBO(255, 173, 173, 1),
-    Color.fromRGBO(255, 214, 165, 1),
-    Color.fromRGBO(253, 255, 182, 1),
-    Color.fromRGBO(202, 255, 191, 1),
-    Color.fromRGBO(155, 246, 255, 1),
-    Color.fromRGBO(160, 196, 255, 1),
-    Color.fromRGBO(189, 178, 255, 1),
-    Color.fromRGBO(255, 198, 255, 1),
+  static final List<NamedColor> _pastelColorOptions = [
+    (name: t.editor.colors.pastelRed, color: const Color.fromRGBO(255, 173, 173, 1)),
+    (name: t.editor.colors.pastelOrange, color: const Color.fromRGBO(255, 214, 165, 1)),
+    (name: t.editor.colors.pastelYellow, color: const Color.fromRGBO(253, 255, 182, 1)),
+    (name: t.editor.colors.pastelGreen, color: const Color.fromRGBO(202, 255, 191, 1)),
+    (name: t.editor.colors.pastelCyan, color: const Color.fromRGBO(155, 246, 255, 1)),
+    (name: t.editor.colors.pastelBlue, color: const Color.fromRGBO(160, 196, 255, 1)),
+    (name: t.editor.colors.pastelPurple, color: const Color.fromRGBO(189, 178, 255, 1)),
+    (name: t.editor.colors.pastelPink, color: const Color.fromRGBO(255, 198, 255, 1)),
   ];
-  static final List<Color> greyScaleColorOptions = [
-    Colors.black,
-    Colors.grey[800] ?? Colors.black54,
-    Colors.grey,
-    Colors.grey[200] ?? Colors.black12,
-    Colors.white,
+  static final List<NamedColor> greyScaleColorOptions = [
+    (name: t.editor.colors.black, color: Colors.black),
+    (name: t.editor.colors.darkGrey, color: Colors.grey[800] ?? Colors.black54),
+    (name: t.editor.colors.grey, color: Colors.grey),
+    (name: t.editor.colors.lightGrey, color: Colors.grey[200] ?? Colors.black12),
+    (name: t.editor.colors.white, color: Colors.white),
   ];
+  static final List<NamedColor> _allColors = [
+    ...normalColorOptions,
+    ...greyScaleColorOptions,
+  ];
+  static String? findColorName(Color searchColor) {
+    for (NamedColor namedColor in _allColors) {
+      if (namedColor.color == searchColor) {
+        return namedColor.name;
+      }
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +78,7 @@ class ColorBar extends StatelessWidget {
         isSelected: currentColor?.withAlpha(255).value == int.parse(colorString),
         enabled: currentColor != null,
         onTap: () => setColor(Color(int.parse(colorString))),
+        tooltip: findColorName(Color(int.parse(colorString))),
         child: Container(
           decoration: BoxDecoration(
             color: Color(int.parse(colorString)).withInversion(invert),
@@ -80,6 +95,7 @@ class ColorBar extends StatelessWidget {
         isSelected: false,
         enabled: currentColor != null,
         onTap: null,
+        tooltip: null,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.transparent,
@@ -99,6 +115,7 @@ class ColorBar extends StatelessWidget {
         isSelected: currentColor?.withAlpha(255).value == pickedColor.value,
         enabled: true,
         onTap: () => openColorPicker(context),
+        tooltip: t.editor.colors.colorPicker,
         child: const DecoratedBox(
           decoration: BoxDecoration(
             color: Colors.transparent,
@@ -109,13 +126,14 @@ class ColorBar extends StatelessWidget {
       ),
 
       // color presets
-      for (Color color in colorPresets) ColorOption(
-        isSelected: currentColor?.withAlpha(255).value == color.value,
+      for (NamedColor namedColor in colorPresets) ColorOption(
+        isSelected: currentColor?.withAlpha(255).value == namedColor.color.value,
         enabled: currentColor != null,
-        onTap: () => setColor(color),
+        onTap: () => setColor(namedColor.color),
+        tooltip: namedColor.name,
         child: Container(
           decoration: BoxDecoration(
-            color: color.withInversion(invert),
+            color: namedColor.color.withInversion(invert),
             shape: BoxShape.circle,
             border: Border.all(
               color: colorScheme.onSurface.withOpacity(0.2),

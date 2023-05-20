@@ -196,6 +196,31 @@
       "size": "Size",
       "sizeDragHint": "Drag left or right to change the size"
     },
+    "colors": {
+      "colorPicker": "Color picker",
+
+      "black": "Black",
+      "darkGrey": "Dark grey",
+      "grey": "Grey",
+      "lightGrey": "Light grey",
+      "white": "White",
+
+      "red": "Red",
+      "green": "Green",
+      "blue": "Blue",
+      "yellow": "Yellow",
+      "purple": "Purple",
+      "orange": "Orange",
+
+      "pastelRed": "Pastel red",
+      "pastelOrange": "Pastel orange",
+      "pastelYellow": "Pastel yellow",
+      "pastelGreen": "Pastel green",
+      "pastelCyan": "Pastel cyan",
+      "pastelBlue": "Pastel blue",
+      "pastelPurple": "Pastel purple",
+      "pastelPink": "Pastel pink"
+    },
     "imageOptions": {
       "title": "Image options",
       "invertible": "Invertible",

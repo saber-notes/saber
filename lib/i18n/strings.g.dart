@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2206 (157 per locale)
+/// Strings: 2226 (159 per locale)
 ///
-/// Built on 2023-05-18 at 19:38 UTC
+/// Built on 2023-05-20 at 19:33 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -279,6 +279,7 @@ class _StringsEditorEn {
 	late final _StringsEditorToolbarEn toolbar = _StringsEditorToolbarEn._(_root);
 	late final _StringsEditorPensEn pens = _StringsEditorPensEn._(_root);
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
+	late final _StringsEditorColorsEn colors = _StringsEditorColorsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
 	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
@@ -629,6 +630,35 @@ class _StringsEditorPenOptionsEn {
 	// Translations
 	String get size => 'Size';
 	String get sizeDragHint => 'Drag left or right to change the size';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsEn {
+	_StringsEditorColorsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get colorPicker => 'Color picker';
+	String get black => 'Black';
+	String get darkGrey => 'Dark grey';
+	String get grey => 'Grey';
+	String get lightGrey => 'Light grey';
+	String get white => 'White';
+	String get red => 'Red';
+	String get green => 'Green';
+	String get blue => 'Blue';
+	String get yellow => 'Yellow';
+	String get purple => 'Purple';
+	String get orange => 'Orange';
+	String get pastelRed => 'Pastel red';
+	String get pastelOrange => 'Pastel orange';
+	String get pastelYellow => 'Pastel yellow';
+	String get pastelGreen => 'Pastel green';
+	String get pastelCyan => 'Pastel cyan';
+	String get pastelBlue => 'Pastel blue';
+	String get pastelPurple => 'Pastel purple';
+	String get pastelPink => 'Pastel pink';
 }
 
 // Path: editor.imageOptions
