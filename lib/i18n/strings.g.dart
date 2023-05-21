@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2246 (160 per locale)
+/// Strings: 2267 (161 per locale)
 ///
-/// Built on 2023-05-20 at 20:41 UTC
+/// Built on 2023-05-21 at 15:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7753,6 +7753,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarZhHantTw toolbar = _StringsEditorToolbarZhHantTw._(_root);
 	@override late final _StringsEditorPensZhHantTw pens = _StringsEditorPensZhHantTw._(_root);
 	@override late final _StringsEditorPenOptionsZhHantTw penOptions = _StringsEditorPenOptionsZhHantTw._(_root);
+	@override late final _StringsEditorColorsZhHantTw colors = _StringsEditorColorsZhHantTw._(_root);
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
@@ -7914,6 +7915,7 @@ class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '請輸入您的加密密碼。';
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => '伺服器正在運行Nextcloud ${v}，但這個版本的Saber只支援Nextcloud ${s}。';
 	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
 }
@@ -8102,6 +8104,35 @@ class _StringsEditorPenOptionsZhHantTw extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => '粗細';
 	@override String get sizeDragHint => '向左或向右拖動以更改大小';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsZhHantTw extends _StringsEditorColorsEn {
+	_StringsEditorColorsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => '顏色選擇器';
+	@override String get black => '黑色';
+	@override String get darkGrey => '深灰色';
+	@override String get grey => '灰色';
+	@override String get lightGrey => '淺灰色';
+	@override String get white => '白色';
+	@override String get red => '紅色';
+	@override String get green => '綠色';
+	@override String get blue => '藍色';
+	@override String get yellow => '黃色';
+	@override String get purple => '紫色';
+	@override String get orange => '橙色';
+	@override String get pastelRed => '淡紅色';
+	@override String get pastelOrange => '淡橙色';
+	@override String get pastelYellow => '淡黃色';
+	@override String get pastelGreen => '淡綠色';
+	@override String get pastelCyan => '淡青色';
+	@override String get pastelBlue => '淡藍色';
+	@override String get pastelPurple => '淡紫色';
+	@override String get pastelPink => '淡粉色';
 }
 
 // Path: editor.imageOptions

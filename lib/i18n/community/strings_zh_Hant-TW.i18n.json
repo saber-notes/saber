@@ -91,6 +91,7 @@
       "enterEncPassword": "請輸入您的加密密碼。",
       "checkUrl": "請輸入有效連結。",
       "ncLoginFailed": "登入失敗，請檢查您的詳細資訊和網路連接。",
+      "ncUnsupportedFailure": "伺服器正在運行Nextcloud $v，但這個版本的Saber只支援Nextcloud $s。",
       "encLoginFailed": "登入失敗，請檢查您的加密密碼。",
       "loginSuccess": "登入成功！我們正在設定中，請稍後……"
     },
@@ -195,6 +196,28 @@
       "size": "粗細",
       "sizeDragHint": "向左或向右拖動以更改大小"
     },
+    "colors": {
+      "colorPicker": "顏色選擇器",
+      "black": "黑色",
+      "darkGrey": "深灰色",
+      "grey": "灰色",
+      "lightGrey": "淺灰色",
+      "white": "白色",
+      "red": "紅色",
+      "green": "綠色",
+      "blue": "藍色",
+      "yellow": "黃色",
+      "purple": "紫色",
+      "orange": "橙色",
+      "pastelRed": "淡紅色",
+      "pastelOrange": "淡橙色",
+      "pastelYellow": "淡黃色",
+      "pastelGreen": "淡綠色",
+      "pastelCyan": "淡青色",
+      "pastelBlue": "淡藍色",
+      "pastelPurple": "淡紫色",
+      "pastelPink": "淡粉色"
+    },
     "imageOptions": {
       "title": "圖片選項",
       "invertible": "反轉顏色",
@@ -204,7 +227,7 @@
       "delete": "刪除"
     },
     "menu": {
-      "clearPage(OUTDATED)": "清除頁面 $page/$totalPages",
+      "clearPage": "清除頁面 $page/$totalPages",
       "clearAllPages": "清除所有頁面",
       "insertPage": "插入以下頁面",
       "duplicatePage": "複製頁面",
