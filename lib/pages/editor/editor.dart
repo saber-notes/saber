@@ -919,16 +919,16 @@ class EditorState extends State<Editor> {
       final Uint8List imageBytes = await pdfPage.toPng();
 
       // resize to [defaultWidth] to keep pen sizes consistent
-      final Size pageSize = Size(
+      final pageSize = Size(
         EditorPage.defaultWidth,
         EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
       );
 
-      final editorPage = EditorPage(
+      final page = EditorPage(
         width: pageSize.width,
         height: pageSize.height,
       );
-      final image = EditorImage(
+      page.backgroundImage = EditorImage(
         id: coreInfo.nextImageId++,
         extension: '.png',
         bytes: imageBytes,
@@ -940,14 +940,18 @@ class EditorState extends State<Editor> {
         onMiscChange: autosaveAfterDelay,
         onLoad: () => setState(() {}),
       );
-      coreInfo.pages.add(editorPage);
-      editorPage.backgroundImage = image;
+      coreInfo.pages.add(page);
+      history.recordChange(EditorHistoryItem(
+        type: EditorHistoryItemType.insertPage,
+        pageIndex: coreInfo.pages.length - 1,
+        strokes: const [],
+        images: const [],
+        page: page,
+      ));
     }
 
     coreInfo.pages.add(emptyPage);
     setState(() {});
-
-    // todo: add to history
 
     autosaveAfterDelay();
 
