@@ -1,0 +1,4 @@
+• Miniaturansichten sollten für neue Bilder/PDFs eine etwas bessere Qualität haben
+• Desktop-Benutzer können mit Strg + und Strg - hinein- und herauszoomen.
+• Pastellfarben zur Standardfarbpalette hinzugefügt
+• Problem behoben, bei dem der Editor beim Importieren einer PDF-Datei nicht aktualisiert wurde, bis Sie manuell gescrollt haben

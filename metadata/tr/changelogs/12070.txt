@@ -1,0 +1,4 @@
+• Küçük resimler, yeni resimler/PDF'ler için biraz daha kaliteli olmalıdır
+• Masaüstü kullanıcıları Ctrl + ve Ctrl - ile yakınlaştırabilir ve uzaklaştırabilir.
+• Varsayılan renk paletine pastel renkler eklendi
+• Bir PDF'yi içe aktarırken, siz manuel olarak kaydırana kadar düzenleyicinin güncellenmemesi düzeltildi.

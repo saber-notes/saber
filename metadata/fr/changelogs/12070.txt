@@ -1,0 +1,4 @@
+• Les vignettes doivent être de qualité légèrement meilleure pour les nouvelles images/PDF.
+• Les utilisateurs de bureau peuvent zoomer et dézoomer avec Ctrl + et Ctrl -
+• Ajout de couleurs pastel à la palette de couleurs par défaut
+• Correction de l'éditeur qui ne se mettait pas à jour lors de l'importation d'un PDF jusqu'à ce que vous fassiez défiler manuellement

@@ -1,0 +1,4 @@
+• A miniatűröknek valamivel jobb minőségűnek kell lenniük az új képek/PDF-ek esetében
+• Az asztali felhasználók a Ctrl + és a Ctrl - billentyűkkel nagyíthatnak és kicsinyíthetnek
+• Pasztell színek hozzáadása az alapértelmezett színpalettához
+• Javítottuk, hogy a szerkesztő nem frissül a PDF importálásakor, amíg Ön manuálisan nem görgetett

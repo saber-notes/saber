@@ -66,6 +66,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.7" type="development" date="2023-05-21">
+            <description>
+                <ul>
+                    <li>Thumbnails should be slightly better quality for new images/PDFs</li>
+                    <li>Desktop users can zoom in and out with Ctrl + and Ctrl -</li>
+                    <li>Added pastel colors to the default color pallet</li>
+                    <li>Fixed the editor not updating when importing a PDF until you manually scrolled</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.6" type="development" date="2023-05-17">
             <description>
                 <ul>

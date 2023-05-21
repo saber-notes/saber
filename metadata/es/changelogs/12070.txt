@@ -1,0 +1,4 @@
+• Las miniaturas deberían tener una calidad ligeramente mejor para las nuevas imágenes/PDF.
+• Los usuarios de escritorio pueden acercar y alejar con Ctrl + y Ctrl -
+• Se agregaron colores pastel a la paleta de colores predeterminada.
+• Se corrigió que el editor no se actualizaba al importar un PDF hasta que se desplazaba manualmente
