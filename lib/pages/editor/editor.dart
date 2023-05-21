@@ -945,6 +945,7 @@ class EditorState extends State<Editor> {
     }
 
     coreInfo.pages.add(emptyPage);
+    setState(() {});
 
     // todo: add to history
 
