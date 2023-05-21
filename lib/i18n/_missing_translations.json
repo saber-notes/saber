@@ -602,38 +602,5 @@
       }
     }
   },
-  "zh-Hant-TW": {
-    "login": {
-      "feedbacks": {
-        "ncUnsupportedFailure": "伺服器正在運行Nextcloud $v，但這個版本的Saber只支援Nextcloud $s。"
-      }
-    },
-    "editor": {
-      "colors": {
-        "colorPicker": "顏色選擇器",
-        "black": "黑色",
-        "darkGrey": "深灰色",
-        "grey": "灰色",
-        "lightGrey": "淺灰色",
-        "white": "白色",
-        "red": "紅色",
-        "green": "綠色",
-        "blue": "藍色",
-        "yellow": "黃色",
-        "purple": "紫色",
-        "orange": "橙色",
-        "pastelRed": "淡紅色",
-        "pastelOrange": "淡橙色",
-        "pastelYellow": "淡黃色",
-        "pastelGreen": "淡綠色",
-        "pastelCyan": "淡青色",
-        "pastelBlue": "淡藍色",
-        "pastelPurple": "淡紫色",
-        "pastelPink": "淡粉色"
-      },
-      "menu": {
-        "clearPage(OUTDATED)": "清除頁面 $page/$totalPages"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
