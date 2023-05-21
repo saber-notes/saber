@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2267 (161 per locale)
+/// Strings: 2288 (163 per locale)
 ///
-/// Built on 2023-05-21 at 15:40 UTC
+/// Built on 2023-05-21 at 15:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4868,6 +4868,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarIt toolbar = _StringsEditorToolbarIt._(_root);
 	@override late final _StringsEditorPensIt pens = _StringsEditorPensIt._(_root);
 	@override late final _StringsEditorPenOptionsIt penOptions = _StringsEditorPenOptionsIt._(_root);
+	@override late final _StringsEditorColorsIt colors = _StringsEditorColorsIt._(_root);
 	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
 	@override late final _StringsEditorMenuIt menu = _StringsEditorMenuIt._(_root);
 	@override late final _StringsEditorNewerFileFormatIt newerFileFormat = _StringsEditorNewerFileFormatIt._(_root);
@@ -5029,6 +5030,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Inserisci la tua password di crittografia.';
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
 	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Il server specificato esegue Nextcloud ${v} ma questa versione di Saber supporta solo Nextcloud ${s}.';
 	@override String get encLoginFailed => 'Accesso non riuscito, controllare la password di crittografia.';
 	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
 }
@@ -5217,6 +5219,35 @@ class _StringsEditorPenOptionsIt extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => 'Dimesione';
 	@override String get sizeDragHint => 'Trascina a sinistra o a destra per modificare le dimensioni';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsIt extends _StringsEditorColorsEn {
+	_StringsEditorColorsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Selettore di colori';
+	@override String get black => 'Nero';
+	@override String get darkGrey => 'Grigio scuro';
+	@override String get grey => 'Grigio';
+	@override String get lightGrey => 'Grigio chiaro';
+	@override String get white => 'Bianco';
+	@override String get red => 'Rosso';
+	@override String get green => 'Verde';
+	@override String get blue => 'Blu';
+	@override String get yellow => 'Giallo';
+	@override String get purple => 'Porpora';
+	@override String get orange => 'Arancione';
+	@override String get pastelRed => 'Rosso pastello';
+	@override String get pastelOrange => 'Arancione pastello';
+	@override String get pastelYellow => 'Giallo pastello';
+	@override String get pastelGreen => 'Verde pastello';
+	@override String get pastelCyan => 'Ciano pastello';
+	@override String get pastelBlue => 'Blu pastello';
+	@override String get pastelPurple => 'Porpora pastella';
+	@override String get pastelPink => 'Rosa pastello';
 }
 
 // Path: editor.imageOptions
