@@ -91,6 +91,7 @@
       "enterEncPassword": "Inserisci la tua password di crittografia.",
       "checkUrl": "Per favore, inserisci un URL valido.",
       "ncLoginFailed": "Accesso fallito, controlla i tuoi dati e la connessione di rete.",
+      "ncUnsupportedFailure": "Il server specificato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud $s.",
       "encLoginFailed": "Accesso non riuscito, controllare la password di crittografia.",
       "loginSuccess": "Accesso riuscito! Si prega di attendere mentre configuriamo..."
     },
@@ -194,6 +195,28 @@
     "penOptions": {
       "size": "Dimesione",
       "sizeDragHint": "Trascina a sinistra o a destra per modificare le dimensioni"
+    },
+    "colors": {
+      "colorPicker": "Selettore di colori",
+      "black": "Nero",
+      "darkGrey": "Grigio scuro",
+      "grey": "Grigio",
+      "lightGrey": "Grigio chiaro",
+      "white": "Bianco",
+      "red": "Rosso",
+      "green": "Verde",
+      "blue": "Blu",
+      "yellow": "Giallo",
+      "purple": "Porpora",
+      "orange": "Arancione",
+      "pastelRed": "Rosso pastello",
+      "pastelOrange": "Arancione pastello",
+      "pastelYellow": "Giallo pastello",
+      "pastelGreen": "Verde pastello",
+      "pastelCyan": "Ciano pastello",
+      "pastelBlue": "Blu pastello",
+      "pastelPurple": "Porpora pastella",
+      "pastelPink": "Rosa pastello"
     },
     "imageOptions": {
       "title": "Opzioni immagine",
