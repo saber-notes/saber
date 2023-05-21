@@ -356,31 +356,31 @@
   "it": {
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure": "Il server specificato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud $s."
       }
     },
     "editor": {
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker": "Selettore di colori",
+        "black": "Nero",
+        "darkGrey": "Grigio scuro",
+        "grey": "Grigio",
+        "lightGrey": "Grigio chiaro",
+        "white": "Bianco",
+        "red": "Rosso",
+        "green": "Verde",
+        "blue": "Blu",
+        "yellow": "Giallo",
+        "purple": "Porpora",
+        "orange": "Arancione",
+        "pastelRed": "Rosso pastello",
+        "pastelOrange": "Arancione pastello",
+        "pastelYellow": "Giallo pastello",
+        "pastelGreen": "Verde pastello",
+        "pastelCyan": "Ciano pastello",
+        "pastelBlue": "Blu pastello",
+        "pastelPurple": "Porpora pastella",
+        "pastelPink": "Rosa pastello"
       }
     }
   },
