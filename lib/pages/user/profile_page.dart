@@ -63,12 +63,7 @@ class ProfilePage extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {
-                        launchUrl(
-                          Uri.parse(Prefs.url.value),
-                          mode: Platform.isIOS
-                              ? LaunchMode.inAppWebView
-                              : LaunchMode.externalApplication
-                        );
+                        launchUrl(Uri.parse(Prefs.url.value));
                       },
                       child: Text(t.profile.quickLinks.serverHomepage),
                     ),
@@ -76,9 +71,6 @@ class ProfilePage extends StatelessWidget {
                       onPressed: () {
                         launchUrl(
                           Uri.parse('${Prefs.url.value}/index.php/settings/user/drop_account'),
-                          mode: Platform.isIOS
-                              ? LaunchMode.inAppWebView
-                              : LaunchMode.externalApplication
                         );
                       },
                       child: Text(t.profile.quickLinks.deleteAccount),

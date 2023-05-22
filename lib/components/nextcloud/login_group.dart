@@ -263,12 +263,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                     text: text,
                     style: TextStyle(color: colorScheme.primary),
                     recognizer: TapGestureRecognizer()..onTap = () {
-                      launchUrl(
-                        NcLoginPage.signupUrl,
-                        mode: Platform.isIOS
-                            ? LaunchMode.inAppWebView
-                            : LaunchMode.externalApplication
-                      );
+                      launchUrl(NcLoginPage.signupUrl);
                     },
                   ),
                 ),
@@ -280,10 +275,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                     text: text,
                     style: TextStyle(color: colorScheme.primary),
                     recognizer: TapGestureRecognizer()..onTap = () {
-                      launchUrl(
-                        AppInfo.privacyPolicyUrl,
-                        mode: LaunchMode.externalApplication,
-                      );
+                      launchUrl(AppInfo.privacyPolicyUrl);
                     },
                   ),
                 ),

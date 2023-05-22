@@ -101,10 +101,7 @@ abstract class UpdateManager {
                       .then((_) => Navigator.pop(context));
                   setState(() => directDownloadStarted = true);
                 } else {
-                  launchUrl(
-                    AppInfo.releasesUrl,
-                    mode: LaunchMode.externalApplication,
-                  );
+                  launchUrl(AppInfo.releasesUrl);
                 }
               },
               child: (){

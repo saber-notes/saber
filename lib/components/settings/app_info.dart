@@ -65,30 +65,21 @@ class _AppInfoState extends State<AppInfo> {
     children: [
       const SizedBox(height: 10),
       TextButton(
-        onPressed: () => launchUrl(
-          AppInfo.sponsorUrl,
-          mode: LaunchMode.externalApplication,
-        ),
+        onPressed: () => launchUrl(AppInfo.sponsorUrl),
         child: SizedBox(
           width: double.infinity,
           child: Text(t.appInfo.sponsorButton)
         ),
       ),
       TextButton(
-        onPressed: () => launchUrl(
-          AppInfo.licenseUrl,
-          mode: LaunchMode.externalApplication,
-        ),
+        onPressed: () => launchUrl(AppInfo.licenseUrl),
         child: SizedBox(
           width: double.infinity,
           child: Text(t.appInfo.licenseButton),
         ),
       ),
       TextButton(
-        onPressed: () => launchUrl(
-          AppInfo.privacyPolicyUrl,
-          mode: LaunchMode.externalApplication,
-        ),
+        onPressed: () => launchUrl(AppInfo.privacyPolicyUrl),
         child: SizedBox(
           width: double.infinity,
           child: Text(t.appInfo.privacyPolicyButton)
