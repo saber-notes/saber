@@ -196,6 +196,28 @@
       "size": "Размер",
       "sizeDragHint": "Тяните влево или вправо, чтобы изменить размер"
     },
+    "colors": {
+      "colorPicker": "Выбор цвета",
+      "black": "Чёрный",
+      "darkGrey": "Тёмно-серый",
+      "grey": "Серый",
+      "lightGrey": "Светло-серый",
+      "white": "Белый",
+      "red": "Красный",
+      "green": "Зелёный",
+      "blue": "Синий",
+      "yellow": "Жёлтый",
+      "purple": "Фиолетовый",
+      "orange": "Оранжевый",
+      "pastelRed": "Пастельный красный",
+      "pastelOrange": "Пастельный оранжевый",
+      "pastelYellow": "Пастельный жёлтый",
+      "pastelGreen": "Пастельный зелёный",
+      "pastelCyan": "Пастельный голубой",
+      "pastelBlue": "Пастельный синий",
+      "pastelPurple": "Пастельный фиолетовый",
+      "pastelPink": "Пастельный розовый"
+    },
     "imageOptions": {
       "title": "Параметры изображения",
       "invertible": "Инвертировать",
@@ -205,7 +227,7 @@
       "delete": "Удалить"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Очистить лист $page/$totalPages",
+      "clearPage": "Очистить лист $page/$totalPages",
       "clearAllPages": "Очистить все листы",
       "insertPage": "Вставить страницу ниже",
       "duplicatePage": "Дубликат страницы",
