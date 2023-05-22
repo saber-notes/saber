@@ -705,7 +705,7 @@ class EditorState extends State<Editor> {
   void autosaveAfterDelay() {
     _hasEdited = true;
     _delayedSaveTimer?.cancel();
-    _delayedSaveTimer = Timer(const Duration(milliseconds: 1000), () {
+    _delayedSaveTimer = Timer(const Duration(milliseconds: 10000), () {
       saveToFile();
     });
   }
