@@ -388,29 +388,29 @@
   "ru": {
     "editor": {
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker": "Выбор цвета",
+        "black": "Чёрный",
+        "darkGrey": "Тёмно-серый",
+        "grey": "Серый",
+        "lightGrey": "Светло-серый",
+        "white": "Белый",
+        "red": "Красный",
+        "green": "Зелёный",
+        "blue": "Синий",
+        "yellow": "Жёлтый",
+        "purple": "Фиолетовый",
+        "orange": "Оранжевый",
+        "pastelRed": "Пастельный красный",
+        "pastelOrange": "Пастельный оранжевый",
+        "pastelYellow": "Пастельный жёлтый",
+        "pastelGreen": "Пастельный зелёный",
+        "pastelCyan": "Пастельный голубой",
+        "pastelBlue": "Пастельный синий",
+        "pastelPurple": "Пастельный фиолетовый",
+        "pastelPink": "Пастельный розовый"
       },
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+        "clearPage(OUTDATED)": "Очистить лист $page/$totalPages"
       }
     }
   },
