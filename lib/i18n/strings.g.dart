@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2308 (164 per locale)
+/// Strings: 2352 (168 per locale)
 ///
-/// Built on 2023-05-22 at 07:50 UTC
+/// Built on 2023-05-22 at 12:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7194,6 +7194,7 @@ class _StringsZhHansCn extends _StringsEn {
 	@override late final _StringsHomeZhHansCn home = _StringsHomeZhHansCn._(_root);
 	@override late final _StringsSettingsZhHansCn settings = _StringsSettingsZhHansCn._(_root);
 	@override late final _StringsLoginZhHansCn login = _StringsLoginZhHansCn._(_root);
+	@override late final _StringsProfileZhHansCn profile = _StringsProfileZhHansCn._(_root);
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
@@ -7257,6 +7258,26 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		_StringsLogin$faq$0i0$ZhHansCn._(_root),
 		_StringsLogin$faq$0i1$ZhHansCn._(_root),
 		_StringsLogin$faq$0i2$ZhHansCn._(_root),
+		_StringsLogin$faq$0i3$ZhHansCn._(_root),
+		_StringsLogin$faq$0i4$ZhHansCn._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileZhHansCn extends _StringsProfileEn {
+	_StringsProfileZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '我的用户资料';
+	@override String get logout => '注销';
+	@override late final _StringsProfileQuickLinksZhHansCn quickLinks = _StringsProfileQuickLinksZhHansCn._(_root);
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$ZhHansCn._(_root),
+		_StringsProfile$faq$0i1$ZhHansCn._(_root),
+		_StringsProfile$faq$0i2$ZhHansCn._(_root),
+		_StringsProfile$faq$0i3$ZhHansCn._(_root),
 	];
 }
 
@@ -7283,7 +7304,7 @@ class _StringsUpdateZhHansCn extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => '可用更新';
-	@override String get updateAvailableDescription => '该应用程序的新版本可用。';
+	@override String get updateAvailableDescription => '该应用的新版本可用，具有以下变更：';
 	@override String get update => '更新';
 }
 
@@ -7297,6 +7318,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarZhHansCn toolbar = _StringsEditorToolbarZhHansCn._(_root);
 	@override late final _StringsEditorPensZhHansCn pens = _StringsEditorPensZhHansCn._(_root);
 	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
+	@override late final _StringsEditorColorsZhHansCn colors = _StringsEditorColorsZhHansCn._(_root);
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
@@ -7458,6 +7480,7 @@ class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => '指定的服务器正在运行 Nextcloud ${v}，但此版本的 Saber 仅支持 Nextcloud ${s}。';
 	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 }
@@ -7502,7 +7525,7 @@ class _StringsLogin$faq$0i0$ZhHansCn extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'Nextcloud 是什么？';
-	@override String get a => 'Nextcloud 是一个私人文件同步服务器。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。';
+	@override String get a => 'Nextcloud 是一个私人文件同步服务器，等等。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。';
 }
 
 // Path: login.faq.1
@@ -7513,7 +7536,7 @@ class _StringsLogin$faq$0i1$ZhHansCn extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => '加密密码是什么？';
-	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。它不存储在服务器上，仅供 Saber 用来加密和解密您的数据。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
 }
 
 // Path: login.faq.2
@@ -7523,8 +7546,86 @@ class _StringsLogin$faq$0i2$ZhHansCn extends _StringsLogin$faq$0i2$En {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '为什么使用双重密码？';
-	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了双重安全保护来保护您的数据。';
+	@override String get q => '为什么要使用两个密码？';
+	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$ZhHansCn extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如果我使用 2FA，我该如何登录？';
+	@override String get a => '您需要创建一个“应用密码”，而不是常规的 Nextcloud 密码。您可以在安全 > 设备和会话 > 创建新应用密码下的 Nextcloud 设置中执行此操作。您的加密密码不受影响。';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$ZhHansCn extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '我可以为两者使用相同的密码吗？';
+	@override String get a => '是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。';
+}
+
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksZhHansCn extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '快速链接';
+	@override String get serverHomepage => '服务器主页';
+	@override String get deleteAccount => '删除帐户';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$ZhHansCn extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如果我注销，我的笔记会丢失吗？';
+	@override String get a => '不会。您的笔记将保留在您的设备和服务器上。在您重新登录之前，它们不会与服务器同步。请确保在注销前完成同步，以免丢失任何数据（请在主屏幕上查看同步进度）。';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$ZhHansCn extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如何更改我的 Nextcloud 密码？';
+	@override String get a => '转到您的服务器网站并登录。然后转到设置 > 安全 > 更改密码。更改密码后，您需要注销并重新登录 Saber。';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$ZhHansCn extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如何更改我的加密密码？';
+	@override String get a => '1.退出Saber。请确保在注销前完成同步，以免丢失任何数据（在主屏幕上查看同步进度）。\n\n2.转到您的服务器网站并删除您的“Saber”文件夹。这将从服务器中删除您的所有笔记。\n\n3.重新登录 Saber。您可以在登录时选择一个新的加密密码。\n\n4.不要忘记在您的其他设备上注销并重新登录 Saber。';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$ZhHansCn extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '如何删除我的帐户？';
+	@override String get a => '点击上面的 "${_root.profile.quickLinks.deleteAccount}" 按钮，并在需要时登录。\n\n如果您使用的是官方 Saber 服务器，您的帐户将在 1 周的宽限期后被删除。在此期间，您可以通过 adilhanney@disroot.org 与我联系以取消删除。\n\n如果您使用的是第三方服务器，则可能没有删除帐户的选项：您需要咨询服务器的隐私政策以获取更多信息。';
 }
 
 // Path: editor.toolbar
@@ -7570,6 +7671,35 @@ class _StringsEditorPenOptionsZhHansCn extends _StringsEditorPenOptionsEn {
 	@override String get sizeDragHint => '左右拖动更改粗细';
 }
 
+// Path: editor.colors
+class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
+	_StringsEditorColorsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => '选色器';
+	@override String get black => '黑色';
+	@override String get darkGrey => '深灰色';
+	@override String get grey => '灰色';
+	@override String get lightGrey => '浅灰色';
+	@override String get white => '白色';
+	@override String get red => '红色';
+	@override String get green => '绿色';
+	@override String get blue => '蓝色';
+	@override String get yellow => '黄色';
+	@override String get purple => '紫色';
+	@override String get orange => '橙色';
+	@override String get pastelRed => '浅红色';
+	@override String get pastelOrange => '浅橙色';
+	@override String get pastelYellow => '浅黄色';
+	@override String get pastelGreen => '浅绿色';
+	@override String get pastelCyan => '浅青色';
+	@override String get pastelBlue => '浅蓝色';
+	@override String get pastelPurple => '浅紫色';
+	@override String get pastelPink => '浅粉色';
+}
+
 // Path: editor.imageOptions
 class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
 	_StringsEditorImageOptionsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -7581,6 +7711,7 @@ class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
 	@override String get invertible => '反转颜色';
 	@override String get download => '下载';
 	@override String get setAsBackground => '设为背景';
+	@override String get removeAsBackground => '作为背景移除';
 	@override String get delete => '删除';
 }
 
@@ -7593,6 +7724,9 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	// Translations
 	@override String clearPage({required Object page, required Object totalPages}) => '清除页面 ${page}/${totalPages}';
 	@override String get clearAllPages => '清除全部页面';
+	@override String get insertPage => '在下方插入页面';
+	@override String get duplicatePage => '复制页面';
+	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同时控制文本大小';
 	@override String get backgroundImage => '背景图片';
@@ -7660,10 +7794,12 @@ class _StringsEditorMenuBgPatternsZhHansCn extends _StringsEditorMenuBgPatternsE
 	// Translations
 	@override String get none => '空白';
 	@override String get college => 'College-ruled';
+	@override String get collegeRtl => 'College-ruled（反转）';
 	@override String get lined => '横线';
 	@override String get grid => '网格';
 	@override String get dots => '点';
 	@override String get staffs => '五线谱';
+	@override String get cornell => 'Cornell';
 }
 
 // Path: <root>
