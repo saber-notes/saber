@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2288 (163 per locale)
+/// Strings: 2308 (164 per locale)
 ///
-/// Built on 2023-05-21 at 15:42 UTC
+/// Built on 2023-05-22 at 07:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6101,6 +6101,7 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarRu toolbar = _StringsEditorToolbarRu._(_root);
 	@override late final _StringsEditorPensRu pens = _StringsEditorPensRu._(_root);
 	@override late final _StringsEditorPenOptionsRu penOptions = _StringsEditorPenOptionsRu._(_root);
+	@override late final _StringsEditorColorsRu colors = _StringsEditorColorsRu._(_root);
 	@override late final _StringsEditorImageOptionsRu imageOptions = _StringsEditorImageOptionsRu._(_root);
 	@override late final _StringsEditorMenuRu menu = _StringsEditorMenuRu._(_root);
 	@override late final _StringsEditorNewerFileFormatRu newerFileFormat = _StringsEditorNewerFileFormatRu._(_root);
@@ -6451,6 +6452,35 @@ class _StringsEditorPenOptionsRu extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => 'Размер';
 	@override String get sizeDragHint => 'Тяните влево или вправо, чтобы изменить размер';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsRu extends _StringsEditorColorsEn {
+	_StringsEditorColorsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Выбор цвета';
+	@override String get black => 'Чёрный';
+	@override String get darkGrey => 'Тёмно-серый';
+	@override String get grey => 'Серый';
+	@override String get lightGrey => 'Светло-серый';
+	@override String get white => 'Белый';
+	@override String get red => 'Красный';
+	@override String get green => 'Зелёный';
+	@override String get blue => 'Синий';
+	@override String get yellow => 'Жёлтый';
+	@override String get purple => 'Фиолетовый';
+	@override String get orange => 'Оранжевый';
+	@override String get pastelRed => 'Пастельный красный';
+	@override String get pastelOrange => 'Пастельный оранжевый';
+	@override String get pastelYellow => 'Пастельный жёлтый';
+	@override String get pastelGreen => 'Пастельный зелёный';
+	@override String get pastelCyan => 'Пастельный голубой';
+	@override String get pastelBlue => 'Пастельный синий';
+	@override String get pastelPurple => 'Пастельный фиолетовый';
+	@override String get pastelPink => 'Пастельный розовый';
 }
 
 // Path: editor.imageOptions

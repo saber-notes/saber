@@ -385,35 +385,7 @@
       }
     }
   },
-  "ru": {
-    "editor": {
-      "colors": {
-        "colorPicker": "Выбор цвета",
-        "black": "Чёрный",
-        "darkGrey": "Тёмно-серый",
-        "grey": "Серый",
-        "lightGrey": "Светло-серый",
-        "white": "Белый",
-        "red": "Красный",
-        "green": "Зелёный",
-        "blue": "Синий",
-        "yellow": "Жёлтый",
-        "purple": "Фиолетовый",
-        "orange": "Оранжевый",
-        "pastelRed": "Пастельный красный",
-        "pastelOrange": "Пастельный оранжевый",
-        "pastelYellow": "Пастельный жёлтый",
-        "pastelGreen": "Пастельный зелёный",
-        "pastelCyan": "Пастельный голубой",
-        "pastelBlue": "Пастельный синий",
-        "pastelPurple": "Пастельный фиолетовый",
-        "pastelPink": "Пастельный розовый"
-      },
-      "menu": {
-        "clearPage(OUTDATED)": "Очистить лист $page/$totalPages"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "login": {
       "feedbacks": {
