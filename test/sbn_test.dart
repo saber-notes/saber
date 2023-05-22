@@ -257,5 +257,35 @@ void main() {
       expect(image.svgString.isNotEmpty, true);
       expect(image.svgString, "<svg width='100px' height='100px' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='50'/></svg>");
     });
+
+    test('stress test from #179', () async {
+      const path = 'test/sbn_examples/stress_test_179.sbn';
+      File file = File(path);
+      String contents = await file.readAsString();
+
+      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
+        contents,
+        path: path,
+        readOnly: true,
+        onlyFirstPage: false,
+        alwaysUseIsolate: true,
+      );
+
+      // make sure the file was loaded
+      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
+
+      expect(coreInfo.nextImageId, 2);
+      expect(coreInfo.pages.length, 2);
+      expect(coreInfo.pages[0].isEmpty, false);
+      expect(coreInfo.pages[1].isEmpty, true);
+
+      final page = coreInfo.pages[0];
+      expect(page.size.width, 1000);
+      expect(page.size.height, 1400);
+      expect(page.quill.controller.document.getPlainText(0, page.quill.controller.document.length),
+          'Stress testing the performance of Saber with a note that has lots of strokes. \n');
+      expect(page.strokes.length, 776);
+      expect(page.images.length, 2);
+    });
   });
 }
