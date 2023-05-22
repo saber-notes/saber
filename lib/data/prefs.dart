@@ -367,13 +367,13 @@ class PlainPref<T> extends IPref<T> {
         if (list == null || list.length != 2) return null;
         int used = int.tryParse(list[0]) ?? 0;
         int total = int.tryParse(list[1]) ?? 1; // avoid division by zero
-        return Quota(
-          free: total - used,
-          used: used,
-          total: total,
-          relative: used / total * 100,
-          quota: total, // I don't know what this [quota] field is for, but I don't use it
-        ) as T;
+        return Quota.fromJson({
+          'free': total - used,
+          'used': used,
+          'total': total,
+          'relative': used / total * 100,
+          'quota': total, // I don't know what this [quota] field is for, but I don't use it
+        }) as T;
       } else if (T == AxisDirection) {
         final index = _prefs!.getInt(key);
         return index != null ? AxisDirection.values[index] as T? : null;

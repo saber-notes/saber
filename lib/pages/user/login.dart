@@ -28,10 +28,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
 
     final NextcloudCoreServerCapabilities_Ocs_Data capabilities;
     final bool ncServerIsSupported;
+    final int ncSupportedVersion;
     try {
       capabilities = await client.core.getCapabilities()
         .then((capabilities) => capabilities.ocs.data);
-      ncServerIsSupported = await client.core.isSupported(capabilities);
+      (ncServerIsSupported, ncSupportedVersion) = await client.core.isSupported(capabilities);
     } catch (e) {
       throw NcLoginFailure();
     }
@@ -39,7 +40,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       throw NcUnsupportedFailure(
         currentVersion: capabilities.version.major,
         // todo: don't hardcode 26 (https://github.com/provokateurin/nextcloud-neon/issues/322)
-        supportedVersion: 26,
+        supportedVersion: ncSupportedVersion,
       );
     }
 
