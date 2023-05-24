@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2352 (168 per locale)
+/// Strings: 2373 (169 per locale)
 ///
-/// Built on 2023-05-22 at 12:47 UTC
+/// Built on 2023-05-24 at 09:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5500,6 +5500,7 @@ class _StringsEditorPtBr extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarPtBr toolbar = _StringsEditorToolbarPtBr._(_root);
 	@override late final _StringsEditorPensPtBr pens = _StringsEditorPensPtBr._(_root);
 	@override late final _StringsEditorPenOptionsPtBr penOptions = _StringsEditorPenOptionsPtBr._(_root);
+	@override late final _StringsEditorColorsPtBr colors = _StringsEditorColorsPtBr._(_root);
 	@override late final _StringsEditorImageOptionsPtBr imageOptions = _StringsEditorImageOptionsPtBr._(_root);
 	@override late final _StringsEditorMenuPtBr menu = _StringsEditorMenuPtBr._(_root);
 	@override late final _StringsEditorNewerFileFormatPtBr newerFileFormat = _StringsEditorNewerFileFormatPtBr._(_root);
@@ -5661,6 +5662,7 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
 	@override String get checkUrl => 'Por favor insira uma URL válida.';
 	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'O servidor fornecido está executando o Nextcloud ${v}, mas esta versão do Saber apenas suporta o Nextcloud ${s}.';
 	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
 }
@@ -5849,6 +5851,35 @@ class _StringsEditorPenOptionsPtBr extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => 'Tamanho';
 	@override String get sizeDragHint => 'Arraste para a esquerda ou para a direita para alterar o tamanho';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
+	_StringsEditorColorsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Seletor de cores';
+	@override String get black => 'Preto';
+	@override String get darkGrey => 'Cinza escuro';
+	@override String get grey => 'Cinza';
+	@override String get lightGrey => 'Cinza claro';
+	@override String get white => 'Branco';
+	@override String get red => 'Vermelho';
+	@override String get green => 'Verde';
+	@override String get blue => 'Azul';
+	@override String get yellow => 'Amarelo';
+	@override String get purple => 'Roxo';
+	@override String get orange => 'Laranja';
+	@override String get pastelRed => 'Vermelho pastel';
+	@override String get pastelOrange => 'Laranja pastel';
+	@override String get pastelYellow => 'Amarelo pastel';
+	@override String get pastelGreen => 'Verde pastel';
+	@override String get pastelCyan => 'Ciano pastel';
+	@override String get pastelBlue => 'Azul pastel';
+	@override String get pastelPurple => 'Roxo pastel';
+	@override String get pastelPink => 'Rosa pastel';
 }
 
 // Path: editor.imageOptions
