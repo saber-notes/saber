@@ -354,37 +354,7 @@
     }
   },
   "it": {},
-  "pt-BR": {
-    "login": {
-      "feedbacks": {
-        "ncUnsupportedFailure": "O servidor fornecido está executando o Nextcloud $v, mas esta versão do Saber apenas suporta o Nextcloud $s."
-      }
-    },
-    "editor": {
-      "colors": {
-        "colorPicker": "Seletor de cores",
-        "black": "Preto",
-        "darkGrey": "Cinza escuro",
-        "grey": "Cinza",
-        "lightGrey": "Cinza claro",
-        "white": "Branco",
-        "red": "Vermelho",
-        "green": "Verde",
-        "blue": "Azul",
-        "yellow": "Amarelo",
-        "purple": "Roxo",
-        "orange": "Laranja",
-        "pastelRed": "Vermelho pastel",
-        "pastelOrange": "Laranja pastel",
-        "pastelYellow": "Amarelo pastel",
-        "pastelGreen": "Verde pastel",
-        "pastelCyan": "Ciano pastel",
-        "pastelBlue": "Azul pastel",
-        "pastelPurple": "Roxo pastel",
-        "pastelPink": "Rosa pastel"
-      }
-    }
-  },
+  "pt-BR": {},
   "ru": {},
   "tr": {
     "login": {
