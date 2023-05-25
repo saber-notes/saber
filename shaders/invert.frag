@@ -61,5 +61,5 @@ void main() {
 
     // Set the output color to the inverted color
     // (with the same alpha value as the original color).
-    fragColor = vec4(invertedRgb, color.w);
+    fragColor = vec4(invertedRgb * color.w, color.w);
 }
