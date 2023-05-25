@@ -66,6 +66,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.8" type="development" date="2023-05-25">
+            <description>
+                <ul>
+                    <li>Autosaving is now more spaced out to avoid clashes</li>
+                    <li>Minor visual tweaks</li>
+                    <li>Checkboxes, bullet points, and number points are now sized in proportion to the text</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.7" type="development" date="2023-05-21">
             <description>
                 <ul>

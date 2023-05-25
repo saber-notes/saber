@@ -1,0 +1,5 @@
+• Autosaving is now more spaced out to avoid clashes
+• Minor visual tweaks
+• Android links will now open in an in-app browser
+• Checkboxes, bullet points, and number points are now sized in proportion to the text
+• Fixed the appearance of highlighter strokes on iOS

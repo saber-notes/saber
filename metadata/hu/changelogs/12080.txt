@@ -1,0 +1,5 @@
+• Az ütközések elkerülése érdekében az automatikus mentés most nagyobb távolságban van
+• Kisebb vizuális módosítások
+• Az Android-hivatkozások most egy alkalmazáson belüli böngészőben nyílnak meg
+• A jelölőnégyzetek, a felsorolásjelek és a számpontok mérete mostantól a szöveghez képest arányos
+• Javítva a kiemelő körvonalak megjelenése iOS rendszeren

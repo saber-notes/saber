@@ -1,0 +1,5 @@
+• Autosaving est maintenant plus espacé pour éviter les affrontements
+• Tweaks visuels mineurs
+• Les liens Android s'ouvriront maintenant dans un navigateur in-app
+• Les cases à cocher, points de balle et points de nombre sont maintenant dimensionnés en proportion du texte
+• Fixe l'apparence des coups de surbrillance sur iOS

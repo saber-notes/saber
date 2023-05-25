@@ -1,0 +1,5 @@
+• Das automatische Speichern erfolgt jetzt in größeren Abständen, um Kollisionen zu vermeiden
+• Kleinere visuelle Änderungen
+• Android-Links werden jetzt in einem In-App-Browser geöffnet
+• Kontrollkästchen, Aufzählungspunkte und Zahlenpunkte werden jetzt im Verhältnis zum Text dimensioniert
+• Das Erscheinungsbild von Textmarkerstrichen unter iOS wurde korrigiert

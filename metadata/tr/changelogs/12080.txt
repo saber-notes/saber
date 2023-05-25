@@ -1,0 +1,5 @@
+• Çakışmaları önlemek için otomatik kaydetme artık daha aralıklı
+• Küçük görsel ince ayarlar
+• Android bağlantıları artık bir uygulama içi tarayıcıda açılacak
+• Onay kutuları, madde işaretleri ve sayı noktaları artık metne orantılı olarak boyutlandırılıyor
+• iOS'ta vurgulayıcı darbelerinin görünümü düzeltildi

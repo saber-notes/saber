@@ -1,0 +1,5 @@
+• Il salvataggio automatico ora è più distanziato per evitare conflitti
+• Piccole modifiche visive
+• I collegamenti Android ora si apriranno in un browser in-app
+• Le caselle di controllo, i punti elenco ei punti numerati ora sono dimensionati in proporzione al testo
+• Corretto l'aspetto dei tratti dell'evidenziatore su iOS
