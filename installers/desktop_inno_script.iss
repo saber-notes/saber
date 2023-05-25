@@ -67,7 +67,7 @@ InstallVCRedist=Install Visual C++ Redistributable
 Filename: "{tmp}\vc_redist.x64.exe"; \
   Description: "{cm:InstallVCRedist}"; \
   Parameters: "/quiet"; \
-  Flags: waituntilterminated postinstall skipifsilent
+  Flags: waituntilterminated postinstall skipifsilent unchecked
 Filename: "{app}\{#MyAppExeName}"; \
   Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; \
   Flags: nowait postinstall skipifsilent
