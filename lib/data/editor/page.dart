@@ -101,8 +101,10 @@ class EditorPage extends Listenable {
   Map<String, dynamic> toJson(List<Uint8List> assets) => {
     'w': size.width,
     'h': size.height,
-    's': strokes,
-    'i': images.map((image) => image.toJson(assets)).toList(),
+    if (strokes.isNotEmpty)
+      's': strokes,
+    if (images.isNotEmpty)
+      'i': images.map((image) => image.toJson(assets)).toList(),
     if (!quill.controller.document.isEmpty())
       'q': quill.controller.document.toDelta().toJson(),
     if (backgroundImage != null)
