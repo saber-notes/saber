@@ -712,9 +712,10 @@ class EditorState extends State<Editor> {
 
 
   String get _filename => coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
-  String _saveToString() {
+  String _saveToString({String? indent}) {
     coreInfo.initialPageIndex = currentPageIndex;
-    return json.encode(coreInfo);
+    final encoder = JsonEncoder.withIndent(indent);
+    return encoder.convert(coreInfo);
   }
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
@@ -1021,7 +1022,7 @@ class EditorState extends State<Editor> {
     await FileManager.exportFile('$_filename.pdf', await pdf.save());
   }
   Future exportAsSbn() async {
-    final content = _saveToString();
+    final content = _saveToString(indent: ' ');
     final encoded = utf8.encode(content) as Uint8List;
     await FileManager.exportFile('$_filename.sbn', encoded);
   }
