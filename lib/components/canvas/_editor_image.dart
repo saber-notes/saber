@@ -183,6 +183,14 @@ class EditorImage extends ChangeNotifier {
       'y': dstRect.top,
       'w': dstRect.width,
       'h': dstRect.height,
+
+      if (srcRect.left != 0) 'sx': srcRect.left,
+      if (srcRect.top != 0) 'sy': srcRect.top,
+      if (srcRect.width != 0) 'sw': srcRect.width,
+      if (srcRect.height != 0) 'sh': srcRect.height,
+
+      if (naturalSize.width != 0) 'nw': naturalSize.width,
+      if (naturalSize.height != 0) 'nh': naturalSize.height,
     };
 
     if (bytes.isNotEmpty) {
@@ -194,13 +202,6 @@ class EditorImage extends ChangeNotifier {
       json['a'] = assetIndex;
     }
 
-    if (srcRect.left != 0) json['sx'] = srcRect.left;
-    if (srcRect.top != 0) json['sy'] = srcRect.top;
-    if (srcRect.width != 0) json['sw'] = srcRect.width;
-    if (srcRect.height != 0) json['sh'] = srcRect.height;
-
-    if (naturalSize.width != 0) json['nw'] = naturalSize.width;
-    if (naturalSize.height != 0) json['nh'] = naturalSize.height;
 
     if (thumbnailBytes != null) json['t'] = thumbnailBytes!;
 
