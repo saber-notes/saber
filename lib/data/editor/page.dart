@@ -103,7 +103,8 @@ class EditorPage extends Listenable {
     'h': size.height,
     's': strokes,
     'i': images.map((image) => image.toJson(assets)).toList(),
-    'q': quill.controller.document.toDelta().toJson(),
+    if (!quill.controller.document.isEmpty())
+      'q': quill.controller.document.toDelta().toJson(),
     if (backgroundImage != null)
       'b': backgroundImage?.toJson(assets)
   };
