@@ -191,6 +191,10 @@ class EditorImage extends ChangeNotifier {
 
       if (naturalSize.width != 0) 'nw': naturalSize.width,
       if (naturalSize.height != 0) 'nh': naturalSize.height,
+
+      // only export thumbnails in first page
+      if (thumbnailBytes != null && pageIndex == 0)
+        't': thumbnailBytes,
     };
 
     if (bytes.isNotEmpty) {
@@ -201,9 +205,6 @@ class EditorImage extends ChangeNotifier {
       }
       json['a'] = assetIndex;
     }
-
-
-    if (thumbnailBytes != null) json['t'] = thumbnailBytes!;
 
     return json;
   }
