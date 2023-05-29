@@ -1,4 +1,3 @@
-
 class FlavorConfig {
   FlavorConfig._();
 
@@ -16,15 +15,14 @@ class FlavorConfig {
   static bool get dirty => _dirty;
 
   static void setup({
-    String? flavor,
+    String flavor = '',
     String? appStore,
-    bool? shouldCheckForUpdatesByDefault,
-    bool? dirty,
+    bool shouldCheckForUpdatesByDefault = true,
+    bool dirty = false,
   }) {
-    _flavor = flavor ?? '';
+    _flavor = flavor;
     _appStore = appStore;
-    _shouldCheckForUpdatesByDefault = shouldCheckForUpdatesByDefault ?? true;
-    _dirty = dirty ?? false;
+    _shouldCheckForUpdatesByDefault = shouldCheckForUpdatesByDefault;
+    _dirty = dirty;
   }
-
 }

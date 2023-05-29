@@ -48,7 +48,12 @@ jobs:
       - run: flutter pub get
 
       - name: Build aab
-        run: flutter build appbundle -t lib/main_play_store.dart
+        run: |
+          flutter build appbundle \
+            --dart-define=FLAVOR="Google Play" \
+            --dart-define=APP_STORE="Google Play" \
+            --dart-define=UPDATE_CHECK="false" \
+            --dart-define=DIRTY="false"
 
       - name: Move unsigned apk
         run: |

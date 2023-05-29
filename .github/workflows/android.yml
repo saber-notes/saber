@@ -63,13 +63,12 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Mark build as dirty
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        run: |
-          sed -i -e 's!dirty: null,!dirty: true,!g' lib/main.dart
-
       - name: Build apk
-        run: flutter build apk
+        run: |
+          flutter build apk \
+            --dart-define=DIRTY=$DIRTY
+        env:
+          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Move unsigned apk
         run: |
@@ -141,13 +140,12 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Mark build as dirty
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        run: |
-          sed -i -e 's!dirty: null,!dirty: true,!g' lib/main.dart
-
       - name: Build apk
-        run: flutter build apk
+        run: |
+          flutter build apk \
+            --dart-define=DIRTY=$DIRTY
+        env:
+          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Move unsigned apk
         run: |
@@ -222,13 +220,12 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Mark build as dirty
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        run: |
-          sed -i -e 's!dirty: null,!dirty: true,!g' lib/main.dart
-
       - name: Build apk
-        run: flutter build apk
+        run: |
+          flutter build apk \
+            --dart-define=DIRTY=$DIRTY
+        env:
+          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Move unsigned apk
         run: |

@@ -94,7 +94,10 @@ jobs:
         id: build
         run: |
           flutter build ipa \
-            -t lib/main_app_store.dart \
+            --dart-define=FLAVOR="App Store" \
+            --dart-define=APP_STORE="App Store" \
+            --dart-define=UPDATE_CHECK="false" \
+            --dart-define=DIRTY="false" \
             --export-options-plist=$HOME/export_options.plist
 
           export ipaPath="Saber_v${{ needs.get-version.outputs.buildName }}.ipa"

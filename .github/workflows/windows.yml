@@ -64,7 +64,11 @@ jobs:
       - run: flutter pub get
 
       - name: Build Windows
-        run: flutter build windows
+        run: |
+          flutter build windows \
+            --dart-define=DIRTY=$DIRTY
+        env:
+          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Download Visual C++ Redistributable
         shell: bash

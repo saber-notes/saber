@@ -64,8 +64,12 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Build Flutter linux version
-        run: flutter build linux --release
+      - name: Build Linux portable
+        run: |
+          flutter build linux \
+            --dart-define=DIRTY=$DIRTY
+        env:
+          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Compress Flutter build
         id: compress

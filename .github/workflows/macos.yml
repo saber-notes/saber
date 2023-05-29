@@ -96,7 +96,12 @@ jobs:
       - run: find . -name "Podfile" -execdir pod install \;
 
       - name: Build for macOS
-        run: flutter build macos
+        run: |
+          flutter build macos \
+            --dart-define=FLAVOR="App Store" \
+            --dart-define=APP_STORE="App Store" \
+            --dart-define=UPDATE_CHECK="false" \
+            --dart-define=DIRTY="false"
 
       - name: Package for App Store
         id: package
