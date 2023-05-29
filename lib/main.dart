@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/main_common.dart' as common;
 
@@ -16,6 +17,14 @@ Future<void> main() async {
     shouldCheckForUpdatesByDefault: _boolFromBuild('UPDATE_CHECK') ?? true,
     dirty: _boolFromBuild('DIRTY') ?? false,
   );
+  
+  if (_boolFromBuild('OFFLINE_FONTS_ONLY') ?? false) {
+    // All fonts should already be included (offline) in the app, but in case
+    // I've forgot to add one, it'll be fetched from the internet.
+    // This prevents the app from fetching fonts from Google Servers,
+    // to comply with F-Droid requirements.
+    GoogleFonts.config.allowRuntimeFetching = false;
+  }
 
   await common.main();
 }
