@@ -846,14 +846,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.10.3"
-  pdf_widget_wrapper:
-    dependency: transitive
-    description:
-      name: pdf_widget_wrapper
-      sha256: e9d31fd7782ce28ae346b127ea7d1cd748d799bddee379f31191693610e23749
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   pedantic:
     dependency: transitive
     description:
@@ -907,10 +899,10 @@ packages:
     dependency: "direct main"
     description:
       name: printing
-      sha256: "6aa86779d51f1c60608defee7b231e1133ab9b00f63b3b71abfa85cb39898571"
+      sha256: e7c383dca95ee7b88c02dc1c66638628d3dcdc2fb2cc47e7a595facd47e46b56
       url: "https://pub.dev"
     source: hosted
-    version: "5.10.4"
+    version: "5.11.0"
   process:
     dependency: transitive
     description:

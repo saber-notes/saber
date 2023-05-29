@@ -130,7 +130,7 @@ dependencies:
 
   path_drawing: ^1.0.1
 
-  printing: ^5.10.1
+  printing: ^5.11.0
 
   from_css_color: ^2.0.0
 
