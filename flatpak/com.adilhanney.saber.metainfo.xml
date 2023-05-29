@@ -66,6 +66,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.9" type="development" date="2023-05-29">
+            <description>
+                <ul>
+                    <li>Better inversion support for translucency in images</li>
+                    <li>Performance optimisations for the eraser tool</li>
+                    <li>Reduced filesize of notes</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.8" type="development" date="2023-05-25">
             <description>
                 <ul>
