@@ -213,10 +213,10 @@ packages:
     dependency: "direct main"
     description:
       name: device_info_plus
-      sha256: "499c61743e13909c13374a8c209075385858c614b9c0f2487b5f9995eeaf7369"
+      sha256: "2c35b6d1682b028e42d07b3aee4b98fa62996c10bc12cb651ec856a80d6a761b"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.1"
+    version: "9.0.2"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -405,10 +405,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "028b9722cb6e6310f473126cc8226363e93cf528eabbe339dd37235b2ae53d9d"
+      sha256: c6ceba58f8f63e26b69162c99b0d835e92abd92844209f50683d1d4a0e9b0b2b
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.0"
+    version: "7.2.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -738,10 +738,10 @@ packages:
     dependency: "direct main"
     description:
       name: package_info_plus
-      sha256: "28386bbe89ab5a7919a47cea99cdd1128e5a6e0bbd7eaafe20440ead84a15de3"
+      sha256: ceb027f6bc6a60674a233b4a90a7658af1aebdea833da0b5b53c1e9821a78c7b
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.1"
+    version: "4.0.2"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -842,18 +842,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdf
-      sha256: "70d84154dc5b6ddf28eee6c012510a4cbbebb3a1879c0957e05364a95e8f3832"
+      sha256: "9f75fc7f5580ea5e635b5724de58fb27f684c9ad03ed46fdc1aac768e4557315"
       url: "https://pub.dev"
     source: hosted
-    version: "3.10.3"
-  pdf_widget_wrapper:
-    dependency: transitive
-    description:
-      name: pdf_widget_wrapper
-      sha256: e9d31fd7782ce28ae346b127ea7d1cd748d799bddee379f31191693610e23749
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
+    version: "3.10.4"
   pedantic:
     dependency: transitive
     description:
@@ -907,10 +899,10 @@ packages:
     dependency: "direct main"
     description:
       name: printing
-      sha256: "6aa86779d51f1c60608defee7b231e1133ab9b00f63b3b71abfa85cb39898571"
+      sha256: e7c383dca95ee7b88c02dc1c66638628d3dcdc2fb2cc47e7a595facd47e46b56
       url: "https://pub.dev"
     source: hosted
-    version: "5.10.4"
+    version: "5.11.0"
   process:
     dependency: transitive
     description:
@@ -996,10 +988,10 @@ packages:
     dependency: "direct main"
     description:
       name: share_plus
-      sha256: "44fc0bc2d35a8fafa1b564e1c6888bdc4fbb2d0197e4a4c21bac0e66123be9cd"
+      sha256: ed3fcea4f789ed95913328e629c0c53e69e80e08b6c24542f1b3576046c614e8
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.1"
+    version: "7.0.2"
   share_plus_platform_interface:
     dependency: transitive
     description:
@@ -1218,10 +1210,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "1a5848f598acc5b7d8f7c18b8cb834ab667e59a13edc3c93e9d09cf38cc6bc87"
+      sha256: eed4e6a1164aa9794409325c3b707ff424d4d1c2a785e7db67f8bbda00e36e51
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.34"
+    version: "6.0.35"
   url_launcher_ios:
     dependency: transitive
     description:
