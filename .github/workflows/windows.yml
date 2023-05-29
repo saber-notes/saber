@@ -64,6 +64,7 @@ jobs:
       - run: flutter pub get
 
       - name: Build Windows
+        shell: bash
         run: |
           flutter build windows \
             --dart-define=DIRTY=$DIRTY
