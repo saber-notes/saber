@@ -64,7 +64,7 @@ class Pen extends Tool {
   static const double maxSpeedForStraightLine = 0.03;
   /// Minimum length of a stroke to be considered a straight line,
   /// as a multiple of the pen size.
-  static const int minLengthForStraightLine = 10;
+  static const int minLengthForStraightLine = 3;
 
   static Pen currentPen = Pen.fountainPen();
 
