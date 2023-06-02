@@ -916,6 +916,7 @@ class EditorState extends State<Editor> {
       dpi: PdfPageFormat.inch * 4,
     );
 
+    bool isFirstPage = true;
     await for (final pdfPage in raster) {
       final Uint8List imageBytes = await pdfPage.toPng();
 
@@ -949,6 +950,13 @@ class EditorState extends State<Editor> {
         images: const [],
         page: page,
       ));
+
+      if (isFirstPage) {
+        // update ui after we've rastered the first page
+        // so that the user has some indication that the import is working
+        isFirstPage = false;
+        setState(() {});
+      }
     }
 
     coreInfo.pages.add(emptyPage);
