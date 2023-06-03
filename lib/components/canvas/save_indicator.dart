@@ -24,7 +24,10 @@ class SaveIndicator extends StatelessWidget {
           icon: const Icon(Icons.save),
           onPressed: triggerSave,
         ),
-        SavingState.saving => const CircularProgressIndicator(),
+        SavingState.saving => const IconButton(
+          icon: CircularProgressIndicator(),
+          onPressed: null,
+        ),
         SavingState.saved => IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => _back(context),
