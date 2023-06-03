@@ -783,7 +783,7 @@ class EditorState extends State<Editor> {
 
   void updateColorBar(Color color) {
     if (Prefs.dontSavePresetColors.value) {
-      if (ColorBar.colorPresets.contains(color)) {
+      if (ColorBar.colorPresets.any((colorPreset) => colorPreset.color == color)) {
         return;
       }
     }
