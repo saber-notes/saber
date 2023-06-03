@@ -18,6 +18,7 @@ import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
+import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/eraser.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -111,8 +112,7 @@ class EditorState extends State<Editor> {
     Prefs.lastTool.value = tool.toolId;
   }
 
-  /// Whether the note has changed since it was last saved
-  bool _hasEdited = false;
+  ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
 
   // used to prevent accidentally drawing when pinch zooming
@@ -703,7 +703,7 @@ class EditorState extends State<Editor> {
   }
 
   void autosaveAfterDelay() {
-    _hasEdited = true;
+    savingState.value = SavingState.waitingToSave;
     _delayedSaveTimer?.cancel();
     _delayedSaveTimer = Timer(const Duration(milliseconds: 10000), () {
       saveToFile();
@@ -720,15 +720,26 @@ class EditorState extends State<Editor> {
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
 
-    // avoid saving if nothing has changed
-    if (!_hasEdited) return;
+    switch (savingState.value) {
+      case SavingState.saved:
+        // avoid saving if nothing has changed
+        return;
+      case SavingState.saving:
+        // avoid saving if already saving
+        if (kDebugMode) print('WARNING: saveToFile() called while already saving');
+        return;
+      case SavingState.waitingToSave:
+        // continue
+        _delayedSaveTimer?.cancel();
+        savingState.value = SavingState.saving;
+    }
 
     String toSave = _saveToString();
     try {
-      _hasEdited = false;
       await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave, awaitWrite: true);
+      savingState.value = SavingState.saved;
     } catch (e) {
-      _hasEdited = true;
+      savingState.value = SavingState.waitingToSave;
       if (kDebugMode) rethrow;
     }
   }
@@ -1266,6 +1277,10 @@ class EditorState extends State<Editor> {
           controller: filenameTextEditingController,
           onChanged: renameFile,
           autofocus: needsNaming,
+        ),
+        leading: SaveIndicator(
+          savingState: savingState,
+          triggerSave: saveToFile,
         ),
         actions: [
           IconButton(
