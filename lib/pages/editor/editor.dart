@@ -44,6 +44,8 @@ import 'package:saber/pages/home/whiteboard.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
+typedef _PhotoInfo = ({Uint8List bytes, String extension});
+
 class Editor extends StatefulWidget {
   Editor({
     super.key,
@@ -822,7 +824,7 @@ class EditorState extends State<Editor> {
   /// Returns the number of photos picked.
   ///
   /// If [photoInfos] is provided, it will be used instead of the file picker.
-  Future<int> pickPhotos([List<PhotoInfo>? photoInfos]) async {
+  Future<int> pickPhotos([List<_PhotoInfo>? photoInfos]) async {
     if (coreInfo.readOnly) return 0;
 
     final currentPageIndex = this.currentPageIndex;
@@ -834,7 +836,7 @@ class EditorState extends State<Editor> {
     currentTool = Select.currentSelect;
 
     List<EditorImage> images = [
-      for (final PhotoInfo photoInfo in photoInfos)
+      for (final _PhotoInfo photoInfo in photoInfos)
         if (photoInfo.extension == '.svg')
           SvgEditorImage(
             id: coreInfo.nextImageId++,
@@ -872,7 +874,7 @@ class EditorState extends State<Editor> {
     return images.length;
   }
 
-  Future<List<PhotoInfo>> _pickPhotosWithFilePicker() async {
+  Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       // Taken from
@@ -895,7 +897,7 @@ class EditorState extends State<Editor> {
     return [
       for (final PlatformFile file in result.files)
         if (file.bytes != null && file.extension != null)
-          PhotoInfo(
+          (
             bytes: file.bytes!,
             extension: '.${file.extension}',
           ),
@@ -994,7 +996,7 @@ class EditorState extends State<Editor> {
     };
 
     final reader = await ClipboardReader.readClipboard();
-    final List<PhotoInfo> photoInfos = [];
+    final List<_PhotoInfo> photoInfos = [];
     final List<ReadProgress> progresses = [];
 
     for (SimpleFileFormat format in formats.keys) {
@@ -1019,7 +1021,7 @@ class EditorState extends State<Editor> {
             extension = formats[format]!;
           }
 
-          photoInfos.add(PhotoInfo(
+          photoInfos.add((
             bytes: Uint8List.fromList(bytes),
             extension: extension,
           ));
@@ -1583,10 +1585,4 @@ class EditorState extends State<Editor> {
 
     super.dispose();
   }
-}
-
-class PhotoInfo {
-  Uint8List bytes;
-  String extension;
-  PhotoInfo({required this.bytes, required this.extension});
 }
