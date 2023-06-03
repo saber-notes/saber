@@ -19,19 +19,27 @@ class SaveIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: savingState,
-      builder: (context, isSaving, _) => switch (savingState.value) {
-        SavingState.waitingToSave => IconButton(
-          icon: const Icon(Icons.save),
-          onPressed: triggerSave,
-        ),
-        SavingState.saving => const IconButton(
-          icon: CircularProgressIndicator(),
-          onPressed: null,
-        ),
-        SavingState.saved => IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => _back(context),
-        ),
+      builder: (context, isSaving, _) {
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: switch (savingState.value) {
+            SavingState.waitingToSave => IconButton(
+              key: ValueKey(savingState.value),
+              icon: const Icon(Icons.save),
+              onPressed: triggerSave,
+            ),
+            SavingState.saving => IconButton(
+              key: ValueKey(savingState.value),
+              icon: const CircularProgressIndicator(),
+              onPressed: null,
+            ),
+            SavingState.saved => IconButton(
+              key: ValueKey(savingState.value),
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => _back(context),
+            ),
+          },
+        );
       },
     );
   }
