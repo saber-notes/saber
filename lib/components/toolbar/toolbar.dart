@@ -83,9 +83,9 @@ class Toolbar extends StatefulWidget {
 }
 
 class _ToolbarState extends State<Toolbar> {
-
-  bool showColorOptions = false;
   bool showExportOptions = false;
+  bool showColorOptions = false;
+  ToolOptions toolOptionsType = ToolOptions.hide;
 
   @override
   void initState() {
@@ -182,6 +182,22 @@ class _ToolbarState extends State<Toolbar> {
       Collapsible(
         axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
         maintainState: true,
+        collapsed: toolOptionsType == ToolOptions.hide,
+        child: switch (toolOptionsType) {
+          ToolOptions.hide => const SizedBox(),
+          ToolOptions.pen => PenModal(
+            getTool: () => Pen.currentPen,
+            setTool: widget.setTool,
+          ),
+          ToolOptions.highlighter => PenModal(
+            getTool: () => Highlighter.currentHighlighter,
+            setTool: widget.setTool,
+          ),
+        },
+      ),
+      Collapsible(
+        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+        maintainState: true,
         collapsed: !showColorOptions,
         child: ColorBar(
           axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
@@ -229,15 +245,17 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Pen.currentPen) {
-                    button.openModal(context);
+                    setState(() {
+                      if (toolOptionsType == ToolOptions.pen) {
+                        toolOptionsType = ToolOptions.hide;
+                      } else {
+                        toolOptionsType = ToolOptions.pen;
+                      }
+                    });
                   } else {
                     widget.setTool(Pen.currentPen);
                   }
                 },
-                modal: PenModal(
-                  getTool: () => Pen.currentPen,
-                  setTool: widget.setTool,
-                ),
                 padding: buttonPadding,
                 child: FaIcon(Pen.currentPen.icon, size: 16),
               ),
@@ -247,15 +265,17 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Highlighter.currentHighlighter) {
-                    button.openModal(context);
+                    setState(() {
+                      if (toolOptionsType == ToolOptions.highlighter) {
+                        toolOptionsType = ToolOptions.hide;
+                      } else {
+                        toolOptionsType = ToolOptions.highlighter;
+                      }
+                    });
                   } else {
                     widget.setTool(Highlighter.currentHighlighter);
                   }
                 },
-                modal: PenModal(
-                  getTool: () => Highlighter.currentHighlighter,
-                  setTool: widget.setTool,
-                ),
                 padding: buttonPadding,
                 child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
               ),
@@ -398,4 +418,10 @@ class _ToolbarState extends State<Toolbar> {
     _removeKeybindings();
     super.dispose();
   }
+}
+
+enum ToolOptions {
+  hide,
+  pen,
+  highlighter,
 }
