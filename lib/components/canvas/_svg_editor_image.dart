@@ -8,11 +8,6 @@ import 'package:saber/components/canvas/_editor_image.dart';
 class SvgEditorImage extends EditorImage {
   String svgString;
 
-  @override
-  Uint8List get bytes => Uint8List.fromList(utf8.encode(svgString));
-  @override
-  set bytes(Uint8List bytes) {}
-
   SvgEditorImage({
     required super.id,
     required this.svgString,

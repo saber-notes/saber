@@ -61,10 +61,11 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
         ),
       ),
       _CanvasImageDialogItem(
-        onTap: () {
+        // todo: allow saving SVGs
+        onTap: (widget.image.memoryImage == null) ? null : () {
           final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
           final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
-          FileManager.exportFile(imageFileName, widget.image.bytes, isImage: true);
+          FileManager.exportFile(imageFileName, widget.image.memoryImage!.bytes, isImage: true);
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.download,

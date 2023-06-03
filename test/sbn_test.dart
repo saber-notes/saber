@@ -166,7 +166,7 @@ void main() {
       expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
       expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
       expect(image.naturalSize, const Size(256, 256));
-      expect(image.bytes.isNotEmpty, true);
+      expect(image.memoryImage!.bytes.isNotEmpty, true);
       expect(image.thumbnailBytes, null); // (too small for thumbnail)
       expect(image.isThumbnail, true);
     });
@@ -208,7 +208,7 @@ void main() {
       expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
       expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
       expect(image.naturalSize, const Size(256, 256));
-      expect(image.bytes.isNotEmpty, true);
+      expect(image.memoryImage!.bytes.isNotEmpty, true);
       expect(image.thumbnailBytes, null); // (too small for thumbnail)
       expect(image.isThumbnail, true);
     });

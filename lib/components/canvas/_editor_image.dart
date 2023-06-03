@@ -18,7 +18,7 @@ class EditorImage extends ChangeNotifier {
   /// This is used when "downloading" the image to the user's photo gallery.
   final String extension;
 
-  Uint8List bytes;
+  late MemoryImage? memoryImage;
 
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
@@ -34,7 +34,7 @@ class EditorImage extends ChangeNotifier {
   set isThumbnail(bool isThumbnail) {
     _isThumbnail = isThumbnail;
     if (isThumbnail && thumbnailBytes != null) {
-      bytes = thumbnailBytes!;
+      memoryImage = MemoryImage(thumbnailBytes!);
       final scale = thumbnailSize.width / naturalSize.width;
       srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale, srcRect.width * scale, srcRect.height * scale);
     }
@@ -68,7 +68,7 @@ class EditorImage extends ChangeNotifier {
   EditorImage({
     required this.id,
     required this.extension,
-    required this.bytes,
+    required Uint8List bytes,
     required this.pageIndex,
     required Size pageSize,
     this.maxSize,
@@ -87,7 +87,8 @@ class EditorImage extends ChangeNotifier {
     /// If [onMainThread], the image will be loaded automatically.
     /// Otherwise, [getImage] must be called manually.
     bool onMainThread = true,
-  }) :  assert(extension.startsWith('.')) {
+  }) :  assert(extension.startsWith('.')),
+        memoryImage = bytes.isEmpty ? null : MemoryImage(bytes) {
     this.dstRect = dstRect;
     _isThumbnail = isThumbnail;
 
@@ -197,7 +198,8 @@ class EditorImage extends ChangeNotifier {
         't': thumbnailBytes,
     };
 
-    if (bytes.isNotEmpty) {
+    if (memoryImage != null) {
+      final bytes = memoryImage!.bytes;
       int assetIndex = assets.indexOf(bytes);
       if (assetIndex == -1) {
         assetIndex = assets.length;
@@ -211,9 +213,10 @@ class EditorImage extends ChangeNotifier {
 
   Future<void> getImage({Size? pageSize}) async {
     assert(Isolate.current.debugName == 'main');
+    assert(memoryImage != null);
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      naturalSize = await ui.ImmutableBuffer.fromUint8List(bytes)
+      naturalSize = await ui.ImmutableBuffer.fromUint8List(memoryImage!.bytes)
           .then((buffer) => ui.ImageDescriptor.encoded(buffer))
           .then((descriptor) => Size(descriptor.width.toDouble(), descriptor.height.toDouble()));
 
@@ -225,16 +228,21 @@ class EditorImage extends ChangeNotifier {
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
-        bytes = await workerManager.execute(
-          () => resizeImageIsolate(bytes, reducedSize, extension),
-        ) ?? bytes;
+        final resizedBytes = await workerManager.execute(
+          () => resizeImageIsolate(memoryImage!.bytes, reducedSize, extension),
+        );
+        if (resizedBytes != null) {
+          memoryImage = MemoryImage(resizedBytes);
+        }
 
         naturalSize = reducedSize;
       } else if (!isThumbnail) { // otherwise make sure orientation is baked in
-        Uint8List? rotated = await workerManager.execute(
-          () => _bakeOrientationIsolate(bytes, extension),
+        final rotated = await workerManager.execute(
+          () => _bakeOrientationIsolate(memoryImage!.bytes, extension),
         );
-        if (rotated != null) bytes = rotated;
+        if (rotated != null) {
+          memoryImage = MemoryImage(rotated);
+        }
       }
 
       if (srcRect.shortestSide == 0) {
@@ -256,7 +264,7 @@ class EditorImage extends ChangeNotifier {
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
         await null; // wait for next event-loop iteration
         thumbnailBytes = await workerManager.execute(
-          () => resizeImageIsolate(bytes, thumbnailSize, extension),
+          () => resizeImageIsolate(memoryImage!.bytes, thumbnailSize, extension),
         );
       } else { // no need to resize
         thumbnailBytes = null; // will fall back to full-size image
@@ -269,10 +277,10 @@ class EditorImage extends ChangeNotifier {
     loaded = true;
   }
 
-  Future<void> precache(BuildContext context) => precacheImage(
-    MemoryImage(bytes),
-    context,
-  );
+  Future<void> precache(BuildContext context) async {
+    if (memoryImage == null) return;
+    return await precacheImage(memoryImage!, context);
+  }
 
   Widget buildImageWidget({
     required BoxFit? overrideBoxFit,
@@ -287,8 +295,8 @@ class EditorImage extends ChangeNotifier {
       boxFit = BoxFit.fill;
     }
 
-    return Image.memory(
-      bytes,
+    return Image(
+      image: memoryImage!,
       fit: boxFit,
     );
   }
@@ -359,7 +367,7 @@ class EditorImage extends ChangeNotifier {
   EditorImage copy() => EditorImage(
     id: id,
     extension: extension,
-    bytes: bytes,
+    bytes: memoryImage?.bytes ?? Uint8List(0),
     pageIndex: pageIndex,
     pageSize: Size.infinite,
     invertible: invertible,
