@@ -1,4 +1,3 @@
-
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -228,7 +227,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: Pen.currentPen.name,
                 selected: widget.currentTool == Pen.currentPen,
                 enabled: !widget.readOnly,
-                onPressed: (button) {
+                onPressed: () {
                   if (widget.currentTool == Pen.currentPen) {
                     button.openModal(context);
                   } else {
@@ -246,7 +245,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.pens.highlighter,
                 selected: widget.currentTool == Highlighter.currentHighlighter,
                 enabled: !widget.readOnly,
-                onPressed: (button) {
+                onPressed: () {
                   if (widget.currentTool == Highlighter.currentHighlighter) {
                     button.openModal(context);
                   } else {
@@ -264,7 +263,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.toggleColors,
                 selected: showColorOptions,
                 enabled: !widget.readOnly,
-                onPressed: (_) => toggleColorOptions(),
+                onPressed: toggleColorOptions,
                 padding: buttonPadding,
                 child: const Icon(Icons.palette),
               ),
@@ -272,7 +271,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.select,
                 selected: widget.currentTool is Select,
                 enabled: !widget.readOnly,
-                onPressed: (_) => widget.setTool(Select.currentSelect),
+                onPressed: () => widget.setTool(Select.currentSelect),
                 padding: buttonPadding,
                 child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
                   BoxShadow(
@@ -287,14 +286,14 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.toggleEraser,
                 selected: widget.currentTool is Eraser,
                 enabled: !widget.readOnly,
-                onPressed: (_) => toggleEraser(),
+                onPressed: toggleEraser,
                 padding: buttonPadding,
                 child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.photo,
                 enabled: !widget.readOnly,
-                onPressed: (_) => widget.pickPhoto(),
+                onPressed: widget.pickPhoto,
                 padding: buttonPadding,
                 child: const AdaptiveIcon(
                   icon: Icons.photo,
@@ -305,7 +304,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.text,
                 selected: widget.textEditing,
                 enabled: !widget.readOnly,
-                onPressed: (_) => widget.toggleTextEditing(),
+                onPressed: widget.toggleTextEditing,
                 padding: buttonPadding,
                 child: const AdaptiveIcon(
                   icon: Icons.text_fields,
@@ -316,7 +315,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.toggleFingerDrawing,
                 selected: Prefs.editorFingerDrawing.value,
                 enabled: !widget.readOnly,
-                onPressed: (_) => widget.toggleFingerDrawing(),
+                onPressed: widget.toggleFingerDrawing,
                 padding: buttonPadding,
                 child: const Icon(CupertinoIcons.hand_draw),
               ),
@@ -324,7 +323,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.fullscreen,
                 selected: DynamicMaterialApp.isFullscreen,
                 enabled: !widget.readOnly,
-                onPressed: (_) => toggleFullscreen(),
+                onPressed: toggleFullscreen,
                 padding: buttonPadding,
                 child: AdaptiveIcon(
                   icon: DynamicMaterialApp.isFullscreen ? Icons.fullscreen_exit : Icons.fullscreen,
@@ -337,7 +336,7 @@ class _ToolbarState extends State<Toolbar> {
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.undo,
                     enabled: !widget.readOnly && widget.isUndoPossible,
-                    onPressed: (_) => widget.undo(),
+                    onPressed: widget.undo,
                     padding: buttonPadding,
                     child: const AdaptiveIcon(
                       icon: Icons.undo,
@@ -347,7 +346,7 @@ class _ToolbarState extends State<Toolbar> {
                   ToolbarIconButton(
                     tooltip: t.editor.toolbar.redo,
                     enabled: !widget.readOnly && widget.isRedoPossible,
-                    onPressed: (_) => widget.redo(),
+                    onPressed: widget.redo,
                     padding: buttonPadding,
                     child: const AdaptiveIcon(
                       icon: Icons.redo,
@@ -360,7 +359,7 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.export,
                 selected: showExportOptions,
                 enabled: !widget.readOnly,
-                onPressed: (_) => toggleExportBar(),
+                onPressed: toggleExportBar,
                 padding: buttonPadding,
                 child: const AdaptiveIcon(
                   icon: Icons.share,
