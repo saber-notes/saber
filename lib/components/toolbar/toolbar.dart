@@ -129,6 +129,7 @@ class _ToolbarState extends State<Toolbar> {
   }
 
   void toggleEraser() {
+    toolOptionsType = ToolOptions.hide;
     if (widget.currentTool is Eraser) {
       widget.setTool(Pen.currentPen);
     } else {
@@ -253,6 +254,7 @@ class _ToolbarState extends State<Toolbar> {
                       }
                     });
                   } else {
+                    toolOptionsType = ToolOptions.hide;
                     widget.setTool(Pen.currentPen);
                   }
                 },
@@ -273,6 +275,7 @@ class _ToolbarState extends State<Toolbar> {
                       }
                     });
                   } else {
+                    toolOptionsType = ToolOptions.hide;
                     widget.setTool(Highlighter.currentHighlighter);
                   }
                 },
@@ -291,7 +294,10 @@ class _ToolbarState extends State<Toolbar> {
                 tooltip: t.editor.toolbar.select,
                 selected: widget.currentTool is Select,
                 enabled: !widget.readOnly,
-                onPressed: () => widget.setTool(Select.currentSelect),
+                onPressed: () {
+                  toolOptionsType = ToolOptions.hide;
+                  widget.setTool(Select.currentSelect);
+                },
                 padding: buttonPadding,
                 child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
                   BoxShadow(
