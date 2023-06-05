@@ -22,26 +22,29 @@ class SaveIndicator extends StatelessWidget {
       builder: (context, isSaving, _) {
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
-          child: switch (savingState.value) {
-            SavingState.waitingToSave => IconButton(
-              key: ValueKey(savingState.value),
-              icon: const Icon(Icons.save),
-              onPressed: triggerSave,
-            ),
-            SavingState.saving => IconButton(
-              key: ValueKey(savingState.value),
-              icon: const CircularProgressIndicator(),
-              onPressed: null,
-            ),
-            SavingState.saved => IconButton(
-              key: ValueKey(savingState.value),
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => _back(context),
-            ),
-          },
+          child: IconButton(
+            key: ValueKey(savingState.value),
+            onPressed: () => _onPressed(context),
+            icon: switch (savingState.value) {
+              SavingState.waitingToSave => const Icon(Icons.save),
+              SavingState.saving => const CircularProgressIndicator(),
+              SavingState.saved => const Icon(Icons.arrow_back),
+            },
+          ),
         );
       },
     );
+  }
+
+  void _onPressed(BuildContext context) {
+    switch (savingState.value) {
+      case SavingState.waitingToSave:
+        triggerSave();
+      case SavingState.saving:
+        break;
+      case SavingState.saved:
+        _back(context);
+    }
   }
 
   void _back(BuildContext context) {
