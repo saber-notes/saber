@@ -149,10 +149,10 @@ packages:
     dependency: transitive
     description:
       name: cookie_jar
-      sha256: "700cda09e47e90c749a3bcaf6daef3cdef4eca246db63eceabceeb29cef93bcc"
+      sha256: "823fd13d22c5cf0c846e8a31c9b276f768f423cca134990c22c33045462f8ef9"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.2"
+    version: "4.0.3"
   cross_file:
     dependency: transitive
     description:
@@ -246,7 +246,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: d47461f4456279a231b6cbfde049c2110a288053
+      resolved-ref: "35eb2d65799f3e6a5f53b62da8cac868d3e52f86"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -548,10 +548,10 @@ packages:
     dependency: transitive
     description:
       name: i18n_extension
-      sha256: "00f8842feda3e2afc43a6c09ed0934f49bc036d86cb9305c3afcf8c6cc40d5ed"
+      sha256: db45cd88cf3114f5b9368d975aebebe4ac37fa634fbc5643634289cdfd4d3631
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "9.0.2"
   icons_launcher:
     dependency: "direct dev"
     description:
@@ -641,10 +641,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "6b0206b0bf4f04961fc5438198ccb3a885685cd67d4d4a32cc20ad7f8adbe015"
+      sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   list_utilities:
     dependency: transitive
     description:
@@ -706,7 +706,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: d47461f4456279a231b6cbfde049c2110a288053
+      resolved-ref: "35eb2d65799f3e6a5f53b62da8cac868d3e52f86"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1073,18 +1073,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "05446f81f3b17261a054723cd09537cc66e45ee9884b8f737e0572f8e5ded517"
+      sha256: aaa8decf0d3e4572903964b04f7a4f23972f8696be6e4d3269b39e68fde3e880
       url: "https://pub.dev"
     source: hosted
-    version: "3.17.0"
+    version: "3.18.1"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: e94985f9408381389f88b7c3de62154b85c91ce17d208c7b5813eacba673af95
+      sha256: "9587ad7deba6ddd8908e38485131a5136fbad958be8aa9852c67f8a1cb9687fe"
       url: "https://pub.dev"
     source: hosted
-    version: "3.17.0"
+    version: "3.18.0"
   source_span:
     dependency: transitive
     description:
@@ -1185,10 +1185,10 @@ packages:
     dependency: transitive
     description:
       name: universal_io
-      sha256: "06866290206d196064fd61df4c7aea1ffe9a4e7c4ccaa8fcded42dd41948005d"
+      sha256: "1722b2dcc462b4b2f3ee7d188dad008b6eb4c40bbd03a3de451d82c78bba9aad"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.2"
   uri_to_file:
     dependency: transitive
     description:
