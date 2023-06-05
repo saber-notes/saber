@@ -1269,67 +1269,78 @@ class EditorState extends State<Editor> {
       );
     }
 
-    return Scaffold(
-      appBar: DynamicMaterialApp.isFullscreen ? null : AppBar(
-        toolbarHeight: kToolbarHeight,
-        title: widget.customTitle != null ? Text(widget.customTitle!) : TextField(
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-          ),
-          controller: filenameTextEditingController,
-          onChanged: renameFile,
-          autofocus: needsNaming,
-        ),
-        leading: SaveIndicator(
-          savingState: savingState,
-          triggerSave: saveToFile,
-        ),
-        actions: [
-          IconButton(
-            icon: const AdaptiveIcon(
-              icon: Icons.grid_view,
-              cupertinoIcon: CupertinoIcons.rectangle_grid_2x2,
+    return WillPopScope(
+      // don't allow user to go back until saving is done
+      onWillPop: () async => switch (savingState.value) {
+        SavingState.waitingToSave => (){
+          saveToFile(); // trigger save now
+          return false;
+        }(),
+        SavingState.saving => false,
+        SavingState.saved => true,
+      },
+      child: Scaffold(
+        appBar: DynamicMaterialApp.isFullscreen ? null : AppBar(
+          toolbarHeight: kToolbarHeight,
+          title: widget.customTitle != null ? Text(widget.customTitle!) : TextField(
+            decoration: const InputDecoration(
+              border: InputBorder.none,
             ),
-            tooltip: t.editor.pages,
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => AdaptiveAlertDialog(
-                  title: Text(t.editor.pages),
-                  content: pageManager(context),
-                  actions: const [],
-                ),
-              );
-            },
+            controller: filenameTextEditingController,
+            onChanged: renameFile,
+            autofocus: needsNaming,
           ),
-          IconButton(
-            icon: const AdaptiveIcon(
-              icon: Icons.more_vert,
-              cupertinoIcon: CupertinoIcons.ellipsis_vertical,
+          leading: SaveIndicator(
+            savingState: savingState,
+            triggerSave: saveToFile,
+          ),
+          actions: [
+            IconButton(
+              icon: const AdaptiveIcon(
+                icon: Icons.grid_view,
+                cupertinoIcon: CupertinoIcons.rectangle_grid_2x2,
+              ),
+              tooltip: t.editor.pages,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AdaptiveAlertDialog(
+                    title: Text(t.editor.pages),
+                    content: pageManager(context),
+                    actions: const [],
+                  ),
+                );
+              },
             ),
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) => bottomSheet(context),
-                isScrollControlled: true,
-                showDragHandle: true,
-                backgroundColor: colorScheme.surface,
-                constraints: const BoxConstraints(
-                  maxWidth: 500,
-                ),
-              );
-            },
-          )
-        ],
+            IconButton(
+              icon: const AdaptiveIcon(
+                icon: Icons.more_vert,
+                cupertinoIcon: CupertinoIcons.ellipsis_vertical,
+              ),
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => bottomSheet(context),
+                  isScrollControlled: true,
+                  showDragHandle: true,
+                  backgroundColor: colorScheme.surface,
+                  constraints: const BoxConstraints(
+                    maxWidth: 500,
+                  ),
+                );
+              },
+            )
+          ],
+        ),
+        body: body,
+        floatingActionButton: (DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
+          shape: cupertino ? const CircleBorder() : null,
+          onPressed: () {
+            DynamicMaterialApp.setFullscreen(false, updateSystem: true);
+          },
+          child: const Icon(Icons.fullscreen_exit),
+        ) : null,
       ),
-      body: body,
-      floatingActionButton: (DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value) ? FloatingActionButton(
-        shape: cupertino ? const CircleBorder() : null,
-        onPressed: () {
-          DynamicMaterialApp.setFullscreen(false, updateSystem: true);
-        },
-        child: const Icon(Icons.fullscreen_exit),
-      ) : null,
     );
   }
 
