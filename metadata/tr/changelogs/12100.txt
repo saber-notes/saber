@@ -1,0 +1,4 @@
+• Araç seçenekleri artık araç çubuğuna yerleştirilmiştir
+• Düz hat tanıma artık daha kısa hatlarda çalışıyor
+• Kaydetme ilerlemesi artık kullanıcıya gösteriliyor
+• "Ön ayarlı renkleri son renklere kaydetme" ayarıyla ilgili bir hata düzeltildi

@@ -66,6 +66,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.12.10" type="development" date="2023-06-06">
+            <description>
+                <ul>
+                    <li>Tool options are now embedded in the toolbar</li>
+                    <li>Straight line recognition now works on shorter lines</li>
+                    <li>Saving progress is now displayed to the user</li>
+                    <li>Fixed a bug with the "Don't save preset colors in recent colors" setting</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.12.9" type="development" date="2023-05-29">
             <description>
                 <ul>

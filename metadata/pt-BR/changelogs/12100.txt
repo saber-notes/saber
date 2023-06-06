@@ -1,0 +1,4 @@
+• As opções de ferramentas agora estão incorporadas na barra de ferramentas
+• O reconhecimento de linha reta agora funciona em linhas mais curtas
+• O progresso de salvamento agora é exibido para o usuário
+• Corrigido um bug com a configuração "Não salvar cores predefinidas em cores recentes"
