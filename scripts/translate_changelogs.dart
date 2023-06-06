@@ -130,5 +130,7 @@ void main() async {
 
   if (someTranslationsFailed) {
     print('\nSome translations failed: please re-run this script.');
+  } else {
+    print('\nAll translations succeeded!');
   }
 }
