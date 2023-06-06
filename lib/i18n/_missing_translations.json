@@ -1,7 +1,7 @@
 {
   "@@info": [
     "Here are translations that exist in <en> but not in secondary locales.",
-    "After editing this file, you can run 'flutter pub run slang apply --locale=<locale>' to quickly apply the newly added translations."
+    "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "ar": {
     "login": {
@@ -41,10 +41,15 @@
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {},
+  "cs": {
+    "editor": {
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+    }
+  },
   "de": {
     "login": {
       "feedbacks": {
@@ -109,7 +114,8 @@
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "es": {
@@ -176,7 +182,8 @@
         "bgPatterns": {
           "collegeRtl": "College-ruled (Reverse)"
         }
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "fa": {
@@ -210,7 +217,8 @@
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "fr": {
@@ -244,7 +252,8 @@
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "hu": {
@@ -350,12 +359,25 @@
           "staffs": "Staffs",
           "cornell": "Cornell"
         }
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
+  "it": {
+    "editor": {
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+    }
+  },
+  "pt-BR": {
+    "editor": {
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+    }
+  },
+  "ru": {
+    "editor": {
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+    }
+  },
   "tr": {
     "login": {
       "feedbacks": {
@@ -415,9 +437,18 @@
         "insertPage": "Insert page below",
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page"
-      }
+      },
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hans-CN": {},
-  "zh-Hant-TW": {}
+  "zh-Hans-CN": {
+    "editor": {
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+    }
+  },
+  "zh-Hant-TW": {
+    "editor": {
+      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+    }
+  }
 }

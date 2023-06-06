@@ -1274,9 +1274,13 @@ class EditorState extends State<Editor> {
       onWillPop: () async => switch (savingState.value) {
         SavingState.waitingToSave => (){
           saveToFile(); // trigger save now
+          snackBarNeedsToSaveBeforeExiting();
           return false;
         }(),
-        SavingState.saving => false,
+        SavingState.saving => (){
+          snackBarNeedsToSaveBeforeExiting();
+          return false;
+        }(),
         SavingState.saved => true,
       },
       child: Scaffold(
@@ -1342,6 +1346,13 @@ class EditorState extends State<Editor> {
         ) : null,
       ),
     );
+  }
+
+  void snackBarNeedsToSaveBeforeExiting() {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(t.editor.needsToSaveBeforeExiting),
+    ));
   }
 
   Widget bottomSheet(BuildContext context) {

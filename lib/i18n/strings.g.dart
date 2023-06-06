@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2373 (169 per locale)
+/// Strings: 2374 (169 per locale)
 ///
-/// Built on 2023-05-24 at 09:59 UTC
+/// Built on 2023-06-06 at 14:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -287,6 +287,7 @@ class _StringsEditorEn {
 	late final _StringsEditorHudEn hud = _StringsEditorHudEn._(_root);
 	String get pages => 'Pages';
 	String get untitled => 'Untitled';
+	String get needsToSaveBeforeExiting => 'Saving your changes... You can safely exit the editor when it\'s done';
 }
 
 // Path: home.tabs
