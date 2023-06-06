@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2374 (169 per locale)
+/// Strings: 2413 (172 per locale)
 ///
-/// Built on 2023-06-06 at 14:39 UTC
+/// Built on 2023-06-06 at 15:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2530,6 +2530,7 @@ class _StringsEs extends _StringsEn {
 	@override late final _StringsHomeEs home = _StringsHomeEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 	@override late final _StringsLoginEs login = _StringsLoginEs._(_root);
+	@override late final _StringsProfileEs profile = _StringsProfileEs._(_root);
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
@@ -2597,6 +2598,24 @@ class _StringsLoginEs extends _StringsLoginEn {
 	];
 }
 
+// Path: profile
+class _StringsProfileEs extends _StringsProfileEn {
+	_StringsProfileEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mi perfil';
+	@override String get logout => 'Cerrar sesión';
+	@override late final _StringsProfileQuickLinksEs quickLinks = _StringsProfileQuickLinksEs._(_root);
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Es._(_root),
+		_StringsProfile$faq$0i1$Es._(_root),
+		_StringsProfile$faq$0i2$Es._(_root),
+		_StringsProfile$faq$0i3$Es._(_root),
+	];
+}
+
 // Path: appInfo
 class _StringsAppInfoEs extends _StringsAppInfoEn {
 	_StringsAppInfoEs._(_StringsEs root) : this._root = root, super._(root);
@@ -2620,8 +2639,8 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Actualización disponible';
-	@override String get update => 'Actualizar';
 	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible. Novedades en esta versión:';
+	@override String get update => 'Actualizar';
 }
 
 // Path: editor
@@ -2634,6 +2653,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarEs toolbar = _StringsEditorToolbarEs._(_root);
 	@override late final _StringsEditorPensEs pens = _StringsEditorPensEs._(_root);
 	@override late final _StringsEditorPenOptionsEs penOptions = _StringsEditorPenOptionsEs._(_root);
+	@override late final _StringsEditorColorsEs colors = _StringsEditorColorsEs._(_root);
 	@override late final _StringsEditorImageOptionsEs imageOptions = _StringsEditorImageOptionsEs._(_root);
 	@override late final _StringsEditorMenuEs menu = _StringsEditorMenuEs._(_root);
 	@override late final _StringsEditorNewerFileFormatEs newerFileFormat = _StringsEditorNewerFileFormatEs._(_root);
@@ -2641,6 +2661,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorHudEs hud = _StringsEditorHudEs._(_root);
 	@override String get pages => 'Páginas';
 	@override String get untitled => 'Sin título';
+	@override String get needsToSaveBeforeExiting => 'Guardando los cambios... Puedes salir del editor de forma segura cuando se haya guardado todo';
 }
 
 // Path: home.tabs
@@ -2795,6 +2816,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo soporta la versión ${s}.';
 	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
 }
@@ -2886,6 +2908,62 @@ class _StringsLogin$faq$0i4$Es extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksEs extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Enlaces rápidos';
+	@override String get serverHomepage => 'Página de inicio del servidor';
+	@override String get deleteAccount => 'Eliminar cuenta';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Es extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Pierdo mis notas si cierro sesión?';
+	@override String get a => 'No. Tus notas permanecerán tanto en tu dispositivo como en el servidor. Solo no se sincronizarán con el servidor hasta que vuelvas a iniciar sesión. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Es extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Cómo puedo cambiar mi contraseña de Nextcloud?';
+	@override String get a => 'Accede a la web de tu servidor e inicia sesión. Luego, accede a Ajustes > Seguridad > Cambiar contraseña. Necesitarás cerrar la sesión e iniciarla de nuevo en Saber tras cambiar la contraseña.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Es extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Cómo cambio mi contraseña de cifrado?';
+	@override String get a => '1. Cierra la sesión en Saber. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).\n\n2. Accede a la web de tu servidor y elimina la carpeta \'Saber\'. Esto eliminará todas las notas del servidor.\n\n3. Inicia sesión de nuevo en Saber. Puedes elegir una nueva contraseña de cifrado al iniciar la sesión.\n\n4. No te olvides de cerrar e iniciar la sesión de Saber de nuevo en el resto de tus dispositivos.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Es extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Cómo puedo eliminar mi cuenta?';
+	@override String get a => 'Pincha en el botón "${_root.profile.quickLinks.deleteAccount}", e inicia sesión si es necesario.\n\nSi estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.\n\nSi estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarEs extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarEs._(_StringsEs root) : this._root = root, super._(root);
@@ -2929,6 +3007,35 @@ class _StringsEditorPenOptionsEs extends _StringsEditorPenOptionsEn {
 	@override String get sizeDragHint => 'Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño';
 }
 
+// Path: editor.colors
+class _StringsEditorColorsEs extends _StringsEditorColorsEn {
+	_StringsEditorColorsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Selector de color';
+	@override String get black => 'Negro';
+	@override String get darkGrey => 'Gris oscuro';
+	@override String get grey => 'Gris';
+	@override String get lightGrey => 'Gris claro';
+	@override String get white => 'Blanco';
+	@override String get red => 'Rojo';
+	@override String get green => 'Verde';
+	@override String get blue => 'Azul';
+	@override String get yellow => 'Amarillo';
+	@override String get purple => 'Morado';
+	@override String get orange => 'Naranja';
+	@override String get pastelRed => 'Rojo pastel';
+	@override String get pastelOrange => 'Naranja pastel';
+	@override String get pastelYellow => 'Amarillo pastel';
+	@override String get pastelGreen => 'Verde pastel';
+	@override String get pastelCyan => 'Azul cyan pastel';
+	@override String get pastelBlue => 'Azul pastel';
+	@override String get pastelPurple => 'Morado pastel';
+	@override String get pastelPink => 'Rosa pastel';
+}
+
 // Path: editor.imageOptions
 class _StringsEditorImageOptionsEs extends _StringsEditorImageOptionsEn {
 	_StringsEditorImageOptionsEs._(_StringsEs root) : this._root = root, super._(root);
@@ -2951,8 +3058,11 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => 'Borrar página ${page}/${totalPages}';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Eliminar páginas ${page}/${totalPages}';
 	@override String get clearAllPages => 'Borrar todas las páginas';
+	@override String get insertPage => 'Insertar página debajo';
+	@override String get duplicatePage => 'Duplicar página';
+	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
 	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
 	@override String get backgroundImage => 'Imagen de fondo';
@@ -3020,6 +3130,7 @@ class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'En blanco';
 	@override String get college => 'Rayado universitario';
+	@override String get collegeRtl => 'Rayado universitario (inverso)';
 	@override String get lined => 'Rayado';
 	@override String get grid => 'Cuadrículado';
 	@override String get dots => 'Punteado';
