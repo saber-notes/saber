@@ -91,6 +91,7 @@
       "enterEncPassword": "Por favor introduce tu contraseña de cifrado.",
       "checkUrl": "Por favor introduce una dirección URL válida.",
       "ncLoginFailed": "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.",
+      "ncUnsupportedFailure": "El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo soporta la versión $s.",
       "encLoginFailed": "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.",
       "loginSuccess": "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
     },
@@ -132,6 +133,33 @@
       }
     ]
   },
+  "profile": {
+    "title": "Mi perfil",
+    "logout": "Cerrar sesión",
+    "quickLinks": {
+      "title": "Enlaces rápidos",
+      "serverHomepage": "Página de inicio del servidor",
+      "deleteAccount": "Eliminar cuenta"
+    },
+    "faq": [
+      {
+        "q": "¿Pierdo mis notas si cierro sesión?",
+        "a": "No. Tus notas permanecerán tanto en tu dispositivo como en el servidor. Solo no se sincronizarán con el servidor hasta que vuelvas a iniciar sesión. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio)."
+      },
+      {
+        "q": "¿Cómo puedo cambiar mi contraseña de Nextcloud?",
+        "a": "Accede a la web de tu servidor e inicia sesión. Luego, accede a Ajustes > Seguridad > Cambiar contraseña. Necesitarás cerrar la sesión e iniciarla de nuevo en Saber tras cambiar la contraseña."
+      },
+      {
+        "q": "¿Cómo cambio mi contraseña de cifrado?",
+        "a": "1. Cierra la sesión en Saber. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).\n\n2. Accede a la web de tu servidor y elimina la carpeta 'Saber'. Esto eliminará todas las notas del servidor.\n\n3. Inicia sesión de nuevo en Saber. Puedes elegir una nueva contraseña de cifrado al iniciar la sesión.\n\n4. No te olvides de cerrar e iniciar la sesión de Saber de nuevo en el resto de tus dispositivos."
+      },
+      {
+        "q": "¿Cómo puedo eliminar mi cuenta?",
+        "a": "Pincha en el botón \"@:profile.quickLinks.deleteAccount\", e inicia sesión si es necesario.\n\nSi estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.\n\nSi estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información."
+      }
+    ]
+  },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.",
     "dirty": "DIRTY",
@@ -142,8 +170,8 @@
   },
   "update": {
     "updateAvailable": "Actualización disponible",
-    "update": "Actualizar",
-    "updateAvailableDescription": "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:"
+    "updateAvailableDescription": "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:",
+    "update": "Actualizar"
   },
   "editor": {
     "toolbar": {
@@ -168,6 +196,28 @@
       "size": "Tamaño",
       "sizeDragHint": "Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño"
     },
+    "colors": {
+      "colorPicker": "Selector de color",
+      "black": "Negro",
+      "darkGrey": "Gris oscuro",
+      "grey": "Gris",
+      "lightGrey": "Gris claro",
+      "white": "Blanco",
+      "red": "Rojo",
+      "green": "Verde",
+      "blue": "Azul",
+      "yellow": "Amarillo",
+      "purple": "Morado",
+      "orange": "Naranja",
+      "pastelRed": "Rojo pastel",
+      "pastelOrange": "Naranja pastel",
+      "pastelYellow": "Amarillo pastel",
+      "pastelGreen": "Verde pastel",
+      "pastelCyan": "Azul cyan pastel",
+      "pastelBlue": "Azul pastel",
+      "pastelPurple": "Morado pastel",
+      "pastelPink": "Rosa pastel"
+    },
     "imageOptions": {
       "title": "Opciones de imagen",
       "invertible": "Invertible",
@@ -177,8 +227,11 @@
       "delete": "Eliminar"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Borrar página $page/$totalPages",
+      "clearPage": "Eliminar páginas $page/$totalPages",
       "clearAllPages": "Borrar todas las páginas",
+      "insertPage": "Insertar página debajo",
+      "duplicatePage": "Duplicar página",
+      "deletePage": "Eliminar página",
       "lineHeight": "Altura de la línea",
       "lineHeightDescription": "Controla también el tamaño del texto",
       "backgroundImage": "Imagen de fondo",
@@ -192,6 +245,7 @@
       "bgPatterns": {
         "none": "En blanco",
         "college": "Rayado universitario",
+        "collegeRtl": "Rayado universitario (inverso)",
         "lined": "Rayado",
         "grid": "Cuadrículado",
         "dots": "Punteado",
@@ -216,6 +270,7 @@
       "lockPan": "Deshabilitar la panorámica con un solo dedo"
     },
     "pages": "Páginas",
-    "untitled": "Sin título"
+    "untitled": "Sin título",
+    "needsToSaveBeforeExiting": "Guardando los cambios... Puedes salir del editor de forma segura cuando se haya guardado todo"
   }
 }
