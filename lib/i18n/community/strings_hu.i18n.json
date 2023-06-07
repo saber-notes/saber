@@ -198,8 +198,8 @@
     "hud": {
       "unlockZoom": "Nagyítás feloldása",
       "lockZoom": "Nagyítás feloldása",
-      "unlockPan": "Egyujjas lapozás engedélyezése",
-      "lockPan": "Egyujjas lapozás letiltása"
+      "unlockSingleFingerPan": "Egyujjas lapozás engedélyezése",
+      "lockSingleFingerPan": "Egyujjas lapozás letiltása"
     },
     "pages": "Oldalak",
     "untitled": "Névtelen"

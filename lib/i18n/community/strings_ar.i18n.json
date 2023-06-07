@@ -238,8 +238,8 @@
     "hud": {
       "unlockZoom": "إلغاء قفل التكبير",
       "lockZoom": "قفل التكبير",
-      "unlockPan": "تمكين التحريك بإصبع واحد",
-      "lockPan": "تعطيل التحريك بإصبع واحد"
+      "unlockSingleFingerPan": "تمكين التحريك بإصبع واحد",
+      "lockSingleFingerPan": "تعطيل التحريك بإصبع واحد"
     },
     "pages": "صفحات",
     "untitled": "بدون عنوان"

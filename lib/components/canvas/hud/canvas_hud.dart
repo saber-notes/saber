@@ -74,7 +74,9 @@ class _CanvasHudState extends State<CanvasHud> {
                 lock: widget.singleFingerPanLock,
                 setLock: widget.setSingleFingerPanLock,
                 icon: widget.singleFingerPanLock ? Icons.pinch : Icons.swipe_up,
-                tooltip: widget.singleFingerPanLock ? t.editor.hud.unlockPan : t.editor.hud.lockPan,
+                tooltip: widget.singleFingerPanLock
+                    ? t.editor.hud.unlockSingleFingerPan
+                    : t.editor.hud.lockSingleFingerPan,
               ),
             ),
             Positioned(

@@ -212,8 +212,8 @@
     "hud": {
       "unlockZoom": "Zoom entsperren",
       "lockZoom": "Zoom sperren",
-      "unlockPan": "Verschieben mit einem Finger aktivieren",
-      "lockPan": "Verschieben mit einem Finger deaktivieren"
+      "unlockSingleFingerPan": "Verschieben mit einem Finger aktivieren",
+      "lockSingleFingerPan": "Verschieben mit einem Finger deaktivieren"
     },
     "pages": "Seiten",
     "untitled": "Unbenannt"

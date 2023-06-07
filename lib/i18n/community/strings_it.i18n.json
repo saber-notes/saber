@@ -266,8 +266,8 @@
     "hud": {
       "unlockZoom": "Sblocca zoom",
       "lockZoom": "Blocca zoom",
-      "unlockPan": "Attiva la panoramica con un solo dito",
-      "lockPan": "Disabilita la panoramica con un solo dito"
+      "unlockSingleFingerPan": "Attiva la panoramica con un solo dito",
+      "lockSingleFingerPan": "Disabilita la panoramica con un solo dito"
     },
     "pages": "Pagine",
     "untitled": "Senza titolo"

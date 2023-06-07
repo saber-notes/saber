@@ -198,20 +198,17 @@
     },
     "colors": {
       "colorPicker": "Color picker",
-
       "black": "Black",
       "darkGrey": "Dark grey",
       "grey": "Grey",
       "lightGrey": "Light grey",
       "white": "White",
-
       "red": "Red",
       "green": "Green",
       "blue": "Blue",
       "yellow": "Yellow",
       "purple": "Purple",
       "orange": "Orange",
-
       "pastelRed": "Pastel red",
       "pastelOrange": "Pastel orange",
       "pastelYellow": "Pastel yellow",
@@ -269,8 +266,8 @@
     "hud": {
       "unlockZoom": "Unlock zoom",
       "lockZoom": "Lock zoom",
-      "unlockPan": "Enable single-finger panning",
-      "lockPan": "Disable single-finger panning"
+      "unlockSingleFingerPan": "Enable single-finger panning",
+      "lockSingleFingerPan": "Disable single-finger panning"
     },
     "pages": "Pages",
     "untitled": "Untitled",

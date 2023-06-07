@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2413 (172 per locale)
 ///
-/// Built on 2023-06-06 at 15:59 UTC
+/// Built on 2023-06-07 at 07:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -731,8 +731,8 @@ class _StringsEditorHudEn {
 	// Translations
 	String get unlockZoom => 'Unlock zoom';
 	String get lockZoom => 'Lock zoom';
-	String get unlockPan => 'Enable single-finger panning';
-	String get lockPan => 'Disable single-finger panning';
+	String get unlockSingleFingerPan => 'Enable single-finger panning';
+	String get lockSingleFingerPan => 'Disable single-finger panning';
 }
 
 // Path: editor.menu.boxFits
@@ -1319,8 +1319,8 @@ class _StringsEditorHudAr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'إلغاء قفل التكبير';
 	@override String get lockZoom => 'قفل التكبير';
-	@override String get unlockPan => 'تمكين التحريك بإصبع واحد';
-	@override String get lockPan => 'تعطيل التحريك بإصبع واحد';
+	@override String get unlockSingleFingerPan => 'تمكين التحريك بإصبع واحد';
+	@override String get lockSingleFingerPan => 'تعطيل التحريك بإصبع واحد';
 }
 
 // Path: editor.menu.boxFits
@@ -1951,8 +1951,8 @@ class _StringsEditorHudCs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Odemknout přibližování';
 	@override String get lockZoom => 'Zamknout přibližování';
-	@override String get unlockPan => 'Zapnout posouvání jedním prsem';
-	@override String get lockPan => 'Vypnout posouvání jedním prsem';
+	@override String get unlockSingleFingerPan => 'Zapnout posouvání jedním prsem';
+	@override String get lockSingleFingerPan => 'Vypnout posouvání jedním prsem';
 }
 
 // Path: editor.menu.boxFits
@@ -2474,8 +2474,8 @@ class _StringsEditorHudDe extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Zoom entsperren';
 	@override String get lockZoom => 'Zoom sperren';
-	@override String get unlockPan => 'Verschieben mit einem Finger aktivieren';
-	@override String get lockPan => 'Verschieben mit einem Finger deaktivieren';
+	@override String get unlockSingleFingerPan => 'Verschieben mit einem Finger aktivieren';
+	@override String get lockSingleFingerPan => 'Verschieben mit einem Finger deaktivieren';
 }
 
 // Path: editor.menu.boxFits
@@ -3105,8 +3105,8 @@ class _StringsEditorHudEs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Desbloquear zoom';
 	@override String get lockZoom => 'Bloquear zoom';
-	@override String get unlockPan => 'Habilitar la panorámica con un solo dedo';
-	@override String get lockPan => 'Deshabilitar la panorámica con un solo dedo';
+	@override String get unlockSingleFingerPan => 'Habilitar la panorámica con un solo dedo';
+	@override String get lockSingleFingerPan => 'Deshabilitar la panorámica con un solo dedo';
 }
 
 // Path: editor.menu.boxFits
@@ -3706,8 +3706,8 @@ class _StringsEditorHudFa extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'قفل زوم را باز کنید';
 	@override String get lockZoom => 'قفل زوم';
-	@override String get unlockPan => 'تحرک تک انگشتی را فعال کنید';
-	@override String get lockPan => 'تحرک تک انگشتی را غیرفعال کنید';
+	@override String get unlockSingleFingerPan => 'تحرک تک انگشتی را فعال کنید';
+	@override String get lockSingleFingerPan => 'تحرک تک انگشتی را غیرفعال کنید';
 }
 
 // Path: editor.menu.boxFits
@@ -4307,8 +4307,8 @@ class _StringsEditorHudFr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Déverrouiller le zoom';
 	@override String get lockZoom => 'Verrouiller le zoom';
-	@override String get unlockPan => 'Activer le défilement à un seul doigt';
-	@override String get lockPan => 'Désactiver le défilement à un seul doigt';
+	@override String get unlockSingleFingerPan => 'Activer le défilement à un seul doigt';
+	@override String get lockSingleFingerPan => 'Désactiver le défilement à un seul doigt';
 }
 
 // Path: editor.menu.boxFits
@@ -4802,8 +4802,8 @@ class _StringsEditorHudHu extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Nagyítás feloldása';
 	@override String get lockZoom => 'Nagyítás feloldása';
-	@override String get unlockPan => 'Egyujjas lapozás engedélyezése';
-	@override String get lockPan => 'Egyujjas lapozás letiltása';
+	@override String get unlockSingleFingerPan => 'Egyujjas lapozás engedélyezése';
+	@override String get lockSingleFingerPan => 'Egyujjas lapozás letiltása';
 }
 
 // Path: editor.menu.boxFits
@@ -5431,8 +5431,8 @@ class _StringsEditorHudIt extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Sblocca zoom';
 	@override String get lockZoom => 'Blocca zoom';
-	@override String get unlockPan => 'Attiva la panoramica con un solo dito';
-	@override String get lockPan => 'Disabilita la panoramica con un solo dito';
+	@override String get unlockSingleFingerPan => 'Attiva la panoramica con un solo dito';
+	@override String get lockSingleFingerPan => 'Disabilita la panoramica con un solo dito';
 }
 
 // Path: editor.menu.boxFits
@@ -6063,8 +6063,8 @@ class _StringsEditorHudPtBr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Desbloquear zoom';
 	@override String get lockZoom => 'Bloquear zoom';
-	@override String get unlockPan => 'Ativar rolagem com um dedo';
-	@override String get lockPan => 'Desativar rolagem com um dedo';
+	@override String get unlockSingleFingerPan => 'Ativar rolagem com um dedo';
+	@override String get lockSingleFingerPan => 'Desativar rolagem com um dedo';
 }
 
 // Path: editor.menu.boxFits
@@ -6695,8 +6695,8 @@ class _StringsEditorHudRu extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Разблок. увеличение';
 	@override String get lockZoom => 'Блок. увеличения';
-	@override String get unlockPan => 'Разрешить панораму одним пальцем';
-	@override String get lockPan => 'Запретить панораму одним пальцем';
+	@override String get unlockSingleFingerPan => 'Разрешить панораму одним пальцем';
+	@override String get lockSingleFingerPan => 'Запретить панораму одним пальцем';
 }
 
 // Path: editor.menu.boxFits
@@ -7280,8 +7280,8 @@ class _StringsEditorHudTr extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Yakınlaştırma kilidini aç';
 	@override String get lockZoom => 'Yakınlaştırmayı kilitle';
-	@override String get unlockPan => 'Tek parmakla kaydırma kilidini aç';
-	@override String get lockPan => 'Tek parmakla kaydırmayı kilitle';
+	@override String get unlockSingleFingerPan => 'Tek parmakla kaydırma kilidini aç';
+	@override String get lockSingleFingerPan => 'Tek parmakla kaydırmayı kilitle';
 }
 
 // Path: editor.menu.boxFits
@@ -7912,8 +7912,8 @@ class _StringsEditorHudZhHansCn extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => '解锁缩放';
 	@override String get lockZoom => '锁定缩放';
-	@override String get unlockPan => '启用单指平移';
-	@override String get lockPan => '禁用单指平移';
+	@override String get unlockSingleFingerPan => '启用单指平移';
+	@override String get lockSingleFingerPan => '禁用单指平移';
 }
 
 // Path: editor.menu.boxFits
@@ -8544,8 +8544,8 @@ class _StringsEditorHudZhHantTw extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => '解鎖縮放';
 	@override String get lockZoom => '鎖定縮放';
-	@override String get unlockPan => '啟用單指平移';
-	@override String get lockPan => '禁用單指平移';
+	@override String get unlockSingleFingerPan => '啟用單指平移';
+	@override String get lockSingleFingerPan => '禁用單指平移';
 }
 
 // Path: editor.menu.boxFits

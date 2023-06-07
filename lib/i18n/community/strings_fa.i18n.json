@@ -243,8 +243,8 @@
     "hud": {
       "unlockZoom": "قفل زوم را باز کنید",
       "lockZoom": "قفل زوم",
-      "unlockPan": "تحرک تک انگشتی را فعال کنید",
-      "lockPan": "تحرک تک انگشتی را غیرفعال کنید"
+      "unlockSingleFingerPan": "تحرک تک انگشتی را فعال کنید",
+      "lockSingleFingerPan": "تحرک تک انگشتی را غیرفعال کنید"
     },
     "pages": "صفحات",
     "untitled": "بدون عنوان"

@@ -235,8 +235,8 @@
     "hud": {
       "unlockZoom": "Yakınlaştırma kilidini aç",
       "lockZoom": "Yakınlaştırmayı kilitle",
-      "unlockPan": "Tek parmakla kaydırma kilidini aç",
-      "lockPan": "Tek parmakla kaydırmayı kilitle"
+      "unlockSingleFingerPan": "Tek parmakla kaydırma kilidini aç",
+      "lockSingleFingerPan": "Tek parmakla kaydırmayı kilitle"
     },
     "pages": "Sayfalar",
     "untitled": "İsimsiz"

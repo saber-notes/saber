@@ -266,8 +266,8 @@
     "hud": {
       "unlockZoom": "解锁缩放",
       "lockZoom": "锁定缩放",
-      "unlockPan": "启用单指平移",
-      "lockPan": "禁用单指平移"
+      "unlockSingleFingerPan": "启用单指平移",
+      "lockSingleFingerPan": "禁用单指平移"
     },
     "pages": "页面",
     "untitled": "未命名"

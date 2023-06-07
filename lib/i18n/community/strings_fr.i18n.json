@@ -243,8 +243,8 @@
     "hud": {
       "unlockZoom": "Déverrouiller le zoom",
       "lockZoom": "Verrouiller le zoom",
-      "unlockPan": "Activer le défilement à un seul doigt",
-      "lockPan": "Désactiver le défilement à un seul doigt"
+      "unlockSingleFingerPan": "Activer le défilement à un seul doigt",
+      "lockSingleFingerPan": "Désactiver le défilement à un seul doigt"
     },
     "pages": "Pages",
     "untitled": "Sans titre"

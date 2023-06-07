@@ -266,8 +266,8 @@
     "hud": {
       "unlockZoom": "Odemknout přibližování",
       "lockZoom": "Zamknout přibližování",
-      "unlockPan": "Zapnout posouvání jedním prsem",
-      "lockPan": "Vypnout posouvání jedním prsem"
+      "unlockSingleFingerPan": "Zapnout posouvání jedním prsem",
+      "lockSingleFingerPan": "Vypnout posouvání jedním prsem"
     },
     "pages": "Stránky",
     "untitled": "Nepojmenovaná poznámka"
