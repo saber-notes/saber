@@ -75,7 +75,8 @@ abstract class Prefs {
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
   static late final PlainPref<bool> lastZoomLock,
-      lastSingleFingerPanLock;
+      lastSingleFingerPanLock,
+      lastAxisAlignedPanLock;
 
   static late final PlainPref<bool> hasDraggedSizeIndicatorBefore;
 
@@ -138,6 +139,7 @@ abstract class Prefs {
     lastLineHeight = PlainPref('lastLineHeight', 40);
     lastZoomLock = PlainPref('lastZoomLock', false);
     lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false, historicalKeys: ['lastPanLock']);
+    lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
     hasDraggedSizeIndicatorBefore = PlainPref('hasDraggedSizeIndicatorBefore', false);
 

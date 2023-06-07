@@ -42,11 +42,19 @@
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       },
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "cs": {
     "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
@@ -115,10 +123,21 @@
           "collegeRtl": "College-ruled (Reverse)"
         }
       },
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "es": {},
+  "es": {
+    "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      }
+    }
+  },
   "fa": {
     "login": {
       "feedbacks": {
@@ -150,6 +169,10 @@
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      },
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
       },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
@@ -185,6 +208,10 @@
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      },
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
       },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
@@ -293,21 +320,37 @@
           "cornell": "Cornell"
         }
       },
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "it": {
     "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "pt-BR": {
     "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "ru": {
     "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
@@ -371,16 +414,28 @@
         "duplicatePage": "Duplicate page",
         "deletePage": "Delete page"
       },
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "zh-Hans-CN": {
     "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "zh-Hant-TW": {
     "editor": {
+      "hud": {
+        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+      },
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   }

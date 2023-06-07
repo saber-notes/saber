@@ -267,7 +267,9 @@
       "unlockZoom": "Unlock zoom",
       "lockZoom": "Lock zoom",
       "unlockSingleFingerPan": "Enable single-finger panning",
-      "lockSingleFingerPan": "Disable single-finger panning"
+      "lockSingleFingerPan": "Disable single-finger panning",
+      "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
+      "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
     },
     "pages": "Pages",
     "untitled": "Untitled",

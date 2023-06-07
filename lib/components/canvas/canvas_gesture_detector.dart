@@ -95,6 +95,9 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Whether single-finger panning is locked.
   /// Two-finger panning is always enabled.
   late bool singleFingerPanLock = Prefs.lastSingleFingerPanLock.value;
+  /// Whether panning is locked to being horizontal or vertical.
+  /// Otherwise, panning can be done in any (i.e. diagonal) direction.
+  late bool axisAlignedPanLock = Prefs.lastAxisAlignedPanLock.value;
 
   @override
   void initState() {
@@ -230,6 +233,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   minScale: zoomLockedValue ?? CanvasGestureDetector.kMinScale,
                   maxScale: zoomLockedValue ?? CanvasGestureDetector.kMaxScale,
                   panEnabled: !singleFingerPanLock,
+                  panAxis: axisAlignedPanLock ? PanAxis.aligned : PanAxis.free,
 
                   interactionEndFrictionCoefficient: InteractiveCanvasViewer.kDrag * 100,
 
@@ -277,6 +281,11 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
             setSingleFingerPanLock: (bool singleFingerPanLock) => setState(() {
               this.singleFingerPanLock = singleFingerPanLock;
               Prefs.lastSingleFingerPanLock.value = singleFingerPanLock;
+            }),
+            axisAlignedPanLock: axisAlignedPanLock,
+            setAxisAlignedPanLock: (bool axisAlignedPanLock) => setState(() {
+              this.axisAlignedPanLock = axisAlignedPanLock;
+              Prefs.lastAxisAlignedPanLock.value = axisAlignedPanLock;
             }),
           ),
         ),
