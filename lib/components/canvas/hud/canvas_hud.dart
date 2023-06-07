@@ -13,16 +13,16 @@ class CanvasHud extends StatefulWidget {
     required this.zoomLock,
     required this.setZoomLock,
     required this.resetZoom,
-    required this.panLock,
-    required this.setPanLock,
+    required this.singleFingerPanLock,
+    required this.setSingleFingerPanLock,
   });
 
   final TransformationController transformationController;
   final bool zoomLock;
   final ValueChanged<bool> setZoomLock;
   final VoidCallback? resetZoom;
-  final bool panLock;
-  final ValueChanged<bool> setPanLock;
+  final bool singleFingerPanLock;
+  final ValueChanged<bool> setSingleFingerPanLock;
 
   @override
   State<CanvasHud> createState() => _CanvasHudState();
@@ -72,10 +72,10 @@ class _CanvasHudState extends State<CanvasHud> {
               top: 45,
               left: 5,
               child: CanvasGestureLockBtn(
-                lock: widget.panLock,
-                setLock: widget.setPanLock,
-                icon: widget.panLock ? Icons.pinch : Icons.swipe_down,
-                tooltip: widget.panLock ? t.editor.hud.unlockPan : t.editor.hud.lockPan,
+                lock: widget.singleFingerPanLock,
+                setLock: widget.setSingleFingerPanLock,
+                icon: widget.singleFingerPanLock ? Icons.pinch : Icons.swipe_up,
+                tooltip: widget.singleFingerPanLock ? t.editor.hud.unlockPan : t.editor.hud.lockPan,
               ),
             ),
             Positioned(

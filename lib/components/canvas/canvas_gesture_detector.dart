@@ -94,7 +94,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   late double? zoomLockedValue = Prefs.lastZoomLock.value ? 1 : null;
   /// Whether single-finger panning is locked.
   /// Two-finger panning is always enabled.
-  late bool panLock = Prefs.lastPanLock.value;
+  late bool singleFingerPanLock = Prefs.lastSingleFingerPanLock.value;
 
   @override
   void initState() {
@@ -229,7 +229,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                 return InteractiveCanvasViewer.builder(
                   minScale: zoomLockedValue ?? CanvasGestureDetector.kMinScale,
                   maxScale: zoomLockedValue ?? CanvasGestureDetector.kMaxScale,
-                  panEnabled: !panLock,
+                  panEnabled: !singleFingerPanLock,
 
                   interactionEndFrictionCoefficient: InteractiveCanvasViewer.kDrag * 100,
 
@@ -273,10 +273,10 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
               Prefs.lastZoomLock.value = zoomLock;
             }),
             resetZoom: zoomLockedValue != null ? null : resetZoom,
-            panLock: panLock,
-            setPanLock: (bool panLock) => setState(() {
-              this.panLock = panLock;
-              Prefs.lastPanLock.value = panLock;
+            singleFingerPanLock: singleFingerPanLock,
+            setSingleFingerPanLock: (bool singleFingerPanLock) => setState(() {
+              this.singleFingerPanLock = singleFingerPanLock;
+              Prefs.lastSingleFingerPanLock.value = singleFingerPanLock;
             }),
           ),
         ),
