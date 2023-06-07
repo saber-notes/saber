@@ -1,9 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart' hide TransformationController;
+import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/hud/canvas_gesture_lock_btn.dart';
 import 'package:saber/components/canvas/hud/canvas_zoom_indicator.dart';
-import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class CanvasHud extends StatefulWidget {
