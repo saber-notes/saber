@@ -431,10 +431,10 @@
   "zh-Hant-TW": {
     "editor": {
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "解鎖水平或垂直平移",
+        "lockAxisAlignedPan": "鎖定水平或垂直平移"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting": "正在儲存您的變更...完成後您可以安全地退出編輯器"
     }
   }
 }
