@@ -35,6 +35,7 @@
         <p>A cross-platform libre handwritten notes app, available for Android, iOS, Linux, Windows, and macOS!</p>
         <p language="cs">Multiplatformní aplikace pro ručně psané poznámky dostupná zcela zdarma pro Android, iOS, Windows a macOS!</p>
         <p language="es">¡Una aplicación de notas a mano multiplataforma, disponible para Android, iOS, Linux, Windows y macOS!</p>
+        <p language="zh_TW">跨平臺手寫筆記應用程式，支援 Android、iOS、Linux、Windows 和 macOS！</p>
     </description>
 
     <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>
