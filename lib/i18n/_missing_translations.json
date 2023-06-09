@@ -49,14 +49,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {
-    "editor": {
-      "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "login": {
       "feedbacks": {

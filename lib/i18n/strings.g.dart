@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2421 (172 per locale)
+/// Strings: 2423 (173 per locale)
 ///
-/// Built on 2023-06-09 at 02:27 UTC
+/// Built on 2023-06-09 at 12:29 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1954,8 +1954,10 @@ class _StringsEditorHudCs extends _StringsEditorHudEn {
 	// Translations
 	@override String get unlockZoom => 'Odemknout přibližování';
 	@override String get lockZoom => 'Zamknout přibližování';
-	@override String get unlockSingleFingerPan => 'Zapnout posouvání jedním prsem';
-	@override String get lockSingleFingerPan => 'Vypnout posouvání jedním prsem';
+	@override String get unlockSingleFingerPan => 'Odemknout posouvání jedním prsem';
+	@override String get lockSingleFingerPan => 'Zamknout posouvání jedním prsem';
+	@override String get unlockAxisAlignedPan => 'Odemknout horizontální a vertikální posouvání';
+	@override String get lockAxisAlignedPan => 'Zamknout horizontální a vertikální posouvání';
 }
 
 // Path: editor.menu.boxFits

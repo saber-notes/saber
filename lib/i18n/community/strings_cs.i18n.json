@@ -266,8 +266,10 @@
     "hud": {
       "unlockZoom": "Odemknout přibližování",
       "lockZoom": "Zamknout přibližování",
-      "unlockSingleFingerPan": "Zapnout posouvání jedním prsem",
-      "lockSingleFingerPan": "Vypnout posouvání jedním prsem"
+      "unlockSingleFingerPan": "Odemknout posouvání jedním prsem",
+      "lockSingleFingerPan": "Zamknout posouvání jedním prsem",
+      "unlockAxisAlignedPan": "Odemknout horizontální a vertikální posouvání",
+      "lockAxisAlignedPan": "Zamknout horizontální a vertikální posouvání"
     },
     "pages": "Stránky",
     "untitled": "Nepojmenovaná poznámka",
