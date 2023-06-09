@@ -52,8 +52,8 @@
   "cs": {
     "editor": {
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "Odemknout horizontální a vertikální posouvání",
+        "lockAxisAlignedPan": "Zamknout horizontální a vertikální posouvání"
       }
     }
   },
