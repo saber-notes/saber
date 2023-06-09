@@ -49,14 +49,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {
-    "editor": {
-      "hud": {
-        "unlockAxisAlignedPan": "Odemknout horizontální a vertikální posouvání",
-        "lockAxisAlignedPan": "Zamknout horizontální a vertikální posouvání"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "login": {
       "feedbacks": {
