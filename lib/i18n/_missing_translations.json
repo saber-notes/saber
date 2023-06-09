@@ -54,8 +54,7 @@
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
         "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
-      },
-      "needsToSaveBeforeExiting": "Ukládání změn... Po skončení této operace můžete editor bezpečně opustit"
+      }
     }
   },
   "de": {

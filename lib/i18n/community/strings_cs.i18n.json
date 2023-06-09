@@ -270,6 +270,7 @@
       "lockSingleFingerPan": "Vypnout posouvání jedním prsem"
     },
     "pages": "Stránky",
-    "untitled": "Nepojmenovaná poznámka"
+    "untitled": "Nepojmenovaná poznámka",
+    "needsToSaveBeforeExiting": "Ukládání změn... Po skončení této operace můžete editor bezpečně opustit"
   }
 }
