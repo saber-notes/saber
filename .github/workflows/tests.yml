@@ -34,9 +34,20 @@ jobs:
 
       - run: flutter pub get
 
+      - name: Prepare environment for tests
+        run: |
+          IS_MAIN_REPO=$(expr "$GITHUB_REPOSITORY" = "adil192/saber")
+          IS_MAIN_BRANCH=$(expr "$GITHUB_REF_NAME" = "main")
+          MAINTENANCE_CHECKS_ENABLED=$(expr "$IS_MAIN_REPO" "&" "$IS_MAIN_BRANCH")
+          echo "MAINTENANCE_CHECKS_ENABLED=$(test $MAINTENANCE_CHECKS_ENABLED -eq 1 && echo true || echo false)" >> $GITHUB_ENV
+
       - name: Run tests
         id: tests
-        run: flutter test --reporter expanded --coverage
+        run: |
+          flutter test \
+            --reporter expanded \
+            --coverage \
+            --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
 
       - name: Upload to Codecov
         uses: codecov/codecov-action@v3
