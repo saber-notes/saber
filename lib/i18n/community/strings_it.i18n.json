@@ -270,6 +270,7 @@
       "lockSingleFingerPan": "Disabilita la panoramica con un solo dito"
     },
     "pages": "Pagine",
-    "untitled": "Senza titolo"
+    "untitled": "Senza titolo",
+    "needsToSaveBeforeExiting": "Salvataggio delle modifiche... Puoi tranquillamente uscire dall'editor quando hai finito"
   }
 }

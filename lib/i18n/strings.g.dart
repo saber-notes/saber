@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2416 (172 per locale)
+/// Strings: 2417 (172 per locale)
 ///
-/// Built on 2023-06-09 at 01:33 UTC
+/// Built on 2023-06-09 at 02:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4991,6 +4991,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorHudIt hud = _StringsEditorHudIt._(_root);
 	@override String get pages => 'Pagine';
 	@override String get untitled => 'Senza titolo';
+	@override String get needsToSaveBeforeExiting => 'Salvataggio delle modifiche... Puoi tranquillamente uscire dall\'editor quando hai finito';
 }
 
 // Path: home.tabs
