@@ -270,6 +270,7 @@
       "lockSingleFingerPan": "Desativar rolagem com um dedo"
     },
     "pages": "Páginas",
-    "untitled": "Sem título"
+    "untitled": "Sem título",
+    "needsToSaveBeforeExiting": "Salvando as suas alterações... Você pode sair do editor com segurança quando isto terminar"
   }
 }

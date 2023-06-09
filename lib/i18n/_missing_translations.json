@@ -339,8 +339,7 @@
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
         "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
-      },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      }
     }
   },
   "ru": {
