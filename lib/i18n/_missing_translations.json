@@ -322,8 +322,8 @@
   "it": {
     "editor": {
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "Sblocca la panoramica orizzontale o verticale",
+        "lockAxisAlignedPan": "Blocca la panoramica su orizzontale o verticale"
       }
     }
   },
