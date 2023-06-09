@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2417 (172 per locale)
+/// Strings: 2420 (172 per locale)
 ///
-/// Built on 2023-06-09 at 02:21 UTC
+/// Built on 2023-06-09 at 02:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8105,6 +8105,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorHudZhHantTw hud = _StringsEditorHudZhHantTw._(_root);
 	@override String get pages => '頁面';
 	@override String get untitled => '無標題';
+	@override String get needsToSaveBeforeExiting => '正在儲存您的變更...完成後您可以安全地退出編輯器';
 }
 
 // Path: home.tabs
@@ -8550,6 +8551,8 @@ class _StringsEditorHudZhHantTw extends _StringsEditorHudEn {
 	@override String get lockZoom => '鎖定縮放';
 	@override String get unlockSingleFingerPan => '啟用單指平移';
 	@override String get lockSingleFingerPan => '禁用單指平移';
+	@override String get unlockAxisAlignedPan => '解鎖水平或垂直平移';
+	@override String get lockAxisAlignedPan => '鎖定水平或垂直平移';
 }
 
 // Path: editor.menu.boxFits
