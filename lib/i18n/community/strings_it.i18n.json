@@ -267,7 +267,9 @@
       "unlockZoom": "Sblocca zoom",
       "lockZoom": "Blocca zoom",
       "unlockSingleFingerPan": "Attiva la panoramica con un solo dito",
-      "lockSingleFingerPan": "Disabilita la panoramica con un solo dito"
+      "lockSingleFingerPan": "Disabilita la panoramica con un solo dito",
+      "unlockAxisAlignedPan": "Sblocca la panoramica orizzontale o verticale",
+      "lockAxisAlignedPan": "Blocca la panoramica su orizzontale o verticale"
     },
     "pages": "Pagine",
     "untitled": "Senza titolo",

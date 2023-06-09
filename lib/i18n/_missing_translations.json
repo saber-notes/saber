@@ -319,14 +319,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "editor": {
-      "hud": {
-        "unlockAxisAlignedPan": "Sblocca la panoramica orizzontale o verticale",
-        "lockAxisAlignedPan": "Blocca la panoramica su orizzontale o verticale"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "editor": {
       "hud": {

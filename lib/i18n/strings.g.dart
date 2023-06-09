@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2423 (173 per locale)
+/// Strings: 2425 (173 per locale)
 ///
-/// Built on 2023-06-09 at 12:29 UTC
+/// Built on 2023-06-09 at 12:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5439,6 +5439,8 @@ class _StringsEditorHudIt extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Blocca zoom';
 	@override String get unlockSingleFingerPan => 'Attiva la panoramica con un solo dito';
 	@override String get lockSingleFingerPan => 'Disabilita la panoramica con un solo dito';
+	@override String get unlockAxisAlignedPan => 'Sblocca la panoramica orizzontale o verticale';
+	@override String get lockAxisAlignedPan => 'Blocca la panoramica su orizzontale o verticale';
 }
 
 // Path: editor.menu.boxFits
