@@ -36,10 +36,12 @@ jobs:
 
       - name: Prepare environment for tests
         run: |
-          IS_MAIN_REPO=$(expr "$GITHUB_REPOSITORY" = "adil192/saber")
-          IS_MAIN_BRANCH=$(expr "$GITHUB_REF_NAME" = "main")
-          MAINTENANCE_CHECKS_ENABLED=$(expr "$IS_MAIN_REPO" "&" "$IS_MAIN_BRANCH")
-          echo "MAINTENANCE_CHECKS_ENABLED=$(test $MAINTENANCE_CHECKS_ENABLED -eq 1 && echo true || echo false)" >> $GITHUB_ENV
+          if [ "$GITHUB_REPOSITORY" = "adil192/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            MAINTENANCE_CHECKS_ENABLED=true
+          else
+            MAINTENANCE_CHECKS_ENABLED=false
+          fi
+          echo "MAINTENANCE_CHECKS_ENABLED=$MAINTENANCE_CHECKS_ENABLED" >> $GITHUB_ENV
 
       - name: Run tests
         id: tests
