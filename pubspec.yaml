@@ -104,7 +104,7 @@ dependencies:
 
   window_manager: ^0.3.0
 
-  worker_manager: ^6.0.0
+  worker_manager: ^6.0.3
 
   # https://pub.dev/packages/flutter_sharing_intent will have better cross-platform support
   # but it's not yet ready (January 2023)
