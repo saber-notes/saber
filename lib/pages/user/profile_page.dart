@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/data/prefs.dart';
