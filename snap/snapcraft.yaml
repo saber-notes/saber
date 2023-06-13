@@ -5,7 +5,7 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 license: GPL-3.0
 compression: lzo
-icon: icon.png
+icon: assets/icon/icon.png
 donation: https://github.com/sponsors/adil192
 source-code: https://github.com/adil192/saber
 issues: https://github.com/adil192/saber/issues
