@@ -22,7 +22,7 @@ class GridFolders extends StatelessWidget {
 
     /// The cards that come before the actual folders
     final extraCards = <FolderCardType>[
-      if (!isAtRoot) FolderCardType.BackFolder,
+      if (!isAtRoot) FolderCardType.backFolder,
       // todo: implement new folder button
       // FolderCardType.NewFolder,
     ];
@@ -32,17 +32,17 @@ class GridFolders extends StatelessWidget {
       crossAxisCount: mediaQuery.size.width ~/ 150 + 1,
       mainAxisSpacing: 10,
       itemBuilder: (context, index) {
-        final cardType = extraCards.get(index, FolderCardType.RealFolder);
+        final cardType = extraCards.get(index, FolderCardType.realFolder);
         return Card(
           child: InkWell(
             onTap: () {
               switch (cardType) {
-                case FolderCardType.NewFolder:
+                case FolderCardType.newFolder:
                   // todo: new folder prompt
                   break;
-                case FolderCardType.BackFolder:
+                case FolderCardType.backFolder:
                   onTap('..');
-                case FolderCardType.RealFolder:
+                case FolderCardType.realFolder:
                   onTap(folders[index - extraCards.length]);
               }
             },
@@ -53,17 +53,17 @@ class GridFolders extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   switch (cardType) {
-                    FolderCardType.BackFolder => const AdaptiveIcon(
+                    FolderCardType.backFolder => const AdaptiveIcon(
                       icon: Icons.folder_open,
                       cupertinoIcon: CupertinoIcons.folder_open,
                       size: 50,
                     ),
-                    FolderCardType.NewFolder => const AdaptiveIcon(
+                    FolderCardType.newFolder => const AdaptiveIcon(
                       icon: Icons.create_new_folder,
                       cupertinoIcon: CupertinoIcons.folder_fill_badge_plus,
                       size: 50,
                     ),
-                    FolderCardType.RealFolder => const AdaptiveIcon(
+                    FolderCardType.realFolder => const AdaptiveIcon(
                       icon: Icons.folder,
                       cupertinoIcon: CupertinoIcons.folder_fill,
                       size: 50,
@@ -73,9 +73,9 @@ class GridFolders extends StatelessWidget {
                   const SizedBox(height: 8),
 
                   switch (cardType) {
-                    FolderCardType.BackFolder => const Icon(Icons.arrow_back),
-                    FolderCardType.NewFolder => const Icon(Icons.add),
-                    FolderCardType.RealFolder => Text(folders[index - extraCards.length]),
+                    FolderCardType.backFolder => const Icon(Icons.arrow_back),
+                    FolderCardType.newFolder => const Icon(Icons.add),
+                    FolderCardType.realFolder => Text(folders[index - extraCards.length]),
                   },
                 ],
               ),
@@ -88,7 +88,7 @@ class GridFolders extends StatelessWidget {
 }
 
 enum FolderCardType {
-  BackFolder,
-  NewFolder,
-  RealFolder;
+  backFolder,
+  newFolder,
+  realFolder;
 }

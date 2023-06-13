@@ -823,7 +823,7 @@ class EditorState extends State<Editor> {
   /// Returns the number of photos picked.
   ///
   /// If [photoInfos] is provided, it will be used instead of the file picker.
-  Future<int> pickPhotos([List<_PhotoInfo>? photoInfos]) async {
+  Future<int> _pickPhotos([List<_PhotoInfo>? photoInfos]) async {
     if (coreInfo.readOnly) return 0;
 
     final currentPageIndex = this.currentPageIndex;
@@ -1034,7 +1034,7 @@ class EditorState extends State<Editor> {
       await Future.delayed(const Duration(milliseconds: 50));
     }
 
-    await pickPhotos(photoInfos);
+    await _pickPhotos(photoInfos);
   }
 
   Future exportAsPdf() async {
@@ -1233,7 +1233,7 @@ class EditorState extends State<Editor> {
             });
           },
 
-          pickPhoto: pickPhotos,
+          pickPhoto: _pickPhotos,
           paste: paste,
 
           exportAsSbn: exportAsSbn,
@@ -1397,7 +1397,7 @@ class EditorState extends State<Editor> {
         autosaveAfterDelay();
       }),
 
-      pickPhotos: pickPhotos,
+      pickPhotos: _pickPhotos,
       importPdf: importPdf,
       canRasterPdf: canRasterPdf,
     );
