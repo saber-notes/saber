@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/settings_color.dart';
@@ -66,6 +67,12 @@ abstract class _SettingsPrefs {
     Prefs.platform,
     (TargetPlatform value) => value.index,
     (int value) => TargetPlatform.values[value],
+  );
+
+  static final layoutSize = TransformedPref(
+    Prefs.layoutSize,
+    (LayoutSize value) => value.index,
+    (int value) => LayoutSize.values[value],
   );
 
   static final shouldAlwaysAlertForUpdates = TransformedPref(
@@ -225,6 +232,27 @@ class _SettingsPageState extends State<SettingsPage> {
                         }(),
                         const Icon(Icons.apple, semanticLabel: 'Cupertino'),
                       ),
+                    ],
+                  ),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.layoutSize,
+                    subtitle: switch (Prefs.layoutSize.value) {
+                      LayoutSize.auto => t.settings.layoutSizes.auto,
+                      LayoutSize.phone => t.settings.layoutSizes.phone,
+                      LayoutSize.tablet => t.settings.layoutSizes.tablet,
+                    },
+                    afterChange: (_) => setState(() {}),
+                    iconBuilder: (i) => switch (LayoutSize.values[i]) {
+                      LayoutSize.auto => Icons.aspect_ratio,
+                      LayoutSize.phone => Icons.smartphone,
+                      LayoutSize.tablet => Icons.tablet,
+                    },
+                    pref: _SettingsPrefs.layoutSize,
+                    optionsWidth: 60,
+                    options: [
+                      ToggleButtonsOption(LayoutSize.auto.index, Icon(Icons.aspect_ratio, semanticLabel: t.settings.layoutSizes.auto)),
+                      ToggleButtonsOption(LayoutSize.phone.index, Icon(Icons.smartphone, semanticLabel: t.settings.layoutSizes.phone)),
+                      ToggleButtonsOption(LayoutSize.tablet.index, Icon(Icons.tablet, semanticLabel: t.settings.layoutSizes.tablet)),
                     ],
                   ),
                   SettingsColor(

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2425 (173 per locale)
+/// Strings: 2429 (173 per locale)
 ///
-/// Built on 2023-06-09 at 12:35 UTC
+/// Built on 2023-06-13 at 14:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -187,6 +187,7 @@ class _StringsSettingsEn {
 	late final _StringsSettingsPrefLabelsEn prefLabels = _StringsSettingsPrefLabelsEn._(_root);
 	late final _StringsSettingsPrefDescriptionsEn prefDescriptions = _StringsSettingsPrefDescriptionsEn._(_root);
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
+	late final _StringsSettingsLayoutSizesEn layoutSizes = _StringsSettingsLayoutSizesEn._(_root);
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
 	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
 	String get systemLanguage => 'System language';
@@ -349,6 +350,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get locale => 'App language';
 	String get appTheme => 'App theme';
 	String get platform => 'Theme type';
+	String get layoutSize => 'Layout size';
 	String get customAccentColor => 'Custom accent color';
 	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
@@ -395,6 +397,18 @@ class _StringsSettingsThemeModesEn {
 	String get system => 'System';
 	String get light => 'Light';
 	String get dark => 'Dark';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get auto => 'Auto';
+	String get phone => 'Phone';
+	String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker

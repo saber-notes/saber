@@ -4,6 +4,16 @@
     "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "ar": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "login": {
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
@@ -49,8 +59,29 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    }
+  },
   "de": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "login": {
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
@@ -123,6 +154,16 @@
     }
   },
   "es": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "editor": {
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
@@ -131,6 +172,16 @@
     }
   },
   "fa": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "login": {
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
@@ -170,6 +221,16 @@
     }
   },
   "fr": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "login": {
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
@@ -211,10 +272,16 @@
   "hu": {
     "settings": {
       "prefLabels": {
+        "layoutSize": "Layout size",
         "printPageIndicators": "Print page indicators"
       },
       "prefDescriptions": {
         "printPageIndicators": "Show page indicators in exports"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
       }
     },
     "login": {
@@ -319,8 +386,29 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    }
+  },
   "pt-BR": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "editor": {
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
@@ -329,6 +417,16 @@
     }
   },
   "ru": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "editor": {
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
@@ -338,6 +436,16 @@
     }
   },
   "tr": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "login": {
       "feedbacks": {
         "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
@@ -405,6 +513,16 @@
     }
   },
   "zh-Hans-CN": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    },
     "editor": {
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
@@ -413,5 +531,16 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "layoutSize": "Layout size"
+      },
+      "layoutSizes": {
+        "auto": "Auto",
+        "phone": "Phone",
+        "tablet": "Tablet"
+      }
+    }
+  }
 }

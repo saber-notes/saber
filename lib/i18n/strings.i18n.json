@@ -30,6 +30,7 @@
       "locale": "App language",
       "appTheme": "App theme",
       "platform": "Theme type",
+      "layoutSize": "Layout size",
       "customAccentColor": "Custom accent color",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Automatically check for Saber updates",
@@ -62,6 +63,11 @@
       "system": "System",
       "light": "Light",
       "dark": "Dark"
+    },
+    "layoutSizes": {
+      "auto": "Auto",
+      "phone": "Phone",
+      "tablet": "Tablet"
     },
     "accentColorPicker": {
       "pickAColor": "Pick a color"

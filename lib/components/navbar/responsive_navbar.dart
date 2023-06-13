@@ -41,6 +41,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   void initState() {
     Prefs.locale.addListener(onChange);
+    Prefs.layoutSize.addListener(onChange);
     super.initState();
   }
 
@@ -55,8 +56,11 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    ResponsiveNavbar.isLargeScreen = screenWidth >= 600;
+    ResponsiveNavbar.isLargeScreen = switch (Prefs.layoutSize.value) {
+      LayoutSize.auto => MediaQuery.of(context).size.width >= 600,
+      LayoutSize.phone => false,
+      LayoutSize.tablet => true,
+    };
 
     ResponsiveNavbar.setAndroidNavBarColor(Theme.of(context));
 
@@ -91,6 +95,13 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   void dispose() {
     Prefs.locale.removeListener(onChange);
+    Prefs.layoutSize.removeListener(onChange);
     super.dispose();
   }
+}
+
+enum LayoutSize {
+  auto,
+  phone,
+  tablet,
 }

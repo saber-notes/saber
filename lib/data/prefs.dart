@@ -9,6 +9,7 @@ import 'package:nextcloud/nextcloud.dart' show NextcloudProvisioningApiUserDetai
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/stroke_properties.dart';
+import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -43,6 +44,7 @@ abstract class Prefs {
   static late final PlainPref<ThemeMode> appTheme;
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
   static late final PlainPref<TargetPlatform> platform;
+  static late final PlainPref<LayoutSize> layoutSize;
   /// The accent color of the app. If 0, the system accent color will be used.
   static late final PlainPref<int> accentColor;
   static late final PlainPref<bool> hyperlegibleFont;
@@ -107,6 +109,7 @@ abstract class Prefs {
 
     appTheme = PlainPref('appTheme', ThemeMode.system);
     platform = PlainPref('platform', defaultTargetPlatform);
+    layoutSize = PlainPref('layoutSize', LayoutSize.auto);
     accentColor = PlainPref('accentColor', 0);
     hyperlegibleFont = PlainPref('hyperlegibleFont', false);
 
@@ -262,6 +265,7 @@ class PlainPref<T> extends IPref<T> {
         || T == typeOf<Queue<String>>()
         || T == StrokeProperties || T == typeOf<Quota?>()
         || T == AxisDirection || T == ThemeMode || T == TargetPlatform
+        || T == LayoutSize
         || T == ToolId || T == CanvasBackgroundPattern
     );
   }
@@ -335,6 +339,8 @@ class PlainPref<T> extends IPref<T> {
         return await _prefs!.setInt(key, (value as ThemeMode).index);
       } else if (T == TargetPlatform) {
         return await _prefs!.setInt(key, (value as TargetPlatform).index);
+      } else if (T == LayoutSize) {
+        return await _prefs!.setInt(key, (value as LayoutSize).index);
       } else if (T == ToolId) {
         return await _prefs!.setString(key, (value as ToolId).id);
       } else if (T == CanvasBackgroundPattern) {
@@ -388,6 +394,10 @@ class PlainPref<T> extends IPref<T> {
         if (index == null) return null;
         if (index == -1) return defaultTargetPlatform as T?;
         return TargetPlatform.values[index] as T?;
+      } else if (T == LayoutSize) {
+        final index = _prefs!.getInt(key);
+        if (index == null) return null;
+        return LayoutSize.values[index] as T?;
       } else if (T == ToolId) {
         String id = _prefs!.getString(key)!;
         return ToolId.values
