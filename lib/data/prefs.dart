@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:nextcloud/nextcloud.dart' show NextcloudProvisioningApiUserDetails_Quota;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
-import 'package:saber/components/canvas/tools/_tool.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 typedef Quota = NextcloudProvisioningApiUserDetails_Quota;

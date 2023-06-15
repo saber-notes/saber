@@ -5,11 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:keybinder/keybinder.dart';
-import 'package:saber/components/canvas/tools/_tool.dart';
-import 'package:saber/components/canvas/tools/eraser.dart';
-import 'package:saber/components/canvas/tools/highlighter.dart';
-import 'package:saber/components/canvas/tools/pen.dart';
-import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
@@ -18,6 +13,11 @@ import 'package:saber/components/toolbar/pen_modal.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/eraser.dart';
+import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Toolbar extends StatefulWidget {

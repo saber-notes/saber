@@ -5,8 +5,8 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
-import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/tools/pen.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 

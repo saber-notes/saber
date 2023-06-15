@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 
 const _pageSize = Size(100, 100);
 const _penSize = 1.0;

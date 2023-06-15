@@ -2,8 +2,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {

@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/canvas/tools/eraser.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
+import 'package:saber/data/tools/eraser.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 
 const String _penType = 'testing pen';
 final StrokeProperties _strokeProperties = StrokeProperties(

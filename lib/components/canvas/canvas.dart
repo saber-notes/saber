@@ -3,9 +3,9 @@ import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
-import 'package:saber/components/canvas/tools/select.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/select.dart';
 
 class Canvas extends StatelessWidget {
   const Canvas({

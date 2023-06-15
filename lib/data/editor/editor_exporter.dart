@@ -8,9 +8,9 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
-import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/highlighter.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {

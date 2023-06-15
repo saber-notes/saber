@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';

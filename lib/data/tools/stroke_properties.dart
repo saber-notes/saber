@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/tools/highlighter.dart';
+import 'package:saber/data/tools/highlighter.dart';
 
 class StrokeProperties {
   static const Color defaultColor = Colors.black;

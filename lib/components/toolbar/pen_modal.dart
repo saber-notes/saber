@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:saber/components/canvas/tools/_tool.dart';
-import 'package:saber/components/canvas/tools/highlighter.dart';
-import 'package:saber/components/canvas/tools/pen.dart';
 import 'package:saber/components/toolbar/size_picker.dart';
+import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class PenModal extends StatefulWidget {

@@ -6,7 +6,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
-import 'package:saber/components/canvas/tools/highlighter.dart';
+import 'package:saber/data/tools/highlighter.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
 

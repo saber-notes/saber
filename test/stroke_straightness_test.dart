@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 
 Stroke getEmptyStroke({double size = StrokeProperties.defaultSize}) => Stroke(
   strokeProperties: StrokeProperties(size: size),

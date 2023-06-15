@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
-import 'package:saber/components/canvas/tools/_tool.dart';
+import 'package:saber/data/tools/_tool.dart';
 
 class Select extends Tool {
   Select._();

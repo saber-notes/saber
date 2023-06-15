@@ -5,8 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
-import 'package:saber/components/canvas/tools/select.dart';
-import 'package:saber/components/canvas/tools/stroke_properties.dart';
+import 'package:saber/data/tools/select.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 
 void main() {
   test('Test that the select tool selects the right strokes', () async {
