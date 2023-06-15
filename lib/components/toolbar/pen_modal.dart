@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
@@ -55,7 +55,11 @@ class _PenModalState extends State<PenModal> {
               shape: const CircleBorder(),
             ),
             tooltip: t.editor.pens.fountainPen,
-            icon: const FaIcon(Pen.fountainPenIcon, size: 16),
+            icon: SvgPicture.asset(
+              'assets/images/scribble_fountain.svg',
+              width: 32,
+              height: 32 / 508 * 374,
+            ),
           ),
           IconButton(
             onPressed: () => setState(() {
@@ -71,7 +75,11 @@ class _PenModalState extends State<PenModal> {
               shape: const CircleBorder(),
             ),
             tooltip: t.editor.pens.ballpointPen,
-            icon: const FaIcon(Pen.ballpointPenIcon, size: 16),
+            icon: SvgPicture.asset(
+              'assets/images/scribble_ballpoint.svg',
+              width: 32,
+              height: 32 / 508 * 374,
+            ),
           ),
         ],
       ],
