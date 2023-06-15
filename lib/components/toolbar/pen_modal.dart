@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/canvas/tools/_tool.dart';
 import 'package:saber/components/canvas/tools/highlighter.dart';
 import 'package:saber/components/canvas/tools/pen.dart';
@@ -59,6 +58,11 @@ class _PenModalState extends State<PenModal> {
               'assets/images/scribble_fountain.svg',
               width: 32,
               height: 32 / 508 * 374,
+              theme: SvgTheme(
+                currentColor: Pen.currentPen.icon == Pen.fountainPenIcon
+                    ? Theme.of(context).colorScheme.secondary
+                    : Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
           IconButton(
@@ -79,6 +83,11 @@ class _PenModalState extends State<PenModal> {
               'assets/images/scribble_ballpoint.svg',
               width: 32,
               height: 32 / 508 * 374,
+              theme: SvgTheme(
+                currentColor: Pen.currentPen.icon == Pen.ballpointPenIcon
+                    ? Theme.of(context).colorScheme.secondary
+                    : Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
         ],
