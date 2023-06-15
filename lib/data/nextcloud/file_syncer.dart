@@ -185,7 +185,16 @@ abstract class FileSyncer {
     String filePathEncrypted = filePathRemote;
 
     // remove parent directory from path
-    if (filePathEncrypted.startsWith(FileManager.appRootDirectoryPrefix)) {
+
+    if (filePathEncrypted.startsWith(RegExp(r'/files/[^/]+/Saber/'))) {
+      // Directory may be prefixed with /files/username/ then the /Saber/ folder.
+      // See https://github.com/adil192/saber/issues/382
+      final rootDir = FileManager.appRootDirectoryPrefix.substring(1);
+      // min index 8 to handle edge case where the username is 'Saber'
+      // i.e. '/files/Saber/Saber/76987698ab9c7697.sbn'
+      final i = filePathEncrypted.indexOf(rootDir, 8) + rootDir.length;
+      filePathEncrypted = filePathEncrypted.substring(i);
+    } else if (filePathEncrypted.startsWith(FileManager.appRootDirectoryPrefix)) {
       // with the leading slash; remove "/Saber/"
       filePathEncrypted = filePathEncrypted.substring(FileManager.appRootDirectoryPrefix.length + 1);
     } else if (filePathEncrypted.startsWith(FileManager.appRootDirectoryPrefix.substring(1))) {
