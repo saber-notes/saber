@@ -30,11 +30,7 @@ Future<void> main() async {
   await Future.wait([
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
-    workerManager.init(
-      // ensure there are enough isolates for the first screen
-      // (recently accessed notes)
-      isolatesCount: FileManager.maxRecentlyAccessedFiles,
-    ),
+    workerManager.init(),
     Prefs.locale.waitUntilLoaded(),
     InvertShader.init(),
   ]);
