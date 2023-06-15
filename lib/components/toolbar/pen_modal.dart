@@ -58,7 +58,7 @@ class _PenModalState extends State<PenModal> {
             icon: SvgPicture.asset(
               'assets/images/scribble_fountain.svg',
               width: 32,
-              height: 32,
+              height: 32 / 508 * 374,
             ),
           ),
           IconButton(
@@ -78,7 +78,7 @@ class _PenModalState extends State<PenModal> {
             icon: SvgPicture.asset(
               'assets/images/scribble_ballpoint.svg',
               width: 32,
-              height: 32,
+              height: 32 / 508 * 374,
             ),
           ),
         ],
