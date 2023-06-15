@@ -58,6 +58,7 @@ abstract class FileSyncer {
       remoteFiles = await _client!.webdav.ls(
         FileManager.appRootDirectoryPrefix,
         prop: WebDavPropfindProp.fromBools(
+          davgetcontentlength: true,
           davgetlastmodified: true,
         ),
       ).then((multistatus) => multistatus.toWebDavFiles(_client!.webdav));
@@ -278,10 +279,11 @@ abstract class FileSyncer {
       final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll('][', ','));
       final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
       final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+      assert(decryptedData.isNotEmpty, 'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      if (kDebugMode) print('Failed to download file ${file.localPath} ${file.remotePath}');
+      if (kDebugMode) print('Failed to download file ${file.localPath} ${file.remotePath}: $e');
       return false;
     }
   }
