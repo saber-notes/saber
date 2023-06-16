@@ -409,23 +409,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Dimensione layout"
-      },
-      "layoutSizes": {
-        "auto": "Automatico",
-        "phone": "Telefono",
-        "tablet": "Tablet"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "Puntatore laser"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "settings": {
       "prefLabels": {

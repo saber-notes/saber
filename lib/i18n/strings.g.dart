@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2435 (173 per locale)
+/// Strings: 2440 (174 per locale)
 ///
-/// Built on 2023-06-16 at 13:54 UTC
+/// Built on 2023-06-16 at 13:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4908,6 +4908,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsIt prefLabels = _StringsSettingsPrefLabelsIt._(_root);
 	@override late final _StringsSettingsPrefDescriptionsIt prefDescriptions = _StringsSettingsPrefDescriptionsIt._(_root);
 	@override late final _StringsSettingsThemeModesIt themeModes = _StringsSettingsThemeModesIt._(_root);
+	@override late final _StringsSettingsLayoutSizesIt layoutSizes = _StringsSettingsLayoutSizesIt._(_root);
 	@override late final _StringsSettingsAccentColorPickerIt accentColorPicker = _StringsSettingsAccentColorPickerIt._(_root);
 	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
 	@override String get systemLanguage => 'Lingua del sistema';
@@ -5070,6 +5071,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Lingua app';
 	@override String get appTheme => 'Tema dell\'app';
 	@override String get platform => 'Tipo di tema';
+	@override String get layoutSize => 'Dimensione layout';
 	@override String get customAccentColor => 'Colore personalizzato';
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
@@ -5116,6 +5118,18 @@ class _StringsSettingsThemeModesIt extends _StringsSettingsThemeModesEn {
 	@override String get system => 'Sistema';
 	@override String get light => 'Chiaro';
 	@override String get dark => 'Scuro';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesIt extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'Automatico';
+	@override String get phone => 'Telefono';
+	@override String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker
@@ -5341,6 +5355,7 @@ class _StringsEditorPensIt extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Penna stilografica';
 	@override String get ballpointPen => 'Penna a sfera';
 	@override String get highlighter => 'Evidenziatore';
+	@override String get laserPointer => 'Puntatore laser';
 }
 
 // Path: editor.penOptions
