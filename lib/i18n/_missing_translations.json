@@ -62,23 +62,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Layout size"
-      },
-      "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "Laser pointer"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefLabels": {
