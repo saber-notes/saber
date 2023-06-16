@@ -15,6 +15,7 @@ class LaserPointer extends Tool {
   ToolId get toolId => ToolId.laserPointer;
 
   final strokeProperties = StrokeProperties(
+    color: Colors.red,
     thinning: 0,
     smoothing: 0.7,
     streamline: 0.7,
