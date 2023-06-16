@@ -30,6 +30,7 @@
       "locale": "Lingua app",
       "appTheme": "Tema dell'app",
       "platform": "Tipo di tema",
+      "layoutSize": "Dimensione layout",
       "customAccentColor": "Colore personalizzato",
       "hyperlegibleFont": "Carattere iperleggibile",
       "shouldCheckForUpdates": "Controlla automaticamente gli aggiornamenti di Saber",
@@ -62,6 +63,11 @@
       "system": "Sistema",
       "light": "Chiaro",
       "dark": "Scuro"
+    },
+    "layoutSizes": {
+      "auto": "Automatico",
+      "phone": "Telefono",
+      "tablet": "Tablet"
     },
     "accentColorPicker": {
       "pickAColor": "Scegli un colore"
@@ -190,7 +196,8 @@
     "pens": {
       "fountainPen": "Penna stilografica",
       "ballpointPen": "Penna a sfera",
-      "highlighter": "Evidenziatore"
+      "highlighter": "Evidenziatore",
+      "laserPointer": "Puntatore laser"
     },
     "penOptions": {
       "size": "Dimesione",
