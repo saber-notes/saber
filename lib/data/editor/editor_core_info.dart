@@ -260,6 +260,7 @@ class EditorCoreInfo {
       } else {
         coreInfo = await workerManager.execute(
           () => _loadFromFileIsolate(jsonString, path, readOnly, onlyFirstPage),
+          priority: WorkPriority.veryHigh, // less important than [WorkPriority.immediately]
         );
       }
     } catch (e) {
