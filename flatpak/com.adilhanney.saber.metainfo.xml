@@ -66,6 +66,19 @@
         </screenshot>
     </screenshots>
 
+        <release version="0.13.0" type="development" date="2023-06-16">
+            <description>
+                <ul>
+                    <li>Added a laser pointer tool</li>
+                    <li>You can now lock panning to the vertical/horizontal axes</li>
+                    <li>Phone users can now opt to use the tablet UI and vice versa</li>
+                    <li>Better pen icons</li>
+                    <li>Reduced the number of notes that are loaded at once</li>
+                    <li>Fixed detection of deleted files, so syncs are much faster now</li>
+                    <li>Faster and more reliable image imports</li>
+                </ul>
+            </description>
+        </release>
     <releases>
         <release version="0.12.10" type="development" date="2023-06-06">
             <description>
