@@ -65,17 +65,17 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Rozložení uživatelského rozhraní"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
+        "auto": "Automatické",
+        "phone": "Telefon",
         "tablet": "Tablet"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer": "Laserové ukazovátko"
       }
     }
   },
