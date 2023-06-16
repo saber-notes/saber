@@ -571,21 +571,5 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "佈局大小"
-      },
-      "layoutSizes": {
-        "auto": "自動",
-        "phone": "手機",
-        "tablet": "平板"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "雷射筆"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
