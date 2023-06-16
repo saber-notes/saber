@@ -412,17 +412,17 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Dimensione layout"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
+        "auto": "Automatico",
+        "phone": "Telefono",
         "tablet": "Tablet"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer": "Puntatore laser"
       }
     }
   },
