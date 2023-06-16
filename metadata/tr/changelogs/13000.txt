@@ -1,0 +1,7 @@
+• Bir lazer işaretçi aracı eklendi
+• Artık kaydırmayı dikey/yatay eksenlere kilitleyebilirsiniz.
+• Telefon kullanıcıları artık tablet kullanıcı arayüzünü kullanmayı tercih edebilir ve bunun tersi de geçerlidir
+• Daha iyi kalem simgeleri
+• Aynı anda yüklenen notların sayısı azaltıldı
+• Silinen dosyaların algılanması düzeltildi, bu nedenle senkronizasyonlar artık çok daha hızlı
+• Daha hızlı ve daha güvenilir görüntü içe aktarma

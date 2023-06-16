@@ -1,0 +1,7 @@
+• Ajout d'un outil pointeur laser
+• Vous pouvez maintenant verrouiller le panoramique sur les axes verticaux/horizontaux
+• Les utilisateurs de téléphone peuvent désormais choisir d'utiliser l'interface utilisateur de la tablette et vice versa
+• Meilleures icônes de stylet
+• Réduction du nombre de notes chargées simultanément
+• Correction de la détection des fichiers supprimés, donc les synchronisations sont beaucoup plus rapides maintenant
+• Importations d'images plus rapides et plus fiables

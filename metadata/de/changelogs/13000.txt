@@ -1,0 +1,7 @@
+• Ein Laserpointer-Tool hinzugefügt
+• Sie können das Schwenken jetzt auf der vertikalen/horizontalen Achse sperren
+• Telefonbenutzer können sich jetzt für die Verwendung der Tablet-Benutzeroberfläche entscheiden und umgekehrt
+• Bessere Stiftsymbole
+• Die Anzahl der Notizen, die gleichzeitig geladen werden, wurde reduziert
+• Die Erkennung gelöschter Dateien wurde korrigiert, sodass die Synchronisierung jetzt viel schneller erfolgt
+• Schnellere und zuverlässigere Bildimporte

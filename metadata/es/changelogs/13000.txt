@@ -1,0 +1,7 @@
+• Se agregó una herramienta de puntero láser
+• Ahora puede bloquear la panorámica en los ejes vertical/horizontal
+• Los usuarios de teléfonos ahora pueden optar por usar la interfaz de usuario de la tableta y viceversa
+• Mejores iconos de pluma
+• Reducción del número de billetes que se cargan a la vez
+• Se corrigió la detección de archivos eliminados, por lo que ahora las sincronizaciones son mucho más rápidas.
+• Importaciones de imágenes más rápidas y confiables

@@ -1,0 +1,7 @@
+• Aggiunto uno strumento puntatore laser
+• È ora possibile bloccare la panoramica sugli assi verticale/orizzontale
+• Gli utenti del telefono possono ora scegliere di utilizzare l'interfaccia utente del tablet e viceversa
+• Migliori icone della penna
+• Ridotto il numero di note caricate contemporaneamente
+• Corretto il rilevamento dei file eliminati, quindi ora le sincronizzazioni sono molto più veloci
+• Importazioni di immagini più rapide e affidabili
