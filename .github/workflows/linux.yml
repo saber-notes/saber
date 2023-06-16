@@ -235,3 +235,18 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: appimage/Saber-*-x86_64.AppImage*
           file_glob: true
+  build-snap:
+    name: Build Snap
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v3
+      - name: Build Snap
+        uses: snapcore/action-build@v1
+        id: snapcraft-build
+        with:
+          snapcraft-args: "-v"
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Snap artifact
+          path: ${{ steps.snapcraft-build.outputs.snap }} 
