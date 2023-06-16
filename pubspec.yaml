@@ -94,8 +94,6 @@ dependencies:
 
   defer_pointer: ^0.0.2
 
-  image: ^4.0.0
-
   image_save: ^5.0.0
 
   animations: ^2.0.7
@@ -137,6 +135,8 @@ dependencies:
   open_filex: ^4.3.2
 
   super_clipboard: ^0.3.0+1
+
+  fast_image_resizer: ^0.0.2
 
 dev_dependencies:
   flutter_test:

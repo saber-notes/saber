@@ -1,9 +1,9 @@
 import 'dart:isolate';
 import 'dart:ui' as ui;
 
+import 'package:fast_image_resizer/fast_image_resizer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image/image.dart' as image;
 import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:worker_manager/worker_manager.dart';
@@ -228,21 +228,16 @@ class EditorImage extends ChangeNotifier {
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
-        final resizedBytes = await workerManager.execute(
-          () => resizeImageIsolate(memoryImage!.bytes, reducedSize, extension),
+        final resizedByteData = await resizeImage(
+          memoryImage!.bytes,
+          width: reducedSize.width.toInt(),
+          height: reducedSize.height.toInt(),
         );
-        if (resizedBytes != null) {
-          memoryImage = MemoryImage(resizedBytes);
+        if (resizedByteData != null) {
+          memoryImage = MemoryImage(resizedByteData.buffer.asUint8List());
         }
 
         naturalSize = reducedSize;
-      } else if (!isThumbnail) { // otherwise make sure orientation is baked in
-        final rotated = await workerManager.execute(
-          () => _bakeOrientationIsolate(memoryImage!.bytes, extension),
-        );
-        if (rotated != null) {
-          memoryImage = MemoryImage(rotated);
-        }
       }
 
       if (srcRect.shortestSide == 0) {
@@ -263,9 +258,12 @@ class EditorImage extends ChangeNotifier {
       // if [naturalSize] is big enough to warrant a thumbnail
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
         await null; // wait for next event-loop iteration
-        thumbnailBytes = await workerManager.execute(
-          () => resizeImageIsolate(memoryImage!.bytes, thumbnailSize, extension),
+        final resizedByteData = await resizeImage(
+          memoryImage!.bytes,
+          width: thumbnailSize.width.toInt(),
+          height: thumbnailSize.height.toInt(),
         );
+        thumbnailBytes = resizedByteData?.buffer.asUint8List();
       } else { // no need to resize
         thumbnailBytes = null; // will fall back to full-size image
       }
@@ -317,51 +315,6 @@ class EditorImage extends ChangeNotifier {
     }
 
     return Size(width, height);
-  }
-
-  /// Resizes the image to [newSize].
-  /// Also bakes the image orientation into the image data.
-  @visibleForTesting
-  static Uint8List? resizeImageIsolate(Uint8List bytes, Size newSize, String? extension) {
-    image.Image? decoded = _decodeImage(bytes, extension);
-    if (decoded == null) return null;
-
-    decoded = image.copyResize(
-      decoded,
-      width: newSize.width.toInt(),
-      height: newSize.height.toInt(),
-      interpolation: image.Interpolation.cubic,
-    );
-    decoded = image.bakeOrientation(decoded);
-
-    return image.encodePng(decoded);
-  }
-
-  /// Bakes the image orientation into the image data.
-  /// This is only necessary if [_resizeImageIsolate] is not called.
-  static Uint8List? _bakeOrientationIsolate(Uint8List bytes, String? extension) {
-    image.Image? decoded = _decodeImage(bytes, extension);
-    if (decoded == null) return null;
-
-    decoded = image.bakeOrientation(decoded);
-
-    return image.encodePng(decoded);
-  }
-
-  /// Decodes the image from [bytes].
-  ///
-  /// This is faster than [image.decodeImage] since the image format is known.
-  ///
-  /// If [extension] is null, or parsing fails,
-  /// we just fall back to [image.decodeImage].
-  /// This is because we can't be sure that the extension is correct.
-  static image.Image? _decodeImage(Uint8List bytes, String? extension) {
-    if (extension != null) {
-      final decoded = image.decodeNamedImage('image$extension', bytes);
-      if (decoded != null) return decoded;
-    }
-
-    return image.decodeImage(bytes);
   }
 
   EditorImage copy() => EditorImage(
