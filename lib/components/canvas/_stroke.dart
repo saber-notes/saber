@@ -111,6 +111,11 @@ class Stroke {
     _polygonNeedsUpdating = true;
   }
 
+  void popFirstPoint() {
+    points.removeAt(0);
+    _polygonNeedsUpdating = true;
+  }
+
   List<Offset> _getPolygon() {
     final List<Point> points;
     if (isStraightLine) {

@@ -27,6 +27,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "colors": {
         "colorPicker": "Color picker",
         "black": "Black",
@@ -68,6 +71,11 @@
         "auto": "Auto",
         "phone": "Phone",
         "tablet": "Tablet"
+      }
+    },
+    "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
       }
     }
   },
@@ -115,6 +123,9 @@
       ]
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "colors": {
         "colorPicker": "Color picker",
         "black": "Black",
@@ -165,6 +176,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
         "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
@@ -188,6 +202,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "colors": {
         "colorPicker": "Color picker",
         "black": "Black",
@@ -237,6 +254,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "colors": {
         "colorPicker": "Color picker",
         "black": "Black",
@@ -342,6 +362,9 @@
       "updateAvailableDescription(OUTDATED)": "A new version of the app is available, with these changes:"
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "colors": {
         "colorPicker": "Color picker",
         "black": "Black",
@@ -396,6 +419,11 @@
         "phone": "Phone",
         "tablet": "Tablet"
       }
+    },
+    "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      }
     }
   },
   "pt-BR": {
@@ -410,6 +438,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
         "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
@@ -428,6 +459,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
         "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
@@ -477,6 +511,9 @@
       ]
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "colors": {
         "colorPicker": "Color picker",
         "black": "Black",
@@ -524,6 +561,9 @@
       }
     },
     "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
+      },
       "hud": {
         "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
         "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
@@ -540,6 +580,11 @@
         "auto": "Auto",
         "phone": "Phone",
         "tablet": "Tablet"
+      }
+    },
+    "editor": {
+      "pens": {
+        "laserPointer": "Laser pointer"
       }
     }
   }

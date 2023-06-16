@@ -35,6 +35,7 @@ class EditorPage extends Listenable {
   }
 
   final List<Stroke> strokes;
+  final List<Stroke> laserStrokes;
   final List<EditorImage> images;
   final QuillStruct quill;
 
@@ -59,6 +60,7 @@ class EditorPage extends Listenable {
         "size and width/height shouldn't both be specified"),
       size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
       strokes = strokes ?? [],
+      laserStrokes = [],
       images = images ?? [],
       quill = quill ?? QuillStruct(
         controller: QuillController.basic(),

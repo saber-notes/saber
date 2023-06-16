@@ -36,6 +36,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -105,6 +106,8 @@ class EditorState extends State<Editor> {
         return Select.currentSelect;
       case ToolId.textEditing:
         return Tool.textEditing;
+      case ToolId.laserPointer:
+        return LaserPointer.currentLaserPointer;
     }
   }();
   Tool get currentTool => _currentTool;
@@ -523,6 +526,8 @@ class EditorState extends State<Editor> {
         select.onDragStart(position, dragPageIndex!);
         history.canRedo = true; // selection doesn't affect history
       }
+    } else if (currentTool is LaserPointer) {
+      (currentTool as LaserPointer).onDragStart(position, dragPageIndex!);
     }
 
     previousPosition = position;
@@ -561,6 +566,9 @@ class EditorState extends State<Editor> {
       } else {
         select.onDragUpdate(position);
       }
+      page.redrawStrokes();
+    } else if (currentTool is LaserPointer) {
+      (currentTool as LaserPointer).onDragUpdate(position);
       page.redrawStrokes();
     }
     previousPosition = position;
@@ -608,6 +616,14 @@ class EditorState extends State<Editor> {
         } else {
           select.onDragEnd(page.strokes, page.images);
         }
+      } else if (currentTool is LaserPointer) {
+        Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
+          page.redrawStrokes,
+          (Stroke stroke) {
+            page.laserStrokes.remove(stroke);
+          },
+        );
+        page.laserStrokes.add(newStroke);
       }
     });
     autosaveAfterDelay();
@@ -1108,9 +1124,7 @@ class EditorState extends State<Editor> {
           textEditing: currentTool == Tool.textEditing,
           coreInfo: coreInfo,
           currentStroke: () {
-            Stroke? currentStroke = Pen.currentPen.currentStroke
-                ?? Highlighter.currentHighlighter.currentStroke;
-            return (currentStroke?.pageIndex == pageIndex) ? currentStroke : null;
+            return (Pen.currentStroke?.pageIndex == pageIndex) ? Pen.currentStroke : null;
           }(),
           currentSelection: () {
             if (currentTool is! Select) return null;

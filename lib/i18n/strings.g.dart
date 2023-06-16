@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2429 (173 per locale)
+/// Strings: 2430 (173 per locale)
 ///
-/// Built on 2023-06-13 at 14:27 UTC
+/// Built on 2023-06-15 at 23:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -634,6 +634,7 @@ class _StringsEditorPensEn {
 	String get fountainPen => 'Fountain pen';
 	String get ballpointPen => 'Ballpoint pen';
 	String get highlighter => 'Highlighter';
+	String get laserPointer => 'Laser pointer';
 }
 
 // Path: editor.penOptions

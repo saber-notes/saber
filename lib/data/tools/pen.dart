@@ -49,7 +49,7 @@ class Pen extends Tool {
   static const IconData fountainPenIcon = FontAwesomeIcons.penFancy;
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
 
-  Stroke? currentStroke;
+  static Stroke? currentStroke;
   StrokeProperties strokeProperties = StrokeProperties();
 
   /// If we don't move for [Prefs.editorStraightenDelay.value] milliseconds,

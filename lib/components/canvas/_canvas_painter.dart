@@ -14,6 +14,7 @@ class CanvasPainter extends CustomPainter {
 
     this.invert = false,
     required this.strokes,
+    required this.laserStrokes,
     required this.currentStroke,
     required this.currentSelection,
     required this.primaryColor,
@@ -25,6 +26,7 @@ class CanvasPainter extends CustomPainter {
 
   final bool invert;
   final List<Stroke> strokes;
+  final List<Stroke> laserStrokes;
   final Stroke? currentStroke;
   final SelectResult? currentSelection;
   final Color primaryColor;
@@ -45,8 +47,7 @@ class CanvasPainter extends CustomPainter {
     bool needToRestoreCanvasLayer = false;
     {
       Color? lastColor;
-      for (int i = 0; i < strokes.length; i++) {
-        final Stroke stroke = strokes[i];
+      for (Stroke stroke in strokes) {
         if (stroke.penType != (Highlighter).toString()) continue;
         if (stroke.strokeProperties.color != lastColor) { // new layer for each color
           lastColor = stroke.strokeProperties.color;
@@ -65,8 +66,7 @@ class CanvasPainter extends CustomPainter {
     if (needToRestoreCanvasLayer) canvas.restore();
 
     // pen
-    for (int i = 0; i < strokes.length; i++) {
-      final Stroke stroke = strokes[i];
+    for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
       if (currentSelection?.strokes.contains(stroke) ?? false) {
         paint.color = primaryColor;

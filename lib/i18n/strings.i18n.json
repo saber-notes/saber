@@ -196,7 +196,8 @@
     "pens": {
       "fountainPen": "Fountain pen",
       "ballpointPen": "Ballpoint pen",
-      "highlighter": "Highlighter"
+      "highlighter": "Highlighter",
+      "laserPointer": "Laser pointer"
     },
     "penOptions": {
       "size": "Size",

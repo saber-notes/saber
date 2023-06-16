@@ -125,6 +125,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
           invert: invert,
           strokes: page.strokes,
+          laserStrokes: page.laserStrokes,
           currentStroke: widget.currentStroke,
           currentSelection: widget.currentSelection,
           primaryColor: colorScheme.primary,

@@ -26,7 +26,8 @@ enum ToolId {
   highlighter('Highlighter'),
   eraser('Eraser'),
   select('Select'),
-  textEditing('TextEditingTool');
+  textEditing('TextEditingTool'),
+  laserPointer('LaserPointer');
 
   final String id;
   const ToolId(this.id);

@@ -16,6 +16,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -307,6 +308,18 @@ class _ToolbarState extends State<Toolbar> {
                     blurStyle: BlurStyle.solid,
                   ),
                 ] : null),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.pens.laserPointer,
+                selected: widget.currentTool == LaserPointer.currentLaserPointer,
+                enabled: true, // even in read-only mode
+                onPressed: () {
+                  toolOptionsType = ToolOptions.hide;
+                  widget.setTool(LaserPointer.currentLaserPointer);
+                },
+                padding: buttonPadding,
+                // todo: use [Icons.stylusLaserPointer] when it's available
+                child: const FaIcon(FontAwesomeIcons.circleDot, size: 16),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.toggleEraser,
