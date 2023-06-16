@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2440 (174 per locale)
+/// Strings: 2445 (174 per locale)
 ///
-/// Built on 2023-06-16 at 13:56 UTC
+/// Built on 2023-06-16 at 13:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1425,6 +1425,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsCs prefLabels = _StringsSettingsPrefLabelsCs._(_root);
 	@override late final _StringsSettingsPrefDescriptionsCs prefDescriptions = _StringsSettingsPrefDescriptionsCs._(_root);
 	@override late final _StringsSettingsThemeModesCs themeModes = _StringsSettingsThemeModesCs._(_root);
+	@override late final _StringsSettingsLayoutSizesCs layoutSizes = _StringsSettingsLayoutSizesCs._(_root);
 	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
 	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
 	@override String get systemLanguage => 'Systémový jazyk';
@@ -1587,6 +1588,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Jazyk aplikace';
 	@override String get appTheme => 'Barva motivu';
 	@override String get platform => 'Motiv';
+	@override String get layoutSize => 'Rozložení uživatelského rozhraní';
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
@@ -1633,6 +1635,18 @@ class _StringsSettingsThemeModesCs extends _StringsSettingsThemeModesEn {
 	@override String get system => 'Systémový';
 	@override String get light => 'Světlý';
 	@override String get dark => 'Tmavý';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesCs extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'Automatické';
+	@override String get phone => 'Telefon';
+	@override String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker
@@ -1858,6 +1872,7 @@ class _StringsEditorPensCs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Plnící pero';
 	@override String get ballpointPen => 'Kuličkové pero';
 	@override String get highlighter => 'Zvýrazňovač';
+	@override String get laserPointer => 'Laserové ukazovátko';
 }
 
 // Path: editor.penOptions

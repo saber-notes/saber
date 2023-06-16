@@ -30,6 +30,7 @@
       "locale": "Jazyk aplikace",
       "appTheme": "Barva motivu",
       "platform": "Motiv",
+      "layoutSize": "Rozložení uživatelského rozhraní",
       "customAccentColor": "Vlastní barevný odstín",
       "hyperlegibleFont": "Lépe čitelný font",
       "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
@@ -62,6 +63,11 @@
       "system": "Systémový",
       "light": "Světlý",
       "dark": "Tmavý"
+    },
+    "layoutSizes": {
+      "auto": "Automatické",
+      "phone": "Telefon",
+      "tablet": "Tablet"
     },
     "accentColorPicker": {
       "pickAColor": "Výběr vlastní barvy"
@@ -190,7 +196,8 @@
     "pens": {
       "fountainPen": "Plnící pero",
       "ballpointPen": "Kuličkové pero",
-      "highlighter": "Zvýrazňovač"
+      "highlighter": "Zvýrazňovač",
+      "laserPointer": "Laserové ukazovátko"
     },
     "penOptions": {
       "size": "Velikost",

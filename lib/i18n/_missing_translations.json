@@ -62,23 +62,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Rozložení uživatelského rozhraní"
-      },
-      "layoutSizes": {
-        "auto": "Automatické",
-        "phone": "Telefon",
-        "tablet": "Tablet"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "Laserové ukazovátko"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefLabels": {
