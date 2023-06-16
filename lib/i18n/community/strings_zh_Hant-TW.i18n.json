@@ -30,6 +30,7 @@
       "locale": "應用程式語言",
       "appTheme": "應用程式主題",
       "platform": "主題類型",
+      "layoutSize": "佈局大小",
       "customAccentColor": "自訂主題色",
       "hyperlegibleFont": "易讀字體",
       "shouldCheckForUpdates": "自動檢查 Saber 更新",
@@ -62,6 +63,11 @@
       "system": "系統",
       "light": "淺色",
       "dark": "深色"
+    },
+    "layoutSizes": {
+      "auto": "自動",
+      "phone": "手機",
+      "tablet": "平板"
     },
     "accentColorPicker": {
       "pickAColor": "選取顏色"
@@ -190,7 +196,8 @@
     "pens": {
       "fountainPen": "鋼筆",
       "ballpointPen": "原子筆",
-      "highlighter": "螢光筆"
+      "highlighter": "螢光筆",
+      "laserPointer": "雷射筆"
     },
     "penOptions": {
       "size": "粗細",

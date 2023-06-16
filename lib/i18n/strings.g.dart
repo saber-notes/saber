@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2430 (173 per locale)
+/// Strings: 2435 (173 per locale)
 ///
-/// Built on 2023-06-15 at 23:09 UTC
+/// Built on 2023-06-16 at 13:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8025,6 +8025,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsZhHantTw prefLabels = _StringsSettingsPrefLabelsZhHantTw._(_root);
 	@override late final _StringsSettingsPrefDescriptionsZhHantTw prefDescriptions = _StringsSettingsPrefDescriptionsZhHantTw._(_root);
 	@override late final _StringsSettingsThemeModesZhHantTw themeModes = _StringsSettingsThemeModesZhHantTw._(_root);
+	@override late final _StringsSettingsLayoutSizesZhHantTw layoutSizes = _StringsSettingsLayoutSizesZhHantTw._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhHantTw accentColorPicker = _StringsSettingsAccentColorPickerZhHantTw._(_root);
 	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
 	@override String get systemLanguage => '系統語言';
@@ -8187,6 +8188,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => '應用程式語言';
 	@override String get appTheme => '應用程式主題';
 	@override String get platform => '主題類型';
+	@override String get layoutSize => '佈局大小';
 	@override String get customAccentColor => '自訂主題色';
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
@@ -8233,6 +8235,18 @@ class _StringsSettingsThemeModesZhHantTw extends _StringsSettingsThemeModesEn {
 	@override String get system => '系統';
 	@override String get light => '淺色';
 	@override String get dark => '深色';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesZhHantTw extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => '自動';
+	@override String get phone => '手機';
+	@override String get tablet => '平板';
 }
 
 // Path: settings.accentColorPicker
@@ -8458,6 +8472,7 @@ class _StringsEditorPensZhHantTw extends _StringsEditorPensEn {
 	@override String get fountainPen => '鋼筆';
 	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
+	@override String get laserPointer => '雷射筆';
 }
 
 // Path: editor.penOptions
