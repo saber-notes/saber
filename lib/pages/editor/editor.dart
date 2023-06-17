@@ -51,6 +51,7 @@ class Editor extends StatefulWidget {
     super.key,
     String? path,
     this.customTitle,
+    this.savingStateListener,
   }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath('/'),
         needsNaming = path == null;
 
@@ -58,6 +59,7 @@ class Editor extends StatefulWidget {
   final bool needsNaming;
 
   final String? customTitle;
+  final void Function(SavingState)? savingStateListener;
 
   static const String extension = '.sbn';
 
@@ -76,7 +78,6 @@ class Editor extends StatefulWidget {
   State<Editor> createState() => EditorState();
 }
 
-@visibleForTesting
 class EditorState extends State<Editor> {
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 

@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:worker_manager/worker_manager.dart';
 
 /// The data for an image in the editor.
 /// This is listenable for changes to the image's position ([dstRect]).
