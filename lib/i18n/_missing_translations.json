@@ -66,86 +66,86 @@
   "de": {
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout Größe"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
+        "auto": "Automatisch",
+        "phone": "Handy",
         "tablet": "Tablet"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure": "Der angegebene Nextcloud Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s."
       }
     },
     "profile": {
-      "title": "My profile",
-      "logout": "Log out",
+      "title": "Mein Profil",
+      "logout": "Abmelden",
       "quickLinks": {
-        "title": "Quick links",
-        "serverHomepage": "Server homepage",
-        "deleteAccount": "Delete account"
+        "title": "Schnellzugriff",
+        "serverHomepage": "Server Startseite",
+        "deleteAccount": "Account Löschen"
       },
       "faq": [
         {
-          "q": "Will I lose my notes if I log out?",
-          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+          "q": "Verliere ich meine Notizen, wenn ich mich abmelde?",
+          "a": "Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt anschauen."
         },
         {
-          "q": "How do I change my Nextcloud password?",
-          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+          "q": "Wie  ändere ich mein Nextcloud Passwort?",
+          "a": "Öffne die Server Website und melde dich an. Unter Einstellungen>Sicherheit>Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in der App abmelden und wieder anmelden."
         },
         {
-          "q": "How do I change my encryption password?",
-          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+          "q": "Wie ändere ich mein Verschlüsselungspasswort?",
+          "a": "1. Melde dich in Saber ab. Bitte stelle vorher sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n\n2. Öffne die Server Website und lösche den 'Saber' Order. Dadurch werden alle Notizen vom Server gelöscht.\n\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n\n4. Vergiss nicht auf anderen Geräten dich in Saber ab- und wieder anzumelden."
         },
         {
-          "q": "How can I delete my account?",
-          "a": "Tap on the \"@:profile.quickLinks.deleteAccount\" button above, and login if needed.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+          "q": "Wie lösche ich meinen Account?",
+          "a": "Drücke den  \"@:profile.quickLinks.deleteAccount\" Knopf oben und melde dich an (solltest du gefragt werden).\n\nWenn du den offiziellen Saber Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Während dieser Woche, kannst du mich unter adilhanney@disroot.org kontaktieren.\n\nWenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken."
         }
       ]
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer": "Laserpointer"
       },
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
+        "colorPicker": "Farbauswahl",
+        "black": "Schwarz",
+        "darkGrey": "Dunkelgrau",
+        "grey": "Grau",
+        "lightGrey": "Hellgrau",
+        "white": "Weiß",
+        "red": "Rot",
+        "green": "Grün",
+        "blue": "Blau",
+        "yellow": "Gelb",
+        "purple": "Lila",
         "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "pastelRed": "Pastellfarbenes rot",
+        "pastelOrange": "Pastellfarbenes Orange",
+        "pastelYellow": "Pastellfarbenes Gelb",
+        "pastelGreen": "Pastellfarbenes Grün",
+        "pastelCyan": "Pastellfarbenes Türkis",
+        "pastelBlue": "Pastellfarbenes Blau",
+        "pastelPurple": "Pastellfarbenes Lila",
+        "pastelPink": "Pastellfarbenes Rosa"
       },
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page",
+        "clearPage(OUTDATED)": "Seite $page/$totalPages leeren",
+        "insertPage": "Neue Seite unten anfügen",
+        "duplicatePage": "Seite duplizieren",
+        "deletePage": "Seite löschen",
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)"
+          "collegeRtl": "College (umgekehrt)"
         }
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "Beschränkung der Horizontal bzw. Vertikalverschiebung aufheben",
+        "lockAxisAlignedPan": "Verschieben auf Horizontale oder Vertikale beschränken"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting": "Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, wenn der Vorgang beendet ist."
     }
   },
   "es": {
