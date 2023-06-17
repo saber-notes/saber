@@ -94,11 +94,11 @@
         },
         {
           "q": "Wie ändere ich mein Nextcloud Passwort?",
-          "a": "Gehe auf die Webseite deines Servers und melde dich an. In den Einstellungen > Sicherheit > Passwort kann eine neues Passwort definiert werden. Then go to Settings > Security > Change password. Anschliessend muss du dich in allen Saber Apps einaml ab- und wieder anmelden."
+          "a": "Gehe auf die Webseite deines Servers und melde dich an. In den Einstellungen unter Sicherheit > Passwort kann eine neues Passwort definiert werden. Anschliessend musst du dich in allen Saber Apps einmal ab- und wieder anmelden."
         },
         {
           "q": "Wie ändere ich mein Verschlüsselungspasswort?",
-          "a": "Melde dich von Saber ab. Stelle sicher das alles synchronisiert ist damit keine Daten verloren gehen.\n\n3. Melde dich auf deiner Server Webseite an und lösche den Ordner 'Saber'. Dies wird alle Daten von Server löschen.\n\n3. Melde dich erneut bei Saber an und wähle ein neues Verschlüsselungspasswort.\n\n4. Vergiss nicht dich auch auf deinen anderen Geräten ab- und wieder anzumelden."
+          "a": "Melde dich von Saber ab. Stelle sicher das alles synchronisiert ist damit keine Daten verloren gehen.\n\n3. Melde dich auf deiner Server Webseite an und lösche den Ordner 'Saber'. Dies wird alle Daten vom Server löschen.\n\n3. Melde dich erneut bei Saber an und wähle ein neues Verschlüsselungspasswort.\n\n4. Vergiss nicht dich auch auf deinen anderen Geräten ab- und wieder anzumelden."
         },
         {
           "q": "Wie lösche ich mein Konto",
