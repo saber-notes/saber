@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2445 (174 per locale)
+/// Strings: 2491 (177 per locale)
 ///
-/// Built on 2023-06-16 at 13:59 UTC
+/// Built on 2023-06-17 at 19:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2043,6 +2043,7 @@ class _StringsDe extends _StringsEn {
 	@override late final _StringsHomeDe home = _StringsHomeDe._(_root);
 	@override late final _StringsSettingsDe settings = _StringsSettingsDe._(_root);
 	@override late final _StringsLoginDe login = _StringsLoginDe._(_root);
+	@override late final _StringsProfileDe profile = _StringsProfileDe._(_root);
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
 	@override late final _StringsUpdateDe update = _StringsUpdateDe._(_root);
 	@override late final _StringsEditorDe editor = _StringsEditorDe._(_root);
@@ -2074,6 +2075,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsDe prefLabels = _StringsSettingsPrefLabelsDe._(_root);
 	@override late final _StringsSettingsPrefDescriptionsDe prefDescriptions = _StringsSettingsPrefDescriptionsDe._(_root);
 	@override late final _StringsSettingsThemeModesDe themeModes = _StringsSettingsThemeModesDe._(_root);
+	@override late final _StringsSettingsLayoutSizesDe layoutSizes = _StringsSettingsLayoutSizesDe._(_root);
 	@override late final _StringsSettingsAccentColorPickerDe accentColorPicker = _StringsSettingsAccentColorPickerDe._(_root);
 	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
 	@override String get systemLanguage => 'Systemsprache';
@@ -2108,6 +2110,24 @@ class _StringsLoginDe extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$De._(_root),
 		_StringsLogin$faq$0i3$De._(_root),
 		_StringsLogin$faq$0i4$De._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileDe extends _StringsProfileEn {
+	_StringsProfileDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mein Profil';
+	@override String get logout => 'Abmelden';
+	@override late final _StringsProfileQuickLinksDe quickLinks = _StringsProfileQuickLinksDe._(_root);
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$De._(_root),
+		_StringsProfile$faq$0i1$De._(_root),
+		_StringsProfile$faq$0i2$De._(_root),
+		_StringsProfile$faq$0i3$De._(_root),
 	];
 }
 
@@ -2148,6 +2168,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarDe toolbar = _StringsEditorToolbarDe._(_root);
 	@override late final _StringsEditorPensDe pens = _StringsEditorPensDe._(_root);
 	@override late final _StringsEditorPenOptionsDe penOptions = _StringsEditorPenOptionsDe._(_root);
+	@override late final _StringsEditorColorsDe colors = _StringsEditorColorsDe._(_root);
 	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
 	@override late final _StringsEditorMenuDe menu = _StringsEditorMenuDe._(_root);
 	@override late final _StringsEditorNewerFileFormatDe newerFileFormat = _StringsEditorNewerFileFormatDe._(_root);
@@ -2155,6 +2176,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
 	@override String get pages => 'Seiten';
 	@override String get untitled => 'Unbenannt';
+	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, wenn der Vorgang beendet ist.';
 }
 
 // Path: home.tabs
@@ -2216,6 +2238,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Sprache';
 	@override String get appTheme => 'Anwendungsthema';
 	@override String get platform => 'Oberfläche';
+	@override String get layoutSize => 'Layout Größe';
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
@@ -2264,6 +2287,18 @@ class _StringsSettingsThemeModesDe extends _StringsSettingsThemeModesEn {
 	@override String get dark => 'Dunkel';
 }
 
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesDe extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'Automatisch';
+	@override String get phone => 'Handy';
+	@override String get tablet => 'Tablet';
+}
+
 // Path: settings.accentColorPicker
 class _StringsSettingsAccentColorPickerDe extends _StringsSettingsAccentColorPickerEn {
 	_StringsSettingsAccentColorPickerDe._(_StringsDe root) : this._root = root, super._(root);
@@ -2309,6 +2344,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Der angegebene Nextcloud Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s}.';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 }
@@ -2400,6 +2436,62 @@ class _StringsLogin$faq$0i4$De extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksDe extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Schnellzugriff';
+	@override String get serverHomepage => 'Server Startseite';
+	@override String get deleteAccount => 'Account Löschen';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$De extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Verliere ich meine Notizen, wenn ich mich abmelde?';
+	@override String get a => 'Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt anschauen.';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$De extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Wie  ändere ich mein Nextcloud Passwort?';
+	@override String get a => 'Öffne die Server Website und melde dich an. Unter Einstellungen>Sicherheit>Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in der App abmelden und wieder anmelden.';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$De extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Wie ändere ich mein Verschlüsselungspasswort?';
+	@override String get a => '1. Melde dich in Saber ab. Bitte stelle vorher sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n\n2. Öffne die Server Website und lösche den \'Saber\' Order. Dadurch werden alle Notizen vom Server gelöscht.\n\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n\n4. Vergiss nicht auf anderen Geräten dich in Saber ab- und wieder anzumelden.';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$De extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Wie lösche ich meinen Account?';
+	@override String get a => 'Drücke den  "${_root.profile.quickLinks.deleteAccount}" Knopf oben und melde dich an (solltest du gefragt werden).\n\nWenn du den offiziellen Saber Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Während dieser Woche, kannst du mich unter adilhanney@disroot.org kontaktieren.\n\nWenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.';
+}
+
 // Path: editor.toolbar
 class _StringsEditorToolbarDe extends _StringsEditorToolbarEn {
 	_StringsEditorToolbarDe._(_StringsDe root) : this._root = root, super._(root);
@@ -2430,6 +2522,7 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get ballpointPen => 'Kugelschreiber';
 	@override String get highlighter => 'Textmarker';
+	@override String get laserPointer => 'Laserpointer';
 }
 
 // Path: editor.penOptions
@@ -2441,6 +2534,35 @@ class _StringsEditorPenOptionsDe extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => 'Dicke';
 	@override String get sizeDragHint => 'Nach links oder rechts ziehen, um die Größe zu ändern';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsDe extends _StringsEditorColorsEn {
+	_StringsEditorColorsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Farbauswahl';
+	@override String get black => 'Schwarz';
+	@override String get darkGrey => 'Dunkelgrau';
+	@override String get grey => 'Grau';
+	@override String get lightGrey => 'Hellgrau';
+	@override String get white => 'Weiß';
+	@override String get red => 'Rot';
+	@override String get green => 'Grün';
+	@override String get blue => 'Blau';
+	@override String get yellow => 'Gelb';
+	@override String get purple => 'Lila';
+	@override String get orange => 'Orange';
+	@override String get pastelRed => 'Pastellfarbenes rot';
+	@override String get pastelOrange => 'Pastellfarbenes Orange';
+	@override String get pastelYellow => 'Pastellfarbenes Gelb';
+	@override String get pastelGreen => 'Pastellfarbenes Grün';
+	@override String get pastelCyan => 'Pastellfarbenes Türkis';
+	@override String get pastelBlue => 'Pastellfarbenes Blau';
+	@override String get pastelPurple => 'Pastellfarbenes Lila';
+	@override String get pastelPink => 'Pastellfarbenes Rosa';
 }
 
 // Path: editor.imageOptions
@@ -2465,8 +2587,11 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => 'Seite löschen ${page}/${totalPages}';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Seite ${page}/${totalPages} leeren';
 	@override String get clearAllPages => 'Alle Seiten löschen';
+	@override String get insertPage => 'Neue Seite unten anfügen';
+	@override String get duplicatePage => 'Seite duplizieren';
+	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Beeinflusst die Schriftgröße';
 	@override String get backgroundImage => 'Hintergrundbild';
@@ -2511,6 +2636,8 @@ class _StringsEditorHudDe extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Zoom sperren';
 	@override String get unlockSingleFingerPan => 'Verschieben mit einem Finger aktivieren';
 	@override String get lockSingleFingerPan => 'Verschieben mit einem Finger deaktivieren';
+	@override String get unlockAxisAlignedPan => 'Beschränkung der Horizontal bzw. Vertikalverschiebung aufheben';
+	@override String get lockAxisAlignedPan => 'Verschieben auf Horizontale oder Vertikale beschränken';
 }
 
 // Path: editor.menu.boxFits
@@ -2534,6 +2661,7 @@ class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Leer';
 	@override String get college => 'College';
+	@override String get collegeRtl => 'College (umgekehrt)';
 	@override String get lined => 'Liniert';
 	@override String get grid => 'Kariert';
 	@override String get dots => 'Gepunktet';
