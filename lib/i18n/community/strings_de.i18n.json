@@ -30,6 +30,7 @@
       "locale": "Sprache",
       "appTheme": "Anwendungsthema",
       "platform": "Oberfläche",
+      "layoutSize": "Layout Größe",
       "customAccentColor": "Benutzerdefinierte Akzentfarbe",
       "hyperlegibleFont": "Hyperlesbare Schrift",
       "shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
@@ -63,6 +64,11 @@
       "light": "Hell",
       "dark": "Dunkel"
     },
+    "layoutSizes": {
+      "auto": "Automatisch",
+      "phone": "Handy",
+      "tablet": "Tablet"
+    },
     "accentColorPicker": {
       "pickAColor": "Wähle eine Farbe"
     },
@@ -91,6 +97,7 @@
       "enterEncPassword": "Bitte gib dein Verschlüsselungspasswort ein.",
       "checkUrl": "Bitte gib eine gültige URL an.",
       "ncLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.",
+      "ncUnsupportedFailure": "Der angegebene Nextcloud Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s.",
       "encLoginFailed": "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.",
       "loginSuccess": "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
     },
@@ -132,6 +139,33 @@
       }
     ]
   },
+  "profile": {
+    "title": "Mein Profil",
+    "logout": "Abmelden",
+    "quickLinks": {
+      "title": "Schnellzugriff",
+      "serverHomepage": "Server Startseite",
+      "deleteAccount": "Account Löschen"
+    },
+    "faq": [
+      {
+        "q": "Verliere ich meine Notizen, wenn ich mich abmelde?",
+        "a": "Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt anschauen."
+      },
+      {
+        "q": "Wie  ändere ich mein Nextcloud Passwort?",
+        "a": "Öffne die Server Website und melde dich an. Unter Einstellungen>Sicherheit>Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in der App abmelden und wieder anmelden."
+      },
+      {
+        "q": "Wie ändere ich mein Verschlüsselungspasswort?",
+        "a": "1. Melde dich in Saber ab. Bitte stelle vorher sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n\n2. Öffne die Server Website und lösche den 'Saber' Order. Dadurch werden alle Notizen vom Server gelöscht.\n\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n\n4. Vergiss nicht auf anderen Geräten dich in Saber ab- und wieder anzumelden."
+      },
+      {
+        "q": "Wie lösche ich meinen Account?",
+        "a": "Drücke den  \"@:profile.quickLinks.deleteAccount\" Knopf oben und melde dich an (solltest du gefragt werden).\n\nWenn du den offiziellen Saber Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Während dieser Woche, kannst du mich unter adilhanney@disroot.org kontaktieren.\n\nWenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken."
+      }
+    ]
+  },
   "appInfo": {
     "licenseNotice": "Saber  Copyright (C) 2022-$buildYear  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.",
     "dirty": "TESTVERSION",
@@ -162,11 +196,34 @@
     "pens": {
       "fountainPen": "Füllfederhalter",
       "ballpointPen": "Kugelschreiber",
-      "highlighter": "Textmarker"
+      "highlighter": "Textmarker",
+      "laserPointer": "Laserpointer"
     },
     "penOptions": {
       "size": "Dicke",
       "sizeDragHint": "Nach links oder rechts ziehen, um die Größe zu ändern"
+    },
+    "colors": {
+      "colorPicker": "Farbauswahl",
+      "black": "Schwarz",
+      "darkGrey": "Dunkelgrau",
+      "grey": "Grau",
+      "lightGrey": "Hellgrau",
+      "white": "Weiß",
+      "red": "Rot",
+      "green": "Grün",
+      "blue": "Blau",
+      "yellow": "Gelb",
+      "purple": "Lila",
+      "orange": "Orange",
+      "pastelRed": "Pastellfarbenes rot",
+      "pastelOrange": "Pastellfarbenes Orange",
+      "pastelYellow": "Pastellfarbenes Gelb",
+      "pastelGreen": "Pastellfarbenes Grün",
+      "pastelCyan": "Pastellfarbenes Türkis",
+      "pastelBlue": "Pastellfarbenes Blau",
+      "pastelPurple": "Pastellfarbenes Lila",
+      "pastelPink": "Pastellfarbenes Rosa"
     },
     "imageOptions": {
       "title": "Bildoptionen",
@@ -177,8 +234,11 @@
       "delete": "Entfernen"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Seite löschen $page/$totalPages",
+      "clearPage": "Seite $page/$totalPages leeren",
       "clearAllPages": "Alle Seiten löschen",
+      "insertPage": "Neue Seite unten anfügen",
+      "duplicatePage": "Seite duplizieren",
+      "deletePage": "Seite löschen",
       "lineHeight": "Zeilenhöhe",
       "lineHeightDescription": "Beeinflusst die Schriftgröße",
       "backgroundImage": "Hintergrundbild",
@@ -192,6 +252,7 @@
       "bgPatterns": {
         "none": "Leer",
         "college": "College",
+        "collegeRtl": "College (umgekehrt)",
         "lined": "Liniert",
         "grid": "Kariert",
         "dots": "Gepunktet",
@@ -213,9 +274,12 @@
       "unlockZoom": "Zoom entsperren",
       "lockZoom": "Zoom sperren",
       "unlockSingleFingerPan": "Verschieben mit einem Finger aktivieren",
-      "lockSingleFingerPan": "Verschieben mit einem Finger deaktivieren"
+      "lockSingleFingerPan": "Verschieben mit einem Finger deaktivieren",
+      "unlockAxisAlignedPan": "Beschränkung der Horizontal bzw. Vertikalverschiebung aufheben",
+      "lockAxisAlignedPan": "Verschieben auf Horizontale oder Vertikale beschränken"
     },
     "pages": "Seiten",
-    "untitled": "Unbenannt"
+    "untitled": "Unbenannt",
+    "needsToSaveBeforeExiting": "Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, wenn der Vorgang beendet ist."
   }
 }
