@@ -76,7 +76,7 @@
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "Der angegebene Nextcloud Server läuft mit $v. Saber unterstütz in dieser Version nur $s."
+        "ncUnsupportedFailure": "Der angegebene Nextcloud Server $v ist nicht unterstützt. Saber unterstützt in dieser Version nur Nextcould $s."
       }
     },
     "profile": {
