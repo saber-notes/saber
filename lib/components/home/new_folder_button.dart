@@ -9,9 +9,11 @@ class NewFolderButton extends StatelessWidget {
   const NewFolderButton({
     super.key,
     required this.createFolder,
+    required this.doesFolderExist,
   });
 
   final void Function(String) createFolder;
+  final bool Function(String) doesFolderExist;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class NewFolderButton extends StatelessWidget {
           context: context,
           builder: (context) => _NewFolderDialog(
             createFolder: createFolder,
+            doesFolderExist: doesFolderExist,
           ),
         );
       },
@@ -37,9 +40,11 @@ class _NewFolderDialog extends StatefulWidget {
   const _NewFolderDialog({
     super.key,
     required this.createFolder,
+    required this.doesFolderExist,
   });
 
   final void Function(String) createFolder;
+  final bool Function(String) doesFolderExist;
 
   @override
   State<_NewFolderDialog> createState() => _NewFolderDialogState();
@@ -48,19 +53,37 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
+  String? validateFolderName(String? folderName) {
+    if (folderName == null || folderName.isEmpty) {
+      return t.home.newFolder.folderNameEmpty;
+    }
+    if (folderName.contains('/') || folderName.contains('\\')) {
+      return t.home.newFolder.folderNameContainsSlash;
+    }
+    if (widget.doesFolderExist(folderName)) {
+      return t.home.newFolder.folderNameExists;
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
       title: Text(t.home.newFolder.newFolder),
-      content: AdaptiveTextField(
-        controller: _controller,
-        keyboardType: TextInputType.text,
-        textInputAction: TextInputAction.done,
-        focusOrder: const NumericFocusOrder(1),
-        placeholder: t.home.newFolder.folderName,
-        prefixIcon: const AdaptiveIcon(
-          icon: Icons.create_new_folder,
-          cupertinoIcon: CupertinoIcons.folder_badge_plus,
+      content: Form(
+        key: _formKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        child: AdaptiveTextField(
+          controller: _controller,
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.done,
+          focusOrder: const NumericFocusOrder(1),
+          placeholder: t.home.newFolder.folderName,
+          prefixIcon: const AdaptiveIcon(
+            icon: Icons.create_new_folder,
+            cupertinoIcon: CupertinoIcons.folder_badge_plus,
+          ),
+          validator: validateFolderName,
         ),
       ),
       actions: [
@@ -72,7 +95,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
         ),
         CupertinoDialogAction(
           onPressed: () {
-            // todo: validate folder name
+            if (!_formKey.currentState!.validate()) return;
             widget.createFolder(_controller.text);
             Navigator.of(context).pop();
           },

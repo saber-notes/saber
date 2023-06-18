@@ -115,6 +115,9 @@ class _BrowsePageState extends State<BrowsePage> {
               actions: [
                 NewFolderButton(
                   createFolder: createFolder,
+                  doesFolderExist: (String folderName) {
+                    return children?.directories.contains(folderName) ?? false;
+                  },
                 ),
                 const SyncingButton(),
               ],

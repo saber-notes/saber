@@ -8,7 +8,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -74,7 +77,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     }
   },
@@ -83,7 +89,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     }
   },
@@ -92,7 +101,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -120,7 +132,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -179,7 +194,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -238,7 +256,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -365,7 +386,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     }
   },
@@ -374,7 +398,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -402,7 +429,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -431,7 +461,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -518,7 +551,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     },
     "settings": {
@@ -547,7 +583,10 @@
       "newFolder": {
         "newFolder": "New folder",
         "folderName": "Folder name",
-        "create": "Create"
+        "create": "Create",
+        "folderNameEmpty": "Folder name can't be empty",
+        "folderNameContainsSlash": "Folder name can't contain a slash",
+        "folderNameExists": "Folder already exists"
       }
     }
   }

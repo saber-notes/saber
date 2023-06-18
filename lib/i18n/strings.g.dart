@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2494 (178 per locale)
+/// Strings: 2497 (178 per locale)
 ///
-/// Built on 2023-06-18 at 20:09 UTC
+/// Built on 2023-06-18 at 20:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -339,6 +339,9 @@ class _StringsHomeNewFolderEn {
 	String get newFolder => 'New folder';
 	String get folderName => 'Folder name';
 	String get create => 'Create';
+	String get folderNameEmpty => 'Folder name can\'t be empty';
+	String get folderNameContainsSlash => 'Folder name can\'t contain a slash';
+	String get folderNameExists => 'Folder already exists';
 }
 
 // Path: settings.prefCategories
