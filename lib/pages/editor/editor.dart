@@ -1575,7 +1575,6 @@ class EditorState extends State<Editor> {
     required double screenWidth,
     required List<EditorPage> pages,
   }) {
-    assert(scrollY >= 0);
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final bottomOfPage = CanvasGestureDetector.getTopOfPage(
         pageIndex: pageIndex + 1, // top of next page
