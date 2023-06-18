@@ -1561,7 +1561,7 @@ class EditorState extends State<Editor> {
     if (!mounted) return _lastCurrentPageIndex;
 
     final screenWidth = MediaQuery.of(context).size.width;
-    final scrollY = _transformationController.value.getTranslation().y.abs();
+    final scrollY = -_transformationController.value.getTranslation().y;
 
     return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
       scrollY: scrollY,
