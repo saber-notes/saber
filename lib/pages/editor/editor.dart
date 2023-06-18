@@ -1561,7 +1561,7 @@ class EditorState extends State<Editor> {
     if (!mounted) return _lastCurrentPageIndex;
 
     final screenWidth = MediaQuery.of(context).size.width;
-    final scrollY = _transformationController.value.getTranslation().y;
+    final scrollY = _transformationController.value.getTranslation().y.abs();
 
     return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
       scrollY: scrollY,
@@ -1575,6 +1575,7 @@ class EditorState extends State<Editor> {
     required double screenWidth,
     required List<EditorPage> pages,
   }) {
+    assert(scrollY >= 0);
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final bottomOfPage = CanvasGestureDetector.getTopOfPage(
         pageIndex: pageIndex + 1, // top of next page
