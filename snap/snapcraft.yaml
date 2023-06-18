@@ -1,6 +1,7 @@
 name: saber # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
 adopt-info: saber
+version: 0.13.1
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 license: GPL-3.0
@@ -35,7 +36,7 @@ parts:
     after: [rustup]
     source: https://github.com/adil192/saber.git
     source-type: git
-    source-tag: v0.13.1
+    source-tag: v$SNAPCRAFT_PROJECT_VERSION
     plugin: flutter
     #build-attributes: [enable-patchelf]
     build-packages:
