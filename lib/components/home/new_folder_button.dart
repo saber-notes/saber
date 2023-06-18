@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NewFolderButton extends StatelessWidget {
@@ -23,7 +25,10 @@ class NewFolderButton extends StatelessWidget {
         );
       },
       tooltip: t.home.newFolder.newFolder,
-      icon: const Icon(Icons.create_new_folder),
+      icon: const AdaptiveIcon(
+        icon: Icons.create_new_folder,
+        cupertinoIcon: CupertinoIcons.folder_badge_plus,
+      ),
     );
   }
 }
@@ -40,16 +45,22 @@ class _NewFolderDialog extends StatefulWidget {
   State<_NewFolderDialog> createState() => _NewFolderDialogState();
 }
 class _NewFolderDialogState extends State<_NewFolderDialog> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
       title: Text(t.home.newFolder.newFolder),
-      content: TextField(
+      content: AdaptiveTextField(
         controller: _controller,
-        decoration: InputDecoration(
-          labelText: t.home.newFolder.folderName,
+        keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.done,
+        focusOrder: const NumericFocusOrder(1),
+        placeholder: t.home.newFolder.folderName,
+        prefixIcon: const AdaptiveIcon(
+          icon: Icons.create_new_folder,
+          cupertinoIcon: CupertinoIcons.folder_badge_plus,
         ),
       ),
       actions: [
