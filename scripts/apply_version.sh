@@ -97,7 +97,7 @@ echo " - Updating version in pubspec.yaml" # e.g. version: 5.5.0+5050
 sed -i "s/version: .*/version: $BUILD_NAME+$BUILD_NUMBER/g" pubspec.yaml
 
 echo " - Updating version in snap/snapcraft.yaml" # e.g. source-tag: v0.5.5
-sed -i "s/source-tag: v.*/source-tag: v$BUILD_NAME/g" snap/snapcraft.yaml
+sed -i "s/version: v.*/version: v$BUILD_NAME/g" snap/snapcraft.yaml
 
 echo " - Updating VERSION_AS_NUMBER in windows/runner/Runner.rc" # e.g. #define VERSION_AS_NUMBER 0,5,5,0
 BUILD_NAME_WITH_COMMAS=${BUILD_NAME//./,}
