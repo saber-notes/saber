@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
+import 'package:saber/components/home/new_folder_button.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -70,6 +71,12 @@ class _BrowsePageState extends State<BrowsePage> {
     findChildrenOfPath();
   }
 
+  Future<void> createFolder(String folderName) async {
+    final folderPath = '${path ?? ''}/$folderName';
+    await FileManager.createFolder(folderPath);
+    findChildrenOfPath();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -105,8 +112,11 @@ class _BrowsePageState extends State<BrowsePage> {
                   bottom: 16
                 ),
               ),
-              actions: const [
-                SyncingButton(),
+              actions: [
+                NewFolderButton(
+                  createFolder: createFolder,
+                ),
+                const SyncingButton(),
               ],
             ),
             GridFolders(

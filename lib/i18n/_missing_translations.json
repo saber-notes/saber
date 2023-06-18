@@ -4,6 +4,13 @@
     "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
   "ar": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -62,9 +69,32 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {},
-  "de": {},
+  "cs": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    }
+  },
+  "de": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    }
+  },
   "es": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -86,6 +116,13 @@
     }
   },
   "fa": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -138,6 +175,13 @@
     }
   },
   "fr": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -190,6 +234,13 @@
     }
   },
   "hu": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size",
@@ -309,8 +360,23 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
+  "it": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    }
+  },
   "pt-BR": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -332,6 +398,13 @@
     }
   },
   "ru": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -354,6 +427,13 @@
     }
   },
   "tr": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -434,6 +514,13 @@
     }
   },
   "zh-Hans-CN": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    },
     "settings": {
       "prefLabels": {
         "layoutSize": "Layout size"
@@ -455,5 +542,13 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "home": {
+      "newFolder": {
+        "newFolder": "New folder",
+        "folderName": "Folder name",
+        "create": "Create"
+      }
+    }
+  }
 }

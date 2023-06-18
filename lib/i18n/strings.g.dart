@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2491 (177 per locale)
+/// Strings: 2494 (178 per locale)
 ///
-/// Built on 2023-06-17 at 19:40 UTC
+/// Built on 2023-06-18 at 20:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -174,6 +174,7 @@ class _StringsHomeEn {
 	String get welcome => 'Welcome to Saber';
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
+	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
 }
 
 // Path: settings
@@ -326,6 +327,18 @@ class _StringsHomeTooltipsEn {
 	// Translations
 	String get newNote => 'New note';
 	String get showUpdateDialog => 'Show update dialog';
+}
+
+// Path: home.newFolder
+class _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get newFolder => 'New folder';
+	String get folderName => 'Folder name';
+	String get create => 'Create';
 }
 
 // Path: settings.prefCategories

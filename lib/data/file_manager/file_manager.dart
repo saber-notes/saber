@@ -104,6 +104,13 @@ class FileManager {
     if (awaitWrite) await writeFuture;
   }
 
+  static Future<void> createFolder(String folderPath) async {
+    folderPath = _sanitisePath(folderPath);
+
+    final Directory dir = Directory(await documentsDirectory + folderPath);
+    await dir.create(recursive: true);
+  }
+
   static Future exportFile(String fileName, Uint8List bytes, {bool isImage = false}) async {
     File? tempFile;
     Future<File> getTempFile() async {

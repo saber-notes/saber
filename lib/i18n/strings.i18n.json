@@ -18,7 +18,12 @@
     },
     "welcome": "Welcome to Saber",
     "noFiles": "No files found",
-    "createNewNote": "Tap the + button to create a new note"
+    "createNewNote": "Tap the + button to create a new note",
+    "newFolder": {
+      "newFolder": "New folder",
+      "folderName": "Folder name",
+      "create": "Create"
+    }
   },
   "settings": {
     "prefCategories": {
