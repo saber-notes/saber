@@ -188,52 +188,52 @@ class _InnerCanvasState extends State<InnerCanvas> {
     /// lineHeight in local space
     final num lineHeight = widget.coreInfo.lineHeight;
 
-    /// Blank TextStyle with the correct color
-    final TextStyle defaultStyle = TextStyle(color: invert ? Colors.white : Colors.black);
-
-    final TextStyle dekko = GoogleFonts.dekko(); // Preload fallback font
-    List<String> fontFamilyFallback = [
+    // Load handwriting fonts
+    final TextStyle neucha = GoogleFonts.neucha();
+    final TextStyle dekko = GoogleFonts.dekko();
+    final String fontFamily = neucha.fontFamily ?? 'Neucha';
+    List<String> fontFamilyFallback = <String?>[
+      neucha.fontFamily,
       'Neucha',
-      dekko.fontFamily ?? 'Dekko',
+      dekko.fontFamily,
       'Dekko',
       'Kalam',
       'handwriting',
       'sans-serif',
-    ];
+    ].where((String? s) => s != null).cast<String>().toList();
 
-    TextTheme textTheme = GoogleFonts.neuchaTextTheme( // neucha is a handwriting font
-      ThemeData(brightness: invert ? Brightness.dark : Brightness.light).textTheme,
+    final TextStyle defaultStyle = TextStyle(
+      inherit: false,
+      fontFamily: fontFamily,
+      fontFamilyFallback: fontFamilyFallback,
+      color: invert ? Colors.white : Colors.black,
     );
-    textTheme = textTheme.copyWith(
-      bodyLarge: (textTheme.bodyLarge ?? defaultStyle).copyWith(
-        fontFamilyFallback: fontFamilyFallback,
+
+    final textTheme = TextTheme(
+      bodyLarge: defaultStyle.copyWith(
         fontSize: lineHeight * 0.7,
         height: 1 / 0.7,
-        color: textTheme.bodyLarge?.color ?? defaultStyle.color!,
       ),
-      displayLarge: (textTheme.displayLarge ?? defaultStyle).copyWith(
-        fontFamilyFallback: fontFamilyFallback,
+      displayLarge: defaultStyle.copyWith(
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
-        color: defaultStyle.color,
+
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.6),
         decorationThickness: 3,
       ),
-      displayMedium: (textTheme.displayMedium ?? defaultStyle).copyWith(
-        fontFamilyFallback: fontFamilyFallback,
+      displayMedium: defaultStyle.copyWith(
         fontSize: lineHeight * 1,
         height: 1 / 1,
-        color: defaultStyle.color,
+
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.5),
         decorationThickness: 3,
       ),
-      displaySmall: (textTheme.displaySmall ?? defaultStyle).copyWith(
-        fontFamilyFallback: fontFamilyFallback,
+      displaySmall: defaultStyle.copyWith(
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
-        color: defaultStyle.color,
+
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.4),
         decorationThickness: 3,
@@ -259,14 +259,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
         textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null
       ),
-      bold: const TextStyle(fontWeight: FontWeight.bold),
-      italic: const TextStyle(fontStyle: FontStyle.italic),
       small: TextStyle(
         fontSize: lineHeight * 0.4,
         height: 1 / 0.4,
       ),
-      underline: const TextStyle(decoration: TextDecoration.underline),
-      strikeThrough: const TextStyle(decoration: TextDecoration.lineThrough),
       inlineCode: InlineCodeStyle(
         backgroundColor: Colors.grey.withOpacity(0.1),
         radius: const Radius.circular(3),
@@ -325,6 +321,15 @@ class _InnerCanvasState extends State<InnerCanvas> {
       leading: DefaultTextBlockStyle(
         textTheme.bodyLarge!,
         zeroSpacing, zeroSpacing, null
+      ),
+      sizeSmall: TextStyle(
+        fontSize: textTheme.bodyLarge!.fontSize!,
+      ),
+      sizeLarge: TextStyle(
+        fontSize: textTheme.bodyLarge!.fontSize!,
+      ),
+      sizeHuge: TextStyle(
+        fontSize: textTheme.bodyLarge!.fontSize!,
       ),
     );
   }
