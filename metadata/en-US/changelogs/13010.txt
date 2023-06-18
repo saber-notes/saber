@@ -1,0 +1,2 @@
+• Checks that the whiteboard is saved before you navigate away
+• Fixed a bug where images would always be added to the first page rather than the current page

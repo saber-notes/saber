@@ -1,0 +1,2 @@
+• Controlla che la lavagna sia salvata prima di uscire
+• Risolto un problema per il quale le immagini venivano sempre aggiunte alla prima pagina invece che alla pagina corrente

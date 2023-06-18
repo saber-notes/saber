@@ -1,0 +1,2 @@
+• Ellenőrzi, hogy a tábla el lett-e mentve, mielőtt elnavigál
+• Kijavítottuk azt a hibát, amely miatt a képek mindig az első oldalra kerültek, nem pedig az aktuális oldalra

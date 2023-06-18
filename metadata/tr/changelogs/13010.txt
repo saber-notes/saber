@@ -1,0 +1,2 @@
+• Siz ayrılmadan önce beyaz tahtanın kaydedilip kaydedilmediğini kontrol eder
+• Resimlerin geçerli sayfa yerine her zaman ilk sayfaya eklenmesine neden olan bir hata düzeltildi

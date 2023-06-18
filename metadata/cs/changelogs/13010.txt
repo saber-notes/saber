@@ -1,0 +1,2 @@
+• Než odejdete, zkontroluje, zda je tabule uložena
+• Opravena chyba, kdy byly obrázky vždy přidány na první stránku, nikoli na aktuální stránku

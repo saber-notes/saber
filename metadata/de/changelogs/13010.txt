@@ -1,0 +1,2 @@
+• Überprüft, ob das Whiteboard gespeichert ist, bevor Sie wegnavigieren
+• Es wurde ein Fehler behoben, bei dem Bilder immer zur ersten Seite und nicht zur aktuellen Seite hinzugefügt wurden

@@ -66,6 +66,14 @@
         </screenshot>
     </screenshots>
 
+        <release version="0.13.1" type="development" date="2023-06-18">
+            <description>
+                <ul>
+                    <li>Checks that the whiteboard is saved before you navigate away</li>
+                    <li>Fixed a bug where images would always be added to the first page rather than the current page</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.13.0" type="development" date="2023-06-16">
             <description>
                 <ul>

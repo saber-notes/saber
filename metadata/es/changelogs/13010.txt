@@ -1,0 +1,2 @@
+• Verifica que la pizarra esté guardada antes de salir
+• Se corrigió un error por el cual las imágenes siempre se agregaban a la primera página en lugar de a la página actual

@@ -1,0 +1,2 @@
+• Verifica se o quadro branco foi salvo antes de você sair
+• Corrigido um bug em que as imagens sempre eram adicionadas à primeira página em vez da página atual
