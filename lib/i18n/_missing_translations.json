@@ -72,18 +72,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {
-    "home": {
-      "newFolder": {
-        "newFolder": "Nová složka",
-        "folderName": "Název složky",
-        "create": "Vytvořit",
-        "folderNameEmpty": "Název složky nemůže být prázdný",
-        "folderNameContainsSlash": "Název složky nemůže obsahovat lomítko",
-        "folderNameExists": "Složka s tímto názvem již existuje"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "home": {
       "newFolder": {
