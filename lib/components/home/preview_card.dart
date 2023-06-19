@@ -217,6 +217,19 @@ class _PreviewCardState extends State<PreviewCard> {
                             showDialog(
                               context: context,
                               builder: (BuildContext context) {
+                                // todo: create prompt to rename note
+                                return const Icon(Icons.construction);
+                              },
+                            );
+                          },
+                          icon: const Icon(Icons.edit_square),
+                        ),
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
                                 // todo: create dialog to move note between folders
                                 return const Icon(Icons.construction);
                               },
