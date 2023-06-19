@@ -384,12 +384,12 @@
   "it": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder": "Nuova cartella",
+        "folderName": "Nome cartella",
+        "create": "Crea",
+        "folderNameEmpty": "Il nome della cartella non può essere vuoto",
+        "folderNameContainsSlash": "Il nome della cartella non può contenere una barra",
+        "folderNameExists": "La cartella esiste già"
       }
     }
   },
