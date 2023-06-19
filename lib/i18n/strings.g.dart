@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2509 (179 per locale)
+/// Strings: 2523 (180 per locale)
 ///
-/// Built on 2023-06-19 at 15:14 UTC
+/// Built on 2023-06-19 at 15:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6369,6 +6369,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get noFiles => 'Файлов ещё нет';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
+	@override late final _StringsHomeNewFolderRu newFolder = _StringsHomeNewFolderRu._(_root);
 }
 
 // Path: settings
@@ -6382,6 +6383,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsRu prefLabels = _StringsSettingsPrefLabelsRu._(_root);
 	@override late final _StringsSettingsPrefDescriptionsRu prefDescriptions = _StringsSettingsPrefDescriptionsRu._(_root);
 	@override late final _StringsSettingsThemeModesRu themeModes = _StringsSettingsThemeModesRu._(_root);
+	@override late final _StringsSettingsLayoutSizesRu layoutSizes = _StringsSettingsLayoutSizesRu._(_root);
 	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
 	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
 	@override String get systemLanguage => 'Язык системы';
@@ -6482,6 +6484,7 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorHudRu hud = _StringsEditorHudRu._(_root);
 	@override String get pages => 'Листы';
 	@override String get untitled => 'Без названия';
+	@override String get needsToSaveBeforeExiting => 'Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано';
 }
 
 // Path: home.tabs
@@ -6521,6 +6524,21 @@ class _StringsHomeTooltipsRu extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Показывать диалог обновления';
 }
 
+// Path: home.newFolder
+class _StringsHomeNewFolderRu extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'Новая папка';
+	@override String get folderName => 'Имя папки';
+	@override String get create => 'Создать';
+	@override String get folderNameEmpty => 'Имя папки не может быть пустым';
+	@override String get folderNameContainsSlash => 'Имя папки не должно содержать косую черту';
+	@override String get folderNameExists => 'Папка уже существует';
+}
+
 // Path: settings.prefCategories
 class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn {
 	_StringsSettingsPrefCategoriesRu._(_StringsRu root) : this._root = root, super._(root);
@@ -6543,6 +6561,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Язык приложения';
 	@override String get appTheme => 'Тема оформления';
 	@override String get platform => 'Тип темы';
+	@override String get layoutSize => 'Размер макета';
 	@override String get customAccentColor => 'Свой цвет акцента';
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
@@ -6589,6 +6608,18 @@ class _StringsSettingsThemeModesRu extends _StringsSettingsThemeModesEn {
 	@override String get system => 'Системная';
 	@override String get light => 'Светлая';
 	@override String get dark => 'Тёмная';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesRu extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'Авто';
+	@override String get phone => 'Телефон';
+	@override String get tablet => 'Планшет';
 }
 
 // Path: settings.accentColorPicker
@@ -6814,6 +6845,7 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
+	@override String get laserPointer => 'Лазерная указка';
 }
 
 // Path: editor.penOptions
@@ -6927,6 +6959,8 @@ class _StringsEditorHudRu extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Блок. увеличения';
 	@override String get unlockSingleFingerPan => 'Разрешить панораму одним пальцем';
 	@override String get lockSingleFingerPan => 'Запретить панораму одним пальцем';
+	@override String get unlockAxisAlignedPan => 'Разблокировать панораму по горизонтали или вертикали';
+	@override String get lockAxisAlignedPan => 'Блокировать панораму по горизонтали или вертикали';
 }
 
 // Path: editor.menu.boxFits
