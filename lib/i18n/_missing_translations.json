@@ -402,38 +402,7 @@
       }
     }
   },
-  "ru": {
-    "home": {
-      "newFolder": {
-        "newFolder": "Новая папка",
-        "folderName": "Имя папки",
-        "create": "Создать",
-        "folderNameEmpty": "Имя папки не может быть пустым",
-        "folderNameContainsSlash": "Имя папки не должно содержать косую черту",
-        "folderNameExists": "Папка уже существует"
-      }
-    },
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Размер макета"
-      },
-      "layoutSizes": {
-        "auto": "Авто",
-        "phone": "Телефон",
-        "tablet": "Планшет"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "Лазерная указка"
-      },
-      "hud": {
-        "unlockAxisAlignedPan": "Разблокировать панораму по горизонтали или вертикали",
-        "lockAxisAlignedPan": "Блокировать панораму по горизонтали или вертикали"
-      },
-      "needsToSaveBeforeExiting": "Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано"
-    }
-  },
+  "ru": {},
   "tr": {
     "home": {
       "newFolder": {
