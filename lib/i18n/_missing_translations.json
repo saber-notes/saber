@@ -72,18 +72,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {
-    "home": {
-      "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "home": {
       "newFolder": {

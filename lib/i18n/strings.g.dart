@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2503 (178 per locale)
+/// Strings: 2509 (179 per locale)
 ///
-/// Built on 2023-06-19 at 15:10 UTC
+/// Built on 2023-06-19 at 15:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1428,6 +1428,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override String get welcome => 'Vítejte v aplikaci Saber';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
+	@override late final _StringsHomeNewFolderCs newFolder = _StringsHomeNewFolderCs._(_root);
 }
 
 // Path: settings
@@ -1580,6 +1581,21 @@ class _StringsHomeTooltipsCs extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nová poznámka';
 	@override String get showUpdateDialog => 'Zobrazit dialogové okno aktualizace';
+}
+
+// Path: home.newFolder
+class _StringsHomeNewFolderCs extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'Nová složka';
+	@override String get folderName => 'Název složky';
+	@override String get create => 'Vytvořit';
+	@override String get folderNameEmpty => 'Název složky nemůže být prázdný';
+	@override String get folderNameContainsSlash => 'Název složky nemůže obsahovat lomítko';
+	@override String get folderNameExists => 'Složka s tímto názvem již existuje';
 }
 
 // Path: settings.prefCategories

@@ -18,7 +18,15 @@
     },
     "welcome": "Vítejte v aplikaci Saber",
     "noFiles": "Žádné poznámky nebyly nalezeny",
-    "createNewNote": "Pro přidání nové poznámky klepněte na tlačítko +"
+    "createNewNote": "Pro přidání nové poznámky klepněte na tlačítko +",
+    "newFolder": {
+      "newFolder": "Nová složka",
+      "folderName": "Název složky",
+      "create": "Vytvořit",
+      "folderNameEmpty": "Název složky nemůže být prázdný",
+      "folderNameContainsSlash": "Název složky nemůže obsahovat lomítko",
+      "folderNameExists": "Složka s tímto názvem již existuje"
+    }
   },
   "settings": {
     "prefCategories": {
