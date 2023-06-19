@@ -413,10 +413,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: ed0db073fd8674320590954c1834a33aefef86e71ca6ecf684e6b41b4185de4a
+      sha256: "8af9c0dfd6db290d4f2da6abc5aff838fde41061fb2fa892ebee5902faeb7cb1"
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.4"
+    version: "7.2.7"
   flutter_secure_storage:
     dependency: "direct main"
     description:
