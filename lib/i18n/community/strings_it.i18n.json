@@ -18,7 +18,15 @@
     },
     "welcome": "Benvenuto su Saber",
     "noFiles": "Nessun file trovato",
-    "createNewNote": "Tocca il pulsante + per creare una nuova nota"
+    "createNewNote": "Tocca il pulsante + per creare una nuova nota",
+    "newFolder": {
+      "newFolder": "Nuova cartella",
+      "folderName": "Nome cartella",
+      "create": "Crea",
+      "folderNameEmpty": "Il nome della cartella non può essere vuoto",
+      "folderNameContainsSlash": "Il nome della cartella non può contenere una barra",
+      "folderNameExists": "La cartella esiste già"
+    }
   },
   "settings": {
     "prefCategories": {

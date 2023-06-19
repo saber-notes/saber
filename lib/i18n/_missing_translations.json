@@ -381,18 +381,7 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "home": {
-      "newFolder": {
-        "newFolder": "Nuova cartella",
-        "folderName": "Nome cartella",
-        "create": "Crea",
-        "folderNameEmpty": "Il nome della cartella non può essere vuoto",
-        "folderNameContainsSlash": "Il nome della cartella non può contenere una barra",
-        "folderNameExists": "La cartella esiste già"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "home": {
       "newFolder": {

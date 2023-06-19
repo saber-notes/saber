@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2497 (178 per locale)
+/// Strings: 2503 (178 per locale)
 ///
-/// Built on 2023-06-18 at 20:57 UTC
+/// Built on 2023-06-19 at 15:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5054,6 +5054,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override String get welcome => 'Benvenuto su Saber';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
+	@override late final _StringsHomeNewFolderIt newFolder = _StringsHomeNewFolderIt._(_root);
 }
 
 // Path: settings
@@ -5206,6 +5207,21 @@ class _StringsHomeTooltipsIt extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nuova nota';
 	@override String get showUpdateDialog => 'Mostra finestra di aggiornamento';
+}
+
+// Path: home.newFolder
+class _StringsHomeNewFolderIt extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'Nuova cartella';
+	@override String get folderName => 'Nome cartella';
+	@override String get create => 'Crea';
+	@override String get folderNameEmpty => 'Il nome della cartella non può essere vuoto';
+	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere una barra';
+	@override String get folderNameExists => 'La cartella esiste già';
 }
 
 // Path: settings.prefCategories
