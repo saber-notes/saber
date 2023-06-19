@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2523 (180 per locale)
+/// Strings: 2529 (180 per locale)
 ///
-/// Built on 2023-06-19 at 15:19 UTC
+/// Built on 2023-06-19 at 21:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2094,6 +2094,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override String get welcome => 'Willkommen bei Saber';
 	@override String get noFiles => 'Keine Dateien gefunden';
 	@override String get createNewNote => 'Drücke die + Schaltfläche, um eine neue Notiz zu erstellen';
+	@override late final _StringsHomeNewFolderDe newFolder = _StringsHomeNewFolderDe._(_root);
 }
 
 // Path: settings
@@ -2246,6 +2247,21 @@ class _StringsHomeTooltipsDe extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Notiz erstellen';
 	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
+}
+
+// Path: home.newFolder
+class _StringsHomeNewFolderDe extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'Neuer Ordner';
+	@override String get folderName => 'Ordner Name';
+	@override String get create => 'Erstellen';
+	@override String get folderNameEmpty => 'Ordnername darf nicht leer sein';
+	@override String get folderNameContainsSlash => 'Ordnernamen dürfen keine Schrägstriche enthalten';
+	@override String get folderNameExists => 'Ordner existiert bereits';
 }
 
 // Path: settings.prefCategories

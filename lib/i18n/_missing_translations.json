@@ -73,18 +73,7 @@
     }
   },
   "cs": {},
-  "de": {
-    "home": {
-      "newFolder": {
-        "newFolder": "Neuer Ordner",
-        "folderName": "Ordner Name",
-        "create": "Erstellen",
-        "folderNameEmpty": "Ordnername darf nicht leer sein",
-        "folderNameContainsSlash": "Ordnernamen dürfen keine Schrägstriche enthalten",
-        "folderNameExists": "Ordner existiert bereits"
-      }
-    }
-  },
+  "de": {},
   "es": {
     "home": {
       "newFolder": {
