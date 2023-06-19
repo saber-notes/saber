@@ -130,7 +130,10 @@ class _BrowsePageState extends State<BrowsePage> {
               ],
               onTap: onDirectoryTap,
             ),
-            if (children == null || children!.isEmpty) ...[
+
+            if (children == null) ...[
+              // loading
+            ] else if (children!.isEmpty) ...[
               const SliverSafeArea(
                 sliver: SliverToBoxAdapter(
                   child: NoFiles(),
@@ -140,7 +143,8 @@ class _BrowsePageState extends State<BrowsePage> {
               SliverSafeArea(
                 sliver: MasonryFiles(
                   files: [
-                    for (String filePath in children?.files ?? const Iterable.empty()) "${path ?? ""}/$filePath",
+                    for (String filePath in children?.files ?? const [])
+                      "${path ?? ""}/$filePath",
                   ],
                 ),
               ),
