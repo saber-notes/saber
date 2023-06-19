@@ -41,7 +41,7 @@ class _PreviewCardState extends State<PreviewCard> {
     return _mapFilePathToEditorInfo[filePath] ?? EditorCoreInfo(filePath: filePath);
   }
 
-  bool expanded = false;
+  ValueNotifier<bool> expanded = ValueNotifier(false);
 
   late double heightWidthRatio = _getHeightWidthRatio();
   late EditorCoreInfo _coreInfo = getCachedCoreInfo(widget.filePath);
@@ -167,8 +167,8 @@ class _PreviewCardState extends State<PreviewCard> {
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onSecondaryTap: () => setState(() { expanded = !expanded; }),
-        onLongPress: () => setState(() { expanded = !expanded; }),
+        onSecondaryTap: () => expanded.value = !expanded.value,
+        onLongPress: () => expanded.value = !expanded.value,
         child: ColoredBox(
           color: colorScheme.primary.withOpacity(0.05),
           child: Stack(
@@ -199,11 +199,15 @@ class _PreviewCardState extends State<PreviewCard> {
                     padding: const EdgeInsets.all(8),
                     child: Text(widget.filePath.substring(widget.filePath.lastIndexOf('/') + 1)),
                   ),
-        
-                  Collapsible(
-                    collapsed: !expanded,
-                    axis: CollapsibleAxis.vertical,
-                    maintainState: true,
+
+                  ValueListenableBuilder(
+                    valueListenable: expanded,
+                    builder: (context, value, child) => Collapsible(
+                      collapsed: !value,
+                      axis: CollapsibleAxis.vertical,
+                      maintainState: true,
+                      child: child!,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
