@@ -19,6 +19,14 @@
     "welcome": "Приветствуем в Saber",
     "noFiles": "Файлов ещё нет",
     "createNewNote": "Нажмите кнопку «+» чтобы создать новую заметку"
+    "newFolder": {
+      "newFolder": "Новая папка",
+      "folderName": "Имя папки",
+      "create": "Создать",
+      "folderNameEmpty": "Имя папки не может быть пустым",
+      "folderNameContainsSlash": "Имя папки не должно содержать косую черту",
+      "folderNameExists": "Папка уже существует"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +38,7 @@
       "locale": "Язык приложения",
       "appTheme": "Тема оформления",
       "platform": "Тип темы",
+      "layoutSize": "Размер макета",
       "customAccentColor": "Свой цвет акцента",
       "hyperlegibleFont": "Гипер разборчивый шрифт",
       "shouldCheckForUpdates": "Автоматически проверять обновления Saber",
@@ -62,6 +71,11 @@
       "system": "Системная",
       "light": "Светлая",
       "dark": "Тёмная"
+    },
+    "layoutSizes": {
+      "auto": "Авто",
+      "phone": "Телефон",
+      "tablet": "Планшет"
     },
     "accentColorPicker": {
       "pickAColor": "Выбери цвет"
@@ -190,7 +204,8 @@
     "pens": {
       "fountainPen": "Перьевая ручка",
       "ballpointPen": "Шариковая ручка",
-      "highlighter": "Маркер"
+      "highlighter": "Маркер",
+      "laserPointer": "Лазерная указка"
     },
     "penOptions": {
       "size": "Размер",
@@ -267,9 +282,12 @@
       "unlockZoom": "Разблок. увеличение",
       "lockZoom": "Блок. увеличения",
       "unlockSingleFingerPan": "Разрешить панораму одним пальцем",
-      "lockSingleFingerPan": "Запретить панораму одним пальцем"
+      "lockSingleFingerPan": "Запретить панораму одним пальцем",
+      "unlockAxisAlignedPan": "Разблокировать панораму по горизонтали или вертикали",
+      "lockAxisAlignedPan": "Блокировать панораму по горизонтали или вертикали"
     },
     "pages": "Листы",
-    "untitled": "Без названия"
+    "untitled": "Без названия",
+    "needsToSaveBeforeExiting": "Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано"
   }
 }

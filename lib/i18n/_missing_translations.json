@@ -405,33 +405,33 @@
   "ru": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder": "Новая папка",
+        "folderName": "Имя папки",
+        "create": "Создать",
+        "folderNameEmpty": "Имя папки не может быть пустым",
+        "folderNameContainsSlash": "Имя папки не должно содержать косую черту",
+        "folderNameExists": "Папка уже существует"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Размер макета"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto": "Авто",
+        "phone": "Телефон",
+        "tablet": "Планшет"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer": "Лазерная указка"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "Разблокировать панораму по горизонтали или вертикали",
+        "lockAxisAlignedPan": "Блокировать панораму по горизонтали или вертикали"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting": "Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано"
     }
   },
   "tr": {
