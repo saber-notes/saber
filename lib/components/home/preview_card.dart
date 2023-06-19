@@ -214,6 +214,19 @@ class _PreviewCardState extends State<PreviewCard> {
                         IconButton(
                           padding: EdgeInsets.zero,
                           onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                // todo: create dialog to move note between folders
+                                return const Icon(Icons.construction);
+                              },
+                            );
+                          },
+                          icon: const Icon(Icons.drive_file_move),
+                        ),
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
                             FileManager.deleteFile(widget.filePath + Editor.extension);
                           },
                           icon: const Icon(Icons.delete_forever),
