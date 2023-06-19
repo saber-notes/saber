@@ -29,10 +29,10 @@ packages:
     dependency: transitive
     description:
       name: asn1lib
-      sha256: ab96a1cb3beeccf8145c52e449233fe68364c9641623acd3adad66f8184f1039
+      sha256: b74e3842a52c61f8819a1ec8444b4de5419b41a7465e69d4aa681445377398b0
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.0"
+    version: "1.4.1"
   async:
     dependency: transitive
     description:
@@ -149,10 +149,10 @@ packages:
     dependency: transitive
     description:
       name: cookie_jar
-      sha256: "823fd13d22c5cf0c846e8a31c9b276f768f423cca134990c22c33045462f8ef9"
+      sha256: "1024f3a52bee181fc8f10f4a359085471587d7406323090a53a7171bc0aa5c37"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.3"
+    version: "4.0.5"
   cross_file:
     dependency: transitive
     description:
@@ -242,11 +242,11 @@ packages:
     source: hosted
     version: "1.6.5"
   dynamite_runtime:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "packages/dynamite/dynamite_runtime"
-      ref: HEAD
-      resolved-ref: adea8442914854e5be4baf8c983cc6a8bd3adb5d
+      ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
+      resolved-ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -413,10 +413,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: ed0db073fd8674320590954c1834a33aefef86e71ca6ecf684e6b41b4185de4a
+      sha256: "8af9c0dfd6db290d4f2da6abc5aff838fde41061fb2fa892ebee5902faeb7cb1"
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.4"
+    version: "7.2.7"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -516,10 +516,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: fe2d5f3e44fb243961edfc600a6198ecd67fc2c05b0a64d9fc09b51552071e36
+      sha256: da08429b5c1026cc78bd60c60bfff34f0b273b29feddeab00d3f5b56fb6f35ed
       url: "https://pub.dev"
     source: hosted
-    version: "8.0.2"
+    version: "8.0.5"
   google_fonts:
     dependency: "direct main"
     description:
@@ -713,8 +713,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/nextcloud"
-      ref: HEAD
-      resolved-ref: adea8442914854e5be4baf8c983cc6a8bd3adb5d
+      ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
+      resolved-ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1250,10 +1250,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
-      sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
+      sha256: bfdfa402f1f3298637d71ca8ecfe840b4696698213d5346e9d12d4ab647ee2ea
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   url_launcher_web:
     dependency: transitive
     description:
@@ -1378,10 +1378,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: "26153ce375748ab0136c298d3279fee3a05a95985f951f48fc0056ac11715595"
+      sha256: "79b3023cdbe3cc0eb6b4d01f6559d159fff57febf5d7707f425c377dae53ec72"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.5"
+    version: "6.1.1"
   xdg_directories:
     dependency: transitive
     description:
