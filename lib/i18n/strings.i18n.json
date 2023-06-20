@@ -38,7 +38,7 @@
       "locale": "App language",
       "appTheme": "App theme",
       "platform": "Theme type",
-      "layoutSize": "Layout size",
+      "layoutSize": "Layout type",
       "customAccentColor": "Custom accent color",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Automatically check for Saber updates",
