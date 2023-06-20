@@ -207,10 +207,6 @@ abstract class UpdateManager {
   }
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {
-    // TODO: iOS and macOS need to be downloaded from the App Store
-    // TargetPlatform.iOS: RegExp(r'\.ipa'),
-    // TargetPlatform.macOS: RegExp(r'\.app\.zip'),
-
     TargetPlatform.windows: RegExp(r'\.exe'),
 
     // e.g. Saber_v0.9.8.apk not Saber_FOSS_v0.9.8.apk
