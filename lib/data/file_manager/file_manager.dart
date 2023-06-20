@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:path_provider/path_provider.dart';
+import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -336,6 +337,9 @@ class FileManager {
   }
 
   static Future _renameReferences(String fromPath, String toPath) async {
+    // rename file in cache
+    PreviewCard.moveFileInCache(fromPath, toPath);
+
     // rename file in recently accessed
     bool replaced = false;
     for (int i = 0; i < Prefs.recentFiles.value.length; i++) {

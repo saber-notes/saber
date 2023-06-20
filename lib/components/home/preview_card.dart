@@ -30,9 +30,10 @@ class PreviewCard extends StatefulWidget {
   @override
   State<PreviewCard> createState() => _PreviewCardState();
 
-  static EditorCoreInfo getCachedCoreInfo(String filePath) {
-    return _PreviewCardState.getCachedCoreInfo(filePath);
-  }
+  static EditorCoreInfo getCachedCoreInfo(String filePath)
+      => _PreviewCardState.getCachedCoreInfo(filePath);
+  static void moveFileInCache(String oldPath, String newPath)
+      => _PreviewCardState.moveFileInCache(oldPath, newPath);
 }
 
 class _PreviewCardState extends State<PreviewCard> {
@@ -40,6 +41,16 @@ class _PreviewCardState extends State<PreviewCard> {
   static final Map<String, EditorCoreInfo> _mapFilePathToEditorInfo = {};
   static EditorCoreInfo getCachedCoreInfo(String filePath) {
     return _mapFilePathToEditorInfo[filePath] ?? EditorCoreInfo(filePath: filePath);
+  }
+  static void moveFileInCache(String oldPath, String newPath) {
+    assert(oldPath.endsWith(Editor.extension));
+    assert(newPath.endsWith(Editor.extension));
+    oldPath = oldPath.substring(0, oldPath.length - Editor.extension.length);
+    newPath = newPath.substring(0, newPath.length - Editor.extension.length);
+
+    if (!_mapFilePathToEditorInfo.containsKey(oldPath)) return;
+    _mapFilePathToEditorInfo[newPath] = _mapFilePathToEditorInfo[oldPath]!;
+    _mapFilePathToEditorInfo.remove(oldPath);
   }
 
   ValueNotifier<bool> expanded = ValueNotifier(false);
