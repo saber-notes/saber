@@ -6,18 +6,19 @@ class MasonryFiles extends StatelessWidget {
   const MasonryFiles({
     super.key,
     required this.files,
+    required this.crossAxisCount,
   });
 
   final List<String> files;
+  final int crossAxisCount;
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
     return SliverPadding(
       padding: const EdgeInsets.all(10),
       sliver: SliverMasonryGrid.count(
         childCount: files.length,
-        crossAxisCount: mediaQuery.size.width ~/ 300 + 1,
+        crossAxisCount: crossAxisCount,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         itemBuilder: (context, index) {

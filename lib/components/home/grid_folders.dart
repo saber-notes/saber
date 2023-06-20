@@ -10,16 +10,16 @@ class GridFolders extends StatelessWidget {
     required this.isAtRoot,
     required this.folders,
     required this.onTap,
+    required this.crossAxisCount,
   });
 
   final bool isAtRoot;
   final List<String> folders;
   final Function(String) onTap;
+  final int crossAxisCount;
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-
     /// The cards that come before the actual folders
     final extraCards = <FolderCardType>[
       if (!isAtRoot) FolderCardType.backFolder,
@@ -29,7 +29,7 @@ class GridFolders extends StatelessWidget {
 
     return SliverAlignedGrid.count(
       itemCount: folders.length + extraCards.length,
-      crossAxisCount: mediaQuery.size.width ~/ 150 + 1,
+      crossAxisCount: crossAxisCount,
       mainAxisSpacing: 10,
       itemBuilder: (context, index) {
         final cardType = extraCards.get(index, FolderCardType.realFolder);

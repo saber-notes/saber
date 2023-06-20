@@ -89,6 +89,8 @@ class _BrowsePageState extends State<BrowsePage> {
       title += ': $path';
     }
 
+    final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
+
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
@@ -124,11 +126,12 @@ class _BrowsePageState extends State<BrowsePage> {
             ),
             GridFolders(
               isAtRoot: path?.isEmpty ?? true,
+              crossAxisCount: crossAxisCount,
+              onTap: onDirectoryTap,
               folders: [
                 for (String directoryPath in children?.directories ?? const [])
                   directoryPath,
               ],
-              onTap: onDirectoryTap,
             ),
 
             if (children == null) ...[
@@ -142,6 +145,7 @@ class _BrowsePageState extends State<BrowsePage> {
             ] else ...[
               SliverSafeArea(
                 sliver: MasonryFiles(
+                  crossAxisCount: crossAxisCount,
                   files: [
                     for (String filePath in children?.files ?? const [])
                       "${path ?? ""}/$filePath",

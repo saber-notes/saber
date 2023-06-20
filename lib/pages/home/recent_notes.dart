@@ -62,6 +62,7 @@ class _RecentPageState extends State<RecentPage> {
     final platform = Theme.of(context).platform;
     final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
+    final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
@@ -98,6 +99,7 @@ class _RecentPageState extends State<RecentPage> {
             ] else ...[
               SliverSafeArea(
                 sliver: MasonryFiles(
+                  crossAxisCount: crossAxisCount,
                   files: [
                     for (String filePath in filePaths) filePath,
                   ],
