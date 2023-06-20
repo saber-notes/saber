@@ -23,6 +23,19 @@ void main() {
     expect(flatpakMetadataContents.contains(dummyChangelog), false, reason: 'Dummy text found in Flatpak changelog');
   });
 
+  test('Check that metainfo <release> tags are in the right place', () async {
+    final File flatpakMetadata = File('flatpak\com.adilhanney.saber.metainfo.xml');
+    expect(flatpakMetadata.existsSync(), true);
+    final String flatpakMetadataContents = await flatpakMetadata.readAsString();
+    
+    final releasesTag = flatpakMetadataContents.indexOf('<releases');
+    expect(releasesTag, isNot(-1), reason: 'No <releases> tag found in Flatpak metainfo');
+    final releaseTag = flatpakMetadataContents.indexOf('<release ');
+    expect(releaseTag, isNot(-1), reason: 'No <release> tag found in Flatpak metainfo');
+
+    expect(releaseTag > releasesTag, true, reason: '<release> tag is not inside <releases> tag');
+  });
+
   test('Test that versions in code are valid', () async {
     // We will use git's history to see if ./scripts/apply_version.sh
     // changes anything. If it does, then the versions in the

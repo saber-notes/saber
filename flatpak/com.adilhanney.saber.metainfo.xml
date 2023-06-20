@@ -66,6 +66,7 @@
         </screenshot>
     </screenshots>
 
+    <releases>
         <release version="0.13.1" type="development" date="2023-06-18">
             <description>
                 <ul>
@@ -87,7 +88,6 @@
                 </ul>
             </description>
         </release>
-    <releases>
         <release version="0.12.10" type="development" date="2023-06-06">
             <description>
                 <ul>
