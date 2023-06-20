@@ -140,6 +140,7 @@ class _SizePickerState extends State<SizePicker> {
                     fontSize: 14,
                   ),
                   textAlign: TextAlign.center,
+                  scribbleEnabled: false,
                 ),
               ),
             ],
