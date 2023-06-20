@@ -20,6 +20,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -89,6 +94,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     }
   },
@@ -101,6 +111,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     }
   },
@@ -121,6 +136,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -160,6 +180,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -230,6 +255,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -300,6 +330,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -430,6 +465,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     }
   },
@@ -450,6 +490,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -481,6 +526,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     }
   },
@@ -501,6 +551,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -599,6 +654,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     },
     "settings": {
@@ -639,6 +699,11 @@
         "noteNameEmpty": "Note name can't be empty",
         "noteNameContainsSlash": "Note name can't contain a slash",
         "noteNameExists": "A note with this name already exists"
+      },
+      "moveNote": {
+        "moveNote": "Move note",
+        "move": "Move",
+        "renamedTo": "Note will be renamed to $newName"
       }
     }
   }

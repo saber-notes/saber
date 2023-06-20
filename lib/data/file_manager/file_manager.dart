@@ -291,7 +291,6 @@ class FileManager {
   ///
   /// Providing a [currentPath] means that e.g. "/Untitled (2)" being renamed
   /// to "/Untitled" will be returned as "/Untitled (2)" not "/Untitled (3)".
-  @visibleForTesting
   static Future<String> suffixFilePathToMakeItUnique(String filePath, [String? currentPath]) async {
     String newFilePath = filePath;
     bool hasExtension = false;

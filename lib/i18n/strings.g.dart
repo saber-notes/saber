@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2535 (181 per locale)
+/// Strings: 2538 (181 per locale)
 ///
-/// Built on 2023-06-20 at 04:27 UTC
+/// Built on 2023-06-20 at 19:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -176,6 +176,7 @@ class _StringsHomeEn {
 	String get createNewNote => 'Tap the + button to create a new note';
 	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
 	late final _StringsHomeRenameNoteEn renameNote = _StringsHomeRenameNoteEn._(_root);
+	late final _StringsHomeMoveNoteEn moveNote = _StringsHomeMoveNoteEn._(_root);
 }
 
 // Path: settings
@@ -358,6 +359,18 @@ class _StringsHomeRenameNoteEn {
 	String get noteNameEmpty => 'Note name can\'t be empty';
 	String get noteNameContainsSlash => 'Note name can\'t contain a slash';
 	String get noteNameExists => 'A note with this name already exists';
+}
+
+// Path: home.moveNote
+class _StringsHomeMoveNoteEn {
+	_StringsHomeMoveNoteEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get moveNote => 'Move note';
+	String get move => 'Move';
+	String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
 }
 
 // Path: settings.prefCategories

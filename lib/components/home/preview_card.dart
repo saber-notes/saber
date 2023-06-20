@@ -9,6 +9,7 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
+import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
@@ -226,18 +227,8 @@ class _PreviewCardState extends State<PreviewCard> {
                         RenameNoteButton(
                           existingPath: widget.filePath,
                         ),
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                // TODO: create dialog to move note between folders
-                                return const Icon(Icons.construction);
-                              },
-                            );
-                          },
-                          icon: const Icon(Icons.drive_file_move),
+                        MoveNoteButton(
+                          existingPath: widget.filePath,
                         ),
                         IconButton(
                           padding: EdgeInsets.zero,
