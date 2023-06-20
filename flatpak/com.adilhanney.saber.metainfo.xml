@@ -66,7 +66,8 @@
         </screenshot>
     </screenshots>
 
-        <release version="0.13.1" type="development" date="2023-06-18">
+    <releases>
+         <release version="0.13.1" type="development" date="2023-06-18">
             <description>
                 <ul>
                     <li>Checks that the whiteboard is saved before you navigate away</li>
@@ -87,7 +88,6 @@
                 </ul>
             </description>
         </release>
-    <releases>
         <release version="0.12.10" type="development" date="2023-06-06">
             <description>
                 <ul>
