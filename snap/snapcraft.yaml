@@ -5,7 +5,7 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 license: GPL-3.0
 compression: lzo
-icon: snap/assets/icon/icon.png
+icon: assets/icon/icon.png
 donation: https://github.com/sponsors/adil192
 source-code: https://github.com/adil192/saber
 issues: https://github.com/adil192/saber/issues
@@ -34,19 +34,16 @@ parts:
   saber:
     after: [rustup]
     source: https://github.com/adil192/saber.git
-    source-type: git
-    source-tag: v0.13.1
+    source-tag: 'v0.13.1'
     plugin: flutter
     #build-attributes: [enable-patchelf]
     build-packages:
       - curl
       - jq
-      - libsecret-1-dev
       - libjsoncpp-dev
     build-snaps:
       - cmake
     stage-packages:
-      - libsecret-1-0
       - libjsoncpp25
       - zenity
     build-environment:
@@ -54,9 +51,6 @@ parts:
       - CARGO_HOME: $CRAFT_STAGE/usr/share/rust
       - CARGO_BUILD_JOBS: $CRAFT_PARALLEL_BUILD_COUNT
     override-build: |
-      cd $CRAFT_PART_SRC
-      craftctl set version=$(git describe --tags --abbrev=0 | cut -c 2-)
-      cd
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui
       mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.desktop $CRAFT_PART_INSTALL/meta/gui/saber.desktop
