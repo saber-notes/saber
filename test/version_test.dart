@@ -24,7 +24,7 @@ void main() {
   });
 
   test('Check that metainfo <release> tags are in the right place', () async {
-    final File flatpakMetadata = File('flatpak\com.adilhanney.saber.metainfo.xml');
+    final File flatpakMetadata = File('flatpak/com.adilhanney.saber.metainfo.xml');
     expect(flatpakMetadata.existsSync(), true);
     final String flatpakMetadataContents = await flatpakMetadata.readAsString();
     
