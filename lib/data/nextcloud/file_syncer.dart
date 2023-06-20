@@ -219,7 +219,7 @@ abstract class FileSyncer {
     } else {
       if (kDebugMode) print('remote file not in recognised encrypted format: $filePathRemote');
       return;
-    } // todo: also sync config.sbc
+    } // TODO: also sync config.sbc
 
     // decrypt file path
     final String filePathUnencrypted = encrypter.decrypt16(filePathEncrypted, iv: iv);

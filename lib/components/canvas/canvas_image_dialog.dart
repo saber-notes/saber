@@ -61,7 +61,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
         ),
       ),
       _CanvasImageDialogItem(
-        // todo: allow saving SVGs
+        // TODO: allow saving SVGs
         onTap: (widget.image.memoryImage == null) ? null : () {
           final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
           final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';

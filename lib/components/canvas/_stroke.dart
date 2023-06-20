@@ -210,7 +210,7 @@ class Stroke {
     final dx = end.x - start.x;
     final dy = end.y - start.y;
     if (dx == 0 && dy == 0) {
-      // todo: check if the stroke is a polygon if the start and end points are close together
+      // TODO: check if the stroke is a polygon if the start and end points are close together
       return double.infinity;
     }
 

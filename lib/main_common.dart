@@ -126,7 +126,7 @@ class App extends StatefulWidget {
 
       _router.push(RoutePaths.editFilePath(path));
     } else if (extension == 'pdf') {
-      // todo: import pdf
+      // TODO: import pdf
     }
   }
 

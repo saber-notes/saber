@@ -39,7 +39,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     if (!ncServerIsSupported) {
       throw NcUnsupportedFailure(
         currentVersion: capabilities.version.major,
-        // todo: don't hardcode 26 (https://github.com/provokateurin/nextcloud-neon/issues/322)
+        // TODO: don't hardcode 26 (https://github.com/provokateurin/nextcloud-neon/issues/322)
         supportedVersion: ncSupportedVersion,
       );
     }

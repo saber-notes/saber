@@ -318,7 +318,7 @@ class _ToolbarState extends State<Toolbar> {
                   widget.setTool(LaserPointer.currentLaserPointer);
                 },
                 padding: buttonPadding,
-                // todo: use [Icons.stylusLaserPointer] when it's available
+                // TODO: use [Icons.stylusLaserPointer] when it's available
                 child: const FaIcon(FontAwesomeIcons.circleDot, size: 16),
               ),
               ToolbarIconButton(

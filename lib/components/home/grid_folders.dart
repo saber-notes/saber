@@ -23,7 +23,7 @@ class GridFolders extends StatelessWidget {
     /// The cards that come before the actual folders
     final extraCards = <FolderCardType>[
       if (!isAtRoot) FolderCardType.backFolder,
-      // todo: implement new folder button
+      // TODO: implement new folder button
       // FolderCardType.NewFolder,
     ];
 
@@ -38,7 +38,7 @@ class GridFolders extends StatelessWidget {
             onTap: () {
               switch (cardType) {
                 case FolderCardType.newFolder:
-                  // todo: new folder prompt
+                  // TODO: new folder prompt
                   break;
                 case FolderCardType.backFolder:
                   onTap('..');

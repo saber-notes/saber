@@ -94,7 +94,7 @@ class _CanvasHudState extends State<CanvasHud> {
                 child: AnimatedRotation(
                   duration: const Duration(milliseconds: 200),
                   turns: widget.axisAlignedPanLock ? 0 : 1/8,
-                  // todo: use [Icons.drag_pan] once it's available
+                  // TODO: use [Icons.drag_pan] once it's available
                   child: const FaIcon(FontAwesomeIcons.arrowsUpDownLeftRight),
                 ),
               ),

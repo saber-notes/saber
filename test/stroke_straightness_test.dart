@@ -106,6 +106,6 @@ void main() {
       expect(stroke.isLineRoughlyStraight(), false);
     });
 
-    // todo: test using real strokes
+    // TODO: test using real strokes
   });
 }

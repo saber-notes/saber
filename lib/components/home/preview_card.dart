@@ -232,7 +232,7 @@ class _PreviewCardState extends State<PreviewCard> {
                             showDialog(
                               context: context,
                               builder: (BuildContext context) {
-                                // todo: create dialog to move note between folders
+                                // TODO: create dialog to move note between folders
                                 return const Icon(Icons.construction);
                               },
                             );
