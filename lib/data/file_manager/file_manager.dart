@@ -174,6 +174,7 @@ class FileManager {
     final File toFile = File(await documentsDirectory + toPath);
     await _createFileDirectory(toPath);
     if (fromFile.existsSync()) await fromFile.rename(toFile.path);
+    else if (kDebugMode) print('WARNING: Tried to move non-existent file from $fromPath to $toPath');
 
     FileSyncer.addToUploadQueue(fromPath);
     FileSyncer.addToUploadQueue(toPath);

@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_text_field.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class RenameNoteButton extends StatelessWidget {
   const RenameNoteButton({
@@ -16,6 +20,7 @@ class RenameNoteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       padding: EdgeInsets.zero,
+      tooltip: t.home.renameNote.renameNote,
       onPressed: () {
         showDialog(
           context: context,
@@ -68,12 +73,15 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   }
 
   bool doesFileExist(String noteName) {
-    // TODO: implement doesFileExist
-    return false;
+    final file = File(parentFolder + noteName);
+    return file.existsSync();
   }
 
   Future renameNote(String newName) async {
-    // TODO: implement renameNote
+    await FileManager.moveFile(
+      widget.existingPath + Editor.extension,
+      newName + Editor.extension,
+    );
   }
 
   @override
@@ -115,7 +123,7 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
             if (!mounted) return;
             Navigator.of(context).pop();
           },
-          child: Text(t.home.newFolder.create),
+          child: Text(t.home.renameNote.rename),
         ),
       ],
     );
