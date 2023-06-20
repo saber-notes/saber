@@ -7,7 +7,10 @@ import 'package:saber/i18n/strings.g.dart';
 class RenameNoteButton extends StatelessWidget {
   const RenameNoteButton({
     super.key,
+    required this.existingPath,
   });
+
+  final String existingPath;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,9 @@ class RenameNoteButton extends StatelessWidget {
         showDialog(
           context: context,
           builder: (BuildContext context) {
-            return const _RenameNoteDialog();
+            return _RenameNoteDialog(
+              existingPath: existingPath,
+            );
           },
         );
       },
@@ -30,7 +35,10 @@ class _RenameNoteDialog extends StatefulWidget {
   const _RenameNoteDialog({
     // ignore: unused_element
     super.key,
+    required this.existingPath,
   });
+
+  final String existingPath;
 
   @override
   State<_RenameNoteDialog> createState() => _RenameNoteDialogState();
@@ -38,6 +46,13 @@ class _RenameNoteDialog extends StatefulWidget {
 class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
+
+  /// The parent folder of the note being renamed,
+  /// including the trailing slash.
+  late String parentFolder = widget.existingPath.substring(
+    0,
+    widget.existingPath.lastIndexOf('/') + 1,
+  );
 
   String? validateNoteName(String? noteName) {
     if (noteName == null || noteName.isEmpty) {
@@ -64,8 +79,9 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   @override
   void initState() {
     super.initState();
-    // TODO: get current note name
-    _controller.text = 'Note';
+    _controller.text = widget.existingPath.substring(
+      widget.existingPath.lastIndexOf('/') + 1,
+    );
   }
 
   @override

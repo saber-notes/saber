@@ -212,7 +212,8 @@ class _PreviewCardState extends State<PreviewCard> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const RenameNoteButton(
+                        RenameNoteButton(
+                          existingPath: widget.filePath,
                         ),
                         IconButton(
                           padding: EdgeInsets.zero,
