@@ -173,6 +173,7 @@ abstract class FileSyncer {
       await Future.delayed(const Duration(seconds: 2));
     } finally {
       _isUploadingFile = false;
+      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
       uploadNotifier.notifyListeners();
       uploadFileFromQueue();
     }
