@@ -9,6 +9,7 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
+import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -211,18 +212,7 @@ class _PreviewCardState extends State<PreviewCard> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                // todo: create prompt to rename note
-                                return const Icon(Icons.construction);
-                              },
-                            );
-                          },
-                          icon: const Icon(Icons.edit_square),
+                        const RenameNoteButton(
                         ),
                         IconButton(
                           padding: EdgeInsets.zero,

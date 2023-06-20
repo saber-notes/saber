@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2529 (180 per locale)
+/// Strings: 2535 (181 per locale)
 ///
-/// Built on 2023-06-19 at 21:18 UTC
+/// Built on 2023-06-20 at 04:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -175,6 +175,7 @@ class _StringsHomeEn {
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
 	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
+	late final _StringsHomeRenameNoteEn renameNote = _StringsHomeRenameNoteEn._(_root);
 }
 
 // Path: settings
@@ -344,6 +345,21 @@ class _StringsHomeNewFolderEn {
 	String get folderNameExists => 'Folder already exists';
 }
 
+// Path: home.renameNote
+class _StringsHomeRenameNoteEn {
+	_StringsHomeRenameNoteEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get renameNote => 'Rename note';
+	String get noteName => 'Note name';
+	String get rename => 'Rename';
+	String get noteNameEmpty => 'Note name can\'t be empty';
+	String get noteNameContainsSlash => 'Note name can\'t contain a slash';
+	String get noteNameExists => 'A note with this name already exists';
+}
+
 // Path: settings.prefCategories
 class _StringsSettingsPrefCategoriesEn {
 	_StringsSettingsPrefCategoriesEn._(this._root);
@@ -366,7 +382,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get locale => 'App language';
 	String get appTheme => 'App theme';
 	String get platform => 'Theme type';
-	String get layoutSize => 'Layout size';
+	String get layoutSize => 'Layout type';
 	String get customAccentColor => 'Custom accent color';
 	String get hyperlegibleFont => 'Hyperlegible font';
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';

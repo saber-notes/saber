@@ -26,6 +26,14 @@
       "folderNameEmpty": "Folder name can't be empty",
       "folderNameContainsSlash": "Folder name can't contain a slash",
       "folderNameExists": "Folder already exists"
+    },
+    "renameNote": {
+      "renameNote": "Rename note",
+      "noteName": "Note name",
+      "rename": "Rename",
+      "noteNameEmpty": "Note name can't be empty",
+      "noteNameContainsSlash": "Note name can't contain a slash",
+      "noteNameExists": "A note with this name already exists"
     }
   },
   "settings": {

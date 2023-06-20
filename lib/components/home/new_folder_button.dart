@@ -38,6 +38,7 @@ class NewFolderButton extends StatelessWidget {
 
 class _NewFolderDialog extends StatefulWidget {
   const _NewFolderDialog({
+    // ignore: unused_element
     super.key,
     required this.createFolder,
     required this.doesFolderExist,

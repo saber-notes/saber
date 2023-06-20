@@ -12,11 +12,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -72,8 +80,30 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "cs": {},
-  "de": {},
+  "cs": {
+    "home": {
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
+      }
+    }
+  },
+  "de": {
+    "home": {
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
+      }
+    }
+  },
   "es": {
     "home": {
       "newFolder": {
@@ -83,11 +113,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -114,11 +152,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -176,11 +222,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -238,11 +292,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size",
+        "layoutSize": "Layout type",
         "printPageIndicators": "Print page indicators"
       },
       "prefDescriptions": {
@@ -359,7 +421,18 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
+  "it": {
+    "home": {
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
+      }
+    }
+  },
   "pt-BR": {
     "home": {
       "newFolder": {
@@ -369,11 +442,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -391,7 +472,18 @@
       }
     }
   },
-  "ru": {},
+  "ru": {
+    "home": {
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
+      }
+    }
+  },
   "tr": {
     "home": {
       "newFolder": {
@@ -401,11 +493,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -491,11 +591,19 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout size"
+        "layoutSize": "Layout type"
       },
       "layoutSizes": {
         "auto": "Auto",
@@ -523,6 +631,14 @@
         "folderNameEmpty": "Folder name can't be empty",
         "folderNameContainsSlash": "Folder name can't contain a slash",
         "folderNameExists": "Folder already exists"
+      },
+      "renameNote": {
+        "renameNote": "Rename note",
+        "noteName": "Note name",
+        "rename": "Rename",
+        "noteNameEmpty": "Note name can't be empty",
+        "noteNameContainsSlash": "Note name can't contain a slash",
+        "noteNameExists": "A note with this name already exists"
       }
     }
   }
