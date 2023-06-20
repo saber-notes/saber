@@ -34,7 +34,8 @@ parts:
   saber:
     after: [rustup]
     source: https://github.com/adil192/saber.git
-    source-tag: 'v0.13.1'
+    #source-tag: 'v0.13.1'
+    source-branch: 'snap-v0.13.1'
     plugin: flutter
     #build-attributes: [enable-patchelf]
     build-packages:
