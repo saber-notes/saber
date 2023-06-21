@@ -685,25 +685,25 @@
   "zh-Hant-TW": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder": "新建資料夾",
+        "folderName": "資料夾名稱",
+        "create": "創建",
+        "folderNameEmpty": "資料夾名稱不可為空",
+        "folderNameContainsSlash": "資料夾名稱不能包含斜槓",
+        "folderNameExists": "資料夾已經存在"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote": "重新命名筆記",
+        "noteName": "筆記名稱",
+        "rename": "重新命名",
+        "noteNameEmpty": "筆記名稱不可為空",
+        "noteNameContainsSlash": "筆記名稱不能包含斜槓",
+        "noteNameExists": "同名筆記已經存在"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote": "移動筆記",
+        "move": "移動",
+        "renamedTo": "筆記將重新命名為 $newName"
       }
     }
   }
