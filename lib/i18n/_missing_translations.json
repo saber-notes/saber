@@ -682,29 +682,5 @@
       "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {
-    "home": {
-      "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
-      },
-      "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
-      },
-      "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
