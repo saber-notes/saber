@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2538 (181 per locale)
+/// Strings: 2553 (182 per locale)
 ///
-/// Built on 2023-06-20 at 19:00 UTC
+/// Built on 2023-06-24 at 21:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8297,6 +8297,9 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get noFiles => '未找到檔案';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
+	@override late final _StringsHomeNewFolderZhHantTw newFolder = _StringsHomeNewFolderZhHantTw._(_root);
+	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
+	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 }
 
 // Path: settings
@@ -8449,6 +8452,48 @@ class _StringsHomeTooltipsZhHantTw extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新增筆記';
 	@override String get showUpdateDialog => '顯示更新對話框';
+}
+
+// Path: home.newFolder
+class _StringsHomeNewFolderZhHantTw extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => '新建資料夾';
+	@override String get folderName => '資料夾名稱';
+	@override String get create => '創建';
+	@override String get folderNameEmpty => '資料夾名稱不可為空';
+	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜槓';
+	@override String get folderNameExists => '資料夾已經存在';
+}
+
+// Path: home.renameNote
+class _StringsHomeRenameNoteZhHantTw extends _StringsHomeRenameNoteEn {
+	_StringsHomeRenameNoteZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameNote => '重新命名筆記';
+	@override String get noteName => '筆記名稱';
+	@override String get rename => '重新命名';
+	@override String get noteNameEmpty => '筆記名稱不可為空';
+	@override String get noteNameContainsSlash => '筆記名稱不能包含斜槓';
+	@override String get noteNameExists => '同名筆記已經存在';
+}
+
+// Path: home.moveNote
+class _StringsHomeMoveNoteZhHantTw extends _StringsHomeMoveNoteEn {
+	_StringsHomeMoveNoteZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get moveNote => '移動筆記';
+	@override String get move => '移動';
+	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 }
 
 // Path: settings.prefCategories
