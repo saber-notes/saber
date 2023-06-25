@@ -39,7 +39,7 @@
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "يقوم الخادم المحدد بتشغيل Nextcloud $v لكن هذا الإصدار من Sabre يدعم فقط Nextcloud $s."
+        "ncUnsupportedFailure": "يقوم الخادم المحدد بتشغيل Nextcloud $v لكن هذا الإصدار من Saber يدعم فقط Nextcloud $s."
       }
     },
     "profile": {
