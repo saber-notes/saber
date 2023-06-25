@@ -6,83 +6,83 @@
   "ar": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder": "مجلد جديد",
+        "folderName": "إسم المجلد",
+        "create": "إنشاء",
+        "folderNameEmpty": "لا يمكن أن يكون اسم المجلد فارغًا",
+        "folderNameContainsSlash": "لا يمكن أن يحتوي اسم المجلد على شرطة مائلة",
+        "folderNameExists": "المجلد موجود بالفعل"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote": "إعادة تسمية الملاحظة",
+        "noteName": "اسم الملاحظة",
+        "rename": "إعادة تسمية",
+        "noteNameEmpty": "لا يمكن أن يكون اسم الملاحظة فارغًا",
+        "noteNameContainsSlash": "لا يمكن أن يحتوي اسم الملاحظة على شرطة مائلة",
+        "noteNameExists": "توجد بالفعل ملاحظة بهذا الاسم"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote": "تحريك الملاحظة",
+        "move": "تحريك",
+        "renamedTo": "ستتم إعادة تسمية الملاحظة إلى $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type"
+        "layoutSize": "نوع التخطيط"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto": "آلي",
+        "phone": "هاتف",
+        "tablet": "لوحي"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure": "يقوم الخادم المحدد بتشغيل Nextcloud $v لكن هذا الإصدار من Sabre يدعم فقط Nextcloud $s."
       }
     },
     "profile": {
       "quickLinks": {
-        "title": "Quick links",
-        "serverHomepage": "Server homepage",
-        "deleteAccount": "Delete account"
+        "title": "روابط سريعة",
+        "serverHomepage": "الصفحة الرئيسية للخادم",
+        "deleteAccount": "حذف الحساب"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer": "مؤشر الليزر"
       },
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker": "أداة انتقاء اللون",
+        "black": "أسود",
+        "darkGrey": "الرمادي الداكن",
+        "grey": "رمادي",
+        "lightGrey": "رمادي فاتح",
+        "white": "أبيض",
+        "red": "أحمر",
+        "green": "أخضر",
+        "blue": "أزرق",
+        "yellow": "أصفر",
+        "purple": "أرجواني",
+        "orange": "برتقالي",
+        "pastelRed": "باستيل أحمر",
+        "pastelOrange": "برتقال باستيل",
+        "pastelYellow": "باستيل أصفر",
+        "pastelGreen": "الباستيل الأخضر",
+        "pastelCyan": "باستيل سماوي",
+        "pastelBlue": "الباستيل الأزرق",
+        "pastelPurple": "الباستيل الأرجواني",
+        "pastelPink": "الباستيل الوردي"
       },
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+        "clearPage(OUTDATED)": "تنظيف الصفحة $page/$totalPages"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "إلغاء قفل التحريك إلى أفقي أو عمودي",
+        "lockAxisAlignedPan": "قفل التحريك إلى أفقي أو رأسي"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting": "حفظ التغييرات... يمكنك الخروج بأمان من المحرر عند الانتهاء"
     }
   },
   "cs": {
