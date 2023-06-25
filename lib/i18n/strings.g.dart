@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2600 (185 per locale)
 ///
-/// Built on 2023-06-25 at 21:58 UTC
+/// Built on 2023-06-25 at 22:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1088,7 +1088,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 
 	// Translations
 	@override String get locale => 'لغة التطبيق';
-	@override String get appTheme => 'مظهر التطبيث';
+	@override String get appTheme => 'مظهر التطبيق';
 	@override String get platform => 'نوع المظهر';
 	@override String get layoutSize => 'نوع التخطيط';
 	@override String get customAccentColor => 'لون التمييز المخصص';
