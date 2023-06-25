@@ -18,7 +18,28 @@
     },
     "welcome": "مرحباً بك في Saber",
     "noFiles": "لم يتم العثور على ملفات",
-    "createNewNote": "اضغط على زر + لإنشاء ملاحظة جديدة"
+    "createNewNote": "اضغط على زر + لإنشاء ملاحظة جديدة",
+    "newFolder": {
+      "newFolder": "مجلد جديد",
+      "folderName": "إسم المجلد",
+      "create": "إنشاء",
+      "folderNameEmpty": "لا يمكن أن يكون اسم المجلد فارغًا",
+      "folderNameContainsSlash": "لا يمكن أن يحتوي اسم المجلد على شرطة مائلة",
+      "folderNameExists": "المجلد موجود بالفعل"
+    },
+    "renameNote": {
+      "renameNote": "إعادة تسمية الملاحظة",
+      "noteName": "اسم الملاحظة",
+      "rename": "إعادة تسمية",
+      "noteNameEmpty": "لا يمكن أن يكون اسم الملاحظة فارغًا",
+      "noteNameContainsSlash": "لا يمكن أن يحتوي اسم الملاحظة على شرطة مائلة",
+      "noteNameExists": "توجد بالفعل ملاحظة بهذا الاسم"
+    },
+    "moveNote": {
+      "moveNote": "تحريك الملاحظة",
+      "move": "تحريك",
+      "renamedTo": "ستتم إعادة تسمية الملاحظة إلى $newName"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +51,7 @@
       "locale": "لغة التطبيق",
       "appTheme": "مظهر التطبيث",
       "platform": "نوع المظهر",
+      "layoutSize": "نوع التخطيط",
       "customAccentColor": "لون التمييز المخصص",
       "hyperlegibleFont": "Hyperlegible خط",
       "shouldCheckForUpdates": "تحقق تلقائيًا من وجود تحديثات Saber",
@@ -63,6 +85,11 @@
       "light": "ساطع",
       "dark": "داكن"
     },
+    "layoutSizes": {
+      "auto": "آلي",
+      "phone": "هاتف",
+      "tablet": "لوحي"
+    },
     "accentColorPicker": {
       "pickAColor": "اختر لوناً"
     },
@@ -91,6 +118,7 @@
       "enterEncPassword": "الرجاء إدخال كلمة مرور التشفير الخاصة بك.",
       "checkUrl": "أدخل رابط URL صالح من فضلك.",
       "ncLoginFailed": "فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.",
+      "ncUnsupportedFailure": "يقوم الخادم المحدد بتشغيل Nextcloud $v لكن هذا الإصدار من Saber يدعم فقط Nextcloud $s.",
       "encLoginFailed": "فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.",
       "loginSuccess": "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
     },
@@ -135,6 +163,11 @@
   "profile": {
     "title": "ملفي الشخصي",
     "logout": "تسجيل الخروج",
+    "quickLinks": {
+      "title": "روابط سريعة",
+      "serverHomepage": "الصفحة الرئيسية للخادم",
+      "deleteAccount": "حذف الحساب"
+    },
     "faq": [
       {
         "q": "هل سأفقد ملاحظاتي إذا قمت بتسجيل الخروج؟",
@@ -184,11 +217,34 @@
     "pens": {
       "fountainPen": "قلم حبر",
       "ballpointPen": "قلم برأس كروي",
-      "highlighter": "هايلايتر"
+      "highlighter": "هايلايتر",
+      "laserPointer": "مؤشر الليزر"
     },
     "penOptions": {
       "size": "حجم",
       "sizeDragHint": "اسحب لليسار أو لليمين لتغيير الحجم"
+    },
+    "colors": {
+      "colorPicker": "أداة انتقاء اللون",
+      "black": "أسود",
+      "darkGrey": "الرمادي الداكن",
+      "grey": "رمادي",
+      "lightGrey": "رمادي فاتح",
+      "white": "أبيض",
+      "red": "أحمر",
+      "green": "أخضر",
+      "blue": "أزرق",
+      "yellow": "أصفر",
+      "purple": "أرجواني",
+      "orange": "برتقالي",
+      "pastelRed": "باستيل أحمر",
+      "pastelOrange": "برتقال باستيل",
+      "pastelYellow": "باستيل أصفر",
+      "pastelGreen": "الباستيل الأخضر",
+      "pastelCyan": "باستيل سماوي",
+      "pastelBlue": "الباستيل الأزرق",
+      "pastelPurple": "الباستيل الأرجواني",
+      "pastelPink": "الباستيل الوردي"
     },
     "imageOptions": {
       "title": "خيارات الصورة",
@@ -199,7 +255,7 @@
       "delete": "حذف"
     },
     "menu": {
-      "clearPage(OUTDATED)": "$page/$totalPages صفحة واضحة",
+      "clearPage": "تنظيف الصفحة $page/$totalPages",
       "clearAllPages": "امسح كل الصفحات",
       "insertPage": "أدخل الصفحة أدناه",
       "duplicatePage": "تكرار الصفحة",
@@ -239,9 +295,12 @@
       "unlockZoom": "إلغاء قفل التكبير",
       "lockZoom": "قفل التكبير",
       "unlockSingleFingerPan": "تمكين التحريك بإصبع واحد",
-      "lockSingleFingerPan": "تعطيل التحريك بإصبع واحد"
+      "lockSingleFingerPan": "تعطيل التحريك بإصبع واحد",
+      "unlockAxisAlignedPan": "إلغاء قفل التحريك إلى أفقي أو عمودي",
+      "lockAxisAlignedPan": "قفل التحريك إلى أفقي أو رأسي"
     },
     "pages": "صفحات",
-    "untitled": "بدون عنوان"
+    "untitled": "بدون عنوان",
+    "needsToSaveBeforeExiting": "حفظ التغييرات... يمكنك الخروج بأمان من المحرر عند الانتهاء"
   }
 }

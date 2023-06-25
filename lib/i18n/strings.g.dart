@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2553 (182 per locale)
+/// Strings: 2600 (185 per locale)
 ///
-/// Built on 2023-06-24 at 21:52 UTC
+/// Built on 2023-06-25 at 21:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -869,6 +869,9 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override String get welcome => 'مرحباً بك في Saber';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
+	@override late final _StringsHomeNewFolderAr newFolder = _StringsHomeNewFolderAr._(_root);
+	@override late final _StringsHomeRenameNoteAr renameNote = _StringsHomeRenameNoteAr._(_root);
+	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
 }
 
 // Path: settings
@@ -882,6 +885,7 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsAr prefLabels = _StringsSettingsPrefLabelsAr._(_root);
 	@override late final _StringsSettingsPrefDescriptionsAr prefDescriptions = _StringsSettingsPrefDescriptionsAr._(_root);
 	@override late final _StringsSettingsThemeModesAr themeModes = _StringsSettingsThemeModesAr._(_root);
+	@override late final _StringsSettingsLayoutSizesAr layoutSizes = _StringsSettingsLayoutSizesAr._(_root);
 	@override late final _StringsSettingsAccentColorPickerAr accentColorPicker = _StringsSettingsAccentColorPickerAr._(_root);
 	@override late final _StringsSettingsStraightenDelayAr straightenDelay = _StringsSettingsStraightenDelayAr._(_root);
 	@override String get systemLanguage => 'لغة النظام';
@@ -928,6 +932,7 @@ class _StringsProfileAr extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'ملفي الشخصي';
 	@override String get logout => 'تسجيل الخروج';
+	@override late final _StringsProfileQuickLinksAr quickLinks = _StringsProfileQuickLinksAr._(_root);
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Ar._(_root),
 		_StringsProfile$faq$0i1$Ar._(_root),
@@ -973,6 +978,7 @@ class _StringsEditorAr extends _StringsEditorEn {
 	@override late final _StringsEditorToolbarAr toolbar = _StringsEditorToolbarAr._(_root);
 	@override late final _StringsEditorPensAr pens = _StringsEditorPensAr._(_root);
 	@override late final _StringsEditorPenOptionsAr penOptions = _StringsEditorPenOptionsAr._(_root);
+	@override late final _StringsEditorColorsAr colors = _StringsEditorColorsAr._(_root);
 	@override late final _StringsEditorImageOptionsAr imageOptions = _StringsEditorImageOptionsAr._(_root);
 	@override late final _StringsEditorMenuAr menu = _StringsEditorMenuAr._(_root);
 	@override late final _StringsEditorNewerFileFormatAr newerFileFormat = _StringsEditorNewerFileFormatAr._(_root);
@@ -980,6 +986,7 @@ class _StringsEditorAr extends _StringsEditorEn {
 	@override late final _StringsEditorHudAr hud = _StringsEditorHudAr._(_root);
 	@override String get pages => 'صفحات';
 	@override String get untitled => 'بدون عنوان';
+	@override String get needsToSaveBeforeExiting => 'حفظ التغييرات... يمكنك الخروج بأمان من المحرر عند الانتهاء';
 }
 
 // Path: home.tabs
@@ -1019,6 +1026,48 @@ class _StringsHomeTooltipsAr extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
 }
 
+// Path: home.newFolder
+class _StringsHomeNewFolderAr extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'مجلد جديد';
+	@override String get folderName => 'إسم المجلد';
+	@override String get create => 'إنشاء';
+	@override String get folderNameEmpty => 'لا يمكن أن يكون اسم المجلد فارغًا';
+	@override String get folderNameContainsSlash => 'لا يمكن أن يحتوي اسم المجلد على شرطة مائلة';
+	@override String get folderNameExists => 'المجلد موجود بالفعل';
+}
+
+// Path: home.renameNote
+class _StringsHomeRenameNoteAr extends _StringsHomeRenameNoteEn {
+	_StringsHomeRenameNoteAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameNote => 'إعادة تسمية الملاحظة';
+	@override String get noteName => 'اسم الملاحظة';
+	@override String get rename => 'إعادة تسمية';
+	@override String get noteNameEmpty => 'لا يمكن أن يكون اسم الملاحظة فارغًا';
+	@override String get noteNameContainsSlash => 'لا يمكن أن يحتوي اسم الملاحظة على شرطة مائلة';
+	@override String get noteNameExists => 'توجد بالفعل ملاحظة بهذا الاسم';
+}
+
+// Path: home.moveNote
+class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
+	_StringsHomeMoveNoteAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get moveNote => 'تحريك الملاحظة';
+	@override String get move => 'تحريك';
+	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
+}
+
 // Path: settings.prefCategories
 class _StringsSettingsPrefCategoriesAr extends _StringsSettingsPrefCategoriesEn {
 	_StringsSettingsPrefCategoriesAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1041,6 +1090,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'لغة التطبيق';
 	@override String get appTheme => 'مظهر التطبيث';
 	@override String get platform => 'نوع المظهر';
+	@override String get layoutSize => 'نوع التخطيط';
 	@override String get customAccentColor => 'لون التمييز المخصص';
 	@override String get hyperlegibleFont => 'Hyperlegible خط';
 	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
@@ -1089,6 +1139,18 @@ class _StringsSettingsThemeModesAr extends _StringsSettingsThemeModesEn {
 	@override String get dark => 'داكن';
 }
 
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesAr extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'آلي';
+	@override String get phone => 'هاتف';
+	@override String get tablet => 'لوحي';
+}
+
 // Path: settings.accentColorPicker
 class _StringsSettingsAccentColorPickerAr extends _StringsSettingsAccentColorPickerEn {
 	_StringsSettingsAccentColorPickerAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1134,6 +1196,7 @@ class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
 	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
 	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} لكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s}.';
 	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
 	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
 }
@@ -1225,6 +1288,18 @@ class _StringsLogin$faq$0i4$Ar extends _StringsLogin$faq$0i4$En {
 	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
 }
 
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksAr extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'روابط سريعة';
+	@override String get serverHomepage => 'الصفحة الرئيسية للخادم';
+	@override String get deleteAccount => 'حذف الحساب';
+}
+
 // Path: profile.faq.0
 class _StringsProfile$faq$0i0$Ar extends _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$Ar._(_StringsAr root) : this._root = root, super._(root);
@@ -1299,6 +1374,7 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
+	@override String get laserPointer => 'مؤشر الليزر';
 }
 
 // Path: editor.penOptions
@@ -1310,6 +1386,35 @@ class _StringsEditorPenOptionsAr extends _StringsEditorPenOptionsEn {
 	// Translations
 	@override String get size => 'حجم';
 	@override String get sizeDragHint => 'اسحب لليسار أو لليمين لتغيير الحجم';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsAr extends _StringsEditorColorsEn {
+	_StringsEditorColorsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'أداة انتقاء اللون';
+	@override String get black => 'أسود';
+	@override String get darkGrey => 'الرمادي الداكن';
+	@override String get grey => 'رمادي';
+	@override String get lightGrey => 'رمادي فاتح';
+	@override String get white => 'أبيض';
+	@override String get red => 'أحمر';
+	@override String get green => 'أخضر';
+	@override String get blue => 'أزرق';
+	@override String get yellow => 'أصفر';
+	@override String get purple => 'أرجواني';
+	@override String get orange => 'برتقالي';
+	@override String get pastelRed => 'باستيل أحمر';
+	@override String get pastelOrange => 'برتقال باستيل';
+	@override String get pastelYellow => 'باستيل أصفر';
+	@override String get pastelGreen => 'الباستيل الأخضر';
+	@override String get pastelCyan => 'باستيل سماوي';
+	@override String get pastelBlue => 'الباستيل الأزرق';
+	@override String get pastelPurple => 'الباستيل الأرجواني';
+	@override String get pastelPink => 'الباستيل الوردي';
 }
 
 // Path: editor.imageOptions
@@ -1334,7 +1439,7 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} صفحة واضحة';
+	@override String clearPage({required Object page, required Object totalPages}) => 'تنظيف الصفحة ${page}/${totalPages}';
 	@override String get clearAllPages => 'امسح كل الصفحات';
 	@override String get insertPage => 'أدخل الصفحة أدناه';
 	@override String get duplicatePage => 'تكرار الصفحة';
@@ -1383,6 +1488,8 @@ class _StringsEditorHudAr extends _StringsEditorHudEn {
 	@override String get lockZoom => 'قفل التكبير';
 	@override String get unlockSingleFingerPan => 'تمكين التحريك بإصبع واحد';
 	@override String get lockSingleFingerPan => 'تعطيل التحريك بإصبع واحد';
+	@override String get unlockAxisAlignedPan => 'إلغاء قفل التحريك إلى أفقي أو عمودي';
+	@override String get lockAxisAlignedPan => 'قفل التحريك إلى أفقي أو رأسي';
 }
 
 // Path: editor.menu.boxFits
