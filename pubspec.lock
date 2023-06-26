@@ -564,10 +564,10 @@ packages:
     dependency: "direct dev"
     description:
       name: icons_launcher
-      sha256: "8f81b295f5de3796e9662ac385c174ee5255f7c4cee1df031393c17c616cff57"
+      sha256: "71cf6baae0f0d1752e3c26035f9e6ea07bd297af72d389e907fb0119e9d56ba1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   image:
     dependency: transitive
     description:
