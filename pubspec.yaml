@@ -99,7 +99,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^7.0.0
+  flutter_quill: ^7.2.9
 
   window_manager: ^0.3.0
 
