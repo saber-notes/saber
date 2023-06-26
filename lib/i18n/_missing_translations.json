@@ -453,9 +453,9 @@
     },
     "profile": {
       "quickLinks": {
-        "title(OUTDATED)": "Quick links",
-        "serverHomepage(OUTDATED)": "Server homepage",
-        "deleteAccount(OUTDATED)": "Delete account"
+        "title": "Hızlı linkler",
+        "serverHomepage": "Sunucu anasayfası",
+        "deleteAccount": "Hesabı sil"
       },
       "faq(OUTDATED)": [
         {
@@ -478,41 +478,41 @@
     },
     "editor": {
       "pens": {
-        "laserPointer(OUTDATED)": "Laser pointer"
+        "laserPointer": "Lazer işaretçi"
       },
       "colors": {
-        "colorPicker(OUTDATED)": "Color picker",
-        "black(OUTDATED)": "Black",
-        "darkGrey(OUTDATED)": "Dark grey",
-        "grey(OUTDATED)": "Grey",
-        "lightGrey(OUTDATED)": "Light grey",
-        "white(OUTDATED)": "White",
-        "red(OUTDATED)": "Red",
-        "green(OUTDATED)": "Green",
-        "blue(OUTDATED)": "Blue",
-        "yellow(OUTDATED)": "Yellow",
-        "purple(OUTDATED)": "Purple",
-        "orange(OUTDATED)": "Orange",
-        "pastelRed(OUTDATED)": "Pastel red",
-        "pastelOrange(OUTDATED)": "Pastel orange",
-        "pastelYellow(OUTDATED)": "Pastel yellow",
-        "pastelGreen(OUTDATED)": "Pastel green",
-        "pastelCyan(OUTDATED)": "Pastel cyan",
-        "pastelBlue(OUTDATED)": "Pastel blue",
-        "pastelPurple(OUTDATED)": "Pastel purple",
-        "pastelPink(OUTDATED)": "Pastel pink"
+        "colorPicker": "Renk seçici",
+        "black": "Siyah",
+        "darkGrey": "Koyu gri",
+        "grey": "Gri",
+        "lightGrey": "Açık gri",
+        "white": "Beyaz",
+        "red": "Kırmızı",
+        "green": "Yeşil",
+        "blue": "Mavi",
+        "yellow": "Sarı",
+        "purple": "Mor",
+        "orange": "Turuncu",
+        "pastelRed": "Pastel kırmızı",
+        "pastelOrange": "Pastel turuncu",
+        "pastelYellow": "Pastel sarı",
+        "pastelGreen": "Pastel yeşil",
+        "pastelCyan": "Pastel camgöbeği",
+        "pastelBlue": "Pastel mavi",
+        "pastelPurple": "Pastel mor",
+        "pastelPink": "Pastel pembe"
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages",
-        "insertPage(OUTDATED)": "Insert page below",
-        "duplicatePage(OUTDATED)": "Duplicate page",
-        "deletePage(OUTDATED)": "Delete page"
+        "insertPage": "Aşağıya sayfa ekle",
+        "duplicatePage": "Sayfayı çoğalt",
+        "deletePage": "Sayfayı sil"
       },
       "hud": {
-        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan": "Yatay ve dikey hareket kilidini aç",
+        "lockAxisAlignedPan": "Yatay ve dikey hareketi kilitle"
       },
-      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting": "Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz."
     }
   },
   "zh-Hans-CN": {
