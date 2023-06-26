@@ -415,41 +415,40 @@
   "tr": {
     "home": {
       "newFolder": {
-        "newFolder(OUTDATED)": "New folder",
-        "folderName(OUTDATED)": "Folder name",
-        "create(OUTDATED)": "Create",
-        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
-        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
-        "folderNameExists(OUTDATED)": "Folder already exists"
+        "newFolder": "Yeni klasör",
+        "folderName": "Klasör adı",
+        "create": "Oluştur",
+        "folderNameEmpty": "Klasör adı boş bırakılamaz",
+        "folderNameContainsSlash": "Klasör adı eğik çizgi işareti içeremez",
+        "folderNameExists": "Bu isimde bir klasör zaten var"
       },
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote": "Notu yeniden adlandır",
+        "noteName": "Not adı",
+        "rename": "Yeniden adlandır",
+        "noteNameEmpty": "Not adı boş bırakılamaz",
+        "noteNameContainsSlash": "Not adı eğik çizgi işareti içeremez",
+        "noteNameExists": "Bu isimde bir not zaten var"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
+        "moveNote": "Notu taşı",
+        "move": "Taşı",
+        "renamedTo": "Not $newName olarak yeniden adlandırılacak"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize(OUTDATED)": "Layout type"
+        "layoutSize": "Yerleşim tipi"
       },
       "layoutSizes": {
-        "auto(OUTDATED)": "Auto",
-        "phone(OUTDATED)": "Phone",
-        "tablet(OUTDATED)": "Tablet"
+        "auto": "Otomatik",
+        "phone": "Telefon",
+        "tablet": "Tablet"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure": "Girilen sunucu Nextcloud $v sürümünü kullanıyor ancak Saber'ın bu sürümü sadece Nextcloud $s sürümünü destekliyor."
       }
     },
     "profile": {
