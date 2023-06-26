@@ -38,50 +38,7 @@
       }
     }
   },
-  "es": {
-    "home": {
-      "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
-      },
-      "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
-      },
-      "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
-      }
-    },
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Layout type"
-      },
-      "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "Laser pointer"
-      },
-      "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
-      }
-    }
-  },
+  "es": {},
   "fa": {
     "home": {
       "newFolder": {
