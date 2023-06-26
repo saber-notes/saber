@@ -38,50 +38,7 @@
       }
     }
   },
-  "es": {
-    "home": {
-      "newFolder": {
-        "newFolder": "Nueva carpeta",
-        "folderName": "Nombre de la carpeta",
-        "create": "Crear",
-        "folderNameEmpty": "El nombre de la carpeta no puede estar vacío",
-        "folderNameContainsSlash": "El nombre de la carpeta no puede contener una barra vertical",
-        "folderNameExists": "Ya existe una carpeta con este nombre"
-      },
-      "renameNote": {
-        "renameNote": "Renombrar nota",
-        "noteName": "Nombre de la nota",
-        "rename": "Renombrar",
-        "noteNameEmpty": "El nombre de la nota no puede estar vacío",
-        "noteNameContainsSlash": "El nombre de la nota no puede contener una barra vertical",
-        "noteNameExists": "Ya existe una nota con este nombre"
-      },
-      "moveNote": {
-        "moveNote": "Mover nota",
-        "move": "Mover",
-        "renamedTo": "Se renombrará la nota a $newName"
-      }
-    },
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Tipo de disposición"
-      },
-      "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Teléfono",
-        "tablet": "Tablet"
-      }
-    },
-    "editor": {
-      "pens": {
-        "laserPointer": "Puntero láser"
-      },
-      "hud": {
-        "unlockAxisAlignedPan": "Desbloquear el desplazamiento a horizontal o vertical",
-        "lockAxisAlignedPan": "Bloquear el desplazamiento a horizontal o vertical"
-      }
-    }
-  },
+  "es": {},
   "fa": {
     "home": {
       "newFolder": {

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2600 (185 per locale)
+/// Strings: 2622 (187 per locale)
 ///
-/// Built on 2023-06-25 at 22:03 UTC
+/// Built on 2023-06-26 at 15:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2896,6 +2896,9 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override String get welcome => 'Te damos la bienvenida a Saber';
 	@override String get noFiles => 'No se ha encontrado ninguna nota';
 	@override String get createNewNote => 'Presiona el botón + para crear una nueva nota';
+	@override late final _StringsHomeNewFolderEs newFolder = _StringsHomeNewFolderEs._(_root);
+	@override late final _StringsHomeRenameNoteEs renameNote = _StringsHomeRenameNoteEs._(_root);
+	@override late final _StringsHomeMoveNoteEs moveNote = _StringsHomeMoveNoteEs._(_root);
 }
 
 // Path: settings
@@ -2909,6 +2912,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsPrefLabelsEs prefLabels = _StringsSettingsPrefLabelsEs._(_root);
 	@override late final _StringsSettingsPrefDescriptionsEs prefDescriptions = _StringsSettingsPrefDescriptionsEs._(_root);
 	@override late final _StringsSettingsThemeModesEs themeModes = _StringsSettingsThemeModesEs._(_root);
+	@override late final _StringsSettingsLayoutSizesEs layoutSizes = _StringsSettingsLayoutSizesEs._(_root);
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
 	@override late final _StringsSettingsStraightenDelayEs straightenDelay = _StringsSettingsStraightenDelayEs._(_root);
 	@override String get systemLanguage => 'Idioma del sistema';
@@ -3048,6 +3052,48 @@ class _StringsHomeTooltipsEs extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Mostrar cuadro de diálogo de actualizaciónes';
 }
 
+// Path: home.newFolder
+class _StringsHomeNewFolderEs extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'Nueva carpeta';
+	@override String get folderName => 'Nombre de la carpeta';
+	@override String get create => 'Crear';
+	@override String get folderNameEmpty => 'El nombre de la carpeta no puede estar vacío';
+	@override String get folderNameContainsSlash => 'El nombre de la carpeta no puede contener una barra vertical';
+	@override String get folderNameExists => 'Ya existe una carpeta con este nombre';
+}
+
+// Path: home.renameNote
+class _StringsHomeRenameNoteEs extends _StringsHomeRenameNoteEn {
+	_StringsHomeRenameNoteEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameNote => 'Renombrar nota';
+	@override String get noteName => 'Nombre de la nota';
+	@override String get rename => 'Renombrar';
+	@override String get noteNameEmpty => 'El nombre de la nota no puede estar vacío';
+	@override String get noteNameContainsSlash => 'El nombre de la nota no puede contener una barra vertical';
+	@override String get noteNameExists => 'Ya existe una nota con este nombre';
+}
+
+// Path: home.moveNote
+class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
+	_StringsHomeMoveNoteEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get moveNote => 'Mover nota';
+	@override String get move => 'Mover';
+	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
+}
+
 // Path: settings.prefCategories
 class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn {
 	_StringsSettingsPrefCategoriesEs._(_StringsEs root) : this._root = root, super._(root);
@@ -3070,6 +3116,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Idioma de la aplicación';
 	@override String get appTheme => 'Tema de la aplicación';
 	@override String get platform => 'Tipo de tema';
+	@override String get layoutSize => 'Tipo de disposición';
 	@override String get customAccentColor => 'Color de acento personalizado';
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
@@ -3116,6 +3163,18 @@ class _StringsSettingsThemeModesEs extends _StringsSettingsThemeModesEn {
 	@override String get system => 'Sistema';
 	@override String get light => 'Claro';
 	@override String get dark => 'Oscuro';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesEs extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'Auto';
+	@override String get phone => 'Teléfono';
+	@override String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker
@@ -3341,6 +3400,7 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Lápiz';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
+	@override String get laserPointer => 'Puntero láser';
 }
 
 // Path: editor.penOptions
@@ -3454,6 +3514,8 @@ class _StringsEditorHudEs extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Bloquear zoom';
 	@override String get unlockSingleFingerPan => 'Habilitar la panorámica con un solo dedo';
 	@override String get lockSingleFingerPan => 'Deshabilitar la panorámica con un solo dedo';
+	@override String get unlockAxisAlignedPan => 'Desbloquear el desplazamiento a horizontal o vertical';
+	@override String get lockAxisAlignedPan => 'Bloquear el desplazamiento a horizontal o vertical';
 }
 
 // Path: editor.menu.boxFits
