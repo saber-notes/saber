@@ -413,10 +413,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "8af9c0dfd6db290d4f2da6abc5aff838fde41061fb2fa892ebee5902faeb7cb1"
+      sha256: a766a5cc6781bcf064a3b22f740a5159176d5640d1c0243c4be295e9db855c35
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.7"
+    version: "7.2.10"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -516,10 +516,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: da08429b5c1026cc78bd60c60bfff34f0b273b29feddeab00d3f5b56fb6f35ed
+      sha256: "2cb236ba3f923043fdbe14a6a3a796b8c250e85658e28caee3e86c0c275847e5"
       url: "https://pub.dev"
     source: hosted
-    version: "8.0.5"
+    version: "8.2.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -564,10 +564,10 @@ packages:
     dependency: "direct dev"
     description:
       name: icons_launcher
-      sha256: "8f81b295f5de3796e9662ac385c174ee5255f7c4cee1df031393c17c616cff57"
+      sha256: "71cf6baae0f0d1752e3c26035f9e6ea07bd297af72d389e907fb0119e9d56ba1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   image:
     dependency: transitive
     description:
@@ -1081,18 +1081,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: aaa8decf0d3e4572903964b04f7a4f23972f8696be6e4d3269b39e68fde3e880
+      sha256: "187e35d220765ff22be030b30506d1b8e0e94842a2c1801a6a2941c95db5a9eb"
       url: "https://pub.dev"
     source: hosted
-    version: "3.18.1"
+    version: "3.19.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: "9587ad7deba6ddd8908e38485131a5136fbad958be8aa9852c67f8a1cb9687fe"
+      sha256: c6c58162ef66fe88be0313d8062a39e98ae9b539dde7b35f59fa206eb4db2030
       url: "https://pub.dev"
     source: hosted
-    version: "3.18.0"
+    version: "3.19.0"
   source_span:
     dependency: transitive
     description:
@@ -1218,10 +1218,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: eed4e6a1164aa9794409325c3b707ff424d4d1c2a785e7db67f8bbda00e36e51
+      sha256: "15f5acbf0dce90146a0f5a2c4a002b1814a6303c4c5c075aa2623b2d16156f03"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.35"
+    version: "6.0.36"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1354,10 +1354,10 @@ packages:
     dependency: transitive
     description:
       name: win32
-      sha256: "7dacfda1edcca378031db9905ad7d7bd56b29fd1a90b0908b71a52a12c41e36b"
+      sha256: "1414f27dd781737e51afa9711f2ac2ace6ab4498ee98e20863fa5505aa00c58c"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.3"
+    version: "5.0.4"
   win32_registry:
     dependency: transitive
     description:
