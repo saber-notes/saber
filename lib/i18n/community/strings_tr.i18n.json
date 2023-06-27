@@ -118,7 +118,7 @@
       "enterEncPassword": "Lütfen şifreleme parolanızı girin.",
       "checkUrl": "Lütfen geçerli bir URL girin.",
       "ncLoginFailed": "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.",
-      "ncUnsupportedFailure(OUTDATED)": "Belirtilen sunucu, Nextcloud $v'yi çalıştırıyor ancak Sabre'nin bu sürümü yalnızca Nextcloud $s'yi destekliyor.",
+      "ncUnsupportedFailure(OUTDATED)": "Belirtilen sunucu, Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s'yi destekliyor.",
       "encLoginFailed": "Giriş başarısız, şifreleme parolanızı kontrol ediniz.",
       "loginSuccess": "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
     },
@@ -175,15 +175,15 @@
       },
       {
         "q": "Nextcloud şifremi nasıl değiştiririm?",
-        "a": "Sunucunuzun web sitesine gidin ve oturum açın. Ardından Ayarlar > Güvenlik > Parolayı değiştir seçeneğine gidin. Şifrenizi değiştirdikten sonra oturumu kapatıp Sabre'de tekrar oturum açmanız gerekecek."
+        "a": "Sunucunuzun web sitesine gidin ve oturum açın. Ardından Ayarlar > Güvenlik > Parolayı değiştir seçeneğine gidin. Şifrenizi değiştirdikten sonra oturumu kapatıp Saber'de tekrar oturum açmanız gerekecek."
       },
       {
         "q": "Şifre şifremi nasıl değiştiririm?",
-        "a": "1. Sabre'den çıkış yapın. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce senkronizasyonun tamamlandığından emin olun (ana ekranda senkronizasyon ilerlemesine bakın).\n\n2. Sunucu web sitenize gidin ve 'Saber' klasörünüzü silin. Bu, tüm notlarınızı sunucudan siler.\n\n3. Sabre'de tekrar oturum açın. Giriş yaparken yeni bir şifreleme şifresi seçebilirsiniz.\n\n4. Diğer cihazlarınızda da Sabre'den çıkış yapıp tekrar giriş yapmayı unutmayın."
+        "a": "1. Saber'den çıkış yapın. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce senkronizasyonun tamamlandığından emin olun (ana ekranda senkronizasyon ilerlemesine bakın).\n\n2. Sunucu web sitenize gidin ve 'Saber' klasörünüzü silin. Bu, tüm notlarınızı sunucudan siler.\n\n3. Saber'de tekrar oturum açın. Giriş yaparken yeni bir şifreleme şifresi seçebilirsiniz.\n\n4. Diğer cihazlarınızda da Saber'den çıkış yapıp tekrar giriş yapmayı unutmayın."
       },
       {
         "q": "Hesabımı nasıl silebilirim?",
-        "a": "Yukarıdaki \"@:profile.quickLinks.deleteAccount\" düğmesine dokunun ve gerekirse oturum açın.\n\nResmi Sabre sunucusunu kullanıyorsanız, hesabınız 1 haftalık ek süre sonunda silinecektir. Silme işlemini iptal etmek için bu süre zarfında adilhanney@disroot.org adresinden bana ulaşabilirsiniz.\n\nÜçüncü taraf bir sunucu kullanıyorsanız, hesabınızı silme seçeneği olmayabilir: daha fazla bilgi için sunucunun gizlilik politikasına başvurmanız gerekir."
+        "a": "Yukarıdaki \"@:profile.quickLinks.deleteAccount\" düğmesine dokunun ve gerekirse oturum açın.\n\nResmi Saber sunucusunu kullanıyorsanız, hesabınız 1 haftalık ek süre sonunda silinecektir. Silme işlemini iptal etmek için bu süre zarfında adilhanney@disroot.org adresinden bana ulaşabilirsiniz.\n\nÜçüncü taraf bir sunucu kullanıyorsanız, hesabınızı silme seçeneği olmayabilir: daha fazla bilgi için sunucunun gizlilik politikasına başvurmanız gerekir."
       }
     ]
   },

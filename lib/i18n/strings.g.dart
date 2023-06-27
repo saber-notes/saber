@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2912 (208 per locale)
 ///
-/// Built on 2023-06-27 at 20:47 UTC
+/// Built on 2023-06-27 at 21:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4670,7 +4670,7 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Sabre ne prend en charge que Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
 }
@@ -5365,7 +5365,7 @@ class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
 	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
 	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Sabre ezen verziója csak a Nextcloud ${s}-t támogatja.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s}-t támogatja.';
 	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
 	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
 }
@@ -5410,7 +5410,7 @@ class _StringsLogin$faq$0i0$Hu extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'Mi az a Nextcloud?';
-	@override String get a => 'A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Sabre Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez.';
+	@override String get a => 'A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez.';
 }
 
 // Path: login.faq.1
@@ -5499,7 +5499,7 @@ class _StringsProfile$faq$0i2$Hu extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Hogyan változtathatom meg a titkosítási jelszavamat?';
-	@override String get a => '1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Sabre szolgáltatásba a többi eszközén sem.';
+	@override String get a => '1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Saber szolgáltatásba a többi eszközén sem.';
 }
 
 // Path: profile.faq.3
@@ -5510,7 +5510,7 @@ class _StringsProfile$faq$0i3$Hu extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Hogyan törölhetem a fiókomat?';
-	@override String get a => 'Koppintson a fenti "${_root.profile.quickLinks.deleteAccount}" gombra, és ha szükséges, jelentkezzen be.\n\nHa a hivatalos Sabre szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\n\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.';
+	@override String get a => 'Koppintson a fenti "${_root.profile.quickLinks.deleteAccount}" gombra, és ha szükséges, jelentkezzen be.\n\nHa a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\n\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.';
 }
 
 // Path: editor.toolbar
@@ -8145,7 +8145,7 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Belirtilen sunucu, Nextcloud ${v}\'yi çalıştırıyor ancak Sabre\'nin bu sürümü yalnızca Nextcloud ${s}\'yi destekliyor.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Belirtilen sunucu, Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s}\'yi destekliyor.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
 }
@@ -8268,7 +8268,7 @@ class _StringsProfile$faq$0i1$Tr extends _StringsProfile$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Nextcloud şifremi nasıl değiştiririm?';
-	@override String get a => 'Sunucunuzun web sitesine gidin ve oturum açın. Ardından Ayarlar > Güvenlik > Parolayı değiştir seçeneğine gidin. Şifrenizi değiştirdikten sonra oturumu kapatıp Sabre\'de tekrar oturum açmanız gerekecek.';
+	@override String get a => 'Sunucunuzun web sitesine gidin ve oturum açın. Ardından Ayarlar > Güvenlik > Parolayı değiştir seçeneğine gidin. Şifrenizi değiştirdikten sonra oturumu kapatıp Saber\'de tekrar oturum açmanız gerekecek.';
 }
 
 // Path: profile.faq.2
@@ -8279,7 +8279,7 @@ class _StringsProfile$faq$0i2$Tr extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Şifre şifremi nasıl değiştiririm?';
-	@override String get a => '1. Sabre\'den çıkış yapın. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce senkronizasyonun tamamlandığından emin olun (ana ekranda senkronizasyon ilerlemesine bakın).\n\n2. Sunucu web sitenize gidin ve \'Saber\' klasörünüzü silin. Bu, tüm notlarınızı sunucudan siler.\n\n3. Sabre\'de tekrar oturum açın. Giriş yaparken yeni bir şifreleme şifresi seçebilirsiniz.\n\n4. Diğer cihazlarınızda da Sabre\'den çıkış yapıp tekrar giriş yapmayı unutmayın.';
+	@override String get a => '1. Saber\'den çıkış yapın. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce senkronizasyonun tamamlandığından emin olun (ana ekranda senkronizasyon ilerlemesine bakın).\n\n2. Sunucu web sitenize gidin ve \'Saber\' klasörünüzü silin. Bu, tüm notlarınızı sunucudan siler.\n\n3. Saber\'de tekrar oturum açın. Giriş yaparken yeni bir şifreleme şifresi seçebilirsiniz.\n\n4. Diğer cihazlarınızda da Saber\'den çıkış yapıp tekrar giriş yapmayı unutmayın.';
 }
 
 // Path: profile.faq.3
@@ -8290,7 +8290,7 @@ class _StringsProfile$faq$0i3$Tr extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Hesabımı nasıl silebilirim?';
-	@override String get a => 'Yukarıdaki "${_root.profile.quickLinks.deleteAccount}" düğmesine dokunun ve gerekirse oturum açın.\n\nResmi Sabre sunucusunu kullanıyorsanız, hesabınız 1 haftalık ek süre sonunda silinecektir. Silme işlemini iptal etmek için bu süre zarfında adilhanney@disroot.org adresinden bana ulaşabilirsiniz.\n\nÜçüncü taraf bir sunucu kullanıyorsanız, hesabınızı silme seçeneği olmayabilir: daha fazla bilgi için sunucunun gizlilik politikasına başvurmanız gerekir.';
+	@override String get a => 'Yukarıdaki "${_root.profile.quickLinks.deleteAccount}" düğmesine dokunun ve gerekirse oturum açın.\n\nResmi Saber sunucusunu kullanıyorsanız, hesabınız 1 haftalık ek süre sonunda silinecektir. Silme işlemini iptal etmek için bu süre zarfında adilhanney@disroot.org adresinden bana ulaşabilirsiniz.\n\nÜçüncü taraf bir sunucu kullanıyorsanız, hesabınızı silme seçeneği olmayabilir: daha fazla bilgi için sunucunun gizlilik politikasına başvurmanız gerekir.';
 }
 
 // Path: editor.toolbar

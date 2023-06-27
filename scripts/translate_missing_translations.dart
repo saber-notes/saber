@@ -101,12 +101,16 @@ Future<String> translateString(SimplyTranslator translator, String languageCode,
     errorOccurredInTranslatingTree = true;
     return english;
   }
+
   final translatedText = translation.translations.text;
   if (translatedText.contains('Invalid request') || translatedText.contains('None is not supported')) {
     print('    Translation failed: $translatedText');
     errorOccurredInTranslatingTree = true;
     return english;
   }
+
+  translatedText.replaceAll('Sabre', 'Saber');
+
   return translatedText;
 }
 

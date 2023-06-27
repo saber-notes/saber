@@ -118,7 +118,7 @@
       "enterEncPassword": "Kérem, adja meg a titkosítási jelszavát",
       "checkUrl": "Kérem adjon meg egy érvényes URL-címet",
       "ncLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát",
-      "ncUnsupportedFailure(OUTDATED)": "Az adott szerveren a Nextcloud $v fut, de a Sabre ezen verziója csak a Nextcloud $s-t támogatja.",
+      "ncUnsupportedFailure(OUTDATED)": "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s-t támogatja.",
       "encLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát",
       "loginSuccess": "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
     },
@@ -140,7 +140,7 @@
     "faq(OUTDATED)": [
       {
         "q": "Mi az a Nextcloud?",
-        "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Sabre Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez."
+        "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez."
       },
       {
         "q": "Mi a titkosítási jelszó?",
@@ -179,11 +179,11 @@
       },
       {
         "q": "Hogyan változtathatom meg a titkosítási jelszavamat?",
-        "a": "1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Sabre szolgáltatásba a többi eszközén sem."
+        "a": "1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Saber szolgáltatásba a többi eszközén sem."
       },
       {
         "q": "Hogyan törölhetem a fiókomat?",
-        "a": "Koppintson a fenti \"@:profile.quickLinks.deleteAccount\" gombra, és ha szükséges, jelentkezzen be.\n\nHa a hivatalos Sabre szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\n\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát."
+        "a": "Koppintson a fenti \"@:profile.quickLinks.deleteAccount\" gombra, és ha szükséges, jelentkezzen be.\n\nHa a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\n\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát."
       }
     ]
   },
