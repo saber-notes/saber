@@ -121,7 +121,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
             width: 350,
             sliver: SliverFaq(
               items: [
-                for (final item in t.profile.faq) FaqItem(item.q, item.a),
+                for (final item in t.login.faq) FaqItem(item.q, item.a),
               ],
             ),
           ),
