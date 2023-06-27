@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/misc/faq.dart';
+import 'package:saber/components/theming/sliver_width_box.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,11 +26,11 @@ class ProfilePage extends StatelessWidget {
         toolbarHeight: kToolbarHeight,
         title: Text(t.profile.title),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: SizedBox(
+      body: CustomScrollView(
+        slivers: [
+          SliverWidthBox(
             width: 350,
-            child: Column(
+            sliver: SliverList.list(
               children: [
                 const SizedBox(height: 16),
                 if (Prefs.pfp.value == null)
@@ -76,16 +77,18 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
-
-                Faq(
-                  items: [
-                    for (final item in t.profile.faq) FaqItem(item.q, item.a),
-                  ],
-                ),
               ],
             ),
           ),
-        ),
+          SliverWidthBox(
+            width: 350,
+            sliver: SliverFaq(
+              items: [
+                for (final item in t.profile.faq) FaqItem(item.q, item.a),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

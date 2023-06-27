@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
+import 'package:saber/components/theming/sliver_width_box.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -94,11 +95,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
         toolbarHeight: kToolbarHeight,
         title: Text(t.login.title),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: SizedBox(
+      body: CustomScrollView(
+        slivers: [
+          SliverWidthBox(
             width: 350,
-            child: Column(
+            sliver: SliverList.list(
               children: [
                 const SizedBox(height: 16),
                 SvgPicture.asset(
@@ -113,18 +114,18 @@ class _NcLoginPageState extends State<NcLoginPage> {
                   tryLogin: _tryLogin,
                 ),
                 const SizedBox(height: 40),
-
-                Faq(
-                  items: [
-                    for (final item in t.login.faq) FaqItem(item.q, item.a),
-                  ],
-                ),
-
-                const SizedBox(height: 16),
               ],
             ),
           ),
-        ),
+          SliverWidthBox(
+            width: 350,
+            sliver: SliverFaq(
+              items: [
+                for (final item in t.profile.faq) FaqItem(item.q, item.a),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
