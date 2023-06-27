@@ -18,7 +18,28 @@
     },
     "welcome": "Bem-vindo(a) ao Saber",
     "noFiles": "Nenhum arquivo encontrado",
-    "createNewNote": "Toque no botão + para criar uma nova nota"
+    "createNewNote": "Toque no botão + para criar uma nova nota",
+    "newFolder": {
+      "newFolder(OUTDATED)": "Nova pasta",
+      "folderName(OUTDATED)": "Nome da pasta",
+      "create(OUTDATED)": "Criar",
+      "folderNameEmpty(OUTDATED)": "O nome da pasta não pode estar vazio",
+      "folderNameContainsSlash(OUTDATED)": "O nome da pasta não pode conter uma barra",
+      "folderNameExists(OUTDATED)": "A pasta já existe"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Renomear nota",
+      "noteName(OUTDATED)": "Nome da nota",
+      "rename(OUTDATED)": "Renomear",
+      "noteNameEmpty(OUTDATED)": "O nome da nota não pode estar vazio",
+      "noteNameContainsSlash(OUTDATED)": "O nome da nota não pode conter uma barra",
+      "noteNameExists(OUTDATED)": "Já existe uma nota com este nome"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Mover nota",
+      "move(OUTDATED)": "Mover",
+      "renamedTo(OUTDATED)": "A nota será renomeada para $newName"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +51,7 @@
       "locale": "Idioma do aplicativo",
       "appTheme": "Tema do aplicativo",
       "platform": "Tipo do tema",
+      "layoutSize(OUTDATED)": "Tipo de layout",
       "customAccentColor": "Cor de destaque personalizada",
       "hyperlegibleFont": "Fonte hiperlegível",
       "shouldCheckForUpdates": "Verificar automaticamente as atualizações do Saber",
@@ -62,6 +84,11 @@
       "system": "Sistema",
       "light": "Claro",
       "dark": "Escuro"
+    },
+    "layoutSizes": {
+      "auto(OUTDATED)": "Automática",
+      "phone(OUTDATED)": "Telefone",
+      "tablet(OUTDATED)": "Tábua"
     },
     "accentColorPicker": {
       "pickAColor": "Selecionar uma cor"
@@ -190,7 +217,8 @@
     "pens": {
       "fountainPen": "Caneta tinteiro",
       "ballpointPen": "Caneta esferográfica",
-      "highlighter": "Marcador"
+      "highlighter": "Marcador",
+      "laserPointer(OUTDATED)": "Ponteiro laser"
     },
     "penOptions": {
       "size": "Tamanho",
@@ -267,7 +295,9 @@
       "unlockZoom": "Desbloquear zoom",
       "lockZoom": "Bloquear zoom",
       "unlockSingleFingerPan": "Ativar rolagem com um dedo",
-      "lockSingleFingerPan": "Desativar rolagem com um dedo"
+      "lockSingleFingerPan": "Desativar rolagem com um dedo",
+      "unlockAxisAlignedPan(OUTDATED)": "Desbloqueie a panorâmica para horizontal ou vertical",
+      "lockAxisAlignedPan(OUTDATED)": "Bloquear panorâmica para horizontal ou vertical"
     },
     "pages": "Páginas",
     "untitled": "Sem título",

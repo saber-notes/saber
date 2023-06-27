@@ -26,6 +26,19 @@
       "folderNameEmpty": "Имя папки не может быть пустым",
       "folderNameContainsSlash": "Имя папки не должно содержать косую черту",
       "folderNameExists": "Папка уже существует"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Переименовать заметку",
+      "noteName(OUTDATED)": "Название заметки",
+      "rename(OUTDATED)": "Переименовать",
+      "noteNameEmpty(OUTDATED)": "Укажите название заметки.",
+      "noteNameContainsSlash(OUTDATED)": "Название заметки не может содержать косую черту",
+      "noteNameExists(OUTDATED)": "Заметка с таким названием уже существует"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Переместить заметку",
+      "move(OUTDATED)": "Двигаться",
+      "renamedTo(OUTDATED)": "Примечание будет переименовано в $newName"
     }
   },
   "settings": {

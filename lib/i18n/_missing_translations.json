@@ -7,34 +7,34 @@
   "cs": {
     "home": {
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     }
   },
   "de": {
     "home": {
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     }
   },
@@ -42,194 +42,194 @@
   "fa": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder(OUTDATED)": "New folder",
+        "folderName(OUTDATED)": "Folder name",
+        "create(OUTDATED)": "Create",
+        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
+        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
+        "folderNameExists(OUTDATED)": "Folder already exists"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto(OUTDATED)": "Auto",
+        "phone(OUTDATED)": "Phone",
+        "tablet(OUTDATED)": "Tablet"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer(OUTDATED)": "Laser pointer"
       },
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker(OUTDATED)": "Color picker",
+        "black(OUTDATED)": "Black",
+        "darkGrey(OUTDATED)": "Dark grey",
+        "grey(OUTDATED)": "Grey",
+        "lightGrey(OUTDATED)": "Light grey",
+        "white(OUTDATED)": "White",
+        "red(OUTDATED)": "Red",
+        "green(OUTDATED)": "Green",
+        "blue(OUTDATED)": "Blue",
+        "yellow(OUTDATED)": "Yellow",
+        "purple(OUTDATED)": "Purple",
+        "orange(OUTDATED)": "Orange",
+        "pastelRed(OUTDATED)": "Pastel red",
+        "pastelOrange(OUTDATED)": "Pastel orange",
+        "pastelYellow(OUTDATED)": "Pastel yellow",
+        "pastelGreen(OUTDATED)": "Pastel green",
+        "pastelCyan(OUTDATED)": "Pastel cyan",
+        "pastelBlue(OUTDATED)": "Pastel blue",
+        "pastelPurple(OUTDATED)": "Pastel purple",
+        "pastelPink(OUTDATED)": "Pastel pink"
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "fr": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder(OUTDATED)": "New folder",
+        "folderName(OUTDATED)": "Folder name",
+        "create(OUTDATED)": "Create",
+        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
+        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
+        "folderNameExists(OUTDATED)": "Folder already exists"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto(OUTDATED)": "Auto",
+        "phone(OUTDATED)": "Phone",
+        "tablet(OUTDATED)": "Tablet"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer(OUTDATED)": "Laser pointer"
       },
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker(OUTDATED)": "Color picker",
+        "black(OUTDATED)": "Black",
+        "darkGrey(OUTDATED)": "Dark grey",
+        "grey(OUTDATED)": "Grey",
+        "lightGrey(OUTDATED)": "Light grey",
+        "white(OUTDATED)": "White",
+        "red(OUTDATED)": "Red",
+        "green(OUTDATED)": "Green",
+        "blue(OUTDATED)": "Blue",
+        "yellow(OUTDATED)": "Yellow",
+        "purple(OUTDATED)": "Purple",
+        "orange(OUTDATED)": "Orange",
+        "pastelRed(OUTDATED)": "Pastel red",
+        "pastelOrange(OUTDATED)": "Pastel orange",
+        "pastelYellow(OUTDATED)": "Pastel yellow",
+        "pastelGreen(OUTDATED)": "Pastel green",
+        "pastelCyan(OUTDATED)": "Pastel cyan",
+        "pastelBlue(OUTDATED)": "Pastel blue",
+        "pastelPurple(OUTDATED)": "Pastel purple",
+        "pastelPink(OUTDATED)": "Pastel pink"
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "hu": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder(OUTDATED)": "New folder",
+        "folderName(OUTDATED)": "Folder name",
+        "create(OUTDATED)": "Create",
+        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
+        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
+        "folderNameExists(OUTDATED)": "Folder already exists"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type",
-        "printPageIndicators": "Print page indicators"
+        "layoutSize(OUTDATED)": "Layout type",
+        "printPageIndicators(OUTDATED)": "Print page indicators"
       },
       "prefDescriptions": {
-        "printPageIndicators": "Show page indicators in exports"
+        "printPageIndicators(OUTDATED)": "Show page indicators in exports"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto(OUTDATED)": "Auto",
+        "phone(OUTDATED)": "Phone",
+        "tablet(OUTDATED)": "Tablet"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
       },
       "faq(OUTDATED)": [
         {
@@ -255,14 +255,14 @@
       ]
     },
     "profile": {
-      "title": "My profile",
-      "logout": "Log out",
+      "title(OUTDATED)": "My profile",
+      "logout(OUTDATED)": "Log out",
       "quickLinks": {
-        "title": "Quick links",
-        "serverHomepage": "Server homepage",
-        "deleteAccount": "Delete account"
+        "title(OUTDATED)": "Quick links",
+        "serverHomepage(OUTDATED)": "Server homepage",
+        "deleteAccount(OUTDATED)": "Delete account"
       },
-      "faq": [
+      "faq(OUTDATED)": [
         {
           "q": "Will I lose my notes if I log out?",
           "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
@@ -286,174 +286,173 @@
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer(OUTDATED)": "Laser pointer"
       },
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker(OUTDATED)": "Color picker",
+        "black(OUTDATED)": "Black",
+        "darkGrey(OUTDATED)": "Dark grey",
+        "grey(OUTDATED)": "Grey",
+        "lightGrey(OUTDATED)": "Light grey",
+        "white(OUTDATED)": "White",
+        "red(OUTDATED)": "Red",
+        "green(OUTDATED)": "Green",
+        "blue(OUTDATED)": "Blue",
+        "yellow(OUTDATED)": "Yellow",
+        "purple(OUTDATED)": "Purple",
+        "orange(OUTDATED)": "Orange",
+        "pastelRed(OUTDATED)": "Pastel red",
+        "pastelOrange(OUTDATED)": "Pastel orange",
+        "pastelYellow(OUTDATED)": "Pastel yellow",
+        "pastelGreen(OUTDATED)": "Pastel green",
+        "pastelCyan(OUTDATED)": "Pastel cyan",
+        "pastelBlue(OUTDATED)": "Pastel blue",
+        "pastelPurple(OUTDATED)": "Pastel purple",
+        "pastelPink(OUTDATED)": "Pastel pink"
       },
       "imageOptions": {
-        "removeAsBackground": "Remove as background"
+        "removeAsBackground(OUTDATED)": "Remove as background"
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages",
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page",
-        "lineHeightDescription": "Also controls the text size",
+        "insertPage(OUTDATED)": "Insert page below",
+        "duplicatePage(OUTDATED)": "Duplicate page",
+        "deletePage(OUTDATED)": "Delete page",
+        "lineHeightDescription(OUTDATED)": "Also controls the text size",
         "bgPatterns": {
-          "collegeRtl": "College-ruled (Reverse)",
-          "staffs": "Staffs",
-          "cornell": "Cornell"
+          "collegeRtl(OUTDATED)": "College-ruled (Reverse)",
+          "staffs(OUTDATED)": "Staffs",
+          "cornell(OUTDATED)": "Cornell"
         }
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "it": {
     "home": {
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move"
       }
     }
   },
   "pt-BR": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder(OUTDATED)": "New folder",
+        "folderName(OUTDATED)": "Folder name",
+        "create(OUTDATED)": "Create",
+        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
+        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
+        "folderNameExists(OUTDATED)": "Folder already exists"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto(OUTDATED)": "Auto",
+        "phone(OUTDATED)": "Phone",
+        "tablet(OUTDATED)": "Tablet"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer(OUTDATED)": "Laser pointer"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
       }
     }
   },
   "ru": {
     "home": {
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     }
   },
   "tr": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder(OUTDATED)": "New folder",
+        "folderName(OUTDATED)": "Folder name",
+        "create(OUTDATED)": "Create",
+        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
+        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
+        "folderNameExists(OUTDATED)": "Folder already exists"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto(OUTDATED)": "Auto",
+        "phone(OUTDATED)": "Phone",
+        "tablet(OUTDATED)": "Tablet"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
       }
     },
     "profile": {
       "quickLinks": {
-        "title": "Quick links",
-        "serverHomepage": "Server homepage",
-        "deleteAccount": "Delete account"
+        "title(OUTDATED)": "Quick links",
+        "serverHomepage(OUTDATED)": "Server homepage",
+        "deleteAccount(OUTDATED)": "Delete account"
       },
       "faq(OUTDATED)": [
         {
@@ -476,86 +475,86 @@
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer(OUTDATED)": "Laser pointer"
       },
       "colors": {
-        "colorPicker": "Color picker",
-        "black": "Black",
-        "darkGrey": "Dark grey",
-        "grey": "Grey",
-        "lightGrey": "Light grey",
-        "white": "White",
-        "red": "Red",
-        "green": "Green",
-        "blue": "Blue",
-        "yellow": "Yellow",
-        "purple": "Purple",
-        "orange": "Orange",
-        "pastelRed": "Pastel red",
-        "pastelOrange": "Pastel orange",
-        "pastelYellow": "Pastel yellow",
-        "pastelGreen": "Pastel green",
-        "pastelCyan": "Pastel cyan",
-        "pastelBlue": "Pastel blue",
-        "pastelPurple": "Pastel purple",
-        "pastelPink": "Pastel pink"
+        "colorPicker(OUTDATED)": "Color picker",
+        "black(OUTDATED)": "Black",
+        "darkGrey(OUTDATED)": "Dark grey",
+        "grey(OUTDATED)": "Grey",
+        "lightGrey(OUTDATED)": "Light grey",
+        "white(OUTDATED)": "White",
+        "red(OUTDATED)": "Red",
+        "green(OUTDATED)": "Green",
+        "blue(OUTDATED)": "Blue",
+        "yellow(OUTDATED)": "Yellow",
+        "purple(OUTDATED)": "Purple",
+        "orange(OUTDATED)": "Orange",
+        "pastelRed(OUTDATED)": "Pastel red",
+        "pastelOrange(OUTDATED)": "Pastel orange",
+        "pastelYellow(OUTDATED)": "Pastel yellow",
+        "pastelGreen(OUTDATED)": "Pastel green",
+        "pastelCyan(OUTDATED)": "Pastel cyan",
+        "pastelBlue(OUTDATED)": "Pastel blue",
+        "pastelPurple(OUTDATED)": "Pastel purple",
+        "pastelPink(OUTDATED)": "Pastel pink"
       },
       "menu": {
         "clearPage(OUTDATED)": "Clear page $page/$totalPages",
-        "insertPage": "Insert page below",
-        "duplicatePage": "Duplicate page",
-        "deletePage": "Delete page"
+        "insertPage(OUTDATED)": "Insert page below",
+        "duplicatePage(OUTDATED)": "Duplicate page",
+        "deletePage(OUTDATED)": "Delete page"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "zh-Hans-CN": {
     "home": {
       "newFolder": {
-        "newFolder": "New folder",
-        "folderName": "Folder name",
-        "create": "Create",
-        "folderNameEmpty": "Folder name can't be empty",
-        "folderNameContainsSlash": "Folder name can't contain a slash",
-        "folderNameExists": "Folder already exists"
+        "newFolder(OUTDATED)": "New folder",
+        "folderName(OUTDATED)": "Folder name",
+        "create(OUTDATED)": "Create",
+        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
+        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
+        "folderNameExists(OUTDATED)": "Folder already exists"
       },
       "renameNote": {
-        "renameNote": "Rename note",
-        "noteName": "Note name",
-        "rename": "Rename",
-        "noteNameEmpty": "Note name can't be empty",
-        "noteNameContainsSlash": "Note name can't contain a slash",
-        "noteNameExists": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rename note",
+        "noteName(OUTDATED)": "Note name",
+        "rename(OUTDATED)": "Rename",
+        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
+        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
+        "noteNameExists(OUTDATED)": "A note with this name already exists"
       },
       "moveNote": {
-        "moveNote": "Move note",
-        "move": "Move",
-        "renamedTo": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Move note",
+        "move(OUTDATED)": "Move",
+        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type"
       },
       "layoutSizes": {
-        "auto": "Auto",
-        "phone": "Phone",
-        "tablet": "Tablet"
+        "auto(OUTDATED)": "Auto",
+        "phone(OUTDATED)": "Phone",
+        "tablet(OUTDATED)": "Tablet"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer": "Laser pointer"
+        "laserPointer(OUTDATED)": "Laser pointer"
       },
       "hud": {
-        "unlockAxisAlignedPan": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
       },
-      "needsToSaveBeforeExiting": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
   "zh-Hant-TW": {}

@@ -18,7 +18,28 @@
     },
     "welcome": "欢迎使用 Saber",
     "noFiles": "未找到文件",
-    "createNewNote": "点击 + 按钮新建一个笔记"
+    "createNewNote": "点击 + 按钮新建一个笔记",
+    "newFolder": {
+      "newFolder(OUTDATED)": "新建文件夹",
+      "folderName(OUTDATED)": "文件夹名称",
+      "create(OUTDATED)": "创造",
+      "folderNameEmpty(OUTDATED)": "文件夹名称不能为空",
+      "folderNameContainsSlash(OUTDATED)": "文件夹名称不能包含斜杠",
+      "folderNameExists(OUTDATED)": "文件夹已存在"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "重命名注释",
+      "noteName(OUTDATED)": "注释名称",
+      "rename(OUTDATED)": "改名",
+      "noteNameEmpty(OUTDATED)": "备注名称不能为空",
+      "noteNameContainsSlash(OUTDATED)": "注意名称不能包含斜杠",
+      "noteNameExists(OUTDATED)": "同名的注释已存在"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "移动笔记",
+      "move(OUTDATED)": "移动",
+      "renamedTo(OUTDATED)": "Note 将被重命名为 $newName"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +51,7 @@
       "locale": "应用语言",
       "appTheme": "应用主题",
       "platform": "主题类型",
+      "layoutSize(OUTDATED)": "布局类型",
       "customAccentColor": "自定义主题色",
       "hyperlegibleFont": "易读字体",
       "shouldCheckForUpdates": "自动检查 Saber 更新",
@@ -62,6 +84,11 @@
       "system": "系统",
       "light": "浅色",
       "dark": "深色"
+    },
+    "layoutSizes": {
+      "auto(OUTDATED)": "汽车",
+      "phone(OUTDATED)": "电话",
+      "tablet(OUTDATED)": "药片"
     },
     "accentColorPicker": {
       "pickAColor": "选取颜色"
@@ -190,7 +217,8 @@
     "pens": {
       "fountainPen": "钢笔",
       "ballpointPen": "圆珠笔",
-      "highlighter": "荧光笔"
+      "highlighter": "荧光笔",
+      "laserPointer(OUTDATED)": "激光笔"
     },
     "penOptions": {
       "size": "粗细",
@@ -267,9 +295,12 @@
       "unlockZoom": "解锁缩放",
       "lockZoom": "锁定缩放",
       "unlockSingleFingerPan": "启用单指平移",
-      "lockSingleFingerPan": "禁用单指平移"
+      "lockSingleFingerPan": "禁用单指平移",
+      "unlockAxisAlignedPan(OUTDATED)": "解锁水平或垂直平移",
+      "lockAxisAlignedPan(OUTDATED)": "将平移锁定为水平或垂直"
     },
     "pages": "页面",
-    "untitled": "未命名"
+    "untitled": "未命名",
+    "needsToSaveBeforeExiting(OUTDATED)": "保存更改...完成后您可以安全退出编辑器"
   }
 }

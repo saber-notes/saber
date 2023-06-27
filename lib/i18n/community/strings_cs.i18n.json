@@ -26,6 +26,19 @@
       "folderNameEmpty": "Název složky nemůže být prázdný",
       "folderNameContainsSlash": "Název složky nemůže obsahovat lomítko",
       "folderNameExists": "Složka s tímto názvem již existuje"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Přejmenovat poznámku",
+      "noteName(OUTDATED)": "Název poznámky",
+      "rename(OUTDATED)": "Přejmenovat",
+      "noteNameEmpty(OUTDATED)": "Název poznámky nesmí být prázdný",
+      "noteNameContainsSlash(OUTDATED)": "Název poznámky nesmí obsahovat lomítko",
+      "noteNameExists(OUTDATED)": "Poznámka s tímto názvem již existuje"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Přesunout poznámku",
+      "move(OUTDATED)": "Hýbat se",
+      "renamedTo(OUTDATED)": "Poznámka bude přejmenován na $newName"
     }
   },
   "settings": {

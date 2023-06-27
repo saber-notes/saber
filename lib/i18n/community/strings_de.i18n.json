@@ -26,6 +26,19 @@
       "folderNameEmpty": "Ordnername darf nicht leer sein",
       "folderNameContainsSlash": "Ordnernamen dürfen keine Schrägstriche enthalten",
       "folderNameExists": "Ordner existiert bereits"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Notiz umbenennen",
+      "noteName(OUTDATED)": "Notizname",
+      "rename(OUTDATED)": "Umbenennen",
+      "noteNameEmpty(OUTDATED)": "Der Notizname darf nicht leer sein",
+      "noteNameContainsSlash(OUTDATED)": "Der Notizname darf keinen Schrägstrich enthalten",
+      "noteNameExists(OUTDATED)": "Eine Notiz mit diesem Namen existiert bereits"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Notiz verschieben",
+      "move(OUTDATED)": "Umzug",
+      "renamedTo(OUTDATED)": "Die Notiz wird in $newName umbenannt"
     }
   },
   "settings": {

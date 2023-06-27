@@ -18,7 +18,28 @@
     },
     "welcome": "Üdvözli a Saber",
     "noFiles": "Nem található ilyen fájl",
-    "createNewNote": "Kattintson a + gombora egy új jegyzet létrehozásához"
+    "createNewNote": "Kattintson a + gombora egy új jegyzet létrehozásához",
+    "newFolder": {
+      "newFolder(OUTDATED)": "Új mappa",
+      "folderName(OUTDATED)": "Mappa neve",
+      "create(OUTDATED)": "Teremt",
+      "folderNameEmpty(OUTDATED)": "A mappa neve nem lehet üres",
+      "folderNameContainsSlash(OUTDATED)": "A mappa neve nem tartalmazhat perjelet",
+      "folderNameExists(OUTDATED)": "Folder már létezik"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Jegyzet átnevezése",
+      "noteName(OUTDATED)": "Megjegyzés neve",
+      "rename(OUTDATED)": "Átnevezés",
+      "noteNameEmpty(OUTDATED)": "A jegyzet neve nem lehet üres",
+      "noteNameContainsSlash(OUTDATED)": "A jegyzet neve nem tartalmazhat perjelet",
+      "noteNameExists(OUTDATED)": "Már létezik ilyen nevű jegyzet"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Jegyzet áthelyezése",
+      "move(OUTDATED)": "Mozog",
+      "renamedTo(OUTDATED)": "A jegyzet a következőre lesz átnevezve: $newName"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +51,7 @@
       "locale": "Alkalmazás nyelve",
       "appTheme": "Alkalmazás témája",
       "platform": "Téma típusa",
+      "layoutSize(OUTDATED)": "Elrendezés típusa",
       "customAccentColor": "Egyéni akcentusszín",
       "hyperlegibleFont": "Hyperlegible betűtipus",
       "shouldCheckForUpdates": "Automatikusan ellenőrzi a Saber frissítéseket",
@@ -44,7 +66,8 @@
       "autoClearWhiteboardOnExit": "A tábla törlése az alkalmazásból való kilépés után",
       "editorPromptRename": "Új jegyzetek átnevezésére való felszólítás",
       "hideHomeBackgrounds": "Hátterek elrejtése a kezdőképernyőn",
-      "dontSavePresetColors": "Ne mentse az előre beállított színeket a legutóbbi színek között"
+      "dontSavePresetColors": "Ne mentse az előre beállított színeket a legutóbbi színek között",
+      "printPageIndicators(OUTDATED)": "Nyomtatási oldaljelzők"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára",
@@ -54,12 +77,18 @@
       "autoClearWhiteboardOnExit": "Továbbra is szinkronizálva lesz a többi eszközzel",
       "maxImageSize": "Az ennél nagyobb képek tömörítve lesznek",
       "editorPromptRename": "A jegyzeteket később bármikor átnevezheti",
-      "hideHomeBackgrounds": "Egy letisztultabb megjelenítésért"
+      "hideHomeBackgrounds": "Egy letisztultabb megjelenítésért",
+      "printPageIndicators(OUTDATED)": "Mutasson oldalmutatókat az exportban"
     },
     "themeModes": {
       "system": "Rendszer",
       "light": "Világos",
       "dark": "Sötét"
+    },
+    "layoutSizes": {
+      "auto(OUTDATED)": "Automata",
+      "phone(OUTDATED)": "Telefon",
+      "tablet(OUTDATED)": "Tabletta"
     },
     "accentColorPicker": {
       "pickAColor": "Szín kiválasztása"
@@ -89,6 +118,7 @@
       "enterEncPassword": "Kérem, adja meg a titkosítási jelszavát",
       "checkUrl": "Kérem adjon meg egy érvényes URL-címet",
       "ncLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát",
+      "ncUnsupportedFailure(OUTDATED)": "Az adott szerveren a Nextcloud $v fut, de a Sabre ezen verziója csak a Nextcloud $s-t támogatja.",
       "encLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát",
       "loginSuccess": "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
     },
@@ -109,16 +139,51 @@
     },
     "faq(OUTDATED)": [
       {
-        "q": "Mi az a Nextclound?",
-        "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja a Saber Nextcloud alapértelmezett kiszolgálóját, használhat egy harmadik féltől származó kiszolgálót, vagy saját szerverét, hogy teljes körű felügyeletet biztosítson adatai felett."
+        "q": "Mi az a Nextcloud?",
+        "a": "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Sabre Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez."
       },
       {
-        "q": "Mi az a titkosítási jelszó?",
-        "a": "nki sem férhet hozzá a szerveren lévő jegyzetekhez. Ez azt is jelenti, hogy ha elfelejti a titkosítási jelszavát, elveszíti a hozzáférést az adataihoz."
+        "q": "Mi a titkosítási jelszó?",
+        "a": "A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\n\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz."
       },
       {
-        "q": "Miért használjon két jelszót?",
-        "a": "A Nextcloud jelszóval lehet hozzáférni a felhőszolgáltatáshoz. A titkosítási jelszó \" titkosítja\" az adatait, mielőtt azok egyáltalán eljutnának a felhőbe. \n\nMég ha valaki hozzáférne is a Nextcloud-fiókjához, a jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági szintet biztosít adatai védelméhez."
+        "q": "Miért használjunk két jelszót?",
+        "a": "A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\n\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez."
+      },
+      {
+        "q": "Hogyan tudok bejelentkezni, ha 2FA-t használok?",
+        "a": "A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik."
+      },
+      {
+        "q": "Használhatom mindkettőhöz ugyanazt a jelszót?",
+        "a": "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
+      }
+    ]
+  },
+  "profile": {
+    "title(OUTDATED)": "A profilom",
+    "logout(OUTDATED)": "Kijelentkezés",
+    "quickLinks": {
+      "title(OUTDATED)": "Gyors linkek",
+      "serverHomepage(OUTDATED)": "Szerver honlapja",
+      "deleteAccount(OUTDATED)": "Fiók törlése"
+    },
+    "faq(OUTDATED)": [
+      {
+        "q": "Elveszítem a jegyzeteimet, ha bejelentem?",
+        "a": "Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn)."
+      },
+      {
+        "q": "Hogyan változtathatom meg a Nextcloud jelszavamat?",
+        "a": "Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe."
+      },
+      {
+        "q": "Hogyan változtathatom meg a titkosítási jelszavamat?",
+        "a": "1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Sabre szolgáltatásba a többi eszközén sem."
+      },
+      {
+        "q": "Hogyan törölhetem a fiókomat?",
+        "a": "Koppintson a fenti \"@:profile.quickLinks.deleteAccount\" gombra, és ha szükséges, jelentkezzen be.\n\nHa a hivatalos Sabre szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\n\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát."
       }
     ]
   },
@@ -132,7 +197,7 @@
   },
   "update": {
     "updateAvailable": "Frissítés elérhető",
-    "updateAvailableDescription(OUTDATED)": "A szoftver egy új verziója elérhető",
+    "updateAvailableDescription(OUTDATED)": "Elérhető az alkalmazás új verziója a következő változtatásokkal:",
     "update": "Frissítés"
   },
   "editor": {
@@ -152,23 +217,51 @@
     "pens": {
       "fountainPen": "Töltőtoll",
       "ballpointPen": "Golyóstoll",
-      "highlighter": "Kiemelő"
+      "highlighter": "Kiemelő",
+      "laserPointer(OUTDATED)": "Lézer mutató"
     },
     "penOptions": {
       "size": "Méret",
       "sizeDragHint": "Húzza balra vagy jobbra a méret megváltoztatásához"
+    },
+    "colors": {
+      "colorPicker(OUTDATED)": "Színválasztó",
+      "black(OUTDATED)": "Fekete",
+      "darkGrey(OUTDATED)": "Sötét szürke",
+      "grey(OUTDATED)": "Szürke",
+      "lightGrey(OUTDATED)": "Világos szürke",
+      "white(OUTDATED)": "fehér",
+      "red(OUTDATED)": "Piros",
+      "green(OUTDATED)": "Zöld",
+      "blue(OUTDATED)": "Kék",
+      "yellow(OUTDATED)": "Sárga",
+      "purple(OUTDATED)": "Lila",
+      "orange(OUTDATED)": "narancs",
+      "pastelRed(OUTDATED)": "Pasztell vörös",
+      "pastelOrange(OUTDATED)": "Pasztell narancs",
+      "pastelYellow(OUTDATED)": "Pasztell sárga",
+      "pastelGreen(OUTDATED)": "Pasztell zöld",
+      "pastelCyan(OUTDATED)": "Pasztell cián",
+      "pastelBlue(OUTDATED)": "Pasztell kék",
+      "pastelPurple(OUTDATED)": "Pasztell lila",
+      "pastelPink(OUTDATED)": "Pasztell rózsaszín"
     },
     "imageOptions": {
       "title": "Kép opciók",
       "invertible": "Megfordítható",
       "download": "Letöltés",
       "setAsBackground": "Beállítás háttérképként",
+      "removeAsBackground(OUTDATED)": "Eltávolítás háttérként",
       "delete": "Törlés"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Oldal törlése $page/$totalPages",
+      "clearPage(OUTDATED)": "$page/$totalPages oldal törlése",
       "clearAllPages": "Összes oldal törlése",
+      "insertPage(OUTDATED)": "Az oldal beszúrása alább",
+      "duplicatePage(OUTDATED)": "Ismétlődő oldal",
+      "deletePage(OUTDATED)": "Oldal törlése",
       "lineHeight": "Vonalmagasság",
+      "lineHeightDescription(OUTDATED)": "Szintén ellenőrzi a szöveg méretét",
       "backgroundImage": "Háttérkép",
       "backgroundPattern": "Háttérminta",
       "import": "Importálás",
@@ -180,9 +273,12 @@
       "bgPatterns": {
         "none": "Üres",
         "college": "College-ruled",
+        "collegeRtl(OUTDATED)": "Főiskolai szabályozás (fordított)",
         "lined": "Vonalas",
         "grid": "Kockás",
-        "dots": "Pontozott"
+        "dots": "Pontozott",
+        "staffs(OUTDATED)": "Vezetők",
+        "cornell(OUTDATED)": "Cornell"
       }
     },
     "newerFileFormat": {
@@ -199,9 +295,12 @@
       "unlockZoom": "Nagyítás feloldása",
       "lockZoom": "Nagyítás feloldása",
       "unlockSingleFingerPan": "Egyujjas lapozás engedélyezése",
-      "lockSingleFingerPan": "Egyujjas lapozás letiltása"
+      "lockSingleFingerPan": "Egyujjas lapozás letiltása",
+      "unlockAxisAlignedPan(OUTDATED)": "Oldja fel a pásztázást vízszintesre vagy függőlegesre",
+      "lockAxisAlignedPan(OUTDATED)": "A pásztázás rögzítése vízszintesre vagy függőlegesre"
     },
     "pages": "Oldalak",
-    "untitled": "Névtelen"
+    "untitled": "Névtelen",
+    "needsToSaveBeforeExiting(OUTDATED)": "A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből"
   }
 }

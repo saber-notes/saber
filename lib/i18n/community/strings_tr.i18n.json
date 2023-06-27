@@ -18,7 +18,28 @@
     },
     "welcome": "Saber'a hoş geldiniz",
     "noFiles": "Dosya yok",
-    "createNewNote": "Yeni bir not oluşturmak için + butonuna tıklayınız"
+    "createNewNote": "Yeni bir not oluşturmak için + butonuna tıklayınız",
+    "newFolder": {
+      "newFolder(OUTDATED)": "Yeni dosya",
+      "folderName(OUTDATED)": "Klasör adı",
+      "create(OUTDATED)": "Yaratmak",
+      "folderNameEmpty(OUTDATED)": "Klasör adı boş olamaz",
+      "folderNameContainsSlash(OUTDATED)": "Klasör adı eğik çizgi içeremez",
+      "folderNameExists(OUTDATED)": "Klasör zaten var"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Notu yeniden adlandır",
+      "noteName(OUTDATED)": "Not name name",
+      "rename(OUTDATED)": "Yeniden isimlendirmek",
+      "noteNameEmpty(OUTDATED)": "Not adı boş olamaz",
+      "noteNameContainsSlash(OUTDATED)": "Not adı eğik çizgi içeremez",
+      "noteNameExists(OUTDATED)": "Bu ada sahip bir not zaten var"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Notu taşı",
+      "move(OUTDATED)": "Taşınmak",
+      "renamedTo(OUTDATED)": "Not, $newName olarak yeniden adlandırılacak"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +51,7 @@
       "locale": "Uygulama dili",
       "appTheme": "Uygulama teması",
       "platform": "Tema tipi",
+      "layoutSize(OUTDATED)": "Düzen türü",
       "customAccentColor": "Farklı ana renk",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
@@ -63,6 +85,11 @@
       "light": "Aydınlık",
       "dark": "Karanlık"
     },
+    "layoutSizes": {
+      "auto(OUTDATED)": "Oto",
+      "phone(OUTDATED)": "Telefon",
+      "tablet(OUTDATED)": "Tablet Tablet"
+    },
     "accentColorPicker": {
       "pickAColor": "Bir renk seçin"
     },
@@ -91,6 +118,7 @@
       "enterEncPassword": "Lütfen şifreleme parolanızı girin.",
       "checkUrl": "Lütfen geçerli bir URL girin.",
       "ncLoginFailed": "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.",
+      "ncUnsupportedFailure(OUTDATED)": "Belirtilen sunucu, Nextcloud $v'yi çalıştırıyor ancak Sabre'nin bu sürümü yalnızca Nextcloud $s'yi destekliyor.",
       "encLoginFailed": "Giriş başarısız, şifreleme parolanızı kontrol ediniz.",
       "loginSuccess": "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
     },
@@ -135,22 +163,27 @@
   "profile": {
     "title": "Profilim",
     "logout": "Çıkış yap",
+    "quickLinks": {
+      "title(OUTDATED)": "Hızlı Linkler",
+      "serverHomepage(OUTDATED)": "Sunucu ana sayfası",
+      "deleteAccount(OUTDATED)": "Hesabı sil"
+    },
     "faq(OUTDATED)": [
       {
-        "q": "Çıkış yaparsam notlarımı kaybedecek miyim?",
-        "a": "Hayır. Notlarınız hem cihazınızda hem de sunucuda saklanacak. Siz tekrar giriş yapıncaya dek sunucu ile senkronize edilmeyecekler. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz)."
+        "q": "Çıkış yaparsam notlarımı kaybeder miyim?",
+        "a": "Hayır. Notlarınız hem cihazınızda hem de sunucuda kalacaktır. Siz tekrar oturum açana kadar sunucuyla eşitlenmeyecekler. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce eşitlemenin tamamlandığından emin olun (ana ekranda eşitleme ilerlemesine bakın)."
       },
       {
-        "q": "Nextcloud parolamı nasıl değiştireceğim?",
-        "a": "Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Güvenlik > Parolayı değiştir aşamalarını takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrar giriş yapmanız gerekecek."
+        "q": "Nextcloud şifremi nasıl değiştiririm?",
+        "a": "Sunucunuzun web sitesine gidin ve oturum açın. Ardından Ayarlar > Güvenlik > Parolayı değiştir seçeneğine gidin. Şifrenizi değiştirdikten sonra oturumu kapatıp Sabre'de tekrar oturum açmanız gerekecek."
       },
       {
-        "q": "Şifreleme parolamı nasıl değiştireceğim?",
-        "a": "1. Saber'dan çıkış yapın. Çıkış yapmadan önce notların tamamının senkronize edildiğinden emin olun, yoksa veri kaybı yaşanabilir (senkronizasyon aşamasını ana ekranda görebilirsiniz).\n\n2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu aşama ile sunucuda tutulan notlarınızın tamamı silinecek.\n\n3. Saber'a tekrar giriş yapın. Giriş yaparken yeni bir şifreleme parolası belirleyebileceksiniz.\n\n4. Oturum açtığınız başka cihazlar varsa onlarda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın."
+        "q": "Şifre şifremi nasıl değiştiririm?",
+        "a": "1. Sabre'den çıkış yapın. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce senkronizasyonun tamamlandığından emin olun (ana ekranda senkronizasyon ilerlemesine bakın).\n\n2. Sunucu web sitenize gidin ve 'Saber' klasörünüzü silin. Bu, tüm notlarınızı sunucudan siler.\n\n3. Sabre'de tekrar oturum açın. Giriş yaparken yeni bir şifreleme şifresi seçebilirsiniz.\n\n4. Diğer cihazlarınızda da Sabre'den çıkış yapıp tekrar giriş yapmayı unutmayın."
       },
       {
-        "q": "Hesabımı nasıl sileceğim?",
-        "a": "Sunucunun websitesine gidip giriş yapın. Sonrasında Ayarlar > Hesabı sil aşamalarını takip edin.\n\nEğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecektir. Bana adilhanney@disroot.org adresinden ulaşarak silme işlemini iptal edebilirsiniz.\n\nEğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silmeniz mümkün olmayabilir, daha fazla bilgi edinmek için ilgili sunucunun gizlilik politikasını incelemelisiniz."
+        "q": "Hesabımı nasıl silebilirim?",
+        "a": "Yukarıdaki \"@:profile.quickLinks.deleteAccount\" düğmesine dokunun ve gerekirse oturum açın.\n\nResmi Sabre sunucusunu kullanıyorsanız, hesabınız 1 haftalık ek süre sonunda silinecektir. Silme işlemini iptal etmek için bu süre zarfında adilhanney@disroot.org adresinden bana ulaşabilirsiniz.\n\nÜçüncü taraf bir sunucu kullanıyorsanız, hesabınızı silme seçeneği olmayabilir: daha fazla bilgi için sunucunun gizlilik politikasına başvurmanız gerekir."
       }
     ]
   },
@@ -184,11 +217,34 @@
     "pens": {
       "fountainPen": "Dolma kalem",
       "ballpointPen": "Tükenmez kalem",
-      "highlighter": "İşaretleme kalemi"
+      "highlighter": "İşaretleme kalemi",
+      "laserPointer(OUTDATED)": "Lazer işaretleyici"
     },
     "penOptions": {
       "size": "Boyut",
       "sizeDragHint": "Boyutu değiştirmek için sağa veya sola kaydır"
+    },
+    "colors": {
+      "colorPicker(OUTDATED)": "Renk seçici",
+      "black(OUTDATED)": "Siyah",
+      "darkGrey(OUTDATED)": "Koyu gri",
+      "grey(OUTDATED)": "Gri",
+      "lightGrey(OUTDATED)": "Açık gri",
+      "white(OUTDATED)": "Beyaz",
+      "red(OUTDATED)": "Kırmızı",
+      "green(OUTDATED)": "Yeşil",
+      "blue(OUTDATED)": "Blue Blue Blue Blue",
+      "yellow(OUTDATED)": "Sarı",
+      "purple(OUTDATED)": "Mor",
+      "orange(OUTDATED)": "Turuncu",
+      "pastelRed(OUTDATED)": "pastel kırmızı",
+      "pastelOrange(OUTDATED)": "pastel turuncu",
+      "pastelYellow(OUTDATED)": "pastel sarı",
+      "pastelGreen(OUTDATED)": "pastel yeşil",
+      "pastelCyan(OUTDATED)": "pastel camgöbeği",
+      "pastelBlue(OUTDATED)": "pastel mavi",
+      "pastelPurple(OUTDATED)": "pastel mor",
+      "pastelPink(OUTDATED)": "pastel pembe"
     },
     "imageOptions": {
       "title": "Görüntü ayarları",
@@ -199,8 +255,11 @@
       "delete": "Sil"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Sayfayı temizle $page/$totalPages",
+      "clearPage(OUTDATED)": "$page/$totalPages sayfasını temizle",
       "clearAllPages": "Tüm sayfaları temizle",
+      "insertPage(OUTDATED)": "Sayfayı aşağıya ekle",
+      "duplicatePage(OUTDATED)": "Yinelenen sayfa",
+      "deletePage(OUTDATED)": "Sayfayı sil",
       "lineHeight": "Satır aralığı",
       "lineHeightDescription": "Metnin boyutunu da kontrol eder",
       "backgroundImage": "Arkaplan görseli",
@@ -236,9 +295,12 @@
       "unlockZoom": "Yakınlaştırma kilidini aç",
       "lockZoom": "Yakınlaştırmayı kilitle",
       "unlockSingleFingerPan": "Tek parmakla kaydırma kilidini aç",
-      "lockSingleFingerPan": "Tek parmakla kaydırmayı kilitle"
+      "lockSingleFingerPan": "Tek parmakla kaydırmayı kilitle",
+      "unlockAxisAlignedPan(OUTDATED)": "Yatay veya dikey kaydırmanın kilidini açın",
+      "lockAxisAlignedPan(OUTDATED)": "Kaydırmayı yatay veya dikey olarak kilitleyin"
     },
     "pages": "Sayfalar",
-    "untitled": "İsimsiz"
+    "untitled": "İsimsiz",
+    "needsToSaveBeforeExiting(OUTDATED)": "Değişiklikleriniz kaydediliyor... Tamamlandığında düzenleyiciden güvenle çıkabilirsiniz."
   }
 }

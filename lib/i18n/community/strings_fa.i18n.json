@@ -18,7 +18,28 @@
     },
     "welcome": "خوش آمدید",
     "noFiles": "فایلی پیدا نشد",
-    "createNewNote": "برای ساخت یادداشت دکمه + را بزنید"
+    "createNewNote": "برای ساخت یادداشت دکمه + را بزنید",
+    "newFolder": {
+      "newFolder(OUTDATED)": "پوشه جدید",
+      "folderName(OUTDATED)": "نام پوشه",
+      "create(OUTDATED)": "ایجاد آفرینش",
+      "folderNameEmpty(OUTDATED)": "نام پوشه نمی تواند خالی باشد",
+      "folderNameContainsSlash(OUTDATED)": "نام پوشه نمی تواند دارای اسلش باشد",
+      "folderNameExists(OUTDATED)": "پوشه از قبل وجود دارد"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "تغییر نام یادداشت",
+      "noteName(OUTDATED)": "نام یادداشت",
+      "rename(OUTDATED)": "تغییر نام دهید",
+      "noteNameEmpty(OUTDATED)": "نام یادداشت نمی تواند خالی باشد",
+      "noteNameContainsSlash(OUTDATED)": "نام یادداشت نمی‌تواند دارای اسلش باشد",
+      "noteNameExists(OUTDATED)": "یادداشتی با این نام از قبل وجود دارد"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "حرکت یادداشت",
+      "move(OUTDATED)": "حرکت",
+      "renamedTo(OUTDATED)": "توجه به $newName دلار تغییر خواهد کرد"
+    }
   },
   "settings": {
     "prefCategories": {
@@ -30,6 +51,7 @@
       "locale": "زبان برنامه",
       "appTheme": "تم برنامه",
       "platform": "نوع تم",
+      "layoutSize(OUTDATED)": "نوع چیدمان",
       "customAccentColor": "رنگ سفارشی",
       "hyperlegibleFont": "فونت بیش از حد خوانا",
       "shouldCheckForUpdates": "به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید",
@@ -63,6 +85,11 @@
       "light": "روشن",
       "dark": "تاریک"
     },
+    "layoutSizes": {
+      "auto(OUTDATED)": "خودکار",
+      "phone(OUTDATED)": "تلفن",
+      "tablet(OUTDATED)": "تبلت"
+    },
     "accentColorPicker": {
       "pickAColor": "یک رنگ انتخاب کنید"
     },
@@ -91,6 +118,7 @@
       "enterEncPassword": "لطفا رمز رمزگذاری خود را وارد کنید",
       "checkUrl": "لطفا یک آدرس اینترنتی معتبر وارد کنید",
       "ncLoginFailed": "ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید",
+      "ncUnsupportedFailure(OUTDATED)": "سرور داده شده Nextcloud $v را اجرا می کند اما این نسخه از Saber فقط از Nextcloud $s پشتیبانی می کند.",
       "encLoginFailed": "ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید",
       "loginSuccess": "با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید "
     },
@@ -189,11 +217,34 @@
     "pens": {
       "fountainPen": "خودنویس",
       "ballpointPen": "خودکار",
-      "highlighter": "هایلایتر"
+      "highlighter": "هایلایتر",
+      "laserPointer(OUTDATED)": "اشاره گر لیزری"
     },
     "penOptions": {
       "size": "اندازه",
       "sizeDragHint": "برای تغییر اندازه به چپ یا راست بکشید"
+    },
+    "colors": {
+      "colorPicker(OUTDATED)": "انتخاب کننده رنگ",
+      "black(OUTDATED)": "مشکی",
+      "darkGrey(OUTDATED)": "خاکستری تیره",
+      "grey(OUTDATED)": "خاکستری",
+      "lightGrey(OUTDATED)": "خاکستری روشن",
+      "white(OUTDATED)": "سفید سفید سفید",
+      "red(OUTDATED)": "قرمز",
+      "green(OUTDATED)": "سبز",
+      "blue(OUTDATED)": "آبی",
+      "yellow(OUTDATED)": "رنگ زرد",
+      "purple(OUTDATED)": "رنگ بنفش",
+      "orange(OUTDATED)": "نارنجی",
+      "pastelRed(OUTDATED)": "قرمز پاستلی",
+      "pastelOrange(OUTDATED)": "نارنجی پاستلی",
+      "pastelYellow(OUTDATED)": "زرد پاستلی",
+      "pastelGreen(OUTDATED)": "سبز پاستلی",
+      "pastelCyan(OUTDATED)": "فیروزه ای پاستلی",
+      "pastelBlue(OUTDATED)": "آبی پاستلی",
+      "pastelPurple(OUTDATED)": "بنفش پاستلی",
+      "pastelPink(OUTDATED)": "صورتی پاستلی"
     },
     "imageOptions": {
       "title": "گزینه های تصویر",
@@ -204,7 +255,7 @@
       "delete": "حذف"
     },
     "menu": {
-      "clearPage(OUTDATED)": "$page/$totalPages پاک کردن صفحه",
+      "clearPage(OUTDATED)": "صفحه $page/$totalPages را پاک کنید",
       "clearAllPages": "تمام صفحات را پاک کنید",
       "insertPage": "درج صفحه در زیر",
       "duplicatePage": "تکرار صفحه",
@@ -244,9 +295,12 @@
       "unlockZoom": "قفل زوم را باز کنید",
       "lockZoom": "قفل زوم",
       "unlockSingleFingerPan": "تحرک تک انگشتی را فعال کنید",
-      "lockSingleFingerPan": "تحرک تک انگشتی را غیرفعال کنید"
+      "lockSingleFingerPan": "تحرک تک انگشتی را غیرفعال کنید",
+      "unlockAxisAlignedPan(OUTDATED)": "باز کردن قفل حرکت به حالت افقی یا عمودی",
+      "lockAxisAlignedPan(OUTDATED)": "پانینگ را به صورت افقی یا عمودی قفل کنید"
     },
     "pages": "صفحات",
-    "untitled": "بدون عنوان"
+    "untitled": "بدون عنوان",
+    "needsToSaveBeforeExiting(OUTDATED)": "در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید"
   }
 }

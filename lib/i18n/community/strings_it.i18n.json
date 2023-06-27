@@ -26,6 +26,19 @@
       "folderNameEmpty": "Il nome della cartella non può essere vuoto",
       "folderNameContainsSlash": "Il nome della cartella non può contenere una barra",
       "folderNameExists": "La cartella esiste già"
+    },
+    "renameNote": {
+      "renameNote(OUTDATED)": "Rinomina nota",
+      "noteName(OUTDATED)": "Nota nome",
+      "rename(OUTDATED)": "Rinominare",
+      "noteNameEmpty(OUTDATED)": "Il nome della nota non può essere vuoto",
+      "noteNameContainsSlash(OUTDATED)": "Il nome della nota non può contenere una barra",
+      "noteNameExists(OUTDATED)": "Una nota con questo nome esiste già"
+    },
+    "moveNote": {
+      "moveNote(OUTDATED)": "Sposta nota",
+      "move(OUTDATED)": "Mossa",
+      "renamedTo": "La nota verrà rinominata in $newName"
     }
   },
   "settings": {
