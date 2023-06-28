@@ -100,6 +100,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
         height: 300,
         child: Column(
           children: [
+            Text(currentFolder),
             Expanded(
               child: CustomScrollView(
                 shrinkWrap: true,
