@@ -332,23 +332,7 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "home": {
-      "renameNote": {
-        "renameNote(OUTDATED)": "Rinomina nota",
-        "noteName(OUTDATED)": "Nome nota",
-        "rename(OUTDATED)": "Rinomina",
-        "noteNameEmpty(OUTDATED)": "Il nome della nota non può essere vuoto",
-        "noteNameContainsSlash(OUTDATED)": "Il nome della nota non può contenere una barra",
-        "noteNameExists(OUTDATED)": "Esiste già una nota con questo nome"
-      },
-      "moveNote": {
-        "moveNote(OUTDATED)": "Sposta nota",
-        "moveName(OUTDATED)": "Sposta $f",
-        "move(OUTDATED)": "Sposta"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "home": {
       "newFolder": {
