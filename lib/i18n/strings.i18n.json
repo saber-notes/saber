@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote": "Move note",
+      "moveName": "Move $f",
       "move": "Move",
       "renamedTo": "Note will be renamed to $newName"
     }

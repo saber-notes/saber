@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2912 (208 per locale)
+/// Strings: 2913 (208 per locale)
 ///
-/// Built on 2023-06-27 at 21:02 UTC
+/// Built on 2023-06-28 at 02:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -369,6 +369,7 @@ class _StringsHomeMoveNoteEn {
 
 	// Translations
 	String get moveNote => 'Move note';
+	String moveName({required Object f}) => 'Move ${f}';
 	String get move => 'Move';
 	String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
 }

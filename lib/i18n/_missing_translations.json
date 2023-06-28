@@ -3,7 +3,13 @@
     "Here are translations that exist in <en> but not in secondary locales.",
     "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
   ],
-  "ar": {},
+  "ar": {
+    "home": {
+      "moveNote": {
+        "moveName": "Move $f"
+      }
+    }
+  },
   "cs": {
     "home": {
       "renameNote": {
@@ -16,6 +22,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -33,12 +40,19 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
     }
   },
-  "es": {},
+  "es": {
+    "home": {
+      "moveNote": {
+        "moveName": "Move $f"
+      }
+    }
+  },
   "fa": {
     "home": {
       "newFolder": {
@@ -59,6 +73,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -134,6 +149,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -209,6 +225,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -344,6 +361,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move"
       }
     }
@@ -368,6 +386,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -404,6 +423,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -429,6 +449,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -532,6 +553,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
+        "moveName": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -557,5 +579,11 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "home": {
+      "moveNote": {
+        "moveName": "Move $f"
+      }
+    }
+  }
 }

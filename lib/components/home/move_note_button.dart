@@ -4,6 +4,7 @@ import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class MoveNoteButton extends StatelessWidget {
   const MoveNoteButton({
@@ -93,42 +94,41 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
-      title: Text(t.home.moveNote.moveNote),
+      title: Text(t.home.moveNote.moveName(f: fileName)),
       content: SizedBox(
         width: 300,
         height: 300,
-        child: CustomScrollView(
-          shrinkWrap: true,
-          slivers: [
-            SliverToBoxAdapter(
-              child: Text(fileName),
-            ),
-            GridFolders(
-              isAtRoot: currentFolder == '/',
-              crossAxisCount: 3,
-              onTap: (String folder) {
-                print(folder);
-                setState(() {
-                  if (folder == '..') {
-                    currentFolder = currentFolder.substring(
-                      0,
-                      currentFolder.lastIndexOf('/', currentFolder.length - 2) + 1,
-                    );
-                  } else {
-                    currentFolder = '$currentFolder$folder/';
-                  }
-                  print(currentFolder);
-                });
-              },
-              folders: [
-                for (final folder in currentFolderChildren?.directories ?? [])
-                  '$currentFolder$folder/',
-              ],
+        child: Column(
+          children: [
+            Expanded(
+              child: CustomScrollView(
+                shrinkWrap: true,
+                slivers: [
+                  GridFolders(
+                    isAtRoot: currentFolder == '/',
+                    crossAxisCount: 3,
+                    onTap: (String folder) {
+                      setState(() {
+                        if (folder == '..') {
+                          currentFolder = currentFolder.substring(
+                            0,
+                            currentFolder.lastIndexOf('/', currentFolder.length - 2) + 1,
+                          );
+                        } else {
+                          currentFolder = '$currentFolder$folder/';
+                        }
+                      });
+                    },
+                    folders: [
+                      for (final directoryPath in currentFolderChildren?.directories ?? const [])
+                        directoryPath,
+                    ],
+                  ),
+                ],
+              ),
             ),
             if (newFileName != null && newFileName != fileName)
-              SliverToBoxAdapter(
-                child: Text(t.home.moveNote.renamedTo(newName: newFileName ?? '?')),
-              )
+              Text(t.home.moveNote.renamedTo(newName: newFileName ?? '?')),
           ],
         ),
       ),
@@ -141,7 +141,11 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
         ),
         CupertinoDialogAction(
           onPressed: () async {
-            // TODO: implement
+            await FileManager.moveFile(
+              '${widget.existingPath}${Editor.extension}',
+              '$currentFolder$newFileName${Editor.extension}',
+            );
+            if (!mounted) return;
             Navigator.of(context).pop();
           },
           child: Text(t.home.moveNote.move),
