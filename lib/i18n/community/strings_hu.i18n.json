@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote(OUTDATED)": "Jegyzet áthelyezése",
+      "moveName(OUTDATED)": "Mozgassa $f",
       "move(OUTDATED)": "Mozog",
       "renamedTo(OUTDATED)": "A jegyzet a következőre lesz átnevezve: $newName"
     }

@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote(OUTDATED)": "Přesunout poznámku",
+      "moveName(OUTDATED)": "Přesunout $f",
       "move(OUTDATED)": "Hýbat se",
       "renamedTo(OUTDATED)": "Poznámka bude přejmenován na $newName"
     }

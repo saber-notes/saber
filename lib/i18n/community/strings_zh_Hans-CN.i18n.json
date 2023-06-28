@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote(OUTDATED)": "移动笔记",
+      "moveName(OUTDATED)": "移动$f",
       "move(OUTDATED)": "移动",
       "renamedTo(OUTDATED)": "Note 将被重命名为 $newName"
     }

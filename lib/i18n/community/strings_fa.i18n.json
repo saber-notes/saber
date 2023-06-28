@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote(OUTDATED)": "حرکت یادداشت",
+      "moveName(OUTDATED)": "$f را حرکت دهید",
       "move(OUTDATED)": "حرکت",
       "renamedTo(OUTDATED)": "توجه به $newName دلار تغییر خواهد کرد"
     }

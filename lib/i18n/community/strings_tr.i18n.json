@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote(OUTDATED)": "Notu taşı",
+      "moveName(OUTDATED)": "$f'yi taşı",
       "move(OUTDATED)": "Taşınmak",
       "renamedTo(OUTDATED)": "Not, $newName olarak yeniden adlandırılacak"
     }

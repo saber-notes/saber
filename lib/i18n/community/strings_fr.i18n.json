@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote(OUTDATED)": "Déplacer la note",
+      "moveName(OUTDATED)": "Déplacer $f",
       "move(OUTDATED)": "Déplacer",
       "renamedTo(OUTDATED)": "La note sera renommée $newName"
     }

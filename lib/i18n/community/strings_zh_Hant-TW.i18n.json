@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote": "移動筆記",
+      "moveName(OUTDATED)": "移動$f",
       "move": "移動",
       "renamedTo": "筆記將重新命名為 $newName"
     }

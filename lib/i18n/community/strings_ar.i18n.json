@@ -37,6 +37,7 @@
     },
     "moveNote": {
       "moveNote": "تحريك الملاحظة",
+      "moveName(OUTDATED)": "نقل $f",
       "move": "تحريك",
       "renamedTo": "ستتم إعادة تسمية الملاحظة إلى $newName"
     }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2913 (208 per locale)
+/// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 02:24 UTC
+/// Built on 2023-06-28 at 02:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1065,6 +1065,7 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'تحريك الملاحظة';
+	@override String moveName({required Object f}) => 'نقل ${f}';
 	@override String get move => 'تحريك';
 	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
 }
@@ -1760,6 +1761,7 @@ class _StringsHomeMoveNoteCs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Přesunout poznámku';
+	@override String moveName({required Object f}) => 'Přesunout ${f}';
 	@override String get move => 'Hýbat se';
 	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenován na ${newName}';
 }
@@ -3149,6 +3151,7 @@ class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover nota';
+	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
 }
@@ -3844,6 +3847,7 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'حرکت یادداشت';
+	@override String moveName({required Object f}) => '${f} را حرکت دهید';
 	@override String get move => 'حرکت';
 	@override String renamedTo({required Object newName}) => 'توجه به ${newName} دلار تغییر خواهد کرد';
 }
@@ -4539,6 +4543,7 @@ class _StringsHomeMoveNoteFr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Déplacer la note';
+	@override String moveName({required Object f}) => 'Déplacer ${f}';
 	@override String get move => 'Déplacer';
 	@override String renamedTo({required Object newName}) => 'La note sera renommée ${newName}';
 }
@@ -5234,6 +5239,7 @@ class _StringsHomeMoveNoteHu extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Jegyzet áthelyezése';
+	@override String moveName({required Object f}) => 'Mozgassa ${f}';
 	@override String get move => 'Mozog';
 	@override String renamedTo({required Object newName}) => 'A jegyzet a következőre lesz átnevezve: ${newName}';
 }
@@ -5929,6 +5935,7 @@ class _StringsHomeMoveNoteIt extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Sposta nota';
+	@override String moveName({required Object f}) => 'Sposta ${f}';
 	@override String get move => 'Mossa';
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
 }
@@ -6624,6 +6631,7 @@ class _StringsHomeMoveNotePtBr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover nota';
+	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'A nota será renomeada para ${newName}';
 }
@@ -7319,6 +7327,7 @@ class _StringsHomeMoveNoteRu extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Переместить заметку';
+	@override String moveName({required Object f}) => 'Переместить ${f}';
 	@override String get move => 'Двигаться';
 	@override String renamedTo({required Object newName}) => 'Примечание будет переименовано в ${newName}';
 }
@@ -8014,6 +8023,7 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notu taşı';
+	@override String moveName({required Object f}) => '${f}\'yi taşı';
 	@override String get move => 'Taşınmak';
 	@override String renamedTo({required Object newName}) => 'Not, ${newName} olarak yeniden adlandırılacak';
 }
@@ -8709,6 +8719,7 @@ class _StringsHomeMoveNoteZhHansCn extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移动笔记';
+	@override String moveName({required Object f}) => '移动${f}';
 	@override String get move => '移动';
 	@override String renamedTo({required Object newName}) => 'Note 将被重命名为 ${newName}';
 }
@@ -9404,6 +9415,7 @@ class _StringsHomeMoveNoteZhHantTw extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移動筆記';
+	@override String moveName({required Object f}) => '移動${f}';
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 }
