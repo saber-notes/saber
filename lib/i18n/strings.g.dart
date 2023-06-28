@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 17:35 UTC
+/// Built on 2023-06-28 at 17:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9415,7 +9415,7 @@ class _StringsHomeMoveNoteZhHantTw extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移動筆記';
-	@override String moveName({required Object f}) => '移動${f}';
+	@override String moveName({required Object f}) => '移動 ${f}';
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 }
