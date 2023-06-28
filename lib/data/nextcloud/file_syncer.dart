@@ -283,7 +283,9 @@ abstract class FileSyncer {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
       final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll('][', ','));
       final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
+      await null; // try to reduce UI freezing
       final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+      await null; // try to reduce UI freezing
       assert(decryptedData.isNotEmpty, 'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
