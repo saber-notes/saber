@@ -414,18 +414,18 @@
   "ru": {
     "home": {
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Переименовать заметку",
+        "noteName(OUTDATED)": "Название заметки",
+        "rename(OUTDATED)": "Переименовать",
+        "noteNameEmpty(OUTDATED)": "Название заметки не может быть пустым",
+        "noteNameContainsSlash(OUTDATED)": "Название заметки не может содержать косую черту",
+        "noteNameExists(OUTDATED)": "Заметка с таким названием уже существует"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Переместить заметку",
+        "moveName(OUTDATED)": "Переместить $f",
+        "move(OUTDATED)": "Перемещение",
+        "renamedTo(OUTDATED)": "Заметка будет переименована в $newName"
       }
     }
   },
