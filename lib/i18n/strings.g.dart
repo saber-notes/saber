@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 04:54 UTC
+/// Built on 2023-06-28 at 05:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7945,7 +7945,7 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorHudTr hud = _StringsEditorHudTr._(_root);
 	@override String get pages => 'Sayfalar';
 	@override String get untitled => 'İsimsiz';
-	@override String get needsToSaveBeforeExiting => 'Değişiklikleriniz kaydediliyor... Tamamlandığında düzenleyiciden güvenle çıkabilirsiniz.';
+	@override String get needsToSaveBeforeExiting => 'Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.';
 }
 
 // Path: home.tabs
@@ -7992,12 +7992,12 @@ class _StringsHomeNewFolderTr extends _StringsHomeNewFolderEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get newFolder => 'Yeni dosya';
+	@override String get newFolder => 'Yeni klasör';
 	@override String get folderName => 'Klasör adı';
-	@override String get create => 'Yaratmak';
-	@override String get folderNameEmpty => 'Klasör adı boş olamaz';
-	@override String get folderNameContainsSlash => 'Klasör adı eğik çizgi içeremez';
-	@override String get folderNameExists => 'Klasör zaten var';
+	@override String get create => 'Oluştur';
+	@override String get folderNameEmpty => 'Klasör adı boş bırakılamaz';
+	@override String get folderNameContainsSlash => 'Klasör adı eğik çizgi işareti içeremez';
+	@override String get folderNameExists => 'Bu isimde bir klasör zaten var';
 }
 
 // Path: home.renameNote
@@ -8008,11 +8008,11 @@ class _StringsHomeRenameNoteTr extends _StringsHomeRenameNoteEn {
 
 	// Translations
 	@override String get renameNote => 'Notu yeniden adlandır';
-	@override String get noteName => 'Not name name';
-	@override String get rename => 'Yeniden isimlendirmek';
-	@override String get noteNameEmpty => 'Not adı boş olamaz';
-	@override String get noteNameContainsSlash => 'Not adı eğik çizgi içeremez';
-	@override String get noteNameExists => 'Bu ada sahip bir not zaten var';
+	@override String get noteName => 'Not adı';
+	@override String get rename => 'Yeniden adlandır';
+	@override String get noteNameEmpty => 'Not adı boş bırakılamaz';
+	@override String get noteNameContainsSlash => 'Not adı eğik çizgi işareti içeremez';
+	@override String get noteNameExists => 'Bu isimde bir not zaten var';
 }
 
 // Path: home.moveNote
@@ -8023,9 +8023,9 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notu taşı';
+	@override String get move => 'Taşı';
+	@override String renamedTo({required Object newName}) => 'Not ${newName} olarak yeniden adlandırılacak';
 	@override String moveName({required Object f}) => '${f}\'yi taşı';
-	@override String get move => 'Taşınmak';
-	@override String renamedTo({required Object newName}) => 'Not, ${newName} olarak yeniden adlandırılacak';
 }
 
 // Path: settings.prefCategories
@@ -8050,7 +8050,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Uygulama dili';
 	@override String get appTheme => 'Uygulama teması';
 	@override String get platform => 'Tema tipi';
-	@override String get layoutSize => 'Düzen türü';
+	@override String get layoutSize => 'Yerleşim tipi';
 	@override String get customAccentColor => 'Farklı ana renk';
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
@@ -8106,9 +8106,9 @@ class _StringsSettingsLayoutSizesTr extends _StringsSettingsLayoutSizesEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get auto => 'Oto';
+	@override String get auto => 'Otomatik';
 	@override String get phone => 'Telefon';
-	@override String get tablet => 'Tablet Tablet';
+	@override String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker
@@ -8156,7 +8156,7 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Belirtilen sunucu, Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s}\'yi destekliyor.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Girilen sunucu Nextcloud ${v} sürümünü kullanıyor ancak Saber\'ın bu sürümü sadece Nextcloud ${s} sürümünü destekliyor.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
 }
@@ -8255,8 +8255,8 @@ class _StringsProfileQuickLinksTr extends _StringsProfileQuickLinksEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Hızlı Linkler';
-	@override String get serverHomepage => 'Sunucu ana sayfası';
+	@override String get title => 'Hızlı linkler';
+	@override String get serverHomepage => 'Sunucu anasayfası';
 	@override String get deleteAccount => 'Hesabı sil';
 }
 
@@ -8334,7 +8334,7 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
-	@override String get laserPointer => 'Lazer işaretleyici';
+	@override String get laserPointer => 'Lazer işaretçi';
 }
 
 // Path: editor.penOptions
@@ -8363,18 +8363,18 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 	@override String get white => 'Beyaz';
 	@override String get red => 'Kırmızı';
 	@override String get green => 'Yeşil';
-	@override String get blue => 'Blue Blue Blue Blue';
+	@override String get blue => 'Mavi';
 	@override String get yellow => 'Sarı';
 	@override String get purple => 'Mor';
 	@override String get orange => 'Turuncu';
-	@override String get pastelRed => 'pastel kırmızı';
-	@override String get pastelOrange => 'pastel turuncu';
-	@override String get pastelYellow => 'pastel sarı';
-	@override String get pastelGreen => 'pastel yeşil';
-	@override String get pastelCyan => 'pastel camgöbeği';
-	@override String get pastelBlue => 'pastel mavi';
-	@override String get pastelPurple => 'pastel mor';
-	@override String get pastelPink => 'pastel pembe';
+	@override String get pastelRed => 'Pastel kırmızı';
+	@override String get pastelOrange => 'Pastel turuncu';
+	@override String get pastelYellow => 'Pastel sarı';
+	@override String get pastelGreen => 'Pastel yeşil';
+	@override String get pastelCyan => 'Pastel camgöbeği';
+	@override String get pastelBlue => 'Pastel mavi';
+	@override String get pastelPurple => 'Pastel mor';
+	@override String get pastelPink => 'Pastel pembe';
 }
 
 // Path: editor.imageOptions
@@ -8399,10 +8399,9 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} sayfasını temizle';
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
-	@override String get insertPage => 'Sayfayı aşağıya ekle';
-	@override String get duplicatePage => 'Yinelenen sayfa';
+	@override String get insertPage => 'Aşağıya sayfa ekle';
+	@override String get duplicatePage => 'Sayfayı çoğalt';
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
@@ -8411,6 +8410,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get import => 'İçe aktar';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
+	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} sayfasını temizle';
 }
 
 // Path: editor.newerFileFormat
@@ -8448,8 +8448,8 @@ class _StringsEditorHudTr extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Yakınlaştırmayı kilitle';
 	@override String get unlockSingleFingerPan => 'Tek parmakla kaydırma kilidini aç';
 	@override String get lockSingleFingerPan => 'Tek parmakla kaydırmayı kilitle';
-	@override String get unlockAxisAlignedPan => 'Yatay veya dikey kaydırmanın kilidini açın';
-	@override String get lockAxisAlignedPan => 'Kaydırmayı yatay veya dikey olarak kilitleyin';
+	@override String get unlockAxisAlignedPan => 'Yatay ve dikey hareket kilidini aç';
+	@override String get lockAxisAlignedPan => 'Yatay ve dikey hareketi kilitle';
 }
 
 // Path: editor.menu.boxFits

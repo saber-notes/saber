@@ -414,86 +414,34 @@
   "ru": {},
   "tr": {
     "home": {
-      "newFolder": {
-        "newFolder": "Yeni klasör",
-        "folderName": "Klasör adı",
-        "create": "Oluştur",
-        "folderNameEmpty": "Klasör adı boş bırakılamaz",
-        "folderNameContainsSlash": "Klasör adı eğik çizgi işareti içeremez",
-        "folderNameExists": "Bu isimde bir klasör zaten var"
-      },
-      "renameNote": {
-        "renameNote": "Notu yeniden adlandır",
-        "noteName": "Not adı",
-        "rename": "Yeniden adlandır",
-        "noteNameEmpty": "Not adı boş bırakılamaz",
-        "noteNameContainsSlash": "Not adı eğik çizgi işareti içeremez",
-        "noteNameExists": "Bu isimde bir not zaten var"
-      },
       "moveNote": {
-        "moveNote": "Notu taşı",
-        "move": "Taşı",
-        "renamedTo": "Not $newName olarak yeniden adlandırılacak"
-      }
-    },
-    "settings": {
-      "prefLabels": {
-        "layoutSize": "Yerleşim tipi"
-      },
-      "layoutSizes": {
-        "auto": "Otomatik",
-        "phone": "Telefon",
-        "tablet": "Tablet"
-      }
-    },
-    "login": {
-      "feedbacks": {
-        "ncUnsupportedFailure": "Girilen sunucu Nextcloud $v sürümünü kullanıyor ancak Saber'ın bu sürümü sadece Nextcloud $s sürümünü destekliyor."
+        "moveName(OUTDATED)": "Move $f"
       }
     },
     "profile": {
-      "quickLinks": {
-        "title": "Hızlı linkler",
-        "serverHomepage": "Sunucu anasayfası",
-        "deleteAccount": "Hesabı sil"
-      }
+      "faq(OUTDATED)": [
+        {
+          "q": "Will I lose my notes if I log out?",
+          "a": "No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen)."
+        },
+        {
+          "q": "How do I change my Nextcloud password?",
+          "a": "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
+        },
+        {
+          "q": "How do I change my encryption password?",
+          "a": "1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).\n\n2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.\n\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n\n4. Don't forget to log out and log back in to Saber on your other devices too."
+        },
+        {
+          "q": "How can I delete my account?",
+          "a": "Tap on the \"@:profile.quickLinks.deleteAccount\" button above, and login if needed.\n\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\n\nIf you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information."
+        }
+      ]
     },
     "editor": {
-      "pens": {
-        "laserPointer": "Lazer işaretçi"
-      },
-      "colors": {
-        "colorPicker": "Renk seçici",
-        "black": "Siyah",
-        "darkGrey": "Koyu gri",
-        "grey": "Gri",
-        "lightGrey": "Açık gri",
-        "white": "Beyaz",
-        "red": "Kırmızı",
-        "green": "Yeşil",
-        "blue": "Mavi",
-        "yellow": "Sarı",
-        "purple": "Mor",
-        "orange": "Turuncu",
-        "pastelRed": "Pastel kırmızı",
-        "pastelOrange": "Pastel turuncu",
-        "pastelYellow": "Pastel sarı",
-        "pastelGreen": "Pastel yeşil",
-        "pastelCyan": "Pastel camgöbeği",
-        "pastelBlue": "Pastel mavi",
-        "pastelPurple": "Pastel mor",
-        "pastelPink": "Pastel pembe"
-      },
       "menu": {
-        "insertPage": "Aşağıya sayfa ekle",
-        "duplicatePage": "Sayfayı çoğalt",
-        "deletePage": "Sayfayı sil"
-      },
-      "hud": {
-        "unlockAxisAlignedPan": "Yatay ve dikey hareket kilidini aç",
-        "lockAxisAlignedPan": "Yatay ve dikey hareketi kilitle"
-      },
-      "needsToSaveBeforeExiting": "Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz."
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
     }
   },
   "zh-Hans-CN": {
