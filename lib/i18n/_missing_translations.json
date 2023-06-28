@@ -414,50 +414,11 @@
   "ru": {},
   "tr": {
     "home": {
-      "newFolder": {
-        "newFolder(OUTDATED)": "New folder",
-        "folderName(OUTDATED)": "Folder name",
-        "create(OUTDATED)": "Create",
-        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
-        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
-        "folderNameExists(OUTDATED)": "Folder already exists"
-      },
-      "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
-      },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
-      }
-    },
-    "settings": {
-      "prefLabels": {
-        "layoutSize(OUTDATED)": "Layout type"
-      },
-      "layoutSizes": {
-        "auto(OUTDATED)": "Auto",
-        "phone(OUTDATED)": "Phone",
-        "tablet(OUTDATED)": "Tablet"
-      }
-    },
-    "login": {
-      "feedbacks": {
-        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "moveName(OUTDATED)": "Move $f"
       }
     },
     "profile": {
-      "quickLinks": {
-        "title(OUTDATED)": "Quick links",
-        "serverHomepage(OUTDATED)": "Server homepage",
-        "deleteAccount(OUTDATED)": "Delete account"
-      },
       "faq(OUTDATED)": [
         {
           "q": "Will I lose my notes if I log out?",
@@ -478,42 +439,9 @@
       ]
     },
     "editor": {
-      "pens": {
-        "laserPointer(OUTDATED)": "Laser pointer"
-      },
-      "colors": {
-        "colorPicker(OUTDATED)": "Color picker",
-        "black(OUTDATED)": "Black",
-        "darkGrey(OUTDATED)": "Dark grey",
-        "grey(OUTDATED)": "Grey",
-        "lightGrey(OUTDATED)": "Light grey",
-        "white(OUTDATED)": "White",
-        "red(OUTDATED)": "Red",
-        "green(OUTDATED)": "Green",
-        "blue(OUTDATED)": "Blue",
-        "yellow(OUTDATED)": "Yellow",
-        "purple(OUTDATED)": "Purple",
-        "orange(OUTDATED)": "Orange",
-        "pastelRed(OUTDATED)": "Pastel red",
-        "pastelOrange(OUTDATED)": "Pastel orange",
-        "pastelYellow(OUTDATED)": "Pastel yellow",
-        "pastelGreen(OUTDATED)": "Pastel green",
-        "pastelCyan(OUTDATED)": "Pastel cyan",
-        "pastelBlue(OUTDATED)": "Pastel blue",
-        "pastelPurple(OUTDATED)": "Pastel purple",
-        "pastelPink(OUTDATED)": "Pastel pink"
-      },
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages",
-        "insertPage(OUTDATED)": "Insert page below",
-        "duplicatePage(OUTDATED)": "Duplicate page",
-        "deletePage(OUTDATED)": "Delete page"
-      },
-      "hud": {
-        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
-      },
-      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
+        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+      }
     }
   },
   "zh-Hans-CN": {

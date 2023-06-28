@@ -20,26 +20,26 @@
     "noFiles": "Dosya yok",
     "createNewNote": "Yeni bir not oluşturmak için + butonuna tıklayınız",
     "newFolder": {
-      "newFolder(OUTDATED)": "Yeni dosya",
-      "folderName(OUTDATED)": "Klasör adı",
-      "create(OUTDATED)": "Yaratmak",
-      "folderNameEmpty(OUTDATED)": "Klasör adı boş olamaz",
-      "folderNameContainsSlash(OUTDATED)": "Klasör adı eğik çizgi içeremez",
-      "folderNameExists(OUTDATED)": "Klasör zaten var"
+      "newFolder": "Yeni klasör",
+      "folderName": "Klasör adı",
+      "create": "Oluştur",
+      "folderNameEmpty": "Klasör adı boş bırakılamaz",
+      "folderNameContainsSlash": "Klasör adı eğik çizgi işareti içeremez",
+      "folderNameExists": "Bu isimde bir klasör zaten var"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "Notu yeniden adlandır",
-      "noteName(OUTDATED)": "Not name name",
-      "rename(OUTDATED)": "Yeniden isimlendirmek",
-      "noteNameEmpty(OUTDATED)": "Not adı boş olamaz",
-      "noteNameContainsSlash(OUTDATED)": "Not adı eğik çizgi içeremez",
-      "noteNameExists(OUTDATED)": "Bu ada sahip bir not zaten var"
+      "renameNote": "Notu yeniden adlandır",
+      "noteName": "Not adı",
+      "rename": "Yeniden adlandır",
+      "noteNameEmpty": "Not adı boş bırakılamaz",
+      "noteNameContainsSlash": "Not adı eğik çizgi işareti içeremez",
+      "noteNameExists": "Bu isimde bir not zaten var"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "Notu taşı",
-      "moveName(OUTDATED)": "$f'yi taşı",
-      "move(OUTDATED)": "Taşınmak",
-      "renamedTo(OUTDATED)": "Not, $newName olarak yeniden adlandırılacak"
+      "moveNote": "Notu taşı",
+      "move": "Taşı",
+      "renamedTo": "Not $newName olarak yeniden adlandırılacak",
+      "moveName(OUTDATED)": "$f'yi taşı"
     }
   },
   "settings": {
@@ -52,7 +52,7 @@
       "locale": "Uygulama dili",
       "appTheme": "Uygulama teması",
       "platform": "Tema tipi",
-      "layoutSize(OUTDATED)": "Düzen türü",
+      "layoutSize": "Yerleşim tipi",
       "customAccentColor": "Farklı ana renk",
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
@@ -87,9 +87,9 @@
       "dark": "Karanlık"
     },
     "layoutSizes": {
-      "auto(OUTDATED)": "Oto",
-      "phone(OUTDATED)": "Telefon",
-      "tablet(OUTDATED)": "Tablet Tablet"
+      "auto": "Otomatik",
+      "phone": "Telefon",
+      "tablet": "Tablet"
     },
     "accentColorPicker": {
       "pickAColor": "Bir renk seçin"
@@ -119,7 +119,7 @@
       "enterEncPassword": "Lütfen şifreleme parolanızı girin.",
       "checkUrl": "Lütfen geçerli bir URL girin.",
       "ncLoginFailed": "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.",
-      "ncUnsupportedFailure(OUTDATED)": "Belirtilen sunucu, Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s'yi destekliyor.",
+      "ncUnsupportedFailure": "Girilen sunucu Nextcloud $v sürümünü kullanıyor ancak Saber'ın bu sürümü sadece Nextcloud $s sürümünü destekliyor.",
       "encLoginFailed": "Giriş başarısız, şifreleme parolanızı kontrol ediniz.",
       "loginSuccess": "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
     },
@@ -165,9 +165,9 @@
     "title": "Profilim",
     "logout": "Çıkış yap",
     "quickLinks": {
-      "title(OUTDATED)": "Hızlı Linkler",
-      "serverHomepage(OUTDATED)": "Sunucu ana sayfası",
-      "deleteAccount(OUTDATED)": "Hesabı sil"
+      "title": "Hızlı linkler",
+      "serverHomepage": "Sunucu anasayfası",
+      "deleteAccount": "Hesabı sil"
     },
     "faq(OUTDATED)": [
       {
@@ -219,33 +219,33 @@
       "fountainPen": "Dolma kalem",
       "ballpointPen": "Tükenmez kalem",
       "highlighter": "İşaretleme kalemi",
-      "laserPointer(OUTDATED)": "Lazer işaretleyici"
+      "laserPointer": "Lazer işaretçi"
     },
     "penOptions": {
       "size": "Boyut",
       "sizeDragHint": "Boyutu değiştirmek için sağa veya sola kaydır"
     },
     "colors": {
-      "colorPicker(OUTDATED)": "Renk seçici",
-      "black(OUTDATED)": "Siyah",
-      "darkGrey(OUTDATED)": "Koyu gri",
-      "grey(OUTDATED)": "Gri",
-      "lightGrey(OUTDATED)": "Açık gri",
-      "white(OUTDATED)": "Beyaz",
-      "red(OUTDATED)": "Kırmızı",
-      "green(OUTDATED)": "Yeşil",
-      "blue(OUTDATED)": "Blue Blue Blue Blue",
-      "yellow(OUTDATED)": "Sarı",
-      "purple(OUTDATED)": "Mor",
-      "orange(OUTDATED)": "Turuncu",
-      "pastelRed(OUTDATED)": "pastel kırmızı",
-      "pastelOrange(OUTDATED)": "pastel turuncu",
-      "pastelYellow(OUTDATED)": "pastel sarı",
-      "pastelGreen(OUTDATED)": "pastel yeşil",
-      "pastelCyan(OUTDATED)": "pastel camgöbeği",
-      "pastelBlue(OUTDATED)": "pastel mavi",
-      "pastelPurple(OUTDATED)": "pastel mor",
-      "pastelPink(OUTDATED)": "pastel pembe"
+      "colorPicker": "Renk seçici",
+      "black": "Siyah",
+      "darkGrey": "Koyu gri",
+      "grey": "Gri",
+      "lightGrey": "Açık gri",
+      "white": "Beyaz",
+      "red": "Kırmızı",
+      "green": "Yeşil",
+      "blue": "Mavi",
+      "yellow": "Sarı",
+      "purple": "Mor",
+      "orange": "Turuncu",
+      "pastelRed": "Pastel kırmızı",
+      "pastelOrange": "Pastel turuncu",
+      "pastelYellow": "Pastel sarı",
+      "pastelGreen": "Pastel yeşil",
+      "pastelCyan": "Pastel camgöbeği",
+      "pastelBlue": "Pastel mavi",
+      "pastelPurple": "Pastel mor",
+      "pastelPink": "Pastel pembe"
     },
     "imageOptions": {
       "title": "Görüntü ayarları",
@@ -256,11 +256,10 @@
       "delete": "Sil"
     },
     "menu": {
-      "clearPage(OUTDATED)": "$page/$totalPages sayfasını temizle",
       "clearAllPages": "Tüm sayfaları temizle",
-      "insertPage(OUTDATED)": "Sayfayı aşağıya ekle",
-      "duplicatePage(OUTDATED)": "Yinelenen sayfa",
-      "deletePage(OUTDATED)": "Sayfayı sil",
+      "insertPage": "Aşağıya sayfa ekle",
+      "duplicatePage": "Sayfayı çoğalt",
+      "deletePage": "Sayfayı sil",
       "lineHeight": "Satır aralığı",
       "lineHeightDescription": "Metnin boyutunu da kontrol eder",
       "backgroundImage": "Arkaplan görseli",
@@ -280,7 +279,8 @@
         "dots": "Noktalı",
         "staffs": "Porte (müzik)",
         "cornell": "Cornell not şablonu"
-      }
+      },
+      "clearPage(OUTDATED)": "$page/$totalPages sayfasını temizle"
     },
     "newerFileFormat": {
       "readOnlyMode": "Yalnızca okunabilir mod",
@@ -297,11 +297,11 @@
       "lockZoom": "Yakınlaştırmayı kilitle",
       "unlockSingleFingerPan": "Tek parmakla kaydırma kilidini aç",
       "lockSingleFingerPan": "Tek parmakla kaydırmayı kilitle",
-      "unlockAxisAlignedPan(OUTDATED)": "Yatay veya dikey kaydırmanın kilidini açın",
-      "lockAxisAlignedPan(OUTDATED)": "Kaydırmayı yatay veya dikey olarak kilitleyin"
+      "unlockAxisAlignedPan": "Yatay ve dikey hareket kilidini aç",
+      "lockAxisAlignedPan": "Yatay ve dikey hareketi kilitle"
     },
     "pages": "Sayfalar",
     "untitled": "İsimsiz",
-    "needsToSaveBeforeExiting(OUTDATED)": "Değişiklikleriniz kaydediliyor... Tamamlandığında düzenleyiciden güvenle çıkabilirsiniz."
+    "needsToSaveBeforeExiting": "Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz."
   }
 }
