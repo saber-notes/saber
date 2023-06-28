@@ -13,18 +13,18 @@
   "cs": {
     "home": {
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Přejmenovat poznámku",
+        "noteName(OUTDATED)": "Nový název poznámky",
+        "rename(OUTDATED)": "Přejmenovat",
+        "noteNameEmpty(OUTDATED)": "Název poznámky nemůže být prázdný",
+        "noteNameContainsSlash(OUTDATED)": "Název poznámky nemůže obsahovat lomítko",
+        "noteNameExists(OUTDATED)": "Poznámka s tímto názvem již existuje"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Přesunout poznámku",
+        "moveName(OUTDATED)": "Přesun poznámky $f",
+        "move(OUTDATED)": "Přesunout",
+        "renamedTo(OUTDATED)": "Poznámka bude přejmenována na $newName"
       }
     }
   },
