@@ -1,6 +1,10 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -61,11 +65,16 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
         ),
       ),
       _CanvasImageDialogItem(
-        // TODO: allow saving SVGs
-        onTap: (widget.image.memoryImage == null) ? null : () {
+        onTap: () {
           final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
           final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
-          FileManager.exportFile(imageFileName, widget.image.memoryImage!.bytes, isImage: true);
+          final Uint8List bytes;
+          if (widget.image is SvgEditorImage) {
+            bytes = Uint8List.fromList(utf8.encode((widget.image as SvgEditorImage).svgString));
+          } else {
+            bytes = widget.image.memoryImage?.bytes ?? Uint8List(0);
+          }
+          FileManager.exportFile(imageFileName, bytes, isImage: true);
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.download,
