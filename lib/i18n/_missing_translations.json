@@ -473,11 +473,5 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {
-    "home": {
-      "moveNote": {
-        "moveName(OUTDATED)": "移動 $f"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
