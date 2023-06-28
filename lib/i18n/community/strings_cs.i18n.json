@@ -28,18 +28,18 @@
       "folderNameExists": "Složka s tímto názvem již existuje"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "Přejmenovat poznámku",
-      "noteName(OUTDATED)": "Název poznámky",
-      "rename(OUTDATED)": "Přejmenovat",
-      "noteNameEmpty(OUTDATED)": "Název poznámky nesmí být prázdný",
-      "noteNameContainsSlash(OUTDATED)": "Název poznámky nesmí obsahovat lomítko",
-      "noteNameExists(OUTDATED)": "Poznámka s tímto názvem již existuje"
+      "renameNote": "Přejmenovat poznámku",
+      "noteName": "Nový název poznámky",
+      "rename": "Přejmenovat",
+      "noteNameEmpty": "Název poznámky nemůže být prázdný",
+      "noteNameContainsSlash": "Název poznámky nemůže obsahovat lomítko",
+      "noteNameExists": "Poznámka s tímto názvem již existuje"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "Přesunout poznámku",
-      "moveName(OUTDATED)": "Přesunout $f",
-      "move(OUTDATED)": "Hýbat se",
-      "renamedTo(OUTDATED)": "Poznámka bude přejmenován na $newName"
+      "moveNote": "Přesunout poznámku",
+      "moveName": "Přesun poznámky $f",
+      "move": "Přesunout",
+      "renamedTo": "Poznámka bude přejmenována na $newName"
     }
   },
   "settings": {

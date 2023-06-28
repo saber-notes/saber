@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 05:49 UTC
+/// Built on 2023-06-28 at 17:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1746,10 +1746,10 @@ class _StringsHomeRenameNoteCs extends _StringsHomeRenameNoteEn {
 
 	// Translations
 	@override String get renameNote => 'Přejmenovat poznámku';
-	@override String get noteName => 'Název poznámky';
+	@override String get noteName => 'Nový název poznámky';
 	@override String get rename => 'Přejmenovat';
-	@override String get noteNameEmpty => 'Název poznámky nesmí být prázdný';
-	@override String get noteNameContainsSlash => 'Název poznámky nesmí obsahovat lomítko';
+	@override String get noteNameEmpty => 'Název poznámky nemůže být prázdný';
+	@override String get noteNameContainsSlash => 'Název poznámky nemůže obsahovat lomítko';
 	@override String get noteNameExists => 'Poznámka s tímto názvem již existuje';
 }
 
@@ -1761,9 +1761,9 @@ class _StringsHomeMoveNoteCs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Přesunout poznámku';
-	@override String moveName({required Object f}) => 'Přesunout ${f}';
-	@override String get move => 'Hýbat se';
-	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenován na ${newName}';
+	@override String moveName({required Object f}) => 'Přesun poznámky ${f}';
+	@override String get move => 'Přesunout';
+	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenována na ${newName}';
 }
 
 // Path: settings.prefCategories

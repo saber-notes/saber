@@ -10,24 +10,7 @@
       }
     }
   },
-  "cs": {
-    "home": {
-      "renameNote": {
-        "renameNote(OUTDATED)": "Přejmenovat poznámku",
-        "noteName(OUTDATED)": "Nový název poznámky",
-        "rename(OUTDATED)": "Přejmenovat",
-        "noteNameEmpty(OUTDATED)": "Název poznámky nemůže být prázdný",
-        "noteNameContainsSlash(OUTDATED)": "Název poznámky nemůže obsahovat lomítko",
-        "noteNameExists(OUTDATED)": "Poznámka s tímto názvem již existuje"
-      },
-      "moveNote": {
-        "moveNote(OUTDATED)": "Přesunout poznámku",
-        "moveName(OUTDATED)": "Přesun poznámky $f",
-        "move(OUTDATED)": "Přesunout",
-        "renamedTo(OUTDATED)": "Poznámka bude přejmenována na $newName"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "home": {
       "renameNote": {
