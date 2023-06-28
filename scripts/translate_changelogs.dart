@@ -88,8 +88,8 @@ void main() async {
         englishChangelog,
         from: 'en',
         to: nearestLocaleCode,
-        retries: 10,
-      );
+        retries: 3,
+      ).timeout(const Duration(seconds: 5));
     } catch (e) {
       print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
       someTranslationsFailed = true;

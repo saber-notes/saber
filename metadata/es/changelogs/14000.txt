@@ -1,0 +1,5 @@
+• Soporte para carpetas!
+• Mueva y cambie rápidamente el nombre de las notas desde la pantalla de inicio
+• Se corrigieron las rarezas con Scribble en iPad en el selector de tamaño de pluma
+• Se corrigió la descarga de archivos SVG.
+• Ajustes visuales y de rendimiento menores

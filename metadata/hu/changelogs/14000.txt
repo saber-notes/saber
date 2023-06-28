@@ -1,0 +1,5 @@
+• Mappák támogatása!
+• Gyorsan mozgathatja és átnevezheti a jegyzeteket a kezdőképernyőről
+• A furcsaságok kijavítása a Scribble segítségével iPaden a tollméret-választóban
+• Javítva az SVG-k letöltése
+• Kisebb vizuális és teljesítménybeli változtatások

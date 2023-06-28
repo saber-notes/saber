@@ -1,0 +1,5 @@
+• Prise en charge des dossiers !
+• Déplacer et renommer rapidement des notes depuis l'écran d'accueil
+• Correction de l'étrangeté avec Scribble sur iPad dans le sélecteur de taille de stylo
+• Correction du téléchargement des SVG
+• Ajustements visuels et de performances mineurs

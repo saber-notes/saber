@@ -1,0 +1,5 @@
+• Supporto per le cartelle!
+• Spostare e rinominare rapidamente le note dalla schermata principale
+• Risolto il problema con Scribble su iPad nel selettore delle dimensioni della penna
+• Corretto il download di SVG
+• Piccole modifiche visive e prestazionali

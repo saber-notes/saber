@@ -1,0 +1,5 @@
+• Podpora pro složky!
+• Rychle přesouvejte a přejmenovávejte poznámky z domovské obrazovky
+• Opravena podivnost s Klikyháky na iPadu ve výběru velikosti pera
+• Opraveno stahování SVG
+• Drobné vizuální a výkonnostní úpravy
