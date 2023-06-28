@@ -335,17 +335,17 @@
   "it": {
     "home": {
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Rinomina nota",
+        "noteName(OUTDATED)": "Nome nota",
+        "rename(OUTDATED)": "Rinomina",
+        "noteNameEmpty(OUTDATED)": "Il nome della nota non può essere vuoto",
+        "noteNameContainsSlash(OUTDATED)": "Il nome della nota non può contenere una barra",
+        "noteNameExists(OUTDATED)": "Esiste già una nota con questo nome"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move"
+        "moveNote(OUTDATED)": "Sposta nota",
+        "moveName(OUTDATED)": "Sposta $f",
+        "move(OUTDATED)": "Sposta"
       }
     }
   },
