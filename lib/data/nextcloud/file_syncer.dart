@@ -142,12 +142,16 @@ abstract class FileSyncer {
 
       final String localDataEncrypted;
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
-        String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
-        if (localDataUnencrypted == null) {
-          if (kDebugMode) print('Failed to read file $filePathUnencrypted to upload');
+        final encryptedChunks = <int>[];
+        await for (final chunkBytes in FileManager.readFileAsStream(filePathUnencrypted)) {
+          final encrypted = encrypter.encryptBytes(chunkBytes, iv: iv).bytes;
+          encryptedChunks.addAll(encrypted);
+        }
+        if (encryptedChunks.isEmpty) {
+          if (kDebugMode) print('Failed to encrypt file $filePathUnencrypted to upload');
           return;
         }
-        localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
+        localDataEncrypted = base64Encode(encryptedChunks);
       } else {
         localDataEncrypted = deletedFileDummyContent;
       }

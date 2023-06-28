@@ -86,6 +86,24 @@ class FileManager {
     return result;
   }
 
+  /// Returns a stream of chunks of the file at [filePath].
+  /// The chunks are of size [chunkSize] bytes (default 1MB).
+  /// 
+  /// Adapted from https://github.com/leocavalcante/encrypt/issues/216#issuecomment-950020343
+  static Stream<Uint8List> readFileAsStream(String filePath, {int chunkSize = 1024 * 1024}) async* {
+    filePath = _sanitisePath(filePath);
+
+    final file = File(await documentsDirectory + filePath);
+    if (!file.existsSync()) return;
+    final fileLength = await file.length();
+    final randomAccessFile = await file.open();
+
+    for (int startByte = 0; startByte < fileLength; startByte += chunkSize) {
+      await randomAccessFile.setPosition(startByte);
+      yield await randomAccessFile.read(chunkSize);
+    }
+  }
+
   /// Writes [toWrite] to [filePath].
   static Future<void> writeFile(String filePath, String toWrite, { bool awaitWrite = false, bool alsoUpload = true }) async {
     filePath = _sanitisePath(filePath);
