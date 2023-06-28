@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 17:37 UTC
+/// Built on 2023-06-28 at 17:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5920,11 +5920,11 @@ class _StringsHomeRenameNoteIt extends _StringsHomeRenameNoteEn {
 
 	// Translations
 	@override String get renameNote => 'Rinomina nota';
-	@override String get noteName => 'Nota nome';
-	@override String get rename => 'Rinominare';
+	@override String get noteName => 'Nome nota';
+	@override String get rename => 'Rinomina';
 	@override String get noteNameEmpty => 'Il nome della nota non può essere vuoto';
 	@override String get noteNameContainsSlash => 'Il nome della nota non può contenere una barra';
-	@override String get noteNameExists => 'Una nota con questo nome esiste già';
+	@override String get noteNameExists => 'Esiste già una nota con questo nome';
 }
 
 // Path: home.moveNote
@@ -5936,7 +5936,7 @@ class _StringsHomeMoveNoteIt extends _StringsHomeMoveNoteEn {
 	// Translations
 	@override String get moveNote => 'Sposta nota';
 	@override String moveName({required Object f}) => 'Sposta ${f}';
-	@override String get move => 'Mossa';
+	@override String get move => 'Sposta';
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
 }
 

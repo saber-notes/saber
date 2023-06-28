@@ -28,17 +28,17 @@
       "folderNameExists": "La cartella esiste già"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "Rinomina nota",
-      "noteName(OUTDATED)": "Nota nome",
-      "rename(OUTDATED)": "Rinominare",
-      "noteNameEmpty(OUTDATED)": "Il nome della nota non può essere vuoto",
-      "noteNameContainsSlash(OUTDATED)": "Il nome della nota non può contenere una barra",
-      "noteNameExists(OUTDATED)": "Una nota con questo nome esiste già"
+      "renameNote": "Rinomina nota",
+      "noteName": "Nome nota",
+      "rename": "Rinomina",
+      "noteNameEmpty": "Il nome della nota non può essere vuoto",
+      "noteNameContainsSlash": "Il nome della nota non può contenere una barra",
+      "noteNameExists": "Esiste già una nota con questo nome"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "Sposta nota",
-      "moveName(OUTDATED)": "Sposta $f",
-      "move(OUTDATED)": "Mossa",
+      "moveNote": "Sposta nota",
+      "moveName": "Sposta $f",
+      "move": "Sposta",
       "renamedTo": "La nota verrà rinominata in $newName"
     }
   },
