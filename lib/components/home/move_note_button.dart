@@ -79,7 +79,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
 
   Future findChildrenOfCurrentFolder() async {
     currentFolderChildren = await FileManager.getChildrenOfDirectory(currentFolder);
-    newFileName = await FileManager.suffixFilePathToMakeItUnique('$currentFolder$fileName', widget.existingPath)
+    newFileName = await FileManager.suffixFilePathToMakeItUnique('$currentFolder$fileName', '${widget.existingPath}${Editor.extension}')
       .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
     if (!mounted) return;
     setState(() {});
