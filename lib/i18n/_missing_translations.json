@@ -411,24 +411,7 @@
       }
     }
   },
-  "ru": {
-    "home": {
-      "renameNote": {
-        "renameNote(OUTDATED)": "Переименовать заметку",
-        "noteName(OUTDATED)": "Название заметки",
-        "rename(OUTDATED)": "Переименовать",
-        "noteNameEmpty(OUTDATED)": "Название заметки не может быть пустым",
-        "noteNameContainsSlash(OUTDATED)": "Название заметки не может содержать косую черту",
-        "noteNameExists(OUTDATED)": "Заметка с таким названием уже существует"
-      },
-      "moveNote": {
-        "moveNote(OUTDATED)": "Переместить заметку",
-        "moveName(OUTDATED)": "Переместить $f",
-        "move(OUTDATED)": "Перемещение",
-        "renamedTo(OUTDATED)": "Заметка будет переименована в $newName"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "home": {
       "newFolder": {

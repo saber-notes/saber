@@ -28,18 +28,18 @@
       "folderNameExists": "Папка уже существует"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "Переименовать заметку",
-      "noteName(OUTDATED)": "Название заметки",
-      "rename(OUTDATED)": "Переименовать",
-      "noteNameEmpty(OUTDATED)": "Укажите название заметки.",
-      "noteNameContainsSlash(OUTDATED)": "Название заметки не может содержать косую черту",
-      "noteNameExists(OUTDATED)": "Заметка с таким названием уже существует"
+      "renameNote": "Переименовать заметку",
+      "noteName": "Название заметки",
+      "rename": "Переименовать",
+      "noteNameEmpty": "Название заметки не может быть пустым",
+      "noteNameContainsSlash": "Название заметки не может содержать косую черту",
+      "noteNameExists": "Заметка с таким названием уже существует"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "Переместить заметку",
-      "moveName(OUTDATED)": "Переместить $f",
-      "move(OUTDATED)": "Двигаться",
-      "renamedTo(OUTDATED)": "Примечание будет переименовано в $newName"
+      "moveNote": "Переместить заметку",
+      "moveName": "Переместить $f",
+      "move": "Перемещение",
+      "renamedTo": "Заметка будет переименована в $newName"
     }
   },
   "settings": {

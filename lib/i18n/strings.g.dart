@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 02:38 UTC
+/// Built on 2023-06-28 at 04:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7314,7 +7314,7 @@ class _StringsHomeRenameNoteRu extends _StringsHomeRenameNoteEn {
 	@override String get renameNote => 'Переименовать заметку';
 	@override String get noteName => 'Название заметки';
 	@override String get rename => 'Переименовать';
-	@override String get noteNameEmpty => 'Укажите название заметки.';
+	@override String get noteNameEmpty => 'Название заметки не может быть пустым';
 	@override String get noteNameContainsSlash => 'Название заметки не может содержать косую черту';
 	@override String get noteNameExists => 'Заметка с таким названием уже существует';
 }
@@ -7328,8 +7328,8 @@ class _StringsHomeMoveNoteRu extends _StringsHomeMoveNoteEn {
 	// Translations
 	@override String get moveNote => 'Переместить заметку';
 	@override String moveName({required Object f}) => 'Переместить ${f}';
-	@override String get move => 'Двигаться';
-	@override String renamedTo({required Object newName}) => 'Примечание будет переименовано в ${newName}';
+	@override String get move => 'Перемещение';
+	@override String renamedTo({required Object newName}) => 'Заметка будет переименована в ${newName}';
 }
 
 // Path: settings.prefCategories
