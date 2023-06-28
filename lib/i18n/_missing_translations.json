@@ -476,7 +476,7 @@
   "zh-Hant-TW": {
     "home": {
       "moveNote": {
-        "moveName(OUTDATED)": "Move $f"
+        "moveName(OUTDATED)": "移動 $f"
       }
     }
   }
