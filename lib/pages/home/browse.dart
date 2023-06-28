@@ -144,6 +144,10 @@ class _BrowsePageState extends State<BrowsePage> {
               ),
             ] else ...[
               SliverSafeArea(
+                minimum: const EdgeInsets.only(
+                  // Allow space for the FloatingActionButton
+                  bottom: 70,
+                ),
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
                   files: [

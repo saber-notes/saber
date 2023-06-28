@@ -98,6 +98,10 @@ class _RecentPageState extends State<RecentPage> {
               ),
             ] else ...[
               SliverSafeArea(
+                minimum: const EdgeInsets.only(
+                  // Allow space for the FloatingActionButton
+                  bottom: 70,
+                ),
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
                   files: [
