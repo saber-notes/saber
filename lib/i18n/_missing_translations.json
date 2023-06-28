@@ -336,45 +336,45 @@
   "pt-BR": {
     "home": {
       "newFolder": {
-        "newFolder(OUTDATED)": "New folder",
-        "folderName(OUTDATED)": "Folder name",
-        "create(OUTDATED)": "Create",
-        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
-        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
-        "folderNameExists(OUTDATED)": "Folder already exists"
+        "newFolder(OUTDATED)": "Nova pasta",
+        "folderName(OUTDATED)": "Nome da pasta",
+        "create(OUTDATED)": "Criar",
+        "folderNameEmpty(OUTDATED)": "O nome da pasta não pode estar vazio",
+        "folderNameContainsSlash(OUTDATED)": "O nome da pasta não pode conter uma barra",
+        "folderNameExists(OUTDATED)": "A pasta já existe"
       },
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Renomear nota",
+        "noteName(OUTDATED)": "Nome da nota",
+        "rename(OUTDATED)": "Renomear",
+        "noteNameEmpty(OUTDATED)": "O nome da nota não pode estar vazio",
+        "noteNameContainsSlash(OUTDATED)": "O nome da nota não pode conter uma barra",
+        "noteNameExists(OUTDATED)": "Já existe uma nota com este nome"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Mover a nota",
+        "moveName(OUTDATED)": "Mover $f",
+        "move(OUTDATED)": "Mover",
+        "renamedTo(OUTDATED)": "A nota será renomeada para $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize(OUTDATED)": "Layout type"
+        "layoutSize(OUTDATED)": "Tipo de leiaute"
       },
       "layoutSizes": {
-        "auto(OUTDATED)": "Auto",
-        "phone(OUTDATED)": "Phone",
+        "auto(OUTDATED)": "Automático",
+        "phone(OUTDATED)": "Celular",
         "tablet(OUTDATED)": "Tablet"
       }
     },
     "editor": {
       "pens": {
-        "laserPointer(OUTDATED)": "Laser pointer"
+        "laserPointer(OUTDATED)": "Apontador laser"
       },
       "hud": {
-        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "Desbloqueie a rolagem para horizontal ou vertical",
+        "lockAxisAlignedPan(OUTDATED)": "Bloqueie a rolagem para horizontal ou vertical"
       }
     }
   },
