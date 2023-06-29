@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-28 at 17:39 UTC
+/// Built on 2023-06-29 at 00:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6630,7 +6630,7 @@ class _StringsHomeMoveNotePtBr extends _StringsHomeMoveNoteEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get moveNote => 'Mover nota';
+	@override String get moveNote => 'Mover a nota';
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'A nota será renomeada para ${newName}';
@@ -6658,7 +6658,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Idioma do aplicativo';
 	@override String get appTheme => 'Tema do aplicativo';
 	@override String get platform => 'Tipo do tema';
-	@override String get layoutSize => 'Tipo de layout';
+	@override String get layoutSize => 'Tipo de leiaute';
 	@override String get customAccentColor => 'Cor de destaque personalizada';
 	@override String get hyperlegibleFont => 'Fonte hiperlegível';
 	@override String get shouldCheckForUpdates => 'Verificar automaticamente as atualizações do Saber';
@@ -6714,9 +6714,9 @@ class _StringsSettingsLayoutSizesPtBr extends _StringsSettingsLayoutSizesEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get auto => 'Automática';
-	@override String get phone => 'Telefone';
-	@override String get tablet => 'Tábua';
+	@override String get auto => 'Automático';
+	@override String get phone => 'Celular';
+	@override String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker
@@ -6942,7 +6942,7 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
 	@override String get highlighter => 'Marcador';
-	@override String get laserPointer => 'Ponteiro laser';
+	@override String get laserPointer => 'Apontador laser';
 }
 
 // Path: editor.penOptions
@@ -7056,8 +7056,8 @@ class _StringsEditorHudPtBr extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Bloquear zoom';
 	@override String get unlockSingleFingerPan => 'Ativar rolagem com um dedo';
 	@override String get lockSingleFingerPan => 'Desativar rolagem com um dedo';
-	@override String get unlockAxisAlignedPan => 'Desbloqueie a panorâmica para horizontal ou vertical';
-	@override String get lockAxisAlignedPan => 'Bloquear panorâmica para horizontal ou vertical';
+	@override String get unlockAxisAlignedPan => 'Desbloqueie a rolagem para horizontal ou vertical';
+	@override String get lockAxisAlignedPan => 'Bloqueie a rolagem para horizontal ou vertical';
 }
 
 // Path: editor.menu.boxFits

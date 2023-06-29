@@ -20,26 +20,26 @@
     "noFiles": "Nenhum arquivo encontrado",
     "createNewNote": "Toque no botão + para criar uma nova nota",
     "newFolder": {
-      "newFolder(OUTDATED)": "Nova pasta",
-      "folderName(OUTDATED)": "Nome da pasta",
-      "create(OUTDATED)": "Criar",
-      "folderNameEmpty(OUTDATED)": "O nome da pasta não pode estar vazio",
-      "folderNameContainsSlash(OUTDATED)": "O nome da pasta não pode conter uma barra",
-      "folderNameExists(OUTDATED)": "A pasta já existe"
+      "newFolder": "Nova pasta",
+      "folderName": "Nome da pasta",
+      "create": "Criar",
+      "folderNameEmpty": "O nome da pasta não pode estar vazio",
+      "folderNameContainsSlash": "O nome da pasta não pode conter uma barra",
+      "folderNameExists": "A pasta já existe"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "Renomear nota",
-      "noteName(OUTDATED)": "Nome da nota",
-      "rename(OUTDATED)": "Renomear",
-      "noteNameEmpty(OUTDATED)": "O nome da nota não pode estar vazio",
-      "noteNameContainsSlash(OUTDATED)": "O nome da nota não pode conter uma barra",
-      "noteNameExists(OUTDATED)": "Já existe uma nota com este nome"
+      "renameNote": "Renomear nota",
+      "noteName": "Nome da nota",
+      "rename": "Renomear",
+      "noteNameEmpty": "O nome da nota não pode estar vazio",
+      "noteNameContainsSlash": "O nome da nota não pode conter uma barra",
+      "noteNameExists": "Já existe uma nota com este nome"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "Mover nota",
-      "moveName(OUTDATED)": "Mover $f",
-      "move(OUTDATED)": "Mover",
-      "renamedTo(OUTDATED)": "A nota será renomeada para $newName"
+      "moveNote": "Mover a nota",
+      "moveName": "Mover $f",
+      "move": "Mover",
+      "renamedTo": "A nota será renomeada para $newName"
     }
   },
   "settings": {
@@ -52,7 +52,7 @@
       "locale": "Idioma do aplicativo",
       "appTheme": "Tema do aplicativo",
       "platform": "Tipo do tema",
-      "layoutSize(OUTDATED)": "Tipo de layout",
+      "layoutSize": "Tipo de leiaute",
       "customAccentColor": "Cor de destaque personalizada",
       "hyperlegibleFont": "Fonte hiperlegível",
       "shouldCheckForUpdates": "Verificar automaticamente as atualizações do Saber",
@@ -87,9 +87,9 @@
       "dark": "Escuro"
     },
     "layoutSizes": {
-      "auto(OUTDATED)": "Automática",
-      "phone(OUTDATED)": "Telefone",
-      "tablet(OUTDATED)": "Tábua"
+      "auto": "Automático",
+      "phone": "Celular",
+      "tablet": "Tablet"
     },
     "accentColorPicker": {
       "pickAColor": "Selecionar uma cor"
@@ -219,7 +219,7 @@
       "fountainPen": "Caneta tinteiro",
       "ballpointPen": "Caneta esferográfica",
       "highlighter": "Marcador",
-      "laserPointer(OUTDATED)": "Ponteiro laser"
+      "laserPointer": "Apontador laser"
     },
     "penOptions": {
       "size": "Tamanho",
@@ -297,8 +297,8 @@
       "lockZoom": "Bloquear zoom",
       "unlockSingleFingerPan": "Ativar rolagem com um dedo",
       "lockSingleFingerPan": "Desativar rolagem com um dedo",
-      "unlockAxisAlignedPan(OUTDATED)": "Desbloqueie a panorâmica para horizontal ou vertical",
-      "lockAxisAlignedPan(OUTDATED)": "Bloquear panorâmica para horizontal ou vertical"
+      "unlockAxisAlignedPan": "Desbloqueie a rolagem para horizontal ou vertical",
+      "lockAxisAlignedPan": "Bloqueie a rolagem para horizontal ou vertical"
     },
     "pages": "Páginas",
     "untitled": "Sem título",
