@@ -57,6 +57,7 @@
       "hyperlegibleFont": "易读字体",
       "shouldCheckForUpdates": "自动检查 Saber 更新",
       "shouldAlwaysAlertForUpdates": "有可用更新时立即通知我",
+      "disableAds(OUTDATED)": "禁用广告",
       "editorToolbarAlignment": "编辑工具栏对齐方式",
       "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
+      "disableAds(OUTDATED)": "广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们",
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
       "editorOpaqueBackgrounds": "移除背景图像和 PDF 的透明度",
       "preferGreyscale": "用于电子墨水显示器",

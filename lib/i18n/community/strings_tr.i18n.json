@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Otomatik olarak Saber güncellemelerini kontrol et",
       "shouldAlwaysAlertForUpdates": "Bir güncelleme mevcut olduğunda uyar",
+      "disableAds(OUTDATED)": "Reklamları devre dışı bırak",
       "editorToolbarAlignment": "Editör araç çubuğunun yerleşimi",
       "editorToolbarShowInFullscreen": "Editör araç kutusunu tam ekranda göster",
       "editorAutoInvert": "Karanlık temada notların rengini tersine çevir",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur",
+      "disableAds(OUTDATED)": "Reklamlar Saber'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin",
       "editorAutoInvert": "Karanlık modda notların rengini değiştirir",
       "editorOpaqueBackgrounds": "PDF'ler ve arkaplan resimlerinden transparanlığı kaldırır",
       "preferGreyscale": "E-mürekkep ekranlar için",

@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Hyperlegible خط",
       "shouldCheckForUpdates": "تحقق تلقائيًا من وجود تحديثات Saber",
       "shouldAlwaysAlertForUpdates": "أخبرني عن التحديثات بمجرد توفرها",
+      "disableAds(OUTDATED)": "عطل الاعلانات",
       "editorToolbarAlignment": "محاذاة شريط أدوات المحرر",
       "editorToolbarShowInFullscreen": "أظهر شريط أدوات المحرر في وضع ملء الشاشة",
       "editorAutoInvert": "اقلب الملاحظات في الوضع المظلم",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية",
+      "disableAds(OUTDATED)": "(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت",
       "editorAutoInvert": "يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم",
       "editorOpaqueBackgrounds": "قم بإزالة الشفافية من صور الخلفية وملفات PDF",
       "preferGreyscale": "لشاشات الحبر الإلكتروني",

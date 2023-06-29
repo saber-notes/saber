@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/home/native_ad_widget.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -286,6 +287,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ],
+                  if (AdState.adsSupported) SettingsSwitch(
+                    title: t.settings.prefLabels.disableAds,
+                    subtitle: t.settings.prefDescriptions.disableAds,
+                    icon: FontAwesomeIcons.rectangleAd,
+                    pref: Prefs.disableAds,
+                  ),
                   const SizedBox(height: 16),
                 ],
               ),

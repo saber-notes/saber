@@ -29,6 +29,8 @@ abstract class Prefs {
   @visibleForTesting
   static bool warnIfPrefAccessedBeforeLoaded = true;
 
+  static late final PlainPref<bool> disableAds;
+
   static late final EncPref<String> url;
   static late final EncPref<String> username;
   /// the password used to login to NextCloud
@@ -97,6 +99,8 @@ abstract class Prefs {
   static late final PlainPref<String> locale;
 
   static void init() {
+    disableAds = PlainPref('disableAds', false);
+
     url = EncPref('url', '');
     username = EncPref('username', '');
     ncPassword = EncPref('ncPassword', '');

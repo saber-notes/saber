@@ -8,9 +8,26 @@
       "moveNote": {
         "moveName(OUTDATED)": "Move $f"
       }
+    },
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
     }
   },
-  "cs": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
+    }
+  },
   "de": {
     "home": {
       "renameNote": {
@@ -27,6 +44,14 @@
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
+    },
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
     }
   },
   "es": {
@@ -34,9 +59,26 @@
       "moveNote": {
         "moveName(OUTDATED)": "Move $f"
       }
+    },
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
     }
   },
-  "fa": {},
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
+    }
+  },
   "fr": {
     "home": {
       "newFolder": {
@@ -64,7 +106,11 @@
     },
     "settings": {
       "prefLabels": {
-        "layoutSize(OUTDATED)": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type",
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -141,9 +187,11 @@
     "settings": {
       "prefLabels": {
         "layoutSize(OUTDATED)": "Layout type",
+        "disableAds(OUTDATED)": "Disable ads",
         "printPageIndicators(OUTDATED)": "Print page indicators"
       },
       "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
         "printPageIndicators(OUTDATED)": "Show page indicators in exports"
       },
       "layoutSizes": {
@@ -257,13 +305,48 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
-  "pt-BR": {},
-  "ru": {},
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
+    }
+  },
+  "pt-BR": {
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
+    }
+  },
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
+    }
+  },
   "tr": {
     "home": {
       "moveNote": {
         "moveName(OUTDATED)": "Move $f"
+      }
+    },
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
       }
     },
     "profile": {
@@ -319,7 +402,11 @@
     },
     "settings": {
       "prefLabels": {
-        "layoutSize(OUTDATED)": "Layout type"
+        "layoutSize(OUTDATED)": "Layout type",
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -338,5 +425,14 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "disableAds(OUTDATED)": "Disable ads"
+      },
+      "prefDescriptions": {
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+      }
+    }
+  }
 }

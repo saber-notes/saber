@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Hyperlegible font",
       "shouldCheckForUpdates": "Automatically check for Saber updates",
       "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
+      "disableAds": "Disable ads",
       "editorToolbarAlignment": "Alignment of the editor toolbar",
       "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
       "editorAutoInvert": "Invert notes in dark mode",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
+      "disableAds": "Ads help support Saber's development, but you can disable them if you'd like",
       "editorAutoInvert": "Smartly darkens notes in dark mode",
       "editorOpaqueBackgrounds": "Remove transparency from background images and PDFs",
       "preferGreyscale": "For e-ink displays",

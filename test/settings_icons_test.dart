@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/home/native_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
@@ -15,6 +15,8 @@ void main() {
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
+    Prefs.disableAds.value = true;
+    AdState.init();
 
     final router = GoRouter(
       routes: [

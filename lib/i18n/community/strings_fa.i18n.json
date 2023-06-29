@@ -57,6 +57,7 @@
       "hyperlegibleFont": "فونت بیش از حد خوانا",
       "shouldCheckForUpdates": "به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید",
       "shouldAlwaysAlertForUpdates": "به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید",
+      "disableAds(OUTDATED)": "غیرفعال کردن تبلیغات",
       "editorToolbarAlignment": "تراز کردن نوار ابزار ویرایشگر",
       "editorToolbarShowInFullscreen": "نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید",
       "editorAutoInvert": "معکوس کردن رنگ یادداشت ها در حالت تاریک",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
+      "disableAds(OUTDATED)": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید",
       "editorAutoInvert": "در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند",
       "editorOpaqueBackgrounds": "حذف شفافیت از تصاویر پس زمینه و PDFها",
       "preferGreyscale": "برای نمایشگر های e-ink",

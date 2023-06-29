@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Fonte hiperlegível",
       "shouldCheckForUpdates": "Verificar automaticamente as atualizações do Saber",
       "shouldAlwaysAlertForUpdates": "Me informe sobre as atualizações assim que elas estiverem disponíveis",
+      "disableAds(OUTDATED)": "Desativar anúncios",
       "editorToolbarAlignment": "Alinhamento da barra de ferramentas do editor",
       "editorToolbarShowInFullscreen": "Mostrar a barra de ferramentas do editor no modo de tela cheia",
       "editorAutoInvert": "Inverter as notas no modo escuro",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão",
+      "disableAds(OUTDATED)": "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar",
       "editorAutoInvert": "Escurecer as notas de forma inteligente no modo escuro",
       "editorOpaqueBackgrounds": "Remover a transparência das imagens de plano de fundo e dos PDFs",
       "preferGreyscale": "Para telas e-ink",

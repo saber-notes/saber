@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Hyperlegible betűtipus",
       "shouldCheckForUpdates": "Automatikusan ellenőrzi a Saber frissítéseket",
       "shouldAlwaysAlertForUpdates": "Értesítsen a frissítésekről, amint azok elérhetővé válnak",
+      "disableAds(OUTDATED)": "Hirdetések letiltása",
       "editorToolbarAlignment": "A szerkesztő eszköztár igazítása",
       "editorToolbarShowInFullscreen": "A szerkesztő eszköztár megjelenítése teljes képernyős módban",
       "editorAutoInvert": "Jegyzetek színének felcserélése sötét módban",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára",
+      "disableAds(OUTDATED)": "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik",
       "editorAutoInvert": "Intelligens módon sötétíti a jegyzeteket sötét módban",
       "editorOpaqueBackgrounds": "Átlátszóság eltávolítása a háttérképről és a PDF-ekből",
       "preferGreyscale": "E-tinta kijelzőkhöz",

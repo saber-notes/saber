@@ -27,15 +27,17 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
-  AdState.init();
 
   await Future.wait([
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
     Prefs.locale.waitUntilLoaded(),
+    Prefs.disableAds.waitUntilLoaded(),
     InvertShader.init(),
   ]);
+
+  AdState.init();
 
   setLocale();
   Prefs.locale.addListener(setLocale);

@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
+import 'package:saber/data/prefs.dart';
 
 abstract class AdState {
   static bool _isInitialized = false;
   static late final String _nativeAdUnitId;
 
-  static void init() {
-    MobileAds.instance.initialize()
-      .then((_) => _isInitialized = true);
+  static bool get adsSupported => _nativeAdUnitId.isNotEmpty;
 
+  static void init() {
     if (kDebugMode) { // test ads
       if (Platform.isAndroid) {
         _nativeAdUnitId = 'ca-app-pub-3940256099942544/2247696110';
@@ -31,6 +31,11 @@ abstract class AdState {
       } else {
         _nativeAdUnitId = '';
       }
+    }
+
+    if (adsSupported && !Prefs.disableAds.value) {
+      MobileAds.instance.initialize()
+        .then((_) => _isInitialized = true);
     }
   }
   

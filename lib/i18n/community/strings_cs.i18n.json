@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Lépe čitelný font",
       "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
       "shouldAlwaysAlertForUpdates": "Oznámit dostupnost aktualizací co nejdříve od jejich vydání",
+      "disableAds(OUTDATED)": "Zakázat reklamy",
       "editorToolbarAlignment": "Umístění nabídky editoru",
       "editorToolbarShowInFullscreen": "Zobrazovat nabídku editoru v režimu celé obrazovky",
       "editorAutoInvert": "V tmavém režimu invertovat poznámky",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
+      "disableAds(OUTDATED)": "Reklamy pomáhají podporovat vývoj Saber, ale pokud chcete, můžete je zakázat",
       "editorAutoInvert": "Inteligentně ztmaví poznámky ve tmavém motivu",
       "editorOpaqueBackgrounds": "Odstraní průhlednost z obrázků a PDF na pozadí",
       "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",

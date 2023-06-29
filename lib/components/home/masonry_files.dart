@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/native_ad_widget.dart';
 import 'package:saber/components/home/preview_card.dart';
+import 'package:saber/data/prefs.dart';
 
 class MasonryFiles extends StatelessWidget {
   const MasonryFiles({
@@ -21,8 +22,16 @@ class MasonryFiles extends StatelessWidget {
     /// List of file paths with ads inserted every [itemsBeforeAd] items
     /// (ads are represented by null).
     final List<String?> files = List.from(this.files);
-    for (int i = itemsBeforeAd; i < files.length; i += itemsBeforeAd) {
-      files.insert(i, null);
+    if (!Prefs.disableAds.value) {
+      int numAds = 0;
+      for (int i = itemsBeforeAd; i < files.length; i += itemsBeforeAd) {
+        files.insert(i, null);
+        numAds++;
+      }
+      if (numAds == 0) {
+        // insert an ad at the end if there are no ads
+        files.add(null);
+      }
     }
 
     return SliverPadding(

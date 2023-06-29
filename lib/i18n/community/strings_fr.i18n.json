@@ -57,6 +57,7 @@
       "hyperlegibleFont": "Fonte Hyperlegible",
       "shouldCheckForUpdates": "Rechercher automatiquement les mises à jour",
       "shouldAlwaysAlertForUpdates": "Me prévenir dès qu'une mise à jour est disponible",
+      "disableAds(OUTDATED)": "Désactiver les publicités",
       "editorToolbarAlignment": "Position de la barre d'outils",
       "editorToolbarShowInFullscreen": "Afficher la barre d'outils en mode plein écran",
       "editorAutoInvert": "Inverser les couleurs en mode sombre",
@@ -72,6 +73,7 @@
     },
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
+      "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez",
       "editorAutoInvert": "Assombrit les notes de façon intelligente en mode sombre",
       "editorOpaqueBackgrounds": "Supprime la transparence du fond dans les images et les PDF",
       "preferGreyscale": "Pour les couleurs de stylos proposées",
