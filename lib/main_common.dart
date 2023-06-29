@@ -9,6 +9,7 @@ import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
+import 'package:saber/components/home/native_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
@@ -26,6 +27,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
+  AdState.init();
 
   await Future.wait([
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)

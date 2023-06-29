@@ -138,6 +138,8 @@ dependencies:
 
   fast_image_resizer: ^0.0.2
 
+  google_mobile_ads: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
