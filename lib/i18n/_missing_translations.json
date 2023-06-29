@@ -39,77 +39,77 @@
   "fa": {
     "home": {
       "newFolder": {
-        "newFolder(OUTDATED)": "New folder",
-        "folderName(OUTDATED)": "Folder name",
-        "create(OUTDATED)": "Create",
-        "folderNameEmpty(OUTDATED)": "Folder name can't be empty",
-        "folderNameContainsSlash(OUTDATED)": "Folder name can't contain a slash",
-        "folderNameExists(OUTDATED)": "Folder already exists"
+        "newFolder(OUTDATED)": "پوشه جدید",
+        "folderName(OUTDATED)": "نام پوشه",
+        "create(OUTDATED)": "ايجاد كردن",
+        "folderNameEmpty(OUTDATED)": "نام پوشه نمی تواند خالی باشد",
+        "folderNameContainsSlash(OUTDATED)": "نام پوشه نمی تواند دارای اسلش باشد",
+        "folderNameExists(OUTDATED)": "پوشه از قبل وجود دارد"
       },
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote(OUTDATED)": "تغییر نام یادداشت",
+        "noteName(OUTDATED)": "نام یادداشت",
+        "rename(OUTDATED)": "تغییر نام دهید",
+        "noteNameEmpty(OUTDATED)": "نام یادداشت نمی‌تواند خالی باشد",
+        "noteNameContainsSlash(OUTDATED)": "نام یادداشت نمی‌تواند دارای اسلش باشد",
+        "noteNameExists(OUTDATED)": "یادداشتی با این نام از قبل وجود دارد"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "انتقال یادداشت",
+        "moveName(OUTDATED)": "انتقال $f",
+        "move(OUTDATED)": "انتقال",
+        "renamedTo(OUTDATED)": "یادداشت به $newName تغییر نام می یابد"
       }
     },
     "settings": {
       "prefLabels": {
-        "layoutSize(OUTDATED)": "Layout type"
+        "layoutSize(OUTDATED)": "نوع چیدمان"
       },
       "layoutSizes": {
-        "auto(OUTDATED)": "Auto",
-        "phone(OUTDATED)": "Phone",
-        "tablet(OUTDATED)": "Tablet"
+        "auto(OUTDATED)": "خودکار",
+        "phone(OUTDATED)": "تلفن",
+        "tablet(OUTDATED)": "تبلت"
       }
     },
     "login": {
       "feedbacks": {
-        "ncUnsupportedFailure(OUTDATED)": "The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s."
+        "ncUnsupportedFailure(OUTDATED)": "سرور داده شده Nextcloud $v را اجرا می کند اما این نسخه از Saber فقط از Nextcloud $s پشتیبانی می کند."
       }
     },
     "editor": {
       "pens": {
-        "laserPointer(OUTDATED)": "Laser pointer"
+        "laserPointer(OUTDATED)": "اشاره گر لیزری"
       },
       "colors": {
-        "colorPicker(OUTDATED)": "Color picker",
-        "black(OUTDATED)": "Black",
-        "darkGrey(OUTDATED)": "Dark grey",
-        "grey(OUTDATED)": "Grey",
-        "lightGrey(OUTDATED)": "Light grey",
-        "white(OUTDATED)": "White",
-        "red(OUTDATED)": "Red",
-        "green(OUTDATED)": "Green",
-        "blue(OUTDATED)": "Blue",
-        "yellow(OUTDATED)": "Yellow",
-        "purple(OUTDATED)": "Purple",
-        "orange(OUTDATED)": "Orange",
-        "pastelRed(OUTDATED)": "Pastel red",
-        "pastelOrange(OUTDATED)": "Pastel orange",
-        "pastelYellow(OUTDATED)": "Pastel yellow",
-        "pastelGreen(OUTDATED)": "Pastel green",
-        "pastelCyan(OUTDATED)": "Pastel cyan",
-        "pastelBlue(OUTDATED)": "Pastel blue",
-        "pastelPurple(OUTDATED)": "Pastel purple",
-        "pastelPink(OUTDATED)": "Pastel pink"
+        "colorPicker(OUTDATED)": "انتخاب کننده رنگ",
+        "black(OUTDATED)": "مشکی",
+        "darkGrey(OUTDATED)": "خاکستری تیره",
+        "grey(OUTDATED)": "خاکستری",
+        "lightGrey(OUTDATED)": "خاکستری روشن",
+        "white(OUTDATED)": "سفید",
+        "red(OUTDATED)": "قرمز",
+        "green(OUTDATED)": "سبز",
+        "blue(OUTDATED)": "آبی",
+        "yellow(OUTDATED)": "زرد",
+        "purple(OUTDATED)": "بنفش",
+        "orange(OUTDATED)": "نارنجی",
+        "pastelRed(OUTDATED)": "قرمز پاستلی",
+        "pastelOrange(OUTDATED)": "نارنجی پاستلی",
+        "pastelYellow(OUTDATED)": "زرد پاستلی",
+        "pastelGreen(OUTDATED)": "سبز پاستلی",
+        "pastelCyan(OUTDATED)": "فیروزه ای پاستلی",
+        "pastelBlue(OUTDATED)": "آبی پاستلی",
+        "pastelPurple(OUTDATED)": "بنفش پاستلی",
+        "pastelPink(OUTDATED)": "صورتی پاستلی"
       },
       "menu": {
-        "clearPage(OUTDATED)": "Clear page $page/$totalPages"
+        "clearPage(OUTDATED)": "صفحه $page/$totalPages را پاک کنید"
       },
       "hud": {
-        "unlockAxisAlignedPan(OUTDATED)": "Unlock panning to horizontal or vertical",
-        "lockAxisAlignedPan(OUTDATED)": "Lock panning to horizontal or vertical"
+        "unlockAxisAlignedPan(OUTDATED)": "باز کردن قفل حرکت به حالت افقی یا عمودی",
+        "lockAxisAlignedPan(OUTDATED)": "پانینگ را به صورت افقی یا عمودی قفل کنید"
       },
-      "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
+      "needsToSaveBeforeExiting(OUTDATED)": "در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید"
     }
   },
   "fr": {
