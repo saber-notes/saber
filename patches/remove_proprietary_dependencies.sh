@@ -23,3 +23,10 @@ fi
 # Update flavor
 echo "Updating flavor to FOSS"
 sed -i -e "s!flavor: null,!flavor: 'FOSS',!" lib/main.dart
+
+# Remove google_mobile_ads package and related code
+echo "Removing Google Ads"
+# Remove google_mobile_ads from pubspec.yaml
+sed -i -e '/google_mobile_ads/d' pubspec.yaml
+# Replace native_ad_widget.dart with _native_ad_widget_dummy.dart
+mv lib/components/home/_native_ad_widget_dummy.dart lib/components/home/native_ad_widget.dart
