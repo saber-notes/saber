@@ -20,26 +20,26 @@
     "noFiles": "فایلی پیدا نشد",
     "createNewNote": "برای ساخت یادداشت دکمه + را بزنید",
     "newFolder": {
-      "newFolder(OUTDATED)": "پوشه جدید",
-      "folderName(OUTDATED)": "نام پوشه",
-      "create(OUTDATED)": "ایجاد آفرینش",
-      "folderNameEmpty(OUTDATED)": "نام پوشه نمی تواند خالی باشد",
-      "folderNameContainsSlash(OUTDATED)": "نام پوشه نمی تواند دارای اسلش باشد",
-      "folderNameExists(OUTDATED)": "پوشه از قبل وجود دارد"
+      "newFolder": "پوشه جدید",
+      "folderName": "نام پوشه",
+      "create": "ايجاد كردن",
+      "folderNameEmpty": "نام پوشه نمی تواند خالی باشد",
+      "folderNameContainsSlash": "نام پوشه نمی تواند دارای اسلش باشد",
+      "folderNameExists": "پوشه از قبل وجود دارد"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "تغییر نام یادداشت",
-      "noteName(OUTDATED)": "نام یادداشت",
-      "rename(OUTDATED)": "تغییر نام دهید",
-      "noteNameEmpty(OUTDATED)": "نام یادداشت نمی تواند خالی باشد",
-      "noteNameContainsSlash(OUTDATED)": "نام یادداشت نمی‌تواند دارای اسلش باشد",
-      "noteNameExists(OUTDATED)": "یادداشتی با این نام از قبل وجود دارد"
+      "renameNote": "تغییر نام یادداشت",
+      "noteName": "نام یادداشت",
+      "rename": "تغییر نام دهید",
+      "noteNameEmpty": "نام یادداشت نمی‌تواند خالی باشد",
+      "noteNameContainsSlash": "نام یادداشت نمی‌تواند دارای اسلش باشد",
+      "noteNameExists": "یادداشتی با این نام از قبل وجود دارد"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "حرکت یادداشت",
-      "moveName(OUTDATED)": "$f را حرکت دهید",
-      "move(OUTDATED)": "حرکت",
-      "renamedTo(OUTDATED)": "توجه به $newName دلار تغییر خواهد کرد"
+      "moveNote": "انتقال یادداشت",
+      "moveName": "انتقال $f",
+      "move": "انتقال",
+      "renamedTo": "یادداشت به $newName تغییر نام می یابد"
     }
   },
   "settings": {
@@ -52,7 +52,7 @@
       "locale": "زبان برنامه",
       "appTheme": "تم برنامه",
       "platform": "نوع تم",
-      "layoutSize(OUTDATED)": "نوع چیدمان",
+      "layoutSize": "نوع چیدمان",
       "customAccentColor": "رنگ سفارشی",
       "hyperlegibleFont": "فونت بیش از حد خوانا",
       "shouldCheckForUpdates": "به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید",
@@ -87,9 +87,9 @@
       "dark": "تاریک"
     },
     "layoutSizes": {
-      "auto(OUTDATED)": "خودکار",
-      "phone(OUTDATED)": "تلفن",
-      "tablet(OUTDATED)": "تبلت"
+      "auto": "خودکار",
+      "phone": "تلفن",
+      "tablet": "تبلت"
     },
     "accentColorPicker": {
       "pickAColor": "یک رنگ انتخاب کنید"
@@ -119,7 +119,7 @@
       "enterEncPassword": "لطفا رمز رمزگذاری خود را وارد کنید",
       "checkUrl": "لطفا یک آدرس اینترنتی معتبر وارد کنید",
       "ncLoginFailed": "ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید",
-      "ncUnsupportedFailure(OUTDATED)": "سرور داده شده Nextcloud $v را اجرا می کند اما این نسخه از Saber فقط از Nextcloud $s پشتیبانی می کند.",
+      "ncUnsupportedFailure": "سرور داده شده Nextcloud $v را اجرا می کند اما این نسخه از Saber فقط از Nextcloud $s پشتیبانی می کند.",
       "encLoginFailed": "ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید",
       "loginSuccess": "با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید "
     },
@@ -219,33 +219,33 @@
       "fountainPen": "خودنویس",
       "ballpointPen": "خودکار",
       "highlighter": "هایلایتر",
-      "laserPointer(OUTDATED)": "اشاره گر لیزری"
+      "laserPointer": "اشاره گر لیزری"
     },
     "penOptions": {
       "size": "اندازه",
       "sizeDragHint": "برای تغییر اندازه به چپ یا راست بکشید"
     },
     "colors": {
-      "colorPicker(OUTDATED)": "انتخاب کننده رنگ",
-      "black(OUTDATED)": "مشکی",
-      "darkGrey(OUTDATED)": "خاکستری تیره",
-      "grey(OUTDATED)": "خاکستری",
-      "lightGrey(OUTDATED)": "خاکستری روشن",
-      "white(OUTDATED)": "سفید سفید سفید",
-      "red(OUTDATED)": "قرمز",
-      "green(OUTDATED)": "سبز",
-      "blue(OUTDATED)": "آبی",
-      "yellow(OUTDATED)": "رنگ زرد",
-      "purple(OUTDATED)": "رنگ بنفش",
-      "orange(OUTDATED)": "نارنجی",
-      "pastelRed(OUTDATED)": "قرمز پاستلی",
-      "pastelOrange(OUTDATED)": "نارنجی پاستلی",
-      "pastelYellow(OUTDATED)": "زرد پاستلی",
-      "pastelGreen(OUTDATED)": "سبز پاستلی",
-      "pastelCyan(OUTDATED)": "فیروزه ای پاستلی",
-      "pastelBlue(OUTDATED)": "آبی پاستلی",
-      "pastelPurple(OUTDATED)": "بنفش پاستلی",
-      "pastelPink(OUTDATED)": "صورتی پاستلی"
+      "colorPicker": "انتخاب کننده رنگ",
+      "black": "مشکی",
+      "darkGrey": "خاکستری تیره",
+      "grey": "خاکستری",
+      "lightGrey": "خاکستری روشن",
+      "white": "سفید",
+      "red": "قرمز",
+      "green": "سبز",
+      "blue": "آبی",
+      "yellow": "زرد",
+      "purple": "بنفش",
+      "orange": "نارنجی",
+      "pastelRed": "قرمز پاستلی",
+      "pastelOrange": "نارنجی پاستلی",
+      "pastelYellow": "زرد پاستلی",
+      "pastelGreen": "سبز پاستلی",
+      "pastelCyan": "فیروزه ای پاستلی",
+      "pastelBlue": "آبی پاستلی",
+      "pastelPurple": "بنفش پاستلی",
+      "pastelPink": "صورتی پاستلی"
     },
     "imageOptions": {
       "title": "گزینه های تصویر",
@@ -256,7 +256,7 @@
       "delete": "حذف"
     },
     "menu": {
-      "clearPage(OUTDATED)": "صفحه $page/$totalPages را پاک کنید",
+      "clearPage": "صفحه $page/$totalPages را پاک کنید",
       "clearAllPages": "تمام صفحات را پاک کنید",
       "insertPage": "درج صفحه در زیر",
       "duplicatePage": "تکرار صفحه",
@@ -297,11 +297,11 @@
       "lockZoom": "قفل زوم",
       "unlockSingleFingerPan": "تحرک تک انگشتی را فعال کنید",
       "lockSingleFingerPan": "تحرک تک انگشتی را غیرفعال کنید",
-      "unlockAxisAlignedPan(OUTDATED)": "باز کردن قفل حرکت به حالت افقی یا عمودی",
-      "lockAxisAlignedPan(OUTDATED)": "پانینگ را به صورت افقی یا عمودی قفل کنید"
+      "unlockAxisAlignedPan": "باز کردن قفل حرکت به حالت افقی یا عمودی",
+      "lockAxisAlignedPan": "پانینگ را به صورت افقی یا عمودی قفل کنید"
     },
     "pages": "صفحات",
     "untitled": "بدون عنوان",
-    "needsToSaveBeforeExiting(OUTDATED)": "در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید"
+    "needsToSaveBeforeExiting": "در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید"
   }
 }
