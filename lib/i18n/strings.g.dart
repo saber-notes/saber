@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2925 (208 per locale)
 ///
-/// Built on 2023-06-29 at 00:15 UTC
+/// Built on 2023-06-30 at 16:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3818,7 +3818,7 @@ class _StringsHomeNewFolderFa extends _StringsHomeNewFolderEn {
 	// Translations
 	@override String get newFolder => 'پوشه جدید';
 	@override String get folderName => 'نام پوشه';
-	@override String get create => 'ایجاد آفرینش';
+	@override String get create => 'ايجاد كردن';
 	@override String get folderNameEmpty => 'نام پوشه نمی تواند خالی باشد';
 	@override String get folderNameContainsSlash => 'نام پوشه نمی تواند دارای اسلش باشد';
 	@override String get folderNameExists => 'پوشه از قبل وجود دارد';
@@ -3834,7 +3834,7 @@ class _StringsHomeRenameNoteFa extends _StringsHomeRenameNoteEn {
 	@override String get renameNote => 'تغییر نام یادداشت';
 	@override String get noteName => 'نام یادداشت';
 	@override String get rename => 'تغییر نام دهید';
-	@override String get noteNameEmpty => 'نام یادداشت نمی تواند خالی باشد';
+	@override String get noteNameEmpty => 'نام یادداشت نمی‌تواند خالی باشد';
 	@override String get noteNameContainsSlash => 'نام یادداشت نمی‌تواند دارای اسلش باشد';
 	@override String get noteNameExists => 'یادداشتی با این نام از قبل وجود دارد';
 }
@@ -3846,10 +3846,10 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get moveNote => 'حرکت یادداشت';
-	@override String moveName({required Object f}) => '${f} را حرکت دهید';
-	@override String get move => 'حرکت';
-	@override String renamedTo({required Object newName}) => 'توجه به ${newName} دلار تغییر خواهد کرد';
+	@override String get moveNote => 'انتقال یادداشت';
+	@override String moveName({required Object f}) => 'انتقال ${f}';
+	@override String get move => 'انتقال';
+	@override String renamedTo({required Object newName}) => 'یادداشت به ${newName} تغییر نام می یابد';
 }
 
 // Path: settings.prefCategories
@@ -4184,12 +4184,12 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get darkGrey => 'خاکستری تیره';
 	@override String get grey => 'خاکستری';
 	@override String get lightGrey => 'خاکستری روشن';
-	@override String get white => 'سفید سفید سفید';
+	@override String get white => 'سفید';
 	@override String get red => 'قرمز';
 	@override String get green => 'سبز';
 	@override String get blue => 'آبی';
-	@override String get yellow => 'رنگ زرد';
-	@override String get purple => 'رنگ بنفش';
+	@override String get yellow => 'زرد';
+	@override String get purple => 'بنفش';
 	@override String get orange => 'نارنجی';
 	@override String get pastelRed => 'قرمز پاستلی';
 	@override String get pastelOrange => 'نارنجی پاستلی';
