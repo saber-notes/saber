@@ -67,6 +67,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.1" type="development" date="2023-07-01">
+            <description>
+                <ul>
+                    <li>Support for Nextcloud 27</li>
+                    <li>Reduced stutters after saving a note</li>
+                    <li>Minor UI improvements</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.0" type="development" date="2023-06-28">
             <description>
                 <ul>

@@ -1,0 +1,3 @@
+• Support for Nextcloud 27
+• Reduced stutters after saving a note
+• Minor UI improvements
