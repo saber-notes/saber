@@ -40,7 +40,7 @@ class _RecentPageState extends State<RecentPage> {
 
     if (fromFileListener) {
       // don't refresh if we're not on the home page
-      final location = GoRouter.of(context).location;
+      final location = GoRouterState.of(context).location;
       if (!location.startsWith(RoutePaths.prefixOfHome)) return;
     }
 

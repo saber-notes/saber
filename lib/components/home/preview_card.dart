@@ -148,7 +148,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
     if (fromFileListener) {
       // don't refresh if we're not on the home page
-      final location = GoRouter.of(context).location;
+      final location = GoRouterState.of(context).location;
       if (!location.startsWith(RoutePaths.prefixOfHome)) return;
     }
 
@@ -270,7 +270,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
         await Future.delayed(transitionDuration);
         if (!mounted) return;
-        if (!GoRouter.of(context).location.startsWith(RoutePaths.prefixOfHome)) return;
+        if (!GoRouterState.of(context).location.startsWith(RoutePaths.prefixOfHome)) return;
         ResponsiveNavbar.setAndroidNavBarColor(theme);
       },
     );
