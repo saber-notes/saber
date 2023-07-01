@@ -67,7 +67,7 @@
     </screenshots>
 
     <releases>
-        <release version="0.14.1" type="development" date="2023-07-01">
+        <release version="0.14.2" type="development" date="2023-07-01">
             <description>
                 <ul>
                     <li>Support for Nextcloud 27</li>

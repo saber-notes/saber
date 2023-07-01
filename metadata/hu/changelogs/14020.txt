@@ -1,0 +1,3 @@
+• Nextcloud 27 támogatása
+• Csökkentett dadogás a jegyzet mentése után
+• Kisebb UI fejlesztések
