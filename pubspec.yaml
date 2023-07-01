@@ -61,7 +61,6 @@ dependencies:
     git:
       url: https://github.com/provokateurin/nextcloud-neon
       path: packages/nextcloud
-      ref: 6b8dc24bd4e4f2fcbff2e7644886b578223b0af1
 
   collapsible: ^1.0.0
 
@@ -162,12 +161,6 @@ dev_dependencies:
 
 dependency_overrides:
   intl: ^0.18.0
-
-  dynamite_runtime:
-    git:
-      url: "https://github.com/provokateurin/nextcloud-neon"
-      path: "packages/dynamite/dynamite_runtime"
-      ref: 6b8dc24bd4e4f2fcbff2e7644886b578223b0af1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

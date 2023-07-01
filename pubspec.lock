@@ -242,11 +242,11 @@ packages:
     source: hosted
     version: "1.6.5"
   dynamite_runtime:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       path: "packages/dynamite/dynamite_runtime"
-      ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
-      resolved-ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
+      ref: HEAD
+      resolved-ref: "46d64f3dc80132b4a38a324546a7becaaeed63db"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -713,8 +713,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/nextcloud"
-      ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
-      resolved-ref: "6b8dc24bd4e4f2fcbff2e7644886b578223b0af1"
+      ref: HEAD
+      resolved-ref: "46d64f3dc80132b4a38a324546a7becaaeed63db"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
