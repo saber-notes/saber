@@ -39,7 +39,7 @@ abstract class AdState {
   }
   
   static const _bannerSize = AdSize.mediumRectangle;
-  static Future<BannerAd?> _createBannerAd(ColorScheme colorScheme) async {
+  static Future<BannerAd?> _createBannerAd() async {
     if (_bannerAdUnitId.isEmpty) {
       if (kDebugMode) print('Banner ad unit ID is empty.');
       return null;
@@ -73,12 +73,29 @@ class BannerAdWidget extends StatefulWidget {
   State<BannerAdWidget> createState() => _BannerAdWidgetState();
 }
 
-class _BannerAdWidgetState extends State<BannerAdWidget> {
-  Future<BannerAd?>? bannerAd;
+class _BannerAdWidgetState extends State<BannerAdWidget> with AutomaticKeepAliveClientMixin {
+  BannerAd? _bannerAd;
+
+  @override
+  void initState() {
+    super.initState();
+    AdState._createBannerAd().then((bannerAd) {
+      if (mounted) {
+        setState(() => _bannerAd = bannerAd);
+      } else {
+        _bannerAd = null;
+        bannerAd?.dispose();
+      }
+      updateKeepAlive();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    bannerAd ??= AdState._createBannerAd(Theme.of(context).colorScheme);
+    super.build(context);
+
+    late final colorScheme = Theme.of(context).colorScheme;
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -90,23 +107,14 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
           child: SizedBox(
             width: AdState._bannerSize.width.toDouble(),
             height: AdState._bannerSize.height.toDouble(),
-            child: FutureBuilder(
-              future: bannerAd,
-              builder: (context, snapshot) {
-                late final colorScheme = Theme.of(context).colorScheme;
-                final bannerAd = snapshot.data;
-                if (bannerAd == null) {
-                  return Center(
+            child: _bannerAd == null
+                ? Center(
                     child: FaIcon(
                       FontAwesomeIcons.rectangleAd,
                       color: colorScheme.onSurface.withOpacity(0.5),
                     ),
-                  );
-                } else {
-                  return AdWidget(ad: bannerAd);
-                }
-              },
-            ),
+                  )
+                : AdWidget(ad: _bannerAd!),
           ),
         ),
       ),
@@ -115,7 +123,11 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
   @override
   void dispose() {
-    bannerAd?.then((bannerAd) => bannerAd?.dispose());
+    _bannerAd?.dispose();
+    _bannerAd = null;
     super.dispose();
   }
+  
+  @override
+  bool get wantKeepAlive => _bannerAd != null;
 }
