@@ -312,17 +312,7 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "settings": {
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "settings": {
       "prefLabels": {
