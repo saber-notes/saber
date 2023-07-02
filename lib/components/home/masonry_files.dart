@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:saber/components/home/native_ad_widget.dart';
+import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -48,7 +48,7 @@ class MasonryFiles extends StatelessWidget {
 
           final file = files[index];
           if (file == null) { // ad
-            return const NativeAdWidget();
+            return const BannerAdWidget();
           } else {
             return PreviewCard(
               filePath: file,

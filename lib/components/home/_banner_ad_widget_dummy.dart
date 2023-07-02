@@ -6,8 +6,8 @@ abstract class AdState {
   static void init() {}
 }
 
-class NativeAdWidget extends StatelessWidget {
-  const NativeAdWidget({super.key});
+class BannerAdWidget extends StatelessWidget {
+  const BannerAdWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
