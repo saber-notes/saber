@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2967 (211 per locale)
 ///
-/// Built on 2023-07-02 at 07:33 UTC
+/// Built on 2023-07-02 at 19:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5991,6 +5991,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
+	@override String get disableAds => 'Disattiva annunci';
 	@override String get changeAdsConsent => 'Modifica il consenso agli annunci';
 	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
@@ -6004,7 +6005,6 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
-	@override String get disableAds => 'Disabilita gli annunci';
 }
 
 // Path: settings.prefDescriptions
@@ -6015,6 +6015,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
+	@override String get disableAds => 'Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri';
 	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
 	@override String get editorOpaqueBackgrounds => 'Rimuovi la trasparenza dalle immagini di sfondo e dai PDF';
 	@override String get preferGreyscale => 'Per display e-ink';
@@ -6023,7 +6024,6 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
-	@override String get disableAds => 'Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri';
 }
 
 // Path: settings.themeModes

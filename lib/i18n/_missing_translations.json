@@ -312,7 +312,8 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
+  "it": {},
+  "pt-BR": {
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
@@ -320,17 +321,6 @@
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
-      }
-    }
-  },
-  "pt-BR": {
-    "settings": {
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Disattiva annunci",
-        "changeAdsConsent(OUTDATED)": "Modifica il consenso agli annunci"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Gli annunci aiutano a supportare lo sviluppo di SabER, ma puoi disattivarli se lo desideri"
       }
     }
   },
