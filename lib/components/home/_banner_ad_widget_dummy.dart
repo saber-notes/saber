@@ -4,6 +4,8 @@ abstract class AdState {
   static bool get adsSupported => false;
 
   static void init() {}
+
+  static void showConsentForm() {}
 }
 
 class BannerAdWidget extends StatelessWidget {
