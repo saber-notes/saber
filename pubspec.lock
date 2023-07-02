@@ -1391,13 +1391,13 @@ packages:
     source: hosted
     version: "2.3.1"
   webview_flutter_wkwebview:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: webview_flutter_wkwebview
-      sha256: "7b203961d6830f3e5ed1df4c4f0493fea8388a46c4d43716167c4a8ba8ecbe83"
+      sha256: ecc9e9ea15216afc5ba3b1f14aa19414ceba526e57b19cebd970bfa91a0f4058
       url: "https://pub.dev"
     source: hosted
-    version: "3.6.0"
+    version: "3.5.0"
   win32:
     dependency: transitive
     description:
