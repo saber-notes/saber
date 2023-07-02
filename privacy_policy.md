@@ -18,10 +18,18 @@ Data the application uses includes the user's:
   - the cloud server URI
   - the user's username
   - the user's passwords to protect notes
+- Device advertising ID and associated advertising data*
 
 The application seeks to access the least amount of data possible
 and uses a zero-trust approach to cloud storage.
-The application does not use any third-party tracking APIs.
+
+*The Android and iOS versions of the app
+(with the exception of the F-Droid edition)
+are supported by Google AdMob ads including Google's ad network
+and other GDPR-compliant ad networks. You can choose between
+personalized ads and non-personalized ads when you first launch the app,
+or at anytime on the Settings page.
+You can also disable ads completely on the Settings page if you wish.
 
 ## How is the cloud used?
 
