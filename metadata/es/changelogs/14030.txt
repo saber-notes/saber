@@ -1,0 +1,1 @@
+• Saber (Android) ahora es compatible con los anuncios de Google. Se le pedirá que elija entre anuncios personalizados y no personalizados. Puede cambiar esta opción más adelante en la configuración de la aplicación o excluirse por completo de los anuncios si lo desea.

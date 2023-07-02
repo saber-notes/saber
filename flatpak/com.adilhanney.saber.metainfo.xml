@@ -67,6 +67,11 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.3" type="development" date="2023-07-02">
+            <description>
+                <p>Saber on Android and iOS is now supported by Google ads. You'll be prompted to choose between personalized and non-personalized ads. You can change this choice later in the app's settings, or completely opt out of ads if you wish.</p>
+            </description>
+        </release>
         <release version="0.14.2" type="development" date="2023-07-01">
             <description>
                 <ul>

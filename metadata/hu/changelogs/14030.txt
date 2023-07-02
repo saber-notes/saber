@@ -1,0 +1,1 @@
+• A Saber-t (Android) mostantól a Google hirdetések is támogatják. A rendszer felkéri, hogy válasszon a személyre szabott és a nem személyre szabott hirdetések között. Ezt a választást később módosíthatja az alkalmazás beállításaiban, vagy teljesen leiratkozhat a hirdetésekről, ha kívánja.
