@@ -22,11 +22,11 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "disableAds(OUTDATED)": "Vypnout reklamy",
+        "changeAdsConsent(OUTDATED)": "Změnit předvolby pro reklamy"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
       }
     }
   },
