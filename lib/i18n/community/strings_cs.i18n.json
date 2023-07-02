@@ -57,7 +57,8 @@
       "hyperlegibleFont": "Lépe čitelný font",
       "shouldCheckForUpdates": "Automaticky kontrolovat dostupnost aktualizací aplikace Saber",
       "shouldAlwaysAlertForUpdates": "Oznámit dostupnost aktualizací co nejdříve od jejich vydání",
-      "changeAdsConsent(OUTDATED)": "Změnit souhlas s reklamami",
+      "disableAds": "Vypnout reklamy",
+      "changeAdsConsent": "Změnit předvolby pro reklamy",
       "editorToolbarAlignment": "Umístění nabídky editoru",
       "editorToolbarShowInFullscreen": "Zobrazovat nabídku editoru v režimu celé obrazovky",
       "editorAutoInvert": "V tmavém režimu invertovat poznámky",
@@ -69,11 +70,11 @@
       "editorPromptRename": "Vybízet k přejmenování nových poznámek",
       "hideHomeBackgrounds": "Skrýt pozadí poznámek na hlavní obrazovce",
       "dontSavePresetColors": "Mezi naposledy použité barvy neukládat přednastavené barvy",
-      "printPageIndicators": "Tisknout čísla stránek",
-      "disableAds(OUTDATED)": "Zakázat reklamy"
+      "printPageIndicators": "Tisknout čísla stránek"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
+      "disableAds": "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout",
       "editorAutoInvert": "Inteligentně ztmaví poznámky ve tmavém motivu",
       "editorOpaqueBackgrounds": "Odstraní průhlednost z obrázků a PDF na pozadí",
       "preferGreyscale": "Pro elektronické čtečky knih s e-ink displejem",
@@ -81,8 +82,7 @@
       "maxImageSize": "Na větší obrázky bude aplikována komprese",
       "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
       "hideHomeBackgrounds": "Pro čistější vzhled",
-      "printPageIndicators": "V exportech budou zobrazena čísla stránek",
-      "disableAds(OUTDATED)": "Reklamy pomáhají podporovat vývoj Saber, ale pokud chcete, můžete je zakázat"
+      "printPageIndicators": "V exportech budou zobrazena čísla stránek"
     },
     "themeModes": {
       "system": "Systémový",

@@ -19,17 +19,7 @@
       }
     }
   },
-  "cs": {
-    "settings": {
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "home": {
       "renameNote": {
