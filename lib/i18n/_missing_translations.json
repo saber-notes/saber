@@ -326,11 +326,11 @@
   "pt-BR": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "disableAds(OUTDATED)": "Disattiva annunci",
+        "changeAdsConsent(OUTDATED)": "Modifica il consenso agli annunci"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Gli annunci aiutano a supportare lo sviluppo di SabER, ma puoi disattivarli se lo desideri"
       }
     }
   },
