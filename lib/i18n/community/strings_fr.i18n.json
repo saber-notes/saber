@@ -52,12 +52,11 @@
       "locale": "Langue",
       "appTheme": "Thème de l'application",
       "platform": "Type de thème",
-      "layoutSize(OUTDATED)": "Type de dispositif",
       "customAccentColor": "Couleur d'accentuation personnalisée",
       "hyperlegibleFont": "Fonte Hyperlegible",
       "shouldCheckForUpdates": "Rechercher automatiquement les mises à jour",
       "shouldAlwaysAlertForUpdates": "Me prévenir dès qu'une mise à jour est disponible",
-      "disableAds(OUTDATED)": "Désactiver les publicités",
+      "changeAdsConsent(OUTDATED)": "Modifier le consentement des annonces",
       "editorToolbarAlignment": "Position de la barre d'outils",
       "editorToolbarShowInFullscreen": "Afficher la barre d'outils en mode plein écran",
       "editorAutoInvert": "Inverser les couleurs en mode sombre",
@@ -69,11 +68,12 @@
       "editorPromptRename": "Vous rappeler de renommer les notes",
       "hideHomeBackgrounds": "Cacher le fond de la page d'accueil",
       "dontSavePresetColors": "Ne pas conserver les couleurs pré-définies parmi les couleurs récentes",
-      "printPageIndicators": "Imprimer les numéros de pages"
+      "printPageIndicators": "Imprimer les numéros de pages",
+      "layoutSize(OUTDATED)": "Type de dispositif",
+      "disableAds(OUTDATED)": "Désactiver les publicités"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
-      "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez",
       "editorAutoInvert": "Assombrit les notes de façon intelligente en mode sombre",
       "editorOpaqueBackgrounds": "Supprime la transparence du fond dans les images et les PDF",
       "preferGreyscale": "Pour les couleurs de stylos proposées",
@@ -81,7 +81,8 @@
       "maxImageSize": "Les images plus grandes seront compressées",
       "editorPromptRename": "Vous pourrez toujours les renommer plus tard",
       "hideHomeBackgrounds": "Pour une apparence plus sobre",
-      "printPageIndicators": "Montrer les numéros de pages dans les exportations"
+      "printPageIndicators": "Montrer les numéros de pages dans les exportations",
+      "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
     },
     "themeModes": {
       "system": "Système",
@@ -121,9 +122,9 @@
       "enterEncPassword": "Veuillez saisir votre mot de passe de cryptage.",
       "checkUrl": "Veuillez saisir une URL valide.",
       "ncLoginFailed": "La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.",
-      "ncUnsupportedFailure(OUTDATED)": "Le serveur donné exécute Nextcloud $v mais cette version de Saber ne prend en charge que Nextcloud $s.",
       "encLoginFailed": "La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.",
-      "loginSuccess": "Connexion reussie ! Veuillez patienter pendant la configuration..."
+      "loginSuccess": "Connexion reussie ! Veuillez patienter pendant la configuration...",
+      "ncUnsupportedFailure(OUTDATED)": "Le serveur donné exécute Nextcloud $v mais cette version de Saber ne prend en charge que Nextcloud $s."
     },
     "form": {
       "useCustomServer": "Je veux utiliser un serveur Nextcloud personnalisé",
@@ -258,7 +259,6 @@
       "delete": "Effacer"
     },
     "menu": {
-      "clearPage(OUTDATED)": "Effacer la page $page/$totalPages",
       "clearAllPages": "Effacer toutes les pages",
       "insertPage": "Insérer une page après",
       "duplicatePage": "Dupliquer la page",
@@ -282,7 +282,8 @@
         "dots": "Points",
         "staffs": "Staffs",
         "cornell": "Cornell"
-      }
+      },
+      "clearPage(OUTDATED)": "Effacer la page $page/$totalPages"
     },
     "newerFileFormat": {
       "readOnlyMode": "Mode lecture seule",

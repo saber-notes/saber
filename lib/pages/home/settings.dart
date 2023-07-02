@@ -7,6 +7,7 @@ import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
+import 'package:saber/components/settings/settings_button.dart';
 import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
@@ -287,12 +288,24 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ],
-                  if (AdState.adsSupported) SettingsSwitch(
-                    title: t.settings.prefLabels.disableAds,
-                    subtitle: t.settings.prefDescriptions.disableAds,
-                    icon: FontAwesomeIcons.rectangleAd,
-                    pref: Prefs.disableAds,
-                  ),
+                  if (AdState.adsSupported) ...[
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.disableAds,
+                      subtitle: t.settings.prefDescriptions.disableAds,
+                      icon: FontAwesomeIcons.rectangleAd,
+                      pref: Prefs.disableAds,
+                      afterChange: (_) => setState(() {}),
+                    ),
+                    Collapsible(
+                      collapsed: Prefs.disableAds.value,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsButton(
+                        title: t.settings.prefLabels.changeAdsConsent,
+                        icon: FontAwesomeIcons.cookieBite,
+                        onPressed: () => AdState.showConsentForm(),
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 16),
                 ],
               ),

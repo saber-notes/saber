@@ -58,6 +58,7 @@
       "shouldCheckForUpdates": "Automatically check for Saber updates",
       "shouldAlwaysAlertForUpdates": "Tell me about updates as soon as they're available",
       "disableAds": "Disable ads",
+      "changeAdsConsent": "Change ads consent",
       "editorToolbarAlignment": "Alignment of the editor toolbar",
       "editorToolbarShowInFullscreen": "Show the editor toolbar in fullscreen mode",
       "editorAutoInvert": "Invert notes in dark mode",

@@ -57,7 +57,7 @@
       "hyperlegibleFont": "易讀字體",
       "shouldCheckForUpdates": "自動檢查 Saber 更新",
       "shouldAlwaysAlertForUpdates": "一有更新就告訴我",
-      "disableAds(OUTDATED)": "禁用廣告",
+      "changeAdsConsent(OUTDATED)": "更改廣告同意",
       "editorToolbarAlignment": "編輯器工具列的對齊方式",
       "editorToolbarShowInFullscreen": "在全螢幕模式中顯示編輯器工具列",
       "editorAutoInvert": "在深色模式下使用反色筆記背景",
@@ -69,11 +69,11 @@
       "editorPromptRename": "提醒您重新命名新筆記",
       "hideHomeBackgrounds": "隱藏主畫面上的背景",
       "dontSavePresetColors": "不要在最近的顏色中儲存預設顏色",
-      "printPageIndicators": "列印頁碼"
+      "printPageIndicators": "列印頁碼",
+      "disableAds(OUTDATED)": "禁用廣告"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
-      "disableAds(OUTDATED)": "廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們",
       "editorAutoInvert": "在深色模式下自動使用反色筆記背景",
       "editorOpaqueBackgrounds": "去除背景圖片和PDF的透明度",
       "preferGreyscale": "用於電子紙螢幕",
@@ -81,7 +81,8 @@
       "maxImageSize": "大於此大小的圖片將被壓縮",
       "editorPromptRename": "您以後隨時可以重新命名筆記",
       "hideHomeBackgrounds": "為了更乾淨的外觀",
-      "printPageIndicators": "在匯出中顯示頁碼"
+      "printPageIndicators": "在匯出中顯示頁碼",
+      "disableAds(OUTDATED)": "廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們"
     },
     "themeModes": {
       "system": "系統",

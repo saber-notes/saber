@@ -37,9 +37,9 @@
     },
     "moveNote": {
       "moveNote": "Mover nota",
-      "moveName(OUTDATED)": "Mover $f",
       "move": "Mover",
-      "renamedTo": "Se renombrará la nota a $newName"
+      "renamedTo": "Se renombrará la nota a $newName",
+      "moveName(OUTDATED)": "Mover $f"
     }
   },
   "settings": {
@@ -57,7 +57,7 @@
       "hyperlegibleFont": "Fuente hiperlegible",
       "shouldCheckForUpdates": "Buscar actualizaciones de Saber automáticamente",
       "shouldAlwaysAlertForUpdates": "Avísame sobre nuevas actualizaciones tan pronto como estén disponibles",
-      "disableAds(OUTDATED)": "Desactivar los anuncios",
+      "changeAdsConsent(OUTDATED)": "Cambiar consentimiento de anuncios",
       "editorToolbarAlignment": "Alineación de la barra de herramientas del editor",
       "editorToolbarShowInFullscreen": "Mostrar la barra de herramientas del editor en el modo de pantalla completa",
       "editorAutoInvert": "Invertir notas en el modo oscuro",
@@ -69,11 +69,11 @@
       "editorPromptRename": "Solicitarte cambiar el nombre de nuevas notas",
       "hideHomeBackgrounds": "Ocultar fondos en la pantalla de inicio",
       "dontSavePresetColors": "No guardar colores preestablecidos en los colores recientes",
-      "printPageIndicators": "Indicadores de página de impresión"
+      "printPageIndicators": "Indicadores de página de impresión",
+      "disableAds(OUTDATED)": "Desactivar los anuncios"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
-      "disableAds(OUTDATED)": "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea",
       "editorAutoInvert": "Oscurece inteligentemente las notas en el modo oscuro",
       "editorOpaqueBackgrounds": "Elimina la transparencia de las imágenes de fondo y los archivos PDF",
       "preferGreyscale": "Para pantallas con tinta electrónica",
@@ -81,7 +81,8 @@
       "maxImageSize": "Las imágenes más grandes que este valor serán comprimidas",
       "editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde",
       "hideHomeBackgrounds": "Para una vista más limpia",
-      "printPageIndicators": "Mostrar indicadores de página en las exportaciones"
+      "printPageIndicators": "Mostrar indicadores de página en las exportaciones",
+      "disableAds(OUTDATED)": "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea"
     },
     "themeModes": {
       "system": "Sistema",

@@ -52,12 +52,11 @@
       "locale": "Alkalmazás nyelve",
       "appTheme": "Alkalmazás témája",
       "platform": "Téma típusa",
-      "layoutSize(OUTDATED)": "Elrendezés típusa",
       "customAccentColor": "Egyéni akcentusszín",
       "hyperlegibleFont": "Hyperlegible betűtipus",
       "shouldCheckForUpdates": "Automatikusan ellenőrzi a Saber frissítéseket",
       "shouldAlwaysAlertForUpdates": "Értesítsen a frissítésekről, amint azok elérhetővé válnak",
-      "disableAds(OUTDATED)": "Hirdetések letiltása",
+      "changeAdsConsent(OUTDATED)": "A hirdetések megváltoztatása beleegyezik",
       "editorToolbarAlignment": "A szerkesztő eszköztár igazítása",
       "editorToolbarShowInFullscreen": "A szerkesztő eszköztár megjelenítése teljes képernyős módban",
       "editorAutoInvert": "Jegyzetek színének felcserélése sötét módban",
@@ -69,11 +68,12 @@
       "editorPromptRename": "Új jegyzetek átnevezésére való felszólítás",
       "hideHomeBackgrounds": "Hátterek elrejtése a kezdőképernyőn",
       "dontSavePresetColors": "Ne mentse az előre beállított színeket a legutóbbi színek között",
+      "layoutSize(OUTDATED)": "Elrendezés típusa",
+      "disableAds(OUTDATED)": "Hirdetések letiltása",
       "printPageIndicators(OUTDATED)": "Nyomtatási oldaljelzők"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára",
-      "disableAds(OUTDATED)": "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik",
       "editorAutoInvert": "Intelligens módon sötétíti a jegyzeteket sötét módban",
       "editorOpaqueBackgrounds": "Átlátszóság eltávolítása a háttérképről és a PDF-ekből",
       "preferGreyscale": "E-tinta kijelzőkhöz",
@@ -81,6 +81,7 @@
       "maxImageSize": "Az ennél nagyobb képek tömörítve lesznek",
       "editorPromptRename": "A jegyzeteket később bármikor átnevezheti",
       "hideHomeBackgrounds": "Egy letisztultabb megjelenítésért",
+      "disableAds(OUTDATED)": "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik",
       "printPageIndicators(OUTDATED)": "Mutasson oldalmutatókat az exportban"
     },
     "themeModes": {
@@ -121,9 +122,9 @@
       "enterEncPassword": "Kérem, adja meg a titkosítási jelszavát",
       "checkUrl": "Kérem adjon meg egy érvényes URL-címet",
       "ncLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát",
-      "ncUnsupportedFailure(OUTDATED)": "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s-t támogatja.",
       "encLoginFailed": "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát",
-      "loginSuccess": "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
+      "loginSuccess": "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...",
+      "ncUnsupportedFailure(OUTDATED)": "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s-t támogatja."
     },
     "form": {
       "useCustomServer": "Egyéni Nextcloud-kiszolgálót szeretnék használni",
@@ -164,13 +165,13 @@
     ]
   },
   "profile": {
-    "title(OUTDATED)": "A profilom",
-    "logout(OUTDATED)": "Kijelentkezés",
     "quickLinks": {
       "title(OUTDATED)": "Gyors linkek",
       "serverHomepage(OUTDATED)": "Szerver honlapja",
       "deleteAccount(OUTDATED)": "Fiók törlése"
     },
+    "title(OUTDATED)": "A profilom",
+    "logout(OUTDATED)": "Kijelentkezés",
     "faq(OUTDATED)": [
       {
         "q": "Elveszítem a jegyzeteimet, ha bejelentem?",
@@ -200,8 +201,8 @@
   },
   "update": {
     "updateAvailable": "Frissítés elérhető",
-    "updateAvailableDescription(OUTDATED)": "Elérhető az alkalmazás új verziója a következő változtatásokkal:",
-    "update": "Frissítés"
+    "update": "Frissítés",
+    "updateAvailableDescription(OUTDATED)": "Elérhető az alkalmazás új verziója a következő változtatásokkal:"
   },
   "editor": {
     "toolbar": {
@@ -254,17 +255,12 @@
       "invertible": "Megfordítható",
       "download": "Letöltés",
       "setAsBackground": "Beállítás háttérképként",
-      "removeAsBackground(OUTDATED)": "Eltávolítás háttérként",
-      "delete": "Törlés"
+      "delete": "Törlés",
+      "removeAsBackground(OUTDATED)": "Eltávolítás háttérként"
     },
     "menu": {
-      "clearPage(OUTDATED)": "$page/$totalPages oldal törlése",
       "clearAllPages": "Összes oldal törlése",
-      "insertPage(OUTDATED)": "Az oldal beszúrása alább",
-      "duplicatePage(OUTDATED)": "Ismétlődő oldal",
-      "deletePage(OUTDATED)": "Oldal törlése",
       "lineHeight": "Vonalmagasság",
-      "lineHeightDescription(OUTDATED)": "Szintén ellenőrzi a szöveg méretét",
       "backgroundImage": "Háttérkép",
       "backgroundPattern": "Háttérminta",
       "import": "Importálás",
@@ -276,13 +272,18 @@
       "bgPatterns": {
         "none": "Üres",
         "college": "College-ruled",
-        "collegeRtl(OUTDATED)": "Főiskolai szabályozás (fordított)",
         "lined": "Vonalas",
         "grid": "Kockás",
         "dots": "Pontozott",
+        "collegeRtl(OUTDATED)": "Főiskolai szabályozás (fordított)",
         "staffs(OUTDATED)": "Vezetők",
         "cornell(OUTDATED)": "Cornell"
-      }
+      },
+      "clearPage(OUTDATED)": "$page/$totalPages oldal törlése",
+      "insertPage(OUTDATED)": "Az oldal beszúrása alább",
+      "duplicatePage(OUTDATED)": "Ismétlődő oldal",
+      "deletePage(OUTDATED)": "Oldal törlése",
+      "lineHeightDescription(OUTDATED)": "Szintén ellenőrzi a szöveg méretét"
     },
     "newerFileFormat": {
       "readOnlyMode": "Csak olvasható mód",

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2953 (210 per locale)
+/// Strings: 2967 (211 per locale)
 ///
-/// Built on 2023-06-30 at 16:49 UTC
+/// Built on 2023-07-02 at 07:33 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -402,6 +402,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get shouldCheckForUpdates => 'Automatically check for Saber updates';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	String get disableAds => 'Disable ads';
+	String get changeAdsConsent => 'Change ads consent';
 	String get editorToolbarAlignment => 'Alignment of the editor toolbar';
 	String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';
@@ -1067,9 +1068,9 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'تحريك الملاحظة';
-	@override String moveName({required Object f}) => 'نقل ${f}';
 	@override String get move => 'تحريك';
 	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
+	@override String moveName({required Object f}) => 'نقل ${f}';
 }
 
 // Path: settings.prefCategories
@@ -1099,7 +1100,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlegible خط';
 	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'أخبرني عن التحديثات بمجرد توفرها';
-	@override String get disableAds => 'عطل الاعلانات';
+	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
 	@override String get editorToolbarAlignment => 'محاذاة شريط أدوات المحرر';
 	@override String get editorToolbarShowInFullscreen => 'أظهر شريط أدوات المحرر في وضع ملء الشاشة';
 	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
@@ -1112,6 +1113,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get dontSavePresetColors => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get disableAds => 'عطل الاعلانات';
 }
 
 // Path: settings.prefDescriptions
@@ -1122,7 +1124,6 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية';
-	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
 	@override String get editorAutoInvert => 'يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم';
 	@override String get editorOpaqueBackgrounds => 'قم بإزالة الشفافية من صور الخلفية وملفات PDF';
 	@override String get preferGreyscale => 'لشاشات الحبر الإلكتروني';
@@ -1131,6 +1132,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
+	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
 }
 
 // Path: settings.themeModes
@@ -1797,7 +1799,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
-	@override String get disableAds => 'Zakázat reklamy';
+	@override String get changeAdsConsent => 'Změnit souhlas s reklamami';
 	@override String get editorToolbarAlignment => 'Umístění nabídky editoru';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
@@ -1810,6 +1812,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
+	@override String get disableAds => 'Zakázat reklamy';
 }
 
 // Path: settings.prefDescriptions
@@ -1820,7 +1823,6 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
-	@override String get disableAds => 'Reklamy pomáhají podporovat vývoj Saber, ale pokud chcete, můžete je zakázat';
 	@override String get editorAutoInvert => 'Inteligentně ztmaví poznámky ve tmavém motivu';
 	@override String get editorOpaqueBackgrounds => 'Odstraní průhlednost z obrázků a PDF na pozadí';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
@@ -1829,6 +1831,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
+	@override String get disableAds => 'Reklamy pomáhají podporovat vývoj Saber, ale pokud chcete, můžete je zakázat';
 }
 
 // Path: settings.themeModes
@@ -2494,7 +2497,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
 	@override String get shouldAlwaysAlertForUpdates => 'Benachrichtige mich, sobald eine neue Version verfügbar ist';
-	@override String get disableAds => 'Werbungen ausschalten';
+	@override String get changeAdsConsent => 'Anzeigeneinwilligung ändern';
 	@override String get editorToolbarAlignment => 'Position der Werkzeugleiste';
 	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
@@ -2507,6 +2510,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
+	@override String get disableAds => 'Werbungen ausschalten';
 }
 
 // Path: settings.prefDescriptions
@@ -2517,7 +2521,6 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
-	@override String get disableAds => 'Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten';
 	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 	@override String get editorOpaqueBackgrounds => 'Hintergrundbilder und PDFs undurchsichtig machen';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
@@ -2526,6 +2529,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
+	@override String get disableAds => 'Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten';
 }
 
 // Path: settings.themeModes
@@ -3159,9 +3163,9 @@ class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover nota';
-	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
+	@override String moveName({required Object f}) => 'Mover ${f}';
 }
 
 // Path: settings.prefCategories
@@ -3191,7 +3195,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre nuevas actualizaciones tan pronto como estén disponibles';
-	@override String get disableAds => 'Desactivar los anuncios';
+	@override String get changeAdsConsent => 'Cambiar consentimiento de anuncios';
 	@override String get editorToolbarAlignment => 'Alineación de la barra de herramientas del editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
@@ -3204,6 +3208,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
 	@override String get dontSavePresetColors => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
+	@override String get disableAds => 'Desactivar los anuncios';
 }
 
 // Path: settings.prefDescriptions
@@ -3214,7 +3219,6 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
-	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
 	@override String get editorAutoInvert => 'Oscurece inteligentemente las notas en el modo oscuro';
 	@override String get editorOpaqueBackgrounds => 'Elimina la transparencia de las imágenes de fondo y los archivos PDF';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
@@ -3223,6 +3227,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
+	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
 }
 
 // Path: settings.themeModes
@@ -3889,7 +3894,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
-	@override String get disableAds => 'غیرفعال کردن تبلیغات';
+	@override String get changeAdsConsent => 'تغییر تبلیغات رضایت';
 	@override String get editorToolbarAlignment => 'تراز کردن نوار ابزار ویرایشگر';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
@@ -3902,6 +3907,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
+	@override String get disableAds => 'غیرفعال کردن تبلیغات';
 }
 
 // Path: settings.prefDescriptions
@@ -3912,7 +3918,6 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'خوانایی را برای خوانندگان کم بینا افزایش می دهد';
-	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
 	@override String get editorAutoInvert => 'در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند';
 	@override String get editorOpaqueBackgrounds => 'حذف شفافیت از تصاویر پس زمینه و PDFها';
 	@override String get preferGreyscale => 'برای نمایشگر های e-ink';
@@ -3921,6 +3926,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
+	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
 }
 
 // Path: settings.themeModes
@@ -4582,12 +4588,11 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Langue';
 	@override String get appTheme => 'Thème de l\'application';
 	@override String get platform => 'Type de thème';
-	@override String get layoutSize => 'Type de dispositif';
 	@override String get customAccentColor => 'Couleur d\'accentuation personnalisée';
 	@override String get hyperlegibleFont => 'Fonte Hyperlegible';
 	@override String get shouldCheckForUpdates => 'Rechercher automatiquement les mises à jour';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
-	@override String get disableAds => 'Désactiver les publicités';
+	@override String get changeAdsConsent => 'Modifier le consentement des annonces';
 	@override String get editorToolbarAlignment => 'Position de la barre d\'outils';
 	@override String get editorToolbarShowInFullscreen => 'Afficher la barre d\'outils en mode plein écran';
 	@override String get editorAutoInvert => 'Inverser les couleurs en mode sombre';
@@ -4600,6 +4605,8 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get dontSavePresetColors => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
+	@override String get layoutSize => 'Type de dispositif';
+	@override String get disableAds => 'Désactiver les publicités';
 }
 
 // Path: settings.prefDescriptions
@@ -4610,7 +4617,6 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes';
-	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
 	@override String get editorAutoInvert => 'Assombrit les notes de façon intelligente en mode sombre';
 	@override String get editorOpaqueBackgrounds => 'Supprime la transparence du fond dans les images et les PDF';
 	@override String get preferGreyscale => 'Pour les couleurs de stylos proposées';
@@ -4619,6 +4625,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
+	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
 }
 
 // Path: settings.themeModes
@@ -4690,9 +4697,9 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s}.';
 }
 
 // Path: login.form
@@ -4933,7 +4940,6 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => 'Effacer la page ${page}/${totalPages}';
 	@override String get clearAllPages => 'Effacer toutes les pages';
 	@override String get insertPage => 'Insérer une page après';
 	@override String get duplicatePage => 'Dupliquer la page';
@@ -4945,6 +4951,7 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get import => 'Importer';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
 	@override late final _StringsEditorMenuBgPatternsFr bgPatterns = _StringsEditorMenuBgPatternsFr._(_root);
+	@override String clearPage({required Object page, required Object totalPages}) => 'Effacer la page ${page}/${totalPages}';
 }
 
 // Path: editor.newerFileFormat
@@ -5119,9 +5126,9 @@ class _StringsProfileHu extends _StringsProfileEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsProfileQuickLinksHu quickLinks = _StringsProfileQuickLinksHu._(_root);
 	@override String get title => 'A profilom';
 	@override String get logout => 'Kijelentkezés';
-	@override late final _StringsProfileQuickLinksHu quickLinks = _StringsProfileQuickLinksHu._(_root);
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Hu._(_root),
 		_StringsProfile$faq$0i1$Hu._(_root),
@@ -5153,8 +5160,8 @@ class _StringsUpdateHu extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Frissítés elérhető';
-	@override String get updateAvailableDescription => 'Elérhető az alkalmazás új verziója a következő változtatásokkal:';
 	@override String get update => 'Frissítés';
+	@override String get updateAvailableDescription => 'Elérhető az alkalmazás új verziója a következő változtatásokkal:';
 }
 
 // Path: editor
@@ -5280,12 +5287,11 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Alkalmazás nyelve';
 	@override String get appTheme => 'Alkalmazás témája';
 	@override String get platform => 'Téma típusa';
-	@override String get layoutSize => 'Elrendezés típusa';
 	@override String get customAccentColor => 'Egyéni akcentusszín';
 	@override String get hyperlegibleFont => 'Hyperlegible betűtipus';
 	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
 	@override String get shouldAlwaysAlertForUpdates => 'Értesítsen a frissítésekről, amint azok elérhetővé válnak';
-	@override String get disableAds => 'Hirdetések letiltása';
+	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
 	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
 	@override String get editorToolbarShowInFullscreen => 'A szerkesztő eszköztár megjelenítése teljes képernyős módban';
 	@override String get editorAutoInvert => 'Jegyzetek színének felcserélése sötét módban';
@@ -5297,6 +5303,8 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get dontSavePresetColors => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get layoutSize => 'Elrendezés típusa';
+	@override String get disableAds => 'Hirdetések letiltása';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
 }
 
@@ -5308,7 +5316,6 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára';
-	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get editorAutoInvert => 'Intelligens módon sötétíti a jegyzeteket sötét módban';
 	@override String get editorOpaqueBackgrounds => 'Átlátszóság eltávolítása a háttérképről és a PDF-ekből';
 	@override String get preferGreyscale => 'E-tinta kijelzőkhöz';
@@ -5316,6 +5323,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 }
 
@@ -5388,9 +5396,9 @@ class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
 	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
 	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s}-t támogatja.';
 	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
 	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s}-t támogatja.';
 }
 
 // Path: login.form
@@ -5620,8 +5628,8 @@ class _StringsEditorImageOptionsHu extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Megfordítható';
 	@override String get download => 'Letöltés';
 	@override String get setAsBackground => 'Beállítás háttérképként';
-	@override String get removeAsBackground => 'Eltávolítás háttérként';
 	@override String get delete => 'Törlés';
+	@override String get removeAsBackground => 'Eltávolítás háttérként';
 }
 
 // Path: editor.menu
@@ -5631,18 +5639,18 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
 	@override String get clearAllPages => 'Összes oldal törlése';
-	@override String get insertPage => 'Az oldal beszúrása alább';
-	@override String get duplicatePage => 'Ismétlődő oldal';
-	@override String get deletePage => 'Oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get lineHeightDescription => 'Szintén ellenőrzi a szöveg méretét';
 	@override String get backgroundImage => 'Háttérkép';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
+	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
+	@override String get insertPage => 'Az oldal beszúrása alább';
+	@override String get duplicatePage => 'Ismétlődő oldal';
+	@override String get deletePage => 'Oldal törlése';
+	@override String get lineHeightDescription => 'Szintén ellenőrzi a szöveg méretét';
 }
 
 // Path: editor.newerFileFormat
@@ -5705,10 +5713,10 @@ class _StringsEditorMenuBgPatternsHu extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Üres';
 	@override String get college => 'College-ruled';
-	@override String get collegeRtl => 'Főiskolai szabályozás (fordított)';
 	@override String get lined => 'Vonalas';
 	@override String get grid => 'Kockás';
 	@override String get dots => 'Pontozott';
+	@override String get collegeRtl => 'Főiskolai szabályozás (fordított)';
 	@override String get staffs => 'Vezetők';
 	@override String get cornell => 'Cornell';
 }
@@ -5983,7 +5991,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
-	@override String get disableAds => 'Disabilita gli annunci';
+	@override String get changeAdsConsent => 'Modifica il consenso agli annunci';
 	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
@@ -5996,6 +6004,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
+	@override String get disableAds => 'Disabilita gli annunci';
 }
 
 // Path: settings.prefDescriptions
@@ -6006,7 +6015,6 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
-	@override String get disableAds => 'Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri';
 	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
 	@override String get editorOpaqueBackgrounds => 'Rimuovi la trasparenza dalle immagini di sfondo e dai PDF';
 	@override String get preferGreyscale => 'Per display e-ink';
@@ -6015,6 +6023,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
+	@override String get disableAds => 'Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri';
 }
 
 // Path: settings.themeModes
@@ -6681,7 +6690,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Fonte hiperlegível';
 	@override String get shouldCheckForUpdates => 'Verificar automaticamente as atualizações do Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Me informe sobre as atualizações assim que elas estiverem disponíveis';
-	@override String get disableAds => 'Desativar anúncios';
+	@override String get changeAdsConsent => 'Alterar consentimento de anúncios';
 	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
 	@override String get editorAutoInvert => 'Inverter as notas no modo escuro';
@@ -6694,6 +6703,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
 	@override String get dontSavePresetColors => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
+	@override String get disableAds => 'Desativar anúncios';
 }
 
 // Path: settings.prefDescriptions
@@ -6704,7 +6714,6 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão';
-	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar';
 	@override String get editorAutoInvert => 'Escurecer as notas de forma inteligente no modo escuro';
 	@override String get editorOpaqueBackgrounds => 'Remover a transparência das imagens de plano de fundo e dos PDFs';
 	@override String get preferGreyscale => 'Para telas e-ink';
@@ -6713,6 +6722,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
+	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar';
 }
 
 // Path: settings.themeModes
@@ -7379,7 +7389,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать об обновлениях, как только они станут доступны';
-	@override String get disableAds => 'Отключить рекламу';
+	@override String get changeAdsConsent => 'Изменить согласие на рекламу';
 	@override String get editorToolbarAlignment => 'Панель инструментов редактора';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
@@ -7392,6 +7402,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
+	@override String get disableAds => 'Отключить рекламу';
 }
 
 // Path: settings.prefDescriptions
@@ -7402,7 +7413,6 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
-	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.';
 	@override String get editorAutoInvert => 'Интеллектуально затемнять заметки в тёмном режиме';
 	@override String get editorOpaqueBackgrounds => 'Удалить прозрачность фоновых изображений и PDF-файлов';
 	@override String get preferGreyscale => 'Для e-ink экранов';
@@ -7411,6 +7421,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
+	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.';
 }
 
 // Path: settings.themeModes
@@ -8077,7 +8088,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
 	@override String get shouldAlwaysAlertForUpdates => 'Bir güncelleme mevcut olduğunda uyar';
-	@override String get disableAds => 'Reklamları devre dışı bırak';
+	@override String get changeAdsConsent => 'Reklam iznini değiştir';
 	@override String get editorToolbarAlignment => 'Editör araç çubuğunun yerleşimi';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
@@ -8090,6 +8101,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
+	@override String get disableAds => 'Reklamları devre dışı bırak';
 }
 
 // Path: settings.prefDescriptions
@@ -8100,7 +8112,6 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
-	@override String get disableAds => 'Reklamlar Saber\'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin';
 	@override String get editorAutoInvert => 'Karanlık modda notların rengini değiştirir';
 	@override String get editorOpaqueBackgrounds => 'PDF\'ler ve arkaplan resimlerinden transparanlığı kaldırır';
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
@@ -8109,6 +8120,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
+	@override String get disableAds => 'Reklamlar Saber\'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin';
 }
 
 // Path: settings.themeModes
@@ -8770,12 +8782,11 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => '应用语言';
 	@override String get appTheme => '应用主题';
 	@override String get platform => '主题类型';
-	@override String get layoutSize => '布局类型';
 	@override String get customAccentColor => '自定义主题色';
 	@override String get hyperlegibleFont => '易读字体';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '有可用更新时立即通知我';
-	@override String get disableAds => '禁用广告';
+	@override String get changeAdsConsent => '更改广告同意';
 	@override String get editorToolbarAlignment => '编辑工具栏对齐方式';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
@@ -8788,6 +8799,8 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get dontSavePresetColors => '不在最近使用的颜色中保存预设颜色';
 	@override String get printPageIndicators => '打印页码';
+	@override String get layoutSize => '布局类型';
+	@override String get disableAds => '禁用广告';
 }
 
 // Path: settings.prefDescriptions
@@ -8798,7 +8811,6 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
-	@override String get disableAds => '广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们';
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
 	@override String get editorOpaqueBackgrounds => '移除背景图像和 PDF 的透明度';
 	@override String get preferGreyscale => '用于电子墨水显示器';
@@ -8807,6 +8819,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
+	@override String get disableAds => '广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们';
 }
 
 // Path: settings.themeModes
@@ -9473,7 +9486,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '一有更新就告訴我';
-	@override String get disableAds => '禁用廣告';
+	@override String get changeAdsConsent => '更改廣告同意';
 	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
@@ -9486,6 +9499,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
+	@override String get disableAds => '禁用廣告';
 }
 
 // Path: settings.prefDescriptions
@@ -9496,7 +9510,6 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-	@override String get disableAds => '廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們';
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
 	@override String get editorOpaqueBackgrounds => '去除背景圖片和PDF的透明度';
 	@override String get preferGreyscale => '用於電子紙螢幕';
@@ -9505,6 +9518,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
+	@override String get disableAds => '廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們';
 }
 
 // Path: settings.themeModes

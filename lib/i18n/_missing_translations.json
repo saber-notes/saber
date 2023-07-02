@@ -11,7 +11,8 @@
     },
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -21,7 +22,8 @@
   "cs": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -47,7 +49,8 @@
     },
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -62,7 +65,8 @@
     },
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -72,7 +76,8 @@
   "fa": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -107,7 +112,8 @@
     "settings": {
       "prefLabels": {
         "layoutSize(OUTDATED)": "Layout type",
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -188,6 +194,7 @@
       "prefLabels": {
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
         "printPageIndicators(OUTDATED)": "Print page indicators"
       },
       "prefDescriptions": {
@@ -308,7 +315,8 @@
   "it": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -318,7 +326,8 @@
   "pt-BR": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -328,7 +337,8 @@
   "ru": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -343,7 +353,8 @@
     },
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -403,7 +414,8 @@
     "settings": {
       "prefLabels": {
         "layoutSize(OUTDATED)": "Layout type",
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
@@ -428,7 +440,8 @@
   "zh-Hant-TW": {
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads"
+        "disableAds(OUTDATED)": "Disable ads",
+        "changeAdsConsent(OUTDATED)": "Change ads consent"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"

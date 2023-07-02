@@ -52,12 +52,11 @@
       "locale": "应用语言",
       "appTheme": "应用主题",
       "platform": "主题类型",
-      "layoutSize(OUTDATED)": "布局类型",
       "customAccentColor": "自定义主题色",
       "hyperlegibleFont": "易读字体",
       "shouldCheckForUpdates": "自动检查 Saber 更新",
       "shouldAlwaysAlertForUpdates": "有可用更新时立即通知我",
-      "disableAds(OUTDATED)": "禁用广告",
+      "changeAdsConsent(OUTDATED)": "更改广告同意",
       "editorToolbarAlignment": "编辑工具栏对齐方式",
       "editorToolbarShowInFullscreen": "在全屏模式中显示编辑菜单栏",
       "editorAutoInvert": "在深色模式下使用反色笔记背景",
@@ -69,11 +68,12 @@
       "editorPromptRename": "提示您重命名新笔记",
       "hideHomeBackgrounds": "在主页隐藏背景",
       "dontSavePresetColors": "不在最近使用的颜色中保存预设颜色",
-      "printPageIndicators": "打印页码"
+      "printPageIndicators": "打印页码",
+      "layoutSize(OUTDATED)": "布局类型",
+      "disableAds(OUTDATED)": "禁用广告"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
-      "disableAds(OUTDATED)": "广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们",
       "editorAutoInvert": "在深色模式下自动使用反色笔记背景",
       "editorOpaqueBackgrounds": "移除背景图像和 PDF 的透明度",
       "preferGreyscale": "用于电子墨水显示器",
@@ -81,7 +81,8 @@
       "maxImageSize": "更大的图片将会被压缩",
       "editorPromptRename": "您可以总是稍后重命名笔记",
       "hideHomeBackgrounds": "更简洁的外观",
-      "printPageIndicators": "在导出中显示页码"
+      "printPageIndicators": "在导出中显示页码",
+      "disableAds(OUTDATED)": "广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们"
     },
     "themeModes": {
       "system": "系统",

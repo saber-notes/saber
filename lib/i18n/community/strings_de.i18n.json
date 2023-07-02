@@ -56,7 +56,7 @@
       "hyperlegibleFont": "Hyperlesbare Schrift",
       "shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
       "shouldAlwaysAlertForUpdates": "Benachrichtige mich, sobald eine neue Version verfügbar ist",
-      "disableAds(OUTDATED)": "Werbungen ausschalten",
+      "changeAdsConsent(OUTDATED)": "Anzeigeneinwilligung ändern",
       "editorToolbarAlignment": "Position der Werkzeugleiste",
       "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild",
       "editorAutoInvert": "Notizen im Dunkelmodus invertieren",
@@ -68,11 +68,11 @@
       "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
       "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen",
       "dontSavePresetColors": "Farbvorlagen nicht in den zuletzt genutzten Farben speichern",
-      "printPageIndicators": "Seitennummerierung drucken"
+      "printPageIndicators": "Seitennummerierung drucken",
+      "disableAds(OUTDATED)": "Werbungen ausschalten"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
-      "disableAds(OUTDATED)": "Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten",
       "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
       "editorOpaqueBackgrounds": "Hintergrundbilder und PDFs undurchsichtig machen",
       "preferGreyscale": "Für E-Ink-Bildschirme",
@@ -80,7 +80,8 @@
       "maxImageSize": "Bilder, die größer sind, werden komprimiert",
       "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
       "hideHomeBackgrounds": "Für ein sauberes Aussehen",
-      "printPageIndicators": "Seitennummerierung bei Export anzeigen"
+      "printPageIndicators": "Seitennummerierung bei Export anzeigen",
+      "disableAds(OUTDATED)": "Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten"
     },
     "themeModes": {
       "system": "System",

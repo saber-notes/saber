@@ -57,7 +57,7 @@
       "hyperlegibleFont": "Гипер разборчивый шрифт",
       "shouldCheckForUpdates": "Автоматически проверять обновления Saber",
       "shouldAlwaysAlertForUpdates": "Сообщать об обновлениях, как только они станут доступны",
-      "disableAds(OUTDATED)": "Отключить рекламу",
+      "changeAdsConsent(OUTDATED)": "Изменить согласие на рекламу",
       "editorToolbarAlignment": "Панель инструментов редактора",
       "editorToolbarShowInFullscreen": "Показывать инструменты в полноэкранном режиме",
       "editorAutoInvert": "Инвертировать заметки в тёмном режиме",
@@ -69,11 +69,11 @@
       "editorPromptRename": "Предлагать переименовывать новые заметки",
       "hideHomeBackgrounds": "Скрыть фон на главном экране",
       "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах",
-      "printPageIndicators": "Печатать номера страниц"
+      "printPageIndicators": "Печатать номера страниц",
+      "disableAds(OUTDATED)": "Отключить рекламу"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
-      "disableAds(OUTDATED)": "Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.",
       "editorAutoInvert": "Интеллектуально затемнять заметки в тёмном режиме",
       "editorOpaqueBackgrounds": "Удалить прозрачность фоновых изображений и PDF-файлов",
       "preferGreyscale": "Для e-ink экранов",
@@ -81,7 +81,8 @@
       "maxImageSize": "Большие изображения будут сжаты",
       "editorPromptRename": "Вы всегда можете переименовать заметки позже",
       "hideHomeBackgrounds": "Для чистого вида",
-      "printPageIndicators": "Показывать номера страниц при экспорте"
+      "printPageIndicators": "Показывать номера страниц при экспорте",
+      "disableAds(OUTDATED)": "Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите."
     },
     "themeModes": {
       "system": "Системная",

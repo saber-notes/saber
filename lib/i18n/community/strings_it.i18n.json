@@ -57,7 +57,7 @@
       "hyperlegibleFont": "Carattere iperleggibile",
       "shouldCheckForUpdates": "Controlla automaticamente gli aggiornamenti di Saber",
       "shouldAlwaysAlertForUpdates": "Segnalami aggiornamenti non appena sono disponibili",
-      "disableAds(OUTDATED)": "Disabilita gli annunci",
+      "changeAdsConsent(OUTDATED)": "Modifica il consenso agli annunci",
       "editorToolbarAlignment": "Allineamento della barra degli strumenti dell'editor",
       "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
       "editorAutoInvert": "Inverti le note in modalità scura",
@@ -69,11 +69,11 @@
       "editorPromptRename": "Richiede di rinominare nuove note",
       "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale",
       "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti",
-      "printPageIndicators": "Stampa indicatori di pagina"
+      "printPageIndicators": "Stampa indicatori di pagina",
+      "disableAds(OUTDATED)": "Disabilita gli annunci"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
-      "disableAds(OUTDATED)": "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri",
       "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
       "editorOpaqueBackgrounds": "Rimuovi la trasparenza dalle immagini di sfondo e dai PDF",
       "preferGreyscale": "Per display e-ink",
@@ -81,7 +81,8 @@
       "maxImageSize": "Le immagini più grandi verranno compresse",
       "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
       "hideHomeBackgrounds": "Per un aspetto più pulito",
-      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni"
+      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni",
+      "disableAds(OUTDATED)": "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
     },
     "themeModes": {
       "system": "Sistema",

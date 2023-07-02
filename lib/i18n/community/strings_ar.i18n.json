@@ -37,9 +37,9 @@
     },
     "moveNote": {
       "moveNote": "تحريك الملاحظة",
-      "moveName(OUTDATED)": "نقل $f",
       "move": "تحريك",
-      "renamedTo": "ستتم إعادة تسمية الملاحظة إلى $newName"
+      "renamedTo": "ستتم إعادة تسمية الملاحظة إلى $newName",
+      "moveName(OUTDATED)": "نقل $f"
     }
   },
   "settings": {
@@ -57,7 +57,7 @@
       "hyperlegibleFont": "Hyperlegible خط",
       "shouldCheckForUpdates": "تحقق تلقائيًا من وجود تحديثات Saber",
       "shouldAlwaysAlertForUpdates": "أخبرني عن التحديثات بمجرد توفرها",
-      "disableAds(OUTDATED)": "عطل الاعلانات",
+      "changeAdsConsent(OUTDATED)": "تغيير موافقة الإعلانات",
       "editorToolbarAlignment": "محاذاة شريط أدوات المحرر",
       "editorToolbarShowInFullscreen": "أظهر شريط أدوات المحرر في وضع ملء الشاشة",
       "editorAutoInvert": "اقلب الملاحظات في الوضع المظلم",
@@ -69,11 +69,11 @@
       "editorPromptRename": "مطالبتك بإعادة تسمية الملاحظات الجديدة",
       "hideHomeBackgrounds": "إخفاء الخلفيات على الشاشة الرئيسية",
       "dontSavePresetColors": "لا تحفظ الألوان المعينة مسبقًا كألوان حديثة",
-      "printPageIndicators": "طباعة مؤشرات الصفحة"
+      "printPageIndicators": "طباعة مؤشرات الصفحة",
+      "disableAds(OUTDATED)": "عطل الاعلانات"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية",
-      "disableAds(OUTDATED)": "(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت",
       "editorAutoInvert": "يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم",
       "editorOpaqueBackgrounds": "قم بإزالة الشفافية من صور الخلفية وملفات PDF",
       "preferGreyscale": "لشاشات الحبر الإلكتروني",
@@ -81,7 +81,8 @@
       "maxImageSize": "سيتم ضغط الصور الأكبر من هذا",
       "editorPromptRename": "يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا",
       "hideHomeBackgrounds": "للحصول على مظهر أنظف",
-      "printPageIndicators": "تظهر مؤشرات الصفحة في الصادرات"
+      "printPageIndicators": "تظهر مؤشرات الصفحة في الصادرات",
+      "disableAds(OUTDATED)": "(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت"
     },
     "themeModes": {
       "system": "النظام",

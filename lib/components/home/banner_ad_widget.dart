@@ -8,7 +8,8 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:saber/data/prefs.dart';
 
 abstract class AdState {
-  static bool _isInitialized = false;
+  static bool _initializeStarted = false;
+  static bool _initializeCompleted = false;
   static late final String _bannerAdUnitId;
 
   static bool get adsSupported => _bannerAdUnitId.isNotEmpty;
@@ -32,20 +33,60 @@ abstract class AdState {
       }
     }
 
-    if (adsSupported && !Prefs.disableAds.value) {
-      MobileAds.instance.initialize()
-        .then((_) => _isInitialized = true);
-    }
+    if (adsSupported) _startInitialize();
+  }
+
+  static void _startInitialize() async {
+    if (_initializeStarted) return;
+    _checkForRequiredConsent();
+    assert(_bannerAdUnitId.isNotEmpty);
+    assert(_initializeCompleted == false);
+    _initializeStarted = true;
+    await MobileAds.instance.initialize();
+    _initializeCompleted = true;
+  }
+
+  static void _checkForRequiredConsent() {
+    final params = ConsentRequestParameters();
+    ConsentInformation.instance.requestConsentInfoUpdate(
+      params,
+      () async {
+        final status = await ConsentInformation.instance.getConsentStatus();
+        if (status != ConsentStatus.required) return;
+        if (await ConsentInformation.instance.isConsentFormAvailable()) {
+          showConsentForm();
+        }
+      },
+      (formError) {},
+    );
+  }
+  static void showConsentForm() {
+    ConsentForm.loadConsentForm(
+      (ConsentForm consentForm) async {
+        consentForm.show(
+          (formError) async {
+            if (formError != null) {
+              // Handle dismissal by reloading form
+              showConsentForm();
+            }
+          }
+        );
+      },
+      (formError) {},
+    );
   }
   
   static const _bannerSize = AdSize.mediumRectangle;
   static Future<BannerAd?> _createBannerAd() async {
-    if (_bannerAdUnitId.isEmpty) {
+    if (!adsSupported) {
       if (kDebugMode) print('Banner ad unit ID is empty.');
+      return null;
+    } else if (!_initializeStarted) {
+      if (kDebugMode) print('Ad initialization has not started.');
       return null;
     }
 
-    while (!_isInitialized) {
+    while (!_initializeCompleted) {
       await Future.delayed(const Duration(milliseconds: 100));
     }
 
