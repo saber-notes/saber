@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 2967 (211 per locale)
 ///
-/// Built on 2023-07-02 at 19:45 UTC
+/// Built on 2023-07-02 at 19:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1799,7 +1799,8 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
-	@override String get changeAdsConsent => 'Změnit souhlas s reklamami';
+	@override String get disableAds => 'Vypnout reklamy';
+	@override String get changeAdsConsent => 'Změnit předvolby pro reklamy';
 	@override String get editorToolbarAlignment => 'Umístění nabídky editoru';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
@@ -1812,7 +1813,6 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
-	@override String get disableAds => 'Zakázat reklamy';
 }
 
 // Path: settings.prefDescriptions
@@ -1823,6 +1823,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
+	@override String get disableAds => 'Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout';
 	@override String get editorAutoInvert => 'Inteligentně ztmaví poznámky ve tmavém motivu';
 	@override String get editorOpaqueBackgrounds => 'Odstraní průhlednost z obrázků a PDF na pozadí';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
@@ -1831,7 +1832,6 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
-	@override String get disableAds => 'Reklamy pomáhají podporovat vývoj Saber, ale pokud chcete, můžete je zakázat';
 }
 
 // Path: settings.themeModes

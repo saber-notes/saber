@@ -19,17 +19,7 @@
       }
     }
   },
-  "cs": {
-    "settings": {
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Vypnout reklamy",
-        "changeAdsConsent(OUTDATED)": "Změnit předvolby pro reklamy"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "home": {
       "renameNote": {
