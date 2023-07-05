@@ -108,9 +108,7 @@ Future<String?> translateString(SimplyTranslator translator, String languageCode
     return english;
   }
 
-  translatedText.replaceAll('Sabre', 'Saber');
-
-  return translatedText;
+  return translatedText.replaceAll('Sabre', 'Saber');
 }
 
 bool errorOccurredInTranslatingTree = false;
