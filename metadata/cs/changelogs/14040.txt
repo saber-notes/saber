@@ -1,0 +1,2 @@
+• Přeorganizována stránka Nastavení, aby bylo snazší najít to, co hledáte.
+• Podpora vlastních serverů Nextcloud s certifikáty podepsanými sebou samým: v Nastavení povolte možnost „Povolit nezabezpečená připojení“.

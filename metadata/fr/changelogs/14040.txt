@@ -1,0 +1,2 @@
+• Réorganisation de la page Paramètres pour faciliter la recherche de ce que vous recherchez.
+• Prise en charge des serveurs Nextcloud personnalisés avec des certificats auto-signés : activez l'option "Autoriser les connexions non sécurisées" dans les paramètres.

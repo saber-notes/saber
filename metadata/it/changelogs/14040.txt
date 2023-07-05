@@ -1,0 +1,2 @@
+• Riorganizzata la pagina Impostazioni per facilitare la ricerca di ciò che stai cercando.
+• Supporto per server Nextcloud personalizzati con certificati autofirmati: abilita l'opzione "Consenti connessioni non sicure" in Impostazioni.
