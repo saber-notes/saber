@@ -166,6 +166,12 @@ dependency_overrides:
 
   webview_flutter_wkwebview: '3.5.0'
 
+  slang:
+    git:
+      url: https://github.com/adil192/slang
+      ref: slang-add
+      path: slang
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

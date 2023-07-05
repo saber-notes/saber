@@ -1088,10 +1088,11 @@ packages:
   slang:
     dependency: "direct main"
     description:
-      name: slang
-      sha256: "187e35d220765ff22be030b30506d1b8e0e94842a2c1801a6a2941c95db5a9eb"
-      url: "https://pub.dev"
-    source: hosted
+      path: slang
+      ref: slang-add
+      resolved-ref: f04df8974172004e6158f99e39d851510f35728e
+      url: "https://github.com/adil192/slang"
+    source: git
     version: "3.19.0"
   slang_flutter:
     dependency: "direct main"

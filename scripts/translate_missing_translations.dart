@@ -6,88 +6,87 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:process_run/shell.dart';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
+
+final Shell shell = Shell(verbose: false);
+late SimplyTranslator translator;
 
 final nearestLocaleCodes = <String, String>{
   'zh-Hans-CN': 'zh-cn',
   'zh-Hant-TW': 'zh-tw',
 };
 
-Future<(Map<String, dynamic>, Map<String, dynamic>)> getMissingTranslations() async {
+Future<Map<String, dynamic>> _getMissingTranslations() async {
   final file = File('lib/i18n/_missing_translations.json');
   final json = await file.readAsString();
-  return (jsonDecode(json) as Map<String, dynamic>, jsonDecode(json) as Map<String, dynamic>);
-}
-Future<void> writeMissingTranslations(Map<String, dynamic> missingTranslations) async {
-  final file = File('lib/i18n/_missing_translations.json');
-  final json = JsonEncoder.withIndent(' ' * 2).convert(missingTranslations);
-  await file.writeAsString(json);
+  return jsonDecode(json) as Map<String, dynamic>;
 }
 
 /// Translate the given tree of strings in place. Note that the tree can contain lists, maps, and strings.
-Future<void> translateTree(SimplyTranslator translator, String languageCode, Map<String, dynamic> tree, Map<String, dynamic> originalTree) async {
+Future<void> translateTree(String languageCode, Map<String, dynamic> tree, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
-  await Future.wait(tree.keys.map((key) {
+  for (final key in tree.keys) {
+    if (key.endsWith('(OUTDATED)')) continue;
+
     final value = tree[key];
-    final originalValue = originalTree[key];
-    if (value is String && value == originalValue) {
-      return translateString(translator, languageCode, value).then((translated) {
-        tree[key] = translated;
-      });
-    } else {
-      // recurse in next step
-      return Future.value();
-    }
-  }));
+    if (value is! String) continue;
+    if (value.isEmpty) continue; // already translated in a previous iteration
+
+    final translated = await translateString(translator, languageCode, value);
+    if (translated == null) continue; // error occured in translation, so skip for now
+    final pathToKey = [...pathOfKeys, key].join('.');
+    await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    tree[key] = '';
+  }
 
   // then recurse
   for (final key in tree.keys) {
+    if (key.endsWith('(OUTDATED)')) continue;
+
     final value = tree[key];
-    final originalValue = originalTree[key];
     if (value is String) {
       // already done
     } else if (value is Map<String, dynamic>) {
-      await translateTree(translator, languageCode, value, originalValue);
+      await translateTree(languageCode, value, [...pathOfKeys, key]);
     } else if (value is List<dynamic>) {
-      await translateList(translator, languageCode, value, originalValue);
+      await translateList(languageCode, value, [...pathOfKeys, key]);
     } else {
       throw Exception('Unknown type: ${value.runtimeType}');
     }
   }
 }
 /// Translates the given list of strings in place. Note that the list can contain lists, maps, and strings.
-Future<void> translateList(SimplyTranslator translator, String languageCode, List<dynamic> list, List<dynamic> originalList) async {
+Future<void> translateList(String languageCode, List<dynamic> list, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
-  await Future.wait(List.generate(list.length, (i) {
+  for (int i = 0; i < list.length; ++i) {
     final value = list[i];
-    final originalValue = originalList[i];
-    if (value is String && value == originalValue) {
-      return translateString(translator, languageCode, value).then((translated) {
-        list[i] = translated;
-      });
-    } else {
-      // recurse in next step
-      return Future.value();
-    }
-  }));
+    if (value is! String) continue;
+    if (value.isEmpty) continue; // already translated in a previous iteration
+
+    final translated = await translateString(translator, languageCode, value);
+    if (translated == null) continue; // error occurred in translation, so skip for now
+    final pathToKey = [...pathOfKeys, i].join('.');
+    await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    list[i] = '';
+  }
 
   // then recurse
   for (int i = 0; i < list.length; ++i) { // then recurse
     final value = list[i];
-    final originalValue = originalList[i];
     if (value is String) {
       // already done
     } else if (value is Map<String, dynamic>) {
-      await translateTree(translator, languageCode, value, originalValue);
+      await translateTree(languageCode, value, [...pathOfKeys, '$i']);
     } else if (value is List<dynamic>) {
-      await translateList(translator, languageCode, value, originalValue);
+      await translateList(languageCode, value, [...pathOfKeys, '$i']);
     } else {
       throw Exception('Unknown type: ${value.runtimeType}');
     }
   }
 }
-Future<String> translateString(SimplyTranslator translator, String languageCode, String english) async {
+Future<String?> translateString(SimplyTranslator translator, String languageCode, String english) async {
   print('  Translating into $languageCode: ${english.length > 20 ? '${english.substring(0, 20)}...' : english}');
   Translation translation;
   try {
@@ -99,7 +98,7 @@ Future<String> translateString(SimplyTranslator translator, String languageCode,
   } catch (e) {
     print('    Translation failed: $e');
     errorOccurredInTranslatingTree = true;
-    return english;
+    return null;
   }
 
   final translatedText = translation.translations.text;
@@ -117,7 +116,7 @@ Future<String> translateString(SimplyTranslator translator, String languageCode,
 bool errorOccurredInTranslatingTree = false;
 void main() async {
   final random = Random();
-  final (missingTranslations, originalMissingTranslations) = await getMissingTranslations();
+  final missingTranslations = await _getMissingTranslations();
 
   final missingLanguageCodes = missingTranslations.keys
       .where((languageCode) => missingTranslations[languageCode].isNotEmpty)
@@ -131,13 +130,12 @@ void main() async {
 
     final useLibreEngine = random.nextBool();
     print('Using ${useLibreEngine ? 'Libre' : 'Google'} translation engine...\n');
-    final translator = SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
+    translator = SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
 
     for (final languageCode in missingLanguageCodes) {
       print('Translating $languageCode...');
 
       final Map<String, dynamic> tree = missingTranslations[languageCode];
-      final Map<String, dynamic> originalTree = originalMissingTranslations[languageCode];
 
       final String nearestLanguageCode;
       if (LanguageList.contains(languageCode)) {
@@ -150,14 +148,11 @@ void main() async {
         print('  No nearest language code found for $languageCode.');
         continue;
       }
-      await translateTree(translator, nearestLanguageCode, tree, originalTree);
+      await translateTree(nearestLanguageCode, tree, const []);
     }
 
     if (errorOccurredInTranslatingTree) {
       print('\nError occurred. Retrying...');
     }
   }
-
-  await writeMissingTranslations(missingTranslations);
-  print('\nDone.');
 }
