@@ -330,13 +330,13 @@
     "settings": {
       "prefCategories": {
         "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
+        "advanced(OUTDATED)": "Avanzato"
       },
       "prefLabels": {
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Consenti connessioni non sicure"
       },
       "prefDescriptions": {
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili"
       }
     }
   },
