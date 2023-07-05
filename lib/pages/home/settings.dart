@@ -306,6 +306,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ],
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.allowInsecureConnections,
+                    subtitle: t.settings.prefDescriptions.allowInsecureConnections,
+                    icon: Icons.private_connectivity,
+                    pref: Prefs.allowInsecureConnections,
+                  ),
                   const SizedBox(height: 16),
                 ],
               ),

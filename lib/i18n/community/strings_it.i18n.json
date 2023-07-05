@@ -70,7 +70,8 @@
       "editorPromptRename": "Richiede di rinominare nuove note",
       "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale",
       "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti",
-      "printPageIndicators": "Stampa indicatori di pagina"
+      "printPageIndicators": "Stampa indicatori di pagina",
+      "allowInsecureConnections(OUTDATED)": "Consenti connessioni non sicure"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
@@ -82,7 +83,8 @@
       "maxImageSize": "Le immagini più grandi verranno compresse",
       "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
       "hideHomeBackgrounds": "Per un aspetto più pulito",
-      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni"
+      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni",
+      "allowInsecureConnections(OUTDATED)": "(Non consigliato) Permettere a Saber di connettersi a server con certificati auto-firmati/non attendibili"
     },
     "themeModes": {
       "system": "Sistema",

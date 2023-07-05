@@ -70,7 +70,8 @@
       "dontSavePresetColors": "Ne pas conserver les couleurs pré-définies parmi les couleurs récentes",
       "printPageIndicators": "Imprimer les numéros de pages",
       "layoutSize(OUTDATED)": "Type de dispositif",
-      "disableAds(OUTDATED)": "Désactiver les publicités"
+      "disableAds(OUTDATED)": "Désactiver les publicités",
+      "allowInsecureConnections(OUTDATED)": "Autoriser les connexions non sécurisées"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
@@ -82,7 +83,8 @@
       "editorPromptRename": "Vous pourrez toujours les renommer plus tard",
       "hideHomeBackgrounds": "Pour une apparence plus sobre",
       "printPageIndicators": "Montrer les numéros de pages dans les exportations",
-      "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
+      "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez",
+      "allowInsecureConnections(OUTDATED)": "(Non recommandé) Autoriser Sabre à se connecter aux serveurs avec des certificats auto-signés/non approuvés"
     },
     "themeModes": {
       "system": "Système",

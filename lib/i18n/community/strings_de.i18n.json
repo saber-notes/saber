@@ -38,7 +38,8 @@
     "moveNote": {
       "moveNote(OUTDATED)": "Notiz verschieben",
       "move(OUTDATED)": "Umzug",
-      "renamedTo(OUTDATED)": "Die Notiz wird in $newName umbenannt"
+      "renamedTo(OUTDATED)": "Die Notiz wird in $newName umbenannt",
+      "moveName(OUTDATED)": "Datei $f"
     }
   },
   "settings": {
@@ -69,7 +70,8 @@
       "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen",
       "dontSavePresetColors": "Farbvorlagen nicht in den zuletzt genutzten Farben speichern",
       "printPageIndicators": "Seitennummerierung drucken",
-      "disableAds(OUTDATED)": "Werbungen ausschalten"
+      "disableAds(OUTDATED)": "Werbungen ausschalten",
+      "allowInsecureConnections(OUTDATED)": "Erlauben Sie unsichere Verbindungen"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
@@ -81,7 +83,8 @@
       "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
       "hideHomeBackgrounds": "Für ein sauberes Aussehen",
       "printPageIndicators": "Seitennummerierung bei Export anzeigen",
-      "disableAds(OUTDATED)": "Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten"
+      "disableAds(OUTDATED)": "Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten",
+      "allowInsecureConnections(OUTDATED)": "(Nicht empfohlen) Lassen Sie Saber mit selbstsignierten/untrustierten Zertifikaten verbinden"
     },
     "themeModes": {
       "system": "System",

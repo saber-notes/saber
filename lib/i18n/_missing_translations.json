@@ -12,14 +12,25 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
-  "cs": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+      },
+      "prefDescriptions": {
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+      }
+    }
+  },
   "de": {
     "home": {
       "renameNote": {
@@ -32,7 +43,7 @@
       },
       "moveNote": {
         "moveNote(OUTDATED)": "Move note",
-        "moveName": "Move $f",
+        "moveName(OUTDATED)": "Move $f",
         "move(OUTDATED)": "Move",
         "renamedTo(OUTDATED)": "Note will be renamed to $newName"
       }
@@ -40,10 +51,12 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
@@ -56,10 +69,12 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
@@ -67,10 +82,12 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
@@ -103,10 +120,12 @@
       "prefLabels": {
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -185,10 +204,12 @@
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
         "printPageIndicators(OUTDATED)": "Print page indicators"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
         "printPageIndicators(OUTDATED)": "Show page indicators in exports"
       },
       "layoutSizes": {
@@ -302,15 +323,26 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+      },
+      "prefDescriptions": {
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+      }
+    }
+  },
   "pt-BR": {
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
@@ -318,10 +350,12 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
@@ -334,10 +368,12 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     },
     "profile": {
@@ -395,10 +431,12 @@
       "prefLabels": {
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -421,10 +459,12 @@
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent"
+        "changeAdsConsent(OUTDATED)": "Change ads consent",
+        "allowInsecureConnections": "Allow insecure connections"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like"
+        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
+        "allowInsecureConnections": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   }

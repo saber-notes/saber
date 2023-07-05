@@ -35,6 +35,8 @@ Future<void> main() async {
     workerManager.init(),
     Prefs.locale.waitUntilLoaded(),
     Prefs.disableAds.waitUntilLoaded(),
+    Prefs.url.waitUntilLoaded(),
+    Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
   ]);
 

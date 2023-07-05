@@ -31,6 +31,7 @@ abstract class Prefs {
 
   static late final PlainPref<bool> disableAds;
 
+  static late final EncPref<bool> allowInsecureConnections;
   static late final EncPref<String> url;
   static late final EncPref<String> username;
   /// the password used to login to NextCloud
@@ -101,6 +102,7 @@ abstract class Prefs {
   static void init() {
     disableAds = PlainPref('disableAds', false);
 
+    allowInsecureConnections = EncPref('allowInsecureConnections', false);
     url = EncPref('url', '');
     username = EncPref('username', '');
     ncPassword = EncPref('ncPassword', '');

@@ -70,7 +70,8 @@
       "hideHomeBackgrounds": "Ocultar fondos en la pantalla de inicio",
       "dontSavePresetColors": "No guardar colores preestablecidos en los colores recientes",
       "printPageIndicators": "Indicadores de página de impresión",
-      "disableAds(OUTDATED)": "Desactivar los anuncios"
+      "disableAds(OUTDATED)": "Desactivar los anuncios",
+      "allowInsecureConnections(OUTDATED)": "Permitir conexiones inseguras"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
@@ -82,7 +83,8 @@
       "editorPromptRename": "Siempre puedes cambiar el nombre de las notas más tarde",
       "hideHomeBackgrounds": "Para una vista más limpia",
       "printPageIndicators": "Mostrar indicadores de página en las exportaciones",
-      "disableAds(OUTDATED)": "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea"
+      "disableAds(OUTDATED)": "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea",
+      "allowInsecureConnections(OUTDATED)": "(No recomendado) Permitir que Sabre se conecte a servidores con certificados autofirmados/no confiables"
     },
     "themeModes": {
       "system": "Sistema",

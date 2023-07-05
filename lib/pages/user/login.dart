@@ -6,6 +6,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/components/theming/sliver_width_box.dart';
+import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -21,6 +22,7 @@ class NcLoginPage extends StatefulWidget {
 
 class _NcLoginPageState extends State<NcLoginPage> {
   Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
+    NcHttpOverrides.tempAcceptBadCertificateFrom(loginDetails.url);
     NextcloudClient client = NextcloudClient(
       loginDetails.url,
       loginName: loginDetails.loginName,

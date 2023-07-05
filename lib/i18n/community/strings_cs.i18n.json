@@ -70,7 +70,8 @@
       "editorPromptRename": "Vybízet k přejmenování nových poznámek",
       "hideHomeBackgrounds": "Skrýt pozadí poznámek na hlavní obrazovce",
       "dontSavePresetColors": "Mezi naposledy použité barvy neukládat přednastavené barvy",
-      "printPageIndicators": "Tisknout čísla stránek"
+      "printPageIndicators": "Tisknout čísla stránek",
+      "allowInsecureConnections(OUTDATED)": "Povolit nezabezpečená připojení"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem",
@@ -82,7 +83,8 @@
       "maxImageSize": "Na větší obrázky bude aplikována komprese",
       "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
       "hideHomeBackgrounds": "Pro čistější vzhled",
-      "printPageIndicators": "V exportech budou zobrazena čísla stránek"
+      "printPageIndicators": "V exportech budou zobrazena čísla stránek",
+      "allowInsecureConnections(OUTDATED)": "(Nedoporučuje se) Povolit Sabre připojení k serverům s certifikáty podepsanými sebou samým/nedůvěryhodnými"
     },
     "themeModes": {
       "system": "Systémový",

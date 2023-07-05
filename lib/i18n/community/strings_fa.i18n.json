@@ -70,7 +70,8 @@
       "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید",
       "dontSavePresetColors": "رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید",
       "printPageIndicators": "چاپ نشانگرهای صفحه",
-      "disableAds(OUTDATED)": "غیرفعال کردن تبلیغات"
+      "disableAds(OUTDATED)": "غیرفعال کردن تبلیغات",
+      "allowInsecureConnections(OUTDATED)": "به اتصالات ناامن اجازه دهید"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
@@ -82,7 +83,8 @@
       "editorPromptRename": "همیشه می توانید بعداً نام یادداشت ها را تغییر دهید",
       "hideHomeBackgrounds": "برای ظاهری تمیز تر",
       "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی",
-      "disableAds(OUTDATED)": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید"
+      "disableAds(OUTDATED)": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید",
+      "allowInsecureConnections(OUTDATED)": "(توصیه نمی‌شود) به Sabre اجازه دهید به سرورهایی با گواهی‌های خودامضا/غیر قابل اعتماد متصل شود"
     },
     "themeModes": {
       "system": "سیستم",

@@ -1,8 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:saber/data/prefs.dart';
 
 class NcHttpOverrides extends HttpOverrides {
+  static String? temporarilyExemptHost;
+  static void tempAcceptBadCertificateFrom(String uri) {
+    temporarilyExemptHost = Uri.parse(uri).host;
+  }
+
   @override
   HttpClient createHttpClient(SecurityContext? context){
     return super.createHttpClient(context)
@@ -10,71 +16,20 @@ class NcHttpOverrides extends HttpOverrides {
   }
 
   // Called when encountering a self-signed certificate.
+  // Returns true if the certificate should be accepted,
+  // false if it should be rejected.
   bool _badCertificateCallback(X509Certificate cert, String host, int port) {
-    if (doesHostNeedToBeSecure(host)) {
+    if (!Prefs.allowInsecureConnections.loaded || !Prefs.url.loaded) {
+      if (kDebugMode) print('The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
       return false;
     }
 
-    // Allow self-signed certificates for self-hosted Nextcloud servers
-    return true;
+    if (host == Uri.tryParse(Prefs.url.value)?.host || host == temporarilyExemptHost) {
+      // Allow self-signed certificates for self-hosted Nextcloud servers
+      return Prefs.allowInsecureConnections.value;
+    } else {
+      // Reject insecure certificates from other hosts
+      return false;
+    }
   }
-
-  @visibleForTesting
-  static bool doesHostNeedToBeSecure(String host) {
-    return _hostsThatNeedToBeSecure.any((String h) => host.contains(h));
-  }
-
-  static const _hostsThatNeedToBeSecure = [
-    // GitHub (e.g. for app updates)
-    'github.com',
-    'githubusercontent.com',
-
-    // Google
-    'google.com',
-    'googleapis.com',
-    'googleusercontent.com',
-    'android.com',
-
-    // Saber Nextcloud server
-    'adil.hanney.org',
-    'adilhanney.com',
-
-    // known Nextcloud servers (https://github.com/nextcloud/providers)
-    'alfacloud.biz',
-    'cloud68.co',
-    'cloudu.de',
-    'commonscloud.coop',
-    'cloudamo.com',
-    'demindo.com',
-    'domedia.net',
-    'gwc-systems.de',
-    'hkn.de',
-    'hosting.de',
-    'icdsoft.com',
-    'jaba.hosting',
-    'librebit.com'
-    'librecloud.host',
-    'living-bots.net',
-    'linuxfabrik.ch',
-    'nch.pl',
-    'mydazo.com',
-    'objectivedatastorage.com',
-    'openitstore.com',
-    'omricloud.com',
-    'omri.cloud',
-    'owndrive.com',
-    'pathconnect.de',
-    'portknox.net',
-    's7a.it',
-    'spryservers.net',
-    'stackhero.io',
-    'startupstack.tech',
-    'thegood.cloud',
-    'veiligeopslagin.nl',
-    'webhosting4u.gr',
-    'yourcloud.asia',
-    'gentoolink.com',
-    'zaclys.com',
-    'csr-online.net',
-  ];
 }

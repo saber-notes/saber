@@ -70,7 +70,8 @@
       "hideHomeBackgrounds": "إخفاء الخلفيات على الشاشة الرئيسية",
       "dontSavePresetColors": "لا تحفظ الألوان المعينة مسبقًا كألوان حديثة",
       "printPageIndicators": "طباعة مؤشرات الصفحة",
-      "disableAds(OUTDATED)": "عطل الاعلانات"
+      "disableAds(OUTDATED)": "عطل الاعلانات",
+      "allowInsecureConnections(OUTDATED)": "السماح بعلاقات غير آمنة"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية",
@@ -82,7 +83,8 @@
       "editorPromptRename": "يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا",
       "hideHomeBackgrounds": "للحصول على مظهر أنظف",
       "printPageIndicators": "تظهر مؤشرات الصفحة في الصادرات",
-      "disableAds(OUTDATED)": "(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت"
+      "disableAds(OUTDATED)": "(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت",
+      "allowInsecureConnections(OUTDATED)": "(غير مستحسن) السماح لـ Sabre بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها"
     },
     "themeModes": {
       "system": "النظام",

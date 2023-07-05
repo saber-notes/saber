@@ -70,7 +70,8 @@
       "hideHomeBackgrounds": "Скрыть фон на главном экране",
       "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах",
       "printPageIndicators": "Печатать номера страниц",
-      "disableAds(OUTDATED)": "Отключить рекламу"
+      "disableAds(OUTDATED)": "Отключить рекламу",
+      "allowInsecureConnections(OUTDATED)": "Разрешить небезопасные соединения"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
@@ -82,7 +83,8 @@
       "editorPromptRename": "Вы всегда можете переименовать заметки позже",
       "hideHomeBackgrounds": "Для чистого вида",
       "printPageIndicators": "Показывать номера страниц при экспорте",
-      "disableAds(OUTDATED)": "Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите."
+      "disableAds(OUTDATED)": "Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.",
+      "allowInsecureConnections(OUTDATED)": "(Не рекомендуется) Разрешить Sabre подключаться к серверам с самозаверяющими/ненадежными сертификатами."
     },
     "themeModes": {
       "system": "Системная",

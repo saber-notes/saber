@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2967 (211 per locale)
+/// Strings: 2990 (213 per locale)
 ///
-/// Built on 2023-07-02 at 19:47 UTC
+/// Built on 2023-07-05 at 18:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -403,6 +403,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	String get disableAds => 'Disable ads';
 	String get changeAdsConsent => 'Change ads consent';
+	String get allowInsecureConnections => 'Allow insecure connections';
 	String get editorToolbarAlignment => 'Alignment of the editor toolbar';
 	String get editorToolbarShowInFullscreen => 'Show the editor toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';
@@ -426,6 +427,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	// Translations
 	String get hyperlegibleFont => 'Atkinson Hyperlegible increases legibility for readers with low vision';
 	String get disableAds => 'Ads help support Saber\'s development, but you can disable them if you\'d like';
+	String get allowInsecureConnections => '(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates';
 	String get editorAutoInvert => 'Smartly darkens notes in dark mode';
 	String get editorOpaqueBackgrounds => 'Remove transparency from background images and PDFs';
 	String get preferGreyscale => 'For e-ink displays';
@@ -1114,6 +1116,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
 	@override String get disableAds => 'عطل الاعلانات';
+	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
 }
 
 // Path: settings.prefDescriptions
@@ -1133,6 +1136,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
+	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Sabre بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
 }
 
 // Path: settings.themeModes
@@ -1813,6 +1817,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
+	@override String get allowInsecureConnections => 'Povolit nezabezpečená připojení';
 }
 
 // Path: settings.prefDescriptions
@@ -1832,6 +1837,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
+	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit Sabre připojení k serverům s certifikáty podepsanými sebou samým/nedůvěryhodnými';
 }
 
 // Path: settings.themeModes
@@ -2468,6 +2474,7 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 	@override String get moveNote => 'Notiz verschieben';
 	@override String get move => 'Umzug';
 	@override String renamedTo({required Object newName}) => 'Die Notiz wird in ${newName} umbenannt';
+	@override String moveName({required Object f}) => 'Datei ${f}';
 }
 
 // Path: settings.prefCategories
@@ -2511,6 +2518,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
 	@override String get disableAds => 'Werbungen ausschalten';
+	@override String get allowInsecureConnections => 'Erlauben Sie unsichere Verbindungen';
 }
 
 // Path: settings.prefDescriptions
@@ -2530,6 +2538,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 	@override String get disableAds => 'Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten';
+	@override String get allowInsecureConnections => '(Nicht empfohlen) Lassen Sie Saber mit selbstsignierten/untrustierten Zertifikaten verbinden';
 }
 
 // Path: settings.themeModes
@@ -3209,6 +3218,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get disableAds => 'Desactivar los anuncios';
+	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
 }
 
 // Path: settings.prefDescriptions
@@ -3228,6 +3238,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
+	@override String get allowInsecureConnections => '(No recomendado) Permitir que Sabre se conecte a servidores con certificados autofirmados/no confiables';
 }
 
 // Path: settings.themeModes
@@ -3908,6 +3919,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get disableAds => 'غیرفعال کردن تبلیغات';
+	@override String get allowInsecureConnections => 'به اتصالات ناامن اجازه دهید';
 }
 
 // Path: settings.prefDescriptions
@@ -3927,6 +3939,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
+	@override String get allowInsecureConnections => '(توصیه نمی‌شود) به Sabre اجازه دهید به سرورهایی با گواهی‌های خودامضا/غیر قابل اعتماد متصل شود';
 }
 
 // Path: settings.themeModes
@@ -4607,6 +4620,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get layoutSize => 'Type de dispositif';
 	@override String get disableAds => 'Désactiver les publicités';
+	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
 }
 
 // Path: settings.prefDescriptions
@@ -4626,6 +4640,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
+	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Sabre à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
 }
 
 // Path: settings.themeModes
@@ -5306,6 +5321,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get layoutSize => 'Elrendezés típusa';
 	@override String get disableAds => 'Hirdetések letiltása';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
+	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
 }
 
 // Path: settings.prefDescriptions
@@ -5325,6 +5341,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
+	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
 }
 
 // Path: settings.themeModes
@@ -6005,6 +6022,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
+	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
 }
 
 // Path: settings.prefDescriptions
@@ -6024,6 +6042,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
+	@override String get allowInsecureConnections => '(Non consigliato) Permettere a Saber di connettersi a server con certificati auto-firmati/non attendibili';
 }
 
 // Path: settings.themeModes
@@ -7403,6 +7422,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get disableAds => 'Отключить рекламу';
+	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';
 }
 
 // Path: settings.prefDescriptions
@@ -7422,6 +7442,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.';
+	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Sabre подключаться к серверам с самозаверяющими/ненадежными сертификатами.';
 }
 
 // Path: settings.themeModes
@@ -8102,6 +8123,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get disableAds => 'Reklamları devre dışı bırak';
+	@override String get allowInsecureConnections => 'İzinsiz bağlantılar';
 }
 
 // Path: settings.prefDescriptions
@@ -8121,6 +8143,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get disableAds => 'Reklamlar Saber\'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin';
+	@override String get allowInsecureConnections => '(Önerilmez) Sabre\'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver';
 }
 
 // Path: settings.themeModes
