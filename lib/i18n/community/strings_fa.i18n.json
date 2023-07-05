@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "عمومی",
-      "layout": "چیدمان",
-      "writing": "نوشتن"
+      "writing": "نوشتن",
+      "editor(OUTDATED)": "ویرایشگر",
+      "advanced(OUTDATED)": "پیشرفته پیشرفته پیشرفته"
     },
     "prefLabels": {
       "locale": "زبان برنامه",

@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "通用",
-      "layout": "布局",
-      "writing": "书写"
+      "writing": "书写",
+      "editor(OUTDATED)": "编辑",
+      "advanced(OUTDATED)": "先进的"
     },
     "prefLabels": {
       "locale": "应用语言",

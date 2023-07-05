@@ -13,6 +13,8 @@ import 'package:simplytranslate/src/langs/language.dart';
 final Shell shell = Shell(verbose: false);
 late SimplyTranslator translator;
 
+final Set<String> newlyTranslatedPaths = {};
+
 Future<Map<String, dynamic>> _getMissingTranslations() async {
   final file = File('lib/i18n/_missing_translations.json');
   final json = await file.readAsString();
@@ -50,6 +52,7 @@ Future<void> translateTree(String languageCode, Map<String, dynamic> tree, List<
     if (translated == null || translated == value) continue; // error occured in translation, so skip for now
     final pathToKey = [...pathOfKeys, key].join('.');
     await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    newlyTranslatedPaths.add(pathToKey);
     tree[key] = '';
   }
 
@@ -81,6 +84,7 @@ Future<void> translateList(String languageCode, List<dynamic> list, List<String>
     if (translated == null || translated == value) continue; // error occurred in translation, so skip for now
     final pathToKey = [...pathOfKeys, i].join('.');
     await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    newlyTranslatedPaths.add(pathToKey);
     list[i] = '';
   }
 
@@ -152,5 +156,12 @@ void main() async {
     if (errorOccurredInTranslatingTree) {
       print('\nError occurred. Retrying...');
     }
+  }
+
+  // mark all newly translated paths as outdated
+  // for a human to review
+  for (final path in newlyTranslatedPaths) {
+    print('Marking $path as outdated...');
+    await shell.run('dart run slang outdated $path');
   }
 }

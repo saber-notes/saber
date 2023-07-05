@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "Általános",
-      "layout": "Elrendezés",
-      "writing": "Írás"
+      "writing": "Írás",
+      "editor(OUTDATED)": "Szerkesztő",
+      "advanced(OUTDATED)": "Fejlett"
     },
     "prefLabels": {
       "locale": "Alkalmazás nyelve",

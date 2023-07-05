@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "General",
-      "layout": "Layout",
-      "writing": "Writing"
+      "writing": "Writing",
+      "editor": "Editor",
+      "advanced": "Advanced"
     },
     "prefLabels": {
       "locale": "App language",

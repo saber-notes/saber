@@ -271,46 +271,56 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                     pref: Prefs.hyperlegibleFont,
                   ),
-                  if (requiresManualUpdates) ...[
-                    SettingsSwitch(
-                      title: t.settings.prefLabels.shouldCheckForUpdates,
-                      icon: Icons.system_update,
-                      pref: Prefs.shouldCheckForUpdates,
-                      afterChange: (_) => setState(() {}),
-                    ),
-                    Collapsible(
-                      collapsed: !Prefs.shouldCheckForUpdates.value,
-                      axis: CollapsibleAxis.vertical,
-                      child: SettingsSwitch(
-                        title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
-                        icon: Icons.system_security_update_warning,
-                        pref: _SettingsPrefs.shouldAlwaysAlertForUpdates,
-                      ),
-                    ),
-                  ],
-                  if (AdState.adsSupported) ...[
-                    SettingsSwitch(
-                      title: t.settings.prefLabels.disableAds,
-                      subtitle: t.settings.prefDescriptions.disableAds,
-                      icon: FontAwesomeIcons.rectangleAd,
-                      pref: Prefs.disableAds,
-                      afterChange: (_) => setState(() {}),
-                    ),
-                    Collapsible(
-                      collapsed: Prefs.disableAds.value,
-                      axis: CollapsibleAxis.vertical,
-                      child: SettingsButton(
-                        title: t.settings.prefLabels.changeAdsConsent,
-                        icon: FontAwesomeIcons.cookieBite,
-                        onPressed: () => AdState.showConsentForm(),
-                      ),
-                    ),
-                  ],
+                  const SizedBox(height: 16),
+                ],
+              ),
+              ExpansionTile(
+                initiallyExpanded: true,
+                leading: const Icon(Icons.brush),
+                title: Text(t.settings.prefCategories.writing),
+                shape: Border.all(color: Colors.transparent),
+                children: [
                   SettingsSwitch(
-                    title: t.settings.prefLabels.allowInsecureConnections,
-                    subtitle: t.settings.prefDescriptions.allowInsecureConnections,
-                    icon: Icons.private_connectivity,
-                    pref: Prefs.allowInsecureConnections,
+                    title: t.settings.prefLabels.preferGreyscale,
+                    subtitle: t.settings.prefDescriptions.preferGreyscale,
+                    iconBuilder: (b) {
+                      return b ? Icons.monochrome_photos : Icons.enhance_photo_translate;
+                    },
+                    pref: Prefs.preferGreyscale,
+                  ),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.editorStraightenLines,
+                    subtitle: (){
+                      if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
+                      return '${Prefs.editorStraightenDelay.value}ms';
+                    }(),
+                    iconBuilder: (num i) {
+                      return (i <= 0) ? Icons.gesture : Icons.straighten;
+                    },
+                    pref: Prefs.editorStraightenDelay,
+                    options: [
+                      ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
+                      ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
+                      ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
+                    ],
+                    afterChange: (_) => setState(() {}),
+                  ),
+                  SettingsSelection(
+                    title: t.settings.prefLabels.maxImageSize,
+                    subtitle: t.settings.prefDescriptions.maxImageSize,
+                    icon: Icons.photo_size_select_large,
+                    pref: Prefs.maxImageSize,
+                    options: const <ToggleButtonsOption<double>>[
+                      ToggleButtonsOption(500, Text('500')),
+                      ToggleButtonsOption(1000, Text('1000')),
+                      ToggleButtonsOption(2000, Text('2000')),
+                    ],
+                  ),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.autoClearWhiteboardOnExit,
+                    subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
+                    icon: Icons.cleaning_services,
+                    pref: Prefs.autoClearWhiteboardOnExit,
                   ),
                   const SizedBox(height: 16),
                 ],
@@ -318,7 +328,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ExpansionTile(
                 initiallyExpanded: true,
                 leading: const Icon(Icons.display_settings),
-                title: Text(t.settings.prefCategories.layout),
+                title: Text(t.settings.prefCategories.editor),
                 shape: Border.all(color: Colors.transparent),
                 children: [
                   SettingsSelection(
@@ -395,51 +405,50 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                leading: const Icon(Icons.brush),
-                title: Text(t.settings.prefCategories.writing),
+                leading: const Icon(Icons.developer_mode),
+                title: Text(t.settings.prefCategories.advanced),
                 shape: Border.all(color: Colors.transparent),
                 children: [
+                  if (requiresManualUpdates) ...[
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.shouldCheckForUpdates,
+                      icon: Icons.system_update,
+                      pref: Prefs.shouldCheckForUpdates,
+                      afterChange: (_) => setState(() {}),
+                    ),
+                    Collapsible(
+                      collapsed: !Prefs.shouldCheckForUpdates.value,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsSwitch(
+                        title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
+                        icon: Icons.system_security_update_warning,
+                        pref: _SettingsPrefs.shouldAlwaysAlertForUpdates,
+                      ),
+                    ),
+                  ],
+                  if (AdState.adsSupported) ...[
+                    SettingsSwitch(
+                      title: t.settings.prefLabels.disableAds,
+                      subtitle: t.settings.prefDescriptions.disableAds,
+                      icon: FontAwesomeIcons.rectangleAd,
+                      pref: Prefs.disableAds,
+                      afterChange: (_) => setState(() {}),
+                    ),
+                    Collapsible(
+                      collapsed: Prefs.disableAds.value,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsButton(
+                        title: t.settings.prefLabels.changeAdsConsent,
+                        icon: FontAwesomeIcons.cookieBite,
+                        onPressed: () => AdState.showConsentForm(),
+                      ),
+                    ),
+                  ],
                   SettingsSwitch(
-                    title: t.settings.prefLabels.preferGreyscale,
-                    subtitle: t.settings.prefDescriptions.preferGreyscale,
-                    iconBuilder: (b) {
-                      return b ? Icons.monochrome_photos : Icons.enhance_photo_translate;
-                    },
-                    pref: Prefs.preferGreyscale,
-                  ),
-                  SettingsSelection(
-                    title: t.settings.prefLabels.editorStraightenLines,
-                    subtitle: (){
-                      if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
-                      return '${Prefs.editorStraightenDelay.value}ms';
-                    }(),
-                    iconBuilder: (num i) {
-                      return (i <= 0) ? Icons.gesture : Icons.straighten;
-                    },
-                    pref: Prefs.editorStraightenDelay,
-                    options: [
-                      ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
-                      ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
-                      ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
-                    ],
-                    afterChange: (_) => setState(() {}),
-                  ),
-                  SettingsSelection(
-                    title: t.settings.prefLabels.maxImageSize,
-                    subtitle: t.settings.prefDescriptions.maxImageSize,
-                    icon: Icons.photo_size_select_large,
-                    pref: Prefs.maxImageSize,
-                    options: const <ToggleButtonsOption<double>>[
-                      ToggleButtonsOption(500, Text('500')),
-                      ToggleButtonsOption(1000, Text('1000')),
-                      ToggleButtonsOption(2000, Text('2000')),
-                    ],
-                  ),
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.autoClearWhiteboardOnExit,
-                    subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
-                    icon: Icons.cleaning_services,
-                    pref: Prefs.autoClearWhiteboardOnExit,
+                    title: t.settings.prefLabels.allowInsecureConnections,
+                    subtitle: t.settings.prefDescriptions.allowInsecureConnections,
+                    icon: Icons.private_connectivity,
+                    pref: Prefs.allowInsecureConnections,
                   ),
                   const SizedBox(height: 16),
                 ],

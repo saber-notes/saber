@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "Général",
-      "layout": "Disposition",
-      "writing": "Tracé"
+      "writing": "Tracé",
+      "editor(OUTDATED)": "Éditeur",
+      "advanced(OUTDATED)": "Avancé"
     },
     "prefLabels": {
       "locale": "Langue",

@@ -45,8 +45,11 @@
   "settings": {
     "prefCategories": {
       "general": "Geral",
-      "layout": "Leiaute",
-      "writing": "Escrita"
+      "writing": "Escrita",
+      "editor(OUTDATED)": "editor",
+      "advanced(OUTDATED)": "Avançado",
+      "advanced": "Avançado",
+      "editor": "editor"
     },
     "prefLabels": {
       "locale": "Idioma do aplicativo",

@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "Allgemein",
-      "layout": "Aussehen",
-      "writing": "Eingabe"
+      "writing": "Eingabe",
+      "advanced(OUTDATED)": "Fortschrittlich",
+      "editor(OUTDATED)": "Herausgeber"
     },
     "prefLabels": {
       "locale": "Sprache",

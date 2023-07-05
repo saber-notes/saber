@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "General",
-      "layout": "Diseño",
-      "writing": "Escritura"
+      "writing": "Escritura",
+      "advanced(OUTDATED)": "Avanzado",
+      "editor(OUTDATED)": "Editor"
     },
     "prefLabels": {
       "locale": "Idioma de la aplicación",

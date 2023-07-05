@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "Genel",
-      "layout": "Yerleşim",
-      "writing": "Yazım"
+      "writing": "Yazım",
+      "advanced(OUTDATED)": "Gelişmiş",
+      "editor(OUTDATED)": "Editor Editor Editor"
     },
     "prefLabels": {
       "locale": "Uygulama dili",

@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "عام",
-      "layout": "تخطيط",
-      "writing": "كتابة"
+      "writing": "كتابة",
+      "editor(OUTDATED)": "محرر",
+      "advanced(OUTDATED)": "متقدم"
     },
     "prefLabels": {
       "locale": "لغة التطبيق",

@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "Общие",
-      "layout": "Макет",
-      "writing": "Письмо"
+      "writing": "Письмо",
+      "editor(OUTDATED)": "редактор",
+      "advanced(OUTDATED)": "Передовой"
     },
     "prefLabels": {
       "locale": "Язык приложения",

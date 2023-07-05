@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2996 (214 per locale)
+/// Strings: 3010 (215 per locale)
 ///
-/// Built on 2023-07-05 at 19:35 UTC
+/// Built on 2023-07-05 at 20:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -382,8 +382,9 @@ class _StringsSettingsPrefCategoriesEn {
 
 	// Translations
 	String get general => 'General';
-	String get layout => 'Layout';
 	String get writing => 'Writing';
+	String get editor => 'Editor';
+	String get advanced => 'Advanced';
 }
 
 // Path: settings.prefLabels
@@ -1083,8 +1084,9 @@ class _StringsSettingsPrefCategoriesAr extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'عام';
-	@override String get layout => 'تخطيط';
 	@override String get writing => 'كتابة';
+	@override String get editor => 'محرر';
+	@override String get advanced => 'متقدم';
 }
 
 // Path: settings.prefLabels
@@ -1784,8 +1786,9 @@ class _StringsSettingsPrefCategoriesCs extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Obecné';
-	@override String get layout => 'Uspořádání uživatelského rozhraní';
 	@override String get writing => 'Psaní';
+	@override String get advanced => 'Pokročilý';
+	@override String get editor => 'Čeština';
 }
 
 // Path: settings.prefLabels
@@ -2485,8 +2488,9 @@ class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Allgemein';
-	@override String get layout => 'Aussehen';
 	@override String get writing => 'Eingabe';
+	@override String get advanced => 'Fortschrittlich';
+	@override String get editor => 'Herausgeber';
 }
 
 // Path: settings.prefLabels
@@ -3185,8 +3189,9 @@ class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'General';
-	@override String get layout => 'Diseño';
 	@override String get writing => 'Escritura';
+	@override String get advanced => 'Avanzado';
+	@override String get editor => 'Editor';
 }
 
 // Path: settings.prefLabels
@@ -3886,8 +3891,9 @@ class _StringsSettingsPrefCategoriesFa extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'عمومی';
-	@override String get layout => 'چیدمان';
 	@override String get writing => 'نوشتن';
+	@override String get editor => 'ویرایشگر';
+	@override String get advanced => 'پیشرفته پیشرفته پیشرفته';
 }
 
 // Path: settings.prefLabels
@@ -4587,8 +4593,9 @@ class _StringsSettingsPrefCategoriesFr extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Général';
-	@override String get layout => 'Disposition';
 	@override String get writing => 'Tracé';
+	@override String get editor => 'Éditeur';
+	@override String get advanced => 'Avancé';
 }
 
 // Path: settings.prefLabels
@@ -5288,8 +5295,9 @@ class _StringsSettingsPrefCategoriesHu extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Általános';
-	@override String get layout => 'Elrendezés';
 	@override String get writing => 'Írás';
+	@override String get editor => 'Szerkesztő';
+	@override String get advanced => 'Fejlett';
 }
 
 // Path: settings.prefLabels
@@ -5989,8 +5997,9 @@ class _StringsSettingsPrefCategoriesIt extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Generale';
-	@override String get layout => 'Layout';
 	@override String get writing => 'Scrittura';
+	@override String get editor => 'Editore';
+	@override String get advanced => 'Avanzate';
 }
 
 // Path: settings.prefLabels
@@ -6690,8 +6699,9 @@ class _StringsSettingsPrefCategoriesPtBr extends _StringsSettingsPrefCategoriesE
 
 	// Translations
 	@override String get general => 'Geral';
-	@override String get layout => 'Leiaute';
 	@override String get writing => 'Escrita';
+	@override String get editor => 'editor';
+	@override String get advanced => 'Avançado';
 }
 
 // Path: settings.prefLabels
@@ -7391,8 +7401,9 @@ class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Общие';
-	@override String get layout => 'Макет';
 	@override String get writing => 'Письмо';
+	@override String get editor => 'редактор';
+	@override String get advanced => 'Передовой';
 }
 
 // Path: settings.prefLabels
@@ -8092,8 +8103,9 @@ class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn 
 
 	// Translations
 	@override String get general => 'Genel';
-	@override String get layout => 'Yerleşim';
 	@override String get writing => 'Yazım';
+	@override String get advanced => 'Gelişmiş';
+	@override String get editor => 'Editor Editor Editor';
 }
 
 // Path: settings.prefLabels
@@ -8793,8 +8805,9 @@ class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategor
 
 	// Translations
 	@override String get general => '通用';
-	@override String get layout => '布局';
 	@override String get writing => '书写';
+	@override String get editor => '编辑';
+	@override String get advanced => '先进的';
 }
 
 // Path: settings.prefLabels
@@ -9494,8 +9507,9 @@ class _StringsSettingsPrefCategoriesZhHantTw extends _StringsSettingsPrefCategor
 
 	// Translations
 	@override String get general => '一般';
-	@override String get layout => '佈局';
 	@override String get writing => '書寫';
+	@override String get advanced => '先進的';
+	@override String get editor => '編輯';
 }
 
 // Path: settings.prefLabels

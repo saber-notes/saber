@@ -45,8 +45,9 @@
   "settings": {
     "prefCategories": {
       "general": "Obecné",
-      "layout": "Uspořádání uživatelského rozhraní",
-      "writing": "Psaní"
+      "writing": "Psaní",
+      "advanced(OUTDATED)": "Pokročilý",
+      "editor(OUTDATED)": "Čeština"
     },
     "prefLabels": {
       "locale": "Jazyk aplikace",
