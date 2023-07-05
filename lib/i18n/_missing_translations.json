@@ -72,17 +72,17 @@
   "fa": {
     "settings": {
       "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
+        "editor(OUTDATED)": "ویرایشگر",
+        "advanced(OUTDATED)": "پیشرفته"
       },
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "disableAds(OUTDATED)": "غیرفعال کردن تبلیغات",
+        "changeAdsConsent(OUTDATED)": "تغییر رضایت تبلیغات",
+        "allowInsecureConnections(OUTDATED)": "به اتصالات ناامن اجازه دهید"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "disableAds(OUTDATED)": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید",
+        "allowInsecureConnections(OUTDATED)": "(توصیه نمی شود) به Sabre اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود"
       }
     }
   },
