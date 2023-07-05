@@ -436,7 +436,7 @@ class EncPref<T> extends IPref<T> {
   FlutterSecureStorage? _storage;
 
   EncPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
-    assert(T == String || T == typeOf<List<String>>());
+    assert(T == String || T == typeOf<List<String>>() || T == bool);
   }
 
   @override
@@ -474,6 +474,7 @@ class EncPref<T> extends IPref<T> {
     try {
       _storage ??= const FlutterSecureStorage();
       if (T == String) return await _storage!.write(key: key, value: value as String);
+      if (T == bool) return await _storage!.write(key: key, value: jsonEncode(value));
       return await _storage!.write(key: key, value: jsonEncode(value));
     } finally {
       _saved = true;
@@ -496,6 +497,8 @@ class EncPref<T> extends IPref<T> {
 
     if (T == String) {
       return value as T;
+    } else if (T == bool) {
+      return jsonDecode(value) as T;
     } else {
       return List<String>.from(jsonDecode(value)) as T;
     }
