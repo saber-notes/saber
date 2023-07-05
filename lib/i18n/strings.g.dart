@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 14
-/// Strings: 2990 (213 per locale)
+/// Strings: 2996 (214 per locale)
 ///
-/// Built on 2023-07-05 at 18:37 UTC
+/// Built on 2023-07-05 at 19:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2457,11 +2457,11 @@ class _StringsHomeRenameNoteDe extends _StringsHomeRenameNoteEn {
 
 	// Translations
 	@override String get renameNote => 'Notiz umbenennen';
-	@override String get noteName => 'Notizname';
+	@override String get noteName => 'Notiz Name';
 	@override String get rename => 'Umbenennen';
-	@override String get noteNameEmpty => 'Der Notizname darf nicht leer sein';
-	@override String get noteNameContainsSlash => 'Der Notizname darf keinen Schrägstrich enthalten';
-	@override String get noteNameExists => 'Eine Notiz mit diesem Namen existiert bereits';
+	@override String get noteNameEmpty => 'Name der Notiz darf nicht leer sein';
+	@override String get noteNameContainsSlash => 'Name der Notiz darf keinen Schrägstrich enthalten';
+	@override String get noteNameExists => 'Notiz mit diesem Namen existiert bereits';
 }
 
 // Path: home.moveNote
@@ -2472,9 +2472,9 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notiz verschieben';
-	@override String get move => 'Umzug';
-	@override String renamedTo({required Object newName}) => 'Die Notiz wird in ${newName} umbenannt';
-	@override String moveName({required Object f}) => 'Datei ${f}';
+	@override String moveName({required Object f}) => 'verschiebe ${f}';
+	@override String get move => 'Verschieben';
+	@override String renamedTo({required Object newName}) => 'Notiz wird umbenannt zu ${newName}';
 }
 
 // Path: settings.prefCategories
@@ -2504,7 +2504,9 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
 	@override String get shouldAlwaysAlertForUpdates => 'Benachrichtige mich, sobald eine neue Version verfügbar ist';
-	@override String get changeAdsConsent => 'Anzeigeneinwilligung ändern';
+	@override String get disableAds => 'Werbung deaktivieren';
+	@override String get changeAdsConsent => 'Werbungsinhalt anpassen';
+	@override String get allowInsecureConnections => 'Unsichere Verbindung erlauben';
 	@override String get editorToolbarAlignment => 'Position der Werkzeugleiste';
 	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
@@ -2517,8 +2519,6 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
-	@override String get disableAds => 'Werbungen ausschalten';
-	@override String get allowInsecureConnections => 'Erlauben Sie unsichere Verbindungen';
 }
 
 // Path: settings.prefDescriptions
@@ -2529,6 +2529,8 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
+	@override String get disableAds => 'Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.';
+	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
 	@override String get editorAutoInvert => 'Verdunkelt intelligent die Notizen im Dunkelmodus';
 	@override String get editorOpaqueBackgrounds => 'Hintergrundbilder und PDFs undurchsichtig machen';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
@@ -2537,8 +2539,6 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
-	@override String get disableAds => 'Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten';
-	@override String get allowInsecureConnections => '(Nicht empfohlen) Lassen Sie Saber mit selbstsignierten/untrustierten Zertifikaten verbinden';
 }
 
 // Path: settings.themeModes
@@ -6723,6 +6723,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get disableAds => 'Desativar anúncios';
+	@override String get allowInsecureConnections => 'Permitir conexões inseguras';
 }
 
 // Path: settings.prefDescriptions
@@ -6742,6 +6743,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar';
+	@override String get allowInsecureConnections => '(Não recomendado) Permite que o Saber se conecte a servidores com certificados autoassinados/não confiáveis';
 }
 
 // Path: settings.themeModes
@@ -8824,6 +8826,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '打印页码';
 	@override String get layoutSize => '布局类型';
 	@override String get disableAds => '禁用广告';
+	@override String get allowInsecureConnections => '允许不安全的连接';
 }
 
 // Path: settings.prefDescriptions
@@ -8843,6 +8846,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get disableAds => '广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们';
+	@override String get allowInsecureConnections => '（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器';
 }
 
 // Path: settings.themeModes
@@ -9523,6 +9527,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get disableAds => '禁用廣告';
+	@override String get allowInsecureConnections => '允許不安全的連接';
 }
 
 // Path: settings.prefDescriptions
@@ -9542,6 +9547,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get disableAds => '廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們';
+	@override String get allowInsecureConnections => '（不推薦）允許 Saber 連接到具有自簽名/不受信任證書的服務器';
 }
 
 // Path: settings.themeModes

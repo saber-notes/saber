@@ -71,7 +71,7 @@
       "dontSavePresetColors": "不要在最近的顏色中儲存預設顏色",
       "printPageIndicators": "列印頁碼",
       "disableAds(OUTDATED)": "禁用廣告",
-      "allowInsecureConnections": "允許不安全的連接"
+      "allowInsecureConnections(OUTDATED)": "允許不安全的連接"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
@@ -84,7 +84,7 @@
       "hideHomeBackgrounds": "為了更乾淨的外觀",
       "printPageIndicators": "在匯出中顯示頁碼",
       "disableAds(OUTDATED)": "廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們",
-      "allowInsecureConnections": "（不推薦）允許 Saber 連接到具有自簽名/不受信任證書的服務器"
+      "allowInsecureConnections(OUTDATED)": "（不推薦）允許 Saber 連接到具有自簽名/不受信任證書的服務器"
     },
     "themeModes": {
       "system": "系統",

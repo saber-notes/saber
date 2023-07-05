@@ -28,18 +28,18 @@
       "folderNameExists": "Ordner existiert bereits"
     },
     "renameNote": {
-      "renameNote(OUTDATED)": "Notiz umbenennen",
-      "noteName(OUTDATED)": "Notizname",
-      "rename(OUTDATED)": "Umbenennen",
-      "noteNameEmpty(OUTDATED)": "Der Notizname darf nicht leer sein",
-      "noteNameContainsSlash(OUTDATED)": "Der Notizname darf keinen Schrägstrich enthalten",
-      "noteNameExists(OUTDATED)": "Eine Notiz mit diesem Namen existiert bereits"
+      "renameNote": "Notiz umbenennen",
+      "noteName": "Notiz Name",
+      "rename": "Umbenennen",
+      "noteNameEmpty": "Name der Notiz darf nicht leer sein",
+      "noteNameContainsSlash": "Name der Notiz darf keinen Schrägstrich enthalten",
+      "noteNameExists": "Notiz mit diesem Namen existiert bereits"
     },
     "moveNote": {
-      "moveNote(OUTDATED)": "Notiz verschieben",
-      "move(OUTDATED)": "Umzug",
-      "renamedTo(OUTDATED)": "Die Notiz wird in $newName umbenannt",
-      "moveName(OUTDATED)": "Datei $f"
+      "moveNote": "Notiz verschieben",
+      "moveName": "verschiebe $f",
+      "move": "Verschieben",
+      "renamedTo": "Notiz wird umbenannt zu $newName"
     }
   },
   "settings": {
@@ -57,7 +57,9 @@
       "hyperlegibleFont": "Hyperlesbare Schrift",
       "shouldCheckForUpdates": "Suche automatisch nach Saber-Aktualisierungen",
       "shouldAlwaysAlertForUpdates": "Benachrichtige mich, sobald eine neue Version verfügbar ist",
-      "changeAdsConsent(OUTDATED)": "Anzeigeneinwilligung ändern",
+      "disableAds": "Werbung deaktivieren",
+      "changeAdsConsent": "Werbungsinhalt anpassen",
+      "allowInsecureConnections": "Unsichere Verbindung erlauben",
       "editorToolbarAlignment": "Position der Werkzeugleiste",
       "editorToolbarShowInFullscreen": "Zeige die Werkzeugleiste im Vollbild",
       "editorAutoInvert": "Notizen im Dunkelmodus invertieren",
@@ -69,12 +71,12 @@
       "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
       "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen",
       "dontSavePresetColors": "Farbvorlagen nicht in den zuletzt genutzten Farben speichern",
-      "printPageIndicators": "Seitennummerierung drucken",
-      "disableAds(OUTDATED)": "Werbungen ausschalten",
-      "allowInsecureConnections(OUTDATED)": "Erlauben Sie unsichere Verbindungen"
+      "printPageIndicators": "Seitennummerierung drucken"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
+      "disableAds": "Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.",
+      "allowInsecureConnections": "(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden",
       "editorAutoInvert": "Verdunkelt intelligent die Notizen im Dunkelmodus",
       "editorOpaqueBackgrounds": "Hintergrundbilder und PDFs undurchsichtig machen",
       "preferGreyscale": "Für E-Ink-Bildschirme",
@@ -82,9 +84,7 @@
       "maxImageSize": "Bilder, die größer sind, werden komprimiert",
       "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
       "hideHomeBackgrounds": "Für ein sauberes Aussehen",
-      "printPageIndicators": "Seitennummerierung bei Export anzeigen",
-      "disableAds(OUTDATED)": "Anzeigen unterstützen die Entwicklung von Saber, Sie können sie jedoch deaktivieren, wenn Sie möchten",
-      "allowInsecureConnections(OUTDATED)": "(Nicht empfohlen) Lassen Sie Saber mit selbstsignierten/untrustierten Zertifikaten verbinden"
+      "printPageIndicators": "Seitennummerierung bei Export anzeigen"
     },
     "themeModes": {
       "system": "System",
