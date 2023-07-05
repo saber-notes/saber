@@ -34,29 +34,29 @@
   "de": {
     "home": {
       "renameNote": {
-        "renameNote(OUTDATED)": "Rename note",
-        "noteName(OUTDATED)": "Note name",
-        "rename(OUTDATED)": "Rename",
-        "noteNameEmpty(OUTDATED)": "Note name can't be empty",
-        "noteNameContainsSlash(OUTDATED)": "Note name can't contain a slash",
-        "noteNameExists(OUTDATED)": "A note with this name already exists"
+        "renameNote(OUTDATED)": "Notiz umbenennen",
+        "noteName(OUTDATED)": "Notiz Name",
+        "rename(OUTDATED)": "Umbenennen",
+        "noteNameEmpty(OUTDATED)": "Name der Notiz darf nicht leer sein",
+        "noteNameContainsSlash(OUTDATED)": "Name der Notiz darf keinen Schrägstrich enthalten",
+        "noteNameExists(OUTDATED)": "Notiz mit diesem Namen existiert bereits"
       },
       "moveNote": {
-        "moveNote(OUTDATED)": "Move note",
-        "moveName(OUTDATED)": "Move $f",
-        "move(OUTDATED)": "Move",
-        "renamedTo(OUTDATED)": "Note will be renamed to $newName"
+        "moveNote(OUTDATED)": "Notiz verschieben",
+        "moveName(OUTDATED)": "verschiebe $f",
+        "move(OUTDATED)": "Verschieben",
+        "renamedTo(OUTDATED)": "Notiz wird umbenannt zu $newName"
       }
     },
     "settings": {
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "disableAds(OUTDATED)": "Werbung deaktivieren",
+        "changeAdsConsent(OUTDATED)": "Werbungsinhalt anpassen",
+        "allowInsecureConnections(OUTDATED)": "Unsichere Verbindung erlauben"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "disableAds(OUTDATED)": "Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.",
+        "allowInsecureConnections(OUTDATED)": "(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden"
       }
     }
   },
