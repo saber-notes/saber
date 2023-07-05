@@ -13,6 +13,7 @@ import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
+import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -47,6 +48,7 @@ Future<void> main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
+  HttpOverrides.global = NcHttpOverrides();
   runApp(TranslationProvider(child: const App()));
   startSyncAfterUsernameLoaded();
 }
