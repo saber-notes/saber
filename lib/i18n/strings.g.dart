@@ -1136,7 +1136,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
-	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Sabre بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
+	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
 }
 
 // Path: settings.themeModes
@@ -1837,7 +1837,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
-	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit Sabre připojení k serverům s certifikáty podepsanými sebou samým/nedůvěryhodnými';
+	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit Saber připojení k serverům s certifikáty podepsanými sebou samým/nedůvěryhodnými';
 }
 
 // Path: settings.themeModes
@@ -3238,7 +3238,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
-	@override String get allowInsecureConnections => '(No recomendado) Permitir que Sabre se conecte a servidores con certificados autofirmados/no confiables';
+	@override String get allowInsecureConnections => '(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables';
 }
 
 // Path: settings.themeModes
@@ -3939,7 +3939,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
-	@override String get allowInsecureConnections => '(توصیه نمی‌شود) به Sabre اجازه دهید به سرورهایی با گواهی‌های خودامضا/غیر قابل اعتماد متصل شود';
+	@override String get allowInsecureConnections => '(توصیه نمی‌شود) به Saber اجازه دهید به سرورهایی با گواهی‌های خودامضا/غیر قابل اعتماد متصل شود';
 }
 
 // Path: settings.themeModes
@@ -4640,7 +4640,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
-	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Sabre à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
+	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
 }
 
 // Path: settings.themeModes
@@ -7442,7 +7442,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.';
-	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Sabre подключаться к серверам с самозаверяющими/ненадежными сертификатами.';
+	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Saber подключаться к серверам с самозаверяющими/ненадежными сертификатами.';
 }
 
 // Path: settings.themeModes
@@ -8143,7 +8143,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get disableAds => 'Reklamlar Saber\'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin';
-	@override String get allowInsecureConnections => '(Önerilmez) Sabre\'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver';
+	@override String get allowInsecureConnections => '(Önerilmez) Saber\'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver';
 }
 
 // Path: settings.themeModes

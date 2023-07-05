@@ -84,7 +84,7 @@
       "editorPromptRename": "Poznámky můžete vždy přejmenovat i později",
       "hideHomeBackgrounds": "Pro čistější vzhled",
       "printPageIndicators": "V exportech budou zobrazena čísla stránek",
-      "allowInsecureConnections(OUTDATED)": "(Nedoporučuje se) Povolit Sabre připojení k serverům s certifikáty podepsanými sebou samým/nedůvěryhodnými"
+      "allowInsecureConnections(OUTDATED)": "(Nedoporučuje se) Povolit Saber připojení k serverům s certifikáty podepsanými sebou samým/nedůvěryhodnými"
     },
     "themeModes": {
       "system": "Systémový",

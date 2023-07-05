@@ -70,7 +70,8 @@
       "dontSavePresetColors": "不在最近使用的颜色中保存预设颜色",
       "printPageIndicators": "打印页码",
       "layoutSize(OUTDATED)": "布局类型",
-      "disableAds(OUTDATED)": "禁用广告"
+      "disableAds(OUTDATED)": "禁用广告",
+      "allowInsecureConnections": "允许不安全的连接"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字体为低视力读者提高易读性",
@@ -82,7 +83,8 @@
       "editorPromptRename": "您可以总是稍后重命名笔记",
       "hideHomeBackgrounds": "更简洁的外观",
       "printPageIndicators": "在导出中显示页码",
-      "disableAds(OUTDATED)": "广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们"
+      "disableAds(OUTDATED)": "广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们",
+      "allowInsecureConnections": "（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器"
     },
     "themeModes": {
       "system": "系统",

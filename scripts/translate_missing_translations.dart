@@ -13,15 +13,27 @@ import 'package:simplytranslate/src/langs/language.dart';
 final Shell shell = Shell(verbose: false);
 late SimplyTranslator translator;
 
-final nearestLocaleCodes = <String, String>{
-  'zh-Hans-CN': 'zh-cn',
-  'zh-Hant-TW': 'zh-tw',
-};
-
 Future<Map<String, dynamic>> _getMissingTranslations() async {
   final file = File('lib/i18n/_missing_translations.json');
   final json = await file.readAsString();
   return jsonDecode(json) as Map<String, dynamic>;
+}
+
+String _nearestLocaleCode(String localeCode) {
+  const nearestLocaleCodes = <String, String>{
+    'zh-Hans-CN': 'zh-cn',
+    'zh-Hant-TW': 'zh-tw',
+  };
+
+  if (LanguageList.contains(localeCode)) {
+    return localeCode;
+  } else if (nearestLocaleCodes.containsKey(localeCode)) {
+    return nearestLocaleCodes[localeCode]!;
+  } else if (LanguageList.contains(localeCode.split('-').first)) {
+    return localeCode.split('-').first;
+  } else {
+    throw 'No nearest language code found for $localeCode.';
+  }
 }
 
 /// Translate the given tree of strings in place. Note that the tree can contain lists, maps, and strings.
@@ -35,7 +47,7 @@ Future<void> translateTree(String languageCode, Map<String, dynamic> tree, List<
     if (value.isEmpty) continue; // already translated in a previous iteration
 
     final translated = await translateString(translator, languageCode, value);
-    if (translated == null) continue; // error occured in translation, so skip for now
+    if (translated == null || translated == value) continue; // error occured in translation, so skip for now
     final pathToKey = [...pathOfKeys, key].join('.');
     await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
     tree[key] = '';
@@ -66,7 +78,7 @@ Future<void> translateList(String languageCode, List<dynamic> list, List<String>
     if (value.isEmpty) continue; // already translated in a previous iteration
 
     final translated = await translateString(translator, languageCode, value);
-    if (translated == null) continue; // error occurred in translation, so skip for now
+    if (translated == null || translated == value) continue; // error occurred in translation, so skip for now
     final pathToKey = [...pathOfKeys, i].join('.');
     await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
     list[i] = '';
@@ -93,7 +105,7 @@ Future<String?> translateString(SimplyTranslator translator, String languageCode
     translation = await translator.translateSimply(
       english,
       from: 'en',
-      to: languageCode,
+      to: _nearestLocaleCode(languageCode),
     ).timeout(const Duration(seconds: 3));
   } catch (e) {
     print('    Translation failed: $e');
@@ -134,19 +146,7 @@ void main() async {
       print('Translating $languageCode...');
 
       final Map<String, dynamic> tree = missingTranslations[languageCode];
-
-      final String nearestLanguageCode;
-      if (LanguageList.contains(languageCode)) {
-        nearestLanguageCode = languageCode;
-      } else if (nearestLocaleCodes.containsKey(languageCode)) {
-        nearestLanguageCode = nearestLocaleCodes[languageCode]!;
-      } else if (LanguageList.contains(languageCode.split('-').first)) {
-        nearestLanguageCode = languageCode.split('-').first;
-      } else {
-        print('  No nearest language code found for $languageCode.');
-        continue;
-      }
-      await translateTree(nearestLanguageCode, tree, const []);
+      await translateTree(languageCode, tree, const []);
     }
 
     if (errorOccurredInTranslatingTree) {

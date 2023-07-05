@@ -84,7 +84,7 @@
       "hideHomeBackgrounds": "Daha sade bir görüntü için",
       "printPageIndicators": "Çıktılarda sayfa belirteçlerini göster",
       "disableAds(OUTDATED)": "Reklamlar Saber'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin",
-      "allowInsecureConnections(OUTDATED)": "(Önerilmez) Sabre'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver"
+      "allowInsecureConnections(OUTDATED)": "(Önerilmez) Saber'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver"
     },
     "themeModes": {
       "system": "Sistem teması",

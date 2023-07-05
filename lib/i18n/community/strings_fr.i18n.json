@@ -84,7 +84,7 @@
       "hideHomeBackgrounds": "Pour une apparence plus sobre",
       "printPageIndicators": "Montrer les numéros de pages dans les exportations",
       "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez",
-      "allowInsecureConnections(OUTDATED)": "(Non recommandé) Autoriser Sabre à se connecter aux serveurs avec des certificats auto-signés/non approuvés"
+      "allowInsecureConnections(OUTDATED)": "(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés"
     },
     "themeModes": {
       "system": "Système",

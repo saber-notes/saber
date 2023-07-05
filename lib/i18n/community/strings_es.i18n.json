@@ -84,7 +84,7 @@
       "hideHomeBackgrounds": "Para una vista más limpia",
       "printPageIndicators": "Mostrar indicadores de página en las exportaciones",
       "disableAds(OUTDATED)": "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea",
-      "allowInsecureConnections(OUTDATED)": "(No recomendado) Permitir que Sabre se conecte a servidores con certificados autofirmados/no confiables"
+      "allowInsecureConnections(OUTDATED)": "(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables"
     },
     "themeModes": {
       "system": "Sistema",
