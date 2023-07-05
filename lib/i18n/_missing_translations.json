@@ -31,35 +31,7 @@
       }
     }
   },
-  "de": {
-    "home": {
-      "renameNote": {
-        "renameNote(OUTDATED)": "Notiz umbenennen",
-        "noteName(OUTDATED)": "Notiz Name",
-        "rename(OUTDATED)": "Umbenennen",
-        "noteNameEmpty(OUTDATED)": "Name der Notiz darf nicht leer sein",
-        "noteNameContainsSlash(OUTDATED)": "Name der Notiz darf keinen Schrägstrich enthalten",
-        "noteNameExists(OUTDATED)": "Notiz mit diesem Namen existiert bereits"
-      },
-      "moveNote": {
-        "moveNote(OUTDATED)": "Notiz verschieben",
-        "moveName(OUTDATED)": "verschiebe $f",
-        "move(OUTDATED)": "Verschieben",
-        "renamedTo(OUTDATED)": "Notiz wird umbenannt zu $newName"
-      }
-    },
-    "settings": {
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Werbung deaktivieren",
-        "changeAdsConsent(OUTDATED)": "Werbungsinhalt anpassen",
-        "allowInsecureConnections(OUTDATED)": "Unsichere Verbindung erlauben"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.",
-        "allowInsecureConnections(OUTDATED)": "(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden"
-      }
-    }
-  },
+  "de": {},
   "es": {
     "home": {
       "moveNote": {
@@ -338,11 +310,11 @@
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   },
@@ -432,11 +404,11 @@
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -460,11 +432,11 @@
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
       }
     }
   }

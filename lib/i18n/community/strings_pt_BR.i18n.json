@@ -71,7 +71,7 @@
       "dontSavePresetColors": "Não salvar as cores predefinidas nas cores recentes",
       "printPageIndicators": "Imprimir os indicadores de página",
       "disableAds(OUTDATED)": "Desativar anúncios",
-      "allowInsecureConnections": "Permitir conexões inseguras"
+      "allowInsecureConnections(OUTDATED)": "Permitir conexões inseguras"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão",
@@ -84,7 +84,7 @@
       "hideHomeBackgrounds": "Para uma aparência mais limpa",
       "printPageIndicators": "Mostrar os indicadores de página nas exportações",
       "disableAds(OUTDATED)": "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar",
-      "allowInsecureConnections": "(Não recomendado) Permite que o Saber se conecte a servidores com certificados autoassinados/não confiáveis"
+      "allowInsecureConnections(OUTDATED)": "(Não recomendado) Permite que o Saber se conecte a servidores com certificados autoassinados/não confiáveis"
     },
     "themeModes": {
       "system": "Sistema",
