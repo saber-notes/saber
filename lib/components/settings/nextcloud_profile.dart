@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nextcloud/nextcloud.dart' show NextcloudProvisioningApiUserDetails_Quota;
+import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetails_Quota;
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-typedef Quota = NextcloudProvisioningApiUserDetails_Quota;
+typedef Quota = ProvisioningApiUserDetails_Quota;
 
 class NextcloudProfile extends StatefulWidget {
   const NextcloudProfile({super.key});

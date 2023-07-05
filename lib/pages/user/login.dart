@@ -29,7 +29,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       password: loginDetails.ncPassword,
     );
 
-    final NextcloudCoreServerCapabilities_Ocs_Data capabilities;
+    final CoreServerCapabilities_Ocs_Data capabilities;
     final bool ncServerIsSupported;
     final int ncSupportedVersion;
     try {

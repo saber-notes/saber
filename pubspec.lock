@@ -237,16 +237,16 @@ packages:
     dependency: "direct main"
     description:
       name: dynamic_color
-      sha256: "74dff1435a695887ca64899b8990004f8d1232b0e84bfc4faa1fdda7c6f57cc1"
+      sha256: de4798a7069121aee12d5895315680258415de9b00e717723a1bd73d58f0126d
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.5"
+    version: "1.6.6"
   dynamite_runtime:
     dependency: transitive
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "46d64f3dc80132b4a38a324546a7becaaeed63db"
+      resolved-ref: bff22dca6e1d21127059df48ce0e7e4e4222cd59
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -318,10 +318,10 @@ packages:
     dependency: "direct main"
     description:
       name: flex_seed_scheme
-      sha256: e4168a6fc88a3e5bc3d6b7a748c6a6083eedc193d343ddc26bbad7fb1b258555
+      sha256: "29c12aba221eb8a368a119685371381f8035011d18de5ba277ad11d7dfb8657f"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.0"
+    version: "1.4.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -413,10 +413,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: a766a5cc6781bcf064a3b22f740a5159176d5640d1c0243c4be295e9db855c35
+      sha256: e0bfa2a64e6a0772a2c273294af46b171b864a20692144c0ea81916a452b378c
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.10"
+    version: "7.2.11"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -722,7 +722,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "46d64f3dc80132b4a38a324546a7becaaeed63db"
+      resolved-ref: bff22dca6e1d21127059df48ce0e7e4e4222cd59
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1090,7 +1090,7 @@ packages:
     description:
       path: slang
       ref: slang-add
-      resolved-ref: f04df8974172004e6158f99e39d851510f35728e
+      resolved-ref: e99b748c0e16ba4bd26285bd990d93ab62328db3
       url: "https://github.com/adil192/slang"
     source: git
     version: "3.19.0"

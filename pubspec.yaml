@@ -166,6 +166,7 @@ dependency_overrides:
 
   webview_flutter_wkwebview: '3.5.0'
 
+  # https://github.com/Tienisto/slang/pull/150
   slang:
     git:
       url: https://github.com/adil192/slang

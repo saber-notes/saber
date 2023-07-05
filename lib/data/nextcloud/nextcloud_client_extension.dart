@@ -39,7 +39,7 @@ extension NextcloudClientExtension on NextcloudClient {
     await webdav.mkdir(appRootDirectoryPrefix);
     try {
       file = await webdav.download(configFilePath);
-    } on NextcloudApiException {
+    } on DynamiteApiException {
       return {};
     }
     List bytes = jsonDecode(_utf8Decoder.convert(file));

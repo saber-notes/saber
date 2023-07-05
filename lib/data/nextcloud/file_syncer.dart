@@ -272,7 +272,7 @@ abstract class FileSyncer {
     final Uint8List encryptedDataEncoded;
     try {
       encryptedDataEncoded = await _client!.webdav.download(file.remotePath);
-    } on NextcloudApiException {
+    } on DynamiteApiException {
       return false;
     }
 
