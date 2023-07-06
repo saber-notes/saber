@@ -326,20 +326,7 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Avanzato"
-      },
-      "prefLabels": {
-        "allowInsecureConnections(OUTDATED)": "Consenti connessioni non sicure"
-      },
-      "prefDescriptions": {
-        "allowInsecureConnections(OUTDATED)": "(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "settings": {
       "prefLabels": {
