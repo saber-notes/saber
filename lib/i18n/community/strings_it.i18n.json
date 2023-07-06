@@ -46,8 +46,8 @@
     "prefCategories": {
       "general": "Generale",
       "writing": "Scrittura",
-      "editor(OUTDATED)": "Editore",
-      "advanced(OUTDATED)": "Avanzate"
+      "editor": "Editor",
+      "advanced": "Avanzato"
     },
     "prefLabels": {
       "locale": "Lingua app",
@@ -60,6 +60,7 @@
       "shouldAlwaysAlertForUpdates": "Segnalami aggiornamenti non appena sono disponibili",
       "disableAds": "Disattiva annunci",
       "changeAdsConsent": "Modifica il consenso agli annunci",
+      "allowInsecureConnections": "Consenti connessioni non sicure",
       "editorToolbarAlignment": "Allineamento della barra degli strumenti dell'editor",
       "editorToolbarShowInFullscreen": "Mostra la barra degli strumenti dell'editor in modalità a schermo intero",
       "editorAutoInvert": "Inverti le note in modalità scura",
@@ -71,12 +72,12 @@
       "editorPromptRename": "Richiede di rinominare nuove note",
       "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale",
       "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti",
-      "printPageIndicators": "Stampa indicatori di pagina",
-      "allowInsecureConnections(OUTDATED)": "Consenti connessioni non sicure"
+      "printPageIndicators": "Stampa indicatori di pagina"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
       "disableAds": "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri",
+      "allowInsecureConnections": "(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili",
       "editorAutoInvert": "Scurisce in modo intelligente le note in modalità scura",
       "editorOpaqueBackgrounds": "Rimuovi la trasparenza dalle immagini di sfondo e dai PDF",
       "preferGreyscale": "Per display e-ink",
@@ -84,8 +85,7 @@
       "maxImageSize": "Le immagini più grandi verranno compresse",
       "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
       "hideHomeBackgrounds": "Per un aspetto più pulito",
-      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni",
-      "allowInsecureConnections(OUTDATED)": "(Non consigliato) Permettere a Saber di connettersi a server con certificati auto-firmati/non attendibili"
+      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni"
     },
     "themeModes": {
       "system": "Sistema",

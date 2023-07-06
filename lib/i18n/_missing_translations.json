@@ -326,20 +326,7 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
-      },
-      "prefLabels": {
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
-      },
-      "prefDescriptions": {
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
-      }
-    }
-  },
+  "it": {},
   "pt-BR": {
     "settings": {
       "prefLabels": {

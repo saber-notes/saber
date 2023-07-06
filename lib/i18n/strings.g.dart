@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 3010 (215 per locale)
 ///
-/// Built on 2023-07-05 at 20:11 UTC
+/// Built on 2023-07-06 at 21:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5998,8 +5998,8 @@ class _StringsSettingsPrefCategoriesIt extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Generale';
 	@override String get writing => 'Scrittura';
-	@override String get editor => 'Editore';
-	@override String get advanced => 'Avanzate';
+	@override String get editor => 'Editor';
+	@override String get advanced => 'Avanzato';
 }
 
 // Path: settings.prefLabels
@@ -6019,6 +6019,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override String get disableAds => 'Disattiva annunci';
 	@override String get changeAdsConsent => 'Modifica il consenso agli annunci';
+	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
 	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
@@ -6031,7 +6032,6 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
-	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
 }
 
 // Path: settings.prefDescriptions
@@ -6043,6 +6043,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
 	@override String get disableAds => 'Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri';
+	@override String get allowInsecureConnections => '(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili';
 	@override String get editorAutoInvert => 'Scurisce in modo intelligente le note in modalità scura';
 	@override String get editorOpaqueBackgrounds => 'Rimuovi la trasparenza dalle immagini di sfondo e dai PDF';
 	@override String get preferGreyscale => 'Per display e-ink';
@@ -6051,7 +6052,6 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
-	@override String get allowInsecureConnections => '(Non consigliato) Permettere a Saber di connettersi a server con certificati auto-firmati/non attendibili';
 }
 
 // Path: settings.themeModes
