@@ -327,17 +327,17 @@
   "ru": {
     "settings": {
       "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
+        "editor(OUTDATED)": "Редактор",
+        "advanced(OUTDATED)": "Дополнительно"
       },
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "disableAds(OUTDATED)": "Отключить рекламу",
+        "changeAdsConsent(OUTDATED)": "Согласие на рекламу",
+        "allowInsecureConnections(OUTDATED)": "Разрешить небезопасные соединения"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "disableAds(OUTDATED)": "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите.",
+        "allowInsecureConnections(OUTDATED)": "(Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами."
       }
     }
   },
