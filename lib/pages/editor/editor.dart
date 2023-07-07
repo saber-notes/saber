@@ -509,6 +509,7 @@ class EditorState extends State<Editor> {
     history.canRedo = false;
 
     if (currentTool is Pen) {
+      inStroke = true;
       (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
@@ -577,6 +578,7 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages[dragPageIndex!];
     setState(() {
       if (currentTool is Pen) {
+        inStroke = false;
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
         createPage(newStroke.pageIndex);
@@ -646,6 +648,31 @@ class EditorState extends State<Editor> {
     if (currentPressure! < 0) {
       pressureWasNegative = true;
       currentTool = Eraser();
+    }
+  }
+
+  bool inStroke = false;
+  Tool tmpTool = Eraser();
+
+  void onStylusButtonChanged(bool buttonPressed) {
+    if (buttonPressed) {
+      if(currentTool is! Eraser){
+        tmpTool = currentTool;
+        if(inStroke){
+          inStroke = false;
+          Stroke newStroke = (currentTool as Pen).onDragEnd();
+          final page = coreInfo.pages[dragPageIndex!];
+          page.strokes.remove(newStroke);
+        }
+        currentTool = Eraser();
+        setState(() {});
+      } 
+    } else {
+      if(tmpTool is! Eraser){
+        currentTool = tmpTool;
+        tmpTool = Eraser();
+        setState(() {});
+      }  
     }
   }
 
@@ -1107,6 +1134,7 @@ class EditorState extends State<Editor> {
       onDrawStart: onDrawStart,
       onDrawUpdate: onDrawUpdate,
       onDrawEnd: onDrawEnd,
+      onStylusButtonChanged: onStylusButtonChanged,
       onPressureChanged: onPressureChanged,
 
       undo: undo,

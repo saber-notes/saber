@@ -23,6 +23,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawUpdate,
     required this.onDrawEnd,
     required this.onPressureChanged,
+    required this.onStylusButtonChanged,
 
     required this.undo,
     required this.redo,
@@ -45,6 +46,7 @@ class CanvasGestureDetector extends StatefulWidget {
   /// Called when the pressure of the stylus changes,
   /// pressure is negative if stylus button is pressed
   final ValueChanged<double?> onPressureChanged;
+  final ValueChanged<bool> onStylusButtonChanged;
 
   final VoidCallback undo;
   final VoidCallback redo;
@@ -204,6 +206,8 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     double? pressure;
     if (event.kind == PointerDeviceKind.stylus) {
       pressure = event.pressure;
+      bool buttonPressed = event.buttons == kPrimaryStylusButton;
+      widget.onStylusButtonChanged(buttonPressed);
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
       pressure = -event.pressure;
     } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
@@ -211,6 +215,12 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       pressure = event.pressure;
     }
     widget.onPressureChanged(pressure);
+  }
+
+  void _listenerPointerUpEvent(PointerEvent event) {
+    if (event.kind == PointerDeviceKind.stylus) {
+      widget.onStylusButtonChanged(false);
+    }
   }
 
   @override
@@ -222,6 +232,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         Listener(
           onPointerDown: _listenerPointerEvent,
           onPointerMove: _listenerPointerEvent,
+          onPointerUp: _listenerPointerUpEvent,
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
             onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
