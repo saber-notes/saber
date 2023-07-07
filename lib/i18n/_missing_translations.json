@@ -419,17 +419,17 @@
   "zh-Hant-TW": {
     "settings": {
       "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
+        "editor(OUTDATED)": "編輯器",
+        "advanced(OUTDATED)": "進階"
       },
       "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "disableAds(OUTDATED)": "禁用廣告",
+        "changeAdsConsent(OUTDATED)": "修改廣告同意書",
+        "allowInsecureConnections(OUTDATED)": "允許不安全的連結"
       },
       "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "disableAds(OUTDATED)": "廣告有助於支持Saber的發展，但如果您不願意，可以禁用它",
+        "allowInsecureConnections(OUTDATED)": "（不推薦）允許Sabre連結到具有自簽名/不受信任證書的服務器"
       }
     }
   }
