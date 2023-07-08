@@ -25,20 +25,7 @@
       }
     }
   },
-  "cs": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Pokročilé"
-      },
-      "prefLabels": {
-        "allowInsecureConnections(OUTDATED)": "Povolit nezabezpečená připojení"
-      },
-      "prefDescriptions": {
-        "allowInsecureConnections(OUTDATED)": "(Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem."
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefCategories": {
