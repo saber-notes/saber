@@ -67,6 +67,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.5" type="development" date="2023-07-08">
+            <description>
+                <ul>
+                    <li>(Changes only affect the Android app)</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.4" type="development" date="2023-07-05">
             <description>
                 <ul>
