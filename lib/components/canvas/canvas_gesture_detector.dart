@@ -23,6 +23,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawUpdate,
     required this.onDrawEnd,
     required this.onPressureChanged,
+    required this.onStylusButtonChanged,
 
     required this.undo,
     required this.redo,
@@ -45,6 +46,7 @@ class CanvasGestureDetector extends StatefulWidget {
   /// Called when the pressure of the stylus changes,
   /// pressure is negative if stylus button is pressed
   final ValueChanged<double?> onPressureChanged;
+  final ValueChanged<bool> onStylusButtonChanged;
 
   final VoidCallback undo;
   final VoidCallback redo;
@@ -202,15 +204,26 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   void _listenerPointerEvent(PointerEvent event) {
     double? pressure;
+    bool stylusButtonPressed = false;
+
     if (event.kind == PointerDeviceKind.stylus) {
       pressure = event.pressure;
+      stylusButtonPressed = event.buttons == kPrimaryStylusButton;
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
-      pressure = -event.pressure;
+      pressure = event.pressure;
+      stylusButtonPressed = true; // treat eraser as stylus button
     } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
       // if min == max, then the device isn't pressure sensitive
       pressure = event.pressure;
     }
+
     widget.onPressureChanged(pressure);
+    widget.onStylusButtonChanged(stylusButtonPressed);
+  }
+
+  void _listenerPointerUpEvent(PointerEvent event) {
+    widget.onPressureChanged(null);
+    widget.onStylusButtonChanged(false);
   }
 
   @override
@@ -222,6 +235,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         Listener(
           onPointerDown: _listenerPointerEvent,
           onPointerMove: _listenerPointerEvent,
+          onPointerUp: _listenerPointerUpEvent,
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
             onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
