@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 3010 (215 per locale)
 ///
-/// Built on 2023-07-06 at 21:46 UTC
+/// Built on 2023-07-08 at 17:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3893,7 +3893,7 @@ class _StringsSettingsPrefCategoriesFa extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'عمومی';
 	@override String get writing => 'نوشتن';
 	@override String get editor => 'ویرایشگر';
-	@override String get advanced => 'پیشرفته پیشرفته پیشرفته';
+	@override String get advanced => 'پیشرفته';
 }
 
 // Path: settings.prefLabels
@@ -3911,7 +3911,9 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
-	@override String get changeAdsConsent => 'تغییر تبلیغات رضایت';
+	@override String get disableAds => 'غیرفعال کردن تبلیغات';
+	@override String get changeAdsConsent => 'تغییر رضایت تبلیغات';
+	@override String get allowInsecureConnections => 'به اتصالات ناامن اجازه دهید';
 	@override String get editorToolbarAlignment => 'تراز کردن نوار ابزار ویرایشگر';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
@@ -3924,8 +3926,6 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
-	@override String get disableAds => 'غیرفعال کردن تبلیغات';
-	@override String get allowInsecureConnections => 'به اتصالات ناامن اجازه دهید';
 }
 
 // Path: settings.prefDescriptions
@@ -3936,6 +3936,8 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'خوانایی را برای خوانندگان کم بینا افزایش می دهد';
+	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
+	@override String get allowInsecureConnections => '(توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود';
 	@override String get editorAutoInvert => 'در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند';
 	@override String get editorOpaqueBackgrounds => 'حذف شفافیت از تصاویر پس زمینه و PDFها';
 	@override String get preferGreyscale => 'برای نمایشگر های e-ink';
@@ -3944,8 +3946,6 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
-	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
-	@override String get allowInsecureConnections => '(توصیه نمی‌شود) به Saber اجازه دهید به سرورهایی با گواهی‌های خودامضا/غیر قابل اعتماد متصل شود';
 }
 
 // Path: settings.themeModes

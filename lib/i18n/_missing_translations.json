@@ -69,23 +69,7 @@
       }
     }
   },
-  "fa": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "ویرایشگر",
-        "advanced(OUTDATED)": "پیشرفته"
-      },
-      "prefLabels": {
-        "disableAds(OUTDATED)": "غیرفعال کردن تبلیغات",
-        "changeAdsConsent(OUTDATED)": "تغییر رضایت تبلیغات",
-        "allowInsecureConnections(OUTDATED)": "به اتصالات ناامن اجازه دهید"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید",
-        "allowInsecureConnections(OUTDATED)": "(توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود"
-      }
-    }
-  },
+  "fa": {},
   "fr": {
     "home": {
       "newFolder": {
