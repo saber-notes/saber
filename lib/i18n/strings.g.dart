@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 3010 (215 per locale)
 ///
-/// Built on 2023-07-08 at 17:04 UTC
+/// Built on 2023-07-08 at 17:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7402,8 +7402,8 @@ class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Общие';
 	@override String get writing => 'Письмо';
-	@override String get editor => 'редактор';
-	@override String get advanced => 'Передовой';
+	@override String get editor => 'Редактор';
+	@override String get advanced => 'Дополнительно';
 }
 
 // Path: settings.prefLabels
@@ -7421,7 +7421,9 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать об обновлениях, как только они станут доступны';
-	@override String get changeAdsConsent => 'Изменить согласие на рекламу';
+	@override String get disableAds => 'Отключить рекламу';
+	@override String get changeAdsConsent => 'Согласие на рекламу';
+	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';
 	@override String get editorToolbarAlignment => 'Панель инструментов редактора';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
@@ -7434,8 +7436,6 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
-	@override String get disableAds => 'Отключить рекламу';
-	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';
 }
 
 // Path: settings.prefDescriptions
@@ -7446,6 +7446,8 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
+	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите.';
+	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.';
 	@override String get editorAutoInvert => 'Интеллектуально затемнять заметки в тёмном режиме';
 	@override String get editorOpaqueBackgrounds => 'Удалить прозрачность фоновых изображений и PDF-файлов';
 	@override String get preferGreyscale => 'Для e-ink экранов';
@@ -7454,8 +7456,6 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
-	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить ее, если хотите.';
-	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Saber подключаться к серверам с самозаверяющими/ненадежными сертификатами.';
 }
 
 // Path: settings.themeModes

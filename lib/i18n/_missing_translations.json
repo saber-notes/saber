@@ -324,23 +324,7 @@
       }
     }
   },
-  "ru": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "Редактор",
-        "advanced(OUTDATED)": "Дополнительно"
-      },
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Отключить рекламу",
-        "changeAdsConsent(OUTDATED)": "Согласие на рекламу",
-        "allowInsecureConnections(OUTDATED)": "Разрешить небезопасные соединения"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите.",
-        "allowInsecureConnections(OUTDATED)": "(Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами."
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "home": {
       "moveNote": {
