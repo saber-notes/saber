@@ -324,23 +324,7 @@
       }
     }
   },
-  "ru": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
-      },
-      "prefLabels": {
-        "disableAds(OUTDATED)": "Disable ads",
-        "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
-      }
-    }
-  },
+  "ru": {},
   "tr": {
     "home": {
       "moveNote": {
