@@ -131,11 +131,7 @@ class _ToolbarState extends State<Toolbar> {
 
   void toggleEraser() {
     toolOptionsType = ToolOptions.hide;
-    if (widget.currentTool is Eraser) {
-      widget.setTool(Pen.currentPen);
-    } else {
-      widget.setTool(Eraser());
-    }
+    widget.setTool(Eraser()); // this toggles eraser
   }
   void toggleColorOptions() {
     setState(() {

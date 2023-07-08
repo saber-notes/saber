@@ -127,6 +127,11 @@ class EditorState extends State<Editor> {
   /// Whether the platform can rasterize a pdf
   bool canRasterPdf = true;
 
+  /// The tool that was used before switching to the eraser.
+  Tool? tmpTool;
+  /// If the stylus button is pressed.
+  bool stylusButtonPressed = false;
+
   @override
   void initState() {
     DynamicMaterialApp.addFullscreenListener(_setState);
@@ -466,8 +471,6 @@ class EditorState extends State<Editor> {
 
   int? dragPageIndex;
   double? currentPressure;
-  /// if [pressureWasNegative], switch back to pen when pressure becomes positive again
-  bool pressureWasNegative = false;
   bool isDrawGesture(ScaleStartDetails details) {
     if (coreInfo.readOnly) return false;
 
@@ -509,7 +512,6 @@ class EditorState extends State<Editor> {
     history.canRedo = false;
 
     if (currentTool is Pen) {
-      inStroke = true;
       (currentTool as Pen).onDragStart(position, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
@@ -578,7 +580,6 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages[dragPageIndex!];
     setState(() {
       if (currentTool is Pen) {
-        inStroke = false;
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
         createPage(newStroke.pageIndex);
@@ -628,11 +629,6 @@ class EditorState extends State<Editor> {
       }
     });
     autosaveAfterDelay();
-
-    if (pressureWasNegative) {
-      pressureWasNegative = false;
-      currentTool = Pen.currentPen;
-    }
   }
   void onInteractionEnd(ScaleEndDetails details) {
     // reset after 1ms to keep track of the same gesture only
@@ -641,38 +637,27 @@ class EditorState extends State<Editor> {
       lastSeenPointerCount = 0;
     });
   }
+
   void onPressureChanged(double? pressure) {
-    currentPressure = pressure == 0.0 ? null : pressure;
-    if (currentPressure == null) return;
-
-    if (currentPressure! < 0) {
-      pressureWasNegative = true;
-      currentTool = Eraser();
-    }
+    currentPressure = pressure == 0 ? null : pressure;
   }
-
-  bool inStroke = false;
-  Tool tmpTool = Eraser();
-
   void onStylusButtonChanged(bool buttonPressed) {
+    stylusButtonPressed = buttonPressed;
+
     if (buttonPressed) {
-      if(currentTool is! Eraser){
-        tmpTool = currentTool;
-        if(inStroke){
-          inStroke = false;
-          Stroke newStroke = (currentTool as Pen).onDragEnd();
-          final page = coreInfo.pages[dragPageIndex!];
-          page.strokes.remove(newStroke);
-        }
-        currentTool = Eraser();
-        setState(() {});
-      } 
+      if (currentTool is Eraser) return;
+      tmpTool = currentTool;
+      if (currentTool is Pen && dragPageIndex != null) {
+        // if the pen is currently drawing, end the stroke
+        (currentTool as Pen).onDragEnd();
+      }
+      currentTool = Eraser();
+      setState(() {});
     } else {
-      if(tmpTool is! Eraser){
-        currentTool = tmpTool;
-        tmpTool = Eraser();
-        setState(() {});
-      }  
+      if (tmpTool == null) return;
+      currentTool = tmpTool!;
+      tmpTool = null;
+      setState(() {});
     }
   }
 
@@ -1217,6 +1202,18 @@ class EditorState extends State<Editor> {
 
           setTool: (tool) {
             setState(() {
+              if (tool is Eraser) {
+                // setTool(Eraser) is called to toggle eraser
+                if (currentTool is Eraser && tmpTool != null) {
+                  // switch to previous tool
+                  tool = tmpTool!;
+                  tmpTool = null;
+                } else {
+                  // store previous tool to restore it later
+                  tmpTool = currentTool;
+                }
+              }
+
               currentTool = tool;
 
               if (currentTool is Highlighter) {

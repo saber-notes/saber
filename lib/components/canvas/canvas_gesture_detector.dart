@@ -204,23 +204,26 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   void _listenerPointerEvent(PointerEvent event) {
     double? pressure;
+    bool stylusButtonPressed = false;
+
     if (event.kind == PointerDeviceKind.stylus) {
       pressure = event.pressure;
-      bool buttonPressed = event.buttons == kPrimaryStylusButton;
-      widget.onStylusButtonChanged(buttonPressed);
+      stylusButtonPressed = event.buttons == kPrimaryStylusButton;
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
-      pressure = -event.pressure;
+      pressure = event.pressure;
+      stylusButtonPressed = true; // treat eraser as stylus button
     } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
       // if min == max, then the device isn't pressure sensitive
       pressure = event.pressure;
     }
+
     widget.onPressureChanged(pressure);
+    widget.onStylusButtonChanged(stylusButtonPressed);
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
-    if (event.kind == PointerDeviceKind.stylus) {
-      widget.onStylusButtonChanged(false);
-    }
+    widget.onPressureChanged(null);
+    widget.onStylusButtonChanged(false);
   }
 
   @override
