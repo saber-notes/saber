@@ -46,8 +46,8 @@
     "prefCategories": {
       "general": "عمومی",
       "writing": "نوشتن",
-      "editor(OUTDATED)": "ویرایشگر",
-      "advanced(OUTDATED)": "پیشرفته پیشرفته پیشرفته"
+      "editor": "ویرایشگر",
+      "advanced": "پیشرفته"
     },
     "prefLabels": {
       "locale": "زبان برنامه",
@@ -58,7 +58,9 @@
       "hyperlegibleFont": "فونت بیش از حد خوانا",
       "shouldCheckForUpdates": "به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید",
       "shouldAlwaysAlertForUpdates": "به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید",
-      "changeAdsConsent(OUTDATED)": "تغییر تبلیغات رضایت",
+      "disableAds": "غیرفعال کردن تبلیغات",
+      "changeAdsConsent": "تغییر رضایت تبلیغات",
+      "allowInsecureConnections": "به اتصالات ناامن اجازه دهید",
       "editorToolbarAlignment": "تراز کردن نوار ابزار ویرایشگر",
       "editorToolbarShowInFullscreen": "نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید",
       "editorAutoInvert": "معکوس کردن رنگ یادداشت ها در حالت تاریک",
@@ -70,12 +72,12 @@
       "editorPromptRename": "از شما می خواهد که نام یادداشت های جدید را تغییر دهید",
       "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید",
       "dontSavePresetColors": "رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید",
-      "printPageIndicators": "چاپ نشانگرهای صفحه",
-      "disableAds(OUTDATED)": "غیرفعال کردن تبلیغات",
-      "allowInsecureConnections(OUTDATED)": "به اتصالات ناامن اجازه دهید"
+      "printPageIndicators": "چاپ نشانگرهای صفحه"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
+      "disableAds": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید",
+      "allowInsecureConnections": "(توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود",
       "editorAutoInvert": "در حالت تاریک یادداشت‌ها را هوشمندانه تاریک می‌کند",
       "editorOpaqueBackgrounds": "حذف شفافیت از تصاویر پس زمینه و PDFها",
       "preferGreyscale": "برای نمایشگر های e-ink",
@@ -83,9 +85,7 @@
       "maxImageSize": "تصاویر بزرگتر از این فشرده خواهند شد",
       "editorPromptRename": "همیشه می توانید بعداً نام یادداشت ها را تغییر دهید",
       "hideHomeBackgrounds": "برای ظاهری تمیز تر",
-      "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی",
-      "disableAds(OUTDATED)": "تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید",
-      "allowInsecureConnections(OUTDATED)": "(توصیه نمی‌شود) به Saber اجازه دهید به سرورهایی با گواهی‌های خودامضا/غیر قابل اعتماد متصل شود"
+      "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی"
     },
     "themeModes": {
       "system": "سیستم",
