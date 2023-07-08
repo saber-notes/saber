@@ -25,20 +25,7 @@
       }
     }
   },
-  "cs": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "Editor",
-        "advanced(OUTDATED)": "Advanced"
-      },
-      "prefLabels": {
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
-      },
-      "prefDescriptions": {
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
-      }
-    }
-  },
+  "cs": {},
   "de": {
     "settings": {
       "prefCategories": {
