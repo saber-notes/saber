@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
-/// Locales: 14
-/// Strings: 3010 (215 per locale)
+/// Locales: 15
+/// Strings: 3225 (215 per locale)
 ///
-/// Built on 2023-07-09 at 15:44 UTC
+/// Built on 2023-07-09 at 15:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -31,6 +31,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	fr(languageCode: 'fr', build: _StringsFr.build),
 	hu(languageCode: 'hu', build: _StringsHu.build),
 	it(languageCode: 'it', build: _StringsIt.build),
+	ja(languageCode: 'ja', build: _StringsJa.build),
 	ptBr(languageCode: 'pt', countryCode: 'BR', build: _StringsPtBr.build),
 	ru(languageCode: 'ru', build: _StringsRu.build),
 	tr(languageCode: 'tr', build: _StringsTr.build),
@@ -6446,6 +6447,708 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Punti';
 	@override String get staffs => 'Personale';
 	@override String get cornell => 'Metodo Cornell';
+}
+
+// Path: <root>
+class _StringsJa extends _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsJa.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.ja,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+
+	/// Metadata for the translations of <ja>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+
+	@override late final _StringsJa _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeJa home = _StringsHomeJa._(_root);
+	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
+	@override late final _StringsLoginJa login = _StringsLoginJa._(_root);
+	@override late final _StringsProfileJa profile = _StringsProfileJa._(_root);
+	@override late final _StringsAppInfoJa appInfo = _StringsAppInfoJa._(_root);
+	@override late final _StringsUpdateJa update = _StringsUpdateJa._(_root);
+	@override late final _StringsEditorJa editor = _StringsEditorJa._(_root);
+}
+
+// Path: home
+class _StringsHomeJa extends _StringsHomeEn {
+	_StringsHomeJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsHomeTabsJa tabs = _StringsHomeTabsJa._(_root);
+	@override late final _StringsHomeTitlesJa titles = _StringsHomeTitlesJa._(_root);
+	@override late final _StringsHomeTooltipsJa tooltips = _StringsHomeTooltipsJa._(_root);
+	@override String get welcome => 'ようこそSaberへ';
+	@override String get noFiles => 'ファイルが見つかりません';
+	@override String get createNewNote => '+ボタンで新しくメモを作成';
+	@override late final _StringsHomeNewFolderJa newFolder = _StringsHomeNewFolderJa._(_root);
+	@override late final _StringsHomeRenameNoteJa renameNote = _StringsHomeRenameNoteJa._(_root);
+	@override late final _StringsHomeMoveNoteJa moveNote = _StringsHomeMoveNoteJa._(_root);
+}
+
+// Path: settings
+class _StringsSettingsJa extends _StringsSettingsEn {
+	_StringsSettingsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsSettingsPrefCategoriesJa prefCategories = _StringsSettingsPrefCategoriesJa._(_root);
+	@override late final _StringsSettingsPrefLabelsJa prefLabels = _StringsSettingsPrefLabelsJa._(_root);
+	@override late final _StringsSettingsPrefDescriptionsJa prefDescriptions = _StringsSettingsPrefDescriptionsJa._(_root);
+	@override late final _StringsSettingsThemeModesJa themeModes = _StringsSettingsThemeModesJa._(_root);
+	@override late final _StringsSettingsLayoutSizesJa layoutSizes = _StringsSettingsLayoutSizesJa._(_root);
+	@override late final _StringsSettingsAccentColorPickerJa accentColorPicker = _StringsSettingsAccentColorPickerJa._(_root);
+	@override late final _StringsSettingsStraightenDelayJa straightenDelay = _StringsSettingsStraightenDelayJa._(_root);
+	@override String get systemLanguage => 'システムの言語';
+	@override List<String> get axisDirections => [
+		'上部',
+		'右側',
+		'下部',
+		'左側',
+	];
+	@override late final _StringsSettingsResetJa reset = _StringsSettingsResetJa._(_root);
+}
+
+// Path: login
+class _StringsLoginJa extends _StringsLoginEn {
+	_StringsLoginJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'ログイン';
+	@override late final _StringsLoginFeedbacksJa feedbacks = _StringsLoginFeedbacksJa._(_root);
+	@override late final _StringsLoginFormJa form = _StringsLoginFormJa._(_root);
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'まだアカウントをお持ちでないですか？ '),
+		linkToSignup('今すぐ登録'),
+		const TextSpan(text: '!'),
+	]);
+	@override late final _StringsLoginStatusJa status = _StringsLoginStatusJa._(_root);
+	@override List<dynamic> get faq => [
+		_StringsLogin$faq$0i0$Ja._(_root),
+		_StringsLogin$faq$0i1$Ja._(_root),
+		_StringsLogin$faq$0i2$Ja._(_root),
+		_StringsLogin$faq$0i3$Ja._(_root),
+		_StringsLogin$faq$0i4$Ja._(_root),
+	];
+}
+
+// Path: profile
+class _StringsProfileJa extends _StringsProfileEn {
+	_StringsProfileJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'プロフィール';
+	@override String get logout => 'ログアウト';
+	@override late final _StringsProfileQuickLinksJa quickLinks = _StringsProfileQuickLinksJa._(_root);
+	@override List<dynamic> get faq => [
+		_StringsProfile$faq$0i0$Ja._(_root),
+		_StringsProfile$faq$0i1$Ja._(_root),
+		_StringsProfile$faq$0i2$Ja._(_root),
+		_StringsProfile$faq$0i3$Ja._(_root),
+	];
+}
+
+// Path: appInfo
+class _StringsAppInfoJa extends _StringsAppInfoEn {
+	_StringsAppInfoJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nこのプログラムには一切の保証がありません。これはフリーソフトウェアであり、一定の条件下で再配布することを歓迎します。';
+	@override String get dirty => 'DIRTY';
+	@override String get debug => 'デバッグ';
+	@override String get sponsorButton => '私のスポンサーになる、またはストレージを購入する際は、ここをタップしてください。';
+	@override String get licenseButton => 'ライセンス情報を見るには、ここをタップして';
+	@override String get privacyPolicyButton => 'プライバシーポリシーを見るには、ここをタップして';
+}
+
+// Path: update
+class _StringsUpdateJa extends _StringsUpdateEn {
+	_StringsUpdateJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => '更新が可能です';
+	@override String get updateAvailableDescription => '新バージョンのアプリがリリースされ、以下の変更があった：';
+	@override String get update => '更新';
+}
+
+// Path: editor
+class _StringsEditorJa extends _StringsEditorEn {
+	_StringsEditorJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEditorToolbarJa toolbar = _StringsEditorToolbarJa._(_root);
+	@override late final _StringsEditorPensJa pens = _StringsEditorPensJa._(_root);
+	@override late final _StringsEditorPenOptionsJa penOptions = _StringsEditorPenOptionsJa._(_root);
+	@override late final _StringsEditorColorsJa colors = _StringsEditorColorsJa._(_root);
+	@override late final _StringsEditorImageOptionsJa imageOptions = _StringsEditorImageOptionsJa._(_root);
+	@override late final _StringsEditorMenuJa menu = _StringsEditorMenuJa._(_root);
+	@override late final _StringsEditorNewerFileFormatJa newerFileFormat = _StringsEditorNewerFileFormatJa._(_root);
+	@override late final _StringsEditorQuillJa quill = _StringsEditorQuillJa._(_root);
+	@override late final _StringsEditorHudJa hud = _StringsEditorHudJa._(_root);
+	@override String get pages => 'ページ';
+	@override String get untitled => '無題';
+	@override String get needsToSaveBeforeExiting => '変更を保存する... 編集が終わったら、エディターを安全に終了することができます。';
+}
+
+// Path: home.tabs
+class _StringsHomeTabsJa extends _StringsHomeTabsEn {
+	_StringsHomeTabsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'ホーム';
+	@override String get browse => '閲覧';
+	@override String get whiteboard => 'ホワイトボード';
+	@override String get settings => '設定';
+}
+
+// Path: home.titles
+class _StringsHomeTitlesJa extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => '最近のメモ';
+	@override String get browse => 'すべてのメモ';
+	@override String get whiteboard => 'ホワイトボード';
+	@override String get settings => '設定';
+}
+
+// Path: home.tooltips
+class _StringsHomeTooltipsJa extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新しいメモ';
+	@override String get showUpdateDialog => '更新ダイアログの表示';
+}
+
+// Path: home.newFolder
+class _StringsHomeNewFolderJa extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => '新しいフォルダー';
+	@override String get folderName => 'フォルダー名';
+	@override String get create => '作成';
+	@override String get folderNameEmpty => 'フォルダー名は空欄にすることはできません';
+	@override String get folderNameContainsSlash => 'フォルダー名にはスラッシュを使用できません';
+	@override String get folderNameExists => '同一のフォルダー名がすでに存在します';
+}
+
+// Path: home.renameNote
+class _StringsHomeRenameNoteJa extends _StringsHomeRenameNoteEn {
+	_StringsHomeRenameNoteJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameNote => 'メモのタイトルを変更';
+	@override String get noteName => 'メモのタイトル';
+	@override String get rename => '名称変更';
+	@override String get noteNameEmpty => 'メモのタイトルは空欄にすることはできません';
+	@override String get noteNameContainsSlash => 'メモのタイトルにはスラッシュを使用できません';
+	@override String get noteNameExists => '同一のタイトルがすでに存在します';
+}
+
+// Path: home.moveNote
+class _StringsHomeMoveNoteJa extends _StringsHomeMoveNoteEn {
+	_StringsHomeMoveNoteJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get moveNote => 'メモを移動';
+	@override String moveName({required Object f}) => '${f} を移動';
+	@override String get move => '移動';
+	@override String renamedTo({required Object newName}) => '${newName} に名称を変更した';
+}
+
+// Path: settings.prefCategories
+class _StringsSettingsPrefCategoriesJa extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => '一般';
+	@override String get writing => '文章';
+	@override String get editor => '編集';
+	@override String get advanced => 'アドバンスド';
+}
+
+// Path: settings.prefLabels
+class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get locale => 'アプリの言語';
+	@override String get appTheme => 'アプリのテーマ';
+	@override String get platform => 'テーマの種類';
+	@override String get layoutSize => 'レイアウトの種類';
+	@override String get customAccentColor => 'オリジナルの色';
+	@override String get hyperlegibleFont => 'Hyperlegible フォント';
+	@override String get shouldCheckForUpdates => 'Saberの更新を自動的に確認する';
+	@override String get shouldAlwaysAlertForUpdates => '更新があればすぐに通知をする';
+	@override String get disableAds => '広告を表示しない';
+	@override String get changeAdsConsent => '広告の同意を変更する';
+	@override String get allowInsecureConnections => '安全でない接続を許可する';
+	@override String get editorToolbarAlignment => '編集ツールバーの位置調整';
+	@override String get editorToolbarShowInFullscreen => 'フルスクリーンモードで編集ツールバーを表示する';
+	@override String get editorAutoInvert => 'ダークモードでメモを反転';
+	@override String get editorOpaqueBackgrounds => '不透明な背景';
+	@override String get preferGreyscale => 'グレースケールを優先';
+	@override String get editorStraightenLines => '長押しで線をまっすぐにする';
+	@override String get maxImageSize => '最大画像サイズ';
+	@override String get autoClearWhiteboardOnExit => 'アプリを終了したらホワイトボードを消去する';
+	@override String get editorPromptRename => '新しいメモの名前を変更するよう促す';
+	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
+	@override String get dontSavePresetColors => '最近使用した色をプリセットに登録しない';
+	@override String get printPageIndicators => '印刷ページのインジケーター';
+}
+
+// Path: settings.prefDescriptions
+class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。';
+	@override String get disableAds => '広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です';
+	@override String get allowInsecureConnections => '(非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする';
+	@override String get editorAutoInvert => 'ダークモードでメモを自然に暗くする';
+	@override String get editorOpaqueBackgrounds => '背景画像とPDFから透明度を削除する';
+	@override String get preferGreyscale => 'e-inkディスプレイ用';
+	@override String get autoClearWhiteboardOnExit => '他のデバイスと同期されます';
+	@override String get maxImageSize => 'これより大きな画像は圧縮されます';
+	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
+	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
+	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
+}
+
+// Path: settings.themeModes
+class _StringsSettingsThemeModesJa extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'システム';
+	@override String get light => 'ライト';
+	@override String get dark => 'ダーク';
+}
+
+// Path: settings.layoutSizes
+class _StringsSettingsLayoutSizesJa extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => '自動';
+	@override String get phone => '電話';
+	@override String get tablet => 'タブレット';
+}
+
+// Path: settings.accentColorPicker
+class _StringsSettingsAccentColorPickerJa extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => '色を選択する';
+}
+
+// Path: settings.straightenDelay
+class _StringsSettingsStraightenDelayJa extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'オフ';
+	@override String get regular => 'レギュラー';
+	@override String get slow => 'スロー';
+}
+
+// Path: settings.reset
+class _StringsSettingsResetJa extends _StringsSettingsResetEn {
+	_StringsSettingsResetJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'この設定をリセットしますか？';
+	@override String get button => 'リセット';
+}
+
+// Path: login.feedbacks
+class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get checkUsername => 'ユーザー名またはEメールを再度ご確認ください。';
+	@override String get enterNcPassword => 'Nextcloudのパスワードを入力してください。';
+	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
+	@override String get checkUrl => '有効なURLを入力してください。';
+	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => '指定されたサーバーはNextcloud ${v} を実行していますが、このバージョンのSaberはNextcloud ${s} しかサポートしていません。';
+	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
+	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
+}
+
+// Path: login.form
+class _StringsLoginFormJa extends _StringsLoginFormEn {
+	_StringsLoginFormJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get useCustomServer => 'カスタムNextcloudサーバーを使いたい';
+	@override String get customServerUrl => 'カスタムサーバーURL';
+	@override String get username => 'ユーザー名またはメールアドレス';
+	@override String get ncPassword => 'Nextcloudのパスワード';
+	@override String get encPassword => '暗号化パスワード';
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'ログインすることにより、'),
+		linkToPrivacyPolicy('プライベートポリシー'),
+		const TextSpan(text: 'に同意したものとみなされます。'),
+	]);
+	@override String get login => 'ログイン';
+}
+
+// Path: login.status
+class _StringsLoginStatusJa extends _StringsLoginStatusEn {
+	_StringsLoginStatusJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedIn => 'Nextcloudでログイン';
+	@override String get loggedOut => 'ログアウト';
+	@override String get tapToLogin => 'タップしてNextcloudにログイン';
+}
+
+// Path: login.faq.0
+class _StringsLogin$faq$0i0$Ja extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Nextcloudとは？';
+	@override String get a => 'Nextcloudは、プライベートなファイル同期サーバーです。デフォルトのSaber Nextcloudサーバーを使用することも、サードパーティのサーバーを使用することも、データを完全に管理するために自身でホストすることも可能です。';
+}
+
+// Path: login.faq.1
+class _StringsLogin$faq$0i1$Ja extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '暗号化パスワードは何ですか？';
+	@override String get a => '暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。\n\n暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。';
+}
+
+// Path: login.faq.2
+class _StringsLogin$faq$0i2$Ja extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'なぜ2つのパスワードを使うのですか？';
+	@override String get a => 'Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。 \n\nそのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。';
+}
+
+// Path: login.faq.3
+class _StringsLogin$faq$0i3$Ja extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '2FAを使用している場合、どのようにログインすればいいですか？';
+	@override String get a => '通常のNextcloudパスワードの代わりに、"アプリパスワード"を作成する必要があります。これはNextcloudの設定で、「セキュリティ」>「デバイスとセッション」>「新しいアプリパスワードを作成」でできます。暗号化パスワードは影響を受けません。';
+}
+
+// Path: login.faq.4
+class _StringsLogin$faq$0i4$Ja extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '両方に同じパスワードを使用できますか？';
+	@override String get a => '可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。';
+}
+
+// Path: profile.quickLinks
+class _StringsProfileQuickLinksJa extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'クイックリンク';
+	@override String get serverHomepage => 'サーバーホームページ';
+	@override String get deleteAccount => 'アカウントの削除';
+}
+
+// Path: profile.faq.0
+class _StringsProfile$faq$0i0$Ja extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'ログアウトするとメモが消えてしまいますか？';
+	@override String get a => 'いいえ。メモはデバイスとサーバーの両方に残ります。ログインし直すまで、サーバーとは同期されません。データを失わないように、ログアウトする前に同期が完了したことを確認してください（ホーム画面の同期進行状況をご覧ください）。';
+}
+
+// Path: profile.faq.1
+class _StringsProfile$faq$0i1$Ja extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Nextcloudのパスワードを変更する方法を教えてください';
+	@override String get a => 'サーバーのウェブサイトにアクセスし、ログインします。「設定」>「セキュリティ」>「パスワードの変更」を選択します。パスワード変更後は、Saberからログアウトし、再度ログインする必要があります。';
+}
+
+// Path: profile.faq.2
+class _StringsProfile$faq$0i2$Ja extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '暗号化パスワードの変更方法を教えてください。';
+	@override String get a => '1. Saberからログアウトする。データが失われないように、ログアウトする前に同期が完了していることを確認してください（ホーム画面で同期の進行状況を確認できます）。\n\n2. サーバーのウェブサイトにアクセスし、「Saber」フォルダを削除してください。これにより、サーバーからすべてのメモが削除されます。\n\n3. セーバーに再ログインする。ログイン時に新しい暗号化パスワードを選択できます。\n\n4. 他のデバイスでもログアウトしてログインし直すことをお忘れなく。';
+}
+
+// Path: profile.faq.3
+class _StringsProfile$faq$0i3$Ja extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'アカウントを削除するにはどうすればよいですか？';
+	@override String get a => '上部の"${_root.profile.quickLinks.deleteAccount}"ボタンをタップし、必要であればログインしてください。Saber公式サーバーを利用している場合、1週間の猶予期間の後にアカウントが削除されます。この期間中であれば、adilhanney@disroot.orgまでご連絡いただければ、削除を取り消すことが可能です。サードパーティのサーバーをご利用の場合、アカウントを削除するオプションがない場合があります。詳細については、ご利用のサーバープライバシーポリシーをご確認ください。';
+}
+
+// Path: editor.toolbar
+class _StringsEditorToolbarJa extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get toggleColors => '色の切り替え (Ctrl C)';
+	@override String get select => '選択';
+	@override String get toggleEraser => '消しゴムに切り替え (Ctrl E)';
+	@override String get photo => '画像';
+	@override String get text => 'テキスト';
+	@override String get toggleFingerDrawing => '指での描画に切り替え (Ctrl F)';
+	@override String get undo => '元に戻す';
+	@override String get redo => 'やり直す';
+	@override String get export => 'エクスポート (Ctrl Shift S)';
+	@override String get exportAs => '次にエキスポート:';
+	@override String get fullscreen => 'フルスクリーンに切り替え (F11)';
+}
+
+// Path: editor.pens
+class _StringsEditorPensJa extends _StringsEditorPensEn {
+	_StringsEditorPensJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fountainPen => '万年筆';
+	@override String get ballpointPen => 'ボールペン';
+	@override String get highlighter => '蛍光ペン';
+	@override String get laserPointer => 'レーザーポインター';
+}
+
+// Path: editor.penOptions
+class _StringsEditorPenOptionsJa extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'サイズ';
+	@override String get sizeDragHint => '左右にドラッグしてサイズを変更';
+}
+
+// Path: editor.colors
+class _StringsEditorColorsJa extends _StringsEditorColorsEn {
+	_StringsEditorColorsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'カラーピッカー';
+	@override String get black => '黒';
+	@override String get darkGrey => '濃い灰色';
+	@override String get grey => '灰色';
+	@override String get lightGrey => '明るい灰色';
+	@override String get white => '白色';
+	@override String get red => '赤色';
+	@override String get green => '緑色';
+	@override String get blue => '青色';
+	@override String get yellow => '黄色';
+	@override String get purple => '紫色';
+	@override String get orange => '橙色';
+	@override String get pastelRed => 'パステル・赤';
+	@override String get pastelOrange => 'パステル・橙色';
+	@override String get pastelYellow => 'パステル・黄色';
+	@override String get pastelGreen => 'パステル・緑色';
+	@override String get pastelCyan => 'パステル・青緑色';
+	@override String get pastelBlue => 'パステル・青色';
+	@override String get pastelPurple => 'パステル・紫色';
+	@override String get pastelPink => 'パステル・桃色';
+}
+
+// Path: editor.imageOptions
+class _StringsEditorImageOptionsJa extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '画像オプション';
+	@override String get invertible => '不可逆';
+	@override String get download => 'ダウンロード';
+	@override String get setAsBackground => '背景に設定';
+	@override String get removeAsBackground => '背景として削除';
+	@override String get delete => '削除';
+}
+
+// Path: editor.menu
+class _StringsEditorMenuJa extends _StringsEditorMenuEn {
+	_StringsEditorMenuJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String clearPage({required Object page, required Object totalPages}) => 'ページを削除 ${page}/${totalPages}';
+	@override String get clearAllPages => 'すべてのページを消去する';
+	@override String get insertPage => '以下のページを挿入';
+	@override String get duplicatePage => '重複したページ';
+	@override String get deletePage => 'ページの削除';
+	@override String get lineHeight => '行の高さ';
+	@override String get lineHeightDescription => '文字サイズを調整';
+	@override String get backgroundImage => '背景画像';
+	@override String get backgroundPattern => '背景パターン';
+	@override String get import => 'インポート';
+	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
+	@override late final _StringsEditorMenuBgPatternsJa bgPatterns = _StringsEditorMenuBgPatternsJa._(_root);
+}
+
+// Path: editor.newerFileFormat
+class _StringsEditorNewerFileFormatJa extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get readOnlyMode => '読み取り専用モード';
+	@override String get title => 'このメモは新しいバージョンのSaberを使用して編集されたものです';
+	@override String get subtitle => 'このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？';
+	@override String get allowEditing => '編集を許可する';
+	@override String get cancel => '取消';
+}
+
+// Path: editor.quill
+class _StringsEditorQuillJa extends _StringsEditorQuillEn {
+	_StringsEditorQuillJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'ここに何かを入力してください...';
+}
+
+// Path: editor.hud
+class _StringsEditorHudJa extends _StringsEditorHudEn {
+	_StringsEditorHudJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'ズームの解除';
+	@override String get lockZoom => 'ズームを固定する';
+	@override String get unlockSingleFingerPan => '一本指でのパン操作を有効にする';
+	@override String get lockSingleFingerPan => '一本指でのパン操作を無効にする';
+	@override String get unlockAxisAlignedPan => '水平または垂直へのパンロックを解除';
+	@override String get lockAxisAlignedPan => 'パンニングを水平または垂直にロックする';
+}
+
+// Path: editor.menu.boxFits
+class _StringsEditorMenuBoxFitsJa extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => '貼る';
+	@override String get cover => 'カバー';
+	@override String get contain => 'コンテイン';
+}
+
+// Path: editor.menu.bgPatterns
+class _StringsEditorMenuBgPatternsJa extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => '空白';
+	@override String get college => '罫線';
+	@override String get collegeRtl => '罫線 (反転)';
+	@override String get lined => '線';
+	@override String get grid => '格子';
+	@override String get dots => '点';
+	@override String get staffs => 'スタッフ';
+	@override String get cornell => '角';
 }
 
 // Path: <root>
