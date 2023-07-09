@@ -131,6 +131,8 @@ class EditorState extends State<Editor> {
   Tool? tmpTool;
   /// If the stylus button is pressed.
   bool stylusButtonPressed = false;
+  // If the eraser is selected because the stylus button has been pressed
+  bool currentlyErasing = false;
 
   @override
   void initState() {
@@ -592,6 +594,12 @@ class EditorState extends State<Editor> {
         ));
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
+        if (currentlyErasing){
+          currentlyErasing = false;
+          currentTool = tmpTool!;
+          tmpTool = null;
+          setState(() {});
+        }
         if (erased.isEmpty) return;
         history.recordChange(EditorHistoryItem(
           type: EditorHistoryItemType.erase,
@@ -653,11 +661,7 @@ class EditorState extends State<Editor> {
       }
       currentTool = Eraser();
       setState(() {});
-    } else {
-      if (tmpTool == null) return;
-      currentTool = tmpTool!;
-      tmpTool = null;
-      setState(() {});
+      currentlyErasing = true;
     }
   }
 
