@@ -429,7 +429,7 @@
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "廣告有助於支持Saber的發展，但如果您不願意，可以禁用它",
-        "allowInsecureConnections(OUTDATED)": "（不推薦）允許Sabre連結到具有自簽名/不受信任證書的服務器"
+        "allowInsecureConnections(OUTDATED)": "（不推薦）允許Saber連結到具有自簽名/不受信任證書的服務器"
       }
     }
   }
