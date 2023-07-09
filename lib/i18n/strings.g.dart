@@ -3,7 +3,7 @@
 /// Locales: 14
 /// Strings: 3010 (215 per locale)
 ///
-/// Built on 2023-07-08 at 17:09 UTC
+/// Built on 2023-07-09 at 15:44 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9508,8 +9508,8 @@ class _StringsSettingsPrefCategoriesZhHantTw extends _StringsSettingsPrefCategor
 	// Translations
 	@override String get general => '一般';
 	@override String get writing => '書寫';
-	@override String get advanced => '先進的';
-	@override String get editor => '編輯';
+	@override String get editor => '編輯器';
+	@override String get advanced => '進階';
 }
 
 // Path: settings.prefLabels
@@ -9527,7 +9527,9 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '一有更新就告訴我';
-	@override String get changeAdsConsent => '更改廣告同意';
+	@override String get disableAds => '禁用廣告';
+	@override String get changeAdsConsent => '修改廣告同意書';
+	@override String get allowInsecureConnections => '允許不安全的連結';
 	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
@@ -9540,8 +9542,6 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
-	@override String get disableAds => '禁用廣告';
-	@override String get allowInsecureConnections => '允許不安全的連接';
 }
 
 // Path: settings.prefDescriptions
@@ -9552,6 +9552,8 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
+	@override String get disableAds => '廣告有助於支持Saber的發展，但如果您不願意，可以禁用它';
+	@override String get allowInsecureConnections => '（不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器';
 	@override String get editorAutoInvert => '在深色模式下自動使用反色筆記背景';
 	@override String get editorOpaqueBackgrounds => '去除背景圖片和PDF的透明度';
 	@override String get preferGreyscale => '用於電子紙螢幕';
@@ -9560,8 +9562,6 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
-	@override String get disableAds => '廣告有助於支持 Saber 的發展，但如果您願意，您可以禁用它們';
-	@override String get allowInsecureConnections => '（不推薦）允許 Saber 連接到具有自簽名/不受信任證書的服務器';
 }
 
 // Path: settings.themeModes

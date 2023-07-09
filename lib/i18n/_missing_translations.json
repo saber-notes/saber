@@ -416,21 +416,5 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {
-    "settings": {
-      "prefCategories": {
-        "editor(OUTDATED)": "編輯器",
-        "advanced(OUTDATED)": "進階"
-      },
-      "prefLabels": {
-        "disableAds(OUTDATED)": "禁用廣告",
-        "changeAdsConsent(OUTDATED)": "修改廣告同意書",
-        "allowInsecureConnections(OUTDATED)": "允許不安全的連結"
-      },
-      "prefDescriptions": {
-        "disableAds(OUTDATED)": "廣告有助於支持Saber的發展，但如果您不願意，可以禁用它",
-        "allowInsecureConnections(OUTDATED)": "（不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器"
-      }
-    }
-  }
+  "zh-Hant-TW": {}
 }
