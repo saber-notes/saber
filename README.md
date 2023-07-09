@@ -193,6 +193,7 @@ All translations are crowd-sourced. Saber has so far been translated into:
 - French ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.json))
 - Hungarian ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.json))
 - Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.json))
+- Japanese ([ja](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ja.i18n.json))
 - Brazilian Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.json))
 - Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.json))
 - Turkish ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.json))
@@ -298,7 +299,8 @@ If you like Saber, please consider supporting it by:
   - Run `./scripts/apply_version.sh <version-name> <version-code>`
     (Run `./scripts/apply_version.sh --help` for more info)
   - Update the changelogs in `metadata/en-US/changelogs/`
-    and `flatpak/com.adilhanney.saber.metainfo.xml` as directed by the script.
+    and `flatpak/com.adilhanney.saber.metainfo.xml`,
+    and run `dart scripts/translate_changelogs.dart` as directed by the script.
 - When updating the **icons**, run the following commands:
   - General: `dart run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
@@ -313,6 +315,7 @@ If you like Saber, please consider supporting it by:
     - `android/app/src/main/res/xml/locales_config.xml`
     - `lib/data/locales.dart`
     - `README.md` above in the "Translating" section.
+    - and run `dart scripts/translate_changelogs.dart` to translate the changelog.
 
 </details>
 
