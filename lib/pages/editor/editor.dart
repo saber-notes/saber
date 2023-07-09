@@ -129,10 +129,8 @@ class EditorState extends State<Editor> {
 
   /// The tool that was used before switching to the eraser.
   Tool? tmpTool;
-  /// If the stylus button is pressed.
+  /// If the stylus button is pressed, or was pressed during the current draw gesture.
   bool stylusButtonPressed = false;
-  // If the eraser is selected because the stylus button has been pressed
-  bool currentlyErasing = false;
 
   @override
   void initState() {
@@ -594,11 +592,10 @@ class EditorState extends State<Editor> {
         ));
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (currentlyErasing){
-          currentlyErasing = false;
+        if (stylusButtonPressed) { // restore previous tool
+          stylusButtonPressed = false;
           currentTool = tmpTool!;
           tmpTool = null;
-          setState(() {});
         }
         if (erased.isEmpty) return;
         history.recordChange(EditorHistoryItem(
@@ -650,19 +647,19 @@ class EditorState extends State<Editor> {
     currentPressure = pressure == 0 ? null : pressure;
   }
   void onStylusButtonChanged(bool buttonPressed) {
-    stylusButtonPressed = buttonPressed;
+    // whether the stylus button is or was pressed
+    stylusButtonPressed = stylusButtonPressed || buttonPressed;
 
-    if (buttonPressed) {
-      if (currentTool is Eraser) return;
-      tmpTool = currentTool;
-      if (currentTool is Pen && dragPageIndex != null) {
-        // if the pen is currently drawing, end the stroke
-        (currentTool as Pen).onDragEnd();
-      }
-      currentTool = Eraser();
-      setState(() {});
-      currentlyErasing = true;
+    // if needed, switch to eraser
+    if (!stylusButtonPressed) return;
+    if (currentTool is Eraser) return;
+    if (currentTool is Pen && dragPageIndex != null) {
+      // if the pen is currently drawing, end the stroke
+      (currentTool as Pen).onDragEnd();
     }
+    tmpTool = currentTool;
+    currentTool = Eraser();
+    setState(() {});
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
