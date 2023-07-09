@@ -299,7 +299,8 @@ If you like Saber, please consider supporting it by:
   - Run `./scripts/apply_version.sh <version-name> <version-code>`
     (Run `./scripts/apply_version.sh --help` for more info)
   - Update the changelogs in `metadata/en-US/changelogs/`
-    and `flatpak/com.adilhanney.saber.metainfo.xml` as directed by the script.
+    and `flatpak/com.adilhanney.saber.metainfo.xml`,
+    and run `dart scripts/translate_changelogs.dart` as directed by the script.
 - When updating the **icons**, run the following commands:
   - General: `dart run icons_launcher:create`
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
@@ -314,6 +315,7 @@ If you like Saber, please consider supporting it by:
     - `android/app/src/main/res/xml/locales_config.xml`
     - `lib/data/locales.dart`
     - `README.md` above in the "Translating" section.
+    - and run `dart scripts/translate_changelogs.dart` to translate the changelog.
 
 </details>
 
