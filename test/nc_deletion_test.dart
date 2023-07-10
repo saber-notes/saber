@@ -24,7 +24,7 @@ void main() {
     Prefs.init();
 
     Prefs.username.value = 'test.deletion';
-    Prefs.ncPassword.value = 'test.deletion';
+    Prefs.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';
     Prefs.encPassword.value = 'test.deletion';
 
     final client = NextcloudClientExtension.withSavedDetails()!;

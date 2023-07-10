@@ -13,7 +13,7 @@ void main() {
     Prefs.init();
 
     Prefs.username.value = 'test.issue.118';
-    Prefs.ncPassword.value = 'test.issue.118';
+    Prefs.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';
     Prefs.encPassword.value = 'test.issue.118';
 
     final client = NextcloudClientExtension.withSavedDetails()!;
