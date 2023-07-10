@@ -64,10 +64,10 @@ settings:
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
     printPageIndicators: Tisknout čísla stránek
-    autosaveDelay(OUTDATED): Zpoždění automatického ukládání
+    autosaveDelay: Zpoždění automatického ukládání
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
-    disableAds: Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout
+    disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
     editorAutoInvert: Inteligentně ztmaví poznámky ve tmavém motivu
     editorOpaqueBackgrounds: Odstraní průhlednost z obrázků a PDF na pozadí
@@ -77,7 +77,7 @@ settings:
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
-    autosaveDelay(OUTDATED): Jak dlouho čekat před automatickým uložením poznámky
+    autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
   themeModes:
     system: Systémový
     light: Světlý
@@ -99,7 +99,7 @@ settings:
     - Dole
     - Vlevo
   reset:
-    title: Chcete resetovat tuto volbu?
+    title: "Chcete resetovat tuto volbu?"
     button: Resetovat
 login:
   title: Přihlásit se
@@ -108,19 +108,19 @@ login:
     enterNcPassword: Zadejte prosím své heslo k Nextcloud účtu.
     enterEncPassword: Zadejte prosím své heslo pro šifrování.
     checkUrl: Zadejte prosím správnou URL adresu.
-    ncLoginFailed: Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.
-    ncUnsupportedFailure: Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s.
-    encLoginFailed: Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.
-    loginSuccess: Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...
+    ncLoginFailed: "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu."
+    ncUnsupportedFailure: "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s."
+    encLoginFailed: "Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování."
+    loginSuccess: "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
   form:
     useCustomServer: Chci využít vlastní Nextcloud server
     customServerUrl: URL adresa vlastního Nextcloud serveru
     username: Přihlašovací jméno nebo e-mail
     ncPassword: Heslo k Nextcloud účtu
     encPassword: Heslo pro šifrování
-    agreeToPrivacyPolicy(rich): Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}.
+    agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
     login: Přihlásit se
-  signup(rich): Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!
+  signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
   status:
     loggedIn: Jste přihlášeni pomocí Nextcloud účtu
     loggedOut: Jste odhlášení
@@ -176,12 +176,12 @@ appInfo:
     Tento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.
   dirty: ZKUŠEBNÍ VERZE
   debug: LADÍCÍ VERZE
-  sponsorButton: Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště
+  sponsorButton: "Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště"
   licenseButton: Klepněte sem pro zobrazení podrobnějších licenčních informací
   privacyPolicyButton: Klepněte sem pro zobrazení zásad ochrany osobních údajů
 update:
   updateAvailable: Aktualizace k dispozici
-  updateAvailableDescription: 'Je k dispozici nová verze aplikace, která zahrnuje tyto změny:'
+  updateAvailableDescription: "Je k dispozici nová verze aplikace, která zahrnuje tyto změny:"
   update: Aktualizovat
 editor:
   toolbar:
@@ -259,7 +259,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Otevřít v režimu pouze pro čtení
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
-    subtitle: Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?
+    subtitle: "Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?"
     allowEditing: Povolit úpravy
     cancel: Zrušit
   quill:

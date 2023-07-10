@@ -19,11 +19,6 @@ ar:
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
-  settings:
-    prefLabels:
-      autosaveDelay(OUTDATED): Zpoždění automatického ukládání
-    prefDescriptions:
-      autosaveDelay(OUTDATED): Jak dlouho počkat před automatickým uložením poznámky
 de:
   settings:
     prefCategories:
