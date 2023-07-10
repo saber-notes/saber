@@ -1339,6 +1339,23 @@ class EditorState extends State<Editor> {
           actions: [
             IconButton(
               icon: const AdaptiveIcon(
+                icon: Icons.insert_page_break,
+                cupertinoIcon: CupertinoIcons.add,
+              ),
+              tooltip: t.editor.menu.insertPage,
+              onPressed: () => setState(() {
+                final currentPageIndex = this.currentPageIndex;
+                insertPageAfter(currentPageIndex);
+                CanvasGestureDetector.scrollToPage(
+                  pageIndex: currentPageIndex + 1,
+                  pages: coreInfo.pages,
+                  screenWidth: MediaQuery.of(context).size.width,
+                  transformationController: _transformationController,
+                );
+              }),
+            ),
+            IconButton(
+              icon: const AdaptiveIcon(
                 icon: Icons.grid_view,
                 cupertinoIcon: CupertinoIcons.rectangle_grid_2x2,
               ),
@@ -1450,20 +1467,7 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         autosaveAfterDelay();
       }),
-      insertPageAfter: (int pageIndex) => setState(() {
-        if (coreInfo.readOnly) return;
-        final page = EditorPage();
-        coreInfo.pages.insert(pageIndex + 1, page);
-        listenToQuillChanges(page.quill, pageIndex + 1);
-        history.recordChange(EditorHistoryItem(
-          type: EditorHistoryItemType.insertPage,
-          pageIndex: pageIndex + 1,
-          strokes: const [],
-          images: const [],
-          page: page,
-        ));
-        autosaveAfterDelay();
-      }),
+      insertPageAfter: insertPageAfter,
       duplicatePage: (int pageIndex) => setState(() {
         if (coreInfo.readOnly) return;
         final page = coreInfo.pages[pageIndex];
@@ -1513,6 +1517,21 @@ class EditorState extends State<Editor> {
       transformationController: _transformationController,
     );
   }
+
+  void insertPageAfter(int pageIndex) => setState(() {
+    if (coreInfo.readOnly) return;
+    final page = EditorPage();
+    coreInfo.pages.insert(pageIndex + 1, page);
+    listenToQuillChanges(page.quill, pageIndex + 1);
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.insertPage,
+      pageIndex: pageIndex + 1,
+      strokes: const [],
+      images: const [],
+      page: page,
+    ));
+    autosaveAfterDelay();
+  });
 
   void clearPage(int pageIndex) {
     if (coreInfo.readOnly) return;
