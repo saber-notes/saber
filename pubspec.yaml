@@ -161,6 +161,8 @@ dev_dependencies:
 
   auto_screenshot: ^0.0.2
 
+  yaml: ^3.1.2
+
 dependency_overrides:
   intl: ^0.18.0
 

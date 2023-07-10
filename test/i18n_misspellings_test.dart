@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('Check that Saber isn\'t misspelled', () {
     final List<FileSystemEntity> files = [
-      File('lib/i18n/_missing_translations.json'),
+      File('lib/i18n/_missing_translations.yaml'),
       ...Directory('lib/i18n/community').listSync(),
     ];
 

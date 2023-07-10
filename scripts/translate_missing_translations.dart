@@ -9,16 +9,17 @@ import 'dart:math';
 import 'package:process_run/shell.dart';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
+import 'package:yaml/yaml.dart';
 
 final Shell shell = Shell(verbose: false);
 late SimplyTranslator translator;
 
 final Set<String> newlyTranslatedPaths = {};
 
-Future<Map<String, dynamic>> _getMissingTranslations() async {
-  final file = File('lib/i18n/_missing_translations.json');
-  final json = await file.readAsString();
-  return jsonDecode(json) as Map<String, dynamic>;
+Future<YamlMap> _getMissingTranslations() async {
+  final file = File('lib/i18n/_missing_translations.yaml');
+  final yaml = await file.readAsString();
+  return loadYaml(yaml) as YamlMap;
 }
 
 String _nearestLocaleCode(String localeCode) {
@@ -39,7 +40,7 @@ String _nearestLocaleCode(String localeCode) {
 }
 
 /// Translate the given tree of strings in place. Note that the tree can contain lists, maps, and strings.
-Future<void> translateTree(String languageCode, Map<String, dynamic> tree, List<String> pathOfKeys) async {
+Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
   for (final key in tree.keys) {
     if (key.endsWith('(OUTDATED)')) continue;
@@ -63,9 +64,9 @@ Future<void> translateTree(String languageCode, Map<String, dynamic> tree, List<
     final value = tree[key];
     if (value is String) {
       // already done
-    } else if (value is Map<String, dynamic>) {
+    } else if (value is YamlMap) {
       await translateTree(languageCode, value, [...pathOfKeys, key]);
-    } else if (value is List<dynamic>) {
+    } else if (value is YamlList) {
       await translateList(languageCode, value, [...pathOfKeys, key]);
     } else {
       throw Exception('Unknown type: ${value.runtimeType}');
@@ -73,7 +74,7 @@ Future<void> translateTree(String languageCode, Map<String, dynamic> tree, List<
   }
 }
 /// Translates the given list of strings in place. Note that the list can contain lists, maps, and strings.
-Future<void> translateList(String languageCode, List<dynamic> list, List<String> pathOfKeys) async {
+Future<void> translateList(String languageCode, YamlList list, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
   for (int i = 0; i < list.length; ++i) {
     final value = list[i];
@@ -93,9 +94,9 @@ Future<void> translateList(String languageCode, List<dynamic> list, List<String>
     final value = list[i];
     if (value is String) {
       // already done
-    } else if (value is Map<String, dynamic>) {
+    } else if (value is YamlMap) {
       await translateTree(languageCode, value, [...pathOfKeys, '$i']);
-    } else if (value is List<dynamic>) {
+    } else if (value is YamlList) {
       await translateList(languageCode, value, [...pathOfKeys, '$i']);
     } else {
       throw Exception('Unknown type: ${value.runtimeType}');
@@ -149,7 +150,7 @@ void main() async {
     for (final languageCode in missingLanguageCodes) {
       print('Translating $languageCode...');
 
-      final Map<String, dynamic> tree = missingTranslations[languageCode];
+      final YamlMap tree = missingTranslations[languageCode];
       await translateTree(languageCode, tree, const []);
     }
 

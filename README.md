@@ -184,42 +184,39 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 ## Translating
 
 All translations are crowd-sourced. Saber has so far been translated into:
-- English ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json))
-- Arabic ([ar](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ar.i18n.json))
-- Czech ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.json))
-- German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.json))
-- Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.json))
-- Persian ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fa.i18n.json))
-- French ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.json))
-- Hungarian ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.json))
-- Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.json))
-- Japanese ([ja](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ja.i18n.json))
-- Brazilian Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.json))
-- Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.json))
-- Turkish ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.json))
-- Chinese Simplified ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.json))
-- Chinese Traditional ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.json))
+- English ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml))
+- Arabic ([ar](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
+- Czech ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
+- German ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
+- Spanish ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
+- Persian ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
+- French ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
+- Hungarian ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
+- Italian ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
+- Japanese ([ja](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
+- Brazilian Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
+- Russian ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
+- Turkish ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
+- Chinese Simplified ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
+- Chinese Traditional ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
 
 ### Extending existing languages
 
-Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.json)
+Check [_missing_translations.yaml](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.yaml)
    to see if any translations are missing.
 
-1. Use [this link](https://github.com/adil192/saber/edit/main/lib/i18n/_missing_translations.json)
-   to edit `_missing_translations.json`.
-2. Update your `_missing_translations.json` file with your translations, e.g. updating German (de)
-    ```javascript
-    "de": {
-      "editor": {
-        "newerFileFormat": {
-          "title": "Diese Notiz wurde mit einer neueren Version von Saber bearbeitet",
-          "subtitle": "Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?",
-          "openAnyway": "Trotzdem öffnen",
-          "cancel": "Abbruch"
-        }
-      }
-    },
-    // ignore the other languages...
+1. Use [this link](https://github.com/adil192/saber/edit/main/lib/i18n/_missing_translations.yaml)
+   to edit `_missing_translations.yaml`.
+2. Update your `_missing_translations.yaml` file with your translations, e.g. updating German (de)
+    ```yaml
+    de:
+      editor:
+        newerFileFormat:
+          title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
+          subtitle: Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?
+          openAnyway: Trotzdem öffnen
+          cancel: Abbruch
+    # ignore the other languages...
     ```
 3. Open a pull request! I'll do the rest
 
@@ -228,10 +225,10 @@ Check [_missing_translations.json](https://github.com/adil192/saber/blob/main/li
 1. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
    e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
 2. Use [this link](https://github.com/adil192/saber/new/main/lib/i18n/community)
-   to create a new file in `lib/i18n/community/` called `strings_XX.i18n.json`
+   to create a new file in `lib/i18n/community/` called `strings_XX.i18n.yaml`
    where `XX` is your locale code.
 3. Copy the contents of an existing file like
-   [`lib/i18n/strings.i18n.json`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.json)
+   [`lib/i18n/strings.i18n.yaml`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml)
    and replace the translations with your own.
    If you don't know the translation for a string, just delete the line.
 4. Open a pull request!
@@ -306,7 +303,7 @@ If you like Saber, please consider supporting it by:
   - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
 - When updating the **translations**...
   - Run the following commands:
-    - `dart run slang apply --locale=XX` if you need to apply _missing_translations.json
+    - `dart run slang apply --locale=XX` if you need to apply _missing_translations.yaml
     - `dart run slang`
     - `dart run slang analyze --full`
   - If you're adding a new language, update:

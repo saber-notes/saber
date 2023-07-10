@@ -1,0 +1,276 @@
+home:
+  tabs:
+    home: Home
+    browse: Browse
+    whiteboard: Whiteboard
+    settings: Settings
+  titles:
+    home: Recent notes
+    browse: All notes
+    whiteboard: Whiteboard
+    settings: Settings
+  tooltips:
+    newNote: New note
+    showUpdateDialog: Show update dialog
+  welcome: Welcome to Saber
+  noFiles: No files found
+  createNewNote: Tap the + button to create a new note
+  newFolder:
+    newFolder: New folder
+    folderName: Folder name
+    create: Create
+    folderNameEmpty: Folder name can't be empty
+    folderNameContainsSlash: Folder name can't contain a slash
+    folderNameExists: Folder already exists
+  renameNote:
+    renameNote: Rename note
+    noteName: Note name
+    rename: Rename
+    noteNameEmpty: Note name can't be empty
+    noteNameContainsSlash: Note name can't contain a slash
+    noteNameExists: A note with this name already exists
+  moveNote:
+    moveNote: Move note
+    moveName: Move $f
+    move: Move
+    renamedTo: Note will be renamed to $newName
+settings:
+  prefCategories:
+    general: General
+    writing: Writing
+    editor: Editor
+    advanced: Advanced
+  prefLabels:
+    locale: App language
+    appTheme: App theme
+    platform: Theme type
+    layoutSize: Layout type
+    customAccentColor: Custom accent color
+    hyperlegibleFont: Hyperlegible font
+    shouldCheckForUpdates: Automatically check for Saber updates
+    shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
+    disableAds: Disable ads
+    changeAdsConsent: Change ads consent
+    allowInsecureConnections: Allow insecure connections
+    editorToolbarAlignment: Alignment of the editor toolbar
+    editorToolbarShowInFullscreen: Show the editor toolbar in fullscreen mode
+    editorAutoInvert: Invert notes in dark mode
+    editorOpaqueBackgrounds: Opaque backgrounds
+    preferGreyscale: Prefer greyscale colors
+    editorStraightenLines: Press and hold to straighten a line
+    maxImageSize: Maximum image size
+    autoClearWhiteboardOnExit: Clear the whiteboard after you exit the app
+    editorPromptRename: Prompt you to rename new notes
+    hideHomeBackgrounds: Hide backgrounds on the home screen
+    dontSavePresetColors: Don't save preset colors in recent colors
+    printPageIndicators: Print page indicators
+    autosaveDelay: Auto-save delay
+  prefDescriptions:
+    hyperlegibleFont: Atkinson Hyperlegible increases legibility for readers with low vision
+    disableAds: Ads help support Saber's development, but you can disable them if you'd like
+    allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+    editorAutoInvert: Smartly darkens notes in dark mode
+    editorOpaqueBackgrounds: Remove transparency from background images and PDFs
+    preferGreyscale: For e-ink displays
+    autoClearWhiteboardOnExit: It will still be synced to your other devices
+    maxImageSize: Images larger than this will be compressed
+    editorPromptRename: You can always rename notes later
+    hideHomeBackgrounds: For a cleaner look
+    printPageIndicators: Show page indicators in exports
+    autosaveDelay: How long to wait before auto-saving a note
+  themeModes:
+    system: System
+    light: Light
+    dark: Dark
+  layoutSizes:
+    auto: Auto
+    phone: Phone
+    tablet: Tablet
+  accentColorPicker:
+    pickAColor: Pick a color
+  straightenDelay:
+    off: Off
+    regular: Regular
+    slow: Slow
+  systemLanguage: System language
+  axisDirections:
+    - Top
+    - Right
+    - Bottom
+    - Left
+  reset:
+    title: Reset this setting?
+    button: Reset
+login:
+  title: Login
+  feedbacks:
+    checkUsername: Please double check your username or email.
+    enterNcPassword: Please enter your Nextcloud password.
+    enterEncPassword: Please enter your encryption password.
+    checkUrl: Please enter a valid URL.
+    ncLoginFailed: Log in failed, please check your details and network connection.
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s.
+    encLoginFailed: Log in failed, please check your encryption password.
+    loginSuccess: Log in successful! Please wait while we set up...
+  form:
+    useCustomServer: I want to use a custom Nextcloud server
+    customServerUrl: Custom server URL
+    username: Username or email
+    ncPassword: Nextcloud password
+    encPassword: Encryption password
+    agreeToPrivacyPolicy(rich): By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.
+    login: Log in
+  signup(rich): Don't have an account yet? ${linkToSignup(Sign up now)}!
+  status:
+    loggedIn: Logged in with Nextcloud
+    loggedOut: Logged out
+    tapToLogin: Tap to log in with Nextcloud
+  faq:
+    - q: What is Nextcloud?
+      a: Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data.
+    - q: What is the encryption password?
+      a: |-
+        The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.
+
+        No-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.
+    - q: Why use two passwords?
+      a: |-
+        The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+
+        Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+    - q: How do I login if I use 2FA?
+      a: Instead of your regular Nextcloud password, you'll need to create an "app password". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected.
+    - q: Can I use the same password for both?
+      a: Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.
+profile:
+  title: My profile
+  logout: Log out
+  quickLinks:
+    title: Quick links
+    serverHomepage: Server homepage
+    deleteAccount: Delete account
+  faq:
+    - q: Will I lose my notes if I log out?
+      a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
+    - q: How do I change my Nextcloud password?
+      a: Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password.
+    - q: How do I change my encryption password?
+      a: |-
+        1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
+
+        2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
+
+        3. Log back in to Saber. You can choose a new encryption password when logging in.
+
+        4. Don't forget to log out and log back in to Saber on your other devices too.
+    - q: How can I delete my account?
+      a: |-
+        Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
+
+        If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
+
+        If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
+appInfo:
+  licenseNotice: |-
+    Saber  Copyright (C) 2022-$buildYear  Adil Hanney
+    This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
+  dirty: DIRTY
+  debug: DEBUG
+  sponsorButton: Tap here to sponsor me or buy more storage
+  licenseButton: Tap here to view more license information
+  privacyPolicyButton: Tap here to view the privacy policy
+update:
+  updateAvailable: Update available
+  updateAvailableDescription: 'A new version of the app is available, with these changes:'
+  update: Update
+editor:
+  toolbar:
+    toggleColors: Toggle colors (Ctrl C)
+    select: Select
+    toggleEraser: Toggle eraser (Ctrl E)
+    photo: Images
+    text: Text
+    toggleFingerDrawing: Toggle finger drawing (Ctrl F)
+    undo: Undo
+    redo: Redo
+    export: Export (Ctrl Shift S)
+    exportAs: 'Export as:'
+    fullscreen: Toggle fullscreen (F11)
+  pens:
+    fountainPen: Fountain pen
+    ballpointPen: Ballpoint pen
+    highlighter: Highlighter
+    laserPointer: Laser pointer
+  penOptions:
+    size: Size
+    sizeDragHint: Drag left or right to change the size
+  colors:
+    colorPicker: Color picker
+    black: Black
+    darkGrey: Dark grey
+    grey: Grey
+    lightGrey: Light grey
+    white: White
+    red: Red
+    green: Green
+    blue: Blue
+    yellow: Yellow
+    purple: Purple
+    orange: Orange
+    pastelRed: Pastel red
+    pastelOrange: Pastel orange
+    pastelYellow: Pastel yellow
+    pastelGreen: Pastel green
+    pastelCyan: Pastel cyan
+    pastelBlue: Pastel blue
+    pastelPurple: Pastel purple
+    pastelPink: Pastel pink
+  imageOptions:
+    title: Image options
+    invertible: Invertible
+    download: Download
+    setAsBackground: Set as background
+    removeAsBackground: Remove as background
+    delete: Delete
+  menu:
+    clearPage: Clear page $page/$totalPages
+    clearAllPages: Clear all pages
+    insertPage: Insert page below
+    duplicatePage: Duplicate page
+    deletePage: Delete page
+    lineHeight: Line height
+    lineHeightDescription: Also controls the text size
+    backgroundImage: Background image
+    backgroundPattern: Background pattern
+    import: Import
+    boxFits:
+      fill: Stretch
+      cover: Cover
+      contain: Contain
+    bgPatterns:
+      none: Blank
+      college: College-ruled
+      collegeRtl: College-ruled (Reverse)
+      lined: Lined
+      grid: Grid
+      dots: Dots
+      staffs: Staffs
+      cornell: Cornell
+  newerFileFormat:
+    readOnlyMode: Read-only mode
+    title: This note was edited using a newer version of Saber
+    subtitle: Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?
+    allowEditing: Allow editing
+    cancel: Cancel
+  quill:
+    typeSomething: Type something here...
+  hud:
+    unlockZoom: Unlock zoom
+    lockZoom: Lock zoom
+    unlockSingleFingerPan: Enable single-finger panning
+    lockSingleFingerPan: Disable single-finger panning
+    unlockAxisAlignedPan: Unlock panning to horizontal or vertical
+    lockAxisAlignedPan: Lock panning to horizontal or vertical
+  pages: Pages
+  untitled: Untitled
+  needsToSaveBeforeExiting: Saving your changes... You can safely exit the editor when it's done

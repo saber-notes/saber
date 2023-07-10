@@ -1,0 +1,274 @@
+home:
+  tabs:
+    home: 首頁
+    browse: 全部筆記
+    whiteboard: 白板
+    settings: 設定
+  titles:
+    home: 最近筆記
+    browse: 全部筆記
+    whiteboard: 白板
+    settings: 設定
+  tooltips:
+    newNote: 新增筆記
+    showUpdateDialog: 顯示更新對話框
+  welcome: 歡迎使用 Saber
+  noFiles: 未找到檔案
+  createNewNote: 點擊 + 按鈕新增一個筆記
+  newFolder:
+    newFolder: 新建資料夾
+    folderName: 資料夾名稱
+    create: 創建
+    folderNameEmpty: 資料夾名稱不可為空
+    folderNameContainsSlash: 資料夾名稱不能包含斜槓
+    folderNameExists: 資料夾已經存在
+  renameNote:
+    renameNote: 重新命名筆記
+    noteName: 筆記名稱
+    rename: 重新命名
+    noteNameEmpty: 筆記名稱不可為空
+    noteNameContainsSlash: 筆記名稱不能包含斜槓
+    noteNameExists: 同名筆記已經存在
+  moveNote:
+    moveNote: 移動筆記
+    moveName: 移動 $f
+    move: 移動
+    renamedTo: 筆記將重新命名為 $newName
+settings:
+  prefCategories:
+    general: 一般
+    writing: 書寫
+    editor: 編輯器
+    advanced: 進階
+  prefLabels:
+    locale: 應用程式語言
+    appTheme: 應用程式主題
+    platform: 主題類型
+    layoutSize: 佈局大小
+    customAccentColor: 自訂主題色
+    hyperlegibleFont: 易讀字體
+    shouldCheckForUpdates: 自動檢查 Saber 更新
+    shouldAlwaysAlertForUpdates: 一有更新就告訴我
+    disableAds: 禁用廣告
+    changeAdsConsent: 修改廣告同意書
+    allowInsecureConnections: 允許不安全的連結
+    editorToolbarAlignment: 編輯器工具列的對齊方式
+    editorToolbarShowInFullscreen: 在全螢幕模式中顯示編輯器工具列
+    editorAutoInvert: 在深色模式下使用反色筆記背景
+    editorOpaqueBackgrounds: 不透明背景
+    preferGreyscale: 使用灰度顏色
+    editorStraightenLines: 按住拉直線條
+    maxImageSize: 最大圖片尺寸
+    autoClearWhiteboardOnExit: 退出應用程式後清除白板
+    editorPromptRename: 提醒您重新命名新筆記
+    hideHomeBackgrounds: 隱藏主畫面上的背景
+    dontSavePresetColors: 不要在最近的顏色中儲存預設顏色
+    printPageIndicators: 列印頁碼
+    autosaveDelay(OUTDATED): 自動保存延遲
+  prefDescriptions:
+    hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
+    disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
+    allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
+    editorAutoInvert: 在深色模式下自動使用反色筆記背景
+    editorOpaqueBackgrounds: 去除背景圖片和PDF的透明度
+    preferGreyscale: 用於電子紙螢幕
+    autoClearWhiteboardOnExit: 它仍會同步到您的其他裝置
+    maxImageSize: 大於此大小的圖片將被壓縮
+    editorPromptRename: 您以後隨時可以重新命名筆記
+    hideHomeBackgrounds: 為了更乾淨的外觀
+    printPageIndicators: 在匯出中顯示頁碼
+    autosaveDelay(OUTDATED): 自動保存筆記之前等待多長時間
+  themeModes:
+    system: 系統
+    light: 淺色
+    dark: 深色
+  layoutSizes:
+    auto: 自動
+    phone: 手機
+    tablet: 平板
+  accentColorPicker:
+    pickAColor: 選取顏色
+  straightenDelay:
+    off: 關閉
+    regular: 正常
+    slow: 緩慢
+  systemLanguage: 系統語言
+  axisDirections:
+    - 置頂
+    - 靠右
+    - 置底
+    - 靠左
+  reset:
+    title: 重設此設定?
+    button: 重設
+login:
+  title: 登入
+  feedbacks:
+    checkUsername: 請仔細檢查您的使用者名稱或電子郵件。
+    enterNcPassword: 請輸入您的 Nextcloud 密碼。
+    enterEncPassword: 請輸入您的加密密碼。
+    checkUrl: 請輸入有效連結。
+    ncLoginFailed: 登入失敗，請檢查您的詳細資訊和網路連接。
+    ncUnsupportedFailure: 伺服器正在運行Nextcloud $v，但這個版本的Saber只支援Nextcloud $s。
+    encLoginFailed: 登入失敗，請檢查您的加密密碼。
+    loginSuccess: 登入成功！我們正在設定中，請稍後……
+  form:
+    useCustomServer: 我想要使用自訂 Nextcloud 伺服器
+    customServerUrl: 自訂伺服器連結
+    username: 使用者名稱或電子郵件
+    ncPassword: Nextcloud 密碼
+    encPassword: 加密密碼
+    agreeToPrivacyPolicy(rich): 登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。
+    login: 登入
+  signup(rich): 還沒有帳號？ ${linkToSignup(立即註冊)}！
+  status:
+    loggedIn: 已使用 Nextcloud 登入
+    loggedOut: 已登出
+    tapToLogin: 點擊以使用 Nextcloud 登入
+  faq:
+    - q: 什麼是 Nextcloud？
+      a: Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。
+    - q: 加密密碼是什麼？
+      a: |-
+        加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在首次登入 Saber 時選擇它，它與您的 Nextcloud 帳戶/密碼無關。
+
+        沒有您的加密密碼，任何人都無法訪問您在伺服器上的筆記。這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。
+    - q: 為什麼要使用兩個密碼？
+      a: |-
+        Nextcloud 密碼用於訪問雲端。而加密密碼會在您的資料到達雲端之前對其進行「加密」。
+
+        即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
+    - q: 如果我使用2FA，我應該如何登入？
+      a: 您需要創建一個"應用程式密碼"，而不是一般的 Nextcloud 密碼。您可以在安全 > 裝置和會話 > 創建新應用密碼下的 Nextcloud 設定中執行此操作。您的加密密碼不受影響。
+    - q: 我可以讓兩個密碼相同嗎？
+      a: 可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送到伺服器，因此有權訪問伺服器的人將能夠解密您的筆記。只有在您信任伺服器所有者的情況下才使用相同的密碼。
+profile:
+  title: 我的個人資料
+  logout: 登出
+  quickLinks:
+    title: 快速連結
+    serverHomepage: 伺服器主頁
+    deleteAccount: 刪除帳戶
+  faq:
+    - q: 如果我登出了，我的筆記會不會不見？
+      a: 您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
+    - q: 如何更改我的Nextcloud密碼？
+      a: 進入您的伺服器網站並登入，然後進入設定>安全>更改密碼。更改密碼後，您需要登出並重新登入到Saber。
+    - q: 如何更改我的加密密碼？
+      a: |-
+        1. 登出Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
+
+        2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。
+
+        3. 重新登入到Saber，您可以在登入時選擇一個新的加密密碼。
+
+        4. 也不要忘記在您的其他裝置上登出並重新登入Saber。
+    - q: 如何刪除我的帳戶？
+      a: |-
+        點擊上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
+
+        如果您使用的是官方Saber伺服器，您的帳戶將在一周的寬限期後被刪除，您可以在此期間由電子郵件聯繫我：adilhanney@disroot.org，以取消刪除。如果您使用的是第三方伺服器，則可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。
+appInfo:
+  licenseNotice: |-
+    Saber  版權所有 (C) 2022-$buildYear  Adil Hanney
+    This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
+  dirty: DIRTY
+  debug: DEBUG
+  sponsorButton: 點擊此處贊助我或購買更多儲存空間
+  licenseButton: 點擊此處查看更多許可證資訊
+  privacyPolicyButton: 點擊此處查看隱私權政策
+update:
+  updateAvailable: 可用更新
+  updateAvailableDescription: '新版本的應用程式已推出，有了以下變化:'
+  update: 更新
+editor:
+  toolbar:
+    toggleColors: 切換顏色 (Ctrl C)
+    select: 選擇
+    toggleEraser: 切換橡皮擦 (Ctrl E)
+    photo: 照片
+    text: 文本
+    toggleFingerDrawing: 切換手寫 (Ctrl F)
+    undo: 復原
+    redo: 重做
+    export: 匯出 (Ctrl Shift S)
+    exportAs: 匯出為：
+    fullscreen: 切換到全螢幕 (F11)
+  pens:
+    fountainPen: 鋼筆
+    ballpointPen: 原子筆
+    highlighter: 螢光筆
+    laserPointer: 雷射筆
+  penOptions:
+    size: 粗細
+    sizeDragHint: 向左或向右拖動以更改大小
+  colors:
+    colorPicker: 顏色選擇器
+    black: 黑色
+    darkGrey: 深灰色
+    grey: 灰色
+    lightGrey: 淺灰色
+    white: 白色
+    red: 紅色
+    green: 綠色
+    blue: 藍色
+    yellow: 黃色
+    purple: 紫色
+    orange: 橙色
+    pastelRed: 淡紅色
+    pastelOrange: 淡橙色
+    pastelYellow: 淡黃色
+    pastelGreen: 淡綠色
+    pastelCyan: 淡青色
+    pastelBlue: 淡藍色
+    pastelPurple: 淡紫色
+    pastelPink: 淡粉色
+  imageOptions:
+    title: 圖片選項
+    invertible: 反轉顏色
+    download: 下載
+    setAsBackground: 設為背景
+    removeAsBackground: 移除作為背景
+    delete: 刪除
+  menu:
+    clearPage: 清除頁面 $page/$totalPages
+    clearAllPages: 清除所有頁面
+    insertPage: 插入以下頁面
+    duplicatePage: 複製頁面
+    deletePage: 刪除頁面
+    lineHeight: 行高
+    lineHeightDescription: 同時控制文字大小
+    backgroundImage: 背景圖片
+    backgroundPattern: 背景圖案
+    import: 匯入
+    boxFits:
+      fill: 拉伸
+      cover: 覆蓋
+      contain: 包含
+    bgPatterns:
+      none: 空白
+      college: College-ruled
+      collegeRtl: College-ruled (反向)
+      lined: 橫線
+      grid: 網格
+      dots: 點
+      staffs: 五線譜
+      cornell: 康乃爾
+  newerFileFormat:
+    readOnlyMode: 唯讀模式
+    title: 這篇筆記是使用較新版本的 Saber 編輯的
+    subtitle: 編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？
+    allowEditing: 允許編輯
+    cancel: 取消
+  quill:
+    typeSomething: 在這裡輸入一些內容...
+  hud:
+    unlockZoom: 解鎖縮放
+    lockZoom: 鎖定縮放
+    unlockSingleFingerPan: 啟用單指平移
+    lockSingleFingerPan: 禁用單指平移
+    unlockAxisAlignedPan: 解鎖水平或垂直平移
+    lockAxisAlignedPan: 鎖定水平或垂直平移
+  pages: 頁面
+  untitled: 無標題
+  needsToSaveBeforeExiting: 正在儲存您的變更...完成後您可以安全地退出編輯器
