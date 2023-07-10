@@ -367,6 +367,6 @@ zh-Hans-CN:
 zh-Hant-TW:
   settings:
     prefLabels:
-      autosaveDelay(OUTDATED): Auto-save delay
+      autosaveDelay(OUTDATED): 自動儲存延遲
     prefDescriptions:
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      autosaveDelay(OUTDATED): 自動儲存筆記之前等待多少時間
