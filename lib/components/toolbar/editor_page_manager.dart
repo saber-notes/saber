@@ -64,6 +64,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
         buildDefaultDragHandles: false,
         itemCount: widget.coreInfo.pages.length,
         itemBuilder: (context, pageIndex) {
+          final isEmptyLastPage = pageIndex == widget.coreInfo.pages.length - 1 && widget.coreInfo.pages[pageIndex].isEmpty;
           return InkWell(
             key: ValueKey(pageIndex),
             onTap: () => scrollToPage(pageIndex),
@@ -135,7 +136,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                           totalPages: widget.coreInfo.pages.length,
                         ),
                         icon: const Icon(Icons.cleaning_services),
-                        onPressed: () => setState(() {
+                        onPressed: isEmptyLastPage ? null : () => setState(() {
                           widget.clearPage(pageIndex);
                           scrollToPage(pageIndex);
                         }),
@@ -146,7 +147,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                           icon: Icons.delete,
                           cupertinoIcon: CupertinoIcons.delete,
                         ),
-                        onPressed: () => setState(() {
+                        onPressed: isEmptyLastPage ? null : () => setState(() {
                           widget.deletePage(pageIndex);
                           scrollToPage(pageIndex);
                         }),
