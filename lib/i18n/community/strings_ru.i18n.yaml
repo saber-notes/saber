@@ -48,7 +48,7 @@ settings:
     customAccentColor: Свой цвет акцента
     hyperlegibleFont: Гипер разборчивый шрифт
     shouldCheckForUpdates: Автоматически проверять обновления Saber
-    shouldAlwaysAlertForUpdates: Сообщать об обновлениях, как только они станут доступны
+    shouldAlwaysAlertForUpdates: "Сообщать об обновлениях, как только они станут доступны"
     disableAds: Отключить рекламу
     changeAdsConsent: Согласие на рекламу
     allowInsecureConnections: Разрешить небезопасные соединения
@@ -57,17 +57,17 @@ settings:
     editorAutoInvert: Инвертировать заметки в тёмном режиме
     editorOpaqueBackgrounds: Непрозрачные фоны
     preferGreyscale: Предпочтение оттенкам серого
-    editorStraightenLines: Нажать и удерживать, чтобы выпрямить линию
+    editorStraightenLines: "Нажать и удерживать, чтобы выпрямить линию"
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
     dontSavePresetColors: Не сохранять предустановленные цвета в последних цветах
     printPageIndicators: Печатать номера страниц
-    autosaveDelay(OUTDATED): Автозадержка
+    autosaveDelay: Задержка автосохранения
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
-    disableAds: Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите.
+    disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
     editorAutoInvert: Интеллектуально затемнять заметки в тёмном режиме
     editorOpaqueBackgrounds: Удалить прозрачность фоновых изображений и PDF-файлов
@@ -77,7 +77,7 @@ settings:
     editorPromptRename: Вы всегда можете переименовать заметки позже
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
-    autosaveDelay(OUTDATED): Сколько ждать до автосохранения заметки
+    autosaveDelay: Время ожидания до автосохранения заметки
   themeModes:
     system: Системная
     light: Светлая
@@ -99,7 +99,7 @@ settings:
     - Снизу
     - Слева
   reset:
-    title: Сбросить эту настройку?
+    title: "Сбросить эту настройку?"
     button: Сбросить
 login:
   title: Авторизация
@@ -107,20 +107,20 @@ login:
     checkUsername: Дважды проверьте своё имя пользователя или адрес электронной почты.
     enterNcPassword: Введите свой пароль Nextcloud.
     enterEncPassword: Введите пароль шифрования.
-    checkUrl: Пожалуйста, введите корректный URL адрес.
+    checkUrl: "Пожалуйста, введите корректный URL адрес."
     ncLoginFailed: Ошибка входа. Проверьте свои данные и подключение к сети.
-    ncUnsupportedFailure: На данном сервере запущен Nextcloud $v. Но, эта версия Saber поддерживает только Nextcloud $s.
+    ncUnsupportedFailure: "На данном сервере запущен Nextcloud $v. Но, эта версия Saber поддерживает только Nextcloud $s."
     encLoginFailed: Не удалось войти. Проверьте пароль шифрования.
-    loginSuccess: Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…
+    loginSuccess: "Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…"
   form:
     useCustomServer: Я буду использовать свой Nextcloud сервер
     customServerUrl: Адрес Вашего сервера
     username: Имя пользователя или e-mail
     ncPassword: Пароль Nextcloud
     encPassword: Пароль шифрования
-    agreeToPrivacyPolicy(rich): Авторизуясь, вы соглашаетесь с ${linkToPrivacyPolicy(политикой конфиденциальности)}.
+    agreeToPrivacyPolicy(rich): "Авторизуясь, вы соглашаетесь с ${linkToPrivacyPolicy(политикой конфиденциальности)}."
     login: Авторизоваться
-  signup(rich): У вас нет учётной записи? ${linkToSignup(Зарегистрируйтесь сейчас)}!
+  signup(rich): "У вас нет учётной записи? ${linkToSignup(Зарегистрируйтесь сейчас)}!"
   status:
     loggedIn: Авторизован в Nextcloud
     loggedOut: Не авторизован
@@ -203,7 +203,7 @@ editor:
     laserPointer: Лазерная указка
   penOptions:
     size: Размер
-    sizeDragHint: Тяните влево или вправо, чтобы изменить размер
+    sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"
   colors:
     colorPicker: Выбор цвета
     black: Чёрный
@@ -259,7 +259,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Режим «Только чтение»
     title: Эта заметка была отредактирована в более новой версии Saber.
-    subtitle: Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?
+    subtitle: "Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?"
     allowEditing: Разрешить редактирование
     cancel: Отмена
   quill:
@@ -273,4 +273,4 @@ editor:
     lockAxisAlignedPan: Блокировать панораму по горизонтали или вертикали
   pages: Листы
   untitled: Без названия
-  needsToSaveBeforeExiting: Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано
+  needsToSaveBeforeExiting: "Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано"
