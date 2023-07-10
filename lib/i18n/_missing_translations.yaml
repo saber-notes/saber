@@ -365,8 +365,3 @@ zh-Hans-CN:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 zh-Hant-TW:
-  settings:
-    prefLabels:
-      autosaveDelay(OUTDATED): Auto-save delay
-    prefDescriptions:
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note

@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3255 (217 per locale)
 ///
-/// Built on 2023-07-10 at 02:26 UTC
+/// Built on 2023-07-10 at 10:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10273,7 +10273,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
-	@override String get autosaveDelay => '自動保存延遲';
+	@override String get autosaveDelay => '自動儲存延遲';
 }
 
 // Path: settings.prefDescriptions
@@ -10294,7 +10294,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
-	@override String get autosaveDelay => '自動保存筆記之前等待多長時間';
+	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
 }
 
 // Path: settings.themeModes
