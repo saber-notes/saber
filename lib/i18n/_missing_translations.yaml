@@ -21,9 +21,9 @@ ar:
 cs:
   settings:
     prefLabels:
-      autosaveDelay(OUTDATED): Auto-save delay
+      autosaveDelay(OUTDATED): Zpoždění automatického ukládání
     prefDescriptions:
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      autosaveDelay(OUTDATED): Jak dlouho počkat před automatickým uložením poznámky
 de:
   settings:
     prefCategories:
