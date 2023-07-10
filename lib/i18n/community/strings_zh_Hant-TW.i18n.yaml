@@ -64,7 +64,7 @@ settings:
     hideHomeBackgrounds: 隱藏主畫面上的背景
     dontSavePresetColors: 不要在最近的顏色中儲存預設顏色
     printPageIndicators: 列印頁碼
-    autosaveDelay(OUTDATED): 自動保存延遲
+    autosaveDelay: 自動儲存延遲
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -77,7 +77,7 @@ settings:
     editorPromptRename: 您以後隨時可以重新命名筆記
     hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
-    autosaveDelay(OUTDATED): 自動保存筆記之前等待多長時間
+    autosaveDelay: 自動儲存筆記之前等待多少時間
   themeModes:
     system: 系統
     light: 淺色
@@ -99,7 +99,7 @@ settings:
     - 置底
     - 靠左
   reset:
-    title: 重設此設定?
+    title: "重設此設定?"
     button: 重設
 login:
   title: 登入
@@ -118,9 +118,9 @@ login:
     username: 使用者名稱或電子郵件
     ncPassword: Nextcloud 密碼
     encPassword: 加密密碼
-    agreeToPrivacyPolicy(rich): 登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。
+    agreeToPrivacyPolicy(rich): "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。"
     login: 登入
-  signup(rich): 還沒有帳號？ ${linkToSignup(立即註冊)}！
+  signup(rich): "還沒有帳號？ ${linkToSignup(立即註冊)}！"
   status:
     loggedIn: 已使用 Nextcloud 登入
     loggedOut: 已登出
