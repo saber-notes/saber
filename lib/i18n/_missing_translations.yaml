@@ -250,9 +250,9 @@ hu:
 it:
   settings:
     prefLabels:
-      autosaveDelay(OUTDATED): Auto-save delay
+      autosaveDelay(OUTDATED): Ritardo di salvataggio automatico
     prefDescriptions:
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      autosaveDelay(OUTDATED): Quanto tempo aspettare prima di salvare automaticamente una nota
 ja:
   settings:
     prefLabels:
