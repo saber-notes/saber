@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3255 (217 per locale)
 ///
-/// Built on 2023-07-10 at 10:20 UTC
+/// Built on 2023-07-10 at 13:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7442,7 +7442,9 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Fonte hiperlegível';
 	@override String get shouldCheckForUpdates => 'Verificar automaticamente as atualizações do Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Me informe sobre as atualizações assim que elas estiverem disponíveis';
-	@override String get changeAdsConsent => 'Alterar consentimento de anúncios';
+	@override String get disableAds => 'Desativar anúncios';
+	@override String get changeAdsConsent => 'Alterar o consentimento de anúncios';
+	@override String get allowInsecureConnections => 'Permitir conexões inseguras';
 	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
 	@override String get editorAutoInvert => 'Inverter as notas no modo escuro';
@@ -7455,8 +7457,6 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
 	@override String get dontSavePresetColors => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
-	@override String get disableAds => 'Desativar anúncios';
-	@override String get allowInsecureConnections => 'Permitir conexões inseguras';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
 }
 
@@ -7468,6 +7468,8 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão';
+	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser';
+	@override String get allowInsecureConnections => '(Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis';
 	@override String get editorAutoInvert => 'Escurecer as notas de forma inteligente no modo escuro';
 	@override String get editorOpaqueBackgrounds => 'Remover a transparência das imagens de plano de fundo e dos PDFs';
 	@override String get preferGreyscale => 'Para telas e-ink';
@@ -7476,8 +7478,6 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
-	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar';
-	@override String get allowInsecureConnections => '(Não recomendado) Permite que o Saber se conecte a servidores com certificados autoassinados/não confiáveis';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
 }
 

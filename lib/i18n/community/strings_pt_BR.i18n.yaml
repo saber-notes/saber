@@ -38,10 +38,8 @@ settings:
   prefCategories:
     general: Geral
     writing: Escrita
-    editor(OUTDATED): editor
-    advanced(OUTDATED): Avançado
-    advanced: Avançado
     editor: editor
+    advanced: Avançado
   prefLabels:
     locale: Idioma do aplicativo
     appTheme: Tema do aplicativo
@@ -51,7 +49,9 @@ settings:
     hyperlegibleFont: Fonte hiperlegível
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
     shouldAlwaysAlertForUpdates: Me informe sobre as atualizações assim que elas estiverem disponíveis
-    changeAdsConsent(OUTDATED): Alterar consentimento de anúncios
+    disableAds: Desativar anúncios
+    changeAdsConsent: Alterar o consentimento de anúncios
+    allowInsecureConnections: Permitir conexões inseguras
     editorToolbarAlignment: Alinhamento da barra de ferramentas do editor
     editorToolbarShowInFullscreen: Mostrar a barra de ferramentas do editor no modo de tela cheia
     editorAutoInvert: Inverter as notas no modo escuro
@@ -64,11 +64,11 @@ settings:
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     dontSavePresetColors: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
-    disableAds(OUTDATED): Desativar anúncios
-    allowInsecureConnections(OUTDATED): Permitir conexões inseguras
-    autosaveDelay(OUTDATED): Atraso de salvamento automático
+    autosaveDelay: Atraso de salvamento automático
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
+    disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
+    allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
     editorAutoInvert: Escurecer as notas de forma inteligente no modo escuro
     editorOpaqueBackgrounds: Remover a transparência das imagens de plano de fundo e dos PDFs
     preferGreyscale: Para telas e-ink
@@ -77,9 +77,7 @@ settings:
     editorPromptRename: Você pode sempre renomear as notas mais tarde
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
-    disableAds(OUTDATED): Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar
-    allowInsecureConnections(OUTDATED): (Não recomendado) Permite que o Saber se conecte a servidores com certificados autoassinados/não confiáveis
-    autosaveDelay(OUTDATED): Quanto tempo esperar antes de salvar automaticamente uma nota
+    autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
   themeModes:
     system: Sistema
     light: Claro
@@ -101,7 +99,7 @@ settings:
     - Embaixo
     - Esquerda
   reset:
-    title: Redefinir esta configuração?
+    title: "Redefinir esta configuração?"
     button: Redefinir
 login:
   title: Login
@@ -110,19 +108,19 @@ login:
     enterNcPassword: Por favor digite a sua senha do Nextcloud.
     enterEncPassword: Por favor digite a sua senha de criptografia.
     checkUrl: Por favor insira uma URL válida.
-    ncLoginFailed: Falha no login, por favor verifique os seus dados e a conexão de rede.
-    ncUnsupportedFailure: O servidor fornecido está executando o Nextcloud $v, mas esta versão do Saber apenas suporta o Nextcloud $s.
-    encLoginFailed: Falha no login, por favor verifique a sua senha de criptografia.
-    loginSuccess: Login bem-sucedido! Aguarde enquanto configuramos...
+    ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
+    ncUnsupportedFailure: "O servidor fornecido está executando o Nextcloud $v, mas esta versão do Saber apenas suporta o Nextcloud $s."
+    encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
+    loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
   form:
     useCustomServer: Eu quero usar um servidor Nextcloud personalizado
     customServerUrl: URL do servidor personalizado
     username: Nome de usuário ou e-mail
     ncPassword: Senha do Nextcloud
     encPassword: Senha de criptografia
-    agreeToPrivacyPolicy(rich): Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}.
+    agreeToPrivacyPolicy(rich): "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}."
     login: Login
-  signup(rich): Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!
+  signup(rich): "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!"
   status:
     loggedIn: Logado com o Nextcloud
     loggedOut: Desconectado
@@ -183,7 +181,7 @@ appInfo:
   privacyPolicyButton: Toque aqui para ver a política de privacidade
 update:
   updateAvailable: Atualização disponível
-  updateAvailableDescription: 'Uma nova versão do aplicativo está disponível, com estas mudanças:'
+  updateAvailableDescription: "Uma nova versão do aplicativo está disponível, com estas mudanças:"
   update: Atualizar
 editor:
   toolbar:
@@ -261,7 +259,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Modo somente leitura
     title: Esta nota foi editada usando uma versão mais recente do Saber
-    subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?
+    subtitle: "A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?"
     allowEditing: Permitir edição
     cancel: Cancelar
   quill:
