@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3255 (217 per locale)
 ///
-/// Built on 2023-07-10 at 10:04 UTC
+/// Built on 2023-07-10 at 10:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8161,7 +8161,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
-	@override String get autosaveDelay => 'Автозадержка';
+	@override String get autosaveDelay => 'Задержка автосохранения';
 }
 
 // Path: settings.prefDescriptions
@@ -8182,7 +8182,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
-	@override String get autosaveDelay => 'Сколько ждать до автосохранения заметки';
+	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
 }
 
 // Path: settings.themeModes
