@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3255 (217 per locale)
 ///
-/// Built on 2023-07-10 at 10:14 UTC
+/// Built on 2023-07-10 at 10:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1847,7 +1847,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
-	@override String get autosaveDelay => 'Jak dlouho čekat před automatickým uložením poznámky';
+	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
 }
 
 // Path: settings.themeModes
