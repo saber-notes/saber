@@ -278,9 +278,9 @@ pt-BR:
 ru:
   settings:
     prefLabels:
-      autosaveDelay(OUTDATED): Auto-save delay
+      autosaveDelay(OUTDATED): Задержка автосохранения
     prefDescriptions:
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      autosaveDelay(OUTDATED): Время ожидания до автосохранения заметки
 tr:
   home:
     moveNote:
