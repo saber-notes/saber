@@ -262,14 +262,14 @@ ja:
 pt-BR:
   settings:
     prefLabels:
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      autosaveDelay(OUTDATED): Auto-save delay
+      disableAds(OUTDATED): Desativar anúncios
+      changeAdsConsent(OUTDATED): Alterar o consentimento de anúncios
+      allowInsecureConnections(OUTDATED): Permitir conexões inseguras
+      autosaveDelay(OUTDATED): Atraso de salvamento automático
     prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      disableAds(OUTDATED): "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
+      allowInsecureConnections(OUTDATED): (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
+      autosaveDelay(OUTDATED): Quanto tempo esperar antes de salvar automaticamente uma nota
 ru:
 tr:
   home:
