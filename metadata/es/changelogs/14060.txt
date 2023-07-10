@@ -1,0 +1,5 @@
+• Se agregó un botón para insertar rápidamente una página después de la página actual
+• Mejor compatibilidad con S-Pen, gracias de nuevo a @ZebraVogel94349
+• Traducción al japonés agregada, gracias a @nagiyu
+• Intervalo de guardado automático personalizable
+• Mejoras menores en la interfaz de usuario

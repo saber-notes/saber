@@ -1,0 +1,5 @@
+• Egy gomb hozzáadásával gyorsan beszúrhat egy oldalt az aktuális oldal után
+• Jobb S-Pen támogatás, köszönet ismételten @ZebraVogel94349-nek
+• Japán fordítás hozzáadva @nagiyu-nak köszönhetően
+• Testreszabható automatikus mentési időköz
+• Kisebb UI fejlesztések

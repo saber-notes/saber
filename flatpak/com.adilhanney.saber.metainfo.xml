@@ -67,6 +67,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.6" type="development" date="2023-07-10">
+            <description>
+                <ul>
+                    <li>Added a button to quickly insert a page after the current page</li>
+                    <li>Better S-Pen support, thanks again to @ZebraVogel94349</li>
+                    <li>Added Japanese translation, thanks to @nagiyu</li>
+                    <li>Customizable auto-save interval</li>
+                    <li>Minor UI improvements</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.5" type="development" date="2023-07-08">
             <description>
                 <ul>

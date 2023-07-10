@@ -1,0 +1,5 @@
+• Eine Schaltfläche hinzugefügt, um schnell eine Seite nach der aktuellen Seite einzufügen
+• Bessere S-Pen-Unterstützung, nochmals vielen Dank an @ZebraVogel94349
+• Japanische Übersetzung hinzugefügt, danke an @nagiyu
+• Anpassbares automatisches Speicherintervall
+• Kleinere Verbesserungen der Benutzeroberfläche
