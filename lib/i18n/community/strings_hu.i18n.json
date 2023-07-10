@@ -72,7 +72,8 @@
       "layoutSize(OUTDATED)": "Elrendezés típusa",
       "disableAds(OUTDATED)": "Hirdetések letiltása",
       "printPageIndicators(OUTDATED)": "Nyomtatási oldaljelzők",
-      "allowInsecureConnections(OUTDATED)": "Engedélyezze a nem biztonságos kapcsolatokat"
+      "allowInsecureConnections(OUTDATED)": "Engedélyezze a nem biztonságos kapcsolatokat",
+      "autosaveDelay(OUTDATED)": "Auto-save késleltetés"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára",
@@ -85,7 +86,8 @@
       "hideHomeBackgrounds": "Egy letisztultabb megjelenítésért",
       "disableAds(OUTDATED)": "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik",
       "printPageIndicators(OUTDATED)": "Mutasson oldalmutatókat az exportban",
-      "allowInsecureConnections(OUTDATED)": "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"
+      "allowInsecureConnections(OUTDATED)": "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez",
+      "autosaveDelay(OUTDATED)": "Mennyi ideig kell várni a jegyzet automatikus mentése előtt"
     },
     "themeModes": {
       "system": "Rendszer",

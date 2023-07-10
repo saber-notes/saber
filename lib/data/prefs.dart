@@ -60,6 +60,7 @@ abstract class Prefs {
   static late final PlainPref<bool> preferGreyscale;
   static late final PlainPref<int> editorStraightenDelay;
   static late final PlainPref<bool> editorPromptRename;
+  static late final PlainPref<int> autosaveDelay;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> dontSavePresetColors;
@@ -127,6 +128,7 @@ abstract class Prefs {
     preferGreyscale = PlainPref('preferGreyscale', false);
     editorStraightenDelay = PlainPref('editorStraightenDelay', 500);
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);
+    autosaveDelay = PlainPref('autosaveDelay', 10000);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     dontSavePresetColors = PlainPref('dontSavePresetColors', false);

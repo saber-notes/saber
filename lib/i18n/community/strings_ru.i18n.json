@@ -72,7 +72,8 @@
       "editorPromptRename": "Предлагать переименовывать новые заметки",
       "hideHomeBackgrounds": "Скрыть фон на главном экране",
       "dontSavePresetColors": "Не сохранять предустановленные цвета в последних цветах",
-      "printPageIndicators": "Печатать номера страниц"
+      "printPageIndicators": "Печатать номера страниц",
+      "autosaveDelay(OUTDATED)": "Автозадержка"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением",
@@ -85,7 +86,8 @@
       "maxImageSize": "Большие изображения будут сжаты",
       "editorPromptRename": "Вы всегда можете переименовать заметки позже",
       "hideHomeBackgrounds": "Для чистого вида",
-      "printPageIndicators": "Показывать номера страниц при экспорте"
+      "printPageIndicators": "Показывать номера страниц при экспорте",
+      "autosaveDelay(OUTDATED)": "Сколько ждать до автосохранения заметки"
     },
     "themeModes": {
       "system": "Системная",

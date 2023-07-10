@@ -72,7 +72,8 @@
       "dontSavePresetColors": "No guardar colores preestablecidos en los colores recientes",
       "printPageIndicators": "Indicadores de página de impresión",
       "disableAds(OUTDATED)": "Desactivar los anuncios",
-      "allowInsecureConnections(OUTDATED)": "Permitir conexiones inseguras"
+      "allowInsecureConnections(OUTDATED)": "Permitir conexiones inseguras",
+      "autosaveDelay(OUTDATED)": "Retraso de guardado automático"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión",
@@ -85,7 +86,8 @@
       "hideHomeBackgrounds": "Para una vista más limpia",
       "printPageIndicators": "Mostrar indicadores de página en las exportaciones",
       "disableAds(OUTDATED)": "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea",
-      "allowInsecureConnections(OUTDATED)": "(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables"
+      "allowInsecureConnections(OUTDATED)": "(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables",
+      "autosaveDelay(OUTDATED)": "Cuánto tiempo esperar antes de guardar automáticamente una nota"
     },
     "themeModes": {
       "system": "Sistema",

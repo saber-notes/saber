@@ -17,20 +17,37 @@
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       }
     }
   },
-  "cs": {},
+  "cs": {
+    "settings": {
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
+      }
+    }
+  },
   "de": {
     "settings": {
       "prefCategories": {
         "editor(OUTDATED)": "Editor",
         "advanced(OUTDATED)": "Advanced"
+      },
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       }
     }
   },
@@ -48,15 +65,26 @@
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       }
     }
   },
-  "fa": {},
+  "fa": {
+    "settings": {
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
+      }
+    }
+  },
   "fr": {
     "home": {
       "newFolder": {
@@ -91,11 +119,13 @@
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -179,12 +209,14 @@
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
         "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
-        "printPageIndicators(OUTDATED)": "Print page indicators"
+        "printPageIndicators(OUTDATED)": "Print page indicators",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
         "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
-        "printPageIndicators(OUTDATED)": "Show page indicators in exports"
+        "printPageIndicators(OUTDATED)": "Show page indicators in exports",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -297,22 +329,51 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "it": {},
-  "ja": {},
+  "it": {
+    "settings": {
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
+      }
+    }
+  },
+  "ja": {
+    "settings": {
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
+      }
+    }
+  },
   "pt-BR": {
     "settings": {
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       }
     }
   },
-  "ru": {},
+  "ru": {
+    "settings": {
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
+      }
+    }
+  },
   "tr": {
     "home": {
       "moveNote": {
@@ -327,11 +388,13 @@
       "prefLabels": {
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       }
     },
     "profile": {
@@ -394,11 +457,13 @@
         "layoutSize(OUTDATED)": "Layout type",
         "disableAds(OUTDATED)": "Disable ads",
         "changeAdsConsent(OUTDATED)": "Change ads consent",
-        "allowInsecureConnections(OUTDATED)": "Allow insecure connections"
+        "allowInsecureConnections(OUTDATED)": "Allow insecure connections",
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
       },
       "prefDescriptions": {
         "disableAds(OUTDATED)": "Ads help support Saber's development, but you can disable them if you'd like",
-        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates"
+        "allowInsecureConnections(OUTDATED)": "(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates",
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
       },
       "layoutSizes": {
         "auto(OUTDATED)": "Auto",
@@ -417,5 +482,14 @@
       "needsToSaveBeforeExiting(OUTDATED)": "Saving your changes... You can safely exit the editor when it's done"
     }
   },
-  "zh-Hant-TW": {}
+  "zh-Hant-TW": {
+    "settings": {
+      "prefLabels": {
+        "autosaveDelay(OUTDATED)": "Auto-save delay"
+      },
+      "prefDescriptions": {
+        "autosaveDelay(OUTDATED)": "How long to wait before auto-saving a note"
+      }
+    }
+  }
 }

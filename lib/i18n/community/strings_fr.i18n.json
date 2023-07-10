@@ -72,7 +72,8 @@
       "printPageIndicators": "Imprimer les numéros de pages",
       "layoutSize(OUTDATED)": "Type de dispositif",
       "disableAds(OUTDATED)": "Désactiver les publicités",
-      "allowInsecureConnections(OUTDATED)": "Autoriser les connexions non sécurisées"
+      "allowInsecureConnections(OUTDATED)": "Autoriser les connexions non sécurisées",
+      "autosaveDelay(OUTDATED)": "Délai de sauvegarde automatique"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes",
@@ -85,7 +86,8 @@
       "hideHomeBackgrounds": "Pour une apparence plus sobre",
       "printPageIndicators": "Montrer les numéros de pages dans les exportations",
       "disableAds(OUTDATED)": "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez",
-      "allowInsecureConnections(OUTDATED)": "(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés"
+      "allowInsecureConnections(OUTDATED)": "(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés",
+      "autosaveDelay(OUTDATED)": "Combien de temps attendre avant d'enregistrer automatiquement une note"
     },
     "themeModes": {
       "system": "Système",

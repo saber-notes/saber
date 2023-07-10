@@ -72,7 +72,8 @@
       "editorPromptRename": "Beim Erstellen von Notizen einen Namen erfragen",
       "hideHomeBackgrounds": "Hintergrund auf dem Startbildschirm verbergen",
       "dontSavePresetColors": "Farbvorlagen nicht in den zuletzt genutzten Farben speichern",
-      "printPageIndicators": "Seitennummerierung drucken"
+      "printPageIndicators": "Seitennummerierung drucken",
+      "autosaveDelay(OUTDATED)": "Verzögerung beim automatischen Speichern"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht",
@@ -85,7 +86,8 @@
       "maxImageSize": "Bilder, die größer sind, werden komprimiert",
       "editorPromptRename": "Notizen können immer auch später noch umbenannt werden",
       "hideHomeBackgrounds": "Für ein sauberes Aussehen",
-      "printPageIndicators": "Seitennummerierung bei Export anzeigen"
+      "printPageIndicators": "Seitennummerierung bei Export anzeigen",
+      "autosaveDelay(OUTDATED)": "Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern"
     },
     "themeModes": {
       "system": "System",

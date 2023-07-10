@@ -72,7 +72,8 @@
       "editorPromptRename": "از شما می خواهد که نام یادداشت های جدید را تغییر دهید",
       "hideHomeBackgrounds": "پس زمینه را در صفحه اصلی پنهان کنید",
       "dontSavePresetColors": "رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید",
-      "printPageIndicators": "چاپ نشانگرهای صفحه"
+      "printPageIndicators": "چاپ نشانگرهای صفحه",
+      "autosaveDelay(OUTDATED)": "تاخیر Auto-save"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "خوانایی را برای خوانندگان کم بینا افزایش می دهد",
@@ -85,7 +86,8 @@
       "maxImageSize": "تصاویر بزرگتر از این فشرده خواهند شد",
       "editorPromptRename": "همیشه می توانید بعداً نام یادداشت ها را تغییر دهید",
       "hideHomeBackgrounds": "برای ظاهری تمیز تر",
-      "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی"
+      "printPageIndicators": "نمایش نشانگرهای صفحه در خروجی",
+      "autosaveDelay(OUTDATED)": "چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد"
     },
     "themeModes": {
       "system": "سیستم",

@@ -72,7 +72,8 @@
       "editorPromptRename": "Richiede di rinominare nuove note",
       "hideHomeBackgrounds": "Nascondi gli sfondi nella schermata iniziale",
       "dontSavePresetColors": "Non salvare i colori preimpostati nei colori recenti",
-      "printPageIndicators": "Stampa indicatori di pagina"
+      "printPageIndicators": "Stampa indicatori di pagina",
+      "autosaveDelay(OUTDATED)": "Ritardo di salvataggio automatico"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti",
@@ -85,7 +86,8 @@
       "maxImageSize": "Le immagini più grandi verranno compresse",
       "editorPromptRename": "Puoi sempre rinominare le note in un secondo momento",
       "hideHomeBackgrounds": "Per un aspetto più pulito",
-      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni"
+      "printPageIndicators": "Mostra indicatori di pagina nelle esportazioni",
+      "autosaveDelay(OUTDATED)": "Quanto tempo aspettare prima di salvare automaticamente una nota"
     },
     "themeModes": {
       "system": "Sistema",

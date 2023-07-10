@@ -426,6 +426,17 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ],
+                  SettingsSelection(
+                    title: t.settings.prefLabels.autosaveDelay,
+                    subtitle: t.settings.prefDescriptions.autosaveDelay,
+                    icon: Icons.save,
+                    pref: Prefs.autosaveDelay,
+                    options: const [
+                      ToggleButtonsOption(5000, Text('5s')),
+                      ToggleButtonsOption(10000, Text('10s')),
+                      ToggleButtonsOption(-1, Icon(Icons.close)),
+                    ],
+                  ),
                   if (AdState.adsSupported) ...[
                     SettingsSwitch(
                       title: t.settings.prefLabels.disableAds,

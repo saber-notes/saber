@@ -72,7 +72,8 @@
       "editorPromptRename": "Prompt you to rename new notes",
       "hideHomeBackgrounds": "Hide backgrounds on the home screen",
       "dontSavePresetColors": "Don't save preset colors in recent colors",
-      "printPageIndicators": "Print page indicators"
+      "printPageIndicators": "Print page indicators",
+      "autosaveDelay": "Auto-save delay"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible increases legibility for readers with low vision",
@@ -85,7 +86,8 @@
       "maxImageSize": "Images larger than this will be compressed",
       "editorPromptRename": "You can always rename notes later",
       "hideHomeBackgrounds": "For a cleaner look",
-      "printPageIndicators": "Show page indicators in exports"
+      "printPageIndicators": "Show page indicators in exports",
+      "autosaveDelay": "How long to wait before auto-saving a note"
     },
     "themeModes": {
       "system": "System",

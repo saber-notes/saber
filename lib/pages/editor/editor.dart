@@ -734,7 +734,8 @@ class EditorState extends State<Editor> {
   void autosaveAfterDelay() {
     savingState.value = SavingState.waitingToSave;
     _delayedSaveTimer?.cancel();
-    _delayedSaveTimer = Timer(const Duration(milliseconds: 10000), () {
+    if (Prefs.autosaveDelay.value < 0) return;
+    _delayedSaveTimer = Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
       saveToFile();
     });
   }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 15
-/// Strings: 3225 (215 per locale)
+/// Strings: 3255 (217 per locale)
 ///
-/// Built on 2023-07-09 at 15:57 UTC
+/// Built on 2023-07-10 at 02:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -418,6 +418,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 	String get dontSavePresetColors => 'Don\'t save preset colors in recent colors';
 	String get printPageIndicators => 'Print page indicators';
+	String get autosaveDelay => 'Auto-save delay';
 }
 
 // Path: settings.prefDescriptions
@@ -438,6 +439,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get editorPromptRename => 'You can always rename notes later';
 	String get hideHomeBackgrounds => 'For a cleaner look';
 	String get printPageIndicators => 'Show page indicators in exports';
+	String get autosaveDelay => 'How long to wait before auto-saving a note';
 }
 
 // Path: settings.themeModes
@@ -1120,6 +1122,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
 	@override String get disableAds => 'عطل الاعلانات';
 	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
+	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
 }
 
 // Path: settings.prefDescriptions
@@ -1140,6 +1143,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
 	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
+	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
 }
 
 // Path: settings.themeModes
@@ -1822,6 +1826,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
+	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 }
 
 // Path: settings.prefDescriptions
@@ -1842,6 +1847,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
+	@override String get autosaveDelay => 'Jak dlouho čekat před automatickým uložením poznámky';
 }
 
 // Path: settings.themeModes
@@ -2524,6 +2530,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
+	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
 }
 
 // Path: settings.prefDescriptions
@@ -2544,6 +2551,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
+	@override String get autosaveDelay => 'Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern';
 }
 
 // Path: settings.themeModes
@@ -3225,6 +3233,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get disableAds => 'Desactivar los anuncios';
 	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
+	@override String get autosaveDelay => 'Retraso de guardado automático';
 }
 
 // Path: settings.prefDescriptions
@@ -3245,6 +3254,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
 	@override String get allowInsecureConnections => '(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables';
+	@override String get autosaveDelay => 'Cuánto tiempo esperar antes de guardar automáticamente una nota';
 }
 
 // Path: settings.themeModes
@@ -3927,6 +3937,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
+	@override String get autosaveDelay => 'تاخیر Auto-save';
 }
 
 // Path: settings.prefDescriptions
@@ -3947,6 +3958,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
+	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
 }
 
 // Path: settings.themeModes
@@ -4629,6 +4641,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get layoutSize => 'Type de dispositif';
 	@override String get disableAds => 'Désactiver les publicités';
 	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
+	@override String get autosaveDelay => 'Délai de sauvegarde automatique';
 }
 
 // Path: settings.prefDescriptions
@@ -4649,6 +4662,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
 	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
+	@override String get autosaveDelay => 'Combien de temps attendre avant d\'enregistrer automatiquement une note';
 }
 
 // Path: settings.themeModes
@@ -5331,6 +5345,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get disableAds => 'Hirdetések letiltása';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
 	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
+	@override String get autosaveDelay => 'Auto-save késleltetés';
 }
 
 // Path: settings.prefDescriptions
@@ -5351,6 +5366,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
+	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
 }
 
 // Path: settings.themeModes
@@ -6033,6 +6049,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
+	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 }
 
 // Path: settings.prefDescriptions
@@ -6053,6 +6070,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
+	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
 }
 
 // Path: settings.themeModes
@@ -6735,6 +6753,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get dontSavePresetColors => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get autosaveDelay => '自動保存の遅延';
 }
 
 // Path: settings.prefDescriptions
@@ -6755,6 +6774,7 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
+	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
 }
 
 // Path: settings.themeModes
@@ -7437,6 +7457,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get disableAds => 'Desativar anúncios';
 	@override String get allowInsecureConnections => 'Permitir conexões inseguras';
+	@override String get autosaveDelay => 'Atraso de salvamento automático';
 }
 
 // Path: settings.prefDescriptions
@@ -7457,6 +7478,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se desejar';
 	@override String get allowInsecureConnections => '(Não recomendado) Permite que o Saber se conecte a servidores com certificados autoassinados/não confiáveis';
+	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
 }
 
 // Path: settings.themeModes
@@ -8139,6 +8161,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
+	@override String get autosaveDelay => 'Автозадержка';
 }
 
 // Path: settings.prefDescriptions
@@ -8159,6 +8182,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
+	@override String get autosaveDelay => 'Сколько ждать до автосохранения заметки';
 }
 
 // Path: settings.themeModes
@@ -8841,6 +8865,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get disableAds => 'Reklamları devre dışı bırak';
 	@override String get allowInsecureConnections => 'İzinsiz bağlantılar';
+	@override String get autosaveDelay => 'Auto-save gecikme gecikme';
 }
 
 // Path: settings.prefDescriptions
@@ -8861,6 +8886,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get disableAds => 'Reklamlar Saber\'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin';
 	@override String get allowInsecureConnections => '(Önerilmez) Saber\'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver';
+	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar beklenmeli?';
 }
 
 // Path: settings.themeModes
@@ -9543,6 +9569,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get layoutSize => '布局类型';
 	@override String get disableAds => '禁用广告';
 	@override String get allowInsecureConnections => '允许不安全的连接';
+	@override String get autosaveDelay => '自动保存延迟';
 }
 
 // Path: settings.prefDescriptions
@@ -9563,6 +9590,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get disableAds => '广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们';
 	@override String get allowInsecureConnections => '（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器';
+	@override String get autosaveDelay => '自动保存笔记之前等待多长时间';
 }
 
 // Path: settings.themeModes
@@ -10245,6 +10273,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
+	@override String get autosaveDelay => '自動保存延遲';
 }
 
 // Path: settings.prefDescriptions
@@ -10265,6 +10294,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
+	@override String get autosaveDelay => '自動保存筆記之前等待多長時間';
 }
 
 // Path: settings.themeModes

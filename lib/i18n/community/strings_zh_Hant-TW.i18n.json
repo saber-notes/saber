@@ -72,7 +72,8 @@
       "editorPromptRename": "提醒您重新命名新筆記",
       "hideHomeBackgrounds": "隱藏主畫面上的背景",
       "dontSavePresetColors": "不要在最近的顏色中儲存預設顏色",
-      "printPageIndicators": "列印頁碼"
+      "printPageIndicators": "列印頁碼",
+      "autosaveDelay(OUTDATED)": "自動保存延遲"
     },
     "prefDescriptions": {
       "hyperlegibleFont": "Atkinson Hyperlegible 字體為低視力讀者提高易讀性",
@@ -85,7 +86,8 @@
       "maxImageSize": "大於此大小的圖片將被壓縮",
       "editorPromptRename": "您以後隨時可以重新命名筆記",
       "hideHomeBackgrounds": "為了更乾淨的外觀",
-      "printPageIndicators": "在匯出中顯示頁碼"
+      "printPageIndicators": "在匯出中顯示頁碼",
+      "autosaveDelay(OUTDATED)": "自動保存筆記之前等待多長時間"
     },
     "themeModes": {
       "system": "系統",
