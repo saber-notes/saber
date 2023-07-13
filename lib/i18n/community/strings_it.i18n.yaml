@@ -64,10 +64,10 @@ settings:
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
     dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
-    autosaveDelay(OUTDATED): Ritardo di salvataggio automatico
+    autosaveDelay: Ritardo di salvataggio automatico
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
-    disableAds: Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri
+    disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
     editorAutoInvert: Scurisce in modo intelligente le note in modalità scura
     editorOpaqueBackgrounds: Rimuovi la trasparenza dalle immagini di sfondo e dai PDF
@@ -77,7 +77,7 @@ settings:
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
-    autosaveDelay(OUTDATED): Quanto tempo aspettare prima di salvare automaticamente una nota
+    autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
   themeModes:
     system: Sistema
     light: Chiaro
@@ -99,7 +99,7 @@ settings:
     - In basso
     - Sotto
   reset:
-    title: Ripristinare questa impostazione?
+    title: "Ripristinare questa impostazione?"
     button: Ripristina
 login:
   title: Login
@@ -107,20 +107,20 @@ login:
     checkUsername: Ricontrolla il tuo nome utente o e-mail.
     enterNcPassword: Inserisci la tua password Nextcloud.
     enterEncPassword: Inserisci la tua password di crittografia.
-    checkUrl: Per favore, inserisci un URL valido.
-    ncLoginFailed: Accesso fallito, controlla i tuoi dati e la connessione di rete.
+    checkUrl: "Per favore, inserisci un URL valido."
+    ncLoginFailed: "Accesso fallito, controlla i tuoi dati e la connessione di rete."
     ncUnsupportedFailure: Il server specificato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud $s.
-    encLoginFailed: Accesso non riuscito, controllare la password di crittografia.
-    loginSuccess: Accesso riuscito! Si prega di attendere mentre configuriamo...
+    encLoginFailed: "Accesso non riuscito, controllare la password di crittografia."
+    loginSuccess: "Accesso riuscito! Si prega di attendere mentre configuriamo..."
   form:
     useCustomServer: Voglio utilizzare un server Nextcloud personalizzato
     customServerUrl: URL del server personalizzato
     username: Nome utente o email
     ncPassword: Password nextcloud
     encPassword: Password di crittografata
-    agreeToPrivacyPolicy(rich): Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.
+    agreeToPrivacyPolicy(rich): "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}."
     login: Log in
-  signup(rich): Non hai ancora un account? ${linkToSignup(Registrati ora)}!
+  signup(rich): "Non hai ancora un account? ${linkToSignup(Registrati ora)}!"
   status:
     loggedIn: Effettuato l'accesso con Nextcloud
     loggedOut: Disconnesso
@@ -181,7 +181,7 @@ appInfo:
   privacyPolicyButton: Tocca qui per visualizzare l'informativa sulla privacy
 update:
   updateAvailable: Aggiornamento disponibile
-  updateAvailableDescription: 'È disponibile una nuova versione dell''app, con queste modifiche:'
+  updateAvailableDescription: "È disponibile una nuova versione dell'app, con queste modifiche:"
   update: Aggiornamento
 editor:
   toolbar:
@@ -194,7 +194,7 @@ editor:
     undo: Annulla
     redo: Rifai
     export: Esporta (Ctrl Shift S)
-    exportAs: 'Esporta come:'
+    exportAs: "Esporta come:"
     fullscreen: Passa a schermo intero (F11)
   pens:
     fountainPen: Penna stilografica
@@ -259,7 +259,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Modalità di sola lettura
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber
-    subtitle: La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?
+    subtitle: "La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?"
     allowEditing: Consenti modifica
     cancel: Cancella
   quill:
