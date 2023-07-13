@@ -172,7 +172,7 @@ dependency_overrides:
   slang:
     git:
       url: https://github.com/adil192/slang
-      ref: slang-add
+      ref: empty-yaml-maps
       path: slang
 
 # For information on the generic Dart part of this file, see the
