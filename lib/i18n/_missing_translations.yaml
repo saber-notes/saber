@@ -248,11 +248,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      autosaveDelay(OUTDATED): Ritardo di salvataggio automatico
-    prefDescriptions:
-      autosaveDelay(OUTDATED): Quanto tempo aspettare prima di salvare automaticamente una nota
 ja:
   settings:
     prefLabels:
