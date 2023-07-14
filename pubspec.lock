@@ -246,7 +246,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "1fda209e988a4dd948410416d9f4e194bdf557d7"
+      resolved-ref: e85652151eeceb6a121c4ead396d9e4fc3d4ff5f
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -601,10 +601,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
       url: "https://pub.dev"
     source: hosted
-    version: "0.18.1"
+    version: "0.18.0"
   irondash_engine_context:
     dependency: transitive
     description:
@@ -630,12 +630,13 @@ packages:
     source: hosted
     version: "0.6.7"
   json2yaml:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: json2yaml
-      sha256: da94630fbc56079426fdd167ae58373286f603371075b69bf46d848d63ba3e51
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: fix-string-ends-with-colon
+      resolved-ref: "8cfacf7ebe7b2387ae11c0705f9c2d8fedfdf2a3"
+      url: "https://github.com/adil192/json2yaml"
+    source: git
     version: "3.0.1"
   json_annotation:
     dependency: transitive
@@ -722,7 +723,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "1fda209e988a4dd948410416d9f4e194bdf557d7"
+      resolved-ref: e85652151eeceb6a121c4ead396d9e4fc3d4ff5f
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -818,10 +819,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_foundation
-      sha256: "1995d88ec2948dac43edf8fe58eb434d35d22a2940ecee1a9fefcd62beee6eb3"
+      sha256: "916731ccbdce44d545414dd9961f26ba5fbaa74bcbb55237d8e65a623a8c7297"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.3"
+    version: "2.2.4"
   path_provider_linux:
     dependency: transitive
     description:
@@ -1036,10 +1037,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: b046999bf0ff58f04c364491bb803dcfa8f42e47b19c75478f53d323684a8cc1
+      sha256: f39696b83e844923b642ce9dd4bd31736c17e697f6731a5adf445b1274cf3cd4
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -1089,9 +1090,9 @@ packages:
     dependency: "direct main"
     description:
       path: slang
-      ref: empty-yaml-maps
-      resolved-ref: "4240efdedcc86b3be1fd7eed5803927ef738bbdc"
-      url: "https://github.com/adil192/slang"
+      ref: HEAD
+      resolved-ref: "81dd6cacc8bfc67621cb6a0f3f8f9ca5670424c0"
+      url: "https://github.com/Tienisto/slang"
     source: git
     version: "3.20.0"
   slang_flutter:
@@ -1251,10 +1252,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_macos
-      sha256: "91ee3e75ea9dadf38036200c5d3743518f4a5eb77a8d13fda1ee5764373f185e"
+      sha256: "1c4fdc0bfea61a70792ce97157e5cc17260f61abbe4f39354513f39ec6fd73b1"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5"
+    version: "3.0.6"
   url_launcher_platform_interface:
     dependency: transitive
     description:
@@ -1379,10 +1380,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "1c93e96f3069bacdc734fad6b7e1d3a480fd516a3ae5b8858becf7f07515a2f3"
+      sha256: "27ad6a99c4b2d5e1ffd2b993a10f738b6b4979f139b4d64c34ac511595fcd748"
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.2"
+    version: "3.9.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
@@ -1392,13 +1393,13 @@ packages:
     source: hosted
     version: "2.4.0"
   webview_flutter_wkwebview:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: webview_flutter_wkwebview
-      sha256: ecc9e9ea15216afc5ba3b1f14aa19414ceba526e57b19cebd970bfa91a0f4058
+      sha256: "369fdf6160944a7db660ff15fa048c2bd681b09557907beaef1f95e8557d21dc"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.0"
+    version: "3.7.0"
   win32:
     dependency: transitive
     description:
@@ -1435,10 +1436,10 @@ packages:
     dependency: transitive
     description:
       name: xdg_directories
-      sha256: ee1505df1426458f7f60aac270645098d318a8b4766d85fde75f76f2e21807d1
+      sha256: e0b1147eec179d3911f1f19b59206448f78195ca1d20514134e10641b7d7fbff
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   xml:
     dependency: transitive
     description:

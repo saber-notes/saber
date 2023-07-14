@@ -66,7 +66,7 @@ dependencies:
 
   vector_math: ^2.1.2
 
-  intl: ^0.18.0
+  intl: any
 
   crypto: ^3.0.2
   encrypt: ^5.0.1
@@ -164,16 +164,17 @@ dev_dependencies:
   yaml: ^3.1.2
 
 dependency_overrides:
-  intl: ^0.18.0
-
-  webview_flutter_wkwebview: '3.5.0'
-
   # https://github.com/Tienisto/slang/pull/150
   slang:
     git:
-      url: https://github.com/adil192/slang
-      ref: empty-yaml-maps
+      url: https://github.com/Tienisto/slang
       path: slang
+
+  # https://github.com/alexei-sintotski/json2yaml/pull/30
+  json2yaml:
+    git:
+      url: https://github.com/adil192/json2yaml
+      ref: fix-string-ends-with-colon
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
