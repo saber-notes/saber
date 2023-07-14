@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
-import 'package:saber/components/home/new_folder_dialog.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';

@@ -35,7 +35,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     try {
       capabilities = await client.core.getCapabilities()
         .then((capabilities) => capabilities.ocs.data);
-      (ncServerIsSupported, ncSupportedVersion) = await client.core.isSupported(capabilities);
+      (ncServerIsSupported, ncSupportedVersion) = client.core.isSupported(capabilities);
     } catch (e) {
       throw NcLoginFailure();
     }
