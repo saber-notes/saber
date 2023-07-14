@@ -4,8 +4,8 @@ class FlavorConfig {
   static late final String _flavor;
   static String get flavor => _flavor;
 
-  static late final String? _appStore;
-  static String? get appStore => _appStore;
+  static late final String _appStore;
+  static String get appStore => _appStore;
 
   static late final bool _shouldCheckForUpdatesByDefault;
   static bool get shouldCheckForUpdatesByDefault => _shouldCheckForUpdatesByDefault;
@@ -16,7 +16,7 @@ class FlavorConfig {
 
   static void setup({
     String flavor = '',
-    String? appStore,
+    String appStore = '',
     bool shouldCheckForUpdatesByDefault = true,
     bool dirty = false,
   }) {

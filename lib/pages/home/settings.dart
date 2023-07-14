@@ -128,7 +128,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
 
-    final bool requiresManualUpdates = FlavorConfig.appStore == null;
+    final bool requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
     final IconData materialIcon = () {
       if (defaultTargetPlatform == TargetPlatform.linux) return FontAwesomeIcons.linux;
@@ -409,7 +409,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text(t.settings.prefCategories.advanced),
                 shape: Border.all(color: Colors.transparent),
                 children: [
-                  if (requiresManualUpdates) ...[
+                  if (requiresManualUpdates || Prefs.shouldCheckForUpdates.value != Prefs.shouldCheckForUpdates.defaultValue) ...[
                     SettingsSwitch(
                       title: t.settings.prefLabels.shouldCheckForUpdates,
                       icon: Icons.system_update,
