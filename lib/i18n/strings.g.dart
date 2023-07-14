@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3270 (218 per locale)
 ///
-/// Built on 2023-07-14 at 01:04 UTC
+/// Built on 2023-07-14 at 20:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10044,10 +10044,10 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get noFiles => '未找到檔案';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
+	@override String get backFolder => '返回上一個資料夾';
 	@override late final _StringsHomeNewFolderZhHantTw newFolder = _StringsHomeNewFolderZhHantTw._(_root);
 	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
-	@override String get backFolder => '返回上一個文件夾';
 }
 
 // Path: settings
