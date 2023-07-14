@@ -15,6 +15,7 @@ home:
   welcome: Приветствуем в Saber
   noFiles: Файлов ещё нет
   createNewNote: Нажмите кнопку «+» чтобы создать новую заметку
+  backFolder: Вернуться к предыдущей папке
   newFolder:
     newFolder: Новая папка
     folderName: Имя папки
@@ -34,7 +35,6 @@ home:
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
-  backFolder(OUTDATED): Вернуться к предыдущей папке
 settings:
   prefCategories:
     general: Общие
