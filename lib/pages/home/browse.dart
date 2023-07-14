@@ -162,8 +162,10 @@ class _BrowsePageState extends State<BrowsePage> {
       ),
       floatingActionButton: FloatingActionButton(
         shape: cupertino ? const CircleBorder() : null,
-        onPressed: () {
-          context.push(RoutePaths.edit);
+        onPressed: () async {
+          final newFilePath = await FileManager.newFilePath(path ?? '/');
+          if (!mounted) return;
+          context.push(RoutePaths.editFilePath(newFilePath));
         },
         tooltip: t.home.tooltips.newNote,
         child: const AdaptiveIcon(
