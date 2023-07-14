@@ -361,4 +361,4 @@ zh-Hans-CN:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 zh-Hant-TW:
   home:
-    backFolder(OUTDATED): Go back to the previous folder
+    backFolder(OUTDATED): 返回上一個資料夾
