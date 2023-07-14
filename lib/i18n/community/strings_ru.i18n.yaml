@@ -34,6 +34,7 @@ home:
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
+  backFolder(OUTDATED): Вернуться к предыдущей папке
 settings:
   prefCategories:
     general: Общие

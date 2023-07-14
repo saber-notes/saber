@@ -34,6 +34,7 @@ home:
     move: تحريك
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
     moveName(OUTDATED): نقل $f
+  backFolder(OUTDATED): ارجع إلى المجلد السابق
 settings:
   prefCategories:
     general: عام

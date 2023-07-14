@@ -34,6 +34,7 @@ home:
     moveName: $f を移動
     move: 移動
     renamedTo: $newName に名称を変更した
+  backFolder(OUTDATED): 前のフォルダーに戻ります
 settings:
   prefCategories:
     general: 一般

@@ -85,6 +85,12 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
     setState(() {});
   }
 
+  Future<void> createFolder(String folderName) async {
+    final folderPath = '$currentFolder/$folderName';
+    await FileManager.createFolder(folderPath);
+    findChildrenOfCurrentFolder();
+  }
+
   @override
   void initState() {
     currentFolder = parentFolder;
@@ -119,6 +125,10 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                           currentFolder = '$currentFolder$folder/';
                         }
                       });
+                    },
+                    createFolder: createFolder,
+                    doesFolderExist: (String folderName) {
+                      return currentFolderChildren?.directories.contains(folderName) ?? false;
                     },
                     folders: [
                       for (final directoryPath in currentFolderChildren?.directories ?? const [])

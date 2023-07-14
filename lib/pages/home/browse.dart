@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
-import 'package:saber/components/home/new_folder_button.dart';
+import 'package:saber/components/home/new_folder_dialog.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -114,20 +114,18 @@ class _BrowsePageState extends State<BrowsePage> {
                   bottom: 16
                 ),
               ),
-              actions: [
-                NewFolderButton(
-                  createFolder: createFolder,
-                  doesFolderExist: (String folderName) {
-                    return children?.directories.contains(folderName) ?? false;
-                  },
-                ),
-                const SyncingButton(),
+              actions: const [
+                SyncingButton(),
               ],
             ),
             GridFolders(
               isAtRoot: path?.isEmpty ?? true,
               crossAxisCount: crossAxisCount,
               onTap: onDirectoryTap,
+              createFolder: createFolder,
+              doesFolderExist: (String folderName) {
+                return children?.directories.contains(folderName) ?? false;
+              },
               folders: [
                 for (String directoryPath in children?.directories ?? const [])
                   directoryPath,

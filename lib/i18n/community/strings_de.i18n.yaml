@@ -34,6 +34,7 @@ home:
     moveName: verschiebe $f
     move: Verschieben
     renamedTo: Notiz wird umbenannt zu $newName
+  backFolder(OUTDATED): Zurück zum vorherigen Ordner
 settings:
   prefCategories:
     general: Allgemein

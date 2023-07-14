@@ -34,6 +34,7 @@ home:
     moveName(OUTDATED): Déplacer $f
     move(OUTDATED): Déplacer
     renamedTo(OUTDATED): La note sera renommée $newName
+  backFolder(OUTDATED): Revenir au dossier précédent
 settings:
   prefCategories:
     general: Général

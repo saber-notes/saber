@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 15
-/// Strings: 3255 (217 per locale)
+/// Strings: 3270 (218 per locale)
 ///
-/// Built on 2023-07-13 at 23:01 UTC
+/// Built on 2023-07-14 at 01:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -175,6 +175,7 @@ class _StringsHomeEn {
 	String get welcome => 'Welcome to Saber';
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
+	String get backFolder => 'Go back to the previous folder';
 	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
 	late final _StringsHomeRenameNoteEn renameNote = _StringsHomeRenameNoteEn._(_root);
 	late final _StringsHomeMoveNoteEn moveNote = _StringsHomeMoveNoteEn._(_root);
@@ -882,6 +883,7 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderAr newFolder = _StringsHomeNewFolderAr._(_root);
 	@override late final _StringsHomeRenameNoteAr renameNote = _StringsHomeRenameNoteAr._(_root);
 	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
+	@override String get backFolder => 'ارجع إلى المجلد السابق';
 }
 
 // Path: settings
@@ -1586,6 +1588,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderCs newFolder = _StringsHomeNewFolderCs._(_root);
 	@override late final _StringsHomeRenameNoteCs renameNote = _StringsHomeRenameNoteCs._(_root);
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
+	@override String get backFolder => 'Přejděte do předchozí složky';
 }
 
 // Path: settings
@@ -2290,6 +2293,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderDe newFolder = _StringsHomeNewFolderDe._(_root);
 	@override late final _StringsHomeRenameNoteDe renameNote = _StringsHomeRenameNoteDe._(_root);
 	@override late final _StringsHomeMoveNoteDe moveNote = _StringsHomeMoveNoteDe._(_root);
+	@override String get backFolder => 'Zurück zum vorherigen Ordner';
 }
 
 // Path: settings
@@ -2994,6 +2998,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderEs newFolder = _StringsHomeNewFolderEs._(_root);
 	@override late final _StringsHomeRenameNoteEs renameNote = _StringsHomeRenameNoteEs._(_root);
 	@override late final _StringsHomeMoveNoteEs moveNote = _StringsHomeMoveNoteEs._(_root);
+	@override String get backFolder => 'Volver a la carpeta anterior';
 }
 
 // Path: settings
@@ -3697,6 +3702,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderFa newFolder = _StringsHomeNewFolderFa._(_root);
 	@override late final _StringsHomeRenameNoteFa renameNote = _StringsHomeRenameNoteFa._(_root);
 	@override late final _StringsHomeMoveNoteFa moveNote = _StringsHomeMoveNoteFa._(_root);
+	@override String get backFolder => 'بازگشت به پوشه قبلی';
 }
 
 // Path: settings
@@ -4401,6 +4407,7 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderFr newFolder = _StringsHomeNewFolderFr._(_root);
 	@override late final _StringsHomeRenameNoteFr renameNote = _StringsHomeRenameNoteFr._(_root);
 	@override late final _StringsHomeMoveNoteFr moveNote = _StringsHomeMoveNoteFr._(_root);
+	@override String get backFolder => 'Revenir au dossier précédent';
 }
 
 // Path: settings
@@ -5105,6 +5112,7 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderHu newFolder = _StringsHomeNewFolderHu._(_root);
 	@override late final _StringsHomeRenameNoteHu renameNote = _StringsHomeRenameNoteHu._(_root);
 	@override late final _StringsHomeMoveNoteHu moveNote = _StringsHomeMoveNoteHu._(_root);
+	@override String get backFolder => 'Menjen vissza az előző mappába';
 }
 
 // Path: settings
@@ -5809,6 +5817,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderIt newFolder = _StringsHomeNewFolderIt._(_root);
 	@override late final _StringsHomeRenameNoteIt renameNote = _StringsHomeRenameNoteIt._(_root);
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
+	@override String get backFolder => 'Torna alla cartella precedente';
 }
 
 // Path: settings
@@ -6513,6 +6522,7 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderJa newFolder = _StringsHomeNewFolderJa._(_root);
 	@override late final _StringsHomeRenameNoteJa renameNote = _StringsHomeRenameNoteJa._(_root);
 	@override late final _StringsHomeMoveNoteJa moveNote = _StringsHomeMoveNoteJa._(_root);
+	@override String get backFolder => '前のフォルダーに戻ります';
 }
 
 // Path: settings
@@ -7217,6 +7227,7 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderPtBr newFolder = _StringsHomeNewFolderPtBr._(_root);
 	@override late final _StringsHomeRenameNotePtBr renameNote = _StringsHomeRenameNotePtBr._(_root);
 	@override late final _StringsHomeMoveNotePtBr moveNote = _StringsHomeMoveNotePtBr._(_root);
+	@override String get backFolder => 'Voltar para a pasta anterior';
 }
 
 // Path: settings
@@ -7921,6 +7932,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderRu newFolder = _StringsHomeNewFolderRu._(_root);
 	@override late final _StringsHomeRenameNoteRu renameNote = _StringsHomeRenameNoteRu._(_root);
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
+	@override String get backFolder => 'Вернуться к предыдущей папке';
 }
 
 // Path: settings
@@ -8625,6 +8637,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderTr newFolder = _StringsHomeNewFolderTr._(_root);
 	@override late final _StringsHomeRenameNoteTr renameNote = _StringsHomeRenameNoteTr._(_root);
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
+	@override String get backFolder => 'Önceki klasöre geri dön';
 }
 
 // Path: settings
@@ -9329,6 +9342,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderZhHansCn newFolder = _StringsHomeNewFolderZhHansCn._(_root);
 	@override late final _StringsHomeRenameNoteZhHansCn renameNote = _StringsHomeRenameNoteZhHansCn._(_root);
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
+	@override String get backFolder => '返回上一个文件夹';
 }
 
 // Path: settings
@@ -10033,6 +10047,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderZhHantTw newFolder = _StringsHomeNewFolderZhHantTw._(_root);
 	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
+	@override String get backFolder => '返回上一個文件夾';
 }
 
 // Path: settings

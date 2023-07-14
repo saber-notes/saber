@@ -34,6 +34,7 @@ home:
     moveName: انتقال $f
     move: انتقال
     renamedTo: یادداشت به $newName تغییر نام می یابد
+  backFolder(OUTDATED): بازگشت به پوشه قبلی
 settings:
   prefCategories:
     general: عمومی

@@ -34,6 +34,7 @@ home:
     moveName: Přesun poznámky $f
     move: Přesunout
     renamedTo: Poznámka bude přejmenována na $newName
+  backFolder(OUTDATED): Přejděte do předchozí složky
 settings:
   prefCategories:
     general: Obecné

@@ -34,6 +34,7 @@ home:
     moveName(OUTDATED): 移动$f
     move(OUTDATED): 移动
     renamedTo(OUTDATED): Note 将被重命名为 $newName
+  backFolder(OUTDATED): 返回上一个文件夹
 settings:
   prefCategories:
     general: 通用

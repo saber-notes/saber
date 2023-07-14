@@ -34,6 +34,7 @@ home:
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
+  backFolder(OUTDATED): Torna alla cartella precedente
 settings:
   prefCategories:
     general: Generale

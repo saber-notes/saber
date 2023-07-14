@@ -2,7 +2,6 @@
 
 // ignore_for_file: avoid_print
 
-import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -45,16 +44,16 @@ Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathO
   for (final key in tree.keys) {
     if (key.endsWith('(OUTDATED)')) continue;
 
+    final pathToKey = [...pathOfKeys, key].join('.');
+    if (newlyTranslatedPaths.contains('$languageCode/$pathToKey')) continue;
+
     final value = tree[key];
     if (value is! String) continue;
-    if (value.isEmpty) continue; // already translated in a previous iteration
 
     final translated = await translateString(translator, languageCode, value);
     if (translated == null || translated == value) continue; // error occured in translation, so skip for now
-    final pathToKey = [...pathOfKeys, key].join('.');
     await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
-    newlyTranslatedPaths.add(pathToKey);
-    tree[key] = '';
+    newlyTranslatedPaths.add('$languageCode/$pathToKey');
   }
 
   // then recurse
@@ -77,16 +76,16 @@ Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathO
 Future<void> translateList(String languageCode, YamlList list, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
   for (int i = 0; i < list.length; ++i) {
+    final pathToKey = [...pathOfKeys, i].join('.');
+    if (newlyTranslatedPaths.contains('$languageCode/$pathToKey')) continue;
+
     final value = list[i];
     if (value is! String) continue;
-    if (value.isEmpty) continue; // already translated in a previous iteration
 
     final translated = await translateString(translator, languageCode, value);
     if (translated == null || translated == value) continue; // error occurred in translation, so skip for now
-    final pathToKey = [...pathOfKeys, i].join('.');
     await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
-    newlyTranslatedPaths.add(pathToKey);
-    list[i] = '';
+    newlyTranslatedPaths.add('$languageCode/$pathToKey');
   }
 
   // then recurse
@@ -134,7 +133,7 @@ void main() async {
   final missingTranslations = await _getMissingTranslations();
 
   final missingLanguageCodes = missingTranslations.keys
-      .where((languageCode) => missingTranslations[languageCode].isNotEmpty)
+      .where((languageCode) => missingTranslations[languageCode]?.isNotEmpty ?? false)
       .where((languageCode) => !languageCode.startsWith('@@'))
       .toList();
   print('Found missing translations for ${missingLanguageCodes.length} languages.');
@@ -161,7 +160,10 @@ void main() async {
 
   // mark all newly translated paths as outdated
   // for a human to review
-  for (final path in newlyTranslatedPaths) {
+  final pathsWithoutLanguageCode = newlyTranslatedPaths
+      .map((e) => e.substring(e.indexOf('/') + 1))
+      .toSet();
+  for (final path in pathsWithoutLanguageCode) {
     print('Marking $path as outdated...');
     await shell.run('dart run slang outdated $path');
   }

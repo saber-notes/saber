@@ -34,6 +34,7 @@ home:
     move: Mover
     renamedTo: Se renombrará la nota a $newName
     moveName(OUTDATED): Mover $f
+  backFolder(OUTDATED): Volver a la carpeta anterior
 settings:
   prefCategories:
     general: General

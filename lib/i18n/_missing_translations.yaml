@@ -3,6 +3,7 @@
   - "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
 ar:
   home:
+    backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
   settings:
@@ -19,7 +20,11 @@ ar:
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
 de:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -30,6 +35,7 @@ de:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 es:
   home:
+    backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
   settings:
@@ -46,6 +52,8 @@ es:
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 fa:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
   settings:
     prefLabels:
       autosaveDelay(OUTDATED): Auto-save delay
@@ -53,6 +61,7 @@ fa:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 fr:
   home:
+    backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
       folderName(OUTDATED): Folder name
@@ -125,6 +134,7 @@ fr:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 hu:
   home:
+    backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
       folderName(OUTDATED): Folder name
@@ -248,16 +258,25 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
 ja:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
   settings:
     prefLabels:
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 pt-BR:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
 ru:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder
 tr:
   home:
+    backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
   settings:
@@ -295,6 +314,7 @@ tr:
       clearPage(OUTDATED): Clear page $page/$totalPages
 zh-Hans-CN:
   home:
+    backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
       folderName(OUTDATED): Folder name
@@ -340,3 +360,5 @@ zh-Hans-CN:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 zh-Hant-TW:
+  home:
+    backFolder(OUTDATED): Go back to the previous folder

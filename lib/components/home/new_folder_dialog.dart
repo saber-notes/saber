@@ -5,39 +5,8 @@ import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class NewFolderButton extends StatelessWidget {
-  const NewFolderButton({
-    super.key,
-    required this.createFolder,
-    required this.doesFolderExist,
-  });
-
-  final void Function(String) createFolder;
-  final bool Function(String) doesFolderExist;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        showDialog(
-          context: context,
-          builder: (context) => _NewFolderDialog(
-            createFolder: createFolder,
-            doesFolderExist: doesFolderExist,
-          ),
-        );
-      },
-      tooltip: t.home.newFolder.newFolder,
-      icon: const AdaptiveIcon(
-        icon: Icons.create_new_folder,
-        cupertinoIcon: CupertinoIcons.folder_badge_plus,
-      ),
-    );
-  }
-}
-
-class _NewFolderDialog extends StatefulWidget {
-  const _NewFolderDialog({
+class NewFolderDialog extends StatefulWidget {
+  const NewFolderDialog({
     // ignore: unused_element
     super.key,
     required this.createFolder,
@@ -48,9 +17,9 @@ class _NewFolderDialog extends StatefulWidget {
   final bool Function(String) doesFolderExist;
 
   @override
-  State<_NewFolderDialog> createState() => _NewFolderDialogState();
+  State<NewFolderDialog> createState() => _NewFolderDialogState();
 }
-class _NewFolderDialogState extends State<_NewFolderDialog> {
+class _NewFolderDialogState extends State<NewFolderDialog> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();
 
