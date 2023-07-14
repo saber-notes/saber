@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3270 (218 per locale)
 ///
-/// Built on 2023-07-14 at 20:42 UTC
+/// Built on 2023-07-14 at 20:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1585,10 +1585,10 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override String get welcome => 'Vítejte v aplikaci Saber';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
+	@override String get backFolder => 'Přejít do předchozí složky';
 	@override late final _StringsHomeNewFolderCs newFolder = _StringsHomeNewFolderCs._(_root);
 	@override late final _StringsHomeRenameNoteCs renameNote = _StringsHomeRenameNoteCs._(_root);
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
-	@override String get backFolder => 'Přejděte do předchozí složky';
 }
 
 // Path: settings

@@ -15,6 +15,7 @@ home:
   welcome: Vítejte v aplikaci Saber
   noFiles: Žádné poznámky nebyly nalezeny
   createNewNote: Pro přidání nové poznámky klepněte na tlačítko +
+  backFolder: Přejít do předchozí složky
   newFolder:
     newFolder: Nová složka
     folderName: Název složky
@@ -34,7 +35,6 @@ home:
     moveName: Přesun poznámky $f
     move: Přesunout
     renamedTo: Poznámka bude přejmenována na $newName
-  backFolder(OUTDATED): Přejděte do předchozí složky
 settings:
   prefCategories:
     general: Obecné
