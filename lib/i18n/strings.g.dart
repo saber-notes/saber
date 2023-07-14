@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3270 (218 per locale)
 ///
-/// Built on 2023-07-14 at 20:39 UTC
+/// Built on 2023-07-14 at 20:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7929,10 +7929,10 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get noFiles => 'Файлов ещё нет';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
+	@override String get backFolder => 'Вернуться к предыдущей папке';
 	@override late final _StringsHomeNewFolderRu newFolder = _StringsHomeNewFolderRu._(_root);
 	@override late final _StringsHomeRenameNoteRu renameNote = _StringsHomeRenameNoteRu._(_root);
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
-	@override String get backFolder => 'Вернуться к предыдущей папке';
 }
 
 // Path: settings
