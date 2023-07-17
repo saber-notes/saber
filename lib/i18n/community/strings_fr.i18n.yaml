@@ -66,6 +66,7 @@ settings:
     disableAds(OUTDATED): Désactiver les publicités
     allowInsecureConnections(OUTDATED): Autoriser les connexions non sécurisées
     autosaveDelay(OUTDATED): Délai de sauvegarde automatique
+    disableEraserAfterUse(OUTDATED): Revenez au stylet après avoir utilisé la gomme
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     editorAutoInvert: Assombrit les notes de façon intelligente en mode sombre
@@ -76,7 +77,7 @@ settings:
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
-    disableAds(OUTDATED): Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez
+    disableAds(OUTDATED): "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
     allowInsecureConnections(OUTDATED): (Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés
     autosaveDelay(OUTDATED): Combien de temps attendre avant d'enregistrer automatiquement une note
   themeModes:
@@ -100,7 +101,7 @@ settings:
     - Bas
     - Gauche
   reset:
-    title: Rétablir les valeurs par défaut ?
+    title: "Rétablir les valeurs par défaut ?"
     button: Défaut
 login:
   title: Connexion
@@ -109,9 +110,9 @@ login:
     enterNcPassword: Veuiller saisir votre mot de passe Nextcloud.
     enterEncPassword: Veuillez saisir votre mot de passe de cryptage.
     checkUrl: Veuillez saisir une URL valide.
-    ncLoginFailed: La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.
-    encLoginFailed: La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.
-    loginSuccess: Connexion reussie ! Veuillez patienter pendant la configuration...
+    ncLoginFailed: "La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau."
+    encLoginFailed: "La connexion a échoué, veuillez vérifier votre mot de passe de cryptage."
+    loginSuccess: "Connexion reussie ! Veuillez patienter pendant la configuration..."
     ncUnsupportedFailure(OUTDATED): Le serveur donné exécute Nextcloud $v mais cette version de Saber ne prend en charge que Nextcloud $s.
   form:
     useCustomServer: Je veux utiliser un serveur Nextcloud personnalisé
@@ -119,30 +120,28 @@ login:
     username: Nom d'utilisateur ou adresse mel
     ncPassword: Mot de passe Nextcloud
     encPassword: Mot de passe de cryptage
-    agreeToPrivacyPolicy(rich): En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}.
+    agreeToPrivacyPolicy(rich): "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}."
     login: Se connecter
-  signup(rich): Pas encore de compte ? ${linkToSignup(Sign up now)} !
+  signup(rich): "Pas encore de compte ? ${linkToSignup(Sign up now)} !"
   status:
     loggedIn: Connecté avec Nextcloud
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
   faq:
-    - q: Qu'est-ce que Nextcloud ?
-      a: Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données.
-    - q: Qu'est-ce que le mot de passe de cryptage ?
+    - q: "Qu'est-ce que Nextcloud ?"
+      a: "Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données."
+    - q: "Qu'est-ce que le mot de passe de cryptage ?"
       a: |-
         Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.
-
         Personne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données.
-    - q: Pourquoi utiliser deux mots de passe ?
+    - q: "Pourquoi utiliser deux mots de passe ?"
       a: |-
         Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu'elles n'atteignent le nuage.
-
         Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
-    - q: Comment me connecter si j'utilise 2FA ?
-      a: Au lieu d'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un "mot de passe d'application". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d'application. Votre mot de passe de cryptage reste inchangé.
-    - q: Puis-je utiliser le même mot de passe pour les deux ?
-      a: Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.
+    - q: "Comment me connecter si j'utilise 2FA ?"
+      a: "Au lieu d'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un \"mot de passe d'application\". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d'application. Votre mot de passe de cryptage reste inchangé."
+    - q: "Puis-je utiliser le même mot de passe pour les deux ?"
+      a: "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
 profile:
   title: Mon profil
   logout: Déconnexion
@@ -151,25 +150,20 @@ profile:
     serverHomepage: Page d'accueil du serveur
     deleteAccount: Supprimer le compte
   faq:
-    - q: Vais-je perdre mes notes si je me déconnecte ?
+    - q: "Vais-je perdre mes notes si je me déconnecte ?"
       a: Non. Vos notes seront conservées à la fois sur votre poste et sur le serveur. Elles ne seront pas synchronisées avec le serveur jusqu'à votre prochaine connexion. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter pour ne perdre aucune donnée (consultez la barre de progression sur l'écran d'accueil).
-    - q: Comment changer mon mot de passe Nextcloud ?
-      a: Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans Saber après avoir changé votre mot de passe.
-    - q: Comment changer mon mot de passe de chiffrement ?
+    - q: "Comment changer mon mot de passe Nextcloud ?"
+      a: "Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans Saber après avoir changé votre mot de passe."
+    - q: "Comment changer mon mot de passe de chiffrement ?"
       a: |-
         1. Déconnectez-vous de Saber. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter afin de ne perdre aucune donnée (consultez la barre de progression sur l'écran d'accueil).
-
         2. Sur le site web du serveur supprimez votre dossier 'Saber'. Cela supprimera toutes vos notes sur le serveur.
-
         3. Connectez-vous à nouveau dans Saber. Vous pourrez choisir un nouveau mot de passe de chiffrement à la connexion.
-
         4. N'oubliez pas de vous déconnecter et vous re-connecter dans Saber sur votre poste également.
-    - q: Comment puis-je supprimer mon compte ?
+    - q: "Comment puis-je supprimer mon compte ?"
       a: |-
         Cliquez sur le button "@:profile.quickLinks.deleteAccount" ci-dessus, et connectez-vous si nécessaire.
-
         Si vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.
-
         Si vous utilisez un autre serveur, il n'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d'informations.
 appInfo:
   licenseNotice: |-
@@ -182,7 +176,7 @@ appInfo:
   privacyPolicyButton: Appuyez ici pour voir la politique de confidentialité
 update:
   updateAvailable: Mise à jour disponible
-  updateAvailableDescription: 'Une nouvelle version de cette application est disponible, avec les changements suivants :'
+  updateAvailableDescription: "Une nouvelle version de cette application est disponible, avec les changements suivants :"
   update: Mettre à jour
 editor:
   toolbar:
@@ -195,7 +189,7 @@ editor:
     undo: Annuler
     redo: Refaire
     export: Exporter (Ctrl Shift S)
-    exportAs: 'Exporter comme :'
+    exportAs: "Exporter comme :"
     fullscreen: Basculer en plein ecran (F11)
   pens:
     fountainPen: Stylo encre
@@ -260,7 +254,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Mode lecture seule
     title: Cette note a été modifiée avec une version plus récente de Saber
-    subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?
+    subtitle: "Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?"
     allowEditing: Autoriser les modifications
     cancel: Annuler
   quill:

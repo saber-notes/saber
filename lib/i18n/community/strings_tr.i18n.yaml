@@ -66,6 +66,7 @@ settings:
     dontSavePresetColors: Ön tanımlı renkleri son kullanılanlara kaydetme
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
+    disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra kaleme geri dönün
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz

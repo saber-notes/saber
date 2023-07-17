@@ -66,6 +66,7 @@ settings:
     dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
+    disableEraserAfterUse(OUTDATED): Torna alla penna dopo aver usato la gomma
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -127,22 +128,20 @@ login:
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
   faq:
-    - q: Che cos'è Nextcloud?
-      a: Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.
-    - q: Qual è la password di crittografia?
+    - q: "Che cos'è Nextcloud?"
+      a: "Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati."
+    - q: "Qual è la password di crittografia?"
       a: |-
         La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.
-
         Nessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati.
-    - q: Perché usare due password?
+    - q: "Perché usare due password?"
       a: |-
         La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.
-
         Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
-    - q: Come faccio ad accedere se utilizzo 2FA?
-      a: Invece della tua normale password Nextcloud, dovrai creare una "password per l'app". Puoi farlo nelle impostazioni di Nextcloud in Sicurezza > Dispositivi e sessioni > Crea una nuova password per l'app. La tua password di crittografia rimane inalterata.
-    - q: Posso usare la stessa password per entrambi?
-      a: Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.
+    - q: "Come faccio ad accedere se utilizzo 2FA?"
+      a: "Invece della tua normale password Nextcloud, dovrai creare una \"password per l'app\". Puoi farlo nelle impostazioni di Nextcloud in Sicurezza > Dispositivi e sessioni > Crea una nuova password per l'app. La tua password di crittografia rimane inalterata."
+    - q: "Posso usare la stessa password per entrambi?"
+      a: "Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server."
 profile:
   title: Il mio profilo
   logout: Log out
@@ -151,25 +150,20 @@ profile:
     serverHomepage: Homepage del server
     deleteAccount: Elimina account
   faq:
-    - q: Perderò i miei appunti se mi disconnetto?
+    - q: "Perderò i miei appunti se mi disconnetto?"
       a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
-    - q: Come cambio la mia password Nextcloud?
-      a: Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
-    - q: Come cambio la mia password di crittografia?
+    - q: "Come cambio la mia password Nextcloud?"
+      a: "Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password."
+    - q: "Come cambio la mia password di crittografia?"
       a: |-
         1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
-
         2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
-
         3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.
-
         4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
-    - q: Come posso eliminare il mio account?
+    - q: "Come posso eliminare il mio account?"
       a: |-
         Tocca il pulsante "@:profile.quickLinks.deleteAccount" in alto e, se necessario, accedi.
-
         Se stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all'indirizzo adilhanney@disroot.org durante questo periodo per annullare l'eliminazione.
-
         Se stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.
 appInfo:
   licenseNotice: |-

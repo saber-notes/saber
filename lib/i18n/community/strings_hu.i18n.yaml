@@ -48,7 +48,7 @@ settings:
     customAccentColor: Egyéni akcentusszín
     hyperlegibleFont: Hyperlegible betűtipus
     shouldCheckForUpdates: Automatikusan ellenőrzi a Saber frissítéseket
-    shouldAlwaysAlertForUpdates: Értesítsen a frissítésekről, amint azok elérhetővé válnak
+    shouldAlwaysAlertForUpdates: "Értesítsen a frissítésekről, amint azok elérhetővé válnak"
     changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     editorToolbarAlignment: A szerkesztő eszköztár igazítása
     editorToolbarShowInFullscreen: A szerkesztő eszköztár megjelenítése teljes képernyős módban
@@ -66,6 +66,7 @@ settings:
     printPageIndicators(OUTDATED): Nyomtatási oldaljelzők
     allowInsecureConnections(OUTDATED): Engedélyezze a nem biztonságos kapcsolatokat
     autosaveDelay(OUTDATED): Auto-save késleltetés
+    disableEraserAfterUse(OUTDATED): "Váltson vissza a tollra, miután a törölőt használja"
   prefDescriptions:
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
     editorAutoInvert: Intelligens módon sötétíti a jegyzeteket sötét módban
@@ -75,9 +76,9 @@ settings:
     maxImageSize: Az ennél nagyobb képek tömörítve lesznek
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
-    disableAds(OUTDATED): A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik
+    disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
-    allowInsecureConnections(OUTDATED): (Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez
+    allowInsecureConnections(OUTDATED): "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"
     autosaveDelay(OUTDATED): Mennyi ideig kell várni a jegyzet automatikus mentése előtt
   themeModes:
     system: Rendszer
@@ -100,49 +101,47 @@ settings:
     - Le
     - Balra
   reset:
-    title: Visszaállítsa ezt a beállítást?
+    title: "Visszaállítsa ezt a beállítást?"
     button: Visszaállítás
 login:
   title: Bejelentkezés
   feedbacks:
-    checkUsername: Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét
-    enterNcPassword: Kérem, adja meg a Nextcloud jelszavát
-    enterEncPassword: Kérem, adja meg a titkosítási jelszavát
+    checkUsername: "Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét"
+    enterNcPassword: "Kérem, adja meg a Nextcloud jelszavát"
+    enterEncPassword: "Kérem, adja meg a titkosítási jelszavát"
     checkUrl: Kérem adjon meg egy érvényes URL-címet
-    ncLoginFailed: A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát
-    encLoginFailed: A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát
-    loginSuccess: Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...
-    ncUnsupportedFailure(OUTDATED): Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s-t támogatja.
+    ncLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát"
+    encLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát"
+    loginSuccess: "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
+    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s-t támogatja."
   form:
     useCustomServer: Egyéni Nextcloud-kiszolgálót szeretnék használni
     customServerUrl: Egyéni kiszolgáló URL-címe
     username: Felhasnálónév vagy e-mail
     ncPassword: Nextcloud jelszó
     encPassword: Titkosítási jelszó
-    agreeToPrivacyPolicy(rich): A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}.
+    agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
     login: Bejelentkezés
-  signup(rich): Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!
+  signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
   status:
     loggedIn: Bejelentkezve a Nextclouddal
     loggedOut: Kijelentkezve
     tapToLogin: Kattintson a Nextclouddal való bejelentkezéshez
   faq(OUTDATED):
-    - q: Mi az a Nextcloud?
-      a: A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez.
-    - q: Mi a titkosítási jelszó?
+    - q: "Mi az a Nextcloud?"
+      a: "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez."
+    - q: "Mi a titkosítási jelszó?"
       a: |-
         A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.
-
         Senki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.
-    - q: Miért használjunk két jelszót?
+    - q: "Miért használjunk két jelszót?"
       a: |-
         A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.
-
         Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
-    - q: Hogyan tudok bejelentkezni, ha 2FA-t használok?
-      a: A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik.
-    - q: Használhatom mindkettőhöz ugyanazt a jelszót?
-      a: Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.
+    - q: "Hogyan tudok bejelentkezni, ha 2FA-t használok?"
+      a: "A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik."
+    - q: "Használhatom mindkettőhöz ugyanazt a jelszót?"
+      a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
 profile:
   quickLinks:
     title(OUTDATED): Gyors linkek
@@ -151,28 +150,25 @@ profile:
   title(OUTDATED): A profilom
   logout(OUTDATED): Kijelentkezés
   faq(OUTDATED):
-    - q: Elveszítem a jegyzeteimet, ha bejelentem?
-      a: Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).
-    - q: Hogyan változtathatom meg a Nextcloud jelszavamat?
-      a: Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe.
-    - q: Hogyan változtathatom meg a titkosítási jelszavamat?
+    - q: "Elveszítem a jegyzeteimet, ha bejelentem?"
+      a: "Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn)."
+    - q: "Hogyan változtathatom meg a Nextcloud jelszavamat?"
+      a: "Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe."
+    - q: "Hogyan változtathatom meg a titkosítási jelszavamat?"
       a: |-
         1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).
-
         2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.
-
         3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.
-
         4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Saber szolgáltatásba a többi eszközén sem.
-    - q: Hogyan törölhetem a fiókomat?
+    - q: "Hogyan törölhetem a fiókomat?"
       a: |-
         Koppintson a fenti "@:profile.quickLinks.deleteAccount" gombra, és ha szükséges, jelentkezzen be.
-
         Ha a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.
-
         Ha harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.
 appInfo:
-  licenseNotice: "Saber Copyright (C) 2022-$buildYear Adil Hanney \nEz a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető."
+  licenseNotice: |-
+    Saber Copyright (C) 2022-$buildYear Adil Hanney
+    Ez a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.
   dirty: DIRTY
   debug: DEBUG
   sponsorButton: Ide kattintva támogathat engem vagy vásárolhat több tárhelyet
@@ -181,7 +177,7 @@ appInfo:
 update:
   updateAvailable: Frissítés elérhető
   update: Frissítés
-  updateAvailableDescription(OUTDATED): 'Elérhető az alkalmazás új verziója a következő változtatásokkal:'
+  updateAvailableDescription(OUTDATED): "Elérhető az alkalmazás új verziója a következő változtatásokkal:"
 editor:
   toolbar:
     toggleColors: Színek váltása (Ctrl+C)
@@ -193,7 +189,7 @@ editor:
     undo: Visszavonás
     redo: Mégis
     export: Exportálás (Ctrl+Shift+S)
-    exportAs: 'Exportálás mint:'
+    exportAs: "Exportálás mint:"
     fullscreen: Teljes képernyő bekapcsolása (F11)
   pens:
     fountainPen: Töltőtoll
@@ -258,7 +254,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Csak olvasható mód
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
-    subtitle: A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?
+    subtitle: "A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?"
     allowEditing: Szerkesztés engedélyezése
     cancel: Mégse
   quill:
@@ -272,4 +268,4 @@ editor:
     lockAxisAlignedPan(OUTDATED): A pásztázás rögzítése vízszintesre vagy függőlegesre
   pages: Oldalak
   untitled: Névtelen
-  needsToSaveBeforeExiting(OUTDATED): A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből
+  needsToSaveBeforeExiting(OUTDATED): "A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből"

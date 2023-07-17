@@ -66,6 +66,7 @@ settings:
     disableAds(OUTDATED): Desactivar los anuncios
     allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
     autosaveDelay(OUTDATED): Retraso de guardado automático
+    disableEraserAfterUse(OUTDATED): Vuelva al lápiz después de usar el borrador
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     editorAutoInvert: Oscurece inteligentemente las notas en el modo oscuro
@@ -76,7 +77,7 @@ settings:
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
-    disableAds(OUTDATED): Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea
+    disableAds(OUTDATED): "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea"
     allowInsecureConnections(OUTDATED): (No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables
     autosaveDelay(OUTDATED): Cuánto tiempo esperar antes de guardar automáticamente una nota
   themeModes:
@@ -100,7 +101,7 @@ settings:
     - Abajo
     - Izquierda
   reset:
-    title: ¿Quieres restablecer esta configuración?
+    title: "¿Quieres restablecer esta configuración?"
     button: Restablecer
 login:
   title: Iniciar sesión
@@ -109,40 +110,38 @@ login:
     enterNcPassword: Por favor ingresa tu contraseña de Nextcloud.
     enterEncPassword: Por favor introduce tu contraseña de cifrado.
     checkUrl: Por favor introduce una dirección URL válida.
-    ncLoginFailed: No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.
+    ncLoginFailed: "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet."
     ncUnsupportedFailure: El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo soporta la versión $s.
-    encLoginFailed: No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.
-    loginSuccess: ¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...
+    encLoginFailed: "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
+    loginSuccess: "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
   form:
     useCustomServer: Quiero utilizar un servidor de Nextcloud personalizado
     customServerUrl: Dirección URL del servidor personalizada
     username: Nombre de usuario o correo electrónico
     ncPassword: Contraseña de Nextcloud
     encPassword: Contraseña de cifrado
-    agreeToPrivacyPolicy(rich): Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.
+    agreeToPrivacyPolicy(rich): "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}."
     login: Iniciar sesión
-  signup(rich): ¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}
+  signup(rich): "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}"
   status:
     loggedIn: Sesión iniciada con Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toca para iniciar sesión con Nextcloud
   faq:
-    - q: ¿Qué es Nextcloud?
-      a: Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.
-    - q: ¿Qué es la contraseña de cifrado?
+    - q: "¿Qué es Nextcloud?"
+      a: "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
+    - q: "¿Qué es la contraseña de cifrado?"
       a: |-
         La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.
-
         Nadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.
-    - q: ¿Por qué usar dos contraseñas?
+    - q: "¿Por qué usar dos contraseñas?"
       a: |-
         La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.
-
         Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
-    - q: ¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?
-      a: En vez de usar tu contraseña habitual de Nextcloud, deberás crear una "contraseña de aplicación". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada.
-    - q: ¿Puedo usar la misma contraseña para ambos?
-      a: Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.
+    - q: "¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?"
+      a: "En vez de usar tu contraseña habitual de Nextcloud, deberás crear una \"contraseña de aplicación\". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada."
+    - q: "¿Puedo usar la misma contraseña para ambos?"
+      a: "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
 profile:
   title: Mi perfil
   logout: Cerrar sesión
@@ -151,25 +150,20 @@ profile:
     serverHomepage: Página de inicio del servidor
     deleteAccount: Eliminar cuenta
   faq:
-    - q: ¿Pierdo mis notas si cierro sesión?
+    - q: "¿Pierdo mis notas si cierro sesión?"
       a: No. Tus notas permanecerán tanto en tu dispositivo como en el servidor. Solo no se sincronizarán con el servidor hasta que vuelvas a iniciar sesión. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).
-    - q: ¿Cómo puedo cambiar mi contraseña de Nextcloud?
-      a: Accede a la web de tu servidor e inicia sesión. Luego, accede a Ajustes > Seguridad > Cambiar contraseña. Necesitarás cerrar la sesión e iniciarla de nuevo en Saber tras cambiar la contraseña.
-    - q: ¿Cómo cambio mi contraseña de cifrado?
+    - q: "¿Cómo puedo cambiar mi contraseña de Nextcloud?"
+      a: "Accede a la web de tu servidor e inicia sesión. Luego, accede a Ajustes > Seguridad > Cambiar contraseña. Necesitarás cerrar la sesión e iniciarla de nuevo en Saber tras cambiar la contraseña."
+    - q: "¿Cómo cambio mi contraseña de cifrado?"
       a: |-
         1. Cierra la sesión en Saber. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).
-
         2. Accede a la web de tu servidor y elimina la carpeta 'Saber'. Esto eliminará todas las notas del servidor.
-
         3. Inicia sesión de nuevo en Saber. Puedes elegir una nueva contraseña de cifrado al iniciar la sesión.
-
         4. No te olvides de cerrar e iniciar la sesión de Saber de nuevo en el resto de tus dispositivos.
-    - q: ¿Cómo puedo eliminar mi cuenta?
+    - q: "¿Cómo puedo eliminar mi cuenta?"
       a: |-
         Pincha en el botón "@:profile.quickLinks.deleteAccount", e inicia sesión si es necesario.
-
         Si estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.
-
         Si estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.
 appInfo:
   licenseNotice: |-
@@ -182,7 +176,7 @@ appInfo:
   privacyPolicyButton: Toca aquí para ver nuestra política de privacidad
 update:
   updateAvailable: Actualización disponible
-  updateAvailableDescription: 'Hay una nueva versión de la aplicación disponible. Novedades en esta versión:'
+  updateAvailableDescription: "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:"
   update: Actualizar
 editor:
   toolbar:
@@ -195,7 +189,7 @@ editor:
     undo: Deshacer
     redo: Rehacer
     export: Exportar (Ctrl Shift S)
-    exportAs: 'Exportar cómo:'
+    exportAs: "Exportar cómo:"
     fullscreen: Pantalla completa (F11)
   pens:
     fountainPen: Lápiz
@@ -260,7 +254,7 @@ editor:
   newerFileFormat:
     readOnlyMode: Modo de solo lectura
     title: Esta nota fue editada usando una versión más reciente de Saber
-    subtitle: La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?
+    subtitle: "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?"
     allowEditing: Editar
     cancel: Cancelar
   quill:

@@ -66,6 +66,7 @@ settings:
     dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
+    disableEraserAfterUse(OUTDATED): Po použití gumy přepněte zpět na pero
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -127,22 +128,20 @@ login:
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
   faq:
-    - q: Co je to Nextcloud?
-      a: Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty.
-    - q: K čemu je heslo pro šifrování?
+    - q: "Co je to Nextcloud?"
+      a: "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
+    - q: "K čemu je heslo pro šifrování?"
       a: |-
         Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.
-
         Bez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.
-    - q: Proč používat dvě hesla?
+    - q: "Proč používat dvě hesla?"
       a: |-
         Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.
-
         I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.
-    - q: Jak se přihlásím, když používám 2FA?
-      a: Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit "heslo aplikace". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká.
-    - q: Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?
-      a: Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru.
+    - q: "Jak se přihlásím, když používám 2FA?"
+      a: "Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit \"heslo aplikace\". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká."
+    - q: "Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?"
+      a: "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru."
 profile:
   title: Můj profil
   logout: Odhlásit se
@@ -151,25 +150,20 @@ profile:
     serverHomepage: Webové stránky serveru
     deleteAccount: Odstranit účet
   faq:
-    - q: Ztratím po odhlášení svoje poznámky?
-      a: Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce).
-    - q: Jak změním své heslo k Nextcloud účtu?
-      a: Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit.
-    - q: Jak změním své heslo pro šifrování?
+    - q: "Ztratím po odhlášení svoje poznámky?"
+      a: "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."
+    - q: "Jak změním své heslo k Nextcloud účtu?"
+      a: "Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit."
+    - q: "Jak změním své heslo pro šifrování?"
       a: |-
         1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).
-
         2. Přejděte na webovou stránku vašeho serveru a smažte složku 'Saber'. Tím ze serveru odstraníte všechny poznámky.
-
         3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.
-
         4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.
-    - q: Jak odstraním svůj účet?
+    - q: "Jak odstraním svůj účet?"
       a: |-
         Klepněte na tlačítko "@:profile.quickLinks.deleteAccount" umístěné výše a přihlašte se, pokud to bude vyžadováno.
-
         Pokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.
-
         Pokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.
 appInfo:
   licenseNotice: |-
@@ -195,7 +189,7 @@ editor:
     undo: Zpět
     redo: Obnovit
     export: Exportovat (Ctrl Shift S)
-    exportAs: 'Exportovat jako:'
+    exportAs: "Exportovat jako:"
     fullscreen: Režim celé obrazovky (F11)
   pens:
     fountainPen: Plnící pero
