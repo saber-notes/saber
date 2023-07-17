@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3270 (218 per locale)
 ///
-/// Built on 2023-07-14 at 20:46 UTC
+/// Built on 2023-07-17 at 20:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5814,10 +5814,10 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override String get welcome => 'Benvenuto su Saber';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
+	@override String get backFolder => 'Torna alla cartella precedente';
 	@override late final _StringsHomeNewFolderIt newFolder = _StringsHomeNewFolderIt._(_root);
 	@override late final _StringsHomeRenameNoteIt renameNote = _StringsHomeRenameNoteIt._(_root);
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
-	@override String get backFolder => 'Torna alla cartella precedente';
 }
 
 // Path: settings

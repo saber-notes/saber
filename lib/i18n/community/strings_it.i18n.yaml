@@ -15,6 +15,7 @@ home:
   welcome: Benvenuto su Saber
   noFiles: Nessun file trovato
   createNewNote: Tocca il pulsante + per creare una nuova nota
+  backFolder: Torna alla cartella precedente
   newFolder:
     newFolder: Nuova cartella
     folderName: Nome cartella
@@ -34,7 +35,6 @@ home:
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
-  backFolder(OUTDATED): Torna alla cartella precedente
 settings:
   prefCategories:
     general: Generale
