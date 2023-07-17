@@ -164,12 +164,6 @@ dev_dependencies:
   yaml: ^3.1.2
 
 dependency_overrides:
-  # https://github.com/Tienisto/slang/pull/150
-  slang:
-    git:
-      url: https://github.com/Tienisto/slang
-      path: slang
-
   # https://github.com/alexei-sintotski/json2yaml/pull/30
   json2yaml:
     git:

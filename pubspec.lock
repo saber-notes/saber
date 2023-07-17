@@ -246,7 +246,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: e85652151eeceb6a121c4ead396d9e4fc3d4ff5f
+      resolved-ref: "594ecb2c0bdb17a3585e91e198ce515fb0824f2e"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -413,10 +413,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: e0bfa2a64e6a0772a2c273294af46b171b864a20692144c0ea81916a452b378c
+      sha256: "8b3d68bcaccdae2a8ef4077d940fec2ceb6509366ea6aa4728b32a5cd574366d"
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.11"
+    version: "7.2.13"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -723,7 +723,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: e85652151eeceb6a121c4ead396d9e4fc3d4ff5f
+      resolved-ref: "594ecb2c0bdb17a3585e91e198ce515fb0824f2e"
       url: "https://github.com/provokateurin/nextcloud-neon"
     source: git
     version: "1.0.0"
@@ -1089,20 +1089,19 @@ packages:
   slang:
     dependency: "direct main"
     description:
-      path: slang
-      ref: HEAD
-      resolved-ref: "81dd6cacc8bfc67621cb6a0f3f8f9ca5670424c0"
-      url: "https://github.com/Tienisto/slang"
-    source: git
-    version: "3.20.0"
+      name: slang
+      sha256: "68162dc10567b44ef39e8c5ed5a066d7c9b078c8b1b10ee49f713faa43e89a07"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.21.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: f3fb0ffabc5119dbe39fb8ef134d0415a27b1da816f32f1f55c8b67d4e2ac1af
+      sha256: b9c63bf4b0088edde5a09264ac86304f0acec9015aea743f9fa08946d08b832f
       url: "https://pub.dev"
     source: hosted
-    version: "3.20.0"
+    version: "3.21.0"
   source_span:
     dependency: transitive
     description:
@@ -1380,10 +1379,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "27ad6a99c4b2d5e1ffd2b993a10f738b6b4979f139b4d64c34ac511595fcd748"
+      sha256: "8587d0b4991bd0f223f4b4957101c2c7449f905601571315f4967072498dd3fb"
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.0"
+    version: "3.9.1"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
