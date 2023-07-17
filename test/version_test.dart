@@ -82,7 +82,7 @@ void main() {
     final changelog = await UpdateManager.getChangelog(
       newestVersion: buildNumber,
     );
-    expect(changelog, isNotNull);
+    expect(changelog, isNotNull, reason: 'Changelog can\'t be found on GitHub. Please ignore this test if you haven\'t pushed the latest version yet.');
     expect(changelog, isNotEmpty);
     expect(changelog!.contains(dummyChangelog), false, reason: 'Dummy text found in changelog downloaded from GitHub');
   });
