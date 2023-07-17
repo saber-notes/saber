@@ -61,12 +61,12 @@ settings:
     editorStraightenLines: Pro kreslení rovné čáry stisknout a podržet
     maxImageSize: Maximální velikost obrázku
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
+    disableEraserAfterUse: Po použití gumy přepnout zpět na pero
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
-    disableEraserAfterUse(OUTDATED): Po použití gumy přepněte zpět na pero
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"

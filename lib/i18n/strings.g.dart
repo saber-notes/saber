@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3285 (219 per locale)
 ///
-/// Built on 2023-07-17 at 20:44 UTC
+/// Built on 2023-07-17 at 21:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1830,12 +1830,12 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
 	@override String get maxImageSize => 'Maximální velikost obrázku';
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
+	@override String get disableEraserAfterUse => 'Po použití gumy přepnout zpět na pero';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
-	@override String get disableEraserAfterUse => 'Po použití gumy přepněte zpět na pero';
 }
 
 // Path: settings.prefDescriptions
