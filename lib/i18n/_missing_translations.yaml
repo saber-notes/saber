@@ -269,43 +269,6 @@ pt-BR:
     backFolder(OUTDATED): Go back to the previous folder
 ru:
 tr:
-  home:
-    backFolder(OUTDATED): Go back to the previous folder
-    moveNote:
-      moveName(OUTDATED): Move $f
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editor
-      advanced(OUTDATED): Advanced
-    prefLabels:
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      autosaveDelay(OUTDATED): Auto-save delay
-    prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-  profile:
-    faq(OUTDATED):
-      - q: "Will I lose my notes if I log out?"
-        a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-      - q: "How do I change my Nextcloud password?"
-        a: "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
-      - q: "How do I change my encryption password?"
-        a: |-
-          1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-          2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
-          3. Log back in to Saber. You can choose a new encryption password when logging in.
-          4. Don't forget to log out and log back in to Saber on your other devices too.
-      - q: "How can I delete my account?"
-        a: |-
-          Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
-          If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
-          If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
-  editor:
-    menu:
-      clearPage(OUTDATED): Clear page $page/$totalPages
 zh-Hans-CN:
   home:
     backFolder(OUTDATED): Go back to the previous folder

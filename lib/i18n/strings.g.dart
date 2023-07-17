@@ -3,7 +3,7 @@
 /// Locales: 15
 /// Strings: 3270 (218 per locale)
 ///
-/// Built on 2023-07-17 at 20:04 UTC
+/// Built on 2023-07-17 at 20:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8634,10 +8634,10 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get noFiles => 'Dosya yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
+	@override String get backFolder => 'Önceki klasöre dön';
 	@override late final _StringsHomeNewFolderTr newFolder = _StringsHomeNewFolderTr._(_root);
 	@override late final _StringsHomeRenameNoteTr renameNote = _StringsHomeRenameNoteTr._(_root);
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
-	@override String get backFolder => 'Önceki klasöre geri dön';
 }
 
 // Path: settings
@@ -8830,9 +8830,9 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notu taşı';
+	@override String moveName({required Object f}) => '${f} dosyasını taşı';
 	@override String get move => 'Taşı';
 	@override String renamedTo({required Object newName}) => 'Not ${newName} olarak yeniden adlandırılacak';
-	@override String moveName({required Object f}) => '${f}\'yi taşı';
 }
 
 // Path: settings.prefCategories
@@ -8844,8 +8844,8 @@ class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Genel';
 	@override String get writing => 'Yazım';
+	@override String get editor => 'Editör';
 	@override String get advanced => 'Gelişmiş';
-	@override String get editor => 'Editor Editor Editor';
 }
 
 // Path: settings.prefLabels
@@ -8863,7 +8863,9 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
 	@override String get shouldAlwaysAlertForUpdates => 'Bir güncelleme mevcut olduğunda uyar';
+	@override String get disableAds => 'Reklamları devre dışı bırak';
 	@override String get changeAdsConsent => 'Reklam iznini değiştir';
+	@override String get allowInsecureConnections => 'Güvensiz bağlantılara izin ver';
 	@override String get editorToolbarAlignment => 'Editör araç çubuğunun yerleşimi';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
@@ -8876,9 +8878,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
-	@override String get disableAds => 'Reklamları devre dışı bırak';
-	@override String get allowInsecureConnections => 'İzinsiz bağlantılar';
-	@override String get autosaveDelay => 'Auto-save gecikme gecikme';
+	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 }
 
 // Path: settings.prefDescriptions
@@ -8889,6 +8889,8 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
+	@override String get disableAds => 'Reklamlar Saber\'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz';
+	@override String get allowInsecureConnections => '(Önerilmez) Saber\'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir';
 	@override String get editorAutoInvert => 'Karanlık modda notların rengini değiştirir';
 	@override String get editorOpaqueBackgrounds => 'PDF\'ler ve arkaplan resimlerinden transparanlığı kaldırır';
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
@@ -8897,9 +8899,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
-	@override String get disableAds => 'Reklamlar Saber\'in gelişimini desteklemeye yardımcı olur, ancak onları sanki devre dışı bırakabilirsin';
-	@override String get allowInsecureConnections => '(Önerilmez) Saber\'nin kendinden imzalı/güvenilmeyen sertifikalara sahip sunuculara bağlanmasına izin ver';
-	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar beklenmeli?';
+	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
 }
 
 // Path: settings.themeModes
@@ -9027,7 +9027,7 @@ class _StringsLogin$faq$0i1$Tr extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Şifreleme parolası nedir?';
-	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\n\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
 }
 
 // Path: login.faq.2
@@ -9038,7 +9038,7 @@ class _StringsLogin$faq$0i2$Tr extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Neden iki şifre kullanılıyor?';
-	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\n\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
 }
 
 // Path: login.faq.3
@@ -9082,8 +9082,8 @@ class _StringsProfile$faq$0i0$Tr extends _StringsProfile$faq$0i0$En {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Çıkış yaparsam notlarımı kaybeder miyim?';
-	@override String get a => 'Hayır. Notlarınız hem cihazınızda hem de sunucuda kalacaktır. Siz tekrar oturum açana kadar sunucuyla eşitlenmeyecekler. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce eşitlemenin tamamlandığından emin olun (ana ekranda eşitleme ilerlemesine bakın).';
+	@override String get q => 'Çıkış yaparsam notlarımı kaybedecek miyim?';
+	@override String get a => 'Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).';
 }
 
 // Path: profile.faq.1
@@ -9093,8 +9093,8 @@ class _StringsProfile$faq$0i1$Tr extends _StringsProfile$faq$0i1$En {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud şifremi nasıl değiştiririm?';
-	@override String get a => 'Sunucunuzun web sitesine gidin ve oturum açın. Ardından Ayarlar > Güvenlik > Parolayı değiştir seçeneğine gidin. Şifrenizi değiştirdikten sonra oturumu kapatıp Saber\'de tekrar oturum açmanız gerekecek.';
+	@override String get q => 'Nextcloud parolamı nasıl değiştirebilirim?';
+	@override String get a => 'Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber\'dan çıkış yapıp tekrardan giriş yapmanız gerekecek.';
 }
 
 // Path: profile.faq.2
@@ -9104,8 +9104,8 @@ class _StringsProfile$faq$0i2$Tr extends _StringsProfile$faq$0i2$En {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Şifre şifremi nasıl değiştiririm?';
-	@override String get a => '1. Saber\'den çıkış yapın. Herhangi bir veri kaybetmemek için oturumu kapatmadan önce senkronizasyonun tamamlandığından emin olun (ana ekranda senkronizasyon ilerlemesine bakın).\n\n2. Sunucu web sitenize gidin ve \'Saber\' klasörünüzü silin. Bu, tüm notlarınızı sunucudan siler.\n\n3. Saber\'de tekrar oturum açın. Giriş yaparken yeni bir şifreleme şifresi seçebilirsiniz.\n\n4. Diğer cihazlarınızda da Saber\'den çıkış yapıp tekrar giriş yapmayı unutmayın.';
+	@override String get q => 'Şifreleme parolamı nasıl değiştirebilirim?';
+	@override String get a => '"1. Saber\'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."\n2. Sunucu websitesine gidin ve \'Saber\' klasörünü silin. Bu sunucudaki tüm notları silecek.\n"3. Saber\'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.\n4. Diğer cihazlarınızda da Saber\'dan çıkış yapıp tekrar giriş yapmayı unutmayın.';
 }
 
 // Path: profile.faq.3
@@ -9116,7 +9116,7 @@ class _StringsProfile$faq$0i3$Tr extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Hesabımı nasıl silebilirim?';
-	@override String get a => 'Yukarıdaki "${_root.profile.quickLinks.deleteAccount}" düğmesine dokunun ve gerekirse oturum açın.\n\nResmi Saber sunucusunu kullanıyorsanız, hesabınız 1 haftalık ek süre sonunda silinecektir. Silme işlemini iptal etmek için bu süre zarfında adilhanney@disroot.org adresinden bana ulaşabilirsiniz.\n\nÜçüncü taraf bir sunucu kullanıyorsanız, hesabınızı silme seçeneği olmayabilir: daha fazla bilgi için sunucunun gizlilik politikasına başvurmanız gerekir.';
+	@override String get a => 'Üstte yer alan "${_root.profile.quickLinks.deleteAccount}" butonuna tıklayın, gerekirse giriş yapın.\nEğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.\nEğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.';
 }
 
 // Path: editor.toolbar
@@ -9214,6 +9214,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} numaralı sayfayı temizle';
 	@override String get clearAllPages => 'Tüm sayfaları temizle';
 	@override String get insertPage => 'Aşağıya sayfa ekle';
 	@override String get duplicatePage => 'Sayfayı çoğalt';
@@ -9225,7 +9226,6 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get import => 'İçe aktar';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
-	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} sayfasını temizle';
 }
 
 // Path: editor.newerFileFormat
