@@ -14,12 +14,16 @@ ar:
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
+  settings:
+    prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
@@ -28,6 +32,7 @@ de:
       editor(OUTDATED): Editor
       advanced(OUTDATED): Advanced
     prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
@@ -44,6 +49,7 @@ es:
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
@@ -54,6 +60,7 @@ fa:
     backFolder(OUTDATED): Go back to the previous folder
   settings:
     prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
@@ -88,6 +95,7 @@ fr:
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
@@ -161,6 +169,7 @@ hu:
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
@@ -256,19 +265,32 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
   settings:
     prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 pt-BR:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+  settings:
+    prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
 ru:
+  settings:
+    prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
 tr:
+  settings:
+    prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser
 zh-Hans-CN:
   home:
     backFolder(OUTDATED): Go back to the previous folder
@@ -300,6 +322,7 @@ zh-Hans-CN:
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
+      disableEraserAfterUse: Switch back to the pen after using the eraser
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
@@ -317,3 +340,6 @@ zh-Hans-CN:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      disableEraserAfterUse: Switch back to the pen after using the eraser

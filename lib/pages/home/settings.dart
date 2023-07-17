@@ -323,6 +323,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     pref: Prefs.autoClearWhiteboardOnExit,
                   ),
                   const SizedBox(height: 16),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.disableEraserAfterUse,
+                    icon: FontAwesomeIcons.eraser,
+                    pref: Prefs.disableEraserAfterUse,
+                  ),
+                  const SizedBox(height: 16),
                 ],
               ),
               ExpansionTile(

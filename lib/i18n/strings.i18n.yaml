@@ -61,6 +61,7 @@ settings:
     editorStraightenLines: Press and hold to straighten a line
     maxImageSize: Maximum image size
     autoClearWhiteboardOnExit: Clear the whiteboard after you exit the app
+    disableEraserAfterUse: Switch back to the pen after using the eraser
     editorPromptRename: Prompt you to rename new notes
     hideHomeBackgrounds: Hide backgrounds on the home screen
     dontSavePresetColors: Don't save preset colors in recent colors

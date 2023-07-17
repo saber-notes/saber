@@ -70,6 +70,8 @@ abstract class Prefs {
 
   static late final PlainPref<bool> autoClearWhiteboardOnExit;
 
+  static late final PlainPref<bool> disableEraserAfterUse;
+
   static late final PlainPref<List<String>> recentColorsChronological;
   static late final PlainPref<List<String>> recentColorsPositioned;
 
@@ -137,6 +139,8 @@ abstract class Prefs {
     maxImageSize = PlainPref('maxImageSize', 1000);
 
     autoClearWhiteboardOnExit = PlainPref('autoClearWhiteboardOnExit', false);
+
+    disableEraserAfterUse = PlainPref('disableEraserAfterUse', false);
 
     recentColorsChronological = PlainPref('recentColorsChronological', []);
     recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: ['recentColors']);

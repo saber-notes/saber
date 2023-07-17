@@ -592,7 +592,7 @@ class EditorState extends State<Editor> {
         ));
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (stylusButtonPressed) { // restore previous tool
+        if (stylusButtonPressed || Prefs.disableEraserAfterUse.value) { // restore previous tool
           stylusButtonPressed = false;
           currentTool = tmpTool!;
           tmpTool = null;

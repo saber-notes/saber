@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 15
-/// Strings: 3270 (218 per locale)
+/// Strings: 3271 (218 per locale)
 ///
-/// Built on 2023-07-17 at 20:07 UTC
+/// Built on 2023-07-17 at 20:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -415,6 +415,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorStraightenLines => 'Press and hold to straighten a line';
 	String get maxImageSize => 'Maximum image size';
 	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
+	String get disableEraserAfterUse => 'Switch back to the pen after using the eraser';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 	String get dontSavePresetColors => 'Don\'t save preset colors in recent colors';
