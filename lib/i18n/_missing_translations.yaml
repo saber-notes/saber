@@ -23,7 +23,7 @@ ar:
 cs:
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Po použití gumy přepnout zpět na pero
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
