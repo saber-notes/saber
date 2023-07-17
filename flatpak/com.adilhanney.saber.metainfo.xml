@@ -67,6 +67,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.7" type="development" date="2023-07-17">
+            <description>
+                <ul>
+                    <li>Notes are now created in the current folder, not the root folder</li>
+                    <li>Added a setting to switch back to the pen after using the eraser</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.6" type="development" date="2023-07-10">
             <description>
                 <ul>

@@ -1,0 +1,2 @@
+• Le note vengono ora create nella cartella corrente, non nella cartella principale
+• Aggiunta un'impostazione per tornare alla penna dopo aver utilizzato la gomma

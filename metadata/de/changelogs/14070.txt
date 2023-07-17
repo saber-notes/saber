@@ -1,0 +1,2 @@
+• Notizen werden jetzt im aktuellen Ordner erstellt, nicht im Stammordner
+• Es wurde eine Einstellung hinzugefügt, um nach Verwendung des Radiergummis wieder zum Stift zu wechseln

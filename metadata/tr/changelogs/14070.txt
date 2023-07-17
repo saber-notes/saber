@@ -1,0 +1,2 @@
+• Notlar artık kök klasörde değil geçerli klasörde oluşturulur.
+• Silgiyi kullandıktan sonra kaleme geri dönmek için bir ayar eklendi

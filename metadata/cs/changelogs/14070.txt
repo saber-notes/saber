@@ -1,0 +1,2 @@
+• Poznámky se nyní vytvářejí v aktuální složce, nikoli v kořenové složce
+• Přidáno nastavení pro přepnutí zpět na pero po použití gumy
