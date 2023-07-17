@@ -269,43 +269,6 @@ pt-BR:
     backFolder(OUTDATED): Go back to the previous folder
 ru:
 tr:
-  home:
-    backFolder(OUTDATED): Önceki klasöre dön
-    moveNote:
-      moveName(OUTDATED): $f dosyasını taşı
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editör
-      advanced(OUTDATED): Gelişmiş
-    prefLabels:
-      disableAds(OUTDATED): Reklamları devre dışı bırak
-      changeAdsConsent(OUTDATED): Reklam iznini değiştir
-      allowInsecureConnections(OUTDATED): Güvensiz bağlantılara izin ver
-      autosaveDelay(OUTDATED): Otomatik kayıt aralığı
-    prefDescriptions:
-      disableAds(OUTDATED): "Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz"
-      allowInsecureConnections(OUTDATED): "(Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir"
-      autosaveDelay(OUTDATED): Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar 
-  profile:
-    faq(OUTDATED):
-      - q: "Çıkış yaparsam notlarımı kaybedecek miyim?"
-        a: Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).
-      - q: "Nextcloud parolamı nasıl değiştirebilirim?"
-        a: "Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrardan giriş yapmanız gerekecek."
-      - q: "Şifreleme parolamı nasıl değiştirebilirim?"
-        a: |-
-          "1. Saber'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
-          2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu sunucudaki tüm notları silecek.
-          "3. Saber'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
-          4. Diğer cihazlarınızda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
-      - q: "Hesabımı nasıl silebilirim?"
-        a: |-
-          Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın. 
-          Eğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
-          Eğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.
-  editor:
-    menu:
-      clearPage(OUTDATED): $page/$totalPages numaralı sayfayı temizle
 zh-Hans-CN:
   home:
     backFolder(OUTDATED): Go back to the previous folder
