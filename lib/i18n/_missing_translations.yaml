@@ -270,42 +270,42 @@ pt-BR:
 ru:
 tr:
   home:
-    backFolder(OUTDATED): Go back to the previous folder
+    backFolder(OUTDATED): Önceki klasöre dön
     moveNote:
-      moveName(OUTDATED): Move $f
+      moveName(OUTDATED): $f dosyasını taşı
   settings:
     prefCategories:
-      editor(OUTDATED): Editor
-      advanced(OUTDATED): Advanced
+      editor(OUTDATED): Editör
+      advanced(OUTDATED): Gelişmiş
     prefLabels:
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      autosaveDelay(OUTDATED): Auto-save delay
+      disableAds(OUTDATED): Reklamları devre dışı bırak
+      changeAdsConsent(OUTDATED): Reklam iznini değiştir
+      allowInsecureConnections(OUTDATED): Güvensiz bağlantılara izin ver
+      autosaveDelay(OUTDATED): Otomatik kayıt aralığı
     prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      disableAds(OUTDATED): "Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz"
+      allowInsecureConnections(OUTDATED): "(Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir"
+      autosaveDelay(OUTDATED): Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar 
   profile:
     faq(OUTDATED):
-      - q: "Will I lose my notes if I log out?"
-        a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-      - q: "How do I change my Nextcloud password?"
-        a: "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
-      - q: "How do I change my encryption password?"
+      - q: "Çıkış yaparsam notlarımı kaybedecek miyim?"
+        a: Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).
+      - q: "Nextcloud parolamı nasıl değiştirebilirim?"
+        a: "Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrardan giriş yapmanız gerekecek."
+      - q: "Şifreleme parolamı nasıl değiştirebilirim?"
         a: |-
-          1. Log out of Saber. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-          2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
-          3. Log back in to Saber. You can choose a new encryption password when logging in.
-          4. Don't forget to log out and log back in to Saber on your other devices too.
-      - q: "How can I delete my account?"
+          "1. Saber'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
+          2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu sunucudaki tüm notları silecek.
+          "3. Saber'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
+          4. Diğer cihazlarınızda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
+      - q: "Hesabımı nasıl silebilirim?"
         a: |-
-          Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
-          If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
-          If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
+          Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın. 
+          Eğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
+          Eğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.
   editor:
     menu:
-      clearPage(OUTDATED): Clear page $page/$totalPages
+      clearPage(OUTDATED): $page/$totalPages numaralı sayfayı temizle
 zh-Hans-CN:
   home:
     backFolder(OUTDATED): Go back to the previous folder
