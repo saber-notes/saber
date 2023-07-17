@@ -4,6 +4,14 @@
 # for Git Bash on Windows
 export LC_ALL=en_US.utf8
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Use GNU grep on macOS
+  # brew install grep gnu-sed gawk
+  PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+  PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+  PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
+fi
+
 # Path to an editor executable with which to open
 # the files you need to manually edit.
 #
