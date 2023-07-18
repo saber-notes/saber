@@ -264,7 +264,7 @@ hu:
 it:
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Ritorna alla penna dopo aver usato la gomma
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
