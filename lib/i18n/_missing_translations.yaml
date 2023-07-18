@@ -281,9 +281,6 @@ pt-BR:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
 ru:
-  settings:
-    prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
 tr:
   settings:
     prefLabels:

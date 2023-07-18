@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3285 (219 per locale)
 ///
-/// Built on 2023-07-17 at 21:42 UTC
+/// Built on 2023-07-18 at 13:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8183,12 +8183,12 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
 	@override String get maxImageSize => 'Макс. размер изображения';
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
+	@override String get disableEraserAfterUse => 'Переключаться на ручку, после использования ластика';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
-	@override String get disableEraserAfterUse => 'Вернитесь к ручке после использования ластика';
 }
 
 // Path: settings.prefDescriptions

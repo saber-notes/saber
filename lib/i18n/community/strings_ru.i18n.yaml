@@ -61,12 +61,12 @@ settings:
     editorStraightenLines: "Нажать и удерживать, чтобы выпрямить линию"
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
+    disableEraserAfterUse: "Переключаться на ручку, после использования ластика"
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
     dontSavePresetColors: Не сохранять предустановленные цвета в последних цветах
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
-    disableEraserAfterUse(OUTDATED): Вернитесь к ручке после использования ластика
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
