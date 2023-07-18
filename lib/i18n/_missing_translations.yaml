@@ -283,7 +283,7 @@ pt-BR:
 ru:
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Переключаться на ручку, после использования ластика
 tr:
   settings:
     prefLabels:
