@@ -61,12 +61,12 @@ settings:
     editorStraightenLines: 按住拉直線條
     maxImageSize: 最大圖片尺寸
     autoClearWhiteboardOnExit: 退出應用程式後清除白板
+    disableEraserAfterUse: 使用橡皮擦後切換回筆
     editorPromptRename: 提醒您重新命名新筆記
     hideHomeBackgrounds: 隱藏主畫面上的背景
     dontSavePresetColors: 不要在最近的顏色中儲存預設顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
-    disableEraserAfterUse(OUTDATED): 使用橡皮擦後切換回筆
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
