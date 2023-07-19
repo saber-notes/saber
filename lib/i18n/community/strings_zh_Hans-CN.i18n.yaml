@@ -90,9 +90,9 @@ settings:
     light: 浅色
     dark: 深色
   layoutSizes:
-    auto(OUTDATED): 汽车
-    phone(OUTDATED): 电话
-    tablet(OUTDATED): 药片
+    auto: 自动
+    phone: 手机
+    tablet: 平板
   accentColorPicker:
     pickAColor: 选取颜色
   straightenDelay:

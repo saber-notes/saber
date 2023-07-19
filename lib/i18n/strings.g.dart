@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3345 (223 per locale)
 ///
-/// Built on 2023-07-19 at 21:37 UTC
+/// Built on 2023-07-19 at 21:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9839,9 +9839,9 @@ class _StringsSettingsLayoutSizesZhHansCn extends _StringsSettingsLayoutSizesEn 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get auto => '汽车';
-	@override String get phone => '电话';
-	@override String get tablet => '药片';
+	@override String get auto => '自动';
+	@override String get phone => '手机';
+	@override String get tablet => '平板';
 }
 
 // Path: settings.accentColorPicker

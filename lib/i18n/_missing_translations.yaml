@@ -382,10 +382,6 @@ zh-Hans-CN:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-    layoutSizes:
-      auto(OUTDATED): Auto
-      phone(OUTDATED): Phone
-      tablet(OUTDATED): Tablet
   editor:
     pens:
       laserPointer(OUTDATED): Laser pointer
