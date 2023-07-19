@@ -31,14 +31,6 @@ ar:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
-  settings:
-    prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Skrýt přepínač pro kreslení prstem
-    prefDescriptions:
-      hideFingerDrawing:
-        shown(OUTDATED): Zabraňuje nechtěnému přepnutí
-        fixedOn(OUTDATED): Kreslení prstem je napevno zapnuté
-        fixedOff(OUTDATED): Kreslení prstem je napevno vypnuté
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder

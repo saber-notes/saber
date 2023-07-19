@@ -67,12 +67,12 @@ settings:
     maxImageSize: Maximální velikost obrázku
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
     disableEraserAfterUse: Po použití gumy přepnout zpět na pero
+    hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
-    hideFingerDrawingToggle(OUTDATED): Skrýt přepínač kreslení prstem
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -82,14 +82,14 @@ settings:
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení
     maxImageSize: Na větší obrázky bude aplikována komprese
+    hideFingerDrawing:
+      shown: Zabraňuje nechtěnému přepnutí
+      fixedOn: Kreslení prstem je napevno zapnuté
+      fixedOff: Kreslení prstem je napevno vypnuté
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
-    hideFingerDrawing:
-      shown(OUTDATED): Zabraňuje náhodnému přepnutí
-      fixedOff(OUTDATED): Kreslení prstem je nastaveno jako zakázané
-      fixedOn(OUTDATED): Kreslení prstem je nastaveno jako povolené
   themeModes:
     system: Systémový
     light: Světlý
