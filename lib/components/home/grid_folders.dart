@@ -54,7 +54,7 @@ class GridFolders extends StatelessWidget {
   }
 }
 
-class _GridFolder extends StatelessWidget {
+class _GridFolder extends StatefulWidget {
   const _GridFolder({
     // ignore: unused_element
     super.key,
@@ -72,58 +72,126 @@ class _GridFolder extends StatelessWidget {
   final Function(String) onTap;
 
   @override
+  State<_GridFolder> createState() => _GridFolderState();
+}
+
+class _GridFolderState extends State<_GridFolder> {
+  ValueNotifier<bool> expanded = ValueNotifier(false);
+
+  @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      message: switch (cardType) {
-        _FolderCardType.backFolder => t.home.backFolder,
-        _FolderCardType.newFolder => t.home.newFolder.newFolder,
-        _FolderCardType.realFolder => folder!,
-      },
-      waitDuration: const Duration(milliseconds: 500),
-      child: Card(
-        child: InkWell(
-          onTap: () {
-            switch (cardType) {
-              case _FolderCardType.newFolder:
-                showDialog(
-                  context: context,
-                  builder: (context) => NewFolderDialog(
-                    createFolder: createFolder,
-                    doesFolderExist: doesFolderExist,
-                  ),
-                );
-              case _FolderCardType.backFolder:
-                onTap('..');
-              case _FolderCardType.realFolder:
-                onTap(folder!);
-            }
-          },
-          borderRadius: BorderRadius.circular(10),
+    final colorScheme = Theme.of(context).colorScheme;
+    final cardElevatedColor = Color.alphaBlend(
+      colorScheme.primary.withOpacity(0.05),
+      colorScheme.surface,
+    );
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          if (expanded.value) return;
+          switch (widget.cardType) {
+            case _FolderCardType.newFolder:
+              showDialog(
+                context: context,
+                builder: (context) => NewFolderDialog(
+                  createFolder: widget.createFolder,
+                  doesFolderExist: widget.doesFolderExist,
+                ),
+              );
+            case _FolderCardType.backFolder:
+              widget.onTap('..');
+            case _FolderCardType.realFolder:
+              widget.onTap(widget.folder!);
+          }
+        },
+        onLongPress: widget.cardType == _FolderCardType.realFolder
+            ? () => expanded.value = !expanded.value
+            : null,
+        onSecondaryTap: widget.cardType == _FolderCardType.realFolder
+            ? () => expanded.value = !expanded.value
+            : null,
+        child: Card(
+          color: colorScheme.surface,
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AdaptiveIcon(
-                  icon: switch (cardType) {
-                    _FolderCardType.backFolder => Icons.folder_open,
-                    _FolderCardType.newFolder => Icons.create_new_folder,
-                    _FolderCardType.realFolder => Icons.folder,
-                  },
-                  cupertinoIcon: switch (cardType) {
-                    _FolderCardType.backFolder => CupertinoIcons.folder_open,
-                    _FolderCardType.newFolder => CupertinoIcons.folder_fill_badge_plus,
-                    _FolderCardType.realFolder => CupertinoIcons.folder_fill,
-                  },
-                  size: 50,
+                SizedBox(
+                  width: double.infinity,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Tooltip(
+                          message: switch (widget.cardType) {
+                            _FolderCardType.backFolder => t.home.backFolder,
+                            _FolderCardType.newFolder => t.home.newFolder.newFolder,
+                            _FolderCardType.realFolder => '',
+                          },
+                          child: AdaptiveIcon(
+                            icon: switch (widget.cardType) {
+                              _FolderCardType.backFolder => Icons.folder_open,
+                              _FolderCardType.newFolder => Icons.create_new_folder,
+                              _FolderCardType.realFolder => Icons.folder,
+                            },
+                            cupertinoIcon: switch (widget.cardType) {
+                              _FolderCardType.backFolder => CupertinoIcons.folder_open,
+                              _FolderCardType.newFolder => CupertinoIcons.folder_fill_badge_plus,
+                              _FolderCardType.realFolder => CupertinoIcons.folder_fill,
+                            },
+                            size: 50,
+                          ),
+                        ),
+                      ),
+                      
+                      Positioned.fill(
+                        child: ValueListenableBuilder(
+                          valueListenable: expanded,
+                          builder: (context, expanded, child) => AnimatedOpacity(
+                            opacity: expanded ? 1 : 0,
+                            duration: const Duration(milliseconds: 200),
+                            child: IgnorePointer(
+                              ignoring: !expanded,
+                              child: child!,
+                            ),
+                          ),
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  cardElevatedColor.withOpacity(0.3),
+                                  cardElevatedColor.withOpacity(0.9),
+                                  cardElevatedColor.withOpacity(1),
+                                ],
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  padding: EdgeInsets.zero,
+                                  onPressed: null,
+                                  icon: const Icon(Icons.delete_forever),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-    
+      
                 const SizedBox(height: 8),
-    
-                switch (cardType) {
+      
+                switch (widget.cardType) {
                   _FolderCardType.backFolder => const Icon(Icons.arrow_back),
                   _FolderCardType.newFolder => Text(t.home.newFolder.newFolder),
-                  _FolderCardType.realFolder => Text(folder!),
+                  _FolderCardType.realFolder => Text(widget.folder!),
                 },
               ],
             ),
