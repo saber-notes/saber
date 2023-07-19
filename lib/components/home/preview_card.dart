@@ -189,56 +189,85 @@ class _PreviewCardState extends State<PreviewCard> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  FittedBox(
-                    child: AnimatedContainer(
-                      duration: transitionDuration,
-                      width: firstPageWidth,
-                      height: heightWidthRatio * firstPageWidth,
-                      color: background.withInversion(invert),
-                      child: ClipRect(
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 300),
-                          child: CanvasPreview(
-                            key: ValueKey(coreInfo),
-                            height: heightWidthRatio * firstPageWidth,
-                            coreInfo: coreInfo,
+                  Stack(
+                    children: [
+                      FittedBox(
+                        child: AnimatedContainer(
+                          duration: transitionDuration,
+                          width: firstPageWidth,
+                          height: heightWidthRatio * firstPageWidth,
+                          color: background.withInversion(invert),
+                          child: ClipRect(
+                            child: AnimatedSwitcher(
+                              duration: const Duration(milliseconds: 300),
+                              child: CanvasPreview(
+                                key: ValueKey(coreInfo),
+                                height: heightWidthRatio * firstPageWidth,
+                                coreInfo: coreInfo,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+
+                      Positioned.fill(
+                        left: -1,
+                        top: -1,
+                        right: -1,
+                        bottom: -1,
+                        child: ValueListenableBuilder(
+                          valueListenable: expanded,
+                          builder: (context, expanded, child) => AnimatedOpacity(
+                            opacity: expanded ? 1 : 0,
+                            duration: const Duration(milliseconds: 200),
+                            child: IgnorePointer(
+                              ignoring: !expanded,
+                              child: child!,
+                            ),
+                          ),
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  colorScheme.surface.withOpacity(0.2),
+                                  colorScheme.surface.withOpacity(0.8),
+                                  colorScheme.surface.withOpacity(1),
+                                ],
+                              ),
+                            ),
+                            child: ColoredBox(
+                              color: colorScheme.primary.withOpacity(0.05),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  RenameNoteButton(
+                                    existingPath: widget.filePath,
+                                  ),
+                                  MoveNoteButton(
+                                    existingPath: widget.filePath,
+                                  ),
+                                  IconButton(
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {
+                                      FileManager.deleteFile(widget.filePath + Editor.extension);
+                                    },
+                                    icon: const Icon(Icons.delete_forever),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
         
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(widget.filePath.substring(widget.filePath.lastIndexOf('/') + 1)),
-                  ),
-
-                  ValueListenableBuilder(
-                    valueListenable: expanded,
-                    builder: (context, value, child) => Collapsible(
-                      collapsed: !value,
-                      axis: CollapsibleAxis.vertical,
-                      maintainState: true,
-                      child: child!,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RenameNoteButton(
-                          existingPath: widget.filePath,
-                        ),
-                        MoveNoteButton(
-                          existingPath: widget.filePath,
-                        ),
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            FileManager.deleteFile(widget.filePath + Editor.extension);
-                          },
-                          icon: const Icon(Icons.delete_forever),
-                        ),
-                      ],
-                    ),
                   ),
                 ],
               ),
