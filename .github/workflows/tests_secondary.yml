@@ -1,10 +1,14 @@
-name: Run tests
+name: Run secondary tests (coverage, onyxsdk)
 
 on:
   # Enable manual run
   workflow_dispatch:
   pull_request:
+    paths-ignore:
+      - "lib/i18n/**"
   push:
+    paths-ignore:
+      - "lib/i18n/**"
 
 env:
   project-id: com.adilhanney.saber
@@ -33,23 +37,6 @@ jobs:
           channel: stable
 
       - run: flutter pub get
-
-      - name: Prepare environment for tests
-        run: |
-          if [ "$GITHUB_REPOSITORY" = "adil192/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
-            MAINTENANCE_CHECKS_ENABLED=true
-          else
-            MAINTENANCE_CHECKS_ENABLED=false
-          fi
-          echo "MAINTENANCE_CHECKS_ENABLED=$MAINTENANCE_CHECKS_ENABLED" >> $GITHUB_ENV
-
-      - name: Run tests
-        id: tests
-        run: |
-          flutter test \
-            --reporter expanded \
-            --coverage \
-            --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
 
       - name: Upload to Codecov
         uses: codecov/codecov-action@v3
