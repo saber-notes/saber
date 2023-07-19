@@ -67,6 +67,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.9" type="development" date="2023-07-19">
+            <description>
+                <ul>
+                    <li>Added a setting to hide the finger drawing button to avoid accidentally toggling it</li>
+                    <li>Bug fixes</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.8" type="development" date="2023-07-19">
             <description>
                 <ul>
