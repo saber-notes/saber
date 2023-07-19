@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3405 (227 per locale)
 ///
-/// Built on 2023-07-19 at 22:32 UTC
+/// Built on 2023-07-19 at 22:41 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1901,12 +1901,12 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get maxImageSize => 'Maximální velikost obrázku';
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get disableEraserAfterUse => 'Po použití gumy přepnout zpět na pero';
+	@override String get hideFingerDrawingToggle => 'Skrýt přepínač pro kreslení prstem';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
-	@override String get hideFingerDrawingToggle => 'Skrýt přepínač kreslení prstem';
 }
 
 // Path: settings.prefDescriptions
@@ -1924,11 +1924,11 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingCs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingCs._(_root);
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingCs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingCs._(_root);
 }
 
 // Path: settings.themeModes
@@ -2303,9 +2303,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingCs extends _StringsSettin
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get shown => 'Zabraňuje náhodnému přepnutí';
-	@override String get fixedOff => 'Kreslení prstem je nastaveno jako zakázané';
-	@override String get fixedOn => 'Kreslení prstem je nastaveno jako povolené';
+	@override String get shown => 'Zabraňuje nechtěnému přepnutí';
+	@override String get fixedOn => 'Kreslení prstem je napevno zapnuté';
+	@override String get fixedOff => 'Kreslení prstem je napevno vypnuté';
 }
 
 // Path: editor.menu.boxFits
