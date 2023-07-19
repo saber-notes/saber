@@ -1,4 +1,4 @@
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -63,7 +63,7 @@ class _ExportBarState extends State<ExportBar> {
         onPressed: _onPressed(widget.exportAsPdf),
         child: _buttonChild(widget.exportAsPdf, 'PDF'),
       ),
-      TextButton(
+      if (kDebugMode) TextButton(
         onPressed: _onPressed(widget.exportAsPng),
         child: _buttonChild(widget.exportAsPng, 'PNG'),
       ),
