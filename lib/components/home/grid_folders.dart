@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart' show CupertinoIcons;
+import 'package:flutter/cupertino.dart' show CupertinoDialogAction, CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/new_folder_dialog.dart';
+import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -13,6 +14,8 @@ class GridFolders extends StatelessWidget {
     required this.onTap,
     required this.crossAxisCount,
     required this.createFolder,
+    required this.isFolderEmpty,
+    required this.deleteFolder,
     required this.doesFolderExist,
     required this.folders,
   });
@@ -23,6 +26,8 @@ class GridFolders extends StatelessWidget {
 
   final void Function(String) createFolder;
   final bool Function(String) doesFolderExist;
+  final Future<bool> Function(String) isFolderEmpty;
+  final Future<void> Function(String) deleteFolder;
 
   final List<String> folders;
 
@@ -40,13 +45,16 @@ class GridFolders extends StatelessWidget {
       mainAxisSpacing: 10,
       itemBuilder: (context, index) {
         final cardType = extraCards.get(index, _FolderCardType.realFolder);
+        final folderName = cardType == _FolderCardType.realFolder
+            ? folders[index - extraCards.length]
+            : null;
         return _GridFolder(
           cardType: cardType,
-          folder: cardType == _FolderCardType.realFolder
-              ? folders[index - extraCards.length]
-              : null,
+          folderName: folderName,
           createFolder: createFolder,
           doesFolderExist: doesFolderExist,
+          isFolderEmpty: isFolderEmpty,
+          deleteFolder: deleteFolder,
           onTap: onTap,
         );
       },
@@ -59,16 +67,20 @@ class _GridFolder extends StatefulWidget {
     // ignore: unused_element
     super.key,
     required this.cardType,
-    required this.folder,
+    required this.folderName,
     required this.createFolder,
     required this.doesFolderExist,
+    required this.isFolderEmpty,
+    required this.deleteFolder,
     required this.onTap,
-  })  : assert((folder == null) ^ (cardType == _FolderCardType.realFolder));
+  })  : assert((folderName == null) ^ (cardType == _FolderCardType.realFolder), 'Real folders must specify a folder name');
 
   final _FolderCardType cardType;
-  final String? folder;
+  final String? folderName;
   final void Function(String) createFolder;
   final bool Function(String) doesFolderExist;
+  final Future<bool> Function(String) isFolderEmpty;
+  final Future<void> Function(String) deleteFolder;
   final Function(String) onTap;
 
   @override
@@ -102,7 +114,7 @@ class _GridFolderState extends State<_GridFolder> {
             case _FolderCardType.backFolder:
               widget.onTap('..');
             case _FolderCardType.realFolder:
-              widget.onTap(widget.folder!);
+              widget.onTap(widget.folderName!);
           }
         },
         onLongPress: widget.cardType == _FolderCardType.realFolder
@@ -174,7 +186,19 @@ class _GridFolderState extends State<_GridFolder> {
                               children: [
                                 IconButton(
                                   padding: EdgeInsets.zero,
-                                  onPressed: null,
+                                  tooltip: t.home.deleteFolder.deleteFolder,
+                                  onPressed: () async {
+                                    assert(widget.cardType == _FolderCardType.realFolder);
+                                    await showDialog(
+                                      context: context,
+                                      builder: (context) => _DeleteFolderDialog(
+                                        folderName: widget.folderName!,
+                                        deleteFolder: widget.deleteFolder,
+                                        isFolderEmpty: widget.isFolderEmpty,
+                                      ),
+                                    );
+                                    expanded.value = false;
+                                  },
                                   icon: const Icon(Icons.delete_forever),
                                 ),
                               ],
@@ -191,13 +215,80 @@ class _GridFolderState extends State<_GridFolder> {
                 switch (widget.cardType) {
                   _FolderCardType.backFolder => const Icon(Icons.arrow_back),
                   _FolderCardType.newFolder => Text(t.home.newFolder.newFolder),
-                  _FolderCardType.realFolder => Text(widget.folder!),
+                  _FolderCardType.realFolder => Text(widget.folderName!),
                 },
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _DeleteFolderDialog extends StatefulWidget {
+  const _DeleteFolderDialog({
+    // ignore: unused_element
+    super.key,
+    required this.folderName,
+    required this.deleteFolder,
+    required this.isFolderEmpty,
+  });
+
+  final String folderName;
+  final Future<void> Function(String) deleteFolder;
+  final Future<bool> Function(String) isFolderEmpty;
+
+  @override
+  State<_DeleteFolderDialog> createState() => _DeleteFolderDialogState();
+}
+
+class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
+  bool isFolderEmpty = false;
+  bool alsoDeleteContents = false;
+
+  @override
+  void initState() {
+    super.initState();
+    checkIfFolderIsEmpty();
+  }
+
+  Future<void> checkIfFolderIsEmpty() async {
+    isFolderEmpty = await widget.isFolderEmpty(widget.folderName);
+    if (isFolderEmpty) alsoDeleteContents = false;
+    if (mounted) setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    bool deleteAllowed = isFolderEmpty || alsoDeleteContents;
+    return AdaptiveAlertDialog(
+      title: Text(t.home.deleteFolder.deleteName(f: widget.folderName)),
+      content: isFolderEmpty ? const SizedBox.shrink() : Row(
+        children: [
+          Checkbox(
+            value: alsoDeleteContents,
+            onChanged: isFolderEmpty ? null : (value) {
+              setState(() => alsoDeleteContents = value!);
+            },
+          ),
+          Text(t.home.deleteFolder.alsoDeleteContents),
+        ],
+      ),
+      actions: [
+        CupertinoDialogAction(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.editor.newerFileFormat.cancel),
+        ),
+        CupertinoDialogAction(
+          onPressed: deleteAllowed ? () async {
+            await widget.deleteFolder(widget.folderName);
+            if (mounted) Navigator.of(context).pop();
+          } : null,
+          isDestructiveAction: true,
+          child: Text(t.home.deleteFolder.delete),
+        ),
+      ],
     );
   }
 }

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3285 (219 per locale)
+/// Strings: 3289 (219 per locale)
 ///
-/// Built on 2023-07-19 at 15:12 UTC
+/// Built on 2023-07-19 at 19:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -182,6 +182,7 @@ class _StringsHomeEn {
 	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
 	late final _StringsHomeRenameNoteEn renameNote = _StringsHomeRenameNoteEn._(_root);
 	late final _StringsHomeMoveNoteEn moveNote = _StringsHomeMoveNoteEn._(_root);
+	late final _StringsHomeDeleteFolderEn deleteFolder = _StringsHomeDeleteFolderEn._(_root);
 }
 
 // Path: settings
@@ -377,6 +378,19 @@ class _StringsHomeMoveNoteEn {
 	String moveName({required Object f}) => 'Move ${f}';
 	String get move => 'Move';
 	String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get deleteFolder => 'Delete folder';
+	String deleteName({required Object f}) => 'Delete ${f}';
+	String get delete => 'Delete';
+	String get alsoDeleteContents => 'Also delete all notes inside this folder';
 }
 
 // Path: settings.prefCategories

@@ -35,6 +35,11 @@ home:
     moveName: Move $f
     move: Move
     renamedTo: Note will be renamed to $newName
+  deleteFolder:
+    deleteFolder: Delete folder
+    deleteName: Delete $f
+    delete: Delete
+    alsoDeleteContents: Also delete all notes inside this folder
 settings:
   prefCategories:
     general: General

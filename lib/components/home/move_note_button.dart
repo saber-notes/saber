@@ -130,6 +130,16 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                     doesFolderExist: (String folderName) {
                       return currentFolderChildren?.directories.contains(folderName) ?? false;
                     },
+                    isFolderEmpty: (String folderName) async {
+                      final folderPath = '$currentFolder$folderName';
+                      final children = await FileManager.getChildrenOfDirectory(folderPath);
+                      return children?.isEmpty ?? true;
+                    },
+                    deleteFolder: (String folderName) async {
+                      final folderPath = '$currentFolder$folderName';
+                      await FileManager.deleteDirectory(folderPath);
+                      findChildrenOfCurrentFolder();
+                    },
                     folders: [
                       for (final directoryPath in currentFolderChildren?.directories ?? const [])
                         directoryPath,

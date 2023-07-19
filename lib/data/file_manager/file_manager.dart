@@ -221,6 +221,14 @@ class FileManager {
     broadcastFileWrite(FileOperationType.delete, filePath);
   }
 
+  static Future deleteDirectory(String directoryPath) async {
+    directoryPath = _sanitisePath(directoryPath);
+
+    final Directory directory = Directory(await documentsDirectory + directoryPath);
+    if (!directory.existsSync()) return;
+    await directory.delete(recursive: false);
+  }
+
   static Future<DirectoryChildren?> getChildrenOfDirectory(String directory) async {
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
@@ -402,6 +410,7 @@ class DirectoryChildren {
   bool onlyOneChild() => directories.length + files.length <= 1;
 
   bool get isEmpty => directories.isEmpty && files.isEmpty;
+  bool get isNotEmpty => !isEmpty;
 }
 
 enum FileOperationType {
