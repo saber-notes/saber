@@ -72,6 +72,7 @@ settings:
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
     disableEraserAfterUse(OUTDATED): Volte para a caneta depois de usar o apagador
+    hideFingerDrawingToggle(OUTDATED): Ocultar a alternância de desenho de dedo
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
+    hideFingerDrawing:
+      shown(OUTDATED): Evita a alternância acidental
+      fixedOff(OUTDATED): O desenho do dedo é corrigido como desativado
+      fixedOn(OUTDATED): O desenho do dedo é fixado como ativado
   themeModes:
     system: Sistema
     light: Claro

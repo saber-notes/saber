@@ -72,6 +72,7 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay(OUTDATED): تاخیر Auto-save
     disableEraserAfterUse(OUTDATED): پس از استفاده از پاک کن به خودکار برگردید
+    hideFingerDrawingToggle(OUTDATED): ضامن طراحی انگشت را پنهان کنید
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay(OUTDATED): چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
+    hideFingerDrawing:
+      fixedOn(OUTDATED): طراحی با انگشت به صورت فعال ثابت شده است
+      shown(OUTDATED): از جابجایی تصادفی جلوگیری می کند
+      fixedOff(OUTDATED): طراحی با انگشت به عنوان غیرفعال ثابت است
   themeModes:
     system: سیستم
     light: روشن

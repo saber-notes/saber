@@ -72,6 +72,7 @@ settings:
     printPageIndicators: 印刷ページのインジケーター
     autosaveDelay(OUTDATED): 自動保存の遅延
     disableEraserAfterUse(OUTDATED): 消しゴムを使用した後はペンに戻ります
+    hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     disableAds: 広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
     autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
+    hideFingerDrawing:
+      fixedOn(OUTDATED): 指の描画が有効に固定される
+      shown(OUTDATED): 偶発的な切り替えを防止します
+      fixedOff(OUTDATED): 指の描画が無効に固定される
   themeModes:
     system: システム
     light: ライト

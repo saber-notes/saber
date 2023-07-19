@@ -72,6 +72,7 @@ settings:
     dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
+    hideFingerDrawingToggle(OUTDATED): Nascondi l'interruttore di disegno delle dita
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
+    hideFingerDrawing:
+      shown(OUTDATED): Impedisce l'attivazione accidentale
+      fixedOn(OUTDATED): Il disegno con le dita è fissato come abilitato
+      fixedOff(OUTDATED): Il disegno con le dita è fisso come disabilitato
   themeModes:
     system: Sistema
     light: Chiaro

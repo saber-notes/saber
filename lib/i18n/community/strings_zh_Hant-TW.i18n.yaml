@@ -72,6 +72,7 @@ settings:
     dontSavePresetColors: 不要在最近的顏色中儲存預設顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
+    hideFingerDrawingToggle(OUTDATED): 隱藏手指繪圖切換開關
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
     autosaveDelay: 自動儲存筆記之前等待多少時間
+    hideFingerDrawing:
+      fixedOn(OUTDATED): 手指繪圖固定為啟用
+      shown(OUTDATED): 防止意外切換
+      fixedOff(OUTDATED): 手指繪圖修復為禁用
   themeModes:
     system: 系統
     light: 淺色

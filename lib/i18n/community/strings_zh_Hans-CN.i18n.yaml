@@ -72,6 +72,7 @@ settings:
     allowInsecureConnections(OUTDATED): 允许不安全的连接
     autosaveDelay(OUTDATED): 自动保存延迟
     disableEraserAfterUse(OUTDATED): 使用橡皮擦后切换回笔
+    hideFingerDrawingToggle(OUTDATED): 隐藏手指绘图切换开关
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     editorAutoInvert: 在深色模式下自动使用反色笔记背景
@@ -85,6 +86,10 @@ settings:
     disableAds(OUTDATED): 广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们
     allowInsecureConnections(OUTDATED): （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
     autosaveDelay(OUTDATED): 自动保存笔记之前等待多长时间
+    hideFingerDrawing:
+      fixedOn(OUTDATED): 手指绘图固定为启用
+      shown(OUTDATED): 防止意外切换
+      fixedOff(OUTDATED): 手指绘图修复为禁用
   themeModes:
     system: 系统
     light: 浅色

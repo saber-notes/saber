@@ -72,6 +72,7 @@ settings:
     printPageIndicators: Seitennummerierung drucken
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
     disableEraserAfterUse(OUTDATED): Wechseln Sie nach der Verwendung des Radiergummis wieder zum Stift
+    hideFingerDrawingToggle(OUTDATED): Blenden Sie den Fingerzeichnungsschalter aus
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
     autosaveDelay(OUTDATED): "Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern"
+    hideFingerDrawing:
+      fixedOn(OUTDATED): Das Fingerzeichnen ist als aktiviert festgelegt
+      fixedOff(OUTDATED): Das Fingerzeichnen ist als deaktiviert behoben
+      shown(OUTDATED): Verhindert versehentliches Umschalten
   themeModes:
     system: System
     light: Hell

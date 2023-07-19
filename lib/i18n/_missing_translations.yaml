@@ -20,12 +20,25 @@ ar:
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
+  settings:
+    prefLabels:
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+    prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
@@ -40,8 +53,13 @@ de:
       advanced(OUTDATED): Advanced
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 es:
   home:
@@ -62,10 +80,15 @@ es:
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 fa:
   home:
@@ -78,8 +101,13 @@ fa:
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 fr:
   home:
@@ -118,10 +146,15 @@ fr:
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
     layoutSizes:
       auto(OUTDATED): Auto
@@ -197,11 +230,16 @@ hu:
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       printPageIndicators(OUTDATED): Show page indicators in exports
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
     layoutSizes:
@@ -298,6 +336,14 @@ it:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+  settings:
+    prefLabels:
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+    prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
@@ -309,8 +355,13 @@ ja:
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 pt-BR:
   home:
@@ -323,6 +374,12 @@ pt-BR:
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+    prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
   home:
     deleteFolder:
@@ -330,6 +387,14 @@ ru:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+  settings:
+    prefLabels:
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+    prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 tr:
   home:
     deleteFolder:
@@ -340,6 +405,12 @@ tr:
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+    prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 zh-Hans-CN:
   home:
     backFolder(OUTDATED): Go back to the previous folder
@@ -377,10 +448,15 @@ zh-Hans-CN:
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
   editor:
     pens:
@@ -395,3 +471,11 @@ zh-Hant-TW:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
+  settings:
+    prefLabels:
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+    prefDescriptions:
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled

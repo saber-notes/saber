@@ -72,6 +72,7 @@ settings:
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
     disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra kaleme geri dönün
+    hideFingerDrawingToggle(OUTDATED): Parmakla çizim geçişini gizle
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
+    hideFingerDrawing:
+      fixedOff(OUTDATED): Parmakla çizim devre dışı olarak sabitlendi
+      shown(OUTDATED): Yanlışlıkla değiştirmeyi önler
+      fixedOn(OUTDATED): Parmakla çizim etkin olarak sabitlendi
   themeModes:
     system: Sistem teması
     light: Aydınlık

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3349 (223 per locale)
+/// Strings: 3405 (227 per locale)
 ///
-/// Built on 2023-07-19 at 22:02 UTC
+/// Built on 2023-07-19 at 22:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1172,6 +1172,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
 	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
 	@override String get disableEraserAfterUse => 'عد إلى القلم بعد استخدام الممحاة';
+	@override String get hideFingerDrawingToggle => 'إخفاء تبديل رسم الإصبع';
 }
 
 // Path: settings.prefDescriptions
@@ -1193,6 +1194,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
 	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
 	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
 }
 
 // Path: settings.themeModes
@@ -1560,6 +1562,18 @@ class _StringsEditorHudAr extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'قفل التحريك إلى أفقي أو رأسي';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingAr extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'يمنع التبديل العرضي';
+	@override String get fixedOn => 'تم إصلاح رسم الإصبع على أنه ممكن';
+	@override String get fixedOff => 'تم إصلاح رسم الإصبع على أنه معطل';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsAr extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1892,6 +1906,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
+	@override String get hideFingerDrawingToggle => 'Skrýt přepínač kreslení prstem';
 }
 
 // Path: settings.prefDescriptions
@@ -1913,6 +1928,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingCs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingCs._(_root);
 }
 
 // Path: settings.themeModes
@@ -2280,6 +2296,18 @@ class _StringsEditorHudCs extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Zamknout horizontální a vertikální posouvání';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingCs extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'Zabraňuje náhodnému přepnutí';
+	@override String get fixedOff => 'Kreslení prstem je nastaveno jako zakázané';
+	@override String get fixedOn => 'Kreslení prstem je nastaveno jako povolené';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsCs extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsCs._(_StringsCs root) : this._root = root, super._(root);
@@ -2612,6 +2640,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
 	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
 	@override String get disableEraserAfterUse => 'Wechseln Sie nach der Verwendung des Radiergummis wieder zum Stift';
+	@override String get hideFingerDrawingToggle => 'Blenden Sie den Fingerzeichnungsschalter aus';
 }
 
 // Path: settings.prefDescriptions
@@ -2633,6 +2662,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 	@override String get autosaveDelay => 'Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
 }
 
 // Path: settings.themeModes
@@ -3000,6 +3030,18 @@ class _StringsEditorHudDe extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Verschieben auf Horizontale oder Vertikale beschränken';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingDe extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOn => 'Das Fingerzeichnen ist als aktiviert festgelegt';
+	@override String get fixedOff => 'Das Fingerzeichnen ist als deaktiviert behoben';
+	@override String get shown => 'Verhindert versehentliches Umschalten';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsDe extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsDe._(_StringsDe root) : this._root = root, super._(root);
@@ -3331,6 +3373,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
 	@override String get autosaveDelay => 'Retraso de guardado automático';
 	@override String get disableEraserAfterUse => 'Vuelva al lápiz después de usar el borrador';
+	@override String get hideFingerDrawingToggle => 'Ocultar el interruptor de dibujo del dedo';
 }
 
 // Path: settings.prefDescriptions
@@ -3352,6 +3395,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
 	@override String get allowInsecureConnections => '(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables';
 	@override String get autosaveDelay => 'Cuánto tiempo esperar antes de guardar automáticamente una nota';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
 }
 
 // Path: settings.themeModes
@@ -3719,6 +3763,18 @@ class _StringsEditorHudEs extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Bloquear el desplazamiento a horizontal o vertical';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingEs extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOn => 'El dibujo con los dedos se corrige como habilitado';
+	@override String get fixedOff => 'El dibujo con los dedos se corrige como deshabilitado';
+	@override String get shown => 'Evita el cambio accidental';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsEs extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsEs._(_StringsEs root) : this._root = root, super._(root);
@@ -4051,6 +4107,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تاخیر Auto-save';
 	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به خودکار برگردید';
+	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
 }
 
 // Path: settings.prefDescriptions
@@ -4072,6 +4129,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
 }
 
 // Path: settings.themeModes
@@ -4439,6 +4497,18 @@ class _StringsEditorHudFa extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'پانینگ را به صورت افقی یا عمودی قفل کنید';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingFa extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOn => 'طراحی با انگشت به صورت فعال ثابت شده است';
+	@override String get shown => 'از جابجایی تصادفی جلوگیری می کند';
+	@override String get fixedOff => 'طراحی با انگشت به عنوان غیرفعال ثابت است';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsFa extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4771,6 +4841,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
 	@override String get autosaveDelay => 'Délai de sauvegarde automatique';
 	@override String get disableEraserAfterUse => 'Revenez au stylet après avoir utilisé la gomme';
+	@override String get hideFingerDrawingToggle => 'Masquer la bascule de dessin au doigt';
 }
 
 // Path: settings.prefDescriptions
@@ -4792,6 +4863,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
 	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
 	@override String get autosaveDelay => 'Combien de temps attendre avant d\'enregistrer automatiquement une note';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
 }
 
 // Path: settings.themeModes
@@ -5159,6 +5231,18 @@ class _StringsEditorHudFr extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Verrouiller le panoramique à l\'horizontale ou à la verticale';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingFr extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'Empêche le basculement accidentel';
+	@override String get fixedOn => 'Le dessin au doigt est fixé comme activé';
+	@override String get fixedOff => 'Le dessin au doigt est fixé comme désactivé';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsFr extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsFr._(_StringsFr root) : this._root = root, super._(root);
@@ -5491,6 +5575,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
 	@override String get autosaveDelay => 'Auto-save késleltetés';
 	@override String get disableEraserAfterUse => 'Váltson vissza a tollra, miután a törölőt használja';
+	@override String get hideFingerDrawingToggle => 'Az ujjrajzolás kapcsoló elrejtése';
 }
 
 // Path: settings.prefDescriptions
@@ -5512,6 +5597,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
 	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 }
 
 // Path: settings.themeModes
@@ -5879,6 +5965,18 @@ class _StringsEditorHudHu extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'A pásztázás rögzítése vízszintesre vagy függőlegesre';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingHu extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'Megakadályozza a véletlen átkapcsolást';
+	@override String get fixedOn => 'Az ujjlenyomat rögzítése engedélyezett állapotban van';
+	@override String get fixedOff => 'Az ujjrajzolás letiltva van rögzítve';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsHu extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsHu._(_StringsHu root) : this._root = root, super._(root);
@@ -6211,6 +6309,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
+	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore di disegno delle dita';
 }
 
 // Path: settings.prefDescriptions
@@ -6232,6 +6331,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
 }
 
 // Path: settings.themeModes
@@ -6599,6 +6699,18 @@ class _StringsEditorHudIt extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Blocca la panoramica su orizzontale o verticale';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingIt extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'Impedisce l\'attivazione accidentale';
+	@override String get fixedOn => 'Il disegno con le dita è fissato come abilitato';
+	@override String get fixedOff => 'Il disegno con le dita è fisso come disabilitato';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsIt extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsIt._(_StringsIt root) : this._root = root, super._(root);
@@ -6931,6 +7043,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '印刷ページのインジケーター';
 	@override String get autosaveDelay => '自動保存の遅延';
 	@override String get disableEraserAfterUse => '消しゴムを使用した後はペンに戻ります';
+	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
 }
 
 // Path: settings.prefDescriptions
@@ -6952,6 +7065,7 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
 }
 
 // Path: settings.themeModes
@@ -7319,6 +7433,18 @@ class _StringsEditorHudJa extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'パンニングを水平または垂直にロックする';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingJa extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOn => '指の描画が有効に固定される';
+	@override String get shown => '偶発的な切り替えを防止します';
+	@override String get fixedOff => '指の描画が無効に固定される';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsJa extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsJa._(_StringsJa root) : this._root = root, super._(root);
@@ -7651,6 +7777,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
 	@override String get disableEraserAfterUse => 'Volte para a caneta depois de usar o apagador';
+	@override String get hideFingerDrawingToggle => 'Ocultar a alternância de desenho de dedo';
 }
 
 // Path: settings.prefDescriptions
@@ -7672,6 +7799,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingPtBr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingPtBr._(_root);
 }
 
 // Path: settings.themeModes
@@ -8039,6 +8167,18 @@ class _StringsEditorHudPtBr extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Bloqueie a rolagem para horizontal ou vertical';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingPtBr extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'Evita a alternância acidental';
+	@override String get fixedOff => 'O desenho do dedo é corrigido como desativado';
+	@override String get fixedOn => 'O desenho do dedo é fixado como ativado';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsPtBr extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -8371,6 +8511,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
+	@override String get hideFingerDrawingToggle => 'Скрыть переключатель рисования пальца';
 }
 
 // Path: settings.prefDescriptions
@@ -8392,6 +8533,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingRu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingRu._(_root);
 }
 
 // Path: settings.themeModes
@@ -8759,6 +8901,18 @@ class _StringsEditorHudRu extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Блокировать панораму по горизонтали или вертикали';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingRu extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOff => 'Рисование пальцем исправлено как отключенное';
+	@override String get fixedOn => 'Рисование пальцем исправлено как включенное';
+	@override String get shown => 'Предотвращает случайное переключение';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsRu extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsRu._(_StringsRu root) : this._root = root, super._(root);
@@ -9091,6 +9245,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra kaleme geri dönün';
+	@override String get hideFingerDrawingToggle => 'Parmakla çizim geçişini gizle';
 }
 
 // Path: settings.prefDescriptions
@@ -9112,6 +9267,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingTr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingTr._(_root);
 }
 
 // Path: settings.themeModes
@@ -9479,6 +9635,18 @@ class _StringsEditorHudTr extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Yatay ve dikey hareketi kilitle';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingTr extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOff => 'Parmakla çizim devre dışı olarak sabitlendi';
+	@override String get shown => 'Yanlışlıkla değiştirmeyi önler';
+	@override String get fixedOn => 'Parmakla çizim etkin olarak sabitlendi';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsTr extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsTr._(_StringsTr root) : this._root = root, super._(root);
@@ -9811,6 +9979,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => '允许不安全的连接';
 	@override String get autosaveDelay => '自动保存延迟';
 	@override String get disableEraserAfterUse => '使用橡皮擦后切换回笔';
+	@override String get hideFingerDrawingToggle => '隐藏手指绘图切换开关';
 }
 
 // Path: settings.prefDescriptions
@@ -9832,6 +10001,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get disableAds => '广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们';
 	@override String get allowInsecureConnections => '（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器';
 	@override String get autosaveDelay => '自动保存笔记之前等待多长时间';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
 }
 
 // Path: settings.themeModes
@@ -10199,6 +10369,18 @@ class _StringsEditorHudZhHansCn extends _StringsEditorHudEn {
 	@override String get lockAxisAlignedPan => '将平移锁定为水平或垂直';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOn => '手指绘图固定为启用';
+	@override String get shown => '防止意外切换';
+	@override String get fixedOff => '手指绘图修复为禁用';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsZhHansCn extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -10531,6 +10713,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
+	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 }
 
 // Path: settings.prefDescriptions
@@ -10552,6 +10735,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
 }
 
 // Path: settings.themeModes
@@ -10917,6 +11101,18 @@ class _StringsEditorHudZhHantTw extends _StringsEditorHudEn {
 	@override String get lockSingleFingerPan => '禁用單指平移';
 	@override String get unlockAxisAlignedPan => '解鎖水平或垂直平移';
 	@override String get lockAxisAlignedPan => '鎖定水平或垂直平移';
+}
+
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get fixedOn => '手指繪圖固定為啟用';
+	@override String get shown => '防止意外切換';
+	@override String get fixedOff => '手指繪圖修復為禁用';
 }
 
 // Path: editor.menu.boxFits

@@ -72,6 +72,7 @@ settings:
     allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
     autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
     disableEraserAfterUse(OUTDATED): عد إلى القلم بعد استخدام الممحاة
+    hideFingerDrawingToggle(OUTDATED): إخفاء تبديل رسم الإصبع
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     editorAutoInvert: يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم
@@ -85,6 +86,10 @@ settings:
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
     allowInsecureConnections(OUTDATED): (غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها
     autosaveDelay(OUTDATED): كم من الوقت للانتظار قبل تقديم مذكرة
+    hideFingerDrawing:
+      shown(OUTDATED): يمنع التبديل العرضي
+      fixedOn(OUTDATED): تم إصلاح رسم الإصبع على أنه ممكن
+      fixedOff(OUTDATED): تم إصلاح رسم الإصبع على أنه معطل
   themeModes:
     system: النظام
     light: ساطع

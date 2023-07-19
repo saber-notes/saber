@@ -72,6 +72,7 @@ settings:
     allowInsecureConnections(OUTDATED): Engedélyezze a nem biztonságos kapcsolatokat
     autosaveDelay(OUTDATED): Auto-save késleltetés
     disableEraserAfterUse(OUTDATED): "Váltson vissza a tollra, miután a törölőt használja"
+    hideFingerDrawingToggle(OUTDATED): Az ujjrajzolás kapcsoló elrejtése
   prefDescriptions:
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
     editorAutoInvert: Intelligens módon sötétíti a jegyzeteket sötét módban
@@ -85,6 +86,10 @@ settings:
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
     allowInsecureConnections(OUTDATED): "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"
     autosaveDelay(OUTDATED): Mennyi ideig kell várni a jegyzet automatikus mentése előtt
+    hideFingerDrawing:
+      shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
+      fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
+      fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
   themeModes:
     system: Rendszer
     light: Világos

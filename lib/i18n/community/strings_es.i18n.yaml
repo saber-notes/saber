@@ -72,6 +72,7 @@ settings:
     allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
     autosaveDelay(OUTDATED): Retraso de guardado automático
     disableEraserAfterUse(OUTDATED): Vuelva al lápiz después de usar el borrador
+    hideFingerDrawingToggle(OUTDATED): Ocultar el interruptor de dibujo del dedo
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     editorAutoInvert: Oscurece inteligentemente las notas en el modo oscuro
@@ -85,6 +86,10 @@ settings:
     disableAds(OUTDATED): "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea"
     allowInsecureConnections(OUTDATED): (No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables
     autosaveDelay(OUTDATED): Cuánto tiempo esperar antes de guardar automáticamente una nota
+    hideFingerDrawing:
+      fixedOn(OUTDATED): El dibujo con los dedos se corrige como habilitado
+      fixedOff(OUTDATED): El dibujo con los dedos se corrige como deshabilitado
+      shown(OUTDATED): Evita el cambio accidental
   themeModes:
     system: Sistema
     light: Claro

@@ -52,7 +52,13 @@ Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathO
 
     final translated = await translateString(translator, languageCode, value);
     if (translated == null || translated == value) continue; // error occured in translation, so skip for now
-    await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    try {
+      await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    } catch (e) {
+      print('    Adding translation failed: $e');
+      errorOccurredInTranslatingTree = true;
+      continue;
+    }
     newlyTranslatedPaths.add('$languageCode/$pathToKey');
   }
 

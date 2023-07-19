@@ -72,6 +72,7 @@ settings:
     dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
+    hideFingerDrawingToggle(OUTDATED): Skrýt přepínač kreslení prstem
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -85,6 +86,10 @@ settings:
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
+    hideFingerDrawing:
+      shown(OUTDATED): Zabraňuje náhodnému přepnutí
+      fixedOff(OUTDATED): Kreslení prstem je nastaveno jako zakázané
+      fixedOn(OUTDATED): Kreslení prstem je nastaveno jako povolené
   themeModes:
     system: Systémový
     light: Světlý

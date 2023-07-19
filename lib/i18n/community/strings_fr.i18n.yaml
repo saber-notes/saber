@@ -72,6 +72,7 @@ settings:
     allowInsecureConnections(OUTDATED): Autoriser les connexions non sécurisées
     autosaveDelay(OUTDATED): Délai de sauvegarde automatique
     disableEraserAfterUse(OUTDATED): Revenez au stylet après avoir utilisé la gomme
+    hideFingerDrawingToggle(OUTDATED): Masquer la bascule de dessin au doigt
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     editorAutoInvert: Assombrit les notes de façon intelligente en mode sombre
@@ -85,6 +86,10 @@ settings:
     disableAds(OUTDATED): "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
     allowInsecureConnections(OUTDATED): (Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés
     autosaveDelay(OUTDATED): Combien de temps attendre avant d'enregistrer automatiquement une note
+    hideFingerDrawing:
+      shown(OUTDATED): Empêche le basculement accidentel
+      fixedOn(OUTDATED): Le dessin au doigt est fixé comme activé
+      fixedOff(OUTDATED): Le dessin au doigt est fixé comme désactivé
   themeModes:
     system: Système
     light: Clair
