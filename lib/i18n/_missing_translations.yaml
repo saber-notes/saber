@@ -6,6 +6,11 @@ ar:
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -21,9 +26,20 @@ ar:
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
+  home:
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -38,6 +54,11 @@ es:
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -55,6 +76,11 @@ es:
 fa:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
@@ -83,6 +109,11 @@ fr:
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -157,6 +188,11 @@ hu:
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -262,9 +298,20 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
@@ -274,11 +321,28 @@ ja:
 pt-BR:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
 ru:
+  home:
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
 tr:
+  home:
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
       disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
@@ -304,6 +368,11 @@ zh-Hans-CN:
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete
+      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefCategories:
       editor(OUTDATED): Editor
@@ -331,3 +400,8 @@ zh-Hans-CN:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 zh-Hant-TW:
+  home:
+    deleteFolder:
+      deleteFolder(OUTDATED): Delete folder
+      deleteName(OUTDATED): Delete $f
+      delete(OUTDATED): Delete

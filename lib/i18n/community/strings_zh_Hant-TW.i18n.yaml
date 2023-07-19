@@ -35,6 +35,11 @@ home:
     moveName: 移動 $f
     move: 移動
     renamedTo: 筆記將重新命名為 $newName
+  deleteFolder:
+    delete(OUTDATED): 刪除
+    deleteFolder(OUTDATED): 刪除文件夾
+    deleteName(OUTDATED): 刪除$f
+    alsoDeleteContents: 同時刪除該文件夾內的所有筆記
 settings:
   prefCategories:
     general: 一般

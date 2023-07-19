@@ -35,6 +35,11 @@ home:
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
     moveName(OUTDATED): نقل $f
   backFolder(OUTDATED): ارجع إلى المجلد السابق
+  deleteFolder:
+    deleteName(OUTDATED): حذف $f
+    deleteFolder(OUTDATED): احذف المجلد
+    alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
+    delete(OUTDATED): يمسح
 settings:
   prefCategories:
     general: عام

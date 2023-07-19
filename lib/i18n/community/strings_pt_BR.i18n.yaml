@@ -35,6 +35,11 @@ home:
     move: Mover
     renamedTo: A nota será renomeada para $newName
   backFolder(OUTDATED): Voltar para a pasta anterior
+  deleteFolder:
+    deleteFolder(OUTDATED): Excluir pasta
+    deleteName(OUTDATED): Deletar $f
+    alsoDeleteContents(OUTDATED): Exclua também todas as notas dentro desta pasta
+    delete(OUTDATED): Excluir
 settings:
   prefCategories:
     general: Geral

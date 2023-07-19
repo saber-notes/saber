@@ -35,6 +35,11 @@ home:
     move: Verschieben
     renamedTo: Notiz wird umbenannt zu $newName
   backFolder(OUTDATED): Zurück zum vorherigen Ordner
+  deleteFolder:
+    deleteName(OUTDATED): Löschen Sie $f
+    deleteFolder(OUTDATED): Lösche Ordner
+    delete(OUTDATED): Löschen
+    alsoDeleteContents(OUTDATED): Löschen Sie außerdem alle Notizen in diesem Ordner
 settings:
   prefCategories:
     general: Allgemein

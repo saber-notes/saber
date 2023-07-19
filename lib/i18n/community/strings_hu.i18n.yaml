@@ -35,6 +35,11 @@ home:
     move(OUTDATED): Mozog
     renamedTo(OUTDATED): "A jegyzet a következőre lesz átnevezve: $newName"
   backFolder(OUTDATED): Menjen vissza az előző mappába
+  deleteFolder:
+    delete(OUTDATED): Töröl
+    alsoDeleteContents(OUTDATED): Törölje az összes jegyzetet ebben a mappában
+    deleteFolder(OUTDATED): Mappa törlése
+    deleteName(OUTDATED): $f törlése
 settings:
   prefCategories:
     general: Általános

@@ -35,6 +35,11 @@ home:
     move: 移動
     renamedTo: $newName に名称を変更した
   backFolder(OUTDATED): 前のフォルダーに戻ります
+  deleteFolder:
+    deleteFolder(OUTDATED): フォルダの削除
+    deleteName(OUTDATED): $fを削除
+    delete(OUTDATED): 消去
+    alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
 settings:
   prefCategories:
     general: 一般

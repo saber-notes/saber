@@ -35,6 +35,11 @@ home:
     move: انتقال
     renamedTo: یادداشت به $newName تغییر نام می یابد
   backFolder(OUTDATED): بازگشت به پوشه قبلی
+  deleteFolder:
+    deleteName(OUTDATED): $f را حذف کنید
+    deleteFolder(OUTDATED): پوشه را حذف کنید
+    delete(OUTDATED): حذف
+    alsoDeleteContents(OUTDATED): همچنین تمام یادداشت های داخل این پوشه را حذف کنید
 settings:
   prefCategories:
     general: عمومی

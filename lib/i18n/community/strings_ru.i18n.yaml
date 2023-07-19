@@ -35,6 +35,11 @@ home:
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
+  deleteFolder:
+    deleteFolder(OUTDATED): Удалить папку
+    deleteName(OUTDATED): Удалить $f
+    delete(OUTDATED): Удалить
+    alsoDeleteContents(OUTDATED): Также удалите все заметки внутри этой папки
 settings:
   prefCategories:
     general: Общие

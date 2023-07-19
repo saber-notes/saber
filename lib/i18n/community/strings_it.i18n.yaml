@@ -35,6 +35,11 @@ home:
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
+  deleteFolder:
+    deleteFolder(OUTDATED): Elimina cartella
+    deleteName(OUTDATED): Elimina $f
+    alsoDeleteContents(OUTDATED): Elimina anche tutte le note all'interno di questa cartella
+    delete(OUTDATED): Eliminare
 settings:
   prefCategories:
     general: Generale

@@ -35,6 +35,11 @@ home:
     moveName: $f dosyasını taşı
     move: Taşı
     renamedTo: Not $newName olarak yeniden adlandırılacak
+  deleteFolder:
+    deleteFolder(OUTDATED): Klasörü sil
+    alsoDeleteContents(OUTDATED): Bu klasördeki tüm notları da silin
+    delete(OUTDATED): Silmek
+    deleteName(OUTDATED): $f'yi sil
 settings:
   prefCategories:
     general: Genel

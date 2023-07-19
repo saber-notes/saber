@@ -35,6 +35,11 @@ home:
     renamedTo: Se renombrará la nota a $newName
     moveName(OUTDATED): Mover $f
   backFolder(OUTDATED): Volver a la carpeta anterior
+  deleteFolder:
+    deleteFolder(OUTDATED): Eliminar carpeta
+    deleteName(OUTDATED): Eliminar $f
+    delete(OUTDATED): Borrar
+    alsoDeleteContents(OUTDATED): También elimine todas las notas dentro de esta carpeta
 settings:
   prefCategories:
     general: General
