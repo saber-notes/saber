@@ -36,10 +36,10 @@ home:
     move: Přesunout
     renamedTo: Poznámka bude přejmenována na $newName
   deleteFolder:
-    deleteName(OUTDATED): Smazat $f
-    deleteFolder(OUTDATED): Smazat složku
-    alsoDeleteContents(OUTDATED): Smažte také všechny poznámky v této složce
-    delete(OUTDATED): Vymazat
+    deleteFolder: Odstranit složku
+    deleteName: Odstranění složky $f
+    delete: Odstranit
+    alsoDeleteContents: Se složkou odstranit i obsažené poznámky
 settings:
   prefCategories:
     general: Obecné
