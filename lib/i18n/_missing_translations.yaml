@@ -28,10 +28,10 @@ ar:
 cs:
   home:
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder(OUTDATED): Odstranit složku
+      deleteName(OUTDATED): Odstranění složky $f
+      delete(OUTDATED): Odstranit
+      alsoDeleteContents(OUTDATED): Se složkou odstranit i obsažené poznámky
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
