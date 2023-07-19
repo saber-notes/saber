@@ -67,6 +67,7 @@ settings:
     maxImageSize: Maximum image size
     autoClearWhiteboardOnExit: Clear the whiteboard after you exit the app
     disableEraserAfterUse: Switch back to the pen after using the eraser
+    hideFingerDrawingToggle: Hide the finger drawing toggle
     editorPromptRename: Prompt you to rename new notes
     hideHomeBackgrounds: Hide backgrounds on the home screen
     dontSavePresetColors: Don't save preset colors in recent colors
@@ -81,6 +82,10 @@ settings:
     preferGreyscale: For e-ink displays
     autoClearWhiteboardOnExit: It will still be synced to your other devices
     maxImageSize: Images larger than this will be compressed
+    hideFingerDrawing:
+      shown: Prevents accidental toggling
+      fixedOn: Finger drawing is fixed as enabled
+      fixedOff: Finger drawing is fixed as disabled
     editorPromptRename: You can always rename notes later
     hideHomeBackgrounds: For a cleaner look
     printPageIndicators: Show page indicators in exports

@@ -346,7 +346,7 @@ class _ToolbarState extends State<Toolbar> {
                   cupertinoIcon: CupertinoIcons.text_cursor,
                 ),
               ),
-              ToolbarIconButton(
+              if (!Prefs.hideFingerDrawingToggle.value) ToolbarIconButton(
                 tooltip: t.editor.toolbar.toggleFingerDrawing,
                 selected: Prefs.editorFingerDrawing.value,
                 enabled: !widget.readOnly,

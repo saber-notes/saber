@@ -329,6 +329,22 @@ class _SettingsPageState extends State<SettingsPage> {
                     pref: Prefs.disableEraserAfterUse,
                   ),
                   const SizedBox(height: 16),
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.hideFingerDrawingToggle,
+                    subtitle: () {
+                      if (!Prefs.hideFingerDrawingToggle.value) {
+                        return t.settings.prefDescriptions.hideFingerDrawing.shown;
+                      } else if (Prefs.editorFingerDrawing.value) {
+                        return t.settings.prefDescriptions.hideFingerDrawing.fixedOn;
+                      } else {
+                        return t.settings.prefDescriptions.hideFingerDrawing.fixedOff;
+                      }
+                    }(),
+                    icon: CupertinoIcons.hand_draw,
+                    pref: Prefs.hideFingerDrawingToggle,
+                    afterChange: (_) => setState(() {}),
+                  ),
+                  const SizedBox(height: 16),
                 ],
               ),
               ExpansionTile(

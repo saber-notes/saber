@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3345 (223 per locale)
+/// Strings: 3349 (223 per locale)
 ///
-/// Built on 2023-07-19 at 21:45 UTC
+/// Built on 2023-07-19 at 22:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -433,6 +433,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get maxImageSize => 'Maximum image size';
 	String get autoClearWhiteboardOnExit => 'Clear the whiteboard after you exit the app';
 	String get disableEraserAfterUse => 'Switch back to the pen after using the eraser';
+	String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 	String get dontSavePresetColors => 'Don\'t save preset colors in recent colors';
@@ -455,6 +456,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get preferGreyscale => 'For e-ink displays';
 	String get autoClearWhiteboardOnExit => 'It will still be synced to your other devices';
 	String get maxImageSize => 'Images larger than this will be compressed';
+	late final _StringsSettingsPrefDescriptionsHideFingerDrawingEn hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingEn._(_root);
 	String get editorPromptRename => 'You can always rename notes later';
 	String get hideHomeBackgrounds => 'For a cleaner look';
 	String get printPageIndicators => 'Show page indicators in exports';
@@ -824,6 +826,18 @@ class _StringsEditorHudEn {
 	String get lockSingleFingerPan => 'Disable single-finger panning';
 	String get unlockAxisAlignedPan => 'Unlock panning to horizontal or vertical';
 	String get lockAxisAlignedPan => 'Lock panning to horizontal or vertical';
+}
+
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get shown => 'Prevents accidental toggling';
+	String get fixedOn => 'Finger drawing is fixed as enabled';
+	String get fixedOff => 'Finger drawing is fixed as disabled';
 }
 
 // Path: editor.menu.boxFits
