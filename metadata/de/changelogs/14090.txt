@@ -1,0 +1,2 @@
+• Es wurde eine Einstellung hinzugefügt, um die Schaltfläche zum Zeichnen mit dem Finger auszublenden, um ein versehentliches Umschalten zu verhindern
+• Fehlerbehebung

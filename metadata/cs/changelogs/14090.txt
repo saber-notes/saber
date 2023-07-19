@@ -1,0 +1,2 @@
+• Přidáno nastavení pro skrytí tlačítka kreslení prstem, aby se předešlo jeho náhodnému přepnutí
+• Oprava chyb

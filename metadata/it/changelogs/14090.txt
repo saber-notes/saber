@@ -1,0 +1,2 @@
+• Aggiunta un'impostazione per nascondere il pulsante di disegno del dito per evitare di attivarlo accidentalmente
+• Correzioni di bug
