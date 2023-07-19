@@ -88,8 +88,7 @@ Download `Saber-{version}-x86_64.AppImage` from the latest [Release][releases],
 make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 
 Option 3:
-There's an unofficial [snap][snap] available. For any issues with the snap,
-please file an issue here: https://github.com/soumyaDghosh/saber.
+There's an unofficial [snap][snap] available thanks to @soumyaDghosh.
 `sudo snap install saber`
 
 #### Windows
