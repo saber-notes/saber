@@ -29,9 +29,9 @@ class GridFolders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// The cards that come before the actual folders
-    final extraCards = <FolderCardType>[
-      if (!isAtRoot) FolderCardType.backFolder,
-      FolderCardType.newFolder,
+    final extraCards = <_FolderCardType>[
+      if (!isAtRoot) _FolderCardType.backFolder,
+      _FolderCardType.newFolder,
     ];
 
     return SliverAlignedGrid.count(
@@ -39,71 +39,102 @@ class GridFolders extends StatelessWidget {
       crossAxisCount: crossAxisCount,
       mainAxisSpacing: 10,
       itemBuilder: (context, index) {
-        final cardType = extraCards.get(index, FolderCardType.realFolder);
-        return Tooltip(
-          message: switch (cardType) {
-            FolderCardType.backFolder => t.home.backFolder,
-            FolderCardType.newFolder => t.home.newFolder.newFolder,
-            FolderCardType.realFolder => folders[index - extraCards.length],
-          },
-          waitDuration: const Duration(milliseconds: 500),
-          child: Card(
-            child: InkWell(
-              onTap: () {
-                switch (cardType) {
-                  case FolderCardType.newFolder:
-                    showDialog(
-                      context: context,
-                      builder: (context) => NewFolderDialog(
-                        createFolder: createFolder,
-                        doesFolderExist: doesFolderExist,
-                      ),
-                    );
-                  case FolderCardType.backFolder:
-                    onTap('..');
-                  case FolderCardType.realFolder:
-                    onTap(folders[index - extraCards.length]);
-                }
-              },
-              borderRadius: BorderRadius.circular(10),
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AdaptiveIcon(
-                      icon: switch (cardType) {
-                        FolderCardType.backFolder => Icons.folder_open,
-                        FolderCardType.newFolder => Icons.create_new_folder,
-                        FolderCardType.realFolder => Icons.folder,
-                      },
-                      cupertinoIcon: switch (cardType) {
-                        FolderCardType.backFolder => CupertinoIcons.folder_open,
-                        FolderCardType.newFolder => CupertinoIcons.folder_fill_badge_plus,
-                        FolderCardType.realFolder => CupertinoIcons.folder_fill,
-                      },
-                      size: 50,
-                    ),
-        
-                    const SizedBox(height: 8),
-        
-                    switch (cardType) {
-                      FolderCardType.backFolder => const Icon(Icons.arrow_back),
-                      FolderCardType.newFolder => Text(t.home.newFolder.newFolder),
-                      FolderCardType.realFolder => Text(folders[index - extraCards.length]),
-                    },
-                  ],
-                ),
-              ),
-            ),
-          ),
+        final cardType = extraCards.get(index, _FolderCardType.realFolder);
+        return _GridFolder(
+          cardType: cardType,
+          folder: cardType == _FolderCardType.realFolder
+              ? folders[index - extraCards.length]
+              : null,
+          createFolder: createFolder,
+          doesFolderExist: doesFolderExist,
+          onTap: onTap,
         );
       },
     );
   }
 }
 
-enum FolderCardType {
+class _GridFolder extends StatelessWidget {
+  const _GridFolder({
+    // ignore: unused_element
+    super.key,
+    required this.cardType,
+    required this.folder,
+    required this.createFolder,
+    required this.doesFolderExist,
+    required this.onTap,
+  })  : assert((folder == null) ^ (cardType == _FolderCardType.realFolder));
+
+  final _FolderCardType cardType;
+  final String? folder;
+  final void Function(String) createFolder;
+  final bool Function(String) doesFolderExist;
+  final Function(String) onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: switch (cardType) {
+        _FolderCardType.backFolder => t.home.backFolder,
+        _FolderCardType.newFolder => t.home.newFolder.newFolder,
+        _FolderCardType.realFolder => folder!,
+      },
+      waitDuration: const Duration(milliseconds: 500),
+      child: Card(
+        child: InkWell(
+          onTap: () {
+            switch (cardType) {
+              case _FolderCardType.newFolder:
+                showDialog(
+                  context: context,
+                  builder: (context) => NewFolderDialog(
+                    createFolder: createFolder,
+                    doesFolderExist: doesFolderExist,
+                  ),
+                );
+              case _FolderCardType.backFolder:
+                onTap('..');
+              case _FolderCardType.realFolder:
+                onTap(folder!);
+            }
+          },
+          borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AdaptiveIcon(
+                  icon: switch (cardType) {
+                    _FolderCardType.backFolder => Icons.folder_open,
+                    _FolderCardType.newFolder => Icons.create_new_folder,
+                    _FolderCardType.realFolder => Icons.folder,
+                  },
+                  cupertinoIcon: switch (cardType) {
+                    _FolderCardType.backFolder => CupertinoIcons.folder_open,
+                    _FolderCardType.newFolder => CupertinoIcons.folder_fill_badge_plus,
+                    _FolderCardType.realFolder => CupertinoIcons.folder_fill,
+                  },
+                  size: 50,
+                ),
+    
+                const SizedBox(height: 8),
+    
+                switch (cardType) {
+                  _FolderCardType.backFolder => const Icon(Icons.arrow_back),
+                  _FolderCardType.newFolder => Text(t.home.newFolder.newFolder),
+                  _FolderCardType.realFolder => Text(folder!),
+                },
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+enum _FolderCardType {
   backFolder,
   newFolder,
   realFolder;
