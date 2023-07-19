@@ -33,12 +33,12 @@ ar:
 cs:
   settings:
     prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      hideFingerDrawingToggle(OUTDATED): Skrýt přepínač pro kreslení prstem
     prefDescriptions:
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
+        shown(OUTDATED): Zabraňuje nechtěnému přepnutí
+        fixedOn(OUTDATED): Kreslení prstem je napevno zapnuté
+        fixedOff(OUTDATED): Kreslení prstem je napevno vypnuté
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
