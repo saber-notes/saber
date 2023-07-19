@@ -12,6 +12,9 @@
     <!-- Install update APKs -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
+    <!-- Show ads -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
    <application
         android:label="Saber"
         android:name="${applicationName}"

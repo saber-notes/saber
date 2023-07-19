@@ -30,3 +30,7 @@ echo "Removing Google Ads"
 sed -i -e '/google_mobile_ads/d' pubspec.yaml
 # Replace banner_ad_widget.dart with _banner_ad_widget_dummy.dart
 mv lib/components/home/_banner_ad_widget_dummy.dart lib/components/home/banner_ad_widget.dart
+
+# Remove AD_ID permission
+echo "Removing AD_ID permission"
+sed -i -e '/com.google.android.gms.permission.AD_ID/d' android/app/src/main/AndroidManifest.xml
