@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3285 (219 per locale)
 ///
-/// Built on 2023-07-18 at 13:46 UTC
+/// Built on 2023-07-19 at 15:10 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6065,12 +6065,12 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
+	@override String get disableEraserAfterUse => 'Ritorna alla penna dopo aver usato la gomma';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
-	@override String get disableEraserAfterUse => 'Torna alla penna dopo aver usato la gomma';
 }
 
 // Path: settings.prefDescriptions

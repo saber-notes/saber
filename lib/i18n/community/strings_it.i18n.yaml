@@ -61,12 +61,12 @@ settings:
     editorStraightenLines: Tenere premuto per raddrizzare una linea
     maxImageSize: Dimensione massima dell'immagine
     autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
+    disableEraserAfterUse: Ritorna alla penna dopo aver usato la gomma
     editorPromptRename: Richiede di rinominare nuove note
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
     dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
-    disableEraserAfterUse(OUTDATED): Torna alla penna dopo aver usato la gomma
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
