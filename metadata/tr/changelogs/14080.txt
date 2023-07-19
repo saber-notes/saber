@@ -1,0 +1,2 @@
+• PDF dışa aktarma işlemlerinin bazı kullanıcılar için grimsi olması düzeltildi
+• Klasörleri silmek için bir düğme eklendi

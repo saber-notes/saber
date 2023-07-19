@@ -1,0 +1,2 @@
+• Exportações de PDF corrigidas sendo acinzentadas para alguns usuários
+• Adicionado um botão para excluir pastas

@@ -1,0 +1,2 @@
+• Se corrigieron las exportaciones de PDF que eran grisáceas para algunos usuarios.
+• Se agregó un botón para eliminar carpetas

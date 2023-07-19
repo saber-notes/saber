@@ -67,6 +67,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.8" type="development" date="2023-07-19">
+            <description>
+                <ul>
+                    <li>Fixed PDF exports being grey-ish for some users</li>
+                    <li>Added a button to delete folders</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.7" type="development" date="2023-07-17">
             <description>
                 <ul>

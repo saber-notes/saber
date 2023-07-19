@@ -1,0 +1,2 @@
+• Javítva, hogy egyes felhasználók számára szürkés színű PDF-exportálás
+• Hozzáadott egy gombot a mappák törléséhez
