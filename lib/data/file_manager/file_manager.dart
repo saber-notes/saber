@@ -221,12 +221,22 @@ class FileManager {
     broadcastFileWrite(FileOperationType.delete, filePath);
   }
 
-  static Future deleteDirectory(String directoryPath) async {
+  static Future deleteDirectory(String directoryPath, [bool recursive = true]) async {
     directoryPath = _sanitisePath(directoryPath);
 
     final Directory directory = Directory(await documentsDirectory + directoryPath);
     if (!directory.existsSync()) return;
-    await directory.delete(recursive: false);
+
+    if (recursive) {
+      // call [deleteFile] on all files that are descendants of the directory
+      await for (final entity in directory.list(recursive: true)) {
+        if (entity is File) {
+          await deleteFile(entity.path.substring((await documentsDirectory).length));
+        }
+      }
+    }
+
+    await directory.delete(recursive: recursive);
   }
 
   static Future<DirectoryChildren?> getChildrenOfDirectory(String directory) async {
