@@ -262,9 +262,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
