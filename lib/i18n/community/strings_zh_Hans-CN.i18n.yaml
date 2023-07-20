@@ -15,46 +15,49 @@ home:
   welcome: 欢迎使用 Saber
   noFiles: 未找到文件
   createNewNote: 点击 + 按钮新建一个笔记
+  backFolder: 回到上一个文件夹
   newFolder:
-    newFolder(OUTDATED): 新建文件夹
-    folderName(OUTDATED): 文件夹名称
-    create(OUTDATED): 创造
-    folderNameEmpty(OUTDATED): 文件夹名称不能为空
-    folderNameContainsSlash(OUTDATED): 文件夹名称不能包含斜杠
-    folderNameExists(OUTDATED): 文件夹已存在
+    newFolder: 新建文件夹
+    folderName: 文件夹名称
+    create: 创建
+    folderNameEmpty: 文件夹名称不能为空
+    folderNameContainsSlash: 文件夹名称不能包含斜杠
+    folderNameExists: 文件夹已存在
   renameNote:
-    renameNote(OUTDATED): 重命名注释
-    noteName(OUTDATED): 注释名称
-    rename(OUTDATED): 改名
-    noteNameEmpty(OUTDATED): 备注名称不能为空
-    noteNameContainsSlash(OUTDATED): 注意名称不能包含斜杠
-    noteNameExists(OUTDATED): 同名的注释已存在
+    renameNote: 重命名笔记
+    noteName: 笔记名称
+    rename: 重命名
+    noteNameEmpty: 笔记名称不能为空
+    noteNameContainsSlash: 注意名称不能包含斜杠
+    noteNameExists: 此名称的笔记已经存在
   moveNote:
-    moveNote(OUTDATED): 移动笔记
-    moveName(OUTDATED): 移动$f
-    move(OUTDATED): 移动
-    renamedTo(OUTDATED): Note 将被重命名为 $newName
-  backFolder(OUTDATED): 返回上一个文件夹
+    moveNote: 移动笔记
+    moveName: 移动 $f
+    move: 移动
+    renamedTo: 笔记将重命名为 $newName
   deleteFolder:
-    delete(OUTDATED): 删除
-    deleteName(OUTDATED): 删除$f
-    deleteFolder(OUTDATED): 删除文件夹
-    alsoDeleteContents(OUTDATED): 同时删除该文件夹内的所有笔记
+    deleteFolder: 删除文件夹
+    deleteName: 删除 $f
+    delete: 删除
+    alsoDeleteContents: 同时删除此文件夹中的所有笔记
 settings:
   prefCategories:
     general: 通用
     writing: 书写
-    editor(OUTDATED): 编辑
-    advanced(OUTDATED): 先进的
+    editor: 编辑器
+    advanced: 高级
   prefLabels:
     locale: 应用语言
     appTheme: 应用主题
     platform: 主题类型
+    layoutSize: 布局大小
     customAccentColor: 自定义主题色
     hyperlegibleFont: 易读字体
     shouldCheckForUpdates: 自动检查 Saber 更新
     shouldAlwaysAlertForUpdates: 有可用更新时立即通知我
-    changeAdsConsent(OUTDATED): 更改广告同意
+    disableAds: 禁用广告
+    changeAdsConsent: 更改广告许可
+    allowInsecureConnections: 允许不安全的连接
     editorToolbarAlignment: 编辑工具栏对齐方式
     editorToolbarShowInFullscreen: 在全屏模式中显示编辑菜单栏
     editorAutoInvert: 在深色模式下使用反色笔记背景
@@ -63,33 +66,30 @@ settings:
     editorStraightenLines: 按住拉直线段
     maxImageSize: 最大图片大小
     autoClearWhiteboardOnExit: 离开应用后清除白板
+    disableEraserAfterUse: 使用橡皮擦后切换回笔
+    hideFingerDrawingToggle: 隐藏 切换手指绘制
     editorPromptRename: 提示您重命名新笔记
     hideHomeBackgrounds: 在主页隐藏背景
     dontSavePresetColors: 不在最近使用的颜色中保存预设颜色
     printPageIndicators: 打印页码
-    layoutSize(OUTDATED): 布局类型
-    disableAds(OUTDATED): 禁用广告
-    allowInsecureConnections(OUTDATED): 允许不安全的连接
-    autosaveDelay(OUTDATED): 自动保存延迟
-    disableEraserAfterUse(OUTDATED): 使用橡皮擦后切换回笔
-    hideFingerDrawingToggle(OUTDATED): 隐藏手指绘图切换开关
+    autosaveDelay: 自动保存延迟
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
+    disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
+    allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
     editorAutoInvert: 在深色模式下自动使用反色笔记背景
     editorOpaqueBackgrounds: 移除背景图像和 PDF 的透明度
     preferGreyscale: 用于电子墨水显示器
     autoClearWhiteboardOnExit: 这将会同步到您的其他设备
     maxImageSize: 更大的图片将会被压缩
+    hideFingerDrawing:
+      shown: 防止意外切换
+      fixedOn: 手指绘制固定为启用状态
+      fixedOff: 手指绘制固定为禁用状态
     editorPromptRename: 您可以总是稍后重命名笔记
     hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
-    disableAds(OUTDATED): 广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们
-    allowInsecureConnections(OUTDATED): （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
-    autosaveDelay(OUTDATED): 自动保存笔记之前等待多长时间
-    hideFingerDrawing:
-      fixedOn(OUTDATED): 手指绘图固定为启用
-      shown(OUTDATED): 防止意外切换
-      fixedOff(OUTDATED): 手指绘图修复为禁用
+    autosaveDelay: 自动保存便笺需要等待的时间
   themeModes:
     system: 系统
     light: 浅色
@@ -205,7 +205,7 @@ editor:
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
-    laserPointer(OUTDATED): 激光笔
+    laserPointer: 激光笔
   penOptions:
     size: 粗细
     sizeDragHint: 左右拖动更改粗细
@@ -274,8 +274,8 @@ editor:
     lockZoom: 锁定缩放
     unlockSingleFingerPan: 启用单指平移
     lockSingleFingerPan: 禁用单指平移
-    unlockAxisAlignedPan(OUTDATED): 解锁水平或垂直平移
-    lockAxisAlignedPan(OUTDATED): 将平移锁定为水平或垂直
+    unlockAxisAlignedPan: 解锁水平或垂直平移
+    lockAxisAlignedPan: 锁定水平或垂直平移
   pages: 页面
   untitled: 未命名
-  needsToSaveBeforeExiting(OUTDATED): 保存更改...完成后您可以安全退出编辑器
+  needsToSaveBeforeExiting: 正在保存您的更改。。。完成后您可以安全地退出编辑器
