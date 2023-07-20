@@ -329,20 +329,20 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   home:
-    deleteNote(OUTDATED): Delete note
+    deleteNote(OUTDATED): Elimina nota
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder(OUTDATED): Elimina cartella
+      deleteName(OUTDATED): Elimina $f
+      delete(OUTDATED): Elimina
+      alsoDeleteContents(OUTDATED): Elimina anche tutte le note all'interno di questa cartella
   settings:
     prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      hideFingerDrawingToggle(OUTDATED): Nascondi l'interruttore del disegno con le dita
     prefDescriptions:
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
+        shown(OUTDATED): Impedisce l'attivazione accidentale
+        fixedOn(OUTDATED): Il disegno con le dita è fissato come abilitato
+        fixedOff(OUTDATED): Il disegno con le dita è fisso come disabilitato
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
