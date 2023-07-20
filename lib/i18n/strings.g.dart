@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3405 (227 per locale)
 ///
-/// Built on 2023-07-20 at 14:19 UTC
+/// Built on 2023-07-20 at 14:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9719,10 +9719,10 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get noFiles => '未找到文件';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
+	@override String get backFolder => '回到上一个文件夹';
 	@override late final _StringsHomeNewFolderZhHansCn newFolder = _StringsHomeNewFolderZhHansCn._(_root);
 	@override late final _StringsHomeRenameNoteZhHansCn renameNote = _StringsHomeRenameNoteZhHansCn._(_root);
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
-	@override String get backFolder => '返回上一个文件夹';
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
 }
 
@@ -9838,7 +9838,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorHudZhHansCn hud = _StringsEditorHudZhHansCn._(_root);
 	@override String get pages => '页面';
 	@override String get untitled => '未命名';
-	@override String get needsToSaveBeforeExiting => '保存更改...完成后您可以安全退出编辑器';
+	@override String get needsToSaveBeforeExiting => '正在保存您的更改。。。完成后您可以安全地退出编辑器';
 }
 
 // Path: home.tabs
@@ -9887,7 +9887,7 @@ class _StringsHomeNewFolderZhHansCn extends _StringsHomeNewFolderEn {
 	// Translations
 	@override String get newFolder => '新建文件夹';
 	@override String get folderName => '文件夹名称';
-	@override String get create => '创造';
+	@override String get create => '创建';
 	@override String get folderNameEmpty => '文件夹名称不能为空';
 	@override String get folderNameContainsSlash => '文件夹名称不能包含斜杠';
 	@override String get folderNameExists => '文件夹已存在';
@@ -9900,12 +9900,12 @@ class _StringsHomeRenameNoteZhHansCn extends _StringsHomeRenameNoteEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get renameNote => '重命名注释';
-	@override String get noteName => '注释名称';
-	@override String get rename => '改名';
-	@override String get noteNameEmpty => '备注名称不能为空';
+	@override String get renameNote => '重命名笔记';
+	@override String get noteName => '笔记名称';
+	@override String get rename => '重命名';
+	@override String get noteNameEmpty => '笔记名称不能为空';
 	@override String get noteNameContainsSlash => '注意名称不能包含斜杠';
-	@override String get noteNameExists => '同名的注释已存在';
+	@override String get noteNameExists => '此名称的笔记已经存在';
 }
 
 // Path: home.moveNote
@@ -9916,9 +9916,9 @@ class _StringsHomeMoveNoteZhHansCn extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移动笔记';
-	@override String moveName({required Object f}) => '移动${f}';
+	@override String moveName({required Object f}) => '移动 ${f}';
 	@override String get move => '移动';
-	@override String renamedTo({required Object newName}) => 'Note 将被重命名为 ${newName}';
+	@override String renamedTo({required Object newName}) => '笔记将重命名为 ${newName}';
 }
 
 // Path: home.deleteFolder
@@ -9928,10 +9928,10 @@ class _StringsHomeDeleteFolderZhHansCn extends _StringsHomeDeleteFolderEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get delete => '删除';
-	@override String deleteName({required Object f}) => '删除${f}';
 	@override String get deleteFolder => '删除文件夹';
-	@override String get alsoDeleteContents => '同时删除该文件夹内的所有笔记';
+	@override String deleteName({required Object f}) => '删除 ${f}';
+	@override String get delete => '删除';
+	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
 }
 
 // Path: settings.prefCategories
@@ -9943,8 +9943,8 @@ class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategor
 	// Translations
 	@override String get general => '通用';
 	@override String get writing => '书写';
-	@override String get editor => '编辑';
-	@override String get advanced => '先进的';
+	@override String get editor => '编辑器';
+	@override String get advanced => '高级';
 }
 
 // Path: settings.prefLabels
@@ -9957,11 +9957,14 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => '应用语言';
 	@override String get appTheme => '应用主题';
 	@override String get platform => '主题类型';
+	@override String get layoutSize => '布局大小';
 	@override String get customAccentColor => '自定义主题色';
 	@override String get hyperlegibleFont => '易读字体';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '有可用更新时立即通知我';
-	@override String get changeAdsConsent => '更改广告同意';
+	@override String get disableAds => '禁用广告';
+	@override String get changeAdsConsent => '更改广告许可';
+	@override String get allowInsecureConnections => '允许不安全的连接';
 	@override String get editorToolbarAlignment => '编辑工具栏对齐方式';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
@@ -9970,16 +9973,13 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => '按住拉直线段';
 	@override String get maxImageSize => '最大图片大小';
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
+	@override String get disableEraserAfterUse => '使用橡皮擦后切换回笔';
+	@override String get hideFingerDrawingToggle => '隐藏 切换手指绘制';
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get dontSavePresetColors => '不在最近使用的颜色中保存预设颜色';
 	@override String get printPageIndicators => '打印页码';
-	@override String get layoutSize => '布局类型';
-	@override String get disableAds => '禁用广告';
-	@override String get allowInsecureConnections => '允许不安全的连接';
 	@override String get autosaveDelay => '自动保存延迟';
-	@override String get disableEraserAfterUse => '使用橡皮擦后切换回笔';
-	@override String get hideFingerDrawingToggle => '隐藏手指绘图切换开关';
 }
 
 // Path: settings.prefDescriptions
@@ -9990,18 +9990,18 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
+	@override String get disableAds => '广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们';
+	@override String get allowInsecureConnections => '（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器';
 	@override String get editorAutoInvert => '在深色模式下自动使用反色笔记背景';
 	@override String get editorOpaqueBackgrounds => '移除背景图像和 PDF 的透明度';
 	@override String get preferGreyscale => '用于电子墨水显示器';
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 	@override String get maxImageSize => '更大的图片将会被压缩';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
-	@override String get disableAds => '广告有助于支持 Saber 的发展，但如果您愿意，您可以禁用它们';
-	@override String get allowInsecureConnections => '（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器';
-	@override String get autosaveDelay => '自动保存笔记之前等待多长时间';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
+	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
 }
 
 // Path: settings.themeModes
@@ -10366,7 +10366,7 @@ class _StringsEditorHudZhHansCn extends _StringsEditorHudEn {
 	@override String get unlockSingleFingerPan => '启用单指平移';
 	@override String get lockSingleFingerPan => '禁用单指平移';
 	@override String get unlockAxisAlignedPan => '解锁水平或垂直平移';
-	@override String get lockAxisAlignedPan => '将平移锁定为水平或垂直';
+	@override String get lockAxisAlignedPan => '锁定水平或垂直平移';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -10376,9 +10376,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends _Strings
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => '手指绘图固定为启用';
 	@override String get shown => '防止意外切换';
-	@override String get fixedOff => '手指绘图修复为禁用';
+	@override String get fixedOn => '手指绘制固定为启用状态';
+	@override String get fixedOff => '手指绘制固定为禁用状态';
 }
 
 // Path: editor.menu.boxFits
