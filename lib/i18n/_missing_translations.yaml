@@ -458,16 +458,3 @@ zh-Hans-CN:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 zh-Hant-TW:
-  home:
-    deleteFolder:
-      deleteFolder(OUTDATED): 刪除資料夾
-      deleteName(OUTDATED): 刪除 $f
-      delete(OUTDATED): 刪除
-  settings:
-    prefLabels:
-      hideFingerDrawingToggle(OUTDATED): 隱藏手指繪圖切換開關
-    prefDescriptions:
-      hideFingerDrawing:
-        shown(OUTDATED): 防止意外切換
-        fixedOn(OUTDATED): 手指繪圖固定為啟用
-        fixedOff(OUTDATED): 手指繪圖固定為禁用

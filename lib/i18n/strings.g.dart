@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3405 (227 per locale)
 ///
-/// Built on 2023-07-19 at 22:41 UTC
+/// Built on 2023-07-20 at 14:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10662,9 +10662,9 @@ class _StringsHomeDeleteFolderZhHantTw extends _StringsHomeDeleteFolderEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
+	@override String get deleteFolder => '刪除資料夾';
+	@override String deleteName({required Object f}) => '刪除 ${f}';
 	@override String get delete => '刪除';
-	@override String get deleteFolder => '刪除文件夾';
-	@override String deleteName({required Object f}) => '刪除${f}';
 	@override String get alsoDeleteContents => '同時刪除該文件夾內的所有筆記';
 }
 
@@ -10708,12 +10708,12 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get maxImageSize => '最大圖片尺寸';
 	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
 	@override String get disableEraserAfterUse => '使用橡皮擦後切換回筆';
+	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
-	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 }
 
 // Path: settings.prefDescriptions
@@ -10731,11 +10731,11 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get preferGreyscale => '用於電子紙螢幕';
 	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
 }
 
 // Path: settings.themeModes
@@ -11110,9 +11110,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw extends _Strings
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => '手指繪圖固定為啟用';
 	@override String get shown => '防止意外切換';
-	@override String get fixedOff => '手指繪圖修復為禁用';
+	@override String get fixedOn => '手指繪圖固定為啟用';
+	@override String get fixedOff => '手指繪圖固定為禁用';
 }
 
 // Path: editor.menu.boxFits
