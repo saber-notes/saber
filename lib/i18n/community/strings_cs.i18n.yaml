@@ -35,12 +35,12 @@ home:
     moveName: Přesun poznámky $f
     move: Přesunout
     renamedTo: Poznámka bude přejmenována na $newName
+  deleteNote: Odstranit poznámku
   deleteFolder:
     deleteFolder: Odstranit složku
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
-  deleteNote(OUTDATED): Smazat poznámka
 settings:
   prefCategories:
     general: Obecné

@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-20 at 14:48 UTC
+/// Built on 2023-07-20 at 15:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1652,8 +1652,8 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderCs newFolder = _StringsHomeNewFolderCs._(_root);
 	@override late final _StringsHomeRenameNoteCs renameNote = _StringsHomeRenameNoteCs._(_root);
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
+	@override String get deleteNote => 'Odstranit poznámku';
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
-	@override String get deleteNote => 'Smazat poznámka';
 }
 
 // Path: settings

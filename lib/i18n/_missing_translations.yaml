@@ -32,8 +32,6 @@ ar:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
-  home:
-    deleteNote(OUTDATED): Odstranit poznámku
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
