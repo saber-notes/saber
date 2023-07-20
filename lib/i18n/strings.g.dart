@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-20 at 15:49 UTC
+/// Built on 2023-07-20 at 15:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10471,8 +10471,8 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderZhHantTw newFolder = _StringsHomeNewFolderZhHantTw._(_root);
 	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
+	@override String get deleteNote => '刪除筆記';
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
-	@override String get deleteNote => '刪除註釋';
 }
 
 // Path: settings
