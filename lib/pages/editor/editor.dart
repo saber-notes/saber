@@ -389,8 +389,8 @@ class EditorState extends State<Editor> {
         case EditorHistoryItemType.move:
           for (Stroke stroke in item.strokes) {
             stroke.shift(Offset(
-              item.offset!.left,
-              item.offset!.top,
+              -item.offset!.left,
+              -item.offset!.top,
             ));
           }
           Select select = Select.currentSelect;
