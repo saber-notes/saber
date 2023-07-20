@@ -373,20 +373,6 @@ pt-BR:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
-  home:
-    deleteFolder:
-      deleteFolder(OUTDATED): Удалить папку
-      deleteName(OUTDATED): Удалить $f
-      delete(OUTDATED): Удалить
-      alsoDeleteContents(OUTDATED): Также, удалить все заметки в этой папке
-  settings:
-    prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Скрыть переключатель «Рисование пальцем»
-    prefDescriptions:
-      hideFingerDrawing:
-        shown(OUTDATED): Предотвращать случайное переключение
-        fixedOn(OUTDATED): «Рисование пальцем» зафиксировано как включенное
-        fixedOff(OUTDATED): «Рисование пальцем» зафиксировано как выключенное
 tr:
   home:
     deleteFolder:

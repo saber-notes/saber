@@ -36,10 +36,10 @@ home:
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
   deleteFolder:
-    deleteFolder(OUTDATED): Удалить папку
-    deleteName(OUTDATED): Удалить $f
-    delete(OUTDATED): Удалить
-    alsoDeleteContents(OUTDATED): Также удалите все заметки внутри этой папки
+    deleteFolder: Удалить папку
+    deleteName: Удалить $f
+    delete: Удалить
+    alsoDeleteContents: "Также, удалить все заметки в этой папке"
 settings:
   prefCategories:
     general: Общие
@@ -67,12 +67,12 @@ settings:
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
     disableEraserAfterUse: "Переключаться на ручку, после использования ластика"
+    hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
     dontSavePresetColors: Не сохранять предустановленные цвета в последних цветах
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
-    hideFingerDrawingToggle(OUTDATED): Скрыть переключатель рисования пальца
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -82,14 +82,14 @@ settings:
     preferGreyscale: Для e-ink экранов
     autoClearWhiteboardOnExit: Это будет синхронизировано с другими вашими устройствами
     maxImageSize: Большие изображения будут сжаты
+    hideFingerDrawing:
+      shown: Предотвращать случайное переключение
+      fixedOn: «Рисование пальцем» зафиксировано как включенное
+      fixedOff: «Рисование пальцем» зафиксировано как выключенное
     editorPromptRename: Вы всегда можете переименовать заметки позже
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
-    hideFingerDrawing:
-      fixedOff(OUTDATED): Рисование пальцем исправлено как отключенное
-      fixedOn(OUTDATED): Рисование пальцем исправлено как включенное
-      shown(OUTDATED): Предотвращает случайное переключение
   themeModes:
     system: Системная
     light: Светлая
