@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3405 (227 per locale)
 ///
-/// Built on 2023-07-20 at 14:25 UTC
+/// Built on 2023-07-20 at 14:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8463,7 +8463,7 @@ class _StringsHomeDeleteFolderRu extends _StringsHomeDeleteFolderEn {
 	@override String get deleteFolder => 'Удалить папку';
 	@override String deleteName({required Object f}) => 'Удалить ${f}';
 	@override String get delete => 'Удалить';
-	@override String get alsoDeleteContents => 'Также удалите все заметки внутри этой папки';
+	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
 }
 
 // Path: settings.prefCategories
@@ -8506,12 +8506,12 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get maxImageSize => 'Макс. размер изображения';
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
 	@override String get disableEraserAfterUse => 'Переключаться на ручку, после использования ластика';
+	@override String get hideFingerDrawingToggle => 'Скрыть переключатель «Рисование пальцем»';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
-	@override String get hideFingerDrawingToggle => 'Скрыть переключатель рисования пальца';
 }
 
 // Path: settings.prefDescriptions
@@ -8529,11 +8529,11 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Для e-ink экранов';
 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingRu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingRu._(_root);
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingRu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingRu._(_root);
 }
 
 // Path: settings.themeModes
@@ -8908,9 +8908,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingRu extends _StringsSettin
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOff => 'Рисование пальцем исправлено как отключенное';
-	@override String get fixedOn => 'Рисование пальцем исправлено как включенное';
-	@override String get shown => 'Предотвращает случайное переключение';
+	@override String get shown => 'Предотвращать случайное переключение';
+	@override String get fixedOn => '«Рисование пальцем» зафиксировано как включенное';
+	@override String get fixedOff => '«Рисование пальцем» зафиксировано как выключенное';
 }
 
 // Path: editor.menu.boxFits

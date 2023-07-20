@@ -373,20 +373,6 @@ pt-BR:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
-  home:
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-    prefDescriptions:
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 tr:
   home:
     deleteFolder:
