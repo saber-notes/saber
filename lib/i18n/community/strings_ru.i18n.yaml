@@ -35,12 +35,12 @@ home:
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
+  deleteNote: Удалить заметку
   deleteFolder:
     deleteFolder: Удалить папку
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
-  deleteNote(OUTDATED): Удалить заметку
 settings:
   prefCategories:
     general: Общие
