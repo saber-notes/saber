@@ -35,6 +35,7 @@ home:
     moveName: Move $f
     move: Move
     renamedTo: Note will be renamed to $newName
+  deleteNote: Delete note
   deleteFolder:
     deleteFolder: Delete folder
     deleteName: Delete $f

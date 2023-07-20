@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3405 (227 per locale)
+/// Strings: 3406 (227 per locale)
 ///
-/// Built on 2023-07-20 at 14:28 UTC
+/// Built on 2023-07-20 at 14:43 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -182,6 +182,7 @@ class _StringsHomeEn {
 	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
 	late final _StringsHomeRenameNoteEn renameNote = _StringsHomeRenameNoteEn._(_root);
 	late final _StringsHomeMoveNoteEn moveNote = _StringsHomeMoveNoteEn._(_root);
+	String get deleteNote => 'Delete note';
 	late final _StringsHomeDeleteFolderEn deleteFolder = _StringsHomeDeleteFolderEn._(_root);
 }
 

@@ -18,6 +18,7 @@ import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
@@ -250,6 +251,7 @@ class _PreviewCardState extends State<PreviewCard> {
                                   ),
                                   IconButton(
                                     padding: EdgeInsets.zero,
+                                    tooltip: t.home.deleteNote,
                                     onPressed: () {
                                       FileManager.deleteFile(widget.filePath + Editor.extension);
                                     },
