@@ -40,6 +40,7 @@ home:
     deleteName: 刪除 $f
     delete: 刪除
     alsoDeleteContents: 同時刪除該文件夾內的所有筆記
+  deleteNote(OUTDATED): 刪除註釋
 settings:
   prefCategories:
     general: 一般

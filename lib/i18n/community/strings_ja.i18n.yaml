@@ -40,6 +40,7 @@ home:
     deleteName(OUTDATED): $fを削除
     delete(OUTDATED): 消去
     alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
+  deleteNote(OUTDATED): メモの削除
 settings:
   prefCategories:
     general: 一般

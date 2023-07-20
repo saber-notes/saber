@@ -40,6 +40,7 @@ home:
     alsoDeleteContents(OUTDATED): Supprimez également toutes les notes de ce dossier
     deleteFolder(OUTDATED): Supprimer le dossier
     delete(OUTDATED): Supprimer
+  deleteNote(OUTDATED): Supprimer la note
 settings:
   prefCategories:
     general: Général

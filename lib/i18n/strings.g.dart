@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3406 (227 per locale)
+/// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-20 at 14:43 UTC
+/// Built on 2023-07-20 at 14:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -918,6 +918,7 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
 	@override String get backFolder => 'ارجع إلى المجلد السابق';
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
+	@override String get deleteNote => 'حذف الملاحظة';
 }
 
 // Path: settings
@@ -1652,6 +1653,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteCs renameNote = _StringsHomeRenameNoteCs._(_root);
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
+	@override String get deleteNote => 'Smazat poznámka';
 }
 
 // Path: settings
@@ -2386,6 +2388,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteDe moveNote = _StringsHomeMoveNoteDe._(_root);
 	@override String get backFolder => 'Zurück zum vorherigen Ordner';
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
+	@override String get deleteNote => 'Notiz löschen';
 }
 
 // Path: settings
@@ -3120,6 +3123,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteEs moveNote = _StringsHomeMoveNoteEs._(_root);
 	@override String get backFolder => 'Volver a la carpeta anterior';
 	@override late final _StringsHomeDeleteFolderEs deleteFolder = _StringsHomeDeleteFolderEs._(_root);
+	@override String get deleteNote => 'Borrar la nota';
 }
 
 // Path: settings
@@ -3853,6 +3857,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteFa moveNote = _StringsHomeMoveNoteFa._(_root);
 	@override String get backFolder => 'بازگشت به پوشه قبلی';
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
+	@override String get deleteNote => 'حذف یادداشت';
 }
 
 // Path: settings
@@ -4587,6 +4592,7 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteFr moveNote = _StringsHomeMoveNoteFr._(_root);
 	@override String get backFolder => 'Revenir au dossier précédent';
 	@override late final _StringsHomeDeleteFolderFr deleteFolder = _StringsHomeDeleteFolderFr._(_root);
+	@override String get deleteNote => 'Supprimer la note';
 }
 
 // Path: settings
@@ -5321,6 +5327,7 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteHu moveNote = _StringsHomeMoveNoteHu._(_root);
 	@override String get backFolder => 'Menjen vissza az előző mappába';
 	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
+	@override String get deleteNote => 'Jegyzet törlése';
 }
 
 // Path: settings
@@ -6055,6 +6062,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteIt renameNote = _StringsHomeRenameNoteIt._(_root);
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
 	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
+	@override String get deleteNote => 'Cancella nota';
 }
 
 // Path: settings
@@ -6789,6 +6797,7 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteJa moveNote = _StringsHomeMoveNoteJa._(_root);
 	@override String get backFolder => '前のフォルダーに戻ります';
 	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
+	@override String get deleteNote => 'メモの削除';
 }
 
 // Path: settings
@@ -7523,6 +7532,7 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNotePtBr moveNote = _StringsHomeMoveNotePtBr._(_root);
 	@override String get backFolder => 'Voltar para a pasta anterior';
 	@override late final _StringsHomeDeleteFolderPtBr deleteFolder = _StringsHomeDeleteFolderPtBr._(_root);
+	@override String get deleteNote => 'Excluir nota';
 }
 
 // Path: settings
@@ -8257,6 +8267,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteRu renameNote = _StringsHomeRenameNoteRu._(_root);
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
 	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
+	@override String get deleteNote => 'Удалить заметку';
 }
 
 // Path: settings
@@ -8991,6 +9002,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteTr renameNote = _StringsHomeRenameNoteTr._(_root);
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
 	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
+	@override String get deleteNote => 'Notu sil';
 }
 
 // Path: settings
@@ -9725,6 +9737,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteZhHansCn renameNote = _StringsHomeRenameNoteZhHansCn._(_root);
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
+	@override String get deleteNote => '删除注释';
 }
 
 // Path: settings
@@ -10459,6 +10472,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
+	@override String get deleteNote => '刪除註釋';
 }
 
 // Path: settings

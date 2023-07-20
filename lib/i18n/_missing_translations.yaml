@@ -6,6 +6,7 @@ ar:
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -31,9 +32,12 @@ ar:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
+  home:
+    deleteNote(OUTDATED): Delete note
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -58,6 +62,7 @@ es:
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -85,6 +90,7 @@ es:
 fa:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -123,6 +129,7 @@ fr:
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -207,6 +214,7 @@ hu:
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -323,6 +331,7 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   home:
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -339,6 +348,7 @@ it:
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -358,6 +368,7 @@ ja:
 pt-BR:
   home:
     backFolder(OUTDATED): Go back to the previous folder
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -373,8 +384,11 @@ pt-BR:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
+  home:
+    deleteNote(OUTDATED): Delete note
 tr:
   home:
+    deleteNote(OUTDATED): Delete note
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -390,4 +404,8 @@ tr:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 zh-Hans-CN:
+  home:
+    deleteNote(OUTDATED): Delete note
 zh-Hant-TW:
+  home:
+    deleteNote(OUTDATED): Delete note

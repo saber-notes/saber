@@ -40,6 +40,7 @@ home:
     deleteFolder(OUTDATED): احذف المجلد
     alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
     delete(OUTDATED): يمسح
+  deleteNote(OUTDATED): حذف الملاحظة
 settings:
   prefCategories:
     general: عام

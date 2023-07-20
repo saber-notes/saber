@@ -40,6 +40,7 @@ home:
     deleteFolder(OUTDATED): پوشه را حذف کنید
     delete(OUTDATED): حذف
     alsoDeleteContents(OUTDATED): همچنین تمام یادداشت های داخل این پوشه را حذف کنید
+  deleteNote(OUTDATED): حذف یادداشت
 settings:
   prefCategories:
     general: عمومی

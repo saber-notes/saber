@@ -40,6 +40,7 @@ home:
     deleteName(OUTDATED): Eliminar $f
     delete(OUTDATED): Borrar
     alsoDeleteContents(OUTDATED): También elimine todas las notas dentro de esta carpeta
+  deleteNote(OUTDATED): Borrar la nota
 settings:
   prefCategories:
     general: General

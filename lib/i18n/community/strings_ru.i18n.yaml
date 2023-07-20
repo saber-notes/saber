@@ -40,6 +40,7 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
+  deleteNote(OUTDATED): Удалить заметку
 settings:
   prefCategories:
     general: Общие

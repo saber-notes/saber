@@ -40,6 +40,7 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+  deleteNote(OUTDATED): Smazat poznámka
 settings:
   prefCategories:
     general: Obecné

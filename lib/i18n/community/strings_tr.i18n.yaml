@@ -40,6 +40,7 @@ home:
     alsoDeleteContents(OUTDATED): Bu klasördeki tüm notları da silin
     delete(OUTDATED): Silmek
     deleteName(OUTDATED): $f'yi sil
+  deleteNote(OUTDATED): Notu sil
 settings:
   prefCategories:
     general: Genel

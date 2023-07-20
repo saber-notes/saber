@@ -40,6 +40,7 @@ home:
     alsoDeleteContents(OUTDATED): Törölje az összes jegyzetet ebben a mappában
     deleteFolder(OUTDATED): Mappa törlése
     deleteName(OUTDATED): $f törlése
+  deleteNote(OUTDATED): Jegyzet törlése
 settings:
   prefCategories:
     general: Általános
