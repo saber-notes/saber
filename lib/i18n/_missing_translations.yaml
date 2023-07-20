@@ -33,7 +33,7 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
 cs:
   home:
-    deleteNote(OUTDATED): Delete note
+    deleteNote(OUTDATED): Odstranit poznámku
 de:
   home:
     backFolder(OUTDATED): Go back to the previous folder
