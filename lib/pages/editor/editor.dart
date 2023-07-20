@@ -1199,6 +1199,7 @@ class EditorState extends State<Editor> {
       collapsed: DynamicMaterialApp.isFullscreen && !Prefs.editorToolbarShowInFullscreen.value,
       maintainState: true,
       child: SafeArea(
+        bottom: Prefs.editorToolbarAlignment.value != AxisDirection.up,
         child: Toolbar(
           readOnly: coreInfo.readOnly,
 
