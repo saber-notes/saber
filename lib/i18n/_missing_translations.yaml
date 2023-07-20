@@ -383,7 +383,7 @@ pt-BR:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
   home:
-    deleteNote(OUTDATED): Delete note
+    deleteNote(OUTDATED): Удалить заметку
 tr:
   home:
     deleteNote(OUTDATED): Delete note
