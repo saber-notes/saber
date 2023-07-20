@@ -405,56 +405,56 @@ tr:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 zh-Hans-CN:
   home:
-    backFolder(OUTDATED): Go back to the previous folder
+    backFolder: 回到上一个文件夹
     newFolder:
-      newFolder(OUTDATED): New folder
-      folderName(OUTDATED): Folder name
-      create(OUTDATED): Create
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): Folder already exists
+      newFolder: 新建文件夹
+      folderName: 文件夹名称
+      create: 创建
+      folderNameEmpty: 文件夹名称不能为空
+      folderNameContainsSlash: 文件夹名称不能包含斜杠
+      folderNameExists: 文件夹已存在
     renameNote:
-      renameNote(OUTDATED): Rename note
-      noteName(OUTDATED): Note name
-      rename(OUTDATED): Rename
-      noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameContainsSlash(OUTDATED): Note name can't contain a slash
-      noteNameExists(OUTDATED): A note with this name already exists
+      renameNote: 重命名笔记
+      noteName: 笔记名称
+      rename: 重命名
+      noteNameEmpty: 笔记名称不能为空
+      noteNameContainsSlash: 注意名称不能包含斜杠
+      noteNameExists: 此名称的笔记已经存在
     moveNote:
-      moveNote(OUTDATED): Move note
-      moveName(OUTDATED): Move $f
-      move(OUTDATED): Move
-      renamedTo(OUTDATED): Note will be renamed to $newName
+      moveNote: 移动笔记
+      moveName: 移动 $f
+      move: 移动
+      renamedTo: 笔记将重命名为 $newName
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder: 删除文件夹
+      deleteName: 删除 $f
+      delete: 删除
+      alsoDeleteContents: 同时删除此文件夹中的所有笔记
   settings:
     prefCategories:
-      editor(OUTDATED): Editor
-      advanced(OUTDATED): Advanced
+      editor: 编辑器
+      advanced: 高级
     prefLabels:
-      layoutSize(OUTDATED): Layout type
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      autosaveDelay(OUTDATED): Auto-save delay
+      layoutSize: 布局大小
+      disableAds: 禁用广告
+      changeAdsConsent: 更改广告许可
+      allowInsecureConnections: 允许不安全的连接
+      disableEraserAfterUse: 使用橡皮擦后切换回笔
+      hideFingerDrawingToggle: 隐藏 切换手指绘制
+      autosaveDelay: 自动保存延迟
     prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      disableAds: "广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们"
+      allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+        shown: 防止意外切换
+        fixedOn: 手指绘制固定为启用状态
+        fixedOff: 手指绘制固定为禁用状态
+      autosaveDelay笔记: 自动保存便笺需要等待的时间
   editor:
     pens:
-      laserPointer(OUTDATED): Laser pointer
+      laserPointer: 激光笔
     hud:
-      unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
-      lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
-    needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
+      unlockAxisAlignedPan: 解锁水平或垂直平移
+      lockAxisAlignedPan: 锁定水平或垂直平移
+    needsToSaveBeforeExiting: 正在保存您的更改。。。完成后您可以安全地退出编辑器
 zh-Hant-TW:
