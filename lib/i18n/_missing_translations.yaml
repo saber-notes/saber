@@ -401,5 +401,5 @@ tr:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 zh-Hans-CN:
   home:
-    deleteNote(OUTDATED): Delete note
+    deleteNote: 删除笔记
 zh-Hant-TW:
