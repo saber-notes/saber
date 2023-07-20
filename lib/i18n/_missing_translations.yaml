@@ -460,14 +460,14 @@ zh-Hans-CN:
 zh-Hant-TW:
   home:
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
+      deleteFolder(OUTDATED): 刪除資料夾
+      deleteName(OUTDATED): 刪除 $f
+      delete(OUTDATED): 刪除
   settings:
     prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      hideFingerDrawingToggle(OUTDATED): 隱藏手指繪圖切換開關
     prefDescriptions:
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
+        shown(OUTDATED): 防止意外切換
+        fixedOn(OUTDATED): 手指繪圖固定為啟用
+        fixedOff(OUTDATED): 手指繪圖固定為禁用
