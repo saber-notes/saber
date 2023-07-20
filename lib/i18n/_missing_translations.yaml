@@ -375,18 +375,18 @@ pt-BR:
 ru:
   home:
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder(OUTDATED): Удалить папку
+      deleteName(OUTDATED): Удалить $f
+      delete(OUTDATED): Удалить
+      alsoDeleteContents(OUTDATED): Также, удалить все заметки в этой папке
   settings:
     prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      hideFingerDrawingToggle(OUTDATED): Скрыть переключатель «Рисование пальцем»
     prefDescriptions:
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
+        shown(OUTDATED): Предотвращать случайное переключение
+        fixedOn(OUTDATED): «Рисование пальцем» зафиксировано как включенное
+        fixedOff(OUTDATED): «Рисование пальцем» зафиксировано как выключенное
 tr:
   home:
     deleteFolder:
