@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-20 at 15:47 UTC
+/// Built on 2023-07-20 at 15:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8266,8 +8266,8 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderRu newFolder = _StringsHomeNewFolderRu._(_root);
 	@override late final _StringsHomeRenameNoteRu renameNote = _StringsHomeRenameNoteRu._(_root);
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
-	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
+	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
 }
 
 // Path: settings

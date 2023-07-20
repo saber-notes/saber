@@ -382,8 +382,6 @@ pt-BR:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
-  home:
-    deleteNote(OUTDATED): Удалить заметку
 tr:
   home:
     deleteNote(OUTDATED): Delete note
