@@ -75,6 +75,7 @@ class _RecentPageState extends State<RecentPage> {
               collapsedHeight: kToolbarHeight,
               expandedHeight: 200,
               pinned: true,
+              scrolledUnderElevation: 1,
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   t.home.titles.home,

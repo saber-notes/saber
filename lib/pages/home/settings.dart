@@ -143,6 +143,7 @@ class _SettingsPageState extends State<SettingsPage> {
             collapsedHeight: kToolbarHeight,
             expandedHeight: 200,
             pinned: true,
+            scrolledUnderElevation: 1,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 t.home.titles.settings,

@@ -62,13 +62,17 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
+    final backgroundColor = Color.alphaBlend(
+      colorScheme.primary.withOpacity(0.05),
+      colorScheme.surface,
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.path != null) Material(
-          color: colorScheme.surface,
+          color: backgroundColor,
           child: InkWell(
             onTap: () {
               setState(() {

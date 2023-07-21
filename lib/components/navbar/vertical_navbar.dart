@@ -24,11 +24,15 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
+    final backgroundColor = Color.alphaBlend(
+      colorScheme.primary.withOpacity(0.05),
+      colorScheme.surface,
+    );
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: colorScheme.surface
+        color: backgroundColor,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +57,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
               destinations: widget.destinations,
               selectedIndex: widget.selectedIndex,
 
-              backgroundColor: colorScheme.surface,
+              backgroundColor: backgroundColor,
 
               extended: expanded,
               minExtendedWidth: 300,

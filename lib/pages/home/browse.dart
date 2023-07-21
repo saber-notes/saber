@@ -102,6 +102,7 @@ class _BrowsePageState extends State<BrowsePage> {
               collapsedHeight: kToolbarHeight,
               expandedHeight: 200,
               pinned: true,
+              scrolledUnderElevation: 1,
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   title,
