@@ -400,6 +400,4 @@ tr:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 zh-Hans-CN:
-  home:
-    deleteNote: 删除笔记
 zh-Hant-TW:
