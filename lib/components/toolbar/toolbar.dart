@@ -12,6 +12,7 @@ import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
@@ -164,6 +165,11 @@ class _ToolbarState extends State<Toolbar> {
         ? Toolbar._buttonPaddingVertical
         : Toolbar._buttonPaddingHorizontal;
 
+    final currentColor = switch (widget.currentTool) {
+      Pen pen => pen.strokeProperties.color,
+      _ => null,
+    };
+
     final children = <Widget>[
       Collapsible(
         axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
@@ -200,7 +206,7 @@ class _ToolbarState extends State<Toolbar> {
         child: ColorBar(
           axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
           setColor: widget.setColor,
-          currentColor: (widget.currentTool is Pen) ? (widget.currentTool as Pen).strokeProperties.color : null,
+          currentColor: currentColor,
           invert: invert,
         ),
       ),
@@ -285,7 +291,20 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: toggleColorOptions,
                 padding: buttonPadding,
-                child: const Icon(Icons.palette),
+                child: currentColor == null
+                    ? const Icon(Icons.palette)
+                    : Container(
+                        width: 18,
+                        height: 18,
+                        decoration: BoxDecoration(
+                          color: currentColor.withInversion(invert).withOpacity(1),
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: colorScheme.primary,
+                            width: 2,
+                          ),
+                        ),
+                      ),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.select,
