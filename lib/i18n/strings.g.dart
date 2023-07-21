@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-21 at 21:22 UTC
+/// Built on 2023-07-21 at 21:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6061,8 +6061,8 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderIt newFolder = _StringsHomeNewFolderIt._(_root);
 	@override late final _StringsHomeRenameNoteIt renameNote = _StringsHomeRenameNoteIt._(_root);
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
+	@override String get deleteNote => 'Elimina nota';
 	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
-	@override String get deleteNote => 'Cancella nota';
 }
 
 // Path: settings
@@ -6269,8 +6269,8 @@ class _StringsHomeDeleteFolderIt extends _StringsHomeDeleteFolderEn {
 	// Translations
 	@override String get deleteFolder => 'Elimina cartella';
 	@override String deleteName({required Object f}) => 'Elimina ${f}';
+	@override String get delete => 'Elimina';
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
-	@override String get delete => 'Eliminare';
 }
 
 // Path: settings.prefCategories
@@ -6313,12 +6313,12 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
 	@override String get disableEraserAfterUse => 'Ritorna alla penna dopo aver usato la gomma';
+	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore del disegno con le dita';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
-	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore di disegno delle dita';
 }
 
 // Path: settings.prefDescriptions
@@ -6336,11 +6336,11 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
 }
 
 // Path: settings.themeModes
