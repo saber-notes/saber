@@ -6,7 +6,7 @@ home:
     settings: Settings
   titles:
     home: Recent notes
-    browse: All notes
+    browse: Browse
     whiteboard: Whiteboard
     settings: Settings
   tooltips:

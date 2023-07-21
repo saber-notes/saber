@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-21 at 21:24 UTC
+/// Built on 2023-07-21 at 22:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -322,7 +322,7 @@ class _StringsHomeTitlesEn {
 
 	// Translations
 	String get home => 'Recent notes';
-	String get browse => 'All notes';
+	String get browse => 'Browse';
 	String get whiteboard => 'Whiteboard';
 	String get settings => 'Settings';
 }
@@ -1057,7 +1057,7 @@ class _StringsHomeTitlesAr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'الملاحظات الأخيرة';
-	@override String get browse => 'جميع المحلاظات';
+	@override String get browse => 'تصفح';
 	@override String get whiteboard => 'السبورة';
 	@override String get settings => 'الإعدادات';
 }
@@ -1792,7 +1792,7 @@ class _StringsHomeTitlesCs extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Poslední poznámky';
-	@override String get browse => 'Všechny poznámky';
+	@override String get browse => 'Poznámky';
 	@override String get whiteboard => 'Tabule';
 	@override String get settings => 'Nastavení';
 }
@@ -2527,7 +2527,7 @@ class _StringsHomeTitlesDe extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Letzte Notizen';
-	@override String get browse => 'Alle Notizen';
+	@override String get browse => 'Durchsuchen';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Einstellungen';
 }
@@ -3261,7 +3261,7 @@ class _StringsHomeTitlesEs extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Notas recientes';
-	@override String get browse => 'Todas las notas';
+	@override String get browse => 'Explorar';
 	@override String get whiteboard => 'Pizarra';
 	@override String get settings => 'Configuración';
 }
@@ -3996,7 +3996,7 @@ class _StringsHomeTitlesFa extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'یادداشت های اخیر';
-	@override String get browse => 'کل یادداشت ها';
+	@override String get browse => 'مرور کردن';
 	@override String get whiteboard => 'وایت برد';
 	@override String get settings => 'تنظیمات';
 }
@@ -4731,7 +4731,7 @@ class _StringsHomeTitlesFr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Notes récentes';
-	@override String get browse => 'Toutes les notes';
+	@override String get browse => 'Parcourir';
 	@override String get whiteboard => 'Tableau blanc';
 	@override String get settings => 'Paramètres';
 }
@@ -5466,7 +5466,7 @@ class _StringsHomeTitlesHu extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Legutóbbi jegyzetek';
-	@override String get browse => 'Minden jegyzet';
+	@override String get browse => 'Böngészés';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Beállítások';
 }
@@ -6201,7 +6201,7 @@ class _StringsHomeTitlesIt extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Note recenti';
-	@override String get browse => 'Tutte le note';
+	@override String get browse => 'Sfoglia';
 	@override String get whiteboard => 'Lavagna';
 	@override String get settings => 'Impostazioni';
 }
@@ -6936,7 +6936,7 @@ class _StringsHomeTitlesJa extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => '最近のメモ';
-	@override String get browse => 'すべてのメモ';
+	@override String get browse => '閲覧';
 	@override String get whiteboard => 'ホワイトボード';
 	@override String get settings => '設定';
 }
@@ -7671,7 +7671,7 @@ class _StringsHomeTitlesPtBr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Notas recentes';
-	@override String get browse => 'Todas as notas';
+	@override String get browse => 'Explorar';
 	@override String get whiteboard => 'Quadro branco';
 	@override String get settings => 'Configurações';
 }
@@ -8406,7 +8406,7 @@ class _StringsHomeTitlesRu extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Недавние заметки';
-	@override String get browse => 'Все заметки';
+	@override String get browse => 'Обзор';
 	@override String get whiteboard => 'Чистый лист';
 	@override String get settings => 'Настройки';
 }
@@ -9141,7 +9141,7 @@ class _StringsHomeTitlesTr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Son notlar';
-	@override String get browse => 'Tüm notlar';
+	@override String get browse => 'Göz at';
 	@override String get whiteboard => 'Beyaz tahta';
 	@override String get settings => 'Ayarlar';
 }

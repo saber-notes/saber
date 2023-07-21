@@ -6,7 +6,7 @@ home:
     settings: 設定
   titles:
     home: 最近のメモ
-    browse: すべてのメモ
+    browse: 閲覧
     whiteboard: ホワイトボード
     settings: 設定
   tooltips:
