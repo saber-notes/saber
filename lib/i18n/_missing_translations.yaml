@@ -328,21 +328,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  home:
-    deleteNote(OUTDATED): Delete note
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefLabels:
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-    prefDescriptions:
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ja:
   home:
     backFolder(OUTDATED): Go back to the previous folder

@@ -35,12 +35,12 @@ home:
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
+  deleteNote: Elimina nota
   deleteFolder:
-    deleteFolder(OUTDATED): Elimina cartella
-    deleteName(OUTDATED): Elimina $f
-    alsoDeleteContents(OUTDATED): Elimina anche tutte le note all'interno di questa cartella
-    delete(OUTDATED): Eliminare
-  deleteNote(OUTDATED): Cancella nota
+    deleteFolder: Elimina cartella
+    deleteName: Elimina $f
+    delete: Elimina
+    alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
 settings:
   prefCategories:
     general: Generale
@@ -68,12 +68,12 @@ settings:
     maxImageSize: Dimensione massima dell'immagine
     autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
     disableEraserAfterUse: Ritorna alla penna dopo aver usato la gomma
+    hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
     editorPromptRename: Richiede di rinominare nuove note
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
     dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
-    hideFingerDrawingToggle(OUTDATED): Nascondi l'interruttore di disegno delle dita
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -83,14 +83,14 @@ settings:
     preferGreyscale: Per display e-ink
     autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi
     maxImageSize: Le immagini più grandi verranno compresse
+    hideFingerDrawing:
+      shown: Impedisce l'attivazione accidentale
+      fixedOn: Il disegno con le dita è fissato come abilitato
+      fixedOff: Il disegno con le dita è fisso come disabilitato
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
-    hideFingerDrawing:
-      shown(OUTDATED): Impedisce l'attivazione accidentale
-      fixedOn(OUTDATED): Il disegno con le dita è fissato come abilitato
-      fixedOff(OUTDATED): Il disegno con le dita è fisso come disabilitato
   themeModes:
     system: Sistema
     light: Chiaro
