@@ -79,7 +79,7 @@ class ColorBar extends StatelessWidget {
         enabled: currentColor != null,
         onTap: () => setColor(Color(int.parse(colorString))),
         tooltip: findColorName(Color(int.parse(colorString))),
-        child: Container(
+        child: DecoratedBox(
           decoration: BoxDecoration(
             color: Color(int.parse(colorString)).withInversion(invert),
             shape: BoxShape.circle,
@@ -96,7 +96,7 @@ class ColorBar extends StatelessWidget {
         enabled: currentColor != null,
         onTap: null,
         tooltip: null,
-        child: Container(
+        child: DecoratedBox(
           decoration: BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.circle,
@@ -131,7 +131,7 @@ class ColorBar extends StatelessWidget {
         enabled: currentColor != null,
         onTap: () => setColor(namedColor.color),
         tooltip: namedColor.name,
-        child: Container(
+        child: DecoratedBox(
           decoration: BoxDecoration(
             color: namedColor.color.withInversion(invert),
             shape: BoxShape.circle,
