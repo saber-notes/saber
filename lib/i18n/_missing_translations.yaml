@@ -39,14 +39,14 @@ ar:
 cs:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): Procházet poznámky
   settings:
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Rychlejší aktualizace
+      disableEraserAfterUse(OUTDATED): Automaticky vypínat gumu
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      disableEraserAfterUse(OUTDATED): Po použití gumy automaticky přepnout zpět na pero
+      shouldAlwaysAlertForUpdates(OUTDATED): Oznámit dostupnost aktualizací co nejdříve od jejich vydání
 de:
   home:
     titles:
