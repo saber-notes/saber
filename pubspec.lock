@@ -149,10 +149,10 @@ packages:
     dependency: transitive
     description:
       name: cookie_jar
-      sha256: "1024f3a52bee181fc8f10f4a359085471587d7406323090a53a7171bc0aa5c37"
+      sha256: a6ac027d3ed6ed756bfce8f3ff60cb479e266f3b0fdabd6242b804b6765e52de
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.5"
+    version: "4.0.8"
   cross_file:
     dependency: transitive
     description:
@@ -302,10 +302,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: b1729fc96627dd44012d0a901558177418818d6bd428df59dcfeb594e5f66432
+      sha256: "21145c9c268d54b1f771d8380c195d2d6f655e0567dc1ca2f9c134c02c819e0a"
       url: "https://pub.dev"
     source: hosted
-    version: "5.3.2"
+    version: "5.3.3"
   fixnum:
     dependency: transitive
     description:
@@ -413,10 +413,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "07b4d4e76ed1c22b322f4e1194234c9a5aa22557684101c12bcf82646e625cf4"
+      sha256: "8f25be18cac3692b08eb4aa0b08d8d55ad3c36de9afb429b21408888ddb3d5d4"
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.14"
+    version: "7.2.18"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -516,10 +516,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: b33a88c67816312597e5e0f5906c5139a0b9bd9bb137346e872c788da7af8ea0
+      sha256: b3cadd2cd59a4103fd5f6bc572ca75111264698784e927aa471921c3477d5475
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.3"
+    version: "10.0.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -634,7 +634,7 @@ packages:
     description:
       path: "."
       ref: fix-string-ends-with-colon
-      resolved-ref: "8cfacf7ebe7b2387ae11c0705f9c2d8fedfdf2a3"
+      resolved-ref: "618fc6b7c57acd17cfa98ef7895a771938374456"
       url: "https://github.com/adil192/json2yaml"
     source: git
     version: "3.0.1"
@@ -888,6 +888,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.0"
+  pixel_snap:
+    dependency: transitive
+    description:
+      name: pixel_snap
+      sha256: "5de3662b926c9bc189578cf90f9d5b350ee61bc8e20e8a91fa1dfdd26c9f5ece"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   platform:
     dependency: transitive
     description:
@@ -900,10 +908,10 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      sha256: "6a2128648c854906c53fa8e33986fc0247a1116122f9534dd20e3ab9e16a32bc"
+      sha256: "43798d895c929056255600343db8f049921cbec94d31ec87f1dc5c16c01935dd"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.5"
   pointycastle:
     dependency: transitive
     description:
@@ -932,10 +940,10 @@ packages:
     dependency: "direct dev"
     description:
       name: process_run
-      sha256: "0071cece7ca0fdf4aaf2cf84ee3082f3043f18afc7fcfd51f53f9424a8072c04"
+      sha256: ceacfac6d566a36c895d64edc7e429efb2d6b6303b5e28d5c13bc59fe6e8974e
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.0"
+    version: "0.13.1"
   provider:
     dependency: transitive
     description:
@@ -1146,18 +1154,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "7628464b63fd18df486e87a989ecfd73565f7b01a15ee47a2448283931c3d14d"
+      sha256: "5950134d516f1da0c88396bf8767ddc1aeca96ae3cbc3d8db7cc2d7c8562e764"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0+2"
+    version: "0.5.0"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: "18ad4c367cea763654d458d9e9aec8c0c00c6b1d542c4f746c94a223e8e4bd0c"
+      sha256: "6b1604db25ca6072fe7c0e4eddf8cf5bcdbdfa9bd2fd06922e03700e6630103e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0+2"
+    version: "0.5.0"
   sync_http:
     dependency: transitive
     description:
@@ -1227,10 +1235,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "15f5acbf0dce90146a0f5a2c4a002b1814a6303c4c5c075aa2623b2d16156f03"
+      sha256: "78cb6dea3e93148615109e58e42c35d1ffbf5ef66c44add673d0ab75f12ff3af"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.36"
+    version: "6.0.37"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1395,10 +1403,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_wkwebview
-      sha256: "369fdf6160944a7db660ff15fa048c2bd681b09557907beaef1f95e8557d21dc"
+      sha256: "3e36a8f564809cb7c257ff4278502b185e2191349df0ddee98837f91805c74b8"
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.0"
+    version: "3.7.1"
   win32:
     dependency: transitive
     description:

@@ -93,13 +93,13 @@ class App extends StatefulWidget {
         path: RoutePaths.home,
         builder: (context, state) => HomePage(
           subpage: state.pathParameters['subpage'] ?? HomePage.recentSubpage,
-          path: state.queryParameters['path'],
+          path: state.uri.queryParameters['path'],
         ),
       ),
       GoRoute(
         path: RoutePaths.edit,
         builder: (context, state) => Editor(
-          path: state.queryParameters['path'],
+          path: state.uri.queryParameters['path'],
         ),
       ),
       GoRoute(
