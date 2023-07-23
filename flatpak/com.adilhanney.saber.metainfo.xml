@@ -56,12 +56,15 @@
 
     <screenshots>
         <screenshot type="default">
+            <caption>The home screen showing recent notes</caption>
             <image>https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/images/tenInchScreenshots/home-desktop.png</image>
         </screenshot>
         <screenshot>
+            <caption>The editor in which the user has written y=mx+c and highlighted the m and c</caption>
             <image>https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/images/tenInchScreenshots/editor-desktop.png</image>
         </screenshot>
         <screenshot>
+            <caption>The login page which asks for your username, Nextcloud password, and encryption password</caption>
             <image>https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/images/tenInchScreenshots/login-desktop.png</image>
         </screenshot>
     </screenshots>
