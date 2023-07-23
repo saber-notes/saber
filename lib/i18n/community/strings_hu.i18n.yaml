@@ -6,7 +6,7 @@ home:
     settings: Beállítások
   titles:
     home: Legutóbbi jegyzetek
-    browse: Böngészés
+    browse(OUTDATED): Böngészés
     whiteboard: Whiteboard
     settings: Beállítások
   tooltips:
@@ -72,6 +72,8 @@ settings:
     allowInsecureConnections(OUTDATED): Engedélyezze a nem biztonságos kapcsolatokat
     autosaveDelay(OUTDATED): Auto-save késleltetés
     hideFingerDrawingToggle(OUTDATED): Az ujjrajzolás kapcsoló elrejtése
+    shouldAlwaysAlertForUpdates(OUTDATED): Gyorsabb frissítések
+    disableEraserAfterUse(OUTDATED): A radír automatikus letiltása
   prefDescriptions:
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
     editorOpaqueBackgrounds: Átlátszóság eltávolítása a háttérképről és a PDF-ekből
@@ -88,6 +90,8 @@ settings:
       shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
+    shouldAlwaysAlertForUpdates(OUTDATED): "Szóljon nekem a frissítésekről, amint elérhetők"
+    disableEraserAfterUse(OUTDATED): A radír használata után automatikusan visszavált a tollra
   themeModes:
     system: Rendszer
     light: Világos

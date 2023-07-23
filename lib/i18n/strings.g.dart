@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3379 (225 per locale)
+/// Strings: 3435 (229 per locale)
 ///
-/// Built on 2023-07-23 at 17:04 UTC
+/// Built on 2023-07-23 at 17:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1174,6 +1174,8 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
 	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
 	@override String get hideFingerDrawingToggle => 'إخفاء تبديل رسم الإصبع';
+	@override String get shouldAlwaysAlertForUpdates => 'التحديثات السريعة';
+	@override String get disableEraserAfterUse => 'تعطيل تلقائي للممحاة';
 }
 
 // Path: settings.prefDescriptions
@@ -1195,6 +1197,8 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
 	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
+	@override String get disableEraserAfterUse => 'يعود تلقائيًا إلى القلم بعد استخدام الممحاة';
+	@override String get shouldAlwaysAlertForUpdates => 'أخبرني عن التحديثات بمجرد توفرها';
 }
 
 // Path: settings.themeModes
@@ -1906,6 +1910,8 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
+	@override String get shouldAlwaysAlertForUpdates => 'Rychlejší aktualizace';
+	@override String get disableEraserAfterUse => 'Automaticky deaktivovat gumu';
 }
 
 // Path: settings.prefDescriptions
@@ -1927,6 +1933,8 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
+	@override String get shouldAlwaysAlertForUpdates => 'Řekněte mi o aktualizacích, jakmile budou k dispozici';
+	@override String get disableEraserAfterUse => 'Po použití gumy se automaticky přepne zpět na pero';
 }
 
 // Path: settings.themeModes
@@ -2638,6 +2646,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
 	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
 	@override String get hideFingerDrawingToggle => 'Blenden Sie den Fingerzeichnungsschalter aus';
+	@override String get shouldAlwaysAlertForUpdates => 'Schnellere Updates';
+	@override String get disableEraserAfterUse => 'Deaktivieren Sie den Radierer automatisch';
 }
 
 // Path: settings.prefDescriptions
@@ -2659,6 +2669,8 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 	@override String get autosaveDelay => 'Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
+	@override String get disableEraserAfterUse => 'Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück';
+	@override String get shouldAlwaysAlertForUpdates => 'Informieren Sie mich über Updates, sobald sie verfügbar sind';
 }
 
 // Path: settings.themeModes
@@ -3369,6 +3381,8 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
 	@override String get autosaveDelay => 'Retraso de guardado automático';
 	@override String get hideFingerDrawingToggle => 'Ocultar el interruptor de dibujo del dedo';
+	@override String get shouldAlwaysAlertForUpdates => 'Actualizaciones más rápidas';
+	@override String get disableEraserAfterUse => 'Deshabilitar automáticamente el borrador';
 }
 
 // Path: settings.prefDescriptions
@@ -3390,6 +3404,8 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get allowInsecureConnections => '(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables';
 	@override String get autosaveDelay => 'Cuánto tiempo esperar antes de guardar automáticamente una nota';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
+	@override String get shouldAlwaysAlertForUpdates => 'Cuéntame sobre las actualizaciones tan pronto como estén disponibles';
+	@override String get disableEraserAfterUse => 'Cambia automáticamente al lápiz después de usar el borrador';
 }
 
 // Path: settings.themeModes
@@ -4101,6 +4117,8 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تاخیر Auto-save';
 	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
+	@override String get shouldAlwaysAlertForUpdates => 'به روز رسانی سریع تر';
+	@override String get disableEraserAfterUse => 'دانلود بازی Auto-disable The Cleanr';
 }
 
 // Path: settings.prefDescriptions
@@ -4122,6 +4140,8 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
+	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
+	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد';
 }
 
 // Path: settings.themeModes
@@ -4833,6 +4853,8 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
 	@override String get autosaveDelay => 'Délai de sauvegarde automatique';
 	@override String get hideFingerDrawingToggle => 'Masquer la bascule de dessin au doigt';
+	@override String get shouldAlwaysAlertForUpdates => 'Mises à jour plus rapides';
+	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme';
 }
 
 // Path: settings.prefDescriptions
@@ -4854,6 +4876,8 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
 	@override String get autosaveDelay => 'Combien de temps attendre avant d\'enregistrer automatiquement une note';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
+	@override String get shouldAlwaysAlertForUpdates => 'Informez-moi des mises à jour dès qu\'elles sont disponibles';
+	@override String get disableEraserAfterUse => 'Revient automatiquement au stylet après avoir utilisé la gomme';
 }
 
 // Path: settings.themeModes
@@ -5565,6 +5589,8 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
 	@override String get autosaveDelay => 'Auto-save késleltetés';
 	@override String get hideFingerDrawingToggle => 'Az ujjrajzolás kapcsoló elrejtése';
+	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb frissítések';
+	@override String get disableEraserAfterUse => 'A radír automatikus letiltása';
 }
 
 // Path: settings.prefDescriptions
@@ -5586,6 +5612,8 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
 	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
+	@override String get shouldAlwaysAlertForUpdates => 'Szóljon nekem a frissítésekről, amint elérhetők';
+	@override String get disableEraserAfterUse => 'A radír használata után automatikusan visszavált a tollra';
 }
 
 // Path: settings.themeModes
@@ -6297,6 +6325,8 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
+	@override String get disableEraserAfterUse => 'Auto-disabilitare la gomma';
+	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti più veloci';
 }
 
 // Path: settings.prefDescriptions
@@ -6318,6 +6348,8 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
+	@override String get shouldAlwaysAlertForUpdates => 'Parlami degli aggiornamenti non appena sono disponibili';
+	@override String get disableEraserAfterUse => 'Torna automaticamente alla penna dopo aver utilizzato la gomma';
 }
 
 // Path: settings.themeModes
@@ -7029,6 +7061,8 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '印刷ページのインジケーター';
 	@override String get autosaveDelay => '自動保存の遅延';
 	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
+	@override String get shouldAlwaysAlertForUpdates => 'アップデートの高速化';
+	@override String get disableEraserAfterUse => '消しゴムを自動的に無効にする';
 }
 
 // Path: settings.prefDescriptions
@@ -7050,6 +7084,8 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
+	@override String get disableEraserAfterUse => '消しゴムを使用した後は自動的にペンに戻ります';
+	@override String get shouldAlwaysAlertForUpdates => 'アップデートが利用可能になり次第お知らせください';
 }
 
 // Path: settings.themeModes
@@ -7761,6 +7797,8 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
 	@override String get hideFingerDrawingToggle => 'Ocultar a alternância de desenho de dedo';
+	@override String get shouldAlwaysAlertForUpdates => 'Atualizações mais rápidas';
+	@override String get disableEraserAfterUse => 'Desativar automaticamente a borracha';
 }
 
 // Path: settings.prefDescriptions
@@ -7782,6 +7820,8 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingPtBr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingPtBr._(_root);
+	@override String get disableEraserAfterUse => 'Muda automaticamente de volta para a caneta depois de usar a borracha';
+	@override String get shouldAlwaysAlertForUpdates => 'Informe-me sobre as atualizações assim que estiverem disponíveis';
 }
 
 // Path: settings.themeModes
@@ -8493,6 +8533,8 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
+	@override String get disableEraserAfterUse => 'Автоматическое отключение ластика';
+	@override String get shouldAlwaysAlertForUpdates => 'Более быстрые обновления';
 }
 
 // Path: settings.prefDescriptions
@@ -8514,6 +8556,8 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
+	@override String get shouldAlwaysAlertForUpdates => 'Сообщите мне об обновлениях, как только они станут доступны';
+	@override String get disableEraserAfterUse => 'Автоматически переключается обратно на перо после использования ластика';
 }
 
 // Path: settings.themeModes
@@ -9225,6 +9269,8 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
+	@override String get shouldAlwaysAlertForUpdates => 'Daha hızlı güncellemeler';
+	@override String get disableEraserAfterUse => 'Silgiyi otomatik devre dışı bırak';
 }
 
 // Path: settings.prefDescriptions
@@ -9246,6 +9292,8 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
+	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra otomatik olarak kaleme geri döner';
+	@override String get shouldAlwaysAlertForUpdates => 'Güncellemeler gelir gelmez bana haber ver';
 }
 
 // Path: settings.themeModes
@@ -9957,6 +10005,8 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => '不在最近使用的颜色中保存预设颜色';
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
+	@override String get disableEraserAfterUse => '自动禁用橡皮擦';
+	@override String get shouldAlwaysAlertForUpdates => '更新速度更快';
 }
 
 // Path: settings.prefDescriptions
@@ -9978,6 +10028,8 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
+	@override String get disableEraserAfterUse => '使用橡皮擦后自动切换回笔';
+	@override String get shouldAlwaysAlertForUpdates => '一旦有更新请告诉我';
 }
 
 // Path: settings.themeModes
@@ -10689,6 +10741,8 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
+	@override String get shouldAlwaysAlertForUpdates => '更新速度更快';
+	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
 }
 
 // Path: settings.prefDescriptions
@@ -10710,6 +10764,8 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
+	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
+	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 }
 
 // Path: settings.themeModes

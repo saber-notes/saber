@@ -6,7 +6,7 @@ home:
     settings: Impostazioni
   titles:
     home: Note recenti
-    browse: Sfoglia
+    browse(OUTDATED): Sfoglia
     whiteboard: Lavagna
     settings: Impostazioni
   tooltips:
@@ -72,6 +72,8 @@ settings:
     dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
+    disableEraserAfterUse(OUTDATED): Auto-disabilitare la gomma
+    shouldAlwaysAlertForUpdates(OUTDATED): Aggiornamenti più veloci
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -88,6 +90,8 @@ settings:
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
+    shouldAlwaysAlertForUpdates(OUTDATED): Parlami degli aggiornamenti non appena sono disponibili
+    disableEraserAfterUse(OUTDATED): Torna automaticamente alla penna dopo aver utilizzato la gomma
   themeModes:
     system: Sistema
     light: Chiaro

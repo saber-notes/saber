@@ -6,7 +6,7 @@ home:
     settings: Configurações
   titles:
     home: Notas recentes
-    browse: Explorar
+    browse(OUTDATED): Explorar
     whiteboard: Quadro branco
     settings: Configurações
   tooltips:
@@ -72,6 +72,8 @@ settings:
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
     hideFingerDrawingToggle(OUTDATED): Ocultar a alternância de desenho de dedo
+    shouldAlwaysAlertForUpdates(OUTDATED): Atualizações mais rápidas
+    disableEraserAfterUse(OUTDATED): Desativar automaticamente a borracha
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
@@ -88,6 +90,8 @@ settings:
       shown(OUTDATED): Evita a alternância acidental
       fixedOff(OUTDATED): O desenho do dedo é corrigido como desativado
       fixedOn(OUTDATED): O desenho do dedo é fixado como ativado
+    disableEraserAfterUse(OUTDATED): Muda automaticamente de volta para a caneta depois de usar a borracha
+    shouldAlwaysAlertForUpdates(OUTDATED): Informe-me sobre as atualizações assim que estiverem disponíveis
   themeModes:
     system: Sistema
     light: Claro

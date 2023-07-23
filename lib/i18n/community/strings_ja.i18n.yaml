@@ -6,7 +6,7 @@ home:
     settings: 設定
   titles:
     home: 最近のメモ
-    browse: 閲覧
+    browse(OUTDATED): 閲覧
     whiteboard: ホワイトボード
     settings: 設定
   tooltips:
@@ -72,6 +72,8 @@ settings:
     printPageIndicators: 印刷ページのインジケーター
     autosaveDelay(OUTDATED): 自動保存の遅延
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
+    shouldAlwaysAlertForUpdates(OUTDATED): アップデートの高速化
+    disableEraserAfterUse(OUTDATED): 消しゴムを自動的に無効にする
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     disableAds: 広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です
@@ -88,6 +90,8 @@ settings:
       fixedOn(OUTDATED): 指の描画が有効に固定される
       shown(OUTDATED): 偶発的な切り替えを防止します
       fixedOff(OUTDATED): 指の描画が無効に固定される
+    disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
+    shouldAlwaysAlertForUpdates(OUTDATED): アップデートが利用可能になり次第お知らせください
   themeModes:
     system: システム
     light: ライト

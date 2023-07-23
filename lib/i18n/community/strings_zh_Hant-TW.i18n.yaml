@@ -6,7 +6,7 @@ home:
     settings: 設定
   titles:
     home: 最近筆記
-    browse: 全部筆記
+    browse(OUTDATED): 全部筆記
     whiteboard: 白板
     settings: 設定
   tooltips:
@@ -72,6 +72,8 @@ settings:
     dontSavePresetColors: 不要在最近的顏色中儲存預設顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
+    shouldAlwaysAlertForUpdates(OUTDATED): 更新速度更快
+    disableEraserAfterUse(OUTDATED): 自動禁用橡皮擦
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -88,6 +90,8 @@ settings:
     hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
     autosaveDelay: 自動儲存筆記之前等待多少時間
+    disableEraserAfterUse(OUTDATED): 使用橡皮擦後自動切換回筆
+    shouldAlwaysAlertForUpdates(OUTDATED): 一旦有更新請告訴我
   themeModes:
     system: 系統
     light: 淺色

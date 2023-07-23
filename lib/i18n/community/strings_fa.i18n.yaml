@@ -6,7 +6,7 @@ home:
     settings: تنظیمات
   titles:
     home: یادداشت های اخیر
-    browse: مرور کردن
+    browse(OUTDATED): مرور کردن
     whiteboard: وایت برد
     settings: تنظیمات
   tooltips:
@@ -72,6 +72,8 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay(OUTDATED): تاخیر Auto-save
     hideFingerDrawingToggle(OUTDATED): ضامن طراحی انگشت را پنهان کنید
+    shouldAlwaysAlertForUpdates(OUTDATED): به روز رسانی سریع تر
+    disableEraserAfterUse(OUTDATED): دانلود بازی Auto-disable The Cleanr
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
@@ -88,6 +90,8 @@ settings:
       fixedOn(OUTDATED): طراحی با انگشت به صورت فعال ثابت شده است
       shown(OUTDATED): از جابجایی تصادفی جلوگیری می کند
       fixedOff(OUTDATED): طراحی با انگشت به عنوان غیرفعال ثابت است
+    shouldAlwaysAlertForUpdates(OUTDATED): به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
+    disableEraserAfterUse(OUTDATED): پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد
   themeModes:
     system: سیستم
     light: روشن

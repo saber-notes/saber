@@ -6,7 +6,7 @@ home:
     settings: 设置
   titles:
     home: 最近笔记
-    browse: 全部笔记
+    browse(OUTDATED): 全部笔记
     whiteboard: 白板
     settings: 设置
   tooltips:
@@ -72,6 +72,8 @@ settings:
     dontSavePresetColors: 不在最近使用的颜色中保存预设颜色
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
+    disableEraserAfterUse(OUTDATED): 自动禁用橡皮擦
+    shouldAlwaysAlertForUpdates(OUTDATED): 更新速度更快
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -88,6 +90,8 @@ settings:
     hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
+    disableEraserAfterUse(OUTDATED): 使用橡皮擦后自动切换回笔
+    shouldAlwaysAlertForUpdates(OUTDATED): 一旦有更新请告诉我
   themeModes:
     system: 系统
     light: 浅色

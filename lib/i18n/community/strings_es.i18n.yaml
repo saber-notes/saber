@@ -6,7 +6,7 @@ home:
     settings: Configuración
   titles:
     home: Notas recientes
-    browse: Explorar
+    browse(OUTDATED): Explorar
     whiteboard: Pizarra
     settings: Configuración
   tooltips:
@@ -72,6 +72,8 @@ settings:
     allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
     autosaveDelay(OUTDATED): Retraso de guardado automático
     hideFingerDrawingToggle(OUTDATED): Ocultar el interruptor de dibujo del dedo
+    shouldAlwaysAlertForUpdates(OUTDATED): Actualizaciones más rápidas
+    disableEraserAfterUse(OUTDATED): Deshabilitar automáticamente el borrador
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     editorOpaqueBackgrounds: Elimina la transparencia de las imágenes de fondo y los archivos PDF
@@ -88,6 +90,8 @@ settings:
       fixedOn(OUTDATED): El dibujo con los dedos se corrige como habilitado
       fixedOff(OUTDATED): El dibujo con los dedos se corrige como deshabilitado
       shown(OUTDATED): Evita el cambio accidental
+    shouldAlwaysAlertForUpdates(OUTDATED): Cuéntame sobre las actualizaciones tan pronto como estén disponibles
+    disableEraserAfterUse(OUTDATED): Cambia automáticamente al lápiz después de usar el borrador
   themeModes:
     system: Sistema
     light: Claro

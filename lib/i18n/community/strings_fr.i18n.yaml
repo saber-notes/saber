@@ -6,7 +6,7 @@ home:
     settings: Paramètres
   titles:
     home: Notes récentes
-    browse: Parcourir
+    browse(OUTDATED): Parcourir
     whiteboard: Tableau blanc
     settings: Paramètres
   tooltips:
@@ -72,6 +72,8 @@ settings:
     allowInsecureConnections(OUTDATED): Autoriser les connexions non sécurisées
     autosaveDelay(OUTDATED): Délai de sauvegarde automatique
     hideFingerDrawingToggle(OUTDATED): Masquer la bascule de dessin au doigt
+    shouldAlwaysAlertForUpdates(OUTDATED): Mises à jour plus rapides
+    disableEraserAfterUse(OUTDATED): Désactiver automatiquement la gomme
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     editorOpaqueBackgrounds: Supprime la transparence du fond dans les images et les PDF
@@ -88,6 +90,8 @@ settings:
       shown(OUTDATED): Empêche le basculement accidentel
       fixedOn(OUTDATED): Le dessin au doigt est fixé comme activé
       fixedOff(OUTDATED): Le dessin au doigt est fixé comme désactivé
+    shouldAlwaysAlertForUpdates(OUTDATED): Informez-moi des mises à jour dès qu'elles sont disponibles
+    disableEraserAfterUse(OUTDATED): Revient automatiquement au stylet après avoir utilisé la gomme
   themeModes:
     system: Système
     light: Clair

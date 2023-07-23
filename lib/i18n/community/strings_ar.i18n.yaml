@@ -6,7 +6,7 @@ home:
     settings: الإعدادات
   titles:
     home: الملاحظات الأخيرة
-    browse: تصفح
+    browse(OUTDATED): تصفح
     whiteboard: السبورة
     settings: الإعدادات
   tooltips:
@@ -72,6 +72,8 @@ settings:
     allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
     autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
     hideFingerDrawingToggle(OUTDATED): إخفاء تبديل رسم الإصبع
+    shouldAlwaysAlertForUpdates(OUTDATED): التحديثات السريعة
+    disableEraserAfterUse(OUTDATED): تعطيل تلقائي للممحاة
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     editorOpaqueBackgrounds: قم بإزالة الشفافية من صور الخلفية وملفات PDF
@@ -88,6 +90,8 @@ settings:
       shown(OUTDATED): يمنع التبديل العرضي
       fixedOn(OUTDATED): تم إصلاح رسم الإصبع على أنه ممكن
       fixedOff(OUTDATED): تم إصلاح رسم الإصبع على أنه معطل
+    disableEraserAfterUse(OUTDATED): يعود تلقائيًا إلى القلم بعد استخدام الممحاة
+    shouldAlwaysAlertForUpdates(OUTDATED): أخبرني عن التحديثات بمجرد توفرها
   themeModes:
     system: النظام
     light: ساطع

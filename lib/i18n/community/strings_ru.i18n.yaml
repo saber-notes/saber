@@ -6,7 +6,7 @@ home:
     settings: Настройки
   titles:
     home: Недавние заметки
-    browse: Обзор
+    browse(OUTDATED): Обзор
     whiteboard: Чистый лист
     settings: Настройки
   tooltips:
@@ -72,6 +72,8 @@ settings:
     dontSavePresetColors: Не сохранять предустановленные цвета в последних цветах
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
+    disableEraserAfterUse(OUTDATED): Автоматическое отключение ластика
+    shouldAlwaysAlertForUpdates(OUTDATED): Более быстрые обновления
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -88,6 +90,8 @@ settings:
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
+    shouldAlwaysAlertForUpdates(OUTDATED): "Сообщите мне об обновлениях, как только они станут доступны"
+    disableEraserAfterUse(OUTDATED): Автоматически переключается обратно на перо после использования ластика
   themeModes:
     system: Системная
     light: Светлая

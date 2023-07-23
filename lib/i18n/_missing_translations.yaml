@@ -3,6 +3,8 @@
   - "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
 ar:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -17,23 +19,38 @@ ar:
       editor(OUTDATED): Editor
       advanced(OUTDATED): Advanced
     prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 cs:
+  home:
+    titles:
+      browse(OUTDATED): Browse
+  settings:
+    prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+    prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 de:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -46,17 +63,22 @@ de:
       editor(OUTDATED): Editor
       advanced(OUTDATED): Advanced
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 es:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -71,22 +93,27 @@ es:
       editor(OUTDATED): Editor
       advanced(OUTDATED): Advanced
     prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 fa:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -96,17 +123,22 @@ fa:
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 fr:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -139,20 +171,23 @@ fr:
       advanced(OUTDATED): Advanced
     prefLabels:
       layoutSize(OUTDATED): Layout type
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     layoutSizes:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
@@ -192,6 +227,8 @@ fr:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 hu:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -224,22 +261,25 @@ hu:
       advanced(OUTDATED): Advanced
     prefLabels:
       layoutSize(OUTDATED): Layout type
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableAds(OUTDATED): Disable ads
       changeAdsConsent(OUTDATED): Change ads consent
       allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       printPageIndicators(OUTDATED): Show page indicators in exports
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     layoutSizes:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
@@ -328,8 +368,20 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    titles:
+      browse(OUTDATED): Browse
+  settings:
+    prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+    prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 ja:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -339,17 +391,22 @@ ja:
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 pt-BR:
   home:
+    titles:
+      browse(OUTDATED): Browse
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -359,14 +416,57 @@ pt-BR:
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
     prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 ru:
+  home:
+    titles:
+      browse(OUTDATED): Browse
+  settings:
+    prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+    prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 tr:
+  home:
+    titles:
+      browse(OUTDATED): Browse
+  settings:
+    prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+    prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 zh-Hans-CN:
+  home:
+    titles:
+      browse(OUTDATED): Browse
+  settings:
+    prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+    prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 zh-Hant-TW:
+  home:
+    titles:
+      browse(OUTDATED): Browse
+  settings:
+    prefLabels:
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+    prefDescriptions:
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
