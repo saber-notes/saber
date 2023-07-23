@@ -35,12 +35,12 @@ home:
     moveName: $f dosyasını taşı
     move: Taşı
     renamedTo: Not $newName olarak yeniden adlandırılacak
+  deleteNote: Notu sil
   deleteFolder:
-    deleteFolder(OUTDATED): Klasörü sil
-    alsoDeleteContents(OUTDATED): Bu klasördeki tüm notları da silin
-    delete(OUTDATED): Silmek
-    deleteName(OUTDATED): $f'yi sil
-  deleteNote(OUTDATED): Notu sil
+    deleteFolder: Klasörü sil
+    deleteName: $f silinecek
+    delete: Sil
+    alsoDeleteContents: Bu klasördeki tüm notları da sil
 settings:
   prefCategories:
     general: Genel
@@ -67,13 +67,13 @@ settings:
     editorStraightenLines: Bir çizgiyi düzleştirmek için basılı tut
     maxImageSize: Maksimum görsel boyutu
     autoClearWhiteboardOnExit: Uygulamadan çıkıldığında beyaz tahtayı temizle
+    disableEraserAfterUse: Silgiyi kullandıktan sonra kaleme geç
+    hideFingerDrawingToggle: Parmakla çizme kilidini sakla
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
     dontSavePresetColors: Ön tanımlı renkleri son kullanılanlara kaydetme
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
-    disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra kaleme geri dönün
-    hideFingerDrawingToggle(OUTDATED): Parmakla çizim geçişini gizle
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -83,14 +83,14 @@ settings:
     preferGreyscale: E-mürekkep ekranlar için
     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek
     maxImageSize: Bundan daha büyük görseller sıkıştırılacak
+    hideFingerDrawing:
+      shown: Yanlışlıkla değiştirilmesini engeller
+      fixedOn: Parmakla çizim izni verildi ve sabitlendi
+      fixedOff: Parmakla çizim izni verilmedi ve sabitlendi
     editorPromptRename: Notlarınızı daha sonra da yeniden adlandırabilirsiniz
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
-    hideFingerDrawing:
-      fixedOff(OUTDATED): Parmakla çizim devre dışı olarak sabitlendi
-      shown(OUTDATED): Yanlışlıkla değiştirmeyi önler
-      fixedOn(OUTDATED): Parmakla çizim etkin olarak sabitlendi
   themeModes:
     system: Sistem teması
     light: Aydınlık
