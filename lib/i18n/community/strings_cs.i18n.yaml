@@ -69,7 +69,7 @@ settings:
     hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
-    dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
+    dontSavePresetColors: Neukládat přednastavené barvy mezi naposledy použité barvy
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
     shouldAlwaysAlertForUpdates(OUTDATED): Rychlejší aktualizace
