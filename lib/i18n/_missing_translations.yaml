@@ -37,16 +37,6 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 cs:
-  home:
-    titles:
-      browse(OUTDATED): Procházet poznámky
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Rychlejší aktualizace
-      disableEraserAfterUse(OUTDATED): Automaticky vypínat gumu
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Po použití gumy automaticky přepnout zpět na pero
-      shouldAlwaysAlertForUpdates(OUTDATED): Oznámit dostupnost aktualizací co nejdříve od jejich vydání
 de:
   home:
     titles:

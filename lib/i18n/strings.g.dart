@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3435 (229 per locale)
 ///
-/// Built on 2023-07-23 at 17:16 UTC
+/// Built on 2023-07-23 at 18:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1794,7 +1794,7 @@ class _StringsHomeTitlesCs extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Poslední poznámky';
-	@override String get browse => 'Poznámky';
+	@override String get browse => 'Procházet poznámky';
 	@override String get whiteboard => 'Tabule';
 	@override String get settings => 'Nastavení';
 }
@@ -1893,6 +1893,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Rychlejší aktualizace';
 	@override String get disableAds => 'Vypnout reklamy';
 	@override String get changeAdsConsent => 'Změnit předvolby pro reklamy';
 	@override String get allowInsecureConnections => 'Povolit nezabezpečená připojení';
@@ -1904,14 +1905,13 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
 	@override String get maxImageSize => 'Maximální velikost obrázku';
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
+	@override String get disableEraserAfterUse => 'Automaticky vypínat gumu';
 	@override String get hideFingerDrawingToggle => 'Skrýt přepínač pro kreslení prstem';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
-	@override String get dontSavePresetColors => 'Mezi naposledy použité barvy neukládat přednastavené barvy';
+	@override String get dontSavePresetColors => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
-	@override String get shouldAlwaysAlertForUpdates => 'Rychlejší aktualizace';
-	@override String get disableEraserAfterUse => 'Automaticky deaktivovat gumu';
 }
 
 // Path: settings.prefDescriptions
@@ -1927,14 +1927,14 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get editorOpaqueBackgrounds => 'Odstraní průhlednost z obrázků a PDF na pozadí';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
+	@override String get disableEraserAfterUse => 'Po použití gumy automaticky přepnout zpět na pero';
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingCs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingCs._(_root);
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
-	@override String get shouldAlwaysAlertForUpdates => 'Řekněte mi o aktualizacích, jakmile budou k dispozici';
-	@override String get disableEraserAfterUse => 'Po použití gumy se automaticky přepne zpět na pero';
+	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 }
 
 // Path: settings.themeModes
