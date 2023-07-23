@@ -360,14 +360,14 @@ hu:
 it:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): Sfoglia
   settings:
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Aggiornamenti veloci
+      disableEraserAfterUse(OUTDATED): Disattiva automaticamente la gomma
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      disableEraserAfterUse(OUTDATED): Torna automaticamente alla penna dopo aver utilizzato la gomma
+      shouldAlwaysAlertForUpdates(OUTDATED): Segnalami aggiornamenti non appena sono disponibili
 ja:
   home:
     titles:
