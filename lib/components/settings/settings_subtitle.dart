@@ -22,6 +22,7 @@ class SettingsSubtitle extends StatelessWidget {
         subtitle,
         style: TextStyle(
           color: colorScheme.primary,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

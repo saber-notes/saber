@@ -26,6 +26,7 @@ class SettingsButton extends StatelessWidget {
         ),
         title: Text(
           title,
+          style: const TextStyle(fontSize: 18),
         ),
         subtitle: Text(subtitle ?? '', style: const TextStyle(fontSize: 13)),
       ),

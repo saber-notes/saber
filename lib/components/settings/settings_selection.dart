@@ -86,9 +86,12 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
       ),
       title: Text(
         widget.title,
-        style: widget.pref.value != widget.pref.defaultValue
-            ? const TextStyle(fontWeight: FontWeight.bold)
-            : null,
+        style: TextStyle(
+          fontSize: 18,
+          fontStyle: widget.pref.value != widget.pref.defaultValue
+              ? FontStyle.italic
+              : null,
+        ),
       ),
       subtitle: Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
       trailing: !useDropdownInstead ? AdaptiveToggleButtons(
