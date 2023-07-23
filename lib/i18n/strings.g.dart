@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3435 (229 per locale)
 ///
-/// Built on 2023-07-23 at 18:47 UTC
+/// Built on 2023-07-23 at 20:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6308,6 +6308,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Colore personalizzato';
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti veloci';
 	@override String get disableAds => 'Disattiva annunci';
 	@override String get changeAdsConsent => 'Modifica il consenso agli annunci';
 	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
@@ -6319,14 +6320,13 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
+	@override String get disableEraserAfterUse => 'Disattiva automaticamente la gomma';
 	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore del disegno con le dita';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
-	@override String get disableEraserAfterUse => 'Auto-disabilitare la gomma';
-	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti più veloci';
 }
 
 // Path: settings.prefDescriptions
@@ -6342,14 +6342,14 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get editorOpaqueBackgrounds => 'Rimuovi la trasparenza dalle immagini di sfondo e dai PDF';
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
+	@override String get disableEraserAfterUse => 'Torna automaticamente alla penna dopo aver utilizzato la gomma';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
-	@override String get shouldAlwaysAlertForUpdates => 'Parlami degli aggiornamenti non appena sono disponibili';
-	@override String get disableEraserAfterUse => 'Torna automaticamente alla penna dopo aver utilizzato la gomma';
+	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 }
 
 // Path: settings.themeModes
