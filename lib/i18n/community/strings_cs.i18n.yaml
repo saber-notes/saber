@@ -6,7 +6,7 @@ home:
     settings: Nastavení
   titles:
     home: Poslední poznámky
-    browse(OUTDATED): Poznámky
+    browse: Procházet poznámky
     whiteboard: Tabule
     settings: Nastavení
   tooltips:
@@ -55,6 +55,7 @@ settings:
     customAccentColor: Vlastní barevný odstín
     hyperlegibleFont: Lépe čitelný font
     shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
+    shouldAlwaysAlertForUpdates: Rychlejší aktualizace
     disableAds: Vypnout reklamy
     changeAdsConsent: Změnit předvolby pro reklamy
     allowInsecureConnections: Povolit nezabezpečená připojení
@@ -66,14 +67,13 @@ settings:
     editorStraightenLines: Pro kreslení rovné čáry stisknout a podržet
     maxImageSize: Maximální velikost obrázku
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
+    disableEraserAfterUse: Automaticky vypínat gumu
     hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
-    dontSavePresetColors: Mezi naposledy použité barvy neukládat přednastavené barvy
+    dontSavePresetColors: Neukládat přednastavené barvy mezi naposledy použité barvy
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
-    shouldAlwaysAlertForUpdates(OUTDATED): Rychlejší aktualizace
-    disableEraserAfterUse(OUTDATED): Automaticky deaktivovat gumu
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -81,6 +81,7 @@ settings:
     editorOpaqueBackgrounds: Odstraní průhlednost z obrázků a PDF na pozadí
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení
+    disableEraserAfterUse: Po použití gumy automaticky přepnout zpět na pero
     maxImageSize: Na větší obrázky bude aplikována komprese
     hideFingerDrawing:
       shown: Zabraňuje nechtěnému přepnutí
@@ -90,8 +91,7 @@ settings:
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
-    shouldAlwaysAlertForUpdates(OUTDATED): "Řekněte mi o aktualizacích, jakmile budou k dispozici"
-    disableEraserAfterUse(OUTDATED): Po použití gumy se automaticky přepne zpět na pero
+    shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
   themeModes:
     system: Systémový
     light: Světlý

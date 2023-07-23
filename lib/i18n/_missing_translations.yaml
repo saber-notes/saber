@@ -37,16 +37,6 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 cs:
-  home:
-    titles:
-      browse(OUTDATED): Browse
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 de:
   home:
     titles:
