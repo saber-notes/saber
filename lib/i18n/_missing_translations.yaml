@@ -369,20 +369,20 @@ pt-BR:
 ru:
 tr:
   home:
-    deleteNote(OUTDATED): Delete note
+    deleteNote(OUTDATED): Notu sil
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder(OUTDATED): Klasörü sil
+      deleteName(OUTDATED): $f silinecek
+      delete(OUTDATED): Sil
+      alsoDeleteContents(OUTDATED): Bu klasördeki tüm notları da sil
   settings:
     prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra kaleme geç
+      hideFingerDrawingToggle(OUTDATED): Parmakla çizme kilidini sakla
     prefDescriptions:
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
+        shown(OUTDATED): Yanlışlıkla değiştirilmesini engeller
+        fixedOn(OUTDATED): Parmakla çizim izni verildi ve sabitlendi
+        fixedOff(OUTDATED): Parmakla çizim izni verilmedi ve sabitlendi
 zh-Hans-CN:
 zh-Hant-TW:
