@@ -270,7 +270,7 @@ We have 2 formats for app store descriptions:
        before the `</description>` closing tag, add a line for your translation
        with the following format where `XX` is your locale code:
     ```html
-    <p language="XX">Your translation</p>
+    <p xml:lang="XX">Your translation</p>
     ```
 
    iii. In the same file, you can translate the changelogs by doing the same
