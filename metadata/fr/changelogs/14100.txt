@@ -1,0 +1,3 @@
+• Correction des traits d'annulation/rétablissement
+• La couleur actuelle est maintenant affichée dans la barre d'outils sans avoir à ouvrir la barre de couleurs
+• Améliorations mineures de l'aspect visuel et des performances

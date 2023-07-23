@@ -1,0 +1,3 @@
+• Trazos fijos para deshacer/rehacer
+• El color actual ahora se muestra en la barra de herramientas sin tener que abrir la barra de colores
+• Mejoras visuales y de rendimiento menores

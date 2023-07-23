@@ -1,0 +1,3 @@
+• Rögzített visszavonási/újrahúzás
+• Az aktuális szín most megjelenik az eszköztáron anélkül, hogy meg kellene nyitnia a színsávot
+• Kisebb vizuális és teljesítménybeli fejlesztések

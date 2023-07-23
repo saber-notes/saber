@@ -1,0 +1,3 @@
+• Fixed undoing/redoing strokes
+• The current color is now displayed in the toolbar without having to open the color bar
+• Minor visual and performance improvements
