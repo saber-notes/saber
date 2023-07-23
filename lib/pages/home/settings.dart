@@ -316,6 +316,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.disableEraserAfterUse,
+                subtitle: t.settings.prefDescriptions.disableEraserAfterUse,
                 icon: FontAwesomeIcons.eraser,
                 pref: Prefs.disableEraserAfterUse,
               ),
@@ -364,7 +365,6 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorAutoInvert,
-                subtitle: t.settings.prefDescriptions.editorAutoInvert,
                 iconBuilder: (b) {
                   return b ? Icons.invert_colors_on : Icons.invert_colors_off;
                 },
@@ -419,6 +419,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   axis: CollapsibleAxis.vertical,
                   child: SettingsSwitch(
                     title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
+                    subtitle: t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
                     icon: Icons.system_security_update_warning,
                     pref: _SettingsPrefs.shouldAlwaysAlertForUpdates,
                   ),

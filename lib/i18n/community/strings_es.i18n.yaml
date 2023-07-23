@@ -55,7 +55,6 @@ settings:
     customAccentColor: Color de acento personalizado
     hyperlegibleFont: Fuente hiperlegible
     shouldCheckForUpdates: Buscar actualizaciones de Saber automáticamente
-    shouldAlwaysAlertForUpdates: Avísame sobre nuevas actualizaciones tan pronto como estén disponibles
     changeAdsConsent(OUTDATED): Cambiar consentimiento de anuncios
     editorToolbarAlignment: Alineación de la barra de herramientas del editor
     editorToolbarShowInFullscreen: Mostrar la barra de herramientas del editor en el modo de pantalla completa
@@ -72,11 +71,9 @@ settings:
     disableAds(OUTDATED): Desactivar los anuncios
     allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
     autosaveDelay(OUTDATED): Retraso de guardado automático
-    disableEraserAfterUse(OUTDATED): Vuelva al lápiz después de usar el borrador
     hideFingerDrawingToggle(OUTDATED): Ocultar el interruptor de dibujo del dedo
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
-    editorAutoInvert: Oscurece inteligentemente las notas en el modo oscuro
     editorOpaqueBackgrounds: Elimina la transparencia de las imágenes de fondo y los archivos PDF
     preferGreyscale: Para pantallas con tinta electrónica
     autoClearWhiteboardOnExit: Aún se sincronizará con tus otros dispositivos

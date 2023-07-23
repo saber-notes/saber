@@ -55,7 +55,6 @@ settings:
     customAccentColor: لون التمييز المخصص
     hyperlegibleFont: Hyperlegible خط
     shouldCheckForUpdates: تحقق تلقائيًا من وجود تحديثات Saber
-    shouldAlwaysAlertForUpdates: أخبرني عن التحديثات بمجرد توفرها
     changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     editorToolbarAlignment: محاذاة شريط أدوات المحرر
     editorToolbarShowInFullscreen: أظهر شريط أدوات المحرر في وضع ملء الشاشة
@@ -72,11 +71,9 @@ settings:
     disableAds(OUTDATED): عطل الاعلانات
     allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
     autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
-    disableEraserAfterUse(OUTDATED): عد إلى القلم بعد استخدام الممحاة
     hideFingerDrawingToggle(OUTDATED): إخفاء تبديل رسم الإصبع
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
-    editorAutoInvert: يعمل على تعتيم الملاحظات بذكاء في الوضع المظلم
     editorOpaqueBackgrounds: قم بإزالة الشفافية من صور الخلفية وملفات PDF
     preferGreyscale: لشاشات الحبر الإلكتروني
     autoClearWhiteboardOnExit: ستظل متزامنة مع أجهزتك الأخرى

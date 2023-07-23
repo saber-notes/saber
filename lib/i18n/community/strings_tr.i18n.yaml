@@ -55,7 +55,6 @@ settings:
     customAccentColor: Farklı ana renk
     hyperlegibleFont: Hyperlegible font
     shouldCheckForUpdates: Otomatik olarak Saber güncellemelerini kontrol et
-    shouldAlwaysAlertForUpdates: Bir güncelleme mevcut olduğunda uyar
     disableAds: Reklamları devre dışı bırak
     changeAdsConsent: Reklam iznini değiştir
     allowInsecureConnections: Güvensiz bağlantılara izin ver
@@ -67,7 +66,6 @@ settings:
     editorStraightenLines: Bir çizgiyi düzleştirmek için basılı tut
     maxImageSize: Maksimum görsel boyutu
     autoClearWhiteboardOnExit: Uygulamadan çıkıldığında beyaz tahtayı temizle
-    disableEraserAfterUse: Silgiyi kullandıktan sonra kaleme geç
     hideFingerDrawingToggle: Parmakla çizme kilidini sakla
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
@@ -78,7 +76,6 @@ settings:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
     allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
-    editorAutoInvert: Karanlık modda notların rengini değiştirir
     editorOpaqueBackgrounds: PDF'ler ve arkaplan resimlerinden transparanlığı kaldırır
     preferGreyscale: E-mürekkep ekranlar için
     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek

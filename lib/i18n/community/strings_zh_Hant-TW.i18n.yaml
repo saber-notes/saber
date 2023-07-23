@@ -55,7 +55,6 @@ settings:
     customAccentColor: 自訂主題色
     hyperlegibleFont: 易讀字體
     shouldCheckForUpdates: 自動檢查 Saber 更新
-    shouldAlwaysAlertForUpdates: 一有更新就告訴我
     disableAds: 禁用廣告
     changeAdsConsent: 修改廣告同意書
     allowInsecureConnections: 允許不安全的連結
@@ -67,7 +66,6 @@ settings:
     editorStraightenLines: 按住拉直線條
     maxImageSize: 最大圖片尺寸
     autoClearWhiteboardOnExit: 退出應用程式後清除白板
-    disableEraserAfterUse: 使用橡皮擦後切換回筆
     hideFingerDrawingToggle: 隱藏手指繪圖切換開關
     editorPromptRename: 提醒您重新命名新筆記
     hideHomeBackgrounds: 隱藏主畫面上的背景
@@ -78,7 +76,6 @@ settings:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
     allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
-    editorAutoInvert: 在深色模式下自動使用反色筆記背景
     editorOpaqueBackgrounds: 去除背景圖片和PDF的透明度
     preferGreyscale: 用於電子紙螢幕
     autoClearWhiteboardOnExit: 它仍會同步到您的其他裝置

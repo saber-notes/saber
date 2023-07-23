@@ -55,7 +55,6 @@ settings:
     customAccentColor: Vlastní barevný odstín
     hyperlegibleFont: Lépe čitelný font
     shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
-    shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
     disableAds: Vypnout reklamy
     changeAdsConsent: Změnit předvolby pro reklamy
     allowInsecureConnections: Povolit nezabezpečená připojení
@@ -67,7 +66,6 @@ settings:
     editorStraightenLines: Pro kreslení rovné čáry stisknout a podržet
     maxImageSize: Maximální velikost obrázku
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
-    disableEraserAfterUse: Po použití gumy přepnout zpět na pero
     hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
@@ -78,7 +76,6 @@ settings:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
-    editorAutoInvert: Inteligentně ztmaví poznámky ve tmavém motivu
     editorOpaqueBackgrounds: Odstraní průhlednost z obrázků a PDF na pozadí
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení

@@ -55,7 +55,6 @@ settings:
     customAccentColor: Свой цвет акцента
     hyperlegibleFont: Гипер разборчивый шрифт
     shouldCheckForUpdates: Автоматически проверять обновления Saber
-    shouldAlwaysAlertForUpdates: "Сообщать об обновлениях, как только они станут доступны"
     disableAds: Отключить рекламу
     changeAdsConsent: Согласие на рекламу
     allowInsecureConnections: Разрешить небезопасные соединения
@@ -67,7 +66,6 @@ settings:
     editorStraightenLines: "Нажать и удерживать, чтобы выпрямить линию"
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
-    disableEraserAfterUse: "Переключаться на ручку, после использования ластика"
     hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
@@ -78,7 +76,6 @@ settings:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
-    editorAutoInvert: Интеллектуально затемнять заметки в тёмном режиме
     editorOpaqueBackgrounds: Удалить прозрачность фоновых изображений и PDF-файлов
     preferGreyscale: Для e-ink экранов
     autoClearWhiteboardOnExit: Это будет синхронизировано с другими вашими устройствами

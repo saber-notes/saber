@@ -55,7 +55,6 @@ settings:
     customAccentColor: Colore personalizzato
     hyperlegibleFont: Carattere iperleggibile
     shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
-    shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
     disableAds: Disattiva annunci
     changeAdsConsent: Modifica il consenso agli annunci
     allowInsecureConnections: Consenti connessioni non sicure
@@ -67,7 +66,6 @@ settings:
     editorStraightenLines: Tenere premuto per raddrizzare una linea
     maxImageSize: Dimensione massima dell'immagine
     autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
-    disableEraserAfterUse: Ritorna alla penna dopo aver usato la gomma
     hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
     editorPromptRename: Richiede di rinominare nuove note
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
@@ -78,7 +76,6 @@ settings:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
-    editorAutoInvert: Scurisce in modo intelligente le note in modalità scura
     editorOpaqueBackgrounds: Rimuovi la trasparenza dalle immagini di sfondo e dai PDF
     preferGreyscale: Per display e-ink
     autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi

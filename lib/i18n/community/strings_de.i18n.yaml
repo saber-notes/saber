@@ -55,7 +55,6 @@ settings:
     customAccentColor: Benutzerdefinierte Akzentfarbe
     hyperlegibleFont: Hyperlesbare Schrift
     shouldCheckForUpdates: Suche automatisch nach Saber-Aktualisierungen
-    shouldAlwaysAlertForUpdates: "Benachrichtige mich, sobald eine neue Version verfügbar ist"
     disableAds: Werbung deaktivieren
     changeAdsConsent: Werbungsinhalt anpassen
     allowInsecureConnections: Unsichere Verbindung erlauben
@@ -72,13 +71,11 @@ settings:
     dontSavePresetColors: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     printPageIndicators: Seitennummerierung drucken
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
-    disableEraserAfterUse(OUTDATED): Wechseln Sie nach der Verwendung des Radiergummis wieder zum Stift
     hideFingerDrawingToggle(OUTDATED): Blenden Sie den Fingerzeichnungsschalter aus
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
     allowInsecureConnections: (Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
-    editorAutoInvert: Verdunkelt intelligent die Notizen im Dunkelmodus
     editorOpaqueBackgrounds: Hintergrundbilder und PDFs undurchsichtig machen
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert

@@ -55,7 +55,6 @@ settings:
     customAccentColor: オリジナルの色
     hyperlegibleFont: Hyperlegible フォント
     shouldCheckForUpdates: Saberの更新を自動的に確認する
-    shouldAlwaysAlertForUpdates: 更新があればすぐに通知をする
     disableAds: 広告を表示しない
     changeAdsConsent: 広告の同意を変更する
     allowInsecureConnections: 安全でない接続を許可する
@@ -72,13 +71,11 @@ settings:
     dontSavePresetColors: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
     autosaveDelay(OUTDATED): 自動保存の遅延
-    disableEraserAfterUse(OUTDATED): 消しゴムを使用した後はペンに戻ります
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     disableAds: 広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です
     allowInsecureConnections: (非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする
-    editorAutoInvert: ダークモードでメモを自然に暗くする
     editorOpaqueBackgrounds: 背景画像とPDFから透明度を削除する
     preferGreyscale: e-inkディスプレイ用
     autoClearWhiteboardOnExit: 他のデバイスと同期されます

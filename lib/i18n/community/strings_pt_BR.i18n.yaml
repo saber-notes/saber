@@ -55,7 +55,6 @@ settings:
     customAccentColor: Cor de destaque personalizada
     hyperlegibleFont: Fonte hiperlegível
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
-    shouldAlwaysAlertForUpdates: Me informe sobre as atualizações assim que elas estiverem disponíveis
     disableAds: Desativar anúncios
     changeAdsConsent: Alterar o consentimento de anúncios
     allowInsecureConnections: Permitir conexões inseguras
@@ -72,13 +71,11 @@ settings:
     dontSavePresetColors: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
-    disableEraserAfterUse(OUTDATED): Volte para a caneta depois de usar o apagador
     hideFingerDrawingToggle(OUTDATED): Ocultar a alternância de desenho de dedo
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
-    editorAutoInvert: Escurecer as notas de forma inteligente no modo escuro
     editorOpaqueBackgrounds: Remover a transparência das imagens de plano de fundo e dos PDFs
     preferGreyscale: Para telas e-ink
     autoClearWhiteboardOnExit: Ainda será sincronizado com seus outros dispositivos

@@ -54,7 +54,6 @@ settings:
     customAccentColor: Couleur d'accentuation personnalisée
     hyperlegibleFont: Fonte Hyperlegible
     shouldCheckForUpdates: Rechercher automatiquement les mises à jour
-    shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
     changeAdsConsent(OUTDATED): Modifier le consentement des annonces
     editorToolbarAlignment: Position de la barre d'outils
     editorToolbarShowInFullscreen: Afficher la barre d'outils en mode plein écran
@@ -72,11 +71,9 @@ settings:
     disableAds(OUTDATED): Désactiver les publicités
     allowInsecureConnections(OUTDATED): Autoriser les connexions non sécurisées
     autosaveDelay(OUTDATED): Délai de sauvegarde automatique
-    disableEraserAfterUse(OUTDATED): Revenez au stylet après avoir utilisé la gomme
     hideFingerDrawingToggle(OUTDATED): Masquer la bascule de dessin au doigt
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
-    editorAutoInvert: Assombrit les notes de façon intelligente en mode sombre
     editorOpaqueBackgrounds: Supprime la transparence du fond dans les images et les PDF
     preferGreyscale: Pour les couleurs de stylos proposées
     autoClearWhiteboardOnExit: Il restera synchronisé avec vos autres appareils

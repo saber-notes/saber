@@ -54,7 +54,6 @@ settings:
     customAccentColor: Egyéni akcentusszín
     hyperlegibleFont: Hyperlegible betűtipus
     shouldCheckForUpdates: Automatikusan ellenőrzi a Saber frissítéseket
-    shouldAlwaysAlertForUpdates: "Értesítsen a frissítésekről, amint azok elérhetővé válnak"
     changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     editorToolbarAlignment: A szerkesztő eszköztár igazítása
     editorToolbarShowInFullscreen: A szerkesztő eszköztár megjelenítése teljes képernyős módban
@@ -72,11 +71,9 @@ settings:
     printPageIndicators(OUTDATED): Nyomtatási oldaljelzők
     allowInsecureConnections(OUTDATED): Engedélyezze a nem biztonságos kapcsolatokat
     autosaveDelay(OUTDATED): Auto-save késleltetés
-    disableEraserAfterUse(OUTDATED): "Váltson vissza a tollra, miután a törölőt használja"
     hideFingerDrawingToggle(OUTDATED): Az ujjrajzolás kapcsoló elrejtése
   prefDescriptions:
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
-    editorAutoInvert: Intelligens módon sötétíti a jegyzeteket sötét módban
     editorOpaqueBackgrounds: Átlátszóság eltávolítása a háttérképről és a PDF-ekből
     preferGreyscale: E-tinta kijelzőkhöz
     autoClearWhiteboardOnExit: Továbbra is szinkronizálva lesz a többi eszközzel
