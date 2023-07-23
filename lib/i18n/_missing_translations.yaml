@@ -368,21 +368,5 @@ pt-BR:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
 ru:
 tr:
-  home:
-    deleteNote(OUTDATED): Delete note
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefLabels:
-      disableEraserAfterUse(OUTDATED): Switch back to the pen after using the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-    prefDescriptions:
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
 zh-Hans-CN:
 zh-Hant-TW:

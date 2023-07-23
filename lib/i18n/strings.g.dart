@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3420 (228 per locale)
 ///
-/// Built on 2023-07-21 at 22:47 UTC
+/// Built on 2023-07-23 at 15:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9001,8 +9001,8 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderTr newFolder = _StringsHomeNewFolderTr._(_root);
 	@override late final _StringsHomeRenameNoteTr renameNote = _StringsHomeRenameNoteTr._(_root);
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
-	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
 	@override String get deleteNote => 'Notu sil';
+	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
 }
 
 // Path: settings
@@ -9208,9 +9208,9 @@ class _StringsHomeDeleteFolderTr extends _StringsHomeDeleteFolderEn {
 
 	// Translations
 	@override String get deleteFolder => 'Klasörü sil';
-	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da silin';
-	@override String get delete => 'Silmek';
-	@override String deleteName({required Object f}) => '${f}\'yi sil';
+	@override String deleteName({required Object f}) => '${f} silinecek';
+	@override String get delete => 'Sil';
+	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
 }
 
 // Path: settings.prefCategories
@@ -9252,13 +9252,13 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
 	@override String get maxImageSize => 'Maksimum görsel boyutu';
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
+	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra kaleme geç';
+	@override String get hideFingerDrawingToggle => 'Parmakla çizme kilidini sakla';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
-	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra kaleme geri dönün';
-	@override String get hideFingerDrawingToggle => 'Parmakla çizim geçişini gizle';
 }
 
 // Path: settings.prefDescriptions
@@ -9276,11 +9276,11 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingTr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingTr._(_root);
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingTr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingTr._(_root);
 }
 
 // Path: settings.themeModes
@@ -9655,9 +9655,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingTr extends _StringsSettin
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOff => 'Parmakla çizim devre dışı olarak sabitlendi';
-	@override String get shown => 'Yanlışlıkla değiştirmeyi önler';
-	@override String get fixedOn => 'Parmakla çizim etkin olarak sabitlendi';
+	@override String get shown => 'Yanlışlıkla değiştirilmesini engeller';
+	@override String get fixedOn => 'Parmakla çizim izni verildi ve sabitlendi';
+	@override String get fixedOff => 'Parmakla çizim izni verilmedi ve sabitlendi';
 }
 
 // Path: editor.menu.boxFits
