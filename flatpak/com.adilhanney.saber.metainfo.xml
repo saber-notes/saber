@@ -115,6 +115,77 @@
         <p xml:lang="zh-Hant-TW">
             使用Saber發現一種捕捉和組織想法的全新方式。無論您是學生、專業人士還是創意人士，Saber都是您值得信賴的數位手寫伴侶。立即下載，讓您的想法自由發揮！
         </p>
+
+        <p xml:lang="cs">
+            Z pozice vývojáře aplikace Saber vám s nadšením představuji
+            aplikaci, která je revolucí v pořizování poznámek. Saber je
+            ultimátní aplikace pro pořizování ručně psaných poznámek
+            navržená tak, aby pozvedla zážitek z psaní poznámek do nových
+            výšin! Uchopte umění rukopisu a nechte promluvit svou
+            kreativitu díky této funkcemi nabité aplikaci, jenž je
+            poháněna nejmodernějšími technologiemi. Díky intuitivnímu
+            a modernímu prostředí vám Saber umožní přesně a bez námahy
+            zaznamenávat poznámky, kreslit diagramy nebo vepisovat
+            informace do PDF.
+        </p>
+        <p xml:lang="cs">
+            Když jsem začínal si začínal dělat digitální poznámky, nemohl
+            jsem najít žádnou aplikaci zaměřenou na soukromí a otevřený
+            zdrojový kód, která by splnila mé požadavky, takže jsem
+            nakonec musel používat proprietární aplikaci. Rozhodl jsem se
+            vytvořit Saber, abych dal lidem možnost volby v podobě
+            aplikace orientované na soukromí a otevřený zdrojový kód,
+            které mohou důvěřovat. Saber má kompletně otevřený zdrojový
+            kód, což znamená, že si ho může kdokoliv zkontrolovat
+            a ujistit se, že je bezpečný a dbá na soukromí. Saber šifruje
+            vaše data, která můžete synchronizovat na jakýkoliv
+            kompatibilní server dle vlastní volby, čímž vám dává plnou
+            kontrolu nad vašimi daty.
+        </p>
+        <p xml:lang="cs">
+            Přejete si udělat poznámky na tabletu a přesunout je do
+            počítače? Nebo preferujete psaní poznámek na notebooku
+            a následně je doplňujete na tabletu? Ať již s poznámkami
+            pracujete jakkoliv, Saber váš případ užití pokryje díky
+            podpoře řady platforem umožňující k poznámkám přistupovat
+            kdykoliv, odkudkoliv a z jakéhokoliv zařízení. Saber je
+            k dispozici pro Android, iOS, Windows, macOS a Linux s tím,
+            že vaše poznámky automaticky synchronizuje napříč všemi
+            zařízeními. Pokud nemáte zpřipojení k internetu, Saber
+            poznámky automaticky synchronizuje, jakmile budete zase
+            připojeni.
+        </p>
+        <p xml:lang="cs">
+            Saber nabízí nejlepší digitální zvýrazňovač, jaký jste kdy
+            používali. Potřebovali jste někdy zvýraznit více řádků,
+            ale nesnášíte překrývání tahů zvýrazňovače, které mění
+            barvu? Saber překrytí řeší pomocí pokročilého grafického
+            zpracování, díky němuž udržuje konzistenci barev
+            a poskytuje vám lepší zážitek z použití zvýrazňovače než
+            u tradičního papíru.
+        </p>
+        <p xml:lang="cs">
+            Saber má vše, co potřebujete pro to, abyste udržely poznámky
+            organizované. Vytvořte si složky ve složkách ve složkách pro
+            váš vysněný obsah bez omezení počtu zanořených složek.
+            I když může být poznámka pohřbená v hluboko zanořené složce,
+            pořád k ní máte jednoduchý přístup z naposledy upravovaných
+            poznámek na hlavní obrazovce.
+        </p>
+        <p xml:lang="cs">
+            Saber dokáže vhodně invertovat vaše poznámky, pokud máte
+            aktivní tmavý režim. To znamená, že můžete zakusit
+            plnohodnotnou zkušenost pořizování poznámek v temném režimu,
+            a to včetně obrázků, pro uklidňující a jednotné rozhraní
+            v prostředí s nízkou úrovní světla.
+        </p>
+        <p xml:lang="cs">
+            Objevte úplně nové možnosti zachycování a organizování
+            myšlenek s aplikací Saber. Ať už jste student, profesionál
+            či kreativní duše, Saber je váš důvěrný společník pro
+            digitální ruční psaní. Stáhněte si jej nyní a nechte volně
+            plynout své nápady!
+        </p>
     </description>
 
     <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>

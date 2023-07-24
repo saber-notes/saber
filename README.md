@@ -1,5 +1,7 @@
 # <img src="https://github.com/adil192/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
+You can read this file in: [English](https://github.com/adil192/saber/blob/main/README.md), [Czech](https://github.com/adil192/saber/blob/main/README-cs.md)
+
 As the developer of Saber, I am thrilled to introduce you to an app that revolutionizes the way you take notes. Saber is the ultimate handwritten notetaking app designed to elevate your note-taking experience to new heights! Embrace the art of handwriting and unleash your creativity with this feature-rich application, powered by cutting-edge technologies. Saber's intuitive and modern interface makes it effortless to jot down notes, draw diagrams, or annotate PDFs with precision.
 
 As I was beginning to make digital notes, I couldn't find any private open-source apps that fit my requirements so I ended up having to use a proprietary app. I decided to create Saber to give people a choice of a private open-source app that they can trust. Saber is completely open-source, meaning that anyone can audit the code to ensure that it is secure and private. Saber encrypts your data and can sync to any compatible server of your choice, giving you complete control over your data.
