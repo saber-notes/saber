@@ -6,7 +6,7 @@ home:
     settings: 设置
   titles:
     home: 最近笔记
-    browse(OUTDATED): 全部笔记
+    browse: 浏览
     whiteboard: 白板
     settings: 设置
   tooltips:
@@ -55,6 +55,7 @@ settings:
     customAccentColor: 自定义主题色
     hyperlegibleFont: 易读字体
     shouldCheckForUpdates: 自动检查 Saber 更新
+    shouldAlwaysAlertForUpdates: 更快的更新提醒
     disableAds: 禁用广告
     changeAdsConsent: 更改广告许可
     allowInsecureConnections: 允许不安全的连接
@@ -66,14 +67,13 @@ settings:
     editorStraightenLines: 按住拉直线段
     maxImageSize: 最大图片大小
     autoClearWhiteboardOnExit: 离开应用后清除白板
+    disableEraserAfterUse: 自动禁用橡皮擦
     hideFingerDrawingToggle: 隐藏 切换手指绘制
     editorPromptRename: 提示您重命名新笔记
     hideHomeBackgrounds: 在主页隐藏背景
     dontSavePresetColors: 不在最近使用的颜色中保存预设颜色
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
-    disableEraserAfterUse(OUTDATED): 自动禁用橡皮擦
-    shouldAlwaysAlertForUpdates(OUTDATED): 更新速度更快
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -81,6 +81,7 @@ settings:
     editorOpaqueBackgrounds: 移除背景图像和 PDF 的透明度
     preferGreyscale: 用于电子墨水显示器
     autoClearWhiteboardOnExit: 这将会同步到您的其他设备
+    disableEraserAfterUse: 使用橡皮擦后自动切换回笔
     maxImageSize: 更大的图片将会被压缩
     hideFingerDrawing:
       shown: 防止意外切换
@@ -90,8 +91,7 @@ settings:
     hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
-    disableEraserAfterUse(OUTDATED): 使用橡皮擦后自动切换回笔
-    shouldAlwaysAlertForUpdates(OUTDATED): 一旦有更新请告诉我
+    shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
   themeModes:
     system: 系统
     light: 浅色
