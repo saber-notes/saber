@@ -13,9 +13,9 @@ extension PointExtensions on Point {
   );
 
   Map<String, dynamic> toJson() => {
-    'x': x,
-    'y': y,
-    'p': p,
+    'x': double.parse(x.toStringAsFixed(4)),
+    'y': double.parse(y.toStringAsFixed(4)),
+    'p': double.parse(p.toStringAsFixed(8)),
   };
 
   Point operator +(Offset offset) => Point(
