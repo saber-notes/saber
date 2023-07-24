@@ -1,0 +1,13 @@
+As the developer of Saber, I am thrilled to introduce you to an app that revolutionizes the way you take notes. Saber is the ultimate handwritten notetaking app designed to elevate your note-taking experience to new heights! Embrace the art of handwriting and unleash your creativity with this feature-rich application, powered by cutting-edge technologies. Saber's intuitive and modern interface makes it effortless to jot down notes, draw diagrams, or annotate PDFs with precision.
+
+As I was beginning to make digital notes, I couldn't find any private open-source apps that fit my requirements so I ended up having to use a proprietary app. I decided to create Saber to give people a choice of a private open-source app that they can trust. Saber is completely open-source, meaning that anyone can audit the code to ensure that it is secure and private. Saber encrypts your data and can sync to any compatible server of your choice, giving you complete control over your data.
+
+Do you like to make notes on a tablet then transfer them to your computer? Or perhaps you prefer to type your notes on a laptop and then annotate them on a tablet? Whatever your workflow, Saber has you covered with its multi-platform support, allowing you to access your notes anytime, anywhere, on any device. Saber is available on Android, iOS, Windows, macOS, and Linux, with your notes automatically synchronized across all your devices. And if you're offline, Saber will automatically sync your notes when you're back online.
+
+Saber features the best digital highlighter you've ever used. Have you ever needed to highlight multiple lines but hated the way the highlighter would overlap and change color? Saber utilizes advanced graphics processing to handle overlaps and maintain pen color consistency, giving you a highlighter experience better than traditional paper.
+
+Saber has everything you need to keep your notes organized. Create folders inside folders inside folders to your heart's content with no limit on the number of nested folders. And even though a note may be buried deep within a nested folder, you can still access it easily with your most recent notes always available on the home screen.
+
+Saber can intelligently invert your notes when you're in dark mode. This means that you can experience the entire note-taking experience in dark mode, including your images, for a soothing and cohesive interface in low-light environments.
+
+Discover a whole new way to capture and organize your thoughts with Saber. Whether you're a student, professional, or creative mind, Saber is your trusted companion for digital handwriting. Download now and let your ideas flow freely!
