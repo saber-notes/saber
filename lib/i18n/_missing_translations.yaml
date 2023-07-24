@@ -440,13 +440,3 @@ zh-Hans-CN:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 zh-Hant-TW:
-  home:
-    titles:
-      browse(OUTDATED): 瀏覽
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): 更快的更新
-      disableEraserAfterUse(OUTDATED): 自動禁用橡皮擦
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): 使用橡皮擦後自動切換回筆
-      shouldAlwaysAlertForUpdates(OUTDATED): 一旦有更新請告訴我
