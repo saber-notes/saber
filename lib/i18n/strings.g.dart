@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3435 (229 per locale)
 ///
-/// Built on 2023-07-23 at 20:00 UTC
+/// Built on 2023-07-24 at 17:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10625,7 +10625,7 @@ class _StringsHomeTitlesZhHantTw extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => '最近筆記';
-	@override String get browse => '全部筆記';
+	@override String get browse => '瀏覽';
 	@override String get whiteboard => '白板';
 	@override String get settings => '設定';
 }
@@ -10724,6 +10724,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => '自訂主題色';
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
+	@override String get shouldAlwaysAlertForUpdates => '更快的更新';
 	@override String get disableAds => '禁用廣告';
 	@override String get changeAdsConsent => '修改廣告同意書';
 	@override String get allowInsecureConnections => '允許不安全的連結';
@@ -10735,14 +10736,13 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => '按住拉直線條';
 	@override String get maxImageSize => '最大圖片尺寸';
 	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
+	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
 	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
-	@override String get shouldAlwaysAlertForUpdates => '更新速度更快';
-	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
 }
 
 // Path: settings.prefDescriptions
@@ -10758,13 +10758,13 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get editorOpaqueBackgrounds => '去除背景圖片和PDF的透明度';
 	@override String get preferGreyscale => '用於電子紙螢幕';
 	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
+	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
-	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 }
 
