@@ -418,15 +418,5 @@ ru:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 tr:
-  home:
-    titles:
-      browse(OUTDATED): Göz at
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Hızlı güncellemeler
-      disableEraserAfterUse(OUTDATED): Silgiden kaleme geçiş
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra otomatik olarak kaleme geçer
-      shouldAlwaysAlertForUpdates(OUTDATED): Güncelleme mevcut olduğu gibi bana haber ver
 zh-Hans-CN:
 zh-Hant-TW:

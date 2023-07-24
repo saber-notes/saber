@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3435 (229 per locale)
 ///
-/// Built on 2023-07-24 at 17:08 UTC
+/// Built on 2023-07-24 at 19:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9252,6 +9252,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Farklı ana renk';
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
+	@override String get shouldAlwaysAlertForUpdates => 'Hızlı güncellemeler';
 	@override String get disableAds => 'Reklamları devre dışı bırak';
 	@override String get changeAdsConsent => 'Reklam iznini değiştir';
 	@override String get allowInsecureConnections => 'Güvensiz bağlantılara izin ver';
@@ -9263,14 +9264,13 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
 	@override String get maxImageSize => 'Maksimum görsel boyutu';
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
+	@override String get disableEraserAfterUse => 'Silgiden kaleme geçiş';
 	@override String get hideFingerDrawingToggle => 'Parmakla çizme kilidini sakla';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
-	@override String get shouldAlwaysAlertForUpdates => 'Daha hızlı güncellemeler';
-	@override String get disableEraserAfterUse => 'Silgiyi otomatik devre dışı bırak';
 }
 
 // Path: settings.prefDescriptions
@@ -9286,14 +9286,14 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get editorOpaqueBackgrounds => 'PDF\'ler ve arkaplan resimlerinden transparanlığı kaldırır';
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
+	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra otomatik olarak kaleme geçer';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingTr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingTr._(_root);
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
-	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra otomatik olarak kaleme geri döner';
-	@override String get shouldAlwaysAlertForUpdates => 'Güncellemeler gelir gelmez bana haber ver';
+	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 }
 
 // Path: settings.themeModes

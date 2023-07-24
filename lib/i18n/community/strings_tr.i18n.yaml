@@ -6,7 +6,7 @@ home:
     settings: Ayarlar
   titles:
     home: Son notlar
-    browse(OUTDATED): Göz at
+    browse: Göz at
     whiteboard: Beyaz tahta
     settings: Ayarlar
   tooltips:
@@ -55,6 +55,7 @@ settings:
     customAccentColor: Farklı ana renk
     hyperlegibleFont: Hyperlegible font
     shouldCheckForUpdates: Otomatik olarak Saber güncellemelerini kontrol et
+    shouldAlwaysAlertForUpdates: Hızlı güncellemeler
     disableAds: Reklamları devre dışı bırak
     changeAdsConsent: Reklam iznini değiştir
     allowInsecureConnections: Güvensiz bağlantılara izin ver
@@ -66,14 +67,13 @@ settings:
     editorStraightenLines: Bir çizgiyi düzleştirmek için basılı tut
     maxImageSize: Maksimum görsel boyutu
     autoClearWhiteboardOnExit: Uygulamadan çıkıldığında beyaz tahtayı temizle
+    disableEraserAfterUse: Silgiden kaleme geçiş
     hideFingerDrawingToggle: Parmakla çizme kilidini sakla
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
     dontSavePresetColors: Ön tanımlı renkleri son kullanılanlara kaydetme
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
-    shouldAlwaysAlertForUpdates(OUTDATED): Daha hızlı güncellemeler
-    disableEraserAfterUse(OUTDATED): Silgiyi otomatik devre dışı bırak
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -81,6 +81,7 @@ settings:
     editorOpaqueBackgrounds: PDF'ler ve arkaplan resimlerinden transparanlığı kaldırır
     preferGreyscale: E-mürekkep ekranlar için
     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek
+    disableEraserAfterUse: Silgiyi kullandıktan sonra otomatik olarak kaleme geçer
     maxImageSize: Bundan daha büyük görseller sıkıştırılacak
     hideFingerDrawing:
       shown: Yanlışlıkla değiştirilmesini engeller
@@ -90,8 +91,7 @@ settings:
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
-    disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra otomatik olarak kaleme geri döner
-    shouldAlwaysAlertForUpdates(OUTDATED): Güncellemeler gelir gelmez bana haber ver
+    shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
   themeModes:
     system: Sistem teması
     light: Aydınlık
