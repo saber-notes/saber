@@ -1159,7 +1159,7 @@ packages:
     source: hosted
     version: "0.5.0"
   super_native_extensions:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: super_native_extensions
       sha256: "6b1604db25ca6072fe7c0e4eddf8cf5bcdbdfa9bd2fd06922e03700e6630103e"
