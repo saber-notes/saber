@@ -6,6 +6,7 @@ Name=Saber
 Comment=A cross-platform libre handwritten notes app.
 Comment[cs]=Volně dostupná multiplatformní aplikace pro ručně psané poznámky
 Comment[ru]=Рукописные заметки
+Comment[zh_CN]=手写笔记
 Comment[zh_TW]=一款開放的的跨平臺手寫筆記應用程式
 Categories=Office;WordProcessor;
 
