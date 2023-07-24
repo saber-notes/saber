@@ -420,13 +420,13 @@ ru:
 tr:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): Göz at
   settings:
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Hızlı güncellemeler
+      disableEraserAfterUse(OUTDATED): Silgiden kaleme geçiş
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      disableEraserAfterUse(OUTDATED): Silgiyi kullandıktan sonra otomatik olarak kaleme geçer
+      shouldAlwaysAlertForUpdates(OUTDATED): Güncelleme mevcut olduğu gibi bana haber ver
 zh-Hans-CN:
 zh-Hant-TW:
