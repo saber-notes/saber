@@ -442,11 +442,11 @@ zh-Hans-CN:
 zh-Hant-TW:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): 瀏覽
   settings:
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): 更快的更新
+      disableEraserAfterUse(OUTDATED): 自動禁用橡皮擦
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      disableEraserAfterUse(OUTDATED): 使用橡皮擦後自動切換回筆
+      shouldAlwaysAlertForUpdates(OUTDATED): 一旦有更新請告訴我
