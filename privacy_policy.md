@@ -11,25 +11,32 @@ and the changelogs on the
 
 ## What data does the application use?
 
-Data the application uses includes the user's:
-- Notes (including images and backgrounds)
-- Settings
-- Online cloud service (referred to as "the cloud") credentials including:
-  - the cloud server URI
-  - the user's username
-  - the user's passwords to protect notes
-- Device advertising ID and associated advertising data*
-
 The application seeks to access the least amount of data possible
 and uses a zero-trust approach to cloud storage.
 
-*The Android and iOS versions of the app
-(with the exception of the F-Droid edition)
-are supported by Google AdMob ads including Google's ad network
-and other GDPR-compliant ad networks. You can choose between
-personalized ads and non-personalized ads when you first launch the app,
-or at anytime on the Settings page.
-You can also disable ads completely on the Settings page if you wish.
+Data the application uses includes the user's:
+- Notes (including images and backgrounds): Used for the main functionality of the application
+- In-app settings: Used to customise the application to the user's preferences
+- Online cloud service (referred to as "the cloud") credentials including the server URI, username, and passwords: Used to enable syncing between devices
+- Data used by third-parties (see below)
+
+### Third-party data usage
+
+The application uses third-party services to provide certain features.
+
+#### Google AdMob
+
+Certain versions of the application are supported by Google AdMob ads including Google's ad network
+and other GDPR-compliant ad networks:
+- The iOS version available on the App Store
+- The Android version available on the Google Play Store
+- The Android version available from the repo's [Releases](https://github.com/adil192/saber/releases) page on GitHub
+
+Note that the Android version available on F-Droid does not use Google AdMob or contain ads.
+
+AdMob may collect data about you, including your device's advertising ID, IP address, and location. You can read more about [how Google uses data from apps that use their services](https://policies.google.com/technologies/partner-sites).
+
+When you first open Saber, you will be asked to choose between personalized ads and non-personalized ads. You can change this at any time on the Settings page, or disable ads completely. 
 
 ## How is the cloud used?
 
