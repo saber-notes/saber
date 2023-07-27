@@ -22,7 +22,7 @@ class MasonryFiles extends StatelessWidget {
     /// List of file paths with ads inserted every [itemsBeforeAd] items
     /// (ads are represented by null).
     final List<String?> files = List.from(this.files);
-    if (AdState.adsSupported && !Prefs.disableAds.value) {
+    if (AdState.adsSupported) {
       int numAds = 0;
       for (int i = itemsBeforeAd; i < files.length; i += itemsBeforeAd) {
         files.insert(i, null);

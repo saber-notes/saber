@@ -80,6 +80,8 @@
 	<true/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1312561055261176~1813171043</string>
+	<key>GADDelayAppMeasurementInit</key>
+	<true/>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

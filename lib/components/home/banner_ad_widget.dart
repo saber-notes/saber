@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:saber/data/prefs.dart';
 
 export 'package:google_mobile_ads/google_mobile_ads.dart' show AdSize;
 
@@ -16,7 +17,9 @@ abstract class AdState {
   static bool get adsSupported => _bannerAdUnitId.isNotEmpty;
 
   static void init() {
-    if (kDebugMode) { // test ads
+    if (Prefs.disableAds.value) {
+      _bannerAdUnitId = '';
+    } else if (kDebugMode) { // test ads
       if (Platform.isAndroid) {
         _bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';
       } else if (Platform.isIOS) {
