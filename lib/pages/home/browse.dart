@@ -171,7 +171,7 @@ class _BrowsePageState extends State<BrowsePage> {
       floatingActionButton: FloatingActionButton(
         shape: cupertino ? const CircleBorder() : null,
         onPressed: () async {
-          final newFilePath = await FileManager.newFilePath(path ?? '/');
+          final newFilePath = await FileManager.newFilePath('${path ?? ''}/');
           if (!mounted) return;
           context.push(RoutePaths.editFilePath(newFilePath));
         },
