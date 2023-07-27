@@ -82,6 +82,8 @@
 	<string>ca-app-pub-1312561055261176~1813171043</string>
 	<key>GADDelayAppMeasurementInit</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
