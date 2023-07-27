@@ -1,0 +1,3 @@
+• Reduced the file size of notes with many strokes
+• Fixed a bug with creating a note in a folder
+• Translations and metadata updates

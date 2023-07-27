@@ -264,6 +264,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.14.11" type="development" date="2023-07-27">
+            <description>
+                <ul>
+                    <li>Reduced the file size of notes with many strokes</li>
+                    <li>Fixed a bug with creating a note in a folder</li>
+                    <li>Translations and metadata updates</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.10" type="development" date="2023-07-23">
             <description>
                 <ul>

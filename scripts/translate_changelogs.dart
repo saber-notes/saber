@@ -40,7 +40,6 @@ void main() async {
   }
 
   final localeCodes = localeNames.keys.toList();
-  localeCodes.shuffle(random);
 
   final String total = localeCodes.length.toString();
 

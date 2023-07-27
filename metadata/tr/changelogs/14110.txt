@@ -1,0 +1,3 @@
+• Çok vuruşlu notların dosya boyutu küçültüldü
+• Bir klasörde not oluşturmayla ilgili bir hata düzeltildi
+• Çeviriler ve meta veri güncellemeleri
