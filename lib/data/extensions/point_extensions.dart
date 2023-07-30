@@ -9,13 +9,14 @@ extension PointExtensions on Point {
   }) => Point(
     json['x'] + offset.dx,
     json['y'] + offset.dy,
-    json['p']
+    json['p'] ?? 0.5,
   );
 
   Map<String, dynamic> toJson() => {
     'x': double.parse(x.toStringAsFixed(4)),
     'y': double.parse(y.toStringAsFixed(4)),
-    'p': double.parse(p.toStringAsFixed(8)),
+    if (p != 0.5)
+      'p': double.parse(p.toStringAsFixed(8)),
   };
 
   Point operator +(Offset offset) => Point(
