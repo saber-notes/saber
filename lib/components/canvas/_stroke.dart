@@ -85,22 +85,25 @@ class Stroke {
     )).toList());
   }
   // json keys should not be the same as the ones in the StrokeProperties class
-  Map<String, dynamic> toJson() => {
-    'f': isComplete,
-    'p': (){
-      if (isStraightLine && points.length > 1) {
-        Point last = snapLineToRightAngle(points.first, points.last);
-        return [
-          points.first.toJson(),
-          last.toJson(),
-          last.toJson(),
-        ];
-      }
-      return points.map((Point point) => point.toJson()).toList();
-    }(),
-    'i': pageIndex,
-    'ty': penType.toString(),
-  }..addAll(strokeProperties.toJson());
+  Map<String, dynamic> toJson() {
+    _optimisePoints();
+    return {
+      'f': isComplete,
+      'p': (){
+        if (isStraightLine && points.length > 1) {
+          Point last = snapLineToRightAngle(points.first, points.last);
+          return [
+            points.first.toJson(),
+            last.toJson(),
+            last.toJson(),
+          ];
+        }
+        return points.map((Point point) => point.toJson()).toList();
+      }(),
+      'i': pageIndex,
+      'ty': penType.toString(),
+    }..addAll(strokeProperties.toJson());
+  }
 
   void addPoint(Offset point, [ double? pressure ]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
@@ -114,6 +117,32 @@ class Stroke {
   void popFirstPoint() {
     points.removeAt(0);
     _polygonNeedsUpdating = true;
+  }
+
+  /// Points that are closer than this
+  /// threshold multiplied by the stroke's size
+  /// will be counted as duplicates.
+  static const double _optimisePointsThreshold = 0.1;
+  /// Removes points that are too close together. See [_optimisePointsThreshold].
+  /// 
+  /// This function is idempotent, so running it multiple times
+  /// will not change the result.
+  void _optimisePoints() {
+    if (points.length <= 3) return;
+
+    final minDistance = strokeProperties.size * _optimisePointsThreshold;
+
+    for (int i = 1; i < points.length - 1; i++) {
+      final point = points[i];
+      final prev = points[i - 1];
+      final next = points[i + 1];
+
+      if (sqrDistBetweenPoints(prev, point) < minDistance * minDistance &&
+          sqrDistBetweenPoints(point, next) < minDistance * minDistance) {
+        points.removeAt(i);
+        i--;
+      }
+    }
   }
 
   List<Offset> _getPolygon() {
@@ -154,6 +183,8 @@ class Stroke {
       strokeProperties.simulatePressure = false;
       // Remove points with pressure 0.5 because they're not needed anymore
       points.removeWhere((point) => point.p == 0.5);
+      // Remove points that are too close together
+      _optimisePoints();
       // Get polygon again with slightly different input
       return _getPolygon();
     }
