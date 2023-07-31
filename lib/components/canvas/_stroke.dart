@@ -129,7 +129,10 @@ class Stroke {
       points = this.points;
     }
 
-    return getStroke(
+    final simulatePressure = strokeProperties.simulatePressure && strokeProperties.pressureEnabled;
+    final rememberSimulatedPressure = simulatePressure && isComplete;
+
+    final polygon = getStroke(
       points,
       isComplete: isComplete,
 
@@ -141,10 +144,21 @@ class Stroke {
       taperEnd: strokeProperties.taperEnd,
       capStart: strokeProperties.capStart,
       capEnd: strokeProperties.capEnd,
-      simulatePressure: strokeProperties.simulatePressure && strokeProperties.pressureEnabled,
+      simulatePressure: simulatePressure,
+      rememberSimulatedPressure: rememberSimulatedPressure,
     )
       .map((Point point) => Offset(point.x, point.y))
       .toList(growable: false);
+
+    if (rememberSimulatedPressure) {
+      strokeProperties.simulatePressure = false;
+      // Remove points with pressure 0.5 because they're not needed anymore
+      points.removeWhere((point) => point.p == 0.5);
+      // Get polygon again with slightly different input
+      return _getPolygon();
+    }
+
+    return polygon;
   }
 
   String toSvgPath(Size pageSize) {

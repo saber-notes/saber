@@ -883,9 +883,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: "066461ee27342559e5731a03e3371c0537f1abcb"
-      url: "https://github.com/steveruizok/perfect-freehand-dart"
+      ref: store-simulated-pressure
+      resolved-ref: f26bc5d5527e61df8be852e1558817b071e741e6
+      url: "https://github.com/adil192/perfect-freehand-dart"
     source: git
     version: "1.0.4"
   petitparser:
