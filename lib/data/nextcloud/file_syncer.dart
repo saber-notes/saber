@@ -9,6 +9,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:worker_manager/worker_manager.dart';
 
 abstract class FileSyncer {
 
@@ -130,7 +131,10 @@ abstract class FileSyncer {
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
-      final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
+      final String filePathEncrypted = await workerManager.execute(
+        () => encrypter.encrypt(filePathUnencrypted, iv: iv).base16,
+        priority: WorkPriority.veryHigh,
+      );
       final String filePathRemote = '${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$encExtension';
 
       final syncFile = SyncFile(remotePath: filePathRemote, localPath: filePathUnencrypted);
@@ -147,7 +151,10 @@ abstract class FileSyncer {
           if (kDebugMode) print('Failed to read file $filePathUnencrypted to upload');
           return;
         }
-        localDataEncrypted = encrypter.encrypt(localDataUnencrypted, iv: iv).base64;
+        localDataEncrypted = await workerManager.execute(
+          () => encrypter.encrypt(localDataUnencrypted, iv: iv).base64,
+          priority: WorkPriority.highRegular,
+        );
       } else {
         localDataEncrypted = deletedFileDummyContent;
       }
@@ -223,7 +230,10 @@ abstract class FileSyncer {
     } // TODO: also sync config.sbc
 
     // decrypt file path
-    final String filePathUnencrypted = encrypter.decrypt16(filePathEncrypted, iv: iv);
+    final filePathUnencrypted = await workerManager.execute(
+      () => encrypter.decrypt16(filePathEncrypted, iv: iv),
+      priority: WorkPriority.veryHigh,
+    );
 
     final syncFile = SyncFile(
       remotePath: filePathRemote,
@@ -280,7 +290,10 @@ abstract class FileSyncer {
       final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll('][', ','));
       final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
       await null; // try to reduce UI freezing
-      final String decryptedData = encrypter.decrypt64(encryptedData, iv: iv);
+      final String decryptedData = await workerManager.execute(
+        () => encrypter.decrypt64(encryptedData, iv: iv),
+        priority: WorkPriority.highRegular,
+      );
       await null; // try to reduce UI freezing
       assert(decryptedData.isNotEmpty, 'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
