@@ -42,6 +42,7 @@ class EditorCoreInfo {
     initialPageIndex: null,
   )
     .._migrateOldStrokesAndImages(
+      fileVersion: sbnVersion,
       strokesJson: null,
       imagesJson: null,
       assets: const [],
@@ -79,7 +80,8 @@ class EditorCoreInfo {
     required bool readOnly,
     required bool onlyFirstPage,
   }) {
-    bool readOnlyBecauseOfVersion = (json['v'] as int? ?? 0) > sbnVersion;
+    final fileVersion = json['v'] as int? ?? 0;
+    bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
     List<Uint8List>? assets = (json['a'] as List<dynamic>?)
@@ -109,6 +111,7 @@ class EditorCoreInfo {
       initialPageIndex: json['c'] as int?,
     )
       .._migrateOldStrokesAndImages(
+        fileVersion: fileVersion,
         strokesJson: json['s'] as List?,
         imagesJson: json['i'] as List?,
         assets: assets,
@@ -128,6 +131,7 @@ class EditorCoreInfo {
       lineHeight = Prefs.lastLineHeight.value,
       pages = [] {
     _migrateOldStrokesAndImages(
+      fileVersion: 0,
       strokesJson: json,
       imagesJson: null,
       assets: null,
@@ -170,11 +174,17 @@ class EditorCoreInfo {
     }
   }
 
+  /// Performs the following migrations:
+  /// 
   /// Migrates from fileVersion 7 to 8.
   /// In version 8, strokes and images are stored in their respective pages.
   ///
-  /// Also creates a page if there are no pages.
+  /// Creates a page if there are no pages.
+  /// 
+  /// Migrates from fileVersion 11 to 12.
+  /// In version 12, points are deleted if they are too close to each other.
   void _migrateOldStrokesAndImages({
+    required int fileVersion,
     required List<dynamic>? strokesJson,
     required List<dynamic>? imagesJson,
     required List<Uint8List>? assets,
@@ -216,6 +226,15 @@ class EditorCoreInfo {
     // or if the last page is not empty
     if (pages.isEmpty || pages.last.isNotEmpty && !onlyFirstPage) {
       pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+    }
+
+    // delete points that are too close to each other
+    if (fileVersion < 12) {
+      for (EditorPage page in pages) {
+        for (Stroke stroke in page.strokes) {
+          stroke.optimisePoints();
+        }
+      }
     }
   }
 

@@ -86,7 +86,6 @@ class Stroke {
   }
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
-    _optimisePoints();
     return {
       'f': isComplete,
       'p': (){
@@ -127,7 +126,9 @@ class Stroke {
   /// 
   /// This function is idempotent, so running it multiple times
   /// will not change the result.
-  void _optimisePoints() {
+  /// 
+  /// This function does not change [_polygonNeedsUpdating].
+  void optimisePoints() {
     if (points.length <= 3) return;
 
     final minDistance = strokeProperties.size * _optimisePointsThreshold;
@@ -184,7 +185,7 @@ class Stroke {
       // Remove points with pressure 0.5 because they're not needed anymore
       points.removeWhere((point) => point.p == 0.5);
       // Remove points that are too close together
-      _optimisePoints();
+      optimisePoints();
       // Get polygon again with slightly different input
       return _getPolygon();
     }
