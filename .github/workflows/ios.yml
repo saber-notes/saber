@@ -64,6 +64,16 @@ jobs:
           rm -rf test
           rm -rf windows
 
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            /Users/runner/hostedtoolcache/flutter
+            build
+          key: ${{ runner.OS }}-saber-ios-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-ios-
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:

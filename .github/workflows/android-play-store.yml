@@ -34,6 +34,16 @@ jobs:
           rm -rf test
           rm -rf windows
 
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/hostedtoolcache/flutter
+            build
+          key: ${{ runner.OS }}-saber-playstore-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-playstore-
+
       - name: Remove signingConfig
         run: ./patches/remove_signing_android.sh
 

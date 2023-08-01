@@ -56,6 +56,16 @@ jobs:
           rm -rf test
           rm -rf windows
 
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/hostedtoolcache/flutter
+            build
+          key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-android-
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -129,6 +139,16 @@ jobs:
           rm -rf submodules
           rm -rf test
           rm -rf windows
+
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/hostedtoolcache/flutter
+            build
+          key: ${{ runner.OS }}-saber-androidfoss-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-androidfoss-
 
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
@@ -206,6 +226,16 @@ jobs:
           rm -rf submodules
           rm -rf test
           rm -rf windows
+
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/hostedtoolcache/flutter
+            build
+          key: ${{ runner.OS }}-saber-androidfossalt-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-androidfossalt-
 
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
