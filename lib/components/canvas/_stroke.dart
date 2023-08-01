@@ -128,7 +128,7 @@ class Stroke {
   /// will not change the result.
   /// 
   /// This function does not change [_polygonNeedsUpdating].
-  void optimisePoints() {
+  void optimisePoints({double thresholdMultiplier = _optimisePointsThreshold}) {
     if (points.length <= 3) return;
 
     final minDistance = strokeProperties.size * _optimisePointsThreshold;

@@ -160,6 +160,12 @@ class _PreviewCardState extends State<PreviewCard> {
       ..readOnlyBecauseOfVersion = false;
     assert(coreInfo.pages.length <= 1);
 
+    for (final page in coreInfo.pages) {
+      for (final stroke in page.strokes) {
+        stroke.optimisePoints(thresholdMultiplier: 2);
+      }
+    }
+
     if (mounted) setState(() {});
   }
 
