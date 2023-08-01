@@ -6,6 +6,8 @@ const _kDummyAdMessage = 'This is a dummy class for when ads are disabled.';
 abstract class AdState {
   @Deprecated(_kDummyAdMessage)
   static bool get adsSupported => false;
+  @Deprecated(_kDummyAdMessage)
+  static bool get adsEnabled => false;
 
   @Deprecated(_kDummyAdMessage)
   static void init() {}

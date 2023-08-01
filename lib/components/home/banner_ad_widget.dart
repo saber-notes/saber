@@ -16,11 +16,10 @@ abstract class AdState {
   static late final String _bannerAdUnitId;
 
   static bool get adsSupported => _bannerAdUnitId.isNotEmpty;
+  static bool get adsEnabled => adsSupported && !Prefs.disableAds.value;
 
   static void init() {
-    if (Prefs.disableAds.value) {
-      _bannerAdUnitId = '';
-    } else if (kDebugMode) { // test ads
+    if (kDebugMode) { // test ads
       if (Platform.isAndroid) {
         _bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';
       } else if (Platform.isIOS) {
