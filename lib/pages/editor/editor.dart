@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:bson/bson.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,7 +61,14 @@ class Editor extends StatefulWidget {
 
   final String? customTitle;
 
-  static const String extension = '.sbn';
+  /// The file extension used by the app.
+  /// Files with this extension are
+  /// encoded in BSON format.
+  static const String extension = '.sbn2';
+  /// The old file extension used by the app.
+  /// Files with this extension are
+  /// encoded in JSON format.
+  static const String extensionOldJson = '.sbn';
 
   static const double gapBetweenPages = 16;
 
@@ -743,10 +751,10 @@ class EditorState extends State<Editor> {
 
 
   String get _filename => coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
-  String _saveToString({String? indent}) {
+  Uint8List _saveToBinary() {
     coreInfo.initialPageIndex = currentPageIndex;
-    final encoder = JsonEncoder.withIndent(indent);
-    return encoder.convert(coreInfo);
+    final bsonBinary = BSON().serialize(coreInfo);
+    return bsonBinary.byteList;
   }
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
@@ -765,7 +773,7 @@ class EditorState extends State<Editor> {
         savingState.value = SavingState.saving;
     }
 
-    String toSave = _saveToString();
+    final toSave = _saveToBinary();
     try {
       await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave, awaitWrite: true);
       savingState.value = SavingState.saved;
@@ -1072,9 +1080,8 @@ class EditorState extends State<Editor> {
     await FileManager.exportFile('$_filename.pdf', await pdf.save());
   }
   Future exportAsSbn() async {
-    final content = _saveToString(indent: ' ');
-    final encoded = utf8.encode(content) as Uint8List;
-    await FileManager.exportFile('$_filename.sbn', encoded);
+    final content = _saveToBinary();
+    await FileManager.exportFile('$_filename.sbn', content);
   }
 
   void setAndroidNavBarColor() async {

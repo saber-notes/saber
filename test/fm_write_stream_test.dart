@@ -25,7 +25,7 @@ void main() {
 
     test('broadcastFileWrite', () async {
       // broadcast a write event
-      FileManager.broadcastFileWrite(FileOperationType.write, '/test.sbn');
+      FileManager.broadcastFileWrite(FileOperationType.write, '/test.sbn2');
 
       // wait for the event to be broadcast
       await Future.delayed(const Duration(milliseconds: 100));
@@ -43,7 +43,7 @@ void main() {
       FileManager.watchRootDirectory();
 
       final String rootDir = await FileManager.documentsDirectory;
-      final File file = File('$rootDir/test.sbn');
+      final File file = File('$rootDir/test.sbn2');
 
       // write to file
       await file.create(recursive: true);

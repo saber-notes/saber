@@ -144,23 +144,37 @@ abstract class FileSyncer {
         return;
       }
 
-      final String localDataEncrypted;
+      final WebDavClient webdav = _client!.webdav;
+
+      final Uint8List localDataEncrypted;
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
-        String? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
+        Uint8List? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
         if (localDataUnencrypted == null) {
           if (kDebugMode) print('Failed to read file $filePathUnencrypted to upload');
           return;
         }
-        localDataEncrypted = await workerManager.execute(
-          () => encrypter.encrypt(localDataUnencrypted, iv: iv).base64,
-          priority: WorkPriority.highRegular,
-        );
-      } else {
-        localDataEncrypted = deletedFileDummyContent;
-      }
 
-      const Utf8Encoder encoder = Utf8Encoder();
-      final WebDavClient webdav = _client!.webdav;
+        if (filePathUnencrypted.endsWith(Editor.extensionOldJson)) {
+          localDataEncrypted = await workerManager.execute(
+            () async {
+              final stringUnencrypted = utf8.decode(localDataUnencrypted);
+              final encrypted = encrypter.encrypt(stringUnencrypted, iv: iv);
+              return utf8.encode(encrypted.base64) as Uint8List;
+            },
+            priority: WorkPriority.highRegular,
+          );
+        } else  {
+          localDataEncrypted = await workerManager.execute(
+            () async {
+              final encrypted = encrypter.encryptBytes(localDataUnencrypted, iv: iv);
+              return encrypted.bytes;
+            },
+            priority: WorkPriority.highRegular,
+          );
+        }
+      } else {
+        localDataEncrypted = utf8.encode(deletedFileDummyContent) as Uint8List;
+      }
 
       DateTime lastModified;
       try {
@@ -171,7 +185,7 @@ abstract class FileSyncer {
 
       // upload file
       await webdav.upload(
-        encoder.convert(localDataEncrypted),
+        localDataEncrypted,
         filePathRemote,
         lastModified: lastModified,
       );
@@ -287,14 +301,29 @@ abstract class FileSyncer {
 
     try {
       final String encryptedDataBytesJson = utf8.decode(encryptedDataEncoded); // formatted weirdly e.g. [57, 2, 3, ...][128, 0, 13, ...][...]
-      final List<dynamic> encryptedDataBytes = jsonDecode(encryptedDataBytesJson.replaceAll('][', ','));
-      final String encryptedData = utf8.decode(encryptedDataBytes.cast<int>());
-      await null; // try to reduce UI freezing
-      final String decryptedData = await workerManager.execute(
-        () => encrypter.decrypt64(encryptedData, iv: iv),
-        priority: WorkPriority.highRegular,
+      final Uint8List encryptedDataBytes = Uint8List.fromList(
+        jsonDecode(encryptedDataBytesJson.replaceAll('][', ',')).cast<int>(),
       );
-      await null; // try to reduce UI freezing
+      final Uint8List decryptedData;
+      if (file.localPath.endsWith(Editor.extensionOldJson)) {
+        decryptedData = await workerManager.execute(
+          () async {
+            final String encrypted = utf8.decode(encryptedDataBytes.cast<int>());
+            final String decrypted = encrypter.decrypt64(encrypted, iv: iv);
+            return utf8.encode(decrypted) as Uint8List;
+          },
+          priority: WorkPriority.regular,
+        );
+      } else {
+        decryptedData = await workerManager.execute(
+          () async {
+            final Encrypted encrypted = Encrypted(encryptedDataBytes);
+            final List<int> decrypted = encrypter.decryptBytes(encrypted, iv: iv);
+            return decrypted as Uint8List;
+          },
+          priority: WorkPriority.regular,
+        );
+      }
       assert(decryptedData.isNotEmpty, 'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;

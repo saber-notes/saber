@@ -36,7 +36,7 @@ void main() {
     final String filePathLocal = '/test.deletion.${randomString(10)}';
     printOnFailure('File path local: $filePathLocal');
 
-    const String fileContent = 'test.deletion';
+    const List<int> fileContent = [1, 2, 3];
     final String filePathRemote = await () async {
       final Encrypter encrypter = await client.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);

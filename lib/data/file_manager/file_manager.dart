@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -58,21 +57,24 @@ class FileManager {
   static void broadcastFileWrite(FileOperationType type, String path) async {
     if (!_fileWriteStreamIsListening) return;
 
-    if (path.endsWith(Editor.extension)) { // remove extension
+    // remove extension
+    if (path.endsWith(Editor.extension)) {
       path = path.substring(0, path.length - Editor.extension.length);
+    } else if (path.endsWith(Editor.extensionOldJson)) {
+      path = path.substring(0, path.length - Editor.extensionOldJson.length);
     }
 
     fileWriteStream.add(FileOperation(type, path));
   }
 
-  /// Returns the contents of the file at [filePath] as a String.
-  static Future<String?> readFile(String filePath, {int retries = 3}) async {
+  /// Returns the contents of the file at [filePath].
+  static Future<Uint8List?> readFile(String filePath, {int retries = 3}) async {
     filePath = _sanitisePath(filePath);
 
-    String? result;
+    Uint8List? result;
     final File file = File(await documentsDirectory + filePath);
     if (file.existsSync()) {
-      result = await file.readAsString(encoding: utf8);
+      result = await file.readAsBytes();
       if (result.isEmpty) result = null;
     } else {
       retries = 0; // don't retry if the file doesn't exist
@@ -87,14 +89,29 @@ class FileManager {
   }
 
   /// Writes [toWrite] to [filePath].
-  static Future<void> writeFile(String filePath, String toWrite, { bool awaitWrite = false, bool alsoUpload = true }) async {
+  static Future<void> writeFile(String filePath, List<int> toWrite, { bool awaitWrite = false, bool alsoUpload = true }) async {
     filePath = _sanitisePath(filePath);
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    final File file = File(await documentsDirectory + filePath);
+
+    final documentsDirectory = await FileManager.documentsDirectory;
+    final File file = File('$documentsDirectory$filePath');
     await _createFileDirectory(filePath);
-    Future writeFuture = file.writeAsString(toWrite);
+    Future writeFuture = Future.wait([
+      file.writeAsBytes(toWrite),
+
+      // if we're using a new format, also delete the old file
+      if (filePath.endsWith(Editor.extension))
+        File(
+          '$documentsDirectory'
+          '${filePath.substring(0, filePath.length - Editor.extension.length)}'
+          '${Editor.extensionOldJson}'
+        )
+            .delete()
+            // ignore if the file doesn't exist
+            .catchError((_) => File(''), test: (e) => e is PathNotFoundException),
+    ]);
 
     void afterWrite() {
       broadcastFileWrite(FileOperationType.write, filePath);
@@ -237,8 +254,11 @@ class FileManager {
       .map((FileSystemEntity entity) {
         String filePath = entity.path.substring(documentsDirectory.length);
 
-        if (filePath.endsWith(Editor.extension)) { // remove extension
+        // remove extension
+        if (filePath.endsWith(Editor.extension)) {
           filePath = filePath.substring(0, filePath.length - Editor.extension.length);
+        } else if (filePath.endsWith(Editor.extensionOldJson)) {
+          filePath = filePath.substring(0, filePath.length - Editor.extensionOldJson.length);
         }
 
         if (Editor.isReservedPath(filePath)) return null; // filter out reserved files
@@ -266,6 +286,8 @@ class FileManager {
         .map((String filePath) {
           if (filePath.endsWith(Editor.extension)) {
             return filePath.substring(0, filePath.length - Editor.extension.length);
+          } else if (filePath.endsWith(Editor.extensionOldJson)) {
+            return filePath.substring(0, filePath.length - Editor.extensionOldJson.length);
           } else {
             return filePath;
           }
@@ -317,10 +339,20 @@ class FileManager {
       filePath = filePath.substring(0, filePath.length - Editor.extension.length);
       newFilePath = filePath;
       hasExtension = true;
+    } else if (filePath.endsWith(Editor.extensionOldJson)) {
+      filePath = filePath.substring(0, filePath.length - Editor.extensionOldJson.length);
+      newFilePath = filePath;
+      hasExtension = true;
     }
 
     int i = 1;
-    while (await doesFileExist(newFilePath + Editor.extension) && newFilePath + Editor.extension != currentPath) {
+    while (true) {
+      if (
+        !await doesFileExist(newFilePath + Editor.extension) &&
+        !await doesFileExist(newFilePath + Editor.extensionOldJson)
+      ) break;
+      if (newFilePath + Editor.extension == currentPath) break;
+      if (newFilePath + Editor.extensionOldJson == currentPath) break;
       i++;
       newFilePath = '$filePath ($i)';
     }
@@ -335,11 +367,11 @@ class FileManager {
     final String importedPath = await suffixFilePathToMakeItUnique('/$fileName');
 
     final File tempFile = File(path);
-    final String fileContents;
+    final Uint8List fileContents;
     try {
-      fileContents = await tempFile.readAsString();
+      fileContents = await tempFile.readAsBytes();
     } catch (e) {
-      if (kDebugMode) print('Failed to read file as string when importing $path');
+      if (kDebugMode) print('Failed to read file when importing $path');
       return null;
     }
 

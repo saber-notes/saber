@@ -81,6 +81,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  bson:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: toJson
+      resolved-ref: "1a455b1bd7ddd49cb1a78fb02ec9e976c3e624d0"
+      url: "https://github.com/adil192/bson"
+    source: git
+    version: "4.1.0"
   built_collection:
     dependency: transitive
     description:
@@ -209,6 +218,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  decimal:
+    dependency: transitive
+    description:
+      name: decimal
+      sha256: "24a261d5d5c87e86c7651c417a5dbdf8bcd7080dd592533910e8d0505a279f21"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.3"
   defer_pointer:
     dependency: "direct main"
     description:
@@ -775,6 +792,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  packages_extensions:
+    dependency: transitive
+    description:
+      name: packages_extensions
+      sha256: "268108a92be955e33a58cf6492e289e43ef55a50c89fa64947f032f5cefeb3fc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   pasteboard:
     dependency: transitive
     description:
@@ -928,6 +953,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.7.3"
+  power_extensions:
+    dependency: transitive
+    description:
+      name: power_extensions
+      sha256: "9e9092bebe65c05de19eab134f3c2a00afb8857fcb0a8a4571dad1e8289f170c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
   printing:
     dependency: "direct main"
     description:
@@ -984,6 +1017,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  rational:
+    dependency: transitive
+    description:
+      name: rational
+      sha256: ba58e9e18df9abde280e8b10051e4bce85091e41e8e7e411b6cde2e738d357cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.2"
   receive_sharing_intent:
     dependency: "direct main"
     description:

@@ -44,10 +44,21 @@ class _PreviewCardState extends State<PreviewCard> {
     return _mapFilePathToEditorInfo[filePath] ?? EditorCoreInfo(filePath: filePath);
   }
   static void moveFileInCache(String oldPath, String newPath) {
-    assert(oldPath.endsWith(Editor.extension));
-    assert(newPath.endsWith(Editor.extension));
-    oldPath = oldPath.substring(0, oldPath.length - Editor.extension.length);
-    newPath = newPath.substring(0, newPath.length - Editor.extension.length);
+    if (oldPath.endsWith(Editor.extension)) {
+      oldPath = oldPath.substring(0, oldPath.length - Editor.extension.length);
+    } else if (oldPath.endsWith(Editor.extensionOldJson)) {
+      oldPath = oldPath.substring(0, oldPath.length - Editor.extensionOldJson.length);
+    } else {
+      assert(false, 'oldPath must end with ${Editor.extension} or ${Editor.extensionOldJson}');
+    }
+
+    if (newPath.endsWith(Editor.extension)) {
+      newPath = newPath.substring(0, newPath.length - Editor.extension.length);
+    } else if (newPath.endsWith(Editor.extensionOldJson)) {
+      newPath = newPath.substring(0, newPath.length - Editor.extensionOldJson.length);
+    } else {
+      assert(false, 'newPath must end with ${Editor.extension} or ${Editor.extensionOldJson}');
+    }
 
     if (!_mapFilePathToEditorInfo.containsKey(oldPath)) return;
     _mapFilePathToEditorInfo[newPath] = _mapFilePathToEditorInfo[oldPath]!;

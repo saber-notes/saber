@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bson/bson.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -248,11 +249,23 @@ class EditorCoreInfo {
     bool readOnly = false,
     bool onlyFirstPage = false,
   }) async {
-    String? jsonString = await FileManager.readFile(path + Editor.extension);
-    if (jsonString == null) return EditorCoreInfo(filePath: path, readOnly: readOnly);
+    final bsonBytes = await FileManager.readFile(path + Editor.extension);
+
+    final String? jsonString;
+    if (bsonBytes != null) {
+      jsonString = null;
+    } else {
+      final jsonBytes = await FileManager.readFile(path + Editor.extensionOldJson);
+      jsonString = jsonBytes != null ? utf8.decode(jsonBytes) : null;
+    }
+    
+    if (bsonBytes == null && jsonString == null) {
+      return EditorCoreInfo(filePath: path, readOnly: readOnly);
+    }
 
     return loadFromFileContents(
-      jsonString,
+      jsonString: jsonString,
+      bsonBytes: bsonBytes,
       path: path,
       readOnly: readOnly,
       onlyFirstPage: onlyFirstPage,
@@ -260,7 +273,9 @@ class EditorCoreInfo {
   }
 
   @visibleForTesting
-  static Future<EditorCoreInfo> loadFromFileContents(String jsonString, {
+  static Future<EditorCoreInfo> loadFromFileContents({
+    String? jsonString,
+    Uint8List? bsonBytes,
     required String path,
     required bool readOnly,
     required bool onlyFirstPage,
@@ -268,19 +283,23 @@ class EditorCoreInfo {
   }) async {
     EditorCoreInfo coreInfo;
     try {
-      if (jsonString.length < 2 * 1024 * 1024 && !alwaysUseIsolate) { // 2 MB
-        // if the file is small, just use the main isolate
-        coreInfo = _loadFromFileIsolate(
-          jsonString,
-          path,
-          readOnly,
-          onlyFirstPage,
-        );
-      } else {
+      EditorCoreInfo isolate() => _loadFromFileIsolate(
+        jsonString,
+        bsonBytes,
+        path,
+        readOnly,
+        onlyFirstPage,
+      );
+
+      final length = jsonString?.length ?? bsonBytes!.length;
+      if (alwaysUseIsolate || length > 2 * 1024 * 1024) { // 2 MB
         coreInfo = await workerManager.execute(
-          () => _loadFromFileIsolate(jsonString, path, readOnly, onlyFirstPage),
+          isolate,
           priority: WorkPriority.veryHigh, // less important than [WorkPriority.immediately]
         );
+      } else {
+        // if the file is small, just run it on the main thread
+        coreInfo = isolate();
       }
     } catch (e) {
       if (kDebugMode) {
@@ -303,16 +322,24 @@ class EditorCoreInfo {
   }
 
   static EditorCoreInfo _loadFromFileIsolate(
-      String jsonString,
+      String? jsonString,
+      Uint8List? bsonBytes,
       String path,
       bool readOnly,
       bool onlyFirstPage,
   ) {
     final dynamic json;
     try {
-      json = jsonDecode(jsonString);
+      if (bsonBytes != null) {
+        final bsonBinary = BsonBinary.from(bsonBytes);
+        json = BSON().deserialize(bsonBinary);
+      } else if (jsonString != null) {
+        json = jsonDecode(jsonString);
+      } else {
+        throw ArgumentError('Both bsonBytes and jsonString are null');
+      }
     } catch (e) {
-      if (kDebugMode) print('Failed to parse json from $path: $e');
+      if (kDebugMode) print('Failed to parse file from $path: $e');
       rethrow;
     }
 

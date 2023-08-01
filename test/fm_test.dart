@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -22,7 +23,7 @@ void main() {
     });
 
     test('readFile', () async {
-      const filePath = '/test_readFile.sbn';
+      const filePath = '/test_readFile.sbn2';
       const content = 'test content for $filePath';
 
       // write test data manually
@@ -31,7 +32,8 @@ void main() {
       await file.writeAsString(content);
 
       // read file
-      final readContent = await FileManager.readFile(filePath);
+      final readBytes = await FileManager.readFile(filePath);
+      final readContent = utf8.decode(readBytes!);
       expect(readContent, content);
 
       // delete file
@@ -39,11 +41,11 @@ void main() {
     });
 
     test('writeFile', () async {
-      const filePath = '/test_writeFile.sbn';
+      const filePath = '/test_writeFile.sbn2';
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, content, awaitWrite: true);
+      await FileManager.writeFile(filePath, utf8.encode(content), awaitWrite: true);
 
       // read file
       final file = File('$rootDir$filePath');
@@ -55,14 +57,15 @@ void main() {
     });
 
     test('writeFile and readFile', () async {
-      const filePath = '/test_readWriteFile.sbn';
+      const filePath = '/test_readWriteFile.sbn2';
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, content, awaitWrite: true);
+      await FileManager.writeFile(filePath, utf8.encode(content), awaitWrite: true);
 
       // read file
-      final readContent = await FileManager.readFile(filePath);
+      final readBytes = await FileManager.readFile(filePath);
+      final readContent = utf8.decode(readBytes!);
       expect(readContent, content);
 
       // delete file
@@ -71,12 +74,12 @@ void main() {
     });
 
     test('moveFile', () async {
-      const filePathBefore = '/test_moveFile_before.sbn';
-      const filePathAfter = '/test_moveFile_after.sbn';
+      const filePathBefore = '/test_moveFile_before.sbn2';
+      const filePathAfter = '/test_moveFile_after.sbn2';
       const content = 'test content for $filePathBefore';
 
       // write file
-      await FileManager.writeFile(filePathBefore, content, awaitWrite: true);
+      await FileManager.writeFile(filePathBefore, utf8.encode(content), awaitWrite: true);
       // ensure file does not exist (in case of previous test failure
       await FileManager.deleteFile(filePathAfter);
 
@@ -91,7 +94,8 @@ void main() {
       expect(fileAfter.existsSync(), true);
 
       // read file
-      final readContent = await FileManager.readFile(filePathAfter);
+      final readBytes = await FileManager.readFile(filePathAfter);
+      final readContent = utf8.decode(readBytes!);
       expect(readContent, content);
 
       // delete file
@@ -99,11 +103,11 @@ void main() {
     });
 
     test('deleteFile', () async {
-      const filePath = '/test_deleteFile.sbn';
+      const filePath = '/test_deleteFile.sbn2';
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, content, awaitWrite: true);
+      await FileManager.writeFile(filePath, utf8.encode(content), awaitWrite: true);
 
       // delete file
       await FileManager.deleteFile(filePath);
@@ -125,9 +129,14 @@ void main() {
 
       // create files
       for (final fileName in fileNames) {
-        final file = File('$rootDir$dirPath/$fileName.sbn');
+        final file = File('$rootDir$dirPath/$fileName.sbn2');
         await file.create(recursive: true);
       }
+      addTearDown(() async {
+        // delete files
+        final dir = Directory('$rootDir$dirPath');
+        await dir.delete(recursive: true);
+      });
 
       // get children
       final children = await FileManager.getChildrenOfDirectory(dirPath);
@@ -143,10 +152,6 @@ void main() {
         expect(children.files.contains(fileName), true);
       }
       expect(children.directories.contains('subdir'), true);
-
-      // delete files
-      final dir = Directory('$rootDir$dirPath');
-      await dir.delete(recursive: true);
     });
 
     test('getRecentlyAccessed', () async {
@@ -159,8 +164,8 @@ void main() {
       const fileName2 = 'test_getRecentlyAccessed2';
 
       // write files
-      await FileManager.writeFile('/$fileName1.sbn', 'test content 1', awaitWrite: true);
-      await FileManager.writeFile('/$fileName2.sbn', 'test content 2', awaitWrite: true);
+      await FileManager.writeFile('/$fileName1.sbn2', [1], awaitWrite: true);
+      await FileManager.writeFile('/$fileName2.sbn2', [2], awaitWrite: true);
 
       // check recently accessed
       recentlyAccessed = await FileManager.getRecentlyAccessed();
@@ -169,14 +174,14 @@ void main() {
       expect(recentlyAccessed[1], '/$fileName1');
 
       // delete files
-      await FileManager.deleteFile('/$fileName1.sbn');
-      await FileManager.deleteFile('/$fileName2.sbn');
+      await FileManager.deleteFile('/$fileName1.sbn2');
+      await FileManager.deleteFile('/$fileName2.sbn2');
     });
 
     test('isDirectory and doesFileExist', () async {
       const dirPath = '/test_isDirectory';
-      const filePath = '/test_doesFileExist.sbn';
-      const nonExistentPath = '/test_nonExistentPath.sbn';
+      const filePath = '/test_doesFileExist.sbn2';
+      const nonExistentPath = '/test_nonExistentPath.sbn2';
 
       // create directory and file
       final dir = Directory('$rootDir$dirPath');

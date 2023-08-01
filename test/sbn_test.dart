@@ -21,7 +21,7 @@ void main() {
       String contents = await file.readAsString();
 
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        contents,
+        jsonString: contents,
         path: path,
         readOnly: true,
         onlyFirstPage: false,
@@ -75,7 +75,7 @@ void main() {
       String contents = await file.readAsString();
 
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        contents,
+        jsonString: contents,
         path: path,
         readOnly: true,
         onlyFirstPage: false,
@@ -135,7 +135,7 @@ void main() {
       String contents = await file.readAsString();
 
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        contents,
+        jsonString: contents,
         path: path,
         readOnly: true,
         onlyFirstPage: false,
@@ -177,7 +177,7 @@ void main() {
       String contents = await file.readAsString();
 
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        contents,
+        jsonString: contents,
         path: path,
         readOnly: true,
         onlyFirstPage: false,
@@ -219,7 +219,7 @@ void main() {
       String contents = await file.readAsString();
 
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        contents,
+        jsonString: contents,
         path: path,
         readOnly: true,
         onlyFirstPage: false,
@@ -264,7 +264,7 @@ void main() {
       String contents = await file.readAsString();
 
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        contents,
+        jsonString: contents,
         path: path,
         readOnly: true,
         onlyFirstPage: false,
