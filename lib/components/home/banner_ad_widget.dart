@@ -37,16 +37,22 @@ abstract class AdState {
       }
     }
 
-    if (adsSupported) _startInitialize();
+    if (adsSupported) {
+      _startInitialize();
+      Prefs.disableAds.addListener(_startInitialize);
+    }
   }
 
   static void _startInitialize() async {
+    if (!adsEnabled) return;
+    assert(adsSupported);
     if (_initializeStarted) return;
+    assert(!_initializeCompleted);
+
     final status = await AppTrackingTransparency.requestTrackingAuthorization();
     if (status == TrackingStatus.denied) return;
     _checkForRequiredConsent();
-    assert(_bannerAdUnitId.isNotEmpty);
-    assert(_initializeCompleted == false);
+
     _initializeStarted = true;
     await MobileAds.instance.initialize();
     _initializeCompleted = true;
