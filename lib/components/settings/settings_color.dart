@@ -50,25 +50,31 @@ class _SettingsSwitchState extends State<SettingsColor> {
     setState(() { });
   }
 
-  AdaptiveAlertDialog get colorPickerDialog => AdaptiveAlertDialog(
-    title: Text(t.settings.accentColorPicker.pickAColor),
-    content: SingleChildScrollView(
-      child: ColorPicker(
-        pickerColor: color ?? defaultColor,
-        onColorChanged: (Color color) {
-          Prefs.accentColor.value = color.value;
-        },
+  AdaptiveAlertDialog get colorPickerDialog {
+    final platform = Theme.of(context).platform;
+    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    return AdaptiveAlertDialog(
+      title: Text(t.settings.accentColorPicker.pickAColor),
+      content: SingleChildScrollView(
+        child: ColorPicker(
+          colorPickerWidth: cupertino ? 270 : 300,
+          portraitOnly: cupertino,
+          pickerColor: color ?? defaultColor,
+          onColorChanged: (Color color) {
+            Prefs.accentColor.value = color.value;
+          },
+        ),
       ),
-    ),
-    actions: [
-      CupertinoDialogAction(
-        child: Text(MaterialLocalizations.of(context).saveButtonLabel),
-        onPressed: () {
-          Navigator.of(context).pop(true);
-        },
-      ),
-    ],
-  );
+      actions: [
+        CupertinoDialogAction(
+          child: Text(MaterialLocalizations.of(context).saveButtonLabel),
+          onPressed: () {
+            Navigator.of(context).pop(true);
+          },
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
