@@ -57,7 +57,6 @@ jobs:
         id: tests
         run: |
           flutter test \
-            --reporter expanded \
             --coverage \
             --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
 
@@ -68,4 +67,4 @@ jobs:
 
       - name: Run tests (packages/onyxsdk_pen)
         working-directory: packages/onyxsdk_pen
-        run: flutter test --reporter expanded
+        run: flutter test
