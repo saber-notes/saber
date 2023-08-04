@@ -12,6 +12,10 @@ home:
   tooltips:
     newNote: New note
     showUpdateDialog: Show update dialog
+  create:
+    newNote: New note
+    importNote: Import note
+  invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
   welcome: Welcome to Saber
   noFiles: No files found
   createNewNote: Tap the + button to create a new note

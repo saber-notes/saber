@@ -126,7 +126,7 @@ class App extends StatefulWidget {
     }
 
     if (extension == 'sbn') {
-      final String? path = await FileManager.importFile(file.path);
+      final String? path = await FileManager.importFile(file.path, false);
       if (path == null) return;
 
       // allow file to finish writing

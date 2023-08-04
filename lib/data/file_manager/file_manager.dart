@@ -116,6 +116,10 @@ class FileManager {
     void afterWrite() {
       broadcastFileWrite(FileOperationType.write, filePath);
       if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
+      if (filePath.endsWith(Editor.extension)){
+        _removeReferences(File('${filePath.substring(0, filePath.length - Editor.extension.length)}'
+          '${Editor.extensionOldJson}').path);
+      }
     }
 
     writeFuture = writeFuture.then((_) => afterWrite());
@@ -183,7 +187,7 @@ class FileManager {
     }
 
     if (!replaceExistingFile || Editor.isReservedPath(toPath)) {
-      toPath = await suffixFilePathToMakeItUnique(toPath, fromPath);
+      toPath = await suffixFilePathToMakeItUnique(toPath, false, fromPath);
     }
 
     if (fromPath == toPath) return toPath;
@@ -323,7 +327,7 @@ class FileManager {
     final String filePath = '$parentPath${DateFormat("yy-MM-dd").format(now)} '
         '${t.editor.untitled}';
 
-    return await suffixFilePathToMakeItUnique(filePath);
+    return await suffixFilePathToMakeItUnique(filePath, false);
   }
 
   /// Returns a unique file path by appending a number to the end of the [filePath].
@@ -331,7 +335,7 @@ class FileManager {
   ///
   /// Providing a [currentPath] means that e.g. "/Untitled (2)" being renamed
   /// to "/Untitled" will be returned as "/Untitled (2)" not "/Untitled (3)".
-  static Future<String> suffixFilePathToMakeItUnique(String filePath, [String? currentPath]) async {
+  static Future<String> suffixFilePathToMakeItUnique(String filePath, bool useOldExtension, [String? currentPath]) async {
     String newFilePath = filePath;
     bool hasExtension = false;
 
@@ -357,14 +361,17 @@ class FileManager {
       newFilePath = '$filePath ($i)';
     }
 
+    if(useOldExtension){
+      return newFilePath + (hasExtension ? Editor.extensionOldJson : '');
+    }
     return newFilePath + (hasExtension ? Editor.extension : '');
   }
 
   /// Imports a file from a sharing intent.
   /// Returns the file path of the imported file.
-  static Future<String?> importFile(String path, {bool awaitWrite = true}) async {
+  static Future<String?> importFile(String path, bool useOldExtension,{bool awaitWrite = true}) async {
     final String fileName = path.split('/').last;
-    final String importedPath = await suffixFilePathToMakeItUnique('/$fileName');
+    final String importedPath = await suffixFilePathToMakeItUnique('/$fileName', useOldExtension);
 
     final File tempFile = File(path);
     final Uint8List fileContents;

@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
@@ -63,6 +65,7 @@ class _RecentPageState extends State<RecentPage> {
     final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
     final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
+    var isDialOpen = ValueNotifier<bool>(false);
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
@@ -114,16 +117,57 @@ class _RecentPageState extends State<RecentPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        shape: cupertino ? const CircleBorder() : null,
-        onPressed: () {
-          context.push(RoutePaths.edit);
-        },
-        tooltip: t.home.tooltips.newNote,
-        child: const AdaptiveIcon(
-          icon: Icons.add,
-          cupertinoIcon: CupertinoIcons.add,
-        ),
+      floatingActionButton: SpeedDial(
+        spacing: 3,
+        mini: true,
+        openCloseDial: isDialOpen,
+        childPadding: const EdgeInsets.all(5),
+        spaceBetweenChildren: 4,
+        dialRoot: (ctx, open, toggleChildren) {
+                  return FloatingActionButton(
+                    shape: cupertino ? const CircleBorder() : null,
+                    onPressed: toggleChildren,
+                    tooltip: t.home.tooltips.newNote,
+                    child: const Icon(Icons.add)
+                  );
+                },
+
+        children: [
+            SpeedDialChild(
+              child: const Icon(Icons.create),
+              label: t.home.create.newNote,
+              onTap: () {context.push(RoutePaths.edit);} 
+              ,
+            ),
+            SpeedDialChild(
+              child: const Icon(Icons.note_add),
+              label: t.home.create.importNote,
+              onTap: () async {
+                final FilePickerResult? result = await FilePicker.platform.pickFiles(
+                  type: FileType.any,
+
+                  allowMultiple: false,
+                  withData: false,
+                );
+                if (result == null) return;
+                final PlatformFile file = result.files.single;
+                if (file.path == null) return;
+                if (file.path.toString().endsWith('.sbn')){
+                  FileManager.importFile(file.path.toString(), true);
+                }
+                else if (file.path.toString().endsWith('.sbn2')){
+                  FileManager.importFile(file.path.toString(), false);
+                }
+                else {
+                  if (context.mounted){
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(t.home.invalidFormat),
+                    ));
+                  }
+                }        
+              },
+            ),
+        ]
       ),
     );
   }
