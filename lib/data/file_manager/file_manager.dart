@@ -116,9 +116,11 @@ class FileManager {
     void afterWrite() {
       broadcastFileWrite(FileOperationType.write, filePath);
       if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
-      if (filePath.endsWith(Editor.extension)){
-        _removeReferences(File('${filePath.substring(0, filePath.length - Editor.extension.length)}'
-          '${Editor.extensionOldJson}').path);
+      if (filePath.endsWith(Editor.extension)) {
+        _removeReferences(
+          '${filePath.substring(0, filePath.length - Editor.extension.length)}'
+          '${Editor.extensionOldJson}'
+        );
       }
     }
 
@@ -361,7 +363,7 @@ class FileManager {
       newFilePath = '$filePath ($i)';
     }
 
-    if(useOldExtension){
+    if (useOldExtension) {
       return newFilePath + (hasExtension ? Editor.extensionOldJson : '');
     }
     return newFilePath + (hasExtension ? Editor.extension : '');
