@@ -1,8 +1,6 @@
 import 'dart:async';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
@@ -11,6 +9,7 @@ import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/home/new_note_button.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({
@@ -169,60 +168,11 @@ class _BrowsePageState extends State<BrowsePage> {
           ],
         ),
       ),
-      floatingActionButton: SpeedDial(
-        spacing: 3,
-        mini: true,
-        openCloseDial: isDialOpen,
-        childPadding: const EdgeInsets.all(5),
-        spaceBetweenChildren: 4,
-        dialRoot: (ctx, open, toggleChildren) {
-          return FloatingActionButton(
-            shape: cupertino ? const CircleBorder() : null,
-            onPressed: toggleChildren,
-            tooltip: t.home.tooltips.newNote,
-            child: const Icon(Icons.add)
-          );
-        },
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.create),
-            label: t.home.create.newNote,
-            onTap: () async {
-              final newFilePath = await FileManager.newFilePath('${path ?? ''}/');
-              if (!mounted) return;
-              context.push(RoutePaths.editFilePath(newFilePath));
-            },
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.note_add),
-            label: t.home.create.importNote,
-            onTap: () async {
-              final result = await FilePicker.platform.pickFiles(
-                type: FileType.any,
-
-                allowMultiple: false,
-                withData: false,
-              );
-              if (result == null) return;
-
-              final filePath = result.files.single.path;
-              if (filePath == null) return;
-
-              if (filePath.endsWith('.sbn')){
-                FileManager.importFile(filePath, true);
-              } else if (filePath.endsWith('.sbn2')){
-                FileManager.importFile(filePath, false);
-              } else {
-                if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(t.home.invalidFormat),
-                  ));
-                }
-              }
-            },
-          ),
-        ],
-      ),
+      floatingActionButton: NewNoteButton(
+        cupertino: cupertino,
+        isDialOpen: isDialOpen,
+        path: path
+      )
     );
   }
 
