@@ -12,6 +12,9 @@ home:
   tooltips:
     newNote: New note
     showUpdateDialog: Show update dialog
+  create:
+    newNote: New note
+    importNote: Import note
   welcome: Welcome to Saber
   noFiles: No files found
   createNewNote: Tap the + button to create a new note

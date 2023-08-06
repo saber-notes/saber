@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
+import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
-import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -168,18 +167,9 @@ class _BrowsePageState extends State<BrowsePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        shape: cupertino ? const CircleBorder() : null,
-        onPressed: () async {
-          final newFilePath = await FileManager.newFilePath('${path ?? ''}/');
-          if (!mounted) return;
-          context.push(RoutePaths.editFilePath(newFilePath));
-        },
-        tooltip: t.home.tooltips.newNote,
-        child: const AdaptiveIcon(
-          icon: Icons.add,
-          cupertinoIcon: CupertinoIcons.add,
-        ),
+      floatingActionButton: NewNoteButton(
+        cupertino: cupertino,
+        path: path,
       ),
     );
   }

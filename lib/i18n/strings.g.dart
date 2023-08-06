@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3435 (229 per locale)
+/// Strings: 3437 (229 per locale)
 ///
-/// Built on 2023-07-24 at 19:14 UTC
+/// Built on 2023-08-06 at 12:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -175,6 +175,7 @@ class _StringsHomeEn {
 	late final _StringsHomeTabsEn tabs = _StringsHomeTabsEn._(_root);
 	late final _StringsHomeTitlesEn titles = _StringsHomeTitlesEn._(_root);
 	late final _StringsHomeTooltipsEn tooltips = _StringsHomeTooltipsEn._(_root);
+	late final _StringsHomeCreateEn create = _StringsHomeCreateEn._(_root);
 	String get welcome => 'Welcome to Saber';
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
@@ -336,6 +337,17 @@ class _StringsHomeTooltipsEn {
 	// Translations
 	String get newNote => 'New note';
 	String get showUpdateDialog => 'Show update dialog';
+}
+
+// Path: home.create
+class _StringsHomeCreateEn {
+	_StringsHomeCreateEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get newNote => 'New note';
+	String get importNote => 'Import note';
 }
 
 // Path: home.newFolder

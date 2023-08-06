@@ -5,6 +5,9 @@ ar:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -37,10 +40,17 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 cs:
+  home:
+    create:
+      newNote: New note
+      importNote: Import note
 de:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -69,6 +79,9 @@ es:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -104,6 +117,9 @@ fa:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -129,6 +145,9 @@ fr:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -219,6 +238,9 @@ hu:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -358,10 +380,17 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    create:
+      newNote: New note
+      importNote: Import note
 ja:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -387,6 +416,9 @@ pt-BR:
   home:
     titles:
       browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -409,14 +441,29 @@ pt-BR:
 ru:
   home:
     titles:
-      browse(OUTDATED): Обзор
+      browse(OUTDATED): Browse
+    create:
+      newNote: New note
+      importNote: Import note
   settings:
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Быстрые обновления
-      disableEraserAfterUse(OUTDATED): Автоотключение ластика
+      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Автоматически переключаться обратно на перо после использования ластика
-      shouldAlwaysAlertForUpdates(OUTDATED): Сообщать об обновлениях, как только они станут доступны
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 tr:
+  home:
+    create:
+      newNote: New note
+      importNote: Import note
 zh-Hans-CN:
+  home:
+    create:
+      newNote: New note
+      importNote: Import note
 zh-Hant-TW:
+  home:
+    create:
+      newNote: New note
+      importNote: Import note

@@ -7,7 +7,7 @@
 #define MyAppURL "https://github.com/adil192/saber"
 #define MyAppExeName "saber.exe"
 #define MyAppAssocName MyAppName + " Note"
-#define MyAppAssocExt ".sbn"
+#define MyAppAssocExt ".sbn2"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
 [Setup]

@@ -29,6 +29,7 @@
     <provides>
         <mediatype>application/json</mediatype>
         <mediatype>application/sbn</mediatype>
+        <mediatype>application/sbn2</mediatype>
     </provides>
 
     <description>
