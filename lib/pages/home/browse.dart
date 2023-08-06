@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
+import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:saber/components/home/new_note_button.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({
