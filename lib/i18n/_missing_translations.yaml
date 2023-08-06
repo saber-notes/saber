@@ -42,8 +42,8 @@ ar:
 cs:
   home:
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
+      newNote(OUTDATED): Nová poznámka
+      importNote(OUTDATED): Import poznámky
 de:
   home:
     titles:
