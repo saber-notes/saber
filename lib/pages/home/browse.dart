@@ -89,7 +89,6 @@ class _BrowsePageState extends State<BrowsePage> {
 
     final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
 
-    var isDialOpen = ValueNotifier<bool>(false);
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
@@ -170,9 +169,8 @@ class _BrowsePageState extends State<BrowsePage> {
       ),
       floatingActionButton: NewNoteButton(
         cupertino: cupertino,
-        isDialOpen: isDialOpen,
-        path: path
-      )
+        path: path,
+      ),
     );
   }
 

@@ -62,7 +62,6 @@ class _RecentPageState extends State<RecentPage> {
     final cupertino = platform == TargetPlatform.iOS
         || platform == TargetPlatform.macOS;
     final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
-    var isDialOpen = ValueNotifier<bool>(false);
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
@@ -116,8 +115,7 @@ class _RecentPageState extends State<RecentPage> {
       ),
       floatingActionButton: NewNoteButton(
         cupertino: cupertino,
-        isDialOpen: isDialOpen
-      )
+      ),
     );
   }
 
