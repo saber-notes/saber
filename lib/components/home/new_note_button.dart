@@ -59,7 +59,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
           onTap: () async {
             final result = await FilePicker.platform.pickFiles(
               type: FileType.any,
-
+              allowedExtensions: ['sbn', 'sbn2'],
               allowMultiple: false,
               withData: false,
             );
@@ -73,11 +73,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             } else if (filePath.endsWith('.sbn2')){
               FileManager.importFile(filePath, false);
             } else {
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(t.home.invalidFormat),
-                ));
-              }
+              throw 'Invalid file type';
             }
           },
         ),

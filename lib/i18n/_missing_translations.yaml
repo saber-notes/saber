@@ -8,7 +8,6 @@ ar:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -45,7 +44,6 @@ cs:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
 de:
   home:
     titles:
@@ -53,7 +51,6 @@ de:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -85,7 +82,6 @@ es:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -124,7 +120,6 @@ fa:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -153,7 +148,6 @@ fr:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -247,7 +241,6 @@ hu:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -391,7 +384,6 @@ it:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
 ja:
   home:
     titles:
@@ -399,7 +391,6 @@ ja:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -428,7 +419,6 @@ pt-BR:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -455,7 +445,6 @@ ru:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
   settings:
     prefLabels:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
@@ -468,16 +457,13 @@ tr:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
 zh-Hans-CN:
   home:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
 zh-Hant-TW:
   home:
     create:
       newNote: New note
       importNote: Import note
-    invalidFormat: The selected file is not a Saber note. You can only import .sbn and .sbn2 files.
