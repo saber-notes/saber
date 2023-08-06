@@ -8,7 +8,7 @@ import 'package:saber/components/home/welcome.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:saber/pages/home/new_note_button.dart';
+import 'package:saber/components/home/new_note_button.dart';
 
 class RecentPage extends StatefulWidget {
   const RecentPage({super.key});
