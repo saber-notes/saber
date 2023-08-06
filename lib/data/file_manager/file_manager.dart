@@ -371,7 +371,7 @@ class FileManager {
 
   /// Imports a file from a sharing intent.
   /// Returns the file path of the imported file.
-  static Future<String?> importFile(String path, bool useOldExtension,{bool awaitWrite = true}) async {
+  static Future<String?> importFile(String path, bool useOldExtension, {bool awaitWrite = true}) async {
     final String fileName = path.split('/').last;
     final String importedPath = await suffixFilePathToMakeItUnique('/$fileName', useOldExtension);
 

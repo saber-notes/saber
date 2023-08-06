@@ -122,11 +122,11 @@ class App extends StatefulWidget {
     if (file.path.contains('.')) {
       extension = file.path.split('.').last;
     } else {
-      extension = 'sbn';
+      extension = 'sbn2';
     }
 
-    if (extension == 'sbn') {
-      final String? path = await FileManager.importFile(file.path, false);
+    if (extension == 'sbn' || extension == 'sbn2') {
+      final String? path = await FileManager.importFile(file.path, extension == 'sbn');
       if (path == null) return;
 
       // allow file to finish writing
@@ -135,6 +135,8 @@ class App extends StatefulWidget {
       _router.push(RoutePaths.editFilePath(path));
     } else if (extension == 'pdf') {
       // TODO: import pdf
+    } else if (kDebugMode) {
+      print('openFile: Unsupported file type: $extension');
     }
   }
 

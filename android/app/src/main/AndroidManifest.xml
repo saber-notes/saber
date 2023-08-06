@@ -47,13 +47,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <!-- Support opening json (.sbn) files -->
+            <!-- Support opening sbn (json) and sbn2 (binary) files -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="application/json" />
                 <data android:mimeType="application/sbn" />
+                <data android:mimeType="application/json" />
+                <data android:mimeType="application/sbn2" />
                 <data android:mimeType="text/*" />
             </intent-filter>
             <intent-filter>
@@ -63,10 +64,11 @@
                 <data android:scheme="content" />
                 <data android:scheme="file" />
                 <data android:host="*" />
-                <data android:pathPattern=".*\\.sbn"/>
+                <data android:pathPattern=".*\.sbn2?"/>
 
                 <data android:mimeType="application/json" />
                 <data android:mimeType="application/sbn" />
+                <data android:mimeType="application/sbn2" />
                 <data android:mimeType="text/*" />
             </intent-filter>
 
