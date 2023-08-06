@@ -461,5 +461,5 @@ zh-Hans-CN:
 zh-Hant-TW:
   home:
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
+      newNote(OUTDATED): 新增筆記
+      importNote(OUTDATED): 匯入筆記
