@@ -41,6 +41,9 @@ home:
     delete(OUTDATED): 消去
     alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
   deleteNote(OUTDATED): メモの削除
+  create:
+    newNote(OUTDATED): 新しいメモ
+    importNote(OUTDATED): インポートメモ
 settings:
   prefCategories:
     general: 一般

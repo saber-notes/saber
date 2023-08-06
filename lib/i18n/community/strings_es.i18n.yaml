@@ -41,6 +41,9 @@ home:
     delete(OUTDATED): Borrar
     alsoDeleteContents(OUTDATED): También elimine todas las notas dentro de esta carpeta
   deleteNote(OUTDATED): Borrar la nota
+  create:
+    newNote(OUTDATED): Nueva nota
+    importNote(OUTDATED): Nota de importación
 settings:
   prefCategories:
     general: General

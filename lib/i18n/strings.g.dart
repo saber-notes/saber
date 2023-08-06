@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3437 (229 per locale)
+/// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-06 at 12:32 UTC
+/// Built on 2023-08-06 at 12:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -932,6 +932,7 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override String get backFolder => 'ارجع إلى المجلد السابق';
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
 	@override String get deleteNote => 'حذف الملاحظة';
+	@override late final _StringsHomeCreateAr create = _StringsHomeCreateAr._(_root);
 }
 
 // Path: settings
@@ -1140,6 +1141,17 @@ class _StringsHomeDeleteFolderAr extends _StringsHomeDeleteFolderEn {
 	@override String get deleteFolder => 'احذف المجلد';
 	@override String get alsoDeleteContents => 'احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد';
 	@override String get delete => 'يمسح';
+}
+
+// Path: home.create
+class _StringsHomeCreateAr extends _StringsHomeCreateEn {
+	_StringsHomeCreateAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get importNote => 'مذكرة استيراد';
+	@override String get newNote => 'مذكرة جديدة';
 }
 
 // Path: settings.prefCategories
@@ -1668,6 +1680,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
 	@override String get deleteNote => 'Odstranit poznámku';
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
+	@override late final _StringsHomeCreateCs create = _StringsHomeCreateCs._(_root);
 }
 
 // Path: settings
@@ -1876,6 +1889,17 @@ class _StringsHomeDeleteFolderCs extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Odstranění složky ${f}';
 	@override String get delete => 'Odstranit';
 	@override String get alsoDeleteContents => 'Se složkou odstranit i obsažené poznámky';
+}
+
+// Path: home.create
+class _StringsHomeCreateCs extends _StringsHomeCreateEn {
+	_StringsHomeCreateCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nová poznámka';
+	@override String get importNote => 'Importovat poznámku';
 }
 
 // Path: settings.prefCategories
@@ -2404,6 +2428,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override String get backFolder => 'Zurück zum vorherigen Ordner';
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
 	@override String get deleteNote => 'Notiz löschen';
+	@override late final _StringsHomeCreateDe create = _StringsHomeCreateDe._(_root);
 }
 
 // Path: settings
@@ -2612,6 +2637,17 @@ class _StringsHomeDeleteFolderDe extends _StringsHomeDeleteFolderEn {
 	@override String get deleteFolder => 'Lösche Ordner';
 	@override String get delete => 'Löschen';
 	@override String get alsoDeleteContents => 'Löschen Sie außerdem alle Notizen in diesem Ordner';
+}
+
+// Path: home.create
+class _StringsHomeCreateDe extends _StringsHomeCreateEn {
+	_StringsHomeCreateDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Neuer Hinweis';
+	@override String get importNote => 'Notiz importieren';
 }
 
 // Path: settings.prefCategories
@@ -3140,6 +3176,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override String get backFolder => 'Volver a la carpeta anterior';
 	@override late final _StringsHomeDeleteFolderEs deleteFolder = _StringsHomeDeleteFolderEs._(_root);
 	@override String get deleteNote => 'Borrar la nota';
+	@override late final _StringsHomeCreateEs create = _StringsHomeCreateEs._(_root);
 }
 
 // Path: settings
@@ -3347,6 +3384,17 @@ class _StringsHomeDeleteFolderEs extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Eliminar ${f}';
 	@override String get delete => 'Borrar';
 	@override String get alsoDeleteContents => 'También elimine todas las notas dentro de esta carpeta';
+}
+
+// Path: home.create
+class _StringsHomeCreateEs extends _StringsHomeCreateEn {
+	_StringsHomeCreateEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nueva nota';
+	@override String get importNote => 'Nota de importación';
 }
 
 // Path: settings.prefCategories
@@ -3875,6 +3923,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override String get backFolder => 'بازگشت به پوشه قبلی';
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
 	@override String get deleteNote => 'حذف یادداشت';
+	@override late final _StringsHomeCreateFa create = _StringsHomeCreateFa._(_root);
 }
 
 // Path: settings
@@ -4083,6 +4132,17 @@ class _StringsHomeDeleteFolderFa extends _StringsHomeDeleteFolderEn {
 	@override String get deleteFolder => 'پوشه را حذف کنید';
 	@override String get delete => 'حذف';
 	@override String get alsoDeleteContents => 'همچنین تمام یادداشت های داخل این پوشه را حذف کنید';
+}
+
+// Path: home.create
+class _StringsHomeCreateFa extends _StringsHomeCreateEn {
+	_StringsHomeCreateFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'یادداشت جدید';
+	@override String get importNote => 'یادداشت وارد کنید';
 }
 
 // Path: settings.prefCategories
@@ -4611,6 +4671,7 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override String get backFolder => 'Revenir au dossier précédent';
 	@override late final _StringsHomeDeleteFolderFr deleteFolder = _StringsHomeDeleteFolderFr._(_root);
 	@override String get deleteNote => 'Supprimer la note';
+	@override late final _StringsHomeCreateFr create = _StringsHomeCreateFr._(_root);
 }
 
 // Path: settings
@@ -4819,6 +4880,17 @@ class _StringsHomeDeleteFolderFr extends _StringsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Supprimez également toutes les notes de ce dossier';
 	@override String get deleteFolder => 'Supprimer le dossier';
 	@override String get delete => 'Supprimer';
+}
+
+// Path: home.create
+class _StringsHomeCreateFr extends _StringsHomeCreateEn {
+	_StringsHomeCreateFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nouvelle note';
+	@override String get importNote => 'Remarque d\'importation';
 }
 
 // Path: settings.prefCategories
@@ -5347,6 +5419,7 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override String get backFolder => 'Menjen vissza az előző mappába';
 	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
 	@override String get deleteNote => 'Jegyzet törlése';
+	@override late final _StringsHomeCreateHu create = _StringsHomeCreateHu._(_root);
 }
 
 // Path: settings
@@ -5555,6 +5628,17 @@ class _StringsHomeDeleteFolderHu extends _StringsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Törölje az összes jegyzetet ebben a mappában';
 	@override String get deleteFolder => 'Mappa törlése';
 	@override String deleteName({required Object f}) => '${f} törlése';
+}
+
+// Path: home.create
+class _StringsHomeCreateHu extends _StringsHomeCreateEn {
+	_StringsHomeCreateHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Új jegyzet';
+	@override String get importNote => 'Megjegyzés importálása';
 }
 
 // Path: settings.prefCategories
@@ -6083,6 +6167,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
+	@override late final _StringsHomeCreateIt create = _StringsHomeCreateIt._(_root);
 }
 
 // Path: settings
@@ -6291,6 +6376,17 @@ class _StringsHomeDeleteFolderIt extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Elimina ${f}';
 	@override String get delete => 'Elimina';
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
+}
+
+// Path: home.create
+class _StringsHomeCreateIt extends _StringsHomeCreateEn {
+	_StringsHomeCreateIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nuova nota';
+	@override String get importNote => 'Importa nota';
 }
 
 // Path: settings.prefCategories
@@ -6819,6 +6915,7 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override String get backFolder => '前のフォルダーに戻ります';
 	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
 	@override String get deleteNote => 'メモの削除';
+	@override late final _StringsHomeCreateJa create = _StringsHomeCreateJa._(_root);
 }
 
 // Path: settings
@@ -7027,6 +7124,17 @@ class _StringsHomeDeleteFolderJa extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '${f}を削除';
 	@override String get delete => '消去';
 	@override String get alsoDeleteContents => 'このフォルダー内のすべてのメモも削除します';
+}
+
+// Path: home.create
+class _StringsHomeCreateJa extends _StringsHomeCreateEn {
+	_StringsHomeCreateJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新しいメモ';
+	@override String get importNote => 'インポートメモ';
 }
 
 // Path: settings.prefCategories
@@ -7555,6 +7663,7 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override String get backFolder => 'Voltar para a pasta anterior';
 	@override late final _StringsHomeDeleteFolderPtBr deleteFolder = _StringsHomeDeleteFolderPtBr._(_root);
 	@override String get deleteNote => 'Excluir nota';
+	@override late final _StringsHomeCreatePtBr create = _StringsHomeCreatePtBr._(_root);
 }
 
 // Path: settings
@@ -7763,6 +7872,17 @@ class _StringsHomeDeleteFolderPtBr extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Deletar ${f}';
 	@override String get alsoDeleteContents => 'Exclua também todas as notas dentro desta pasta';
 	@override String get delete => 'Excluir';
+}
+
+// Path: home.create
+class _StringsHomeCreatePtBr extends _StringsHomeCreateEn {
+	_StringsHomeCreatePtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'nova nota';
+	@override String get importNote => 'Nota de importação';
 }
 
 // Path: settings.prefCategories
@@ -8291,6 +8411,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
+	@override late final _StringsHomeCreateRu create = _StringsHomeCreateRu._(_root);
 }
 
 // Path: settings
@@ -8499,6 +8620,17 @@ class _StringsHomeDeleteFolderRu extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Удалить ${f}';
 	@override String get delete => 'Удалить';
 	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
+}
+
+// Path: home.create
+class _StringsHomeCreateRu extends _StringsHomeCreateEn {
+	_StringsHomeCreateRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Новая заметка';
+	@override String get importNote => 'Примечание об импорте';
 }
 
 // Path: settings.prefCategories
@@ -9027,6 +9159,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
 	@override String get deleteNote => 'Notu sil';
 	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
+	@override late final _StringsHomeCreateTr create = _StringsHomeCreateTr._(_root);
 }
 
 // Path: settings
@@ -9235,6 +9368,17 @@ class _StringsHomeDeleteFolderTr extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '${f} silinecek';
 	@override String get delete => 'Sil';
 	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
+}
+
+// Path: home.create
+class _StringsHomeCreateTr extends _StringsHomeCreateEn {
+	_StringsHomeCreateTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Yeni not';
+	@override String get importNote => 'Notu içe aktar';
 }
 
 // Path: settings.prefCategories
@@ -9763,6 +9907,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
 	@override String get deleteNote => '删除笔记';
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
+	@override late final _StringsHomeCreateZhHansCn create = _StringsHomeCreateZhHansCn._(_root);
 }
 
 // Path: settings
@@ -9971,6 +10116,17 @@ class _StringsHomeDeleteFolderZhHansCn extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '删除 ${f}';
 	@override String get delete => '删除';
 	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
+}
+
+// Path: home.create
+class _StringsHomeCreateZhHansCn extends _StringsHomeCreateEn {
+	_StringsHomeCreateZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新笔记';
+	@override String get importNote => '进口单据';
 }
 
 // Path: settings.prefCategories
@@ -10499,6 +10655,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 	@override String get deleteNote => '刪除筆記';
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
+	@override late final _StringsHomeCreateZhHantTw create = _StringsHomeCreateZhHantTw._(_root);
 }
 
 // Path: settings
@@ -10707,6 +10864,17 @@ class _StringsHomeDeleteFolderZhHantTw extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '刪除 ${f}';
 	@override String get delete => '刪除';
 	@override String get alsoDeleteContents => '同時刪除該文件夾內的所有筆記';
+}
+
+// Path: home.create
+class _StringsHomeCreateZhHantTw extends _StringsHomeCreateEn {
+	_StringsHomeCreateZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新筆記';
+	@override String get importNote => '進口單據';
 }
 
 // Path: settings.prefCategories

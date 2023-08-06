@@ -41,6 +41,9 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
+  create:
+    newNote(OUTDATED): Новая заметка
+    importNote(OUTDATED): Примечание об импорте
 settings:
   prefCategories:
     general: Общие

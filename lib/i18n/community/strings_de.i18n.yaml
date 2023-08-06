@@ -41,6 +41,9 @@ home:
     delete(OUTDATED): Löschen
     alsoDeleteContents(OUTDATED): Löschen Sie außerdem alle Notizen in diesem Ordner
   deleteNote(OUTDATED): Notiz löschen
+  create:
+    newNote(OUTDATED): Neuer Hinweis
+    importNote(OUTDATED): Notiz importieren
 settings:
   prefCategories:
     general: Allgemein

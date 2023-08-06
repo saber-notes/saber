@@ -41,6 +41,9 @@ home:
     deleteFolder(OUTDATED): Mappa törlése
     deleteName(OUTDATED): $f törlése
   deleteNote(OUTDATED): Jegyzet törlése
+  create:
+    newNote(OUTDATED): Új jegyzet
+    importNote(OUTDATED): Megjegyzés importálása
 settings:
   prefCategories:
     general: Általános

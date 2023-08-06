@@ -41,6 +41,9 @@ home:
     deleteFolder(OUTDATED): Supprimer le dossier
     delete(OUTDATED): Supprimer
   deleteNote(OUTDATED): Supprimer la note
+  create:
+    newNote(OUTDATED): Nouvelle note
+    importNote(OUTDATED): Remarque d'importation
 settings:
   prefCategories:
     general: Général

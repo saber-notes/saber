@@ -6,8 +6,8 @@ ar:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -42,15 +42,15 @@ ar:
 cs:
   home:
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
 de:
   home:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -80,8 +80,8 @@ es:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -118,8 +118,8 @@ fa:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -146,8 +146,8 @@ fr:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -239,8 +239,8 @@ hu:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -382,15 +382,15 @@ hu:
 it:
   home:
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
 ja:
   home:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -417,8 +417,8 @@ pt-BR:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -443,8 +443,8 @@ ru:
     titles:
       browse(OUTDATED): Browse
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
   settings:
     prefLabels:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
@@ -455,15 +455,15 @@ ru:
 tr:
   home:
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
 zh-Hans-CN:
   home:
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note
 zh-Hant-TW:
   home:
     create:
-      newNote: New note
-      importNote: Import note
+      newNote(OUTDATED): New note
+      importNote(OUTDATED): Import note

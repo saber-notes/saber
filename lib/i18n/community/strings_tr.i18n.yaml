@@ -41,6 +41,9 @@ home:
     deleteName: $f silinecek
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
+  create:
+    newNote(OUTDATED): Yeni not
+    importNote(OUTDATED): Notu içe aktar
 settings:
   prefCategories:
     general: Genel

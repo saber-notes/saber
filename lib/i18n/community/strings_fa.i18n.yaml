@@ -41,6 +41,9 @@ home:
     delete(OUTDATED): حذف
     alsoDeleteContents(OUTDATED): همچنین تمام یادداشت های داخل این پوشه را حذف کنید
   deleteNote(OUTDATED): حذف یادداشت
+  create:
+    newNote(OUTDATED): یادداشت جدید
+    importNote(OUTDATED): یادداشت وارد کنید
 settings:
   prefCategories:
     general: عمومی

@@ -41,6 +41,9 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+  create:
+    newNote(OUTDATED): Nuova nota
+    importNote(OUTDATED): Importa nota
 settings:
   prefCategories:
     general: Generale

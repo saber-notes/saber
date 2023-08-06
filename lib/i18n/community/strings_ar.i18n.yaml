@@ -41,6 +41,9 @@ home:
     alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
     delete(OUTDATED): يمسح
   deleteNote(OUTDATED): حذف الملاحظة
+  create:
+    importNote(OUTDATED): مذكرة استيراد
+    newNote(OUTDATED): مذكرة جديدة
 settings:
   prefCategories:
     general: عام

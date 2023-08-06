@@ -41,6 +41,9 @@ home:
     deleteName: 删除 $f
     delete: 删除
     alsoDeleteContents: 同时删除此文件夹中的所有笔记
+  create:
+    newNote(OUTDATED): 新笔记
+    importNote(OUTDATED): 进口单据
 settings:
   prefCategories:
     general: 通用

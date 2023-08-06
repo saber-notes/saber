@@ -41,6 +41,9 @@ home:
     alsoDeleteContents(OUTDATED): Exclua também todas as notas dentro desta pasta
     delete(OUTDATED): Excluir
   deleteNote(OUTDATED): Excluir nota
+  create:
+    newNote(OUTDATED): nova nota
+    importNote(OUTDATED): Nota de importação
 settings:
   prefCategories:
     general: Geral
