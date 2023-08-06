@@ -378,8 +378,8 @@ hu:
 it:
   home:
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
+      newNote(OUTDATED): Nuova nota
+      importNote(OUTDATED): Importa nota
 ja:
   home:
     titles:
