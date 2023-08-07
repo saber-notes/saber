@@ -100,6 +100,7 @@ class App extends StatefulWidget {
         path: RoutePaths.edit,
         builder: (context, state) => Editor(
           path: state.uri.queryParameters['path'],
+          pdfPath: state.uri.queryParameters['pdfPath'],
         ),
       ),
       GoRoute(

@@ -2,6 +2,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:go_router/go_router.dart';
+import 'package:printing/printing.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -59,7 +60,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
           onTap: () async {
             final result = await FilePicker.platform.pickFiles(
               type: FileType.any,
-              allowedExtensions: ['sbn', 'sbn2'],
+              allowedExtensions: ['sbn', 'sbn2', 'pdf'],
               allowMultiple: false,
               withData: false,
             );
@@ -72,6 +73,15 @@ class _NewNoteButtonState extends State<NewNoteButton>{
               FileManager.importFile(filePath, true);
             } else if (filePath.endsWith('.sbn2')){
               FileManager.importFile(filePath, false);
+            } else if (filePath.endsWith('.pdf')){
+              bool canRasterPdf = true;
+              Printing.info().then((info) {
+                canRasterPdf = info.canRaster;
+              });
+              if(canRasterPdf){
+                if (!mounted) return;
+                context.push(RoutePaths.editImportPdf(filePath));
+              }
             } else {
               throw 'Invalid file type';
             }

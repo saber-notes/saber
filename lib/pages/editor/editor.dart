@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:bson/bson.dart';
 import 'package:collapsible/collapsible.dart';
@@ -53,6 +54,7 @@ class Editor extends StatefulWidget {
     super.key,
     String? path,
     this.customTitle,
+    this.pdfPath,
   }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath('/'),
         needsNaming = path == null;
 
@@ -60,6 +62,7 @@ class Editor extends StatefulWidget {
   final bool needsNaming;
 
   final String? customTitle;
+  final String? pdfPath;
 
   /// The file extension used by the app.
   /// Files with this extension are
@@ -151,6 +154,10 @@ class EditorState extends State<Editor> {
     Printing.info().then((info) {
       canRasterPdf = info.canRaster;
     });
+
+    if(widget.pdfPath != null){
+      importPdf(widget.pdfPath!);
+    }
 
     super.initState();
   }
@@ -943,7 +950,7 @@ class EditorState extends State<Editor> {
 
   /// Prompts the user to pick a PDF to import.
   /// Returns whether a PDF was picked.
-  Future<bool> importPdf() async {
+  Future<bool> pickPdf() async {
     if (coreInfo.readOnly) return false;
     if (!canRasterPdf) return false;
 
@@ -951,18 +958,29 @@ class EditorState extends State<Editor> {
       type: FileType.custom,
       allowedExtensions: ['pdf'],
       allowMultiple: false,
-      withData: true,
+      withData: false,
     );
     if (result == null) return false;
 
     final PlatformFile file = result.files.single;
-    if (file.bytes == null) return false;
+    return importPdf(file.path!);
+  }
+
+  Future<bool> importPdf(String path) async{
+    final File tempFile = File(path);
+    final Uint8List fileContents;
+    try {
+      fileContents = await tempFile.readAsBytes();
+    } catch (e) {
+      if (kDebugMode) print('Failed to read file when importing $path');
+      return false;
+    }
 
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
     final raster = Printing.raster(
-      file.bytes!,
+      fileContents,
       dpi: PdfPageFormat.inch * 4,
     );
 
@@ -1464,7 +1482,7 @@ class EditorState extends State<Editor> {
       }),
 
       pickPhotos: _pickPhotos,
-      importPdf: importPdf,
+      importPdf: pickPdf,
       canRasterPdf: canRasterPdf,
     );
   }
