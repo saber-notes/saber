@@ -434,8 +434,8 @@ ru:
 tr:
   home:
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
+      newNote(OUTDATED): Yeni not
+      importNote(OUTDATED): Notu içeri aktar
 zh-Hans-CN:
   home:
     create:
