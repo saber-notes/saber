@@ -433,17 +433,17 @@ pt-BR:
 ru:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): Обзор
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
+      newNote(OUTDATED): Новая заметка
+      importNote(OUTDATED): Импорт заметки
   settings:
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+      shouldAlwaysAlertForUpdates(OUTDATED): Быстрые обновления
+      disableEraserAfterUse(OUTDATED): Автоотключение ластика
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      disableEraserAfterUse(OUTDATED): Автоматически переключается на перо после использования ластика
+      shouldAlwaysAlertForUpdates(OUTDATED): Сообщать мне об обновлениях, как только они станут доступны
 tr:
   home:
     create:
