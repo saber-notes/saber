@@ -151,10 +151,6 @@ class EditorState extends State<Editor> {
     _initAsync();
     _assignKeybindings();
 
-    if (widget.pdfPath != null) {
-      importPdfFromFilePath(widget.pdfPath!);
-    }
-
     super.initState();
   }
   void _initAsync() async {
@@ -169,6 +165,10 @@ class EditorState extends State<Editor> {
     }
 
     await _initStrokes();
+
+    if (widget.pdfPath != null) {
+      await importPdfFromFilePath(widget.pdfPath!);
+    }
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
