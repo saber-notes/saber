@@ -6,12 +6,15 @@ home:
     settings: Настройки
   titles:
     home: Недавние заметки
-    browse(OUTDATED): Обзор
+    browse: Обзор
     whiteboard: Чистый лист
     settings: Настройки
   tooltips:
     newNote: Новая заметка
     showUpdateDialog: Показывать диалог обновления
+  create:
+    newNote: Новая заметка
+    importNote: Импорт заметки
   welcome: Приветствуем в Saber
   noFiles: Файлов ещё нет
   createNewNote: Нажмите кнопку «+» чтобы создать новую заметку
@@ -41,9 +44,6 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
-  create:
-    newNote(OUTDATED): Новая заметка
-    importNote(OUTDATED): Примечание об импорте
 settings:
   prefCategories:
     general: Общие
@@ -58,6 +58,7 @@ settings:
     customAccentColor: Свой цвет акцента
     hyperlegibleFont: Гипер разборчивый шрифт
     shouldCheckForUpdates: Автоматически проверять обновления Saber
+    shouldAlwaysAlertForUpdates: Быстрые обновления
     disableAds: Отключить рекламу
     changeAdsConsent: Согласие на рекламу
     allowInsecureConnections: Разрешить небезопасные соединения
@@ -69,14 +70,13 @@ settings:
     editorStraightenLines: "Нажать и удерживать, чтобы выпрямить линию"
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
+    disableEraserAfterUse: Автоотключение ластика
     hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
     dontSavePresetColors: Не сохранять предустановленные цвета в последних цветах
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
-    disableEraserAfterUse(OUTDATED): Автоматическое отключение ластика
-    shouldAlwaysAlertForUpdates(OUTDATED): Более быстрые обновления
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -84,6 +84,7 @@ settings:
     editorOpaqueBackgrounds: Удалить прозрачность фоновых изображений и PDF-файлов
     preferGreyscale: Для e-ink экранов
     autoClearWhiteboardOnExit: Это будет синхронизировано с другими вашими устройствами
+    disableEraserAfterUse: Автоматически переключается на перо после использования ластика
     maxImageSize: Большие изображения будут сжаты
     hideFingerDrawing:
       shown: Предотвращать случайное переключение
@@ -93,8 +94,7 @@ settings:
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
-    shouldAlwaysAlertForUpdates(OUTDATED): "Сообщите мне об обновлениях, как только они станут доступны"
-    disableEraserAfterUse(OUTDATED): Автоматически переключается обратно на перо после использования ластика
+    shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
   themeModes:
     system: Системная
     light: Светлая

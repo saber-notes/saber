@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-08 at 23:21 UTC
+/// Built on 2023-08-08 at 23:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8402,6 +8402,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeTabsRu tabs = _StringsHomeTabsRu._(_root);
 	@override late final _StringsHomeTitlesRu titles = _StringsHomeTitlesRu._(_root);
 	@override late final _StringsHomeTooltipsRu tooltips = _StringsHomeTooltipsRu._(_root);
+	@override late final _StringsHomeCreateRu create = _StringsHomeCreateRu._(_root);
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get noFiles => 'Файлов ещё нет';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
@@ -8411,7 +8412,6 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
-	@override late final _StringsHomeCreateRu create = _StringsHomeCreateRu._(_root);
 }
 
 // Path: settings
@@ -8566,6 +8566,17 @@ class _StringsHomeTooltipsRu extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Показывать диалог обновления';
 }
 
+// Path: home.create
+class _StringsHomeCreateRu extends _StringsHomeCreateEn {
+	_StringsHomeCreateRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Новая заметка';
+	@override String get importNote => 'Импорт заметки';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderRu extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderRu._(_StringsRu root) : this._root = root, super._(root);
@@ -8622,17 +8633,6 @@ class _StringsHomeDeleteFolderRu extends _StringsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
 }
 
-// Path: home.create
-class _StringsHomeCreateRu extends _StringsHomeCreateEn {
-	_StringsHomeCreateRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Новая заметка';
-	@override String get importNote => 'Примечание об импорте';
-}
-
 // Path: settings.prefCategories
 class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn {
 	_StringsSettingsPrefCategoriesRu._(_StringsRu root) : this._root = root, super._(root);
@@ -8660,6 +8660,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Свой цвет акцента';
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Быстрые обновления';
 	@override String get disableAds => 'Отключить рекламу';
 	@override String get changeAdsConsent => 'Согласие на рекламу';
 	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';
@@ -8671,14 +8672,13 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
 	@override String get maxImageSize => 'Макс. размер изображения';
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
+	@override String get disableEraserAfterUse => 'Автоотключение ластика';
 	@override String get hideFingerDrawingToggle => 'Скрыть переключатель «Рисование пальцем»';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
-	@override String get disableEraserAfterUse => 'Автоматическое отключение ластика';
-	@override String get shouldAlwaysAlertForUpdates => 'Более быстрые обновления';
 }
 
 // Path: settings.prefDescriptions
@@ -8694,14 +8694,14 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get editorOpaqueBackgrounds => 'Удалить прозрачность фоновых изображений и PDF-файлов';
 	@override String get preferGreyscale => 'Для e-ink экранов';
 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
+	@override String get disableEraserAfterUse => 'Автоматически переключается на перо после использования ластика';
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingRu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingRu._(_root);
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
-	@override String get shouldAlwaysAlertForUpdates => 'Сообщите мне об обновлениях, как только они станут доступны';
-	@override String get disableEraserAfterUse => 'Автоматически переключается обратно на перо после использования ластика';
+	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 }
 
 // Path: settings.themeModes

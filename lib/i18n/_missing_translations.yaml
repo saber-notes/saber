@@ -431,19 +431,6 @@ pt-BR:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 ru:
-  home:
-    titles:
-      browse(OUTDATED): Browse
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 tr:
   home:
     create:
