@@ -17,6 +17,9 @@ abstract class RoutePaths {
   static String editFilePath(String filePath) {
     return '$edit?path=${Uri.encodeQueryComponent(filePath)}';
   }
+  static String editImportPdf(String pdfPath) {
+    return '$edit?pdfPath=${Uri.encodeQueryComponent(pdfPath)}';
+  }
 }
 
 abstract class HomeRoutes {

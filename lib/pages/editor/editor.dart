@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:bson/bson.dart';
 import 'package:collapsible/collapsible.dart';
@@ -53,6 +54,7 @@ class Editor extends StatefulWidget {
     super.key,
     String? path,
     this.customTitle,
+    this.pdfPath,
   }) : initialPath = path != null ? Future.value(path) : FileManager.newFilePath('/'),
         needsNaming = path == null;
 
@@ -60,6 +62,7 @@ class Editor extends StatefulWidget {
   final bool needsNaming;
 
   final String? customTitle;
+  final String? pdfPath;
 
   /// The file extension used by the app.
   /// Files with this extension are
@@ -80,6 +83,9 @@ class Editor extends StatefulWidget {
   static final List<RegExp> _reservedFilePaths = [
     RegExp(RegExp.escape(Whiteboard.filePath)),
   ];
+
+  /// Whether the platform can rasterize a pdf
+  static bool canRasterPdf = true;
 
   @override
   State<Editor> createState() => EditorState();
@@ -133,9 +139,6 @@ class EditorState extends State<Editor> {
 
   QuillStruct? lastFocusedQuill;
 
-  /// Whether the platform can rasterize a pdf
-  bool canRasterPdf = true;
-
   /// The tool that was used before switching to the eraser.
   Tool? tmpTool;
   /// If the stylus button is pressed, or was pressed during the current draw gesture.
@@ -147,10 +150,6 @@ class EditorState extends State<Editor> {
 
     _initAsync();
     _assignKeybindings();
-
-    Printing.info().then((info) {
-      canRasterPdf = info.canRaster;
-    });
 
     super.initState();
   }
@@ -166,6 +165,10 @@ class EditorState extends State<Editor> {
     }
 
     await _initStrokes();
+
+    if (widget.pdfPath != null) {
+      await importPdfFromFilePath(widget.pdfPath!);
+    }
   }
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
@@ -945,24 +948,35 @@ class EditorState extends State<Editor> {
   /// Returns whether a PDF was picked.
   Future<bool> importPdf() async {
     if (coreInfo.readOnly) return false;
-    if (!canRasterPdf) return false;
+    if (!Editor.canRasterPdf) return false;
 
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf'],
       allowMultiple: false,
-      withData: true,
+      withData: false,
     );
     if (result == null) return false;
 
     final PlatformFile file = result.files.single;
-    if (file.bytes == null) return false;
+    return importPdfFromFilePath(file.path!);
+  }
+
+  Future<bool> importPdfFromFilePath(String path) async{
+    final File tempFile = File(path);
+    final Uint8List fileContents;
+    try {
+      fileContents = await tempFile.readAsBytes();
+    } catch (e) {
+      if (kDebugMode) print('Failed to read file when importing $path');
+      return false;
+    }
 
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
     final raster = Printing.raster(
-      file.bytes!,
+      fileContents,
       dpi: PdfPageFormat.inch * 4,
     );
 
@@ -1465,7 +1479,7 @@ class EditorState extends State<Editor> {
 
       pickPhotos: _pickPhotos,
       importPdf: importPdf,
-      canRasterPdf: canRasterPdf,
+      canRasterPdf: Editor.canRasterPdf,
     );
   }
 

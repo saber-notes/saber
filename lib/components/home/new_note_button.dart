@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class NewNoteButton extends StatefulWidget {
   const NewNoteButton({
@@ -59,7 +60,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
           onTap: () async {
             final result = await FilePicker.platform.pickFiles(
               type: FileType.any,
-              allowedExtensions: ['sbn', 'sbn2'],
+              allowedExtensions: ['sbn', 'sbn2', 'pdf'],
               allowMultiple: false,
               withData: false,
             );
@@ -68,10 +69,14 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             final filePath = result.files.single.path;
             if (filePath == null) return;
 
-            if (filePath.endsWith('.sbn')){
+            if (filePath.endsWith('.sbn')) {
               FileManager.importFile(filePath, true);
-            } else if (filePath.endsWith('.sbn2')){
+            } else if (filePath.endsWith('.sbn2')) {
               FileManager.importFile(filePath, false);
+            } else if (filePath.endsWith('.pdf')) {
+              if (!Editor.canRasterPdf) return;
+              if (!mounted) return;
+              context.push(RoutePaths.editImportPdf(filePath));
             } else {
               throw 'Invalid file type';
             }

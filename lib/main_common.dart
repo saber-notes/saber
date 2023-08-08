@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
@@ -38,6 +39,9 @@ Future<void> main() async {
     Prefs.url.waitUntilLoaded(),
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
+    Printing.info().then((info) {
+      Editor.canRasterPdf = info.canRaster;
+    }),
   ]);
 
   AdState.init();
@@ -100,6 +104,7 @@ class App extends StatefulWidget {
         path: RoutePaths.edit,
         builder: (context, state) => Editor(
           path: state.uri.queryParameters['path'],
+          pdfPath: state.uri.queryParameters['pdfPath'],
         ),
       ),
       GoRoute(
