@@ -12,6 +12,9 @@ home:
   tooltips:
     newNote: 新增筆記
     showUpdateDialog: 顯示更新對話框
+  create:
+    newNote: 新增筆記
+    importNote: 匯入筆記
   welcome: 歡迎使用 Saber
   noFiles: 未找到檔案
   createNewNote: 點擊 + 按鈕新增一個筆記
@@ -41,9 +44,6 @@ home:
     deleteName: 刪除 $f
     delete: 刪除
     alsoDeleteContents: 同時刪除該文件夾內的所有筆記
-  create:
-    newNote(OUTDATED): 新筆記
-    importNote(OUTDATED): 進口單據
 settings:
   prefCategories:
     general: 一般

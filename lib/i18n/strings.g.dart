@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-08 at 23:19 UTC
+/// Built on 2023-08-08 at 23:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10646,6 +10646,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeTabsZhHantTw tabs = _StringsHomeTabsZhHantTw._(_root);
 	@override late final _StringsHomeTitlesZhHantTw titles = _StringsHomeTitlesZhHantTw._(_root);
 	@override late final _StringsHomeTooltipsZhHantTw tooltips = _StringsHomeTooltipsZhHantTw._(_root);
+	@override late final _StringsHomeCreateZhHantTw create = _StringsHomeCreateZhHantTw._(_root);
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get noFiles => '未找到檔案';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
@@ -10655,7 +10656,6 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 	@override String get deleteNote => '刪除筆記';
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
-	@override late final _StringsHomeCreateZhHantTw create = _StringsHomeCreateZhHantTw._(_root);
 }
 
 // Path: settings
@@ -10810,6 +10810,17 @@ class _StringsHomeTooltipsZhHantTw extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => '顯示更新對話框';
 }
 
+// Path: home.create
+class _StringsHomeCreateZhHantTw extends _StringsHomeCreateEn {
+	_StringsHomeCreateZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新增筆記';
+	@override String get importNote => '匯入筆記';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderZhHantTw extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
@@ -10864,17 +10875,6 @@ class _StringsHomeDeleteFolderZhHantTw extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '刪除 ${f}';
 	@override String get delete => '刪除';
 	@override String get alsoDeleteContents => '同時刪除該文件夾內的所有筆記';
-}
-
-// Path: home.create
-class _StringsHomeCreateZhHantTw extends _StringsHomeCreateEn {
-	_StringsHomeCreateZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => '新筆記';
-	@override String get importNote => '進口單據';
 }
 
 // Path: settings.prefCategories
