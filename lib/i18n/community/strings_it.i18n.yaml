@@ -12,6 +12,9 @@ home:
   tooltips:
     newNote: Nuova nota
     showUpdateDialog: Mostra finestra di aggiornamento
+  create:
+    newNote: Nuova nota
+    importNote: Importa nota
   welcome: Benvenuto su Saber
   noFiles: Nessun file trovato
   createNewNote: Tocca il pulsante + per creare una nuova nota
@@ -41,9 +44,6 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
-  create:
-    newNote(OUTDATED): Nuova nota
-    importNote(OUTDATED): Importa nota
 settings:
   prefCategories:
     general: Generale
