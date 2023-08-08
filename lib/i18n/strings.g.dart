@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-08 at 23:23 UTC
+/// Built on 2023-08-08 at 23:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9150,6 +9150,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsTr tabs = _StringsHomeTabsTr._(_root);
 	@override late final _StringsHomeTitlesTr titles = _StringsHomeTitlesTr._(_root);
 	@override late final _StringsHomeTooltipsTr tooltips = _StringsHomeTooltipsTr._(_root);
+	@override late final _StringsHomeCreateTr create = _StringsHomeCreateTr._(_root);
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get noFiles => 'Dosya yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
@@ -9159,7 +9160,6 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
 	@override String get deleteNote => 'Notu sil';
 	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
-	@override late final _StringsHomeCreateTr create = _StringsHomeCreateTr._(_root);
 }
 
 // Path: settings
@@ -9314,6 +9314,17 @@ class _StringsHomeTooltipsTr extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Güncelleme diyalogunu göster';
 }
 
+// Path: home.create
+class _StringsHomeCreateTr extends _StringsHomeCreateEn {
+	_StringsHomeCreateTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Yeni not';
+	@override String get importNote => 'Notu içeri aktar';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderTr extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderTr._(_StringsTr root) : this._root = root, super._(root);
@@ -9368,17 +9379,6 @@ class _StringsHomeDeleteFolderTr extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '${f} silinecek';
 	@override String get delete => 'Sil';
 	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
-}
-
-// Path: home.create
-class _StringsHomeCreateTr extends _StringsHomeCreateEn {
-	_StringsHomeCreateTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Yeni not';
-	@override String get importNote => 'Notu içe aktar';
 }
 
 // Path: settings.prefCategories

@@ -432,10 +432,6 @@ pt-BR:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 ru:
 tr:
-  home:
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
 zh-Hans-CN:
   home:
     create:
