@@ -459,7 +459,3 @@ zh-Hans-CN:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
 zh-Hant-TW:
-  home:
-    create:
-      newNote(OUTDATED): 新增筆記
-      importNote(OUTDATED): 匯入筆記
