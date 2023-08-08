@@ -431,19 +431,6 @@ pt-BR:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 ru:
-  home:
-    titles:
-      browse(OUTDATED): Обзор
-    create:
-      newNote(OUTDATED): Новая заметка
-      importNote(OUTDATED): Импорт заметки
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Быстрые обновления
-      disableEraserAfterUse(OUTDATED): Автоотключение ластика
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Автоматически переключается на перо после использования ластика
-      shouldAlwaysAlertForUpdates(OUTDATED): Сообщать мне об обновлениях, как только они станут доступны
 tr:
   home:
     create:
