@@ -6,6 +6,7 @@ import 'package:printing/printing.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class NewNoteButton extends StatefulWidget {
   const NewNoteButton({
@@ -74,14 +75,9 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             } else if (filePath.endsWith('.sbn2')) {
               FileManager.importFile(filePath, false);
             } else if (filePath.endsWith('.pdf')) {
-              bool canRasterPdf = true;
-              Printing.info().then((info) {
-                canRasterPdf = info.canRaster;
-              });
-              if (canRasterPdf) {
-                if (!mounted) return;
-                context.push(RoutePaths.editImportPdf(filePath));
-              }
+              if (!Editor.canRasterPdf) return;
+              if (!mounted) return;
+              context.push(RoutePaths.editImportPdf(filePath));
             } else {
               throw 'Invalid file type';
             }

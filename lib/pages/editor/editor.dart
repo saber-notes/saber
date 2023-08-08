@@ -84,6 +84,9 @@ class Editor extends StatefulWidget {
     RegExp(RegExp.escape(Whiteboard.filePath)),
   ];
 
+  /// Whether the platform can rasterize a pdf
+  static bool canRasterPdf = true;
+
   @override
   State<Editor> createState() => EditorState();
 }
@@ -136,9 +139,6 @@ class EditorState extends State<Editor> {
 
   QuillStruct? lastFocusedQuill;
 
-  /// Whether the platform can rasterize a pdf
-  bool canRasterPdf = true;
-
   /// The tool that was used before switching to the eraser.
   Tool? tmpTool;
   /// If the stylus button is pressed, or was pressed during the current draw gesture.
@@ -150,10 +150,6 @@ class EditorState extends State<Editor> {
 
     _initAsync();
     _assignKeybindings();
-
-    Printing.info().then((info) {
-      canRasterPdf = info.canRaster;
-    });
 
     if (widget.pdfPath != null) {
       importPdf(widget.pdfPath!);
@@ -952,7 +948,7 @@ class EditorState extends State<Editor> {
   /// Returns whether a PDF was picked.
   Future<bool> pickPdf() async {
     if (coreInfo.readOnly) return false;
-    if (!canRasterPdf) return false;
+    if (!Editor.canRasterPdf) return false;
 
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -1483,7 +1479,7 @@ class EditorState extends State<Editor> {
 
       pickPhotos: _pickPhotos,
       importPdf: pickPdf,
-      canRasterPdf: canRasterPdf,
+      canRasterPdf: Editor.canRasterPdf,
     );
   }
 
