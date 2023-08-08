@@ -12,6 +12,9 @@ home:
   tooltips:
     newNote: Nová poznámka
     showUpdateDialog: Zobrazit dialogové okno aktualizace
+  create:
+    newNote: Nová poznámka
+    importNote: Import poznámky
   welcome: Vítejte v aplikaci Saber
   noFiles: Žádné poznámky nebyly nalezeny
   createNewNote: Pro přidání nové poznámky klepněte na tlačítko +
@@ -41,9 +44,6 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
-  create:
-    newNote(OUTDATED): Nová poznámka
-    importNote(OUTDATED): Importovat poznámku
 settings:
   prefCategories:
     general: Obecné
