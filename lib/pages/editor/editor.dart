@@ -152,7 +152,7 @@ class EditorState extends State<Editor> {
     _assignKeybindings();
 
     if (widget.pdfPath != null) {
-      importPdf(widget.pdfPath!);
+      importPdfFromFilePath(widget.pdfPath!);
     }
 
     super.initState();
@@ -946,7 +946,7 @@ class EditorState extends State<Editor> {
 
   /// Prompts the user to pick a PDF to import.
   /// Returns whether a PDF was picked.
-  Future<bool> pickPdf() async {
+  Future<bool> importPdf() async {
     if (coreInfo.readOnly) return false;
     if (!Editor.canRasterPdf) return false;
 
@@ -959,10 +959,10 @@ class EditorState extends State<Editor> {
     if (result == null) return false;
 
     final PlatformFile file = result.files.single;
-    return importPdf(file.path!);
+    return importPdfFromFilePath(file.path!);
   }
 
-  Future<bool> importPdf(String path) async{
+  Future<bool> importPdfFromFilePath(String path) async{
     final File tempFile = File(path);
     final Uint8List fileContents;
     try {
@@ -1478,7 +1478,7 @@ class EditorState extends State<Editor> {
       }),
 
       pickPhotos: _pickPhotos,
-      importPdf: pickPdf,
+      importPdf: importPdf,
       canRasterPdf: Editor.canRasterPdf,
     );
   }
