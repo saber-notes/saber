@@ -155,7 +155,7 @@ class EditorState extends State<Editor> {
       canRasterPdf = info.canRaster;
     });
 
-    if(widget.pdfPath != null){
+    if (widget.pdfPath != null) {
       importPdf(widget.pdfPath!);
     }
 

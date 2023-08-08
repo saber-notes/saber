@@ -69,16 +69,16 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             final filePath = result.files.single.path;
             if (filePath == null) return;
 
-            if (filePath.endsWith('.sbn')){
+            if (filePath.endsWith('.sbn')) {
               FileManager.importFile(filePath, true);
-            } else if (filePath.endsWith('.sbn2')){
+            } else if (filePath.endsWith('.sbn2')) {
               FileManager.importFile(filePath, false);
-            } else if (filePath.endsWith('.pdf')){
+            } else if (filePath.endsWith('.pdf')) {
               bool canRasterPdf = true;
               Printing.info().then((info) {
                 canRasterPdf = info.canRaster;
               });
-              if(canRasterPdf){
+              if (canRasterPdf) {
                 if (!mounted) return;
                 context.push(RoutePaths.editImportPdf(filePath));
               }
