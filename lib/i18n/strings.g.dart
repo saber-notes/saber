@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-06 at 12:54 UTC
+/// Built on 2023-08-08 at 23:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1671,6 +1671,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeTabsCs tabs = _StringsHomeTabsCs._(_root);
 	@override late final _StringsHomeTitlesCs titles = _StringsHomeTitlesCs._(_root);
 	@override late final _StringsHomeTooltipsCs tooltips = _StringsHomeTooltipsCs._(_root);
+	@override late final _StringsHomeCreateCs create = _StringsHomeCreateCs._(_root);
 	@override String get welcome => 'Vítejte v aplikaci Saber';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
@@ -1680,7 +1681,6 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
 	@override String get deleteNote => 'Odstranit poznámku';
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
-	@override late final _StringsHomeCreateCs create = _StringsHomeCreateCs._(_root);
 }
 
 // Path: settings
@@ -1835,6 +1835,17 @@ class _StringsHomeTooltipsCs extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Zobrazit dialogové okno aktualizace';
 }
 
+// Path: home.create
+class _StringsHomeCreateCs extends _StringsHomeCreateEn {
+	_StringsHomeCreateCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nová poznámka';
+	@override String get importNote => 'Import poznámky';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderCs extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderCs._(_StringsCs root) : this._root = root, super._(root);
@@ -1889,17 +1900,6 @@ class _StringsHomeDeleteFolderCs extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Odstranění složky ${f}';
 	@override String get delete => 'Odstranit';
 	@override String get alsoDeleteContents => 'Se složkou odstranit i obsažené poznámky';
-}
-
-// Path: home.create
-class _StringsHomeCreateCs extends _StringsHomeCreateEn {
-	_StringsHomeCreateCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Nová poznámka';
-	@override String get importNote => 'Importovat poznámku';
 }
 
 // Path: settings.prefCategories

@@ -40,10 +40,6 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 cs:
-  home:
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
 de:
   home:
     titles:
