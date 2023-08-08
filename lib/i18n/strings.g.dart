@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-08 at 23:20 UTC
+/// Built on 2023-08-08 at 23:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6158,6 +6158,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeTabsIt tabs = _StringsHomeTabsIt._(_root);
 	@override late final _StringsHomeTitlesIt titles = _StringsHomeTitlesIt._(_root);
 	@override late final _StringsHomeTooltipsIt tooltips = _StringsHomeTooltipsIt._(_root);
+	@override late final _StringsHomeCreateIt create = _StringsHomeCreateIt._(_root);
 	@override String get welcome => 'Benvenuto su Saber';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
@@ -6167,7 +6168,6 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
-	@override late final _StringsHomeCreateIt create = _StringsHomeCreateIt._(_root);
 }
 
 // Path: settings
@@ -6322,6 +6322,17 @@ class _StringsHomeTooltipsIt extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Mostra finestra di aggiornamento';
 }
 
+// Path: home.create
+class _StringsHomeCreateIt extends _StringsHomeCreateEn {
+	_StringsHomeCreateIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nuova nota';
+	@override String get importNote => 'Importa nota';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderIt extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderIt._(_StringsIt root) : this._root = root, super._(root);
@@ -6376,17 +6387,6 @@ class _StringsHomeDeleteFolderIt extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Elimina ${f}';
 	@override String get delete => 'Elimina';
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
-}
-
-// Path: home.create
-class _StringsHomeCreateIt extends _StringsHomeCreateEn {
-	_StringsHomeCreateIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Nuova nota';
-	@override String get importNote => 'Importa nota';
 }
 
 // Path: settings.prefCategories
