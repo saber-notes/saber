@@ -70,12 +70,14 @@ class EditorPage extends Listenable {
   factory EditorPage.fromJson(Map<String, dynamic> json, {
     required List<Uint8List> assets,
     required bool readOnly,
+    required int fileVersion
   }) {
     return EditorPage(
       size: Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
       strokes: parseStrokesJson(
         json['s'] as List?,
         onlyFirstPage: false,
+        fileVersion: fileVersion,
       ),
       images: parseImagesJson(
         json['i'] as List?,
@@ -145,11 +147,12 @@ class EditorPage extends Listenable {
 
   static List<Stroke> parseStrokesJson(List<dynamic>? strokes, {
     required bool onlyFirstPage,
+    required int fileVersion,
   }) => strokes
       ?.map((dynamic stroke) {
         final map = stroke as Map<String, dynamic>;
         if (onlyFirstPage && map['i'] > 0) return null;
-        return Stroke.fromJson(map);
+        return Stroke.fromJson(map, fileVersion);
       })
       .where((element) => element != null)
       .cast<Stroke>()

@@ -1,5 +1,7 @@
+import 'dart:typed_data';
 import 'dart:ui' show Offset;
 
+import 'package:bson/bson.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
 extension PointExtensions on Point {
@@ -12,12 +14,19 @@ extension PointExtensions on Point {
     json['p'] ?? 0.5,
   );
 
-  Map<String, dynamic> toJson() => {
-    'x': x,
-    'y': y,
-    if (p != 0.5)
-      'p': p,
-  };
+  static Point fromBsonBinary({
+    required BsonBinary json,
+    Offset offset = Offset.zero}) {
+    Float32List point = json.byteList.buffer.asFloat32List();
+    return Point(
+        point[0] + offset.dx,
+        point[1] + offset.dy,
+        point.length == 2 ? 0.5 : point[2] 
+      );
+  } 
+
+  BsonBinary toBsonBinary() => 
+    BsonBinary.from(Float32List.fromList([x,y,if(p != 0.5) p]).buffer.asUint8List());
 
   Point operator +(Offset offset) => Point(
     x + offset.dx,
