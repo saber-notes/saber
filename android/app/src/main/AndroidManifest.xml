@@ -20,6 +20,7 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:localeConfig="@xml/locales_config"
         android:allowBackup="false"
         android:fullBackupContent="false"
