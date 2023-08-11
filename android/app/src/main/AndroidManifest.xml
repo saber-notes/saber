@@ -21,6 +21,8 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:largeHeap="true"
+        android:appCategory="productivity"
+        android:hasFragileUserData="true"
         android:localeConfig="@xml/locales_config"
         android:allowBackup="false"
         android:fullBackupContent="false"
