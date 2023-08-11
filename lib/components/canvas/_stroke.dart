@@ -85,6 +85,7 @@ class Stroke {
         offset: offset,
       )).toList());
     } else {
+      // ignore: deprecated_member_use_from_same_package
       points.insertAll(0, pointsJson.map((point) => PointExtensions.fromJson(
         json: Map<String, dynamic>.from(point),
         offset: offset,

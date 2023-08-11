@@ -5,6 +5,7 @@ import 'package:bson/bson.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
 extension PointExtensions on Point {
+  @Deprecated('Use fromBsonBinary instead; fromJson is only for backward compatibility')
   static Point fromJson({
     required Map<String, dynamic> json,
     Offset offset = Offset.zero,
