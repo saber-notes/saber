@@ -16,17 +16,24 @@ extension PointExtensions on Point {
 
   static Point fromBsonBinary({
     required BsonBinary json,
-    Offset offset = Offset.zero}) {
+    Offset offset = Offset.zero,
+  }) {
     Float32List point = json.byteList.buffer.asFloat32List();
     return Point(
-        point[0] + offset.dx,
-        point[1] + offset.dy,
-        point.length == 2 ? 0.5 : point[2] 
-      );
-  } 
+      point[0] + offset.dx,
+      point[1] + offset.dy,
+      point.length == 2 ? 0.5 : point[2],
+    );
+  }
 
-  BsonBinary toBsonBinary() => 
-    BsonBinary.from(Float32List.fromList([x,y,if(p != 0.5) p]).buffer.asUint8List());
+  BsonBinary toBsonBinary() {
+    final Float32List point = Float32List.fromList([
+      x,
+      y,
+      if (p != 0.5) p,
+    ]);
+    return BsonBinary.from(point.buffer.asUint8List());
+  }
 
   Point operator +(Offset offset) => Point(
     x + offset.dx,

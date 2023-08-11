@@ -108,7 +108,7 @@ class EditorCoreInfo {
         assets: assets,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
-        fileVersion: fileVersion
+        fileVersion: fileVersion,
       ),
       initialPageIndex: json['c'] as int?,
     )

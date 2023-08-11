@@ -70,7 +70,7 @@ class EditorPage extends Listenable {
   factory EditorPage.fromJson(Map<String, dynamic> json, {
     required List<Uint8List> assets,
     required bool readOnly,
-    required int fileVersion
+    required int fileVersion,
   }) {
     return EditorPage(
       size: Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
