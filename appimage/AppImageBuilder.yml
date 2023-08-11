@@ -22,6 +22,8 @@ AppDir:
     - libgtk-3-0
     - librsvg2-common
     - zenity
+    - libsecret-1-0
+    - libjsoncpp25
   files:
     include: []
     exclude:
