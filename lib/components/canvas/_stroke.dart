@@ -71,7 +71,7 @@ class Stroke {
     required this.penType,
   });
 
-  Stroke.fromJson(Map<String, dynamic> json) :
+  Stroke.fromJson(Map<String, dynamic> json, int fileVersion) :
         _isComplete = json['f'],
         pageIndex = json['i'] ?? 0,
         penType = json['ty'] ?? (Pen).toString() {
@@ -79,10 +79,18 @@ class Stroke {
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
     final pointsJson = json['p'] as List<dynamic>;
-    points.insertAll(0, pointsJson.map((point) => PointExtensions.fromJson(
-      json: Map<String, dynamic>.from(point),
-      offset: offset,
-    )).toList());
+    if(fileVersion >= 13) {
+      points.insertAll(0, pointsJson.map((point) => PointExtensions.fromBsonBinary(
+        json: point,
+        offset: offset,
+      )).toList());
+    } else {
+      // ignore: deprecated_member_use_from_same_package
+      points.insertAll(0, pointsJson.map((point) => PointExtensions.fromJson(
+        json: Map<String, dynamic>.from(point),
+        offset: offset,
+      )).toList());
+    }
   }
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
@@ -92,12 +100,12 @@ class Stroke {
         if (isStraightLine && points.length > 1) {
           Point last = snapLineToRightAngle(points.first, points.last);
           return [
-            points.first.toJson(),
-            last.toJson(),
-            last.toJson(),
+            points.first.toBsonBinary(),
+            last.toBsonBinary(),
+            last.toBsonBinary(),
           ];
         }
-        return points.map((Point point) => point.toJson()).toList();
+        return points.map((Point point) => point.toBsonBinary()).toList();
       }(),
       'i': pageIndex,
       'ty': penType.toString(),

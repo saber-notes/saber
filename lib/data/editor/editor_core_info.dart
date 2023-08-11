@@ -16,7 +16,7 @@ import 'package:worker_manager/worker_manager.dart';
 class EditorCoreInfo {
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int sbnVersion = 12;
+  static const int sbnVersion = 13;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
@@ -108,6 +108,7 @@ class EditorCoreInfo {
         assets: assets,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
+        fileVersion: fileVersion,
       ),
       initialPageIndex: json['c'] as int?,
     )
@@ -145,6 +146,7 @@ class EditorCoreInfo {
     required List<Uint8List>? assets,
     required bool readOnly,
     required bool onlyFirstPage,
+    required int fileVersion,
   }) {
     if (pages == null || pages.isEmpty) return [];
     if (pages[0] is List) { // old format (list of [width, height])
@@ -162,6 +164,7 @@ class EditorCoreInfo {
           page as Map<String, dynamic>,
           assets: assets ?? const [],
           readOnly: readOnly,
+          fileVersion: fileVersion,
         ))
         .toList();
     }
@@ -197,6 +200,7 @@ class EditorCoreInfo {
       final strokes = EditorPage.parseStrokesJson(
         strokesJson,
         onlyFirstPage: onlyFirstPage,
+        fileVersion: fileVersion,
       );
       for (Stroke stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
