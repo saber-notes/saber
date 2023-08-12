@@ -49,9 +49,20 @@ abstract class AdState {
     if (_initializeStarted) return;
     assert(!_initializeCompleted);
 
-    final status = await AppTrackingTransparency.requestTrackingAuthorization();
-    if (status == TrackingStatus.denied) return;
-    _checkForRequiredConsent();
+    if (Platform.isIOS) {
+      var status = await AppTrackingTransparency.trackingAuthorizationStatus;
+      if (status == TrackingStatus.notDetermined) {
+        // wait to avoid crash
+        await Future.delayed(const Duration(seconds: 3));
+
+        status = await AppTrackingTransparency.requestTrackingAuthorization();
+      }
+      if (status == TrackingStatus.authorized) {
+        _checkForRequiredConsent();
+      }
+    } else {
+      _checkForRequiredConsent();
+    }
 
     _initializeStarted = true;
     await MobileAds.instance.initialize();
