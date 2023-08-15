@@ -34,6 +34,12 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     "Debug" "Profile" "Release")
 endif()
 
+# Compilation setting for dart_pdf. 
+# 
+# This is required to download and link against the correct build of pdfium
+string(REPLACE "linux-" "" TARGET_ARCH ${FLUTTER_TARGET_PLATFORM})
+set(PDFIUM_ARCH ${TARGET_ARCH} CACHE STRING "Architecture of pdfium used" FORCE)
+
 # Compilation settings that should be applied to most targets.
 #
 # Be cautious about adding new options here, as plugins use this function by
