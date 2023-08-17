@@ -44,7 +44,6 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:super_clipboard/super_clipboard.dart';
-import 'package:super_native_extensions/raw_clipboard.dart' show ReadProgress;
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 typedef _PhotoInfo = ({Uint8List bytes, String extension});

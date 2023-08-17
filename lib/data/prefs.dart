@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetails_Quota;
+import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetailsQuota;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -14,7 +14,7 @@ import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-typedef Quota = ProvisioningApiUserDetails_Quota;
+typedef Quota = ProvisioningApiUserDetailsQuota;
 
 abstract class Prefs {
 

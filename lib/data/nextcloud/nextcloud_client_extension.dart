@@ -29,16 +29,15 @@ extension NextcloudClientExtension on NextcloudClient {
     return NextcloudClient(
       url.isNotEmpty ? url : defaultNextCloudUri,
       loginName: username,
-      username: username,
       password: ncPassword,
     );
   }
 
   Future<Map<String, String>> getConfig() async {
     final Uint8List file;
-    await webdav.mkdir(appRootDirectoryPrefix);
+    await webdav.mkcol(appRootDirectoryPrefix);
     try {
-      file = await webdav.download(configFilePath);
+      file = await webdav.get(configFilePath);
     } on DynamiteApiException {
       return {};
     }
@@ -49,8 +48,8 @@ extension NextcloudClientExtension on NextcloudClient {
   Future<void> setConfig(Map<String, String> config) async {
     String json = jsonEncode(config);
     Uint8List file = Uint8List.fromList(json.codeUnits);
-    await webdav.mkdir(appRootDirectoryPrefix);
-    await webdav.upload(file, configFilePath);
+    await webdav.mkcol(appRootDirectoryPrefix);
+    await webdav.put(file, configFilePath);
   }
 
   Future<String> loadEncryptionKey() async {
@@ -86,7 +85,7 @@ extension NextcloudClientExtension on NextcloudClient {
 
   Future<String> getUsername() async {
     try {
-      return (await provisioningApi.getCurrentUser()).ocs.data.id;
+      return (await provisioningApi.users.getCurrentUser()).ocs.data.id;
     } catch (e) {
       throw NcLoginFailure();
     }

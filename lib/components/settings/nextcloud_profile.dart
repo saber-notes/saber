@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetails_Quota;
+import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetailsQuota;
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-typedef Quota = ProvisioningApiUserDetails_Quota;
+typedef Quota = ProvisioningApiUserDetailsQuota;
 
 class NextcloudProfile extends StatefulWidget {
   const NextcloudProfile({super.key});
@@ -19,7 +19,7 @@ class NextcloudProfile extends StatefulWidget {
     final client = NextcloudClientExtension.withSavedDetails();
     if (client == null) return null;
 
-    final user = await client.provisioningApi.getCurrentUser();
+    final user = await client.provisioningApi.users.getCurrentUser();
     Prefs.lastStorageQuota.value = user.ocs.data.quota;
     return Prefs.lastStorageQuota.value;
   }
@@ -72,18 +72,25 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         initialData: Prefs.lastStorageQuota.value,
         builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
           final Quota? quota = snapshot.data;
+          final double? relativePercent;
+          if (quota != null && quota.relative != null) {
+            relativePercent = quota.relative! / 100;
+          } else {
+            relativePercent = null;
+          }
+
           return Stack(
             alignment: Alignment.center,
             children: [
               CircularProgressIndicator(
-                value: quota != null ? quota.relative / 100 : null,
+                value: relativePercent,
                 color: colorScheme.primary.withOpacity(0.5),
                 backgroundColor: colorScheme.primary.withOpacity(0.1),
                 strokeWidth: 8,
                 semanticsLabel: 'Storage usage',
                 semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
               ),
-              Text(quota != null ? '${readableBytes(quota.used)} / ${readableBytes(quota.total)}' : '     ... B / ... B     '),
+              Text('${readableBytes(quota?.used)} / ${readableBytes(quota?.total)}'),
             ],
           );
         },
@@ -97,8 +104,10 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     super.dispose();
   }
 
-  String readableBytes(int bytes) {
-    if (bytes < 1024) {
+  String readableBytes(num? bytes) {
+    if (bytes == null) {
+      return '... B';
+    } else if (bytes < 1024) {
       return '$bytes B';
     } else if (bytes < 1024 * 2) { // e.g. 1.5 KB
       return '${(bytes / 1024).toStringAsFixed(1)} KB';
