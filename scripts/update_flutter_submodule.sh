@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 pushd submodules/flutter
-git checkout stable
-git pull
+git fetch
+git reset --hard origin/stable
 popd
