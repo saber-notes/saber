@@ -1,3 +1,8 @@
+## 1.1.0
+
+- Update to Flutter 3.13.0
+- Update the Onyx SDK
+
 ## 1.0.3
 
 * Update pub.dev description
