@@ -276,7 +276,7 @@ class FileManager {
       .toList();
 
     await Future.wait(allChildren.map((child) async {
-      if (await FileManager.isDirectory(directory + child)) {
+      if (await FileManager.isDirectory(directory + child) && !directories.contains(child)) {
         directories.add(child);
       } else {
         files.add(child);
