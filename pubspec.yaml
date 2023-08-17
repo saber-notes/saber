@@ -55,8 +55,6 @@ dependencies:
 
   url_launcher: ^6.1.8
 
-  package_info_plus: ^4.0.0
-
   nextcloud:
     git:
       url: https://github.com/nextcloud/neon
