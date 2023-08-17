@@ -4,7 +4,7 @@ version: 1.0.3
 homepage: https://github.com/adil192/saber/tree/main/packages/onyxsdk_pen
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.6 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:
