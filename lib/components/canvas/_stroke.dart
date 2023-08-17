@@ -139,7 +139,7 @@ class Stroke {
   void optimisePoints({double thresholdMultiplier = _optimisePointsThreshold}) {
     if (points.length <= 3) return;
 
-    final minDistance = strokeProperties.size * _optimisePointsThreshold;
+    final minDistance = strokeProperties.size * thresholdMultiplier;
 
     for (int i = 1; i < points.length - 1; i++) {
       final point = points[i];
