@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3465 (231 per locale)
 ///
-/// Built on 2023-08-08 at 23:24 UTC
+/// Built on 2023-08-17 at 19:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3914,16 +3914,16 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeTabsFa tabs = _StringsHomeTabsFa._(_root);
 	@override late final _StringsHomeTitlesFa titles = _StringsHomeTitlesFa._(_root);
 	@override late final _StringsHomeTooltipsFa tooltips = _StringsHomeTooltipsFa._(_root);
+	@override late final _StringsHomeCreateFa create = _StringsHomeCreateFa._(_root);
 	@override String get welcome => 'خوش آمدید';
 	@override String get noFiles => 'فایلی پیدا نشد';
 	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
+	@override String get backFolder => 'به پوشه قبلی برگردید';
 	@override late final _StringsHomeNewFolderFa newFolder = _StringsHomeNewFolderFa._(_root);
 	@override late final _StringsHomeRenameNoteFa renameNote = _StringsHomeRenameNoteFa._(_root);
 	@override late final _StringsHomeMoveNoteFa moveNote = _StringsHomeMoveNoteFa._(_root);
-	@override String get backFolder => 'بازگشت به پوشه قبلی';
-	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
 	@override String get deleteNote => 'حذف یادداشت';
-	@override late final _StringsHomeCreateFa create = _StringsHomeCreateFa._(_root);
+	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
 }
 
 // Path: settings
@@ -4078,6 +4078,17 @@ class _StringsHomeTooltipsFa extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'نمایش به روز رسانی';
 }
 
+// Path: home.create
+class _StringsHomeCreateFa extends _StringsHomeCreateEn {
+	_StringsHomeCreateFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'یادداشت جدید';
+	@override String get importNote => 'یادداشت وارد کنید';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderFa extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4128,21 +4139,10 @@ class _StringsHomeDeleteFolderFa extends _StringsHomeDeleteFolderEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String deleteName({required Object f}) => '${f} را حذف کنید';
 	@override String get deleteFolder => 'پوشه را حذف کنید';
+	@override String deleteName({required Object f}) => '${f} را حذف کنید';
 	@override String get delete => 'حذف';
 	@override String get alsoDeleteContents => 'همچنین تمام یادداشت های داخل این پوشه را حذف کنید';
-}
-
-// Path: home.create
-class _StringsHomeCreateFa extends _StringsHomeCreateEn {
-	_StringsHomeCreateFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'یادداشت جدید';
-	@override String get importNote => 'یادداشت وارد کنید';
 }
 
 // Path: settings.prefCategories
@@ -4172,6 +4172,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'رنگ سفارشی';
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
+	@override String get shouldAlwaysAlertForUpdates => 'به روز رسانی سریع تر';
 	@override String get disableAds => 'غیرفعال کردن تبلیغات';
 	@override String get changeAdsConsent => 'تغییر رضایت تبلیغات';
 	@override String get allowInsecureConnections => 'به اتصالات ناامن اجازه دهید';
@@ -4183,14 +4184,13 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'برای کشیدن خط صاف فشار دهید و نگه دارید';
 	@override String get maxImageSize => 'حداکثر اندازه تصویر';
 	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
+	@override String get disableEraserAfterUse => 'پاک کن را به صورت خودکار غیرفعال کنید';
+	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
-	@override String get autosaveDelay => 'تاخیر Auto-save';
-	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
-	@override String get shouldAlwaysAlertForUpdates => 'به روز رسانی سریع تر';
-	@override String get disableEraserAfterUse => 'دانلود بازی Auto-disable The Cleanr';
+	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 }
 
 // Path: settings.prefDescriptions
@@ -4206,14 +4206,14 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get editorOpaqueBackgrounds => 'حذف شفافیت از تصاویر پس زمینه و PDFها';
 	@override String get preferGreyscale => 'برای نمایشگر های e-ink';
 	@override String get autoClearWhiteboardOnExit => 'همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود';
+	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد';
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
-	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد';
 }
 
 // Path: settings.themeModes
@@ -4588,8 +4588,8 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingFa extends _StringsSettin
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => 'طراحی با انگشت به صورت فعال ثابت شده است';
 	@override String get shown => 'از جابجایی تصادفی جلوگیری می کند';
+	@override String get fixedOn => 'طراحی با انگشت به صورت فعال ثابت شده است';
 	@override String get fixedOff => 'طراحی با انگشت به عنوان غیرفعال ثابت است';
 }
 

@@ -110,33 +110,6 @@ es:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 fa:
-  home:
-    titles:
-      browse(OUTDATED): مرور کردن
-    create:
-      newNote(OUTDATED): یادداشت جدید
-      importNote(OUTDATED): یادداشت وارد کنید
-    backFolder(OUTDATED): به پوشه قبلی برگردید
-    deleteNote(OUTDATED): حذف یادداشت
-    deleteFolder:
-      deleteFolder(OUTDATED): پوشه را حذف کنید
-      deleteName(OUTDATED): $f را حذف کنید
-      delete(OUTDATED): حذف
-      alsoDeleteContents(OUTDATED): همچنین تمام یادداشت های داخل این پوشه را حذف کنید
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): به روز رسانی سریع تر
-      disableEraserAfterUse(OUTDATED): پاک کن را به صورت خودکار غیرفعال کنید
-      hideFingerDrawingToggle(OUTDATED): ضامن طراحی انگشت را پنهان کنید
-      autosaveDelay(OUTDATED): تأخیر ذخیره خودکار
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد
-      hideFingerDrawing:
-        shown(OUTDATED): از جابجایی تصادفی جلوگیری می کند
-        fixedOn(OUTDATED): طراحی با انگشت به صورت فعال ثابت شده است
-        fixedOff(OUTDATED): طراحی با انگشت به عنوان غیرفعال ثابت است
-      autosaveDelay(OUTDATED): چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
-      shouldAlwaysAlertForUpdates(OUTDATED): به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
 fr:
   home:
     titles:
