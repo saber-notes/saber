@@ -168,40 +168,43 @@ class _GridFolderState extends State<_GridFolder> {
                               child: child!,
                             ),
                           ),
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  cardElevatedColor.withOpacity(0.3),
-                                  cardElevatedColor.withOpacity(0.9),
-                                  cardElevatedColor.withOpacity(1),
+                          child: GestureDetector(
+                            onTap: () => expanded.value = !expanded.value,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    cardElevatedColor.withOpacity(0.3),
+                                    cardElevatedColor.withOpacity(0.9),
+                                    cardElevatedColor.withOpacity(1),
+                                  ],
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  IconButton(
+                                    padding: EdgeInsets.zero,
+                                    tooltip: t.home.deleteFolder.deleteFolder,
+                                    onPressed: () async {
+                                      assert(widget.cardType == _FolderCardType.realFolder);
+                                      await showDialog(
+                                        context: context,
+                                        builder: (context) => _DeleteFolderDialog(
+                                          folderName: widget.folderName!,
+                                          deleteFolder: widget.deleteFolder,
+                                          isFolderEmpty: widget.isFolderEmpty,
+                                        ),
+                                      );
+                                      expanded.value = false;
+                                    },
+                                    icon: const Icon(Icons.delete_forever),
+                                  ),
                                 ],
                               ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                IconButton(
-                                  padding: EdgeInsets.zero,
-                                  tooltip: t.home.deleteFolder.deleteFolder,
-                                  onPressed: () async {
-                                    assert(widget.cardType == _FolderCardType.realFolder);
-                                    await showDialog(
-                                      context: context,
-                                      builder: (context) => _DeleteFolderDialog(
-                                        folderName: widget.folderName!,
-                                        deleteFolder: widget.deleteFolder,
-                                        isFolderEmpty: widget.isFolderEmpty,
-                                      ),
-                                    );
-                                    expanded.value = false;
-                                  },
-                                  icon: const Icon(Icons.delete_forever),
-                                ),
-                              ],
                             ),
                           ),
                         ),

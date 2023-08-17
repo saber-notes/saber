@@ -242,39 +242,42 @@ class _PreviewCardState extends State<PreviewCard> {
                               child: child!,
                             ),
                           ),
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  colorScheme.surface.withOpacity(0.2),
-                                  colorScheme.surface.withOpacity(0.8),
-                                  colorScheme.surface.withOpacity(1),
-                                ],
+                          child: GestureDetector(
+                            onTap: () => expanded.value = !expanded.value,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    colorScheme.surface.withOpacity(0.2),
+                                    colorScheme.surface.withOpacity(0.8),
+                                    colorScheme.surface.withOpacity(1),
+                                  ],
+                                ),
                               ),
-                            ),
-                            child: ColoredBox(
-                              color: colorScheme.primary.withOpacity(0.05),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  RenameNoteButton(
-                                    existingPath: widget.filePath,
-                                  ),
-                                  MoveNoteButton(
-                                    existingPath: widget.filePath,
-                                  ),
-                                  IconButton(
-                                    padding: EdgeInsets.zero,
-                                    tooltip: t.home.deleteNote,
-                                    onPressed: () {
-                                      FileManager.deleteFile(widget.filePath + Editor.extension);
-                                    },
-                                    icon: const Icon(Icons.delete_forever),
-                                  ),
-                                ],
+                              child: ColoredBox(
+                                color: colorScheme.primary.withOpacity(0.05),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    RenameNoteButton(
+                                      existingPath: widget.filePath,
+                                    ),
+                                    MoveNoteButton(
+                                      existingPath: widget.filePath,
+                                    ),
+                                    IconButton(
+                                      padding: EdgeInsets.zero,
+                                      tooltip: t.home.deleteNote,
+                                      onPressed: () {
+                                        FileManager.deleteFile(widget.filePath + Editor.extension);
+                                      },
+                                      icon: const Icon(Icons.delete_forever),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
