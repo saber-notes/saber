@@ -96,3 +96,9 @@ OnyxSdkPenArea(
   ),
 ),
 ```
+
+## Help wanted
+
+I no longer have an Onyx device, so I can't really develop this plugin any further.
+If you are able to, we're looking for help with this feature:
+https://github.com/adil192/saber/issues/848
