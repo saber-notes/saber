@@ -110,33 +110,6 @@ es:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 fa:
-  home:
-    titles:
-      browse(OUTDATED): Browse
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    backFolder(OUTDATED): Go back to the previous folder
-    deleteNote(OUTDATED): Delete note
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      autosaveDelay(OUTDATED): Auto-save delay
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
 fr:
   home:
     titles:

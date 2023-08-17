@@ -6,15 +6,19 @@ home:
     settings: تنظیمات
   titles:
     home: یادداشت های اخیر
-    browse(OUTDATED): مرور کردن
+    browse: مرور کردن
     whiteboard: وایت برد
     settings: تنظیمات
   tooltips:
     newNote: یادداشت جدید
     showUpdateDialog: نمایش به روز رسانی
+  create:
+    newNote: یادداشت جدید
+    importNote: یادداشت وارد کنید
   welcome: خوش آمدید
   noFiles: فایلی پیدا نشد
   createNewNote: برای ساخت یادداشت دکمه + را بزنید
+  backFolder: به پوشه قبلی برگردید
   newFolder:
     newFolder: پوشه جدید
     folderName: نام پوشه
@@ -34,16 +38,12 @@ home:
     moveName: انتقال $f
     move: انتقال
     renamedTo: یادداشت به $newName تغییر نام می یابد
-  backFolder(OUTDATED): بازگشت به پوشه قبلی
+  deleteNote: حذف یادداشت
   deleteFolder:
-    deleteName(OUTDATED): $f را حذف کنید
-    deleteFolder(OUTDATED): پوشه را حذف کنید
-    delete(OUTDATED): حذف
-    alsoDeleteContents(OUTDATED): همچنین تمام یادداشت های داخل این پوشه را حذف کنید
-  deleteNote(OUTDATED): حذف یادداشت
-  create:
-    newNote(OUTDATED): یادداشت جدید
-    importNote(OUTDATED): یادداشت وارد کنید
+    deleteFolder: پوشه را حذف کنید
+    deleteName: $f را حذف کنید
+    delete: حذف
+    alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
 settings:
   prefCategories:
     general: عمومی
@@ -58,6 +58,7 @@ settings:
     customAccentColor: رنگ سفارشی
     hyperlegibleFont: فونت بیش از حد خوانا
     shouldCheckForUpdates: به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید
+    shouldAlwaysAlertForUpdates: به روز رسانی سریع تر
     disableAds: غیرفعال کردن تبلیغات
     changeAdsConsent: تغییر رضایت تبلیغات
     allowInsecureConnections: به اتصالات ناامن اجازه دهید
@@ -69,14 +70,13 @@ settings:
     editorStraightenLines: برای کشیدن خط صاف فشار دهید و نگه دارید
     maxImageSize: حداکثر اندازه تصویر
     autoClearWhiteboardOnExit: پس از خروج از برنامه، وایت برد پاک شود
+    disableEraserAfterUse: پاک کن را به صورت خودکار غیرفعال کنید
+    hideFingerDrawingToggle: ضامن طراحی انگشت را پنهان کنید
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
     hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
     dontSavePresetColors: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     printPageIndicators: چاپ نشانگرهای صفحه
-    autosaveDelay(OUTDATED): تاخیر Auto-save
-    hideFingerDrawingToggle(OUTDATED): ضامن طراحی انگشت را پنهان کنید
-    shouldAlwaysAlertForUpdates(OUTDATED): به روز رسانی سریع تر
-    disableEraserAfterUse(OUTDATED): دانلود بازی Auto-disable The Cleanr
+    autosaveDelay: تأخیر ذخیره خودکار
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
@@ -84,17 +84,17 @@ settings:
     editorOpaqueBackgrounds: حذف شفافیت از تصاویر پس زمینه و PDFها
     preferGreyscale: برای نمایشگر های e-ink
     autoClearWhiteboardOnExit: همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود
+    disableEraserAfterUse: پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد
     maxImageSize: تصاویر بزرگتر از این فشرده خواهند شد
+    hideFingerDrawing:
+      shown: از جابجایی تصادفی جلوگیری می کند
+      fixedOn: طراحی با انگشت به صورت فعال ثابت شده است
+      fixedOff: طراحی با انگشت به عنوان غیرفعال ثابت است
     editorPromptRename: همیشه می توانید بعداً نام یادداشت ها را تغییر دهید
     hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
-    autosaveDelay(OUTDATED): چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
-    hideFingerDrawing:
-      fixedOn(OUTDATED): طراحی با انگشت به صورت فعال ثابت شده است
-      shown(OUTDATED): از جابجایی تصادفی جلوگیری می کند
-      fixedOff(OUTDATED): طراحی با انگشت به عنوان غیرفعال ثابت است
-    shouldAlwaysAlertForUpdates(OUTDATED): به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
-    disableEraserAfterUse(OUTDATED): پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد
+    autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
+    shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
   themeModes:
     system: سیستم
     light: روشن
