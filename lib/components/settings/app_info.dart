@@ -17,7 +17,8 @@ class AppInfo extends StatelessWidget {
 
   static String get info => [
     'v$buildName',
-    FlavorConfig.flavor,
+    if (FlavorConfig.flavor.isNotEmpty)
+      FlavorConfig.flavor,
     if (FlavorConfig.dirty)
       t.appInfo.dirty,
     if (kDebugMode)
