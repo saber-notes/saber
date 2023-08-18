@@ -1,0 +1,8 @@
+• Ridotta la dimensione del file delle note
+• Riduzione del rallentamento causato dalla sincronizzazione
+• Ora puoi importare un PDF dalla schermata principale
+• Corretto un bug quando una cartella e una nota avevano lo stesso nome
+• Risolto un bug di layout durante l'utilizzo del tema iOS
+• Risolto il problema con i log delle modifiche che non apparivano in F-Droid
+• Risolto il problema con le librerie mancanti nell'AppImage
+...
