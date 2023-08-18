@@ -271,7 +271,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "4b5a0b5ce5edbe7d68bcbd5c5df2bc8ef1811a72"
+      resolved-ref: f8d0a3779f6f251be9db4feb0d21f07ec315b197
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -549,10 +549,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: b3cadd2cd59a4103fd5f6bc572ca75111264698784e927aa471921c3477d5475
+      sha256: "2aa884667eeda3a1c461f31e72af1f77984ab0f29450d8fb12ec1f7bc53eea14"
       url: "https://pub.dev"
     source: hosted
-    version: "10.0.0"
+    version: "10.1.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -756,7 +756,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "4b5a0b5ce5edbe7d68bcbd5c5df2bc8ef1811a72"
+      resolved-ref: f8d0a3779f6f251be9db4feb0d21f07ec315b197
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -1139,18 +1139,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "8d09069ebc03c5c7dbbb39aac191b46e6644e87cf47f7bcbe4feec5659cdeb7c"
+      sha256: "45a2ff7f32d8db403226689c88f895df454ebc01fedf08266c6d62d52190afa6"
       url: "https://pub.dev"
     source: hosted
-    version: "3.22.0"
+    version: "3.23.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: fdd56d913672e5e77f7c2f147ef889bbd1c36ca4d9a5092be56a149f65b2bdca
+      sha256: b2d7b4be6c5076e777b7c80a02279d661dcdc4e8758fd0ac56b125f1db5d203e
       url: "https://pub.dev"
     source: hosted
-    version: "3.22.0"
+    version: "3.23.0"
   source_span:
     dependency: transitive
     description:
