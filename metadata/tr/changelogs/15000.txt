@@ -1,8 +1,0 @@
-• Notların dosya boyutu azaltıldı
-• Senkronizasyondan kaynaklanan azaltılmış yavaşlama
-• Artık ana ekrandan bir PDF'i içe aktarabilirsiniz.
-• Bir klasör ve bir notun aynı ada sahip olmasına neden olan bir hata düzeltildi
-• iOS temasını kullanırken oluşan bir düzen hatası düzeltildi
-• F-Droid'de görünmeyen sabit değişiklik günlükleri
-• AppImage'daki eksik kitaplıklar düzeltildi
-• iOS'ta görünmeyen ATT istemi düzeltildi

@@ -1,8 +1,0 @@
-• Csökkentette a jegyzetek fájlméretét
-• Csökkentett lassulás a szinkronizálás miatt
-• Most már importálhat egy PDF-fájlt a kezdőképernyőről
-• Kijavítottunk egy hibát, amikor egy mappa és egy jegyzet ugyanazt a nevet kapta
-• Kijavítottunk egy elrendezési hibát az iOS-téma használatakor
-• Javítva az F-Droidban nem megjelenő változásnaplók
-• Az AppImage hiányzó könyvtárainak javítása
-• Javítva az ATT-prompt, amely nem jelenik meg iOS rendszeren
