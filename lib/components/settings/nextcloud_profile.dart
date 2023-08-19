@@ -57,8 +57,12 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       },
       leading: Prefs.pfp.value == null
           ? const Icon(Icons.account_circle, size: 48)
-          : ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+          : ClipPath(
+              clipper: ShapeBorderClipper(
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+              ),
               child: Image.memory(
                 Prefs.pfp.value!,
                 width: 48,

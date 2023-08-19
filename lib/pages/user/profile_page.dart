@@ -36,12 +36,18 @@ class ProfilePage extends StatelessWidget {
                 if (Prefs.pfp.value == null)
                   const Icon(Icons.account_circle, size: 48 * 2)
                 else
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20 * 2),
-                    child: Image.memory(
-                      Prefs.pfp.value!,
-                      width: 48 * 2,
-                      height: 48 * 2,
+                  Center(
+                    child: ClipPath(
+                      clipper: ShapeBorderClipper(
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(40 * 2),
+                        ),
+                      ),
+                      child: Image.memory(
+                        Prefs.pfp.value!,
+                        width: 48 * 2,
+                        height: 48 * 2,
+                      ),
                     ),
                   ),
                 const SizedBox(height: 16),
