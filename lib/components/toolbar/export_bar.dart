@@ -57,7 +57,7 @@ class _ExportBarState extends State<ExportBar> {
 
       TextButton(
         onPressed: _onPressed(widget.exportAsSbn),
-        child: _buttonChild(widget.exportAsSbn, 'SBN'),
+        child: _buttonChild(widget.exportAsSbn, 'SBN2'),
       ),
       TextButton(
         onPressed: _onPressed(widget.exportAsPdf),

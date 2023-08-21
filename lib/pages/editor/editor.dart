@@ -1094,7 +1094,7 @@ class EditorState extends State<Editor> {
   }
   Future exportAsSbn() async {
     final content = _saveToBinary();
-    await FileManager.exportFile('$_filename.sbn', content);
+    await FileManager.exportFile('$_filename${Editor.extension}', content);
   }
 
   void setAndroidNavBarColor() async {
