@@ -133,8 +133,6 @@ dependencies:
   open_filex: ^4.3.2
 
   super_clipboard: ^0.6.0
-  # todo: remove after https://github.com/superlistapp/super_native_extensions/issues/154
-  super_native_extensions: any
 
   fast_image_resizer: ^0.0.2
 
@@ -142,7 +140,10 @@ dependencies:
   app_tracking_transparency: ^2.0.4
 
   bson: ^4.0.0
+
   flutter_speed_dial: ^7.0.0
+
+  logging: ^1.2.0
 
 dev_dependencies:
   flutter_test:

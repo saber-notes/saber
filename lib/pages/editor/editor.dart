@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
+import 'package:logging/logging.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -91,6 +92,8 @@ class Editor extends StatefulWidget {
 }
 
 class EditorState extends State<Editor> {
+  final log = Logger('EditorState');
+
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
   final TransformationController _transformationController = TransformationController();
@@ -780,6 +783,7 @@ class EditorState extends State<Editor> {
       await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave, awaitWrite: true);
       savingState.value = SavingState.saved;
     } catch (e) {
+      log.severe('Failed to save file', e);
       savingState.value = SavingState.waitingToSave;
       if (kDebugMode) rethrow;
     }
@@ -967,7 +971,7 @@ class EditorState extends State<Editor> {
     try {
       fileContents = await tempFile.readAsBytes();
     } catch (e) {
-      if (kDebugMode) print('Failed to read file when importing $path');
+      log.severe('Failed to read file when importing $path', e);
       return false;
     }
 

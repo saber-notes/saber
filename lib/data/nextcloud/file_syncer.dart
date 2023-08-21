@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -12,6 +13,7 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 abstract class FileSyncer {
+  static final log = Logger('FileSyncer');
 
   /// the file extension of an encrypted base64 note
   static const String encExtension = '.sbe';
@@ -324,7 +326,7 @@ abstract class FileSyncer {
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      if (kDebugMode) print('Failed to download file ${file.localPath} ${file.remotePath}: $e');
+      log.severe('Failed to download file ${file.localPath} (${file.remotePath})', e);
       return false;
     }
   }

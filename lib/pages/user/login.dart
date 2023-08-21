@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
@@ -21,6 +22,8 @@ class NcLoginPage extends StatefulWidget {
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
+  final log = Logger('_NcLoginPageState');
+
   Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
     NcHttpOverrides.tempAcceptBadCertificateFrom(loginDetails.url);
     NextcloudClient client = NextcloudClient(
@@ -36,10 +39,13 @@ class _NcLoginPageState extends State<NcLoginPage> {
       capabilities = await client.core.ocs.getCapabilities()
         .then((capabilities) => capabilities.ocs.data);
       (ncServerIsSupported, ncSupportedVersion) = client.core.isSupported(capabilities);
+      log.info('ncServerIsSupported: $ncServerIsSupported, ncSupportedVersion: $ncSupportedVersion');
     } catch (e) {
+      log.severe('Failed to get capabilities', e);
       throw NcLoginFailure();
     }
     if (!ncServerIsSupported) {
+      log.warning('Nextcloud server is not supported');
       throw NcUnsupportedFailure(
         currentVersion: capabilities.version.major,
         supportedVersion: ncSupportedVersion,
@@ -50,6 +56,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     try {
       username = await client.getUsername();
     } catch (e) {
+      log.severe('Failed to get username', e);
       throw NcLoginFailure();
     }
 
@@ -66,9 +73,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
       await client.loadEncryptionKey();
     } on EncLoginFailure {
       // If the encryption password is wrong, we don't want to save it
+      log.severe('Failed to load encryption key, wrong encryption password');
       Prefs.encPassword.value = previousEncPassword;
       rethrow;
     } catch (e) { // Probably a webdav error
+      log.severe('Failed to load encryption key', e);
       Prefs.encPassword.value = previousEncPassword;
       if (kDebugMode) rethrow;
       throw NcLoginFailure();

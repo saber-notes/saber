@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
@@ -19,6 +20,8 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class UpdateManager {
+  static final log = Logger('UpdateManager');
+
   static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart');
   static final Uri apiUrl = Uri.parse('https://api.github.com/repos/adil192/saber/releases/latest');
   /// The availability of an update.
@@ -125,6 +128,7 @@ abstract class UpdateManager {
     try {
       newestVersion = await getNewestVersion();
     } catch (e) {
+      log.severe('Failed to check for update', e);
       return UpdateStatus.upToDate;
     }
 
@@ -155,7 +159,7 @@ abstract class UpdateManager {
     try {
       response = await http.get(versionUrl);
     } catch (e) {
-      throw const SocketException('Failed to download version.dart');
+      throw SocketException('Failed to download version.dart, ${e.toString()}');
     }
     if (response.statusCode >= 400) throw SocketException('Failed to download version.dart, HTTP status code ${response.statusCode}');
 
@@ -242,6 +246,7 @@ abstract class UpdateManager {
     try {
       response = await http.get(Uri.parse(url));
     } catch (e) {
+      log.severe('Failed to download changelog', e);
       return null;
     }
     if (response.statusCode >= 400) return null;

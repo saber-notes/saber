@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
@@ -29,6 +30,14 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   FileManager.init();
+
+  Logger.root.level = kDebugMode
+      ? Level.INFO
+      : Level.WARNING;
+  Logger.root.onRecord.listen((record) {
+    // ignore: avoid_print
+    print('${record.level.name}: ${record.loggerName}: ${record.message}');
+  });
 
   await Future.wait([
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)

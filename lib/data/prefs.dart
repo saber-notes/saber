@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:logging/logging.dart';
 import 'package:nextcloud/nextcloud.dart' show ProvisioningApiUserDetailsQuota;
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
@@ -17,6 +18,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 typedef Quota = ProvisioningApiUserDetailsQuota;
 
 abstract class Prefs {
+  static final log = Logger('Prefs');
 
   /// If true, the user's preferences will not be loaded and the default values will be used instead.
   /// The values will not be saved either.
@@ -428,7 +430,7 @@ class PlainPref<T> extends IPref<T> {
         return _prefs!.get(key) as T?;
       }
     } catch (e) {
-      if (kDebugMode) print('Error loading $key: $e');
+      Prefs.log.severe('Error loading $key', e);
       return null;
     }
   }
@@ -495,7 +497,7 @@ class EncPref<T> extends IPref<T> {
       final String? value = await _storage!.read(key: key);
       return _parseString(value);
     } catch (e) {
-      if (kDebugMode) print('Error loading $key: $e');
+      Prefs.log.severe('Error loading $key', e);
       return null;
     }
   }

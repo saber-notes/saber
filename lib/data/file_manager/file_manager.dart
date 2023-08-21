@@ -5,6 +5,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
@@ -17,6 +18,8 @@ import 'package:share_plus/share_plus.dart';
 class FileManager {
   // disable constructor
   FileManager._();
+
+  static final log = Logger('FileManager');
 
   static const String appRootDirectoryPrefix = '/Saber';
   @visibleForTesting
@@ -380,7 +383,7 @@ class FileManager {
     try {
       fileContents = await tempFile.readAsBytes();
     } catch (e) {
-      if (kDebugMode) print('Failed to read file when importing $path');
+      log.severe('Failed to read file when importing $path', e);
       return null;
     }
 

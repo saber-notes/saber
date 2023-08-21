@@ -4,6 +4,7 @@ import 'package:bson/bson.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -14,6 +15,8 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class EditorCoreInfo {
+  static final log = Logger('EditorCoreInfo');
+
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
   static const int sbnVersion = 13;
@@ -306,6 +309,7 @@ class EditorCoreInfo {
         coreInfo = isolate();
       }
     } catch (e) {
+      log.severe('Failed to load file from $path', e);
       if (kDebugMode) {
         rethrow;
       } else {
@@ -343,7 +347,7 @@ class EditorCoreInfo {
         throw ArgumentError('Both bsonBytes and jsonString are null');
       }
     } catch (e) {
-      if (kDebugMode) print('Failed to parse file from $path: $e');
+      log.severe('Failed to parse file from $path', e);
       rethrow;
     }
 
