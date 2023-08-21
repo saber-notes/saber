@@ -90,10 +90,12 @@ class EditorCoreInfo {
 
     List<Uint8List>? assets = fileVersion <= 13
         ? (json['a'] as List<dynamic>?)
-            ?.map((base64) => base64Decode(base64 as String))
+            ?.cast<String>()
+            .map((base64) => base64Decode(base64))
             .toList()
         : (json['a'] as List<dynamic>?)
-            ?.map((asset) => (asset as BsonBinary).byteList.buffer.asUint8List())
+            ?.cast<BsonBinary>()
+            .map((asset) => asset.byteList.buffer.asUint8List())
             .toList();
 
     return EditorCoreInfo._(
