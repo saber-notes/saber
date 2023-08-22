@@ -139,7 +139,7 @@ class EditorState extends State<Editor> {
   int lastSeenPointerCount = 0;
   Timer? _lastSeenPointerCountTimer;
 
-  QuillStruct? lastFocusedQuill;
+  ValueNotifier<QuillStruct?> quillFocus = ValueNotifier(null);
 
   /// The tool that was used before switching to the eraser.
   Tool? tmpTool;
@@ -206,8 +206,8 @@ class EditorState extends State<Editor> {
       }
       assert(pageIndex < coreInfo.pages.length);
 
-      lastFocusedQuill = coreInfo.pages[pageIndex].quill;
-      lastFocusedQuill!.focusNode.requestFocus();
+      quillFocus.value = coreInfo.pages[pageIndex].quill
+          ..focusNode.requestFocus();
     }
 
     if (coreInfo.filePath == Whiteboard.filePath && Prefs.autoClearWhiteboardOnExit.value && Whiteboard.needsToAutoClearWhiteboard) {
@@ -716,6 +716,13 @@ class EditorState extends State<Editor> {
       }
       autosaveAfterDelay();
     });
+    quill.focusNode.addListener(_onQuillFocusChange);
+  }
+  void _onQuillFocusChange() {
+    for (EditorPage page in coreInfo.pages) {
+      if (!page.quill.focusNode.hasFocus) continue;
+      quillFocus.value = page.quill;
+    }
   }
   void _addQuillChangeToHistory({
     required QuillStruct quill,
@@ -1264,14 +1271,7 @@ class EditorState extends State<Editor> {
             });
           },
 
-          getCurrentQuill: () {
-            for (EditorPage page in coreInfo.pages) {
-              if (!page.quill.focusNode.hasFocus) continue;
-              lastFocusedQuill = page.quill;
-              return page.quill;
-            }
-            return lastFocusedQuill;
-          },
+          quillFocus: quillFocus,
           textEditing: currentTool == Tool.textEditing,
           toggleTextEditing: () => setState(() {
             if (currentTool == Tool.textEditing) {
@@ -1283,8 +1283,8 @@ class EditorState extends State<Editor> {
               }
             } else {
               currentTool = Tool.textEditing;
-              lastFocusedQuill = coreInfo.pages[currentPageIndex].quill;
-              lastFocusedQuill!.focusNode.requestFocus();
+              quillFocus.value = coreInfo.pages[currentPageIndex].quill
+                  ..focusNode.requestFocus();
             }
           }),
 

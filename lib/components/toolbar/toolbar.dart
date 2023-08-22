@@ -32,7 +32,7 @@ class Toolbar extends StatefulWidget {
     required this.currentTool,
     required this.setColor,
 
-    required this.getCurrentQuill,
+    required this.quillFocus,
     required this.textEditing,
     required this.toggleTextEditing,
 
@@ -58,7 +58,7 @@ class Toolbar extends StatefulWidget {
   final Tool currentTool;
   final ValueChanged<Color> setColor;
 
-  final QuillStruct? Function() getCurrentQuill;
+  final ValueNotifier<QuillStruct?> quillFocus;
   final bool textEditing;
   final VoidCallback toggleTextEditing;
 
@@ -156,8 +156,6 @@ class _ToolbarState extends State<Toolbar> {
     Brightness brightness = Theme.of(context).brightness;
     bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
 
-    QuillStruct? quill = widget.getCurrentQuill();
-
     final isToolbarVertical = Prefs.editorToolbarAlignment.value == AxisDirection.left
         || Prefs.editorToolbarAlignment.value == AxisDirection.right;
 
@@ -210,30 +208,35 @@ class _ToolbarState extends State<Toolbar> {
           invert: invert,
         ),
       ),
-      Collapsible(
-        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-        maintainState: true,
-        collapsed: !widget.textEditing || quill == null,
-        child: quill != null ? QuillToolbar.basic(
-          axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
-          controller: quill.controller,
-          locale: TranslationProvider.of(context).flutterLocale,
-          toolbarIconSize: 22,
-          iconTheme: QuillIconTheme(
-            iconSelectedColor: colorScheme.onPrimary,
-            iconUnselectedColor: colorScheme.primary,
-            iconSelectedFillColor: colorScheme.primary,
-            iconUnselectedFillColor: Colors.transparent,
-            disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
-            disabledIconFillColor: Colors.transparent,
-            borderRadius: 22,
-          ),
-          showUndo: false,
-          showRedo: false,
-          showFontSize: false,
-          showFontFamily: false,
-          showClearFormat: false,
-        ) : const SizedBox.shrink(),
+      ValueListenableBuilder(
+        valueListenable: widget.quillFocus,
+        builder: (context, quill, _) {
+          return Collapsible(
+            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            maintainState: true,
+            collapsed: !widget.textEditing || quill == null,
+            child: quill != null ? QuillToolbar.basic(
+              axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
+              controller: quill.controller,
+              locale: TranslationProvider.of(context).flutterLocale,
+              toolbarIconSize: 22,
+              iconTheme: QuillIconTheme(
+                iconSelectedColor: colorScheme.onPrimary,
+                iconUnselectedColor: colorScheme.primary,
+                iconSelectedFillColor: colorScheme.primary,
+                iconUnselectedFillColor: Colors.transparent,
+                disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
+                disabledIconFillColor: Colors.transparent,
+                borderRadius: 22,
+              ),
+              showUndo: false,
+              showRedo: false,
+              showFontSize: false,
+              showFontFamily: false,
+              showClearFormat: false,
+            ) : const SizedBox.shrink(),
+          );
+        }
       ),
       Center(
         child: Padding(
