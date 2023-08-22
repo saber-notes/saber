@@ -95,7 +95,7 @@ class EditorCoreInfo {
             .toList()
         : (json['a'] as List<dynamic>?)
             ?.cast<BsonBinary>()
-            .map((asset) => asset.byteList.buffer.asUint8List())
+            .map((asset) => asset.byteList)
             .toList();
 
     return EditorCoreInfo._(
@@ -390,8 +390,7 @@ class EditorCoreInfo {
       'c': initialPageIndex,
     };
 
-    json['a'] = assets.map((Uint8List asset) => BsonBinary.from(asset.buffer.asUint8List())).toList();
-
+    json['a'] = assets.map((Uint8List asset) => BsonBinary.from(asset)).toList();
     return json;
   }
 
