@@ -19,7 +19,7 @@ class EditorCoreInfo {
 
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int sbnVersion = 13;
+  static const int sbnVersion = 14;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
@@ -88,9 +88,15 @@ class EditorCoreInfo {
     bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
-    List<Uint8List>? assets = (json['a'] as List<dynamic>?)
-        ?.map((base64) => base64Decode(base64 as String))
-        .toList();
+    List<Uint8List>? assets = fileVersion <= 13
+        ? (json['a'] as List<dynamic>?)
+            ?.cast<String>()
+            .map((base64) => base64Decode(base64))
+            .toList()
+        : (json['a'] as List<dynamic>?)
+            ?.cast<BsonBinary>()
+            .map((asset) => asset.byteList)
+            .toList();
 
     return EditorCoreInfo._(
       filePath: filePath,
@@ -384,8 +390,7 @@ class EditorCoreInfo {
       'c': initialPageIndex,
     };
 
-    json['a'] = assets.map((Uint8List asset) => base64Encode(asset)).toList();
-
+    json['a'] = assets.map((Uint8List asset) => BsonBinary.from(asset)).toList();
     return json;
   }
 
