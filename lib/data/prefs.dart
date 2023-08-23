@@ -97,6 +97,8 @@ abstract class Prefs {
   static late final PlainPref<Queue<String>> fileSyncUploadQueue;
   /// File paths that have been deleted locally
   static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
+  /// File paths that are known to be corrupted on Nextcloud
+  static late final PlainPref<Set<String>> fileSyncCorruptFiles;
   /// The last storage quota that was fetched from Nextcloud
   static late final PlainPref<Quota?> lastStorageQuota;
 
@@ -166,6 +168,7 @@ abstract class Prefs {
 
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
+    fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
     lastStorageQuota = PlainPref('lastStorageQuota', null);
 
     shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);

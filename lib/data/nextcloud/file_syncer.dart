@@ -89,9 +89,12 @@ abstract class FileSyncer {
         if (downloadCancellable.cancelled) return;
         if (success) {
           filesDone.value = (filesDone.value ?? 0) + 1;
+          Prefs.fileSyncCorruptFiles.value.remove(file.localPath);
         } else {
           failedFiles.add(file);
+          Prefs.fileSyncCorruptFiles.value.add(file.localPath);
         }
+        Prefs.fileSyncCorruptFiles.notifyListeners();
       }
     } finally {
       // Add failed files back to queue for next sync
@@ -264,21 +267,42 @@ abstract class FileSyncer {
     }
   }
 
-  /// Sorts [_downloadQueue] so that deleted files are at the end.
-  /// Also filters out already-deleted files
+  /// Sorts [_downloadQueue] with the following order:
+  /// - New files (non-empty files that we know nothing about)
+  /// - Deleted files (that are not already deleted locally)
+  /// - Files that we know were corrupted/failed to download previously
   static void _sortDownloadQueue() {
-    // list of remotely deleted files
-    final emptyFiles = _downloadQueue.where((SyncFile file) => (file.webDavFile!.size ?? 0) == 0).toList(growable: false);
+    final newFiles = <SyncFile>{};
+    final deletedFiles = <SyncFile>{};
+    final corruptedFiles = <SyncFile>{};
 
-    // move empty files to end of queue, or remove them if they are already deleted locally
-    for (final SyncFile file in emptyFiles) {
-      bool alreadyDeleted = Prefs.fileSyncAlreadyDeleted.value.contains(file.localPath);
-      _downloadQueue.remove(file);
-      if (!alreadyDeleted) _downloadQueue.add(file);
+    final files = _downloadQueue.toSet();
+    for (final file in files) {
+      late final knownCorrupted = Prefs.fileSyncCorruptFiles.value.contains(file.localPath);
+      late final deleted = (file.webDavFile!.size ?? 0) == 0;
+
+      if (knownCorrupted) {
+        corruptedFiles.add(file);
+      } else if (deleted) {
+        final alreadyDeleted = Prefs.fileSyncAlreadyDeleted.value.contains(file.localPath);
+        if (!alreadyDeleted) deletedFiles.add(file);
+      } else {
+        newFiles.add(file);
+      }
     }
 
+    log.info(() => 'New files: ${newFiles.length}, deleted files: ${deletedFiles.length}, corrupted files: ${corruptedFiles.length}');
+    log.fine(() => 'New files: ${newFiles.map((file) => file.localPath)}');
+    log.fine(() => 'Deleted files: ${deletedFiles.map((file) => file.localPath)}');
+    log.fine(() => 'Corrupted files: ${corruptedFiles.map((file) => file.localPath)}');
+
+    _downloadQueue.clear();
+    _downloadQueue.addAll(newFiles);
+    _downloadQueue.addAll(deletedFiles);
+    _downloadQueue.addAll(corruptedFiles);
+
     // forget un-deleted files that were previously deleted locally
-    Prefs.fileSyncAlreadyDeleted.value.removeWhere((filePath) => !Prefs.fileSyncAlreadyDeleted.value.contains(filePath));
+    Prefs.fileSyncAlreadyDeleted.value.removeWhere((filePath) => !deletedFiles.any((file) => file.localPath == filePath));
     Prefs.fileSyncAlreadyDeleted.notifyListeners();
   }
 
