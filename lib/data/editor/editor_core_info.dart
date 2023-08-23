@@ -315,7 +315,7 @@ class EditorCoreInfo {
         coreInfo = isolate();
       }
     } catch (e) {
-      log.severe('Failed to load file from $path', e);
+      log.severe('Failed to load file from $path: $e', e);
       if (kDebugMode) {
         rethrow;
       } else {
@@ -353,7 +353,7 @@ class EditorCoreInfo {
         throw ArgumentError('Both bsonBytes and jsonString are null');
       }
     } catch (e) {
-      log.severe('Failed to parse file from $path', e);
+      log.severe('Failed to parse file from $path: $e', e);
       rethrow;
     }
 

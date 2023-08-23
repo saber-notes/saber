@@ -41,7 +41,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       (ncServerIsSupported, ncSupportedVersion) = client.core.isSupported(capabilities);
       log.info('ncServerIsSupported: $ncServerIsSupported, ncSupportedVersion: $ncSupportedVersion');
     } catch (e) {
-      log.severe('Failed to get capabilities', e);
+      log.severe('Failed to get capabilities: $e', e);
       throw NcLoginFailure();
     }
     if (!ncServerIsSupported) {
@@ -56,7 +56,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     try {
       username = await client.getUsername();
     } catch (e) {
-      log.severe('Failed to get username', e);
+      log.severe('Failed to get username: $e', e);
       throw NcLoginFailure();
     }
 
@@ -77,7 +77,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       Prefs.encPassword.value = previousEncPassword;
       rethrow;
     } catch (e) { // Probably a webdav error
-      log.severe('Failed to load encryption key', e);
+      log.severe('Failed to load encryption key: $e', e);
       Prefs.encPassword.value = previousEncPassword;
       if (kDebugMode) rethrow;
       throw NcLoginFailure();

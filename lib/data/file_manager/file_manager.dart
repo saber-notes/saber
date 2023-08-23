@@ -383,7 +383,7 @@ class FileManager {
     try {
       fileContents = await tempFile.readAsBytes();
     } catch (e) {
-      log.severe('Failed to read file when importing $path', e);
+      log.severe('Failed to read file when importing $path: $e', e);
       return null;
     }
 

@@ -790,7 +790,7 @@ class EditorState extends State<Editor> {
       await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave, awaitWrite: true);
       savingState.value = SavingState.saved;
     } catch (e) {
-      log.severe('Failed to save file', e);
+      log.severe('Failed to save file: $e', e);
       savingState.value = SavingState.waitingToSave;
       if (kDebugMode) rethrow;
     }
@@ -978,7 +978,7 @@ class EditorState extends State<Editor> {
     try {
       fileContents = await tempFile.readAsBytes();
     } catch (e) {
-      log.severe('Failed to read file when importing $path', e);
+      log.severe('Failed to read file when importing $path: $e', e);
       return false;
     }
 

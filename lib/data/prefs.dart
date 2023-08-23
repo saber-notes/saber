@@ -430,7 +430,7 @@ class PlainPref<T> extends IPref<T> {
         return _prefs!.get(key) as T?;
       }
     } catch (e) {
-      Prefs.log.severe('Error loading $key', e);
+      Prefs.log.severe('Error loading $key: $e', e);
       return null;
     }
   }
@@ -497,7 +497,7 @@ class EncPref<T> extends IPref<T> {
       final String? value = await _storage!.read(key: key);
       return _parseString(value);
     } catch (e) {
-      Prefs.log.severe('Error loading $key', e);
+      Prefs.log.severe('Error loading $key: $e', e);
       return null;
     }
   }

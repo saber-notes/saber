@@ -326,7 +326,7 @@ abstract class FileSyncer {
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      log.severe('Failed to download file ${file.localPath} (${file.remotePath})', e);
+      log.severe('Failed to download file ${file.localPath} (${file.remotePath}): $e', e);
       return false;
     }
   }
