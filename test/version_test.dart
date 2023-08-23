@@ -36,6 +36,11 @@ void main() {
     expect(releaseTag > releasesTag, true, reason: '<release> tag is not inside <releases> tag');
   });
 
+  test('Test that buildNumber parses to buildName', () {
+    final v = UpdateManager.parseVersionNumber(buildNumber);
+    expect('${v.major}.${v.minor}.${v.patch}', buildName);
+  });
+
   test('Test that versions in code are valid', () async {
     // We will use git's history to see if ./scripts/apply_version.sh
     // changes anything. If it does, then the versions in the

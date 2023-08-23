@@ -167,16 +167,52 @@ abstract class UpdateManager {
   }
 
   @visibleForTesting
-  static UpdateStatus getUpdateStatus(int currentVersion, int newestVersion) {
-    final int versionDifference = newestVersion ~/ 10 - currentVersion ~/ 10;
+  static UpdateStatus getUpdateStatus(int currentVersionNumber, int newestVersionNumber) {
+    final currentVersion = parseVersionNumber(currentVersionNumber);
+    final newestVersion = parseVersionNumber(newestVersionNumber);
 
-    if (versionDifference <= 0) {
+    // Check if we're up to date
+    if ((newestVersionNumber - newestVersion.silent) <= (currentVersionNumber - currentVersion.silent)) {
       return UpdateStatus.upToDate;
-    } else if (versionDifference <= Prefs.updatesToIgnore.value) {
-      return UpdateStatus.updateOptional;
-    } else {
-      return UpdateStatus.updateRecommended;
     }
+    // Now we know that there is a new update available
+
+    // Check if the update is low priority
+    if (!Prefs.shouldAlwaysAlertForUpdates.value) {
+      // Only prompt user every second patch
+      if (currentVersion.major == newestVersion.major && currentVersion.minor == newestVersion.minor) {
+        if ((newestVersion.patch - currentVersion.patch) < 2) {
+          return UpdateStatus.updateOptional;
+        }
+      }
+
+      // Don't prompt user when patch version is 0 (e.g. 0.15.0)
+      // since there might still be bugs to fix
+      if (newestVersion.patch == 0) {
+        return UpdateStatus.updateOptional;
+      }
+    }
+
+    return UpdateStatus.updateRecommended;
+  }
+
+  @visibleForTesting
+  static ({int major, int minor, int patch, int silent}) parseVersionNumber(int versionNumber) {
+    // rightmost digit is silent update
+    final silent = versionNumber % 10;
+    // next 2 digits are patch version
+    final patch = (versionNumber ~/ 10) % 100;
+    // next 2 digits are minor version
+    final minor = (versionNumber ~/ 1000) % 100;
+    // next 2 digits are major version
+    final major = (versionNumber ~/ 100000) % 100;
+
+    return (
+      major: major,
+      minor: minor,
+      patch: patch,
+      silent: silent,
+    );
   }
 
   @visibleForTesting

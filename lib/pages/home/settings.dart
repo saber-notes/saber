@@ -78,12 +78,6 @@ abstract class _SettingsPrefs {
     (int value) => LayoutSize.values[value],
   );
 
-  static final shouldAlwaysAlertForUpdates = TransformedPref(
-    Prefs.updatesToIgnore,
-    (int value) => value <= 0,
-    (bool value) => value ? 0 : 1,
-  );
-
   static final editorToolbarAlignment = TransformedPref(
     Prefs.editorToolbarAlignment,
     (AxisDirection value) => value.index,
@@ -421,7 +415,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
                     subtitle: t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
                     icon: Icons.system_security_update_warning,
-                    pref: _SettingsPrefs.shouldAlwaysAlertForUpdates,
+                    pref: Prefs.shouldAlwaysAlertForUpdates,
                   ),
                 ),
               ],

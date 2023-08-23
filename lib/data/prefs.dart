@@ -101,7 +101,7 @@ abstract class Prefs {
   static late final PlainPref<Quota?> lastStorageQuota;
 
   static late final PlainPref<bool> shouldCheckForUpdates;
-  static late final PlainPref<int> updatesToIgnore;
+  static late final PlainPref<bool> shouldAlwaysAlertForUpdates;
 
   static late final PlainPref<String> locale;
 
@@ -169,7 +169,7 @@ abstract class Prefs {
     lastStorageQuota = PlainPref('lastStorageQuota', null);
 
     shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
-    updatesToIgnore = PlainPref('updatesToIgnore', (kDebugMode || FlavorConfig.dirty) ? 0 : 1);
+    shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates', (kDebugMode || FlavorConfig.dirty) ? true : false, deprecatedKeys: const ['updatesToIgnore']);
 
     locale = PlainPref('locale', '');
 
