@@ -1,0 +1,8 @@
+• Reduzierte die Dateigröße von Notizen
+• Reduzierte Verlangsamung durch Synchronisierung
+• Sie können jetzt eine PDF-Datei vom Startbildschirm aus importieren
+• Es wurde ein Fehler behoben, der auftrat, wenn ein Ordner und eine Notiz denselben Namen hatten
+• Ein Layoutfehler bei Verwendung des iOS-Designs wurde behoben
+• Problem behoben, bei dem Änderungsprotokolle in F-Droid nicht angezeigt wurden
+• Fehlende Bibliotheken im AppImage behoben
+...

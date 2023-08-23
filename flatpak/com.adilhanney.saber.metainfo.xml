@@ -265,6 +265,21 @@
     </screenshots>
 
     <releases>
+        <release version="0.15.1" type="development" date="2023-08-23">
+            <description>
+                <ul>
+                    <li>Reduced the file size of notes</li>
+                    <li>Reduced slowdown caused by syncing</li>
+                    <li>You can now import a PDF from the home screen</li>
+                    <li>Fixed a bug when a folder and a note had the same name</li>
+                    <li>Fixed a layout bug when using the iOS theme</li>
+                    <li>Fixed changelogs not appearing in F-Droid</li>
+                    <li>Fixed missing libraries in the AppImage</li>
+                    <li>Fixed the ATT prompt not appearing in iOS</li>
+                    <li>Fixed a bug where the quill toolbar would only work with the first page</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.14.11" type="development" date="2023-07-27">
             <description>
                 <ul>

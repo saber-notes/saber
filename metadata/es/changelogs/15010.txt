@@ -1,0 +1,9 @@
+• Reducción del tamaño del archivo de notas
+• Reducción de la desaceleración causada por la sincronización
+• Ahora puede importar un PDF desde la pantalla de inicio
+• Arregla un error cuando una carpeta y una nota tenían el mismo nombre
+• Arreglado un error de diseño al utilizar el tema iOS
+• No aparecen en F-Droid
+• Bibliotecas faltantes fijas en la AppImage
+• Arreglado el aviso ATT no aparece en iOS
+...
