@@ -128,7 +128,7 @@ abstract class Prefs {
     editorToolbarAlignment = PlainPref('editorToolbarAlignment', AxisDirection.down);
     editorToolbarShowInFullscreen = PlainPref('editorToolbarShowInFullscreen', true);
     editorFingerDrawing = PlainPref('editorFingerDrawing', true);
-    editorAutoInvert = PlainPref('editorAutoInvert', true, historicalKeys: ['editorAutoDarken']);
+    editorAutoInvert = PlainPref('editorAutoInvert', true, historicalKeys: const ['editorAutoDarken']);
     editorOpaqueBackgrounds = PlainPref('editorOpaqueBackgrounds', true);
     preferGreyscale = PlainPref('preferGreyscale', false);
     editorStraightenDelay = PlainPref('editorStraightenDelay', 500);
@@ -147,22 +147,22 @@ abstract class Prefs {
     hideFingerDrawingToggle = PlainPref('hideFingerDrawingToggle', false);
 
     recentColorsChronological = PlainPref('recentColorsChronological', []);
-    recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: ['recentColors']);
+    recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: const ['recentColors']);
 
     lastTool = PlainPref('lastTool', ToolId.fountainPen);
-    lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: ['lastPenColor']);
+    lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: const ['lastPenColor']);
     lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
-    lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: ['lastHighlighterColor']);
+    lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: const ['lastHighlighterColor']);
 
     lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
     lastLineHeight = PlainPref('lastLineHeight', 40);
     lastZoomLock = PlainPref('lastZoomLock', false);
-    lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false, historicalKeys: ['lastPanLock']);
+    lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false, historicalKeys: const ['lastPanLock']);
     lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
     hasDraggedSizeIndicatorBefore = PlainPref('hasDraggedSizeIndicatorBefore', false);
 
-    recentFiles = PlainPref('recentFiles', [], historicalKeys: ['recentlyAccessed']);
+    recentFiles = PlainPref('recentFiles', [], historicalKeys: const ['recentlyAccessed']);
 
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
