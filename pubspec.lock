@@ -271,7 +271,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: f8d0a3779f6f251be9db4feb0d21f07ec315b197
+      resolved-ref: "86bb58d813019e02dc224609ed4006c1b0dcbe14"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -642,18 +642,18 @@ packages:
     dependency: transitive
     description:
       name: irondash_engine_context
-      sha256: "6431b11844472574a90803c02f1e55221e6a390a872786735f6757a67dacd678"
+      sha256: fea21bff36d44a5955beba90619f54b9169884014128ae75f50eba2db03c24a0
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   irondash_message_channel:
     dependency: transitive
     description:
       name: irondash_message_channel
-      sha256: "4114739083d1c63e6a1a8b93f09dd69b3cf9a9d6ee215ae7f23079307197ebba"
+      sha256: "500daa1fbe679f7d28a5258df3ff47dab6de352e680dc93c1ca9eae1555d8db5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   js:
     dependency: transitive
     description:
@@ -756,7 +756,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: f8d0a3779f6f251be9db4feb0d21f07ec315b197
+      resolved-ref: "86bb58d813019e02dc224609ed4006c1b0dcbe14"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -1195,18 +1195,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "204284b1a721d33a65bcab077b191a3b7379b46a231f05688d17220153338ede"
+      sha256: "548642d62d691d2ba00850efe0f7a11ce5696e59111658abd4c6cb76b49aa61d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.6.4"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: "1f15e9b1adb0bc59cf9b889a0b248f3c192fa17e2d5c923aeeec6d4fa2eeffd6"
+      sha256: "3bbb95899f848617b819eec1fa00c80a617f1bd469a480b1f0c4dd383da4c5ec"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.6.4"
   sync_http:
     dependency: transitive
     description:
@@ -1428,10 +1428,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter
-      sha256: "789d52bd789373cc1e100fb634af2127e86c99cf9abde09499743270c5de8d00"
+      sha256: "04a0782fb058b7c71f2048935583488f4d32e9147ca403abc4e58f1de9964629"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.2"
+    version: "4.2.3"
   webview_flutter_android:
     dependency: transitive
     description:
