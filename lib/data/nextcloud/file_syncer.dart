@@ -317,7 +317,7 @@ abstract class FileSyncer {
           () async {
             final Encrypted encrypted = Encrypted(encryptedDataBytes);
             final List<int> decrypted = encrypter.decryptBytes(encrypted, iv: iv);
-            return decrypted as Uint8List;
+            return Uint8List.fromList(decrypted);
           },
           priority: WorkPriority.regular,
         );
