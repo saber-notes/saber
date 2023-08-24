@@ -1,3 +1,4 @@
+import 'package:bson/bson.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/data/tools/highlighter.dart';
 
@@ -40,6 +41,11 @@ class StrokeProperties {
     this.simulatePressure = defaultSimulatePressure,
   });
   StrokeProperties.fromJson(Map<String, dynamic> json) {
+    if(json['c'].runtimeType == BsonInt) {
+      color = Color((json['c'] as BsonInt).value);
+    } else {
+      color = Color(json['c'] ?? defaultColor.value);
+    }
     color = Color(json['c'] ?? defaultColor.value);
     size = json['s'] ?? defaultSize;
     thinning = json['t'] ?? defaultThinning;
@@ -53,7 +59,7 @@ class StrokeProperties {
     simulatePressure = json['sp'] ?? defaultSimulatePressure;
   }
   Map<String, dynamic> toJson() => {
-    if (color != defaultColor) 'c': color.value,
+    if (color != defaultColor) 'c': BsonInt(color.value),
     if (size != defaultSize) 's': size,
     if (thinning != defaultThinning) 't': thinning,
     if (smoothing != defaultSmoothing) 'sm': smoothing,
