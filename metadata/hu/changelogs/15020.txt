@@ -1,0 +1,2 @@
+• Javítva az új fájlformátum összeomlása színes körvonalak használatakor
+• A szinkronizálási sorban minden ismert sérült fájl prioritást veszít

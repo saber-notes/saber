@@ -1,0 +1,2 @@
+• Das neue Dateiformat stürzt ab, wenn Sie farbige Striche verwenden. Das Problem wurde behoben
+• Alle bekannten beschädigten Dateien werden jetzt in der Synchronisierungswarteschlange priorisiert

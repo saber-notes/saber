@@ -1,0 +1,2 @@
+• Correction du plantage du nouveau format de fichier lorsque vous utilisez des traits colorés
+• Tous les fichiers corrompus connus sont désormais dépriorisés dans la file d'attente de synchronisation.

@@ -1,0 +1,2 @@
+• Corrigida a falha do novo formato de arquivo ao usar traços coloridos
+• Todos os arquivos corrompidos conhecidos agora são despriorizados na fila de sincronização

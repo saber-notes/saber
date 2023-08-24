@@ -265,6 +265,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.15.2" type="development" date="2023-08-24">
+            <description>
+                <ul>
+                    <li>Fixed the new file format crashing when you use colored strokes</li>
+                    <li>Any known corrupted files are now deprioritized in the sync queue</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.15.1" type="development" date="2023-08-23">
             <description>
                 <ul>
