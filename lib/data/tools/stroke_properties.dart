@@ -1,3 +1,4 @@
+import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/data/tools/highlighter.dart';
 
@@ -40,7 +41,16 @@ class StrokeProperties {
     this.simulatePressure = defaultSimulatePressure,
   });
   StrokeProperties.fromJson(Map<String, dynamic> json) {
-    color = Color(json['c'] ?? defaultColor.value);
+    switch (json['c']) {
+      case (int value):
+        color = Color(value);
+      case (Int64 value):
+        color = Color(value.toInt());
+      case null:
+        color = defaultColor;
+      default:
+        throw Exception('Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+    }
     size = json['s'] ?? defaultSize;
     thinning = json['t'] ?? defaultThinning;
     smoothing = json['sm'] ?? defaultSmoothing;

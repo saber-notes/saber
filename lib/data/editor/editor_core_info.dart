@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bson/bson.dart';
+import 'package:fixnum/fixnum.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -98,12 +99,24 @@ class EditorCoreInfo {
             .map((asset) => asset.byteList)
             .toList();
 
+    final Color? backgroundColor;
+    switch (json['b']) {
+      case (int value):
+        backgroundColor = Color(value);
+      case (Int64 value):
+        backgroundColor = Color(value.toInt());
+      case null:
+        backgroundColor = null;
+      default:
+        throw Exception('Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
+    }
+
     return EditorCoreInfo._(
       filePath: filePath,
       readOnly: readOnly,
       readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
       nextImageId: json['ni'] as int? ?? 0,
-      backgroundColor: json['b'] != null ? Color(json['b'] as int) : null,
+      backgroundColor: backgroundColor,
       backgroundPattern: (){
         final String? pattern = json['p'] as String?;
         for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
