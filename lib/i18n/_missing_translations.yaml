@@ -45,9 +45,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
 de:
   home:
     titles:

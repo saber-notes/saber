@@ -250,7 +250,7 @@ editor:
     deletePage: Odstranit stránku
     lineHeight: Výška řádku
     lineHeightDescription: Ovlivňuje také velikost textu
-    backgroundImageFit(OUTDATED): Obrázek na pozadí
+    backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat
     boxFits:
