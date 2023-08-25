@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3480 (232 per locale)
 ///
-/// Built on 2023-08-25 at 16:44 UTC
+/// Built on 2023-08-25 at 23:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2294,7 +2294,7 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu';
-	@override String get backgroundImageFit => 'Obrázek na pozadí';
+	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);

@@ -45,9 +45,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Rozložení obrázku na pozadí
 de:
   home:
     titles:
