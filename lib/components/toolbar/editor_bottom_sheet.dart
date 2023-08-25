@@ -66,6 +66,11 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
       backgroundImage = null;
     }
 
+    final previewSize = Size(
+      CanvasBackgroundPreview.fixedWidth,
+      pageSize.height / pageSize.width * CanvasBackgroundPreview.fixedWidth,
+    );
+
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(
         // Enable drag scrolling on all devices (including mouse)
@@ -120,7 +125,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
-                height: pageSize.height / pageSize.width * CanvasBackgroundPreview.fixedWidth,
+                height: previewSize.height,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: imageBoxFits.length,
@@ -133,18 +138,29 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                         backgroundImage?.backgroundFit = boxFit;
                         widget.redrawAndSave();
                       }),
-                      child: Tooltip(
-                        message: boxFit.localizedName,
-                        child: CanvasBackgroundPreview(
-                          selected: backgroundImage?.backgroundFit == boxFit,
-                          invert: widget.invert,
-                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                          backgroundPattern: widget.coreInfo.backgroundPattern,
-                          backgroundImage: backgroundImage,
-                          overrideBoxFit: boxFit,
-                          pageSize: pageSize,
-                          lineHeight: widget.coreInfo.lineHeight,
-                        ),
+                      child: Stack(
+                        children: [
+                          CanvasBackgroundPreview(
+                            selected: backgroundImage?.backgroundFit == boxFit,
+                            invert: widget.invert,
+                            backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                            backgroundPattern: widget.coreInfo.backgroundPattern,
+                            backgroundImage: backgroundImage,
+                            overrideBoxFit: boxFit,
+                            pageSize: pageSize,
+                            lineHeight: widget.coreInfo.lineHeight,
+                          ),
+                          Positioned(
+                            bottom: previewSize.height * 0.1,
+                            left: 0,
+                            right: 0,
+                            child: Center(
+                              child: _PermanentTooltip(
+                                text: boxFit.localizedName,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   },
@@ -168,7 +184,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               style: Theme.of(context).textTheme.titleMedium,
             ),
             SizedBox(
-              height: pageSize.height / pageSize.width * CanvasBackgroundPreview.fixedWidth,
+              height: previewSize.height,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: CanvasBackgroundPattern.values.length,
@@ -180,17 +196,28 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     onTap: () => setState(() {
                       widget.setBackgroundPattern(backgroundPattern);
                     }),
-                    child: Tooltip(
-                      message: CanvasBackgroundPattern.localizedName(backgroundPattern),
-                      child: CanvasBackgroundPreview(
-                        selected: widget.coreInfo.backgroundPattern == backgroundPattern,
-                        invert: widget.invert,
-                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                        backgroundPattern: backgroundPattern,
-                        backgroundImage: null, // focus on background pattern
-                        pageSize: pageSize,
-                        lineHeight: widget.coreInfo.lineHeight,
-                      ),
+                    child: Stack(
+                      children: [
+                        CanvasBackgroundPreview(
+                          selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                          invert: widget.invert,
+                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                          backgroundPattern: backgroundPattern,
+                          backgroundImage: null, // focus on background pattern
+                          pageSize: pageSize,
+                          lineHeight: widget.coreInfo.lineHeight,
+                        ),
+                        Positioned(
+                          bottom: previewSize.height * 0.1,
+                          left: 0,
+                          right: 0,
+                          child: Center(
+                            child: _PermanentTooltip(
+                              text: CanvasBackgroundPattern.localizedName(backgroundPattern),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -253,6 +280,37 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             ),
             const SizedBox(height: 16),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PermanentTooltip extends StatelessWidget {
+  const _PermanentTooltip({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: colorScheme.surface.withOpacity(0.8),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          textWidthBasis: TextWidthBasis.longestLine,
+          style: TextStyle(
+            color: colorScheme.onSurface,
+          ),
         ),
       ),
     );
