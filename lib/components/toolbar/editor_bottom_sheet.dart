@@ -46,6 +46,12 @@ class EditorBottomSheet extends StatefulWidget {
 }
 
 class _EditorBottomSheetState extends State<EditorBottomSheet> {
+  static const imageBoxFits = <BoxFit>[
+    BoxFit.fill,
+    BoxFit.cover,
+    BoxFit.contain,
+  ];
+
   @override
   Widget build(BuildContext context) {
     final Size pageSize;
@@ -107,38 +113,35 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               t.editor.menu.backgroundImage,
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  for (final BoxFit boxFit in [
-                    BoxFit.fill,
-                    BoxFit.cover,
-                    BoxFit.contain,
-                  ]) ...[
-                    InkWell(
-                      borderRadius: BorderRadius.circular(8),
-                      onTap: () => setState(() {
-                        backgroundImage?.backgroundFit = boxFit;
-                        widget.redrawAndSave();
-                      }),
-                      child: Tooltip(
-                        message: boxFit.localizedName,
-                        child: CanvasBackgroundPreview(
-                          selected: backgroundImage.backgroundFit == boxFit,
-                          invert: widget.invert,
-                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                          backgroundPattern: widget.coreInfo.backgroundPattern,
-                          backgroundImage: backgroundImage,
-                          overrideBoxFit: boxFit,
-                          pageSize: pageSize,
-                          lineHeight: widget.coreInfo.lineHeight,
-                        ),
+            SizedBox(
+              height: pageSize.height / pageSize.width * CanvasBackgroundPreview.fixedWidth,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: imageBoxFits.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 8),
+                itemBuilder: (context, index) {
+                  final boxFit = imageBoxFits[index];
+                  return InkWell(
+                    borderRadius: BorderRadius.circular(8),
+                    onTap: () => setState(() {
+                      backgroundImage?.backgroundFit = boxFit;
+                      widget.redrawAndSave();
+                    }),
+                    child: Tooltip(
+                      message: boxFit.localizedName,
+                      child: CanvasBackgroundPreview(
+                        selected: backgroundImage?.backgroundFit == boxFit,
+                        invert: widget.invert,
+                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                        backgroundPattern: widget.coreInfo.backgroundPattern,
+                        backgroundImage: backgroundImage,
+                        overrideBoxFit: boxFit,
+                        pageSize: pageSize,
+                        lineHeight: widget.coreInfo.lineHeight,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                  ],
-                ],
+                  );
+                },
               ),
             ),
             const SizedBox(height: 16),
@@ -158,32 +161,33 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             t.editor.menu.backgroundPattern,
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (final backgroundPattern in CanvasBackgroundPattern.values) ...[
-                  InkWell(
-                    borderRadius: BorderRadius.circular(8),
-                    onTap: () => setState(() {
-                      widget.setBackgroundPattern(backgroundPattern);
-                    }),
-                    child: Tooltip(
-                      message: CanvasBackgroundPattern.localizedName(backgroundPattern),
-                      child: CanvasBackgroundPreview(
-                        selected: widget.coreInfo.backgroundPattern == backgroundPattern,
-                        invert: widget.invert,
-                        backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                        backgroundPattern: backgroundPattern,
-                        backgroundImage: null, // focus on background pattern
-                        pageSize: pageSize,
-                        lineHeight: widget.coreInfo.lineHeight,
-                      ),
+          SizedBox(
+            height: pageSize.height / pageSize.width * CanvasBackgroundPreview.fixedWidth,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: CanvasBackgroundPattern.values.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              itemBuilder: (context, index) {
+                final backgroundPattern = CanvasBackgroundPattern.values[index];
+                return InkWell(
+                  borderRadius: BorderRadius.circular(8),
+                  onTap: () => setState(() {
+                    widget.setBackgroundPattern(backgroundPattern);
+                  }),
+                  child: Tooltip(
+                    message: CanvasBackgroundPattern.localizedName(backgroundPattern),
+                    child: CanvasBackgroundPreview(
+                      selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                      invert: widget.invert,
+                      backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                      backgroundPattern: backgroundPattern,
+                      backgroundImage: null, // focus on background pattern
+                      pageSize: pageSize,
+                      lineHeight: widget.coreInfo.lineHeight,
                     ),
                   ),
-                  const SizedBox(width: 8),
-                ],
-              ],
+                );
+              },
             ),
           ),
           const SizedBox(height: 16),

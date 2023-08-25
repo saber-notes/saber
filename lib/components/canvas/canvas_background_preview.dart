@@ -28,12 +28,14 @@ class CanvasBackgroundPreview extends StatelessWidget {
   final Size pageSize;
   final int lineHeight;
 
+  static const double fixedWidth = 150;
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final previewSize = Size(
-      150,
-      pageSize.height / pageSize.width * 150,
+      fixedWidth,
+      pageSize.height / pageSize.width * fixedWidth,
     );
     final canvasSize = pageSize / 2;
     return Container(
