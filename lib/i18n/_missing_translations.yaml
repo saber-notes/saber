@@ -461,15 +461,9 @@ tr:
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
-  home:
-    create:
-      newNote(OUTDATED): 新建笔记
-      importNote(OUTDATED): 导入笔记
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): 绘画
 zh-Hant-TW:
   editor:
     menu:
