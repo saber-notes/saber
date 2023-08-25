@@ -49,7 +49,7 @@ cs:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): Tabulatura
 de:
   home:
     titles:
