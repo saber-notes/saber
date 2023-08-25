@@ -250,7 +250,7 @@ editor:
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
     lineHeightDescription: Beeinflusst die Schriftgröße
-    backgroundImage: Hintergrundbild
+    backgroundImageFit(OUTDATED): Hintergrundbild
     backgroundPattern: Hintergrundmuster
     import: Importieren
     boxFits:

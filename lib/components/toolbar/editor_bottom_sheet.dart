@@ -121,7 +121,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             const SizedBox(height: 16),
             if (backgroundImage != null) ...[
               Text(
-                t.editor.menu.backgroundImage,
+                t.editor.menu.backgroundImageFit,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
@@ -288,6 +288,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
 
 class _PermanentTooltip extends StatelessWidget {
   const _PermanentTooltip({
+    // ignore: unused_element
     super.key,
     required this.text,
   });

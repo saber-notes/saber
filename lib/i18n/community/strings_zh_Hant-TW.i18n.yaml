@@ -249,7 +249,7 @@ editor:
     deletePage: 刪除頁面
     lineHeight: 行高
     lineHeightDescription: 同時控制文字大小
-    backgroundImage: 背景圖片
+    backgroundImageFit(OUTDATED): 背景圖片
     backgroundPattern: 背景圖案
     import: 匯入
     boxFits:

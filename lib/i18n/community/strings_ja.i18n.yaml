@@ -247,7 +247,7 @@ editor:
     deletePage: ページの削除
     lineHeight: 行の高さ
     lineHeightDescription: 文字サイズを調整
-    backgroundImage: 背景画像
+    backgroundImageFit(OUTDATED): 背景画像
     backgroundPattern: 背景パターン
     import: インポート
     boxFits:

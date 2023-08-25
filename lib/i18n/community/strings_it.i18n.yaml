@@ -250,7 +250,7 @@ editor:
     deletePage: Elimina pagina
     lineHeight: Altezza della linea
     lineHeightDescription: Inoltre controlla la dimensione del testo
-    backgroundImage: Immagine di sfondo
+    backgroundImageFit(OUTDATED): Immagine di sfondo
     backgroundPattern: Modello di sfondo
     import: Importa
     boxFits:

@@ -245,7 +245,7 @@ editor:
   menu:
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
-    backgroundImage: Háttérkép
+    backgroundImageFit(OUTDATED): Háttérkép
     backgroundPattern: Háttérminta
     import: Importálás
     boxFits:

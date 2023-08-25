@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3466 (231 per locale)
 ///
-/// Built on 2023-08-25 at 15:00 UTC
+/// Built on 2023-08-25 at 16:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -796,7 +796,7 @@ class _StringsEditorMenuEn {
 	String get deletePage => 'Delete page';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'Also controls the text size';
-	String get backgroundImage => 'Background image';
+	String get backgroundImageFit => 'Background image fit';
 	String get backgroundPattern => 'Background pattern';
 	String get import => 'Import';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);

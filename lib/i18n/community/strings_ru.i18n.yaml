@@ -250,7 +250,7 @@ editor:
     deletePage: Удалить страницу
     lineHeight: Высота строки
     lineHeightDescription: Также управляет размером текста
-    backgroundImage: Фоновое изображение
+    backgroundImageFit(OUTDATED): Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
     boxFits:

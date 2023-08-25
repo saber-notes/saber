@@ -41,11 +41,13 @@ ar:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 de:
@@ -81,6 +83,7 @@ de:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
@@ -123,11 +126,13 @@ es:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 fa:
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 fr:
@@ -219,6 +224,7 @@ fr:
       pastelPink(OUTDATED): Pastel pink
     menu:
       clearPage(OUTDATED): Clear page $page/$totalPages
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
     hud:
@@ -362,6 +368,7 @@ hu:
       duplicatePage(OUTDATED): Duplicate page
       deletePage(OUTDATED): Delete page
       lineHeightDescription(OUTDATED): Also controls the text size
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         collegeRtl(OUTDATED): College-ruled (Reverse)
         staffs(OUTDATED): Staffs
@@ -374,6 +381,7 @@ hu:
 it:
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 ja:
@@ -406,6 +414,7 @@ ja:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
@@ -436,16 +445,19 @@ pt-BR:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 ru:
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 tr:
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
@@ -455,10 +467,12 @@ zh-Hans-CN:
       importNote(OUTDATED): Import note
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hant-TW:
   editor:
     menu:
+      backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature

@@ -251,7 +251,7 @@ editor:
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
     lineHeightDescription: Metnin boyutunu da kontrol eder
-    backgroundImage: Arkaplan görseli
+    backgroundImageFit(OUTDATED): Arkaplan görseli
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
     boxFits:
