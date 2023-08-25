@@ -463,13 +463,13 @@ tr:
 zh-Hans-CN:
   home:
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
+      newNote(OUTDATED): 新建笔记
+      importNote(OUTDATED): 导入笔记
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): 绘画
 zh-Hant-TW:
   editor:
     menu:
