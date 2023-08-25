@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3480 (232 per locale)
 ///
-/// Built on 2023-08-25 at 23:45 UTC
+/// Built on 2023-08-25 at 23:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -11281,7 +11281,7 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制文字大小';
-	@override String get backgroundImageFit => '背景圖片';
+	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
 	@override late final _StringsEditorMenuBoxFitsZhHantTw boxFits = _StringsEditorMenuBoxFitsZhHantTw._(_root);
@@ -11365,6 +11365,6 @@ class _StringsEditorMenuBgPatternsZhHantTw extends _StringsEditorMenuBgPatternsE
 	@override String get grid => '網格';
 	@override String get dots => '點';
 	@override String get staffs => '五線譜';
-	@override String get cornell => '康乃爾';
 	@override String get tablature => '指法譜';
+	@override String get cornell => '康乃爾';
 }

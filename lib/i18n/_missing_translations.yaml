@@ -460,8 +460,3 @@ zh-Hans-CN:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
 zh-Hant-TW:
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
