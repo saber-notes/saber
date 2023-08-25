@@ -124,10 +124,16 @@ class CanvasBackgroundPainter extends CustomPainter {
           }
         }
       case CanvasBackgroundPattern.staffs:
-        for (double topOfStaff = lineHeight * 2;
-             topOfStaff + lineHeight * 5 < size.height;
-             topOfStaff += lineHeight * 7) {
-          for (int line = 0; line < 5; line++) {
+      case CanvasBackgroundPattern.tablature:
+        final staffSpaces = pattern == CanvasBackgroundPattern.staffs ? 4 : 5;
+        final staffHeight = lineHeight * staffSpaces;
+        final staffSpacing = lineHeight * 3;
+
+        for (double topOfStaff = staffSpacing.toDouble() - lineHeight;
+             topOfStaff + staffHeight < size.height;
+             topOfStaff += staffHeight + staffSpacing) {
+          // horizontal lines
+          for (int line = 0; line < staffSpaces + 1; line++) {
             yield PatternElement(
               Offset(lineHeight.toDouble(), topOfStaff + lineHeight * line),
               Offset(size.width - lineHeight, topOfStaff + lineHeight * line),
@@ -204,6 +210,10 @@ enum CanvasBackgroundPattern {
 
   /// Music staffs
   staffs('staffs'),
+  /// Music tablature
+  /// 
+  /// Like staffs but with 6 lines instead of 5 (and 5 spaces instead of 4).
+  tablature('tablature'),
 
   /// Cornell notes
   cornell('cornell');
@@ -227,6 +237,8 @@ enum CanvasBackgroundPattern {
         return t.editor.menu.bgPatterns.dots;
       case CanvasBackgroundPattern.staffs:
         return t.editor.menu.bgPatterns.staffs;
+      case CanvasBackgroundPattern.tablature:
+        return t.editor.menu.bgPatterns.tablature;
       case CanvasBackgroundPattern.cornell:
         return t.editor.menu.bgPatterns.cornell;
     }

@@ -265,6 +265,7 @@ editor:
       grid: Grid
       dots: Dots
       staffs: Staffs
+      tablature: Tablature
       cornell: Cornell
   newerFileFormat:
     readOnlyMode: Read-only mode

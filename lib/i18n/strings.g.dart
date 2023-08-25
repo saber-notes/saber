@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3465 (231 per locale)
+/// Strings: 3466 (231 per locale)
 ///
-/// Built on 2023-08-17 at 19:42 UTC
+/// Built on 2023-08-25 at 15:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -880,6 +880,7 @@ class _StringsEditorMenuBgPatternsEn {
 	String get grid => 'Grid';
 	String get dots => 'Dots';
 	String get staffs => 'Staffs';
+	String get tablature => 'Tablature';
 	String get cornell => 'Cornell';
 }
 
