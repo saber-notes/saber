@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3466 (231 per locale)
+/// Strings: 3480 (232 per locale)
 ///
-/// Built on 2023-08-25 at 16:18 UTC
+/// Built on 2023-08-25 at 16:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1545,7 +1545,7 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
-	@override String get backgroundImage => 'الصورة الخلفية';
+	@override String get backgroundImageFit => 'الصورة الخلفية';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
@@ -1630,6 +1630,7 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'نقاط';
 	@override String get staffs => 'موظفون';
 	@override String get cornell => 'كورنيل';
+	@override String get tablature => 'تبلتثر';
 }
 
 // Path: <root>
@@ -2293,7 +2294,7 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu';
-	@override String get backgroundImage => 'Obrázek na pozadí';
+	@override String get backgroundImageFit => 'Obrázek na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
@@ -2378,6 +2379,7 @@ class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Tečkovaná mřížka';
 	@override String get staffs => 'Notová osnova';
 	@override String get cornell => 'Cornellova metoda';
+	@override String get tablature => 'Tablatura';
 }
 
 // Path: <root>
@@ -3041,7 +3043,7 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Beeinflusst die Schriftgröße';
-	@override String get backgroundImage => 'Hintergrundbild';
+	@override String get backgroundImageFit => 'Hintergrundbild';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
@@ -3126,6 +3128,7 @@ class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Gepunktet';
 	@override String get staffs => 'Notenpapier';
 	@override String get cornell => 'Cornell-Stil';
+	@override String get tablature => 'Tabulatur';
 }
 
 // Path: <root>
@@ -3788,7 +3791,7 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
 	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
-	@override String get backgroundImage => 'Imagen de fondo';
+	@override String get backgroundImageFit => 'Imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
@@ -3873,6 +3876,7 @@ class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Punteado';
 	@override String get staffs => 'Pentagrama';
 	@override String get cornell => 'Método Cornell';
+	@override String get tablature => 'tablatura';
 }
 
 // Path: <root>
@@ -4536,7 +4540,7 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
-	@override String get backgroundImage => 'تصویر پس زمینه';
+	@override String get backgroundImageFit => 'تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
@@ -4621,6 +4625,7 @@ class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'نقطه ای';
 	@override String get staffs => 'کارکنان';
 	@override String get cornell => 'کرنل';
+	@override String get tablature => 'جدول بندی';
 }
 
 // Path: <root>
@@ -5283,7 +5288,7 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
 	@override String get lineHeightDescription => 'Contrôle aussi la taille du texte';
-	@override String get backgroundImage => 'Image de fond';
+	@override String get backgroundImageFit => 'Image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
@@ -5368,6 +5373,7 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Grille';
 	@override String get dots => 'Points';
 	@override String get staffs => 'Staffs';
+	@override String get tablature => 'Tablature';
 	@override String get cornell => 'Cornell';
 }
 
@@ -6027,7 +6033,7 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get backgroundImage => 'Háttérkép';
+	@override String get backgroundImageFit => 'Háttérkép';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
@@ -6117,6 +6123,7 @@ class _StringsEditorMenuBgPatternsHu extends _StringsEditorMenuBgPatternsEn {
 	@override String get collegeRtl => 'Főiskolai szabályozás (fordított)';
 	@override String get staffs => 'Vezetők';
 	@override String get cornell => 'Cornell';
+	@override String get tablature => 'Tablatúra';
 }
 
 // Path: <root>
@@ -6780,7 +6787,7 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Elimina pagina';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'Inoltre controlla la dimensione del testo';
-	@override String get backgroundImage => 'Immagine di sfondo';
+	@override String get backgroundImageFit => 'Immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get import => 'Importa';
 	@override late final _StringsEditorMenuBoxFitsIt boxFits = _StringsEditorMenuBoxFitsIt._(_root);
@@ -6865,6 +6872,7 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Punti';
 	@override String get staffs => 'Personale';
 	@override String get cornell => 'Metodo Cornell';
+	@override String get tablature => 'Tablatura';
 }
 
 // Path: <root>
@@ -7528,7 +7536,7 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get deletePage => 'ページの削除';
 	@override String get lineHeight => '行の高さ';
 	@override String get lineHeightDescription => '文字サイズを調整';
-	@override String get backgroundImage => '背景画像';
+	@override String get backgroundImageFit => '背景画像';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
@@ -7613,6 +7621,7 @@ class _StringsEditorMenuBgPatternsJa extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => '点';
 	@override String get staffs => 'スタッフ';
 	@override String get cornell => '角';
+	@override String get tablature => 'タベルチュア';
 }
 
 // Path: <root>
@@ -8276,7 +8285,7 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Apagar página';
 	@override String get lineHeight => 'Altura da linha';
 	@override String get lineHeightDescription => 'Também controla o tamanho do texto';
-	@override String get backgroundImage => 'Imagem de plano de fundo';
+	@override String get backgroundImageFit => 'Imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
@@ -8361,6 +8370,7 @@ class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Pontos';
 	@override String get staffs => 'Pentagrama';
 	@override String get cornell => 'Cornell';
+	@override String get tablature => 'Tablatura';
 }
 
 // Path: <root>
@@ -9024,7 +9034,7 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста';
-	@override String get backgroundImage => 'Фоновое изображение';
+	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
@@ -9109,6 +9119,7 @@ class _StringsEditorMenuBgPatternsRu extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Точки';
 	@override String get staffs => 'Персональный';
 	@override String get cornell => 'Корнелл';
+	@override String get tablature => 'Табулатура';
 }
 
 // Path: <root>
@@ -9772,7 +9783,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
-	@override String get backgroundImage => 'Arkaplan görseli';
+	@override String get backgroundImageFit => 'Arkaplan görseli';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
@@ -9857,6 +9868,7 @@ class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
 	@override String get dots => 'Noktalı';
 	@override String get staffs => 'Porte (müzik)';
 	@override String get cornell => 'Cornell not şablonu';
+	@override String get tablature => 'Tablatura';
 }
 
 // Path: <root>
@@ -9899,6 +9911,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeTabsZhHansCn tabs = _StringsHomeTabsZhHansCn._(_root);
 	@override late final _StringsHomeTitlesZhHansCn titles = _StringsHomeTitlesZhHansCn._(_root);
 	@override late final _StringsHomeTooltipsZhHansCn tooltips = _StringsHomeTooltipsZhHansCn._(_root);
+	@override late final _StringsHomeCreateZhHansCn create = _StringsHomeCreateZhHansCn._(_root);
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get noFiles => '未找到文件';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
@@ -9908,7 +9921,6 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
 	@override String get deleteNote => '删除笔记';
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
-	@override late final _StringsHomeCreateZhHansCn create = _StringsHomeCreateZhHansCn._(_root);
 }
 
 // Path: settings
@@ -10063,6 +10075,17 @@ class _StringsHomeTooltipsZhHansCn extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => '显示更新对话框';
 }
 
+// Path: home.create
+class _StringsHomeCreateZhHansCn extends _StringsHomeCreateEn {
+	_StringsHomeCreateZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新建笔记';
+	@override String get importNote => '导入笔记';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderZhHansCn extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -10117,17 +10140,6 @@ class _StringsHomeDeleteFolderZhHansCn extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '删除 ${f}';
 	@override String get delete => '删除';
 	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
-}
-
-// Path: home.create
-class _StringsHomeCreateZhHansCn extends _StringsHomeCreateEn {
-	_StringsHomeCreateZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => '新笔记';
-	@override String get importNote => '进口单据';
 }
 
 // Path: settings.prefCategories
@@ -10520,7 +10532,7 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同时控制文本大小';
-	@override String get backgroundImage => '背景图片';
+	@override String get backgroundImageFit => '背景图片';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
@@ -10604,6 +10616,7 @@ class _StringsEditorMenuBgPatternsZhHansCn extends _StringsEditorMenuBgPatternsE
 	@override String get grid => '网格';
 	@override String get dots => '点';
 	@override String get staffs => '五线谱';
+	@override String get tablature => '绘画';
 	@override String get cornell => 'Cornell';
 }
 
@@ -11268,7 +11281,7 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制文字大小';
-	@override String get backgroundImage => '背景圖片';
+	@override String get backgroundImageFit => '背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
 	@override late final _StringsEditorMenuBoxFitsZhHantTw boxFits = _StringsEditorMenuBoxFitsZhHantTw._(_root);
@@ -11353,4 +11366,5 @@ class _StringsEditorMenuBgPatternsZhHantTw extends _StringsEditorMenuBgPatternsE
 	@override String get dots => '點';
 	@override String get staffs => '五線譜';
 	@override String get cornell => '康乃爾';
+	@override String get tablature => '指法譜';
 }

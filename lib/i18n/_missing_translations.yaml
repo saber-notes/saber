@@ -461,15 +461,9 @@ tr:
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
-  home:
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
 zh-Hant-TW:
   editor:
     menu:
