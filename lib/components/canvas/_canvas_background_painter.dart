@@ -140,6 +140,18 @@ class CanvasBackgroundPainter extends CustomPainter {
               isLine: true,
             );
           }
+
+          // vertical lines on either side
+          yield PatternElement(
+            Offset(lineHeight.toDouble(), topOfStaff),
+            Offset(lineHeight.toDouble(), topOfStaff + staffHeight),
+            isLine: true,
+          );
+          yield PatternElement(
+            Offset(size.width - lineHeight, topOfStaff),
+            Offset(size.width - lineHeight, topOfStaff + staffHeight),
+            isLine: true,
+          );
         }
       case CanvasBackgroundPattern.cornell:
         // half-width line for name field
