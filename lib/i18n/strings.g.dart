@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3480 (232 per locale)
 ///
-/// Built on 2023-08-25 at 16:42 UTC
+/// Built on 2023-08-25 at 16:44 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2378,8 +2378,8 @@ class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Čtverečky';
 	@override String get dots => 'Tečkovaná mřížka';
 	@override String get staffs => 'Notová osnova';
+	@override String get tablature => 'Tabulatura';
 	@override String get cornell => 'Cornellova metoda';
-	@override String get tablature => 'Tablatura';
 }
 
 // Path: <root>

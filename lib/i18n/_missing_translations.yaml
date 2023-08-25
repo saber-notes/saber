@@ -48,8 +48,6 @@ cs:
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
 de:
   home:
     titles:
