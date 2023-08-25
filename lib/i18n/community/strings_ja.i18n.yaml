@@ -263,6 +263,7 @@ editor:
       dots: 点
       staffs: スタッフ
       cornell: 角
+      tablature(OUTDATED): タベルチュア
   newerFileFormat:
     readOnlyMode: 読み取り専用モード
     title: このメモは新しいバージョンのSaberを使用して編集されたものです

@@ -266,6 +266,7 @@ editor:
       dots: Punti
       staffs: Personale
       cornell: Metodo Cornell
+      tablature(OUTDATED): Tablatura
   newerFileFormat:
     readOnlyMode: Modalità di sola lettura
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber

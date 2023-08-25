@@ -261,6 +261,7 @@ editor:
       collegeRtl(OUTDATED): Főiskolai szabályozás (fordított)
       staffs(OUTDATED): Vezetők
       cornell(OUTDATED): Cornell
+      tablature(OUTDATED): Tablatúra
     clearPage(OUTDATED): $page/$totalPages oldal törlése
     insertPage(OUTDATED): Az oldal beszúrása alább
     duplicatePage(OUTDATED): Ismétlődő oldal

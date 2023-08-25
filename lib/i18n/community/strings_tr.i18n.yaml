@@ -267,6 +267,7 @@ editor:
       dots: Noktalı
       staffs: Porte (müzik)
       cornell: Cornell not şablonu
+      tablature(OUTDATED): Tablatura
   newerFileFormat:
     readOnlyMode: Yalnızca okunabilir mod
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş

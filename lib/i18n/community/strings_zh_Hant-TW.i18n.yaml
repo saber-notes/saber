@@ -265,6 +265,7 @@ editor:
       dots: 點
       staffs: 五線譜
       cornell: 康乃爾
+      tablature(OUTDATED): 指法譜
   newerFileFormat:
     readOnlyMode: 唯讀模式
     title: 這篇筆記是使用較新版本的 Saber 編輯的

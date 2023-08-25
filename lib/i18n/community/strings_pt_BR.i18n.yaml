@@ -266,6 +266,7 @@ editor:
       dots: Pontos
       staffs: Pentagrama
       cornell: Cornell
+      tablature(OUTDATED): Tablatura
   newerFileFormat:
     readOnlyMode: Modo somente leitura
     title: Esta nota foi editada usando uma versão mais recente do Saber

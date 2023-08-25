@@ -39,7 +39,15 @@ ar:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 cs:
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 de:
   home:
     titles:
@@ -71,6 +79,10 @@ de:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 es:
   home:
     titles:
@@ -109,7 +121,15 @@ es:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 fa:
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 fr:
   home:
     titles:
@@ -199,6 +219,8 @@ fr:
       pastelPink(OUTDATED): Pastel pink
     menu:
       clearPage(OUTDATED): Clear page $page/$totalPages
+      bgPatterns:
+        tablature(OUTDATED): Tablature
     hud:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
@@ -343,12 +365,17 @@ hu:
       bgPatterns:
         collegeRtl(OUTDATED): College-ruled (Reverse)
         staffs(OUTDATED): Staffs
+        tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
     hud:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 ja:
   home:
     titles:
@@ -377,6 +404,10 @@ ja:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 pt-BR:
   home:
     titles:
@@ -403,11 +434,31 @@ pt-BR:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 ru:
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 tr:
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 zh-Hans-CN:
   home:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 zh-Hant-TW:
+  editor:
+    menu:
+      bgPatterns:
+        tablature(OUTDATED): Tablature

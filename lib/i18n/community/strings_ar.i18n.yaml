@@ -266,6 +266,7 @@ editor:
       dots: نقاط
       staffs: موظفون
       cornell: كورنيل
+      tablature(OUTDATED): تبلتثر
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber

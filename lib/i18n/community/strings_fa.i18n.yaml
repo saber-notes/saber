@@ -262,6 +262,7 @@ editor:
       dots: نقطه ای
       staffs: کارکنان
       cornell: کرنل
+      tablature(OUTDATED): جدول بندی
   newerFileFormat:
     readOnlyMode: حالت فقط خواندنی
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است

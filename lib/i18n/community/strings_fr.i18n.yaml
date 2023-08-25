@@ -264,6 +264,7 @@ editor:
       grid: Grille
       dots: Points
       staffs: Staffs
+      tablature(OUTDATED): Tablature
       cornell: Cornell
     clearPage(OUTDATED): Effacer la page $page/$totalPages
   newerFileFormat:

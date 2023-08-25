@@ -266,6 +266,7 @@ editor:
       dots: 点
       staffs: 五线谱
       cornell: Cornell
+      tablature(OUTDATED): 指法谱
   newerFileFormat:
     readOnlyMode: 只读模式
     title: 此笔记使用新版 Saber 编辑而成

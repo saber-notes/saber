@@ -266,6 +266,7 @@ editor:
       dots: Точки
       staffs: Персональный
       cornell: Корнелл
+      tablature(OUTDATED): Табулатура
   newerFileFormat:
     readOnlyMode: Режим «Только чтение»
     title: Эта заметка была отредактирована в более новой версии Saber.

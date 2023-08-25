@@ -266,6 +266,7 @@ editor:
       dots: Gepunktet
       staffs: Notenpapier
       cornell: Cornell-Stil
+      tablature(OUTDATED): Tabulatur
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet

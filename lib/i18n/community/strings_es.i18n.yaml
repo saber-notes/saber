@@ -266,6 +266,7 @@ editor:
       dots: Punteado
       staffs: Pentagrama
       cornell: Método Cornell
+      tablature(OUTDATED): tablatura
   newerFileFormat:
     readOnlyMode: Modo de solo lectura
     title: Esta nota fue editada usando una versión más reciente de Saber
