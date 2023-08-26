@@ -250,7 +250,7 @@ editor:
     deletePage: Удалить страницу
     lineHeight: Высота строки
     lineHeightDescription: Также управляет размером текста
-    backgroundImageFit(OUTDATED): Фоновое изображение
+    backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
     boxFits:
@@ -265,8 +265,8 @@ editor:
       grid: Сетка
       dots: Точки
       staffs: Персональный
+      tablature: Табулатура
       cornell: Корнелл
-      tablature(OUTDATED): Табулатура
   newerFileFormat:
     readOnlyMode: Режим «Только чтение»
     title: Эта заметка была отредактирована в более новой версии Saber.
