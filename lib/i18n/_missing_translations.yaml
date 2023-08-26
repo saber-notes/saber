@@ -446,9 +446,9 @@ pt-BR:
 ru:
   editor:
     menu:
-      backgroundImageFit(OUTDATED): Background image fit
+      backgroundImageFit(OUTDATED): Фоновое изображение
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): Табулатура
 tr:
   editor:
     menu:
