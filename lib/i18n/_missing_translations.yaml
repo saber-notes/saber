@@ -444,11 +444,6 @@ pt-BR:
       bgPatterns:
         tablature(OUTDATED): Tablature
 ru:
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Фоновое изображение
-      bgPatterns:
-        tablature(OUTDATED): Табулатура
 tr:
   editor:
     menu:

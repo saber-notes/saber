@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3480 (232 per locale)
 ///
-/// Built on 2023-08-25 at 23:47 UTC
+/// Built on 2023-08-26 at 12:26 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9118,8 +9118,8 @@ class _StringsEditorMenuBgPatternsRu extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Сетка';
 	@override String get dots => 'Точки';
 	@override String get staffs => 'Персональный';
-	@override String get cornell => 'Корнелл';
 	@override String get tablature => 'Табулатура';
+	@override String get cornell => 'Корнелл';
 }
 
 // Path: <root>
