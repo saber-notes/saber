@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart' show CupertinoDialogAction, CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:saber/components/home/delete_folder_button.dart';
 import 'package:saber/components/home/new_folder_dialog.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -157,58 +158,50 @@ class _GridFolderState extends State<_GridFolder> {
                         ),
                       ),
                       
-                      Positioned.fill(
-                        child: ValueListenableBuilder(
-                          valueListenable: expanded,
-                          builder: (context, expanded, child) => AnimatedOpacity(
-                            opacity: expanded ? 1 : 0,
-                            duration: const Duration(milliseconds: 200),
-                            child: IgnorePointer(
-                              ignoring: !expanded,
-                              child: child!,
+                      if (widget.cardType == _FolderCardType.realFolder)
+                        Positioned.fill(
+                          child: ValueListenableBuilder(
+                            valueListenable: expanded,
+                            builder: (context, expanded, child) => AnimatedOpacity(
+                              opacity: expanded ? 1 : 0,
+                              duration: const Duration(milliseconds: 200),
+                              child: IgnorePointer(
+                                ignoring: !expanded,
+                                child: child!,
+                              ),
                             ),
-                          ),
-                          child: GestureDetector(
-                            onTap: () => expanded.value = !expanded.value,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    cardElevatedColor.withOpacity(0.3),
-                                    cardElevatedColor.withOpacity(0.9),
-                                    cardElevatedColor.withOpacity(1),
+                            child: GestureDetector(
+                              onTap: () => expanded.value = !expanded.value,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      cardElevatedColor.withOpacity(0.3),
+                                      cardElevatedColor.withOpacity(0.9),
+                                      cardElevatedColor.withOpacity(1),
+                                    ],
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    DeleteFolderButton(
+                                      folderName: widget.folderName!,
+                                      deleteFolder: (String folderName) async {
+                                        await widget.deleteFolder(folderName);
+                                        expanded.value = false;
+                                      },
+                                      isFolderEmpty: widget.isFolderEmpty,
+                                    ),
                                   ],
                                 ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  IconButton(
-                                    padding: EdgeInsets.zero,
-                                    tooltip: t.home.deleteFolder.deleteFolder,
-                                    onPressed: () async {
-                                      assert(widget.cardType == _FolderCardType.realFolder);
-                                      await showDialog(
-                                        context: context,
-                                        builder: (context) => _DeleteFolderDialog(
-                                          folderName: widget.folderName!,
-                                          deleteFolder: widget.deleteFolder,
-                                          isFolderEmpty: widget.isFolderEmpty,
-                                        ),
-                                      );
-                                      expanded.value = false;
-                                    },
-                                    icon: const Icon(Icons.delete_forever),
-                                  ),
-                                ],
                               ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -225,75 +218,6 @@ class _GridFolderState extends State<_GridFolder> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _DeleteFolderDialog extends StatefulWidget {
-  const _DeleteFolderDialog({
-    // ignore: unused_element
-    super.key,
-    required this.folderName,
-    required this.deleteFolder,
-    required this.isFolderEmpty,
-  });
-
-  final String folderName;
-  final Future<void> Function(String) deleteFolder;
-  final Future<bool> Function(String) isFolderEmpty;
-
-  @override
-  State<_DeleteFolderDialog> createState() => _DeleteFolderDialogState();
-}
-
-class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
-  bool isFolderEmpty = false;
-  bool alsoDeleteContents = false;
-
-  @override
-  void initState() {
-    super.initState();
-    checkIfFolderIsEmpty();
-  }
-
-  Future<void> checkIfFolderIsEmpty() async {
-    isFolderEmpty = await widget.isFolderEmpty(widget.folderName);
-    if (isFolderEmpty) alsoDeleteContents = false;
-    if (mounted) setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    bool deleteAllowed = isFolderEmpty || alsoDeleteContents;
-    return AdaptiveAlertDialog(
-      title: Text(t.home.deleteFolder.deleteName(f: widget.folderName)),
-      content: isFolderEmpty ? const SizedBox.shrink() : Row(
-        children: [
-          Checkbox(
-            value: alsoDeleteContents,
-            onChanged: isFolderEmpty ? null : (value) {
-              setState(() => alsoDeleteContents = value!);
-            },
-          ),
-          Expanded(
-            child: Text(t.home.deleteFolder.alsoDeleteContents),
-          ),
-        ],
-      ),
-      actions: [
-        CupertinoDialogAction(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(t.editor.newerFileFormat.cancel),
-        ),
-        CupertinoDialogAction(
-          onPressed: deleteAllowed ? () async {
-            await widget.deleteFolder(widget.folderName);
-            if (mounted) Navigator.of(context).pop();
-          } : null,
-          isDestructiveAction: true,
-          child: Text(t.home.deleteFolder.delete),
-        ),
-      ],
     );
   }
 }
