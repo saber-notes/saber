@@ -8,6 +8,7 @@ ar:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -45,6 +46,11 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+  editor:
+    menu:
+      backgroundImageFit(OUTDATED): Background image fit
 de:
   home:
     titles:
@@ -52,6 +58,7 @@ de:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -88,6 +95,7 @@ es:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveName(OUTDATED): Move $f
@@ -125,6 +133,8 @@ es:
       bgPatterns:
         tablature(OUTDATED): Tablature
 fa:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
@@ -137,6 +147,7 @@ fr:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -233,6 +244,7 @@ hu:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -374,6 +386,8 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
@@ -386,6 +400,7 @@ ja:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -419,6 +434,7 @@ pt-BR:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
     deleteFolder:
@@ -444,14 +460,32 @@ pt-BR:
       bgPatterns:
         tablature(OUTDATED): Tablature
 ru:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+  editor:
+    menu:
+      backgroundImageFit(OUTDATED): Background image fit
+      bgPatterns:
+        tablature(OUTDATED): Tablature
 tr:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
 zh-Hant-TW:
+  home:
+    invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+  editor:
+    menu:
+      backgroundImageFit(OUTDATED): Background image fit
+      bgPatterns:
+        tablature(OUTDATED): Tablature

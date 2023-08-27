@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3480 (232 per locale)
+/// Strings: 3481 (232 per locale)
 ///
-/// Built on 2023-08-26 at 12:26 UTC
+/// Built on 2023-08-27 at 13:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -177,6 +177,7 @@ class _StringsHomeEn {
 	late final _StringsHomeTooltipsEn tooltips = _StringsHomeTooltipsEn._(_root);
 	late final _StringsHomeCreateEn create = _StringsHomeCreateEn._(_root);
 	String get welcome => 'Welcome to Saber';
+	String get invalidFormat => 'The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file.';
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
 	String get backFolder => 'Go back to the previous folder';
