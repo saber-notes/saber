@@ -387,9 +387,9 @@ it:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
   editor:
     menu:
-      backgroundImageFit(OUTDATED): Background image fit
+      backgroundImageFit(OUTDATED): Adattamento immagine di sfondo
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): Tablatura
 ja:
   home:
     titles:
