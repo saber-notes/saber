@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3495 (233 per locale)
 ///
-/// Built on 2023-08-28 at 22:33 UTC
+/// Built on 2023-08-28 at 22:34 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9926,6 +9926,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsZhHansCn tooltips = _StringsHomeTooltipsZhHansCn._(_root);
 	@override late final _StringsHomeCreateZhHansCn create = _StringsHomeCreateZhHansCn._(_root);
 	@override String get welcome => '欢迎使用 Saber';
+	@override String get invalidFormat => '不支持该文件。请选择 .sbn、.sbn2 或 .pdf 文件。';
 	@override String get noFiles => '未找到文件';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
 	@override String get backFolder => '回到上一个文件夹';
@@ -9934,7 +9935,6 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
 	@override String get deleteNote => '删除笔记';
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
-	@override String get invalidFormat => '不支持您选择的文件。请选择 .sbn、.sbn2 或 .pdf 文件。';
 }
 
 // Path: settings
@@ -10546,7 +10546,7 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同时控制文本大小';
-	@override String get backgroundImageFit => '背景图片';
+	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
