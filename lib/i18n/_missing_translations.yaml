@@ -385,11 +385,6 @@ hu:
 it:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
 ja:
   home:
     titles:
