@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart' show CupertinoDialogAction, CupertinoIcons;
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/delete_folder_button.dart';
 import 'package:saber/components/home/new_folder_dialog.dart';
-import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/home/rename_folder_button.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -15,6 +15,7 @@ class GridFolders extends StatelessWidget {
     required this.onTap,
     required this.crossAxisCount,
     required this.createFolder,
+    required this.renameFolder,
     required this.isFolderEmpty,
     required this.deleteFolder,
     required this.doesFolderExist,
@@ -27,6 +28,7 @@ class GridFolders extends StatelessWidget {
 
   final void Function(String) createFolder;
   final bool Function(String) doesFolderExist;
+  final Future<void> Function(String oldName, String newName) renameFolder;
   final Future<bool> Function(String) isFolderEmpty;
   final Future<void> Function(String) deleteFolder;
 
@@ -54,6 +56,7 @@ class GridFolders extends StatelessWidget {
           folderName: folderName,
           createFolder: createFolder,
           doesFolderExist: doesFolderExist,
+          renameFolder: renameFolder,
           isFolderEmpty: isFolderEmpty,
           deleteFolder: deleteFolder,
           onTap: onTap,
@@ -71,6 +74,7 @@ class _GridFolder extends StatefulWidget {
     required this.folderName,
     required this.createFolder,
     required this.doesFolderExist,
+    required this.renameFolder,
     required this.isFolderEmpty,
     required this.deleteFolder,
     required this.onTap,
@@ -80,6 +84,7 @@ class _GridFolder extends StatefulWidget {
   final String? folderName;
   final void Function(String) createFolder;
   final bool Function(String) doesFolderExist;
+  final Future<void> Function(String oldName, String newName) renameFolder;
   final Future<bool> Function(String) isFolderEmpty;
   final Future<void> Function(String) deleteFolder;
   final Function(String) onTap;
@@ -188,6 +193,14 @@ class _GridFolderState extends State<_GridFolder> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
+                                    RenameFolderButton(
+                                      folderName: widget.folderName!,
+                                      doesFolderExist: widget.doesFolderExist,
+                                      renameFolder: (String folderName) async {
+                                        await widget.renameFolder(widget.folderName!, folderName);
+                                        expanded.value = false;
+                                      },
+                                    ),
                                     DeleteFolderButton(
                                       folderName: widget.folderName!,
                                       deleteFolder: (String folderName) async {

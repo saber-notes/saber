@@ -229,6 +229,32 @@ class FileManager {
     broadcastFileWrite(FileOperationType.delete, filePath);
   }
 
+  static Future renameDirectory(String directoryPath, String newName) async {
+    directoryPath = _sanitisePath(directoryPath);
+
+    final documentsDirectory = await FileManager.documentsDirectory;
+
+    final Directory directory = Directory(documentsDirectory + directoryPath);
+    if (!directory.existsSync()) return;
+
+    /// recursively find children of [directory] for [_renameReferences]
+    final List<String> children = [];
+    await for (final entity in directory.list(recursive: true)) {
+      if (entity is File) {
+        children.add(entity.path.substring(directory.path.length));
+      }
+    }
+
+    final String newPath = directoryPath.substring(0, directoryPath.lastIndexOf('/') + 1) + newName;
+    await directory.rename(documentsDirectory + newPath);
+
+    for (final child in children) {
+      _renameReferences(directoryPath + child, newPath + child);
+      broadcastFileWrite(FileOperationType.delete, directoryPath + child);
+      broadcastFileWrite(FileOperationType.write, newPath + child);
+    }
+  }
+
   static Future deleteDirectory(String directoryPath, [bool recursive = true]) async {
     directoryPath = _sanitisePath(directoryPath);
 

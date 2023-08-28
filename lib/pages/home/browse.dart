@@ -125,6 +125,11 @@ class _BrowsePageState extends State<BrowsePage> {
               doesFolderExist: (String folderName) {
                 return children?.directories.contains(folderName) ?? false;
               },
+              renameFolder: (String oldName, String newName) async {
+                final oldPath = '${path ?? ''}/$oldName';
+                await FileManager.renameDirectory(oldPath, newName);
+                findChildrenOfPath();
+              },
               isFolderEmpty: (String folderName) async {
                 final folderPath = '${path ?? ''}/$folderName';
                 final children = await FileManager.getChildrenOfDirectory(folderPath);

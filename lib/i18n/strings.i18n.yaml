@@ -40,6 +40,13 @@ home:
     move: Move
     renamedTo: Note will be renamed to $newName
   deleteNote: Delete note
+  renameFolder:
+    renameFolder: Rename folder
+    folderName: Folder name
+    rename: Rename
+    folderNameEmpty: Folder name can't be empty
+    folderNameContainsSlash: Folder name can't contain a slash
+    folderNameExists: A folder with this name already exists
   deleteFolder:
     deleteFolder: Delete folder
     deleteName: Delete $f
