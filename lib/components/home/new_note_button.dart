@@ -60,7 +60,6 @@ class _NewNoteButtonState extends State<NewNoteButton>{
           onTap: () async {
             final result = await FilePicker.platform.pickFiles(
               type: FileType.any,
-              allowedExtensions: ['sbn', 'sbn2', 'pdf'],
               allowMultiple: false,
               withData: false,
             );
@@ -78,6 +77,11 @@ class _NewNoteButtonState extends State<NewNoteButton>{
               if (!mounted) return;
               context.push(RoutePaths.editImportPdf(filePath));
             } else {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(t.home.invalidFormat),
+                ));
+              }
               throw 'Invalid file type';
             }
           },
