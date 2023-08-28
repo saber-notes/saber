@@ -54,8 +54,11 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
 
   /// The parent folder of the note being renamed,
   /// including the trailing slash.
-  late String parentFolder = widget.existingPath.substring(
+  late final String parentFolder = widget.existingPath.substring(
     0,
+    widget.existingPath.lastIndexOf('/') + 1,
+  );
+  late final String oldName = widget.existingPath.substring(
     widget.existingPath.lastIndexOf('/') + 1,
   );
 
@@ -66,7 +69,7 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
     if (noteName.contains('/') || noteName.contains('\\')) {
       return t.home.renameNote.noteNameContainsSlash;
     }
-    if (doesFileExist(noteName)) {
+    if (noteName != oldName && doesFileExist(noteName)) {
       return t.home.renameNote.noteNameExists;
     }
     return null;
@@ -87,9 +90,7 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   @override
   void initState() {
     super.initState();
-    _controller.text = widget.existingPath.substring(
-      widget.existingPath.lastIndexOf('/') + 1,
-    );
+    _controller.text = oldName;
   }
 
   @override
@@ -119,8 +120,10 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
         CupertinoDialogAction(
           onPressed: () async {
             if (!_formKey.currentState!.validate()) return;
-            await renameNote(_controller.text);
-            if (!mounted) return;
+            if (_controller.text != oldName) {
+              await renameNote(_controller.text);
+              if (!mounted) return;
+            }
             Navigator.of(context).pop();
           },
           child: Text(t.home.renameNote.rename),
