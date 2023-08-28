@@ -47,7 +47,7 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
   home:
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2 nebo .pdf."
 de:
   home:
     titles:
