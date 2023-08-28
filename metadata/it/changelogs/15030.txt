@@ -1,0 +1,3 @@
+• Aggiunto un pulsante per rinominare le cartelle
+• Aggiunto un motivo di sfondo per l'intavolatura
+• Piccoli miglioramenti al menu a tre punti dell'editor

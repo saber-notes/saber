@@ -1,0 +1,3 @@
+• Adicionado um botão para renomear pastas
+• Adicionado um padrão de fundo de tablatura
+• Pequenas melhorias no menu de três pontos do editor

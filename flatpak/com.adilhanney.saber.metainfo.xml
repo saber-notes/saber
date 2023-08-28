@@ -265,6 +265,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.15.3" type="development" date="2023-08-29">
+            <description>
+                <ul>
+                    <li>Added a button to rename folders</li>
+                    <li>Added a tablature background pattern</li>
+                    <li>Minor improvements to the editor three dots menu</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.15.2" type="development" date="2023-08-24">
             <description>
                 <ul>

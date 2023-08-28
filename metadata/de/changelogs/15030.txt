@@ -1,0 +1,3 @@
+• Eine Schaltfläche zum Umbenennen von Ordnern hinzugefügt
+• Ein Tabulatur-Hintergrundmuster hinzugefügt
+• Kleinere Verbesserungen am Drei-Punkte-Menü des Editors

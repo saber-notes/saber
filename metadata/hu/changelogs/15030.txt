@@ -1,0 +1,3 @@
+• Hozzáadott egy gombot a mappák átnevezéséhez
+• Tablatúra háttérminta hozzáadva
+• Kisebb fejlesztések a szerkesztő hárompontos menüjében
