@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3495 (233 per locale)
 ///
-/// Built on 2023-08-28 at 16:53 UTC
+/// Built on 2023-08-28 at 16:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6796,7 +6796,7 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Elimina pagina';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'Inoltre controlla la dimensione del testo';
-	@override String get backgroundImageFit => 'Immagine di sfondo';
+	@override String get backgroundImageFit => 'Adattamento immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get import => 'Importa';
 	@override late final _StringsEditorMenuBoxFitsIt boxFits = _StringsEditorMenuBoxFitsIt._(_root);
@@ -6880,8 +6880,8 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Griglia';
 	@override String get dots => 'Punti';
 	@override String get staffs => 'Personale';
-	@override String get cornell => 'Metodo Cornell';
 	@override String get tablature => 'Tablatura';
+	@override String get cornell => 'Metodo Cornell';
 }
 
 // Path: <root>

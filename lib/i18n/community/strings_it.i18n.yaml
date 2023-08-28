@@ -251,7 +251,7 @@ editor:
     deletePage: Elimina pagina
     lineHeight: Altezza della linea
     lineHeightDescription: Inoltre controlla la dimensione del testo
-    backgroundImageFit(OUTDATED): Immagine di sfondo
+    backgroundImageFit: Adattamento immagine di sfondo
     backgroundPattern: Modello di sfondo
     import: Importa
     boxFits:
@@ -266,8 +266,8 @@ editor:
       grid: Griglia
       dots: Punti
       staffs: Personale
+      tablature: Tablatura
       cornell: Metodo Cornell
-      tablature(OUTDATED): Tablatura
   newerFileFormat:
     readOnlyMode: Modalità di sola lettura
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber
