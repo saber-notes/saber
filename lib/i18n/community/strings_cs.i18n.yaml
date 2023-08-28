@@ -16,6 +16,7 @@ home:
     newNote: Nová poznámka
     importNote: Import poznámky
   welcome: Vítejte v aplikaci Saber
+  invalidFormat: "Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2 nebo .pdf."
   noFiles: Žádné poznámky nebyly nalezeny
   createNewNote: Pro přidání nové poznámky klepněte na tlačítko +
   backFolder: Přejít do předchozí složky
@@ -44,7 +45,6 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
-  invalidFormat(OUTDATED): "Vybraný soubor není podporován. Vyberte soubor .sbn, .sbn2 nebo .pdf."
 settings:
   prefCategories:
     general: Obecné

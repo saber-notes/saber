@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3495 (233 per locale)
 ///
-/// Built on 2023-08-28 at 16:54 UTC
+/// Built on 2023-08-28 at 22:33 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1677,6 +1677,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsCs tooltips = _StringsHomeTooltipsCs._(_root);
 	@override late final _StringsHomeCreateCs create = _StringsHomeCreateCs._(_root);
 	@override String get welcome => 'Vítejte v aplikaci Saber';
+	@override String get invalidFormat => 'Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2 nebo .pdf.';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
 	@override String get backFolder => 'Přejít do předchozí složky';
@@ -1685,7 +1686,6 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
 	@override String get deleteNote => 'Odstranit poznámku';
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
-	@override String get invalidFormat => 'Vybraný soubor není podporován. Vyberte soubor .sbn, .sbn2 nebo .pdf.';
 }
 
 // Path: settings
