@@ -44,6 +44,7 @@ home:
   create:
     newNote(OUTDATED): Nueva nota
     importNote(OUTDATED): Nota de importación
+  invalidFormat(OUTDATED): "El archivo seleccionado no es compatible. Seleccione un archivo .sbn, .sbn2 o .pdf."
 settings:
   prefCategories:
     general: General

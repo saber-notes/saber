@@ -44,6 +44,7 @@ home:
     deleteName: $f silinecek
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
+  invalidFormat(OUTDATED): "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin."
 settings:
   prefCategories:
     general: Genel

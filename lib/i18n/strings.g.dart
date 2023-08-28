@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3481 (232 per locale)
+/// Strings: 3495 (233 per locale)
 ///
-/// Built on 2023-08-27 at 13:09 UTC
+/// Built on 2023-08-28 at 16:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -935,6 +935,7 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
 	@override String get deleteNote => 'حذف الملاحظة';
 	@override late final _StringsHomeCreateAr create = _StringsHomeCreateAr._(_root);
+	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.';
 }
 
 // Path: settings
@@ -1684,6 +1685,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
 	@override String get deleteNote => 'Odstranit poznámku';
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
+	@override String get invalidFormat => 'Vybraný soubor není podporován. Vyberte soubor .sbn, .sbn2 nebo .pdf.';
 }
 
 // Path: settings
@@ -2433,6 +2435,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
 	@override String get deleteNote => 'Notiz löschen';
 	@override late final _StringsHomeCreateDe create = _StringsHomeCreateDe._(_root);
+	@override String get invalidFormat => 'Die von Ihnen ausgewählte Datei wird nicht unterstützt. Bitte wählen Sie eine .sbn-, .sbn2- oder .pdf-Datei aus.';
 }
 
 // Path: settings
@@ -3182,6 +3185,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderEs deleteFolder = _StringsHomeDeleteFolderEs._(_root);
 	@override String get deleteNote => 'Borrar la nota';
 	@override late final _StringsHomeCreateEs create = _StringsHomeCreateEs._(_root);
+	@override String get invalidFormat => 'El archivo seleccionado no es compatible. Seleccione un archivo .sbn, .sbn2 o .pdf.';
 }
 
 // Path: settings
@@ -3930,6 +3934,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteFa moveNote = _StringsHomeMoveNoteFa._(_root);
 	@override String get deleteNote => 'حذف یادداشت';
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
+	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2 یا pdf. انتخاب کنید.';
 }
 
 // Path: settings
@@ -4679,6 +4684,7 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderFr deleteFolder = _StringsHomeDeleteFolderFr._(_root);
 	@override String get deleteNote => 'Supprimer la note';
 	@override late final _StringsHomeCreateFr create = _StringsHomeCreateFr._(_root);
+	@override String get invalidFormat => 'Le fichier que vous avez sélectionné n\'est pas pris en charge. Veuillez sélectionner un fichier .sbn, .sbn2 ou .pdf.';
 }
 
 // Path: settings
@@ -5428,6 +5434,7 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
 	@override String get deleteNote => 'Jegyzet törlése';
 	@override late final _StringsHomeCreateHu create = _StringsHomeCreateHu._(_root);
+	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt.';
 }
 
 // Path: settings
@@ -6177,6 +6184,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
+	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf.';
 }
 
 // Path: settings
@@ -6926,6 +6934,7 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
 	@override String get deleteNote => 'メモの削除';
 	@override late final _StringsHomeCreateJa create = _StringsHomeCreateJa._(_root);
+	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。';
 }
 
 // Path: settings
@@ -7675,6 +7684,7 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderPtBr deleteFolder = _StringsHomeDeleteFolderPtBr._(_root);
 	@override String get deleteNote => 'Excluir nota';
 	@override late final _StringsHomeCreatePtBr create = _StringsHomeCreatePtBr._(_root);
+	@override String get invalidFormat => 'O arquivo selecionado não é compatível. Selecione um arquivo .sbn, .sbn2 ou .pdf.';
 }
 
 // Path: settings
@@ -8424,6 +8434,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
+	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf.';
 }
 
 // Path: settings
@@ -9173,6 +9184,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
 	@override String get deleteNote => 'Notu sil';
 	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
+	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin.';
 }
 
 // Path: settings
@@ -9922,6 +9934,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
 	@override String get deleteNote => '删除笔记';
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
+	@override String get invalidFormat => '不支持您选择的文件。请选择 .sbn、.sbn2 或 .pdf 文件。';
 }
 
 // Path: settings
@@ -10671,6 +10684,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 	@override String get deleteNote => '刪除筆記';
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
+	@override String get invalidFormat => '不支持您選擇的文件。請選擇 .sbn、.sbn2 或 .pdf 文件。';
 }
 
 // Path: settings

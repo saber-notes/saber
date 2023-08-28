@@ -44,6 +44,7 @@ home:
   create:
     newNote(OUTDATED): Új jegyzet
     importNote(OUTDATED): Megjegyzés importálása
+  invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt."
 settings:
   prefCategories:
     general: Általános

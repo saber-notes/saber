@@ -44,6 +44,7 @@ home:
   create:
     newNote(OUTDATED): Nouvelle note
     importNote(OUTDATED): Remarque d'importation
+  invalidFormat(OUTDATED): "Le fichier que vous avez sélectionné n'est pas pris en charge. Veuillez sélectionner un fichier .sbn, .sbn2 ou .pdf."
 settings:
   prefCategories:
     general: Général

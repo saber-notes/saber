@@ -44,6 +44,7 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
+  invalidFormat(OUTDATED): "Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf."
 settings:
   prefCategories:
     general: Общие

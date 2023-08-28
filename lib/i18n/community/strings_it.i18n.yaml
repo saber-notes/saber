@@ -44,6 +44,7 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+  invalidFormat(OUTDATED): "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf."
 settings:
   prefCategories:
     general: Generale

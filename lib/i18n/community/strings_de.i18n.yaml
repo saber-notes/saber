@@ -44,6 +44,7 @@ home:
   create:
     newNote(OUTDATED): Neuer Hinweis
     importNote(OUTDATED): Notiz importieren
+  invalidFormat(OUTDATED): "Die von Ihnen ausgewählte Datei wird nicht unterstützt. Bitte wählen Sie eine .sbn-, .sbn2- oder .pdf-Datei aus."
 settings:
   prefCategories:
     general: Allgemein

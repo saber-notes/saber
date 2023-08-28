@@ -44,6 +44,7 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+  invalidFormat(OUTDATED): "Vybraný soubor není podporován. Vyberte soubor .sbn, .sbn2 nebo .pdf."
 settings:
   prefCategories:
     general: Obecné

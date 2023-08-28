@@ -44,6 +44,7 @@ home:
   create:
     importNote(OUTDATED): مذكرة استيراد
     newNote(OUTDATED): مذكرة جديدة
+  invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.
 settings:
   prefCategories:
     general: عام
