@@ -461,11 +461,6 @@ tr:
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
-  home:
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
 zh-Hant-TW:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
