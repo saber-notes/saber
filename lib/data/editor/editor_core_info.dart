@@ -20,7 +20,7 @@ class EditorCoreInfo {
 
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int sbnVersion = 14;
+  static const int sbnVersion = 15;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
