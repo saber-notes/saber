@@ -46,8 +46,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  home:
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
 de:
   home:
     titles:
