@@ -462,5 +462,3 @@ tr:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
 zh-Hant-TW:
-  home:
-    invalidFormat(OUTDATED): 「不支援您選擇的檔案，請選擇 .sbn、.sbn2 或 .pdf 檔案。」
