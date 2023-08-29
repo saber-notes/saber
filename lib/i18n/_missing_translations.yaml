@@ -55,12 +55,12 @@ ar:
 cs:
   home:
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): Přejmenovat složku
+      folderName(OUTDATED): Název složky
+      rename(OUTDATED): Přejmenovat
+      folderNameEmpty(OUTDATED): Název složky nemůže být prázdný
+      folderNameContainsSlash(OUTDATED): Název složky nemůže obsahovat lomítko
+      folderNameExists(OUTDATED): Složka s tímto názvem již existuje
 de:
   home:
     titles:
