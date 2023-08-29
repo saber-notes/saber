@@ -102,8 +102,6 @@ dependencies:
 
   worker_manager: ^6.0.0
 
-  # https://pub.dev/packages/flutter_sharing_intent will have better cross-platform support
-  # but it's not yet ready (January 2023)
   # Using a fork because the original uses an old version of kotlin and doesn't support text files
   receive_sharing_intent:
     git:
@@ -118,8 +116,6 @@ dependencies:
 
   flex_seed_scheme: ^1.1.0
 
-  device_info_plus: ^9.0.0
-
   screenshot: ^2.0.0
 
   collection: ^1.17.0
@@ -127,8 +123,6 @@ dependencies:
   path_drawing: ^1.0.1
 
   printing: ^5.10.1
-
-  from_css_color: ^2.0.0
 
   open_filex: ^4.3.2
 
