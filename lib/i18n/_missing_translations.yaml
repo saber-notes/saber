@@ -462,5 +462,3 @@ tr:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
 zh-Hant-TW:
-  home:
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."

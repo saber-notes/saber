@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3501 (233 per locale)
 ///
-/// Built on 2023-08-28 at 22:43 UTC
+/// Built on 2023-08-29 at 15:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10692,6 +10692,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsZhHantTw tooltips = _StringsHomeTooltipsZhHantTw._(_root);
 	@override late final _StringsHomeCreateZhHantTw create = _StringsHomeCreateZhHantTw._(_root);
 	@override String get welcome => '歡迎使用 Saber';
+	@override String get invalidFormat => '「不支援您選擇的檔案，請選擇 .sbn、.sbn2 或 .pdf 檔案。」';
 	@override String get noFiles => '未找到檔案';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
 	@override String get backFolder => '返回上一個資料夾';
@@ -10700,7 +10701,6 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 	@override String get deleteNote => '刪除筆記';
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
-	@override String get invalidFormat => '不支持您選擇的文件。請選擇 .sbn、.sbn2 或 .pdf 文件。';
 }
 
 // Path: settings
