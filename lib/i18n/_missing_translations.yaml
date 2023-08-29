@@ -53,14 +53,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  home:
-    renameFolder:
-      renameFolder(OUTDATED): Přejmenovat složku
-      folderName(OUTDATED): Název složky
-      rename(OUTDATED): Přejmenovat
-      folderNameEmpty(OUTDATED): Název složky nemůže být prázdný
-      folderNameContainsSlash(OUTDATED): Název složky nemůže obsahovat lomítko
-      folderNameExists(OUTDATED): Složka s tímto názvem již existuje
 de:
   home:
     titles:

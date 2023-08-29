@@ -40,18 +40,18 @@ home:
     move: Přesunout
     renamedTo: Poznámka bude přejmenována na $newName
   deleteNote: Odstranit poznámku
+  renameFolder:
+    renameFolder: Přejmenovat složku
+    folderName: Název složky
+    rename: Přejmenovat
+    folderNameEmpty: Název složky nemůže být prázdný
+    folderNameContainsSlash: Název složky nemůže obsahovat lomítko
+    folderNameExists: Složka s tímto názvem již existuje
   deleteFolder:
     deleteFolder: Odstranit složku
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
-  renameFolder:
-    renameFolder(OUTDATED): Přejmenovat složku
-    folderName(OUTDATED): Název složky
-    folderNameContainsSlash(OUTDATED): Název složky nesmí obsahovat lomítko
-    rename(OUTDATED): Jméno
-    folderNameEmpty(OUTDATED): Název složky nemůže být prázdný
-    folderNameExists(OUTDATED): Složka s tímto názvem již existuje
 settings:
   prefCategories:
     general: Obecné

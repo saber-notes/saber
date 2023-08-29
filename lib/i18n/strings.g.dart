@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-08-29 at 16:06 UTC
+/// Built on 2023-08-29 at 16:20 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1717,8 +1717,8 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteCs renameNote = _StringsHomeRenameNoteCs._(_root);
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
 	@override String get deleteNote => 'Odstranit poznámku';
-	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
 	@override late final _StringsHomeRenameFolderCs renameFolder = _StringsHomeRenameFolderCs._(_root);
+	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
 }
 
 // Path: settings
@@ -1927,6 +1927,21 @@ class _StringsHomeMoveNoteCs extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenována na ${newName}';
 }
 
+// Path: home.renameFolder
+class _StringsHomeRenameFolderCs extends _StringsHomeRenameFolderEn {
+	_StringsHomeRenameFolderCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameFolder => 'Přejmenovat složku';
+	@override String get folderName => 'Název složky';
+	@override String get rename => 'Přejmenovat';
+	@override String get folderNameEmpty => 'Název složky nemůže být prázdný';
+	@override String get folderNameContainsSlash => 'Název složky nemůže obsahovat lomítko';
+	@override String get folderNameExists => 'Složka s tímto názvem již existuje';
+}
+
 // Path: home.deleteFolder
 class _StringsHomeDeleteFolderCs extends _StringsHomeDeleteFolderEn {
 	_StringsHomeDeleteFolderCs._(_StringsCs root) : this._root = root, super._(root);
@@ -1938,21 +1953,6 @@ class _StringsHomeDeleteFolderCs extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Odstranění složky ${f}';
 	@override String get delete => 'Odstranit';
 	@override String get alsoDeleteContents => 'Se složkou odstranit i obsažené poznámky';
-}
-
-// Path: home.renameFolder
-class _StringsHomeRenameFolderCs extends _StringsHomeRenameFolderEn {
-	_StringsHomeRenameFolderCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get renameFolder => 'Přejmenovat složku';
-	@override String get folderName => 'Název složky';
-	@override String get folderNameContainsSlash => 'Název složky nesmí obsahovat lomítko';
-	@override String get rename => 'Jméno';
-	@override String get folderNameEmpty => 'Název složky nemůže být prázdný';
-	@override String get folderNameExists => 'Složka s tímto názvem již existuje';
 }
 
 // Path: settings.prefCategories
