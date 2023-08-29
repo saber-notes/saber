@@ -463,4 +463,4 @@ tr:
 zh-Hans-CN:
 zh-Hant-TW:
   home:
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): 「不支援您選擇的檔案，請選擇 .sbn、.sbn2 或 .pdf 檔案。」
