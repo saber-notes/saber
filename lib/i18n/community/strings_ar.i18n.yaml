@@ -45,6 +45,13 @@ home:
     importNote(OUTDATED): مذكرة استيراد
     newNote(OUTDATED): مذكرة جديدة
   invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.
+  renameFolder:
+    folderName(OUTDATED): إسم الملف
+    folderNameExists(OUTDATED): يوجد مجلد بهذا الاسم بالفعل
+    rename(OUTDATED): إعادة تسمية
+    folderNameEmpty(OUTDATED): لا يمكن أن يكون اسماً فارغاً
+    folderNameContainsSlash(OUTDATED): لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
+    renameFolder(OUTDATED): إعادة تسمية المجلد
 settings:
   prefCategories:
     general: عام

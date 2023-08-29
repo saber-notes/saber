@@ -45,6 +45,13 @@ home:
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
   invalidFormat(OUTDATED): "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf."
+  renameFolder:
+    folderName(OUTDATED): Nome della cartella
+    rename(OUTDATED): Rinominare
+    folderNameEmpty(OUTDATED): Il nome della cartella non può essere vuoto
+    folderNameContainsSlash(OUTDATED): Il nome della cartella non può contenere una barra
+    renameFolder(OUTDATED): Rinomina cartella
+    folderNameExists(OUTDATED): Esiste già una cartella con questo nome
 settings:
   prefCategories:
     general: Generale

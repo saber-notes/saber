@@ -45,6 +45,13 @@ home:
     newNote(OUTDATED): Nouvelle note
     importNote(OUTDATED): Remarque d'importation
   invalidFormat(OUTDATED): "Le fichier que vous avez sélectionné n'est pas pris en charge. Veuillez sélectionner un fichier .sbn, .sbn2 ou .pdf."
+  renameFolder:
+    folderName(OUTDATED): Nom de dossier
+    rename(OUTDATED): Renommer
+    folderNameEmpty(OUTDATED): Le nom du dossier ne peut pas être vide
+    folderNameContainsSlash(OUTDATED): Le nom du dossier ne peut pas contenir de barre oblique
+    folderNameExists(OUTDATED): Un dossier portant ce nom existe déjà
+    renameFolder(OUTDATED): Renommer le dossier
 settings:
   prefCategories:
     general: Général

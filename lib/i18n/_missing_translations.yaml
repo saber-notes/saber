@@ -13,6 +13,13 @@ ar:
     moveNote:
       moveName(OUTDATED): Move $f
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -46,6 +53,14 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  home:
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
 de:
   home:
     titles:
@@ -56,6 +71,13 @@ de:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -95,6 +117,13 @@ es:
     moveNote:
       moveName(OUTDATED): Move $f
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -130,6 +159,13 @@ es:
 fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
@@ -164,6 +200,13 @@ fr:
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -261,6 +304,13 @@ hu:
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -383,6 +433,13 @@ hu:
 it:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
 ja:
   home:
     titles:
@@ -393,6 +450,13 @@ ja:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -427,6 +491,13 @@ pt-BR:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     deleteNote(OUTDATED): Delete note
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
     deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
@@ -452,13 +523,43 @@ pt-BR:
 ru:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
 tr:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 zh-Hans-CN:
+  home:
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists
 zh-Hant-TW:
+  home:
+    renameFolder:
+      renameFolder(OUTDATED): Rename folder
+      folderName(OUTDATED): Folder name
+      rename(OUTDATED): Rename
+      folderNameEmpty(OUTDATED): Folder name can't be empty
+      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
+      folderNameExists(OUTDATED): A folder with this name already exists

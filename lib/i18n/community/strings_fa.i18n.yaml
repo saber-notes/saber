@@ -45,6 +45,13 @@ home:
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
   invalidFormat(OUTDATED): فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2 یا pdf. انتخاب کنید.
+  renameFolder:
+    folderNameEmpty(OUTDATED): نام پوشه نمی تواند خالی باشد
+    folderNameContainsSlash(OUTDATED): نام پوشه نمی تواند حاوی یک برش باشد
+    folderNameExists(OUTDATED): پوشه ای با این نام از قبل وجود دارد
+    renameFolder(OUTDATED): تغییر نام پوشه
+    folderName(OUTDATED): نام پوشه
+    rename(OUTDATED): تغییر نام دهید
 settings:
   prefCategories:
     general: عمومی

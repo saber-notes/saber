@@ -45,6 +45,13 @@ home:
     deleteName: 删除 $f
     delete: 删除
     alsoDeleteContents: 同时删除此文件夹中的所有笔记
+  renameFolder:
+    renameFolder(OUTDATED): 重命名文件夹
+    folderName(OUTDATED): 文件夹名称
+    folderNameExists(OUTDATED): 同名的文件夹已存在
+    folderNameEmpty(OUTDATED): 文件夹名称不能为空
+    rename(OUTDATED): 改名
+    folderNameContainsSlash(OUTDATED): 文件夹名称不能包含斜杠
 settings:
   prefCategories:
     general: 通用

@@ -45,6 +45,13 @@ home:
     newNote(OUTDATED): Nueva nota
     importNote(OUTDATED): Nota de importación
   invalidFormat(OUTDATED): "El archivo seleccionado no es compatible. Seleccione un archivo .sbn, .sbn2 o .pdf."
+  renameFolder:
+    renameFolder(OUTDATED): Renombrar carpeta
+    folderName(OUTDATED): Nombre de la carpeta
+    rename(OUTDATED): Rebautizar
+    folderNameEmpty(OUTDATED): El nombre de la carpeta no puede estar vacío.
+    folderNameContainsSlash(OUTDATED): El nombre de la carpeta no puede contener una barra diagonal.
+    folderNameExists(OUTDATED): Ya existe una carpeta con este nombre.
 settings:
   prefCategories:
     general: General

@@ -45,6 +45,13 @@ home:
     newNote(OUTDATED): nova nota
     importNote(OUTDATED): Nota de importação
   invalidFormat(OUTDATED): "O arquivo selecionado não é compatível. Selecione um arquivo .sbn, .sbn2 ou .pdf."
+  renameFolder:
+    folderName(OUTDATED): Nome da pasta
+    rename(OUTDATED): Renomear
+    folderNameEmpty(OUTDATED): O nome da pasta não pode ficar vazio
+    folderNameContainsSlash(OUTDATED): O nome da pasta não pode conter uma barra
+    folderNameExists(OUTDATED): Já existe uma pasta com este nome
+    renameFolder(OUTDATED): Renomear pasta
 settings:
   prefCategories:
     general: Geral

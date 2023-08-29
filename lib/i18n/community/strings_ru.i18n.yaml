@@ -45,6 +45,13 @@ home:
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
   invalidFormat(OUTDATED): "Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf."
+  renameFolder:
+    renameFolder(OUTDATED): Переименовать папку
+    folderNameContainsSlash(OUTDATED): Имя папки не может содержать косую черту
+    folderName(OUTDATED): Имя папки
+    rename(OUTDATED): Переименовать
+    folderNameEmpty(OUTDATED): Имя папки не может быть пустым.
+    folderNameExists(OUTDATED): Папка с таким названием уже существует
 settings:
   prefCategories:
     general: Общие

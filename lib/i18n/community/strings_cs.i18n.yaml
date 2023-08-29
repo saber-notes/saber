@@ -45,6 +45,13 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+  renameFolder:
+    renameFolder(OUTDATED): Přejmenovat složku
+    folderName(OUTDATED): Název složky
+    folderNameContainsSlash(OUTDATED): Název složky nesmí obsahovat lomítko
+    rename(OUTDATED): Jméno
+    folderNameEmpty(OUTDATED): Název složky nemůže být prázdný
+    folderNameExists(OUTDATED): Složka s tímto názvem již existuje
 settings:
   prefCategories:
     general: Obecné

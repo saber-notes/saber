@@ -45,6 +45,13 @@ home:
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
   invalidFormat(OUTDATED): "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin."
+  renameFolder:
+    folderNameEmpty(OUTDATED): Klasör adı boş olamaz
+    folderNameContainsSlash(OUTDATED): Klasör adı eğik çizgi içeremez
+    folderNameExists(OUTDATED): Bu ada sahip bir klasör zaten mevcut
+    rename(OUTDATED): Yeniden isimlendirmek
+    renameFolder(OUTDATED): Rename klasörü
+    folderName(OUTDATED): Klasör adı
 settings:
   prefCategories:
     general: Genel

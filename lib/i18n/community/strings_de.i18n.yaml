@@ -45,6 +45,13 @@ home:
     newNote(OUTDATED): Neuer Hinweis
     importNote(OUTDATED): Notiz importieren
   invalidFormat(OUTDATED): "Die von Ihnen ausgewählte Datei wird nicht unterstützt. Bitte wählen Sie eine .sbn-, .sbn2- oder .pdf-Datei aus."
+  renameFolder:
+    folderNameEmpty(OUTDATED): Der Ordnername darf nicht leer sein
+    renameFolder(OUTDATED): Rename Ordner
+    folderName(OUTDATED): Ordnernamen
+    rename(OUTDATED): Name
+    folderNameContainsSlash(OUTDATED): Der Ordnername darf keinen Schrägstrich enthalten
+    folderNameExists(OUTDATED): Ein Ordner mit diesem Namen existiert bereits
 settings:
   prefCategories:
     general: Allgemein

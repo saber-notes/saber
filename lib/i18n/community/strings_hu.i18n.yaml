@@ -45,6 +45,13 @@ home:
     newNote(OUTDATED): Új jegyzet
     importNote(OUTDATED): Megjegyzés importálása
   invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt."
+  renameFolder:
+    folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
+    renameFolder(OUTDATED): Mappa átnevezése
+    folderNameExists(OUTDATED): Már létezik ilyen nevű mappa
+    folderName(OUTDATED): Mappa neve
+    rename(OUTDATED): Átnevezés
+    folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
 settings:
   prefCategories:
     general: Általános

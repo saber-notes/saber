@@ -45,6 +45,13 @@ home:
     newNote(OUTDATED): 新しいメモ
     importNote(OUTDATED): インポートメモ
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。
+  renameFolder:
+    folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
+    renameFolder(OUTDATED): フォルダーの名前を変更する
+    folderName(OUTDATED): フォルダ名
+    rename(OUTDATED): 名前の変更
+    folderNameContainsSlash(OUTDATED): フォルダ名はスラッシュを含まない
+    folderNameExists(OUTDATED): この名前のフォルダーはすでに存在します
 settings:
   prefCategories:
     general: 一般
