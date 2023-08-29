@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-08-29 at 15:57 UTC
+/// Built on 2023-08-29 at 16:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8602,6 +8602,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsRu tooltips = _StringsHomeTooltipsRu._(_root);
 	@override late final _StringsHomeCreateRu create = _StringsHomeCreateRu._(_root);
 	@override String get welcome => 'Приветствуем в Saber';
+	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf.';
 	@override String get noFiles => 'Файлов ещё нет';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
 	@override String get backFolder => 'Вернуться к предыдущей папке';
@@ -8610,7 +8611,6 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
-	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf.';
 	@override late final _StringsHomeRenameFolderRu renameFolder = _StringsHomeRenameFolderRu._(_root);
 }
 

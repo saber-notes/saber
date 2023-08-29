@@ -16,6 +16,7 @@ home:
     newNote: Новая заметка
     importNote: Импорт заметки
   welcome: Приветствуем в Saber
+  invalidFormat: "Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf."
   noFiles: Файлов ещё нет
   createNewNote: Нажмите кнопку «+» чтобы создать новую заметку
   backFolder: Вернуться к предыдущей папке
@@ -44,7 +45,6 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
-  invalidFormat(OUTDATED): "Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf."
   renameFolder:
     renameFolder(OUTDATED): Переименовать папку
     folderNameContainsSlash(OUTDATED): Имя папки не может содержать косую черту

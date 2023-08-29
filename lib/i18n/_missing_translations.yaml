@@ -522,7 +522,6 @@ pt-BR:
         tablature(OUTDATED): Tablature
 ru:
   home:
-    invalidFormat(OUTDATED): "Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf."
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
