@@ -85,7 +85,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _customServerController = TextEditingController(
-    text: NextcloudClientExtension.defaultNextCloudUri.toString(),
+    text: NextcloudClientExtension.defaultNextcloudUri.toString(),
   );
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _ncPasswordController = TextEditingController();
@@ -137,7 +137,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 
     if (url.isNotEmpty) {
       if (_customServerController.text.isEmpty) _customServerController.text = url;
-      if (url != NextcloudClientExtension.defaultNextCloudUri.toString()) _toggleCustomServer(true);
+      if (url != NextcloudClientExtension.defaultNextcloudUri.toString()) _toggleCustomServer(true);
     }
     if (_usernameController.text.isEmpty) {
       _usernameController.text = username;
@@ -306,7 +306,7 @@ class LoginDetailsStruct {
     required this.loginName,
     required this.ncPassword,
     required this.encPassword,
-  }) : url = url ?? NextcloudClientExtension.defaultNextCloudUri;
+  }) : url = url ?? NextcloudClientExtension.defaultNextcloudUri;
 }
 
 abstract class LoginFailure implements Exception {

@@ -36,7 +36,7 @@ abstract class Prefs {
   static late final EncPref<bool> allowInsecureConnections;
   static late final EncPref<String> url;
   static late final EncPref<String> username;
-  /// the password used to login to NextCloud
+  /// the password used to login to Nextcloud
   static late final EncPref<String> ncPassword;
   /// the password used to encrypt/decrypt notes
   static late final EncPref<String> encPassword;

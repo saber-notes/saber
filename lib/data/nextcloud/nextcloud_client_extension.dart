@@ -10,7 +10,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
 extension NextcloudClientExtension on NextcloudClient {
-  static const String defaultNextCloudUri = 'https://nc.saber.adil.hanney.org';
+  static const String defaultNextcloudUri = 'https://nc.saber.adil.hanney.org';
 
   static String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
   static String configFilePath = '$appRootDirectoryPrefix/config.sbc';
@@ -27,7 +27,7 @@ extension NextcloudClientExtension on NextcloudClient {
     if (username.isEmpty || ncPassword.isEmpty) return null;
 
     return NextcloudClient(
-      url.isNotEmpty ? url : defaultNextCloudUri,
+      url.isNotEmpty ? url : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
     );
