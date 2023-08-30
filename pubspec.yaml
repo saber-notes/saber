@@ -51,7 +51,7 @@ dependencies:
   path_provider: ^2.0.11
 
   shared_preferences: ^2.0.17
-  flutter_secure_storage: ^8.0.0
+  flutter_secure_storage: ^9.0.0
 
   url_launcher: ^6.1.8
 
@@ -69,7 +69,7 @@ dependencies:
   crypto: ^3.0.2
   encrypt: ^5.0.1
 
-  http: ^0.13.5
+  http: ^1.1.0
 
   keybinder: ^1.0.1
 
@@ -84,7 +84,7 @@ dependencies:
 
   flutter_colorpicker: ^1.0.3
 
-  google_fonts: ^4.0.1
+  google_fonts: ^5.1.0
 
   font_awesome_flutter: ^10.3.0
 
