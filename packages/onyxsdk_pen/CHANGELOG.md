@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Add pub.dev topics
+
 ## 1.1.0
 
 - Update to Flutter 3.13.0
