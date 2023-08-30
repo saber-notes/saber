@@ -423,15 +423,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  home:
-    invalidFormat(OUTDATED): "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf."
-    renameFolder:
-      renameFolder(OUTDATED): Rinomina cartella
-      folderName(OUTDATED): Nome cartella
-      rename(OUTDATED): Rinomina
-      folderNameEmpty(OUTDATED): Il nome della cartella non può essere vuoto
-      folderNameContainsSlash(OUTDATED): Il nome della cartella non può contenere una barra
-      folderNameExists(OUTDATED): Esiste già una cartella con questo nome
 ja:
   home:
     titles:

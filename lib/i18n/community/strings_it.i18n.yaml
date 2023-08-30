@@ -16,6 +16,7 @@ home:
     newNote: Nuova nota
     importNote: Importa nota
   welcome: Benvenuto su Saber
+  invalidFormat: "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf."
   noFiles: Nessun file trovato
   createNewNote: Tocca il pulsante + per creare una nuova nota
   backFolder: Torna alla cartella precedente
@@ -39,19 +40,18 @@ home:
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
   deleteNote: Elimina nota
+  renameFolder:
+    renameFolder: Rinomina cartella
+    folderName: Nome cartella
+    rename: Rinomina
+    folderNameEmpty: Il nome della cartella non può essere vuoto
+    folderNameContainsSlash: Il nome della cartella non può contenere una barra
+    folderNameExists: Esiste già una cartella con questo nome
   deleteFolder:
     deleteFolder: Elimina cartella
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
-  invalidFormat(OUTDATED): "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf."
-  renameFolder:
-    folderName(OUTDATED): Nome della cartella
-    rename(OUTDATED): Rinominare
-    folderNameEmpty(OUTDATED): Il nome della cartella non può essere vuoto
-    folderNameContainsSlash(OUTDATED): Il nome della cartella non può contenere una barra
-    renameFolder(OUTDATED): Rinomina cartella
-    folderNameExists(OUTDATED): Esiste già una cartella con questo nome
 settings:
   prefCategories:
     general: Generale

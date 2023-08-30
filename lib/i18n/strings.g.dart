@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-08-29 at 16:20 UTC
+/// Built on 2023-08-30 at 00:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -6304,6 +6304,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsIt tooltips = _StringsHomeTooltipsIt._(_root);
 	@override late final _StringsHomeCreateIt create = _StringsHomeCreateIt._(_root);
 	@override String get welcome => 'Benvenuto su Saber';
+	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf.';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
 	@override String get backFolder => 'Torna alla cartella precedente';
@@ -6311,9 +6312,8 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteIt renameNote = _StringsHomeRenameNoteIt._(_root);
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
 	@override String get deleteNote => 'Elimina nota';
-	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
-	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf.';
 	@override late final _StringsHomeRenameFolderIt renameFolder = _StringsHomeRenameFolderIt._(_root);
+	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
 }
 
 // Path: settings
@@ -6522,6 +6522,21 @@ class _StringsHomeMoveNoteIt extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
 }
 
+// Path: home.renameFolder
+class _StringsHomeRenameFolderIt extends _StringsHomeRenameFolderEn {
+	_StringsHomeRenameFolderIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameFolder => 'Rinomina cartella';
+	@override String get folderName => 'Nome cartella';
+	@override String get rename => 'Rinomina';
+	@override String get folderNameEmpty => 'Il nome della cartella non può essere vuoto';
+	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere una barra';
+	@override String get folderNameExists => 'Esiste già una cartella con questo nome';
+}
+
 // Path: home.deleteFolder
 class _StringsHomeDeleteFolderIt extends _StringsHomeDeleteFolderEn {
 	_StringsHomeDeleteFolderIt._(_StringsIt root) : this._root = root, super._(root);
@@ -6533,21 +6548,6 @@ class _StringsHomeDeleteFolderIt extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Elimina ${f}';
 	@override String get delete => 'Elimina';
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
-}
-
-// Path: home.renameFolder
-class _StringsHomeRenameFolderIt extends _StringsHomeRenameFolderEn {
-	_StringsHomeRenameFolderIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get folderName => 'Nome della cartella';
-	@override String get rename => 'Rinominare';
-	@override String get folderNameEmpty => 'Il nome della cartella non può essere vuoto';
-	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere una barra';
-	@override String get renameFolder => 'Rinomina cartella';
-	@override String get folderNameExists => 'Esiste già una cartella con questo nome';
 }
 
 // Path: settings.prefCategories
