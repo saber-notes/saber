@@ -149,8 +149,8 @@ class App extends StatefulWidget {
       await Future.delayed(const Duration(milliseconds: 100));
 
       _router.push(RoutePaths.editFilePath(path));
-    } else if (extension == 'pdf') {
-      // TODO: import pdf
+    } else if (extension == 'pdf' && Editor.canRasterPdf) {
+      _router.push(RoutePaths.editImportPdf(file.path));
     } else {
       log.warning('openFile: Unsupported file type: $extension');
     }
