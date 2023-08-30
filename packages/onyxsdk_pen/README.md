@@ -97,6 +97,18 @@ OnyxSdkPenArea(
 ),
 ```
 
+You can optionally run the `init` method in the `main` function of your app to
+initialize the Onyx SDK. This is not required, but it will improve initial
+performance on non-Onyx Android devices.
+
+```dart
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await OnyxSdkPenArea.init();
+  runApp(MyApp());
+}
+```
+
 ## Help wanted
 
 I no longer have an Onyx device, so I can't really develop this plugin any further.

@@ -15,4 +15,8 @@ class OnyxSdkPenArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return child;
   }
+
+  static Future<bool> init() async {
+    return false;
+  }
 }

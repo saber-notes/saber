@@ -26,17 +26,32 @@ class OnyxSdkPenArea extends StatefulWidget {
 
   @override
   State<OnyxSdkPenArea> createState() => _OnyxSdkPenAreaState();
+
+  /// Optional method to initialize the onyxsdk_pen package.
+  /// 
+  /// This method should be called in the main() method before runApp(),
+  /// or before the first OnyxSdkPenArea widget is created.
+  /// 
+  /// Returns true if the device is an Onyx device, false otherwise.
+  static Future<bool> init() async {
+    return await _OnyxSdkPenAreaState._findIsOnyxDevice();
+  }
 }
 
 class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
-  static bool? _isOnyxDevice;
+  static bool? _isOnyxDevice = (kIsWeb || !Platform.isAndroid) ? false : null;
+
+  static Future<bool> _findIsOnyxDevice() async {
+    if (_isOnyxDevice != null) return _isOnyxDevice!;
+
+    // use the platform interface to check if the device is an Onyx device
+    return _isOnyxDevice = await OnyxsdkPenPlatform.instance.isOnyxDevice();
+  }
+
   bool get isOnyxDevice {
     if (_isOnyxDevice != null) return _isOnyxDevice!;
 
-    if (kIsWeb || !Platform.isAndroid) return _isOnyxDevice = false;
-
-    // use the platform interface to check if the device is an Onyx device
-    OnyxsdkPenPlatform.instance.isOnyxDevice().then((isOnyxDevice) {
+    _findIsOnyxDevice().then((isOnyxDevice) {
       if (isOnyxDevice != _isOnyxDevice) {
         setState(() {
           _isOnyxDevice = isOnyxDevice;
@@ -44,7 +59,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
       }
     });
 
-    // assume it's an Onyx device until we know otherwise
+    // assume it's an Onyx device until the Future completes
     return _isOnyxDevice = true;
   }
 

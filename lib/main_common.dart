@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
@@ -51,6 +52,7 @@ Future<void> main() async {
     Printing.info().then((info) {
       Editor.canRasterPdf = info.canRaster;
     }),
+    OnyxSdkPenArea.init(),
   ]);
 
   AdState.init();
