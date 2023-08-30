@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/data/prefs.dart';
 
 export 'package:google_mobile_ads/google_mobile_ads.dart' show AdSize;
@@ -17,6 +18,8 @@ abstract class AdState {
 
   static bool get adsSupported => _bannerAdUnitId.isNotEmpty;
   static bool get adsEnabled => adsSupported && !Prefs.disableAds.value;
+
+  static final log = Logger('AdState');
 
   static void init() {
     if (kDebugMode) { // test ads
@@ -101,10 +104,10 @@ abstract class AdState {
 
   static Future<BannerAd?> _createBannerAd(AdSize adSize) async {
     if (!adsSupported) {
-      if (kDebugMode) print('Banner ad unit ID is empty.');
+      log.warning('Banner ad unit ID is empty.');
       return null;
     } else if (!_initializeStarted) {
-      if (kDebugMode) print('Ad initialization has not started.');
+      log.warning('Ad initialization has not started.');
       return null;
     }
 
@@ -118,10 +121,10 @@ abstract class AdState {
       size: adSize,
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
-          if (kDebugMode) print('Ad loaded!');
+          log.info('Ad loaded!');
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          if (kDebugMode) print('Ad failed to load: $error');
+          log.severe('Ad failed to load: $error');
           ad.dispose();
         },
       ),

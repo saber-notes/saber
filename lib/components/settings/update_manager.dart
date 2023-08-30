@@ -276,7 +276,7 @@ abstract class UpdateManager {
 
     final url = 'https://raw.githubusercontent.com/adil192/saber/main/'
         'metadata/$localeCode/changelogs/$newestVersion.txt';
-    if (kDebugMode) print('Downloading changelog from $url');
+    log.info('Downloading changelog from $url');
 
     final http.Response response;
     try {

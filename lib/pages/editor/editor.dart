@@ -175,7 +175,7 @@ class EditorState extends State<Editor> {
   Future _initStrokes() async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
     if (coreInfo.readOnly) {
-      if (kDebugMode) print('Loaded file as read-only');
+      log.info('Loaded file as read-only');
     }
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
@@ -516,7 +516,7 @@ class EditorState extends State<Editor> {
     } else if (Prefs.editorFingerDrawing.value || currentPressure != null) {
       return true;
     } else {
-      if (kDebugMode) print('Non-stylus found, rejected stroke');
+      log.fine('Non-stylus found, rejected stroke');
       return false;
     }
   }
@@ -777,7 +777,7 @@ class EditorState extends State<Editor> {
         return;
       case SavingState.saving:
         // avoid saving if already saving
-        if (kDebugMode) print('WARNING: saveToFile() called while already saving');
+        log.warning('saveToFile() called while already saving');
         return;
       case SavingState.waitingToSave:
         // continue
@@ -844,7 +844,7 @@ class EditorState extends State<Editor> {
 
     // migrate from old pref format
     if (Prefs.recentColorsChronological.value.length != Prefs.recentColorsPositioned.value.length) {
-      if (kDebugMode) print('MIGRATING recentColors: ${Prefs.recentColorsChronological.value.length} vs ${Prefs.recentColorsPositioned.value.length}');
+      log.info('MIGRATING recentColors: ${Prefs.recentColorsChronological.value.length} vs ${Prefs.recentColorsPositioned.value.length}');
       Prefs.recentColorsChronological.value = List.of(Prefs.recentColorsPositioned.value);
     }
 
@@ -1071,7 +1071,7 @@ class EditorState extends State<Editor> {
             bytes.addAll(chunk);
           }
           if (bytes.isEmpty) {
-            if (kDebugMode) print('Pasted empty file: $file (${formats[format]})');
+            log.warning('Pasted empty file: $file (${formats[format]})');
             return;
           }
 

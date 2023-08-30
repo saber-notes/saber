@@ -155,7 +155,7 @@ abstract class FileSyncer {
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
         Uint8List? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
         if (localDataUnencrypted == null) {
-          if (kDebugMode) print('Failed to read file $filePathUnencrypted to upload');
+          log.severe('Failed to read file $filePathUnencrypted to upload');
           return;
         }
 
@@ -229,7 +229,7 @@ abstract class FileSyncer {
       // without the leading slash; remove "Saber/"
       filePathEncrypted = filePathEncrypted.substring(FileManager.appRootDirectoryPrefix.length);
     } else {
-      if (kDebugMode) print('remote file not in app root: $filePathEncrypted');
+      log.severe('remote file not in app root: $filePathEncrypted');
       return;
     }
 
@@ -244,7 +244,7 @@ abstract class FileSyncer {
     if (filePathEncrypted.endsWith(encExtension)) {
       filePathEncrypted = filePathEncrypted.substring(0, filePathEncrypted.length - encExtension.length);
     } else {
-      if (kDebugMode) print('remote file not in recognised encrypted format: $filePathRemote');
+      log.info('remote file not in recognised encrypted format: $filePathRemote');
       return;
     } // TODO: also sync config.sbc
 

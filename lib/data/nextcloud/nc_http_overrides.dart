@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/data/prefs.dart';
 
 class NcHttpOverrides extends HttpOverrides {
@@ -8,6 +8,8 @@ class NcHttpOverrides extends HttpOverrides {
   static void tempAcceptBadCertificateFrom(String uri) {
     temporarilyExemptHost = Uri.parse(uri).host;
   }
+
+  static final log = Logger('NcHttpOverrides');
 
   @override
   HttpClient createHttpClient(SecurityContext? context){
@@ -20,7 +22,7 @@ class NcHttpOverrides extends HttpOverrides {
   // false if it should be rejected.
   bool _badCertificateCallback(X509Certificate cert, String host, int port) {
     if (!Prefs.allowInsecureConnections.loaded || !Prefs.url.loaded) {
-      if (kDebugMode) print('The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
+      log.severe('The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
       return false;
     }
 

@@ -3,10 +3,13 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 
 class SvgEditorImage extends EditorImage {
   String svgString;
+
+  static final log = Logger('SvgEditorImage');
 
   SvgEditorImage({
     required super.id,
@@ -45,9 +48,7 @@ class SvgEditorImage extends EditorImage {
     } else if (json['b'] != null) {
       svgString = json['b'] as String;
     } else {
-      if (kDebugMode) {
-        print('SvgEditorImage.fromJson: no svg string found');
-      }
+      log.warning('SvgEditorImage.fromJson: no svg string found');
       svgString = '';
     }
 

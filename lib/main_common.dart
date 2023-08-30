@@ -94,6 +94,8 @@ void setLocale() {
 class App extends StatefulWidget {
   const App({super.key});
 
+  static final log = Logger('App');
+
   static String initialLocation = pathToFunction(RoutePaths.home)({'subpage': HomePage.recentSubpage});
   static final GoRouter _router = GoRouter(
     initialLocation: initialLocation,
@@ -128,7 +130,7 @@ class App extends StatefulWidget {
   );
 
   static void openFile(SharedMediaFile file) async {
-    if (kDebugMode) print('Opening file: (${file.type}) ${file.path}');
+    log.info('Opening file: (${file.type}) ${file.path}');
 
     if (file.type != SharedMediaType.FILE) return;
 
@@ -149,8 +151,8 @@ class App extends StatefulWidget {
       _router.push(RoutePaths.editFilePath(path));
     } else if (extension == 'pdf') {
       // TODO: import pdf
-    } else if (kDebugMode) {
-      print('openFile: Unsupported file type: $extension');
+    } else {
+      log.warning('openFile: Unsupported file type: $extension');
     }
   }
 
