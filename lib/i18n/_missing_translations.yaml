@@ -506,12 +506,12 @@ pt-BR:
 ru:
   home:
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): Переименовать папку
+      folderName(OUTDATED): Имя папки
+      rename(OUTDATED): Переименовать
+      folderNameEmpty(OUTDATED): Имя папки не может быть пустым
+      folderNameContainsSlash(OUTDATED): Имя папки не может содержать косую черту
+      folderNameExists(OUTDATED): Папка с таким названием уже существует
 tr:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
