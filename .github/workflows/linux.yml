@@ -154,6 +154,7 @@ jobs:
         with:
           bundle: Saber.flatpak
           manifest-path: flatpak/com.adilhanney.saber.json
+          cache-key: flatpak-builder-cache-${{ hashFiles('flatpak/com.adilhanney.saber.json') }}
 
       - name: Rename .flatpak
         id: rename
