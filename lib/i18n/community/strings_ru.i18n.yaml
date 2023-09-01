@@ -40,18 +40,18 @@ home:
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
   deleteNote: Удалить заметку
+  renameFolder:
+    renameFolder: Переименовать папку
+    folderName: Имя папки
+    rename: Переименовать
+    folderNameEmpty: Имя папки не может быть пустым
+    folderNameContainsSlash: Имя папки не может содержать косую черту
+    folderNameExists: Папка с таким названием уже существует
   deleteFolder:
     deleteFolder: Удалить папку
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: "Также, удалить все заметки в этой папке"
-  renameFolder:
-    renameFolder(OUTDATED): Переименовать папку
-    folderNameContainsSlash(OUTDATED): Имя папки не может содержать косую черту
-    folderName(OUTDATED): Имя папки
-    rename(OUTDATED): Переименовать
-    folderNameEmpty(OUTDATED): Имя папки не может быть пустым.
-    folderNameExists(OUTDATED): Папка с таким названием уже существует
 settings:
   prefCategories:
     general: Общие

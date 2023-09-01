@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-08-30 at 00:48 UTC
+/// Built on 2023-09-01 at 17:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -8610,8 +8610,8 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteRu renameNote = _StringsHomeRenameNoteRu._(_root);
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
-	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
 	@override late final _StringsHomeRenameFolderRu renameFolder = _StringsHomeRenameFolderRu._(_root);
+	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
 }
 
 // Path: settings
@@ -8820,6 +8820,21 @@ class _StringsHomeMoveNoteRu extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Заметка будет переименована в ${newName}';
 }
 
+// Path: home.renameFolder
+class _StringsHomeRenameFolderRu extends _StringsHomeRenameFolderEn {
+	_StringsHomeRenameFolderRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameFolder => 'Переименовать папку';
+	@override String get folderName => 'Имя папки';
+	@override String get rename => 'Переименовать';
+	@override String get folderNameEmpty => 'Имя папки не может быть пустым';
+	@override String get folderNameContainsSlash => 'Имя папки не может содержать косую черту';
+	@override String get folderNameExists => 'Папка с таким названием уже существует';
+}
+
 // Path: home.deleteFolder
 class _StringsHomeDeleteFolderRu extends _StringsHomeDeleteFolderEn {
 	_StringsHomeDeleteFolderRu._(_StringsRu root) : this._root = root, super._(root);
@@ -8831,21 +8846,6 @@ class _StringsHomeDeleteFolderRu extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Удалить ${f}';
 	@override String get delete => 'Удалить';
 	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
-}
-
-// Path: home.renameFolder
-class _StringsHomeRenameFolderRu extends _StringsHomeRenameFolderEn {
-	_StringsHomeRenameFolderRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get renameFolder => 'Переименовать папку';
-	@override String get folderNameContainsSlash => 'Имя папки не может содержать косую черту';
-	@override String get folderName => 'Имя папки';
-	@override String get rename => 'Переименовать';
-	@override String get folderNameEmpty => 'Имя папки не может быть пустым.';
-	@override String get folderNameExists => 'Папка с таким названием уже существует';
 }
 
 // Path: settings.prefCategories
