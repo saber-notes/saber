@@ -87,7 +87,19 @@ jobs:
           archiveName="Saber_v${{ needs.get-version.outputs.buildName }}.tar.gz"
           echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
 
-          tar -C build/linux/x64/release/bundle -cvf $archiveName .
+          mkdir -p AppDir
+          mv build/linux/x64/release/bundle/* AppDir
+          chmod +x AppDir/saber
+
+          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
+          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
+
+          install -Dm644 assets/icon/resized/icon-512x512.png AppDir/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
+          install -Dm644 assets/icon/resized/icon-512x512.png AppDir/usr/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
+
+          install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
+
+          tar -C AppDir -cvf $archiveName .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -156,13 +168,6 @@ jobs:
           name: Flatpak artifact
           path: ${{ steps.rename.outputs.flatpakName }}
 
-#      - name: Upload to GitHub release
-#        uses: svenstaro/upload-release-action@v2
-#        if: ${{ startsWith(github.ref, 'refs/tags/') }}
-#        with:
-#          repo_token: ${{ secrets.GITHUB_TOKEN }}
-#          file: ${{ steps.rename.outputs.flatpakName }}
-
   build-appimage:
     name: Build AppImage
     needs: [build-flutter-app, get-version]
@@ -206,20 +211,8 @@ jobs:
       - name: Prepare build files
         working-directory: appimage
         run: |
-          echo 1. Extracting app archive
           mkdir AppDir
           tar -xvf ../Saber-Linux-Portable.tar.gz -C AppDir
-          echo 2. Copying icons
-          install -Dm644 ../assets/icon/resized/icon-16x16.png AppDir/usr/share/icons/hicolor/16x16/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-24x24.png AppDir/usr/share/icons/hicolor/24x24/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-32x32.png AppDir/usr/share/icons/hicolor/32x32/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-48x48.png AppDir/usr/share/icons/hicolor/48x48/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-64x64.png AppDir/usr/share/icons/hicolor/64x64/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-128x128.png AppDir/usr/share/icons/hicolor/128x128/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-256x256.png AppDir/usr/share/icons/hicolor/256x256/apps/com.adilhanney.saber.png
-          install -Dm644 ../assets/icon/resized/icon-512x512.png AppDir/usr/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
-          echo 3. Copying metadata
-          install -Dm644 ../flatpak/com.adilhanney.saber.metainfo.xml AppDir/usr/share/metainfo/com.adilhanney.saber.metainfo.xml
 
       - name: Set AppImage version
         working-directory: appimage
