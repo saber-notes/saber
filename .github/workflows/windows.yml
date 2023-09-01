@@ -70,6 +70,7 @@ jobs:
         with:
           channel: stable
           cache: true
+          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
       - run: flutter pub get
 
