@@ -31,7 +31,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /opt/hostedtoolcache/flutter
             build
           key: ${{ runner.OS }}-saber-tests-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
@@ -41,6 +40,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
 
       - run: flutter pub get
 

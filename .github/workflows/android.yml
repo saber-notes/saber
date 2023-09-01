@@ -60,7 +60,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /opt/hostedtoolcache/flutter
             build
           key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
@@ -70,6 +69,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
 
       - run: flutter pub get
 
@@ -144,7 +144,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /opt/hostedtoolcache/flutter
             build
           key: ${{ runner.OS }}-saber-androidfoss-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
@@ -157,6 +156,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
 
       - run: flutter pub get
 
@@ -231,7 +231,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /opt/hostedtoolcache/flutter
             build
           key: ${{ runner.OS }}-saber-androidfossalt-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
@@ -247,6 +246,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
 
       - run: flutter pub get
 
