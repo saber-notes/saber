@@ -39,9 +39,9 @@ jobs:
         with:
           path: |
             build
-          key: ${{ runner.OS }}-saber-playstore-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
-            ${{ runner.OS }}-saber-playstore-
+            ${{ runner.OS }}-saber-
 
       - name: Remove signingConfig
         run: ./patches/remove_signing_android.sh

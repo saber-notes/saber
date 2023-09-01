@@ -69,9 +69,9 @@ jobs:
         with:
           path: |
             build
-          key: ${{ runner.OS }}-saber-ios-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
-            ${{ runner.OS }}-saber-ios-
+            ${{ runner.OS }}-saber-
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2

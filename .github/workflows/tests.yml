@@ -32,9 +32,9 @@ jobs:
         with:
           path: |
             build
-          key: ${{ runner.OS }}-saber-tests-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
-            ${{ runner.OS }}-saber-tests-
+            ${{ runner.OS }}-saber-
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
