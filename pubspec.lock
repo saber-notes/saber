@@ -859,11 +859,12 @@ packages:
   pdf:
     dependency: "direct main"
     description:
-      name: pdf
-      sha256: "9f75fc7f5580ea5e635b5724de58fb27f684c9ad03ed46fdc1aac768e4557315"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.10.4"
+      path: pdf
+      ref: HEAD
+      resolved-ref: "33eca19b6fb5b7f521b3488b367fbde17b2f6d29"
+      url: "https://github.com/DavBfr/dart_pdf"
+    source: git
+    version: "3.10.5"
   pedantic:
     dependency: transitive
     description:
@@ -932,11 +933,12 @@ packages:
   printing:
     dependency: "direct main"
     description:
-      name: printing
-      sha256: e7c383dca95ee7b88c02dc1c66638628d3dcdc2fb2cc47e7a595facd47e46b56
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.11.0"
+      path: printing
+      ref: HEAD
+      resolved-ref: "33eca19b6fb5b7f521b3488b367fbde17b2f6d29"
+      url: "https://github.com/DavBfr/dart_pdf"
+    source: git
+    version: "5.11.1"
   process:
     dependency: transitive
     description:

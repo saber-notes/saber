@@ -183,6 +183,16 @@ dependency_overrides:
       url: https://github.com/adil192/bson
       ref: toJson
 
+  # https://github.com/DavBfr/dart_pdf/pull/1460
+  printing:
+    git:
+      url: https://github.com/DavBfr/dart_pdf
+      path: printing
+  pdf:
+    git:
+      url: https://github.com/DavBfr/dart_pdf
+      path: pdf
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
