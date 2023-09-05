@@ -44,7 +44,7 @@ void main() => group('Test login validation:', () {
       expect(LoginInputGroup.validateCustomServer(''), isNotNull);
     });
     test('Default URL should pass', () {
-      expect(LoginInputGroup.validateCustomServer(NextcloudClientExtension.defaultNextcloudUri), isNull);
+      expect(LoginInputGroup.validateCustomServer(NextcloudClientExtension.defaultNextcloudUri.toString()), isNull);
     });
     test('Invalid URL should fail', () {
       expect(LoginInputGroup.validateCustomServer('invalid url'), isNotNull);

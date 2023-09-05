@@ -5,8 +5,8 @@ import 'package:saber/data/prefs.dart';
 
 class NcHttpOverrides extends HttpOverrides {
   static String? temporarilyExemptHost;
-  static void tempAcceptBadCertificateFrom(String uri) {
-    temporarilyExemptHost = Uri.parse(uri).host;
+  static void tempAcceptBadCertificateFrom(Uri uri) {
+    temporarilyExemptHost = uri.host;
   }
 
   static final log = Logger('NcHttpOverrides');

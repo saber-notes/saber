@@ -59,7 +59,7 @@ abstract class FileSyncer {
     List<WebDavFile> remoteFiles;
     try {
       remoteFiles = await _client!.webdav.propfind(
-        FileManager.appRootDirectoryPrefix,
+        Uri.parse(FileManager.appRootDirectoryPrefix),
         prop: WebDavPropWithoutValues.fromBools(
           davgetcontentlength: true,
           davgetlastmodified: true,
@@ -191,7 +191,7 @@ abstract class FileSyncer {
       // upload file
       await webdav.put(
         localDataEncrypted,
-        filePathRemote,
+        Uri.parse(filePathRemote),
         lastModified: lastModified,
       );
     } on SocketException { // network error
@@ -317,7 +317,7 @@ abstract class FileSyncer {
 
     final Uint8List encryptedDataBytes;
     try {
-      encryptedDataBytes = await _client!.webdav.get(file.remotePath);
+      encryptedDataBytes = await _client!.webdav.get(Uri.parse(file.remotePath));
     } on DynamiteApiException {
       return false;
     }
@@ -366,7 +366,7 @@ abstract class FileSyncer {
     // get remote file
     try {
       file.webDavFile ??= await _client!.webdav.propfind(
-        file.remotePath,
+        Uri.parse(file.remotePath),
         depth: WebDavDepth.zero,
         prop: WebDavPropWithoutValues.fromBools(
           davgetlastmodified: true,

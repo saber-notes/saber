@@ -296,7 +296,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
 }
 
 class LoginDetailsStruct {
-  final String url;
+  final Uri uri;
   final String loginName;
   final String ncPassword;
   final String encPassword;
@@ -306,7 +306,9 @@ class LoginDetailsStruct {
     required this.loginName,
     required this.ncPassword,
     required this.encPassword,
-  }) : url = url ?? NextcloudClientExtension.defaultNextcloudUri;
+  }): uri = url != null
+        ? Uri.parse(url)
+        : NextcloudClientExtension.defaultNextcloudUri;
 }
 
 abstract class LoginFailure implements Exception {

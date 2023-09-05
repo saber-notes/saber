@@ -25,9 +25,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
   final log = Logger('_NcLoginPageState');
 
   Future<void> _tryLogin(LoginDetailsStruct loginDetails) async {
-    NcHttpOverrides.tempAcceptBadCertificateFrom(loginDetails.url);
+    NcHttpOverrides.tempAcceptBadCertificateFrom(loginDetails.uri);
     NextcloudClient client = NextcloudClient(
-      loginDetails.url,
+      loginDetails.uri,
       loginName: loginDetails.loginName,
       password: loginDetails.ncPassword,
     );
@@ -62,7 +62,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
 
     // set username so we can use WebDAV
     client = NextcloudClient(
-      loginDetails.url,
+      loginDetails.uri,
       loginName: username,
       password: loginDetails.ncPassword,
     );
@@ -83,7 +83,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       throw NcLoginFailure();
     }
 
-    Prefs.url.value = loginDetails.url.toString();
+    Prefs.url.value = loginDetails.uri.toString();
     Prefs.username.value = username;
     Prefs.ncPassword.value = loginDetails.ncPassword;
 

@@ -10,10 +10,10 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
 extension NextcloudClientExtension on NextcloudClient {
-  static const String defaultNextcloudUri = 'https://nc.saber.adil.hanney.org';
+  static final Uri defaultNextcloudUri = Uri.parse('https://nc.saber.adil.hanney.org');
 
-  static String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
-  static String configFilePath = '$appRootDirectoryPrefix/config.sbc';
+  static const String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
+  static final Uri configFileUri = Uri.parse('$appRootDirectoryPrefix/config.sbc');
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
@@ -27,7 +27,7 @@ extension NextcloudClientExtension on NextcloudClient {
     if (username.isEmpty || ncPassword.isEmpty) return null;
 
     return NextcloudClient(
-      url.isNotEmpty ? url : defaultNextcloudUri,
+      url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
     );
@@ -36,7 +36,7 @@ extension NextcloudClientExtension on NextcloudClient {
   Future<Map<String, String>> getConfig() async {
     final Uint8List file;
     try {
-      file = await webdav.get(configFilePath);
+      file = await webdav.get(configFileUri);
     } on DynamiteApiException {
       return {};
     }
@@ -46,8 +46,8 @@ extension NextcloudClientExtension on NextcloudClient {
   Future<void> setConfig(Map<String, String> config) async {
     String json = jsonEncode(config);
     Uint8List file = Uint8List.fromList(json.codeUnits);
-    await webdav.mkcol(appRootDirectoryPrefix);
-    await webdav.put(file, configFilePath);
+    await webdav.mkcol(Uri.parse(appRootDirectoryPrefix));
+    await webdav.put(file, configFileUri);
   }
 
   Future<String> loadEncryptionKey() async {

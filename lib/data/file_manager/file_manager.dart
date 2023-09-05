@@ -21,9 +21,9 @@ class FileManager {
 
   static final log = Logger('FileManager');
 
-  static const String appRootDirectoryPrefix = '/Saber';
+  static const String appRootDirectoryPrefix = 'Saber';
   @visibleForTesting
-  static Future<String> get documentsDirectory async => (await getApplicationDocumentsDirectory()).path + appRootDirectoryPrefix;
+  static Future<String> get documentsDirectory async => '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
 
   static final StreamController<FileOperation> fileWriteStream = StreamController.broadcast(
     onListen: () => _fileWriteStreamIsListening = true,
