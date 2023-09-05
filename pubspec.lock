@@ -227,7 +227,7 @@ packages:
     source: hosted
     version: "0.0.2"
   device_info_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: device_info_plus
       sha256: "86add5ef97215562d2e090535b0a16f197902b10c369c558a100e74ea06e8659"

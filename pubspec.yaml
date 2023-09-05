@@ -141,6 +141,8 @@ dependencies:
 
   fixnum: ^1.1.0
 
+  device_info_plus: ^9.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

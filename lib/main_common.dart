@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,8 +30,6 @@ import 'package:worker_manager/worker_manager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Prefs.init();
-  FileManager.init();
 
   Logger.root.level = kDebugMode
       ? Level.INFO
@@ -39,6 +38,16 @@ Future<void> main() async {
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
   });
+
+  if (Platform.isAndroid) {
+    final deviceInfo = DeviceInfoPlugin();
+    final androidInfo = await deviceInfo.androidInfo;
+    print('androidInfo.version.release: ${androidInfo.version.release}');
+    Prefs.androidVersion = int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
+  }
+
+  Prefs.init();
+  FileManager.init();
 
   await Future.wait([
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
