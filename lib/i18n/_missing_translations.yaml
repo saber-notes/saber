@@ -100,54 +100,54 @@ de:
 es:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): Navegar
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
+      newNote(OUTDATED): Nueva nota
+      importNote(OUTDATED): Importar nota
+    invalidFormat(OUTDATED): "El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2 or .pdf."
+    backFolder(OUTDATED): Volver a la carpeta anterior
     moveNote:
-      moveName(OUTDATED): Move $f
-    deleteNote(OUTDATED): Delete note
+      moveName(OUTDATED): Mover $f
+    deleteNote(OUTDATED): Eliminar nota
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): Renombrar carpeta
+      folderName(OUTDATED): Nombre de la carpeta
+      rename(OUTDATED): Renombrar
+      folderNameEmpty(OUTDATED): El nombre de la carpeta no puede estar vacío
+      folderNameContainsSlash(OUTDATED): El nombre de la carpeta no puede contener una barra (/)
+      folderNameExists(OUTDATED): Ya existe una carpeta con este nombre
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder(OUTDATED): Eliminar carpeta
+      deleteName(OUTDATED): Eliminar $f
+      delete(OUTDATED): Eliminar
+      alsoDeleteContents(OUTDATED): Eliminar también las notas guardadas dentro de la carpeta
   settings:
     prefCategories:
       editor(OUTDATED): Editor
-      advanced(OUTDATED): Advanced
+      advanced(OUTDATED): Avanzado
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      autosaveDelay(OUTDATED): Auto-save delay
+      shouldAlwaysAlertForUpdates(OUTDATED): Actualizaciones más rápidas
+      disableAds(OUTDATED): Desactivar anuncios
+      changeAdsConsent(OUTDATED): Cambiar el consentimiento de los anuncios
+      allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
+      disableEraserAfterUse(OUTDATED): Desactivar automáticamente la goma de borrar
+      hideFingerDrawingToggle(OUTDATED): Ocultar la opción para activar/desactivar la escritura con el dedo
+      autosaveDelay(OUTDATED): Retardo en el autoguardado
     prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      disableAds(OUTDATED): "Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres"
+      allowInsecureConnections(OUTDATED): (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
+      disableEraserAfterUse(OUTDATED): Volver automáticamente al bolígrafo tras usar la goma
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+        shown(OUTDATED): Evita cambios accidentales
+        fixedOn(OUTDATED): Dibujar o escribir con el dedo está activado
+        fixedOff(OUTDATED): Dibujar o escribir con el dedo está desactivado
+      autosaveDelay(OUTDATED): Cuánto esperar antes de autoguardar una nota
+      shouldAlwaysAlertForUpdates(OUTDATED): Avísame sobre actualizaciones tan pronto como estén disponibles
   editor:
     menu:
-      backgroundImageFit(OUTDATED): Background image fit
+      backgroundImageFit(OUTDATED): Ajuste de la imagen de fondo
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): Tablatura
 fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
