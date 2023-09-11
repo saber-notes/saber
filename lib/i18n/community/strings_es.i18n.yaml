@@ -6,15 +6,20 @@ home:
     settings: Configuración
   titles:
     home: Notas recientes
-    browse(OUTDATED): Explorar
+    browse: Navegar
     whiteboard: Pizarra
     settings: Configuración
   tooltips:
     newNote: Crear nota
     showUpdateDialog: Mostrar cuadro de diálogo de actualizaciónes
+  create:
+    newNote: Nueva nota
+    importNote: Importar nota
   welcome: Te damos la bienvenida a Saber
+  invalidFormat: "El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2 or .pdf."
   noFiles: No se ha encontrado ninguna nota
   createNewNote: Presiona el botón + para crear una nueva nota
+  backFolder: Volver a la carpeta anterior
   newFolder:
     newFolder: Nueva carpeta
     folderName: Nombre de la carpeta
@@ -31,33 +36,28 @@ home:
     noteNameExists: Ya existe una nota con este nombre
   moveNote:
     moveNote: Mover nota
+    moveName: Mover $f
     move: Mover
     renamedTo: Se renombrará la nota a $newName
-    moveName(OUTDATED): Mover $f
-  backFolder(OUTDATED): Volver a la carpeta anterior
-  deleteFolder:
-    deleteFolder(OUTDATED): Eliminar carpeta
-    deleteName(OUTDATED): Eliminar $f
-    delete(OUTDATED): Borrar
-    alsoDeleteContents(OUTDATED): También elimine todas las notas dentro de esta carpeta
-  deleteNote(OUTDATED): Borrar la nota
-  create:
-    newNote(OUTDATED): Nueva nota
-    importNote(OUTDATED): Nota de importación
-  invalidFormat(OUTDATED): "El archivo seleccionado no es compatible. Seleccione un archivo .sbn, .sbn2 o .pdf."
+  deleteNote: Eliminar nota
   renameFolder:
-    renameFolder(OUTDATED): Renombrar carpeta
-    folderName(OUTDATED): Nombre de la carpeta
-    rename(OUTDATED): Rebautizar
-    folderNameEmpty(OUTDATED): El nombre de la carpeta no puede estar vacío.
-    folderNameContainsSlash(OUTDATED): El nombre de la carpeta no puede contener una barra diagonal.
-    folderNameExists(OUTDATED): Ya existe una carpeta con este nombre.
+    renameFolder: Renombrar carpeta
+    folderName: Nombre de la carpeta
+    rename: Renombrar
+    folderNameEmpty: El nombre de la carpeta no puede estar vacío
+    folderNameContainsSlash: El nombre de la carpeta no puede contener una barra (/)
+    folderNameExists: Ya existe una carpeta con este nombre
+  deleteFolder:
+    deleteFolder: Eliminar carpeta
+    deleteName: Eliminar $f
+    delete: Eliminar
+    alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
 settings:
   prefCategories:
     general: General
     writing: Escritura
-    advanced(OUTDATED): Avanzado
-    editor(OUTDATED): Editor
+    editor: Editor
+    advanced: Avanzado
   prefLabels:
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
@@ -66,7 +66,10 @@ settings:
     customAccentColor: Color de acento personalizado
     hyperlegibleFont: Fuente hiperlegible
     shouldCheckForUpdates: Buscar actualizaciones de Saber automáticamente
-    changeAdsConsent(OUTDATED): Cambiar consentimiento de anuncios
+    shouldAlwaysAlertForUpdates: Actualizaciones más rápidas
+    disableAds: Desactivar anuncios
+    changeAdsConsent: Cambiar el consentimiento de los anuncios
+    allowInsecureConnections: Permitir conexiones inseguras
     editorToolbarAlignment: Alineación de la barra de herramientas del editor
     editorToolbarShowInFullscreen: Mostrar la barra de herramientas del editor en el modo de pantalla completa
     editorAutoInvert: Invertir notas en el modo oscuro
@@ -75,34 +78,31 @@ settings:
     editorStraightenLines: Mantener presionado para enderezar una línea
     maxImageSize: Tamaño máximo de la imagen
     autoClearWhiteboardOnExit: Borrar la pizarra después de salir de la aplicación
+    disableEraserAfterUse: Desactivar automáticamente la goma de borrar
+    hideFingerDrawingToggle: Ocultar la opción para activar/desactivar la escritura con el dedo
     editorPromptRename: Solicitarte cambiar el nombre de nuevas notas
     hideHomeBackgrounds: Ocultar fondos en la pantalla de inicio
     dontSavePresetColors: No guardar colores preestablecidos en los colores recientes
     printPageIndicators: Indicadores de página de impresión
-    disableAds(OUTDATED): Desactivar los anuncios
-    allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
-    autosaveDelay(OUTDATED): Retraso de guardado automático
-    hideFingerDrawingToggle(OUTDATED): Ocultar el interruptor de dibujo del dedo
-    shouldAlwaysAlertForUpdates(OUTDATED): Actualizaciones más rápidas
-    disableEraserAfterUse(OUTDATED): Deshabilitar automáticamente el borrador
+    autosaveDelay: Retardo en el autoguardado
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
+    disableAds: "Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres"
+    allowInsecureConnections: (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
     editorOpaqueBackgrounds: Elimina la transparencia de las imágenes de fondo y los archivos PDF
     preferGreyscale: Para pantallas con tinta electrónica
     autoClearWhiteboardOnExit: Aún se sincronizará con tus otros dispositivos
+    disableEraserAfterUse: Volver automáticamente al bolígrafo tras usar la goma
     maxImageSize: Las imágenes más grandes que este valor serán comprimidas
+    hideFingerDrawing:
+      shown: Evita cambios accidentales
+      fixedOn: Dibujar o escribir con el dedo está activado
+      fixedOff: Dibujar o escribir con el dedo está desactivado
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
-    disableAds(OUTDATED): "Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea"
-    allowInsecureConnections(OUTDATED): (No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables
-    autosaveDelay(OUTDATED): Cuánto tiempo esperar antes de guardar automáticamente una nota
-    hideFingerDrawing:
-      fixedOn(OUTDATED): El dibujo con los dedos se corrige como habilitado
-      fixedOff(OUTDATED): El dibujo con los dedos se corrige como deshabilitado
-      shown(OUTDATED): Evita el cambio accidental
-    shouldAlwaysAlertForUpdates(OUTDATED): Cuéntame sobre las actualizaciones tan pronto como estén disponibles
-    disableEraserAfterUse(OUTDATED): Cambia automáticamente al lápiz después de usar el borrador
+    autosaveDelay: Cuánto esperar antes de autoguardar una nota
+    shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
   themeModes:
     system: Sistema
     light: Claro
@@ -258,7 +258,7 @@ editor:
     deletePage: Eliminar página
     lineHeight: Altura de la línea
     lineHeightDescription: Controla también el tamaño del texto
-    backgroundImageFit(OUTDATED): Imagen de fondo
+    backgroundImageFit: Ajuste de la imagen de fondo
     backgroundPattern: Patrón de fondo
     import: Importar
     boxFits:
@@ -273,8 +273,8 @@ editor:
       grid: Cuadrículado
       dots: Punteado
       staffs: Pentagrama
+      tablature: Tablatura
       cornell: Método Cornell
-      tablature(OUTDATED): tablatura
   newerFileFormat:
     readOnlyMode: Modo de solo lectura
     title: Esta nota fue editada usando una versión más reciente de Saber

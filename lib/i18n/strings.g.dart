@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-09-01 at 17:19 UTC
+/// Built on 2023-09-11 at 01:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -3239,18 +3239,18 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeTabsEs tabs = _StringsHomeTabsEs._(_root);
 	@override late final _StringsHomeTitlesEs titles = _StringsHomeTitlesEs._(_root);
 	@override late final _StringsHomeTooltipsEs tooltips = _StringsHomeTooltipsEs._(_root);
+	@override late final _StringsHomeCreateEs create = _StringsHomeCreateEs._(_root);
 	@override String get welcome => 'Te damos la bienvenida a Saber';
+	@override String get invalidFormat => 'El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2 or .pdf.';
 	@override String get noFiles => 'No se ha encontrado ninguna nota';
 	@override String get createNewNote => 'Presiona el botón + para crear una nueva nota';
+	@override String get backFolder => 'Volver a la carpeta anterior';
 	@override late final _StringsHomeNewFolderEs newFolder = _StringsHomeNewFolderEs._(_root);
 	@override late final _StringsHomeRenameNoteEs renameNote = _StringsHomeRenameNoteEs._(_root);
 	@override late final _StringsHomeMoveNoteEs moveNote = _StringsHomeMoveNoteEs._(_root);
-	@override String get backFolder => 'Volver a la carpeta anterior';
-	@override late final _StringsHomeDeleteFolderEs deleteFolder = _StringsHomeDeleteFolderEs._(_root);
-	@override String get deleteNote => 'Borrar la nota';
-	@override late final _StringsHomeCreateEs create = _StringsHomeCreateEs._(_root);
-	@override String get invalidFormat => 'El archivo seleccionado no es compatible. Seleccione un archivo .sbn, .sbn2 o .pdf.';
+	@override String get deleteNote => 'Eliminar nota';
 	@override late final _StringsHomeRenameFolderEs renameFolder = _StringsHomeRenameFolderEs._(_root);
+	@override late final _StringsHomeDeleteFolderEs deleteFolder = _StringsHomeDeleteFolderEs._(_root);
 }
 
 // Path: settings
@@ -3388,7 +3388,7 @@ class _StringsHomeTitlesEs extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Notas recientes';
-	@override String get browse => 'Explorar';
+	@override String get browse => 'Navegar';
 	@override String get whiteboard => 'Pizarra';
 	@override String get settings => 'Configuración';
 }
@@ -3402,6 +3402,17 @@ class _StringsHomeTooltipsEs extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Crear nota';
 	@override String get showUpdateDialog => 'Mostrar cuadro de diálogo de actualizaciónes';
+}
+
+// Path: home.create
+class _StringsHomeCreateEs extends _StringsHomeCreateEn {
+	_StringsHomeCreateEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nueva nota';
+	@override String get importNote => 'Importar nota';
 }
 
 // Path: home.newFolder
@@ -3442,33 +3453,9 @@ class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover nota';
+	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
-	@override String moveName({required Object f}) => 'Mover ${f}';
-}
-
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderEs extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get deleteFolder => 'Eliminar carpeta';
-	@override String deleteName({required Object f}) => 'Eliminar ${f}';
-	@override String get delete => 'Borrar';
-	@override String get alsoDeleteContents => 'También elimine todas las notas dentro de esta carpeta';
-}
-
-// Path: home.create
-class _StringsHomeCreateEs extends _StringsHomeCreateEn {
-	_StringsHomeCreateEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Nueva nota';
-	@override String get importNote => 'Nota de importación';
 }
 
 // Path: home.renameFolder
@@ -3480,10 +3467,23 @@ class _StringsHomeRenameFolderEs extends _StringsHomeRenameFolderEn {
 	// Translations
 	@override String get renameFolder => 'Renombrar carpeta';
 	@override String get folderName => 'Nombre de la carpeta';
-	@override String get rename => 'Rebautizar';
-	@override String get folderNameEmpty => 'El nombre de la carpeta no puede estar vacío.';
-	@override String get folderNameContainsSlash => 'El nombre de la carpeta no puede contener una barra diagonal.';
-	@override String get folderNameExists => 'Ya existe una carpeta con este nombre.';
+	@override String get rename => 'Renombrar';
+	@override String get folderNameEmpty => 'El nombre de la carpeta no puede estar vacío';
+	@override String get folderNameContainsSlash => 'El nombre de la carpeta no puede contener una barra (/)';
+	@override String get folderNameExists => 'Ya existe una carpeta con este nombre';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderEs extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => 'Eliminar carpeta';
+	@override String deleteName({required Object f}) => 'Eliminar ${f}';
+	@override String get delete => 'Eliminar';
+	@override String get alsoDeleteContents => 'Eliminar también las notas guardadas dentro de la carpeta';
 }
 
 // Path: settings.prefCategories
@@ -3495,8 +3495,8 @@ class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'General';
 	@override String get writing => 'Escritura';
-	@override String get advanced => 'Avanzado';
 	@override String get editor => 'Editor';
+	@override String get advanced => 'Avanzado';
 }
 
 // Path: settings.prefLabels
@@ -3513,7 +3513,10 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Color de acento personalizado';
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
-	@override String get changeAdsConsent => 'Cambiar consentimiento de anuncios';
+	@override String get shouldAlwaysAlertForUpdates => 'Actualizaciones más rápidas';
+	@override String get disableAds => 'Desactivar anuncios';
+	@override String get changeAdsConsent => 'Cambiar el consentimiento de los anuncios';
+	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
 	@override String get editorToolbarAlignment => 'Alineación de la barra de herramientas del editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
@@ -3522,16 +3525,13 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Mantener presionado para enderezar una línea';
 	@override String get maxImageSize => 'Tamaño máximo de la imagen';
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
+	@override String get disableEraserAfterUse => 'Desactivar automáticamente la goma de borrar';
+	@override String get hideFingerDrawingToggle => 'Ocultar la opción para activar/desactivar la escritura con el dedo';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
 	@override String get dontSavePresetColors => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
-	@override String get disableAds => 'Desactivar los anuncios';
-	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
-	@override String get autosaveDelay => 'Retraso de guardado automático';
-	@override String get hideFingerDrawingToggle => 'Ocultar el interruptor de dibujo del dedo';
-	@override String get shouldAlwaysAlertForUpdates => 'Actualizaciones más rápidas';
-	@override String get disableEraserAfterUse => 'Deshabilitar automáticamente el borrador';
+	@override String get autosaveDelay => 'Retardo en el autoguardado';
 }
 
 // Path: settings.prefDescriptions
@@ -3542,19 +3542,19 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
+	@override String get disableAds => 'Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres';
+	@override String get allowInsecureConnections => '(No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables';
 	@override String get editorOpaqueBackgrounds => 'Elimina la transparencia de las imágenes de fondo y los archivos PDF';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 	@override String get autoClearWhiteboardOnExit => 'Aún se sincronizará con tus otros dispositivos';
+	@override String get disableEraserAfterUse => 'Volver automáticamente al bolígrafo tras usar la goma';
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
-	@override String get disableAds => 'Los anuncios ayudan a respaldar el desarrollo de Saber, pero puede desactivarlos si lo desea';
-	@override String get allowInsecureConnections => '(No recomendado) Permitir que Saber se conecte a servidores con certificados autofirmados/no confiables';
-	@override String get autosaveDelay => 'Cuánto tiempo esperar antes de guardar automáticamente una nota';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
-	@override String get shouldAlwaysAlertForUpdates => 'Cuéntame sobre las actualizaciones tan pronto como estén disponibles';
-	@override String get disableEraserAfterUse => 'Cambia automáticamente al lápiz después de usar el borrador';
+	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
+	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 }
 
 // Path: settings.themeModes
@@ -3876,7 +3876,7 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
 	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
-	@override String get backgroundImageFit => 'Imagen de fondo';
+	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
@@ -3929,9 +3929,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingEs extends _StringsSettin
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => 'El dibujo con los dedos se corrige como habilitado';
-	@override String get fixedOff => 'El dibujo con los dedos se corrige como deshabilitado';
-	@override String get shown => 'Evita el cambio accidental';
+	@override String get shown => 'Evita cambios accidentales';
+	@override String get fixedOn => 'Dibujar o escribir con el dedo está activado';
+	@override String get fixedOff => 'Dibujar o escribir con el dedo está desactivado';
 }
 
 // Path: editor.menu.boxFits
@@ -3960,8 +3960,8 @@ class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Cuadrículado';
 	@override String get dots => 'Punteado';
 	@override String get staffs => 'Pentagrama';
+	@override String get tablature => 'Tablatura';
 	@override String get cornell => 'Método Cornell';
-	@override String get tablature => 'tablatura';
 }
 
 // Path: <root>

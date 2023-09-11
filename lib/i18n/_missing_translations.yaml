@@ -98,56 +98,6 @@ de:
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
-  home:
-    titles:
-      browse(OUTDATED): Navegar
-    create:
-      newNote(OUTDATED): Nueva nota
-      importNote(OUTDATED): Importar nota
-    invalidFormat(OUTDATED): "El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2 or .pdf."
-    backFolder(OUTDATED): Volver a la carpeta anterior
-    moveNote:
-      moveName(OUTDATED): Mover $f
-    deleteNote(OUTDATED): Eliminar nota
-    renameFolder:
-      renameFolder(OUTDATED): Renombrar carpeta
-      folderName(OUTDATED): Nombre de la carpeta
-      rename(OUTDATED): Renombrar
-      folderNameEmpty(OUTDATED): El nombre de la carpeta no puede estar vacío
-      folderNameContainsSlash(OUTDATED): El nombre de la carpeta no puede contener una barra (/)
-      folderNameExists(OUTDATED): Ya existe una carpeta con este nombre
-    deleteFolder:
-      deleteFolder(OUTDATED): Eliminar carpeta
-      deleteName(OUTDATED): Eliminar $f
-      delete(OUTDATED): Eliminar
-      alsoDeleteContents(OUTDATED): Eliminar también las notas guardadas dentro de la carpeta
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editor
-      advanced(OUTDATED): Avanzado
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Actualizaciones más rápidas
-      disableAds(OUTDATED): Desactivar anuncios
-      changeAdsConsent(OUTDATED): Cambiar el consentimiento de los anuncios
-      allowInsecureConnections(OUTDATED): Permitir conexiones inseguras
-      disableEraserAfterUse(OUTDATED): Desactivar automáticamente la goma de borrar
-      hideFingerDrawingToggle(OUTDATED): Ocultar la opción para activar/desactivar la escritura con el dedo
-      autosaveDelay(OUTDATED): Retardo en el autoguardado
-    prefDescriptions:
-      disableAds(OUTDATED): "Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres"
-      allowInsecureConnections(OUTDATED): (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
-      disableEraserAfterUse(OUTDATED): Volver automáticamente al bolígrafo tras usar la goma
-      hideFingerDrawing:
-        shown(OUTDATED): Evita cambios accidentales
-        fixedOn(OUTDATED): Dibujar o escribir con el dedo está activado
-        fixedOff(OUTDATED): Dibujar o escribir con el dedo está desactivado
-      autosaveDelay(OUTDATED): Cuánto esperar antes de autoguardar una nota
-      shouldAlwaysAlertForUpdates(OUTDATED): Avísame sobre actualizaciones tan pronto como estén disponibles
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Ajuste de la imagen de fondo
-      bgPatterns:
-        tablature(OUTDATED): Tablatura
 fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
