@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-09-11 at 01:59 UTC
+/// Built on 2023-09-11 at 02:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7023,7 +7023,7 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'Lined';
 	@override String get grid => 'Griglia';
 	@override String get dots => 'Punti';
-	@override String get staffs => 'Personale';
+	@override String get staffs => 'Pentagrammi';
 	@override String get tablature => 'Tablatura';
 	@override String get cornell => 'Metodo Cornell';
 }
