@@ -415,44 +415,6 @@ ja:
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
-  home:
-    titles:
-      browse(OUTDATED): Browse
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
-    deleteNote(OUTDATED): Delete note
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
 ru:
 tr:
   home:
