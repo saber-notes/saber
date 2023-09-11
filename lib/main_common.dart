@@ -42,7 +42,7 @@ Future<void> main() async {
   if (Platform.isAndroid) {
     final deviceInfo = DeviceInfoPlugin();
     final androidInfo = await deviceInfo.androidInfo;
-    print('androidInfo.version.release: ${androidInfo.version.release}');
+    Logger.root.fine('androidInfo.version.release: ${androidInfo.version.release}');
     Prefs.androidVersion = int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
   }
 
