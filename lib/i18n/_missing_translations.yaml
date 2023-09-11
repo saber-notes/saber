@@ -415,44 +415,6 @@ ja:
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
-  home:
-    titles:
-      browse(OUTDATED): Navegar
-    create:
-      newNote(OUTDATED): Nova nota
-      importNote(OUTDATED): Importar nota
-    invalidFormat(OUTDATED): "O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2 ou .pdf."
-    backFolder(OUTDATED): Retornar para a pasta anterior
-    deleteNote(OUTDATED): Apagar nota
-    renameFolder:
-      renameFolder(OUTDATED): Renomear pasta
-      folderName(OUTDATED): Nome da pasta
-      rename(OUTDATED): Renomear
-      folderNameEmpty(OUTDATED): O nome da pasta não pode estar vazio
-      folderNameContainsSlash(OUTDATED): O nome da pasta não pode conter uma barra
-      folderNameExists(OUTDATED): Já existe uma pasta com este nome
-    deleteFolder:
-      deleteFolder(OUTDATED): Apagar pasta
-      deleteName(OUTDATED): Apagar $f
-      delete(OUTDATED): Apagar
-      alsoDeleteContents(OUTDATED): Apagar também todas as notas dentro desta pasta
-  settings:
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Atualizações mais rápidas
-      disableEraserAfterUse(OUTDATED): Desativar automaticamente a borracha
-      hideFingerDrawingToggle(OUTDATED): Ocultar o botão de desenho com o dedo
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Voltar automaticamente para a caneta depois de usar a borracha
-      hideFingerDrawing:
-        shown(OUTDATED): Evitar alternância acidental
-        fixedOn(OUTDATED): O desenho com o dedo está ativado
-        fixedOff(OUTDATED): O desenho com o dedo está desativado
-      shouldAlwaysAlertForUpdates(OUTDATED): Conte-me sobre atualizações assim que elas estiverem disponíveis
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Ajustar a imagem de plano de fundo
-      bgPatterns:
-        tablature(OUTDATED): Tablatura
 ru:
 tr:
   home:

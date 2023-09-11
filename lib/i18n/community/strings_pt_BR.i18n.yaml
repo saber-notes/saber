@@ -6,15 +6,20 @@ home:
     settings: Configurações
   titles:
     home: Notas recentes
-    browse(OUTDATED): Explorar
+    browse: Navegar
     whiteboard: Quadro branco
     settings: Configurações
   tooltips:
     newNote: Nova nota
     showUpdateDialog: Mostrar caixa de diálogo de atualização
+  create:
+    newNote: Nova nota
+    importNote: Importar nota
   welcome: Bem-vindo(a) ao Saber
+  invalidFormat: "O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2 ou .pdf."
   noFiles: Nenhum arquivo encontrado
   createNewNote: Toque no botão + para criar uma nova nota
+  backFolder: Retornar para a pasta anterior
   newFolder:
     newFolder: Nova pasta
     folderName: Nome da pasta
@@ -34,24 +39,19 @@ home:
     moveName: Mover $f
     move: Mover
     renamedTo: A nota será renomeada para $newName
-  backFolder(OUTDATED): Voltar para a pasta anterior
-  deleteFolder:
-    deleteFolder(OUTDATED): Excluir pasta
-    deleteName(OUTDATED): Deletar $f
-    alsoDeleteContents(OUTDATED): Exclua também todas as notas dentro desta pasta
-    delete(OUTDATED): Excluir
-  deleteNote(OUTDATED): Excluir nota
-  create:
-    newNote(OUTDATED): nova nota
-    importNote(OUTDATED): Nota de importação
-  invalidFormat(OUTDATED): "O arquivo selecionado não é compatível. Selecione um arquivo .sbn, .sbn2 ou .pdf."
+  deleteNote: Apagar nota
   renameFolder:
-    folderName(OUTDATED): Nome da pasta
-    rename(OUTDATED): Renomear
-    folderNameEmpty(OUTDATED): O nome da pasta não pode ficar vazio
-    folderNameContainsSlash(OUTDATED): O nome da pasta não pode conter uma barra
-    folderNameExists(OUTDATED): Já existe uma pasta com este nome
-    renameFolder(OUTDATED): Renomear pasta
+    renameFolder: Renomear pasta
+    folderName: Nome da pasta
+    rename: Renomear
+    folderNameEmpty: O nome da pasta não pode estar vazio
+    folderNameContainsSlash: O nome da pasta não pode conter uma barra
+    folderNameExists: Já existe uma pasta com este nome
+  deleteFolder:
+    deleteFolder: Apagar pasta
+    deleteName: Apagar $f
+    delete: Apagar
+    alsoDeleteContents: Apagar também todas as notas dentro desta pasta
 settings:
   prefCategories:
     general: Geral
@@ -66,6 +66,7 @@ settings:
     customAccentColor: Cor de destaque personalizada
     hyperlegibleFont: Fonte hiperlegível
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
+    shouldAlwaysAlertForUpdates: Atualizações mais rápidas
     disableAds: Desativar anúncios
     changeAdsConsent: Alterar o consentimento de anúncios
     allowInsecureConnections: Permitir conexões inseguras
@@ -77,14 +78,13 @@ settings:
     editorStraightenLines: Pressione e segure para endireitar uma linha
     maxImageSize: Tamanho máximo da imagem
     autoClearWhiteboardOnExit: Limpar o quadro branco depois de sair do aplicativo
+    disableEraserAfterUse: Desativar automaticamente a borracha
+    hideFingerDrawingToggle: Ocultar o botão de desenho com o dedo
     editorPromptRename: Solicitar que você renomeie novas notas
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     dontSavePresetColors: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
-    hideFingerDrawingToggle(OUTDATED): Ocultar a alternância de desenho de dedo
-    shouldAlwaysAlertForUpdates(OUTDATED): Atualizações mais rápidas
-    disableEraserAfterUse(OUTDATED): Desativar automaticamente a borracha
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
@@ -92,17 +92,17 @@ settings:
     editorOpaqueBackgrounds: Remover a transparência das imagens de plano de fundo e dos PDFs
     preferGreyscale: Para telas e-ink
     autoClearWhiteboardOnExit: Ainda será sincronizado com seus outros dispositivos
+    disableEraserAfterUse: Voltar automaticamente para a caneta depois de usar a borracha
     maxImageSize: Imagens maiores que isso serão compactadas
+    hideFingerDrawing:
+      shown: Evitar alternância acidental
+      fixedOn: O desenho com o dedo está ativado
+      fixedOff: O desenho com o dedo está desativado
     editorPromptRename: Você pode sempre renomear as notas mais tarde
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
-    hideFingerDrawing:
-      shown(OUTDATED): Evita a alternância acidental
-      fixedOff(OUTDATED): O desenho do dedo é corrigido como desativado
-      fixedOn(OUTDATED): O desenho do dedo é fixado como ativado
-    disableEraserAfterUse(OUTDATED): Muda automaticamente de volta para a caneta depois de usar a borracha
-    shouldAlwaysAlertForUpdates(OUTDATED): Informe-me sobre as atualizações assim que estiverem disponíveis
+    shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
   themeModes:
     system: Sistema
     light: Claro
@@ -258,7 +258,7 @@ editor:
     deletePage: Apagar página
     lineHeight: Altura da linha
     lineHeightDescription: Também controla o tamanho do texto
-    backgroundImageFit(OUTDATED): Imagem de plano de fundo
+    backgroundImageFit: Ajustar a imagem de plano de fundo
     backgroundPattern: Padrão de plano de fundo
     import: Importar
     boxFits:
@@ -273,8 +273,8 @@ editor:
       grid: Grade
       dots: Pontos
       staffs: Pentagrama
+      tablature: Tablatura
       cornell: Cornell
-      tablature(OUTDATED): Tablatura
   newerFileFormat:
     readOnlyMode: Modo somente leitura
     title: Esta nota foi editada usando uma versão mais recente do Saber
