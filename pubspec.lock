@@ -21,10 +21,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: "49b1fad315e57ab0bbc15bcbb874e83116a1d78f77ebd500a4af6c9407d6b28e"
+      sha256: e0902a06f0e00414e4e3438a084580161279f137aeb862274710f29ec10cf01e
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.8"
+    version: "3.3.9"
   args:
     dependency: transitive
     description:
@@ -69,10 +69,10 @@ packages:
     dependency: transitive
     description:
       name: bidi
-      sha256: "6794b226bc939731308b8539c49bb6c2fdbf0e78c3a65e9b9e81e727c256dfe6"
+      sha256: "2c162a66885167f1f92c41583efea9a435cb268d58322ba266613b9582440f87"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.7"
+    version: "2.0.8"
   boolean_selector:
     dependency: transitive
     description:
@@ -263,7 +263,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "65d2389485de813b173a972902c6ffe23d86afc7"
+      resolved-ref: "1d2f4703046f3bb4e5566758ed1ae5499c9006aa"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -430,10 +430,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "6a23eace6f4f676616588f17edc3807de3270ed6427b5ee39dc1deda8bc5c98b"
+      sha256: "3b606259b0d14e0ea5521f9a4ce8d164d221eccadf792baa2b58734ef9cf46bd"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.4"
+    version: "7.4.6"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -732,7 +732,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: HEAD
-      resolved-ref: "65d2389485de813b173a972902c6ffe23d86afc7"
+      resolved-ref: "1d2f4703046f3bb4e5566758ed1ae5499c9006aa"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -1406,18 +1406,18 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "0d8f5ac96a155e672129bf94c7abf625de01241d44d269dbaff083f1b4deb1aa"
+      sha256: "9427774649fd3c8b7ff53523051395d13aed2ca355822b822e6493d79f5fc05a"
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.5"
+    version: "3.10.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
       name: webview_flutter_platform_interface
-      sha256: "9d32a63a5ee111b37482cb3eac3379b9f0992afd27a52ee30279dbf06f41918b"
+      sha256: "6d9213c65f1060116757a7c473247c60f3f7f332cac33dc417c9e362a9a13e4f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.1"
+    version: "2.6.0"
   webview_flutter_wkwebview:
     dependency: transitive
     description:
@@ -1491,5 +1491,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.1.0 <4.0.0"
+  dart: ">=3.1.1 <4.0.0"
   flutter: ">=3.13.0"

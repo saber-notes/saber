@@ -32,7 +32,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       password: loginDetails.ncPassword,
     );
 
-    final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data capabilities;
+    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities;
     final bool ncServerIsSupported;
     final int ncSupportedVersion;
     try {
