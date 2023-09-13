@@ -85,9 +85,9 @@ class Toolbar extends StatefulWidget {
 }
 
 class _ToolbarState extends State<Toolbar> {
-  bool showExportOptions = false;
-  bool showColorOptions = false;
-  ToolOptions toolOptionsType = ToolOptions.hide;
+  ValueNotifier<bool> showExportOptions = ValueNotifier(false);
+  ValueNotifier<bool> showColorOptions = ValueNotifier(false);
+  ValueNotifier<ToolOptions> toolOptionsType = ValueNotifier(ToolOptions.hide);
 
   @override
   void initState() {
@@ -131,18 +131,14 @@ class _ToolbarState extends State<Toolbar> {
   }
 
   void toggleEraser() {
-    toolOptionsType = ToolOptions.hide;
+    toolOptionsType.value = ToolOptions.hide;
     widget.setTool(Eraser()); // this toggles eraser
   }
   void toggleColorOptions() {
-    setState(() {
-      showColorOptions = !showColorOptions;
-    });
+    showColorOptions.value = !showColorOptions.value;
   }
   void toggleExportBar() {
-    setState(() {
-      showExportOptions = !showExportOptions;
-    });
+    showExportOptions.value = !showExportOptions.value;
   }
 
   void toggleFullscreen() async {
@@ -169,10 +165,16 @@ class _ToolbarState extends State<Toolbar> {
     };
 
     final children = <Widget>[
-      Collapsible(
-        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-        maintainState: true,
-        collapsed: !showExportOptions,
+      ValueListenableBuilder(
+        valueListenable: showExportOptions,
+        builder: (context, showExportOptions, child) {
+          return Collapsible(
+            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            maintainState: true,
+            collapsed: !showExportOptions,
+            child: child!,
+          );
+        },
         child: ExportBar(
           axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
           toggleExportBar: toggleExportBar,
@@ -181,26 +183,37 @@ class _ToolbarState extends State<Toolbar> {
           exportAsPng: widget.exportAsPng,
         ),
       ),
-      Collapsible(
-        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-        maintainState: true,
-        collapsed: toolOptionsType == ToolOptions.hide,
-        child: switch (toolOptionsType) {
-          ToolOptions.hide => const SizedBox(),
-          ToolOptions.pen => PenModal(
-            getTool: () => Pen.currentPen,
-            setTool: widget.setTool,
-          ),
-          ToolOptions.highlighter => PenModal(
-            getTool: () => Highlighter.currentHighlighter,
-            setTool: widget.setTool,
-          ),
+      ValueListenableBuilder(
+        valueListenable: toolOptionsType,
+        builder: (context, toolOptionsType, _) {
+          return Collapsible(
+            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            maintainState: true,
+            collapsed: toolOptionsType == ToolOptions.hide,
+            child: switch (toolOptionsType) {
+              ToolOptions.hide => const SizedBox(),
+              ToolOptions.pen => PenModal(
+                getTool: () => Pen.currentPen,
+                setTool: widget.setTool,
+              ),
+              ToolOptions.highlighter => PenModal(
+                getTool: () => Highlighter.currentHighlighter,
+                setTool: widget.setTool,
+              ),
+            },
+          );
         },
       ),
-      Collapsible(
-        axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-        maintainState: true,
-        collapsed: !showColorOptions,
+      ValueListenableBuilder(
+        valueListenable: showColorOptions,
+        builder: (context, showColorOptions, child) {
+          return Collapsible(
+            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            maintainState: true,
+            collapsed: !showColorOptions,
+            child: child!,
+          );
+        },
         child: ColorBar(
           axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
           setColor: widget.setColor,
@@ -252,15 +265,13 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Pen.currentPen) {
-                    setState(() {
-                      if (toolOptionsType == ToolOptions.pen) {
-                        toolOptionsType = ToolOptions.hide;
-                      } else {
-                        toolOptionsType = ToolOptions.pen;
-                      }
-                    });
+                    if (toolOptionsType.value == ToolOptions.pen) {
+                      toolOptionsType.value = ToolOptions.hide;
+                    } else {
+                      toolOptionsType.value = ToolOptions.pen;
+                    }
                   } else {
-                    toolOptionsType = ToolOptions.hide;
+                    toolOptionsType.value = ToolOptions.hide;
                     widget.setTool(Pen.currentPen);
                   }
                 },
@@ -273,27 +284,31 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Highlighter.currentHighlighter) {
-                    setState(() {
-                      if (toolOptionsType == ToolOptions.highlighter) {
-                        toolOptionsType = ToolOptions.hide;
-                      } else {
-                        toolOptionsType = ToolOptions.highlighter;
-                      }
-                    });
+                    if (toolOptionsType.value == ToolOptions.highlighter) {
+                      toolOptionsType.value = ToolOptions.hide;
+                    } else {
+                      toolOptionsType.value = ToolOptions.highlighter;
+                    }
                   } else {
-                    toolOptionsType = ToolOptions.hide;
+                    toolOptionsType.value = ToolOptions.hide;
                     widget.setTool(Highlighter.currentHighlighter);
                   }
                 },
                 padding: buttonPadding,
                 child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
               ),
-              ToolbarIconButton(
-                tooltip: t.editor.toolbar.toggleColors,
-                selected: showColorOptions,
-                enabled: !widget.readOnly,
-                onPressed: toggleColorOptions,
-                padding: buttonPadding,
+              ValueListenableBuilder(
+                valueListenable: showColorOptions,
+                builder: (context, showColorOptions, child) {
+                  return ToolbarIconButton(
+                    tooltip: t.editor.toolbar.toggleColors,
+                    selected: showColorOptions,
+                    enabled: !widget.readOnly,
+                    onPressed: toggleColorOptions,
+                    padding: buttonPadding,
+                    child: child!,
+                  );
+                },
                 child: currentColor == null
                     ? const Icon(Icons.palette)
                     : Container(
@@ -314,7 +329,7 @@ class _ToolbarState extends State<Toolbar> {
                 selected: widget.currentTool is Select,
                 enabled: !widget.readOnly,
                 onPressed: () {
-                  toolOptionsType = ToolOptions.hide;
+                  toolOptionsType.value = ToolOptions.hide;
                   widget.setTool(Select.currentSelect);
                 },
                 padding: buttonPadding,
@@ -332,7 +347,7 @@ class _ToolbarState extends State<Toolbar> {
                 selected: widget.currentTool == LaserPointer.currentLaserPointer,
                 enabled: true, // even in read-only mode
                 onPressed: () {
-                  toolOptionsType = ToolOptions.hide;
+                  toolOptionsType.value = ToolOptions.hide;
                   widget.setTool(LaserPointer.currentLaserPointer);
                 },
                 padding: buttonPadding,
@@ -412,12 +427,18 @@ class _ToolbarState extends State<Toolbar> {
                   ),
                 ],
               ),
-              ToolbarIconButton(
-                tooltip: t.editor.toolbar.export,
-                selected: showExportOptions,
-                enabled: !widget.readOnly,
-                onPressed: toggleExportBar,
-                padding: buttonPadding,
+              ValueListenableBuilder(
+                valueListenable: showExportOptions,
+                builder: (context, showExportOptions, child) {
+                  return ToolbarIconButton(
+                    tooltip: t.editor.toolbar.export,
+                    selected: showExportOptions,
+                    enabled: !widget.readOnly,
+                    onPressed: toggleExportBar,
+                    padding: buttonPadding,
+                    child: child!,
+                  );
+                },
                 child: const AdaptiveIcon(
                   icon: Icons.share,
                   cupertinoIcon: CupertinoIcons.share,
