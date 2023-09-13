@@ -203,14 +203,18 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   /// Resets the zoom level to 1.0x
   void resetZoom() {
-    final translation = widget._transformationController.value.getTranslation();
-    final scale = widget._transformationController.value.getMaxScaleOnAxis();
-
+    final transformation = widget._transformationController.value;
+    final scale = transformation.getMaxScaleOnAxis();
     if (scale == 1) return;
+
+    final middleOfPage = containerBounds.maxHeight / 2;
+
+    final translation = transformation.getTranslation().y / scale
+        + middleOfPage * (1 - 1 / scale);
 
     widget._transformationController.value = Matrix4.translationValues(
       0,
-      translation.y / scale + containerBounds.maxHeight / 2,
+      translation,
       0,
     );
   }
