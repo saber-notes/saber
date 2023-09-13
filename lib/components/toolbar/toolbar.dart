@@ -188,7 +188,7 @@ class _ToolbarState extends State<Toolbar> {
         builder: (context, toolOptionsType, _) {
           return Collapsible(
             axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-            maintainState: true,
+            maintainState: false,
             collapsed: toolOptionsType == ToolOptions.hide,
             child: switch (toolOptionsType) {
               ToolOptions.hide => const SizedBox(),
@@ -226,7 +226,7 @@ class _ToolbarState extends State<Toolbar> {
         builder: (context, quill, _) {
           return Collapsible(
             axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-            maintainState: true,
+            maintainState: false,
             collapsed: !widget.textEditing || quill == null,
             child: quill != null ? QuillToolbar.basic(
               axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
