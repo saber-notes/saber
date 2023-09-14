@@ -894,6 +894,7 @@ class EditorState extends State<Editor> {
       strokes: [],
       images: images,
     ));
+    createPage(currentPageIndex);
     coreInfo.pages[currentPageIndex].images.addAll(images);
     autosaveAfterDelay();
 
