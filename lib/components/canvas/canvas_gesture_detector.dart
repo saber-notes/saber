@@ -108,7 +108,6 @@ class CanvasGestureDetector extends StatefulWidget {
   }
 }
 
-@visibleForTesting
 class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   late BoxConstraints containerBounds = const BoxConstraints();
 

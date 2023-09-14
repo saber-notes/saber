@@ -45,7 +45,6 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:super_clipboard/super_clipboard.dart';
-import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 typedef _PhotoInfo = ({Uint8List bytes, String extension});
 
@@ -96,7 +95,22 @@ class EditorState extends State<Editor> {
 
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
-  final TransformationController _transformationController = TransformationController();
+  final _transformationController = TransformationController();
+  final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
+  double get scrollY {
+    final transformation = _transformationController.value;
+    final scale = transformation.getMaxScaleOnAxis();
+    final translation = transformation.getTranslation();
+    final gestureDetector = _canvasGestureDetectorKey.currentState;
+
+    if (gestureDetector == null) {
+      log.warning('scrollY: Could not find CanvasGestureDetectorState');
+      return translation.y / scale;
+    } else {
+      final middle = gestureDetector.containerBounds.maxHeight / 2;
+      return (translation.y - middle) / scale + middle;
+    }
+  }
 
   EditorHistory history = EditorHistory();
 
@@ -267,7 +281,7 @@ class EditorState extends State<Editor> {
     if (removedAPage) {
       // scroll to the last page (only if we're below the last page)
 
-      final currentY = _transformationController.value.getTranslation().y;
+      final scrollY = this.scrollY;
       late final topOfLastPage = -CanvasGestureDetector.getTopOfPage(
         pageIndex: coreInfo.pages.length - 1,
         pages: coreInfo.pages,
@@ -279,7 +293,7 @@ class EditorState extends State<Editor> {
         screenWidth: MediaQuery.of(context).size.width,
       );
 
-      if (currentY < bottomOfLastPage) {
+      if (scrollY < bottomOfLastPage) {
         _transformationController.value = Matrix4.translationValues(
           0,
           // Slight upwards offset so that the page is not flush with the top of the screen
@@ -1108,6 +1122,8 @@ class EditorState extends State<Editor> {
     setAndroidNavBarColor();
 
     final Widget canvas = CanvasGestureDetector(
+      key: _canvasGestureDetectorKey,
+
       filePath: coreInfo.filePath,
 
       isDrawGesture: isDrawGesture,
@@ -1595,10 +1611,9 @@ class EditorState extends State<Editor> {
     if (!mounted) return _lastCurrentPageIndex;
 
     final screenWidth = MediaQuery.of(context).size.width;
-    final scrollY = -_transformationController.value.getTranslation().y;
 
     return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
-      scrollY: scrollY,
+      scrollY: -scrollY,
       screenWidth: screenWidth,
       pages: coreInfo.pages,
     );
