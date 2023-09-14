@@ -4,6 +4,8 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
@@ -59,7 +61,7 @@ class CanvasGestureDetector extends StatefulWidget {
   late final TransformationController _transformationController;
 
   @override
-  State<CanvasGestureDetector> createState() => _CanvasGestureDetectorState();
+  State<CanvasGestureDetector> createState() => CanvasGestureDetectorState();
 
   static const double kMinScale = 0.3;
   static const double kMaxScale = 5;
@@ -106,7 +108,8 @@ class CanvasGestureDetector extends StatefulWidget {
   }
 }
 
-class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
+@visibleForTesting
+class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   late BoxConstraints containerBounds = const BoxConstraints();
 
   /// If zooming is locked, this is the zoom level.
@@ -119,10 +122,52 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Otherwise, panning can be done in any (i.e. diagonal) direction.
   late bool axisAlignedPanLock = Prefs.lastAxisAlignedPanLock.value;
 
+  void zoomIn() => widget._transformationController.value = zoomInOrOut(
+    zoomIn: true,
+    currentScale: widget._transformationController.value.getMaxScaleOnAxis(),
+    translation: widget._transformationController.value.getTranslation(),
+  ) ?? widget._transformationController.value;
+  void zoomOut() => widget._transformationController.value = zoomInOrOut(
+    zoomIn: false,
+    currentScale: widget._transformationController.value.getMaxScaleOnAxis(),
+    translation: widget._transformationController.value.getTranslation(),
+  ) ?? widget._transformationController.value;
+  @visibleForTesting
+  static Matrix4? zoomInOrOut({
+    required bool zoomIn,
+    required double currentScale,
+    required Vector3 translation,
+  }) {
+    final newScale = currentScale + (zoomIn ? 0.1 : -0.1);
+
+    if (newScale < CanvasGestureDetector.kMinScale) return null;
+    if (newScale > CanvasGestureDetector.kMaxScale) return null;
+
+    return Matrix4.identity()
+      ..translate(translation.x, translation.y)
+      ..scale(newScale);
+  }
+
+  Keybinding? _ctrlPlus, _ctrlEquals, _ctrlMinus;
+  void _assignKeybindings() {
+    _ctrlPlus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.add)], inclusive: true);
+    _ctrlEquals = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.equal)], inclusive: true);
+    _ctrlMinus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.minus)], inclusive: true);
+    Keybinder.bind(_ctrlPlus!, zoomIn);
+    Keybinder.bind(_ctrlEquals!, zoomIn);
+    Keybinder.bind(_ctrlMinus!, zoomOut);
+  }
+  void _removeKeybindings() {
+    if (_ctrlPlus != null) Keybinder.remove(_ctrlPlus!);
+    if (_ctrlEquals != null) Keybinder.remove(_ctrlEquals!);
+    if (_ctrlMinus != null) Keybinder.remove(_ctrlMinus!);
+  }
+
   @override
   void initState() {
     setInitialTransform();
     widget._transformationController.addListener(onTransformChanged);
+    _assignKeybindings();
     super.initState();
   }
 
@@ -329,7 +374,7 @@ class _CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     CanvasTransformCache.add(widget.filePath, widget._transformationController.value);
     widget._transformationController.removeListener(onTransformChanged);
     widget._transformationController.dispose();
-
+    _removeKeybindings();
     super.dispose();
   }
 

@@ -225,7 +225,6 @@ class EditorState extends State<Editor> {
   void _setState() => setState(() {});
 
   Keybinding? _ctrlZ, _ctrlY, _ctrlShiftZ;
-  Keybinding? _ctrlPlus, _ctrlEquals, _ctrlMinus;
   void _assignKeybindings() {
     _ctrlZ = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyZ)], inclusive: true);
     _ctrlY = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyY)], inclusive: true);
@@ -233,48 +232,11 @@ class EditorState extends State<Editor> {
     Keybinder.bind(_ctrlZ!, undo);
     Keybinder.bind(_ctrlY!, redo);
     Keybinder.bind(_ctrlShiftZ!, redo);
-
-    _ctrlPlus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.add)], inclusive: true);
-    _ctrlEquals = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.equal)], inclusive: true);
-    _ctrlMinus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.minus)], inclusive: true);
-    Keybinder.bind(_ctrlPlus!, zoomIn);
-    Keybinder.bind(_ctrlEquals!, zoomIn);
-    Keybinder.bind(_ctrlMinus!, zoomOut);
   }
   void _removeKeybindings() {
     if (_ctrlZ != null) Keybinder.remove(_ctrlZ!);
     if (_ctrlY != null) Keybinder.remove(_ctrlY!);
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
-
-    if (_ctrlPlus != null) Keybinder.remove(_ctrlPlus!);
-    if (_ctrlEquals != null) Keybinder.remove(_ctrlEquals!);
-    if (_ctrlMinus != null) Keybinder.remove(_ctrlMinus!);
-  }
-
-  void zoomIn() => _transformationController.value = zoomInOrOut(
-    zoomIn: true,
-    currentScale: _transformationController.value.getMaxScaleOnAxis(),
-    translation: _transformationController.value.getTranslation(),
-  ) ?? _transformationController.value;
-  void zoomOut() => _transformationController.value = zoomInOrOut(
-    zoomIn: false,
-    currentScale: _transformationController.value.getMaxScaleOnAxis(),
-    translation: _transformationController.value.getTranslation(),
-  ) ?? _transformationController.value;
-  @visibleForTesting
-  static Matrix4? zoomInOrOut({
-    required bool zoomIn,
-    required double currentScale,
-    required Vector3 translation,
-  }) {
-    final newScale = currentScale + (zoomIn ? 0.1 : -0.1);
-
-    if (newScale < CanvasGestureDetector.kMinScale) return null;
-    if (newScale > CanvasGestureDetector.kMaxScale) return null;
-
-    return Matrix4.identity()
-      ..translate(translation.x, translation.y)
-      ..scale(newScale);
   }
 
   /// Creates pages until the given page index exists,
