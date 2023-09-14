@@ -122,30 +122,38 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Otherwise, panning can be done in any (i.e. diagonal) direction.
   late bool axisAlignedPanLock = Prefs.lastAxisAlignedPanLock.value;
 
-  void zoomIn() => widget._transformationController.value = zoomInOrOut(
-    zoomIn: true,
-    currentScale: widget._transformationController.value.getMaxScaleOnAxis(),
-    translation: widget._transformationController.value.getTranslation(),
+  void zoomIn() => widget._transformationController.value = setZoom(
+    scaleDelta: 0.1,
+    transformation: widget._transformationController.value,
+    containerBounds: containerBounds,
   ) ?? widget._transformationController.value;
-  void zoomOut() => widget._transformationController.value = zoomInOrOut(
-    zoomIn: false,
-    currentScale: widget._transformationController.value.getMaxScaleOnAxis(),
-    translation: widget._transformationController.value.getTranslation(),
+  void zoomOut() => widget._transformationController.value = setZoom(
+    scaleDelta: -0.1,
+    transformation: widget._transformationController.value,
+    containerBounds: containerBounds,
   ) ?? widget._transformationController.value;
   @visibleForTesting
-  static Matrix4? zoomInOrOut({
-    required bool zoomIn,
-    required double currentScale,
-    required Vector3 translation,
+  static Matrix4? setZoom({
+    required double scaleDelta,
+    required Matrix4 transformation,
+    required BoxConstraints containerBounds,
   }) {
-    final newScale = currentScale + (zoomIn ? 0.1 : -0.1);
+    final oldScale = transformation.getMaxScaleOnAxis();
+    final newScale = oldScale + scaleDelta;
 
     if (newScale < CanvasGestureDetector.kMinScale) return null;
     if (newScale > CanvasGestureDetector.kMaxScale) return null;
 
-    return Matrix4.identity()
-      ..translate(translation.x, translation.y)
-      ..scale(newScale);
+    final center = Vector3(
+      containerBounds.maxWidth / 2,
+      containerBounds.maxHeight / 2,
+      0,
+    );
+    final translation = (transformation.getTranslation() - center)
+        * (newScale / oldScale) + center;
+
+    return Matrix4.translation(translation)
+        ..scale(newScale);
   }
 
   Keybinding? _ctrlPlus, _ctrlEquals, _ctrlMinus;
