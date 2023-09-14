@@ -260,16 +260,11 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final scale = transformation.getMaxScaleOnAxis();
     if (scale == 1) return;
 
-    final middleOfPage = containerBounds.maxHeight / 2;
-
-    final translation = transformation.getTranslation().y / scale
-        + middleOfPage * (1 - 1 / scale);
-
-    widget._transformationController.value = Matrix4.translationValues(
-      0,
-      translation,
-      0,
-    );
+    widget._transformationController.value = setZoom(
+      scaleDelta: 1 - scale,
+      transformation: transformation,
+      containerBounds: containerBounds,
+    ) ?? transformation;
   }
 
   void _listenerPointerEvent(PointerEvent event) {
