@@ -12,6 +12,7 @@ issues: https://github.com/adil192/saber/issues
 contact: soumyadeepghosh2004@zohomail.in
 architectures:
   - build-on: amd64
+  - build-on: arm64
 parts:
   rustup:
     plugin: nil
