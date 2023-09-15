@@ -1,0 +1,5 @@
+• Sok nagyítási probléma és az aktuális oldalfelismerés kijavítva a nagyításkor
+• Javított kezdeti teljesítmény nem Onyx Android-eszközökön
+• Az eszköztár jobb teljesítménye a különböző menük váltásakor
+• Arm64 Linux eszközök támogatása Flathubon
+• Letiltott hirdetések azokon az eszközökön, ahol lassulást okoznának

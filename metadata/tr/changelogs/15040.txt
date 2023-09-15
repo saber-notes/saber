@@ -1,0 +1,5 @@
+• Pek çok yakınlaştırma sorunu ve yakınlaştırıldığında geçerli sayfanın algılanması düzeltildi
+• Onyx olmayan Android cihazlarda iyileştirilmiş başlangıç ​​performansı
+• Farklı menüler arasında geçiş yaparken geliştirilmiş araç çubuğu performansı
+• Flathub'da arm64 Linux cihazları desteği
+• Cihazlarda yavaşlamaya neden olabilecek reklamlar devre dışı bırakıldı
