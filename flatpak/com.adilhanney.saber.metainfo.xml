@@ -265,6 +265,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.15.4" type="development" date="2023-09-15">
+            <description>
+                <ul>
+                    <li>Fixed a lot of zooming issues and the current page detection when zoomed</li>
+                    <li>Improved initial performance on non-Onyx Android devices</li>
+                    <li>Improved toolbar performance when toggling different menus</li>
+                    <li>Support for arm64 Linux devices on Flathub</li>
+                    <li>Disabled ads on devices where they'd cause slowdowns</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.15.3" type="development" date="2023-08-29">
             <description>
                 <ul>

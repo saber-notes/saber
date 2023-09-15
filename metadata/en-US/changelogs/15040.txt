@@ -1,0 +1,5 @@
+• Fixed a lot of zooming issues and the current page detection when zoomed
+• Improved initial performance on non-Onyx Android devices
+• Improved toolbar performance when toggling different menus
+• Support for arm64 Linux devices on Flathub
+• Disabled ads on devices where they'd cause slowdowns
