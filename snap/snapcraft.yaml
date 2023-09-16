@@ -10,9 +10,7 @@ donation: https://github.com/sponsors/adil192
 source-code: https://github.com/adil192/saber
 issues: https://github.com/adil192/saber/issues
 contact: soumyadeepghosh2004@zohomail.in
-architectures:
-  - build-on: amd64
-  - build-on: arm64
+architectures: [amd64, arm64]
 parts:
   rustup:
     plugin: nil
