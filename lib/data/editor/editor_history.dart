@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/_color_change.dart';
 import 'package:saber/data/editor/page.dart';
 
 class EditorHistory {
@@ -115,11 +116,13 @@ class EditorHistoryItem {
     this.offset,
     this.page,
     this.quillChange,
+    this.colorChange,
   })  : assert(type != EditorHistoryItemType.move || offset != null, 'Offset must be provided for move'),
         assert(type != EditorHistoryItemType.deletePage || page != null, 'Page must be provided for deletePage'),
         assert(type != EditorHistoryItemType.insertPage || page != null, 'Page must be provided for insertPage'),
         assert(type != EditorHistoryItemType.quillChange || quillChange != null, 'Quill change must be provided for quillChange'),
-        assert(type != EditorHistoryItemType.quillUndoneChange || quillChange != null, 'Quill change must be provided for quillUndoneChange');
+        assert(type != EditorHistoryItemType.quillUndoneChange || quillChange != null, 'Quill change must be provided for quillUndoneChange'),
+        assert(type != EditorHistoryItemType.changeColor || colorChange != null, 'ColorChange must be provided for changeColor');
 
   final EditorHistoryItemType type;
   final int pageIndex;
@@ -128,6 +131,7 @@ class EditorHistoryItem {
   final Rect? offset;
   final EditorPage? page;
   final DocChange? quillChange;
+  final Map<Stroke, ColorChange>? colorChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
@@ -137,6 +141,7 @@ class EditorHistoryItem {
     Rect? offset,
     EditorPage? page,
     DocChange? quillChange,
+    Map<Stroke, ColorChange>? colorChange
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
@@ -146,6 +151,7 @@ class EditorHistoryItem {
       offset: offset ?? this.offset,
       page: page ?? this.page,
       quillChange: quillChange ?? this.quillChange,
+      colorChange: colorChange ?? this.colorChange,
     );
   }
 }
@@ -158,4 +164,5 @@ enum EditorHistoryItemType {
   move,
   quillChange,
   quillUndoneChange,
+  changeColor
 }

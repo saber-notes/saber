@@ -30,12 +30,6 @@ class Select extends Tool {
     selectResult.pageIndex = -1;
   }
 
-  void updateStrokeColor(Color color){
-    for(Stroke stroke in selectResult.strokes){
-      stroke.strokeProperties.color = color;
-    }
-  }
-
   Color? getDominantStrokeColor(){
     Map<Color, int> colorDistribution = <Color, int>{};
     for(Stroke stroke in selectResult.strokes){
