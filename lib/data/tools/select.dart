@@ -30,6 +30,39 @@ class Select extends Tool {
     selectResult.pageIndex = -1;
   }
 
+  void updateStrokeColor(Color color){
+    for(Stroke stroke in selectResult.strokes){
+      stroke.strokeProperties.color = color;
+    }
+  }
+
+  Color? getDominantStrokeColor(){
+    Map<Color, int> colorDistribution = <Color, int>{};
+    for(Stroke stroke in selectResult.strokes){
+      int strokeSize = stroke.polygon.length;
+
+      colorDistribution.update(stroke.strokeProperties.color, (value) => value+strokeSize, ifAbsent: () {
+        return strokeSize;
+      },);
+    }
+
+    if(colorDistribution.isEmpty){
+      return null;
+    }
+
+    Color dominantColor = colorDistribution.keys.first;
+    int maxSize = colorDistribution.values.first;
+
+    colorDistribution.forEach((color, size) {
+      if(maxSize < size){
+        maxSize = size;
+        dominantColor = color;
+      }
+    });
+
+    return dominantColor;
+  }
+
   void onDragStart(Offset position, int pageIndex) {
     doneSelecting = false;
     selectResult = SelectResult(

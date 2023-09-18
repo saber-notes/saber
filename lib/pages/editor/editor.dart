@@ -1246,6 +1246,8 @@ class EditorState extends State<Editor> {
                 (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
               } else if (currentTool is Pen) {
                 (currentTool as Pen).strokeProperties.color = color;
+              } else if(currentTool is Select){
+                (currentTool as Select).updateStrokeColor(color);
               }
             });
           },
