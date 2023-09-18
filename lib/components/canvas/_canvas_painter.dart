@@ -69,7 +69,7 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
       if (currentSelection?.strokes.contains(stroke) ?? false) {
-        paint.color = primaryColor;
+        paint.color = Color.lerp(stroke.strokeProperties.color.withInversion(invert), Colors.black, 0.25) ?? primaryColor;
       } else {
         paint.color = stroke.strokeProperties.color.withInversion(invert);
       }

@@ -161,6 +161,7 @@ class _ToolbarState extends State<Toolbar> {
 
     final currentColor = switch (widget.currentTool) {
       Pen pen => pen.strokeProperties.color,
+      Select select => select.getDominantStrokeColor(),
       _ => null,
     };
 
