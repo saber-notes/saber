@@ -1268,6 +1268,7 @@ class EditorState extends State<Editor> {
                   colorChange: colorChange,
                   images: []
                 ));
+                autosaveAfterDelay();
               }
             });
           },
