@@ -187,7 +187,7 @@ profile:
       a: "上部の\"@:profile.quickLinks.deleteAccount\"ボタンをタップし、必要であればログインしてください。Saber公式サーバーを利用している場合、1週間の猶予期間の後にアカウントが削除されます。この期間中であれば、adilhanney@disroot.orgまでご連絡いただければ、削除を取り消すことが可能です。サードパーティのサーバーをご利用の場合、アカウントを削除するオプションがない場合があります。詳細については、ご利用のサーバープライバシーポリシーをご確認ください。"
 appInfo:
   licenseNotice: |-
-    Saber  Copyright (C) 2022-$buildYear  Adil Hanney
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
     このプログラムには一切の保証がありません。これはフリーソフトウェアであり、一定の条件下で再配布することを歓迎します。
   dirty: DIRTY
   debug: デバッグ

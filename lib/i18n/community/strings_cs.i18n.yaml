@@ -190,7 +190,7 @@ profile:
         Pokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.
 appInfo:
   licenseNotice: |-
-    Saber  Copyright (C) 2022-$buildYear  Adil Hanney
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
     Tento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.
   dirty: ZKUŠEBNÍ VERZE
   debug: LADÍCÍ VERZE

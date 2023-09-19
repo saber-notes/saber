@@ -190,7 +190,7 @@ profile:
         Ha harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.
 appInfo:
   licenseNotice: |-
-    Saber Copyright (C) 2022-$buildYear Adil Hanney
+    Saber Copyright © 2022-$buildYear Adil Hanney
     Ez a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.
   dirty: DIRTY
   debug: DEBUG

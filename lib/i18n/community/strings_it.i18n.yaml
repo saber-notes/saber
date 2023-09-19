@@ -190,7 +190,7 @@ profile:
         Se stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.
 appInfo:
   licenseNotice: |-
-    Saber Copyright (C) 2022-$buildYear Adil Hanney
+    Saber Copyright © 2022-$buildYear Adil Hanney
     Questo programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.
   dirty: GROSSOLANA
   debug: DEBUG

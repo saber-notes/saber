@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-09-11 at 22:44 UTC
+/// Built on 2023-09-19 at 15:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -263,7 +263,7 @@ class _StringsAppInfoEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	String get dirty => 'DIRTY';
 	String get debug => 'DEBUG';
 	String get sponsorButton => 'Tap here to sponsor me or buy more storage';
@@ -697,7 +697,7 @@ class _StringsProfile$faq$0i2$En {
 
 	// Translations
 	String get q => 'How do I change my encryption password?';
-	String get a => '1. Log out of Saber. Make sure syncing is complete before logging out so you don\'t lose any data (see the sync progress on the home screen).\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
+	String get a => '0. Make sure syncing is complete (see the sync progress on the home screen).\n1. Log out of Saber.\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
 }
 
 // Path: profile.faq.3
@@ -1029,7 +1029,7 @@ class _StringsAppInfoAr extends _StringsAppInfoEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber حقوق نشر (C) 2022-${buildYear}  Adil Hanney\nهذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber حقوق نشر © 2022-${buildYear}  Adil Hanney\nهذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.';
 	@override String get dirty => 'قذر';
 	@override String get debug => 'تصحيح أخطاء';
 	@override String get sponsorButton => 'انقر هنا لتدعمني أو شراء المزيد من مساحة التخزين';
@@ -1795,7 +1795,7 @@ class _StringsAppInfoCs extends _StringsAppInfoEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nTento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.';
 	@override String get dirty => 'ZKUŠEBNÍ VERZE';
 	@override String get debug => 'LADÍCÍ VERZE';
 	@override String get sponsorButton => 'Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště';
@@ -2483,7 +2483,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
 	@override String get deleteNote => 'Notiz löschen';
 	@override late final _StringsHomeCreateDe create = _StringsHomeCreateDe._(_root);
-	@override String get invalidFormat => 'Die von Ihnen ausgewählte Datei wird nicht unterstützt. Bitte wählen Sie eine .sbn-, .sbn2- oder .pdf-Datei aus.';
+	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus.';
 	@override late final _StringsHomeRenameFolderDe renameFolder = _StringsHomeRenameFolderDe._(_root);
 }
 
@@ -2561,7 +2561,7 @@ class _StringsAppInfoDe extends _StringsAppInfoEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nDieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.';
 	@override String get dirty => 'TESTVERSION';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Hier tippen, um mich zu unterstützen oder mehr Speicherplatz zu kaufen';
@@ -2647,7 +2647,7 @@ class _StringsHomeNewFolderDe extends _StringsHomeNewFolderEn {
 
 	// Translations
 	@override String get newFolder => 'Neuer Ordner';
-	@override String get folderName => 'Ordner Name';
+	@override String get folderName => 'Ordnername';
 	@override String get create => 'Erstellen';
 	@override String get folderNameEmpty => 'Ordnername darf nicht leer sein';
 	@override String get folderNameContainsSlash => 'Ordnernamen dürfen keine Schrägstriche enthalten';
@@ -2662,7 +2662,7 @@ class _StringsHomeRenameNoteDe extends _StringsHomeRenameNoteEn {
 
 	// Translations
 	@override String get renameNote => 'Notiz umbenennen';
-	@override String get noteName => 'Notiz Name';
+	@override String get noteName => 'Name der Notiz';
 	@override String get rename => 'Umbenennen';
 	@override String get noteNameEmpty => 'Name der Notiz darf nicht leer sein';
 	@override String get noteNameContainsSlash => 'Name der Notiz darf keinen Schrägstrich enthalten';
@@ -2692,7 +2692,7 @@ class _StringsHomeDeleteFolderDe extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => 'Löschen Sie ${f}';
 	@override String get deleteFolder => 'Lösche Ordner';
 	@override String get delete => 'Löschen';
-	@override String get alsoDeleteContents => 'Löschen Sie außerdem alle Notizen in diesem Ordner';
+	@override String get alsoDeleteContents => 'Lösche außerdem alle Notizen in diesem Ordner';
 }
 
 // Path: home.create
@@ -2702,7 +2702,7 @@ class _StringsHomeCreateDe extends _StringsHomeCreateEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => 'Neuer Hinweis';
+	@override String get newNote => 'Neue Notiz';
 	@override String get importNote => 'Notiz importieren';
 }
 
@@ -2714,7 +2714,7 @@ class _StringsHomeRenameFolderDe extends _StringsHomeRenameFolderEn {
 
 	// Translations
 	@override String get folderNameEmpty => 'Der Ordnername darf nicht leer sein';
-	@override String get renameFolder => 'Rename Ordner';
+	@override String get renameFolder => 'Ordner umbenennen';
 	@override String get folderName => 'Ordnernamen';
 	@override String get rename => 'Name';
 	@override String get folderNameContainsSlash => 'Der Ordnername darf keinen Schrägstrich enthalten';
@@ -2730,7 +2730,7 @@ class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Allgemein';
 	@override String get writing => 'Eingabe';
-	@override String get advanced => 'Fortschrittlich';
+	@override String get advanced => 'Fortgeschritten';
 	@override String get editor => 'Herausgeber';
 }
 
@@ -2744,7 +2744,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Sprache';
 	@override String get appTheme => 'Anwendungsthema';
 	@override String get platform => 'Oberfläche';
-	@override String get layoutSize => 'Layout Größe';
+	@override String get layoutSize => 'Größe des Layouts';
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
@@ -2764,7 +2764,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
 	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
-	@override String get hideFingerDrawingToggle => 'Blenden Sie den Fingerzeichnungsschalter aus';
+	@override String get hideFingerDrawingToggle => 'Den Fingerzeichnungsschalter ausblenden';
 	@override String get shouldAlwaysAlertForUpdates => 'Schnellere Updates';
 	@override String get disableEraserAfterUse => 'Deaktivieren Sie den Radierer automatisch';
 }
@@ -2777,19 +2777,19 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
-	@override String get disableAds => 'Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.';
+	@override String get disableAds => 'Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.';
 	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
 	@override String get editorOpaqueBackgrounds => 'Hintergrundbilder und PDFs undurchsichtig machen';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
-	@override String get editorPromptRename => 'Notizen können immer auch später noch umbenannt werden';
+	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
-	@override String get autosaveDelay => 'Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern';
+	@override String get autosaveDelay => 'Wartezeit, bevor eine Notiz automatisch gespeichert wird';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
 	@override String get disableEraserAfterUse => 'Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück';
-	@override String get shouldAlwaysAlertForUpdates => 'Informieren Sie mich über Updates, sobald sie verfügbar sind';
+	@override String get shouldAlwaysAlertForUpdates => 'Informiere mich über Updates, sobald sie verfügbar sind';
 }
 
 // Path: settings.themeModes
@@ -2861,7 +2861,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Der angegebene Nextcloud Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s}.';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 }
@@ -2906,7 +2906,7 @@ class _StringsLogin$faq$0i0$De extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'Was ist Nextcloud?';
-	@override String get a => 'Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten.';
+	@override String get a => 'Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten.';
 }
 
 // Path: login.faq.1
@@ -2917,7 +2917,7 @@ class _StringsLogin$faq$0i1$De extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Was ist das Verchlüsselungspasswort?';
-	@override String get a => 'Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
+	@override String get a => 'Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
 }
 
 // Path: login.faq.2
@@ -2928,7 +2928,7 @@ class _StringsLogin$faq$0i2$De extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Wieso zwei Passwörter?';
-	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
+	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
 }
 
 // Path: login.faq.3
@@ -2939,7 +2939,7 @@ class _StringsLogin$faq$0i3$De extends _StringsLogin$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?';
-	@override String get a => 'Anstatt dein normales Nextcloud Password zu verwenden, musst du ein "App Password" erstellen. Das kannst du in den Nextcloud Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft dein Verschlüsselungspassword nicht.';
+	@override String get a => 'Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein "App Password" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort.';
 }
 
 // Path: login.faq.4
@@ -2950,7 +2950,7 @@ class _StringsLogin$faq$0i4$De extends _StringsLogin$faq$0i4$En {
 
 	// Translations
 	@override String get q => 'Kann ich dasselbe Passwort für beide verwenden?';
-	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust.';
+	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust.';
 }
 
 // Path: profile.quickLinks
@@ -2961,8 +2961,8 @@ class _StringsProfileQuickLinksDe extends _StringsProfileQuickLinksEn {
 
 	// Translations
 	@override String get title => 'Schnellzugriff';
-	@override String get serverHomepage => 'Server Startseite';
-	@override String get deleteAccount => 'Account Löschen';
+	@override String get serverHomepage => 'Server-Startseite';
+	@override String get deleteAccount => 'Account löschen';
 }
 
 // Path: profile.faq.0
@@ -2973,7 +2973,7 @@ class _StringsProfile$faq$0i0$De extends _StringsProfile$faq$0i0$En {
 
 	// Translations
 	@override String get q => 'Verliere ich meine Notizen, wenn ich mich abmelde?';
-	@override String get a => 'Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt anschauen.';
+	@override String get a => 'Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt überprüfen.';
 }
 
 // Path: profile.faq.1
@@ -2983,8 +2983,8 @@ class _StringsProfile$faq$0i1$De extends _StringsProfile$faq$0i1$En {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Wie  ändere ich mein Nextcloud Passwort?';
-	@override String get a => 'Öffne die Server Website und melde dich an. Unter Einstellungen>Sicherheit>Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in der App abmelden und wieder anmelden.';
+	@override String get q => 'Wie ändere ich mein Nextcloud-Passwort?';
+	@override String get a => 'Öffne die Server-Startseite und melde dich an. Unter Einstellungen > Sicherheit > Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in Saber ab- und wieder anmelden.';
 }
 
 // Path: profile.faq.2
@@ -2995,7 +2995,7 @@ class _StringsProfile$faq$0i2$De extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Wie ändere ich mein Verschlüsselungspasswort?';
-	@override String get a => '1. Melde dich in Saber ab. Bitte stelle vorher sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n2. Öffne die Server Website und lösche den \'Saber\' Order. Dadurch werden alle Notizen vom Server gelöscht.\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n4. Vergiss nicht auf anderen Geräten dich in Saber ab- und wieder anzumelden.';
+	@override String get a => '0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n1. Melde dich in Saber ab. \n2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.';
 }
 
 // Path: profile.faq.3
@@ -3006,7 +3006,7 @@ class _StringsProfile$faq$0i3$De extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Wie lösche ich meinen Account?';
-	@override String get a => 'Drücke den  "${_root.profile.quickLinks.deleteAccount}" Knopf oben und melde dich an (solltest du gefragt werden).\nWenn du den offiziellen Saber Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Während dieser Woche, kannst du mich unter adilhanney@disroot.org kontaktieren.\nWenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.';
+	@override String get a => 'Drücke oben den „${_root.profile.quickLinks.deleteAccount}“-Button und melde dich gegebenenfalls an.\nWenn du den offiziellen Saber-Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Du kannst mich während dieser Woche unter adilhanney@disroot.org kontaktieren um die Löschung rückgängig zu machen.\nWenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.';
 }
 
 // Path: editor.toolbar
@@ -3050,7 +3050,7 @@ class _StringsEditorPenOptionsDe extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Dicke';
-	@override String get sizeDragHint => 'Nach links oder rechts ziehen, um die Größe zu ändern';
+	@override String get sizeDragHint => 'Nach links oder rechts ziehen, um die Dicke zu ändern';
 }
 
 // Path: editor.colors
@@ -3072,7 +3072,7 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get yellow => 'Gelb';
 	@override String get purple => 'Lila';
 	@override String get orange => 'Orange';
-	@override String get pastelRed => 'Pastellfarbenes rot';
+	@override String get pastelRed => 'Pastellfarbenes Rot';
 	@override String get pastelOrange => 'Pastellfarbenes Orange';
 	@override String get pastelYellow => 'Pastellfarbenes Gelb';
 	@override String get pastelGreen => 'Pastellfarbenes Grün';
@@ -3110,7 +3110,7 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Seite duplizieren';
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
-	@override String get lineHeightDescription => 'Beeinflusst die Schriftgröße';
+	@override String get lineHeightDescription => 'Beeinflusst außerdem die Schriftgröße';
 	@override String get backgroundImageFit => 'Hintergrundbild';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
@@ -3153,7 +3153,7 @@ class _StringsEditorHudDe extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Zoom sperren';
 	@override String get unlockSingleFingerPan => 'Verschieben mit einem Finger aktivieren';
 	@override String get lockSingleFingerPan => 'Verschieben mit einem Finger deaktivieren';
-	@override String get unlockAxisAlignedPan => 'Beschränkung der Horizontal bzw. Vertikalverschiebung aufheben';
+	@override String get unlockAxisAlignedPan => 'Beschränkung der Horizontal- bzw. Vertikalverschiebung aufheben';
 	@override String get lockAxisAlignedPan => 'Verschieben auf Horizontale oder Vertikale beschränken';
 }
 
@@ -3164,8 +3164,8 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingDe extends _StringsSettin
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => 'Das Fingerzeichnen ist als aktiviert festgelegt';
-	@override String get fixedOff => 'Das Fingerzeichnen ist als deaktiviert behoben';
+	@override String get fixedOn => 'Das Fingerzeichnen ist derzeit aktiviert';
+	@override String get fixedOff => 'Das Fingerzeichnen ist derzeit deaktiviert';
 	@override String get shown => 'Verhindert versehentliches Umschalten';
 }
 
@@ -3326,7 +3326,7 @@ class _StringsAppInfoEs extends _StringsAppInfoEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toca aquí para patrocinarme o comprar más almacenamiento';
@@ -4092,7 +4092,7 @@ class _StringsAppInfoFa extends _StringsAppInfoEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nاین برنامه کاملاً بدون گارانتی ارائه می شود. این نرم‌افزار رایگان است و شما می‌توانید تحت شرایط خاصی آن را مجدداً توزیع کنید';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nاین برنامه کاملاً بدون گارانتی ارائه می شود. این نرم‌افزار رایگان است و شما می‌توانید تحت شرایط خاصی آن را مجدداً توزیع کنید';
 	@override String get dirty => 'دیرتی';
 	@override String get debug => 'دیباگ';
 	@override String get sponsorButton => 'برای حمایت مالی از من یا خرید فضای ذخیره بیشتر، اینجا ضربه بزنید';
@@ -4858,7 +4858,7 @@ class _StringsAppInfoFr extends _StringsAppInfoEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nCe programme est livré sans aucune garantie. Il s\'agit d\'un logiciel libre, et vous pouvez le diffuser sous certaines conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nCe programme est livré sans aucune garantie. Il s\'agit d\'un logiciel libre, et vous pouvez le diffuser sous certaines conditions.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Appuyer ici pour me soutenir ou acheter ou acheter plus d\'espace de stockage';
@@ -5624,7 +5624,7 @@ class _StringsAppInfoHu extends _StringsAppInfoEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber Copyright (C) 2022-${buildYear} Adil Hanney\nEz a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber Copyright © 2022-${buildYear} Adil Hanney\nEz a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Ide kattintva támogathat engem vagy vásárolhat több tárhelyet';
@@ -6390,7 +6390,7 @@ class _StringsAppInfoIt extends _StringsAppInfoEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber Copyright (C) 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber Copyright © 2022-${buildYear} Adil Hanney\nQuesto programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.';
 	@override String get dirty => 'GROSSOLANA';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione';
@@ -7156,7 +7156,7 @@ class _StringsAppInfoJa extends _StringsAppInfoEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nこのプログラムには一切の保証がありません。これはフリーソフトウェアであり、一定の条件下で再配布することを歓迎します。';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nこのプログラムには一切の保証がありません。これはフリーソフトウェアであり、一定の条件下で再配布することを歓迎します。';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'デバッグ';
 	@override String get sponsorButton => '私のスポンサーになる、またはストレージを購入する際は、ここをタップしてください。';
@@ -7922,7 +7922,7 @@ class _StringsAppInfoPtBr extends _StringsAppInfoEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software livre e você pode redistribuí-lo sob certas condições.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nEste programa vem sem absolutamente nenhuma garantia. Este é um software livre e você pode redistribuí-lo sob certas condições.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toque aqui para me patrocinar ou comprar mais armazenamento';
@@ -8688,7 +8688,7 @@ class _StringsAppInfoRu extends _StringsAppInfoEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nЭта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.';
 	@override String get dirty => 'ГРЯЗНАЯ';
 	@override String get debug => 'ОТЛАДКА';
 	@override String get sponsorButton => 'Проспонсируйте меня или купите дополнительное пространство';
@@ -9454,7 +9454,7 @@ class _StringsAppInfoTr extends _StringsAppInfoEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright (C) 2022-${buildYear}  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
 	@override String get dirty => 'TEST';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla';
@@ -10220,7 +10220,7 @@ class _StringsAppInfoZhHansCn extends _StringsAppInfoEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  版权所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版权所有 © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => '点击此处赞助我或购买更多存储空间';
@@ -10986,7 +10986,7 @@ class _StringsAppInfoZhHantTw extends _StringsAppInfoEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 (C) 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => '點擊此處贊助我或購買更多儲存空間';

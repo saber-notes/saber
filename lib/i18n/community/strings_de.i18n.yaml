@@ -17,14 +17,14 @@ home:
   createNewNote: "Drücke die + Schaltfläche, um eine neue Notiz zu erstellen"
   newFolder:
     newFolder: Neuer Ordner
-    folderName: Ordner Name
+    folderName: Ordnername
     create: Erstellen
     folderNameEmpty: Ordnername darf nicht leer sein
     folderNameContainsSlash: Ordnernamen dürfen keine Schrägstriche enthalten
     folderNameExists: Ordner existiert bereits
   renameNote:
     renameNote: Notiz umbenennen
-    noteName: Notiz Name
+    noteName: Name der Notiz
     rename: Umbenennen
     noteNameEmpty: Name der Notiz darf nicht leer sein
     noteNameContainsSlash: Name der Notiz darf keinen Schrägstrich enthalten
@@ -39,15 +39,15 @@ home:
     deleteName(OUTDATED): Löschen Sie $f
     deleteFolder(OUTDATED): Lösche Ordner
     delete(OUTDATED): Löschen
-    alsoDeleteContents(OUTDATED): Löschen Sie außerdem alle Notizen in diesem Ordner
+    alsoDeleteContents(OUTDATED): Lösche außerdem alle Notizen in diesem Ordner
   deleteNote(OUTDATED): Notiz löschen
   create:
-    newNote(OUTDATED): Neuer Hinweis
+    newNote(OUTDATED): Neue Notiz
     importNote(OUTDATED): Notiz importieren
-  invalidFormat(OUTDATED): "Die von Ihnen ausgewählte Datei wird nicht unterstützt. Bitte wählen Sie eine .sbn-, .sbn2- oder .pdf-Datei aus."
+  invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus."
   renameFolder:
     folderNameEmpty(OUTDATED): Der Ordnername darf nicht leer sein
-    renameFolder(OUTDATED): Rename Ordner
+    renameFolder(OUTDATED): Ordner umbenennen
     folderName(OUTDATED): Ordnernamen
     rename(OUTDATED): Name
     folderNameContainsSlash(OUTDATED): Der Ordnername darf keinen Schrägstrich enthalten
@@ -56,13 +56,13 @@ settings:
   prefCategories:
     general: Allgemein
     writing: Eingabe
-    advanced(OUTDATED): Fortschrittlich
+    advanced(OUTDATED): Fortgeschritten
     editor(OUTDATED): Herausgeber
   prefLabels:
     locale: Sprache
     appTheme: Anwendungsthema
     platform: Oberfläche
-    layoutSize: Layout Größe
+    layoutSize: Größe des Layouts
     customAccentColor: Benutzerdefinierte Akzentfarbe
     hyperlegibleFont: Hyperlesbare Schrift
     shouldCheckForUpdates: Suche automatisch nach Saber-Aktualisierungen
@@ -82,27 +82,27 @@ settings:
     dontSavePresetColors: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     printPageIndicators: Seitennummerierung drucken
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
-    hideFingerDrawingToggle(OUTDATED): Blenden Sie den Fingerzeichnungsschalter aus
+    hideFingerDrawingToggle(OUTDATED): Den Fingerzeichnungsschalter ausblenden
     shouldAlwaysAlertForUpdates(OUTDATED): Schnellere Updates
     disableEraserAfterUse(OUTDATED): Deaktivieren Sie den Radierer automatisch
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
-    disableAds: Die Entwicklung von Saber wird duch Webung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
+    disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
     allowInsecureConnections: (Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
     editorOpaqueBackgrounds: Hintergrundbilder und PDFs undurchsichtig machen
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert
     maxImageSize: "Bilder, die größer sind, werden komprimiert"
-    editorPromptRename: Notizen können immer auch später noch umbenannt werden
+    editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
-    autosaveDelay(OUTDATED): "Wie lange warten Sie, bevor Sie eine Notiz automatisch speichern"
+    autosaveDelay(OUTDATED): "Wartezeit, bevor eine Notiz automatisch gespeichert wird"
     hideFingerDrawing:
-      fixedOn(OUTDATED): Das Fingerzeichnen ist als aktiviert festgelegt
-      fixedOff(OUTDATED): Das Fingerzeichnen ist als deaktiviert behoben
+      fixedOn(OUTDATED): Das Fingerzeichnen ist derzeit aktiviert
+      fixedOff(OUTDATED): Das Fingerzeichnen ist derzeit deaktiviert
       shown(OUTDATED): Verhindert versehentliches Umschalten
     disableEraserAfterUse(OUTDATED): Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück
-    shouldAlwaysAlertForUpdates(OUTDATED): "Informieren Sie mich über Updates, sobald sie verfügbar sind"
+    shouldAlwaysAlertForUpdates(OUTDATED): "Informiere mich über Updates, sobald sie verfügbar sind"
   themeModes:
     system: System
     light: Hell
@@ -134,7 +134,7 @@ login:
     enterEncPassword: Bitte gib dein Verschlüsselungspasswort ein.
     checkUrl: Bitte gib eine gültige URL an.
     ncLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung."
-    ncUnsupportedFailure: "Der angegebene Nextcloud Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s."
+    ncUnsupportedFailure: "Der angegebene Nextcloud-Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s."
     encLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
     loginSuccess: "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
   form:
@@ -152,45 +152,46 @@ login:
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
   faq:
     - q: "Was ist Nextcloud?"
-      a: "Nextcloud ist unter andrem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
+      a: "Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
     - q: "Was ist das Verchlüsselungspasswort?"
       a: |-
-        Das Verschlüsselungspassort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
+        Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
         Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
     - q: "Wieso zwei Passwörter?"
       a: |-
-        Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort "verwürfelt" deine Daten, bevor diese die Cloud erreichen.
+        Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
         Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
     - q: "Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?"
-      a: "Anstatt dein normales Nextcloud Password zu verwenden, musst du ein \"App Password\" erstellen. Das kannst du in den Nextcloud Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft dein Verschlüsselungspassword nicht."
+      a: "Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein \"App Password\" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort."
     - q: "Kann ich dasselbe Passwort für beide verwenden?"
-      a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Password verwenden, wenn du der Person, die den Server besitzt, vertraust."
+      a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
 profile:
   title: Mein Profil
   logout: Abmelden
   quickLinks:
     title: Schnellzugriff
-    serverHomepage: Server Startseite
-    deleteAccount: Account Löschen
+    serverHomepage: Server-Startseite
+    deleteAccount: Account löschen
   faq:
     - q: "Verliere ich meine Notizen, wenn ich mich abmelde?"
-      a: "Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt anschauen."
-    - q: "Wie  ändere ich mein Nextcloud Passwort?"
-      a: "Öffne die Server Website und melde dich an. Unter Einstellungen>Sicherheit>Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in der App abmelden und wieder anmelden."
+      a: "Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt überprüfen."
+    - q: "Wie ändere ich mein Nextcloud-Passwort?"
+      a: "Öffne die Server-Startseite und melde dich an. Unter Einstellungen > Sicherheit > Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in Saber ab- und wieder anmelden."
     - q: "Wie ändere ich mein Verschlüsselungspasswort?"
       a: |-
-        1. Melde dich in Saber ab. Bitte stelle vorher sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).
-        2. Öffne die Server Website und lösche den 'Saber' Order. Dadurch werden alle Notizen vom Server gelöscht.
+        0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).
+        1. Melde dich in Saber ab. 
+        2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.
         3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.
-        4. Vergiss nicht auf anderen Geräten dich in Saber ab- und wieder anzumelden.
+        4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.
     - q: "Wie lösche ich meinen Account?"
       a: |-
-        Drücke den  "@:profile.quickLinks.deleteAccount" Knopf oben und melde dich an (solltest du gefragt werden).
-        Wenn du den offiziellen Saber Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Während dieser Woche, kannst du mich unter adilhanney@disroot.org kontaktieren.
+        Drücke oben den „@:profile.quickLinks.deleteAccount“-Button und melde dich gegebenenfalls an.
+        Wenn du den offiziellen Saber-Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Du kannst mich während dieser Woche unter adilhanney@disroot.org kontaktieren um die Löschung rückgängig zu machen.
         Wenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.
 appInfo:
   licenseNotice: |-
-    Saber  Copyright (C) 2022-$buildYear  Adil Hanney
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
     Dieses Programm kommt ohne jegliche Gewährleistung. Dies ist freie Software und du bist herzlich eingeladen, diese unter bestimmten Bedingungen weiterzuverteilen.
   dirty: TESTVERSION
   debug: DEBUG
@@ -221,7 +222,7 @@ editor:
     laserPointer: Laserpointer
   penOptions:
     size: Dicke
-    sizeDragHint: "Nach links oder rechts ziehen, um die Größe zu ändern"
+    sizeDragHint: "Nach links oder rechts ziehen, um die Dicke zu ändern"
   colors:
     colorPicker: Farbauswahl
     black: Schwarz
@@ -235,7 +236,7 @@ editor:
     yellow: Gelb
     purple: Lila
     orange: Orange
-    pastelRed: Pastellfarbenes rot
+    pastelRed: Pastellfarbenes Rot
     pastelOrange: Pastellfarbenes Orange
     pastelYellow: Pastellfarbenes Gelb
     pastelGreen: Pastellfarbenes Grün
@@ -257,7 +258,7 @@ editor:
     duplicatePage: Seite duplizieren
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
-    lineHeightDescription: Beeinflusst die Schriftgröße
+    lineHeightDescription: Beeinflusst außerdem die Schriftgröße
     backgroundImageFit(OUTDATED): Hintergrundbild
     backgroundPattern: Hintergrundmuster
     import: Importieren
@@ -288,7 +289,7 @@ editor:
     lockZoom: Zoom sperren
     unlockSingleFingerPan: Verschieben mit einem Finger aktivieren
     lockSingleFingerPan: Verschieben mit einem Finger deaktivieren
-    unlockAxisAlignedPan: Beschränkung der Horizontal bzw. Vertikalverschiebung aufheben
+    unlockAxisAlignedPan: Beschränkung der Horizontal- bzw. Vertikalverschiebung aufheben
     lockAxisAlignedPan: Verschieben auf Horizontale oder Vertikale beschränken
   pages: Seiten
   untitled: Unbenannt

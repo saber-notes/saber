@@ -190,7 +190,7 @@ profile:
         如果您使用的是第三方服务器，则可能没有删除帐户的选项：您需要咨询服务器的隐私政策以获取更多信息。
 appInfo:
   licenseNotice: |-
-    Saber  版权所有 (C) 2022-$buildYear  Adil Hanney
+    Saber  版权所有 © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
   dirty: DIRTY
   debug: DEBUG

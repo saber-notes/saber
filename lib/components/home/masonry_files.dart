@@ -34,12 +34,12 @@ class MasonryFiles extends StatelessWidget {
     }
 
     return SliverPadding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       sliver: SliverMasonryGrid.count(
         childCount: files.length,
         crossAxisCount: crossAxisCount,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
         itemBuilder: (context, index) {
           if (index >= files.length) {
             return const SizedBox.shrink();
