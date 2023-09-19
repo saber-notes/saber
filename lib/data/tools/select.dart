@@ -44,15 +44,9 @@ class Select extends Tool {
       return null;
     }
 
-    Color dominantColor = colorDistribution.keys.first;
-    int maxSize = colorDistribution.values.first;
-
-    colorDistribution.forEach((color, size) {
-      if(maxSize < size){
-        maxSize = size;
-        dominantColor = color;
-      }
-    });
+    Color dominantColor = colorDistribution.entries.reduce((a, b){
+      return a.value > b.value ? a : b;
+    }).key;
 
     return dominantColor;
   }
