@@ -191,7 +191,7 @@ profile:
         If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
 appInfo:
   licenseNotice: |-
-    Saber  Copyright (C) 2022-$buildYear  Adil Hanney
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
   dirty: DIRTY
   debug: DEBUG

@@ -190,7 +190,7 @@ profile:
         Si estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.
 appInfo:
   licenseNotice: |-
-    Saber  Copyright (C) 2022-$buildYear  Adil Hanney
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
     Este programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.
   dirty: DIRTY
   debug: DEBUG

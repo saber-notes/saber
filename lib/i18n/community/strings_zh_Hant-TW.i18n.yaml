@@ -189,7 +189,7 @@ profile:
         如果您使用的是官方Saber伺服器，您的帳戶將在一周的寬限期後被刪除，您可以在此期間由電子郵件聯繫我：adilhanney@disroot.org，以取消刪除。如果您使用的是第三方伺服器，則可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。
 appInfo:
   licenseNotice: |-
-    Saber  版權所有 (C) 2022-$buildYear  Adil Hanney
+    Saber  版權所有 © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
   dirty: DIRTY
   debug: DEBUG
