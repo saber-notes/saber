@@ -134,31 +134,36 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            collapsedHeight: kToolbarHeight,
-            expandedHeight: 200,
-            pinned: true,
-            scrolledUnderElevation: 1,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                t.home.titles.settings,
-                style: TextStyle(color: colorScheme.onBackground),
-              ),
-              centerTitle: cupertino,
-              titlePadding: EdgeInsetsDirectional.only(
-                start: cupertino ? 0 : 16,
-                bottom: 16,
-              ),
+          SliverPadding(
+            padding: const EdgeInsets.only(
+              bottom: 8,
             ),
-            actions: [
-              if (UpdateManager.status.value != UpdateStatus.upToDate) IconButton(
-                tooltip: t.home.tooltips.showUpdateDialog,
-                icon: const Icon(Icons.system_update),
-                onPressed: () {
-                  UpdateManager.showUpdateDialog(context, userTriggered: true);
-                },
+            sliver: SliverAppBar(
+              collapsedHeight: kToolbarHeight,
+              expandedHeight: 200,
+              pinned: true,
+              scrolledUnderElevation: 1,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  t.home.titles.settings,
+                  style: TextStyle(color: colorScheme.onBackground),
+                ),
+                centerTitle: cupertino,
+                titlePadding: EdgeInsetsDirectional.only(
+                  start: cupertino ? 0 : 16,
+                  bottom: 16,
+                ),
               ),
-            ],
+              actions: [
+                if (UpdateManager.status.value != UpdateStatus.upToDate) IconButton(
+                  tooltip: t.home.tooltips.showUpdateDialog,
+                  icon: const Icon(Icons.system_update),
+                  onPressed: () {
+                    UpdateManager.showUpdateDialog(context, userTriggered: true);
+                  },
+                ),
+              ],
+            ),
           ),
           SliverSafeArea(sliver: SliverList.list(
             children: [

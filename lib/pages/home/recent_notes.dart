@@ -70,25 +70,30 @@ class _RecentPageState extends State<RecentPage> {
         ]),
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(
-              collapsedHeight: kToolbarHeight,
-              expandedHeight: 200,
-              pinned: true,
-              scrolledUnderElevation: 1,
-              flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  t.home.titles.home,
-                  style: TextStyle(color: colorScheme.onBackground),
-                ),
-                centerTitle: cupertino,
-                titlePadding: EdgeInsetsDirectional.only(
-                  start: cupertino ? 0 : 16,
-                  bottom: 16
-                ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                bottom: 8,
               ),
-              actions: const [
-                SyncingButton(),
-              ],
+              sliver: SliverAppBar(
+                collapsedHeight: kToolbarHeight,
+                expandedHeight: 200,
+                pinned: true,
+                scrolledUnderElevation: 1,
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(
+                    t.home.titles.home,
+                    style: TextStyle(color: colorScheme.onBackground),
+                  ),
+                  centerTitle: cupertino,
+                  titlePadding: EdgeInsetsDirectional.only(
+                    start: cupertino ? 0 : 16,
+                    bottom: 16
+                  ),
+                ),
+                actions: const [
+                  SyncingButton(),
+                ],
+              ),
             ),
             if (failed) ...[
               const SliverSafeArea(

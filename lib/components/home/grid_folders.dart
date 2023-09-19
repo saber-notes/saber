@@ -42,26 +42,29 @@ class GridFolders extends StatelessWidget {
       _FolderCardType.newFolder,
     ];
 
-    return SliverAlignedGrid.count(
-      itemCount: folders.length + extraCards.length,
-      crossAxisCount: crossAxisCount,
-      mainAxisSpacing: 10,
-      itemBuilder: (context, index) {
-        final cardType = extraCards.get(index, _FolderCardType.realFolder);
-        final folderName = cardType == _FolderCardType.realFolder
-            ? folders[index - extraCards.length]
-            : null;
-        return _GridFolder(
-          cardType: cardType,
-          folderName: folderName,
-          createFolder: createFolder,
-          doesFolderExist: doesFolderExist,
-          renameFolder: renameFolder,
-          isFolderEmpty: isFolderEmpty,
-          deleteFolder: deleteFolder,
-          onTap: onTap,
-        );
-      },
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      sliver: SliverAlignedGrid.count(
+        itemCount: folders.length + extraCards.length,
+        crossAxisCount: crossAxisCount,
+        mainAxisSpacing: 8,
+        itemBuilder: (context, index) {
+          final cardType = extraCards.get(index, _FolderCardType.realFolder);
+          final folderName = cardType == _FolderCardType.realFolder
+              ? folders[index - extraCards.length]
+              : null;
+          return _GridFolder(
+            cardType: cardType,
+            folderName: folderName,
+            createFolder: createFolder,
+            doesFolderExist: doesFolderExist,
+            renameFolder: renameFolder,
+            isFolderEmpty: isFolderEmpty,
+            deleteFolder: deleteFolder,
+            onTap: onTap,
+          );
+        },
+      ),
     );
   }
 }
