@@ -97,11 +97,12 @@ class _SettingsPageState extends State<SettingsPage> {
     setState(() {});
   }
 
-  static final bool usesMaterialByDefault = () {
-    if (defaultTargetPlatform == TargetPlatform.iOS) return false;
-    if (defaultTargetPlatform == TargetPlatform.macOS) return false;
-    return true;
-  }();
+  static final bool usesMaterialByDefault = switch (defaultTargetPlatform) {
+    TargetPlatform.iOS => false,
+    TargetPlatform.macOS => false,
+    TargetPlatform.linux => false,
+    _ => true,
+  };
 
   static const cupertinoDirectionIcons = [
     CupertinoIcons.arrow_up_to_line,
@@ -125,11 +126,10 @@ class _SettingsPageState extends State<SettingsPage> {
 
     final bool requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
-    final IconData materialIcon = () {
-      if (defaultTargetPlatform == TargetPlatform.linux) return FontAwesomeIcons.linux;
-      if (defaultTargetPlatform == TargetPlatform.windows) return FontAwesomeIcons.windows;
-      return Icons.android;
-    }();
+    final IconData materialIcon = switch (defaultTargetPlatform) {
+      TargetPlatform.windows => FontAwesomeIcons.windows,
+      _ => Icons.android,
+    };
 
     return Scaffold(
       body: CustomScrollView(
@@ -205,10 +205,10 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.platform,
-                iconBuilder: (i) {
-                  if (platform == TargetPlatform.iOS) return Icons.apple;
-                  if (platform == TargetPlatform.macOS) return Icons.apple;
-                  return materialIcon;
+                iconBuilder: (i) => switch (Prefs.platform.value) {
+                  TargetPlatform.iOS || TargetPlatform.macOS => Icons.apple,
+                  TargetPlatform.linux => FontAwesomeIcons.ubuntu,
+                  _ => materialIcon,
                 },
                 pref: _SettingsPrefs.platform,
                 optionsWidth: 60,
@@ -226,6 +226,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       return TargetPlatform.iOS.index;
                     }(),
                     const Icon(Icons.apple, semanticLabel: 'Cupertino'),
+                  ),
+                  ToggleButtonsOption(
+                    TargetPlatform.linux.index,
+                    const Icon(FontAwesomeIcons.ubuntu, semanticLabel: 'Yaru'),
                   ),
                 ],
               ),

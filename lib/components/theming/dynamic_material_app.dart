@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
@@ -159,57 +160,61 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
           tones: FlexTones.ultraContrast(Brightness.dark),
         );
 
-        final TargetPlatform? platform;
-        if (Prefs.platform.value == TargetPlatform.iOS) {
-          platform = TargetPlatform.iOS;
-        } else if (Prefs.platform.value == TargetPlatform.android) {
-          platform = TargetPlatform.android;
-        } else {
-          platform = null;
-        }
+        final TargetPlatform? platform = switch (Prefs.platform.value) {
+          TargetPlatform.iOS => TargetPlatform.iOS,
+          TargetPlatform.android => TargetPlatform.android,
+          TargetPlatform.linux => TargetPlatform.linux,
+          _ => null,
+        };
 
-        return MaterialApp.router(
-          routeInformationProvider: widget.router.routeInformationProvider,
-          routeInformationParser: widget.router.routeInformationParser,
-          routerDelegate: widget.router.routerDelegate,
+        return YaruBuilder(
+          enabled: platform == TargetPlatform.linux,
+          primary: lightColorScheme.primary,
+          builder: (context, yaruTheme, yaruHighContrastTheme) {
+            return MaterialApp.router(
+              routeInformationProvider: widget.router.routeInformationProvider,
+              routeInformationParser: widget.router.routeInformationParser,
+              routerDelegate: widget.router.routerDelegate,
 
-          locale: TranslationProvider.of(context).flutterLocale,
-          supportedLocales: AppLocaleUtils.supportedLocales,
-          localizationsDelegates: GlobalMaterialLocalizations.delegates,
+              locale: TranslationProvider.of(context).flutterLocale,
+              supportedLocales: AppLocaleUtils.supportedLocales,
+              localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
-          title: widget.title,
+              title: widget.title,
 
-          themeMode: Prefs.appTheme.loaded ? Prefs.appTheme.value : ThemeMode.system,
-          theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: lightColorScheme,
-            textTheme: getTextTheme(Brightness.light),
-            scaffoldBackgroundColor: lightColorScheme.background,
-            platform: platform,
-          ),
-          darkTheme: ThemeData(
-            useMaterial3: true,
-            colorScheme: darkColorScheme,
-            textTheme: getTextTheme(Brightness.dark),
-            scaffoldBackgroundColor: darkColorScheme.background,
-            platform: platform,
-          ),
-          highContrastTheme: ThemeData(
-            useMaterial3: true,
-            colorScheme: highContrastLightColorScheme,
-            textTheme: getTextTheme(Brightness.light),
-            scaffoldBackgroundColor: highContrastLightColorScheme.background,
-            platform: platform,
-          ),
-          highContrastDarkTheme: ThemeData(
-            useMaterial3: true,
-            colorScheme: highContrastDarkColorScheme,
-            textTheme: getTextTheme(Brightness.dark),
-            scaffoldBackgroundColor: highContrastDarkColorScheme.background,
-            platform: platform,
-          ),
+              themeMode: Prefs.appTheme.loaded ? Prefs.appTheme.value : ThemeMode.system,
+              theme: yaruTheme?.theme ?? ThemeData(
+                useMaterial3: true,
+                colorScheme: lightColorScheme,
+                textTheme: getTextTheme(Brightness.light),
+                scaffoldBackgroundColor: lightColorScheme.background,
+                platform: platform,
+              ),
+              darkTheme: yaruTheme?.darkTheme ?? ThemeData(
+                useMaterial3: true,
+                colorScheme: darkColorScheme,
+                textTheme: getTextTheme(Brightness.dark),
+                scaffoldBackgroundColor: darkColorScheme.background,
+                platform: platform,
+              ),
+              highContrastTheme: yaruHighContrastTheme?.theme ?? ThemeData(
+                useMaterial3: true,
+                colorScheme: highContrastLightColorScheme,
+                textTheme: getTextTheme(Brightness.light),
+                scaffoldBackgroundColor: highContrastLightColorScheme.background,
+                platform: platform,
+              ),
+              highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ?? ThemeData(
+                useMaterial3: true,
+                colorScheme: highContrastDarkColorScheme,
+                textTheme: getTextTheme(Brightness.dark),
+                scaffoldBackgroundColor: highContrastDarkColorScheme.background,
+                platform: platform,
+              ),
 
-          debugShowCheckedModeBanner: false,
+              debugShowCheckedModeBanner: false,
+            );
+          }
         );
       },
     );
