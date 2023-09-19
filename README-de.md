@@ -1,6 +1,6 @@
 # <img src="https://github.com/adil192/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-Diese Anleitung ist in den folgenden Sprachen verfügbar: [English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md), [Deutsch](https://github.com/adil192/saber/blob/main/README-de.md)
+Diese Anleitung ist in den folgenden Sprachen verfügbar: [English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [Deutsch](https://github.com/adil192/saber/blob/main/README-de.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md)
 
 Als der Entwickler von Saber freue ich mich dir eine App vorzustellen, die deine Art Notizen zu erstellen revolutionieren soll. Saber ist die ultimative handschriftliche Notizen-App, designt um deine Erfahrung beim Erstellen von Notizen zu verbessern! Erfreue dich an der Kunst der Handschrift und lasse mit dieser funktionsreichen, von modernen Technologien unterstützten App deiner Kreativität freien Lauf. Sabers intuitives und modernes Interface macht es spielend leicht Notizen niederzuschreiben, Diagramme zu zeichnen oder PDFs zu kommentieren.
 
