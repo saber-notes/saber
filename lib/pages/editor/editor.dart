@@ -1254,21 +1254,23 @@ class EditorState extends State<Editor> {
               } else if (currentTool is Pen) {
                 (currentTool as Pen).strokeProperties.color = color;
               } else if(currentTool is Select){
-                // Changes color of selected strokes
-                Map<Stroke, ColorChange> colorChange = {};
-                for(Stroke stroke in (currentTool as Select).selectResult.strokes){
-                  colorChange[stroke] = ColorChange(previous: stroke.strokeProperties.color, current: color);
-                  stroke.strokeProperties.color = color;
-                }
+                if((currentTool as Select).doneSelecting){
+                  // Changes color of selected strokes
+                  Map<Stroke, ColorChange> colorChange = {};
+                  for(Stroke stroke in (currentTool as Select).selectResult.strokes){
+                    colorChange[stroke] = ColorChange(previous: stroke.strokeProperties.color, current: color);
+                    stroke.strokeProperties.color = color;
+                  }
 
-                history.recordChange(EditorHistoryItem(
-                  type: EditorHistoryItemType.changeColor,
-                  pageIndex: dragPageIndex!,
-                  strokes: (currentTool as Select).selectResult.strokes,
-                  colorChange: colorChange,
-                  images: []
-                ));
-                autosaveAfterDelay();
+                  history.recordChange(EditorHistoryItem(
+                      type: EditorHistoryItemType.changeColor,
+                      pageIndex: dragPageIndex!,
+                      strokes: (currentTool as Select).selectResult.strokes,
+                      colorChange: colorChange,
+                      images: []
+                  ));
+                  autosaveAfterDelay();
+                }
               }
             });
           },
