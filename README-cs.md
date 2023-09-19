@@ -1,6 +1,6 @@
 # <img src="https://github.com/adil192/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-Tento soubor si můžete přečíst v: [English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md)
+Tento soubor si můžete přečíst v: [English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [Deutsch](https://github.com/adil192/saber/blob/main/README-de.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md)
 
 Z pozice vývojáře aplikace Saber vám s nadšením představuji aplikaci, která je revolucí v pořizování poznámek. Saber je ultimátní aplikace pro pořizování ručně psaných poznámek navržená tak, aby pozvedla zážitek z psaní poznámek do nových výšin! Uchopte umění rukopisu a nechte promluvit svou kreativitu díky této funkcemi nabité aplikaci, jenž je poháněna nejmodernějšími technologiemi. Díky intuitivnímu a modernímu prostředí vám Saber umožní přesně a bez námahy zaznamenávat poznámky, kreslit diagramy nebo vepisovat informace do PDF.
 
