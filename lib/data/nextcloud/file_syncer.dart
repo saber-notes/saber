@@ -209,29 +209,29 @@ abstract class FileSyncer {
     final Encrypter encrypter = await _client!.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
 
-    final String filePathRemote = file.path;
-    String filePathEncrypted = filePathRemote;
+    String filePathRemote = file.path;
+    if (filePathRemote.startsWith('/')) {
+      filePathRemote = filePathRemote.substring(1);
+    }
 
     // remove parent directory from path
-
-    if (filePathEncrypted.startsWith(RegExp(r'/files/[^/]+/Saber/'))) {
+    String filePathEncrypted = filePathRemote;
+    const rootSlash = '${FileManager.appRootDirectoryPrefix}/';
+    if (filePathEncrypted.startsWith(RegExp(r'files/[^/]+/Saber/'))) {
       // Directory may be prefixed with /files/username/ then the /Saber/ folder.
       // See https://github.com/adil192/saber/issues/382
-      final rootDir = FileManager.appRootDirectoryPrefix.substring(1);
+
       // min index 8 to handle edge case where the username is 'Saber'
       // i.e. '/files/Saber/Saber/76987698ab9c7697.sbn'
-      final i = filePathEncrypted.indexOf(rootDir, 8) + rootDir.length;
+      final i = filePathEncrypted.indexOf(rootSlash, 8) + rootSlash.length;
       filePathEncrypted = filePathEncrypted.substring(i);
-    } else if (filePathEncrypted.startsWith(FileManager.appRootDirectoryPrefix)) {
-      // with the leading slash; remove "/Saber/"
-      filePathEncrypted = filePathEncrypted.substring(FileManager.appRootDirectoryPrefix.length + 1);
-    } else if (filePathEncrypted.startsWith(FileManager.appRootDirectoryPrefix.substring(1))) {
-      // without the leading slash; remove "Saber/"
-      filePathEncrypted = filePathEncrypted.substring(FileManager.appRootDirectoryPrefix.length);
+    } else if (filePathEncrypted.startsWith(rootSlash)) { // remove "Saber/"
+      filePathEncrypted = filePathEncrypted.substring(rootSlash.length);
     } else {
       log.severe('remote file not in app root: $filePathEncrypted');
       return;
     }
+    assert(!filePathEncrypted.contains('/'), 'filePathEncrypted contains a slash: $filePathEncrypted');
 
     // ignored files
     for (final String ignoredFile in _ignoredFiles) {
