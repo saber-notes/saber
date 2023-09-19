@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-09-19 at 15:27 UTC
+/// Built on 2023-09-19 at 15:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -697,7 +697,7 @@ class _StringsProfile$faq$0i2$En {
 
 	// Translations
 	String get q => 'How do I change my encryption password?';
-	String get a => '1. Log out of Saber. Make sure syncing is complete before logging out so you don\'t lose any data (see the sync progress on the home screen).\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
+	String get a => '0. Make sure syncing is complete (see the sync progress on the home screen).\n1. Log out of Saber.\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
 }
 
 // Path: profile.faq.3
