@@ -1,0 +1,2 @@
+• Přidáno téma Linux (Yaru).
+• Opravena regrese synchronizace

@@ -1,0 +1,2 @@
+• Linux (Yaru) téma hozzáadása
+• Javítva a szinkronizálási regresszió
