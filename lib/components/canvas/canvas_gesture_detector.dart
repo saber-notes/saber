@@ -113,7 +113,9 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
-  late double? zoomLockedValue = Prefs.lastZoomLock.value ? 1 : null;
+  late double? zoomLockedValue = Prefs.lastZoomLock.value
+      ? widget._transformationController.value.getMaxScaleOnAxis()
+      : null;
   /// Whether single-finger panning is locked.
   /// Two-finger panning is always enabled.
   late bool singleFingerPanLock = Prefs.lastSingleFingerPanLock.value;
