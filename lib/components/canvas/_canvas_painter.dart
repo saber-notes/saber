@@ -56,7 +56,7 @@ class CanvasPainter extends CustomPainter {
           needToRestoreCanvasLayer = true;
         }
         if (currentSelection?.strokes.contains(stroke) ?? false) {
-          paint.color = Color.lerp(stroke.strokeProperties.color.withInversion(invert), Colors.black, 0.25) ?? primaryColor;
+          paint.color = Color.lerp(stroke.strokeProperties.color.withAlpha(255).withInversion(invert), primaryColor, 0.5)!;
         } else {
           paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
         }
@@ -69,7 +69,7 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
       if (currentSelection?.strokes.contains(stroke) ?? false) {
-        paint.color = Color.lerp(stroke.strokeProperties.color.withInversion(invert), Colors.black, 0.25) ?? primaryColor;
+        paint.color = Color.lerp(stroke.strokeProperties.color.withInversion(invert), primaryColor, 0.5)!;
       } else {
         paint.color = stroke.strokeProperties.color.withInversion(invert);
       }
