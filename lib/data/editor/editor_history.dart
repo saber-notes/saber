@@ -141,7 +141,7 @@ class EditorHistoryItem {
     Rect? offset,
     EditorPage? page,
     DocChange? quillChange,
-    Map<Stroke, ColorChange>? colorChange
+    Map<Stroke, ColorChange>? colorChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
@@ -164,5 +164,5 @@ enum EditorHistoryItemType {
   move,
   quillChange,
   quillUndoneChange,
-  changeColor
+  changeColor,
 }

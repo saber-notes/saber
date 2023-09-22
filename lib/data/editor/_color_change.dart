@@ -1,6 +1,6 @@
 import 'package:flutter/painting.dart';
 
-class ColorChange{
+class ColorChange {
   final Color previous;
   final Color current;
 
@@ -9,7 +9,7 @@ class ColorChange{
     required this.current,
   });
 
-  ColorChange swap(){
+  ColorChange swap() {
     return ColorChange(previous: current, current: previous);
   }
 }

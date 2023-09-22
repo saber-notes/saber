@@ -30,23 +30,25 @@ class Select extends Tool {
     selectResult.pageIndex = -1;
   }
 
-  Color? getDominantStrokeColor(){
+  Color? getDominantStrokeColor() {
     if (!doneSelecting) return null;
 
     Map<Color, int> colorDistribution = <Color, int>{};
-    for(Stroke stroke in selectResult.strokes){
+    for (Stroke stroke in selectResult.strokes) {
       int strokeSize = stroke.polygon.length;
 
-      colorDistribution.update(stroke.strokeProperties.color, (value) => value+strokeSize, ifAbsent: () {
-        return strokeSize;
-      },);
+      colorDistribution.update(
+        stroke.strokeProperties.color,
+        (value) => value + strokeSize,
+        ifAbsent: () => strokeSize,
+      );
     }
 
-    if(colorDistribution.isEmpty){
+    if (colorDistribution.isEmpty) {
       return null;
     }
 
-    Color dominantColor = colorDistribution.entries.reduce((a, b){
+    Color dominantColor = colorDistribution.entries.reduce((a, b) {
       return a.value > b.value ? a : b;
     }).key;
 
