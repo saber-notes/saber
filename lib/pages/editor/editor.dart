@@ -30,6 +30,7 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
+import 'package:saber/data/editor/_color_change.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
@@ -406,6 +407,10 @@ class EditorState extends State<Editor> {
         case EditorHistoryItemType.quillUndoneChange:
           final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.redo();
+        case EditorHistoryItemType.changeColor:
+          for (Stroke stroke in item.strokes) {
+            stroke.strokeProperties.color = item.colorChange![stroke]!.previous;
+          }
       }
 
       if (item.type != EditorHistoryItemType.move) {
@@ -440,6 +445,8 @@ class EditorState extends State<Editor> {
         undo(item.copyWith(type: EditorHistoryItemType.quillUndoneChange));
       case EditorHistoryItemType.quillUndoneChange: // this will never happen
         throw Exception('history should not contain quillUndoneChange items');
+      case EditorHistoryItemType.changeColor:
+        undo(item.copyWith(colorChange: item.colorChange!.map((key, value) => MapEntry(key, value.swap()))));
     }
   }
 
@@ -1246,6 +1253,26 @@ class EditorState extends State<Editor> {
                 (currentTool as Highlighter).strokeProperties.color = color.withAlpha(Highlighter.alpha);
               } else if (currentTool is Pen) {
                 (currentTool as Pen).strokeProperties.color = color;
+              } else if (currentTool is Select) { // Changes color of selected strokes
+                final select = currentTool as Select;
+                if (select.doneSelecting) {
+                  final strokes = select.selectResult.strokes;
+                  
+                  Map<Stroke, ColorChange> colorChange = {};
+                  for (Stroke stroke in strokes) {
+                    colorChange[stroke] = ColorChange(previous: stroke.strokeProperties.color, current: color);
+                    stroke.strokeProperties.color = color;
+                  }
+
+                  history.recordChange(EditorHistoryItem(
+                    type: EditorHistoryItemType.changeColor,
+                    pageIndex: strokes.first.pageIndex,
+                    strokes: strokes,
+                    colorChange: colorChange,
+                    images: [],
+                  ));
+                  autosaveAfterDelay();
+                }
               }
             });
           },

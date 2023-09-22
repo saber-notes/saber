@@ -55,10 +55,11 @@ class CanvasPainter extends CustomPainter {
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
           needToRestoreCanvasLayer = true;
         }
+        final color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
         if (currentSelection?.strokes.contains(stroke) ?? false) {
-          paint.color = primaryColor;
+          paint.color = Color.lerp(color, primaryColor, 0.5)!;
         } else {
-          paint.color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
+          paint.color = color;
         }
         canvas.drawPath(stroke.path, paint);
       }
@@ -68,10 +69,11 @@ class CanvasPainter extends CustomPainter {
     // pen
     for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
+      final color = stroke.strokeProperties.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
-        paint.color = primaryColor;
+        paint.color = Color.lerp(color, primaryColor, 0.5)!;
       } else {
-        paint.color = stroke.strokeProperties.color.withInversion(invert);
+        paint.color = color;
       }
 
       if (stroke.polygon.length <= 13) { // a dot

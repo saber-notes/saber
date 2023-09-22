@@ -30,6 +30,27 @@ class Select extends Tool {
     selectResult.pageIndex = -1;
   }
 
+  Color? getDominantStrokeColor() {
+    if (!doneSelecting) return null;
+    if (selectResult.strokes.isEmpty) return null;
+
+    Map<Color, int> colorDistribution = <Color, int>{};
+    for (Stroke stroke in selectResult.strokes) {
+      int strokeSize = stroke.polygon.length;
+
+      colorDistribution.update(
+        stroke.strokeProperties.color,
+        (value) => value + strokeSize,
+        ifAbsent: () => strokeSize,
+      );
+    }
+    assert(colorDistribution.isNotEmpty);
+
+    return colorDistribution.entries.reduce((a, b) {
+      return a.value > b.value ? a : b;
+    }).key;
+  }
+
   void onDragStart(Offset position, int pageIndex) {
     doneSelecting = false;
     selectResult = SelectResult(
