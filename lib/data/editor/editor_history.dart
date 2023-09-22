@@ -122,7 +122,7 @@ class EditorHistoryItem {
         assert(type != EditorHistoryItemType.insertPage || page != null, 'Page must be provided for insertPage'),
         assert(type != EditorHistoryItemType.quillChange || quillChange != null, 'Quill change must be provided for quillChange'),
         assert(type != EditorHistoryItemType.quillUndoneChange || quillChange != null, 'Quill change must be provided for quillUndoneChange'),
-        assert(type != EditorHistoryItemType.changeColor || colorChange != null || colorChange!.length == strokes.length, 'ColorChange must be provided and must have the same length as strokes for changeColor');
+        assert(type != EditorHistoryItemType.changeColor || colorChange?.length == strokes.length, 'ColorChange must be provided and must have the same length as strokes for changeColor');
 
   final EditorHistoryItemType type;
   final int pageIndex;
