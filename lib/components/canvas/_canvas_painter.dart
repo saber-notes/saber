@@ -55,7 +55,7 @@ class CanvasPainter extends CustomPainter {
           canvas.saveLayer(canvasRect, highlighterLayerPaint);
           needToRestoreCanvasLayer = true;
         }
-        final color = stroke.strokeProperties.color.withInversion(invert);
+        final color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
         if (currentSelection?.strokes.contains(stroke) ?? false) {
           paint.color = Color.lerp(color, primaryColor, 0.5)!;
         } else {
