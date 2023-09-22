@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-09-19 at 15:46 UTC
+/// Built on 2023-09-22 at 13:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -4770,18 +4770,18 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsFr tabs = _StringsHomeTabsFr._(_root);
 	@override late final _StringsHomeTitlesFr titles = _StringsHomeTitlesFr._(_root);
 	@override late final _StringsHomeTooltipsFr tooltips = _StringsHomeTooltipsFr._(_root);
+	@override late final _StringsHomeCreateFr create = _StringsHomeCreateFr._(_root);
 	@override String get welcome => 'Bienvenue dans Saber';
+	@override String get invalidFormat => 'Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2 ou .pdf.';
 	@override String get noFiles => 'Aucun fichier trouvé';
 	@override String get createNewNote => 'Presser le bouton + pour créer une nouvelle note';
+	@override String get backFolder => 'Retour au dossier précédent';
 	@override late final _StringsHomeNewFolderFr newFolder = _StringsHomeNewFolderFr._(_root);
 	@override late final _StringsHomeRenameNoteFr renameNote = _StringsHomeRenameNoteFr._(_root);
 	@override late final _StringsHomeMoveNoteFr moveNote = _StringsHomeMoveNoteFr._(_root);
-	@override String get backFolder => 'Revenir au dossier précédent';
-	@override late final _StringsHomeDeleteFolderFr deleteFolder = _StringsHomeDeleteFolderFr._(_root);
-	@override String get deleteNote => 'Supprimer la note';
-	@override late final _StringsHomeCreateFr create = _StringsHomeCreateFr._(_root);
-	@override String get invalidFormat => 'Le fichier que vous avez sélectionné n\'est pas pris en charge. Veuillez sélectionner un fichier .sbn, .sbn2 ou .pdf.';
+	@override String get deleteNote => 'Effacer la note';
 	@override late final _StringsHomeRenameFolderFr renameFolder = _StringsHomeRenameFolderFr._(_root);
+	@override late final _StringsHomeDeleteFolderFr deleteFolder = _StringsHomeDeleteFolderFr._(_root);
 }
 
 // Path: settings
@@ -4896,7 +4896,7 @@ class _StringsEditorFr extends _StringsEditorEn {
 	@override late final _StringsEditorHudFr hud = _StringsEditorHudFr._(_root);
 	@override String get pages => 'Pages';
 	@override String get untitled => 'Sans titre';
-	@override String get needsToSaveBeforeExiting => 'Enregistrement de vos modifications... Vous pouvez quitter l\'éditeur en toute sécurité une fois terminé';
+	@override String get needsToSaveBeforeExiting => 'Sauvegarde en cours... Vous pourrez quitter l\'éditeur en toute sécurité une fois qu\'elle sera terminée';
 }
 
 // Path: home.tabs
@@ -4936,6 +4936,17 @@ class _StringsHomeTooltipsFr extends _StringsHomeTooltipsEn {
 	@override String get showUpdateDialog => 'Afficher le dialogue de mise à jour';
 }
 
+// Path: home.create
+class _StringsHomeCreateFr extends _StringsHomeCreateEn {
+	_StringsHomeCreateFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nouvelle note';
+	@override String get importNote => 'Importer une note';
+}
+
 // Path: home.newFolder
 class _StringsHomeNewFolderFr extends _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderFr._(_StringsFr root) : this._root = root, super._(root);
@@ -4944,11 +4955,11 @@ class _StringsHomeNewFolderFr extends _StringsHomeNewFolderEn {
 
 	// Translations
 	@override String get newFolder => 'Nouveau dossier';
-	@override String get folderName => 'Nom de dossier';
+	@override String get folderName => 'Mom du dossier';
 	@override String get create => 'Créer';
-	@override String get folderNameEmpty => 'Le nom du dossier ne peut pas être vide';
-	@override String get folderNameContainsSlash => 'Le nom du dossier ne peut pas contenir de barre oblique';
-	@override String get folderNameExists => 'Folder existe déjà';
+	@override String get folderNameEmpty => 'Le nom de fichier ne peut pas être vide';
+	@override String get folderNameContainsSlash => 'Le nom de fichier ne peut pas contenir une barre oblique';
+	@override String get folderNameExists => 'Un fichier du même nom existe déjà';
 }
 
 // Path: home.renameNote
@@ -4958,12 +4969,12 @@ class _StringsHomeRenameNoteFr extends _StringsHomeRenameNoteEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get renameNote => 'Renommer la note';
-	@override String get noteName => 'Nom de la note';
+	@override String get renameNote => 'Renommer une note';
+	@override String get noteName => 'Nom de note';
 	@override String get rename => 'Renommer';
-	@override String get noteNameEmpty => 'Le nom de la note ne peut pas être vide';
-	@override String get noteNameContainsSlash => 'Le nom de la note ne peut pas contenir de barre oblique';
-	@override String get noteNameExists => 'Une note portant ce nom existe déjà';
+	@override String get noteNameEmpty => 'Le nom de note ne peut pas être vide';
+	@override String get noteNameContainsSlash => 'Le nom de note ne peut pas contenir une barre oblique';
+	@override String get noteNameExists => 'Une note du même nom existe déjà';
 }
 
 // Path: home.moveNote
@@ -4976,31 +4987,7 @@ class _StringsHomeMoveNoteFr extends _StringsHomeMoveNoteEn {
 	@override String get moveNote => 'Déplacer la note';
 	@override String moveName({required Object f}) => 'Déplacer ${f}';
 	@override String get move => 'Déplacer';
-	@override String renamedTo({required Object newName}) => 'La note sera renommée ${newName}';
-}
-
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderFr extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String deleteName({required Object f}) => 'Supprimer ${f}';
-	@override String get alsoDeleteContents => 'Supprimez également toutes les notes de ce dossier';
-	@override String get deleteFolder => 'Supprimer le dossier';
-	@override String get delete => 'Supprimer';
-}
-
-// Path: home.create
-class _StringsHomeCreateFr extends _StringsHomeCreateEn {
-	_StringsHomeCreateFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Nouvelle note';
-	@override String get importNote => 'Remarque d\'importation';
+	@override String renamedTo({required Object newName}) => 'La note sera renommée en ${newName}';
 }
 
 // Path: home.renameFolder
@@ -5010,12 +4997,25 @@ class _StringsHomeRenameFolderFr extends _StringsHomeRenameFolderEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
+	@override String get renameFolder => 'Renommer le dossier';
 	@override String get folderName => 'Nom de dossier';
 	@override String get rename => 'Renommer';
-	@override String get folderNameEmpty => 'Le nom du dossier ne peut pas être vide';
-	@override String get folderNameContainsSlash => 'Le nom du dossier ne peut pas contenir de barre oblique';
-	@override String get folderNameExists => 'Un dossier portant ce nom existe déjà';
-	@override String get renameFolder => 'Renommer le dossier';
+	@override String get folderNameEmpty => 'Le nom de dossier ne peut pas être vide';
+	@override String get folderNameContainsSlash => 'Le nom de dossier ne peut pas contenir une barre oblique';
+	@override String get folderNameExists => 'Un dossier du même nom existe déjà';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderFr extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => 'Supprimer le dossier';
+	@override String deleteName({required Object f}) => 'Supprimer ${f}';
+	@override String get delete => 'Supprimer';
+	@override String get alsoDeleteContents => 'Supprimer aussi toutes les notes rangées dans ce dossier';
 }
 
 // Path: settings.prefCategories
@@ -5027,7 +5027,7 @@ class _StringsSettingsPrefCategoriesFr extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Général';
 	@override String get writing => 'Tracé';
-	@override String get editor => 'Éditeur';
+	@override String get editor => 'Editeur';
 	@override String get advanced => 'Avancé';
 }
 
@@ -5041,10 +5041,14 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Langue';
 	@override String get appTheme => 'Thème de l\'application';
 	@override String get platform => 'Type de thème';
+	@override String get layoutSize => 'Type de disposition';
 	@override String get customAccentColor => 'Couleur d\'accentuation personnalisée';
 	@override String get hyperlegibleFont => 'Fonte Hyperlegible';
 	@override String get shouldCheckForUpdates => 'Rechercher automatiquement les mises à jour';
-	@override String get changeAdsConsent => 'Modifier le consentement des annonces';
+	@override String get shouldAlwaysAlertForUpdates => 'M\'alerter à chaque mise à jour';
+	@override String get disableAds => 'Désactiver les publicités';
+	@override String get changeAdsConsent => 'Modifier le consentement aux publicités';
+	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
 	@override String get editorToolbarAlignment => 'Position de la barre d\'outils';
 	@override String get editorToolbarShowInFullscreen => 'Afficher la barre d\'outils en mode plein écran';
 	@override String get editorAutoInvert => 'Inverser les couleurs en mode sombre';
@@ -5053,17 +5057,13 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorStraightenLines => 'Presser et maintenir le tracé pour obtenir une ligne droite';
 	@override String get maxImageSize => 'Taille d\'image maximum';
 	@override String get autoClearWhiteboardOnExit => 'Effacer le tableau blanc quand vous fermez l\'application';
+	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme après usage';
+	@override String get hideFingerDrawingToggle => 'Cacher l\'icône d\'activation/désactivation de tracé au doigt';
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get dontSavePresetColors => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
-	@override String get layoutSize => 'Type de dispositif';
-	@override String get disableAds => 'Désactiver les publicités';
-	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
-	@override String get autosaveDelay => 'Délai de sauvegarde automatique';
-	@override String get hideFingerDrawingToggle => 'Masquer la bascule de dessin au doigt';
-	@override String get shouldAlwaysAlertForUpdates => 'Mises à jour plus rapides';
-	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme';
+	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 }
 
 // Path: settings.prefDescriptions
@@ -5074,19 +5074,19 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes';
+	@override String get disableAds => 'Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
+	@override String get allowInsecureConnections => '(Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé';
 	@override String get editorOpaqueBackgrounds => 'Supprime la transparence du fond dans les images et les PDF';
 	@override String get preferGreyscale => 'Pour les couleurs de stylos proposées';
 	@override String get autoClearWhiteboardOnExit => 'Il restera synchronisé avec vos autres appareils';
+	@override String get disableEraserAfterUse => 'Revenir automatiquement au stylo après usage de la gomme';
 	@override String get maxImageSize => 'Les images plus grandes seront compressées';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
-	@override String get disableAds => 'Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
-	@override String get allowInsecureConnections => '(Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés';
-	@override String get autosaveDelay => 'Combien de temps attendre avant d\'enregistrer automatiquement une note';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
-	@override String get shouldAlwaysAlertForUpdates => 'Informez-moi des mises à jour dès qu\'elles sont disponibles';
-	@override String get disableEraserAfterUse => 'Revient automatiquement au stylet après avoir utilisé la gomme';
+	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
+	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 }
 
 // Path: settings.themeModes
@@ -5109,7 +5109,7 @@ class _StringsSettingsLayoutSizesFr extends _StringsSettingsLayoutSizesEn {
 
 	// Translations
 	@override String get auto => 'Auto';
-	@override String get phone => 'Téléphone';
+	@override String get phone => 'Smartphone';
 	@override String get tablet => 'Tablette';
 }
 
@@ -5158,9 +5158,9 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
+	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur indiqué utilise Nextcloud ${v} mais cette version de Saber ne supporte que Nextcloud ${s}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s}.';
 }
 
 // Path: login.form
@@ -5357,9 +5357,9 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get colorPicker => 'Pipette à couleurs';
+	@override String get colorPicker => 'Pipette de couleur';
 	@override String get black => 'Noir';
-	@override String get darkGrey => 'Gris foncé';
+	@override String get darkGrey => 'Gris sombre';
 	@override String get grey => 'Gris';
 	@override String get lightGrey => 'Gris clair';
 	@override String get white => 'Blanc';
@@ -5369,14 +5369,14 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get yellow => 'Jaune';
 	@override String get purple => 'Violet';
 	@override String get orange => 'Orange';
-	@override String get pastelRed => 'Rouge pastel';
-	@override String get pastelOrange => 'Orange pastel';
-	@override String get pastelYellow => 'Jaune pastel';
-	@override String get pastelGreen => 'Vert pastel';
-	@override String get pastelCyan => 'Cyan pastel';
-	@override String get pastelBlue => 'Bleu pastel';
-	@override String get pastelPurple => 'Violet pastel';
-	@override String get pastelPink => 'Rose pastel';
+	@override String get pastelRed => 'Rouge pâle';
+	@override String get pastelOrange => 'Orange pâle';
+	@override String get pastelYellow => 'Jaune pâle';
+	@override String get pastelGreen => 'Vert pâle';
+	@override String get pastelCyan => 'Cyan pâle';
+	@override String get pastelBlue => 'Bleu pâle';
+	@override String get pastelPurple => 'Violet pâle';
+	@override String get pastelPink => 'Rose pâle';
 }
 
 // Path: editor.imageOptions
@@ -5401,18 +5401,18 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
+	@override String clearPage({required Object page, required Object totalPages}) => 'Effacer la page ${page}/${totalPages}';
 	@override String get clearAllPages => 'Effacer toutes les pages';
 	@override String get insertPage => 'Insérer une page après';
 	@override String get duplicatePage => 'Dupliquer la page';
 	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
 	@override String get lineHeightDescription => 'Contrôle aussi la taille du texte';
-	@override String get backgroundImageFit => 'Image de fond';
+	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
 	@override late final _StringsEditorMenuBgPatternsFr bgPatterns = _StringsEditorMenuBgPatternsFr._(_root);
-	@override String clearPage({required Object page, required Object totalPages}) => 'Effacer la page ${page}/${totalPages}';
 }
 
 // Path: editor.newerFileFormat
@@ -5461,9 +5461,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingFr extends _StringsSettin
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get shown => 'Empêche le basculement accidentel';
-	@override String get fixedOn => 'Le dessin au doigt est fixé comme activé';
-	@override String get fixedOff => 'Le dessin au doigt est fixé comme désactivé';
+	@override String get shown => 'Empêcher l\'activation/désactivation accidentelle';
+	@override String get fixedOn => 'Le tracé au doigt est fixé à activé';
+	@override String get fixedOff => 'Le tracé au doigt est fixé à désactivé';
 }
 
 // Path: editor.menu.boxFits

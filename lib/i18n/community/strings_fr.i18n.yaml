@@ -6,66 +6,70 @@ home:
     settings: Paramètres
   titles:
     home: Notes récentes
-    browse(OUTDATED): Parcourir
+    browse: Parcourir
     whiteboard: Tableau blanc
     settings: Paramètres
   tooltips:
     newNote: Nouvelle note
     showUpdateDialog: Afficher le dialogue de mise à jour
+  create:
+    newNote: Nouvelle note
+    importNote: Importer une note
   welcome: Bienvenue dans Saber
+  invalidFormat: "Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2 ou .pdf."
   noFiles: Aucun fichier trouvé
   createNewNote: Presser le bouton + pour créer une nouvelle note
+  backFolder: Retour au dossier précédent
   newFolder:
-    newFolder(OUTDATED): Nouveau dossier
-    folderName(OUTDATED): Nom de dossier
-    create(OUTDATED): Créer
-    folderNameEmpty(OUTDATED): Le nom du dossier ne peut pas être vide
-    folderNameContainsSlash(OUTDATED): Le nom du dossier ne peut pas contenir de barre oblique
-    folderNameExists(OUTDATED): Folder existe déjà
+    newFolder: Nouveau dossier
+    folderName: Mom du dossier
+    create: Créer
+    folderNameEmpty: Le nom de fichier ne peut pas être vide
+    folderNameContainsSlash: Le nom de fichier ne peut pas contenir une barre oblique
+    folderNameExists: Un fichier du même nom existe déjà
   renameNote:
-    renameNote(OUTDATED): Renommer la note
-    noteName(OUTDATED): Nom de la note
-    rename(OUTDATED): Renommer
-    noteNameEmpty(OUTDATED): Le nom de la note ne peut pas être vide
-    noteNameContainsSlash(OUTDATED): Le nom de la note ne peut pas contenir de barre oblique
-    noteNameExists(OUTDATED): Une note portant ce nom existe déjà
+    renameNote: Renommer une note
+    noteName: Nom de note
+    rename: Renommer
+    noteNameEmpty: Le nom de note ne peut pas être vide
+    noteNameContainsSlash: Le nom de note ne peut pas contenir une barre oblique
+    noteNameExists: Une note du même nom existe déjà
   moveNote:
-    moveNote(OUTDATED): Déplacer la note
-    moveName(OUTDATED): Déplacer $f
-    move(OUTDATED): Déplacer
-    renamedTo(OUTDATED): La note sera renommée $newName
-  backFolder(OUTDATED): Revenir au dossier précédent
-  deleteFolder:
-    deleteName(OUTDATED): Supprimer $f
-    alsoDeleteContents(OUTDATED): Supprimez également toutes les notes de ce dossier
-    deleteFolder(OUTDATED): Supprimer le dossier
-    delete(OUTDATED): Supprimer
-  deleteNote(OUTDATED): Supprimer la note
-  create:
-    newNote(OUTDATED): Nouvelle note
-    importNote(OUTDATED): Remarque d'importation
-  invalidFormat(OUTDATED): "Le fichier que vous avez sélectionné n'est pas pris en charge. Veuillez sélectionner un fichier .sbn, .sbn2 ou .pdf."
+    moveNote: Déplacer la note
+    moveName: Déplacer $f
+    move: Déplacer
+    renamedTo: La note sera renommée en $newName
+  deleteNote: Effacer la note
   renameFolder:
-    folderName(OUTDATED): Nom de dossier
-    rename(OUTDATED): Renommer
-    folderNameEmpty(OUTDATED): Le nom du dossier ne peut pas être vide
-    folderNameContainsSlash(OUTDATED): Le nom du dossier ne peut pas contenir de barre oblique
-    folderNameExists(OUTDATED): Un dossier portant ce nom existe déjà
-    renameFolder(OUTDATED): Renommer le dossier
+    renameFolder: Renommer le dossier
+    folderName: Nom de dossier
+    rename: Renommer
+    folderNameEmpty: Le nom de dossier ne peut pas être vide
+    folderNameContainsSlash: Le nom de dossier ne peut pas contenir une barre oblique
+    folderNameExists: Un dossier du même nom existe déjà
+  deleteFolder:
+    deleteFolder: Supprimer le dossier
+    deleteName: Supprimer $f
+    delete: Supprimer
+    alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
 settings:
   prefCategories:
     general: Général
     writing: Tracé
-    editor(OUTDATED): Éditeur
-    advanced(OUTDATED): Avancé
+    editor: Editeur
+    advanced: Avancé
   prefLabels:
     locale: Langue
     appTheme: Thème de l'application
     platform: Type de thème
+    layoutSize: Type de disposition
     customAccentColor: Couleur d'accentuation personnalisée
     hyperlegibleFont: Fonte Hyperlegible
     shouldCheckForUpdates: Rechercher automatiquement les mises à jour
-    changeAdsConsent(OUTDATED): Modifier le consentement des annonces
+    shouldAlwaysAlertForUpdates: M'alerter à chaque mise à jour
+    disableAds: Désactiver les publicités
+    changeAdsConsent: Modifier le consentement aux publicités
+    allowInsecureConnections: Autoriser les connexions non sécurisées
     editorToolbarAlignment: Position de la barre d'outils
     editorToolbarShowInFullscreen: Afficher la barre d'outils en mode plein écran
     editorAutoInvert: Inverser les couleurs en mode sombre
@@ -74,43 +78,39 @@ settings:
     editorStraightenLines: Presser et maintenir le tracé pour obtenir une ligne droite
     maxImageSize: Taille d'image maximum
     autoClearWhiteboardOnExit: Effacer le tableau blanc quand vous fermez l'application
+    disableEraserAfterUse: Désactiver automatiquement la gomme après usage
+    hideFingerDrawingToggle: Cacher l'icône d'activation/désactivation de tracé au doigt
     editorPromptRename: Vous rappeler de renommer les notes
     hideHomeBackgrounds: Cacher le fond de la page d'accueil
     dontSavePresetColors: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     printPageIndicators: Imprimer les numéros de pages
-    layoutSize(OUTDATED): Type de dispositif
-    disableAds(OUTDATED): Désactiver les publicités
-    allowInsecureConnections(OUTDATED): Autoriser les connexions non sécurisées
-    autosaveDelay(OUTDATED): Délai de sauvegarde automatique
-    hideFingerDrawingToggle(OUTDATED): Masquer la bascule de dessin au doigt
-    shouldAlwaysAlertForUpdates(OUTDATED): Mises à jour plus rapides
-    disableEraserAfterUse(OUTDATED): Désactiver automatiquement la gomme
+    autosaveDelay: Délai entre les sauvegardes automatiques
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
+    disableAds: "Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
+    allowInsecureConnections: (Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
     editorOpaqueBackgrounds: Supprime la transparence du fond dans les images et les PDF
     preferGreyscale: Pour les couleurs de stylos proposées
     autoClearWhiteboardOnExit: Il restera synchronisé avec vos autres appareils
+    disableEraserAfterUse: Revenir automatiquement au stylo après usage de la gomme
     maxImageSize: Les images plus grandes seront compressées
+    hideFingerDrawing:
+      shown: Empêcher l'activation/désactivation accidentelle
+      fixedOn: Le tracé au doigt est fixé à activé
+      fixedOff: Le tracé au doigt est fixé à désactivé
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
-    disableAds(OUTDATED): "Les publicités aident à soutenir le développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
-    allowInsecureConnections(OUTDATED): (Non recommandé) Autoriser Saber à se connecter aux serveurs avec des certificats auto-signés/non approuvés
-    autosaveDelay(OUTDATED): Combien de temps attendre avant d'enregistrer automatiquement une note
-    hideFingerDrawing:
-      shown(OUTDATED): Empêche le basculement accidentel
-      fixedOn(OUTDATED): Le dessin au doigt est fixé comme activé
-      fixedOff(OUTDATED): Le dessin au doigt est fixé comme désactivé
-    shouldAlwaysAlertForUpdates(OUTDATED): Informez-moi des mises à jour dès qu'elles sont disponibles
-    disableEraserAfterUse(OUTDATED): Revient automatiquement au stylet après avoir utilisé la gomme
+    autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
+    shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
   themeModes:
     system: Système
     light: Clair
     dark: Foncé
   layoutSizes:
-    auto(OUTDATED): Auto
-    phone(OUTDATED): Téléphone
-    tablet(OUTDATED): Tablette
+    auto: Auto
+    phone: Smartphone
+    tablet: Tablette
   accentColorPicker:
     pickAColor: Choisir une couleur
   straightenDelay:
@@ -134,9 +134,9 @@ login:
     enterEncPassword: Veuillez saisir votre mot de passe de cryptage.
     checkUrl: Veuillez saisir une URL valide.
     ncLoginFailed: "La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau."
+    ncUnsupportedFailure: Le serveur indiqué utilise Nextcloud $v mais cette version de Saber ne supporte que Nextcloud $s.
     encLoginFailed: "La connexion a échoué, veuillez vérifier votre mot de passe de cryptage."
     loginSuccess: "Connexion reussie ! Veuillez patienter pendant la configuration..."
-    ncUnsupportedFailure(OUTDATED): Le serveur donné exécute Nextcloud $v mais cette version de Saber ne prend en charge que Nextcloud $s.
   form:
     useCustomServer: Je veux utiliser un serveur Nextcloud personnalisé
     customServerUrl: URL du serveur personnalisé
@@ -218,31 +218,31 @@ editor:
     fountainPen: Stylo encre
     ballpointPen: Stylo bille
     highlighter: Surligneur
-    laserPointer(OUTDATED): Pointeur laser
+    laserPointer: Pointeur laser
   penOptions:
     size: Taille
     sizeDragHint: Glisser vers la gauche ou la droite pour changer la taille
   colors:
-    colorPicker(OUTDATED): Pipette à couleurs
-    black(OUTDATED): Noir
-    darkGrey(OUTDATED): Gris foncé
-    grey(OUTDATED): Gris
-    lightGrey(OUTDATED): Gris clair
-    white(OUTDATED): Blanc
-    red(OUTDATED): Rouge
-    green(OUTDATED): Vert
-    blue(OUTDATED): Bleu
-    yellow(OUTDATED): Jaune
-    purple(OUTDATED): Violet
-    orange(OUTDATED): Orange
-    pastelRed(OUTDATED): Rouge pastel
-    pastelOrange(OUTDATED): Orange pastel
-    pastelYellow(OUTDATED): Jaune pastel
-    pastelGreen(OUTDATED): Vert pastel
-    pastelCyan(OUTDATED): Cyan pastel
-    pastelBlue(OUTDATED): Bleu pastel
-    pastelPurple(OUTDATED): Violet pastel
-    pastelPink(OUTDATED): Rose pastel
+    colorPicker: Pipette de couleur
+    black: Noir
+    darkGrey: Gris sombre
+    grey: Gris
+    lightGrey: Gris clair
+    white: Blanc
+    red: Rouge
+    green: Vert
+    blue: Bleu
+    yellow: Jaune
+    purple: Violet
+    orange: Orange
+    pastelRed: Rouge pâle
+    pastelOrange: Orange pâle
+    pastelYellow: Jaune pâle
+    pastelGreen: Vert pâle
+    pastelCyan: Cyan pâle
+    pastelBlue: Bleu pâle
+    pastelPurple: Violet pâle
+    pastelPink: Rose pâle
   imageOptions:
     title: Options d'image
     invertible: Couleurs inversibles
@@ -251,13 +251,14 @@ editor:
     removeAsBackground: Supprimer de l'arrière-plan
     delete: Effacer
   menu:
+    clearPage: Effacer la page $page/$totalPages
     clearAllPages: Effacer toutes les pages
     insertPage: Insérer une page après
     duplicatePage: Dupliquer la page
     deletePage: Supprimer la page
     lineHeight: Hauteur de ligne
     lineHeightDescription: Contrôle aussi la taille du texte
-    backgroundImageFit(OUTDATED): Image de fond
+    backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
     boxFits:
@@ -272,9 +273,8 @@ editor:
       grid: Grille
       dots: Points
       staffs: Staffs
-      tablature(OUTDATED): Tablature
+      tablature: Tablature
       cornell: Cornell
-    clearPage(OUTDATED): Effacer la page $page/$totalPages
   newerFileFormat:
     readOnlyMode: Mode lecture seule
     title: Cette note a été modifiée avec une version plus récente de Saber
@@ -288,8 +288,8 @@ editor:
     lockZoom: Verrouiller le zoom
     unlockSingleFingerPan: Activer le défilement à un seul doigt
     lockSingleFingerPan: Désactiver le défilement à un seul doigt
-    unlockAxisAlignedPan(OUTDATED): Déverrouiller le panoramique à l'horizontale ou à la verticale
-    lockAxisAlignedPan(OUTDATED): Verrouiller le panoramique à l'horizontale ou à la verticale
+    unlockAxisAlignedPan: Déverrouiller le panoramique à l'horizontale ou à la verticale
+    lockAxisAlignedPan: Verrouiller le panoramique à l'horizontale ou à la verticale
   pages: Pages
   untitled: Sans titre
-  needsToSaveBeforeExiting(OUTDATED): Enregistrement de vos modifications... Vous pouvez quitter l'éditeur en toute sécurité une fois terminé
+  needsToSaveBeforeExiting: Sauvegarde en cours... Vous pourrez quitter l'éditeur en toute sécurité une fois qu'elle sera terminée
