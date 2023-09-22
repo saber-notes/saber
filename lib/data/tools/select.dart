@@ -32,6 +32,7 @@ class Select extends Tool {
 
   Color? getDominantStrokeColor() {
     if (!doneSelecting) return null;
+    if (selectResult.strokes.isEmpty) return null;
 
     Map<Color, int> colorDistribution = <Color, int>{};
     for (Stroke stroke in selectResult.strokes) {
@@ -43,16 +44,11 @@ class Select extends Tool {
         ifAbsent: () => strokeSize,
       );
     }
+    assert(colorDistribution.isNotEmpty);
 
-    if (colorDistribution.isEmpty) {
-      return null;
-    }
-
-    Color dominantColor = colorDistribution.entries.reduce((a, b) {
+    return colorDistribution.entries.reduce((a, b) {
       return a.value > b.value ? a : b;
     }).key;
-
-    return dominantColor;
   }
 
   void onDragStart(Offset position, int pageIndex) {
