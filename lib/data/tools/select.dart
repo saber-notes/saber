@@ -31,6 +31,8 @@ class Select extends Tool {
   }
 
   Color? getDominantStrokeColor(){
+    if (!doneSelecting) return null;
+
     Map<Color, int> colorDistribution = <Color, int>{};
     for(Stroke stroke in selectResult.strokes){
       int strokeSize = stroke.polygon.length;
