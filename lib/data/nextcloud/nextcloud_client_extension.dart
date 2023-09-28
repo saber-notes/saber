@@ -83,7 +83,8 @@ extension NextcloudClientExtension on NextcloudClient {
 
   Future<String> getUsername() async {
     try {
-      return (await provisioningApi.users.getCurrentUser()).ocs.data.id;
+      final user = await provisioningApi.users.getCurrentUser();
+      return user.body.ocs.data.id;
     } catch (e) {
       throw NcLoginFailure();
     }

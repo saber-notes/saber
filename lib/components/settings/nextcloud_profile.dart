@@ -20,7 +20,7 @@ class NextcloudProfile extends StatefulWidget {
     if (client == null) return null;
 
     final user = await client.provisioningApi.users.getCurrentUser();
-    Prefs.lastStorageQuota.value = user.ocs.data.quota;
+    Prefs.lastStorageQuota.value = user.body.ocs.data.quota;
     return Prefs.lastStorageQuota.value;
   }
 }

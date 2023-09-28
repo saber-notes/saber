@@ -37,7 +37,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     final int ncSupportedVersion;
     try {
       capabilities = await client.core.ocs.getCapabilities()
-        .then((capabilities) => capabilities.ocs.data);
+        .then((capabilities) => capabilities.body.ocs.data);
       (ncServerIsSupported, ncSupportedVersion) = client.core.isSupported(capabilities);
       log.info('ncServerIsSupported: $ncServerIsSupported, ncSupportedVersion: $ncSupportedVersion');
     } catch (e) {
@@ -89,7 +89,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
 
     Prefs.pfp.value = null;
     client.core.avatar.getAvatar(userId: username, size: 512)
-        .then((response) => response.data)
+        .then((response) => response.body)
         .then((Uint8List pfp) {
           Prefs.pfp.value = pfp;
         });
