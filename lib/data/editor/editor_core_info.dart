@@ -89,15 +89,18 @@ class EditorCoreInfo {
     bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
-    List<Uint8List>? assets = fileVersion <= 13
-        ? (json['a'] as List<dynamic>?)
-            ?.cast<String>()
-            .map((base64) => base64Decode(base64))
-            .toList()
-        : (json['a'] as List<dynamic>?)
-            ?.cast<BsonBinary>()
-            .map((asset) => asset.byteList)
-            .toList();
+    List<Uint8List>? assets = (json['a'] as List<dynamic>?)
+        ?.map((asset) => switch (asset) {
+          (String base64) => base64Decode(base64),
+          (Uint8List bytes) => bytes,
+          (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
+          (BsonBinary bsonBinary) => bsonBinary.byteList,
+          _ => (){
+            log.severe('Invalid asset type in $filePath: ${asset.runtimeType}');
+            return Uint8List(0);
+          }(),
+        })
+        .toList();
 
     final Color? backgroundColor;
     switch (json['b']) {
