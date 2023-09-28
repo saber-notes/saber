@@ -173,20 +173,31 @@ class _BannerAdWidgetState extends State<BannerAdWidget> with AutomaticKeepAlive
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: FittedBox(
-          fit: BoxFit.fill,
-          child: SizedBox(
-            width: widget.adSize.width.toDouble(),
-            height: widget.adSize.height.toDouble(),
-            child: _bannerAd == null
-                ? Center(
-                    child: FaIcon(
-                      FontAwesomeIcons.rectangleAd,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Center(
+                child: ExcludeSemantics(
+                  child: Text(
+                    'Ad',
+                    style: TextStyle(
                       color: colorScheme.onSurface.withOpacity(0.5),
                     ),
-                  )
-                : AdWidget(ad: _bannerAd!),
-          ),
+                  ),
+                ),
+              ),
+            ),
+            FittedBox(
+              fit: BoxFit.fill,
+              child: SizedBox(
+                width: widget.adSize.width.toDouble(),
+                height: widget.adSize.height.toDouble(),
+                child: _bannerAd == null
+                  ? null
+                  : AdWidget(ad: _bannerAd!),
+              ),
+            ),
+          ],
         ),
       ),
     );
