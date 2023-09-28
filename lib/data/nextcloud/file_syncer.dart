@@ -74,7 +74,12 @@ abstract class FileSyncer {
     if (downloadCancellable.cancelled) return;
 
     // Add each file to download queue if needed
-    await Future.wait(remoteFiles.map((WebDavFile file) => _addToDownloadQueue(file)));
+    await Future.wait(
+      remoteFiles.map((WebDavFile file) {
+        return _addToDownloadQueue(file)
+          .catchError((e) => log.severe('Failed to add ${file.name} to download queue: $e', e));
+      }),
+    );
     _sortDownloadQueue();
     filesDone.value = 1;
 
