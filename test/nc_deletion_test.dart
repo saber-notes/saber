@@ -37,12 +37,14 @@ void main() {
     printOnFailure('File path local: $filePathLocal');
 
     const List<int> fileContent = [1, 2, 3];
-    final String filePathRemote = await () async {
-      final Encrypter encrypter = await client.encrypter;
+    final String encryptedPath = await client.encrypter.then((encrypter) {
       final IV iv = IV.fromBase64(Prefs.iv.value);
-      final String filePathEncrypted = encrypter.encrypt(filePathLocal, iv: iv).base16;
-      return '${FileManager.appRootDirectoryPrefix}/$filePathEncrypted${FileSyncer.encExtension}';
-    }();
+      return encrypter.encrypt(filePathLocal, iv: iv).base16;
+    });
+    final syncFile = SyncFile(
+      encryptedPath: encryptedPath,
+      localPath: filePathLocal,
+    );
 
     // Create a file (to delete later)
     await FileManager.writeFile(filePathLocal, fileContent, awaitWrite: true, alsoUpload: false);
@@ -52,8 +54,8 @@ void main() {
     await FileSyncer.uploadFileFromQueue();
 
     // Check that the file exists on Nextcloud
-    printOnFailure('Checking if $filePathRemote exists on Nextcloud');
-    final webDavFiles = await webdav.propfind(Uri.parse(filePathRemote), depth: WebDavDepth.zero)
+    printOnFailure('Checking if ${syncFile.remotePath} exists on Nextcloud');
+    final webDavFiles = await webdav.propfind(Uri.parse(syncFile.remotePath), depth: WebDavDepth.zero)
         .then((multistatus) => multistatus.toWebDavFiles());
     expect(webDavFiles.length, 1, reason: 'File should exist on Nextcloud');
 
@@ -65,17 +67,13 @@ void main() {
     await FileSyncer.uploadFileFromQueue();
 
     // Check that the file is empty on Nextcloud
-    final webDavFile = await webdav.propfind(Uri.parse(filePathRemote), depth: WebDavDepth.zero, prop: WebDavPropWithoutValues.fromBools(
+    final webDavFile = await webdav.propfind(Uri.parse(syncFile.remotePath), depth: WebDavDepth.zero, prop: WebDavPropWithoutValues.fromBools(
       davgetcontentlength: true,
     )).then((multistatus) => multistatus.toWebDavFiles().single);
     expect(webDavFile.size, 0, reason: 'File should be empty on Nextcloud');
 
     // Sync the file from Nextcloud
-    SyncFile syncFile = SyncFile(
-      remotePath: filePathRemote,
-      localPath: filePathLocal,
-      webDavFile: webDavFile,
-    );
+    syncFile.webDavFile = webDavFile;
     bool downloaded = await FileSyncer.downloadFile(syncFile, awaitWrite: true);
     expect(downloaded, true, reason: 'File was not downloaded successfully');
 

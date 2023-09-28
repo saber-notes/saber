@@ -141,13 +141,12 @@ abstract class FileSyncer {
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
-      final String filePathEncrypted = await workerManager.execute(
+      final String encryptedPath = await workerManager.execute(
         () => encrypter.encrypt(filePathUnencrypted, iv: iv).base16,
         priority: WorkPriority.veryHigh,
       );
-      final String filePathRemote = '${FileManager.appRootDirectoryPrefix}/$filePathEncrypted$encExtension';
 
-      final syncFile = SyncFile(remotePath: filePathRemote, localPath: filePathUnencrypted);
+      final syncFile = SyncFile(encryptedPath: encryptedPath, localPath: filePathUnencrypted);
       if (!await _shouldLocalFileBeKept(syncFile, inUploadQueue: true)) {
         // remote file is newer; download it instead
         _downloadQueue.add(syncFile);
@@ -196,7 +195,7 @@ abstract class FileSyncer {
       // upload file
       await webdav.put(
         localDataEncrypted,
-        Uri.parse(filePathRemote),
+        Uri.parse(syncFile.remotePath),
         lastModified: lastModified,
       );
     } on SocketException { // network error
@@ -214,54 +213,29 @@ abstract class FileSyncer {
     final Encrypter encrypter = await _client!.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
 
-    String filePathRemote = file.path;
-    if (filePathRemote.startsWith('/')) {
-      filePathRemote = filePathRemote.substring(1);
-    }
-
-    // remove parent directory from path
-    String filePathEncrypted = filePathRemote;
-    const rootSlash = '${FileManager.appRootDirectoryPrefix}/';
-    if (filePathEncrypted.startsWith(RegExp(r'files/[^/]+/Saber/'))) {
-      // Directory may be prefixed with /files/username/ then the /Saber/ folder.
-      // See https://github.com/adil192/saber/issues/382
-
-      // min index 8 to handle edge case where the username is 'Saber'
-      // i.e. '/files/Saber/Saber/76987698ab9c7697.sbn'
-      final i = filePathEncrypted.indexOf(rootSlash, 8) + rootSlash.length;
-      filePathEncrypted = filePathEncrypted.substring(i);
-    } else if (filePathEncrypted.startsWith(rootSlash)) { // remove "Saber/"
-      filePathEncrypted = filePathEncrypted.substring(rootSlash.length);
-    } else {
-      log.severe('remote file not in app root: $filePathEncrypted');
-      return;
-    }
-    assert(!filePathEncrypted.contains('/'), 'filePathEncrypted contains a slash: $filePathEncrypted');
-
     // ignored files
     for (final String ignoredFile in _ignoredFiles) {
-      if (('/$filePathEncrypted').endsWith(ignoredFile)) {
-        return;
-      }
+      if (file.path.endsWith(ignoredFile)) return;
     }
 
     // remove extension
-    if (filePathEncrypted.endsWith(encExtension)) {
-      filePathEncrypted = filePathEncrypted.substring(0, filePathEncrypted.length - encExtension.length);
+    final String encryptedPath;
+    if (file.name.endsWith(encExtension)) {
+      encryptedPath = file.name.substring(0, file.name.length - encExtension.length);
     } else {
-      log.info('remote file not in recognised encrypted format: $filePathRemote');
+      log.info('remote file not in recognised encrypted format: ${file.path}');
       return;
     } // TODO: also sync config.sbc
 
     // decrypt file path
-    final filePathUnencrypted = await workerManager.execute(
-      () => encrypter.decrypt16(filePathEncrypted, iv: iv),
+    final localPath = await workerManager.execute(
+      () => encrypter.decrypt16(encryptedPath, iv: iv),
       priority: WorkPriority.veryHigh,
     );
 
     final syncFile = SyncFile(
-      remotePath: filePathRemote,
-      localPath: filePathUnencrypted,
+      encryptedPath: encryptedPath,
+      localPath: localPath,
       webDavFile: file,
     );
     if (await _shouldLocalFileBeKept(syncFile)) return;
@@ -355,7 +329,7 @@ abstract class FileSyncer {
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      log.severe('Failed to download file ${file.localPath} (${file.remotePath}): $e', e);
+      log.severe('Failed to download file ${file.localPath} (${file.encryptedPath}): $e', e);
       return false;
     }
   }
@@ -397,10 +371,23 @@ abstract class FileSyncer {
 }
 
 class SyncFile {
-  final String remotePath;
+  final String encryptedPath;
   final String localPath;
   WebDavFile? webDavFile;
-  SyncFile({required this.remotePath, required this.localPath, this.webDavFile});
+
+  late final String remotePath = '${FileManager.appRootDirectoryPrefix}/'
+      '$encryptedPath'
+      '${FileSyncer.encExtension}';
+
+  SyncFile({
+    required this.encryptedPath,
+    required this.localPath,
+    this.webDavFile,
+  }): assert(encryptedPath.isNotEmpty),
+      assert(!encryptedPath.contains('/')),
+      assert(!encryptedPath.contains('\\')),
+      assert(!encryptedPath.contains('.')),
+      assert(localPath.isNotEmpty);
 }
 
 class CancellableStruct {
