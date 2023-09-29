@@ -1245,6 +1245,71 @@ class EditorState extends State<Editor> {
             });
           },
           currentTool: currentTool,
+          duplicateSelection: () {
+            setState(() {
+              final select = currentTool as Select;
+              if(select.doneSelecting){
+                final strokes = select.selectResult.strokes;
+                final images = select.selectResult.images;
+
+                const duplicationFeedbackOffset = Offset(25, -25);
+
+                final duplicatedStrokes = strokes.map((stroke){
+                  final duplicatedStroke = stroke.copy();
+                  duplicatedStroke.shift(duplicationFeedbackOffset);
+
+                  return duplicatedStroke;
+                }).toList();
+
+                final duplicatedImages = images.map((image){
+                  final duplicatedImage = image.copy();
+                  duplicatedImage.dstRect.shift(duplicationFeedbackOffset);
+
+                  return duplicatedImage;
+                }).toList();
+
+                coreInfo.pages[currentPageIndex].strokes.addAll(duplicatedStrokes);
+                coreInfo.pages[currentPageIndex].images.addAll(duplicatedImages);
+
+                final selectionPath = select.selectResult.path.shift(duplicationFeedbackOffset);
+                select.selectResult = select.selectResult.copyWith(strokes: duplicatedStrokes, images: duplicatedImages, path: selectionPath);
+
+                history.recordChange(EditorHistoryItem(
+                  type: EditorHistoryItemType.draw,
+                  pageIndex: strokes.first.pageIndex,
+                  strokes: duplicatedStrokes,
+                  images: duplicatedImages,
+                ));
+                autosaveAfterDelay();
+              }
+            });
+          },
+          deleteSelection: () {
+            setState(() {
+              final select = currentTool as Select;
+              if(select.doneSelecting){
+                final strokes = select.selectResult.strokes;
+                final images = select.selectResult.images;
+
+                for (Stroke stroke in strokes) {
+                  coreInfo.pages[currentPageIndex].strokes.remove(stroke);
+                }
+                for (EditorImage image in images) {
+                  coreInfo.pages[currentPageIndex].images.remove(image);
+                }
+
+                select.unselect();
+
+                history.recordChange(EditorHistoryItem(
+                  type: EditorHistoryItemType.erase,
+                  pageIndex: strokes.first.pageIndex,
+                  strokes: strokes,
+                  images: images,
+                ));
+                autosaveAfterDelay();
+              }
+            });
+          },
           setColor: (color) {
             setState(() {
               updateColorBar(color);

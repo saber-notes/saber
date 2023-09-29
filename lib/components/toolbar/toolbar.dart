@@ -10,6 +10,7 @@ import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
+import 'package:saber/components/toolbar/select_modal.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
@@ -47,6 +48,9 @@ class Toolbar extends StatefulWidget {
 
     required this.paste,
 
+    required this.duplicateSelection,
+    required this.deleteSelection,
+
     required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
@@ -72,6 +76,9 @@ class Toolbar extends StatefulWidget {
   final VoidCallback pickPhoto;
 
   final VoidCallback paste;
+
+  final VoidCallback duplicateSelection;
+  final VoidCallback deleteSelection;
 
   final Future Function()? exportAsSbn;
   final Future Function()? exportAsPdf;
@@ -200,6 +207,10 @@ class _ToolbarState extends State<Toolbar> {
               ToolOptions.highlighter => PenModal(
                 getTool: () => Highlighter.currentHighlighter,
                 setTool: widget.setTool,
+              ),
+              ToolOptions.select => SelectModal(
+                duplicateSelection: widget.duplicateSelection,
+                deleteSelection: widget.deleteSelection,
               ),
             },
           );
@@ -330,8 +341,17 @@ class _ToolbarState extends State<Toolbar> {
                 selected: widget.currentTool is Select,
                 enabled: !widget.readOnly,
                 onPressed: () {
-                  toolOptionsType.value = ToolOptions.hide;
-                  widget.setTool(Select.currentSelect);
+                  if (widget.currentTool == Select.currentSelect) {
+                    if (toolOptionsType.value == ToolOptions.select) {
+                      toolOptionsType.value = ToolOptions.hide;
+                    } else {
+                      toolOptionsType.value = ToolOptions.select;
+                    }
+                  } else {
+                    // Default showing selection functions
+                    toolOptionsType.value = ToolOptions.select;
+                    widget.setTool(Select.currentSelect);
+                  }
                 },
                 padding: buttonPadding,
                 child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
@@ -483,4 +503,5 @@ enum ToolOptions {
   hide,
   pen,
   highlighter,
+  select
 }
