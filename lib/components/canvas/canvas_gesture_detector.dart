@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
@@ -460,17 +461,20 @@ class _PagesBuilder extends StatelessWidget {
 @visibleForTesting
 class CanvasTransformCache {
   static const int _maxCacheSize = 5;
-  static final List<CanvasTransformCacheItem> _cache = [];
+  static final _cache = LinkedList<CanvasTransformCacheItem>();
 
   CanvasTransformCache._();
 
   static void add(String filePath, Matrix4 transform) {
-    _cache.removeWhere((item) => item.filePath == filePath);
-
+    for (final entry in _cache) {
+      if (entry.filePath != filePath) continue;
+      entry.unlink();
+      break;
+    }
     _cache.add(CanvasTransformCacheItem(filePath, transform));
 
     if (_cache.length > _maxCacheSize) {
-      _cache.removeAt(0);
+      _cache.first.unlink();
     }
   }
 
@@ -489,7 +493,7 @@ class CanvasTransformCache {
 }
 
 @visibleForTesting
-class CanvasTransformCacheItem {
+base class CanvasTransformCacheItem extends LinkedListEntry<CanvasTransformCacheItem> {
   final String filePath;
   final Matrix4 transform;
 
