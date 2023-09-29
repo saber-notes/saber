@@ -44,16 +44,20 @@ abstract class FileSyncer {
   ];
 
   static void startSync() async {
-    // cancel previous sync
+    log.fine('startSync: Starting sync');
+
+    log.finer('startSync: Cancelling previous sync');
     _downloadCancellable.cancelled = true;
     final CancellableStruct downloadCancellable = CancellableStruct();
     _downloadCancellable = downloadCancellable;
 
-    uploadFileFromQueue();
-
+    log.finer('startSync: Creating nextcloud client');
     if (_client?.loginName != Prefs.username.value) _client = null;
     _client ??= NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
+
+    log.fine('startSync: Starting upload');
+    uploadFileFromQueue();
 
     // Get list of remote files from server
     List<WebDavFile> remoteFiles;
@@ -65,7 +69,20 @@ abstract class FileSyncer {
           davgetlastmodified: true,
         ),
       ).then((multistatus) => multistatus.toWebDavFiles());
-    } on SocketException { // network error
+    } on DynamiteApiException catch (e) {
+      if (e.statusCode == HttpStatus.notFound) {
+        log.info('startSync: App directory doesn\'t exist; creating it', e);
+        await _client!.webdav.mkcol(Uri.parse(FileManager.appRootDirectoryPrefix));
+        remoteFiles = [];
+      } else {
+        log.severe('Failed to get list of remote files: $e', e);
+        filesDone.value = filesDoneLimit;
+        downloadCancellable.cancelled = true;
+        if (kDebugMode) rethrow;
+        return;
+      }
+    } on SocketException catch (e) { // network error
+      log.warning('startSync: Network error: $e', e);
       filesDone.value = filesDoneLimit;
       downloadCancellable.cancelled = true;
       return;
@@ -73,23 +90,25 @@ abstract class FileSyncer {
 
     if (downloadCancellable.cancelled) return;
 
-    // Add each file to download queue if needed
+    log.finer('startSync: Adding files to download queue');
     await Future.wait(
       remoteFiles.map((WebDavFile file) {
         return _addToDownloadQueue(file)
           .catchError((e) => log.severe('Failed to add ${file.name} to download queue: $e', e));
       }),
     );
+    log.finer('startSync: Sorting download queue');
     _sortDownloadQueue();
     filesDone.value = 1;
 
     if (downloadCancellable.cancelled) return;
 
-    Queue<SyncFile> failedFiles = Queue();
+    final failedFiles = Queue<SyncFile>();
     try {
       // Start downloading files one by one
       while (_downloadQueue.isNotEmpty) {
         final SyncFile file = _downloadQueue.removeFirst();
+        log.finer('startSync: Downloading ${file.localPath} (${file.encryptedPath})');
         final bool success = await downloadFile(file);
         if (downloadCancellable.cancelled) return;
         if (success) {
@@ -102,10 +121,12 @@ abstract class FileSyncer {
         Prefs.fileSyncCorruptFiles.notifyListeners();
       }
     } finally {
+      log.warning('startSync: Failed to download ${failedFiles.length} files');
       // Add failed files back to queue for next sync
       _downloadQueue.addAll(failedFiles);
     }
 
+    log.fine('startSync: Sync complete');
     // make sure progress indicator is complete
     filesDone.value = (filesDone.value ?? 0) + filesDoneLimit;
     downloadCancellable.cancelled = true;
