@@ -157,7 +157,8 @@ echo " - $CHANGELOG_FILE"
 echo " - $FLATPAK_FILE"
 echo "And then run:"
 echo " - dart scripts/translate_changelogs.dart"
-echo "Also go to https://snapcraft.io/saber/builds and click 'Trigger new build'"
+echo "And then:"
+echo " - Go to https://snapcraft.io/saber/builds and click 'Trigger new build'"
 
 if [ "$EDITOR" != "" ]; then
   echo

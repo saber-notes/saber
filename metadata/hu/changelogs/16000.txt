@@ -1,0 +1,6 @@
+• Most megváltoztathatja a kiválasztott stroke színét, köszönhetően az AraxTheCodernek.
+• A megbízhatóság javításának szinkronizálása.
+• A hirdetéseket úgy címkézik, mintha nem töltenek be.
+• Jobb kezelése zoom zár, amikor helyreállítja az utolsó zoom.
+• A PDF-ek importálása az otthoni képernyőről most a jelenlegi mappát használja.
+.

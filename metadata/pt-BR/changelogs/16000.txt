@@ -1,0 +1,5 @@
+• Agora você pode alterar a cor dos traços selecionados, graças ao AraxTheCoder.
+• Melhorias na confiabilidade da sincronização.
+• Os anúncios são rotulados como tal mesmo que não sejam carregados.
+• Melhor manuseio do bloqueio de zoom ao restaurar seu último zoom.
+• A importação de PDFs da tela inicial agora usa a pasta atual.
