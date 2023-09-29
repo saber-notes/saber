@@ -1,5 +1,5 @@
-
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
@@ -70,7 +70,11 @@ extension NextcloudClientExtension on NextcloudClient {
   Future<void> setConfig(Map<String, String> config) async {
     String json = jsonEncode(config);
     Uint8List file = Uint8List.fromList(json.codeUnits);
-    await webdav.mkcol(Uri.parse(appRootDirectoryPrefix));
+    try {
+      await webdav.mkcol(Uri.parse(appRootDirectoryPrefix));
+    } on DynamiteApiException catch (e) {
+      if (e.statusCode != HttpStatus.methodNotAllowed) rethrow;
+    }
     await webdav.put(file, configFileUri);
   }
 
