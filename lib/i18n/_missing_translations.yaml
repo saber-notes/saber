@@ -48,11 +48,18 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 de:
   home:
     titles:
@@ -93,11 +100,18 @@ de:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
@@ -109,11 +123,18 @@ fa:
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
   editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 fr:
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 hu:
   home:
     titles:
@@ -254,6 +275,9 @@ hu:
       pastelPink(OUTDATED): Pastel pink
     imageOptions:
       removeAsBackground(OUTDATED): Remove as background
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
     menu:
       clearPage(OUTDATED): Clear page $page/$totalPages
       insertPage(OUTDATED): Insert page below
@@ -271,6 +295,10 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 ja:
   home:
     titles:
@@ -308,12 +336,23 @@ ja:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 ru:
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 tr:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
@@ -325,6 +364,9 @@ tr:
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
   editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
@@ -338,6 +380,10 @@ zh-Hans-CN:
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate
 zh-Hant-TW:
   home:
     renameFolder:
@@ -347,3 +393,7 @@ zh-Hant-TW:
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
+  editor:
+    selectionOptions:
+      delete: Delete
+      duplicate: Duplicate

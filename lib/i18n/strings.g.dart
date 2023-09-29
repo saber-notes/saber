@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3585 (239 per locale)
+/// Strings: 3587 (239 per locale)
 ///
-/// Built on 2023-09-22 at 13:06 UTC
+/// Built on 2023-09-29 at 20:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -295,6 +295,7 @@ class _StringsEditorEn {
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
 	late final _StringsEditorColorsEn colors = _StringsEditorColorsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
+	late final _StringsEditorSelectionOptionsEn selectionOptions = _StringsEditorSelectionOptionsEn._(_root);
 	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
 	late final _StringsEditorQuillEn quill = _StringsEditorQuillEn._(_root);
@@ -797,6 +798,17 @@ class _StringsEditorImageOptionsEn {
 	String get setAsBackground => 'Set as background';
 	String get removeAsBackground => 'Remove as background';
 	String get delete => 'Delete';
+}
+
+// Path: editor.selectionOptions
+class _StringsEditorSelectionOptionsEn {
+	_StringsEditorSelectionOptionsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get delete => 'Delete';
+	String get duplicate => 'Duplicate';
 }
 
 // Path: editor.menu

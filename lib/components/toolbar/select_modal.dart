@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 class SelectModal extends StatefulWidget {
   final VoidCallback duplicateSelection;
@@ -27,7 +28,7 @@ class _SelectModalState extends State<SelectModal> {
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),
-          // TODO: tooltip
+          tooltip: t.editor.selectionOptions.duplicate,
           icon: const Icon(Icons.copy_rounded),
         ),
         IconButton(
@@ -37,7 +38,7 @@ class _SelectModalState extends State<SelectModal> {
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),
-          // TODO: tooltip
+          tooltip: t.editor.selectionOptions.delete,
           icon: const Icon(Icons.delete_rounded),
         ),
       ],
