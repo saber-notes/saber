@@ -69,10 +69,15 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             final fileName = result.files.single.name;
             if (filePath == null) return;
 
-            if (filePath.endsWith('.sbn')) {
-              FileManager.importFile(filePath, '${widget.path}/', true);
-            } else if (filePath.endsWith('.sbn2')) {
-              FileManager.importFile(filePath, '${widget.path}/', false);
+            if (filePath.endsWith('.sbn') || filePath.endsWith('.sbn2')) {
+              final path = await FileManager.importFile(
+                filePath,
+                '${widget.path}/',
+                filePath.endsWith('.sbn'),
+              );
+              if (path == null) return;
+              if (!mounted) return;
+              context.push(RoutePaths.editFilePath(path));
             } else if (filePath.endsWith('.pdf')) {
               if (!Editor.canRasterPdf) return;
               if (!mounted) return;
