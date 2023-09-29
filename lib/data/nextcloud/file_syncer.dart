@@ -73,6 +73,10 @@ abstract class FileSyncer {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('startSync: App directory doesn\'t exist; creating it', e);
         await _client!.webdav.mkcol(Uri.parse(FileManager.appRootDirectoryPrefix));
+        log.fine('startSync: Generating config');
+        await _client!.getConfig()
+          .then((config) => _client!.generateConfig(config: config))
+          .then((config) => _client!.setConfig(config));
         remoteFiles = [];
       } else {
         log.severe('Failed to get list of remote files: $e', e);
