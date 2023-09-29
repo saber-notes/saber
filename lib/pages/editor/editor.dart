@@ -1254,19 +1254,9 @@ class EditorState extends State<Editor> {
 
                 const duplicationFeedbackOffset = Offset(25, -25);
 
-                final duplicatedStrokes = strokes.map((stroke){
-                  final duplicatedStroke = stroke.copy();
-                  duplicatedStroke.shift(duplicationFeedbackOffset);
+                final duplicatedStrokes = strokes.map((stroke) => stroke.copy()..shift(duplicationFeedbackOffset)).toList();
 
-                  return duplicatedStroke;
-                }).toList();
-
-                final duplicatedImages = images.map((image){
-                  final duplicatedImage = image.copy();
-                  duplicatedImage.dstRect.shift(duplicationFeedbackOffset);
-
-                  return duplicatedImage;
-                }).toList();
+                final duplicatedImages = images.map((image) => image.copy()..dstRect.shift(duplicationFeedbackOffset)).toList();
 
                 coreInfo.pages[currentPageIndex].strokes.addAll(duplicatedStrokes);
                 coreInfo.pages[currentPageIndex].images.addAll(duplicatedImages);
