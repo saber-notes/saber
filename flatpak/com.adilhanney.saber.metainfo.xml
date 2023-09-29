@@ -265,6 +265,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.16.1" type="development" date="2023-09-29">
+            <description>
+                <ul>
+                    <li>Fixed login failing when the Saber folder already exists on the server.</li>
+                    <li>You can now change the colour of selected strokes, thanks to AraxTheCoder.</li>
+                    <li>Syncing reliability improvements.</li>
+                    <li>Better handling of zoom lock when restoring your last zoom.</li>
+                    <li>Importing PDFs from the home screen now uses the current folder.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.16.0" type="development" date="2023-09-29">
             <description>
                 <ul>

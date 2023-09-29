@@ -1,0 +1,6 @@
+• Fehler bei der Anmeldung behoben, wenn der Sabre-Ordner bereits auf dem Server vorhanden war.
+• Dank AraxTheCoder können Sie jetzt die Farbe ausgewählter Striche ändern.
+• Verbesserungen der Synchronisierungszuverlässigkeit.
+• Anzeigen werden auch dann als solche gekennzeichnet, wenn sie nicht geladen werden können.
+• Bessere Handhabung der Zoomsperre beim Wiederherstellen des letzten Zooms.
+• Beim Importieren von PDFs vom Startbildschirm wird jetzt der aktuelle Ordner verwendet.
