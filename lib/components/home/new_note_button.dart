@@ -66,6 +66,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             if (result == null) return;
 
             final filePath = result.files.single.path;
+            final fileName = result.files.single.name;
             if (filePath == null) return;
 
             if (filePath.endsWith('.sbn')) {
@@ -75,7 +76,15 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             } else if (filePath.endsWith('.pdf')) {
               if (!Editor.canRasterPdf) return;
               if (!mounted) return;
-              context.push(RoutePaths.editImportPdf(filePath));
+              
+              final fileNameWithoutExtension = fileName.substring(0, fileName.length - '.pdf'.length);
+              final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
+                '${widget.path}/$fileNameWithoutExtension',
+                false,
+              );
+              if (!mounted) return;
+
+              context.push(RoutePaths.editImportPdf(sbnFilePath, filePath));
             } else {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(

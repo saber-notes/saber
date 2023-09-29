@@ -17,8 +17,10 @@ abstract class RoutePaths {
   static String editFilePath(String filePath) {
     return '$edit?path=${Uri.encodeQueryComponent(filePath)}';
   }
-  static String editImportPdf(String pdfPath) {
-    return '$edit?pdfPath=${Uri.encodeQueryComponent(pdfPath)}';
+  static String editImportPdf(String filePath, String pdfPath) {
+    return '$edit'
+        '?path=${Uri.encodeQueryComponent(filePath)}'
+        '&pdfPath=${Uri.encodeQueryComponent(pdfPath)}';
   }
 }
 
