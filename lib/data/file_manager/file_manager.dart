@@ -399,10 +399,15 @@ class FileManager {
   }
 
   /// Imports a file from a sharing intent.
+  /// 
+  /// [parentDir], if provided, must start and end with a slash.
+  /// 
   /// Returns the file path of the imported file.
-  static Future<String?> importFile(String path, bool useOldExtension, {bool awaitWrite = true}) async {
+  static Future<String?> importFile(String path, String? parentDir, bool useOldExtension, {bool awaitWrite = true}) async {
+    assert(parentDir == null || parentDir.startsWith('/') && parentDir.endsWith('/'));
+
     final String fileName = path.split('/').last;
-    final String importedPath = await suffixFilePathToMakeItUnique('/$fileName', useOldExtension);
+    final String importedPath = await suffixFilePathToMakeItUnique('${parentDir ?? '/'}$fileName', useOldExtension);
 
     final File tempFile = File(path);
     final Uint8List fileContents;

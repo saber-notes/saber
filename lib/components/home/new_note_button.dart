@@ -70,9 +70,9 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             if (filePath == null) return;
 
             if (filePath.endsWith('.sbn')) {
-              FileManager.importFile(filePath, true);
+              FileManager.importFile(filePath, '${widget.path}/', true);
             } else if (filePath.endsWith('.sbn2')) {
-              FileManager.importFile(filePath, false);
+              FileManager.importFile(filePath, '${widget.path}/', false);
             } else if (filePath.endsWith('.pdf')) {
               if (!Editor.canRasterPdf) return;
               if (!mounted) return;
