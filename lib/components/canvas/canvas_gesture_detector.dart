@@ -205,7 +205,9 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     if (transformCacheItem != null) {
       // if we're opening the same note, restore the last transform
       widget._transformationController.value = transformCacheItem.transform;
-      return;
+      if (zoomLockedValue != null) {
+        zoomLockedValue = transformCacheItem.transform.getMaxScaleOnAxis();
+      }
     } else if (widget.initialPageIndex != null) {
       // if we're opening a different note, scroll to the last recorded page
       CanvasGestureDetector.scrollToPage(
