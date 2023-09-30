@@ -1246,58 +1246,62 @@ class EditorState extends State<Editor> {
           },
           currentTool: currentTool,
           duplicateSelection: () {
+            final select = currentTool as Select;
+            if(!select.doneSelecting){
+              return;
+            }
+
             setState(() {
-              final select = currentTool as Select;
-              if(select.doneSelecting){
-                final strokes = select.selectResult.strokes;
-                final images = select.selectResult.images;
+              final strokes = select.selectResult.strokes;
+              final images = select.selectResult.images;
 
-                const duplicationFeedbackOffset = Offset(25, -25);
+              const duplicationFeedbackOffset = Offset(25, -25);
 
-                final duplicatedStrokes = strokes.map((stroke) => stroke.copy()..shift(duplicationFeedbackOffset)).toList();
+              final duplicatedStrokes = strokes.map((stroke) => stroke.copy()..shift(duplicationFeedbackOffset)).toList();
 
-                final duplicatedImages = images.map((image) => image.copy()..dstRect.shift(duplicationFeedbackOffset)).toList();
+              final duplicatedImages = images.map((image) => image.copy()..dstRect.shift(duplicationFeedbackOffset)).toList();
 
-                coreInfo.pages[currentPageIndex].strokes.addAll(duplicatedStrokes);
-                coreInfo.pages[currentPageIndex].images.addAll(duplicatedImages);
+              coreInfo.pages[currentPageIndex].strokes.addAll(duplicatedStrokes);
+              coreInfo.pages[currentPageIndex].images.addAll(duplicatedImages);
 
-                final selectionPath = select.selectResult.path.shift(duplicationFeedbackOffset);
-                select.selectResult = select.selectResult.copyWith(strokes: duplicatedStrokes, images: duplicatedImages, path: selectionPath);
+              final selectionPath = select.selectResult.path.shift(duplicationFeedbackOffset);
+              select.selectResult = select.selectResult.copyWith(strokes: duplicatedStrokes, images: duplicatedImages, path: selectionPath);
 
-                history.recordChange(EditorHistoryItem(
-                  type: EditorHistoryItemType.draw,
-                  pageIndex: strokes.first.pageIndex,
-                  strokes: duplicatedStrokes,
-                  images: duplicatedImages,
-                ));
-                autosaveAfterDelay();
-              }
+              history.recordChange(EditorHistoryItem(
+                type: EditorHistoryItemType.draw,
+                pageIndex: strokes.first.pageIndex,
+                strokes: duplicatedStrokes,
+                images: duplicatedImages,
+              ));
+              autosaveAfterDelay();
             });
           },
           deleteSelection: () {
+            final select = currentTool as Select;
+            if(select.doneSelecting){
+              return;
+            }
+
             setState(() {
-              final select = currentTool as Select;
-              if(select.doneSelecting){
-                final strokes = select.selectResult.strokes;
-                final images = select.selectResult.images;
+              final strokes = select.selectResult.strokes;
+              final images = select.selectResult.images;
 
-                for (Stroke stroke in strokes) {
-                  coreInfo.pages[currentPageIndex].strokes.remove(stroke);
-                }
-                for (EditorImage image in images) {
-                  coreInfo.pages[currentPageIndex].images.remove(image);
-                }
-
-                select.unselect();
-
-                history.recordChange(EditorHistoryItem(
-                  type: EditorHistoryItemType.erase,
-                  pageIndex: strokes.first.pageIndex,
-                  strokes: strokes,
-                  images: images,
-                ));
-                autosaveAfterDelay();
+              for (Stroke stroke in strokes) {
+                coreInfo.pages[currentPageIndex].strokes.remove(stroke);
               }
+              for (EditorImage image in images) {
+                coreInfo.pages[currentPageIndex].images.remove(image);
+              }
+
+              select.unselect();
+
+              history.recordChange(EditorHistoryItem(
+                type: EditorHistoryItemType.erase,
+                pageIndex: strokes.first.pageIndex,
+                strokes: strokes,
+                images: images,
+              ));
+              autosaveAfterDelay();
             });
           },
           setColor: (color) {
