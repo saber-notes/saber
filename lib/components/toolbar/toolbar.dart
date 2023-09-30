@@ -10,7 +10,7 @@ import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
-import 'package:saber/components/toolbar/select_modal.dart';
+import 'package:saber/components/toolbar/selection_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
@@ -208,7 +208,7 @@ class _ToolbarState extends State<Toolbar> {
                 getTool: () => Highlighter.currentHighlighter,
                 setTool: widget.setTool,
               ),
-              ToolOptions.select => SelectModal(
+              ToolOptions.select => SelectionBar(
                 duplicateSelection: widget.duplicateSelection,
                 deleteSelection: widget.deleteSelection,
               ),

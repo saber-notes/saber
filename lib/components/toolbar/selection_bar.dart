@@ -1,21 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class SelectModal extends StatefulWidget {
+class SelectionBar extends StatefulWidget {
   final VoidCallback duplicateSelection;
   final VoidCallback deleteSelection;
 
-  const SelectModal({
+  const SelectionBar({
     super.key,
     required this.duplicateSelection,
     required this.deleteSelection,
   });
 
   @override
-  State<SelectModal> createState() => _SelectModalState();
+  State<SelectionBar> createState() => _SelectionBarState();
 }
 
-class _SelectModalState extends State<SelectModal> {
+class _SelectionBarState extends State<SelectionBar> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,7 +30,7 @@ class _SelectModalState extends State<SelectModal> {
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),
-          tooltip: t.editor.selectionOptions.duplicate,
+          tooltip: t.editor.selectionBar.duplicate,
           icon: const AdaptiveIcon(
             icon: Icons.content_copy,
             cupertinoIcon: CupertinoIcons.doc_on_clipboard,
@@ -41,7 +43,7 @@ class _SelectModalState extends State<SelectModal> {
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),
-          tooltip: t.editor.selectionOptions.delete,
+          tooltip: t.editor.selectionBar.delete,
           icon: const AdaptiveIcon(
             icon: Icons.delete,
             cupertinoIcon: CupertinoIcons.delete,
