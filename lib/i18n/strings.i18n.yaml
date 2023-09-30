@@ -251,7 +251,7 @@ editor:
     setAsBackground: Set as background
     removeAsBackground: Remove as background
     delete: Delete
-  selectionOptions:
+  selectionBar:
     delete: Delete
     duplicate: Duplicate
   menu:
