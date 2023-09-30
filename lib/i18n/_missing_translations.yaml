@@ -315,20 +315,6 @@ ja:
 pt-BR:
 ru:
 tr:
-  home:
-    invalidFormat(OUTDATED): "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin."
-    renameFolder:
-      renameFolder(OUTDATED): Klasörü adlandır
-      folderName(OUTDATED): Klasör ismi
-      rename(OUTDATED): Yeniden adlandır
-      folderNameEmpty(OUTDATED): Klasör ismi boş bırakılamaz
-      folderNameContainsSlash(OUTDATED): Klasör isminde slash kullanılamaz
-      folderNameExists(OUTDATED): Bu isme sahip bir klasör zaten var
-  editor:
-    menu:
-      backgroundImageFit(OUTDATED): Arkaplan görüntüsünü sığdır
-      bgPatterns:
-        tablature(OUTDATED): Nota kağıdı
 zh-Hans-CN:
   home:
     renameFolder:
