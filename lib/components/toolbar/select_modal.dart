@@ -42,7 +42,10 @@ class _SelectModalState extends State<SelectModal> {
             shape: const CircleBorder(),
           ),
           tooltip: t.editor.selectionOptions.delete,
-          icon: const Icon(Icons.delete_rounded),
+          icon: const AdaptiveIcon(
+            icon: Icons.delete,
+            cupertinoIcon: CupertinoIcons.delete,
+          ),
         ),
       ],
     );
