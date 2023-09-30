@@ -348,7 +348,7 @@ class _ToolbarState extends State<Toolbar> {
                       toolOptionsType.value = ToolOptions.select;
                     }
                   } else {
-                    // Default showing selection functions
+                    // Show the selection bar by default
                     toolOptionsType.value = ToolOptions.select;
                     widget.setTool(Select.currentSelect);
                   }
