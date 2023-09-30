@@ -1278,7 +1278,7 @@ class EditorState extends State<Editor> {
           },
           deleteSelection: () {
             final select = currentTool as Select;
-            if(select.doneSelecting){
+            if(!select.doneSelecting){
               return;
             }
 
