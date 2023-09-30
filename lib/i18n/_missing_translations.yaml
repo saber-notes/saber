@@ -316,19 +316,19 @@ pt-BR:
 ru:
 tr:
   home:
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin."
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): Klasörü adlandır
+      folderName(OUTDATED): Klasör ismi
+      rename(OUTDATED): Yeniden adlandır
+      folderNameEmpty(OUTDATED): Klasör ismi boş bırakılamaz
+      folderNameContainsSlash(OUTDATED): Klasör isminde slash kullanılamaz
+      folderNameExists(OUTDATED): Bu isme sahip bir klasör zaten var
   editor:
     menu:
-      backgroundImageFit(OUTDATED): Background image fit
+      backgroundImageFit(OUTDATED): Arkaplan görüntüsünü sığdır
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): Nota kağıdı
 zh-Hans-CN:
   home:
     renameFolder:
