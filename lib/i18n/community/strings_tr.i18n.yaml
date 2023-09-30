@@ -16,6 +16,7 @@ home:
     newNote: Yeni not
     importNote: Notu içeri aktar
   welcome: Saber'a hoş geldiniz
+  invalidFormat: "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin."
   noFiles: Dosya yok
   createNewNote: Yeni bir not oluşturmak için + butonuna tıklayınız
   backFolder: Önceki klasöre dön
@@ -39,19 +40,18 @@ home:
     move: Taşı
     renamedTo: Not $newName olarak yeniden adlandırılacak
   deleteNote: Notu sil
+  renameFolder:
+    renameFolder: Klasörü adlandır
+    folderName: Klasör ismi
+    rename: Yeniden adlandır
+    folderNameEmpty: Klasör ismi boş bırakılamaz
+    folderNameContainsSlash: Klasör isminde slash kullanılamaz
+    folderNameExists: Bu isme sahip bir klasör zaten var
   deleteFolder:
     deleteFolder: Klasörü sil
     deleteName: $f silinecek
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
-  invalidFormat(OUTDATED): "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin."
-  renameFolder:
-    folderNameEmpty(OUTDATED): Klasör adı boş olamaz
-    folderNameContainsSlash(OUTDATED): Klasör adı eğik çizgi içeremez
-    folderNameExists(OUTDATED): Bu ada sahip bir klasör zaten mevcut
-    rename(OUTDATED): Yeniden isimlendirmek
-    renameFolder(OUTDATED): Rename klasörü
-    folderName(OUTDATED): Klasör adı
 settings:
   prefCategories:
     general: Genel
@@ -259,7 +259,7 @@ editor:
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
     lineHeightDescription: Metnin boyutunu da kontrol eder
-    backgroundImageFit(OUTDATED): Arkaplan görseli
+    backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
     boxFits:
@@ -274,8 +274,8 @@ editor:
       grid: Kareli
       dots: Noktalı
       staffs: Porte (müzik)
+      tablature: Nota kağıdı
       cornell: Cornell not şablonu
-      tablature(OUTDATED): Tablatura
   newerFileFormat:
     readOnlyMode: Yalnızca okunabilir mod
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş

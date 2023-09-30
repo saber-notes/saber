@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3585 (239 per locale)
 ///
-/// Built on 2023-09-22 at 13:06 UTC
+/// Built on 2023-09-30 at 13:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9368,6 +9368,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsTr tooltips = _StringsHomeTooltipsTr._(_root);
 	@override late final _StringsHomeCreateTr create = _StringsHomeCreateTr._(_root);
 	@override String get welcome => 'Saber\'a hoş geldiniz';
+	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin.';
 	@override String get noFiles => 'Dosya yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
 	@override String get backFolder => 'Önceki klasöre dön';
@@ -9375,9 +9376,8 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteTr renameNote = _StringsHomeRenameNoteTr._(_root);
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
 	@override String get deleteNote => 'Notu sil';
-	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
-	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin.';
 	@override late final _StringsHomeRenameFolderTr renameFolder = _StringsHomeRenameFolderTr._(_root);
+	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
 }
 
 // Path: settings
@@ -9586,6 +9586,21 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Not ${newName} olarak yeniden adlandırılacak';
 }
 
+// Path: home.renameFolder
+class _StringsHomeRenameFolderTr extends _StringsHomeRenameFolderEn {
+	_StringsHomeRenameFolderTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameFolder => 'Klasörü adlandır';
+	@override String get folderName => 'Klasör ismi';
+	@override String get rename => 'Yeniden adlandır';
+	@override String get folderNameEmpty => 'Klasör ismi boş bırakılamaz';
+	@override String get folderNameContainsSlash => 'Klasör isminde slash kullanılamaz';
+	@override String get folderNameExists => 'Bu isme sahip bir klasör zaten var';
+}
+
 // Path: home.deleteFolder
 class _StringsHomeDeleteFolderTr extends _StringsHomeDeleteFolderEn {
 	_StringsHomeDeleteFolderTr._(_StringsTr root) : this._root = root, super._(root);
@@ -9597,21 +9612,6 @@ class _StringsHomeDeleteFolderTr extends _StringsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '${f} silinecek';
 	@override String get delete => 'Sil';
 	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
-}
-
-// Path: home.renameFolder
-class _StringsHomeRenameFolderTr extends _StringsHomeRenameFolderEn {
-	_StringsHomeRenameFolderTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get folderNameEmpty => 'Klasör adı boş olamaz';
-	@override String get folderNameContainsSlash => 'Klasör adı eğik çizgi içeremez';
-	@override String get folderNameExists => 'Bu ada sahip bir klasör zaten mevcut';
-	@override String get rename => 'Yeniden isimlendirmek';
-	@override String get renameFolder => 'Rename klasörü';
-	@override String get folderName => 'Klasör adı';
 }
 
 // Path: settings.prefCategories
@@ -10004,7 +10004,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
-	@override String get backgroundImageFit => 'Arkaplan görseli';
+	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
@@ -10088,8 +10088,8 @@ class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Kareli';
 	@override String get dots => 'Noktalı';
 	@override String get staffs => 'Porte (müzik)';
+	@override String get tablature => 'Nota kağıdı';
 	@override String get cornell => 'Cornell not şablonu';
-	@override String get tablature => 'Tablatura';
 }
 
 // Path: <root>
