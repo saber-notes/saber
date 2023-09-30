@@ -29,7 +29,10 @@ class _SelectModalState extends State<SelectModal> {
             shape: const CircleBorder(),
           ),
           tooltip: t.editor.selectionOptions.duplicate,
-          icon: const Icon(Icons.copy_rounded),
+          icon: const AdaptiveIcon(
+            icon: Icons.content_copy,
+            cupertinoIcon: CupertinoIcons.doc_on_clipboard,
+          ),
         ),
         IconButton(
           onPressed: widget.deleteSelection,
