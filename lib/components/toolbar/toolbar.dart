@@ -342,11 +342,9 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Select.currentSelect) {
-                    if (toolOptionsType.value == ToolOptions.select) {
-                      toolOptionsType.value = ToolOptions.hide;
-                    } else {
-                      toolOptionsType.value = ToolOptions.select;
-                    }
+                    toolOptionsType.value = toolOptionsType.value == ToolOptions.select
+                        ? ToolOptions.hide
+                        : ToolOptions.select;
                   } else {
                     // Show the selection bar by default
                     toolOptionsType.value = ToolOptions.select;
