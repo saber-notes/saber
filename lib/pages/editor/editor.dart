@@ -1297,7 +1297,7 @@ class EditorState extends State<Editor> {
 
               history.recordChange(EditorHistoryItem(
                 type: EditorHistoryItemType.erase,
-                pageIndex: select.selectResult.pageIndex,
+                pageIndex: strokes.first.pageIndex,
                 strokes: strokes,
                 images: images,
               ));
