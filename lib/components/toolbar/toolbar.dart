@@ -172,6 +172,13 @@ class _ToolbarState extends State<Toolbar> {
       _ => null,
     };
 
+    // Enables selection options only when selection is done
+    if(widget.currentTool == Select.currentSelect){
+      toolOptionsType.value = Select.currentSelect.doneSelecting
+          ? ToolOptions.select
+          : ToolOptions.hide;
+    }
+
     final children = <Widget>[
       ValueListenableBuilder(
         valueListenable: showExportOptions,
@@ -341,15 +348,8 @@ class _ToolbarState extends State<Toolbar> {
                 selected: widget.currentTool is Select,
                 enabled: !widget.readOnly,
                 onPressed: () {
-                  if (widget.currentTool == Select.currentSelect) {
-                    toolOptionsType.value = toolOptionsType.value == ToolOptions.select
-                        ? ToolOptions.hide
-                        : ToolOptions.select;
-                  } else {
-                    // Show the selection bar by default
-                    toolOptionsType.value = ToolOptions.select;
-                    widget.setTool(Select.currentSelect);
-                  }
+                  toolOptionsType.value = ToolOptions.hide;
+                  widget.setTool(Select.currentSelect);
                 },
                 padding: buttonPadding,
                 child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
