@@ -1261,15 +1261,15 @@ class EditorState extends State<Editor> {
 
               final duplicatedImages = images.map((image) => image.copy()..dstRect.shift(duplicationFeedbackOffset)).toList();
 
-              coreInfo.pages[currentPageIndex].strokes.addAll(duplicatedStrokes);
-              coreInfo.pages[currentPageIndex].images.addAll(duplicatedImages);
+              coreInfo.pages[select.selectResult.pageIndex].strokes.addAll(duplicatedStrokes);
+              coreInfo.pages[select.selectResult.pageIndex].images.addAll(duplicatedImages);
 
               final selectionPath = select.selectResult.path.shift(duplicationFeedbackOffset);
               select.selectResult = select.selectResult.copyWith(strokes: duplicatedStrokes, images: duplicatedImages, path: selectionPath);
 
               history.recordChange(EditorHistoryItem(
                 type: EditorHistoryItemType.draw,
-                pageIndex: strokes.first.pageIndex,
+                pageIndex: select.selectResult.pageIndex,
                 strokes: duplicatedStrokes,
                 images: duplicatedImages,
               ));
@@ -1287,17 +1287,17 @@ class EditorState extends State<Editor> {
               final images = select.selectResult.images;
 
               for (Stroke stroke in strokes) {
-                coreInfo.pages[currentPageIndex].strokes.remove(stroke);
+                coreInfo.pages[select.selectResult.pageIndex].strokes.remove(stroke);
               }
               for (EditorImage image in images) {
-                coreInfo.pages[currentPageIndex].images.remove(image);
+                coreInfo.pages[select.selectResult.pageIndex].images.remove(image);
               }
 
               select.unselect();
 
               history.recordChange(EditorHistoryItem(
                 type: EditorHistoryItemType.erase,
-                pageIndex: strokes.first.pageIndex,
+                pageIndex: select.selectResult.pageIndex,
                 strokes: strokes,
                 images: images,
               ));
