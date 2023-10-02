@@ -619,6 +619,10 @@ class EditorState extends State<Editor> {
           ));
         } else {
           select.onDragEnd(page.strokes, page.images);
+
+          if(select.selectResult.isEmpty){
+            Select.currentSelect.unselect();
+          }
         }
       } else if (currentTool is LaserPointer) {
         Stroke newStroke = (currentTool as LaserPointer).onDragEnd(

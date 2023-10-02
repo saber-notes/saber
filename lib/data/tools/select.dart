@@ -131,6 +131,10 @@ class SelectResult {
     required this.path,
   });
 
+  bool get isEmpty {
+    return strokes.isEmpty && images.isEmpty;
+  }
+
   SelectResult copyWith({
     int? pageIndex,
     List<Stroke>? strokes,
