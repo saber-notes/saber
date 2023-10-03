@@ -9,10 +9,10 @@ import 'package:saber/pages/editor/editor.dart';
 class MoveNoteButton extends StatelessWidget {
   const MoveNoteButton({
     super.key,
-    required this.existingPath,
+    required this.filesToMove,
   });
 
-  final String existingPath;
+  final List<String> filesToMove;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,7 @@ class MoveNoteButton extends StatelessWidget {
         showDialog(
           context: context,
           builder: (BuildContext context) {
-            return _MoveNoteDialog(
-              existingPath: existingPath,
-            );
+            return _MoveNoteDialog(filesToMove: filesToMove,);
           },
         );
       },
@@ -38,25 +36,22 @@ class _MoveNoteDialog extends StatefulWidget {
   const _MoveNoteDialog({
     // ignore: unused_element
     super.key,
-    required this.existingPath,
+    required this.filesToMove,
   });
 
-  final String existingPath;
+  final List<String> filesToMove;
 
   @override
   State<_MoveNoteDialog> createState() => _MoveNoteDialogState();
 }
 class _MoveNoteDialogState extends State<_MoveNoteDialog> {
-  /// The original file name of the note.
-  late String fileName = widget.existingPath.substring(
-    widget.existingPath.lastIndexOf('/') + 1,
-  );
-  /// The original parent folder of the note,
+  /// The original file names of the notes.
+  late List<String> fileNames = widget.filesToMove.map((path) => path.substring(path.lastIndexOf('/') + 1)).toList();
+
+  /// The original parent folder of the notes,
   /// including the trailing slash.
-  late String parentFolder = widget.existingPath.substring(
-    0,
-    widget.existingPath.lastIndexOf('/') + 1,
-  );
+  
+  late String parentFolder = widget.filesToMove[0].substring(0, widget.filesToMove[0].lastIndexOf('/') + 1);
 
   late String _currentFolder;
   /// The current folder browsed to in the dialog.
@@ -64,23 +59,23 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   set currentFolder(String folder) {
     _currentFolder = folder;
     currentFolderChildren = null;
-    newFileName = null;
     findChildrenOfCurrentFolder();
   }
 
   /// The children of [currentFolder].
   DirectoryChildren? currentFolderChildren;
-  /// The file name that the note will be moved to.
-  /// This is the same as [fileName], unless a file
+  /// The file names that the notes will be moved to.
+  /// This is the same as [fileNames], unless a file
   /// with the same name already exists in the
   /// destination folder. In that case, the file name
   /// will be suffixed with a number.
-  String? newFileName;
+  List<String>? newFileNames;
+
 
   Future findChildrenOfCurrentFolder() async {
     currentFolderChildren = await FileManager.getChildrenOfDirectory(currentFolder);
-    newFileName = await FileManager.suffixFilePathToMakeItUnique('$currentFolder$fileName', false, '${widget.existingPath}${Editor.extension}')
-      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
+    newFileNames = await Future.wait(widget.filesToMove.map((fileName) async => await FileManager.suffixFilePathToMakeItUnique('$currentFolder$fileName', false, '$parentFolder$fileName${Editor.extension}')
+      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1))).toList());
     if (!mounted) return;
     setState(() {});
   }
@@ -100,7 +95,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
-      title: Text(t.home.moveNote.moveName(f: fileName)),
+      title: Text(t.home.moveNote.moveName(f: fileNames)),
       content: SizedBox(
         width: 300,
         height: 300,
@@ -153,8 +148,8 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                 ],
               ),
             ),
-            if (newFileName != null && newFileName != fileName)
-              Text(t.home.moveNote.renamedTo(newName: newFileName ?? '?')),
+            if (newFileNames != null && newFileNames!.length == 1 && newFileNames![0] != fileNames[0])
+              Text(t.home.moveNote.renamedTo(newName: newFileNames![0])),
           ],
         ),
       ),
@@ -167,12 +162,14 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
         ),
         CupertinoDialogAction(
           onPressed: () async {
-            await FileManager.moveFile(
-              '${widget.existingPath}${Editor.extension}',
-              '$currentFolder$newFileName${Editor.extension}',
-            );
+            for(var i = 0; i < widget.filesToMove.length; i++){
+              await FileManager.moveFile(
+                '${widget.filesToMove[i]}${Editor.extension}',
+                '$currentFolder${newFileNames![i]}${Editor.extension}',
+              );
+            }
             if (!mounted) return;
-            Navigator.of(context).pop();
+              Navigator.of(context).pop();
           },
           child: Text(t.home.moveNote.move),
         ),

@@ -8,8 +8,6 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
-import 'package:saber/components/home/move_note_button.dart';
-import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -24,9 +22,12 @@ import 'package:saber/pages/editor/editor.dart';
 class PreviewCard extends StatefulWidget {
   PreviewCard({
     required this.filePath,
+    required this.toggleSelection,
+    required this.selected,
   }) : super(key: ValueKey('PreviewCard$filePath'));
 
   final String filePath;
+  final bool selected;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -35,6 +36,8 @@ class PreviewCard extends StatefulWidget {
       => _PreviewCardState.getCachedCoreInfo(filePath);
   static void moveFileInCache(String oldPath, String newPath)
       => _PreviewCardState.moveFileInCache(oldPath, newPath);
+  
+  final void Function(String, bool) toggleSelection;
 }
 
 class _PreviewCardState extends State<PreviewCard> {
@@ -137,6 +140,7 @@ class _PreviewCardState extends State<PreviewCard> {
     }
     fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
+    expanded.value = widget.selected;
     super.initState();
   }
 
@@ -197,8 +201,8 @@ class _PreviewCardState extends State<PreviewCard> {
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onSecondaryTap: () => expanded.value = !expanded.value,
-        onLongPress: () => expanded.value = !expanded.value,
+        onSecondaryTap: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
+        onLongPress: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
         child: ColoredBox(
           color: colorScheme.primary.withOpacity(0.05),
           child: Stack(
@@ -243,7 +247,7 @@ class _PreviewCardState extends State<PreviewCard> {
                             ),
                           ),
                           child: GestureDetector(
-                            onTap: () => expanded.value = !expanded.value,
+                            onTap: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -258,26 +262,6 @@ class _PreviewCardState extends State<PreviewCard> {
                               ),
                               child: ColoredBox(
                                 color: colorScheme.primary.withOpacity(0.05),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    RenameNoteButton(
-                                      existingPath: widget.filePath,
-                                    ),
-                                    MoveNoteButton(
-                                      existingPath: widget.filePath,
-                                    ),
-                                    IconButton(
-                                      padding: EdgeInsets.zero,
-                                      tooltip: t.home.deleteNote,
-                                      onPressed: () {
-                                        FileManager.deleteFile(widget.filePath + Editor.extension);
-                                      },
-                                      icon: const Icon(Icons.delete_forever),
-                                    ),
-                                  ],
-                                ),
                               ),
                             ),
                           ),
