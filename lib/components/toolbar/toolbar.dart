@@ -172,8 +172,8 @@ class _ToolbarState extends State<Toolbar> {
       _ => null,
     };
 
-    // Enables selection options only when selection is done
-    if(widget.currentTool == Select.currentSelect){
+    if (widget.currentTool == Select.currentSelect) {
+      // Enable selection bar only when selection is done
       toolOptionsType.value = Select.currentSelect.doneSelecting
           ? ToolOptions.select
           : ToolOptions.hide;
@@ -501,5 +501,5 @@ enum ToolOptions {
   hide,
   pen,
   highlighter,
-  select
+  select,
 }

@@ -140,11 +140,11 @@ class SelectResult {
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Path? path,
-  }){
+  }) {
     return SelectResult(
       pageIndex: pageIndex ?? this.pageIndex,
       strokes: strokes ?? this.strokes,
-      images: images  ?? this.images,
+      images: images ?? this.images,
       path: path ?? this.path,
     );
   }

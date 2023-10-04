@@ -620,7 +620,7 @@ class EditorState extends State<Editor> {
         } else {
           select.onDragEnd(page.strokes, page.images);
 
-          if(select.selectResult.isEmpty){
+          if (select.selectResult.isEmpty) {
             Select.currentSelect.unselect();
           }
         }
@@ -1251,25 +1251,37 @@ class EditorState extends State<Editor> {
           currentTool: currentTool,
           duplicateSelection: () {
             final select = currentTool as Select;
-            if(!select.doneSelecting){
-              return;
-            }
+            if (!select.doneSelecting) return;
 
             setState(() {
+              final page = coreInfo.pages[select.selectResult.pageIndex];
               final strokes = select.selectResult.strokes;
               final images = select.selectResult.images;
 
               const duplicationFeedbackOffset = Offset(25, -25);
 
-              final duplicatedStrokes = strokes.map((stroke) => stroke.copy()..shift(duplicationFeedbackOffset)).toList();
+              final duplicatedStrokes = strokes
+                  .map((stroke) {
+                    return stroke.copy()
+                      ..shift(duplicationFeedbackOffset);
+                  })
+                  .toList();
 
-              final duplicatedImages = images.map((image) => image.copy()..dstRect.shift(duplicationFeedbackOffset)).toList();
+              final duplicatedImages = images
+                  .map((image) {
+                    return image.copy()
+                      ..dstRect.shift(duplicationFeedbackOffset);
+                  })
+                  .toList();
 
-              coreInfo.pages[select.selectResult.pageIndex].strokes.addAll(duplicatedStrokes);
-              coreInfo.pages[select.selectResult.pageIndex].images.addAll(duplicatedImages);
+              page.strokes.addAll(duplicatedStrokes);
+              page.images.addAll(duplicatedImages);
 
-              final selectionPath = select.selectResult.path.shift(duplicationFeedbackOffset);
-              select.selectResult = select.selectResult.copyWith(strokes: duplicatedStrokes, images: duplicatedImages, path: selectionPath);
+              select.selectResult = select.selectResult.copyWith(
+                strokes: duplicatedStrokes,
+                images: duplicatedImages,
+                path: select.selectResult.path.shift(duplicationFeedbackOffset),
+              );
 
               history.recordChange(EditorHistoryItem(
                 type: EditorHistoryItemType.draw,
@@ -1282,19 +1294,20 @@ class EditorState extends State<Editor> {
           },
           deleteSelection: () {
             final select = currentTool as Select;
-            if(!select.doneSelecting){
+            if (!select.doneSelecting) {
               return;
             }
 
             setState(() {
+              final page = coreInfo.pages[select.selectResult.pageIndex];
               final strokes = select.selectResult.strokes;
               final images = select.selectResult.images;
 
               for (Stroke stroke in strokes) {
-                coreInfo.pages[select.selectResult.pageIndex].strokes.remove(stroke);
+                page.strokes.remove(stroke);
               }
               for (EditorImage image in images) {
-                coreInfo.pages[select.selectResult.pageIndex].images.remove(image);
+                page.images.remove(image);
               }
 
               select.unselect();
