@@ -1270,6 +1270,7 @@ class EditorState extends State<Editor> {
               final duplicatedImages = images
                   .map((image) {
                     return image.copy()
+                      ..id = coreInfo.nextImageId++
                       ..dstRect.shift(duplicationFeedbackOffset);
                   })
                   .toList();
