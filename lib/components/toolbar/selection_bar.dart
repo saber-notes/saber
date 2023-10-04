@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class SelectionBar extends StatefulWidget {
+class SelectionBar extends StatelessWidget {
   final VoidCallback duplicateSelection;
   final VoidCallback deleteSelection;
 
@@ -14,17 +14,12 @@ class SelectionBar extends StatefulWidget {
   });
 
   @override
-  State<SelectionBar> createState() => _SelectionBarState();
-}
-
-class _SelectionBarState extends State<SelectionBar> {
-  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          onPressed: widget.duplicateSelection,
+          onPressed: duplicateSelection,
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).colorScheme.secondary,
             backgroundColor: Colors.transparent,
@@ -37,7 +32,7 @@ class _SelectionBarState extends State<SelectionBar> {
           ),
         ),
         IconButton(
-          onPressed: widget.deleteSelection,
+          onPressed: deleteSelection,
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).colorScheme.secondary,
             backgroundColor: Colors.transparent,
