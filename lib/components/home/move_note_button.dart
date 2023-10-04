@@ -48,10 +48,10 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   /// The original file names of the notes.
   late List<String> fileNames = widget.filesToMove.map((path) => path.substring(path.lastIndexOf('/') + 1)).toList();
 
-  /// The original parent folder of the notes,
+  /// The original parent folders of the notes,
   /// including the trailing slash.
   
-  late String parentFolder = widget.filesToMove[0].substring(0, widget.filesToMove[0].lastIndexOf('/') + 1);
+  late List<String> parentFolders = widget.filesToMove.map((path) => path.substring(0, path.lastIndexOf('/') + 1)).toList();
 
   late String _currentFolder;
   /// The current folder browsed to in the dialog.
@@ -69,13 +69,15 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   /// with the same name already exists in the
   /// destination folder. In that case, the file name
   /// will be suffixed with a number.
-  List<String>? newFileNames;
+  List<String> newFileNames = [];
 
 
   Future findChildrenOfCurrentFolder() async {
     currentFolderChildren = await FileManager.getChildrenOfDirectory(currentFolder);
-    newFileNames = await Future.wait(widget.filesToMove.map((fileName) async => await FileManager.suffixFilePathToMakeItUnique('$currentFolder$fileName', false, '$parentFolder$fileName${Editor.extension}')
-      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1))).toList());
+    for(var i = 0; i < widget.filesToMove.length; i++){
+      newFileNames.add(await FileManager.suffixFilePathToMakeItUnique('$currentFolder${widget.filesToMove[i]}', false, '${parentFolders[i]}${widget.filesToMove[i]}${Editor.extension}')
+      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1)));
+    }
     if (!mounted) return;
     setState(() {});
   }
@@ -88,7 +90,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
 
   @override
   void initState() {
-    currentFolder = parentFolder;
+    currentFolder = parentFolders[0];
     super.initState();
   }
 

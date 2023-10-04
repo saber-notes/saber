@@ -146,7 +146,7 @@ class _RecentPageState extends State<RecentPage> {
             builder: (context, selectedFiles, child) {
               return Collapsible(
                 axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.length != 1,
+                collapsed: selectedFiles.isEmpty,
                 child: MoveNoteButton(filesToMove: selectedFiles),
               );
             },
