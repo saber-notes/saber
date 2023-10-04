@@ -295,6 +295,7 @@ class _StringsEditorEn {
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
 	late final _StringsEditorColorsEn colors = _StringsEditorColorsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
+	late final _StringsEditorSelectionBarEn selectionBar = _StringsEditorSelectionBarEn._(_root);
 	late final _StringsEditorMenuEn menu = _StringsEditorMenuEn._(_root);
 	late final _StringsEditorNewerFileFormatEn newerFileFormat = _StringsEditorNewerFileFormatEn._(_root);
 	late final _StringsEditorQuillEn quill = _StringsEditorQuillEn._(_root);
@@ -797,6 +798,17 @@ class _StringsEditorImageOptionsEn {
 	String get setAsBackground => 'Set as background';
 	String get removeAsBackground => 'Remove as background';
 	String get delete => 'Delete';
+}
+
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get delete => 'Delete';
+	String get duplicate => 'Duplicate';
 }
 
 // Path: editor.menu

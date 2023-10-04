@@ -10,6 +10,7 @@ import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
+import 'package:saber/components/toolbar/selection_bar.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
@@ -47,6 +48,9 @@ class Toolbar extends StatefulWidget {
 
     required this.paste,
 
+    required this.duplicateSelection,
+    required this.deleteSelection,
+
     required this.exportAsSbn,
     required this.exportAsPdf,
     required this.exportAsPng,
@@ -72,6 +76,9 @@ class Toolbar extends StatefulWidget {
   final VoidCallback pickPhoto;
 
   final VoidCallback paste;
+
+  final VoidCallback duplicateSelection;
+  final VoidCallback deleteSelection;
 
   final Future Function()? exportAsSbn;
   final Future Function()? exportAsPdf;
@@ -165,6 +172,13 @@ class _ToolbarState extends State<Toolbar> {
       _ => null,
     };
 
+    if (widget.currentTool == Select.currentSelect) {
+      // Enable selection bar only when selection is done
+      toolOptionsType.value = Select.currentSelect.doneSelecting
+          ? ToolOptions.select
+          : ToolOptions.hide;
+    }
+
     final children = <Widget>[
       ValueListenableBuilder(
         valueListenable: showExportOptions,
@@ -200,6 +214,10 @@ class _ToolbarState extends State<Toolbar> {
               ToolOptions.highlighter => PenModal(
                 getTool: () => Highlighter.currentHighlighter,
                 setTool: widget.setTool,
+              ),
+              ToolOptions.select => SelectionBar(
+                duplicateSelection: widget.duplicateSelection,
+                deleteSelection: widget.deleteSelection,
               ),
             },
           );
@@ -483,4 +501,5 @@ enum ToolOptions {
   hide,
   pen,
   highlighter,
+  select,
 }

@@ -619,6 +619,10 @@ class EditorState extends State<Editor> {
           ));
         } else {
           select.onDragEnd(page.strokes, page.images);
+
+          if (select.selectResult.isEmpty) {
+            Select.currentSelect.unselect();
+          }
         }
       } else if (currentTool is LaserPointer) {
         Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
@@ -1245,6 +1249,79 @@ class EditorState extends State<Editor> {
             });
           },
           currentTool: currentTool,
+          duplicateSelection: () {
+            final select = currentTool as Select;
+            if (!select.doneSelecting) return;
+
+            setState(() {
+              final page = coreInfo.pages[select.selectResult.pageIndex];
+              final strokes = select.selectResult.strokes;
+              final images = select.selectResult.images;
+
+              const duplicationFeedbackOffset = Offset(25, -25);
+
+              final duplicatedStrokes = strokes
+                  .map((stroke) {
+                    return stroke.copy()
+                      ..shift(duplicationFeedbackOffset);
+                  })
+                  .toList();
+
+              final duplicatedImages = images
+                  .map((image) {
+                    return image.copy()
+                      ..id = coreInfo.nextImageId++
+                      ..dstRect.shift(duplicationFeedbackOffset);
+                  })
+                  .toList();
+
+              page.strokes.addAll(duplicatedStrokes);
+              page.images.addAll(duplicatedImages);
+
+              select.selectResult = select.selectResult.copyWith(
+                strokes: duplicatedStrokes,
+                images: duplicatedImages,
+                path: select.selectResult.path.shift(duplicationFeedbackOffset),
+              );
+
+              history.recordChange(EditorHistoryItem(
+                type: EditorHistoryItemType.draw,
+                pageIndex: select.selectResult.pageIndex,
+                strokes: duplicatedStrokes,
+                images: duplicatedImages,
+              ));
+              autosaveAfterDelay();
+            });
+          },
+          deleteSelection: () {
+            final select = currentTool as Select;
+            if (!select.doneSelecting) {
+              return;
+            }
+
+            setState(() {
+              final page = coreInfo.pages[select.selectResult.pageIndex];
+              final strokes = select.selectResult.strokes;
+              final images = select.selectResult.images;
+
+              for (Stroke stroke in strokes) {
+                page.strokes.remove(stroke);
+              }
+              for (EditorImage image in images) {
+                page.images.remove(image);
+              }
+
+              select.unselect();
+
+              history.recordChange(EditorHistoryItem(
+                type: EditorHistoryItemType.erase,
+                pageIndex: strokes.first.pageIndex,
+                strokes: strokes,
+                images: images,
+              ));
+              autosaveAfterDelay();
+            });
+          },
           setColor: (color) {
             setState(() {
               updateColorBar(color);
