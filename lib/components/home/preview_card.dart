@@ -24,10 +24,12 @@ class PreviewCard extends StatefulWidget {
     required this.filePath,
     required this.toggleSelection,
     required this.selected,
+    required this.isAnythingSelected,
   }) : super(key: ValueKey('PreviewCard$filePath'));
 
   final String filePath;
   final bool selected;
+  final bool isAnythingSelected;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -201,6 +203,7 @@ class _PreviewCardState extends State<PreviewCard> {
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
+        onTap: widget.isAnythingSelected ? () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)} : null,
         onSecondaryTap: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
         onLongPress: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
         child: ColoredBox(

@@ -26,6 +26,7 @@ class MasonryFiles extends StatefulWidget {
 
 class _MasonryFilesState extends State<MasonryFiles> {
   List<String> selectedFiles = [];
+  ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
 
   void toggleSelection(String filepath, bool selected) {
     if(selected) {
@@ -33,6 +34,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
     } else {
       selectedFiles.remove(filepath);
     }
+    isAnythingSelected.value = selectedFiles.isNotEmpty;
     widget.setSelectedFiles(selectedFiles);
   }
 
@@ -74,10 +76,16 @@ class _MasonryFilesState extends State<MasonryFiles> {
               ),
             );
           } else {
-            return PreviewCard(
-              filePath: file,
-              toggleSelection: toggleSelection,
-              selected: selectedFiles.contains(file),
+            return ValueListenableBuilder(
+              valueListenable: isAnythingSelected,
+              builder: (context, isAnythingSelected, _) {
+                return PreviewCard(
+                  filePath: file,
+                  toggleSelection: toggleSelection,
+                  selected: selectedFiles.contains(file),
+                  isAnythingSelected: isAnythingSelected,
+                );
+              }
             );
           }
         },
