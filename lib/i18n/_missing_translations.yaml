@@ -349,12 +349,12 @@ tr:
 zh-Hans-CN:
   home:
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): 重命名文件夹
+      folderName(OUTDATED): 文件夹名称
+      rename(OUTDATED): 重命名
+      folderNameEmpty(OUTDATED): 文件夹不能为空
+      folderNameContainsSlash(OUTDATED): 文件夹名称不能包含斜线
+      folderNameExists(OUTDATED): 已存在该名称的文件夹
   editor:
     selectionBar:
       duplicate(OUTDATED): Duplicate
