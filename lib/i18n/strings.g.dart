@@ -392,9 +392,12 @@ class _StringsHomeMoveNoteEn {
 
 	// Translations
 	String get moveNote => 'Move note';
+	String moveNotes({required Object n}) => 'Move ${n} notes';
 	String moveName({required Object f}) => 'Move ${f}';
 	String get move => 'Move';
 	String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
+	String get multipleRenamedTo => 'The following notes will be renamed:';
+	String numberRenamedTo({required Object n}) => '${n} notes will be renamed';
 }
 
 // Path: home.renameFolder

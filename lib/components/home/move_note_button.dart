@@ -70,14 +70,23 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   /// destination folder. In that case, the file name
   /// will be suffixed with a number.
   List<String> newFileNames = [];
+  List<String> duplicateFileNames = [];
 
 
   Future findChildrenOfCurrentFolder() async {
     currentFolderChildren = await FileManager.getChildrenOfDirectory(currentFolder);
+    newFileNames = [];
+    duplicateFileNames = [];
     for(var i = 0; i < widget.filesToMove.length; i++){
-      newFileNames.add(await FileManager.suffixFilePathToMakeItUnique('$currentFolder${widget.filesToMove[i]}', false, '${parentFolders[i]}${widget.filesToMove[i]}${Editor.extension}')
-      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1)));
+      String newFileName = await FileManager.suffixFilePathToMakeItUnique('$currentFolder${widget.filesToMove[i]}', false, '${parentFolders[i]}${widget.filesToMove[i]}${Editor.extension}')
+      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
+      newFileNames.add(newFileName);
+      if(newFileName != widget.filesToMove[i].substring(widget.filesToMove[i].lastIndexOf('/') + 1)) {
+        duplicateFileNames.add(newFileName);
+      }
     }
+    
+    
     if (!mounted) return;
     setState(() {});
   }
@@ -97,7 +106,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
-      title: Text(t.home.moveNote.moveName(f: fileNames)),
+      title: fileNames.toString().length < 300
+      ? Text(t.home.moveNote.moveName(f: fileNames.toString().substring(1, fileNames.toString().length - 1)))
+      : Text(t.home.moveNote.moveNotes(n: fileNames.length)),
       content: SizedBox(
         width: 300,
         height: 300,
@@ -150,8 +161,15 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                 ],
               ),
             ),
-            if (newFileNames != null && newFileNames!.length == 1 && newFileNames![0] != fileNames[0])
-              Text(t.home.moveNote.renamedTo(newName: newFileNames![0])),
+            
+            if (duplicateFileNames.length == 1)
+              Text(t.home.moveNote.renamedTo(newName: newFileNames[0]))
+            else if(duplicateFileNames.length > 1 && duplicateFileNames.toString().length < 300)
+              Text(t.home.moveNote.multipleRenamedTo),
+            if(duplicateFileNames.length > 1)
+              duplicateFileNames.toString().length < 300
+                ? Text(duplicateFileNames.toString().substring(1, duplicateFileNames.toString().length - 1))
+                : Text(t.home.moveNote.numberRenamedTo(n: duplicateFileNames.length)),
           ],
         ),
       ),

@@ -11,7 +11,10 @@ ar:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
+      moveNotes: Move $n notes
       moveName(OUTDATED): Move $f
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -57,6 +60,11 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  home:
+    moveNote:
+      moveNotes: Move $n notes
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
 de:
   home:
     titles:
@@ -66,6 +74,10 @@ de:
       importNote(OUTDATED): Import note
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
+    moveNote:
+      moveNotes: Move $n notes
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -114,6 +126,10 @@ es:
 fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    moveNote:
+      moveNotes: Move $n notes
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -175,9 +191,12 @@ hu:
       noteNameExists(OUTDATED): A note with this name already exists
     moveNote:
       moveNote(OUTDATED): Move note
+      moveNotes: Move $n notes
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -310,6 +329,11 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    moveNote:
+      moveNotes: Move $n notes
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
 ja:
   home:
     titles:
@@ -319,6 +343,10 @@ ja:
       importNote(OUTDATED): Import note
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
+    moveNote:
+      moveNotes: Move $n notes
+      multipleRenamedTo: "The following notes will be renamed:"
+      numberRenamedTo: $n notes will be renamed
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
