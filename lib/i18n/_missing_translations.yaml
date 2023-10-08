@@ -357,7 +357,7 @@ zh-Hans-CN:
       folderNameExists(OUTDATED): 已存在该名称的文件夹
   editor:
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): 重复
 zh-Hant-TW:
   editor:
     selectionBar:
