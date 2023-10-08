@@ -41,12 +41,12 @@ home:
     renamedTo: 筆記將重新命名為 $newName
   deleteNote: 刪除筆記
   renameFolder:
-    folderNameEmpty(OUTDATED): 文件夾名稱不能為空
-    folderNameContainsSlash(OUTDATED): 文件夾名稱不能包含斜杠
-    folderNameExists(OUTDATED): 同名的文件夾已存在
-    renameFolder(OUTDATED): 重命名文件夾
-    folderName(OUTDATED): 文件夾名稱
-    rename(OUTDATED): 改名
+    renameFolder: 重新命名資料夾
+    folderName: 資料夾名稱
+    rename: 重新命名
+    folderNameEmpty: 資烙夾名稱不能為空
+    folderNameContainsSlash: 資料夾名稱不能包含斜槓
+    folderNameExists: 已存在同名的資料夾
   deleteFolder:
     deleteFolder: 刪除資料夾
     deleteName: 刪除 $f

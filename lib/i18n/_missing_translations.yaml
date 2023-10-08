@@ -359,14 +359,6 @@ zh-Hans-CN:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 zh-Hant-TW:
-  home:
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
   editor:
     selectionBar:
       duplicate(OUTDATED): Duplicate
