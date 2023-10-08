@@ -251,6 +251,9 @@ editor:
     setAsBackground: Arkaplan olarak ayarla
     removeAsBackground: Arkaplanı kaldır
     delete: Sil
+  selectionBar:
+    delete: Sil
+    duplicate(OUTDATED): Kopyalamak
   menu:
     clearPage: $page/$totalPages numaralı sayfayı temizle
     clearAllPages: Tüm sayfaları temizle

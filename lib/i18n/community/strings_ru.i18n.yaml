@@ -250,6 +250,9 @@ editor:
     setAsBackground: Сделать фоном
     removeAsBackground: Удалить фон
     delete: Удалить
+  selectionBar:
+    delete: Удалить
+    duplicate(OUTDATED): Дублировать
   menu:
     clearPage: Очистить лист $page/$totalPages
     clearAllPages: Очистить все листы

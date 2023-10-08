@@ -6,12 +6,15 @@ home:
     settings: Einstellungen
   titles:
     home: Letzte Notizen
-    browse(OUTDATED): Durchsuchen
     whiteboard: Whiteboard
     settings: Einstellungen
+    browse(OUTDATED): Durchsuchen
   tooltips:
     newNote: Notiz erstellen
     showUpdateDialog: Aktualisierungsdialog anzeigen
+  create:
+    newNote(OUTDATED): Neue Notiz
+    importNote(OUTDATED): Notiz importieren
   welcome: Willkommen bei Saber
   noFiles: Keine Dateien gefunden
   createNewNote: "Drücke die + Schaltfläche, um eine neue Notiz zu erstellen"
@@ -34,17 +37,6 @@ home:
     moveName: verschiebe $f
     move: Verschieben
     renamedTo: Notiz wird umbenannt zu $newName
-  backFolder(OUTDATED): Zurück zum vorherigen Ordner
-  deleteFolder:
-    deleteName(OUTDATED): Löschen Sie $f
-    deleteFolder(OUTDATED): Lösche Ordner
-    delete(OUTDATED): Löschen
-    alsoDeleteContents(OUTDATED): Lösche außerdem alle Notizen in diesem Ordner
-  deleteNote(OUTDATED): Notiz löschen
-  create:
-    newNote(OUTDATED): Neue Notiz
-    importNote(OUTDATED): Notiz importieren
-  invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus."
   renameFolder:
     folderNameEmpty(OUTDATED): Der Ordnername darf nicht leer sein
     renameFolder(OUTDATED): Ordner umbenennen
@@ -52,6 +44,14 @@ home:
     rename(OUTDATED): Name
     folderNameContainsSlash(OUTDATED): Der Ordnername darf keinen Schrägstrich enthalten
     folderNameExists(OUTDATED): Ein Ordner mit diesem Namen existiert bereits
+  deleteFolder:
+    deleteName(OUTDATED): Löschen Sie $f
+    deleteFolder(OUTDATED): Lösche Ordner
+    delete(OUTDATED): Löschen
+    alsoDeleteContents(OUTDATED): Lösche außerdem alle Notizen in diesem Ordner
+  backFolder(OUTDATED): Zurück zum vorherigen Ordner
+  deleteNote(OUTDATED): Notiz löschen
+  invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus."
 settings:
   prefCategories:
     general: Allgemein
@@ -93,14 +93,14 @@ settings:
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert
     maxImageSize: "Bilder, die größer sind, werden komprimiert"
-    editorPromptRename: Notizen können später immer noch umbenannt werden
-    hideHomeBackgrounds: Für ein sauberes Aussehen
-    printPageIndicators: Seitennummerierung bei Export anzeigen
-    autosaveDelay(OUTDATED): "Wartezeit, bevor eine Notiz automatisch gespeichert wird"
     hideFingerDrawing:
       fixedOn(OUTDATED): Das Fingerzeichnen ist derzeit aktiviert
       fixedOff(OUTDATED): Das Fingerzeichnen ist derzeit deaktiviert
       shown(OUTDATED): Verhindert versehentliches Umschalten
+    editorPromptRename: Notizen können später immer noch umbenannt werden
+    hideHomeBackgrounds: Für ein sauberes Aussehen
+    printPageIndicators: Seitennummerierung bei Export anzeigen
+    autosaveDelay(OUTDATED): "Wartezeit, bevor eine Notiz automatisch gespeichert wird"
     disableEraserAfterUse(OUTDATED): Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück
     shouldAlwaysAlertForUpdates(OUTDATED): "Informiere mich über Updates, sobald sie verfügbar sind"
   themeModes:
@@ -180,7 +180,7 @@ profile:
     - q: "Wie ändere ich mein Verschlüsselungspasswort?"
       a: |-
         0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).
-        1. Melde dich in Saber ab. 
+        1. Melde dich in Saber ab.
         2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.
         3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.
         4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.
@@ -251,6 +251,9 @@ editor:
     setAsBackground: Als Hintergrund festlegen
     removeAsBackground: Hintergrund entfernen
     delete: Entfernen
+  selectionBar:
+    delete: Entfernen
+    duplicate(OUTDATED): Duplikat
   menu:
     clearPage: Seite $page/$totalPages leeren
     clearAllPages: Alle Seiten löschen
@@ -259,7 +262,6 @@ editor:
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
     lineHeightDescription: Beeinflusst außerdem die Schriftgröße
-    backgroundImageFit(OUTDATED): Hintergrundbild
     backgroundPattern: Hintergrundmuster
     import: Importieren
     boxFits:
@@ -276,6 +278,7 @@ editor:
       staffs: Notenpapier
       cornell: Cornell-Stil
       tablature(OUTDATED): Tabulatur
+    backgroundImageFit(OUTDATED): Hintergrundbild
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet

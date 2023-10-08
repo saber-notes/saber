@@ -250,6 +250,9 @@ editor:
     setAsBackground: Usar como fondo
     removeAsBackground: Eliminar como fondo
     delete: Eliminar
+  selectionBar:
+    delete: Eliminar
+    duplicate(OUTDATED): Duplicar
   menu:
     clearPage: Eliminar páginas $page/$totalPages
     clearAllPages: Borrar todas las páginas

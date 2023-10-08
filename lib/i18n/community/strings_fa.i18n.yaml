@@ -39,12 +39,6 @@ home:
     move: انتقال
     renamedTo: یادداشت به $newName تغییر نام می یابد
   deleteNote: حذف یادداشت
-  deleteFolder:
-    deleteFolder: پوشه را حذف کنید
-    deleteName: $f را حذف کنید
-    delete: حذف
-    alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
-  invalidFormat(OUTDATED): فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2 یا pdf. انتخاب کنید.
   renameFolder:
     folderNameEmpty(OUTDATED): نام پوشه نمی تواند خالی باشد
     folderNameContainsSlash(OUTDATED): نام پوشه نمی تواند حاوی یک برش باشد
@@ -52,6 +46,12 @@ home:
     renameFolder(OUTDATED): تغییر نام پوشه
     folderName(OUTDATED): نام پوشه
     rename(OUTDATED): تغییر نام دهید
+  deleteFolder:
+    deleteFolder: پوشه را حذف کنید
+    deleteName: $f را حذف کنید
+    delete: حذف
+    alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
+  invalidFormat(OUTDATED): فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2 یا pdf. انتخاب کنید.
 settings:
   prefCategories:
     general: عمومی
@@ -246,6 +246,9 @@ editor:
     setAsBackground: قرار دادن به عنوان تصویر زمینه
     removeAsBackground: حذف از پس زمینه
     delete: حذف
+  selectionBar:
+    delete: حذف
+    duplicate(OUTDATED): تکراری
   menu:
     clearPage: صفحه $page/$totalPages را پاک کنید
     clearAllPages: تمام صفحات را پاک کنید
@@ -254,7 +257,6 @@ editor:
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
     lineHeightDescription: همچنین اندازه متن را کنترل می کند
-    backgroundImageFit(OUTDATED): تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
     boxFits:
@@ -271,6 +273,7 @@ editor:
       staffs: کارکنان
       cornell: کرنل
       tablature(OUTDATED): جدول بندی
+    backgroundImageFit(OUTDATED): تصویر پس زمینه
   newerFileFormat:
     readOnlyMode: حالت فقط خواندنی
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است

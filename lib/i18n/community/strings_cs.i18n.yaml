@@ -250,6 +250,9 @@ editor:
     setAsBackground: Nastavit na pozadí
     removeAsBackground: Odstranit obrázek z pozadí
     delete: Odstranit
+  selectionBar:
+    delete: Odstranit
+    duplicate(OUTDATED): Čeština
   menu:
     clearPage: Smazat obsah stránky $page/$totalPages
     clearAllPages: Smazat všechny stránky

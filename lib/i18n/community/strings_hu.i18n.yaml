@@ -6,12 +6,15 @@ home:
     settings: Beállítások
   titles:
     home: Legutóbbi jegyzetek
-    browse(OUTDATED): Böngészés
     whiteboard: Whiteboard
     settings: Beállítások
+    browse(OUTDATED): Böngészés
   tooltips:
     newNote: Új jegyzet
     showUpdateDialog: Frissítési párbeszédablak megjelenítése
+  create:
+    newNote(OUTDATED): Új jegyzet
+    importNote(OUTDATED): Megjegyzés importálása
   welcome: Üdvözli a Saber
   noFiles: Nem található ilyen fájl
   createNewNote: Kattintson a + gombora egy új jegyzet létrehozásához
@@ -34,17 +37,6 @@ home:
     moveName(OUTDATED): Mozgassa $f
     move(OUTDATED): Mozog
     renamedTo(OUTDATED): "A jegyzet a következőre lesz átnevezve: $newName"
-  backFolder(OUTDATED): Menjen vissza az előző mappába
-  deleteFolder:
-    delete(OUTDATED): Töröl
-    alsoDeleteContents(OUTDATED): Törölje az összes jegyzetet ebben a mappában
-    deleteFolder(OUTDATED): Mappa törlése
-    deleteName(OUTDATED): $f törlése
-  deleteNote(OUTDATED): Jegyzet törlése
-  create:
-    newNote(OUTDATED): Új jegyzet
-    importNote(OUTDATED): Megjegyzés importálása
-  invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt."
   renameFolder:
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     renameFolder(OUTDATED): Mappa átnevezése
@@ -52,6 +44,14 @@ home:
     folderName(OUTDATED): Mappa neve
     rename(OUTDATED): Átnevezés
     folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
+  deleteFolder:
+    delete(OUTDATED): Töröl
+    alsoDeleteContents(OUTDATED): Törölje az összes jegyzetet ebben a mappában
+    deleteFolder(OUTDATED): Mappa törlése
+    deleteName(OUTDATED): $f törlése
+  backFolder(OUTDATED): Menjen vissza az előző mappába
+  deleteNote(OUTDATED): Jegyzet törlése
+  invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt."
 settings:
   prefCategories:
     general: Általános
@@ -65,7 +65,6 @@ settings:
     customAccentColor: Egyéni akcentusszín
     hyperlegibleFont: Hyperlegible betűtipus
     shouldCheckForUpdates: Automatikusan ellenőrzi a Saber frissítéseket
-    changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     editorToolbarAlignment: A szerkesztő eszköztár igazítása
     editorToolbarShowInFullscreen: A szerkesztő eszköztár megjelenítése teljes képernyős módban
     editorAutoInvert: Jegyzetek színének felcserélése sötét módban
@@ -77,6 +76,7 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     dontSavePresetColors: Ne mentse az előre beállított színeket a legutóbbi színek között
+    changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     layoutSize(OUTDATED): Elrendezés típusa
     disableAds(OUTDATED): Hirdetések letiltása
     printPageIndicators(OUTDATED): Nyomtatási oldaljelzők
@@ -91,16 +91,16 @@ settings:
     preferGreyscale: E-tinta kijelzőkhöz
     autoClearWhiteboardOnExit: Továbbra is szinkronizálva lesz a többi eszközzel
     maxImageSize: Az ennél nagyobb képek tömörítve lesznek
+    hideFingerDrawing:
+      shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
+      fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
+      fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
     disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
     allowInsecureConnections(OUTDATED): "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"
     autosaveDelay(OUTDATED): Mennyi ideig kell várni a jegyzet automatikus mentése előtt
-    hideFingerDrawing:
-      shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
-      fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
-      fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     shouldAlwaysAlertForUpdates(OUTDATED): "Szóljon nekem a frissítésekről, amint elérhetők"
     disableEraserAfterUse(OUTDATED): A radír használata után automatikusan visszavált a tollra
   themeModes:
@@ -250,10 +250,12 @@ editor:
     setAsBackground: Beállítás háttérképként
     delete: Törlés
     removeAsBackground(OUTDATED): Eltávolítás háttérként
+  selectionBar:
+    delete: Törlés
+    duplicate(OUTDATED): Másolat
   menu:
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
-    backgroundImageFit(OUTDATED): Háttérkép
     backgroundPattern: Háttérminta
     import: Importálás
     boxFits:
@@ -270,6 +272,7 @@ editor:
       staffs(OUTDATED): Vezetők
       cornell(OUTDATED): Cornell
       tablature(OUTDATED): Tablatúra
+    backgroundImageFit(OUTDATED): Háttérkép
     clearPage(OUTDATED): $page/$totalPages oldal törlése
     insertPage(OUTDATED): Az oldal beszúrása alább
     duplicatePage(OUTDATED): Ismétlődő oldal

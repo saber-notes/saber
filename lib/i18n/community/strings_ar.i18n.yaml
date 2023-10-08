@@ -6,12 +6,15 @@ home:
     settings: الإعدادات
   titles:
     home: الملاحظات الأخيرة
-    browse(OUTDATED): تصفح
     whiteboard: السبورة
     settings: الإعدادات
+    browse(OUTDATED): تصفح
   tooltips:
     newNote: محلاظة جديدة
     showUpdateDialog: إظهار مربع حوار التحديث
+  create:
+    importNote(OUTDATED): مذكرة استيراد
+    newNote(OUTDATED): مذكرة جديدة
   welcome: مرحباً بك في Saber
   noFiles: لم يتم العثور على ملفات
   createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
@@ -34,17 +37,6 @@ home:
     move: تحريك
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
     moveName(OUTDATED): نقل $f
-  backFolder(OUTDATED): ارجع إلى المجلد السابق
-  deleteFolder:
-    deleteName(OUTDATED): حذف $f
-    deleteFolder(OUTDATED): احذف المجلد
-    alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
-    delete(OUTDATED): يمسح
-  deleteNote(OUTDATED): حذف الملاحظة
-  create:
-    importNote(OUTDATED): مذكرة استيراد
-    newNote(OUTDATED): مذكرة جديدة
-  invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.
   renameFolder:
     folderName(OUTDATED): إسم الملف
     folderNameExists(OUTDATED): يوجد مجلد بهذا الاسم بالفعل
@@ -52,6 +44,14 @@ home:
     folderNameEmpty(OUTDATED): لا يمكن أن يكون اسماً فارغاً
     folderNameContainsSlash(OUTDATED): لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
     renameFolder(OUTDATED): إعادة تسمية المجلد
+  deleteFolder:
+    deleteName(OUTDATED): حذف $f
+    deleteFolder(OUTDATED): احذف المجلد
+    alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
+    delete(OUTDATED): يمسح
+  backFolder(OUTDATED): ارجع إلى المجلد السابق
+  deleteNote(OUTDATED): حذف الملاحظة
+  invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.
 settings:
   prefCategories:
     general: عام
@@ -66,7 +66,6 @@ settings:
     customAccentColor: لون التمييز المخصص
     hyperlegibleFont: Hyperlegible خط
     shouldCheckForUpdates: تحقق تلقائيًا من وجود تحديثات Saber
-    changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     editorToolbarAlignment: محاذاة شريط أدوات المحرر
     editorToolbarShowInFullscreen: أظهر شريط أدوات المحرر في وضع ملء الشاشة
     editorAutoInvert: اقلب الملاحظات في الوضع المظلم
@@ -79,6 +78,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     dontSavePresetColors: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     disableAds(OUTDATED): عطل الاعلانات
     allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
     autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
@@ -91,16 +91,16 @@ settings:
     preferGreyscale: لشاشات الحبر الإلكتروني
     autoClearWhiteboardOnExit: ستظل متزامنة مع أجهزتك الأخرى
     maxImageSize: سيتم ضغط الصور الأكبر من هذا
+    hideFingerDrawing:
+      shown(OUTDATED): يمنع التبديل العرضي
+      fixedOn(OUTDATED): تم إصلاح رسم الإصبع على أنه ممكن
+      fixedOff(OUTDATED): تم إصلاح رسم الإصبع على أنه معطل
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
     allowInsecureConnections(OUTDATED): (غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها
     autosaveDelay(OUTDATED): كم من الوقت للانتظار قبل تقديم مذكرة
-    hideFingerDrawing:
-      shown(OUTDATED): يمنع التبديل العرضي
-      fixedOn(OUTDATED): تم إصلاح رسم الإصبع على أنه ممكن
-      fixedOff(OUTDATED): تم إصلاح رسم الإصبع على أنه معطل
     disableEraserAfterUse(OUTDATED): يعود تلقائيًا إلى القلم بعد استخدام الممحاة
     shouldAlwaysAlertForUpdates(OUTDATED): أخبرني عن التحديثات بمجرد توفرها
   themeModes:
@@ -250,6 +250,9 @@ editor:
     setAsBackground: تعيين كخلفية
     removeAsBackground: إزالة كخلفية
     delete: حذف
+  selectionBar:
+    delete: حذف
+    duplicate(OUTDATED): ينسخ
   menu:
     clearPage: تنظيف الصفحة $page/$totalPages
     clearAllPages: امسح كل الصفحات
@@ -258,7 +261,6 @@ editor:
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
     lineHeightDescription: يتحكم أيضًا في حجم النص
-    backgroundImageFit(OUTDATED): الصورة الخلفية
     backgroundPattern: نمط الخلفية
     import: يستورد
     boxFits:
@@ -275,6 +277,7 @@ editor:
       staffs: موظفون
       cornell: كورنيل
       tablature(OUTDATED): تبلتثر
+    backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber

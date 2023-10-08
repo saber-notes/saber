@@ -6,12 +6,15 @@ home:
     settings: 設定
   titles:
     home: 最近のメモ
-    browse(OUTDATED): 閲覧
     whiteboard: ホワイトボード
     settings: 設定
+    browse(OUTDATED): 閲覧
   tooltips:
     newNote: 新しいメモ
     showUpdateDialog: 更新ダイアログの表示
+  create:
+    newNote(OUTDATED): 新しいメモ
+    importNote(OUTDATED): インポートメモ
   welcome: ようこそSaberへ
   noFiles: ファイルが見つかりません
   createNewNote: +ボタンで新しくメモを作成
@@ -34,17 +37,6 @@ home:
     moveName: $f を移動
     move: 移動
     renamedTo: $newName に名称を変更した
-  backFolder(OUTDATED): 前のフォルダーに戻ります
-  deleteFolder:
-    deleteFolder(OUTDATED): フォルダの削除
-    deleteName(OUTDATED): $fを削除
-    delete(OUTDATED): 消去
-    alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
-  deleteNote(OUTDATED): メモの削除
-  create:
-    newNote(OUTDATED): 新しいメモ
-    importNote(OUTDATED): インポートメモ
-  invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。
   renameFolder:
     folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
     renameFolder(OUTDATED): フォルダーの名前を変更する
@@ -52,6 +44,14 @@ home:
     rename(OUTDATED): 名前の変更
     folderNameContainsSlash(OUTDATED): フォルダ名はスラッシュを含まない
     folderNameExists(OUTDATED): この名前のフォルダーはすでに存在します
+  deleteFolder:
+    deleteFolder(OUTDATED): フォルダの削除
+    deleteName(OUTDATED): $fを削除
+    delete(OUTDATED): 消去
+    alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
+  backFolder(OUTDATED): 前のフォルダーに戻ります
+  deleteNote(OUTDATED): メモの削除
+  invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。
 settings:
   prefCategories:
     general: 一般
@@ -93,14 +93,14 @@ settings:
     preferGreyscale: e-inkディスプレイ用
     autoClearWhiteboardOnExit: 他のデバイスと同期されます
     maxImageSize: これより大きな画像は圧縮されます
-    editorPromptRename: メモの名前は後でいつでも変更できます
-    hideHomeBackgrounds: よりクリーンな外観に
-    printPageIndicators: エクスポートにページインジケーターを表示
-    autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
     hideFingerDrawing:
       fixedOn(OUTDATED): 指の描画が有効に固定される
       shown(OUTDATED): 偶発的な切り替えを防止します
       fixedOff(OUTDATED): 指の描画が無効に固定される
+    editorPromptRename: メモの名前は後でいつでも変更できます
+    hideHomeBackgrounds: よりクリーンな外観に
+    printPageIndicators: エクスポートにページインジケーターを表示
+    autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
     disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートが利用可能になり次第お知らせください
   themeModes:
@@ -247,6 +247,9 @@ editor:
     setAsBackground: 背景に設定
     removeAsBackground: 背景として削除
     delete: 削除
+  selectionBar:
+    delete: 削除
+    duplicate(OUTDATED): 重複
   menu:
     clearPage: ページを削除 $page/$totalPages
     clearAllPages: すべてのページを消去する
@@ -255,7 +258,6 @@ editor:
     deletePage: ページの削除
     lineHeight: 行の高さ
     lineHeightDescription: 文字サイズを調整
-    backgroundImageFit(OUTDATED): 背景画像
     backgroundPattern: 背景パターン
     import: インポート
     boxFits:
@@ -272,6 +274,7 @@ editor:
       staffs: スタッフ
       cornell: 角
       tablature(OUTDATED): タベルチュア
+    backgroundImageFit(OUTDATED): 背景画像
   newerFileFormat:
     readOnlyMode: 読み取り専用モード
     title: このメモは新しいバージョンのSaberを使用して編集されたものです

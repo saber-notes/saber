@@ -40,11 +40,6 @@ home:
     move: 移動
     renamedTo: 筆記將重新命名為 $newName
   deleteNote: 刪除筆記
-  deleteFolder:
-    deleteFolder: 刪除資料夾
-    deleteName: 刪除 $f
-    delete: 刪除
-    alsoDeleteContents: 同時刪除該文件夾內的所有筆記
   renameFolder:
     folderNameEmpty(OUTDATED): 文件夾名稱不能為空
     folderNameContainsSlash(OUTDATED): 文件夾名稱不能包含斜杠
@@ -52,6 +47,11 @@ home:
     renameFolder(OUTDATED): 重命名文件夾
     folderName(OUTDATED): 文件夾名稱
     rename(OUTDATED): 改名
+  deleteFolder:
+    deleteFolder: 刪除資料夾
+    deleteName: 刪除 $f
+    delete: 刪除
+    alsoDeleteContents: 同時刪除該文件夾內的所有筆記
 settings:
   prefCategories:
     general: 一般
@@ -249,6 +249,9 @@ editor:
     setAsBackground: 設為背景
     removeAsBackground: 移除作為背景
     delete: 刪除
+  selectionBar:
+    delete: 刪除
+    duplicate(OUTDATED): 複製
   menu:
     clearPage: 清除頁面 $page/$totalPages
     clearAllPages: 清除所有頁面

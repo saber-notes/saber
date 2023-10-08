@@ -48,11 +48,16 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 de:
   home:
     titles:
@@ -93,11 +98,16 @@ de:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
@@ -109,11 +119,16 @@ fa:
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
   editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 fr:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 hu:
   home:
     titles:
@@ -254,6 +269,8 @@ hu:
       pastelPink(OUTDATED): Pastel pink
     imageOptions:
       removeAsBackground(OUTDATED): Remove as background
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
     menu:
       clearPage(OUTDATED): Clear page $page/$totalPages
       insertPage(OUTDATED): Insert page below
@@ -271,6 +288,9 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 ja:
   home:
     titles:
@@ -308,13 +328,24 @@ ja:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 ru:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 tr:
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 zh-Hans-CN:
   home:
     renameFolder:
@@ -324,6 +355,9 @@ zh-Hans-CN:
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
 zh-Hant-TW:
   home:
     renameFolder:
@@ -333,3 +367,6 @@ zh-Hant-TW:
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
+  editor:
+    selectionBar:
+      duplicate(OUTDATED): Duplicate

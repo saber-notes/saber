@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3585 (239 per locale)
+/// Strings: 3615 (241 per locale)
 ///
-/// Built on 2023-09-30 at 13:50 UTC
+/// Built on 2023-10-08 at 22:51 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -953,18 +953,18 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeTabsAr tabs = _StringsHomeTabsAr._(_root);
 	@override late final _StringsHomeTitlesAr titles = _StringsHomeTitlesAr._(_root);
 	@override late final _StringsHomeTooltipsAr tooltips = _StringsHomeTooltipsAr._(_root);
+	@override late final _StringsHomeCreateAr create = _StringsHomeCreateAr._(_root);
 	@override String get welcome => 'مرحباً بك في Saber';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
 	@override late final _StringsHomeNewFolderAr newFolder = _StringsHomeNewFolderAr._(_root);
 	@override late final _StringsHomeRenameNoteAr renameNote = _StringsHomeRenameNoteAr._(_root);
 	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
-	@override String get backFolder => 'ارجع إلى المجلد السابق';
-	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
-	@override String get deleteNote => 'حذف الملاحظة';
-	@override late final _StringsHomeCreateAr create = _StringsHomeCreateAr._(_root);
-	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.';
 	@override late final _StringsHomeRenameFolderAr renameFolder = _StringsHomeRenameFolderAr._(_root);
+	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
+	@override String get backFolder => 'ارجع إلى المجلد السابق';
+	@override String get deleteNote => 'حذف الملاحظة';
+	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.';
 }
 
 // Path: settings
@@ -1073,6 +1073,7 @@ class _StringsEditorAr extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsAr penOptions = _StringsEditorPenOptionsAr._(_root);
 	@override late final _StringsEditorColorsAr colors = _StringsEditorColorsAr._(_root);
 	@override late final _StringsEditorImageOptionsAr imageOptions = _StringsEditorImageOptionsAr._(_root);
+	@override late final _StringsEditorSelectionBarAr selectionBar = _StringsEditorSelectionBarAr._(_root);
 	@override late final _StringsEditorMenuAr menu = _StringsEditorMenuAr._(_root);
 	@override late final _StringsEditorNewerFileFormatAr newerFileFormat = _StringsEditorNewerFileFormatAr._(_root);
 	@override late final _StringsEditorQuillAr quill = _StringsEditorQuillAr._(_root);
@@ -1103,9 +1104,9 @@ class _StringsHomeTitlesAr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'الملاحظات الأخيرة';
-	@override String get browse => 'تصفح';
 	@override String get whiteboard => 'السبورة';
 	@override String get settings => 'الإعدادات';
+	@override String get browse => 'تصفح';
 }
 
 // Path: home.tooltips
@@ -1117,6 +1118,17 @@ class _StringsHomeTooltipsAr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'محلاظة جديدة';
 	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
+}
+
+// Path: home.create
+class _StringsHomeCreateAr extends _StringsHomeCreateEn {
+	_StringsHomeCreateAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get importNote => 'مذكرة استيراد';
+	@override String get newNote => 'مذكرة جديدة';
 }
 
 // Path: home.newFolder
@@ -1162,30 +1174,6 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 	@override String moveName({required Object f}) => 'نقل ${f}';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderAr extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderAr._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String deleteName({required Object f}) => 'حذف ${f}';
-	@override String get deleteFolder => 'احذف المجلد';
-	@override String get alsoDeleteContents => 'احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد';
-	@override String get delete => 'يمسح';
-}
-
-// Path: home.create
-class _StringsHomeCreateAr extends _StringsHomeCreateEn {
-	_StringsHomeCreateAr._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get importNote => 'مذكرة استيراد';
-	@override String get newNote => 'مذكرة جديدة';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderAr extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1199,6 +1187,19 @@ class _StringsHomeRenameFolderAr extends _StringsHomeRenameFolderEn {
 	@override String get folderNameEmpty => 'لا يمكن أن يكون اسماً فارغاً';
 	@override String get folderNameContainsSlash => 'لا يمكن أن يحتوي اسم المجلد على شرطة مائلة';
 	@override String get renameFolder => 'إعادة تسمية المجلد';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderAr extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'حذف ${f}';
+	@override String get deleteFolder => 'احذف المجلد';
+	@override String get alsoDeleteContents => 'احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد';
+	@override String get delete => 'يمسح';
 }
 
 // Path: settings.prefCategories
@@ -1228,7 +1229,6 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'لون التمييز المخصص';
 	@override String get hyperlegibleFont => 'Hyperlegible خط';
 	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
-	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
 	@override String get editorToolbarAlignment => 'محاذاة شريط أدوات المحرر';
 	@override String get editorToolbarShowInFullscreen => 'أظهر شريط أدوات المحرر في وضع ملء الشاشة';
 	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
@@ -1241,6 +1241,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get dontSavePresetColors => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
 	@override String get disableAds => 'عطل الاعلانات';
 	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
 	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
@@ -1261,13 +1262,13 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'لشاشات الحبر الإلكتروني';
 	@override String get autoClearWhiteboardOnExit => 'ستظل متزامنة مع أجهزتك الأخرى';
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
 	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
 	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
 	@override String get disableEraserAfterUse => 'يعود تلقائيًا إلى القلم بعد استخدام الممحاة';
 	@override String get shouldAlwaysAlertForUpdates => 'أخبرني عن التحديثات بمجرد توفرها';
 }
@@ -1577,6 +1578,17 @@ class _StringsEditorImageOptionsAr extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'حذف';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarAr extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'حذف';
+	@override String get duplicate => 'ينسخ';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	_StringsEditorMenuAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1591,11 +1603,11 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
-	@override String get backgroundImageFit => 'الصورة الخلفية';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
+	@override String get backgroundImageFit => 'الصورة الخلفية';
 }
 
 // Path: editor.newerFileFormat
@@ -1839,6 +1851,7 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsCs penOptions = _StringsEditorPenOptionsCs._(_root);
 	@override late final _StringsEditorColorsCs colors = _StringsEditorColorsCs._(_root);
 	@override late final _StringsEditorImageOptionsCs imageOptions = _StringsEditorImageOptionsCs._(_root);
+	@override late final _StringsEditorSelectionBarCs selectionBar = _StringsEditorSelectionBarCs._(_root);
 	@override late final _StringsEditorMenuCs menu = _StringsEditorMenuCs._(_root);
 	@override late final _StringsEditorNewerFileFormatCs newerFileFormat = _StringsEditorNewerFileFormatCs._(_root);
 	@override late final _StringsEditorQuillCs quill = _StringsEditorQuillCs._(_root);
@@ -2343,6 +2356,17 @@ class _StringsEditorImageOptionsCs extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Odstranit';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarCs extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Odstranit';
+	@override String get duplicate => 'Čeština';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	_StringsEditorMenuCs._(_StringsCs root) : this._root = root, super._(root);
@@ -2485,18 +2509,18 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeTabsDe tabs = _StringsHomeTabsDe._(_root);
 	@override late final _StringsHomeTitlesDe titles = _StringsHomeTitlesDe._(_root);
 	@override late final _StringsHomeTooltipsDe tooltips = _StringsHomeTooltipsDe._(_root);
+	@override late final _StringsHomeCreateDe create = _StringsHomeCreateDe._(_root);
 	@override String get welcome => 'Willkommen bei Saber';
 	@override String get noFiles => 'Keine Dateien gefunden';
 	@override String get createNewNote => 'Drücke die + Schaltfläche, um eine neue Notiz zu erstellen';
 	@override late final _StringsHomeNewFolderDe newFolder = _StringsHomeNewFolderDe._(_root);
 	@override late final _StringsHomeRenameNoteDe renameNote = _StringsHomeRenameNoteDe._(_root);
 	@override late final _StringsHomeMoveNoteDe moveNote = _StringsHomeMoveNoteDe._(_root);
-	@override String get backFolder => 'Zurück zum vorherigen Ordner';
-	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
-	@override String get deleteNote => 'Notiz löschen';
-	@override late final _StringsHomeCreateDe create = _StringsHomeCreateDe._(_root);
-	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus.';
 	@override late final _StringsHomeRenameFolderDe renameFolder = _StringsHomeRenameFolderDe._(_root);
+	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
+	@override String get backFolder => 'Zurück zum vorherigen Ordner';
+	@override String get deleteNote => 'Notiz löschen';
+	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus.';
 }
 
 // Path: settings
@@ -2605,6 +2629,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsDe penOptions = _StringsEditorPenOptionsDe._(_root);
 	@override late final _StringsEditorColorsDe colors = _StringsEditorColorsDe._(_root);
 	@override late final _StringsEditorImageOptionsDe imageOptions = _StringsEditorImageOptionsDe._(_root);
+	@override late final _StringsEditorSelectionBarDe selectionBar = _StringsEditorSelectionBarDe._(_root);
 	@override late final _StringsEditorMenuDe menu = _StringsEditorMenuDe._(_root);
 	@override late final _StringsEditorNewerFileFormatDe newerFileFormat = _StringsEditorNewerFileFormatDe._(_root);
 	@override late final _StringsEditorQuillDe quill = _StringsEditorQuillDe._(_root);
@@ -2635,9 +2660,9 @@ class _StringsHomeTitlesDe extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Letzte Notizen';
-	@override String get browse => 'Durchsuchen';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Einstellungen';
+	@override String get browse => 'Durchsuchen';
 }
 
 // Path: home.tooltips
@@ -2649,6 +2674,17 @@ class _StringsHomeTooltipsDe extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Notiz erstellen';
 	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
+}
+
+// Path: home.create
+class _StringsHomeCreateDe extends _StringsHomeCreateEn {
+	_StringsHomeCreateDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Neue Notiz';
+	@override String get importNote => 'Notiz importieren';
 }
 
 // Path: home.newFolder
@@ -2694,30 +2730,6 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Notiz wird umbenannt zu ${newName}';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderDe extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String deleteName({required Object f}) => 'Löschen Sie ${f}';
-	@override String get deleteFolder => 'Lösche Ordner';
-	@override String get delete => 'Löschen';
-	@override String get alsoDeleteContents => 'Lösche außerdem alle Notizen in diesem Ordner';
-}
-
-// Path: home.create
-class _StringsHomeCreateDe extends _StringsHomeCreateEn {
-	_StringsHomeCreateDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Neue Notiz';
-	@override String get importNote => 'Notiz importieren';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderDe extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderDe._(_StringsDe root) : this._root = root, super._(root);
@@ -2731,6 +2743,19 @@ class _StringsHomeRenameFolderDe extends _StringsHomeRenameFolderEn {
 	@override String get rename => 'Name';
 	@override String get folderNameContainsSlash => 'Der Ordnername darf keinen Schrägstrich enthalten';
 	@override String get folderNameExists => 'Ein Ordner mit diesem Namen existiert bereits';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderDe extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Löschen Sie ${f}';
+	@override String get deleteFolder => 'Lösche Ordner';
+	@override String get delete => 'Löschen';
+	@override String get alsoDeleteContents => 'Lösche außerdem alle Notizen in diesem Ordner';
 }
 
 // Path: settings.prefCategories
@@ -2795,11 +2820,11 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 	@override String get autosaveDelay => 'Wartezeit, bevor eine Notiz automatisch gespeichert wird';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
 	@override String get disableEraserAfterUse => 'Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück';
 	@override String get shouldAlwaysAlertForUpdates => 'Informiere mich über Updates, sobald sie verfügbar sind';
 }
@@ -3007,7 +3032,7 @@ class _StringsProfile$faq$0i2$De extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Wie ändere ich mein Verschlüsselungspasswort?';
-	@override String get a => '0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n1. Melde dich in Saber ab. \n2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.';
+	@override String get a => '0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n1. Melde dich in Saber ab.\n2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.';
 }
 
 // Path: profile.faq.3
@@ -3109,6 +3134,17 @@ class _StringsEditorImageOptionsDe extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Entfernen';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarDe extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Entfernen';
+	@override String get duplicate => 'Duplikat';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	_StringsEditorMenuDe._(_StringsDe root) : this._root = root, super._(root);
@@ -3123,11 +3159,11 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Beeinflusst außerdem die Schriftgröße';
-	@override String get backgroundImageFit => 'Hintergrundbild';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
 	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
+	@override String get backgroundImageFit => 'Hintergrundbild';
 }
 
 // Path: editor.newerFileFormat
@@ -3370,6 +3406,7 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsEs penOptions = _StringsEditorPenOptionsEs._(_root);
 	@override late final _StringsEditorColorsEs colors = _StringsEditorColorsEs._(_root);
 	@override late final _StringsEditorImageOptionsEs imageOptions = _StringsEditorImageOptionsEs._(_root);
+	@override late final _StringsEditorSelectionBarEs selectionBar = _StringsEditorSelectionBarEs._(_root);
 	@override late final _StringsEditorMenuEs menu = _StringsEditorMenuEs._(_root);
 	@override late final _StringsEditorNewerFileFormatEs newerFileFormat = _StringsEditorNewerFileFormatEs._(_root);
 	@override late final _StringsEditorQuillEs quill = _StringsEditorQuillEs._(_root);
@@ -3874,6 +3911,17 @@ class _StringsEditorImageOptionsEs extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Eliminar';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarEs extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Eliminar';
+	@override String get duplicate => 'Duplicar';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	_StringsEditorMenuEs._(_StringsEs root) : this._root = root, super._(root);
@@ -4025,9 +4073,9 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteFa renameNote = _StringsHomeRenameNoteFa._(_root);
 	@override late final _StringsHomeMoveNoteFa moveNote = _StringsHomeMoveNoteFa._(_root);
 	@override String get deleteNote => 'حذف یادداشت';
+	@override late final _StringsHomeRenameFolderFa renameFolder = _StringsHomeRenameFolderFa._(_root);
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
 	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2 یا pdf. انتخاب کنید.';
-	@override late final _StringsHomeRenameFolderFa renameFolder = _StringsHomeRenameFolderFa._(_root);
 }
 
 // Path: settings
@@ -4136,6 +4184,7 @@ class _StringsEditorFa extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsFa penOptions = _StringsEditorPenOptionsFa._(_root);
 	@override late final _StringsEditorColorsFa colors = _StringsEditorColorsFa._(_root);
 	@override late final _StringsEditorImageOptionsFa imageOptions = _StringsEditorImageOptionsFa._(_root);
+	@override late final _StringsEditorSelectionBarFa selectionBar = _StringsEditorSelectionBarFa._(_root);
 	@override late final _StringsEditorMenuFa menu = _StringsEditorMenuFa._(_root);
 	@override late final _StringsEditorNewerFileFormatFa newerFileFormat = _StringsEditorNewerFileFormatFa._(_root);
 	@override late final _StringsEditorQuillFa quill = _StringsEditorQuillFa._(_root);
@@ -4236,19 +4285,6 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'یادداشت به ${newName} تغییر نام می یابد';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderFa extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get deleteFolder => 'پوشه را حذف کنید';
-	@override String deleteName({required Object f}) => '${f} را حذف کنید';
-	@override String get delete => 'حذف';
-	@override String get alsoDeleteContents => 'همچنین تمام یادداشت های داخل این پوشه را حذف کنید';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderFa extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4262,6 +4298,19 @@ class _StringsHomeRenameFolderFa extends _StringsHomeRenameFolderEn {
 	@override String get renameFolder => 'تغییر نام پوشه';
 	@override String get folderName => 'نام پوشه';
 	@override String get rename => 'تغییر نام دهید';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderFa extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => 'پوشه را حذف کنید';
+	@override String deleteName({required Object f}) => '${f} را حذف کنید';
+	@override String get delete => 'حذف';
+	@override String get alsoDeleteContents => 'همچنین تمام یادداشت های داخل این پوشه را حذف کنید';
 }
 
 // Path: settings.prefCategories
@@ -4640,6 +4689,17 @@ class _StringsEditorImageOptionsFa extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'حذف';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarFa extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'حذف';
+	@override String get duplicate => 'تکراری';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	_StringsEditorMenuFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4654,11 +4714,11 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
-	@override String get backgroundImageFit => 'تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
+	@override String get backgroundImageFit => 'تصویر پس زمینه';
 }
 
 // Path: editor.newerFileFormat
@@ -4902,6 +4962,7 @@ class _StringsEditorFr extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsFr penOptions = _StringsEditorPenOptionsFr._(_root);
 	@override late final _StringsEditorColorsFr colors = _StringsEditorColorsFr._(_root);
 	@override late final _StringsEditorImageOptionsFr imageOptions = _StringsEditorImageOptionsFr._(_root);
+	@override late final _StringsEditorSelectionBarFr selectionBar = _StringsEditorSelectionBarFr._(_root);
 	@override late final _StringsEditorMenuFr menu = _StringsEditorMenuFr._(_root);
 	@override late final _StringsEditorNewerFileFormatFr newerFileFormat = _StringsEditorNewerFileFormatFr._(_root);
 	@override late final _StringsEditorQuillFr quill = _StringsEditorQuillFr._(_root);
@@ -5406,6 +5467,17 @@ class _StringsEditorImageOptionsFr extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Effacer';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarFr extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Effacer';
+	@override String get duplicate => 'Dupliquer';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	_StringsEditorMenuFr._(_StringsFr root) : this._root = root, super._(root);
@@ -5548,18 +5620,18 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeTabsHu tabs = _StringsHomeTabsHu._(_root);
 	@override late final _StringsHomeTitlesHu titles = _StringsHomeTitlesHu._(_root);
 	@override late final _StringsHomeTooltipsHu tooltips = _StringsHomeTooltipsHu._(_root);
+	@override late final _StringsHomeCreateHu create = _StringsHomeCreateHu._(_root);
 	@override String get welcome => 'Üdvözli a Saber';
 	@override String get noFiles => 'Nem található ilyen fájl';
 	@override String get createNewNote => 'Kattintson a + gombora egy új jegyzet létrehozásához';
 	@override late final _StringsHomeNewFolderHu newFolder = _StringsHomeNewFolderHu._(_root);
 	@override late final _StringsHomeRenameNoteHu renameNote = _StringsHomeRenameNoteHu._(_root);
 	@override late final _StringsHomeMoveNoteHu moveNote = _StringsHomeMoveNoteHu._(_root);
-	@override String get backFolder => 'Menjen vissza az előző mappába';
-	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
-	@override String get deleteNote => 'Jegyzet törlése';
-	@override late final _StringsHomeCreateHu create = _StringsHomeCreateHu._(_root);
-	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt.';
 	@override late final _StringsHomeRenameFolderHu renameFolder = _StringsHomeRenameFolderHu._(_root);
+	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
+	@override String get backFolder => 'Menjen vissza az előző mappába';
+	@override String get deleteNote => 'Jegyzet törlése';
+	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt.';
 }
 
 // Path: settings
@@ -5668,6 +5740,7 @@ class _StringsEditorHu extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsHu penOptions = _StringsEditorPenOptionsHu._(_root);
 	@override late final _StringsEditorColorsHu colors = _StringsEditorColorsHu._(_root);
 	@override late final _StringsEditorImageOptionsHu imageOptions = _StringsEditorImageOptionsHu._(_root);
+	@override late final _StringsEditorSelectionBarHu selectionBar = _StringsEditorSelectionBarHu._(_root);
 	@override late final _StringsEditorMenuHu menu = _StringsEditorMenuHu._(_root);
 	@override late final _StringsEditorNewerFileFormatHu newerFileFormat = _StringsEditorNewerFileFormatHu._(_root);
 	@override late final _StringsEditorQuillHu quill = _StringsEditorQuillHu._(_root);
@@ -5698,9 +5771,9 @@ class _StringsHomeTitlesHu extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Legutóbbi jegyzetek';
-	@override String get browse => 'Böngészés';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Beállítások';
+	@override String get browse => 'Böngészés';
 }
 
 // Path: home.tooltips
@@ -5712,6 +5785,17 @@ class _StringsHomeTooltipsHu extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Új jegyzet';
 	@override String get showUpdateDialog => 'Frissítési párbeszédablak megjelenítése';
+}
+
+// Path: home.create
+class _StringsHomeCreateHu extends _StringsHomeCreateEn {
+	_StringsHomeCreateHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Új jegyzet';
+	@override String get importNote => 'Megjegyzés importálása';
 }
 
 // Path: home.newFolder
@@ -5757,30 +5841,6 @@ class _StringsHomeMoveNoteHu extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'A jegyzet a következőre lesz átnevezve: ${newName}';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderHu extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderHu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get delete => 'Töröl';
-	@override String get alsoDeleteContents => 'Törölje az összes jegyzetet ebben a mappában';
-	@override String get deleteFolder => 'Mappa törlése';
-	@override String deleteName({required Object f}) => '${f} törlése';
-}
-
-// Path: home.create
-class _StringsHomeCreateHu extends _StringsHomeCreateEn {
-	_StringsHomeCreateHu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => 'Új jegyzet';
-	@override String get importNote => 'Megjegyzés importálása';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderHu extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderHu._(_StringsHu root) : this._root = root, super._(root);
@@ -5794,6 +5854,19 @@ class _StringsHomeRenameFolderHu extends _StringsHomeRenameFolderEn {
 	@override String get folderName => 'Mappa neve';
 	@override String get rename => 'Átnevezés';
 	@override String get folderNameContainsSlash => 'A mappa neve nem tartalmazhat perjelet';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderHu extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Töröl';
+	@override String get alsoDeleteContents => 'Törölje az összes jegyzetet ebben a mappában';
+	@override String get deleteFolder => 'Mappa törlése';
+	@override String deleteName({required Object f}) => '${f} törlése';
 }
 
 // Path: settings.prefCategories
@@ -5822,7 +5895,6 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Egyéni akcentusszín';
 	@override String get hyperlegibleFont => 'Hyperlegible betűtipus';
 	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
-	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
 	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
 	@override String get editorToolbarShowInFullscreen => 'A szerkesztő eszköztár megjelenítése teljes képernyős módban';
 	@override String get editorAutoInvert => 'Jegyzetek színének felcserélése sötét módban';
@@ -5834,6 +5906,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get dontSavePresetColors => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
 	@override String get layoutSize => 'Elrendezés típusa';
 	@override String get disableAds => 'Hirdetések letiltása';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
@@ -5856,13 +5929,13 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'E-tinta kijelzőkhöz';
 	@override String get autoClearWhiteboardOnExit => 'Továbbra is szinkronizálva lesz a többi eszközzel';
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
 	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get shouldAlwaysAlertForUpdates => 'Szóljon nekem a frissítésekről, amint elérhetők';
 	@override String get disableEraserAfterUse => 'A radír használata után automatikusan visszavált a tollra';
 }
@@ -6172,6 +6245,17 @@ class _StringsEditorImageOptionsHu extends _StringsEditorImageOptionsEn {
 	@override String get removeAsBackground => 'Eltávolítás háttérként';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarHu extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Törlés';
+	@override String get duplicate => 'Másolat';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	_StringsEditorMenuHu._(_StringsHu root) : this._root = root, super._(root);
@@ -6181,11 +6265,11 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get backgroundImageFit => 'Háttérkép';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
+	@override String get backgroundImageFit => 'Háttérkép';
 	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
 	@override String get insertPage => 'Az oldal beszúrása alább';
 	@override String get duplicatePage => 'Ismétlődő oldal';
@@ -6434,6 +6518,7 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsIt penOptions = _StringsEditorPenOptionsIt._(_root);
 	@override late final _StringsEditorColorsIt colors = _StringsEditorColorsIt._(_root);
 	@override late final _StringsEditorImageOptionsIt imageOptions = _StringsEditorImageOptionsIt._(_root);
+	@override late final _StringsEditorSelectionBarIt selectionBar = _StringsEditorSelectionBarIt._(_root);
 	@override late final _StringsEditorMenuIt menu = _StringsEditorMenuIt._(_root);
 	@override late final _StringsEditorNewerFileFormatIt newerFileFormat = _StringsEditorNewerFileFormatIt._(_root);
 	@override late final _StringsEditorQuillIt quill = _StringsEditorQuillIt._(_root);
@@ -6938,6 +7023,17 @@ class _StringsEditorImageOptionsIt extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Cancella';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarIt extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Cancella';
+	@override String get duplicate => 'Duplicare';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	_StringsEditorMenuIt._(_StringsIt root) : this._root = root, super._(root);
@@ -7080,18 +7176,18 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeTabsJa tabs = _StringsHomeTabsJa._(_root);
 	@override late final _StringsHomeTitlesJa titles = _StringsHomeTitlesJa._(_root);
 	@override late final _StringsHomeTooltipsJa tooltips = _StringsHomeTooltipsJa._(_root);
+	@override late final _StringsHomeCreateJa create = _StringsHomeCreateJa._(_root);
 	@override String get welcome => 'ようこそSaberへ';
 	@override String get noFiles => 'ファイルが見つかりません';
 	@override String get createNewNote => '+ボタンで新しくメモを作成';
 	@override late final _StringsHomeNewFolderJa newFolder = _StringsHomeNewFolderJa._(_root);
 	@override late final _StringsHomeRenameNoteJa renameNote = _StringsHomeRenameNoteJa._(_root);
 	@override late final _StringsHomeMoveNoteJa moveNote = _StringsHomeMoveNoteJa._(_root);
-	@override String get backFolder => '前のフォルダーに戻ります';
-	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
-	@override String get deleteNote => 'メモの削除';
-	@override late final _StringsHomeCreateJa create = _StringsHomeCreateJa._(_root);
-	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。';
 	@override late final _StringsHomeRenameFolderJa renameFolder = _StringsHomeRenameFolderJa._(_root);
+	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
+	@override String get backFolder => '前のフォルダーに戻ります';
+	@override String get deleteNote => 'メモの削除';
+	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。';
 }
 
 // Path: settings
@@ -7200,6 +7296,7 @@ class _StringsEditorJa extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsJa penOptions = _StringsEditorPenOptionsJa._(_root);
 	@override late final _StringsEditorColorsJa colors = _StringsEditorColorsJa._(_root);
 	@override late final _StringsEditorImageOptionsJa imageOptions = _StringsEditorImageOptionsJa._(_root);
+	@override late final _StringsEditorSelectionBarJa selectionBar = _StringsEditorSelectionBarJa._(_root);
 	@override late final _StringsEditorMenuJa menu = _StringsEditorMenuJa._(_root);
 	@override late final _StringsEditorNewerFileFormatJa newerFileFormat = _StringsEditorNewerFileFormatJa._(_root);
 	@override late final _StringsEditorQuillJa quill = _StringsEditorQuillJa._(_root);
@@ -7230,9 +7327,9 @@ class _StringsHomeTitlesJa extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => '最近のメモ';
-	@override String get browse => '閲覧';
 	@override String get whiteboard => 'ホワイトボード';
 	@override String get settings => '設定';
+	@override String get browse => '閲覧';
 }
 
 // Path: home.tooltips
@@ -7244,6 +7341,17 @@ class _StringsHomeTooltipsJa extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新しいメモ';
 	@override String get showUpdateDialog => '更新ダイアログの表示';
+}
+
+// Path: home.create
+class _StringsHomeCreateJa extends _StringsHomeCreateEn {
+	_StringsHomeCreateJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => '新しいメモ';
+	@override String get importNote => 'インポートメモ';
 }
 
 // Path: home.newFolder
@@ -7289,30 +7397,6 @@ class _StringsHomeMoveNoteJa extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => '${newName} に名称を変更した';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderJa extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderJa._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get deleteFolder => 'フォルダの削除';
-	@override String deleteName({required Object f}) => '${f}を削除';
-	@override String get delete => '消去';
-	@override String get alsoDeleteContents => 'このフォルダー内のすべてのメモも削除します';
-}
-
-// Path: home.create
-class _StringsHomeCreateJa extends _StringsHomeCreateEn {
-	_StringsHomeCreateJa._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get newNote => '新しいメモ';
-	@override String get importNote => 'インポートメモ';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderJa extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderJa._(_StringsJa root) : this._root = root, super._(root);
@@ -7326,6 +7410,19 @@ class _StringsHomeRenameFolderJa extends _StringsHomeRenameFolderEn {
 	@override String get rename => '名前の変更';
 	@override String get folderNameContainsSlash => 'フォルダ名はスラッシュを含まない';
 	@override String get folderNameExists => 'この名前のフォルダーはすでに存在します';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderJa extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => 'フォルダの削除';
+	@override String deleteName({required Object f}) => '${f}を削除';
+	@override String get delete => '消去';
+	@override String get alsoDeleteContents => 'このフォルダー内のすべてのメモも削除します';
 }
 
 // Path: settings.prefCategories
@@ -7390,11 +7487,11 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get preferGreyscale => 'e-inkディスプレイ用';
 	@override String get autoClearWhiteboardOnExit => '他のデバイスと同期されます';
 	@override String get maxImageSize => 'これより大きな画像は圧縮されます';
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
 	@override String get disableEraserAfterUse => '消しゴムを使用した後は自動的にペンに戻ります';
 	@override String get shouldAlwaysAlertForUpdates => 'アップデートが利用可能になり次第お知らせください';
 }
@@ -7704,6 +7801,17 @@ class _StringsEditorImageOptionsJa extends _StringsEditorImageOptionsEn {
 	@override String get delete => '削除';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarJa extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => '削除';
+	@override String get duplicate => '重複';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	_StringsEditorMenuJa._(_StringsJa root) : this._root = root, super._(root);
@@ -7718,11 +7826,11 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get deletePage => 'ページの削除';
 	@override String get lineHeight => '行の高さ';
 	@override String get lineHeightDescription => '文字サイズを調整';
-	@override String get backgroundImageFit => '背景画像';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
 	@override late final _StringsEditorMenuBgPatternsJa bgPatterns = _StringsEditorMenuBgPatternsJa._(_root);
+	@override String get backgroundImageFit => '背景画像';
 }
 
 // Path: editor.newerFileFormat
@@ -7966,6 +8074,7 @@ class _StringsEditorPtBr extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsPtBr penOptions = _StringsEditorPenOptionsPtBr._(_root);
 	@override late final _StringsEditorColorsPtBr colors = _StringsEditorColorsPtBr._(_root);
 	@override late final _StringsEditorImageOptionsPtBr imageOptions = _StringsEditorImageOptionsPtBr._(_root);
+	@override late final _StringsEditorSelectionBarPtBr selectionBar = _StringsEditorSelectionBarPtBr._(_root);
 	@override late final _StringsEditorMenuPtBr menu = _StringsEditorMenuPtBr._(_root);
 	@override late final _StringsEditorNewerFileFormatPtBr newerFileFormat = _StringsEditorNewerFileFormatPtBr._(_root);
 	@override late final _StringsEditorQuillPtBr quill = _StringsEditorQuillPtBr._(_root);
@@ -8470,6 +8579,17 @@ class _StringsEditorImageOptionsPtBr extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Excluir';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarPtBr extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Excluir';
+	@override String get duplicate => 'Duplicação';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	_StringsEditorMenuPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -8732,6 +8852,7 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsRu penOptions = _StringsEditorPenOptionsRu._(_root);
 	@override late final _StringsEditorColorsRu colors = _StringsEditorColorsRu._(_root);
 	@override late final _StringsEditorImageOptionsRu imageOptions = _StringsEditorImageOptionsRu._(_root);
+	@override late final _StringsEditorSelectionBarRu selectionBar = _StringsEditorSelectionBarRu._(_root);
 	@override late final _StringsEditorMenuRu menu = _StringsEditorMenuRu._(_root);
 	@override late final _StringsEditorNewerFileFormatRu newerFileFormat = _StringsEditorNewerFileFormatRu._(_root);
 	@override late final _StringsEditorQuillRu quill = _StringsEditorQuillRu._(_root);
@@ -9236,6 +9357,17 @@ class _StringsEditorImageOptionsRu extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Удалить';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarRu extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Удалить';
+	@override String get duplicate => 'Дублировать';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	_StringsEditorMenuRu._(_StringsRu root) : this._root = root, super._(root);
@@ -9498,6 +9630,7 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsTr penOptions = _StringsEditorPenOptionsTr._(_root);
 	@override late final _StringsEditorColorsTr colors = _StringsEditorColorsTr._(_root);
 	@override late final _StringsEditorImageOptionsTr imageOptions = _StringsEditorImageOptionsTr._(_root);
+	@override late final _StringsEditorSelectionBarTr selectionBar = _StringsEditorSelectionBarTr._(_root);
 	@override late final _StringsEditorMenuTr menu = _StringsEditorMenuTr._(_root);
 	@override late final _StringsEditorNewerFileFormatTr newerFileFormat = _StringsEditorNewerFileFormatTr._(_root);
 	@override late final _StringsEditorQuillTr quill = _StringsEditorQuillTr._(_root);
@@ -10002,6 +10135,17 @@ class _StringsEditorImageOptionsTr extends _StringsEditorImageOptionsEn {
 	@override String get delete => 'Sil';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarTr extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Sil';
+	@override String get duplicate => 'Kopyalamak';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	_StringsEditorMenuTr._(_StringsTr root) : this._root = root, super._(root);
@@ -10154,8 +10298,8 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteZhHansCn renameNote = _StringsHomeRenameNoteZhHansCn._(_root);
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
 	@override String get deleteNote => '删除笔记';
-	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
 	@override late final _StringsHomeRenameFolderZhHansCn renameFolder = _StringsHomeRenameFolderZhHansCn._(_root);
+	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
 }
 
 // Path: settings
@@ -10264,6 +10408,7 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsZhHansCn penOptions = _StringsEditorPenOptionsZhHansCn._(_root);
 	@override late final _StringsEditorColorsZhHansCn colors = _StringsEditorColorsZhHansCn._(_root);
 	@override late final _StringsEditorImageOptionsZhHansCn imageOptions = _StringsEditorImageOptionsZhHansCn._(_root);
+	@override late final _StringsEditorSelectionBarZhHansCn selectionBar = _StringsEditorSelectionBarZhHansCn._(_root);
 	@override late final _StringsEditorMenuZhHansCn menu = _StringsEditorMenuZhHansCn._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHansCn newerFileFormat = _StringsEditorNewerFileFormatZhHansCn._(_root);
 	@override late final _StringsEditorQuillZhHansCn quill = _StringsEditorQuillZhHansCn._(_root);
@@ -10364,19 +10509,6 @@ class _StringsHomeMoveNoteZhHansCn extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => '笔记将重命名为 ${newName}';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderZhHansCn extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get deleteFolder => '删除文件夹';
-	@override String deleteName({required Object f}) => '删除 ${f}';
-	@override String get delete => '删除';
-	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderZhHansCn extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -10390,6 +10522,19 @@ class _StringsHomeRenameFolderZhHansCn extends _StringsHomeRenameFolderEn {
 	@override String get folderNameEmpty => '文件夹名称不能为空';
 	@override String get rename => '改名';
 	@override String get folderNameContainsSlash => '文件夹名称不能包含斜杠';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderZhHansCn extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => '删除文件夹';
+	@override String deleteName({required Object f}) => '删除 ${f}';
+	@override String get delete => '删除';
+	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
 }
 
 // Path: settings.prefCategories
@@ -10768,6 +10913,17 @@ class _StringsEditorImageOptionsZhHansCn extends _StringsEditorImageOptionsEn {
 	@override String get delete => '删除';
 }
 
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarZhHansCn extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => '删除';
+	@override String get duplicate => '复制';
+}
+
 // Path: editor.menu
 class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	_StringsEditorMenuZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -10920,8 +11076,8 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
 	@override String get deleteNote => '刪除筆記';
-	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
 	@override late final _StringsHomeRenameFolderZhHantTw renameFolder = _StringsHomeRenameFolderZhHantTw._(_root);
+	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
 }
 
 // Path: settings
@@ -11030,6 +11186,7 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override late final _StringsEditorPenOptionsZhHantTw penOptions = _StringsEditorPenOptionsZhHantTw._(_root);
 	@override late final _StringsEditorColorsZhHantTw colors = _StringsEditorColorsZhHantTw._(_root);
 	@override late final _StringsEditorImageOptionsZhHantTw imageOptions = _StringsEditorImageOptionsZhHantTw._(_root);
+	@override late final _StringsEditorSelectionBarZhHantTw selectionBar = _StringsEditorSelectionBarZhHantTw._(_root);
 	@override late final _StringsEditorMenuZhHantTw menu = _StringsEditorMenuZhHantTw._(_root);
 	@override late final _StringsEditorNewerFileFormatZhHantTw newerFileFormat = _StringsEditorNewerFileFormatZhHantTw._(_root);
 	@override late final _StringsEditorQuillZhHantTw quill = _StringsEditorQuillZhHantTw._(_root);
@@ -11130,19 +11287,6 @@ class _StringsHomeMoveNoteZhHantTw extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 }
 
-// Path: home.deleteFolder
-class _StringsHomeDeleteFolderZhHantTw extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get deleteFolder => '刪除資料夾';
-	@override String deleteName({required Object f}) => '刪除 ${f}';
-	@override String get delete => '刪除';
-	@override String get alsoDeleteContents => '同時刪除該文件夾內的所有筆記';
-}
-
 // Path: home.renameFolder
 class _StringsHomeRenameFolderZhHantTw extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
@@ -11156,6 +11300,19 @@ class _StringsHomeRenameFolderZhHantTw extends _StringsHomeRenameFolderEn {
 	@override String get renameFolder => '重命名文件夾';
 	@override String get folderName => '文件夾名稱';
 	@override String get rename => '改名';
+}
+
+// Path: home.deleteFolder
+class _StringsHomeDeleteFolderZhHantTw extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => '刪除資料夾';
+	@override String deleteName({required Object f}) => '刪除 ${f}';
+	@override String get delete => '刪除';
+	@override String get alsoDeleteContents => '同時刪除該文件夾內的所有筆記';
 }
 
 // Path: settings.prefCategories
@@ -11532,6 +11689,17 @@ class _StringsEditorImageOptionsZhHantTw extends _StringsEditorImageOptionsEn {
 	@override String get setAsBackground => '設為背景';
 	@override String get removeAsBackground => '移除作為背景';
 	@override String get delete => '刪除';
+}
+
+// Path: editor.selectionBar
+class _StringsEditorSelectionBarZhHantTw extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => '刪除';
+	@override String get duplicate => '複製';
 }
 
 // Path: editor.menu

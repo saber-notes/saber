@@ -16,7 +16,7 @@ home:
     newNote: New note
     importNote: Import note
   welcome: Welcome to Saber
-  invalidFormat: The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file.
+  invalidFormat: "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
   noFiles: No files found
   createNewNote: Tap the + button to create a new note
   backFolder: Go back to the previous folder
