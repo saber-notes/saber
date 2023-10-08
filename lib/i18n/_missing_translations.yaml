@@ -359,14 +359,6 @@ zh-Hans-CN:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 zh-Hant-TW:
-  home:
-    renameFolder:
-      renameFolder(OUTDATED): 重新命名資料夾
-      folderName(OUTDATED): 資料夾名稱
-      rename(OUTDATED): 重新命名
-      folderNameEmpty(OUTDATED): 資烙夾名稱不能為空
-      folderNameContainsSlash(OUTDATED): 資料夾名稱不能包含斜槓
-      folderNameExists(OUTDATED): 已存在同名的資料夾
   editor:
     selectionBar:
       duplicate(OUTDATED): Duplicate

@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3615 (241 per locale)
 ///
-/// Built on 2023-10-08 at 22:51 UTC
+/// Built on 2023-10-08 at 23:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -11294,12 +11294,12 @@ class _StringsHomeRenameFolderZhHantTw extends _StringsHomeRenameFolderEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderNameEmpty => '文件夾名稱不能為空';
-	@override String get folderNameContainsSlash => '文件夾名稱不能包含斜杠';
-	@override String get folderNameExists => '同名的文件夾已存在';
-	@override String get renameFolder => '重命名文件夾';
-	@override String get folderName => '文件夾名稱';
-	@override String get rename => '改名';
+	@override String get renameFolder => '重新命名資料夾';
+	@override String get folderName => '資料夾名稱';
+	@override String get rename => '重新命名';
+	@override String get folderNameEmpty => '資烙夾名稱不能為空';
+	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜槓';
+	@override String get folderNameExists => '已存在同名的資料夾';
 }
 
 // Path: home.deleteFolder
