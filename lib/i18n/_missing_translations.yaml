@@ -339,9 +339,6 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
-  editor:
-    selectionBar:
-      duplicate(OUTDATED): Дублировать
 tr:
   editor:
     selectionBar:
