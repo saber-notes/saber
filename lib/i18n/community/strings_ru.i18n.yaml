@@ -252,7 +252,7 @@ editor:
     delete: Удалить
   selectionBar:
     delete: Удалить
-    duplicate(OUTDATED): Дублировать
+    duplicate: Дублировать
   menu:
     clearPage: Очистить лист $page/$totalPages
     clearAllPages: Очистить все листы
