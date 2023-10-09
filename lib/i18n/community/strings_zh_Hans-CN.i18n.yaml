@@ -41,12 +41,12 @@ home:
     renamedTo: 笔记将重命名为 $newName
   deleteNote: 删除笔记
   renameFolder:
-    renameFolder(OUTDATED): 重命名文件夹
-    folderName(OUTDATED): 文件夹名称
-    folderNameExists(OUTDATED): 同名的文件夹已存在
-    folderNameEmpty(OUTDATED): 文件夹名称不能为空
-    rename(OUTDATED): 改名
-    folderNameContainsSlash(OUTDATED): 文件夹名称不能包含斜杠
+    renameFolder: 重命名文件夹
+    folderName: 文件夹名称
+    rename: 重命名
+    folderNameEmpty: 文件夹不能为空
+    folderNameContainsSlash: 文件夹名称不能包含斜线
+    folderNameExists: 已存在该名称的文件夹
   deleteFolder:
     deleteFolder: 删除文件夹
     deleteName: 删除 $f
@@ -252,7 +252,7 @@ editor:
     delete: 删除
   selectionBar:
     delete: 删除
-    duplicate(OUTDATED): 复制
+    duplicate: 重复
   menu:
     clearPage: 清除页面 $page/$totalPages
     clearAllPages: 清除全部页面

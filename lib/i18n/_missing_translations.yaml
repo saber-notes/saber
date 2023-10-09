@@ -347,17 +347,6 @@ tr:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 zh-Hans-CN:
-  home:
-    renameFolder:
-      renameFolder(OUTDATED): 重命名文件夹
-      folderName(OUTDATED): 文件夹名称
-      rename(OUTDATED): 重命名
-      folderNameEmpty(OUTDATED): 文件夹不能为空
-      folderNameContainsSlash(OUTDATED): 文件夹名称不能包含斜线
-      folderNameExists(OUTDATED): 已存在该名称的文件夹
-  editor:
-    selectionBar:
-      duplicate(OUTDATED): 重复
 zh-Hant-TW:
   editor:
     selectionBar:
