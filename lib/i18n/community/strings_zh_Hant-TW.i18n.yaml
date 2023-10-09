@@ -251,7 +251,7 @@ editor:
     delete: 刪除
   selectionBar:
     delete: 刪除
-    duplicate(OUTDATED): 複製
+    duplicate: 複製
   menu:
     clearPage: 清除頁面 $page/$totalPages
     clearAllPages: 清除所有頁面
