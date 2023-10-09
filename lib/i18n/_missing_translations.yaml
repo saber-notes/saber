@@ -61,7 +61,7 @@ cs:
     pens:
       shapePen(OUTDATED): Shape pen
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): Duplikovat
 de:
   home:
     titles:
