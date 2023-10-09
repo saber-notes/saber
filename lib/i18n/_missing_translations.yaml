@@ -366,7 +366,7 @@ tr:
     pens:
       shapePen(OUTDATED): Shape pen
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): Çoğalt
 zh-Hans-CN:
   editor:
     pens:
