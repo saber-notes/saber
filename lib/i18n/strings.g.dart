@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3615 (241 per locale)
 ///
-/// Built on 2023-10-08 at 23:03 UTC
+/// Built on 2023-10-09 at 13:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10518,10 +10518,10 @@ class _StringsHomeRenameFolderZhHansCn extends _StringsHomeRenameFolderEn {
 	// Translations
 	@override String get renameFolder => '重命名文件夹';
 	@override String get folderName => '文件夹名称';
-	@override String get folderNameExists => '同名的文件夹已存在';
-	@override String get folderNameEmpty => '文件夹名称不能为空';
-	@override String get rename => '改名';
-	@override String get folderNameContainsSlash => '文件夹名称不能包含斜杠';
+	@override String get rename => '重命名';
+	@override String get folderNameEmpty => '文件夹不能为空';
+	@override String get folderNameContainsSlash => '文件夹名称不能包含斜线';
+	@override String get folderNameExists => '已存在该名称的文件夹';
 }
 
 // Path: home.deleteFolder
@@ -10921,7 +10921,7 @@ class _StringsEditorSelectionBarZhHansCn extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => '删除';
-	@override String get duplicate => '复制';
+	@override String get duplicate => '重复';
 }
 
 // Path: editor.menu
