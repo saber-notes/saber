@@ -303,7 +303,7 @@ it:
     pens:
       shapePen(OUTDATED): Shape pen
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): Duplicare
 ja:
   home:
     titles:
