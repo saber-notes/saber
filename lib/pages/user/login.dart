@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
+import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
@@ -32,7 +33,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       password: loginDetails.ncPassword,
     );
 
-    final CoreOcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities;
+    final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities;
     final bool ncServerIsSupported;
     final int ncSupportedVersion;
     try {
