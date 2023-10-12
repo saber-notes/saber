@@ -739,7 +739,7 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/nextcloud"
-      ref: HEAD
+      ref: main
       resolved-ref: "750b17b660faff921629a276134a2f5a4e8f5f0e"
       url: "https://github.com/nextcloud/neon"
     source: git
