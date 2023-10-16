@@ -76,7 +76,7 @@ dependencies:
 
   pdf: ^3.8.4
   share_plus: ^7.0.0
-  file_picker: ^5.2.5
+  file_picker: ^6.0.0
 
   regexed_validator: ^2.0.0+1
 
