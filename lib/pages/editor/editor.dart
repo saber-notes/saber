@@ -12,9 +12,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
-import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_pdf_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/canvas/canvas.dart';
@@ -965,9 +965,9 @@ class EditorState extends State<Editor> {
 
   Future<bool> importPdfFromFilePath(String path) async{
     final File tempFile = File(path);
-    final Uint8List fileContents;
+    final Uint8List pdfBytes;
     try {
-      fileContents = await tempFile.readAsBytes();
+      pdfBytes = await tempFile.readAsBytes();
     } catch (e) {
       log.severe('Failed to read file when importing $path: $e', e);
       return false;
@@ -977,13 +977,14 @@ class EditorState extends State<Editor> {
     assert(emptyPage.isEmpty);
 
     final raster = Printing.raster(
-      fileContents,
-      dpi: PdfPageFormat.inch * 4,
+      pdfBytes,
+      dpi: 1,
     );
 
-    bool isFirstPage = true;
+    int currentPdfPage = -1;
     await for (final pdfPage in raster) {
-      final Uint8List imageBytes = await pdfPage.toPng();
+      ++currentPdfPage;
+      assert(currentPdfPage >= 0);
 
       // resize to [defaultWidth] to keep pen sizes consistent
       final pageSize = Size(
@@ -995,13 +996,13 @@ class EditorState extends State<Editor> {
         width: pageSize.width,
         height: pageSize.height,
       );
-      page.backgroundImage = EditorImage(
+      page.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
-        extension: '.png',
-        bytes: imageBytes,
+        pdfBytes: pdfBytes,
+        pdfPage: currentPdfPage,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
-        maxSize: const Size.square(3000), // allow pdf images to be big
+        naturalSize: Size(pdfPage.width.toDouble(), pdfPage.height.toDouble()),
         onMoveImage: onMoveImage,
         onDeleteImage: onDeleteImage,
         onMiscChange: autosaveAfterDelay,
@@ -1016,10 +1017,9 @@ class EditorState extends State<Editor> {
         page: page,
       ));
 
-      if (isFirstPage) {
+      if (currentPdfPage == 0) {
         // update ui after we've rastered the first page
         // so that the user has some indication that the import is working
-        isFirstPage = false;
         setState(() {});
       }
     }

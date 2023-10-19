@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:fast_image_resizer/fast_image_resizer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_pdf_editor_image.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/data/prefs.dart';
 
@@ -116,6 +117,13 @@ class EditorImage extends ChangeNotifier {
     String? extension = json['e'];
     if (extension == '.svg') {
       return SvgEditorImage.fromJson(
+        json,
+        assets: assets,
+        isThumbnail: isThumbnail,
+        onMainThread: onMainThread,
+      );
+    } else if (extension == '.pdf') {
+      return PdfEditorImage.fromJson(
         json,
         assets: assets,
         isThumbnail: isThumbnail,
