@@ -122,7 +122,9 @@ class PdfEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    // no-op
+    final memoryImage = await rasterized;
+    if (!context.mounted) return;
+    return await precacheImage(memoryImage, context);
   }
 
   @override
