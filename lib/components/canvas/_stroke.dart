@@ -71,26 +71,32 @@ class Stroke {
     required this.penType,
   });
 
-  Stroke.fromJson(Map<String, dynamic> json, int fileVersion) :
-        _isComplete = json['f'],
-        pageIndex = json['i'] ?? 0,
-        penType = json['ty'] ?? (Pen).toString() {
-    strokeProperties = StrokeProperties.fromJson(json);
+  factory Stroke.fromJson(Map<String, dynamic> json, int fileVersion) {
+    final strokeProperties = StrokeProperties.fromJson(json);
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
     final pointsJson = json['p'] as List<dynamic>;
-    if(fileVersion >= 13) {
-      points.insertAll(0, pointsJson.map((point) => PointExtensions.fromBsonBinary(
+    final Iterable<Point> points;
+    if (fileVersion >= 13) {
+      points = pointsJson.map((point) => PointExtensions.fromBsonBinary(
         json: point,
         offset: offset,
-      )).toList());
+      ));
     } else {
       // ignore: deprecated_member_use_from_same_package
-      points.insertAll(0, pointsJson.map((point) => PointExtensions.fromJson(
+      points = pointsJson.map((point) => PointExtensions.fromJson(
         json: Map<String, dynamic>.from(point),
         offset: offset,
-      )).toList());
+      ));
     }
+
+    return Stroke(
+      strokeProperties: strokeProperties,
+      pageIndex: json['i'] ?? 0,
+      penType: json['ty'] ?? (Pen).toString(),
+    )
+      .._isComplete = json['f'] ?? false
+      ..points.addAll(points);
   }
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
