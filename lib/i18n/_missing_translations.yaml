@@ -302,8 +302,6 @@ it:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
 ja:
   home:
     titles:

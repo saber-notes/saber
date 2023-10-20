@@ -253,7 +253,7 @@ editor:
     delete: Cancella
   selectionBar:
     delete: Cancella
-    duplicate(OUTDATED): Duplicare
+    duplicate: Duplicare
   menu:
     clearPage: Pulisci pagina $page/$totalPages totali
     clearAllPages: Pulisci tutte le pagine
