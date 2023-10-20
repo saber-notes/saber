@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -62,7 +64,24 @@ abstract class EditorExporter {
                   final Iterable<Stroke> strokes = page.strokes
                     .where((stroke) => stroke.penType != (Highlighter).toString());
                   for (Stroke stroke in strokes) {
-                    if (stroke.polygon.length <= 13) { // a dot
+                    final bool shapePaint;
+                    if (stroke is CircleStroke) {
+                      shapePaint = true;
+                      pdfGraphics.drawEllipse(
+                        stroke.center.dx, pageSize.height - stroke.center.dy,
+                        stroke.radius, stroke.radius,
+                        clockwise: false,
+                      );
+                    } else if (stroke is RectangleStroke) {
+                      shapePaint = true;
+                      final strokeSize = stroke.strokeProperties.size;
+                      pdfGraphics.drawRRect(
+                        stroke.rect.left, pageSize.height - stroke.rect.bottom,
+                        stroke.rect.width, stroke.rect.height,
+                        strokeSize / 4, strokeSize / 4,
+                      );
+                    } else if (stroke.length <= 2) { // a dot
+                      shapePaint = false;
                       final bounds = stroke.path.getBounds();
                       final radius = max(bounds.size.width, stroke.strokeProperties.size * 0.5) / 2;
                       pdfGraphics.drawEllipse(
@@ -70,14 +89,24 @@ abstract class EditorExporter {
                         radius, radius,
                       );
                     } else {
+                      shapePaint = false;
                       pdfGraphics.drawShape(stroke.toSvgPath(pageSize));
                     }
 
-                    pdfGraphics.setFillColor(
-                        PdfColor.fromInt(stroke.strokeProperties.color.value)
-                            .flatten(background: backgroundColor)
-                    );
-                    pdfGraphics.fillPath();
+                    if (shapePaint) { // stroke
+                      pdfGraphics.setStrokeColor(
+                          PdfColor.fromInt(stroke.strokeProperties.color.value)
+                              .flatten(background: backgroundColor)
+                      );
+                      pdfGraphics.setLineWidth(stroke.strokeProperties.size);
+                      pdfGraphics.strokePath();
+                    } else { // fill
+                      pdfGraphics.setFillColor(
+                          PdfColor.fromInt(stroke.strokeProperties.color.value)
+                              .flatten(background: backgroundColor)
+                      );
+                      pdfGraphics.fillPath();
+                    }
                   }
                 },
                 child: pw.Image(

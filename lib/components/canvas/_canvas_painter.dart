@@ -92,8 +92,12 @@ class CanvasPainter extends CustomPainter {
           shapePaint,
         );
       } else if (stroke is RectangleStroke) {
-        canvas.drawRect(
-          stroke.rect,
+        final strokeSize = stroke.strokeProperties.size;
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(
+            stroke.rect,
+            Radius.circular(strokeSize / 4),
+          ),
           shapePaint,
         );
       } else if (stroke.length <= 2) { // a dot
