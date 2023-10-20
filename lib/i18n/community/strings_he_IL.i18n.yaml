@@ -31,9 +31,6 @@ home:
     renameNote: שנה את שם הפתק
     noteName: שם הפתק
     rename: שנה שם
-    folderNameEmpty: שם התקייה לא יכול להיות ריק
-    folderNameContainsSlash: שם התקייה לא יכול להכיל לוכסן
-    folderNameExists: תקייה כבר קיימת
   moveNote:
     moveNote: הזז פתק
     moveName: הזז $f
