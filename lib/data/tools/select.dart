@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
 import 'package:saber/data/tools/_tool.dart';

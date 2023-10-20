@@ -158,6 +158,4 @@ class RectangleStroke extends Stroke {
     penType: penType,
     rect: rect,
   );
-
-  // TODO(adil192): Add HighlighterStroke class and move canvas drawing logic to Stroke.
 }

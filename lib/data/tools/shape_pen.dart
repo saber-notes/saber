@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -24,6 +25,8 @@ class ShapePen extends Pen {
   }
 
   static Pen currentShapePen = ShapePen();
+
+  static final log = Logger('ShapePen');
 
   static const IconData shapePenIcon = FontAwesomeIcons.shapes;
 
@@ -58,8 +61,10 @@ class ShapePen extends Pen {
 
     switch (detectedShape.shape) {
       case Shape.unknown:
+        log.info('Detected unknown shape');
         return rawStroke;
       case Shape.line:
+        log.info('Detected line: ${detectedShape.firstPoint} -> ${detectedShape.lastPoint}');
         return Stroke(
           strokeProperties: rawStroke.strokeProperties,
           pageIndex: rawStroke.pageIndex,
@@ -71,7 +76,7 @@ class ShapePen extends Pen {
           ..isComplete = true;
       case Shape.rectangle:
         final rect = detectedShape.generateRectangle();
-        print('rect: $rect');
+        log.info('Detected rectangle: $rect');
         return RectangleStroke(
           strokeProperties: rawStroke.strokeProperties,
           pageIndex: rawStroke.pageIndex,
@@ -80,6 +85,7 @@ class ShapePen extends Pen {
         );
       case Shape.circle:
         final circle = detectedShape.generateCircle();
+        log.info('Detected circle: $circle');
         return CircleStroke(
           strokeProperties: rawStroke.strokeProperties,
           pageIndex: rawStroke.pageIndex,
