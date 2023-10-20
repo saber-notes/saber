@@ -77,13 +77,8 @@ class Select extends Tool {
     doneSelecting = true;
 
     for (int i = 0; i < strokes.length; i++) {
-      final Stroke stroke = strokes[i];
-      final double percentInside;
-      if (stroke is RectangleStroke) {
-        percentInside = rectPercentInside(selectResult.path, stroke.rect);
-      } else {
-        percentInside = polygonPercentInside(selectResult.path, stroke.polygon);
-      }
+      final stroke = strokes[i];
+      final percentInside = polygonPercentInside(selectResult.path, stroke.polygon);
       if (percentInside > minPercentInside) {
         selectResult.strokes.add(stroke);
       }

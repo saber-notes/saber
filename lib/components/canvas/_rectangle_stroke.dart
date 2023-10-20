@@ -50,6 +50,9 @@ class RectangleStroke extends Stroke {
   bool _polygonNeedsUpdating = true;
   late List<Offset> _polygon = const [];
   late Path _path = Path();
+  /// A list of points that form the
+  /// rectangle's perimeter.
+  /// Each side has 25 points.
   @override
   List<Offset> get polygon {
     if (_polygonNeedsUpdating) _updatePolygon();
@@ -61,15 +64,25 @@ class RectangleStroke extends Stroke {
     return _path;
   }
   void _updatePolygon() {
-    _polygon = [
-      rect.topLeft,
-      rect.bottomLeft,
-      rect.bottomRight,
-      rect.topRight,
-      rect.topLeft,
-    ];
+    _polygon = _getPolygon();
     _path = Path()..addPolygon(_polygon, true);
     _polygonNeedsUpdating = false;
+  }
+  List<Offset> _getPolygon() {
+    final polygon = <Offset>[];
+    for (int i = 0; i < 25; ++i) { // left side
+      polygon.add(Offset(rect.left, rect.top + rect.height * i / 25));
+    }
+    for (int i = 0; i < 25; ++i) { // bottom side
+      polygon.add(Offset(rect.left + rect.width * i / 25, rect.bottom));
+    }
+    for (int i = 0; i < 25; ++i) { // right side
+      polygon.add(Offset(rect.right, rect.bottom - rect.height * i / 25));
+    }
+    for (int i = 0; i < 25; ++i) { // top side
+      polygon.add(Offset(rect.right - rect.width * i / 25, rect.top));
+    }
+    return polygon;
   }
 
   @override
