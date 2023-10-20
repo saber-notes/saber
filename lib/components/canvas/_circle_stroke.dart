@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -5,8 +7,8 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 
 class CircleStroke extends Stroke {
-  final Offset center;
-  final double radius;
+  Offset center;
+  double radius;
 
   CircleStroke({
     required super.strokeProperties,
@@ -47,6 +49,30 @@ class CircleStroke extends Stroke {
   @override
   int get length => 100;
 
+  bool _polygonNeedsUpdating = true;
+  late List<Offset> _polygon = const [];
+  late Path _path = Path();
+  /// A list of 100 points that form a circle
+  /// with [center] and [radius].
+  @override
+  List<Offset> get polygon {
+    if (_polygonNeedsUpdating) _updatePolygon();
+    return _polygon;
+  }
+  @override
+  Path get path {
+    if (_polygonNeedsUpdating) _updatePolygon();
+    return _path;
+  }
+  void _updatePolygon() {
+    _polygon = List.generate(100, (i) => i / 100 * 2 * pi)
+        .map((radians) => Offset(cos(radians), sin(radians)))
+        .map((unitDir) => unitDir * radius + center)
+        .toList();
+    _path = Path()..addPolygon(_polygon, true);
+    _polygonNeedsUpdating = false;
+  }
+
   @override
   @Deprecated('Cannot add points to a circle stroke.')
   void addPoint(Offset point, [double? pressure]) {
@@ -72,6 +98,12 @@ class CircleStroke extends Stroke {
   @override
   double get maxY {
     return center.dy + radius;
+  }
+
+  @override
+  void shift(Offset offset) {
+    center += offset;
+    _polygonNeedsUpdating = true;
   }
 
   @override

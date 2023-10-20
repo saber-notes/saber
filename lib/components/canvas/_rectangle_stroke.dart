@@ -5,7 +5,7 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 
 class RectangleStroke extends Stroke {
-  final Rect rect;
+  Rect rect;
 
   RectangleStroke({
     required super.strokeProperties,
@@ -47,6 +47,31 @@ class RectangleStroke extends Stroke {
   @override
   int get length => 4;
 
+  bool _polygonNeedsUpdating = true;
+  late List<Offset> _polygon = const [];
+  late Path _path = Path();
+  @override
+  List<Offset> get polygon {
+    if (_polygonNeedsUpdating) _updatePolygon();
+    return _polygon;
+  }
+  @override
+  Path get path {
+    if (_polygonNeedsUpdating) _updatePolygon();
+    return _path;
+  }
+  void _updatePolygon() {
+    _polygon = [
+      rect.topLeft,
+      rect.bottomLeft,
+      rect.bottomRight,
+      rect.topRight,
+      rect.topLeft,
+    ];
+    _path = Path()..addPolygon(_polygon, true);
+    _polygonNeedsUpdating = false;
+  }
+
   @override
   @Deprecated('Cannot add points to a rectangle stroke.')
   void addPoint(Offset point, [double? pressure]) {
@@ -76,6 +101,12 @@ class RectangleStroke extends Stroke {
   @override
   double get maxY {
     return rect.bottom;
+  }
+
+  @override
+  void shift(Offset offset) {
+    rect = rect.shift(offset);
+    _polygonNeedsUpdating = true;
   }
 
   @override

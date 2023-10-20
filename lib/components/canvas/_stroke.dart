@@ -36,7 +36,6 @@ class Stroke {
   }
 
   bool _polygonNeedsUpdating = true;
-
   late List<Offset> _polygon = const [];
   late Path _path = Path();
   List<Offset> get polygon {
