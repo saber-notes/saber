@@ -48,6 +48,8 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -56,6 +58,8 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 de:
@@ -98,6 +102,8 @@ de:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -106,6 +112,8 @@ de:
         tablature(OUTDATED): Tablature
 es:
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 fa:
@@ -119,6 +127,8 @@ fa:
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -127,6 +137,8 @@ fa:
         tablature(OUTDATED): Tablature
 fr:
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 hu:
@@ -245,6 +257,7 @@ hu:
     updateAvailableDescription(OUTDATED): "A new version of the app is available, with these changes:"
   editor:
     pens:
+      shapePen(OUTDATED): Shape pen
       laserPointer(OUTDATED): Laser pointer
     colors:
       colorPicker(OUTDATED): Color picker
@@ -289,6 +302,8 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ja:
@@ -328,6 +343,8 @@ ja:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -336,12 +353,25 @@ ja:
         tablature(OUTDATED): Tablature
 pt-BR:
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
+  editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
 tr:
   editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 zh-Hans-CN:
+  editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
 zh-Hant-TW:
+  editor:
+    pens:
+      shapePen(OUTDATED): Shape pen

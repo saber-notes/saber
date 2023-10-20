@@ -218,6 +218,7 @@ editor:
     fountainPen: Caneta tinteiro
     ballpointPen: Caneta esferográfica
     highlighter: Marcador
+    shapePen(OUTDATED): Caneta de forma
     laserPointer: Apontador laser
   penOptions:
     size: Tamanho

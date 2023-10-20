@@ -218,6 +218,7 @@ editor:
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
+    shapePen(OUTDATED): قلم الشكل
     laserPointer: مؤشر الليزر
   penOptions:
     size: حجم

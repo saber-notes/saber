@@ -218,6 +218,7 @@ editor:
     fountainPen: Plnící pero
     ballpointPen: Kuličkové pero
     highlighter: Zvýrazňovač
+    shapePen(OUTDATED): Tvarové pero
     laserPointer: Laserové ukazovátko
   penOptions:
     size: Velikost

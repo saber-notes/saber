@@ -214,6 +214,7 @@ editor:
     fountainPen: خودنویس
     ballpointPen: خودکار
     highlighter: هایلایتر
+    shapePen(OUTDATED): قلم شکل
     laserPointer: اشاره گر لیزری
   penOptions:
     size: اندازه

@@ -215,6 +215,7 @@ editor:
     fountainPen: 万年筆
     ballpointPen: ボールペン
     highlighter: 蛍光ペン
+    shapePen(OUTDATED): シェイプペン
     laserPointer: レーザーポインター
   penOptions:
     size: サイズ

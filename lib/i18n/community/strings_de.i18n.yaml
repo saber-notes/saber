@@ -219,6 +219,7 @@ editor:
     fountainPen: Füllfederhalter
     ballpointPen: Kugelschreiber
     highlighter: Textmarker
+    shapePen(OUTDATED): Formstift
     laserPointer: Laserpointer
   penOptions:
     size: Dicke

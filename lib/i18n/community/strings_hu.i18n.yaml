@@ -218,6 +218,7 @@ editor:
     fountainPen: Töltőtoll
     ballpointPen: Golyóstoll
     highlighter: Kiemelő
+    shapePen(OUTDATED): Forma toll
     laserPointer(OUTDATED): Lézer mutató
   penOptions:
     size: Méret

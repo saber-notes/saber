@@ -218,6 +218,7 @@ editor:
     fountainPen: Stylo encre
     ballpointPen: Stylo bille
     highlighter: Surligneur
+    shapePen(OUTDATED): Stylo de forme
     laserPointer: Pointeur laser
   penOptions:
     size: Taille

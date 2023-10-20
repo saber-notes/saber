@@ -219,6 +219,7 @@ editor:
     fountainPen: Dolma kalem
     ballpointPen: Tükenmez kalem
     highlighter: İşaretleme kalemi
+    shapePen(OUTDATED): Şekil kalemi
     laserPointer: Lazer işaretçi
   penOptions:
     size: Boyut

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3616 (241 per locale)
+/// Strings: 3630 (242 per locale)
 ///
-/// Built on 2023-10-18 at 09:42 UTC
+/// Built on 2023-10-20 at 08:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1521,6 +1521,7 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
+	@override String get shapePen => 'قلم الشكل';
 	@override String get laserPointer => 'مؤشر الليزر';
 }
 
@@ -2299,6 +2300,7 @@ class _StringsEditorPensCs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Plnící pero';
 	@override String get ballpointPen => 'Kuličkové pero';
 	@override String get highlighter => 'Zvýrazňovač';
+	@override String get shapePen => 'Tvarové pero';
 	@override String get laserPointer => 'Laserové ukazovátko';
 }
 
@@ -3077,6 +3079,7 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get ballpointPen => 'Kugelschreiber';
 	@override String get highlighter => 'Textmarker';
+	@override String get shapePen => 'Formstift';
 	@override String get laserPointer => 'Laserpointer';
 }
 
@@ -3854,6 +3857,7 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Lápiz';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
+	@override String get shapePen => 'Pluma de forma';
 	@override String get laserPointer => 'Puntero láser';
 }
 
@@ -4632,6 +4636,7 @@ class _StringsEditorPensFa extends _StringsEditorPensEn {
 	@override String get fountainPen => 'خودنویس';
 	@override String get ballpointPen => 'خودکار';
 	@override String get highlighter => 'هایلایتر';
+	@override String get shapePen => 'قلم شکل';
 	@override String get laserPointer => 'اشاره گر لیزری';
 }
 
@@ -5410,6 +5415,7 @@ class _StringsEditorPensFr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Stylo encre';
 	@override String get ballpointPen => 'Stylo bille';
 	@override String get highlighter => 'Surligneur';
+	@override String get shapePen => 'Stylo de forme';
 	@override String get laserPointer => 'Pointeur laser';
 }
 
@@ -6188,6 +6194,7 @@ class _StringsEditorPensHu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Töltőtoll';
 	@override String get ballpointPen => 'Golyóstoll';
 	@override String get highlighter => 'Kiemelő';
+	@override String get shapePen => 'Forma toll';
 	@override String get laserPointer => 'Lézer mutató';
 }
 
@@ -6966,6 +6973,7 @@ class _StringsEditorPensIt extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Penna stilografica';
 	@override String get ballpointPen => 'Penna a sfera';
 	@override String get highlighter => 'Evidenziatore';
+	@override String get shapePen => 'Penna a forma';
 	@override String get laserPointer => 'Puntatore laser';
 }
 
@@ -7744,6 +7752,7 @@ class _StringsEditorPensJa extends _StringsEditorPensEn {
 	@override String get fountainPen => '万年筆';
 	@override String get ballpointPen => 'ボールペン';
 	@override String get highlighter => '蛍光ペン';
+	@override String get shapePen => 'シェイプペン';
 	@override String get laserPointer => 'レーザーポインター';
 }
 
@@ -8522,6 +8531,7 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
 	@override String get highlighter => 'Marcador';
+	@override String get shapePen => 'Caneta de forma';
 	@override String get laserPointer => 'Apontador laser';
 }
 
@@ -9300,6 +9310,7 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
+	@override String get shapePen => 'Форма ручки';
 	@override String get laserPointer => 'Лазерная указка';
 }
 
@@ -10078,6 +10089,7 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
+	@override String get shapePen => 'Şekil kalemi';
 	@override String get laserPointer => 'Lazer işaretçi';
 }
 
@@ -10856,6 +10868,7 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 	@override String get fountainPen => '钢笔';
 	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
+	@override String get shapePen => '造型笔';
 	@override String get laserPointer => '激光笔';
 }
 
@@ -11634,6 +11647,7 @@ class _StringsEditorPensZhHantTw extends _StringsEditorPensEn {
 	@override String get fountainPen => '鋼筆';
 	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
+	@override String get shapePen => '造型筆';
 	@override String get laserPointer => '雷射筆';
 }
 

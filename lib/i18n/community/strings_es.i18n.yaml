@@ -218,6 +218,7 @@ editor:
     fountainPen: Lápiz
     ballpointPen: Bolígrafo
     highlighter: Resaltador
+    shapePen(OUTDATED): Pluma de forma
     laserPointer: Puntero láser
   penOptions:
     size: Tamaño

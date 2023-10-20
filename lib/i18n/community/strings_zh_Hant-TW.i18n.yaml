@@ -217,6 +217,7 @@ editor:
     fountainPen: 鋼筆
     ballpointPen: 原子筆
     highlighter: 螢光筆
+    shapePen(OUTDATED): 造型筆
     laserPointer: 雷射筆
   penOptions:
     size: 粗細

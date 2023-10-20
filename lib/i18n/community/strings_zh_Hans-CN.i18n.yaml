@@ -218,6 +218,7 @@ editor:
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
+    shapePen(OUTDATED): 造型笔
     laserPointer: 激光笔
   penOptions:
     size: 粗细
