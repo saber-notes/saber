@@ -24,6 +24,7 @@ enum ToolId {
   fountainPen('fountainPen'),
   ballpointPen('ballpointPen'),
   highlighter('Highlighter'),
+  shapePen('ShapePen'),
   eraser('Eraser'),
   select('Select'),
   textEditing('TextEditingTool'),

@@ -80,7 +80,10 @@ class StrokeProperties {
 
   static StrokeProperties get fountainPen => StrokeProperties();
   static StrokeProperties get ballpointPen => StrokeProperties(
-    pressureEnabled: false
+    pressureEnabled: false,
+  );
+  static StrokeProperties get shapePen => StrokeProperties(
+    pressureEnabled: false,
   );
   static StrokeProperties get highlighter => StrokeProperties(
     size: defaultSize * 5,

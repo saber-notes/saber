@@ -1,19 +1,26 @@
 import 'dart:math' hide atan2;
 
 import 'package:flutter/material.dart';
+import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
+import 'package:logging/logging.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/fast_math.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 
 class Stroke {
+  static final log = Logger('Stroke');
+
   @visibleForTesting
   final List<Point> points = [];
 
   /// Note that [isEmpty] is also true if there is only one point,
   /// since it was just initially added in [onDrawStart].
   bool get isEmpty => points.length <= 1;
+  int get length => points.length;
 
   int pageIndex;
   final String penType;
@@ -21,19 +28,10 @@ class Stroke {
   late final StrokeProperties strokeProperties;
 
   bool _isComplete = false;
-  bool get isComplete => isStraightLine || _isComplete;
+  bool get isComplete => _isComplete;
   set isComplete(bool value) {
     if (value == _isComplete) return;
     _isComplete = value;
-    _polygonNeedsUpdating = true;
-  }
-
-  /// Whether to draw a straight line from the first point to the last point.
-  bool _isStraightLine = false;
-  bool get isStraightLine => _isStraightLine;
-  set isStraightLine(bool value) {
-    if (value == _isStraightLine) return;
-    _isStraightLine = value;
     _polygonNeedsUpdating = true;
   }
 
@@ -72,6 +70,17 @@ class Stroke {
   });
 
   factory Stroke.fromJson(Map<String, dynamic> json, int fileVersion) {
+    switch (json['shape'] as String?) {
+      case null:
+        break;
+      case 'circle':
+        return CircleStroke.fromJson(json, fileVersion);
+      case 'rect':
+        return RectangleStroke.fromJson(json, fileVersion);
+      default:
+        log.severe('Unknown shape: ${json['shape']}');
+    }
+
     final strokeProperties = StrokeProperties.fromJson(json);
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
@@ -101,18 +110,9 @@ class Stroke {
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
     return {
+      'shape': null,
       'f': isComplete,
-      'p': (){
-        if (isStraightLine && points.length > 1) {
-          Point last = snapLineToRightAngle(points.first, points.last);
-          return [
-            points.first.toBsonBinary(),
-            last.toBsonBinary(),
-            last.toBsonBinary(),
-          ];
-        }
-        return points.map((Point point) => point.toBsonBinary()).toList();
-      }(),
+      'p': points.map((Point point) => point.toBsonBinary()).toList(),
       'i': pageIndex,
       'ty': penType.toString(),
     }..addAll(strokeProperties.toJson());
@@ -161,18 +161,6 @@ class Stroke {
   }
 
   List<Offset> _getPolygon() {
-    final List<Point> points;
-    if (isStraightLine) {
-      Point last = snapLineToRightAngle(this.points.first, this.points.last);
-      points = [
-        this.points.first,
-        last,
-        last,
-      ];
-    } else {
-      points = this.points;
-    }
-
     final simulatePressure = strokeProperties.simulatePressure && strokeProperties.pressureEnabled;
     final rememberSimulatedPressure = simulatePressure && isComplete;
 
@@ -250,41 +238,11 @@ class Stroke {
     }
   }
 
-  bool isLineRoughlyStraight() => deviationFromStraightLine() < 0.5;
-
-  /// Calculates something like the RMSD (root mean square deviation) of the
-  /// points from a straight line between the first and last points.
-  ///
-  /// The lower the value, the more straight the line is.
-  ///
-  /// Note that we've taken some shortcuts for performance:
-  ///  - We don't take the square root at the end.
-  ///  - We ignore [offset] since it makes no difference.
-  @visibleForTesting
-  double deviationFromStraightLine() {
-    if (points.length < 2) return double.infinity;
-
-    final start = points.first;
-    final end = points.last;
-
-    final dx = end.x - start.x;
-    final dy = end.y - start.y;
-    if (dx == 0 && dy == 0) {
-      // TODO: check if the stroke is a polygon if the start and end points are close together
-      return double.infinity;
-    }
-
-    final length = sqrt(dx * dx + dy * dy);
-    final unit = Offset(dx / length, dy / length);
-
-    double sum = 0;
-    for (final point in points) {
-      final t = (point.x - start.x) * unit.dx + (point.y - start.y) * unit.dy;
-      final projected = Offset(start.x + t * unit.dx, start.y + t * unit.dy);
-      final distance = pow(point.x - projected.dx, 2) + pow(point.y - projected.dy, 2);
-      sum += distance;
-    }
-    return sum / points.length / strokeProperties.size / strokeProperties.size;
+  DetectedShape? getDetectedShape() {
+    if (points.length < 3) return null;
+    return detectShape(
+      points.map((point) => Offset(point.x, point.y)).toList(),
+    );
   }
 
   Stroke copy() => Stroke(

@@ -43,6 +43,7 @@ import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/select.dart';
+import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:super_clipboard/super_clipboard.dart';
@@ -131,6 +132,8 @@ class EditorState extends State<Editor> {
         return Pen.currentPen;
       case ToolId.highlighter:
         return Highlighter.currentHighlighter;
+      case ToolId.shapePen:
+        return ShapePen.currentShapePen;
       case ToolId.eraser:
         return Eraser();
       case ToolId.select:
@@ -544,7 +547,7 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
     if (currentTool is Pen) {
-      (currentTool as Pen).onDragUpdate(position, currentPressure, page.redrawStrokes);
+      (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes)) {
@@ -1153,15 +1156,19 @@ class EditorState extends State<Editor> {
       initialPageIndex: coreInfo.initialPageIndex,
       pageBuilder: (BuildContext context, int pageIndex) {
         final page = coreInfo.pages[pageIndex];
+        final currentStroke = Pen.currentStroke?.pageIndex == pageIndex
+            ? Pen.currentStroke
+            : null;
         return Canvas(
           path: coreInfo.filePath,
           page: page,
           pageIndex: pageIndex,
           textEditing: currentTool == Tool.textEditing,
           coreInfo: coreInfo,
-          currentStroke: () {
-            return (Pen.currentStroke?.pageIndex == pageIndex) ? Pen.currentStroke : null;
-          }(),
+          currentStroke: currentStroke,
+          currentStrokeDetectedShape: currentTool is ShapePen && currentStroke != null
+              ? ShapePen.detectedShape
+              : null,
           currentSelection: () {
             if (currentTool is! Select) return null;
             final selectResult = (currentTool as Select).selectResult;
@@ -1193,6 +1200,7 @@ class EditorState extends State<Editor> {
           textEditing: false,
           coreInfo: EditorCoreInfo.empty,
           currentStroke: null,
+          currentStrokeDetectedShape: null,
           currentSelection: null,
           placeholder: true,
           setAsBackground: null,

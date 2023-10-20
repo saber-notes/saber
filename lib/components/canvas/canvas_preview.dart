@@ -33,6 +33,7 @@ class CanvasPreview extends StatelessWidget {
         isPreview: true,
         coreInfo: coreInfo,
         currentStroke: null,
+        currentStrokeDetectedShape: null,
         currentSelection: null,
         hideBackground: Prefs.hideHomeBackgrounds.value,
         currentToolIsSelect: false,

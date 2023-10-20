@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 15
-/// Strings: 3615 (241 per locale)
+/// Strings: 3616 (241 per locale)
 ///
-/// Built on 2023-10-09 at 13:12 UTC
+/// Built on 2023-10-18 at 09:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -742,6 +742,7 @@ class _StringsEditorPensEn {
 	String get fountainPen => 'Fountain pen';
 	String get ballpointPen => 'Ballpoint pen';
 	String get highlighter => 'Highlighter';
+	String get shapePen => 'Shape pen';
 	String get laserPointer => 'Laser pointer';
 }
 

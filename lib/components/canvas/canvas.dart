@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -16,6 +17,7 @@ class Canvas extends StatelessWidget {
     required this.textEditing,
     required this.coreInfo,
     required this.currentStroke,
+    required this.currentStrokeDetectedShape,
     required this.currentSelection,
     required this.setAsBackground,
     required this.currentToolIsSelect,
@@ -29,6 +31,7 @@ class Canvas extends StatelessWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
+  final DetectedShape? currentStrokeDetectedShape;
   final SelectResult? currentSelection;
 
   final void Function(EditorImage image)? setAsBackground;
@@ -63,6 +66,7 @@ class Canvas extends StatelessWidget {
                   textEditing: textEditing,
                   coreInfo: coreInfo,
                   currentStroke: currentStroke,
+                  currentStrokeDetectedShape: currentStrokeDetectedShape,
                   currentSelection: currentSelection,
                   setAsBackground: setAsBackground,
                   currentToolIsSelect: currentToolIsSelect,

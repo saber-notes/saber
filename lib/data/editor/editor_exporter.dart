@@ -134,6 +134,7 @@ abstract class EditorExporter {
               )).toList(),
             ),
             currentStroke: null,
+            currentStrokeDetectedShape: null,
             currentSelection: null,
             currentToolIsSelect: false,
           ),

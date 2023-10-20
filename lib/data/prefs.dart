@@ -90,7 +90,8 @@ abstract class Prefs {
   static late final PlainPref<StrokeProperties>
       lastFountainPenProperties,
       lastBallpointPenProperties,
-      lastHighlighterProperties;
+      lastHighlighterProperties,
+      lastShapePenProperties;
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
   static late final PlainPref<bool> lastZoomLock,
@@ -167,6 +168,7 @@ abstract class Prefs {
     lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: const ['lastPenColor']);
     lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
     lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: const ['lastHighlighterColor']);
+    lastShapePenProperties = PlainPref('lastShapePenProperties', StrokeProperties.shapePen);
 
     lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
     lastLineHeight = PlainPref('lastLineHeight', 40);

@@ -42,7 +42,7 @@ class Eraser extends Tool {
   }
 
   static bool _shouldStrokeBeErased(Offset eraserPos, Stroke stroke, double sqrSize) {
-    if (stroke.isStraightLine) {
+    if (stroke.length <= 3) {
       if (stroke.path.contains(eraserPos)) return true;
     }
 

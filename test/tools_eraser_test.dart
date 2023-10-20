@@ -39,7 +39,7 @@ void main() {
       )
         ..addPoint(_eraserPos + const Offset(-20, -20) * eraser.size)
         ..addPoint(_eraserPos + const Offset(20, 20) * eraser.size)
-        ..isStraightLine = true,
+        ..addPoint(_eraserPos + const Offset(20, 20) * eraser.size),
     ];
 
     List<Stroke> strokesToKeep = [

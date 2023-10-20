@@ -2,6 +2,7 @@ import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_canvas_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
@@ -24,6 +25,7 @@ class InnerCanvas extends StatefulWidget {
     this.textEditing = false,
     required this.coreInfo,
     required this.currentStroke,
+    required this.currentStrokeDetectedShape,
     required this.currentSelection,
     this.setAsBackground,
     this.onRenderObjectChange,
@@ -42,6 +44,7 @@ class InnerCanvas extends StatefulWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
+  final DetectedShape? currentStrokeDetectedShape;
   final SelectResult? currentSelection;
   final void Function(EditorImage image)? setAsBackground;
   final ValueChanged<RenderObject>? onRenderObjectChange;

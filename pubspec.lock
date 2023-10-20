@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.6"
+  area_polygon:
+    dependency: transitive
+    description:
+      name: area_polygon
+      sha256: ed3072f73a922b5e7cfca79f274a750123108f0ccf3510579d2eac88424ba13a
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   args:
     dependency: transitive
     description:
@@ -162,6 +170,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  convex_hull:
+    dependency: transitive
+    description:
+      name: convex_hull
+      sha256: "67489a600f0ae7b4a4851e896bbea01cf9f599af520ab8ab8390332d59da340d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   cookie_jar:
     dependency: transitive
     description:
@@ -614,6 +630,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  interactive_shape_recognition:
+    dependency: "direct main"
+    description:
+      name: interactive_shape_recognition
+      sha256: c4bc3e242a36fcd3f36899a6635defdeaa8dffe20a4dfdc826c03c20f79f7025
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   intl:
     dependency: "direct main"
     description:

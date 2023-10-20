@@ -2,11 +2,15 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart' hide TextStyle;
+import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:path_drawing/path_drawing.dart';
+import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/select.dart';
+import 'package:saber/data/tools/shape_pen.dart';
 
 class CanvasPainter extends CustomPainter {
   const CanvasPainter({
@@ -76,9 +80,25 @@ class CanvasPainter extends CustomPainter {
         paint.color = color;
       }
 
-      if (stroke.polygon.length <= 13) { // a dot
+      late final shapePaint = Paint()
+        ..color = paint.color
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = stroke.strokeProperties.size;
+
+      if (stroke is CircleStroke) {
+        canvas.drawCircle(
+          stroke.center,
+          stroke.radius,
+          shapePaint,
+        );
+      } else if (stroke is RectangleStroke) {
+        canvas.drawRect(
+          stroke.rect,
+          shapePaint,
+        );
+      } else if (stroke.length <= 2) { // a dot
         final bounds = stroke.path.getBounds();
-        final radius = max(bounds.size.width, stroke.strokeProperties.size * 0.5) / 2;
+        final radius = max(bounds.size.width, stroke.strokeProperties.size) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
       } else {
         canvas.drawPath(stroke.path, paint);
@@ -88,12 +108,41 @@ class CanvasPainter extends CustomPainter {
     if (currentStroke != null) {
       paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
 
-      if (currentStroke!.polygon.length <= 13) { // a dot
+      if (currentStroke!.length <= 2) { // a dot
         final bounds = currentStroke!.path.getBounds();
         final radius = max(bounds.size.width, currentStroke!.strokeProperties.size * 0.5) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
       } else {
         canvas.drawPath(currentStroke!.path, paint);
+      }
+    }
+    if (ShapePen.detectedShape != null) {
+      final color = currentStroke?.strokeProperties.color.withInversion(invert) ?? Colors.black;
+      final shapePaint = Paint()
+        ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
+      switch (ShapePen.detectedShape!.shape) {
+        case Shape.unknown:
+          break;
+        case Shape.line:
+          canvas.drawLine(
+            ShapePen.detectedShape!.firstPoint,
+            ShapePen.detectedShape!.lastPoint,
+            shapePaint,
+          );
+        case Shape.rectangle:
+          canvas.drawRect(
+            ShapePen.detectedShape!.generateRectangle(),
+            shapePaint,
+          );
+        case Shape.circle:
+          final circle = ShapePen.detectedShape!.generateCircle();
+          canvas.drawCircle(
+            circle.$2,
+            circle.$1,
+            shapePaint,
+          );
       }
     }
 
