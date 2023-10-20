@@ -52,7 +52,7 @@ class CircleStroke extends Stroke {
   bool _polygonNeedsUpdating = true;
   late List<Offset> _polygon = const [];
   late Path _path = Path();
-  /// A list of 100 points that form a circle
+  /// A list of 25 points that form a circle
   /// with [center] and [radius].
   @override
   List<Offset> get polygon {
@@ -65,7 +65,7 @@ class CircleStroke extends Stroke {
     return _path;
   }
   void _updatePolygon() {
-    _polygon = List.generate(100, (i) => i / 100 * 2 * pi)
+    _polygon = List.generate(25, (i) => i / 25 * 2 * pi)
         .map((radians) => Offset(cos(radians), sin(radians)))
         .map((unitDir) => unitDir * radius + center)
         .toList();
