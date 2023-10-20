@@ -60,8 +60,6 @@ cs:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
-    selectionBar:
-      duplicate(OUTDATED): Duplikovat
 de:
   home:
     titles:
