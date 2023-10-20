@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3630 (242 per locale)
 ///
-/// Built on 2023-10-20 at 09:05 UTC
+/// Built on 2023-10-20 at 09:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2639,7 +2639,7 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override late final _StringsEditorHudDe hud = _StringsEditorHudDe._(_root);
 	@override String get pages => 'Seiten';
 	@override String get untitled => 'Unbenannt';
-	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, wenn der Vorgang beendet ist.';
+	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, sobald der Vorgang beendet ist.';
 }
 
 // Path: home.tabs
@@ -2755,7 +2755,7 @@ class _StringsHomeDeleteFolderDe extends _StringsHomeDeleteFolderEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String deleteName({required Object f}) => 'Löschen Sie ${f}';
+	@override String deleteName({required Object f}) => '${f} löschen';
 	@override String get deleteFolder => 'Lösche Ordner';
 	@override String get delete => 'Löschen';
 	@override String get alsoDeleteContents => 'Lösche außerdem alle Notizen in diesem Ordner';
