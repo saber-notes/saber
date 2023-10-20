@@ -254,7 +254,7 @@ editor:
     delete: Sil
   selectionBar:
     delete: Sil
-    duplicate(OUTDATED): Kopyalamak
+    duplicate: Çoğalt
   menu:
     clearPage: $page/$totalPages numaralı sayfayı temizle
     clearAllPages: Tüm sayfaları temizle
