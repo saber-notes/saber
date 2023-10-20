@@ -54,7 +54,9 @@ class ShapePen extends Pen {
     final detectedShape = ShapePen.detectedShape;
     ShapePen.detectedShape = null;
 
-    switch (detectedShape!.shape) {
+    if (detectedShape == null) return rawStroke;
+
+    switch (detectedShape.shape) {
       case Shape.unknown:
         return rawStroke;
       case Shape.line:
