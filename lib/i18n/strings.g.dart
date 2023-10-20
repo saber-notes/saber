@@ -6,7 +6,7 @@
 /// Locales: 15
 /// Strings: 3630 (242 per locale)
 ///
-/// Built on 2023-10-20 at 09:01 UTC
+/// Built on 2023-10-20 at 09:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2367,7 +2367,7 @@ class _StringsEditorSelectionBarCs extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => 'Odstranit';
-	@override String get duplicate => 'Čeština';
+	@override String get duplicate => 'Duplikovat';
 }
 
 // Path: editor.menu

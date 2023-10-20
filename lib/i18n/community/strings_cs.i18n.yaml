@@ -253,7 +253,7 @@ editor:
     delete: Odstranit
   selectionBar:
     delete: Odstranit
-    duplicate(OUTDATED): Čeština
+    duplicate: Duplikovat
   menu:
     clearPage: Smazat obsah stránky $page/$totalPages
     clearAllPages: Smazat všechny stránky
