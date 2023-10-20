@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3865 (241 per locale)
+/// Strings: 3872 (242 per locale)
 ///
-/// Built on 2023-10-20 at 09:12 UTC
+/// Built on 2023-10-20 at 09:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -5630,7 +5630,7 @@ class _StringsHomeHeIl extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsHeIl tooltips = _StringsHomeTooltipsHeIl._(_root);
 	@override late final _StringsHomeCreateHeIl create = _StringsHomeCreateHeIl._(_root);
 	@override String get welcome => 'ברוכים הבאים ל Saber';
-	@override String get invalidFormat => ' הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2 או .pdf';
+	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2 או .pdf';
 	@override String get noFiles => 'קבצים לא נמצאו';
 	@override String get createNewNote => 'הקש על הלחצן + כדי ליצור הערה חדשה';
 	@override String get backFolder => 'חזור אחורה לתקייה הקודמת';
@@ -5831,6 +5831,9 @@ class _StringsHomeRenameNoteHeIl extends _StringsHomeRenameNoteEn {
 	@override String get renameNote => 'שנה את שם הפתק';
 	@override String get noteName => 'שם הפתק';
 	@override String get rename => 'שנה שם';
+	@override String get noteNameEmpty => 'שם הערה לא יכול להיות ריק';
+	@override String get noteNameContainsSlash => 'שם הערה לא יכול להכיל קו נטוי';
+	@override String get noteNameExists => 'הערה בשם זה כבר קיימת';
 }
 
 // Path: home.moveNote
@@ -6192,6 +6195,7 @@ class _StringsEditorPensHeIl extends _StringsEditorPensEn {
 	@override String get fountainPen => 'עט נובע';
 	@override String get ballpointPen => 'עט כדורי';
 	@override String get highlighter => 'מרקר';
+	@override String get shapePen => 'עט צורה';
 	@override String get laserPointer => 'סמן לייזר';
 }
 
@@ -6358,6 +6362,9 @@ class _StringsEditorMenuBgPatternsHeIl extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'שורות';
 	@override String get grid => 'משבצות';
 	@override String get dots => 'נקודות';
+	@override String get staffs => 'צוותים';
+	@override String get tablature => 'כרטיסייה';
+	@override String get cornell => 'קורנל';
 }
 
 // Path: <root>
