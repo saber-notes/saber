@@ -187,6 +187,8 @@ class PdfEditorImage extends EditorImage {
     if (lastRasterized.value != null) {
       // precache the new image so we don't flash an empty image
       await _precacheImage(image);
+      // remove old image from memory
+      lastRasterized.value?.evict();
     }
     return lastRasterized.value = image;
   }
