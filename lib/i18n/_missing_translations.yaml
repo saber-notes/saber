@@ -313,9 +313,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  editor:
-    pens:
-      shapePen(OUTDATED): Forma della penna
 ja:
   home:
     titles:

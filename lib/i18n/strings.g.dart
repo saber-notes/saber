@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3872 (242 per locale)
 ///
-/// Built on 2023-10-21 at 21:01 UTC
+/// Built on 2023-10-21 at 21:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7753,7 +7753,7 @@ class _StringsEditorPensIt extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Penna stilografica';
 	@override String get ballpointPen => 'Penna a sfera';
 	@override String get highlighter => 'Evidenziatore';
-	@override String get shapePen => 'Penna a forma';
+	@override String get shapePen => 'Forma della penna';
 	@override String get laserPointer => 'Puntatore laser';
 }
 
