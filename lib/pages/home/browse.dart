@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:collapsible/collapsible.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/grid_folders.dart';
@@ -33,7 +32,7 @@ class _BrowsePageState extends State<BrowsePage> {
   final List<String?> pathHistory = [];
   String? path;
 
-  ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
+  final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
   @override
   void initState() {
@@ -67,7 +66,6 @@ class _BrowsePageState extends State<BrowsePage> {
 
   void onDirectoryTap(String folder) {
     selectedFiles.value = [];
-    selectedFiles.notifyListeners();
     if (folder == '..') {
       path = pathHistory.isEmpty ? null : pathHistory.removeLast();
     } else {
@@ -180,7 +178,7 @@ class _BrowsePageState extends State<BrowsePage> {
                     for (String filePath in children?.files ?? const [])
                       "${path ?? ""}/$filePath",
                   ],
-                  setSelectedFiles: (files) => {selectedFiles.value = files, selectedFiles.notifyListeners()},
+                  setSelectedFiles: (files) => selectedFiles.value = files,
                 ),
               ),
             ],
@@ -191,50 +189,59 @@ class _BrowsePageState extends State<BrowsePage> {
         cupertino: cupertino,
         path: path,
       ),
-      persistentFooterButtons: 
-        <Widget>[
-          ValueListenableBuilder(
-            valueListenable: selectedFiles,
-            builder: (context, selectedFiles, child) {
-              return Collapsible(
-                axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.length != 1,
-                child: RenameNoteButton(existingPath: selectedFiles.length == 1 ? selectedFiles[0] : '')
-              );
+      persistentFooterButtons: [
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, _) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.length != 1,
+              child: RenameNoteButton(
+                existingPath: selectedFiles.isEmpty
+                  ? ''
+                  : selectedFiles.first,
+              )
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, _) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: MoveNoteButton(
+                filesToMove: selectedFiles,
+              ),
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, child) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: child!,
+            );
+          },
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            tooltip: t.home.deleteNote,
+            onPressed: () async {
+              await Future.wait([
+                for (String filePath in selectedFiles.value)
+                  FileManager.doesFileExist(filePath + Editor.extensionOldJson)
+                    .then((oldExtension) => FileManager.deleteFile(
+                      filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
+                    )),
+              ]);
             },
+            icon: const Icon(Icons.delete_forever),
           ),
-          ValueListenableBuilder(
-            valueListenable: selectedFiles,
-            builder: (context, selectedFiles, child) {
-              return Collapsible(
-                axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.isEmpty,
-                child: MoveNoteButton(filesToMove: selectedFiles),
-              );
-            },
-          ),
-          ValueListenableBuilder(
-            valueListenable: selectedFiles,
-            builder: (context, selectedFiles, child) {
-              return Collapsible(
-                axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.isEmpty,
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  tooltip: t.home.deleteNote,
-                  onPressed: () {
-                    for(String filePath in selectedFiles){
-                      FileManager.deleteFile(filePath + Editor.extension);
-                    }
-                  },
-                  icon: const Icon(Icons.delete_forever),
-                ),
-              );
-            },
-          ),
-          
-        ],
-       );
+        ),
+      ],
+    );
   }
 
   @override

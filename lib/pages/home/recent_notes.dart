@@ -25,8 +25,7 @@ class _RecentPageState extends State<RecentPage> {
   final List<String> filePaths = [];
   bool failed = false;
 
-  ValueNotifier<int> selectedFilesCount = ValueNotifier(0);
-  ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
+  final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
   @override
   void initState() {
@@ -119,7 +118,7 @@ class _RecentPageState extends State<RecentPage> {
                   files: [
                     for (String filePath in filePaths) filePath,
                   ],
-                  setSelectedFiles: (files) => {selectedFiles.value = files, selectedFiles.notifyListeners()},
+                  setSelectedFiles: (files) => selectedFiles.value = files,
                 ),
               ),
             ],
@@ -129,49 +128,58 @@ class _RecentPageState extends State<RecentPage> {
       floatingActionButton: NewNoteButton(
         cupertino: cupertino,
       ),
-      persistentFooterButtons: 
-        <Widget>[
-          ValueListenableBuilder(
-            valueListenable: selectedFiles,
-            builder: (context, selectedFiles, child) {
-              return Collapsible(
-                axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.length != 1,
-                child: RenameNoteButton(existingPath: selectedFiles.length == 1 ? selectedFiles[0] : '')
-              );
+      persistentFooterButtons: [
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, _) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.length != 1,
+              child: RenameNoteButton(
+                existingPath: selectedFiles.isEmpty
+                  ? ''
+                  : selectedFiles.first,
+              ),
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, _) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: MoveNoteButton(
+                filesToMove: selectedFiles,
+              ),
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, child) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: child!,
+            );
+          },
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            tooltip: t.home.deleteNote,
+            onPressed: () async {
+              await Future.wait([
+                for (String filePath in selectedFiles.value)
+                  FileManager.doesFileExist(filePath + Editor.extensionOldJson)
+                    .then((oldExtension) => FileManager.deleteFile(
+                      filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
+                    )),
+              ]);
             },
+            icon: const Icon(Icons.delete_forever),
           ),
-          ValueListenableBuilder(
-            valueListenable: selectedFiles,
-            builder: (context, selectedFiles, child) {
-              return Collapsible(
-                axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.isEmpty,
-                child: MoveNoteButton(filesToMove: selectedFiles),
-              );
-            },
-          ),
-          ValueListenableBuilder(
-            valueListenable: selectedFiles,
-            builder: (context, selectedFiles, child) {
-              return Collapsible(
-                axis: CollapsibleAxis.vertical,
-                collapsed: selectedFiles.isEmpty,
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  tooltip: t.home.deleteNote,
-                  onPressed: () {
-                    for(String filePath in selectedFiles){
-                      FileManager.deleteFile(filePath + Editor.extension);
-                    }
-                  },
-                  icon: const Icon(Icons.delete_forever),
-                ),
-              );
-            },
-          ),
-          
-        ],
+        ),
+      ],
     );
   }
 

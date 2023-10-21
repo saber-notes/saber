@@ -30,6 +30,7 @@ class PreviewCard extends StatefulWidget {
   final String filePath;
   final bool selected;
   final bool isAnythingSelected;
+  final void Function(String, bool) toggleSelection;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -38,8 +39,6 @@ class PreviewCard extends StatefulWidget {
       => _PreviewCardState.getCachedCoreInfo(filePath);
   static void moveFileInCache(String oldPath, String newPath)
       => _PreviewCardState.moveFileInCache(oldPath, newPath);
-  
-  final void Function(String, bool) toggleSelection;
 }
 
 class _PreviewCardState extends State<PreviewCard> {
@@ -186,6 +185,11 @@ class _PreviewCardState extends State<PreviewCard> {
     if (mounted) setState(() {});
   }
 
+  void _toggleCardSelection() {
+    expanded.value = !expanded.value;
+    widget.toggleSelection(widget.filePath, expanded.value);
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -203,9 +207,11 @@ class _PreviewCardState extends State<PreviewCard> {
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: widget.isAnythingSelected ? () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)} : null,
-        onSecondaryTap: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
-        onLongPress: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
+        onTap: widget.isAnythingSelected
+          ? _toggleCardSelection
+          : null,
+        onSecondaryTap: _toggleCardSelection,
+        onLongPress: _toggleCardSelection,
         child: ColoredBox(
           color: colorScheme.primary.withOpacity(0.05),
           child: Stack(
@@ -250,7 +256,7 @@ class _PreviewCardState extends State<PreviewCard> {
                             ),
                           ),
                           child: GestureDetector(
-                            onTap: () => {expanded.value = !expanded.value, widget.toggleSelection(widget.filePath, expanded.value)},
+                            onTap: _toggleCardSelection,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
