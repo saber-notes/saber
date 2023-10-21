@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3872 (242 per locale)
 ///
-/// Built on 2023-10-20 at 09:23 UTC
+/// Built on 2023-10-21 at 20:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -32,7 +32,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	es(languageCode: 'es', build: _StringsEs.build),
 	fa(languageCode: 'fa', build: _StringsFa.build),
 	fr(languageCode: 'fr', build: _StringsFr.build),
-	heIl(languageCode: 'he', countryCode: 'IL', build: _StringsHeIl.build),
+	he(languageCode: 'he', build: _StringsHe.build),
 	hu(languageCode: 'hu', build: _StringsHu.build),
 	it(languageCode: 'it', build: _StringsIt.build),
 	ja(languageCode: 'ja', build: _StringsJa.build),
@@ -5589,73 +5589,73 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsHeIl extends _StringsEn {
+class _StringsHe extends _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	_StringsHeIl.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	_StringsHe.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.heIl,
+		    locale: AppLocale.he,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
 		  ),
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
-	/// Metadata for the translations of <he-IL>.
+	/// Metadata for the translations of <he>.
 	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
 
-	@override late final _StringsHeIl _root = this; // ignore: unused_field
+	@override late final _StringsHe _root = this; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsHomeHeIl home = _StringsHomeHeIl._(_root);
-	@override late final _StringsSettingsHeIl settings = _StringsSettingsHeIl._(_root);
-	@override late final _StringsLoginHeIl login = _StringsLoginHeIl._(_root);
-	@override late final _StringsProfileHeIl profile = _StringsProfileHeIl._(_root);
-	@override late final _StringsAppInfoHeIl appInfo = _StringsAppInfoHeIl._(_root);
-	@override late final _StringsUpdateHeIl update = _StringsUpdateHeIl._(_root);
-	@override late final _StringsEditorHeIl editor = _StringsEditorHeIl._(_root);
+	@override late final _StringsHomeHe home = _StringsHomeHe._(_root);
+	@override late final _StringsSettingsHe settings = _StringsSettingsHe._(_root);
+	@override late final _StringsLoginHe login = _StringsLoginHe._(_root);
+	@override late final _StringsProfileHe profile = _StringsProfileHe._(_root);
+	@override late final _StringsAppInfoHe appInfo = _StringsAppInfoHe._(_root);
+	@override late final _StringsUpdateHe update = _StringsUpdateHe._(_root);
+	@override late final _StringsEditorHe editor = _StringsEditorHe._(_root);
 }
 
 // Path: home
-class _StringsHomeHeIl extends _StringsHomeEn {
-	_StringsHomeHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeHe extends _StringsHomeEn {
+	_StringsHomeHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsHomeTabsHeIl tabs = _StringsHomeTabsHeIl._(_root);
-	@override late final _StringsHomeTitlesHeIl titles = _StringsHomeTitlesHeIl._(_root);
-	@override late final _StringsHomeTooltipsHeIl tooltips = _StringsHomeTooltipsHeIl._(_root);
-	@override late final _StringsHomeCreateHeIl create = _StringsHomeCreateHeIl._(_root);
+	@override late final _StringsHomeTabsHe tabs = _StringsHomeTabsHe._(_root);
+	@override late final _StringsHomeTitlesHe titles = _StringsHomeTitlesHe._(_root);
+	@override late final _StringsHomeTooltipsHe tooltips = _StringsHomeTooltipsHe._(_root);
+	@override late final _StringsHomeCreateHe create = _StringsHomeCreateHe._(_root);
 	@override String get welcome => 'ברוכים הבאים ל Saber';
 	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2 או .pdf';
 	@override String get noFiles => 'קבצים לא נמצאו';
 	@override String get createNewNote => 'הקש על הלחצן + כדי ליצור הערה חדשה';
 	@override String get backFolder => 'חזור אחורה לתקייה הקודמת';
-	@override late final _StringsHomeNewFolderHeIl newFolder = _StringsHomeNewFolderHeIl._(_root);
-	@override late final _StringsHomeRenameNoteHeIl renameNote = _StringsHomeRenameNoteHeIl._(_root);
-	@override late final _StringsHomeMoveNoteHeIl moveNote = _StringsHomeMoveNoteHeIl._(_root);
+	@override late final _StringsHomeNewFolderHe newFolder = _StringsHomeNewFolderHe._(_root);
+	@override late final _StringsHomeRenameNoteHe renameNote = _StringsHomeRenameNoteHe._(_root);
+	@override late final _StringsHomeMoveNoteHe moveNote = _StringsHomeMoveNoteHe._(_root);
 	@override String get deleteNote => 'מחק פתק';
-	@override late final _StringsHomeRenameFolderHeIl renameFolder = _StringsHomeRenameFolderHeIl._(_root);
-	@override late final _StringsHomeDeleteFolderHeIl deleteFolder = _StringsHomeDeleteFolderHeIl._(_root);
+	@override late final _StringsHomeRenameFolderHe renameFolder = _StringsHomeRenameFolderHe._(_root);
+	@override late final _StringsHomeDeleteFolderHe deleteFolder = _StringsHomeDeleteFolderHe._(_root);
 }
 
 // Path: settings
-class _StringsSettingsHeIl extends _StringsSettingsEn {
-	_StringsSettingsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsHe extends _StringsSettingsEn {
+	_StringsSettingsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsSettingsPrefCategoriesHeIl prefCategories = _StringsSettingsPrefCategoriesHeIl._(_root);
-	@override late final _StringsSettingsPrefLabelsHeIl prefLabels = _StringsSettingsPrefLabelsHeIl._(_root);
-	@override late final _StringsSettingsPrefDescriptionsHeIl prefDescriptions = _StringsSettingsPrefDescriptionsHeIl._(_root);
-	@override late final _StringsSettingsThemeModesHeIl themeModes = _StringsSettingsThemeModesHeIl._(_root);
-	@override late final _StringsSettingsLayoutSizesHeIl layoutSizes = _StringsSettingsLayoutSizesHeIl._(_root);
-	@override late final _StringsSettingsAccentColorPickerHeIl accentColorPicker = _StringsSettingsAccentColorPickerHeIl._(_root);
-	@override late final _StringsSettingsStraightenDelayHeIl straightenDelay = _StringsSettingsStraightenDelayHeIl._(_root);
+	@override late final _StringsSettingsPrefCategoriesHe prefCategories = _StringsSettingsPrefCategoriesHe._(_root);
+	@override late final _StringsSettingsPrefLabelsHe prefLabels = _StringsSettingsPrefLabelsHe._(_root);
+	@override late final _StringsSettingsPrefDescriptionsHe prefDescriptions = _StringsSettingsPrefDescriptionsHe._(_root);
+	@override late final _StringsSettingsThemeModesHe themeModes = _StringsSettingsThemeModesHe._(_root);
+	@override late final _StringsSettingsLayoutSizesHe layoutSizes = _StringsSettingsLayoutSizesHe._(_root);
+	@override late final _StringsSettingsAccentColorPickerHe accentColorPicker = _StringsSettingsAccentColorPickerHe._(_root);
+	@override late final _StringsSettingsStraightenDelayHe straightenDelay = _StringsSettingsStraightenDelayHe._(_root);
 	@override String get systemLanguage => 'ברירת מחדל';
 	@override List<String> get axisDirections => [
 		'למעלה',
@@ -5663,57 +5663,57 @@ class _StringsSettingsHeIl extends _StringsSettingsEn {
 		'למטה',
 		'שמאל',
 	];
-	@override late final _StringsSettingsResetHeIl reset = _StringsSettingsResetHeIl._(_root);
+	@override late final _StringsSettingsResetHe reset = _StringsSettingsResetHe._(_root);
 }
 
 // Path: login
-class _StringsLoginHeIl extends _StringsLoginEn {
-	_StringsLoginHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLoginHe extends _StringsLoginEn {
+	_StringsLoginHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'התחבר';
-	@override late final _StringsLoginFeedbacksHeIl feedbacks = _StringsLoginFeedbacksHeIl._(_root);
-	@override late final _StringsLoginFormHeIl form = _StringsLoginFormHeIl._(_root);
+	@override late final _StringsLoginFeedbacksHe feedbacks = _StringsLoginFeedbacksHe._(_root);
+	@override late final _StringsLoginFormHe form = _StringsLoginFormHe._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'אין לך עוד משתמש '),
 		linkToSignup('הירשם עכשיו'),
 		const TextSpan(text: '!'),
 	]);
-	@override late final _StringsLoginStatusHeIl status = _StringsLoginStatusHeIl._(_root);
+	@override late final _StringsLoginStatusHe status = _StringsLoginStatusHe._(_root);
 	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$HeIl._(_root),
-		_StringsLogin$faq$0i1$HeIl._(_root),
-		_StringsLogin$faq$0i2$HeIl._(_root),
-		_StringsLogin$faq$0i3$HeIl._(_root),
-		_StringsLogin$faq$0i4$HeIl._(_root),
+		_StringsLogin$faq$0i0$He._(_root),
+		_StringsLogin$faq$0i1$He._(_root),
+		_StringsLogin$faq$0i2$He._(_root),
+		_StringsLogin$faq$0i3$He._(_root),
+		_StringsLogin$faq$0i4$He._(_root),
 	];
 }
 
 // Path: profile
-class _StringsProfileHeIl extends _StringsProfileEn {
-	_StringsProfileHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsProfileHe extends _StringsProfileEn {
+	_StringsProfileHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'הפרופיל שלי';
 	@override String get logout => 'התנתק';
-	@override late final _StringsProfileQuickLinksHeIl quickLinks = _StringsProfileQuickLinksHeIl._(_root);
+	@override late final _StringsProfileQuickLinksHe quickLinks = _StringsProfileQuickLinksHe._(_root);
 	@override List<dynamic> get faq => [
-		_StringsProfile$faq$0i0$HeIl._(_root),
-		_StringsProfile$faq$0i1$HeIl._(_root),
-		_StringsProfile$faq$0i2$HeIl._(_root),
-		_StringsProfile$faq$0i3$HeIl._(_root),
+		_StringsProfile$faq$0i0$He._(_root),
+		_StringsProfile$faq$0i1$He._(_root),
+		_StringsProfile$faq$0i2$He._(_root),
+		_StringsProfile$faq$0i3$He._(_root),
 	];
 }
 
 // Path: appInfo
-class _StringsAppInfoHeIl extends _StringsAppInfoEn {
-	_StringsAppInfoHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsAppInfoHe extends _StringsAppInfoEn {
+	_StringsAppInfoHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nתוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.';
@@ -5725,10 +5725,10 @@ class _StringsAppInfoHeIl extends _StringsAppInfoEn {
 }
 
 // Path: update
-class _StringsUpdateHeIl extends _StringsUpdateEn {
-	_StringsUpdateHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsUpdateHe extends _StringsUpdateEn {
+	_StringsUpdateHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get updateAvailable => 'עדכון זמין';
@@ -5737,32 +5737,32 @@ class _StringsUpdateHeIl extends _StringsUpdateEn {
 }
 
 // Path: editor
-class _StringsEditorHeIl extends _StringsEditorEn {
-	_StringsEditorHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorHe extends _StringsEditorEn {
+	_StringsEditorHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsEditorToolbarHeIl toolbar = _StringsEditorToolbarHeIl._(_root);
-	@override late final _StringsEditorPensHeIl pens = _StringsEditorPensHeIl._(_root);
-	@override late final _StringsEditorPenOptionsHeIl penOptions = _StringsEditorPenOptionsHeIl._(_root);
-	@override late final _StringsEditorColorsHeIl colors = _StringsEditorColorsHeIl._(_root);
-	@override late final _StringsEditorImageOptionsHeIl imageOptions = _StringsEditorImageOptionsHeIl._(_root);
-	@override late final _StringsEditorSelectionBarHeIl selectionBar = _StringsEditorSelectionBarHeIl._(_root);
-	@override late final _StringsEditorMenuHeIl menu = _StringsEditorMenuHeIl._(_root);
-	@override late final _StringsEditorNewerFileFormatHeIl newerFileFormat = _StringsEditorNewerFileFormatHeIl._(_root);
-	@override late final _StringsEditorQuillHeIl quill = _StringsEditorQuillHeIl._(_root);
-	@override late final _StringsEditorHudHeIl hud = _StringsEditorHudHeIl._(_root);
+	@override late final _StringsEditorToolbarHe toolbar = _StringsEditorToolbarHe._(_root);
+	@override late final _StringsEditorPensHe pens = _StringsEditorPensHe._(_root);
+	@override late final _StringsEditorPenOptionsHe penOptions = _StringsEditorPenOptionsHe._(_root);
+	@override late final _StringsEditorColorsHe colors = _StringsEditorColorsHe._(_root);
+	@override late final _StringsEditorImageOptionsHe imageOptions = _StringsEditorImageOptionsHe._(_root);
+	@override late final _StringsEditorSelectionBarHe selectionBar = _StringsEditorSelectionBarHe._(_root);
+	@override late final _StringsEditorMenuHe menu = _StringsEditorMenuHe._(_root);
+	@override late final _StringsEditorNewerFileFormatHe newerFileFormat = _StringsEditorNewerFileFormatHe._(_root);
+	@override late final _StringsEditorQuillHe quill = _StringsEditorQuillHe._(_root);
+	@override late final _StringsEditorHudHe hud = _StringsEditorHudHe._(_root);
 	@override String get pages => 'דפים';
 	@override String get untitled => 'חסר כותרת';
 	@override String get needsToSaveBeforeExiting => 'שמירת השינויים... אתה יכול לצאת בבטחה מהעורך בסיום';
 }
 
 // Path: home.tabs
-class _StringsHomeTabsHeIl extends _StringsHomeTabsEn {
-	_StringsHomeTabsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeTabsHe extends _StringsHomeTabsEn {
+	_StringsHomeTabsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => 'בית';
@@ -5772,10 +5772,10 @@ class _StringsHomeTabsHeIl extends _StringsHomeTabsEn {
 }
 
 // Path: home.titles
-class _StringsHomeTitlesHeIl extends _StringsHomeTitlesEn {
-	_StringsHomeTitlesHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeTitlesHe extends _StringsHomeTitlesEn {
+	_StringsHomeTitlesHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get home => 'פתקים אחרונים';
@@ -5785,10 +5785,10 @@ class _StringsHomeTitlesHeIl extends _StringsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _StringsHomeTooltipsHeIl extends _StringsHomeTooltipsEn {
-	_StringsHomeTooltipsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeTooltipsHe extends _StringsHomeTooltipsEn {
+	_StringsHomeTooltipsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get newNote => 'פתק חדש';
@@ -5796,10 +5796,10 @@ class _StringsHomeTooltipsHeIl extends _StringsHomeTooltipsEn {
 }
 
 // Path: home.create
-class _StringsHomeCreateHeIl extends _StringsHomeCreateEn {
-	_StringsHomeCreateHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeCreateHe extends _StringsHomeCreateEn {
+	_StringsHomeCreateHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get newNote => 'פתק חדש';
@@ -5807,10 +5807,10 @@ class _StringsHomeCreateHeIl extends _StringsHomeCreateEn {
 }
 
 // Path: home.newFolder
-class _StringsHomeNewFolderHeIl extends _StringsHomeNewFolderEn {
-	_StringsHomeNewFolderHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeNewFolderHe extends _StringsHomeNewFolderEn {
+	_StringsHomeNewFolderHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get newFolder => 'תקייה חדשה';
@@ -5822,10 +5822,10 @@ class _StringsHomeNewFolderHeIl extends _StringsHomeNewFolderEn {
 }
 
 // Path: home.renameNote
-class _StringsHomeRenameNoteHeIl extends _StringsHomeRenameNoteEn {
-	_StringsHomeRenameNoteHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeRenameNoteHe extends _StringsHomeRenameNoteEn {
+	_StringsHomeRenameNoteHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get renameNote => 'שנה את שם הפתק';
@@ -5837,10 +5837,10 @@ class _StringsHomeRenameNoteHeIl extends _StringsHomeRenameNoteEn {
 }
 
 // Path: home.moveNote
-class _StringsHomeMoveNoteHeIl extends _StringsHomeMoveNoteEn {
-	_StringsHomeMoveNoteHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeMoveNoteHe extends _StringsHomeMoveNoteEn {
+	_StringsHomeMoveNoteHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get moveNote => 'הזז פתק';
@@ -5850,10 +5850,10 @@ class _StringsHomeMoveNoteHeIl extends _StringsHomeMoveNoteEn {
 }
 
 // Path: home.renameFolder
-class _StringsHomeRenameFolderHeIl extends _StringsHomeRenameFolderEn {
-	_StringsHomeRenameFolderHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeRenameFolderHe extends _StringsHomeRenameFolderEn {
+	_StringsHomeRenameFolderHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get renameFolder => 'שנה את שם התקייה';
@@ -5865,10 +5865,10 @@ class _StringsHomeRenameFolderHeIl extends _StringsHomeRenameFolderEn {
 }
 
 // Path: home.deleteFolder
-class _StringsHomeDeleteFolderHeIl extends _StringsHomeDeleteFolderEn {
-	_StringsHomeDeleteFolderHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsHomeDeleteFolderHe extends _StringsHomeDeleteFolderEn {
+	_StringsHomeDeleteFolderHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get deleteFolder => 'מחק תקייה';
@@ -5878,10 +5878,10 @@ class _StringsHomeDeleteFolderHeIl extends _StringsHomeDeleteFolderEn {
 }
 
 // Path: settings.prefCategories
-class _StringsSettingsPrefCategoriesHeIl extends _StringsSettingsPrefCategoriesEn {
-	_StringsSettingsPrefCategoriesHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsPrefCategoriesHe extends _StringsSettingsPrefCategoriesEn {
+	_StringsSettingsPrefCategoriesHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get general => 'כללי';
@@ -5891,10 +5891,10 @@ class _StringsSettingsPrefCategoriesHeIl extends _StringsSettingsPrefCategoriesE
 }
 
 // Path: settings.prefLabels
-class _StringsSettingsPrefLabelsHeIl extends _StringsSettingsPrefLabelsEn {
-	_StringsSettingsPrefLabelsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
+	_StringsSettingsPrefLabelsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get locale => 'שפת התוכנה';
@@ -5926,10 +5926,10 @@ class _StringsSettingsPrefLabelsHeIl extends _StringsSettingsPrefLabelsEn {
 }
 
 // Path: settings.prefDescriptions
-class _StringsSettingsPrefDescriptionsHeIl extends _StringsSettingsPrefDescriptionsEn {
-	_StringsSettingsPrefDescriptionsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescriptionsEn {
+	_StringsSettingsPrefDescriptionsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get hyperlegibleFont => 'מגביר את הקריאות למשתמשים עם ראייה לקויה';
@@ -5940,7 +5940,7 @@ class _StringsSettingsPrefDescriptionsHeIl extends _StringsSettingsPrefDescripti
 	@override String get autoClearWhiteboardOnExit => 'מנקה את לוח הציור לאחר היציאה מהאפליקציה';
 	@override String get disableEraserAfterUse => 'מעבר אוטומטי חזרה לעט לאחר שימוש במחק';
 	@override String get maxImageSize => 'תמונות גדולות יותר יידחסו';
-	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHeIl hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHeIl._(_root);
+	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHe._(_root);
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
@@ -5949,10 +5949,10 @@ class _StringsSettingsPrefDescriptionsHeIl extends _StringsSettingsPrefDescripti
 }
 
 // Path: settings.themeModes
-class _StringsSettingsThemeModesHeIl extends _StringsSettingsThemeModesEn {
-	_StringsSettingsThemeModesHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsThemeModesHe extends _StringsSettingsThemeModesEn {
+	_StringsSettingsThemeModesHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get system => 'מערכת';
@@ -5961,10 +5961,10 @@ class _StringsSettingsThemeModesHeIl extends _StringsSettingsThemeModesEn {
 }
 
 // Path: settings.layoutSizes
-class _StringsSettingsLayoutSizesHeIl extends _StringsSettingsLayoutSizesEn {
-	_StringsSettingsLayoutSizesHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsLayoutSizesHe extends _StringsSettingsLayoutSizesEn {
+	_StringsSettingsLayoutSizesHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get auto => 'אוטומטי';
@@ -5973,20 +5973,20 @@ class _StringsSettingsLayoutSizesHeIl extends _StringsSettingsLayoutSizesEn {
 }
 
 // Path: settings.accentColorPicker
-class _StringsSettingsAccentColorPickerHeIl extends _StringsSettingsAccentColorPickerEn {
-	_StringsSettingsAccentColorPickerHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsAccentColorPickerHe extends _StringsSettingsAccentColorPickerEn {
+	_StringsSettingsAccentColorPickerHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get pickAColor => 'בחר צבע';
 }
 
 // Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayHeIl extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsStraightenDelayHe extends _StringsSettingsStraightenDelayEn {
+	_StringsSettingsStraightenDelayHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get off => 'כבוי';
@@ -5995,10 +5995,10 @@ class _StringsSettingsStraightenDelayHeIl extends _StringsSettingsStraightenDela
 }
 
 // Path: settings.reset
-class _StringsSettingsResetHeIl extends _StringsSettingsResetEn {
-	_StringsSettingsResetHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsResetHe extends _StringsSettingsResetEn {
+	_StringsSettingsResetHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'אפס הגדרה זו?';
@@ -6006,10 +6006,10 @@ class _StringsSettingsResetHeIl extends _StringsSettingsResetEn {
 }
 
 // Path: login.feedbacks
-class _StringsLoginFeedbacksHeIl extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
+	_StringsLoginFeedbacksHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get checkUsername => 'אנא בדוק שוב את שם המשתמש או הדוא"ל שלך.';
@@ -6023,10 +6023,10 @@ class _StringsLoginFeedbacksHeIl extends _StringsLoginFeedbacksEn {
 }
 
 // Path: login.form
-class _StringsLoginFormHeIl extends _StringsLoginFormEn {
-	_StringsLoginFormHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLoginFormHe extends _StringsLoginFormEn {
+	_StringsLoginFormHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get useCustomServer => 'אני רוצה להשתמש בשרת Nextcloud מותאם אישית';
@@ -6043,10 +6043,10 @@ class _StringsLoginFormHeIl extends _StringsLoginFormEn {
 }
 
 // Path: login.status
-class _StringsLoginStatusHeIl extends _StringsLoginStatusEn {
-	_StringsLoginStatusHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLoginStatusHe extends _StringsLoginStatusEn {
+	_StringsLoginStatusHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get loggedIn => 'מחובר עם NextCloud';
@@ -6055,10 +6055,10 @@ class _StringsLoginStatusHeIl extends _StringsLoginStatusEn {
 }
 
 // Path: login.faq.0
-class _StringsLogin$faq$0i0$HeIl extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i0$He extends _StringsLogin$faq$0i0$En {
+	_StringsLogin$faq$0i0$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'מה זה Nextcloud?';
@@ -6066,10 +6066,10 @@ class _StringsLogin$faq$0i0$HeIl extends _StringsLogin$faq$0i0$En {
 }
 
 // Path: login.faq.1
-class _StringsLogin$faq$0i1$HeIl extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i1$He extends _StringsLogin$faq$0i1$En {
+	_StringsLogin$faq$0i1$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'מהי הסיסמא המוצפנת?';
@@ -6077,10 +6077,10 @@ class _StringsLogin$faq$0i1$HeIl extends _StringsLogin$faq$0i1$En {
 }
 
 // Path: login.faq.2
-class _StringsLogin$faq$0i2$HeIl extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i2$He extends _StringsLogin$faq$0i2$En {
+	_StringsLogin$faq$0i2$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'למה להשתמש בשתי סיסמאות?';
@@ -6088,10 +6088,10 @@ class _StringsLogin$faq$0i2$HeIl extends _StringsLogin$faq$0i2$En {
 }
 
 // Path: login.faq.3
-class _StringsLogin$faq$0i3$HeIl extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i3$He extends _StringsLogin$faq$0i3$En {
+	_StringsLogin$faq$0i3$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'איך אני מתחבר אם אני משתמש ב-2FA?';
@@ -6099,10 +6099,10 @@ class _StringsLogin$faq$0i3$HeIl extends _StringsLogin$faq$0i3$En {
 }
 
 // Path: login.faq.4
-class _StringsLogin$faq$0i4$HeIl extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsLogin$faq$0i4$He extends _StringsLogin$faq$0i4$En {
+	_StringsLogin$faq$0i4$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'Can I use the same password for both?';
@@ -6110,10 +6110,10 @@ class _StringsLogin$faq$0i4$HeIl extends _StringsLogin$faq$0i4$En {
 }
 
 // Path: profile.quickLinks
-class _StringsProfileQuickLinksHeIl extends _StringsProfileQuickLinksEn {
-	_StringsProfileQuickLinksHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsProfileQuickLinksHe extends _StringsProfileQuickLinksEn {
+	_StringsProfileQuickLinksHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'קישורים מהירים';
@@ -6122,10 +6122,10 @@ class _StringsProfileQuickLinksHeIl extends _StringsProfileQuickLinksEn {
 }
 
 // Path: profile.faq.0
-class _StringsProfile$faq$0i0$HeIl extends _StringsProfile$faq$0i0$En {
-	_StringsProfile$faq$0i0$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsProfile$faq$0i0$He extends _StringsProfile$faq$0i0$En {
+	_StringsProfile$faq$0i0$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'אני אאבד את הפתקים שלי אם אני אתנתק?';
@@ -6133,10 +6133,10 @@ class _StringsProfile$faq$0i0$HeIl extends _StringsProfile$faq$0i0$En {
 }
 
 // Path: profile.faq.1
-class _StringsProfile$faq$0i1$HeIl extends _StringsProfile$faq$0i1$En {
-	_StringsProfile$faq$0i1$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsProfile$faq$0i1$He extends _StringsProfile$faq$0i1$En {
+	_StringsProfile$faq$0i1$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'איך אני משנה את סיסמאת ה NextCloud שלי';
@@ -6144,10 +6144,10 @@ class _StringsProfile$faq$0i1$HeIl extends _StringsProfile$faq$0i1$En {
 }
 
 // Path: profile.faq.2
-class _StringsProfile$faq$0i2$HeIl extends _StringsProfile$faq$0i2$En {
-	_StringsProfile$faq$0i2$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsProfile$faq$0i2$He extends _StringsProfile$faq$0i2$En {
+	_StringsProfile$faq$0i2$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'איך אני משנה את הסיסמא המוצפנת שלי?';
@@ -6155,10 +6155,10 @@ class _StringsProfile$faq$0i2$HeIl extends _StringsProfile$faq$0i2$En {
 }
 
 // Path: profile.faq.3
-class _StringsProfile$faq$0i3$HeIl extends _StringsProfile$faq$0i3$En {
-	_StringsProfile$faq$0i3$HeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsProfile$faq$0i3$He extends _StringsProfile$faq$0i3$En {
+	_StringsProfile$faq$0i3$He._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => 'איך אני יכול למחוק את החשבון שלי?';
@@ -6166,10 +6166,10 @@ class _StringsProfile$faq$0i3$HeIl extends _StringsProfile$faq$0i3$En {
 }
 
 // Path: editor.toolbar
-class _StringsEditorToolbarHeIl extends _StringsEditorToolbarEn {
-	_StringsEditorToolbarHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorToolbarHe extends _StringsEditorToolbarEn {
+	_StringsEditorToolbarHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get toggleColors => 'החלפת מצב צבע (Ctrl C)';
@@ -6186,10 +6186,10 @@ class _StringsEditorToolbarHeIl extends _StringsEditorToolbarEn {
 }
 
 // Path: editor.pens
-class _StringsEditorPensHeIl extends _StringsEditorPensEn {
-	_StringsEditorPensHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorPensHe extends _StringsEditorPensEn {
+	_StringsEditorPensHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get fountainPen => 'עט נובע';
@@ -6200,10 +6200,10 @@ class _StringsEditorPensHeIl extends _StringsEditorPensEn {
 }
 
 // Path: editor.penOptions
-class _StringsEditorPenOptionsHeIl extends _StringsEditorPenOptionsEn {
-	_StringsEditorPenOptionsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorPenOptionsHe extends _StringsEditorPenOptionsEn {
+	_StringsEditorPenOptionsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get size => 'גודל';
@@ -6211,10 +6211,10 @@ class _StringsEditorPenOptionsHeIl extends _StringsEditorPenOptionsEn {
 }
 
 // Path: editor.colors
-class _StringsEditorColorsHeIl extends _StringsEditorColorsEn {
-	_StringsEditorColorsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorColorsHe extends _StringsEditorColorsEn {
+	_StringsEditorColorsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get colorPicker => 'בורר צבעים';
@@ -6240,10 +6240,10 @@ class _StringsEditorColorsHeIl extends _StringsEditorColorsEn {
 }
 
 // Path: editor.imageOptions
-class _StringsEditorImageOptionsHeIl extends _StringsEditorImageOptionsEn {
-	_StringsEditorImageOptionsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorImageOptionsHe extends _StringsEditorImageOptionsEn {
+	_StringsEditorImageOptionsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'אפשרויות תמונה';
@@ -6255,10 +6255,10 @@ class _StringsEditorImageOptionsHeIl extends _StringsEditorImageOptionsEn {
 }
 
 // Path: editor.selectionBar
-class _StringsEditorSelectionBarHeIl extends _StringsEditorSelectionBarEn {
-	_StringsEditorSelectionBarHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorSelectionBarHe extends _StringsEditorSelectionBarEn {
+	_StringsEditorSelectionBarHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get delete => 'מחק';
@@ -6266,10 +6266,10 @@ class _StringsEditorSelectionBarHeIl extends _StringsEditorSelectionBarEn {
 }
 
 // Path: editor.menu
-class _StringsEditorMenuHeIl extends _StringsEditorMenuEn {
-	_StringsEditorMenuHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorMenuHe extends _StringsEditorMenuEn {
+	_StringsEditorMenuHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String clearPage({required Object page, required Object totalPages}) => 'נקה דף ${page}/${totalPages}';
@@ -6282,15 +6282,15 @@ class _StringsEditorMenuHeIl extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
-	@override late final _StringsEditorMenuBoxFitsHeIl boxFits = _StringsEditorMenuBoxFitsHeIl._(_root);
-	@override late final _StringsEditorMenuBgPatternsHeIl bgPatterns = _StringsEditorMenuBgPatternsHeIl._(_root);
+	@override late final _StringsEditorMenuBoxFitsHe boxFits = _StringsEditorMenuBoxFitsHe._(_root);
+	@override late final _StringsEditorMenuBgPatternsHe bgPatterns = _StringsEditorMenuBgPatternsHe._(_root);
 }
 
 // Path: editor.newerFileFormat
-class _StringsEditorNewerFileFormatHeIl extends _StringsEditorNewerFileFormatEn {
-	_StringsEditorNewerFileFormatHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorNewerFileFormatHe extends _StringsEditorNewerFileFormatEn {
+	_StringsEditorNewerFileFormatHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get readOnlyMode => 'מצב צפייה בלבד';
@@ -6301,20 +6301,20 @@ class _StringsEditorNewerFileFormatHeIl extends _StringsEditorNewerFileFormatEn 
 }
 
 // Path: editor.quill
-class _StringsEditorQuillHeIl extends _StringsEditorQuillEn {
-	_StringsEditorQuillHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorQuillHe extends _StringsEditorQuillEn {
+	_StringsEditorQuillHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get typeSomething => 'תכתוב משהו פה...';
 }
 
 // Path: editor.hud
-class _StringsEditorHudHeIl extends _StringsEditorHudEn {
-	_StringsEditorHudHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorHudHe extends _StringsEditorHudEn {
+	_StringsEditorHudHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get unlockZoom => 'בטל נעילת זום';
@@ -6326,10 +6326,10 @@ class _StringsEditorHudHeIl extends _StringsEditorHudEn {
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
-class _StringsSettingsPrefDescriptionsHideFingerDrawingHeIl extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
-	_StringsSettingsPrefDescriptionsHideFingerDrawingHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsSettingsPrefDescriptionsHideFingerDrawingHe extends _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_StringsSettingsPrefDescriptionsHideFingerDrawingHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get shown => 'מונע החלפת מצב בשוגג';
@@ -6338,10 +6338,10 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingHeIl extends _StringsSett
 }
 
 // Path: editor.menu.boxFits
-class _StringsEditorMenuBoxFitsHeIl extends _StringsEditorMenuBoxFitsEn {
-	_StringsEditorMenuBoxFitsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorMenuBoxFitsHe extends _StringsEditorMenuBoxFitsEn {
+	_StringsEditorMenuBoxFitsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get fill => 'מתיחה';
@@ -6350,10 +6350,10 @@ class _StringsEditorMenuBoxFitsHeIl extends _StringsEditorMenuBoxFitsEn {
 }
 
 // Path: editor.menu.bgPatterns
-class _StringsEditorMenuBgPatternsHeIl extends _StringsEditorMenuBgPatternsEn {
-	_StringsEditorMenuBgPatternsHeIl._(_StringsHeIl root) : this._root = root, super._(root);
+class _StringsEditorMenuBgPatternsHe extends _StringsEditorMenuBgPatternsEn {
+	_StringsEditorMenuBgPatternsHe._(_StringsHe root) : this._root = root, super._(root);
 
-	@override final _StringsHeIl _root; // ignore: unused_field
+	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
 	@override String get none => 'ריק';

@@ -139,7 +139,7 @@ fr:
       shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
-he-IL:
+he:
   home:
     renameNote:
       noteNameEmpty(OUTDATED): Note name can't be empty
