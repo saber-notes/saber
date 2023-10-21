@@ -139,6 +139,20 @@ fr:
       shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
+he:
+  home:
+    renameNote:
+      noteNameEmpty(OUTDATED): Note name can't be empty
+      noteNameContainsSlash(OUTDATED): Note name can't contain a slash
+      noteNameExists(OUTDATED): A note with this name already exists
+  editor:
+    pens:
+      shapePen(OUTDATED): Shape pen
+    menu:
+      bgPatterns:
+        staffs(OUTDATED): Staffs
+        tablature(OUTDATED): Tablature
+        cornell(OUTDATED): Cornell
 hu:
   home:
     titles:
