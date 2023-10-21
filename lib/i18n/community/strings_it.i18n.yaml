@@ -218,7 +218,7 @@ editor:
     fountainPen: Penna stilografica
     ballpointPen: Penna a sfera
     highlighter: Evidenziatore
-    shapePen(OUTDATED): Penna a forma
+    shapePen: Forma della penna
     laserPointer: Puntatore laser
   penOptions:
     size: Dimesione
