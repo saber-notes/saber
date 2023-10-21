@@ -41,7 +41,7 @@ home:
     move: Move
     renamedTo: Note will be renamed to $newName
     multipleRenamedTo: "The following notes will be renamed:"
-    numberRenamedTo: "$n notes will be renamed"
+    numberRenamedTo: $n notes will be renamed to avoid conflicts
   deleteNote: Delete note
   renameFolder:
     renameFolder: Rename folder

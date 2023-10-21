@@ -11,23 +11,23 @@ class MasonryFiles extends StatefulWidget {
     required this.setSelectedFiles,
   });
 
-  @override
-  State<MasonryFiles> createState() => _MasonryFilesState();
-
   final List<String> files;
   final int crossAxisCount;
   final void Function(List<String>) setSelectedFiles;
+
+  @override
+  State<MasonryFiles> createState() => _MasonryFilesState();
 }
 
 class _MasonryFilesState extends State<MasonryFiles> {
   /// The number of files to display before showing an ad.
   static const int itemsBeforeAd = 5;
 
-  List<String> selectedFiles = [];
-  ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
+  final List<String> selectedFiles = [];
+  final ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
 
   void toggleSelection(String filepath, bool selected) {
-    if(selected) {
+    if (selected) {
       selectedFiles.add(filepath);
     } else {
       selectedFiles.remove(filepath);
