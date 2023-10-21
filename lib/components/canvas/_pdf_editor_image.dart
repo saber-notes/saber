@@ -124,12 +124,21 @@ class PdfEditorImage extends EditorImage {
     loaded = true;
   }
 
+  BuildContext? _lastPrecacheContext;
   @override
   Future<void> precache(BuildContext context) async {
+    _lastPrecacheContext = context;
     rasterized ??= _getRasterizedWithDpi(2);
     final memoryImage = await rasterized!;
+
+    return await _precacheImage(memoryImage);
+  }
+  Future<void> _precacheImage(ImageProvider imageProvider) async {
+    final context = _lastPrecacheContext;
+    if (context == null) return;
     if (!context.mounted) return;
-    return await precacheImage(memoryImage, context);
+
+    return await precacheImage(imageProvider, context);
   }
 
   @override
@@ -167,12 +176,19 @@ class PdfEditorImage extends EditorImage {
   Future<ImageProvider>? rasterized;
   Future<ImageProvider> _getRasterizedWithDpi(int dpiMultiple) async {
     lastDpiMultiple = dpiMultiple;
+
     final raster = await Printing.raster(
       pdfBytes,
       pages: [pdfPage],
       dpi: PdfPageFormat.inch * dpiMultiple,
     ).single;
-    return lastRasterized.value = PdfRasterImage(raster);
+
+    final image = PdfRasterImage(raster);
+    if (lastRasterized.value != null) {
+      // precache the new image so we don't flash an empty image
+      await _precacheImage(image);
+    }
+    return lastRasterized.value = image;
   }
 
   static Timer? _checkIfHigherResNeededDebounce;
