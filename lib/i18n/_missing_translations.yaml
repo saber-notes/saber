@@ -57,9 +57,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    pens:
-      shapePen(OUTDATED): Shape pen
 de:
   home:
     titles:
