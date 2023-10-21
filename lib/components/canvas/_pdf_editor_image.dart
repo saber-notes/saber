@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/canvas_gesture_detector.dart';
+import 'package:saber/data/editor/page.dart';
 
 class PdfEditorImage extends EditorImage {
   final Uint8List pdfBytes;
@@ -122,7 +126,8 @@ class PdfEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    final memoryImage = await rasterized;
+    rasterized ??= _getRasterizedWithDpi(2);
+    final memoryImage = await rasterized!;
     if (!context.mounted) return;
     return await precacheImage(memoryImage, context);
   }
@@ -141,30 +146,86 @@ class PdfEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return FutureBuilder(
-      future: rasterized,
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          log.severe('Error rasterizing PDF: ${snapshot.error}');
-          return const SizedBox.shrink();
-        }
-        if (!snapshot.hasData) {
+    rasterized ??= _getRasterizedWithDpi(2);
+
+    return ValueListenableBuilder(
+      valueListenable: lastRasterized,
+      builder: (context, imageProvider, child) {
+        if (imageProvider == null) {
           return const SizedBox.shrink();
         }
         return Image(
-          image: snapshot.data!,
+          image: imageProvider,
           fit: boxFit,
         );
       },
     );
   }
 
-  late final Future<ImageProvider> rasterized = () async {
+  final ValueNotifier<ImageProvider?> lastRasterized = ValueNotifier(null);
+  int lastDpiMultiple = 2;
+  Future<ImageProvider>? rasterized;
+  Future<ImageProvider> _getRasterizedWithDpi(int dpiMultiple) async {
+    lastDpiMultiple = dpiMultiple;
     final raster = await Printing.raster(
       pdfBytes,
       pages: [pdfPage],
-      dpi: PdfPageFormat.inch * 2,
+      dpi: PdfPageFormat.inch * dpiMultiple,
     ).single;
-    return PdfRasterImage(raster);
-  }();
+    return lastRasterized.value = PdfRasterImage(raster);
+  }
+
+  static Timer? _checkIfHigherResNeededDebounce;
+  static Future<void> _checkIfHigherResNeededDebounceCallback({
+    required double Function() getZoom,
+    required double Function() getScrollY,
+    required List<EditorPage> pages,
+    required double screenWidth,
+  }) async {
+    _checkIfHigherResNeededDebounce = null;
+
+    final zoom = getZoom();
+    if (zoom < 1.5) return;
+    final dpiMultiple = (2 * zoom).ceil();
+
+    final pageIndex = CanvasGestureDetector.getPageIndex(
+      scrollY: getScrollY(),
+      pages: pages,
+      screenWidth: screenWidth,
+    );
+    final page = pages[pageIndex];
+
+    for (final image in [...page.images, page.backgroundImage]) {
+      if (image == null) continue;
+      if (image is! PdfEditorImage) continue;
+
+      if (image.lastDpiMultiple >= dpiMultiple) continue;
+
+      image.rasterized?.ignore();
+      image.rasterized = image._getRasterizedWithDpi(
+        dpiMultiple,
+      );
+    }
+  }
+  /// When a user has not moved for 500ms,
+  /// check if they are zoomed in to a PDF page,
+  /// and increase the resolution of the
+  /// rasterized image if needed.
+  static void checkIfHigherResNeeded({
+    required double Function() getZoom,
+    required double Function() getScrollY,
+    required List<EditorPage> pages,
+    required double screenWidth,
+  }) {
+    _checkIfHigherResNeededDebounce?.cancel();
+    _checkIfHigherResNeededDebounce = Timer(
+      const Duration(milliseconds: 500),
+      () => _checkIfHigherResNeededDebounceCallback(
+        getZoom: getZoom,
+        getScrollY: getScrollY,
+        pages: pages,
+        screenWidth: screenWidth,
+      ),
+    );
+  }
 }

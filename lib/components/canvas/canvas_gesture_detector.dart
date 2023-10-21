@@ -107,6 +107,30 @@ class CanvasGestureDetector extends StatefulWidget {
       0,
     );
   }
+  static int getPageIndex({
+    required double scrollY,
+    required List<EditorPage> pages,
+    required double screenWidth,
+  }) {
+    if (scrollY <= 0) return 0;
+
+    double top = 0;
+
+    for (int i = 0; i < pages.length; i++) {
+      final pageSize = pages[i].size;
+
+      /// Since we use a FittedBox, the actual width of the page
+      /// is the minimum of the page width and the screen width.
+      final pageWidthFitted = min(pageSize.width, screenWidth);
+
+      top += 16;
+      top += pageSize.height * (pageWidthFitted / pageSize.width);
+
+      if (top > scrollY) return i;
+    }
+
+    return pages.length - 1;
+  }
 }
 
 class CanvasGestureDetectorState extends State<CanvasGestureDetector> {

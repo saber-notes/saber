@@ -97,8 +97,16 @@ class EditorState extends State<Editor> {
 
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
-  final _transformationController = TransformationController();
   final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
+  late final TransformationController _transformationController = TransformationController()
+    ..addListener(() {
+      PdfEditorImage.checkIfHigherResNeeded(
+        getZoom: () => _transformationController.value.getMaxScaleOnAxis(),
+        getScrollY: () => scrollY,
+        pages: coreInfo.pages,
+        screenWidth: _canvasGestureDetectorKey.currentState?.containerBounds.maxWidth ?? double.infinity,
+      );
+    });
   double get scrollY {
     final transformation = _transformationController.value;
     final scale = transformation.getMaxScaleOnAxis();
