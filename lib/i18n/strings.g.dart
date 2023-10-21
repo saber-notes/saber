@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3872 (242 per locale)
 ///
-/// Built on 2023-10-21 at 21:12 UTC
+/// Built on 2023-10-21 at 21:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2301,7 +2301,7 @@ class _StringsEditorPensCs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Plnící pero';
 	@override String get ballpointPen => 'Kuličkové pero';
 	@override String get highlighter => 'Zvýrazňovač';
-	@override String get shapePen => 'Tvarové pero';
+	@override String get shapePen => 'Pero pro kreslení tvarů';
 	@override String get laserPointer => 'Laserové ukazovátko';
 }
 
