@@ -265,6 +265,17 @@
     </screenshots>
 
     <releases>
+        <release version="0.17.0" type="development" date="2023-10-21">
+            <description>
+                <ul>
+                    <li>Added a shape recognition pen</li>
+                    <li>Straight line detection now only works with the shape recognition pen</li>
+                    <li>New PDF imports will retain their original quality</li>
+                    <li>Select multiple notes at once to move or delete them</li>
+                    <li>You can now delete and duplicate a selection of strokes/images</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.16.1" type="development" date="2023-09-29">
             <description>
                 <ul>

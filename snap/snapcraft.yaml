@@ -36,7 +36,7 @@ parts:
   saber:
     after: [rustup]
     source: https://github.com/adil192/saber.git
-    source-tag: 'v0.16.1'
+    source-tag: 'v0.17.0'
     plugin: flutter
     #build-attributes: [enable-patchelf]
     build-packages:
