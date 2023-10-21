@@ -138,7 +138,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
       parentFolderCounts[parentFolder] = (parentFolderCounts[parentFolder] ?? 0) + 1;
     }
     return parentFolderCounts.entries
-        .reduce((a, b) => a.value > b.value ? a : b)
+        .reduce((a, b) => a.value >= b.value ? a : b)
         .key;
   }
 
