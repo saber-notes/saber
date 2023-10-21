@@ -68,6 +68,7 @@ abstract class Prefs {
   static late final PlainPref<bool> editorAutoInvert;
   static late final PlainPref<bool> editorOpaqueBackgrounds;
   static late final PlainPref<bool> preferGreyscale;
+  @Deprecated('Straight line detection now only happens with ShapePen (and happens immediately)')
   static late final PlainPref<int> editorStraightenDelay;
   static late final PlainPref<bool> editorPromptRename;
   static late final PlainPref<int> autosaveDelay;
@@ -146,7 +147,8 @@ abstract class Prefs {
     editorAutoInvert = PlainPref('editorAutoInvert', true, historicalKeys: const ['editorAutoDarken']);
     editorOpaqueBackgrounds = PlainPref('editorOpaqueBackgrounds', true);
     preferGreyscale = PlainPref('preferGreyscale', false);
-    editorStraightenDelay = PlainPref('editorStraightenDelay', 500);
+    // ignore: deprecated_member_use_from_same_package
+    editorStraightenDelay = PlainPref('__editorStraightenDelay', 500, deprecatedKeys: const ['editorStraightenDelay']);
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);
     autosaveDelay = PlainPref('autosaveDelay', 10000);
 

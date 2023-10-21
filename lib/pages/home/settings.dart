@@ -284,23 +284,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.preferGreyscale,
               ),
               SettingsSelection(
-                title: t.settings.prefLabels.editorStraightenLines,
-                subtitle: (){
-                  if (Prefs.editorStraightenDelay.value == 0) return t.settings.straightenDelay.off;
-                  return '${Prefs.editorStraightenDelay.value}ms';
-                }(),
-                iconBuilder: (num i) {
-                  return (i <= 0) ? Icons.gesture : Icons.straighten;
-                },
-                pref: Prefs.editorStraightenDelay,
-                options: [
-                  ToggleButtonsOption(0, Text(t.settings.straightenDelay.off)),
-                  ToggleButtonsOption(500, Text(t.settings.straightenDelay.regular)),
-                  ToggleButtonsOption(1000, Text(t.settings.straightenDelay.slow)),
-                ],
-                afterChange: (_) => setState(() {}),
-              ),
-              SettingsSelection(
                 title: t.settings.prefLabels.maxImageSize,
                 subtitle: t.settings.prefDescriptions.maxImageSize,
                 icon: Icons.photo_size_select_large,
