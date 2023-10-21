@@ -289,27 +289,33 @@ class _PreviewCardState extends State<PreviewCard> {
       ),
     );
 
-    return OpenContainer(
-      closedColor: colorScheme.surface,
-      closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      closedBuilder: (context, action) => card,
+    return ValueListenableBuilder(
+      valueListenable: expanded,
+      builder: (context, expanded, _) {
+        return OpenContainer(
+          closedColor: colorScheme.surface,
+          closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          closedElevation: expanded ? 4 : 1,
+          closedBuilder: (context, action) => card,
 
-      openColor: colorScheme.background,
-      openBuilder: (context, action) => Editor(path: widget.filePath),
+          openColor: colorScheme.background,
+          openBuilder: (context, action) => Editor(path: widget.filePath),
 
-      transitionDuration: transitionDuration,
-      routeSettings: RouteSettings(
-        name: RoutePaths.editFilePath(widget.filePath),
-      ),
+          transitionDuration: transitionDuration,
+          routeSettings: RouteSettings(
+            name: RoutePaths.editFilePath(widget.filePath),
+          ),
 
-      onClosed: (_) async {
-        findStrokes();
+          onClosed: (_) async {
+            findStrokes();
 
-        await Future.delayed(transitionDuration);
-        if (!mounted) return;
-        if (!GoRouterState.of(context).uri.toString().startsWith(RoutePaths.prefixOfHome)) return;
-        ResponsiveNavbar.setAndroidNavBarColor(theme);
-      },
+            await Future.delayed(transitionDuration);
+            if (!mounted) return;
+            if (!GoRouterState.of(context).uri.toString().startsWith(RoutePaths.prefixOfHome)) return;
+            ResponsiveNavbar.setAndroidNavBarColor(theme);
+          },
+        );
+      }
     );
   }
 
