@@ -165,7 +165,6 @@ class PdfEditorImage extends EditorImage {
       pages: [pdfPage],
       dpi: PdfPageFormat.inch * 2,
     ).single;
-    final png = await raster.toPng();
-    return MemoryImage(png);
+    return PdfRasterImage(raster);
   }();
 }
