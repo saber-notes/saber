@@ -9,10 +9,10 @@ import 'package:saber/pages/editor/editor.dart';
 class MoveNoteButton extends StatelessWidget {
   const MoveNoteButton({
     super.key,
-    required this.existingPath,
+    required this.filesToMove,
   });
 
-  final String existingPath;
+  final List<String> filesToMove;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MoveNoteButton extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return _MoveNoteDialog(
-              existingPath: existingPath,
+              filesToMove: filesToMove,
             );
           },
         );
@@ -38,25 +38,40 @@ class _MoveNoteDialog extends StatefulWidget {
   const _MoveNoteDialog({
     // ignore: unused_element
     super.key,
-    required this.existingPath,
+    required this.filesToMove,
   });
 
-  final String existingPath;
+  final List<String> filesToMove;
 
   @override
   State<_MoveNoteDialog> createState() => _MoveNoteDialogState();
 }
 class _MoveNoteDialogState extends State<_MoveNoteDialog> {
-  /// The original file name of the note.
-  late String fileName = widget.existingPath.substring(
-    widget.existingPath.lastIndexOf('/') + 1,
-  );
-  /// The original parent folder of the note,
+  /// The original file names of the notes.
+  late final List<String> originalFileNames = widget.filesToMove
+      .map((path) => path.substring(path.lastIndexOf('/') + 1))
+      .toList();
+
+  /// The original parent folders of the notes,
   /// including the trailing slash.
-  late String parentFolder = widget.existingPath.substring(
-    0,
-    widget.existingPath.lastIndexOf('/') + 1,
-  );
+  late final List<String> parentFolders = widget.filesToMove
+      .map((path) => path.substring(0, path.lastIndexOf('/') + 1))
+      .toList();
+
+  /// Whether each file uses [Editor.extensionOldJson].
+  /// This is populated in [findOldExtensions].
+  late List<bool> oldExtensions = widget.filesToMove
+      .map((name) => false)
+      .toList();
+  Future<void> findOldExtensions() async {
+    final futures = <Future<bool>>[];
+    for (int i = 0; i < widget.filesToMove.length; ++i) {
+      futures.add(FileManager.doesFileExist(
+        '${widget.filesToMove[i]}${Editor.extensionOldJson}',
+      ));
+    }
+    oldExtensions = await Future.wait(futures);
+  }
 
   late String _currentFolder;
   /// The current folder browsed to in the dialog.
@@ -64,23 +79,40 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   set currentFolder(String folder) {
     _currentFolder = folder;
     currentFolderChildren = null;
-    newFileName = null;
     findChildrenOfCurrentFolder();
   }
 
   /// The children of [currentFolder].
   DirectoryChildren? currentFolderChildren;
-  /// The file name that the note will be moved to.
-  /// This is the same as [fileName], unless a file
-  /// with the same name already exists in the
-  /// destination folder. In that case, the file name
-  /// will be suffixed with a number.
-  String? newFileName;
+  /// The file names that the notes will be moved to.
+  /// 
+  /// These will be the same as in [fileNames], unless
+  /// a file needs to be renamed to avoid a name conflict.
+  /// Such a file will also be in [changedFileNames].
+  late List<String> newFileNames = [];
+  /// The new names of the files that needed to be renamed.
+  late List<String> changedFileNames = [];
 
   Future findChildrenOfCurrentFolder() async {
     currentFolderChildren = await FileManager.getChildrenOfDirectory(currentFolder);
-    newFileName = await FileManager.suffixFilePathToMakeItUnique('$currentFolder$fileName', false, '${widget.existingPath}${Editor.extension}')
-      .then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
+
+    newFileNames = [];
+    changedFileNames = [];
+    for (int i = 0; i < widget.filesToMove.length; ++i) {
+      final oldExtension = oldExtensions[i];
+      final newFileName = await FileManager.suffixFilePathToMakeItUnique(
+        '$currentFolder${originalFileNames[i]}',
+        oldExtension,
+        '${widget.filesToMove[i]}${oldExtension ? Editor.extensionOldJson : Editor.extension}',
+      ).then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
+
+      newFileNames.add(newFileName);
+
+      if (newFileName != originalFileNames[i]) {
+        changedFileNames.add(newFileName);
+      }
+    }
+
     if (!mounted) return;
     setState(() {});
   }
@@ -93,14 +125,33 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
 
   @override
   void initState() {
-    currentFolder = parentFolder;
+    currentFolder = _findMostCommonParentFolder();
     super.initState();
+
+    findOldExtensions()
+      .then((_) => findChildrenOfCurrentFolder());
+  }
+
+  String _findMostCommonParentFolder() {
+    final parentFolderCounts = <String, int>{};
+    for (final parentFolder in parentFolders) {
+      parentFolderCounts[parentFolder] = (parentFolderCounts[parentFolder] ?? 0) + 1;
+    }
+    return parentFolderCounts.entries
+        .reduce((a, b) => a.value >= b.value ? a : b)
+        .key;
   }
 
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
-      title: Text(t.home.moveNote.moveName(f: fileName)),
+      title: originalFileNames.length < 3
+        ? Text(t.home.moveNote.moveName(
+            f: originalFileNames.join(', '),
+          ))
+        : Text(t.home.moveNote.moveNotes(
+            n: originalFileNames.length,
+          )),
       content: SizedBox(
         width: 300,
         height: 300,
@@ -153,8 +204,16 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                 ],
               ),
             ),
-            if (newFileName != null && newFileName != fileName)
-              Text(t.home.moveNote.renamedTo(newName: newFileName ?? '?')),
+
+            if (changedFileNames.isEmpty)
+              const SizedBox.shrink()
+            else if (changedFileNames.length == 1)
+              Text(t.home.moveNote.renamedTo(newName: changedFileNames.single))
+            else if (changedFileNames.length < 5) ...[
+              Text(t.home.moveNote.multipleRenamedTo),
+              Text(changedFileNames.join(', ')),
+            ] else
+              Text(t.home.moveNote.numberRenamedTo(n: changedFileNames.length)),
           ],
         ),
       ),
@@ -167,10 +226,13 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
         ),
         CupertinoDialogAction(
           onPressed: () async {
-            await FileManager.moveFile(
-              '${widget.existingPath}${Editor.extension}',
-              '$currentFolder$newFileName${Editor.extension}',
-            );
+            for (int i = 0; i < widget.filesToMove.length; ++i) {
+              final extension = oldExtensions[i] ? Editor.extensionOldJson : Editor.extension;
+              await FileManager.moveFile(
+                '${widget.filesToMove[i]}$extension',
+                '$currentFolder${newFileNames[i]}$extension',
+              );
+            }
             if (!mounted) return;
             Navigator.of(context).pop();
           },

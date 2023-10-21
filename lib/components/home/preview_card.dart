@@ -8,8 +8,6 @@ import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
-import 'package:saber/components/home/move_note_button.dart';
-import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -24,9 +22,15 @@ import 'package:saber/pages/editor/editor.dart';
 class PreviewCard extends StatefulWidget {
   PreviewCard({
     required this.filePath,
+    required this.toggleSelection,
+    required this.selected,
+    required this.isAnythingSelected,
   }) : super(key: ValueKey('PreviewCard$filePath'));
 
   final String filePath;
+  final bool selected;
+  final bool isAnythingSelected;
+  final void Function(String, bool) toggleSelection;
 
   @override
   State<PreviewCard> createState() => _PreviewCardState();
@@ -137,6 +141,7 @@ class _PreviewCardState extends State<PreviewCard> {
     }
     fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
+    expanded.value = widget.selected;
     super.initState();
   }
 
@@ -180,6 +185,11 @@ class _PreviewCardState extends State<PreviewCard> {
     if (mounted) setState(() {});
   }
 
+  void _toggleCardSelection() {
+    expanded.value = !expanded.value;
+    widget.toggleSelection(widget.filePath, expanded.value);
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -197,8 +207,11 @@ class _PreviewCardState extends State<PreviewCard> {
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onSecondaryTap: () => expanded.value = !expanded.value,
-        onLongPress: () => expanded.value = !expanded.value,
+        onTap: widget.isAnythingSelected
+          ? _toggleCardSelection
+          : null,
+        onSecondaryTap: _toggleCardSelection,
+        onLongPress: _toggleCardSelection,
         child: ColoredBox(
           color: colorScheme.primary.withOpacity(0.05),
           child: Stack(
@@ -243,7 +256,7 @@ class _PreviewCardState extends State<PreviewCard> {
                             ),
                           ),
                           child: GestureDetector(
-                            onTap: () => expanded.value = !expanded.value,
+                            onTap: _toggleCardSelection,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -258,26 +271,6 @@ class _PreviewCardState extends State<PreviewCard> {
                               ),
                               child: ColoredBox(
                                 color: colorScheme.primary.withOpacity(0.05),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    RenameNoteButton(
-                                      existingPath: widget.filePath,
-                                    ),
-                                    MoveNoteButton(
-                                      existingPath: widget.filePath,
-                                    ),
-                                    IconButton(
-                                      padding: EdgeInsets.zero,
-                                      tooltip: t.home.deleteNote,
-                                      onPressed: () {
-                                        FileManager.deleteFile(widget.filePath + Editor.extension);
-                                      },
-                                      icon: const Icon(Icons.delete_forever),
-                                    ),
-                                  ],
-                                ),
                               ),
                             ),
                           ),
@@ -302,27 +295,33 @@ class _PreviewCardState extends State<PreviewCard> {
       ),
     );
 
-    return OpenContainer(
-      closedColor: colorScheme.surface,
-      closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      closedBuilder: (context, action) => card,
+    return ValueListenableBuilder(
+      valueListenable: expanded,
+      builder: (context, expanded, _) {
+        return OpenContainer(
+          closedColor: colorScheme.surface,
+          closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          closedElevation: expanded ? 4 : 1,
+          closedBuilder: (context, action) => card,
 
-      openColor: colorScheme.background,
-      openBuilder: (context, action) => Editor(path: widget.filePath),
+          openColor: colorScheme.background,
+          openBuilder: (context, action) => Editor(path: widget.filePath),
 
-      transitionDuration: transitionDuration,
-      routeSettings: RouteSettings(
-        name: RoutePaths.editFilePath(widget.filePath),
-      ),
+          transitionDuration: transitionDuration,
+          routeSettings: RouteSettings(
+            name: RoutePaths.editFilePath(widget.filePath),
+          ),
 
-      onClosed: (_) async {
-        findStrokes();
+          onClosed: (_) async {
+            findStrokes();
 
-        await Future.delayed(transitionDuration);
-        if (!mounted) return;
-        if (!GoRouterState.of(context).uri.toString().startsWith(RoutePaths.prefixOfHome)) return;
-        ResponsiveNavbar.setAndroidNavBarColor(theme);
-      },
+            await Future.delayed(transitionDuration);
+            if (!mounted) return;
+            if (!GoRouterState.of(context).uri.toString().startsWith(RoutePaths.prefixOfHome)) return;
+            ResponsiveNavbar.setAndroidNavBarColor(theme);
+          },
+        );
+      }
     );
   }
 

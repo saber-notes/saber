@@ -1,14 +1,18 @@
 import 'dart:async';
 
+import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/home/masonry_files.dart';
+import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
+import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/home/welcome.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class RecentPage extends StatefulWidget {
   const RecentPage({super.key});
@@ -20,6 +24,8 @@ class RecentPage extends StatefulWidget {
 class _RecentPageState extends State<RecentPage> {
   final List<String> filePaths = [];
   bool failed = false;
+
+  final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
   @override
   void initState() {
@@ -112,6 +118,7 @@ class _RecentPageState extends State<RecentPage> {
                   files: [
                     for (String filePath in filePaths) filePath,
                   ],
+                  setSelectedFiles: (files) => selectedFiles.value = files,
                 ),
               ),
             ],
@@ -121,6 +128,58 @@ class _RecentPageState extends State<RecentPage> {
       floatingActionButton: NewNoteButton(
         cupertino: cupertino,
       ),
+      persistentFooterButtons: [
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, _) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.length != 1,
+              child: RenameNoteButton(
+                existingPath: selectedFiles.isEmpty
+                  ? ''
+                  : selectedFiles.first,
+              ),
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, _) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: MoveNoteButton(
+                filesToMove: selectedFiles,
+              ),
+            );
+          },
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, child) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: child!,
+            );
+          },
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            tooltip: t.home.deleteNote,
+            onPressed: () async {
+              await Future.wait([
+                for (String filePath in selectedFiles.value)
+                  FileManager.doesFileExist(filePath + Editor.extensionOldJson)
+                    .then((oldExtension) => FileManager.deleteFile(
+                      filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
+                    )),
+              ]);
+            },
+            icon: const Icon(Icons.delete_forever),
+          ),
+        ),
+      ],
     );
   }
 

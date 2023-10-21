@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3872 (242 per locale)
+/// Strings: 3875 (242 per locale)
 ///
-/// Built on 2023-10-21 at 21:16 UTC
+/// Built on 2023-10-21 at 22:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -392,9 +392,12 @@ class _StringsHomeMoveNoteEn {
 
 	// Translations
 	String get moveNote => 'Move note';
+	String moveNotes({required Object n}) => 'Move ${n} notes';
 	String moveName({required Object f}) => 'Move ${f}';
 	String get move => 'Move';
 	String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
+	String get multipleRenamedTo => 'The following notes will be renamed:';
+	String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
 }
 
 // Path: home.renameFolder

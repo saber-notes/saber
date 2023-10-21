@@ -36,9 +36,12 @@ home:
     noteNameExists: A note with this name already exists
   moveNote:
     moveNote: Move note
+    moveNotes: Move $n notes
     moveName: Move $f
     move: Move
     renamedTo: Note will be renamed to $newName
+    multipleRenamedTo: "The following notes will be renamed:"
+    numberRenamedTo: $n notes will be renamed to avoid conflicts
   deleteNote: Delete note
   renameFolder:
     renameFolder: Rename folder
