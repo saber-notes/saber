@@ -182,14 +182,27 @@ class PdfEditorImage extends EditorImage {
       pages: [pdfPage],
       dpi: PdfPageFormat.inch * dpiMultiple,
     ).single;
-
     final image = PdfRasterImage(raster);
+
+    // _getRasterizedWithDpi might have been called again,
+    // so try to return the old image if possible.
+    if (lastDpiMultiple > dpiMultiple) {
+      return lastRasterized.value ?? image;
+    }
+
     if (lastRasterized.value != null) {
       // precache the new image so we don't flash an empty image
       await _precacheImage(image);
       // remove old image from memory
       lastRasterized.value?.evict();
     }
+
+    // _getRasterizedWithDpi might have been called again,
+    // so try to return the old image if possible.
+    if (lastDpiMultiple > dpiMultiple) {
+      return lastRasterized.value ?? image;
+    }
+
     return lastRasterized.value = image;
   }
 
