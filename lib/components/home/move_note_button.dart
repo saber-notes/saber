@@ -108,7 +108,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
 
       newFileNames.add(newFileName);
 
-      if(newFileName != originalFileNames[i]) {
+      if (newFileName != originalFileNames[i]) {
         changedFileNames.add(newFileName);
       }
     }

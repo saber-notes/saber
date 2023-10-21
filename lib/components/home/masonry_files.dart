@@ -26,11 +26,11 @@ class _MasonryFilesState extends State<MasonryFiles> {
   final List<String> selectedFiles = [];
   final ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
 
-  void toggleSelection(String filepath, bool selected) {
+  void toggleSelection(String filePath, bool selected) {
     if (selected) {
-      selectedFiles.add(filepath);
+      selectedFiles.add(filePath);
     } else {
-      selectedFiles.remove(filepath);
+      selectedFiles.remove(filePath);
     }
     isAnythingSelected.value = selectedFiles.isNotEmpty;
     widget.setSelectedFiles(selectedFiles);
