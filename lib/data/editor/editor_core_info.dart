@@ -20,7 +20,26 @@ class EditorCoreInfo {
 
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  static const int sbnVersion = 16;
+  /// 
+  /// Version history:
+  /// - 17: [PdfEditorImage] introduced
+  /// - 16: [ShapePen] introduced
+  /// - 15: Tablature background pattern
+  /// - 14: Store images as BsonBinary
+  /// - 13: Save points as BsonBinary
+  /// - 12: Don't store empty pressure
+  /// - 11: Centralise storage of image assets
+  /// - 10: Remove old inversion code
+  /// - 9: Add [Stroke.offset] property
+  /// - 8: Store strokes and images in their respective pages
+  /// - 7: Set image as background
+  /// - 6: Save Quill data
+  /// - 5: Store images' file extension
+  /// - 4: Store page sizes in [EditorPage.size]
+  /// - 3: Store page sizes for each page
+  /// - 2: Store width and height in sbn
+  /// - 1: Store version in sbn
+  static const int sbnVersion = 17;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
