@@ -16,15 +16,13 @@ class MasonryFiles extends StatefulWidget {
 
   final List<String> files;
   final int crossAxisCount;
-
-  /// The number of files to display before showing an ad.
-  final int itemsBeforeAd = 5;
-  
   final void Function(List<String>) setSelectedFiles;
-
 }
 
 class _MasonryFilesState extends State<MasonryFiles> {
+  /// The number of files to display before showing an ad.
+  static const int itemsBeforeAd = 5;
+
   List<String> selectedFiles = [];
   ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
 
@@ -45,7 +43,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
     final List<String?> files = List.from(widget.files);
     if (AdState.adsEnabled) {
       int numAds = 0;
-      for (int i = widget.itemsBeforeAd; i < files.length; i += widget.itemsBeforeAd) {
+      for (int i = itemsBeforeAd; i < files.length; i += itemsBeforeAd) {
         files.insert(i, null);
         numAds++;
       }
