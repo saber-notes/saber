@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3872 (242 per locale)
 ///
-/// Built on 2023-10-21 at 20:40 UTC
+/// Built on 2023-10-21 at 21:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -12427,7 +12427,7 @@ class _StringsEditorPensZhHantTw extends _StringsEditorPensEn {
 	@override String get fountainPen => '鋼筆';
 	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
-	@override String get shapePen => '造型筆';
+	@override String get shapePen => '塑形筆';
 	@override String get laserPointer => '雷射筆';
 }
 
