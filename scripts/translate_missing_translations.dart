@@ -23,7 +23,7 @@ Future<YamlMap> _getMissingTranslations() async {
 
 String _nearestLocaleCode(String localeCode) {
   const nearestLocaleCodes = <String, String>{
-    'he-IL': 'iw',
+    'he': 'iw',
     'zh-Hans-CN': 'zh-cn',
     'zh-Hant-TW': 'zh-tw',
   };

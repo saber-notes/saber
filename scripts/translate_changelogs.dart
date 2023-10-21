@@ -11,7 +11,7 @@ import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
 
 final nearestLocaleCodes = <String, String>{
-  'he-IL': 'iw',
+  'he': 'iw',
   'zh-Hans-CN': 'zh-cn',
   'zh-Hant-TW': 'zh-tw',
 };
