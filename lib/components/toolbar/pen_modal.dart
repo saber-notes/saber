@@ -94,7 +94,7 @@ class _PenModalState extends State<PenModal> {
           ),
           IconButton(
             onPressed: () => setState(() {
-              widget.setTool(ShapePen.currentShapePen);
+              widget.setTool(ShapePen());
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon

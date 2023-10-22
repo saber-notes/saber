@@ -138,10 +138,13 @@ class EditorState extends State<Editor> {
           Pen.currentPen = Pen.ballpointPen();
         }
         return Pen.currentPen;
+      case ToolId.shapePen:
+        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+          Pen.currentPen = ShapePen();
+        }
+        return Pen.currentPen;
       case ToolId.highlighter:
         return Highlighter.currentHighlighter;
-      case ToolId.shapePen:
-        return ShapePen.currentShapePen;
       case ToolId.eraser:
         return Eraser();
       case ToolId.select:

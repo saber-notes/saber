@@ -24,8 +24,6 @@ class ShapePen extends Pen {
     strokeProperties = Prefs.lastShapePenProperties.value;
   }
 
-  static Pen currentShapePen = ShapePen();
-
   static final log = Logger('ShapePen');
 
   static const IconData shapePenIcon = FontAwesomeIcons.shapes;
