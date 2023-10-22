@@ -416,7 +416,7 @@ ru:
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
-      shapePen(OUTDATED): Shape pen
+      shapePen(OUTDATED): Вид ручки
 tr:
   home:
     moveNote:
