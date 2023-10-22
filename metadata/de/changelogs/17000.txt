@@ -1,0 +1,5 @@
+• Ein Formerkennungsstift hinzugefügt
+• Die Erkennung gerader Linien funktioniert jetzt nur mit dem Formerkennungsstift
+• Neue PDF-Importe behalten ihre ursprüngliche Qualität
+• Wählen Sie mehrere Notizen gleichzeitig aus, um sie zu verschieben oder zu löschen
+• Sie können jetzt eine Auswahl von Strichen/Bildern löschen und duplizieren

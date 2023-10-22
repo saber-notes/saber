@@ -1,0 +1,5 @@
+• Se agregó un lápiz de reconocimiento de formas.
+• La detección de líneas rectas ahora solo funciona con el lápiz de reconocimiento de formas
+• Las nuevas importaciones de PDF conservarán su calidad original
+• Seleccione varias notas a la vez para moverlas o eliminarlas
+• Ahora puedes eliminar y duplicar una selección de trazos/imágenes.

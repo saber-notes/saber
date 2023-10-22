@@ -1,0 +1,5 @@
+• Alakfelismerő toll hozzáadva
+• Az egyenes vonalérzékelés mostantól csak az alakfelismerő tollal működik
+• Az új PDF-importálások megőrzik eredeti minőségüket
+• Válasszon ki egyszerre több jegyzetet az áthelyezéshez vagy törléshez
+• Most már törölheti és sokszorosíthatja a kiválasztott körvonalakat/képeket

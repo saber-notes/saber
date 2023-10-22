@@ -1,0 +1,5 @@
+• Ajout d'un stylo de reconnaissance de forme
+• La détection de lignes droites ne fonctionne désormais qu'avec le stylo de reconnaissance de forme.
+• Les nouvelles importations PDF conserveront leur qualité d'origine
+• Sélectionnez plusieurs notes à la fois pour les déplacer ou les supprimer
+• Vous pouvez désormais supprimer et dupliquer une sélection de traits/images

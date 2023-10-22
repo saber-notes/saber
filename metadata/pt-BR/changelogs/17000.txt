@@ -1,0 +1,5 @@
+• Adicionada uma caneta de reconhecimento de forma
+• A detecção de linha reta agora funciona apenas com a caneta de reconhecimento de forma
+• Novas importações de PDF manterão a qualidade original
+• Selecione várias notas de uma vez para movê-las ou excluí-las
+• Agora você pode excluir e duplicar uma seleção de traços/imagens

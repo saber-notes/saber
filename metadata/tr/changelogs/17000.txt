@@ -1,0 +1,5 @@
+• Şekil tanıma kalemi eklendi
+• Düz çizgi algılama artık yalnızca şekil tanıma kalemiyle çalışıyor
+• Yeni PDF içe aktarma işlemleri orijinal kalitesini koruyacaktır
+• Taşımak veya silmek için aynı anda birden fazla notu seçin
+• Artık çeşitli konturları/görüntüleri silebilir ve çoğaltabilirsiniz
