@@ -42,7 +42,7 @@ void main() {
       return encrypter.encrypt(filePathLocal, iv: iv).base16;
     });
     final syncFile = SyncFile(
-      encryptedPath: encryptedPath,
+      encryptedName: encryptedPath,
       localPath: filePathLocal,
     );
 

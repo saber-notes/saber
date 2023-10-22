@@ -112,7 +112,7 @@ abstract class FileSyncer {
       // Start downloading files one by one
       while (_downloadQueue.isNotEmpty) {
         final SyncFile file = _downloadQueue.removeFirst();
-        log.finer('startSync: Downloading ${file.localPath} (${file.encryptedPath})');
+        log.finer('startSync: Downloading ${file.localPath} (${file.remotePath})');
         final bool success = await downloadFile(file);
         if (downloadCancellable.cancelled) return;
         if (success) {
@@ -139,6 +139,7 @@ abstract class FileSyncer {
   /// Queues a file to be uploaded
   static void addToUploadQueue(String filePath) {
     try {
+      log.info('Adding $filePath to upload queue');
       if (_uploadQueue.value.contains(filePath)) return; // don't add it again
       _uploadQueue.value.add(filePath);
       _uploadQueue.notifyListeners();
@@ -166,12 +167,12 @@ abstract class FileSyncer {
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
-      final String encryptedPath = await workerManager.execute(
+      final String encryptedName = await workerManager.execute(
         () => encrypter.encrypt(filePathUnencrypted, iv: iv).base16,
         priority: WorkPriority.veryHigh,
       );
 
-      final syncFile = SyncFile(encryptedPath: encryptedPath, localPath: filePathUnencrypted);
+      final syncFile = SyncFile(encryptedName: encryptedName, localPath: filePathUnencrypted);
       if (!await _shouldLocalFileBeKept(syncFile, inUploadQueue: true)) {
         // remote file is newer; download it instead
         _downloadQueue.add(syncFile);
@@ -197,7 +198,7 @@ abstract class FileSyncer {
             },
             priority: WorkPriority.highRegular,
           );
-        } else  {
+        } else {
           localDataEncrypted = await workerManager.execute(
             () async {
               final encrypted = encrypter.encryptBytes(localDataUnencrypted, iv: iv);
@@ -206,6 +207,8 @@ abstract class FileSyncer {
             priority: WorkPriority.highRegular,
           );
         }
+
+        log.info('Uploading $filePathUnencrypted (${syncFile.remotePath}): ${localDataEncrypted.length} bytes');
       } else {
         localDataEncrypted = utf8.encode(deletedFileDummyContent) as Uint8List;
       }
@@ -223,7 +226,8 @@ abstract class FileSyncer {
         Uri.parse(syncFile.remotePath),
         lastModified: lastModified,
       );
-    } on SocketException { // network error
+    } on SocketException catch (e) { // network error
+      log.warning('Failed to upload $filePathUnencrypted: network error', e);
       _uploadQueue.value.add(filePathUnencrypted);
       await Future.delayed(const Duration(seconds: 2));
     } finally {
@@ -244,9 +248,9 @@ abstract class FileSyncer {
     }
 
     // remove extension
-    final String encryptedPath;
+    final String encryptedName;
     if (file.name.endsWith(encExtension)) {
-      encryptedPath = file.name.substring(0, file.name.length - encExtension.length);
+      encryptedName = file.name.substring(0, file.name.length - encExtension.length);
     } else {
       log.info('remote file not in recognised encrypted format: ${file.path}');
       return;
@@ -254,12 +258,12 @@ abstract class FileSyncer {
 
     // decrypt file path
     final localPath = await workerManager.execute(
-      () => encrypter.decrypt16(encryptedPath, iv: iv),
+      () => encrypter.decrypt16(encryptedName, iv: iv),
       priority: WorkPriority.veryHigh,
     );
 
     final syncFile = SyncFile(
-      encryptedPath: encryptedPath,
+      encryptedName: encryptedName,
       localPath: localPath,
       webDavFile: file,
     );
@@ -354,7 +358,7 @@ abstract class FileSyncer {
       FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      log.severe('Failed to download file ${file.localPath} (${file.encryptedPath}): $e', e);
+      log.severe('Failed to download file ${file.localPath} (${file.remotePath}): $e', e);
       return false;
     }
   }
@@ -396,22 +400,23 @@ abstract class FileSyncer {
 }
 
 class SyncFile {
-  final String encryptedPath;
+  /// Encrypted form of [localPath]
+  final String encryptedName;
   final String localPath;
   WebDavFile? webDavFile;
 
   late final String remotePath = '${FileManager.appRootDirectoryPrefix}/'
-      '$encryptedPath'
+      '$encryptedName'
       '${FileSyncer.encExtension}';
 
   SyncFile({
-    required this.encryptedPath,
+    required this.encryptedName,
     required this.localPath,
     this.webDavFile,
-  }): assert(encryptedPath.isNotEmpty),
-      assert(!encryptedPath.contains('/')),
-      assert(!encryptedPath.contains('\\')),
-      assert(!encryptedPath.contains('.')),
+  }): assert(encryptedName.isNotEmpty),
+      assert(!encryptedName.contains('/')),
+      assert(!encryptedName.contains('\\')),
+      assert(!encryptedName.contains('.')),
       assert(localPath.isNotEmpty);
 }
 

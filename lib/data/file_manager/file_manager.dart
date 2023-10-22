@@ -94,9 +94,9 @@ class FileManager {
   /// Writes [toWrite] to [filePath].
   static Future<void> writeFile(String filePath, List<int> toWrite, { bool awaitWrite = false, bool alsoUpload = true }) async {
     filePath = _sanitisePath(filePath);
+    log.fine('Writing to $filePath');
 
     await _saveFileAsRecentlyAccessed(filePath);
-
 
     final documentsDirectory = await FileManager.documentsDirectory;
     final File file = File('$documentsDirectory$filePath');
