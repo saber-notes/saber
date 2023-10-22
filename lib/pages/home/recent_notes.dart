@@ -118,7 +118,7 @@ class _RecentPageState extends State<RecentPage> {
                   files: [
                     for (String filePath in filePaths) filePath,
                   ],
-                  setSelectedFiles: (files) => selectedFiles.value = files,
+                  setSelectedFiles: (files) => selectedFiles.value = List.from(files),
                 ),
               ),
             ],
