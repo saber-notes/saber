@@ -62,9 +62,9 @@ ar:
 cs:
   home:
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+      moveNotes: Přesunout $n poznámek
+      multipleRenamedTo: "Následující poznámky budou přejmenovány:"
+      numberRenamedTo: $n poznámek bude přejmenováno
 de:
   home:
     titles:
