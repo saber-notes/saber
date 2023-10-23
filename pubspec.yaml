@@ -127,7 +127,7 @@ dependencies:
 
   open_filex: ^4.3.2
 
-  super_clipboard: ^0.6.0
+  super_clipboard: ^0.7.0
 
   fast_image_resizer: ^0.0.2
 
