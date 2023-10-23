@@ -178,7 +178,7 @@ class _BrowsePageState extends State<BrowsePage> {
                     for (String filePath in children?.files ?? const [])
                       "${path ?? ""}/$filePath",
                   ],
-                  setSelectedFiles: (files) => selectedFiles.value = files,
+                  selectedFiles: selectedFiles,
                 ),
               ),
             ],

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
@@ -7,13 +8,13 @@ class MasonryFiles extends StatefulWidget {
   const MasonryFiles({
     super.key,
     required this.files,
+    required this.selectedFiles,
     required this.crossAxisCount,
-    required this.setSelectedFiles,
   });
 
   final List<String> files;
   final int crossAxisCount;
-  final void Function(List<String>) setSelectedFiles;
+  final ValueNotifier<List<String>> selectedFiles;
 
   @override
   State<MasonryFiles> createState() => _MasonryFilesState();
@@ -23,17 +24,17 @@ class _MasonryFilesState extends State<MasonryFiles> {
   /// The number of files to display before showing an ad.
   static const int itemsBeforeAd = 5;
 
-  final List<String> selectedFiles = [];
   final ValueNotifier<bool> isAnythingSelected = ValueNotifier(false);
 
   void toggleSelection(String filePath, bool selected) {
     if (selected) {
-      selectedFiles.add(filePath);
+      widget.selectedFiles.value.add(filePath);
     } else {
-      selectedFiles.remove(filePath);
+      widget.selectedFiles.value.remove(filePath);
     }
-    isAnythingSelected.value = selectedFiles.isNotEmpty;
-    widget.setSelectedFiles(selectedFiles);
+    isAnythingSelected.value = widget.selectedFiles.value.isNotEmpty;
+    // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
+    widget.selectedFiles.notifyListeners();
   }
 
   @override
@@ -80,7 +81,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
                 return PreviewCard(
                   filePath: file,
                   toggleSelection: toggleSelection,
-                  selected: selectedFiles.contains(file),
+                  selected: widget.selectedFiles.value.contains(file),
                   isAnythingSelected: isAnythingSelected,
                 );
               }
