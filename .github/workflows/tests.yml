@@ -47,7 +47,7 @@ jobs:
 
       - name: Prepare environment for tests
         run: |
-          if [ "$GITHUB_REPOSITORY" = "adil192/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+          if [ "$GITHUB_REPOSITORY" = "saber-notes/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
             MAINTENANCE_CHECKS_ENABLED=true
           else
             MAINTENANCE_CHECKS_ENABLED=false

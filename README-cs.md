@@ -1,6 +1,6 @@
-# <img src="https://github.com/adil192/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
+# <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-Tento soubor si můžete přečíst v: [English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [Deutsch](https://github.com/adil192/saber/blob/main/README-de.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md)
+Tento soubor si můžete přečíst v: [English](https://github.com/saber-notes/saber/blob/main/README.md), [češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md), [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md), [繁體中文](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
 Z pozice vývojáře aplikace Saber vám s nadšením představuji aplikaci, která je revolucí v pořizování poznámek. Saber je ultimátní aplikace pro pořizování ručně psaných poznámek navržená tak, aby pozvedla zážitek z psaní poznámek do nových výšin! Uchopte umění rukopisu a nechte promluvit svou kreativitu díky této funkcemi nabité aplikaci, jenž je poháněna nejmodernějšími technologiemi. Díky intuitivnímu a modernímu prostředí vám Saber umožní přesně a bez námahy zaznamenávat poznámky, kreslit diagramy nebo vepisovat informace do PDF.
 
@@ -16,51 +16,51 @@ Saber dokáže vhodně invertovat vaše poznámky, pokud máte aktivní tmavý r
 
 Objevte úplně nové možnosti zachycování a organizování myšlenek s aplikací Saber. Ať už jste student, profesionál či kreativní duše, Saber je váš důvěrný společník pro digitální ruční psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
 
-[<img src='https://github.com/adil192/saber/blob/main/assets_raw/badges/google-play-badge.png'
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
     alt='Ke stažení na Google Play'
     height=80>][google_play]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
     alt="Ke stažení z F-Droidu"
     height=80>][f-droid]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
     alt="Stáhnout v App Store"
     height=80>][app_store]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
     alt="Stáhnout pro Windows"
     height=80>][download_windows]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
     alt="Stáhnout z Flathubu"
     height=80>][flathub]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="Stáhnout jako AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
     alt="Stáhnout ze Snap Store"
     height=80>][snap]
 
-[![GitHub release (nejnovější vydání)](https://img.shields.io/github/v/release/adil192/saber?label=vyd%C3%A1n%C3%AD)](https://github.com/adil192/saber/releases/latest)
+[![GitHub release (nejnovější vydání)](https://img.shields.io/github/v/release/saber-notes/saber?label=vyd%C3%A1n%C3%AD)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)](https://f-droid.org/en/packages/com.adilhanney.saber/)
-[![Všechna vydání na GitHubu](https://img.shields.io/github/downloads/adil192/saber/total?label=sta%C5%BEen%C3%AD%20z%20GitHubu)](https://github.com/adil192/saber/releases)
+[![Všechna vydání na GitHubu](https://img.shields.io/github/downloads/saber-notes/saber/total?label=sta%C5%BEen%C3%AD%20z%20GitHubu)](https://github.com/saber-notes/saber/releases)
 [![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=Po%C4%8Det%20sta%C5%BEen%C3%AD%20na%20Flathubu)](https://flathub.org/cs/apps/details/com.adilhanney.saber)
 [![Sponzoři na GitHubu](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
-[![GitHub](https://img.shields.io/github/license/adil192/saber?label=sponzo%C5%99i)](https://github.com/adil192/saber/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
-[![CodeFactor](https://www.codefactor.io/repository/github/adil192/saber/badge/main)](https://www.codefactor.io/repository/github/adil192/saber/overview/main)
+[![GitHub](https://img.shields.io/github/license/saber-notes/saber?label=sponzo%C5%99i)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
+[![codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
+[![CodeFactor](https://www.codefactor.io/repository/github/saber-notes/saber/badge/main)](https://www.codefactor.io/repository/github/saber-notes/saber/overview/main)
 
 <details open>
 <summary>Klepněte pro zobrazení/skrytí snímků obrazovky</summary>
 
 <div>
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
 </div>
 </details>
 
@@ -81,7 +81,7 @@ Možnosti:
 
 2. Stažení z [F-Droidu][f-droid]
    - Je třeba poznamenat, že sestavení dostupné na F-Droidu není optimalizované pro zařízení Onyx Boox, které vyžaduje
-     [proprietární závislosti](https://github.com/adil192/saber/issues/219) od společnosti Onyx.
+     [proprietární závislosti](https://github.com/saber-notes/saber/issues/219) od společnosti Onyx.
 
 3. Stažení a instalace `Saber_{verze}.apk` z nejnovějšího [Vydání][releases].
 
@@ -119,7 +119,7 @@ Stažení aplikace Saber na [App Store][app_store].
 https://docs.flutter.dev/get-started/install
 ### 2. Naklonujte si tento projekt
 ```bash
-git clone https://github.com/adil192/saber.git
+git clone https://github.com/saber-notes/saber.git
 ```
 ### 3. Získejte závislosti
 ```bash
@@ -142,7 +142,7 @@ se dá shrnout jako:
 
 Toto je dostatečné pro použití na vlastím počítači, ale pokud chcete své sestaení distribuovat,
 budete potřebovat použitít předvídatelné prostředí: udělejte fork totoho repozitáře a použijte místo toho GitHub Action
-[Build for Linux](https://github.com/adil192/saber/actions/workflows/linux.yml).
+[Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml).
 
 #### Android
 
@@ -161,7 +161,7 @@ Poznámka: vydání pro F-Droid jsou sestavena výrazně odlišně
 
 Instalátor pro Windows je vytvořen pomocí [Inno Setup](https://jrsoftware.org/isinfo.php).
 Pro vytvoření vlastního instalátoru spusťte výše uvedený příkaz a následně upravte a spusťte
-[installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss)
+[installers/desktop_inno_script.iss](https://github.com/saber-notes/saber/blob/main/installers/desktop_inno_script.iss)
 pomocí Inno Setup Compiler.
 
 #### iOS and macOS
@@ -173,7 +173,7 @@ pomocí `flutter build ipa` nebo
 pomocí `flutter build macos`.
 
 Pokud nikoliv, udělejte fork tohoto repozitáře a použijte GitHub Action
-[Build for macOS and iOS](https://github.com/adil192/saber/actions/workflows/apple.yml).
+[Build for macOS and iOS](https://github.com/saber-notes/saber/actions/workflows/apple.yml).
 Alternativně následujte anglický YouTube tutoriál
 [How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
 pro manuální sestavení s využitím [Codemagic](https://codemagic.io/start/).
@@ -190,28 +190,28 @@ pro manuální sestavení s využitím [Codemagic](https://codemagic.io/start/).
 ## Překlady
 
 Veškeré překlady jsou založené na crowdsourcingu. Saber byl zatím přeložen do 
-- angličtiny ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- arabštiny ([ar](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- češtiny ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- němčiny ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- španělštiny ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- perštiny ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- francouzštiny ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- maďarštiny ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- italštiny ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- japonštiny ([ja](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- portugalské brazilštiny ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- ruštiny ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- turečtiny ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- zjednodušené čínštiny ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
-- tradiční čínštiny ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
+- angličtiny ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
+- arabštiny ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
+- češtiny ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
+- němčiny ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
+- španělštiny ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
+- perštiny ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
+- francouzštiny ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
+- maďarštiny ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
+- italštiny ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
+- japonštiny ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
+- portugalské brazilštiny ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
+- ruštiny ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
+- turečtiny ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
+- zjednodušené čínštiny ([zh_Hans-CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
+- tradiční čínštiny ([zh_Hant-TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
 
 ### Rozšiřování existujících překladů
 
-Podívejte se do [_missing_translations.yaml](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.yaml),
+Podívejte se do [_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml),
    zda nechybí nějaké překlady.
 
-1. Použijte [tento odkaz](https://github.com/adil192/saber/edit/main/lib/i18n/_missing_translations.yaml)
+1. Použijte [tento odkaz](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml)
    pro úpravu `_missing_translations.yaml`.
 2. Aktualizujte soubor `_missing_translations.yaml` pomocí svého překladu, např. aktualizací němčiny (de)
     ```yaml
@@ -230,11 +230,11 @@ Podívejte se do [_missing_translations.yaml](https://github.com/adil192/saber/b
 
 1. Najděte [zde](https://saimana.com/list-of-country-locale-code/) svůj kód jazyka,
    např. `hi` pro hindštinu, `fr` pro francouzštinu, `bn` for bengálštinu, `ar` pro arabštinu atd.
-2. Použijte [tento odkaz](https://github.com/adil192/saber/new/main/lib/i18n/community)
+2. Použijte [tento odkaz](https://github.com/saber-notes/saber/new/main/lib/i18n/community)
    pro vytvoření nového souboru v `lib/i18n/community/` nazvaného `strings_XX.i18n.yaml`,
    kde `XX` je kód vašeho jazyka.
 3. Zkopírujte obsah existujícího souboru jako (v ideálním případě anglického)
-   [`lib/i18n/strings.i18n.yaml`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml)
+   [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)
    a nahraďte překlady těmi svými.
    Pokud neznáte překlad pro nějaký text, prostě daný řádek odstraňte.
 4. Vytvořte žádost o začlenění (pull request)!
@@ -248,9 +248,9 @@ Jsou 2 formáty popisů do obchodů s aplikacemi:
 1. F-Droid/Play Store:
 
    i. Otevřete `metadata/en-US/` a zkopírujte soubory
-      [`full_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/full_description.txt)
+      [`full_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/full_description.txt)
       a
-      [`short_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/short_description.txt)
+      [`short_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/short_description.txt)
       do složky `metadata/XX/`, kde `XX` je kód vašeho jazyka.
       Následně přeložte obsahy těchto souborů.
 
@@ -261,7 +261,7 @@ Jsou 2 formáty popisů do obchodů s aplikacemi:
 2. Linuxový soubor .desktop:
 
    i. Otevřete
-   [`flatpak/com.adilhanney.saber.desktop`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.desktop)
+   [`flatpak/com.adilhanney.saber.desktop`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.desktop)
    a přidejte řádek pro klíč `Comment` v následujícím formátu, kde `XX` je kód vašeho jazyka:
     ```ini
     Comment[XX]=Váš překlad
@@ -273,7 +273,7 @@ Jsou 2 formáty popisů do obchodů s aplikacemi:
    i. Jelikož je to výrazně techničtější, jestli chcete, můžete část s Flathubem přeskočit
       a já tam zkopíruji překlady ze sekcí uvedených výše.
    
-   ii. V [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
+   ii. V [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
        přijdete před uzavírací značku `</description>` svůj překlad
        v následujícím formátu, kde `XX` je kód vašeho jazyka:
     ```html
@@ -327,14 +327,14 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/adil192/saber/releases/download/v0.14.10/SaberInstaller_v0.14.10.exe
-[download_appimage]: https://github.com/adil192/saber/releases/download/v0.14.10/Saber-0.14.10-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.14.10/SaberInstaller_v0.14.10.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.14.10/Saber-0.14.10-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
-[privacy]: https://github.com/adil192/saber/blob/main/privacy_policy.md
-[license]: https://github.com/adil192/saber/blob/main/LICENSE.md
+[privacy]: https://github.com/saber-notes/saber/blob/main/privacy_policy.md
+[license]: https://github.com/saber-notes/saber/blob/main/LICENSE.md
 
-[releases]: https://github.com/adil192/saber/releases
-[issues]: https://github.com/adil192/saber/issues
-[progress]: https://github.com/adil192/saber/discussions/1
+[releases]: https://github.com/saber-notes/saber/releases
+[issues]: https://github.com/saber-notes/saber/issues
+[progress]: https://github.com/saber-notes/saber/discussions/1

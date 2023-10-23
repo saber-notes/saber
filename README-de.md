@@ -1,6 +1,6 @@
-# <img src="https://github.com/adil192/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
+# <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-Diese Anleitung ist in den folgenden Sprachen verfügbar: [English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [Deutsch](https://github.com/adil192/saber/blob/main/README-de.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md)
+Diese Anleitung ist in den folgenden Sprachen verfügbar: [English](https://github.com/saber-notes/saber/blob/main/README.md), [češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md), [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md), [繁體中文](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
 Als der Entwickler von Saber freue ich mich dir eine App vorzustellen, die deine Art Notizen zu erstellen revolutionieren soll. Saber ist die ultimative handschriftliche Notizen-App, designt um deine Erfahrung beim Erstellen von Notizen zu verbessern! Erfreue dich an der Kunst der Handschrift und lasse mit dieser funktionsreichen, von modernen Technologien unterstützten App deiner Kreativität freien Lauf. Sabers intuitives und modernes Interface macht es spielend leicht Notizen niederzuschreiben, Diagramme zu zeichnen oder PDFs zu kommentieren.
 
@@ -16,51 +16,51 @@ Saber invertiert deine Notizen intelligent, sobald du den Dark Mode nutzt. Das b
 
 Entdecke einen völlig neuen Weg um mit Saber deine Gedanken zu sammeln und zu organisieren. Egal ob du studierst, arbeitest oder kreativ bist, Saber ist dein vertrauenswürdiger Begleiter fürs digitale von Hand schreiben. Starte jetzt den Download und lass deinen Ideen freien Lauf!
 
-[<img src='https://github.com/adil192/saber/blob/main/assets_raw/badges/google-play-badge.png'
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
     alt='Get it on Google Play'
     height=80>][google_play]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
     alt="Get it on F-Droid"
     height=80>][f-droid]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
     alt="Download on the App Store"
     height=80>][app_store]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
     alt="Download for Windows"
     height=80>][download_windows]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
     alt="Download on Flathub"
     height=80>][flathub]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="Get it as an AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
     alt="Get it from the Snap Store"
     height=80>][snap]
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/adil192/saber)](https://github.com/adil192/saber/releases/latest)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/saber-notes/saber)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)](https://f-droid.org/en/packages/com.adilhanney.saber/)
-[![GitHub all releases](https://img.shields.io/github/downloads/adil192/saber/total?label=GitHub%20downloads)](https://github.com/adil192/saber/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/saber-notes/saber/total?label=GitHub%20downloads)](https://github.com/saber-notes/saber/releases)
 [![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=Flathub%20downloads)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
-[![GitHub](https://img.shields.io/github/license/adil192/saber)](https://github.com/adil192/saber/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
-[![CodeFactor](https://www.codefactor.io/repository/github/adil192/saber/badge/main)](https://www.codefactor.io/repository/github/adil192/saber/overview/main)
+[![GitHub](https://img.shields.io/github/license/saber-notes/saber)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
+[![codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
+[![CodeFactor](https://www.codefactor.io/repository/github/saber-notes/saber/badge/main)](https://www.codefactor.io/repository/github/saber-notes/saber/overview/main)
 
 <details open>
 <summary>Klicken um Screenshots ein- oder auszublenden</summary>
 
 <div>
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
 </div>
 </details>
 
@@ -80,7 +80,7 @@ Optionen:
 1. Download aus dem [Play Store][google_play]
 
 2. Download aus [F-Droid][f-droid]
-   - Der F-Droid-Build ist nicht für Onyx Boox-Geräte optimiert, da dies [proprietäre Dependencies](https://github.com/adil192/saber/issues/219) von Onyx benötigen würde.
+   - Der F-Droid-Build ist nicht für Onyx Boox-Geräte optimiert, da dies [proprietäre Dependencies](https://github.com/saber-notes/saber/issues/219) von Onyx benötigen würde.
 
 3. Lade die `Saber_{version}.apk` vom aktuellen [Release][releases] runter und installiere diese.
 
@@ -118,7 +118,7 @@ Lade Saber vom [App Store][app_store] runter.
 https://docs.flutter.dev/get-started/install
 ### 2. Clone dieses Projekt
 ```bash
-git clone https://github.com/adil192/saber.git
+git clone https://github.com/saber-notes/saber.git
 ```
 ### 3. Hole die Dependencies
 ```bash
@@ -138,7 +138,7 @@ Das Setup für das [super_clipboard](https://pub.dev/packages/super_clipboard)-P
 `sudo apt install libsecret-1-dev libjsoncpp-dev`
 `flutter build linux`
 
-Dies ist ausreichend um es auf dem eigenen Computer zu benutzen, aber falls du deinen Build anderweitig zur Verfügung stellen möchtest, solltest du ein _Predictable Environment_ verwenden: Forke dieses Repo und nutze stattdessen die Github-Aktion [Build for Linux](https://github.com/adil192/saber/actions/workflows/linux.yml).
+Dies ist ausreichend um es auf dem eigenen Computer zu benutzen, aber falls du deinen Build anderweitig zur Verfügung stellen möchtest, solltest du ein _Predictable Environment_ verwenden: Forke dieses Repo und nutze stattdessen die Github-Aktion [Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml).
 
 #### Android
 
@@ -157,7 +157,7 @@ Hinweis: F-Droid-Veröffentlichungen sind leicht anders gebuildet:
 
 Der Windows-Installer wurde mit [Inno Setup](https://jrsoftware.org/isinfo.php) erstellt.
 Um einen eigenen Installer zu kreieren, führe das oben genannte Kommando aus, dann editiere und führe
-[installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss) mit dem Inno Setup-Compiler aus.
+[installers/desktop_inno_script.iss](https://github.com/saber-notes/saber/blob/main/installers/desktop_inno_script.iss) mit dem Inno Setup-Compiler aus.
 
 #### iOS & macOS
 
@@ -167,7 +167,7 @@ oder mit `flutter build macos`
 [für macOS builden](https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-xcode).
 
 Falls nicht, forke dieses Repo und benutze die Github-Aktion
-[Build for macOS and iOS](https://github.com/adil192/saber/actions/workflows/apple.yml).
+[Build for macOS and iOS](https://github.com/saber-notes/saber/actions/workflows/apple.yml).
 Alternativ kannst du diesem englischsprachigen Youtube-Tutorial
 [How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY) folgen,
 um manuell mit [Codemagic](https://codemagic.io/start/) zu builden.
@@ -184,28 +184,28 @@ um manuell mit [Codemagic](https://codemagic.io/start/) zu builden.
 ## Übersetzungen
 
 Alle Übersetzungen sind crowd-sourced. Saber wurde bisher in die folgenden Sprachen übersetzt:
-- Englisch ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- Arabisch ([ar](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- Tschechisch ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- Deutsch ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- Spanisch ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- Persisch ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- Französisch ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- Ungarisch ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- Italienisch ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- Japanisch ([ja](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- Brazilianisch Portuguese ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- Russisch ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- Türkisch ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- Chinesisch (vereinfacht) ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
-- Chinesisch (traditionell) ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
+- Englisch ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
+- Arabisch ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
+- Tschechisch ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
+- Deutsch ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
+- Spanisch ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
+- Persisch ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
+- Französisch ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
+- Ungarisch ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
+- Italienisch ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
+- Japanisch ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
+- Brazilianisch Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
+- Russisch ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
+- Türkisch ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
+- Chinesisch (vereinfacht) ([zh_Hans-CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
+- Chinesisch (traditionell) ([zh_Hant-TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
 
 ### Existierende Übersetzungen erweitern
 
-Besuche [_missing_translations.yaml](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.yaml)
+Besuche [_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml)
 um zu überprüfen ob Übersetzungen fehlen.
 
-1. Benutze [diesen Link](https://github.com/adil192/saber/edit/main/lib/i18n/_missing_translations.yaml)
+1. Benutze [diesen Link](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml)
    um `_missing_translations.yaml` zu editieren.
 2. Update deine `_missing_translations.yaml` mit deinen Übersetzungen, z. B. für Deutsch:
     ```yaml
@@ -224,11 +224,11 @@ um zu überprüfen ob Übersetzungen fehlen.
 
 1. Suche [hier](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) nach den zweistelligen Locale-Codes,
    z. B. `hi` für Hindi, `fr` für Französisch, `bn` für Bengalisch, `ar` für Arabisch, etc.
-2. Benutze [diesen Link](https://github.com/adil192/saber/new/main/lib/i18n/community)
+2. Benutze [diesen Link](https://github.com/saber-notes/saber/new/main/lib/i18n/community)
    um eine neue Datei in `lib/i18n/community/` mit dem Namen `strings_XX.i18n.yaml` zu erstellen, wobei 
    `XX` der herausgesuchte Locale-Code ist.
 3. Kopiere den Inhalt in eine existierende Datei, wie z. B.
-   [`lib/i18n/strings.i18n.yaml`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml)
+   [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)
    und ersetze diese mit deiner Eigenen.
    Falls du keine Übersetzung für die jeweilige Zeile kennst, lösche sie einfach.
 4. Öffne einen Pull-Request!
@@ -242,9 +242,9 @@ Wir haben zwei Formate für App Store-Beschreibungen:
 1. F-Droid/Play Store:
 
    i. Öffne `metadata/en-US/` und kopiere die
-      [`full_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/full_description.txt)-
+      [`full_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/full_description.txt)-
       und
-      [`short_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/short_description.txt)-Dateien in den `metadata/XX/`-Datei, wobei `XX` der herausgesuchte Locale-Code ist.
+      [`short_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/short_description.txt)-Dateien in den `metadata/XX/`-Datei, wobei `XX` der herausgesuchte Locale-Code ist.
       Übersetze dann die Inhalte der Dateien.
 
    ii. Changelogs werden automatisch aus der englischen Version übersetzt.
@@ -254,7 +254,7 @@ Wir haben zwei Formate für App Store-Beschreibungen:
 2. Linux .desktop-Datei:
 
    i. Öffne
-   [`flatpak/com.adilhanney.saber.desktop`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.desktop)
+   [`flatpak/com.adilhanney.saber.desktop`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.desktop)
    und füge eine Zeile für den `Comment`-Key mit dem folgenden Format ein, wobei `XX` der herausgesuchte Locale-Code ist:
     ```ini
     Comment[XX]=Deine Übersetzung
@@ -265,7 +265,7 @@ Wir haben zwei Formate für App Store-Beschreibungen:
 
    i. Da der Flathub-Teil etwas technischer ist, kannst du diesen überspringen und ich kopiere die Übersetzungen aus der vorherigen Sektion.
    
-   ii. Füge in [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
+   ii. Füge in [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
        vor dem `</description>`-Closing-Tag eine Zeile für deine Übersetzung mit dem folgenden Format ein, wobei `XX` der herausgesuchte Locale-Code:
     ```html
     <p xml:lang="XX">Deine Übersetzung</p>
@@ -317,14 +317,14 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/adil192/saber/releases/download/v0.15.4/SaberInstaller_v0.15.4.exe
-[download_appimage]: https://github.com/adil192/saber/releases/download/v0.15.4/Saber-0.15.4-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.15.4/SaberInstaller_v0.15.4.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.15.4/Saber-0.15.4-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
-[privacy]: https://github.com/adil192/saber/blob/main/privacy_policy.md
-[license]: https://github.com/adil192/saber/blob/main/LICENSE.md
+[privacy]: https://github.com/saber-notes/saber/blob/main/privacy_policy.md
+[license]: https://github.com/saber-notes/saber/blob/main/LICENSE.md
 
-[releases]: https://github.com/adil192/saber/releases
-[issues]: https://github.com/adil192/saber/issues
-[progress]: https://github.com/adil192/saber/discussions/1
+[releases]: https://github.com/saber-notes/saber/releases
+[issues]: https://github.com/saber-notes/saber/issues
+[progress]: https://github.com/saber-notes/saber/discussions/1

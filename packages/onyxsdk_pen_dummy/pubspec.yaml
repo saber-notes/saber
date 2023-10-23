@@ -1,7 +1,7 @@
 name: onyxsdk_pen
 description: This plugin integrates the Onyx Pen SDK into Flutter to improve e-ink responsiveness in drawing apps.
 version: 1.2.0
-homepage: https://github.com/adil192/saber/tree/main/packages/onyxsdk_pen
+homepage: https://github.com/saber-notes/saber/tree/main/packages/onyxsdk_pen
 publish_to: 'none'
 
 topics:

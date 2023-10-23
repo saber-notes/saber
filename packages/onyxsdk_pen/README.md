@@ -19,7 +19,7 @@ just return its child.
 
 ### Android
 
-See [this commit](https://github.com/adil192/saber/commit/ff925089969b6fb97385fa40cea6e0dad3b7c6be)
+See [this commit](https://github.com/saber-notes/saber/commit/ff925089969b6fb97385fa40cea6e0dad3b7c6be)
 for an example of the following setup...
 
 #### `android/app/build.gradle`
@@ -113,4 +113,4 @@ void main() async {
 
 I no longer have an Onyx device, so I can't really develop this plugin any further.
 If you are able to, we're looking for help with this feature:
-https://github.com/adil192/saber/issues/848
+https://github.com/saber-notes/saber/issues/848

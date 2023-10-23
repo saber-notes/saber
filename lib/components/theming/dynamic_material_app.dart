@@ -85,7 +85,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   }
 
   /// We need to use a custom font if macOS < 10.13,
-  /// see https://github.com/adil192/saber/issues/26
+  /// see https://github.com/saber-notes/saber/issues/26
   void decideOnFont() {
     if (!Platform.isMacOS) return;
 

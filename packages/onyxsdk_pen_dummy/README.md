@@ -12,6 +12,6 @@ dependencies:
   # onyxsdk_pen: ^1.0.3
   onyxsdk_pen:
     git:
-      url: https://github.com/adil192/saber
+      url: https://github.com/saber-notes/saber
       path: packages/onyxsdk_pen_dummy
 ```

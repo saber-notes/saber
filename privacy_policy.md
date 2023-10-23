@@ -5,9 +5,9 @@ facilitates the user in creating and organising handwritten notes.
 
 This privacy policy will change as the app evolves: you can view any changes on this page
 and can track the app's progress through the
-[Saber progress discussion](https://github.com/adil192/saber/discussions/1)
+[Saber progress discussion](https://github.com/saber-notes/saber/discussions/1)
 and the changelogs on the
-[Releases](https://github.com/adil192/saber/releases) page.
+[Releases](https://github.com/saber-notes/saber/releases) page.
 
 ## What data does the application use?
 
@@ -30,7 +30,7 @@ Certain versions of the application are supported by Google AdMob ads including 
 and other GDPR-compliant ad networks:
 - The iOS version available on the App Store
 - The Android version available on the Google Play Store
-- The Android version available from the repo's [Releases](https://github.com/adil192/saber/releases) page on GitHub
+- The Android version available from the repo's [Releases](https://github.com/saber-notes/saber/releases) page on GitHub
 
 Note that the Android version available on F-Droid does not use Google AdMob or contain ads.
 
@@ -75,8 +75,8 @@ so they're unreadable to the server owner.
 ## “Talk is cheap. Show me the code.”
 
 The source code is free and open to the public under the
-[GPLv3 license](https://github.com/adil192/saber/blob/main/LICENSE.md)
-and is available on [GitHub](https://github.com/adil192/saber).
+[GPLv3 license](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
+and is available on [GitHub](https://github.com/saber-notes/saber).
 
 ## How can I delete my data?
 
@@ -98,5 +98,5 @@ How you can delete your data will vary based on which cloud provider you use.
 
 This application is developed by Adil Hanney.
 You can contact me at [adilhanney@disroot.org](mailto:adilhanney@disroot.org) for any enquiries,
-or [create an issue](https://github.com/adil192/saber/issues/new/choose)
+or [create an issue](https://github.com/saber-notes/saber/issues/new/choose)
 on this repo (requires a GitHub account).

@@ -10,7 +10,7 @@
     <summary>A cross-platform libre handwritten notes app</summary>
 
     <developer_name>Adil Hanney</developer_name>
-    <url type="homepage">https://github.com/adil192/saber</url>
+    <url type="homepage">https://github.com/saber-notes/saber</url>
 
     <metadata_license>MIT</metadata_license>
     <project_license>GPL-3.0-only</project_license>
@@ -252,15 +252,15 @@
     <screenshots>
         <screenshot type="default">
             <caption>The home screen showing recent notes</caption>
-            <image>https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/images/tenInchScreenshots/home-desktop.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/home-desktop.png</image>
         </screenshot>
         <screenshot>
             <caption>The editor in which the user has written y=mx+c and highlighted the m and c</caption>
-            <image>https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/images/tenInchScreenshots/editor-desktop.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/editor-desktop.png</image>
         </screenshot>
         <screenshot>
             <caption>The login page which asks for your username, Nextcloud password, and encryption password</caption>
-            <image>https://raw.githubusercontent.com/adil192/saber/main/metadata/en-US/images/tenInchScreenshots/login-desktop.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/login-desktop.png</image>
         </screenshot>
     </screenshots>
 

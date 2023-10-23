@@ -4,7 +4,7 @@
 #define MyAppName "Saber"
 #define MyAppVersion "0.17.0"
 #define MyAppPublisher "Adil Hanney"
-#define MyAppURL "https://github.com/adil192/saber"
+#define MyAppURL "https://github.com/saber-notes/saber"
 #define MyAppExeName "saber.exe"
 #define MyAppAssocName MyAppName + " Note"
 #define MyAppAssocExt ".sbn2"

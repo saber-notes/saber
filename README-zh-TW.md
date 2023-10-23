@@ -1,6 +1,6 @@
-# <img src="https://github.com/adil192/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
+# <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-您可以在以下位置閱讀此文件：[English](https://github.com/adil192/saber/blob/main/README.md), [češtině](https://github.com/adil192/saber/blob/main/README-cs.md), [Deutsch](https://github.com/adil192/saber/blob/main/README-de.md), [繁體中文](https://github.com/adil192/saber/blob/main/README-zh-TW.md)
+您可以在以下位置閱讀此文件：[English](https://github.com/saber-notes/saber/blob/main/README.md), [češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md), [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md), [繁體中文](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
 作為 Saber 的開發者，我很高興向您介紹一款徹底改變您記筆記方式的應用程式。Saber 是終極手寫筆記應用程式，旨在將您的筆記體驗提升到新的高度！透過這款由尖端技術提供支援、功能豐富的應用程式，擁抱手寫藝術並釋放您的創造力。Saber 直觀而現代的界面讓您可以輕鬆地記下筆記、繪製圖表或精確註釋 PDF。
 
@@ -16,51 +16,51 @@ Saber 擁有您整理筆記所需的一切。根據您的喜好在資料夾內�
 
 使用 Saber 發現一種捕捉和組織想法的全新方式。無論您是學生、專業人士還是創意人士，Saber 都是您值得信賴的數位手寫伴侶。立即下載，讓您的想法自由發揮！
 
-[<img src='https://github.com/adil192/saber/blob/main/assets_raw/badges/google-play-badge.png'
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
     alt='在 Google Play 上取得'
     height=80>][google_play]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
     alt="在 F-Droid 上取得"
     height=80>][f-droid]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
     alt="在 App Store 下載"
     height=80>][app_store]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/windows-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
     alt="下載 Windows 版"
     height=80>][download_windows]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
     alt="在 Flathub 上下載"
     height=80>][flathub]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/appimage-logo.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="取得 AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/adil192/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
     alt="在 Snap Store 上取得"
     height=80>][snap]
 
-[![GitHub release (最新發行)](https://img.shields.io/github/v/release/adil192/saber)](https://github.com/adil192/saber/releases/latest)
+[![GitHub release (最新發行)](https://img.shields.io/github/v/release/saber-notes/saber)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)](https://f-droid.org/en/packages/com.adilhanney.saber/)
-[![GitHub all releases](https://img.shields.io/github/downloads/adil192/saber/total?label=GitHub%20downloads)](https://github.com/adil192/saber/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/saber-notes/saber/total?label=GitHub%20downloads)](https://github.com/saber-notes/saber/releases)
 [![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=Flathub%20downloads)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
-[![GitHub](https://img.shields.io/github/license/adil192/saber)](https://github.com/adil192/saber/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/adil192/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/adil192/saber)
-[![CodeFactor](https://www.codefactor.io/repository/github/adil192/saber/badge/main)](https://www.codefactor.io/repository/github/adil192/saber/overview/main)
+[![GitHub](https://img.shields.io/github/license/saber-notes/saber)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
+[![codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
+[![CodeFactor](https://www.codefactor.io/repository/github/saber-notes/saber/badge/main)](https://www.codefactor.io/repository/github/saber-notes/saber/overview/main)
 
 <details open>
 <summary>點擊即可顯示/隱藏螢幕截圖</summary>
 
 <div>
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/adil192/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
 </div>
 </details>
 
@@ -81,7 +81,7 @@ Saber 擁有您整理筆記所需的一切。根據您的喜好在資料夾內�
 
 2. 從 [F-Droid][f-droid] 下載
 
-   - 請注意，F-Droid 版本並未針對 Onyx Boox 裝置進行最佳化，因為這需要來自 Onyx 的 [專有依賴項](https://github.com/adil192/saber/issues/219)。
+   - 請注意，F-Droid 版本並未針對 Onyx Boox 裝置進行最佳化，因為這需要來自 Onyx 的 [專有依賴項](https://github.com/saber-notes/saber/issues/219)。
 
 3. 從最新的 [Release][releases] 下載並安裝 `Saber_{version}.apk`。
 
@@ -122,7 +122,7 @@ https://docs.flutter.dev/get-started/install
 ### 2. 克隆這個項目
 
 ```bash
-git clone https://github.com/adil192/saber.git
+git clone https://github.com/saber-notes/saber.git
 ```
 
 ### 3. 取得依賴項
@@ -145,7 +145,7 @@ flutter pub get
 
 這足以在您自己的電腦上使用，但如果您想重新分發您的構建，
 您需要使用可預測的環境：分叉此倉庫並使用 GitHub Action
-[為 Linux 構建](https://github.com/adil192/saber/actions/workflows/linux.yml)。
+[為 Linux 構建](https://github.com/saber-notes/saber/actions/workflows/linux.yml)。
 
 #### Android
 
@@ -164,7 +164,7 @@ flutter pub get
 
 Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 創建的。
 要創建您自己的安裝程式，請運行上面的構建指令，然後編輯並運行
-[installers/desktop_inno_script.iss](https://github.com/adil192/saber/blob/main/installers/desktop_inno_script.iss)
+[installers/desktop_inno_script.iss](https://github.com/saber-notes/saber/blob/main/installers/desktop_inno_script.iss)
 使用 Inno 安裝編譯器。
 
 #### iOS and macOS
@@ -176,7 +176,7 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 使用 `flutter build macos`。
 
 如果不這樣做，請分叉此倉庫並使用 GitHub Action
-[針對 macOS 和 iOS 構建](https://github.com/adil192/saber/actions/workflows/apple.yml)。
+[針對 macOS 和 iOS 構建](https://github.com/saber-notes/saber/actions/workflows/apple.yml)。
 或者，按照此 YouTube 教學進行操作
 [How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
 使用 [Codemagic](https://codemagic.io/start/) 手動構建。
@@ -194,27 +194,27 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 
 所有翻譯都是群眾外包的。 Saber 目前已被翻譯成：
 
-- 英文 ([en](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- 阿拉伯文 ([ar](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- 捷克文 ([cs](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- 德文 ([de](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- 西班牙文 ([es](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- 波斯文 ([fa](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- 法文 ([fr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- 匈牙利文 ([hu](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- 義大利文 ([it](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- 日文 ([ja](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- 葡萄牙語（巴西） ([pt_BR](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- 俄文 ([ru](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- 土耳其文 ([tr](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- 簡體中文 ([zh_Hans-CN](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
-- 繁體中文 ([zh_Hant-TW](https://github.com/adil192/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
+- 英文 ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
+- 阿拉伯文 ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
+- 捷克文 ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
+- 德文 ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
+- 西班牙文 ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
+- 波斯文 ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
+- 法文 ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
+- 匈牙利文 ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
+- 義大利文 ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
+- 日文 ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
+- 葡萄牙語（巴西） ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
+- 俄文 ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
+- 土耳其文 ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
+- 簡體中文 ([zh_Hans-CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
+- 繁體中文 ([zh_Hant-TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
 
 ### 擴展現有語言
 
-檢查 [\_missing_translations.yaml](https://github.com/adil192/saber/blob/main/lib/i18n/_missing_translations.yaml) 是否缺少任何翻譯。
+檢查 [\_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml) 是否缺少任何翻譯。
 
-1. 使用[此連結](https://github.com/adil192/saber/edit/main/lib/i18n/_missing_translations.yaml)編輯 `_missing_translations.yaml`。
+1. 使用[此連結](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml)編輯 `_missing_translations.yaml`。
 2. 使用您的翻譯更新您的 `_missing_translations.yaml` 檔案，例如更新德文 (de)
    ```yaml
    de:
@@ -231,8 +231,8 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 ### 添加新語言
 
 1. 在[此處](https://saimana.com/list-of-country-locale-code/)查找您的區域代碼，例如 `hi` 代表印地文， `fr` 代表法文， `bn` 代表孟加拉文， `ar` 代表阿拉伯文，等等。
-2. 使用[此連結](https://github.com/adil192/saber/new/main/lib/i18n/community)在 `lib/i18n/community/` 中創建一個名為 `strings_XX.i18n.yaml` 的新檔案，其中 `XX` 是您的區代域碼。
-3. 複製現有檔案的內容，例如 [`lib/i18n/strings.i18n.yaml`](https://github.com/adil192/saber/blob/main/lib/i18n/strings.i18n.yaml) ，並將字串替換為您自己的翻譯。如果您不知道字串的翻譯，只需刪除該行即可。
+2. 使用[此連結](https://github.com/saber-notes/saber/new/main/lib/i18n/community)在 `lib/i18n/community/` 中創建一個名為 `strings_XX.i18n.yaml` 的新檔案，其中 `XX` 是您的區代域碼。
+3. 複製現有檔案的內容，例如 [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml) ，並將字串替換為您自己的翻譯。如果您不知道字串的翻譯，只需刪除該行即可。
 4. 打開拉取請求！
 
 另請參閱 [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) 了解更多資訊。
@@ -243,13 +243,13 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 
 1. F-Droid/Play Store:
 
-   i. 打開 `metadata/en-US/` 並複制 [`full_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/full_description.txt) 和 [`short_description.txt`](https://github.com/adil192/saber/blob/main/metadata/en-US/short_description.txt) 檔案放入 `metadata/XX/` 資料夾，其中 `XX` 是您的區域代碼。然後翻譯檔案的內容。
+   i. 打開 `metadata/en-US/` 並複制 [`full_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/full_description.txt) 和 [`short_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/short_description.txt) 檔案放入 `metadata/XX/` 資料夾，其中 `XX` 是您的區域代碼。然後翻譯檔案的內容。
 
    ii. 變更日誌會自動從英文版本翻譯，如果您發現錯誤，請編輯翻譯後的變更日誌 `metadata/XX/changelogs/<version-code>.txt` 其中 `XX` 是您的區域代碼。
 
 2. Linux .desktop 檔案:
 
-   i. 打開 [`flatpak/com.adilhanney.saber.desktop`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.desktop) 並使用以下格式為 `Comment` 鍵添加一行，其中 `XX` 是您的區域代碼：
+   i. 打開 [`flatpak/com.adilhanney.saber.desktop`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.desktop) 並使用以下格式為 `Comment` 鍵添加一行，其中 `XX` 是您的區域代碼：
 
    ```ini
    Comment[XX]=您的翻譯
@@ -261,7 +261,7 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 
    i. 由於技術性稍強，您可以跳過 Flathub 部分，我將複製上一步的翻譯。
 
-   ii. 在 [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/adil192/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml) 在 `</description>` 標記之前，添加一行翻譯內容，使用以下格式，其中 `XX` 是您的區域代碼：
+   ii. 在 [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml) 在 `</description>` 標記之前，添加一行翻譯內容，使用以下格式，其中 `XX` 是您的區域代碼：
 
    ```html
    <p xml:lang="XX">您的翻譯</p>
@@ -313,11 +313,11 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/adil192/saber/releases/download/v0.14.10/SaberInstaller_v0.14.10.exe
-[download_appimage]: https://github.com/adil192/saber/releases/download/v0.14.10/Saber-0.14.10-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.14.10/SaberInstaller_v0.14.10.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.14.10/Saber-0.14.10-x86_64.AppImage
 [nextcloud]: https://nc.saber.adil.hanney.org/
-[privacy]: https://github.com/adil192/saber/blob/main/privacy_policy.md
-[license]: https://github.com/adil192/saber/blob/main/LICENSE.md
-[releases]: https://github.com/adil192/saber/releases
-[issues]: https://github.com/adil192/saber/issues
-[progress]: https://github.com/adil192/saber/discussions/1
+[privacy]: https://github.com/saber-notes/saber/blob/main/privacy_policy.md
+[license]: https://github.com/saber-notes/saber/blob/main/LICENSE.md
+[releases]: https://github.com/saber-notes/saber/releases
+[issues]: https://github.com/saber-notes/saber/issues
+[progress]: https://github.com/saber-notes/saber/discussions/1

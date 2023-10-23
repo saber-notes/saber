@@ -1,6 +1,6 @@
 /// This test is to diagnose an issue with sending an `EditorCoreInfo` object
 /// from the isolate to the main thread:
-/// https://github.com/adil192/saber/issues/638
+/// https://github.com/saber-notes/saber/issues/638
 
 import 'dart:io';
 

@@ -7,8 +7,8 @@ license: GPL-3.0
 compression: lzo
 icon: assets/icon/icon.png
 donation: https://github.com/sponsors/adil192
-source-code: https://github.com/adil192/saber
-issues: https://github.com/adil192/saber/issues
+source-code: https://github.com/saber-notes/saber
+issues: https://github.com/saber-notes/saber/issues
 contact: soumyadeepghosh2004@zohomail.in
 architectures:
   - build-on: amd64
@@ -35,7 +35,7 @@ parts:
       echo 'Skip Prime'
   saber:
     after: [rustup]
-    source: https://github.com/adil192/saber.git
+    source: https://github.com/saber-notes/saber.git
     source-tag: 'v0.17.0'
     plugin: flutter
     #build-attributes: [enable-patchelf]

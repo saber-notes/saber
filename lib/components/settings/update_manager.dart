@@ -22,8 +22,8 @@ import 'package:url_launcher/url_launcher.dart';
 abstract class UpdateManager {
   static final log = Logger('UpdateManager');
 
-  static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/adil192/saber/main/lib/data/version.dart');
-  static final Uri apiUrl = Uri.parse('https://api.github.com/repos/adil192/saber/releases/latest');
+  static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/saber-notes/saber/main/lib/data/version.dart');
+  static final Uri apiUrl = Uri.parse('https://api.github.com/repos/saber-notes/saber/releases/latest');
   /// The availability of an update.
   static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
   static int? newestVersion;
@@ -274,7 +274,7 @@ abstract class UpdateManager {
     newestVersion ??= UpdateManager.newestVersion;
     assert(newestVersion != null);
 
-    final url = 'https://raw.githubusercontent.com/adil192/saber/main/'
+    final url = 'https://raw.githubusercontent.com/saber-notes/saber/main/'
         'metadata/$localeCode/changelogs/$newestVersion.txt';
     log.info('Downloading changelog from $url');
 
