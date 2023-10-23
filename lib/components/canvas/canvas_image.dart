@@ -8,6 +8,7 @@ import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/shader_sampler.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -53,8 +54,7 @@ class _CanvasImageState extends State<CanvasImage> {
     if (active == value) return;
 
     if (value) {
-      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-      CanvasImage.activeListener.notifyListeners(); // de-activate all other images
+      CanvasImage.activeListener.notifyListenersPlease(); // de-activate all other images
     }
 
     _active = value;

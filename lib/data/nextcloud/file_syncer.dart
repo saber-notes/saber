@@ -6,6 +6,7 @@ import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -232,8 +233,7 @@ abstract class FileSyncer {
       await Future.delayed(const Duration(seconds: 2));
     } finally {
       _isUploadingFile = false;
-      // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-      uploadNotifier.notifyListeners();
+      uploadNotifier.notifyListenersPlease();
       uploadFileFromQueue();
     }
   }

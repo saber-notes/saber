@@ -35,6 +35,7 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -485,8 +486,7 @@ class EditorState extends State<Editor> {
   bool isDrawGesture(ScaleStartDetails details) {
     if (coreInfo.readOnly) return false;
 
-    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-    CanvasImage.activeListener.notifyListeners(); // un-select active image
+    CanvasImage.activeListener.notifyListenersPlease(); // un-select active image
 
     _lastSeenPointerCountTimer?.cancel();
     if (lastSeenPointerCount >= 2) { // was a zoom gesture, ignore
@@ -1194,8 +1194,7 @@ class EditorState extends State<Editor> {
             page.images.remove(image);
             page.backgroundImage = image;
 
-            // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-            CanvasImage.activeListener.notifyListeners(); // un-select active image
+            CanvasImage.activeListener.notifyListenersPlease(); // un-select active image
 
             autosaveAfterDelay();
             setState(() {});

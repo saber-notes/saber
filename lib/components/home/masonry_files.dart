@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/home/preview_card.dart';
+import 'package:saber/data/extensions/change_notifier_extensions.dart';
 
 class MasonryFiles extends StatefulWidget {
   const MasonryFiles({
@@ -33,8 +34,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
       widget.selectedFiles.value.remove(filePath);
     }
     isAnythingSelected.value = widget.selectedFiles.value.isNotEmpty;
-    // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
-    widget.selectedFiles.notifyListeners();
+    widget.selectedFiles.notifyListenersPlease();
   }
 
   @override
