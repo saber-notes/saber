@@ -1,7 +1,3 @@
-/// This test is to diagnose an issue with sending an `EditorCoreInfo` object
-/// from the isolate to the main thread:
-/// https://github.com/saber-notes/saber/issues/638
-
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -13,6 +9,9 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 
+/// This test is to diagnose an issue with sending an `EditorCoreInfo` object
+/// from the isolate to the main thread:
+/// https://github.com/saber-notes/saber/issues/638
 void main() {
   group('Isolate messages:', () {
     FlavorConfig.setup();

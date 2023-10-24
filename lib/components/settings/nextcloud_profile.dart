@@ -77,8 +77,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
           final Quota? quota = snapshot.data;
           final double? relativePercent;
-          if (quota != null && quota.relative != null) {
-            relativePercent = quota.relative! / 100;
+          if (quota?.relative?.$double != null) {
+            relativePercent = quota!.relative!.$double! / 100;
           } else {
             relativePercent = null;
           }
@@ -94,7 +94,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                 semanticsLabel: 'Storage usage',
                 semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
               ),
-              Text('${readableBytes(quota?.used)} / ${readableBytes(quota?.total)}'),
+              Text('${readableBytes(quota?.used?.$double)} / ${readableBytes(quota?.total?.$double)}'),
             ],
           );
         },
