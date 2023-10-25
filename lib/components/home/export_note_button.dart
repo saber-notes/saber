@@ -5,6 +5,7 @@ import 'package:bson/bson.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -26,8 +27,10 @@ class ExportNoteButton extends StatefulWidget {
 
 class _ExportNoteButtonState extends State<ExportNoteButton>{
   final ValueNotifier<bool> isDialOpen = ValueNotifier(false);
+  bool _currentlyExporting = false;
 
   Future exportFile(List<String> selectedFiles, bool sbn2) async {
+    setState(() {_currentlyExporting = true;}); 
     List<ArchiveFile> files = [];
     for (String filePath in selectedFiles) {
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
@@ -51,8 +54,8 @@ class _ExportNoteButtonState extends State<ExportNoteButton>{
       }
       await FileManager.exportFile('${files[0].name}.zip', Uint8List.fromList(ZipEncoder().encode(archive)!));
     }
+    setState(() {_currentlyExporting = false;}); 
   }
-  
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
@@ -62,12 +65,14 @@ class _ExportNoteButtonState extends State<ExportNoteButton>{
       childPadding: const EdgeInsets.all(5),
       spaceBetweenChildren: 4,
       dialRoot: (ctx, open, toggleChildren) {
-        return IconButton(
-          padding: EdgeInsets.zero,
-          tooltip: t.home.tooltips.exportNote,
-          onPressed: toggleChildren,
-          icon: const Icon(Icons.share)
-        );
+        return _currentlyExporting
+        ? const SpinningLoadingIcon()
+        : IconButton(
+            padding: EdgeInsets.zero,
+            tooltip: t.home.tooltips.exportNote,
+            onPressed: toggleChildren,
+            icon: const Icon(Icons.share)
+          );
       },
       children: [
         SpeedDialChild(
