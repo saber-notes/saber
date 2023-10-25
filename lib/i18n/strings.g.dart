@@ -340,6 +340,7 @@ class _StringsHomeTooltipsEn {
 	// Translations
 	String get newNote => 'New note';
 	String get showUpdateDialog => 'Show update dialog';
+	String get exportNote => 'Export note';
 }
 
 // Path: home.create

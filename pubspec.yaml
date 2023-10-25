@@ -103,6 +103,8 @@ dependencies:
 
   worker_manager: ^6.0.0
 
+  archive: ^3.4.6
+
   # Using a fork because the original uses an old version of kotlin and doesn't support text files
   receive_sharing_intent:
     git:
