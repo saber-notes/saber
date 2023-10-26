@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3916 (244 per locale)
+/// Strings: 3856 (241 per locale)
 ///
-/// Built on 2023-10-26 at 14:19 UTC
+/// Built on 2023-10-26 at 14:33 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -203,7 +203,6 @@ class _StringsSettingsEn {
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
 	late final _StringsSettingsLayoutSizesEn layoutSizes = _StringsSettingsLayoutSizesEn._(_root);
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
-	late final _StringsSettingsStraightenDelayEn straightenDelay = _StringsSettingsStraightenDelayEn._(_root);
 	String get systemLanguage => 'Default';
 	List<String> get axisDirections => [
 		'Top',
@@ -464,7 +463,6 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get editorOpaqueBackgrounds => 'Opaque backgrounds';
 	String get preferGreyscale => 'Prefer greyscale colors';
-	String get editorStraightenLines => 'Draw then hold down for a straight line';
 	String get maxImageSize => 'Maximum image size';
 	String get autoClearWhiteboardOnExit => 'Auto-clear the whiteboard';
 	String get disableEraserAfterUse => 'Auto-disable the eraser';
@@ -531,18 +529,6 @@ class _StringsSettingsAccentColorPickerEn {
 
 	// Translations
 	String get pickAColor => 'Pick a color';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get off => 'Off';
-	String get regular => 'Regular';
-	String get slow => 'Slow';
 }
 
 // Path: settings.reset
@@ -985,7 +971,6 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesAr themeModes = _StringsSettingsThemeModesAr._(_root);
 	@override late final _StringsSettingsLayoutSizesAr layoutSizes = _StringsSettingsLayoutSizesAr._(_root);
 	@override late final _StringsSettingsAccentColorPickerAr accentColorPicker = _StringsSettingsAccentColorPickerAr._(_root);
-	@override late final _StringsSettingsStraightenDelayAr straightenDelay = _StringsSettingsStraightenDelayAr._(_root);
 	@override String get systemLanguage => 'لغة النظام';
 	@override List<String> get axisDirections => [
 		'أعلى',
@@ -1242,7 +1227,6 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
 	@override String get editorOpaqueBackgrounds => 'خلفيات معتمة';
 	@override String get preferGreyscale => 'تفضيل الألوان الرمادية';
-	@override String get editorStraightenLines => 'اضغط مع الاستمرار لتصويب الخط';
 	@override String get maxImageSize => 'الحجم الأقصى للصورة';
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
@@ -1313,18 +1297,6 @@ class _StringsSettingsAccentColorPickerAr extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'اختر لوناً';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayAr extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayAr._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'مغلق';
-	@override String get regular => 'عادي';
-	@override String get slow => 'بطيء';
 }
 
 // Path: settings.reset
@@ -1767,7 +1739,6 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesCs themeModes = _StringsSettingsThemeModesCs._(_root);
 	@override late final _StringsSettingsLayoutSizesCs layoutSizes = _StringsSettingsLayoutSizesCs._(_root);
 	@override late final _StringsSettingsAccentColorPickerCs accentColorPicker = _StringsSettingsAccentColorPickerCs._(_root);
-	@override late final _StringsSettingsStraightenDelayCs straightenDelay = _StringsSettingsStraightenDelayCs._(_root);
 	@override String get systemLanguage => 'Systémový jazyk';
 	@override List<String> get axisDirections => [
 		'Nahoře',
@@ -2028,7 +1999,6 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'V tmavém režimu invertovat poznámky';
 	@override String get editorOpaqueBackgrounds => 'Neprůhledná pozadí';
 	@override String get preferGreyscale => 'Preferovat černobílé barvy';
-	@override String get editorStraightenLines => 'Pro kreslení rovné čáry stisknout a podržet';
 	@override String get maxImageSize => 'Maximální velikost obrázku';
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get disableEraserAfterUse => 'Automaticky vypínat gumu';
@@ -2095,18 +2065,6 @@ class _StringsSettingsAccentColorPickerCs extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Výběr vlastní barvy';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayCs extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Vypnuto';
-	@override String get regular => 'Standardně';
-	@override String get slow => 'Dlouze';
 }
 
 // Path: settings.reset
@@ -2549,7 +2507,6 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesDe themeModes = _StringsSettingsThemeModesDe._(_root);
 	@override late final _StringsSettingsLayoutSizesDe layoutSizes = _StringsSettingsLayoutSizesDe._(_root);
 	@override late final _StringsSettingsAccentColorPickerDe accentColorPicker = _StringsSettingsAccentColorPickerDe._(_root);
-	@override late final _StringsSettingsStraightenDelayDe straightenDelay = _StringsSettingsStraightenDelayDe._(_root);
 	@override String get systemLanguage => 'Systemsprache';
 	@override List<String> get axisDirections => [
 		'Oben',
@@ -2738,6 +2695,7 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notiz verschieben';
+	@override String moveNotes({required Object n}) => '${n} Notizen verschieben';
 	@override String moveName({required Object f}) => 'verschiebe ${f}';
 	@override String get move => 'Verschieben';
 	@override String renamedTo({required Object newName}) => 'Notiz wird umbenannt zu ${newName}';
@@ -2808,7 +2766,6 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
 	@override String get editorOpaqueBackgrounds => 'Undurchsichtige Hintergründe';
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
-	@override String get editorStraightenLines => 'Drücke und halte für eine gerade Linie';
 	@override String get maxImageSize => 'Maximale Bildgröße';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
@@ -2876,18 +2833,6 @@ class _StringsSettingsAccentColorPickerDe extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Wähle eine Farbe';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayDe extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Aus';
-	@override String get regular => 'Normal';
-	@override String get slow => 'Langsam';
 }
 
 // Path: settings.reset
@@ -3330,7 +3275,6 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesEs themeModes = _StringsSettingsThemeModesEs._(_root);
 	@override late final _StringsSettingsLayoutSizesEs layoutSizes = _StringsSettingsLayoutSizesEs._(_root);
 	@override late final _StringsSettingsAccentColorPickerEs accentColorPicker = _StringsSettingsAccentColorPickerEs._(_root);
-	@override late final _StringsSettingsStraightenDelayEs straightenDelay = _StringsSettingsStraightenDelayEs._(_root);
 	@override String get systemLanguage => 'Idioma del sistema';
 	@override List<String> get axisDirections => [
 		'Arriba',
@@ -3590,7 +3534,6 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Invertir notas en el modo oscuro';
 	@override String get editorOpaqueBackgrounds => 'Fondos opacos';
 	@override String get preferGreyscale => 'Preferir colores en escala de grises';
-	@override String get editorStraightenLines => 'Mantener presionado para enderezar una línea';
 	@override String get maxImageSize => 'Tamaño máximo de la imagen';
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get disableEraserAfterUse => 'Desactivar automáticamente la goma de borrar';
@@ -3657,18 +3600,6 @@ class _StringsSettingsAccentColorPickerEs extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Elegir un color';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayEs extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Apagado';
-	@override String get regular => 'Regular';
-	@override String get slow => 'Lento';
 }
 
 // Path: settings.reset
@@ -4111,7 +4042,6 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesFa themeModes = _StringsSettingsThemeModesFa._(_root);
 	@override late final _StringsSettingsLayoutSizesFa layoutSizes = _StringsSettingsLayoutSizesFa._(_root);
 	@override late final _StringsSettingsAccentColorPickerFa accentColorPicker = _StringsSettingsAccentColorPickerFa._(_root);
-	@override late final _StringsSettingsStraightenDelayFa straightenDelay = _StringsSettingsStraightenDelayFa._(_root);
 	@override String get systemLanguage => 'زبان سیستم';
 	@override List<String> get axisDirections => [
 		'بالا',
@@ -4300,10 +4230,11 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'انتقال یادداشت';
-	@override String moveNotes({required Object n}) => '${n} یادداشت را جابجا کنید';
 	@override String moveName({required Object f}) => 'انتقال ${f}';
 	@override String get move => 'انتقال';
 	@override String renamedTo({required Object newName}) => 'یادداشت به ${newName} تغییر نام می یابد';
+	@override String numberRenamedTo({required Object n}) => '${n} یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد';
+	@override String moveNotes({required Object n}) => '${n} یادداشت را جابجا کنید';
 	@override String get multipleRenamedTo => 'یادداشت های زیر تغییر خواهند کرد:';
 }
 
@@ -4371,7 +4302,6 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'معکوس کردن رنگ یادداشت ها در حالت تاریک';
 	@override String get editorOpaqueBackgrounds => 'پس زمینه مات';
 	@override String get preferGreyscale => 'رنگ های خاکستری را در اولویت قرار دهید';
-	@override String get editorStraightenLines => 'برای کشیدن خط صاف فشار دهید و نگه دارید';
 	@override String get maxImageSize => 'حداکثر اندازه تصویر';
 	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
 	@override String get disableEraserAfterUse => 'پاک کن را به صورت خودکار غیرفعال کنید';
@@ -4438,18 +4368,6 @@ class _StringsSettingsAccentColorPickerFa extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'یک رنگ انتخاب کنید';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayFa extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'خاموش';
-	@override String get regular => 'منظم';
-	@override String get slow => 'آهسته';
 }
 
 // Path: settings.reset
@@ -4892,7 +4810,6 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesFr themeModes = _StringsSettingsThemeModesFr._(_root);
 	@override late final _StringsSettingsLayoutSizesFr layoutSizes = _StringsSettingsLayoutSizesFr._(_root);
 	@override late final _StringsSettingsAccentColorPickerFr accentColorPicker = _StringsSettingsAccentColorPickerFr._(_root);
-	@override late final _StringsSettingsStraightenDelayFr straightenDelay = _StringsSettingsStraightenDelayFr._(_root);
 	@override String get systemLanguage => 'Langue système';
 	@override List<String> get axisDirections => [
 		'Haut',
@@ -5153,7 +5070,6 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Inverser les couleurs en mode sombre';
 	@override String get editorOpaqueBackgrounds => 'Fonds opaques';
 	@override String get preferGreyscale => 'Préférer les nuances de gris';
-	@override String get editorStraightenLines => 'Presser et maintenir le tracé pour obtenir une ligne droite';
 	@override String get maxImageSize => 'Taille d\'image maximum';
 	@override String get autoClearWhiteboardOnExit => 'Effacer le tableau blanc quand vous fermez l\'application';
 	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme après usage';
@@ -5220,18 +5136,6 @@ class _StringsSettingsAccentColorPickerFr extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Choisir une couleur';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayFr extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Desactivé';
-	@override String get regular => 'Normal';
-	@override String get slow => 'Lent';
 }
 
 // Path: settings.reset
@@ -5674,7 +5578,6 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesHe themeModes = _StringsSettingsThemeModesHe._(_root);
 	@override late final _StringsSettingsLayoutSizesHe layoutSizes = _StringsSettingsLayoutSizesHe._(_root);
 	@override late final _StringsSettingsAccentColorPickerHe accentColorPicker = _StringsSettingsAccentColorPickerHe._(_root);
-	@override late final _StringsSettingsStraightenDelayHe straightenDelay = _StringsSettingsStraightenDelayHe._(_root);
 	@override String get systemLanguage => 'ברירת מחדל';
 	@override List<String> get axisDirections => [
 		'למעלה',
@@ -5935,7 +5838,6 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'הפוך הערות במצב כהה';
 	@override String get editorOpaqueBackgrounds => 'רקעים אטומים';
 	@override String get preferGreyscale => 'העדיפו צבעי גווני אפור';
-	@override String get editorStraightenLines => 'צייר ואז החזק לחוץ עבור קו ישר';
 	@override String get maxImageSize => 'גודל תמונה מקסימלי';
 	@override String get autoClearWhiteboardOnExit => 'נקה אוטומטית את הלוח הלבן';
 	@override String get disableEraserAfterUse => 'השבת אוטומטית את המחק';
@@ -6002,18 +5904,6 @@ class _StringsSettingsAccentColorPickerHe extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'בחר צבע';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayHe extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayHe._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'כבוי';
-	@override String get regular => 'רגיל';
-	@override String get slow => 'איטי';
 }
 
 // Path: settings.reset
@@ -6456,7 +6346,6 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesHu themeModes = _StringsSettingsThemeModesHu._(_root);
 	@override late final _StringsSettingsLayoutSizesHu layoutSizes = _StringsSettingsLayoutSizesHu._(_root);
 	@override late final _StringsSettingsAccentColorPickerHu accentColorPicker = _StringsSettingsAccentColorPickerHu._(_root);
-	@override late final _StringsSettingsStraightenDelayHu straightenDelay = _StringsSettingsStraightenDelayHu._(_root);
 	@override String get systemLanguage => 'Rendszerspecifikus nyelve';
 	@override List<String> get axisDirections => [
 		'Fel',
@@ -6644,6 +6533,8 @@ class _StringsHomeMoveNoteHu extends _StringsHomeMoveNoteEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String moveNotes({required Object n}) => '${n} jegyzet mozgatása';
+	@override String numberRenamedTo({required Object n}) => '${n} jegyzet átnevezésre kerül az ütközések elkerülése érdekében';
 	@override String get multipleRenamedTo => 'A következő megjegyzések átnevezésre kerülnek:';
 	@override String get moveNote => 'Jegyzet áthelyezése';
 	@override String moveName({required Object f}) => 'Mozgassa ${f}';
@@ -6710,7 +6601,6 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Jegyzetek színének felcserélése sötét módban';
 	@override String get editorOpaqueBackgrounds => 'Áttetsző hátterek';
 	@override String get preferGreyscale => 'Szürkeárnyalatos színek előnyben részesítése';
-	@override String get editorStraightenLines => 'Nyomja meg és tartsa lenyomva egy vonal kiegyenesítéséhez';
 	@override String get maxImageSize => 'Maximális képméret';
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
@@ -6782,18 +6672,6 @@ class _StringsSettingsAccentColorPickerHu extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Szín kiválasztása';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayHu extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayHu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Ki';
-	@override String get regular => 'Normál';
-	@override String get slow => 'Lassú';
 }
 
 // Path: settings.reset
@@ -7236,7 +7114,6 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesIt themeModes = _StringsSettingsThemeModesIt._(_root);
 	@override late final _StringsSettingsLayoutSizesIt layoutSizes = _StringsSettingsLayoutSizesIt._(_root);
 	@override late final _StringsSettingsAccentColorPickerIt accentColorPicker = _StringsSettingsAccentColorPickerIt._(_root);
-	@override late final _StringsSettingsStraightenDelayIt straightenDelay = _StringsSettingsStraightenDelayIt._(_root);
 	@override String get systemLanguage => 'Lingua del sistema';
 	@override List<String> get axisDirections => [
 		'Sopra',
@@ -7497,7 +7374,6 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
 	@override String get editorOpaqueBackgrounds => 'Sfondi opachi';
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
-	@override String get editorStraightenLines => 'Tenere premuto per raddrizzare una linea';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
 	@override String get disableEraserAfterUse => 'Disattiva automaticamente la gomma';
@@ -7564,18 +7440,6 @@ class _StringsSettingsAccentColorPickerIt extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Scegli un colore';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayIt extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Off';
-	@override String get regular => 'Regolare';
-	@override String get slow => 'Lento';
 }
 
 // Path: settings.reset
@@ -8018,7 +7882,6 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesJa themeModes = _StringsSettingsThemeModesJa._(_root);
 	@override late final _StringsSettingsLayoutSizesJa layoutSizes = _StringsSettingsLayoutSizesJa._(_root);
 	@override late final _StringsSettingsAccentColorPickerJa accentColorPicker = _StringsSettingsAccentColorPickerJa._(_root);
-	@override late final _StringsSettingsStraightenDelayJa straightenDelay = _StringsSettingsStraightenDelayJa._(_root);
 	@override String get systemLanguage => 'システムの言語';
 	@override List<String> get axisDirections => [
 		'上部',
@@ -8278,7 +8141,6 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'ダークモードでメモを反転';
 	@override String get editorOpaqueBackgrounds => '不透明な背景';
 	@override String get preferGreyscale => 'グレースケールを優先';
-	@override String get editorStraightenLines => '長押しで線をまっすぐにする';
 	@override String get maxImageSize => '最大画像サイズ';
 	@override String get autoClearWhiteboardOnExit => 'アプリを終了したらホワイトボードを消去する';
 	@override String get editorPromptRename => '新しいメモの名前を変更するよう促す';
@@ -8346,18 +8208,6 @@ class _StringsSettingsAccentColorPickerJa extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => '色を選択する';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayJa extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayJa._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'オフ';
-	@override String get regular => 'レギュラー';
-	@override String get slow => 'スロー';
 }
 
 // Path: settings.reset
@@ -8800,7 +8650,6 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesPtBr themeModes = _StringsSettingsThemeModesPtBr._(_root);
 	@override late final _StringsSettingsLayoutSizesPtBr layoutSizes = _StringsSettingsLayoutSizesPtBr._(_root);
 	@override late final _StringsSettingsAccentColorPickerPtBr accentColorPicker = _StringsSettingsAccentColorPickerPtBr._(_root);
-	@override late final _StringsSettingsStraightenDelayPtBr straightenDelay = _StringsSettingsStraightenDelayPtBr._(_root);
 	@override String get systemLanguage => 'Idioma do sistema';
 	@override List<String> get axisDirections => [
 		'Em cima',
@@ -9061,7 +8910,6 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Inverter as notas no modo escuro';
 	@override String get editorOpaqueBackgrounds => 'Planos de fundo opacos';
 	@override String get preferGreyscale => 'Preferir as cores em escala de cinza';
-	@override String get editorStraightenLines => 'Pressione e segure para endireitar uma linha';
 	@override String get maxImageSize => 'Tamanho máximo da imagem';
 	@override String get autoClearWhiteboardOnExit => 'Limpar o quadro branco depois de sair do aplicativo';
 	@override String get disableEraserAfterUse => 'Desativar automaticamente a borracha';
@@ -9128,18 +8976,6 @@ class _StringsSettingsAccentColorPickerPtBr extends _StringsSettingsAccentColorP
 
 	// Translations
 	@override String get pickAColor => 'Selecionar uma cor';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayPtBr extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayPtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Desligado';
-	@override String get regular => 'Normal';
-	@override String get slow => 'Lento';
 }
 
 // Path: settings.reset
@@ -9582,7 +9418,6 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesRu themeModes = _StringsSettingsThemeModesRu._(_root);
 	@override late final _StringsSettingsLayoutSizesRu layoutSizes = _StringsSettingsLayoutSizesRu._(_root);
 	@override late final _StringsSettingsAccentColorPickerRu accentColorPicker = _StringsSettingsAccentColorPickerRu._(_root);
-	@override late final _StringsSettingsStraightenDelayRu straightenDelay = _StringsSettingsStraightenDelayRu._(_root);
 	@override String get systemLanguage => 'Язык системы';
 	@override List<String> get axisDirections => [
 		'Сверху',
@@ -9843,7 +9678,6 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Инвертировать заметки в тёмном режиме';
 	@override String get editorOpaqueBackgrounds => 'Непрозрачные фоны';
 	@override String get preferGreyscale => 'Предпочтение оттенкам серого';
-	@override String get editorStraightenLines => 'Нажать и удерживать, чтобы выпрямить линию';
 	@override String get maxImageSize => 'Макс. размер изображения';
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
 	@override String get disableEraserAfterUse => 'Автоотключение ластика';
@@ -9910,18 +9744,6 @@ class _StringsSettingsAccentColorPickerRu extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Выбери цвет';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayRu extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Выкл.';
-	@override String get regular => 'Обычно';
-	@override String get slow => 'Долго';
 }
 
 // Path: settings.reset
@@ -10364,7 +10186,6 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesTr themeModes = _StringsSettingsThemeModesTr._(_root);
 	@override late final _StringsSettingsLayoutSizesTr layoutSizes = _StringsSettingsLayoutSizesTr._(_root);
 	@override late final _StringsSettingsAccentColorPickerTr accentColorPicker = _StringsSettingsAccentColorPickerTr._(_root);
-	@override late final _StringsSettingsStraightenDelayTr straightenDelay = _StringsSettingsStraightenDelayTr._(_root);
 	@override String get systemLanguage => 'Sistem dili';
 	@override List<String> get axisDirections => [
 		'Üst',
@@ -10625,7 +10446,6 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => 'Karanlık temada notların rengini tersine çevir';
 	@override String get editorOpaqueBackgrounds => 'Opak arkaplan';
 	@override String get preferGreyscale => 'Gri tonlamayı tercih et';
-	@override String get editorStraightenLines => 'Bir çizgiyi düzleştirmek için basılı tut';
 	@override String get maxImageSize => 'Maksimum görsel boyutu';
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get disableEraserAfterUse => 'Silgiden kaleme geçiş';
@@ -10692,18 +10512,6 @@ class _StringsSettingsAccentColorPickerTr extends _StringsSettingsAccentColorPic
 
 	// Translations
 	@override String get pickAColor => 'Bir renk seçin';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayTr extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Kapalı';
-	@override String get regular => 'Normal';
-	@override String get slow => 'Yavaş';
 }
 
 // Path: settings.reset
@@ -11146,7 +10954,6 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesZhHansCn themeModes = _StringsSettingsThemeModesZhHansCn._(_root);
 	@override late final _StringsSettingsLayoutSizesZhHansCn layoutSizes = _StringsSettingsLayoutSizesZhHansCn._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhHansCn accentColorPicker = _StringsSettingsAccentColorPickerZhHansCn._(_root);
-	@override late final _StringsSettingsStraightenDelayZhHansCn straightenDelay = _StringsSettingsStraightenDelayZhHansCn._(_root);
 	@override String get systemLanguage => '系统语言';
 	@override List<String> get axisDirections => [
 		'上',
@@ -11407,7 +11214,6 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get editorOpaqueBackgrounds => '不透明背景';
 	@override String get preferGreyscale => '使用灰度颜色';
-	@override String get editorStraightenLines => '按住拉直线段';
 	@override String get maxImageSize => '最大图片大小';
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 	@override String get disableEraserAfterUse => '自动禁用橡皮擦';
@@ -11474,18 +11280,6 @@ class _StringsSettingsAccentColorPickerZhHansCn extends _StringsSettingsAccentCo
 
 	// Translations
 	@override String get pickAColor => '选取颜色';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayZhHansCn extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => '关闭';
-	@override String get regular => '常规';
-	@override String get slow => '缓慢';
 }
 
 // Path: settings.reset
@@ -11928,7 +11722,6 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override late final _StringsSettingsThemeModesZhHantTw themeModes = _StringsSettingsThemeModesZhHantTw._(_root);
 	@override late final _StringsSettingsLayoutSizesZhHantTw layoutSizes = _StringsSettingsLayoutSizesZhHantTw._(_root);
 	@override late final _StringsSettingsAccentColorPickerZhHantTw accentColorPicker = _StringsSettingsAccentColorPickerZhHantTw._(_root);
-	@override late final _StringsSettingsStraightenDelayZhHantTw straightenDelay = _StringsSettingsStraightenDelayZhHantTw._(_root);
 	@override String get systemLanguage => '系統語言';
 	@override List<String> get axisDirections => [
 		'置頂',
@@ -12189,7 +11982,6 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
 	@override String get editorOpaqueBackgrounds => '不透明背景';
 	@override String get preferGreyscale => '使用灰度顏色';
-	@override String get editorStraightenLines => '按住拉直線條';
 	@override String get maxImageSize => '最大圖片尺寸';
 	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
 	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
@@ -12256,18 +12048,6 @@ class _StringsSettingsAccentColorPickerZhHantTw extends _StringsSettingsAccentCo
 
 	// Translations
 	@override String get pickAColor => '選取顏色';
-}
-
-// Path: settings.straightenDelay
-class _StringsSettingsStraightenDelayZhHantTw extends _StringsSettingsStraightenDelayEn {
-	_StringsSettingsStraightenDelayZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => '關閉';
-	@override String get regular => '正常';
-	@override String get slow => '緩慢';
 }
 
 // Path: settings.reset

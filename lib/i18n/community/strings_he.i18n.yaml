@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: הפוך הערות במצב כהה
     editorOpaqueBackgrounds: רקעים אטומים
     preferGreyscale: העדיפו צבעי גווני אפור
-    editorStraightenLines: צייר ואז החזק לחוץ עבור קו ישר
     maxImageSize: גודל תמונה מקסימלי
     autoClearWhiteboardOnExit: נקה אוטומטית את הלוח הלבן
     disableEraserAfterUse: השבת אוטומטית את המחק
@@ -116,10 +115,6 @@ settings:
     tablet: טאבלט
   accentColorPicker:
     pickAColor: בחר צבע
-  straightenDelay:
-    off: כבוי
-    regular: רגיל
-    slow: איטי
   systemLanguage: ברירת מחדל
   axisDirections:
     - למעלה

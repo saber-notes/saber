@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: 在深色模式下使用反色筆記背景
     editorOpaqueBackgrounds: 不透明背景
     preferGreyscale: 使用灰度顏色
-    editorStraightenLines: 按住拉直線條
     maxImageSize: 最大圖片尺寸
     autoClearWhiteboardOnExit: 退出應用程式後清除白板
     disableEraserAfterUse: 自動禁用橡皮擦
@@ -116,10 +115,6 @@ settings:
     tablet: 平板
   accentColorPicker:
     pickAColor: 選取顏色
-  straightenDelay:
-    off: 關閉
-    regular: 正常
-    slow: 緩慢
   systemLanguage: 系統語言
   axisDirections:
     - 置頂

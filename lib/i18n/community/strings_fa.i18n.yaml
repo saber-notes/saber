@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: معکوس کردن رنگ یادداشت ها در حالت تاریک
     editorOpaqueBackgrounds: پس زمینه مات
     preferGreyscale: رنگ های خاکستری را در اولویت قرار دهید
-    editorStraightenLines: برای کشیدن خط صاف فشار دهید و نگه دارید
     maxImageSize: حداکثر اندازه تصویر
     autoClearWhiteboardOnExit: پس از خروج از برنامه، وایت برد پاک شود
     disableEraserAfterUse: پاک کن را به صورت خودکار غیرفعال کنید
@@ -116,10 +115,6 @@ settings:
     tablet: تبلت
   accentColorPicker:
     pickAColor: یک رنگ انتخاب کنید
-  straightenDelay:
-    off: خاموش
-    regular: منظم
-    slow: آهسته
   systemLanguage: زبان سیستم
   axisDirections:
     - بالا

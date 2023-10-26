@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: Invert notes in dark mode
     editorOpaqueBackgrounds: Opaque backgrounds
     preferGreyscale: Prefer greyscale colors
-    editorStraightenLines: Draw then hold down for a straight line
     maxImageSize: Maximum image size
     autoClearWhiteboardOnExit: Auto-clear the whiteboard
     disableEraserAfterUse: Auto-disable the eraser
@@ -116,10 +115,6 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Pick a color
-  straightenDelay:
-    off: Off
-    regular: Regular
-    slow: Slow
   systemLanguage: Default
   axisDirections:
     - Top

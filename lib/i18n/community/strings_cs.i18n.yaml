@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: V tmavém režimu invertovat poznámky
     editorOpaqueBackgrounds: Neprůhledná pozadí
     preferGreyscale: Preferovat černobílé barvy
-    editorStraightenLines: Pro kreslení rovné čáry stisknout a podržet
     maxImageSize: Maximální velikost obrázku
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
     disableEraserAfterUse: Automaticky vypínat gumu
@@ -116,10 +115,6 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Výběr vlastní barvy
-  straightenDelay:
-    off: Vypnuto
-    regular: Standardně
-    slow: Dlouze
   systemLanguage: Systémový jazyk
   axisDirections:
     - Nahoře

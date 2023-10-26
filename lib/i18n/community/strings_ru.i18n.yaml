@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: Инвертировать заметки в тёмном режиме
     editorOpaqueBackgrounds: Непрозрачные фоны
     preferGreyscale: Предпочтение оттенкам серого
-    editorStraightenLines: "Нажать и удерживать, чтобы выпрямить линию"
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
     disableEraserAfterUse: Автоотключение ластика
@@ -116,10 +115,6 @@ settings:
     tablet: Планшет
   accentColorPicker:
     pickAColor: Выбери цвет
-  straightenDelay:
-    off: Выкл.
-    regular: Обычно
-    slow: Долго
   systemLanguage: Язык системы
   axisDirections:
     - Сверху

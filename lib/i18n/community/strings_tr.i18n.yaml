@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: Karanlık temada notların rengini tersine çevir
     editorOpaqueBackgrounds: Opak arkaplan
     preferGreyscale: Gri tonlamayı tercih et
-    editorStraightenLines: Bir çizgiyi düzleştirmek için basılı tut
     maxImageSize: Maksimum görsel boyutu
     autoClearWhiteboardOnExit: Uygulamadan çıkıldığında beyaz tahtayı temizle
     disableEraserAfterUse: Silgiden kaleme geçiş
@@ -116,10 +115,6 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Bir renk seçin
-  straightenDelay:
-    off: Kapalı
-    regular: Normal
-    slow: Yavaş
   systemLanguage: Sistem dili
   axisDirections:
     - Üst

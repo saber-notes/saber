@@ -73,7 +73,6 @@ settings:
     editorAutoInvert: Jegyzetek színének felcserélése sötét módban
     editorOpaqueBackgrounds: Áttetsző hátterek
     preferGreyscale: Szürkeárnyalatos színek előnyben részesítése
-    editorStraightenLines: Nyomja meg és tartsa lenyomva egy vonal kiegyenesítéséhez
     maxImageSize: Maximális képméret
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
@@ -116,10 +115,6 @@ settings:
     tablet(OUTDATED): Tabletta
   accentColorPicker:
     pickAColor: Szín kiválasztása
-  straightenDelay:
-    off: Ki
-    regular: Normál
-    slow: Lassú
   systemLanguage: Rendszerspecifikus nyelve
   axisDirections:
     - Fel

@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: Invertir notas en el modo oscuro
     editorOpaqueBackgrounds: Fondos opacos
     preferGreyscale: Preferir colores en escala de grises
-    editorStraightenLines: Mantener presionado para enderezar una línea
     maxImageSize: Tamaño máximo de la imagen
     autoClearWhiteboardOnExit: Borrar la pizarra después de salir de la aplicación
     disableEraserAfterUse: Desactivar automáticamente la goma de borrar
@@ -116,10 +115,6 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Elegir un color
-  straightenDelay:
-    off: Apagado
-    regular: Regular
-    slow: Lento
   systemLanguage: Idioma del sistema
   axisDirections:
     - Arriba

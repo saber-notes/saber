@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: Inverser les couleurs en mode sombre
     editorOpaqueBackgrounds: Fonds opaques
     preferGreyscale: Préférer les nuances de gris
-    editorStraightenLines: Presser et maintenir le tracé pour obtenir une ligne droite
     maxImageSize: Taille d'image maximum
     autoClearWhiteboardOnExit: Effacer le tableau blanc quand vous fermez l'application
     disableEraserAfterUse: Désactiver automatiquement la gomme après usage
@@ -116,10 +115,6 @@ settings:
     tablet: Tablette
   accentColorPicker:
     pickAColor: Choisir une couleur
-  straightenDelay:
-    off: Desactivé
-    regular: Normal
-    slow: Lent
   systemLanguage: Langue système
   axisDirections:
     - Haut

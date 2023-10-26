@@ -77,7 +77,6 @@ settings:
     editorAutoInvert: Notizen im Dunkelmodus invertieren
     editorOpaqueBackgrounds: Undurchsichtige Hintergründe
     preferGreyscale: Graustufen bevorzugen
-    editorStraightenLines: Drücke und halte für eine gerade Linie
     maxImageSize: Maximale Bildgröße
     autoClearWhiteboardOnExit: Lösche das Whiteboard nach Verlassen der Anwendung
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
@@ -116,10 +115,6 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Wähle eine Farbe
-  straightenDelay:
-    off: Aus
-    regular: Normal
-    slow: Langsam
   systemLanguage: Systemsprache
   axisDirections:
     - Oben

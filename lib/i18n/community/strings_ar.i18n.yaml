@@ -74,7 +74,6 @@ settings:
     editorAutoInvert: اقلب الملاحظات في الوضع المظلم
     editorOpaqueBackgrounds: خلفيات معتمة
     preferGreyscale: تفضيل الألوان الرمادية
-    editorStraightenLines: اضغط مع الاستمرار لتصويب الخط
     maxImageSize: الحجم الأقصى للصورة
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
@@ -116,10 +115,6 @@ settings:
     tablet: لوحي
   accentColorPicker:
     pickAColor: اختر لوناً
-  straightenDelay:
-    off: مغلق
-    regular: عادي
-    slow: بطيء
   systemLanguage: لغة النظام
   axisDirections:
     - أعلى

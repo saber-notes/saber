@@ -77,7 +77,6 @@ settings:
     editorAutoInvert: ダークモードでメモを反転
     editorOpaqueBackgrounds: 不透明な背景
     preferGreyscale: グレースケールを優先
-    editorStraightenLines: 長押しで線をまっすぐにする
     maxImageSize: 最大画像サイズ
     autoClearWhiteboardOnExit: アプリを終了したらホワイトボードを消去する
     editorPromptRename: 新しいメモの名前を変更するよう促す
@@ -116,10 +115,6 @@ settings:
     tablet: タブレット
   accentColorPicker:
     pickAColor: 色を選択する
-  straightenDelay:
-    off: オフ
-    regular: レギュラー
-    slow: スロー
   systemLanguage: システムの言語
   axisDirections:
     - 上部

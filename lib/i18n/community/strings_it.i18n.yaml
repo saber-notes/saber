@@ -78,7 +78,6 @@ settings:
     editorAutoInvert: Inverti le note in modalità scura
     editorOpaqueBackgrounds: Sfondi opachi
     preferGreyscale: Preferisci i colori in scala di grigi
-    editorStraightenLines: Tenere premuto per raddrizzare una linea
     maxImageSize: Dimensione massima dell'immagine
     autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
     disableEraserAfterUse: Disattiva automaticamente la gomma
@@ -116,10 +115,6 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Scegli un colore
-  straightenDelay:
-    off: Off
-    regular: Regolare
-    slow: Lento
   systemLanguage: Lingua del sistema
   axisDirections:
     - Sopra
