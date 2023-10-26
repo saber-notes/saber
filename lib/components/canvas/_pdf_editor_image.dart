@@ -128,8 +128,8 @@ class PdfEditorImage extends EditorImage {
   @override
   Future<void> precache(BuildContext context) async {
     _lastPrecacheContext = context;
-    rasterized ??= _getRasterizedWithDpi(2);
-    final memoryImage = await rasterized!;
+    lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
+    final memoryImage = await lowDpiFuture!;
 
     return await _precacheImage(memoryImage);
   }
@@ -155,10 +155,10 @@ class PdfEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    rasterized ??= _getRasterizedWithDpi(2);
+    lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
 
     return ValueListenableBuilder(
-      valueListenable: lastRasterized,
+      valueListenable: anyDpiRaster,
       builder: (context, imageProvider, child) {
         if (imageProvider == null) {
           return const SizedBox.shrink();
@@ -171,87 +171,93 @@ class PdfEditorImage extends EditorImage {
     );
   }
 
-  final ValueNotifier<ImageProvider?> lastRasterized = ValueNotifier(null);
-  int lastDpiMultiple = 2;
-  Future<ImageProvider>? rasterized;
-  Future<ImageProvider> _getRasterizedWithDpi(int dpiMultiple) async {
-    lastDpiMultiple = dpiMultiple;
+  /// This is equal to [highDpiRaster] if not null, otherwise [lowDpiRaster].
+  ///
+  /// Don't set this directly. [lowDpiRaster] and [highDpiRaster]
+  /// automatically update this value.
+  late final ValueNotifier<ImageProvider?> anyDpiRaster = ValueNotifier(null);
+  Future<ImageProvider>? lowDpiFuture;
+  late final ValueNotifier<ImageProvider?> lowDpiRaster = ValueNotifier(null)
+    ..addListener(() {
+      anyDpiRaster.value = highDpiRaster.value ?? lowDpiRaster.value;
+    });
+  Future<ImageProvider>? highDpiFuture;
+  late final ValueNotifier<ImageProvider?> highDpiRaster = ValueNotifier(null)
+    ..addListener(() {
+      anyDpiRaster.value = highDpiRaster.value ?? lowDpiRaster.value;
+    });
 
+  Future<ImageProvider> _getRasterizedWithDpi({required bool highDpi}) async {
     final raster = await Printing.raster(
       pdfBytes,
       pages: [pdfPage],
-      dpi: PdfPageFormat.inch * dpiMultiple,
+      dpi: PdfPageFormat.inch * (highDpi ? 4 : 2),
     ).single;
     final image = PdfRasterImage(raster);
 
-    // _getRasterizedWithDpi might have been called again,
-    // so try to return the old image if possible.
-    if (lastDpiMultiple > dpiMultiple) {
-      return lastRasterized.value ?? image;
-    }
-
-    if (lastRasterized.value != null) {
+    if (highDpi) {
       // precache the new image so we don't flash an empty image
       await _precacheImage(image);
-      // remove old image from memory
-      lastRasterized.value?.evict();
-    }
 
-    // _getRasterizedWithDpi might have been called again,
-    // so try to return the old image if possible.
-    if (lastDpiMultiple > dpiMultiple) {
-      return lastRasterized.value ?? image;
+      return highDpiRaster.value = image;
+    } else {
+      return lowDpiRaster.value = image;
     }
-
-    return lastRasterized.value = image;
   }
 
-  static Timer? _checkIfHigherResNeededDebounce;
-  static Future<void> _checkIfHigherResNeededDebounceCallback({
+  static Timer? _checkIfHighDpiNeededDebounce;
+  static Future<void> _checkIfHighDpiNeededDebounceCallback({
     required double Function() getZoom,
     required double Function() getScrollY,
     required List<EditorPage> pages,
     required double screenWidth,
   }) async {
-    _checkIfHigherResNeededDebounce = null;
+    _checkIfHighDpiNeededDebounce = null;
 
     final zoom = getZoom();
-    if (zoom < 1.5) return;
-    final dpiMultiple = (2 * zoom).ceil();
+    final highDpiNeeded = zoom > 1.5;
 
-    final pageIndex = CanvasGestureDetector.getPageIndex(
+    final currentPageIndex = CanvasGestureDetector.getPageIndex(
       scrollY: getScrollY(),
       pages: pages,
       screenWidth: screenWidth,
     );
-    final page = pages[pageIndex];
 
-    for (final image in [...page.images, page.backgroundImage]) {
-      if (image == null) continue;
-      if (image is! PdfEditorImage) continue;
+    for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
+      // high dpi on current page, the page before, and the page after
+      final highDpiPage = highDpiNeeded && (pageIndex - currentPageIndex).abs() <= 1;
 
-      if (image.lastDpiMultiple >= dpiMultiple) continue;
+      final page = pages[pageIndex];
+      for (final image in [...page.images, page.backgroundImage]) {
+        if (image == null) continue;
+        if (image is! PdfEditorImage) continue;
 
-      image.rasterized?.ignore();
-      image.rasterized = image._getRasterizedWithDpi(
-        dpiMultiple,
-      );
+        if (highDpiPage) {
+          if (image.highDpiFuture != null) continue;
+          image.highDpiFuture = image._getRasterizedWithDpi(
+            highDpi: true,
+          );
+        } else {
+          image.highDpiFuture = null;
+          image.highDpiRaster.value?.evict().ignore();
+          image.highDpiRaster.value = null;
+        }
+      }
     }
   }
   /// When a user has not moved for 500ms,
   /// check if they are zoomed in to a PDF page,
-  /// and increase the resolution of the
-  /// rasterized image if needed.
-  static void checkIfHigherResNeeded({
+  /// and increase the raster dpi if needed.
+  static void checkIfHighDpiNeeded({
     required double Function() getZoom,
     required double Function() getScrollY,
     required List<EditorPage> pages,
     required double screenWidth,
   }) {
-    _checkIfHigherResNeededDebounce?.cancel();
-    _checkIfHigherResNeededDebounce = Timer(
+    _checkIfHighDpiNeededDebounce?.cancel();
+    _checkIfHighDpiNeededDebounce = Timer(
       const Duration(milliseconds: 500),
-      () => _checkIfHigherResNeededDebounceCallback(
+      () => _checkIfHighDpiNeededDebounceCallback(
         getZoom: getZoom,
         getScrollY: getScrollY,
         pages: pages,

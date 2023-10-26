@@ -101,7 +101,7 @@ class EditorState extends State<Editor> {
   final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
   late final TransformationController _transformationController = TransformationController()
     ..addListener(() {
-      PdfEditorImage.checkIfHigherResNeeded(
+      PdfEditorImage.checkIfHighDpiNeeded(
         getZoom: () => _transformationController.value.getMaxScaleOnAxis(),
         getScrollY: () => scrollY,
         pages: coreInfo.pages,
