@@ -36,9 +36,12 @@ home:
     noteNameExists: 此名称的笔记已经存在
   moveNote:
     moveNote: 移动笔记
+    moveNotes(OUTDATED): 移动 $n 笔记
     moveName: 移动 $f
     move: 移动
     renamedTo: 笔记将重命名为 $newName
+    multipleRenamedTo(OUTDATED): 以下注释将被重命名：
+    numberRenamedTo(OUTDATED): $n 笔记将被重命名以避免冲突
   deleteNote: 删除笔记
   renameFolder:
     renameFolder: 重命名文件夹
@@ -218,8 +221,8 @@ editor:
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
-    shapePen(OUTDATED): 造型笔
     laserPointer: 激光笔
+    shapePen(OUTDATED): 造型笔
   penOptions:
     size: 粗细
     sizeDragHint: 左右拖动更改粗细

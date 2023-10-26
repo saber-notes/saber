@@ -125,7 +125,12 @@ Future<String?> translateString(SimplyTranslator translator, String languageCode
   }
 
   final translatedText = translation.translations.text;
-  if (translatedText.contains('Invalid request') || translatedText.contains('None is not supported')) {
+  final errorTexts = [
+    'Invalid request',
+    'None is not supported',
+    'Slowdown: 10 per 1 minute',
+  ];
+  if (errorTexts.any((error) => translatedText.contains(error))) {
     print('    Translation failed: $translatedText');
     errorOccurredInTranslatingTree = true;
     return english;

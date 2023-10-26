@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3875 (242 per locale)
+/// Strings: 3916 (244 per locale)
 ///
-/// Built on 2023-10-21 at 22:25 UTC
+/// Built on 2023-10-26 at 14:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1174,8 +1174,11 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'تحريك الملاحظة';
+	@override String moveNotes({required Object n}) => 'نقل ${n} الملاحظات';
 	@override String get move => 'تحريك';
 	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
+	@override String get multipleRenamedTo => 'وستعاد تسمية الملاحظات التالية:';
+	@override String numberRenamedTo({required Object n}) => 'ستتم إعادة تسمية الملاحظات ${n} لتجنب التعارضات';
 	@override String moveName({required Object f}) => 'نقل ${f}';
 }
 
@@ -1525,8 +1528,8 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
-	@override String get shapePen => 'قلم الشكل';
 	@override String get laserPointer => 'مؤشر الليزر';
+	@override String get shapePen => 'قلم الشكل';
 }
 
 // Path: editor.penOptions
@@ -1953,9 +1956,12 @@ class _StringsHomeMoveNoteCs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Přesunout poznámku';
+	@override String moveNotes({required Object n}) => 'Přesun ${n} poznámky';
 	@override String moveName({required Object f}) => 'Přesun poznámky ${f}';
 	@override String get move => 'Přesunout';
 	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenována na ${newName}';
+	@override String get multipleRenamedTo => 'Následující poznámky budou přejmenovány:';
+	@override String numberRenamedTo({required Object n}) => '${n} poznámky budou přejmenovány, aby se zabránilo konfliktům';
 }
 
 // Path: home.renameFolder
@@ -2735,6 +2741,8 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 	@override String moveName({required Object f}) => 'verschiebe ${f}';
 	@override String get move => 'Verschieben';
 	@override String renamedTo({required Object newName}) => 'Notiz wird umbenannt zu ${newName}';
+	@override String get multipleRenamedTo => 'Folgende Anmerkungen werden umbenannt:';
+	@override String numberRenamedTo({required Object n}) => '${n} Notizen werden umbenannt, um Konflikte zu vermeiden';
 }
 
 // Path: home.renameFolder
@@ -3083,8 +3091,8 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get ballpointPen => 'Kugelschreiber';
 	@override String get highlighter => 'Textmarker';
-	@override String get shapePen => 'Formstift';
 	@override String get laserPointer => 'Laserpointer';
+	@override String get shapePen => 'Formstift';
 }
 
 // Path: editor.penOptions
@@ -3510,9 +3518,12 @@ class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover nota';
+	@override String moveNotes({required Object n}) => 'Mover notas de ${n}';
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
+	@override String get multipleRenamedTo => 'Las siguientes notas cambiarán de nombre:';
+	@override String numberRenamedTo({required Object n}) => '${n} notas serán renombradas para evitar conflictos';
 }
 
 // Path: home.renameFolder
@@ -3861,8 +3872,8 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Lápiz';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
-	@override String get shapePen => 'Pluma de forma';
 	@override String get laserPointer => 'Puntero láser';
+	@override String get shapePen => 'Pluma de forma';
 }
 
 // Path: editor.penOptions
@@ -4289,9 +4300,11 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'انتقال یادداشت';
+	@override String moveNotes({required Object n}) => '${n} یادداشت را جابجا کنید';
 	@override String moveName({required Object f}) => 'انتقال ${f}';
 	@override String get move => 'انتقال';
 	@override String renamedTo({required Object newName}) => 'یادداشت به ${newName} تغییر نام می یابد';
+	@override String get multipleRenamedTo => 'یادداشت های زیر تغییر خواهند کرد:';
 }
 
 // Path: home.renameFolder
@@ -4640,8 +4653,8 @@ class _StringsEditorPensFa extends _StringsEditorPensEn {
 	@override String get fountainPen => 'خودنویس';
 	@override String get ballpointPen => 'خودکار';
 	@override String get highlighter => 'هایلایتر';
-	@override String get shapePen => 'قلم شکل';
 	@override String get laserPointer => 'اشاره گر لیزری';
+	@override String get shapePen => 'قلم شکل';
 }
 
 // Path: editor.penOptions
@@ -5068,9 +5081,12 @@ class _StringsHomeMoveNoteFr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Déplacer la note';
+	@override String moveNotes({required Object n}) => 'Déplacer les notes ${n}';
 	@override String moveName({required Object f}) => 'Déplacer ${f}';
 	@override String get move => 'Déplacer';
 	@override String renamedTo({required Object newName}) => 'La note sera renommée en ${newName}';
+	@override String get multipleRenamedTo => 'Les notes suivantes seront renommées :';
+	@override String numberRenamedTo({required Object n}) => '${n} notes sera renommé pour éviter les conflits';
 }
 
 // Path: home.renameFolder
@@ -5419,8 +5435,8 @@ class _StringsEditorPensFr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Stylo encre';
 	@override String get ballpointPen => 'Stylo bille';
 	@override String get highlighter => 'Surligneur';
-	@override String get shapePen => 'Stylo de forme';
 	@override String get laserPointer => 'Pointeur laser';
+	@override String get shapePen => 'Stylo de forme';
 }
 
 // Path: editor.penOptions
@@ -5847,9 +5863,12 @@ class _StringsHomeMoveNoteHe extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'הזז פתק';
+	@override String moveNotes({required Object n}) => 'העבר ${n} פתקים';
 	@override String moveName({required Object f}) => 'הזז ${f}';
 	@override String get move => 'הזז';
 	@override String renamedTo({required Object newName}) => 'שם הפתק ישתנה ל ${newName}';
+	@override String get multipleRenamedTo => 'שמות ההערות הבאות ישונו:';
+	@override String numberRenamedTo({required Object n}) => 'השם של ${n} הערות ישונה כדי למנוע התנגשויות';
 }
 
 // Path: home.renameFolder
@@ -6198,8 +6217,8 @@ class _StringsEditorPensHe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'עט נובע';
 	@override String get ballpointPen => 'עט כדורי';
 	@override String get highlighter => 'מרקר';
-	@override String get shapePen => 'עט צורה';
 	@override String get laserPointer => 'סמן לייזר';
+	@override String get shapePen => 'עט צורה';
 }
 
 // Path: editor.penOptions
@@ -6625,6 +6644,7 @@ class _StringsHomeMoveNoteHu extends _StringsHomeMoveNoteEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get multipleRenamedTo => 'A következő megjegyzések átnevezésre kerülnek:';
 	@override String get moveNote => 'Jegyzet áthelyezése';
 	@override String moveName({required Object f}) => 'Mozgassa ${f}';
 	@override String get move => 'Mozog';
@@ -7405,9 +7425,12 @@ class _StringsHomeMoveNoteIt extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Sposta nota';
+	@override String moveNotes({required Object n}) => 'Sposta ${n} note';
 	@override String moveName({required Object f}) => 'Sposta ${f}';
 	@override String get move => 'Sposta';
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
+	@override String get multipleRenamedTo => 'Le seguenti note saranno rinominate:';
+	@override String numberRenamedTo({required Object n}) => '${n} note verranno rinominate per evitare conflitti';
 }
 
 // Path: home.renameFolder
@@ -8184,9 +8207,12 @@ class _StringsHomeMoveNoteJa extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'メモを移動';
+	@override String moveNotes({required Object n}) => '${n}のノートを移動する';
 	@override String moveName({required Object f}) => '${f} を移動';
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '${newName} に名称を変更した';
+	@override String get multipleRenamedTo => '次のメモの名前が変更されます。';
+	@override String numberRenamedTo({required Object n}) => '${n} のノートは、競合を避けるために名前を変更されます';
 }
 
 // Path: home.renameFolder
@@ -8535,8 +8561,8 @@ class _StringsEditorPensJa extends _StringsEditorPensEn {
 	@override String get fountainPen => '万年筆';
 	@override String get ballpointPen => 'ボールペン';
 	@override String get highlighter => '蛍光ペン';
-	@override String get shapePen => 'シェイプペン';
 	@override String get laserPointer => 'レーザーポインター';
+	@override String get shapePen => 'シェイプペン';
 }
 
 // Path: editor.penOptions
@@ -8963,9 +8989,12 @@ class _StringsHomeMoveNotePtBr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover a nota';
+	@override String moveNotes({required Object n}) => 'Mover ${n} notas';
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'A nota será renomeada para ${newName}';
+	@override String get multipleRenamedTo => 'As seguintes notas serão renomeadas:';
+	@override String numberRenamedTo({required Object n}) => '${n} notas serão renomeadas para evitar conflitos';
 }
 
 // Path: home.renameFolder
@@ -9314,8 +9343,8 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
 	@override String get highlighter => 'Marcador';
-	@override String get shapePen => 'Caneta de forma';
 	@override String get laserPointer => 'Apontador laser';
+	@override String get shapePen => 'Caneta de forma';
 }
 
 // Path: editor.penOptions
@@ -9742,9 +9771,12 @@ class _StringsHomeMoveNoteRu extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Переместить заметку';
+	@override String moveNotes({required Object n}) => 'Переместить ${n} заметки';
 	@override String moveName({required Object f}) => 'Переместить ${f}';
 	@override String get move => 'Перемещение';
 	@override String renamedTo({required Object newName}) => 'Заметка будет переименована в ${newName}';
+	@override String get multipleRenamedTo => 'Следующие заметки будут переименованы:';
+	@override String numberRenamedTo({required Object n}) => '${n} заметки будут переименованы, чтобы избежать конфликтов';
 }
 
 // Path: home.renameFolder
@@ -10093,8 +10125,8 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
-	@override String get shapePen => 'Форма ручки';
 	@override String get laserPointer => 'Лазерная указка';
+	@override String get shapePen => 'Форма ручки';
 }
 
 // Path: editor.penOptions
@@ -10521,9 +10553,12 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notu taşı';
+	@override String moveNotes({required Object n}) => '${n} notu taşı';
 	@override String moveName({required Object f}) => '${f} dosyasını taşı';
 	@override String get move => 'Taşı';
 	@override String renamedTo({required Object newName}) => 'Not ${newName} olarak yeniden adlandırılacak';
+	@override String get multipleRenamedTo => 'Aşağıdaki notlar yeniden adlandırılacaktır:';
+	@override String numberRenamedTo({required Object n}) => 'Çakışmaları önlemek için ${n} notu yeniden adlandırılacak';
 }
 
 // Path: home.renameFolder
@@ -10872,8 +10907,8 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
-	@override String get shapePen => 'Şekil kalemi';
 	@override String get laserPointer => 'Lazer işaretçi';
+	@override String get shapePen => 'Şekil kalemi';
 }
 
 // Path: editor.penOptions
@@ -11300,9 +11335,12 @@ class _StringsHomeMoveNoteZhHansCn extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移动笔记';
+	@override String moveNotes({required Object n}) => '移动 ${n} 笔记';
 	@override String moveName({required Object f}) => '移动 ${f}';
 	@override String get move => '移动';
 	@override String renamedTo({required Object newName}) => '笔记将重命名为 ${newName}';
+	@override String get multipleRenamedTo => '以下注释将被重命名：';
+	@override String numberRenamedTo({required Object n}) => '${n} 笔记将被重命名以避免冲突';
 }
 
 // Path: home.renameFolder
@@ -11651,8 +11689,8 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 	@override String get fountainPen => '钢笔';
 	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
-	@override String get shapePen => '造型笔';
 	@override String get laserPointer => '激光笔';
+	@override String get shapePen => '造型笔';
 }
 
 // Path: editor.penOptions
@@ -12079,9 +12117,12 @@ class _StringsHomeMoveNoteZhHantTw extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移動筆記';
+	@override String moveNotes({required Object n}) => '移動 ${n} 筆記';
 	@override String moveName({required Object f}) => '移動 ${f}';
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
+	@override String get multipleRenamedTo => '以下註釋將被重新命名：';
+	@override String numberRenamedTo({required Object n}) => '${n} 筆記將被重新命名以避免衝突';
 }
 
 // Path: home.renameFolder

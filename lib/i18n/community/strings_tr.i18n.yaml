@@ -36,9 +36,12 @@ home:
     noteNameExists: Bu isimde bir not zaten var
   moveNote:
     moveNote: Notu taşı
+    moveNotes(OUTDATED): $n notu taşı
     moveName: $f dosyasını taşı
     move: Taşı
     renamedTo: Not $newName olarak yeniden adlandırılacak
+    multipleRenamedTo(OUTDATED): "Aşağıdaki notlar yeniden adlandırılacaktır:"
+    numberRenamedTo(OUTDATED): Çakışmaları önlemek için $n notu yeniden adlandırılacak
   deleteNote: Notu sil
   renameFolder:
     renameFolder: Klasörü adlandır
@@ -219,8 +222,8 @@ editor:
     fountainPen: Dolma kalem
     ballpointPen: Tükenmez kalem
     highlighter: İşaretleme kalemi
-    shapePen(OUTDATED): Şekil kalemi
     laserPointer: Lazer işaretçi
+    shapePen(OUTDATED): Şekil kalemi
   penOptions:
     size: Boyut
     sizeDragHint: Boyutu değiştirmek için sağa veya sola kaydır

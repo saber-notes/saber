@@ -34,9 +34,12 @@ home:
     noteNameExists: Notiz mit diesem Namen existiert bereits
   moveNote:
     moveNote: Notiz verschieben
+    moveNotes(OUTDATED): $n Notizen verschieben
     moveName: verschiebe $f
     move: Verschieben
     renamedTo: Notiz wird umbenannt zu $newName
+    multipleRenamedTo(OUTDATED): "Folgende Anmerkungen werden umbenannt:"
+    numberRenamedTo(OUTDATED): "$n Notizen werden umbenannt, um Konflikte zu vermeiden"
   renameFolder:
     folderNameEmpty(OUTDATED): Der Ordnername darf nicht leer sein
     renameFolder(OUTDATED): Ordner umbenennen
@@ -219,8 +222,8 @@ editor:
     fountainPen: Füllfederhalter
     ballpointPen: Kugelschreiber
     highlighter: Textmarker
-    shapePen(OUTDATED): Formstift
     laserPointer: Laserpointer
+    shapePen(OUTDATED): Formstift
   penOptions:
     size: Dicke
     sizeDragHint: "Nach links oder rechts ziehen, um die Dicke zu ändern"

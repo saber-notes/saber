@@ -36,9 +36,12 @@ home:
     noteNameExists: Заметка с таким названием уже существует
   moveNote:
     moveNote: Переместить заметку
+    moveNotes(OUTDATED): Переместить $n заметки
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
+    multipleRenamedTo(OUTDATED): "Следующие заметки будут переименованы:"
+    numberRenamedTo(OUTDATED): "$n заметки будут переименованы, чтобы избежать конфликтов"
   deleteNote: Удалить заметку
   renameFolder:
     renameFolder: Переименовать папку
@@ -218,8 +221,8 @@ editor:
     fountainPen: Перьевая ручка
     ballpointPen: Шариковая ручка
     highlighter: Маркер
-    shapePen(OUTDATED): Форма ручки
     laserPointer: Лазерная указка
+    shapePen(OUTDATED): Форма ручки
   penOptions:
     size: Размер
     sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"

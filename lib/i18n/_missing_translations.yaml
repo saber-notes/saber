@@ -11,10 +11,10 @@ ar:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
-      moveNotes: Move $n notes
+      moveNotes(OUTDATED): Move $n notes
       moveName(OUTDATED): Move $f
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -62,9 +62,9 @@ ar:
 cs:
   home:
     moveNote:
-      moveNotes: Move $n notes
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
 de:
   home:
     titles:
@@ -75,9 +75,9 @@ de:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
-      moveNotes: Move $n notes
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -118,6 +118,11 @@ de:
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -127,9 +132,9 @@ fa:
   home:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     moveNote:
-      moveNotes: Move $n notes
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -147,6 +152,11 @@ fa:
       bgPatterns:
         tablature(OUTDATED): Tablature
 fr:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -158,6 +168,10 @@ he:
       noteNameEmpty(OUTDATED): Note name can't be empty
       noteNameContainsSlash(OUTDATED): Note name can't contain a slash
       noteNameExists(OUTDATED): A note with this name already exists
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -191,12 +205,12 @@ hu:
       noteNameExists(OUTDATED): A note with this name already exists
     moveNote:
       moveNote(OUTDATED): Move note
-      moveNotes: Move $n notes
+      moveNotes(OUTDATED): Move $n notes
       moveName(OUTDATED): Move $f
       move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -331,9 +345,9 @@ hu:
 it:
   home:
     moveNote:
-      moveNotes: Move $n notes
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
 ja:
   home:
     titles:
@@ -344,9 +358,9 @@ ja:
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
-      moveNotes: Move $n notes
-      multipleRenamedTo: "The following notes will be renamed:"
-      numberRenamedTo: $n notes will be renamed
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -384,21 +398,46 @@ ja:
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
 tr:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
 zh-Hans-CN:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
 zh-Hant-TW:
+  home:
+    moveNote:
+      moveNotes(OUTDATED): Move $n notes
+      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
+      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts

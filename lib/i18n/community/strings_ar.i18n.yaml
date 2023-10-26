@@ -34,8 +34,11 @@ home:
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
   moveNote:
     moveNote: تحريك الملاحظة
+    moveNotes(OUTDATED): نقل $n الملاحظات
     move: تحريك
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
+    multipleRenamedTo(OUTDATED): "وستعاد تسمية الملاحظات التالية:"
+    numberRenamedTo(OUTDATED): ستتم إعادة تسمية الملاحظات $n لتجنب التعارضات
     moveName(OUTDATED): نقل $f
   renameFolder:
     folderName(OUTDATED): إسم الملف
@@ -218,8 +221,8 @@ editor:
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
-    shapePen(OUTDATED): قلم الشكل
     laserPointer: مؤشر الليزر
+    shapePen(OUTDATED): قلم الشكل
   penOptions:
     size: حجم
     sizeDragHint: اسحب لليسار أو لليمين لتغيير الحجم

@@ -2,9 +2,13 @@
   - "Here are translations that exist in secondary locales but not in <en>."
   - "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
 en:
-  home:
-    moveNote:
-      numberRenamedTo: $n notes will be renamed
+  settings:
+    prefLabels:
+      editorStraightenLines: Draw then hold down for a straight line
+    straightenDelay:
+      off: Off
+      regular: Regular
+      slow: Slow
 ar:
 cs:
 de:

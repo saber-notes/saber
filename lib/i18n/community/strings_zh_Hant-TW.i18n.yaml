@@ -36,9 +36,12 @@ home:
     noteNameExists: 同名筆記已經存在
   moveNote:
     moveNote: 移動筆記
+    moveNotes(OUTDATED): 移動 $n 筆記
     moveName: 移動 $f
     move: 移動
     renamedTo: 筆記將重新命名為 $newName
+    multipleRenamedTo(OUTDATED): 以下註釋將被重新命名：
+    numberRenamedTo(OUTDATED): $n 筆記將被重新命名以避免衝突
   deleteNote: 刪除筆記
   renameFolder:
     renameFolder: 重新命名資料夾

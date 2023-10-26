@@ -36,9 +36,12 @@ home:
     noteNameExists: Ya existe una nota con este nombre
   moveNote:
     moveNote: Mover nota
+    moveNotes(OUTDATED): Mover notas de $n
     moveName: Mover $f
     move: Mover
     renamedTo: Se renombrará la nota a $newName
+    multipleRenamedTo(OUTDATED): "Las siguientes notas cambiarán de nombre:"
+    numberRenamedTo(OUTDATED): $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
   renameFolder:
     renameFolder: Renombrar carpeta
@@ -218,8 +221,8 @@ editor:
     fountainPen: Lápiz
     ballpointPen: Bolígrafo
     highlighter: Resaltador
-    shapePen(OUTDATED): Pluma de forma
     laserPointer: Puntero láser
+    shapePen(OUTDATED): Pluma de forma
   penOptions:
     size: Tamaño
     sizeDragHint: Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño

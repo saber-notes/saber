@@ -33,6 +33,9 @@ home:
     noteNameContainsSlash(OUTDATED): A jegyzet neve nem tartalmazhat perjelet
     noteNameExists(OUTDATED): Már létezik ilyen nevű jegyzet
   moveNote:
+    moveNotes(OUTDATED): $n jegyzet mozgatása
+    numberRenamedTo(OUTDATED): $n jegyzet átnevezésre kerül az ütközések elkerülése érdekében
+    multipleRenamedTo(OUTDATED): "A következő megjegyzések átnevezésre kerülnek:"
     moveNote(OUTDATED): Jegyzet áthelyezése
     moveName(OUTDATED): Mozgassa $f
     move(OUTDATED): Mozog

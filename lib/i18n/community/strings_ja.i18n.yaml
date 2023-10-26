@@ -34,9 +34,12 @@ home:
     noteNameExists: 同一のタイトルがすでに存在します
   moveNote:
     moveNote: メモを移動
+    moveNotes(OUTDATED): $nのノートを移動する
     moveName: $f を移動
     move: 移動
     renamedTo: $newName に名称を変更した
+    multipleRenamedTo(OUTDATED): 次のメモの名前が変更されます。
+    numberRenamedTo(OUTDATED): $n のノートは、競合を避けるために名前を変更されます
   renameFolder:
     folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
     renameFolder(OUTDATED): フォルダーの名前を変更する
@@ -215,8 +218,8 @@ editor:
     fountainPen: 万年筆
     ballpointPen: ボールペン
     highlighter: 蛍光ペン
-    shapePen(OUTDATED): シェイプペン
     laserPointer: レーザーポインター
+    shapePen(OUTDATED): シェイプペン
   penOptions:
     size: サイズ
     sizeDragHint: 左右にドラッグしてサイズを変更

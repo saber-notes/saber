@@ -36,9 +36,12 @@ home:
     noteNameExists: Esiste già una nota con questo nome
   moveNote:
     moveNote: Sposta nota
+    moveNotes(OUTDATED): Sposta $n note
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
+    multipleRenamedTo(OUTDATED): "Le seguenti note saranno rinominate:"
+    numberRenamedTo(OUTDATED): $n note verranno rinominate per evitare conflitti
   deleteNote: Elimina nota
   renameFolder:
     renameFolder: Rinomina cartella

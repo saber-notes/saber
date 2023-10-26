@@ -36,9 +36,12 @@ home:
     noteNameExists: Poznámka s tímto názvem již existuje
   moveNote:
     moveNote: Přesunout poznámku
+    moveNotes(OUTDATED): Přesun $n poznámky
     moveName: Přesun poznámky $f
     move: Přesunout
     renamedTo: Poznámka bude přejmenována na $newName
+    multipleRenamedTo(OUTDATED): "Následující poznámky budou přejmenovány:"
+    numberRenamedTo(OUTDATED): "$n poznámky budou přejmenovány, aby se zabránilo konfliktům"
   deleteNote: Odstranit poznámku
   renameFolder:
     renameFolder: Přejmenovat složku

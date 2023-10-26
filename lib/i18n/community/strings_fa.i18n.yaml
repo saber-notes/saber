@@ -38,6 +38,9 @@ home:
     moveName: انتقال $f
     move: انتقال
     renamedTo: یادداشت به $newName تغییر نام می یابد
+    numberRenamedTo(OUTDATED): $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
+    moveNotes(OUTDATED): $n یادداشت را جابجا کنید
+    multipleRenamedTo(OUTDATED): "یادداشت های زیر تغییر خواهند کرد:"
   deleteNote: حذف یادداشت
   renameFolder:
     folderNameEmpty(OUTDATED): نام پوشه نمی تواند خالی باشد
@@ -214,8 +217,8 @@ editor:
     fountainPen: خودنویس
     ballpointPen: خودکار
     highlighter: هایلایتر
-    shapePen(OUTDATED): قلم شکل
     laserPointer: اشاره گر لیزری
+    shapePen(OUTDATED): قلم شکل
   penOptions:
     size: اندازه
     sizeDragHint: برای تغییر اندازه به چپ یا راست بکشید

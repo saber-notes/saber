@@ -36,9 +36,12 @@ home:
     noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
   moveNote:
     moveNote: הזז פתק
+    moveNotes(OUTDATED): העבר $n פתקים
     moveName: הזז $f
     move: הזז
     renamedTo: שם הפתק ישתנה ל $newName
+    multipleRenamedTo(OUTDATED): "שמות ההערות הבאות ישונו:"
+    numberRenamedTo(OUTDATED): השם של $n הערות ישונה כדי למנוע התנגשויות
   deleteNote: מחק פתק
   renameFolder:
     renameFolder: שנה את שם התקייה
@@ -219,8 +222,8 @@ editor:
     fountainPen: עט נובע
     ballpointPen: עט כדורי
     highlighter: מרקר
-    shapePen(OUTDATED): עט צורה
     laserPointer: סמן לייזר
+    shapePen(OUTDATED): עט צורה
   penOptions:
     size: גודל
     sizeDragHint: גרור שמאלה או ימינה כדי לשנות את הגודל
