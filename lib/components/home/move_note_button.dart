@@ -145,7 +145,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
-      title: originalFileNames.length < 3
+      title: originalFileNames.length < 5
         ? Text(t.home.moveNote.moveName(
             f: originalFileNames.join(', '),
           ))
