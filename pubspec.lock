@@ -94,7 +94,7 @@ packages:
     description:
       path: "."
       ref: toJson
-      resolved-ref: a176e34ac0a5195753bb72bb9f5b02004f6dc326
+      resolved-ref: "454398817cf10197109adf6524a2cb2d27452d8d"
       url: "https://github.com/adil192/bson"
     source: git
     version: "4.1.0"
@@ -279,7 +279,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "228340f9dc2a4bf922869133b4e6f51a7252708a"
+      resolved-ref: b4cb8c239fe57e9b2f5fc223a18efb97aaa59295
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -764,7 +764,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: main
-      resolved-ref: "228340f9dc2a4bf922869133b4e6f51a7252708a"
+      resolved-ref: b4cb8c239fe57e9b2f5fc223a18efb97aaa59295
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -1205,18 +1205,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "10774204b35b68f8dc5884ab620f83220d2c12620a8dcf4e6f39c94666f3549f"
+      sha256: "90af960cb8950020e491c97b4fcea6fd331e38d01b8741246a61aa92c1049310"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
+    version: "0.7.2"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: b2fb454a90308f4f25e8ab928272490883d87a28d362307678c76989287cae43
+      sha256: "0ae8094db77637581c414f19ed5e484ebd0c376d2bcf70201fcc0facef3c7501"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
+    version: "0.7.2"
   sync_http:
     dependency: transitive
     description:
@@ -1339,13 +1339,13 @@ packages:
     source: hosted
     version: "3.1.0"
   uuid:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: uuid
-      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      sha256: b715b8d3858b6fa9f68f87d20d98830283628014750c2b09b6f516c1da4af2a7
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.7"
+    version: "4.1.0"
   vector_graphics:
     dependency: transitive
     description:

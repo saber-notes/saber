@@ -39,7 +39,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
     try {
       capabilities = await client.core.ocs.getCapabilities()
         .then((capabilities) => capabilities.body.ocs.data);
-      (ncServerIsSupported, ncSupportedVersion) = client.core.isSupported(capabilities);
+      (isSupported: ncServerIsSupported, minimumVersion: ncSupportedVersion) = client.core.isSupported(capabilities);
       log.info('ncServerIsSupported: $ncServerIsSupported, ncSupportedVersion: $ncSupportedVersion');
     } catch (e) {
       log.severe('Failed to get capabilities: $e', e);

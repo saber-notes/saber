@@ -172,6 +172,8 @@ dev_dependencies:
   yaml: ^3.1.2
 
 dependency_overrides:
+  uuid: ">=3.0.0 <5.0.0"
+
   # https://github.com/alexei-sintotski/json2yaml/pull/30
   json2yaml:
     git:
