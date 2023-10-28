@@ -265,6 +265,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.17.1" type="development" date="2023-10-28">
+            <description>
+                <ul>
+                    <li>Fixed a crash when zooming in to PDFs</li>
+                    <li>Improved performance of the shape tool</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.17.0" type="development" date="2023-10-21">
             <description>
                 <ul>
