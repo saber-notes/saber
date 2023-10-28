@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3856 (241 per locale)
 ///
-/// Built on 2023-10-26 at 14:33 UTC
+/// Built on 2023-10-28 at 18:34 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9947,8 +9947,8 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
+	@override String get shapePen => 'Вид ручки';
 	@override String get laserPointer => 'Лазерная указка';
-	@override String get shapePen => 'Форма ручки';
 }
 
 // Path: editor.penOptions

@@ -216,8 +216,8 @@ editor:
     fountainPen: Перьевая ручка
     ballpointPen: Шариковая ручка
     highlighter: Маркер
+    shapePen: Вид ручки
     laserPointer: Лазерная указка
-    shapePen(OUTDATED): Форма ручки
   penOptions:
     size: Размер
     sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"
