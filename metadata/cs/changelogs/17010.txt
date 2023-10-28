@@ -1,0 +1,2 @@
+• Opraveno selhání při přibližování souborů PDF
+• Vylepšený výkon tvarovacího nástroje

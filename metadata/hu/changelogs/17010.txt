@@ -1,0 +1,2 @@
+• Kijavítottuk a PDF-ek nagyítása közbeni összeomlást
+• Az alakformáló eszköz jobb teljesítménye

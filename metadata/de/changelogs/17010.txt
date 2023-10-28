@@ -1,0 +1,2 @@
+• Ein Absturz beim Vergrößern von PDFs wurde behoben
+• Verbesserte Leistung des Formwerkzeugs
