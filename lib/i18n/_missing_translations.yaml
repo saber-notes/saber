@@ -414,9 +414,6 @@ ru:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  editor:
-    pens:
-      shapePen(OUTDATED): Shape pen
 tr:
   home:
     moveNote:
