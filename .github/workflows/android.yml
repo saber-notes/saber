@@ -36,6 +36,8 @@ jobs:
     name: Build APK
     runs-on: ubuntu-latest
     needs: get-version
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -120,6 +122,8 @@ jobs:
     name: Build FOSS APK
     runs-on: ubuntu-latest
     needs: get-version
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

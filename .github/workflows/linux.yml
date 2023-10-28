@@ -36,6 +36,8 @@ jobs:
     name: Build Flutter app (x86_64)
     runs-on: ubuntu-latest
     needs: get-version
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -119,7 +121,8 @@ jobs:
     name: Build Flutter app (arm64)
     runs-on: ubuntu-latest
     needs: get-version
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -303,6 +306,8 @@ jobs:
     name: Build AppImage
     needs: [build-flutter-app-x86_64, get-version]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -369,6 +374,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: appimage/Saber-*-x86_64.AppImage*
           file_glob: true
+
   build-snap:
     name: Build Snap
     runs-on: ubuntu-latest
