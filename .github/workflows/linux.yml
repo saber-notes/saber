@@ -282,7 +282,7 @@ jobs:
           mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
 
       - name: Build .flatpak
-        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
+        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: Saber.flatpak
           manifest-path: flatpak/com.adilhanney.saber.json
