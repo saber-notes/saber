@@ -19,7 +19,7 @@ jobs:
       buildNumber: ${{ steps.get_version.outputs.buildNumber }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Get version
         id: get_version
@@ -40,7 +40,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Remove unneeded files
         shell: bash
