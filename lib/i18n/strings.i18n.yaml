@@ -232,9 +232,11 @@ editor:
     white: White
     red: Red
     green: Green
+    cyan: Cyan
     blue: Blue
     yellow: Yellow
     purple: Purple
+    pink: Pink
     orange: Orange
     pastelRed: Pastel red
     pastelOrange: Pastel orange

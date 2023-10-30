@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3872 (242 per locale)
+/// Strings: 3874 (242 per locale)
 ///
-/// Built on 2023-10-30 at 21:37 UTC
+/// Built on 2023-10-30 at 21:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -763,9 +763,11 @@ class _StringsEditorColorsEn {
 	String get white => 'White';
 	String get red => 'Red';
 	String get green => 'Green';
+	String get cyan => 'Cyan';
 	String get blue => 'Blue';
 	String get yellow => 'Yellow';
 	String get purple => 'Purple';
+	String get pink => 'Pink';
 	String get orange => 'Orange';
 	String get pastelRed => 'Pastel red';
 	String get pastelOrange => 'Pastel orange';

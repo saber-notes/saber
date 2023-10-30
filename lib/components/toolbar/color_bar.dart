@@ -33,8 +33,10 @@ class ColorBar extends StatefulWidget {
     (name: t.editor.colors.orange, color: Colors.orange),
     (name: t.editor.colors.yellow, color: Colors.yellow),
     (name: t.editor.colors.green, color: Colors.green),
+    (name: t.editor.colors.cyan, color: Colors.cyan),
     (name: t.editor.colors.blue, color: Colors.blue),
     (name: t.editor.colors.purple, color: Colors.purple),
+    (name: t.editor.colors.pink, color: Colors.pink),
     (name: t.editor.colors.white, color: Colors.white),
     ..._pastelColorOptions,
   ];
