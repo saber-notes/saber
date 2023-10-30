@@ -85,9 +85,9 @@ settings:
     editorPromptRename: 提醒您重新命名新筆記
     hideHomeBackgrounds: 隱藏主畫面上的背景
     recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
-    recentColorsLength(OUTDATED): 要儲存多少種最近的顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
+    recentColorsLength(OUTDATED): 要儲存多少種最近的顏色
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -230,9 +230,11 @@ editor:
     white: 白色
     red: 紅色
     green: 綠色
+    cyan(OUTDATED): 青色
     blue: 藍色
     yellow: 黃色
     purple: 紫色
+    pink(OUTDATED): 粉紅色的
     orange: 橙色
     pastelRed: 淡紅色
     pastelOrange: 淡橙色

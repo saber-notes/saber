@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
-    recentColorsLength(OUTDATED): Kaç tane yeni renk depolanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
+    recentColorsLength(OUTDATED): Kaç tane yeni renk depolanacak
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -232,9 +232,11 @@ editor:
     white: Beyaz
     red: Kırmızı
     green: Yeşil
+    cyan(OUTDATED): Camgöbeği
     blue: Mavi
     yellow: Sarı
     purple: Mor
+    pink(OUTDATED): Pembe
     orange: Turuncu
     pastelRed: Pastel kırmızı
     pastelOrange: Pastel turuncu

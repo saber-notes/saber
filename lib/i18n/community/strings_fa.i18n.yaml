@@ -85,9 +85,9 @@ settings:
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
     hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
-    recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
+    recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
@@ -227,9 +227,11 @@ editor:
     white: سفید
     red: قرمز
     green: سبز
+    cyan(OUTDATED): فیروزه ای
     blue: آبی
     yellow: زرد
     purple: بنفش
+    pink(OUTDATED): رنگ صورتی
     orange: نارنجی
     pastelRed: قرمز پاستلی
     pastelOrange: نارنجی پاستلی

@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
     recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
-    recentColorsLength(OUTDATED): Сколько последних цветов хранить
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
+    recentColorsLength(OUTDATED): Сколько последних цветов хранить
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -231,9 +231,11 @@ editor:
     white: Белый
     red: Красный
     green: Зелёный
+    cyan(OUTDATED): Голубой
     blue: Синий
     yellow: Жёлтый
     purple: Фиолетовый
+    pink(OUTDATED): Розовый
     orange: Оранжевый
     pastelRed: Пастельный красный
     pastelOrange: Пастельный оранжевый

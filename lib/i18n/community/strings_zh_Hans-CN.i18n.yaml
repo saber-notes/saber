@@ -85,9 +85,9 @@ settings:
     editorPromptRename: 提示您重命名新笔记
     hideHomeBackgrounds: 在主页隐藏背景
     recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
-    recentColorsLength(OUTDATED): 要存储多少种最近的颜色
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
+    recentColorsLength(OUTDATED): 要存储多少种最近的颜色
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -231,9 +231,11 @@ editor:
     white: 白色
     red: 红色
     green: 绿色
+    cyan(OUTDATED): 青色
     blue: 蓝色
     yellow: 黄色
     purple: 紫色
+    pink(OUTDATED): 粉色的
     orange: 橙色
     pastelRed: 浅红色
     pastelOrange: 浅橙色

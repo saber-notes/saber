@@ -85,9 +85,9 @@ settings:
     editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
     hideHomeBackgrounds: הסתר רקעים במסך הבית
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
-    recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
+    recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
   prefDescriptions:
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
     disableAds: "מודעות עוזרות לתמוך בפיתוח של סאבר, אבל אתה יכול להשבית אותן אם תרצה"
@@ -232,9 +232,11 @@ editor:
     white: לבן
     red: אדום
     green: ירוק
+    cyan(OUTDATED): טורקיז
     blue: כחול
     yellow: צהוב
     purple: סגול
+    pink(OUTDATED): וָרוֹד
     orange: כתום
     pastelRed: אדום פסטל
     pastelOrange: כתום פסטל

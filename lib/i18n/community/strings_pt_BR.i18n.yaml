@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Solicitar que você renomeie novas notas
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
-    recentColorsLength(OUTDATED): Quantas cores recentes armazenar
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
+    recentColorsLength(OUTDATED): Quantas cores recentes armazenar
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
@@ -231,9 +231,11 @@ editor:
     white: Branco
     red: Vermelho
     green: Verde
+    cyan(OUTDATED): Ciano
     blue: Azul
     yellow: Amarelo
     purple: Roxo
+    pink(OUTDATED): Rosa
     orange: Laranja
     pastelRed: Vermelho pastel
     pastelOrange: Laranja pastel

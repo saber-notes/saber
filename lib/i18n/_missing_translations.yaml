@@ -54,6 +54,9 @@ ar:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -64,6 +67,10 @@ cs:
   settings:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+  editor:
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
 de:
   home:
     titles:
@@ -111,6 +118,9 @@ de:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan: Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -129,6 +139,9 @@ es:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
 fa:
@@ -151,6 +164,9 @@ fa:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -169,6 +185,9 @@ fr:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan: Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
 he:
@@ -187,6 +206,9 @@ he:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
     menu:
       bgPatterns:
         staffs(OUTDATED): Staffs
@@ -323,9 +345,11 @@ hu:
       white(OUTDATED): White
       red(OUTDATED): Red
       green(OUTDATED): Green
+      cyan(OUTDATED): Cyan
       blue(OUTDATED): Blue
       yellow(OUTDATED): Yellow
       purple(OUTDATED): Purple
+      pink(OUTDATED): Pink
       orange(OUTDATED): Orange
       pastelRed(OUTDATED): Pastel red
       pastelOrange(OUTDATED): Pastel orange
@@ -364,6 +388,10 @@ it:
   settings:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+  editor:
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
 ja:
   home:
     titles:
@@ -408,6 +436,9 @@ ja:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
@@ -426,6 +457,9 @@ pt-BR:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
@@ -437,6 +471,10 @@ ru:
   settings:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+  editor:
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
 tr:
   home:
     moveNote:
@@ -449,6 +487,9 @@ tr:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
 zh-Hans-CN:
   home:
     moveNote:
@@ -461,6 +502,9 @@ zh-Hans-CN:
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
 zh-Hant-TW:
   home:
     moveNote:
@@ -470,3 +514,7 @@ zh-Hant-TW:
   settings:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+  editor:
+    colors:
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink

@@ -82,8 +82,8 @@ settings:
     editorPromptRename: 新しいメモの名前を変更するよう促す
     hideHomeBackgrounds: ホーム画面で背景を隠す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
-    recentColorsLength(OUTDATED): 最近使用した色を何色保存するか
     printPageIndicators: 印刷ページのインジケーター
+    recentColorsLength(OUTDATED): 最近使用した色を何色保存するか
     autosaveDelay(OUTDATED): 自動保存の遅延
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートの高速化
@@ -228,9 +228,11 @@ editor:
     white: 白色
     red: 赤色
     green: 緑色
+    cyan(OUTDATED): シアン
     blue: 青色
     yellow: 黄色
     purple: 紫色
+    pink(OUTDATED): ピンク
     orange: 橙色
     pastelRed: パステル・赤
     pastelOrange: パステル・橙色

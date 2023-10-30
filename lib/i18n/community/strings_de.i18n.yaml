@@ -82,8 +82,8 @@ settings:
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
-    recentColorsLength(OUTDATED): Wie viele aktuelle Farben gespeichert werden sollen
     printPageIndicators: Seitennummerierung drucken
+    recentColorsLength(OUTDATED): Wie viele aktuelle Farben gespeichert werden sollen
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
     hideFingerDrawingToggle(OUTDATED): Den Fingerzeichnungsschalter ausblenden
     shouldAlwaysAlertForUpdates(OUTDATED): Schnellere Updates
@@ -235,6 +235,7 @@ editor:
     blue: Blau
     yellow: Gelb
     purple: Lila
+    pink(OUTDATED): Rosa
     orange: Orange
     pastelRed: Pastellfarbenes Rot
     pastelOrange: Pastellfarbenes Orange

@@ -223,6 +223,8 @@ editor:
     size: Méret
     sizeDragHint: Húzza balra vagy jobbra a méret megváltoztatásához
   colors:
+    cyan(OUTDATED): Cián
+    pink(OUTDATED): Rózsaszín
     colorPicker(OUTDATED): Színválasztó
     black(OUTDATED): Fekete
     darkGrey(OUTDATED): Sötét szürke

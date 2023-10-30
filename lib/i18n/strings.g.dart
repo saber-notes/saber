@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3874 (242 per locale)
+/// Strings: 3902 (243 per locale)
 ///
-/// Built on 2023-10-30 at 21:53 UTC
+/// Built on 2023-10-30 at 21:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1235,8 +1235,8 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
-	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي سيتم تخزينها';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي سيتم تخزينها';
 	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
 	@override String get disableAds => 'عطل الاعلانات';
 	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
@@ -1534,9 +1534,11 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get white => 'أبيض';
 	@override String get red => 'أحمر';
 	@override String get green => 'أخضر';
+	@override String get cyan => 'ازرق سماوي';
 	@override String get blue => 'أزرق';
 	@override String get yellow => 'أصفر';
 	@override String get purple => 'أرجواني';
+	@override String get pink => 'لون القرنفل';
 	@override String get orange => 'برتقالي';
 	@override String get pastelRed => 'باستيل أحمر';
 	@override String get pastelOrange => 'برتقال باستيل';
@@ -2010,9 +2012,9 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
-	@override String get recentColorsLength => 'Kolik posledních barev uložit';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
+	@override String get recentColorsLength => 'Kolik posledních barev uložit';
 }
 
 // Path: settings.prefDescriptions
@@ -2303,9 +2305,11 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 	@override String get white => 'Bílá';
 	@override String get red => 'Červená';
 	@override String get green => 'Zelená';
+	@override String get cyan => 'Tyrkysová';
 	@override String get blue => 'Modrá';
 	@override String get yellow => 'Žlutá';
 	@override String get purple => 'Purpurová';
+	@override String get pink => 'Růžový';
 	@override String get orange => 'Oranžová';
 	@override String get pastelRed => 'Pastelová červená';
 	@override String get pastelOrange => 'Pastelová oranžová';
@@ -2776,8 +2780,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
-	@override String get recentColorsLength => 'Wie viele aktuelle Farben gespeichert werden sollen';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
+	@override String get recentColorsLength => 'Wie viele aktuelle Farben gespeichert werden sollen';
 	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
 	@override String get hideFingerDrawingToggle => 'Den Fingerzeichnungsschalter ausblenden';
 	@override String get shouldAlwaysAlertForUpdates => 'Schnellere Updates';
@@ -3075,6 +3079,7 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get blue => 'Blau';
 	@override String get yellow => 'Gelb';
 	@override String get purple => 'Lila';
+	@override String get pink => 'Rosa';
 	@override String get orange => 'Orange';
 	@override String get pastelRed => 'Pastellfarbenes Rot';
 	@override String get pastelOrange => 'Pastellfarbenes Orange';
@@ -3547,9 +3552,9 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
-	@override String get recentColorsLength => '¿Cuántos colores recientes almacenar?';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
+	@override String get recentColorsLength => '¿Cuántos colores recientes almacenar?';
 }
 
 // Path: settings.prefDescriptions
@@ -3840,9 +3845,11 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get white => 'Blanco';
 	@override String get red => 'Rojo';
 	@override String get green => 'Verde';
+	@override String get cyan => 'cian';
 	@override String get blue => 'Azul';
 	@override String get yellow => 'Amarillo';
 	@override String get purple => 'Morado';
+	@override String get pink => 'Rosa';
 	@override String get orange => 'Naranja';
 	@override String get pastelRed => 'Rojo pastel';
 	@override String get pastelOrange => 'Naranja pastel';
@@ -4316,9 +4323,9 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
-	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
+	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 }
 
 // Path: settings.prefDescriptions
@@ -4609,9 +4616,11 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get white => 'سفید';
 	@override String get red => 'قرمز';
 	@override String get green => 'سبز';
+	@override String get cyan => 'فیروزه ای';
 	@override String get blue => 'آبی';
 	@override String get yellow => 'زرد';
 	@override String get purple => 'بنفش';
+	@override String get pink => 'رنگ صورتی';
 	@override String get orange => 'نارنجی';
 	@override String get pastelRed => 'قرمز پاستلی';
 	@override String get pastelOrange => 'نارنجی پاستلی';
@@ -5085,9 +5094,9 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
-	@override String get recentColorsLength => 'Combien de couleurs récentes stocker';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
+	@override String get recentColorsLength => 'Combien de couleurs récentes stocker';
 }
 
 // Path: settings.prefDescriptions
@@ -5381,6 +5390,7 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get blue => 'Bleu';
 	@override String get yellow => 'Jaune';
 	@override String get purple => 'Violet';
+	@override String get pink => 'Rose';
 	@override String get orange => 'Orange';
 	@override String get pastelRed => 'Rouge pâle';
 	@override String get pastelOrange => 'Orange pâle';
@@ -5854,9 +5864,9 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'מבקש ממך לשנות את שם הערות חדשות';
 	@override String get hideHomeBackgrounds => 'הסתר רקעים במסך הבית';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
-	@override String get recentColorsLength => 'כמה צבעים אחרונים לאחסן';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get recentColorsLength => 'כמה צבעים אחרונים לאחסן';
 }
 
 // Path: settings.prefDescriptions
@@ -6147,9 +6157,11 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 	@override String get white => 'לבן';
 	@override String get red => 'אדום';
 	@override String get green => 'ירוק';
+	@override String get cyan => 'טורקיז';
 	@override String get blue => 'כחול';
 	@override String get yellow => 'צהוב';
 	@override String get purple => 'סגול';
+	@override String get pink => 'וָרוֹד';
 	@override String get orange => 'כתום';
 	@override String get pastelRed => 'אדום פסטל';
 	@override String get pastelOrange => 'כתום פסטל';
@@ -6908,6 +6920,8 @@ class _StringsEditorColorsHu extends _StringsEditorColorsEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get cyan => 'Cián';
+	@override String get pink => 'Rózsaszín';
 	@override String get colorPicker => 'Színválasztó';
 	@override String get black => 'Fekete';
 	@override String get darkGrey => 'Sötét szürke';
@@ -7392,9 +7406,9 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
-	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
+	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 }
 
 // Path: settings.prefDescriptions
@@ -7685,9 +7699,11 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 	@override String get white => 'Bianco';
 	@override String get red => 'Rosso';
 	@override String get green => 'Verde';
+	@override String get cyan => 'Ciano';
 	@override String get blue => 'Blu';
 	@override String get yellow => 'Giallo';
 	@override String get purple => 'Porpora';
+	@override String get pink => 'Rosa';
 	@override String get orange => 'Arancione';
 	@override String get pastelRed => 'Rosso pastello';
 	@override String get pastelOrange => 'Arancione pastello';
@@ -8158,8 +8174,8 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => '新しいメモの名前を変更するよう促す';
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
-	@override String get recentColorsLength => '最近使用した色を何色保存するか';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get recentColorsLength => '最近使用した色を何色保存するか';
 	@override String get autosaveDelay => '自動保存の遅延';
 	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
 	@override String get shouldAlwaysAlertForUpdates => 'アップデートの高速化';
@@ -8454,9 +8470,11 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '赤色';
 	@override String get green => '緑色';
+	@override String get cyan => 'シアン';
 	@override String get blue => '青色';
 	@override String get yellow => '黄色';
 	@override String get purple => '紫色';
+	@override String get pink => 'ピンク';
 	@override String get orange => '橙色';
 	@override String get pastelRed => 'パステル・赤';
 	@override String get pastelOrange => 'パステル・橙色';
@@ -8930,9 +8948,9 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
-	@override String get recentColorsLength => 'Quantas cores recentes armazenar';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
+	@override String get recentColorsLength => 'Quantas cores recentes armazenar';
 }
 
 // Path: settings.prefDescriptions
@@ -9223,9 +9241,11 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 	@override String get white => 'Branco';
 	@override String get red => 'Vermelho';
 	@override String get green => 'Verde';
+	@override String get cyan => 'Ciano';
 	@override String get blue => 'Azul';
 	@override String get yellow => 'Amarelo';
 	@override String get purple => 'Roxo';
+	@override String get pink => 'Rosa';
 	@override String get orange => 'Laranja';
 	@override String get pastelRed => 'Vermelho pastel';
 	@override String get pastelOrange => 'Laranja pastel';
@@ -9699,9 +9719,9 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
-	@override String get recentColorsLength => 'Сколько последних цветов хранить';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
+	@override String get recentColorsLength => 'Сколько последних цветов хранить';
 }
 
 // Path: settings.prefDescriptions
@@ -9992,9 +10012,11 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 	@override String get white => 'Белый';
 	@override String get red => 'Красный';
 	@override String get green => 'Зелёный';
+	@override String get cyan => 'Голубой';
 	@override String get blue => 'Синий';
 	@override String get yellow => 'Жёлтый';
 	@override String get purple => 'Фиолетовый';
+	@override String get pink => 'Розовый';
 	@override String get orange => 'Оранжевый';
 	@override String get pastelRed => 'Пастельный красный';
 	@override String get pastelOrange => 'Пастельный оранжевый';
@@ -10468,9 +10490,9 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
-	@override String get recentColorsLength => 'Kaç tane yeni renk depolanacak';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
+	@override String get recentColorsLength => 'Kaç tane yeni renk depolanacak';
 }
 
 // Path: settings.prefDescriptions
@@ -10761,9 +10783,11 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 	@override String get white => 'Beyaz';
 	@override String get red => 'Kırmızı';
 	@override String get green => 'Yeşil';
+	@override String get cyan => 'Camgöbeği';
 	@override String get blue => 'Mavi';
 	@override String get yellow => 'Sarı';
 	@override String get purple => 'Mor';
+	@override String get pink => 'Pembe';
 	@override String get orange => 'Turuncu';
 	@override String get pastelRed => 'Pastel kırmızı';
 	@override String get pastelOrange => 'Pastel turuncu';
@@ -11237,9 +11261,9 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
-	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
+	@override String get recentColorsLength => '要存储多少种最近的颜色';
 }
 
 // Path: settings.prefDescriptions
@@ -11530,9 +11554,11 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '红色';
 	@override String get green => '绿色';
+	@override String get cyan => '青色';
 	@override String get blue => '蓝色';
 	@override String get yellow => '黄色';
 	@override String get purple => '紫色';
+	@override String get pink => '粉色的';
 	@override String get orange => '橙色';
 	@override String get pastelRed => '浅红色';
 	@override String get pastelOrange => '浅橙色';
@@ -12006,9 +12032,9 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get recentColorsDontSavePresets => '不要在最近的顏色中儲存預設顏色';
-	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
+	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 }
 
 // Path: settings.prefDescriptions
@@ -12299,9 +12325,11 @@ class _StringsEditorColorsZhHantTw extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '紅色';
 	@override String get green => '綠色';
+	@override String get cyan => '青色';
 	@override String get blue => '藍色';
 	@override String get yellow => '黃色';
 	@override String get purple => '紫色';
+	@override String get pink => '粉紅色的';
 	@override String get orange => '橙色';
 	@override String get pastelRed => '淡紅色';
 	@override String get pastelOrange => '淡橙色';

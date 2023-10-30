@@ -79,8 +79,8 @@ settings:
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
-    recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
     printPageIndicators: طباعة مؤشرات الصفحة
+    recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
     changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     disableAds(OUTDATED): عطل الاعلانات
     allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
@@ -231,9 +231,11 @@ editor:
     white: أبيض
     red: أحمر
     green: أخضر
+    cyan(OUTDATED): ازرق سماوي
     blue: أزرق
     yellow: أصفر
     purple: أرجواني
+    pink(OUTDATED): لون القرنفل
     orange: برتقالي
     pastelRed: باستيل أحمر
     pastelOrange: برتقال باستيل

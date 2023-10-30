@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Vous rappeler de renommer les notes
     hideHomeBackgrounds: Cacher le fond de la page d'accueil
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
-    recentColorsLength(OUTDATED): Combien de couleurs récentes stocker
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
+    recentColorsLength(OUTDATED): Combien de couleurs récentes stocker
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     disableAds: "Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
@@ -234,6 +234,7 @@ editor:
     blue: Bleu
     yellow: Jaune
     purple: Violet
+    pink(OUTDATED): Rose
     orange: Orange
     pastelRed: Rouge pâle
     pastelOrange: Orange pâle

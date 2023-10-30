@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
-    recentColorsLength(OUTDATED): Kolik posledních barev uložit
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
+    recentColorsLength(OUTDATED): Kolik posledních barev uložit
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -231,9 +231,11 @@ editor:
     white: Bílá
     red: Červená
     green: Zelená
+    cyan(OUTDATED): Tyrkysová
     blue: Modrá
     yellow: Žlutá
     purple: Purpurová
+    pink(OUTDATED): Růžový
     orange: Oranžová
     pastelRed: Pastelová červená
     pastelOrange: Pastelová oranžová
