@@ -225,6 +225,10 @@ editor:
     sizeDragHint: Drag left or right to change the size
   colors:
     colorPicker: Color picker
+    customBrightnessHue: Custom $brightness $hue
+    customHue: Custom $hue
+    dark: dark
+    light: light
     black: Black
     darkGrey: Dark grey
     grey: Grey

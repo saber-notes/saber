@@ -61,14 +61,50 @@ class ColorBar extends StatefulWidget {
     ...normalColorOptions,
     ...greyScaleColorOptions,
   ];
-  static String? findColorName(Color searchColor) {
+  static String findColorName(Color searchColor) {
     for (NamedColor namedColor in _allColors) {
       if (namedColor.color == searchColor) {
         return namedColor.name;
       }
     }
-    // TODO(adil192): Create names such as "custom dark blue"
-    return null;
+    return describeColor(searchColor);
+  }
+
+  @visibleForTesting
+  static String describeColor(Color color) {
+    final hsl = HSLColor.fromColor(color);
+
+    final String hueName;
+    if (hsl.saturation < 0.1 || hsl.lightness < 0.05 || hsl.lightness > 0.9) {
+      hueName = t.editor.colors.grey.toLowerCase();
+    } else {
+      hueName = switch (hsl.hue) {
+        < 10 => t.editor.colors.red.toLowerCase(),
+        < 35 => t.editor.colors.orange.toLowerCase(),
+        < 70 => t.editor.colors.yellow.toLowerCase(),
+        < 150 => t.editor.colors.green.toLowerCase(),
+        < 200 => t.editor.colors.cyan.toLowerCase(),
+        < 250 => t.editor.colors.blue.toLowerCase(),
+        < 285 => t.editor.colors.purple.toLowerCase(),
+        < 340 => t.editor.colors.pink.toLowerCase(),
+        _ => t.editor.colors.red.toLowerCase(),
+      };
+    }
+
+    final String? lightnessName = switch (hsl.lightness) {
+      < 0.35 => t.editor.colors.dark,
+      < 0.65 => null,
+      _ => t.editor.colors.light,
+    };
+
+    if (lightnessName == null) {
+      return t.editor.colors.customHue(hue: hueName);
+    } else {
+      return t.editor.colors.customBrightnessHue(
+        brightness: lightnessName,
+        hue: hueName,
+      );
+    }
   }
 
   /// Returns whether the color is now pinned.

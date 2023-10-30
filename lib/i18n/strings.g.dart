@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3902 (243 per locale)
+/// Strings: 3906 (244 per locale)
 ///
-/// Built on 2023-10-30 at 21:59 UTC
+/// Built on 2023-10-30 at 22:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -756,6 +756,10 @@ class _StringsEditorColorsEn {
 
 	// Translations
 	String get colorPicker => 'Color picker';
+	String customBrightnessHue({required Object brightness, required Object hue}) => 'Custom ${brightness} ${hue}';
+	String customHue({required Object hue}) => 'Custom ${hue}';
+	String get dark => 'dark';
+	String get light => 'light';
 	String get black => 'Black';
 	String get darkGrey => 'Dark grey';
 	String get grey => 'Grey';
