@@ -97,12 +97,16 @@ class _SettingsPageState extends State<SettingsPage> {
     setState(() {});
   }
 
-  static final bool usesMaterialByDefault = switch (defaultTargetPlatform) {
-    TargetPlatform.iOS => false,
-    TargetPlatform.macOS => false,
-    TargetPlatform.linux => false,
-    _ => true,
+  static final bool usesCupertinoByDefault = switch (defaultTargetPlatform) {
+    TargetPlatform.iOS => true,
+    TargetPlatform.macOS => true,
+    _ => false,
   };
+  static final bool usesYaruByDefault = switch (defaultTargetPlatform) {
+    TargetPlatform.linux => true,
+    _ => false,
+  };
+  static final bool usesMaterialByDefault = !usesCupertinoByDefault && !usesYaruByDefault;
 
   static const cupertinoDirectionIcons = [
     CupertinoIcons.arrow_up_to_line,
@@ -227,13 +231,16 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   ToggleButtonsOption(
                     () {
-                      if (!usesMaterialByDefault) return defaultTargetPlatform.index;
+                      if (usesCupertinoByDefault) return defaultTargetPlatform.index;
                       return TargetPlatform.iOS.index;
                     }(),
                     const Icon(Icons.apple, semanticLabel: 'Cupertino'),
                   ),
                   ToggleButtonsOption(
-                    TargetPlatform.linux.index,
+                    () {
+                      if (usesYaruByDefault) return defaultTargetPlatform.index;
+                      return TargetPlatform.linux.index;
+                    }(),
                     const Icon(FontAwesomeIcons.ubuntu, semanticLabel: 'Yaru'),
                   ),
                 ],
