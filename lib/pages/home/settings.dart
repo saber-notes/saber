@@ -394,7 +394,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.recentColorsLength,
-                icon: Icons.palette,
+                icon: Icons.history,
                 pref: Prefs.recentColorsLength,
                 options: const [
                   ToggleButtonsOption(5, Text('5')),
