@@ -526,22 +526,12 @@ ru:
 tr:
   home:
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
+      moveNotes(OUTDATED): $n tane notu taşı
+      multipleRenamedTo(OUTDATED): "Bu notlar yeniden adlandırılacak:"
+      numberRenamedTo(OUTDATED): $n tane not çakışma olmaması için yeniden adlandırılacak
   editor:
     pens:
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
+      shapePen(OUTDATED): Şekil kalemi
 zh-Hans-CN:
   home:
     moveNote:
