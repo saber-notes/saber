@@ -10,7 +10,7 @@ import 'package:saber/i18n/strings.g.dart';
 
 typedef NamedColor = ({String name, Color color});
 
-class ColorBar extends StatelessWidget {
+class ColorBar extends StatefulWidget {
   const ColorBar({
     super.key,
     required this.axis,
@@ -65,23 +65,83 @@ class ColorBar extends StatelessWidget {
         return namedColor.name;
       }
     }
+    // TODO(adil192): Create names such as "custom dark blue"
     return null;
   }
+
+  /// Returns whether the color is now pinned.
+  static bool toggleColorPinned(String colorString) {
+    if (Prefs.pinnedColors.value.contains(colorString)) {
+      // TODO(adil192): remove from pinned and add to recent colors
+      Prefs.pinnedColors.value.remove(colorString);
+      Prefs.recentColorsChronological.value.remove(colorString);
+      Prefs.recentColorsPositioned.value.remove(colorString);
+      if (Prefs.recentColorsChronological.value.length >= Prefs.recentColorsLength.value) {
+        // if full, replace oldest
+        final oldestColor = Prefs.recentColorsChronological.value.removeAt(0);
+        Prefs.recentColorsChronological.value.add(colorString);
+        final int oldestColorPosition = Prefs.recentColorsPositioned.value.indexOf(oldestColor);
+        Prefs.recentColorsPositioned.value[oldestColorPosition] = colorString;
+      } else {
+        // not full, add to end
+        Prefs.recentColorsChronological.value.add(colorString);
+        Prefs.recentColorsPositioned.value.insert(0, colorString);
+      }
+      return false;
+    } else {
+      // add to pinned and remove from recent colors
+      Prefs.pinnedColors.value.add(colorString);
+      Prefs.recentColorsChronological.value.remove(colorString);
+      Prefs.recentColorsPositioned.value.remove(colorString);
+      return true;
+    }
+  }
+
+  @override
+  State<ColorBar> createState() => _ColorBarState();
+}
+
+class _ColorBarState extends State<ColorBar> {
+  static Color pickedColor = const Color.fromRGBO(255, 0, 0, 1);
 
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
     final children = <Widget>[
+      // pinned colors
+      if (Prefs.pinnedColors.value.isNotEmpty) ...[
+        for (String colorString in Prefs.pinnedColors.value) ColorOption(
+          isSelected: widget.currentColor?.withAlpha(255).value == int.parse(colorString),
+          enabled: widget.currentColor != null,
+          onTap: () => widget.setColor(Color(int.parse(colorString))),
+          onLongPress: () => setState(() => ColorBar.toggleColorPinned(colorString)),
+          tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: Color(int.parse(colorString)).withInversion(widget.invert),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: colorScheme.onSurface.withOpacity(0.2),
+                width: 1,
+              ),
+            ),
+          ),
+        ),
+
+        const ColorOptionSeparator(),
+      ],
+
       // recent colors
       for (String colorString in Prefs.recentColorsPositioned.value.reversed) ColorOption(
-        isSelected: currentColor?.withAlpha(255).value == int.parse(colorString),
-        enabled: currentColor != null,
-        onTap: () => setColor(Color(int.parse(colorString))),
-        tooltip: findColorName(Color(int.parse(colorString))),
+        isSelected: widget.currentColor?.withAlpha(255).value == int.parse(colorString),
+        enabled: widget.currentColor != null,
+        onTap: () => widget.setColor(Color(int.parse(colorString))),
+        onLongPress: () => setState(() => ColorBar.toggleColorPinned(colorString)),
+        tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: Color(int.parse(colorString)).withInversion(invert),
+            color: Color(int.parse(colorString)).withInversion(widget.invert),
             shape: BoxShape.circle,
             border: Border.all(
               color: colorScheme.onSurface.withOpacity(0.2),
@@ -93,7 +153,7 @@ class ColorBar extends StatelessWidget {
       // placeholders for `recentColorsLength` recent colors
       for (int i = 0; i < Prefs.recentColorsLength.value - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
         isSelected: false,
-        enabled: currentColor != null,
+        enabled: widget.currentColor != null,
         onTap: null,
         tooltip: null,
         child: DecoratedBox(
@@ -112,7 +172,7 @@ class ColorBar extends StatelessWidget {
 
       // custom color
       ColorOption(
-        isSelected: currentColor?.withAlpha(255).value == pickedColor.value,
+        isSelected: widget.currentColor?.withAlpha(255).value == pickedColor.value,
         enabled: true,
         onTap: () => openColorPicker(context),
         tooltip: t.editor.colors.colorPicker,
@@ -126,14 +186,14 @@ class ColorBar extends StatelessWidget {
       ),
 
       // color presets
-      for (NamedColor namedColor in colorPresets) ColorOption(
-        isSelected: currentColor?.withAlpha(255).value == namedColor.color.value,
-        enabled: currentColor != null,
-        onTap: () => setColor(namedColor.color),
+      for (NamedColor namedColor in ColorBar.colorPresets) ColorOption(
+        isSelected: widget.currentColor?.withAlpha(255).value == namedColor.color.value,
+        enabled: widget.currentColor != null,
+        onTap: () => widget.setColor(namedColor.color),
         tooltip: namedColor.name,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: namedColor.color.withInversion(invert),
+            color: namedColor.color.withInversion(widget.invert),
             shape: BoxShape.circle,
             border: Border.all(
               color: colorScheme.onSurface.withOpacity(0.2),
@@ -148,8 +208,8 @@ class ColorBar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
-          scrollDirection: axis,
-          child: axis == Axis.horizontal
+          scrollDirection: widget.axis,
+          child: widget.axis == Axis.horizontal
               ? Row(children: children)
               : Column(children: children),
         ),
@@ -157,14 +217,13 @@ class ColorBar extends StatelessWidget {
     );
   }
 
-  static Color pickedColor = const Color.fromRGBO(255, 0, 0, 1);
   void openColorPicker(BuildContext context) async {
     bool? confirmChange = await showDialog(
       context: context,
       builder: (BuildContext context) => _colorPickerDialog(context),
     );
     if (confirmChange ?? false) {
-      setColor(pickedColor.withInversion(invert));
+      widget.setColor(pickedColor.withInversion(widget.invert));
     }
   }
 

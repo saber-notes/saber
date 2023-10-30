@@ -849,8 +849,10 @@ class EditorState extends State<Editor> {
       Prefs.recentColorsChronological.value = List.of(Prefs.recentColorsPositioned.value);
     }
 
-    if (Prefs.recentColorsPositioned.value.contains(newColorString)) {
-      // if the color is already in the list, move it to the top
+    if (Prefs.pinnedColors.value.contains(newColorString)) {
+      // do nothing, color is already pinned
+    } else if (Prefs.recentColorsPositioned.value.contains(newColorString)) {
+      // if it's already a recent color, move it to the top
       Prefs.recentColorsChronological.value.remove(newColorString);
       Prefs.recentColorsChronological.value.add(newColorString);
       Prefs.recentColorsChronological.notifyListeners();

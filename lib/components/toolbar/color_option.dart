@@ -6,6 +6,7 @@ class ColorOption extends StatelessWidget {
     required this.isSelected,
     this.enabled = true,
     this.onTap,
+    this.onLongPress,
     required this.tooltip,
     required this.child,
   });
@@ -13,6 +14,7 @@ class ColorOption extends StatelessWidget {
   final bool isSelected;
   final bool enabled;
   final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
   final String? tooltip;
   final Widget child;
 
@@ -28,6 +30,8 @@ class ColorOption extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(diameter / 2),
           onTap: enabled ? onTap : null,
+          onLongPress: enabled ? onLongPress : null,
+          onSecondaryTap: enabled ? onLongPress : null,
           child: Container(
             width: diameter,
             height: diameter,

@@ -85,6 +85,7 @@ abstract class Prefs {
 
   static late final PlainPref<List<String>> recentColorsChronological;
   static late final PlainPref<List<String>> recentColorsPositioned;
+  static late final PlainPref<List<String>> pinnedColors;
   static late final PlainPref<bool> recentColorsDontSavePresets;
   static late final PlainPref<int> recentColorsLength;
 
@@ -165,6 +166,7 @@ abstract class Prefs {
 
     recentColorsChronological = PlainPref('recentColorsChronological', []);
     recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: const ['recentColors']);
+    pinnedColors = PlainPref('pinnedColors', []);
     recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
     recentColorsLength = PlainPref('recentColorsLength', 5)
         ..addListener(() {
