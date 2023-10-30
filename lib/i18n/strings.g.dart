@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3856 (241 per locale)
+/// Strings: 3857 (241 per locale)
 ///
-/// Built on 2023-10-30 at 20:04 UTC
+/// Built on 2023-10-30 at 20:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -470,6 +470,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 	String get recentColorsDontSavePresets => 'Don\'t save preset colors in recent colors';
+	String get recentColorsLength => 'How many recent colors to store';
 	String get printPageIndicators => 'Print page indicators';
 	String get autosaveDelay => 'Auto-save delay';
 }

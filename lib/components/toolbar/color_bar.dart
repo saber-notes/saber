@@ -90,8 +90,8 @@ class ColorBar extends StatelessWidget {
           ),
         ),
       ),
-      // placeholders for 5 recent colors
-      for (int i = 0; i < 5 - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
+      // placeholders for `recentColorsLength` recent colors
+      for (int i = 0; i < Prefs.recentColorsLength.value - Prefs.recentColorsPositioned.value.length; ++i) ColorOption(
         isSelected: false,
         enabled: currentColor != null,
         onTap: null,

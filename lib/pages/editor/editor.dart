@@ -855,7 +855,7 @@ class EditorState extends State<Editor> {
       Prefs.recentColorsChronological.value.add(newColorString);
       Prefs.recentColorsChronological.notifyListeners();
     } else {
-      if (Prefs.recentColorsPositioned.value.length >= 5) {
+      if (Prefs.recentColorsPositioned.value.length >= Prefs.recentColorsLength.value) {
         // if full, replace the oldest color with the new one
         final String removedColorString = Prefs.recentColorsChronological.value.removeAt(0);
         Prefs.recentColorsChronological.value.add(newColorString);

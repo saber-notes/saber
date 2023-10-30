@@ -85,6 +85,7 @@ settings:
     editorPromptRename: Prompt you to rename new notes
     hideHomeBackgrounds: Hide backgrounds on the home screen
     recentColorsDontSavePresets: Don't save preset colors in recent colors
+    recentColorsLength: How many recent colors to store
     printPageIndicators: Print page indicators
     autosaveDelay: Auto-save delay
   prefDescriptions:

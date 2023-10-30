@@ -385,6 +385,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 icon: Icons.palette,
                 pref: Prefs.recentColorsDontSavePresets,
               ),
+              SettingsSelection(
+                title: t.settings.prefLabels.recentColorsLength,
+                icon: Icons.palette,
+                pref: Prefs.recentColorsLength,
+                options: const [
+                  ToggleButtonsOption(5, Text('5')),
+                  ToggleButtonsOption(10, Text('10')),
+                ],
+              ),
               SettingsSwitch(
                 title: t.settings.prefLabels.printPageIndicators,
                 subtitle: t.settings.prefDescriptions.printPageIndicators,

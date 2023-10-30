@@ -86,6 +86,7 @@ abstract class Prefs {
   static late final PlainPref<List<String>> recentColorsChronological;
   static late final PlainPref<List<String>> recentColorsPositioned;
   static late final PlainPref<bool> recentColorsDontSavePresets;
+  static late final PlainPref<int> recentColorsLength;
 
   static late final PlainPref<ToolId> lastTool;
   static late final PlainPref<StrokeProperties>
@@ -165,6 +166,15 @@ abstract class Prefs {
     recentColorsChronological = PlainPref('recentColorsChronological', []);
     recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: const ['recentColors']);
     recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
+    recentColorsLength = PlainPref('recentColorsLength', 5)
+        ..addListener(() {
+          // truncate if needed
+          while (recentColorsLength.value < recentColorsPositioned.value.length) {
+            // remove oldest color
+            final removed = recentColorsChronological.value.removeAt(0);
+            recentColorsPositioned.value.remove(removed);
+          }
+        });
 
     lastTool = PlainPref('lastTool', ToolId.fountainPen);
     lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: const ['lastPenColor']);
