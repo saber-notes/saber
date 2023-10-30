@@ -221,6 +221,10 @@ editor:
     sizeDragHint: 左右にドラッグしてサイズを変更
   colors:
     colorPicker: カラーピッカー
+    customBrightnessHue(OUTDATED): カスタム $b $h
+    customHue(OUTDATED): カスタム $h
+    dark(OUTDATED): 暗い
+    light(OUTDATED): ライト
     black: 黒
     darkGrey: 濃い灰色
     grey: 灰色
@@ -228,11 +232,9 @@ editor:
     white: 白色
     red: 赤色
     green: 緑色
-    cyan(OUTDATED): シアン
     blue: 青色
     yellow: 黄色
     purple: 紫色
-    pink(OUTDATED): ピンク
     orange: 橙色
     pastelRed: パステル・赤
     pastelOrange: パステル・橙色
@@ -242,6 +244,8 @@ editor:
     pastelBlue: パステル・青色
     pastelPurple: パステル・紫色
     pastelPink: パステル・桃色
+    cyan(OUTDATED): シアン
+    pink(OUTDATED): ピンク
   imageOptions:
     title: 画像オプション
     invertible: 不可逆

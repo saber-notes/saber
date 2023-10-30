@@ -224,6 +224,10 @@ editor:
     sizeDragHint: 左右拖动更改粗细
   colors:
     colorPicker: 选色器
+    customBrightnessHue(OUTDATED): 定制 $b $h
+    customHue(OUTDATED): 定制 $h
+    dark(OUTDATED): 黑暗的
+    light(OUTDATED): 光
     black: 黑色
     darkGrey: 深灰色
     grey: 灰色
@@ -231,11 +235,9 @@ editor:
     white: 白色
     red: 红色
     green: 绿色
-    cyan(OUTDATED): 青色
     blue: 蓝色
     yellow: 黄色
     purple: 紫色
-    pink(OUTDATED): 粉色的
     orange: 橙色
     pastelRed: 浅红色
     pastelOrange: 浅橙色
@@ -245,6 +247,8 @@ editor:
     pastelBlue: 浅蓝色
     pastelPurple: 浅紫色
     pastelPink: 浅粉色
+    cyan(OUTDATED): 青色
+    pink(OUTDATED): 粉色的
   imageOptions:
     title: 图片选项
     invertible: 反转颜色

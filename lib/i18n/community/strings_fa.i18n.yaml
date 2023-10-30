@@ -220,6 +220,10 @@ editor:
     sizeDragHint: برای تغییر اندازه به چپ یا راست بکشید
   colors:
     colorPicker: انتخاب کننده رنگ
+    customBrightnessHue(OUTDATED): سفارشی $b $h
+    customHue(OUTDATED): سفارشی $h
+    dark(OUTDATED): تاریک
+    light(OUTDATED): سبک
     black: مشکی
     darkGrey: خاکستری تیره
     grey: خاکستری
@@ -227,11 +231,9 @@ editor:
     white: سفید
     red: قرمز
     green: سبز
-    cyan(OUTDATED): فیروزه ای
     blue: آبی
     yellow: زرد
     purple: بنفش
-    pink(OUTDATED): رنگ صورتی
     orange: نارنجی
     pastelRed: قرمز پاستلی
     pastelOrange: نارنجی پاستلی
@@ -241,6 +243,8 @@ editor:
     pastelBlue: آبی پاستلی
     pastelPurple: بنفش پاستلی
     pastelPink: صورتی پاستلی
+    cyan(OUTDATED): فیروزه ای
+    pink(OUTDATED): رنگ صورتی
   imageOptions:
     title: گزینه های تصویر
     invertible: معکوس پذیر

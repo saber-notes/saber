@@ -223,6 +223,10 @@ editor:
     sizeDragHint: 向左或向右拖動以更改大小
   colors:
     colorPicker: 顏色選擇器
+    customBrightnessHue(OUTDATED): 客製化 $b $h
+    customHue(OUTDATED): 客製化 $h
+    dark(OUTDATED): 黑暗的
+    light(OUTDATED): 光
     black: 黑色
     darkGrey: 深灰色
     grey: 灰色
@@ -230,11 +234,9 @@ editor:
     white: 白色
     red: 紅色
     green: 綠色
-    cyan(OUTDATED): 青色
     blue: 藍色
     yellow: 黃色
     purple: 紫色
-    pink(OUTDATED): 粉紅色的
     orange: 橙色
     pastelRed: 淡紅色
     pastelOrange: 淡橙色
@@ -244,6 +246,8 @@ editor:
     pastelBlue: 淡藍色
     pastelPurple: 淡紫色
     pastelPink: 淡粉色
+    cyan(OUTDATED): 青色
+    pink(OUTDATED): 粉紅色的
   imageOptions:
     title: 圖片選項
     invertible: 反轉顏色

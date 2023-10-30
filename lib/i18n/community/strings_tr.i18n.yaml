@@ -225,6 +225,10 @@ editor:
     sizeDragHint: Boyutu değiştirmek için sağa veya sola kaydır
   colors:
     colorPicker: Renk seçici
+    customBrightnessHue(OUTDATED): Özel $b $h
+    customHue(OUTDATED): Özel $h
+    dark(OUTDATED): karanlık
+    light(OUTDATED): ışık
     black: Siyah
     darkGrey: Koyu gri
     grey: Gri
@@ -232,11 +236,9 @@ editor:
     white: Beyaz
     red: Kırmızı
     green: Yeşil
-    cyan(OUTDATED): Camgöbeği
     blue: Mavi
     yellow: Sarı
     purple: Mor
-    pink(OUTDATED): Pembe
     orange: Turuncu
     pastelRed: Pastel kırmızı
     pastelOrange: Pastel turuncu
@@ -246,6 +248,8 @@ editor:
     pastelBlue: Pastel mavi
     pastelPurple: Pastel mor
     pastelPink: Pastel pembe
+    cyan(OUTDATED): Camgöbeği
+    pink(OUTDATED): Pembe
   imageOptions:
     title: Görüntü ayarları
     invertible: (Rengi) Tersine çevrilebilir

@@ -224,6 +224,10 @@ editor:
     sizeDragHint: Glisser vers la gauche ou la droite pour changer la taille
   colors:
     colorPicker: Pipette de couleur
+    customBrightnessHue(OUTDATED): Personnalisé $b $h
+    customHue(OUTDATED): $h personnalisé
+    dark(OUTDATED): sombre
+    light(OUTDATED): lumière
     black: Noir
     darkGrey: Gris sombre
     grey: Gris
@@ -234,7 +238,6 @@ editor:
     blue: Bleu
     yellow: Jaune
     purple: Violet
-    pink(OUTDATED): Rose
     orange: Orange
     pastelRed: Rouge pâle
     pastelOrange: Orange pâle
@@ -244,6 +247,7 @@ editor:
     pastelBlue: Bleu pâle
     pastelPurple: Violet pâle
     pastelPink: Rose pâle
+    pink(OUTDATED): Rose
   imageOptions:
     title: Options d'image
     invertible: Couleurs inversibles

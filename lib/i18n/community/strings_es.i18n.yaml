@@ -224,6 +224,10 @@ editor:
     sizeDragHint: Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño
   colors:
     colorPicker: Selector de color
+    customBrightnessHue(OUTDATED): Personalizado $b $h
+    customHue(OUTDATED): $h personalizados
+    dark(OUTDATED): oscuro
+    light(OUTDATED): luz
     black: Negro
     darkGrey: Gris oscuro
     grey: Gris
@@ -231,11 +235,9 @@ editor:
     white: Blanco
     red: Rojo
     green: Verde
-    cyan(OUTDATED): cian
     blue: Azul
     yellow: Amarillo
     purple: Morado
-    pink(OUTDATED): Rosa
     orange: Naranja
     pastelRed: Rojo pastel
     pastelOrange: Naranja pastel
@@ -245,6 +247,8 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
+    cyan(OUTDATED): cian
+    pink(OUTDATED): Rosa
   imageOptions:
     title: Opciones de imagen
     invertible: Invertible

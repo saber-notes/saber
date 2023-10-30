@@ -55,6 +55,10 @@ ar:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -69,6 +73,10 @@ cs:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
 de:
@@ -119,6 +127,10 @@ de:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan: Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -140,6 +152,10 @@ es:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -165,6 +181,10 @@ fa:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -186,6 +206,10 @@ fr:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan: Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -207,6 +231,10 @@ he:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     menu:
@@ -338,6 +366,10 @@ hu:
       laserPointer(OUTDATED): Laser pointer
     colors:
       colorPicker(OUTDATED): Color picker
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       black(OUTDATED): Black
       darkGrey(OUTDATED): Dark grey
       grey(OUTDATED): Grey
@@ -390,6 +422,10 @@ it:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
 ja:
@@ -437,6 +473,10 @@ ja:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -458,6 +498,10 @@ pt-BR:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     selectionBar:
@@ -473,6 +517,10 @@ ru:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
 tr:
@@ -488,6 +536,10 @@ tr:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
 zh-Hans-CN:
@@ -503,6 +555,10 @@ zh-Hans-CN:
     pens:
       shapePen(OUTDATED): Shape pen
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
 zh-Hant-TW:
@@ -516,5 +572,9 @@ zh-Hant-TW:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink

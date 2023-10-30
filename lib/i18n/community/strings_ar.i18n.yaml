@@ -224,6 +224,10 @@ editor:
     sizeDragHint: اسحب لليسار أو لليمين لتغيير الحجم
   colors:
     colorPicker: أداة انتقاء اللون
+    customBrightnessHue(OUTDATED): مخصص $b $h
+    customHue(OUTDATED): مخصص $h
+    dark(OUTDATED): مظلم
+    light(OUTDATED): ضوء
     black: أسود
     darkGrey: الرمادي الداكن
     grey: رمادي
@@ -231,11 +235,9 @@ editor:
     white: أبيض
     red: أحمر
     green: أخضر
-    cyan(OUTDATED): ازرق سماوي
     blue: أزرق
     yellow: أصفر
     purple: أرجواني
-    pink(OUTDATED): لون القرنفل
     orange: برتقالي
     pastelRed: باستيل أحمر
     pastelOrange: برتقال باستيل
@@ -245,6 +247,8 @@ editor:
     pastelBlue: الباستيل الأزرق
     pastelPurple: الباستيل الأرجواني
     pastelPink: الباستيل الوردي
+    cyan(OUTDATED): ازرق سماوي
+    pink(OUTDATED): لون القرنفل
   imageOptions:
     title: خيارات الصورة
     invertible: قابل للعكس

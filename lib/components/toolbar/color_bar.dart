@@ -98,11 +98,11 @@ class ColorBar extends StatefulWidget {
     };
 
     if (lightnessName == null) {
-      return t.editor.colors.customHue(hue: hueName);
+      return t.editor.colors.customHue(h: hueName);
     } else {
       return t.editor.colors.customBrightnessHue(
-        brightness: lightnessName,
-        hue: hueName,
+        b: lightnessName,
+        h: hueName,
       );
     }
   }

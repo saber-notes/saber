@@ -224,6 +224,10 @@ editor:
     sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"
   colors:
     colorPicker: Выбор цвета
+    customBrightnessHue(OUTDATED): Пользовательский $b $h
+    customHue(OUTDATED): Пользовательский $h
+    dark(OUTDATED): темный
+    light(OUTDATED): свет
     black: Чёрный
     darkGrey: Тёмно-серый
     grey: Серый
@@ -231,11 +235,9 @@ editor:
     white: Белый
     red: Красный
     green: Зелёный
-    cyan(OUTDATED): Голубой
     blue: Синий
     yellow: Жёлтый
     purple: Фиолетовый
-    pink(OUTDATED): Розовый
     orange: Оранжевый
     pastelRed: Пастельный красный
     pastelOrange: Пастельный оранжевый
@@ -245,6 +247,8 @@ editor:
     pastelBlue: Пастельный синий
     pastelPurple: Пастельный фиолетовый
     pastelPink: Пастельный розовый
+    cyan(OUTDATED): Голубой
+    pink(OUTDATED): Розовый
   imageOptions:
     title: Параметры изображения
     invertible: Инвертировать

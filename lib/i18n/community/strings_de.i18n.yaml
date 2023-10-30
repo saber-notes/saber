@@ -225,6 +225,10 @@ editor:
     sizeDragHint: "Nach links oder rechts ziehen, um die Dicke zu ändern"
   colors:
     colorPicker: Farbauswahl
+    customBrightnessHue(OUTDATED): Benutzerdefiniert $b $h
+    customHue(OUTDATED): Benutzerdefiniert $h
+    dark(OUTDATED): dunkel
+    light(OUTDATED): Licht
     black: Schwarz
     darkGrey: Dunkelgrau
     grey: Grau
@@ -235,7 +239,6 @@ editor:
     blue: Blau
     yellow: Gelb
     purple: Lila
-    pink(OUTDATED): Rosa
     orange: Orange
     pastelRed: Pastellfarbenes Rot
     pastelOrange: Pastellfarbenes Orange
@@ -245,6 +248,7 @@ editor:
     pastelBlue: Pastellfarbenes Blau
     pastelPurple: Pastellfarbenes Lila
     pastelPink: Pastellfarbenes Rosa
+    pink(OUTDATED): Rosa
   imageOptions:
     title: Bildoptionen
     invertible: Invertierbar

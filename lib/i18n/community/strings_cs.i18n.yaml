@@ -224,6 +224,10 @@ editor:
     sizeDragHint: Posunem vlevo nebo vpravo změníte velikost
   colors:
     colorPicker: Vybrat vlastní barvu
+    customBrightnessHue(OUTDATED): Vlastní $b $h
+    customHue(OUTDATED): Vlastní $h
+    dark(OUTDATED): temný
+    light(OUTDATED): světlo
     black: Černá
     darkGrey: Tmavě šedá
     grey: Šedá
@@ -231,11 +235,9 @@ editor:
     white: Bílá
     red: Červená
     green: Zelená
-    cyan(OUTDATED): Tyrkysová
     blue: Modrá
     yellow: Žlutá
     purple: Purpurová
-    pink(OUTDATED): Růžový
     orange: Oranžová
     pastelRed: Pastelová červená
     pastelOrange: Pastelová oranžová
@@ -245,6 +247,8 @@ editor:
     pastelBlue: Pastelová modrá
     pastelPurple: Pastelová purpurová
     pastelPink: Pastelová růžová
+    cyan(OUTDATED): Tyrkysová
+    pink(OUTDATED): Růžový
   imageOptions:
     title: Možnosti obrázku
     invertible: Invertovat barvy podle motivu

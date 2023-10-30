@@ -225,6 +225,10 @@ editor:
     sizeDragHint: גרור שמאלה או ימינה כדי לשנות את הגודל
   colors:
     colorPicker: בורר צבעים
+    customBrightnessHue(OUTDATED): מותאם אישית $b $h
+    customHue(OUTDATED): מותאם אישית $h
+    dark(OUTDATED): אפל
+    light(OUTDATED): אוֹר
     black: שחור
     darkGrey: עפור ככה
     grey: עפור
@@ -232,11 +236,9 @@ editor:
     white: לבן
     red: אדום
     green: ירוק
-    cyan(OUTDATED): טורקיז
     blue: כחול
     yellow: צהוב
     purple: סגול
-    pink(OUTDATED): וָרוֹד
     orange: כתום
     pastelRed: אדום פסטל
     pastelOrange: כתום פסטל
@@ -246,6 +248,8 @@ editor:
     pastelBlue: כחול פסטל
     pastelPurple: סגול פסטל
     pastelPink: ורוד פסטל
+    cyan(OUTDATED): טורקיז
+    pink(OUTDATED): וָרוֹד
   imageOptions:
     title: אפשרויות תמונה
     invertible: הפיך

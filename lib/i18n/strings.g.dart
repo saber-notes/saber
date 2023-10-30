@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3906 (244 per locale)
+/// Strings: 3966 (247 per locale)
 ///
-/// Built on 2023-10-30 at 22:30 UTC
+/// Built on 2023-10-30 at 22:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -756,8 +756,8 @@ class _StringsEditorColorsEn {
 
 	// Translations
 	String get colorPicker => 'Color picker';
-	String customBrightnessHue({required Object brightness, required Object hue}) => 'Custom ${brightness} ${hue}';
-	String customHue({required Object hue}) => 'Custom ${hue}';
+	String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	String customHue({required Object h}) => 'Custom ${h}';
 	String get dark => 'dark';
 	String get light => 'light';
 	String get black => 'Black';
@@ -1531,6 +1531,10 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'أداة انتقاء اللون';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'مخصص ${b} ${h}';
+	@override String customHue({required Object h}) => 'مخصص ${h}';
+	@override String get dark => 'مظلم';
+	@override String get light => 'ضوء';
 	@override String get black => 'أسود';
 	@override String get darkGrey => 'الرمادي الداكن';
 	@override String get grey => 'رمادي';
@@ -1538,11 +1542,9 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get white => 'أبيض';
 	@override String get red => 'أحمر';
 	@override String get green => 'أخضر';
-	@override String get cyan => 'ازرق سماوي';
 	@override String get blue => 'أزرق';
 	@override String get yellow => 'أصفر';
 	@override String get purple => 'أرجواني';
-	@override String get pink => 'لون القرنفل';
 	@override String get orange => 'برتقالي';
 	@override String get pastelRed => 'باستيل أحمر';
 	@override String get pastelOrange => 'برتقال باستيل';
@@ -1552,6 +1554,8 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'الباستيل الأزرق';
 	@override String get pastelPurple => 'الباستيل الأرجواني';
 	@override String get pastelPink => 'الباستيل الوردي';
+	@override String get cyan => 'ازرق سماوي';
+	@override String get pink => 'لون القرنفل';
 }
 
 // Path: editor.imageOptions
@@ -2302,6 +2306,10 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Vybrat vlastní barvu';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Vlastní ${b} ${h}';
+	@override String customHue({required Object h}) => 'Vlastní ${h}';
+	@override String get dark => 'temný';
+	@override String get light => 'světlo';
 	@override String get black => 'Černá';
 	@override String get darkGrey => 'Tmavě šedá';
 	@override String get grey => 'Šedá';
@@ -2309,11 +2317,9 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 	@override String get white => 'Bílá';
 	@override String get red => 'Červená';
 	@override String get green => 'Zelená';
-	@override String get cyan => 'Tyrkysová';
 	@override String get blue => 'Modrá';
 	@override String get yellow => 'Žlutá';
 	@override String get purple => 'Purpurová';
-	@override String get pink => 'Růžový';
 	@override String get orange => 'Oranžová';
 	@override String get pastelRed => 'Pastelová červená';
 	@override String get pastelOrange => 'Pastelová oranžová';
@@ -2323,6 +2329,8 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastelová modrá';
 	@override String get pastelPurple => 'Pastelová purpurová';
 	@override String get pastelPink => 'Pastelová růžová';
+	@override String get cyan => 'Tyrkysová';
+	@override String get pink => 'Růžový';
 }
 
 // Path: editor.imageOptions
@@ -3073,6 +3081,10 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Farbauswahl';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Benutzerdefiniert ${b} ${h}';
+	@override String customHue({required Object h}) => 'Benutzerdefiniert ${h}';
+	@override String get dark => 'dunkel';
+	@override String get light => 'Licht';
 	@override String get black => 'Schwarz';
 	@override String get darkGrey => 'Dunkelgrau';
 	@override String get grey => 'Grau';
@@ -3083,7 +3095,6 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get blue => 'Blau';
 	@override String get yellow => 'Gelb';
 	@override String get purple => 'Lila';
-	@override String get pink => 'Rosa';
 	@override String get orange => 'Orange';
 	@override String get pastelRed => 'Pastellfarbenes Rot';
 	@override String get pastelOrange => 'Pastellfarbenes Orange';
@@ -3093,6 +3104,7 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastellfarbenes Blau';
 	@override String get pastelPurple => 'Pastellfarbenes Lila';
 	@override String get pastelPink => 'Pastellfarbenes Rosa';
+	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
@@ -3842,6 +3854,10 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
+	@override String customHue({required Object h}) => '${h} personalizados';
+	@override String get dark => 'oscuro';
+	@override String get light => 'luz';
 	@override String get black => 'Negro';
 	@override String get darkGrey => 'Gris oscuro';
 	@override String get grey => 'Gris';
@@ -3849,11 +3865,9 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get white => 'Blanco';
 	@override String get red => 'Rojo';
 	@override String get green => 'Verde';
-	@override String get cyan => 'cian';
 	@override String get blue => 'Azul';
 	@override String get yellow => 'Amarillo';
 	@override String get purple => 'Morado';
-	@override String get pink => 'Rosa';
 	@override String get orange => 'Naranja';
 	@override String get pastelRed => 'Rojo pastel';
 	@override String get pastelOrange => 'Naranja pastel';
@@ -3863,6 +3877,8 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Morado pastel';
 	@override String get pastelPink => 'Rosa pastel';
+	@override String get cyan => 'cian';
+	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
@@ -4613,6 +4629,10 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'انتخاب کننده رنگ';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'سفارشی ${b} ${h}';
+	@override String customHue({required Object h}) => 'سفارشی ${h}';
+	@override String get dark => 'تاریک';
+	@override String get light => 'سبک';
 	@override String get black => 'مشکی';
 	@override String get darkGrey => 'خاکستری تیره';
 	@override String get grey => 'خاکستری';
@@ -4620,11 +4640,9 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get white => 'سفید';
 	@override String get red => 'قرمز';
 	@override String get green => 'سبز';
-	@override String get cyan => 'فیروزه ای';
 	@override String get blue => 'آبی';
 	@override String get yellow => 'زرد';
 	@override String get purple => 'بنفش';
-	@override String get pink => 'رنگ صورتی';
 	@override String get orange => 'نارنجی';
 	@override String get pastelRed => 'قرمز پاستلی';
 	@override String get pastelOrange => 'نارنجی پاستلی';
@@ -4634,6 +4652,8 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'آبی پاستلی';
 	@override String get pastelPurple => 'بنفش پاستلی';
 	@override String get pastelPink => 'صورتی پاستلی';
+	@override String get cyan => 'فیروزه ای';
+	@override String get pink => 'رنگ صورتی';
 }
 
 // Path: editor.imageOptions
@@ -5384,6 +5404,10 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Pipette de couleur';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personnalisé ${b} ${h}';
+	@override String customHue({required Object h}) => '${h} personnalisé';
+	@override String get dark => 'sombre';
+	@override String get light => 'lumière';
 	@override String get black => 'Noir';
 	@override String get darkGrey => 'Gris sombre';
 	@override String get grey => 'Gris';
@@ -5394,7 +5418,6 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get blue => 'Bleu';
 	@override String get yellow => 'Jaune';
 	@override String get purple => 'Violet';
-	@override String get pink => 'Rose';
 	@override String get orange => 'Orange';
 	@override String get pastelRed => 'Rouge pâle';
 	@override String get pastelOrange => 'Orange pâle';
@@ -5404,6 +5427,7 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Bleu pâle';
 	@override String get pastelPurple => 'Violet pâle';
 	@override String get pastelPink => 'Rose pâle';
+	@override String get pink => 'Rose';
 }
 
 // Path: editor.imageOptions
@@ -6154,6 +6178,10 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'בורר צבעים';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'מותאם אישית ${b} ${h}';
+	@override String customHue({required Object h}) => 'מותאם אישית ${h}';
+	@override String get dark => 'אפל';
+	@override String get light => 'אוֹר';
 	@override String get black => 'שחור';
 	@override String get darkGrey => 'עפור ככה';
 	@override String get grey => 'עפור';
@@ -6161,11 +6189,9 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 	@override String get white => 'לבן';
 	@override String get red => 'אדום';
 	@override String get green => 'ירוק';
-	@override String get cyan => 'טורקיז';
 	@override String get blue => 'כחול';
 	@override String get yellow => 'צהוב';
 	@override String get purple => 'סגול';
-	@override String get pink => 'וָרוֹד';
 	@override String get orange => 'כתום';
 	@override String get pastelRed => 'אדום פסטל';
 	@override String get pastelOrange => 'כתום פסטל';
@@ -6175,6 +6201,8 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'כחול פסטל';
 	@override String get pastelPurple => 'סגול פסטל';
 	@override String get pastelPink => 'ורוד פסטל';
+	@override String get cyan => 'טורקיז';
+	@override String get pink => 'וָרוֹד';
 }
 
 // Path: editor.imageOptions
@@ -6924,6 +6952,10 @@ class _StringsEditorColorsHu extends _StringsEditorColorsEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Egyedi ${b} ${h}';
+	@override String customHue({required Object h}) => 'Egyedi ${h}';
+	@override String get dark => 'sötét';
+	@override String get light => 'fény';
 	@override String get cyan => 'Cián';
 	@override String get pink => 'Rózsaszín';
 	@override String get colorPicker => 'Színválasztó';
@@ -7696,6 +7728,10 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selettore di colori';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizzato ${b} ${h}';
+	@override String customHue({required Object h}) => 'Personalizzato ${h}';
+	@override String get dark => 'buio';
+	@override String get light => 'leggero';
 	@override String get black => 'Nero';
 	@override String get darkGrey => 'Grigio scuro';
 	@override String get grey => 'Grigio';
@@ -7703,11 +7739,9 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 	@override String get white => 'Bianco';
 	@override String get red => 'Rosso';
 	@override String get green => 'Verde';
-	@override String get cyan => 'Ciano';
 	@override String get blue => 'Blu';
 	@override String get yellow => 'Giallo';
 	@override String get purple => 'Porpora';
-	@override String get pink => 'Rosa';
 	@override String get orange => 'Arancione';
 	@override String get pastelRed => 'Rosso pastello';
 	@override String get pastelOrange => 'Arancione pastello';
@@ -7717,6 +7751,8 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Blu pastello';
 	@override String get pastelPurple => 'Porpora pastella';
 	@override String get pastelPink => 'Rosa pastello';
+	@override String get cyan => 'Ciano';
+	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
@@ -8467,6 +8503,10 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'カラーピッカー';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'カスタム ${b} ${h}';
+	@override String customHue({required Object h}) => 'カスタム ${h}';
+	@override String get dark => '暗い';
+	@override String get light => 'ライト';
 	@override String get black => '黒';
 	@override String get darkGrey => '濃い灰色';
 	@override String get grey => '灰色';
@@ -8474,11 +8514,9 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '赤色';
 	@override String get green => '緑色';
-	@override String get cyan => 'シアン';
 	@override String get blue => '青色';
 	@override String get yellow => '黄色';
 	@override String get purple => '紫色';
-	@override String get pink => 'ピンク';
 	@override String get orange => '橙色';
 	@override String get pastelRed => 'パステル・赤';
 	@override String get pastelOrange => 'パステル・橙色';
@@ -8488,6 +8526,8 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'パステル・青色';
 	@override String get pastelPurple => 'パステル・紫色';
 	@override String get pastelPink => 'パステル・桃色';
+	@override String get cyan => 'シアン';
+	@override String get pink => 'ピンク';
 }
 
 // Path: editor.imageOptions
@@ -9238,6 +9278,10 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Seletor de cores';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
+	@override String customHue({required Object h}) => '${h} personalizado';
+	@override String get dark => 'escuro';
+	@override String get light => 'luz';
 	@override String get black => 'Preto';
 	@override String get darkGrey => 'Cinza escuro';
 	@override String get grey => 'Cinza';
@@ -9245,11 +9289,9 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 	@override String get white => 'Branco';
 	@override String get red => 'Vermelho';
 	@override String get green => 'Verde';
-	@override String get cyan => 'Ciano';
 	@override String get blue => 'Azul';
 	@override String get yellow => 'Amarelo';
 	@override String get purple => 'Roxo';
-	@override String get pink => 'Rosa';
 	@override String get orange => 'Laranja';
 	@override String get pastelRed => 'Vermelho pastel';
 	@override String get pastelOrange => 'Laranja pastel';
@@ -9259,6 +9301,8 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Roxo pastel';
 	@override String get pastelPink => 'Rosa pastel';
+	@override String get cyan => 'Ciano';
+	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
@@ -10009,6 +10053,10 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Выбор цвета';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Пользовательский ${b} ${h}';
+	@override String customHue({required Object h}) => 'Пользовательский ${h}';
+	@override String get dark => 'темный';
+	@override String get light => 'свет';
 	@override String get black => 'Чёрный';
 	@override String get darkGrey => 'Тёмно-серый';
 	@override String get grey => 'Серый';
@@ -10016,11 +10064,9 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 	@override String get white => 'Белый';
 	@override String get red => 'Красный';
 	@override String get green => 'Зелёный';
-	@override String get cyan => 'Голубой';
 	@override String get blue => 'Синий';
 	@override String get yellow => 'Жёлтый';
 	@override String get purple => 'Фиолетовый';
-	@override String get pink => 'Розовый';
 	@override String get orange => 'Оранжевый';
 	@override String get pastelRed => 'Пастельный красный';
 	@override String get pastelOrange => 'Пастельный оранжевый';
@@ -10030,6 +10076,8 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Пастельный синий';
 	@override String get pastelPurple => 'Пастельный фиолетовый';
 	@override String get pastelPink => 'Пастельный розовый';
+	@override String get cyan => 'Голубой';
+	@override String get pink => 'Розовый';
 }
 
 // Path: editor.imageOptions
@@ -10780,6 +10828,10 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Renk seçici';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Özel ${b} ${h}';
+	@override String customHue({required Object h}) => 'Özel ${h}';
+	@override String get dark => 'karanlık';
+	@override String get light => 'ışık';
 	@override String get black => 'Siyah';
 	@override String get darkGrey => 'Koyu gri';
 	@override String get grey => 'Gri';
@@ -10787,11 +10839,9 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 	@override String get white => 'Beyaz';
 	@override String get red => 'Kırmızı';
 	@override String get green => 'Yeşil';
-	@override String get cyan => 'Camgöbeği';
 	@override String get blue => 'Mavi';
 	@override String get yellow => 'Sarı';
 	@override String get purple => 'Mor';
-	@override String get pink => 'Pembe';
 	@override String get orange => 'Turuncu';
 	@override String get pastelRed => 'Pastel kırmızı';
 	@override String get pastelOrange => 'Pastel turuncu';
@@ -10801,6 +10851,8 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastel mavi';
 	@override String get pastelPurple => 'Pastel mor';
 	@override String get pastelPink => 'Pastel pembe';
+	@override String get cyan => 'Camgöbeği';
+	@override String get pink => 'Pembe';
 }
 
 // Path: editor.imageOptions
@@ -11551,6 +11603,10 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => '选色器';
+	@override String customBrightnessHue({required Object b, required Object h}) => '定制 ${b} ${h}';
+	@override String customHue({required Object h}) => '定制 ${h}';
+	@override String get dark => '黑暗的';
+	@override String get light => '光';
 	@override String get black => '黑色';
 	@override String get darkGrey => '深灰色';
 	@override String get grey => '灰色';
@@ -11558,11 +11614,9 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '红色';
 	@override String get green => '绿色';
-	@override String get cyan => '青色';
 	@override String get blue => '蓝色';
 	@override String get yellow => '黄色';
 	@override String get purple => '紫色';
-	@override String get pink => '粉色的';
 	@override String get orange => '橙色';
 	@override String get pastelRed => '浅红色';
 	@override String get pastelOrange => '浅橙色';
@@ -11572,6 +11626,8 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 	@override String get pastelBlue => '浅蓝色';
 	@override String get pastelPurple => '浅紫色';
 	@override String get pastelPink => '浅粉色';
+	@override String get cyan => '青色';
+	@override String get pink => '粉色的';
 }
 
 // Path: editor.imageOptions
@@ -12322,6 +12378,10 @@ class _StringsEditorColorsZhHantTw extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => '顏色選擇器';
+	@override String customBrightnessHue({required Object b, required Object h}) => '客製化 ${b} ${h}';
+	@override String customHue({required Object h}) => '客製化 ${h}';
+	@override String get dark => '黑暗的';
+	@override String get light => '光';
 	@override String get black => '黑色';
 	@override String get darkGrey => '深灰色';
 	@override String get grey => '灰色';
@@ -12329,11 +12389,9 @@ class _StringsEditorColorsZhHantTw extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '紅色';
 	@override String get green => '綠色';
-	@override String get cyan => '青色';
 	@override String get blue => '藍色';
 	@override String get yellow => '黃色';
 	@override String get purple => '紫色';
-	@override String get pink => '粉紅色的';
 	@override String get orange => '橙色';
 	@override String get pastelRed => '淡紅色';
 	@override String get pastelOrange => '淡橙色';
@@ -12343,6 +12401,8 @@ class _StringsEditorColorsZhHantTw extends _StringsEditorColorsEn {
 	@override String get pastelBlue => '淡藍色';
 	@override String get pastelPurple => '淡紫色';
 	@override String get pastelPink => '淡粉色';
+	@override String get cyan => '青色';
+	@override String get pink => '粉紅色的';
 }
 
 // Path: editor.imageOptions
