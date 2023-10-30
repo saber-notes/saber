@@ -22,5 +22,8 @@ void main() {
     test('white', () {
       expect(ColorBar.describeColor(Colors.white), 'Custom light grey');
     });
+    test('light pink', () {
+      expect(ColorBar.describeColor(const Color(0xFFffcff0)), 'Custom light pink');
+    });
   });
 }

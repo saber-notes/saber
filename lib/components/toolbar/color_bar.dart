@@ -75,7 +75,7 @@ class ColorBar extends StatefulWidget {
     final hsl = HSLColor.fromColor(color);
 
     final String hueName;
-    if (hsl.saturation < 0.1 || hsl.lightness < 0.05 || hsl.lightness > 0.9) {
+    if (hsl.saturation < 0.1 || hsl.lightness < 0.05 || hsl.lightness > 0.95) {
       hueName = t.editor.colors.grey.toLowerCase();
     } else {
       hueName = switch (hsl.hue) {
