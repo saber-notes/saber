@@ -34,9 +34,9 @@ home:
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
   moveNote:
     moveNote: تحريك الملاحظة
-    moveNotes(OUTDATED): نقل $n الملاحظات
     move: تحريك
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
+    moveNotes(OUTDATED): نقل $n الملاحظات
     multipleRenamedTo(OUTDATED): "وستعاد تسمية الملاحظات التالية:"
     numberRenamedTo(OUTDATED): ستتم إعادة تسمية الملاحظات $n لتجنب التعارضات
     moveName(OUTDATED): نقل $f
@@ -79,6 +79,7 @@ settings:
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
+    recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
     printPageIndicators: طباعة مؤشرات الصفحة
     changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     disableAds(OUTDATED): عطل الاعلانات

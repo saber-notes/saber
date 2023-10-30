@@ -85,6 +85,7 @@ settings:
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
     hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
+    recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
   prefDescriptions:

@@ -36,10 +36,10 @@ home:
     noteNameExists: Esiste già una nota con questo nome
   moveNote:
     moveNote: Sposta nota
-    moveNotes(OUTDATED): Sposta $n note
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
+    moveNotes(OUTDATED): Sposta $n note
     multipleRenamedTo(OUTDATED): "Le seguenti note saranno rinominate:"
     numberRenamedTo(OUTDATED): $n note verranno rinominate per evitare conflitti
   deleteNote: Elimina nota
@@ -85,6 +85,7 @@ settings:
     editorPromptRename: Richiede di rinominare nuove note
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
+    recentColorsLength(OUTDATED): Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
   prefDescriptions:

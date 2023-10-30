@@ -78,6 +78,7 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    recentColorsLength(OUTDATED): Hány friss színt kell tárolni
     changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     layoutSize(OUTDATED): Elrendezés típusa
     disableAds(OUTDATED): Hirdetések letiltása

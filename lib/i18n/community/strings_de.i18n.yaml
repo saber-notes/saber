@@ -34,10 +34,10 @@ home:
     noteNameExists: Notiz mit diesem Namen existiert bereits
   moveNote:
     moveNote: Notiz verschieben
-    moveNotes(OUTDATED): $n Notizen verschieben
     moveName: verschiebe $f
     move: Verschieben
     renamedTo: Notiz wird umbenannt zu $newName
+    moveNotes(OUTDATED): $n Notizen verschieben
     multipleRenamedTo(OUTDATED): "Folgende Anmerkungen werden umbenannt:"
     numberRenamedTo(OUTDATED): "$n Notizen werden umbenannt, um Konflikte zu vermeiden"
   renameFolder:
@@ -82,6 +82,7 @@ settings:
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
+    recentColorsLength(OUTDATED): Wie viele aktuelle Farben gespeichert werden sollen
     printPageIndicators: Seitennummerierung drucken
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
     hideFingerDrawingToggle(OUTDATED): Den Fingerzeichnungsschalter ausblenden

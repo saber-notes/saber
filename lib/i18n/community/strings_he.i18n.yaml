@@ -36,10 +36,10 @@ home:
     noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
   moveNote:
     moveNote: הזז פתק
-    moveNotes(OUTDATED): העבר $n פתקים
     moveName: הזז $f
     move: הזז
     renamedTo: שם הפתק ישתנה ל $newName
+    moveNotes(OUTDATED): העבר $n פתקים
     multipleRenamedTo(OUTDATED): "שמות ההערות הבאות ישונו:"
     numberRenamedTo(OUTDATED): השם של $n הערות ישונה כדי למנוע התנגשויות
   deleteNote: מחק פתק
@@ -85,6 +85,7 @@ settings:
     editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
     hideHomeBackgrounds: הסתר רקעים במסך הבית
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
+    recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
   prefDescriptions:

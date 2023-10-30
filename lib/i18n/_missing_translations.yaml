@@ -39,6 +39,7 @@ ar:
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
@@ -60,6 +61,9 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
 de:
   home:
     titles:
@@ -94,6 +98,7 @@ de:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
@@ -118,6 +123,9 @@ es:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -137,6 +145,9 @@ fa:
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -152,6 +163,9 @@ fr:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -167,6 +181,9 @@ he:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -231,6 +248,7 @@ hu:
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      recentColorsLength(OUTDATED): How many recent colors to store
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
@@ -343,6 +361,9 @@ it:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
 ja:
   home:
     titles:
@@ -374,6 +395,7 @@ ja:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
@@ -398,6 +420,9 @@ pt-BR:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -409,12 +434,18 @@ ru:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
 tr:
   home:
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -424,6 +455,9 @@ zh-Hans-CN:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
       shapePen(OUTDATED): Shape pen
@@ -433,3 +467,6 @@ zh-Hant-TW:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): How many recent colors to store

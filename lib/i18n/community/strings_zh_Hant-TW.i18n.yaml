@@ -36,10 +36,10 @@ home:
     noteNameExists: 同名筆記已經存在
   moveNote:
     moveNote: 移動筆記
-    moveNotes(OUTDATED): 移動 $n 筆記
     moveName: 移動 $f
     move: 移動
     renamedTo: 筆記將重新命名為 $newName
+    moveNotes(OUTDATED): 移動 $n 筆記
     multipleRenamedTo(OUTDATED): 以下註釋將被重新命名：
     numberRenamedTo(OUTDATED): $n 筆記將被重新命名以避免衝突
   deleteNote: 刪除筆記
@@ -85,6 +85,7 @@ settings:
     editorPromptRename: 提醒您重新命名新筆記
     hideHomeBackgrounds: 隱藏主畫面上的背景
     recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
+    recentColorsLength(OUTDATED): 要儲存多少種最近的顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
   prefDescriptions:

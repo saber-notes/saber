@@ -36,10 +36,10 @@ home:
     noteNameExists: Bu isimde bir not zaten var
   moveNote:
     moveNote: Notu taşı
-    moveNotes(OUTDATED): $n notu taşı
     moveName: $f dosyasını taşı
     move: Taşı
     renamedTo: Not $newName olarak yeniden adlandırılacak
+    moveNotes(OUTDATED): $n notu taşı
     multipleRenamedTo(OUTDATED): "Aşağıdaki notlar yeniden adlandırılacaktır:"
     numberRenamedTo(OUTDATED): Çakışmaları önlemek için $n notu yeniden adlandırılacak
   deleteNote: Notu sil
@@ -85,6 +85,7 @@ settings:
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
+    recentColorsLength(OUTDATED): Kaç tane yeni renk depolanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
   prefDescriptions:
