@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3856 (241 per locale)
 ///
-/// Built on 2023-10-28 at 18:34 UTC
+/// Built on 2023-10-30 at 15:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1927,12 +1927,12 @@ class _StringsHomeMoveNoteCs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Přesunout poznámku';
-	@override String moveNotes({required Object n}) => 'Přesun ${n} poznámky';
+	@override String moveNotes({required Object n}) => 'Přesunout ${n} poznámek';
 	@override String moveName({required Object f}) => 'Přesun poznámky ${f}';
 	@override String get move => 'Přesunout';
 	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenována na ${newName}';
 	@override String get multipleRenamedTo => 'Následující poznámky budou přejmenovány:';
-	@override String numberRenamedTo({required Object n}) => '${n} poznámky budou přejmenovány, aby se zabránilo konfliktům';
+	@override String numberRenamedTo({required Object n}) => '${n} poznámek bude přejmenováno';
 }
 
 // Path: home.renameFolder

@@ -60,11 +60,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  home:
-    moveNote:
-      moveNotes: Přesunout $n poznámek
-      multipleRenamedTo: "Následující poznámky budou přejmenovány:"
-      numberRenamedTo: $n poznámek bude přejmenováno
 de:
   home:
     titles:
