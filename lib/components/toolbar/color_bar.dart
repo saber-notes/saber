@@ -111,6 +111,10 @@ class _ColorBarState extends State<ColorBar> {
     final children = <Widget>[
       // pinned colors
       if (Prefs.pinnedColors.value.isNotEmpty) ...[
+        const ColorOptionSeparatorIcon(
+          icon: Icons.pin_drop,
+        ),
+
         for (String colorString in Prefs.pinnedColors.value) ColorOption(
           isSelected: widget.currentColor?.withAlpha(255).value == int.parse(colorString),
           enabled: widget.currentColor != null,
@@ -128,9 +132,11 @@ class _ColorBarState extends State<ColorBar> {
             ),
           ),
         ),
-
-        const ColorOptionSeparator(),
       ],
+
+      const ColorOptionSeparatorIcon(
+        icon: Icons.history,
+      ),
 
       // recent colors
       for (String colorString in Prefs.recentColorsPositioned.value.reversed) ColorOption(
@@ -168,7 +174,9 @@ class _ColorBarState extends State<ColorBar> {
         ),
       ),
 
-      const ColorOptionSeparator(),
+      const ColorOptionSeparatorIcon(
+        icon: Icons.palette,
+      ),
 
       // custom color
       ColorOption(

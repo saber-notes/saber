@@ -57,21 +57,30 @@ class ColorOption extends StatelessWidget {
   }
 }
 
-class ColorOptionSeparator extends StatelessWidget {
-  const ColorOptionSeparator({super.key});
+class ColorOptionSeparatorIcon extends StatelessWidget {
+  const ColorOptionSeparatorIcon({
+    super.key,
+    required this.icon,
+  });
+
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Container(
-        width: 4,
-        height: 4,
-        decoration: BoxDecoration(
-          color: colorScheme.onSurface,
-          shape: BoxShape.circle,
-        ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 4,
+      ),
+      child: Icon(
+        icon,
+        size: 16,
+        color: Color.lerp(
+          colorScheme.onSurface,
+          colorScheme.primary,
+          0.2,
+        )!.withOpacity(0.7),
       ),
     );
   }
