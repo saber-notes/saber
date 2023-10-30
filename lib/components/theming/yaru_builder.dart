@@ -57,13 +57,11 @@ class _YaruBuilderState extends State<YaruBuilder> {
       return widget.builder(context, null, null);
     }
     return YaruTheme(
-      // manually set the variant for non-linux platforms
-      data: Platform.isLinux
-        ? const YaruThemeData()
-        : YaruThemeData(
-          variant: closestYaruVariant,
-          useMaterial3: true,
-        ),
+      // manually set the yaru color variant
+      data: YaruThemeData(
+        variant: closestYaruVariant,
+        useMaterial3: true,
+      ),
       builder: (context, yaruTheme, _) {
         return widget.builder(
           context,
