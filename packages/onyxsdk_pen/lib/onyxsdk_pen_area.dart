@@ -10,10 +10,10 @@ import 'onyxsdk_pen_platform_interface.dart';
 /// Renders a native Android view which uses the Onyx SDK to draw on the screen.
 class OnyxSdkPenArea extends StatefulWidget {
   const OnyxSdkPenArea({
-    Key? key,
+    super.key,
     this.refreshDelayMs = 1000,
     required this.child,
-  }) : super(key: key);
+  });
 
   /// The delay after the pen stroke is finished before the screen is refreshed.
   ///
