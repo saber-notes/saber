@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Cacher l'icône d'activation/désactivation de tracé au doigt
     editorPromptRename: Vous rappeler de renommer les notes
     hideHomeBackgrounds: Cacher le fond de la page d'accueil
-    dontSavePresetColors: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
+    recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
   prefDescriptions:

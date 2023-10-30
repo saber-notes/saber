@@ -835,7 +835,7 @@ class EditorState extends State<Editor> {
   }
 
   void updateColorBar(Color color) {
-    if (Prefs.dontSavePresetColors.value) {
+    if (Prefs.recentColorsDontSavePresets.value) {
       if (ColorBar.colorPresets.any((colorPreset) => colorPreset.color == color)) {
         return;
       }

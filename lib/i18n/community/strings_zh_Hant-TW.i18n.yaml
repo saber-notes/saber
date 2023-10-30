@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: 隱藏手指繪圖切換開關
     editorPromptRename: 提醒您重新命名新筆記
     hideHomeBackgrounds: 隱藏主畫面上的背景
-    dontSavePresetColors: 不要在最近的顏色中儲存預設顏色
+    recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
   prefDescriptions:

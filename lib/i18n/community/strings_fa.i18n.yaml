@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: ضامن طراحی انگشت را پنهان کنید
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
     hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
-    dontSavePresetColors: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
+    recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
   prefDescriptions:

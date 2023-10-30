@@ -78,7 +78,7 @@ settings:
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
-    dontSavePresetColors: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
+    recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
     changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     disableAds(OUTDATED): عطل الاعلانات

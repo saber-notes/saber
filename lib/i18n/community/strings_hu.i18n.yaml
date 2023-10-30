@@ -77,7 +77,7 @@ settings:
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
-    dontSavePresetColors: Ne mentse az előre beállított színeket a legutóbbi színek között
+    recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
     changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     layoutSize(OUTDATED): Elrendezés típusa
     disableAds(OUTDATED): Hirdetések letiltása

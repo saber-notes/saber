@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: 隐藏 切换手指绘制
     editorPromptRename: 提示您重命名新笔记
     hideHomeBackgrounds: 在主页隐藏背景
-    dontSavePresetColors: 不在最近使用的颜色中保存预设颜色
+    recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
   prefDescriptions:

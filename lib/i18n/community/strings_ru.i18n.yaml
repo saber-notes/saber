@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
-    dontSavePresetColors: Не сохранять предустановленные цвета в последних цветах
+    recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
   prefDescriptions:

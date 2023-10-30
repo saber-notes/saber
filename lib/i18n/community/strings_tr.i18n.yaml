@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Parmakla çizme kilidini sakla
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
-    dontSavePresetColors: Ön tanımlı renkleri son kullanılanlara kaydetme
+    recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
   prefDescriptions:

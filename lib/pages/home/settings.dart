@@ -381,9 +381,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.hideHomeBackgrounds,
               ),
               SettingsSwitch(
-                title: t.settings.prefLabels.dontSavePresetColors,
+                title: t.settings.prefLabels.recentColorsDontSavePresets,
                 icon: Icons.palette,
-                pref: Prefs.dontSavePresetColors,
+                pref: Prefs.recentColorsDontSavePresets,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.printPageIndicators,

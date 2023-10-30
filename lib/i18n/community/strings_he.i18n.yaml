@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: הסתר את מתג ציור האצבע
     editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
     hideHomeBackgrounds: הסתר רקעים במסך הבית
-    dontSavePresetColors: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
+    recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
   prefDescriptions:

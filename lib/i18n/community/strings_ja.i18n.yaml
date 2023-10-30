@@ -81,7 +81,7 @@ settings:
     autoClearWhiteboardOnExit: アプリを終了したらホワイトボードを消去する
     editorPromptRename: 新しいメモの名前を変更するよう促す
     hideHomeBackgrounds: ホーム画面で背景を隠す
-    dontSavePresetColors: 最近使用した色をプリセットに登録しない
+    recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
     autosaveDelay(OUTDATED): 自動保存の遅延
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする

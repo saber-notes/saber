@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Ocultar o botão de desenho com o dedo
     editorPromptRename: Solicitar que você renomeie novas notas
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
-    dontSavePresetColors: Não salvar as cores predefinidas nas cores recentes
+    recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
   prefDescriptions:

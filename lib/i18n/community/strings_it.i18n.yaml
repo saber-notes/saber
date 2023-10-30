@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
     editorPromptRename: Richiede di rinominare nuove note
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
-    dontSavePresetColors: Non salvare i colori preimpostati nei colori recenti
+    recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
   prefDescriptions:

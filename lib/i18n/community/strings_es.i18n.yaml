@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Ocultar la opción para activar/desactivar la escritura con el dedo
     editorPromptRename: Solicitarte cambiar el nombre de nuevas notas
     hideHomeBackgrounds: Ocultar fondos en la pantalla de inicio
-    dontSavePresetColors: No guardar colores preestablecidos en los colores recientes
+    recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
   prefDescriptions:

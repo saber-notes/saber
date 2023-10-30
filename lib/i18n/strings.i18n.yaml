@@ -84,7 +84,7 @@ settings:
     hideFingerDrawingToggle: Hide the finger drawing toggle
     editorPromptRename: Prompt you to rename new notes
     hideHomeBackgrounds: Hide backgrounds on the home screen
-    dontSavePresetColors: Don't save preset colors in recent colors
+    recentColorsDontSavePresets: Don't save preset colors in recent colors
     printPageIndicators: Print page indicators
     autosaveDelay: Auto-save delay
   prefDescriptions:

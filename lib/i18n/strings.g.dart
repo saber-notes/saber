@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3856 (241 per locale)
 ///
-/// Built on 2023-10-30 at 15:04 UTC
+/// Built on 2023-10-30 at 20:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -469,7 +469,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
-	String get dontSavePresetColors => 'Don\'t save preset colors in recent colors';
+	String get recentColorsDontSavePresets => 'Don\'t save preset colors in recent colors';
 	String get printPageIndicators => 'Print page indicators';
 	String get autosaveDelay => 'Auto-save delay';
 }
@@ -1231,7 +1231,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
-	@override String get dontSavePresetColors => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
+	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
 	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
 	@override String get disableAds => 'عطل الاعلانات';
@@ -2005,7 +2005,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Skrýt přepínač pro kreslení prstem';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
-	@override String get dontSavePresetColors => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
+	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 }
@@ -2770,7 +2770,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
-	@override String get dontSavePresetColors => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
+	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
 	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
 	@override String get hideFingerDrawingToggle => 'Den Fingerzeichnungsschalter ausblenden';
@@ -3540,7 +3540,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Ocultar la opción para activar/desactivar la escritura con el dedo';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
-	@override String get dontSavePresetColors => 'No guardar colores preestablecidos en los colores recientes';
+	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
 }
@@ -4308,7 +4308,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
-	@override String get dontSavePresetColors => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
+	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 }
@@ -5076,7 +5076,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Cacher l\'icône d\'activation/désactivation de tracé au doigt';
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
-	@override String get dontSavePresetColors => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
+	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 }
@@ -5844,7 +5844,7 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'הסתר את מתג ציור האצבע';
 	@override String get editorPromptRename => 'מבקש ממך לשנות את שם הערות חדשות';
 	@override String get hideHomeBackgrounds => 'הסתר רקעים במסך הבית';
-	@override String get dontSavePresetColors => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
+	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
 }
@@ -6605,7 +6605,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
-	@override String get dontSavePresetColors => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
 	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
 	@override String get layoutSize => 'Elrendezés típusa';
 	@override String get disableAds => 'Hirdetések letiltása';
@@ -7380,7 +7380,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore del disegno con le dita';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
-	@override String get dontSavePresetColors => 'Non salvare i colori preimpostati nei colori recenti';
+	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 }
@@ -8145,7 +8145,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get autoClearWhiteboardOnExit => 'アプリを終了したらホワイトボードを消去する';
 	@override String get editorPromptRename => '新しいメモの名前を変更するよう促す';
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
-	@override String get dontSavePresetColors => '最近使用した色をプリセットに登録しない';
+	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
 	@override String get autosaveDelay => '自動保存の遅延';
 	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
@@ -8916,7 +8916,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Ocultar o botão de desenho com o dedo';
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
-	@override String get dontSavePresetColors => 'Não salvar as cores predefinidas nas cores recentes';
+	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
 }
@@ -9684,7 +9684,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Скрыть переключатель «Рисование пальцем»';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
-	@override String get dontSavePresetColors => 'Не сохранять предустановленные цвета в последних цветах';
+	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
 }
@@ -10452,7 +10452,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => 'Parmakla çizme kilidini sakla';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
-	@override String get dontSavePresetColors => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
+	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 }
@@ -11220,7 +11220,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => '隐藏 切换手指绘制';
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
-	@override String get dontSavePresetColors => '不在最近使用的颜色中保存预设颜色';
+	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
 }
@@ -11988,7 +11988,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
 	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
-	@override String get dontSavePresetColors => '不要在最近的顏色中儲存預設顏色';
+	@override String get recentColorsDontSavePresets => '不要在最近的顏色中儲存預設顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
 }

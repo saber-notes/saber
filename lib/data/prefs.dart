@@ -74,7 +74,6 @@ abstract class Prefs {
   static late final PlainPref<int> autosaveDelay;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
-  static late final PlainPref<bool> dontSavePresetColors;
   static late final PlainPref<bool> printPageIndicators;
 
   static late final PlainPref<double> maxImageSize;
@@ -86,6 +85,7 @@ abstract class Prefs {
 
   static late final PlainPref<List<String>> recentColorsChronological;
   static late final PlainPref<List<String>> recentColorsPositioned;
+  static late final PlainPref<bool> recentColorsDontSavePresets;
 
   static late final PlainPref<ToolId> lastTool;
   static late final PlainPref<StrokeProperties>
@@ -153,7 +153,6 @@ abstract class Prefs {
     autosaveDelay = PlainPref('autosaveDelay', 10000);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
-    dontSavePresetColors = PlainPref('dontSavePresetColors', false);
     printPageIndicators = PlainPref('printPageIndicators', false);
 
     maxImageSize = PlainPref('maxImageSize', 1000);
@@ -165,6 +164,7 @@ abstract class Prefs {
 
     recentColorsChronological = PlainPref('recentColorsChronological', []);
     recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: const ['recentColors']);
+    recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
 
     lastTool = PlainPref('lastTool', ToolId.fountainPen);
     lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: const ['lastPenColor']);

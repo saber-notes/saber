@@ -81,7 +81,7 @@ settings:
     autoClearWhiteboardOnExit: Lösche das Whiteboard nach Verlassen der Anwendung
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
-    dontSavePresetColors: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
+    recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     printPageIndicators: Seitennummerierung drucken
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
     hideFingerDrawingToggle(OUTDATED): Den Fingerzeichnungsschalter ausblenden
