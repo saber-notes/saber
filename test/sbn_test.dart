@@ -1,291 +1,101 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:saber/components/canvas/_canvas_background_painter.dart';
-import 'package:saber/components/canvas/_svg_editor_image.dart';
+import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
 void main() {
   group('Test SBN parsing:', () {
     TestWidgetsFlutterBinding.ensureInitialized();
+
     setupMockPathProvider();
+    setupMockPrinting();
 
-    test('v9 single stroke', () async {
-      const path = 'test/sbn_examples/v9_single_stroke.sbn';
-      File file = File(path);
-      String contents = await file.readAsString();
+    FlavorConfig.setup();
+    Prefs.testingMode = true;
+    Prefs.init();
+    FileManager.init();
 
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        jsonString: contents,
-        path: path,
-        readOnly: true,
-        onlyFirstPage: false,
-        alwaysUseIsolate: true,
-      );
+    final sbnExamples = Directory('test/sbn_examples/')
+        .listSync()
+        .whereType<File>()
+        .where((file) => file.path.endsWith('.sbn'))
+        .map((file) => file.path.substring('test/sbn_examples/'.length))
+        .toList();
 
-      // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
+    for (final sbnName in sbnExamples) {
+      testWidgets(sbnName, (tester) async {
+        final path = 'test/sbn_examples/$sbnName';
+        final contents = await tester.runAsync(
+          () => File(path).readAsString(),
+        );
+        final coreInfo = await tester.runAsync(
+          () => EditorCoreInfo.loadFromFileContents(
+            jsonString: contents,
+            path: path,
+            readOnly: true,
+            onlyFirstPage: true,
+          ),
+        );
+        final page = coreInfo!.pages.first;
 
-      expect(coreInfo.backgroundColor, null);
-      expect(coreInfo.initialPageIndex, 0);
-      expect(coreInfo.lineHeight, 90);
-      expect(coreInfo.nextImageId, 0);
-      expect(coreInfo.backgroundPattern, CanvasBackgroundPattern.none);
+        // set up tester display size
+        tester.view.physicalSize = page.size;
+        addTearDown(tester.view.resetPhysicalSize);
 
-      expect(coreInfo.pages.length, 2);
-      expect(coreInfo.pages[0].isEmpty, false);
-      expect(coreInfo.pages[1].isEmpty, true);
+        // create Canvas widget
+        await tester.pumpWidget(
+          TranslationProvider(
+            child: SizedBox(
+              width: page.size.width,
+              height: page.size.height,
+              child: MaterialApp(
+                home: SizedBox(
+                  width: page.size.width,
+                  height: page.size.height,
+                  child: RepaintBoundary(
+                    child: Canvas(
+                      path: path,
+                      page: page,
+                      pageIndex: 0,
+                      textEditing: false,
+                      coreInfo: coreInfo,
+                      currentStroke: null,
+                      currentStrokeDetectedShape: null,
+                      currentSelection: null,
+                      setAsBackground: null,
+                      currentToolIsSelect: false,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
 
-      final page = coreInfo.pages[0];
-      expect(page.size.width, 1000);
-      expect(page.size.height, 1400);
-      expect(page.images.length, 0);
-      expect(page.quill.controller.document.isEmpty(), true);
-      expect(page.strokes.length, 1);
+        // precache images
+        final context = tester.binding.rootElement!;
+        await tester.runAsync(
+          () => Future.wait([
+            for (final image in page.images) image.precache(context),
+            page.backgroundImage?.precache(context) ?? Future.value(),
+          ]),
+        );
+        await tester.pumpAndSettle();
 
-      final stroke = page.strokes[0];
-      const offset = Offset(10, 14);
-      expect(stroke.isComplete, true);
-      expect(stroke.pageIndex, 0);
-      expect(stroke.penType, (Pen).toString());
-      expect(stroke.strokeProperties.size, 25);
-      expect(stroke.points.length, 3);
-
-      expect(stroke.points[0].p, 0.1);
-      expect(stroke.points[0].x, 0 + offset.dx);
-      expect(stroke.points[0].y, 0 + offset.dy);
-
-      expect(stroke.points[1].p, 0.5);
-      expect(stroke.points[1].x, 200 + offset.dx);
-      expect(stroke.points[1].y, 200 + offset.dy);
-
-      expect(stroke.points[2].p, 0.9);
-      expect(stroke.points[2].x, 555.555555555555 + offset.dx);
-      expect(stroke.points[2].y, 555.555555555555 + offset.dy);
-    });
-
-    test('v9 quill', () async {
-      const path = 'test/sbn_examples/v9_quill.sbn';
-      File file = File(path);
-      String contents = await file.readAsString();
-
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        jsonString: contents,
-        path: path,
-        readOnly: true,
-        onlyFirstPage: false,
-        alwaysUseIsolate: true,
-      );
-
-      // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
-
-      expect(coreInfo.backgroundColor, null);
-      expect(coreInfo.initialPageIndex, 0);
-      expect(coreInfo.lineHeight, 90);
-      expect(coreInfo.nextImageId, 0);
-      expect(coreInfo.backgroundPattern, CanvasBackgroundPattern.lined);
-
-      expect(coreInfo.pages.length, 2);
-      expect(coreInfo.pages[0].isEmpty, false);
-      expect(coreInfo.pages[1].isEmpty, true);
-
-      final page = coreInfo.pages[0];
-      expect(page.size.width, 1000);
-      expect(page.size.height, 1400);
-      expect(page.strokes.length, 0);
-      expect(page.images.length, 0);
-      expect(page.quill.controller.document.isEmpty(), false);
-
-      final controller = page.quill.controller;
-      controller.updateSelection(const TextSelection(
-        baseOffset: 0,
-        extentOffset: 100000000,
-      ), ChangeSource.LOCAL);
-      final plainText = controller.getPlainText();
-      expect(plainText, 'h1\nh2\nh3\nn');
-
-      bool foundH1 = false,
-          foundH2 = false,
-          foundH3 = false;
-      for (final Operation operation in controller.document.toDelta().toList()) {
-        final header = operation.attributes?['header'];
-        if (header == null) continue;
-        if (header == 1) {
-          foundH1 = true;
-        } else if (header == 2) {
-          foundH2 = true;
-        } else if (header == 3) {
-          foundH3 = true;
-        }
-      }
-      expect(foundH1, true);
-      expect(foundH2, true);
-      expect(foundH3, true);
-    });
-
-    test('v9 image', () async {
-      const path = 'test/sbn_examples/v9_image.sbn';
-      File file = File(path);
-      String contents = await file.readAsString();
-
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        jsonString: contents,
-        path: path,
-        readOnly: true,
-        onlyFirstPage: false,
-        alwaysUseIsolate: true,
-      );
-
-      // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load v9_image.sbn');
-
-      expect(coreInfo.nextImageId, 1);
-      expect(coreInfo.pages.length, 2);
-      expect(coreInfo.pages[0].isEmpty, false);
-      expect(coreInfo.pages[1].isEmpty, true);
-
-      final page = coreInfo.pages[0];
-      expect(page.size.width, 1000);
-      expect(page.size.height, 1400);
-      expect(page.quill.controller.document.isEmpty(), true);
-      expect(page.strokes.length, 0);
-      expect(page.images.length, 1);
-
-      final image = page.images[0];
-      expect(image.id, 0);
-      expect(image.extension, '.png');
-      expect(image.pageIndex, 0);
-      expect(image.invertible, true);
-      expect(image.backgroundFit, BoxFit.contain);
-      expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
-      expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
-      expect(image.naturalSize, const Size(256, 256));
-      expect(image.memoryImage!.bytes.isNotEmpty, true);
-      expect(image.thumbnailBytes, null); // (too small for thumbnail)
-      expect(image.isThumbnail, true);
-    });
-
-    test('v11 image (png)', () async {
-      const path = 'test/sbn_examples/v11_image_png.sbn';
-      File file = File(path);
-      String contents = await file.readAsString();
-
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        jsonString: contents,
-        path: path,
-        readOnly: true,
-        onlyFirstPage: false,
-        alwaysUseIsolate: true,
-      );
-
-      // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
-
-      expect(coreInfo.nextImageId, 1);
-      expect(coreInfo.pages.length, 2);
-      expect(coreInfo.pages[0].isEmpty, false);
-      expect(coreInfo.pages[1].isEmpty, true);
-
-      final page = coreInfo.pages[0];
-      expect(page.size.width, 1000);
-      expect(page.size.height, 1400);
-      expect(page.quill.controller.document.isEmpty(), true);
-      expect(page.strokes.length, 0);
-      expect(page.images.length, 1);
-
-      final image = page.images[0];
-      expect(image.id, 0);
-      expect(image.extension, '.png');
-      expect(image.pageIndex, 0);
-      expect(image.invertible, true);
-      expect(image.backgroundFit, BoxFit.contain);
-      expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
-      expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
-      expect(image.naturalSize, const Size(256, 256));
-      expect(image.memoryImage!.bytes.isNotEmpty, true);
-      expect(image.thumbnailBytes, null); // (too small for thumbnail)
-      expect(image.isThumbnail, true);
-    });
-
-    test('v11 image (svg)', () async {
-      const path = 'test/sbn_examples/v11_image_svg.sbn';
-      File file = File(path);
-      String contents = await file.readAsString();
-
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        jsonString: contents,
-        path: path,
-        readOnly: true,
-        onlyFirstPage: false,
-        alwaysUseIsolate: true,
-      );
-
-      // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
-
-      expect(coreInfo.nextImageId, 1);
-      expect(coreInfo.pages.length, 2);
-      expect(coreInfo.pages[0].isEmpty, false);
-      expect(coreInfo.pages[1].isEmpty, true);
-
-      final page = coreInfo.pages[0];
-      expect(page.size.width, 1000);
-      expect(page.size.height, 1400);
-      expect(page.quill.controller.document.isEmpty(), true);
-      expect(page.strokes.length, 0);
-      expect(page.images.length, 1);
-
-      expect(page.images[0] is SvgEditorImage, true);
-      final image = page.images[0] as SvgEditorImage;
-      expect(image.id, 0);
-      expect(image.extension, '.svg');
-      expect(image.pageIndex, 0);
-      expect(image.invertible, true);
-      expect(image.backgroundFit, BoxFit.contain);
-      expect(image.dstRect, const Rect.fromLTWH(178, 242, 256, 255));
-      expect(image.srcRect, const Rect.fromLTWH(0, 0, 256, 256));
-      expect(image.naturalSize, const Size(256, 256));
-      expect(image.thumbnailBytes, null);
-      expect(image.isThumbnail, true);
-
-      expect(image.svgString.isNotEmpty, true);
-      expect(image.svgString, "<svg width='100px' height='100px' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='50'/></svg>");
-    });
-
-    test('stress test from #179', () async {
-      const path = 'test/sbn_examples/stress_test_179.sbn';
-      File file = File(path);
-      String contents = await file.readAsString();
-
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFileContents(
-        jsonString: contents,
-        path: path,
-        readOnly: true,
-        onlyFirstPage: false,
-        alwaysUseIsolate: true,
-      );
-
-      // make sure the file was loaded
-      expect(coreInfo.pages.length, greaterThan(0), reason: 'Failed to load $path');
-
-      expect(coreInfo.nextImageId, 2);
-      expect(coreInfo.pages.length, 2);
-      expect(coreInfo.pages[0].isEmpty, false);
-      expect(coreInfo.pages[1].isEmpty, true);
-
-      final page = coreInfo.pages[0];
-      expect(page.size.width, 1000);
-      expect(page.size.height, 1400);
-      expect(page.quill.controller.document.getPlainText(0, page.quill.controller.document.length),
-          'Stress testing the performance of Saber with a note that has lots of strokes. \n');
-      expect(page.strokes.length, 776);
-      expect(page.images.length, 2);
-    });
+        // compare to golden image
+        await expectLater(
+          find.byType(Canvas),
+          matchesGoldenFile('sbn_examples/$sbnName.png'),
+        );
+      });
+    }
   });
 }
