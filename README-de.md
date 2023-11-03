@@ -52,7 +52,6 @@ Entdecke einen völlig neuen Weg um mit Saber deine Gedanken zu sammeln und zu o
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
 [![GitHub](https://img.shields.io/github/license/saber-notes/saber)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
-[![CodeFactor](https://www.codefactor.io/repository/github/saber-notes/saber/badge/main)](https://www.codefactor.io/repository/github/saber-notes/saber/overview/main)
 
 <details open>
 <summary>Klicken um Screenshots ein- oder auszublenden</summary>
