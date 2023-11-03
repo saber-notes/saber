@@ -26,24 +26,32 @@ void main() {
     final sbnExamples = Directory('test/sbn_examples/')
         .listSync()
         .whereType<File>()
-        .where((file) => file.path.endsWith('.sbn'))
+        .where(
+          (file) => file.path.endsWith('.sbn') || file.path.endsWith('.sbn2'),
+        )
         .map((file) => file.path.substring('test/sbn_examples/'.length))
         .toList();
 
     for (final sbnName in sbnExamples) {
       testWidgets(sbnName, (tester) async {
         final path = 'test/sbn_examples/$sbnName';
-        final contents = await tester.runAsync(
-          () => File(path).readAsString(),
-        );
-        final coreInfo = await tester.runAsync(
-          () => EditorCoreInfo.loadFromFileContents(
-            jsonString: contents,
-            path: path,
-            readOnly: true,
-            onlyFirstPage: true,
-          ),
-        );
+        final coreInfo = await tester.runAsync(() async {
+          if (sbnName.endsWith('.sbn2')) {
+            return await EditorCoreInfo.loadFromFileContents(
+              bsonBytes: File(path).readAsBytesSync(),
+              path: path,
+              readOnly: true,
+              onlyFirstPage: true,
+            );
+          } else {
+            return await EditorCoreInfo.loadFromFileContents(
+              jsonString: File(path).readAsStringSync(),
+              path: path,
+              readOnly: true,
+              onlyFirstPage: true,
+            );
+          }
+        });
         final page = coreInfo!.pages.first;
 
         // set up tester display size
