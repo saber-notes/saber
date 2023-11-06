@@ -84,7 +84,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
               
               final fileNameWithoutExtension = fileName.substring(0, fileName.length - '.pdf'.length);
               final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
-                '${widget.path}/$fileNameWithoutExtension',
+                widget.path == null ? '/$fileNameWithoutExtension' : '${widget.path}/$fileNameWithoutExtension',
                 false,
               );
               if (!mounted) return;
