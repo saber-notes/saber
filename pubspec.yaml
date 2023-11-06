@@ -89,7 +89,7 @@ dependencies:
 
   font_awesome_flutter: ^10.3.0
 
-  flutter_svg: ^2.0.0+1
+  flutter_svg: ^2.0.9
 
   defer_pointer: ^0.0.2
 
