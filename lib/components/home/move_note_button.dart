@@ -126,6 +126,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   @override
   void initState() {
     currentFolder = _findMostCommonParentFolder();
+    if(!currentFolder.startsWith('/')) {
+      currentFolder = '/$currentFolder';
+    }
     super.initState();
 
     findOldExtensions()
