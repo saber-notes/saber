@@ -76,25 +76,33 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final page = widget.coreInfo.pages[widget.pageIndex];
 
-    Widget? quillEditor = widget.coreInfo.pages.isNotEmpty ? QuillEditor(
-      controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
-      scrollController: ScrollController(),
-      scrollable: false,
-      autoFocus: false,
-      readOnly: false,
-      expands: true,
-      focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
-      padding: EdgeInsets.only(
-        top: widget.coreInfo.lineHeight * 1.2,
-        left: widget.coreInfo.lineHeight * 0.5,
-        right: widget.coreInfo.lineHeight * 0.5,
-        bottom: widget.coreInfo.lineHeight * 0.5,
+    Widget? quillEditor = widget.coreInfo.pages.isNotEmpty ? QuillProvider(
+      configurations: QuillConfigurations(
+        controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
+        sharedConfigurations: QuillSharedConfigurations(
+          locale: TranslationProvider.of(context).flutterLocale,
+        )
       ),
-      customStyles: _getQuillStyles(context, invert: invert),
-      locale: LocaleSettings.currentLocale.flutterLocale,
-      placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
-      showCursor: true,
-      keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+      child: QuillEditor(
+        configurations: QuillEditorConfigurations(
+          customStyles: _getQuillStyles(context, invert: invert),
+          scrollable: false,
+          autoFocus: false,
+          readOnly: false,
+          expands: true,
+          placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
+          showCursor: true,
+          keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+          padding: EdgeInsets.only(
+            top: widget.coreInfo.lineHeight * 1.2,
+            left: widget.coreInfo.lineHeight * 0.5,
+            right: widget.coreInfo.lineHeight * 0.5,
+            bottom: widget.coreInfo.lineHeight * 0.5,
+          ),
+        ),
+        scrollController: ScrollController(),
+        focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
+      ),
     ) : null;
 
     return RepaintBoundary(

@@ -244,7 +244,7 @@ abstract class FileSyncer {
 
     // ignored files
     for (final String ignoredFile in _ignoredFiles) {
-      if (file.path.endsWith(ignoredFile)) return;
+      if (file.path.toString().endsWith(ignoredFile)) return;
     }
 
     // remove extension

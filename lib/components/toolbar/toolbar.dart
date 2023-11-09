@@ -243,29 +243,42 @@ class _ToolbarState extends State<Toolbar> {
       ValueListenableBuilder(
         valueListenable: widget.quillFocus,
         builder: (context, quill, _) {
+          final iconTheme = QuillIconTheme(
+            iconSelectedColor: colorScheme.onPrimary,
+            iconUnselectedColor: colorScheme.primary,
+            iconSelectedFillColor: colorScheme.primary,
+            iconUnselectedFillColor: Colors.transparent,
+            disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
+            disabledIconFillColor: Colors.transparent,
+            borderRadius: 22,
+          );
           return Collapsible(
             axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
             maintainState: false,
             collapsed: !widget.textEditing || quill == null,
-            child: quill != null ? QuillToolbar.basic(
-              axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
-              controller: quill.controller,
-              locale: TranslationProvider.of(context).flutterLocale,
-              toolbarIconSize: 22,
-              iconTheme: QuillIconTheme(
-                iconSelectedColor: colorScheme.onPrimary,
-                iconUnselectedColor: colorScheme.primary,
-                iconSelectedFillColor: colorScheme.primary,
-                iconUnselectedFillColor: Colors.transparent,
-                disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
-                disabledIconFillColor: Colors.transparent,
-                borderRadius: 22,
+            child: quill != null ? QuillProvider(
+              configurations: QuillConfigurations(
+                controller: quill.controller,
+                sharedConfigurations: QuillSharedConfigurations(
+                  locale: TranslationProvider.of(context).flutterLocale,
+                ),
               ),
-              showUndo: false,
-              showRedo: false,
-              showFontSize: false,
-              showFontFamily: false,
-              showClearFormat: false,
+              child: QuillToolbar(
+                configurations: QuillToolbarConfigurations(
+                  axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
+                  buttonOptions: QuillToolbarButtonOptions(
+                    base: QuillToolbarBaseButtonOptions(
+                      globalIconSize: 22,
+                      iconTheme: iconTheme,
+                    ),
+                  ),
+                  showUndo: false,
+                  showRedo: false,
+                  showFontSize: false,
+                  showFontFamily: false,
+                  showClearFormat: false,
+                ),
+              ),
             ) : const SizedBox.shrink(),
           );
         }
