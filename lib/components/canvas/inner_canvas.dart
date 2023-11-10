@@ -85,7 +85,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       child: QuillEditor(
         configurations: QuillEditorConfigurations(
-          customStyles: _getQuillStyles(context, invert: invert),
+          customStyles: _getQuillStyles(invert: invert),
           scrollable: false,
           autoFocus: false,
           readOnly: false,
@@ -193,8 +193,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
   }
 
   /// Adapted from "packages://flutter_quill/lib/src/widgets/default_styles.dart"
-  DefaultStyles _getQuillStyles(BuildContext context, {required bool invert}) {
+  DefaultStyles _getQuillStyles({required bool invert}) {
     final colorScheme = Theme.of(context).colorScheme;
+    final backgroundColor = invert ? Colors.black : Colors.white;
 
     /// lineHeight in local space
     final num lineHeight = widget.coreInfo.lineHeight;
@@ -275,13 +276,18 @@ class _InnerCanvasState extends State<InnerCanvas> {
         height: 1 / 0.4,
       ),
       inlineCode: InlineCodeStyle(
-        backgroundColor: Colors.grey.withOpacity(0.1),
+        // [InlineCodeStyle.backgroundColor] is broken right now,
+        // so inline code always has a white-ish background.
+        //
+        // We set [InlineCodeStyle.style.backgroundColor] to make it readable,
+        // but this isn't perfect: see test/sbn_examples/v9_quill.sbn.dark.png
+        // for the issue.
+        //
+        // Also see https://github.com/singerdmx/flutter-quill/issues/1014
+        backgroundColor: Colors.transparent,
         radius: const Radius.circular(3),
         style: GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!).copyWith(
-          // Setting backgroundColor is broken right now, so this always has a white background.
-          // Set text color to black to make it readable.
-          // https://github.com/singerdmx/flutter-quill/issues/1014
-          color: Colors.black,
+          backgroundColor: Color.lerp(backgroundColor, Colors.grey, 0.2),
         ),
         header1: GoogleFonts.firaMono(textStyle: textTheme.displayLarge!),
         header2: GoogleFonts.firaMono(textStyle: textTheme.displayMedium!),
@@ -318,7 +324,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
         zeroSpacing,
         BoxDecoration(
-          color: Colors.grey.withOpacity(0.1),
+          color: Colors.grey.withOpacity(0.2),
           borderRadius: BorderRadius.circular(3),
         ),
       ),

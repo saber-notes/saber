@@ -51,10 +51,40 @@
           "insert": "normal text with "
         },
         {
-          "insert": "inline code",
+          "insert": "inline code\n",
           "attributes": {
             "code": true
           }
+        },
+        {
+          "insert": "code"
+        },
+        {
+          "insert": "\n",
+          "attributes": {
+            "code-block": true
+          }
+        },
+        {
+          "insert": "code"
+        },
+        {
+          "insert": "\n",
+          "attributes": {
+            "code-block": true
+          }
+        },
+        {
+          "insert": "code"
+        },
+        {
+          "insert": "\n",
+          "attributes": {
+            "code-block": true
+          }
+        },
+        {
+          "insert": "normal text"
         },
         {
           "insert": "\n"
