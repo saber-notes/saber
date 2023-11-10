@@ -315,10 +315,11 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       code: DefaultTextBlockStyle(
         GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!),
-        zeroSpacing, zeroSpacing,
+        VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
+        zeroSpacing,
         BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(2),
+          borderRadius: BorderRadius.circular(3),
         ),
       ),
       indent: DefaultTextBlockStyle(
