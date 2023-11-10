@@ -269,6 +269,7 @@ class _ToolbarState extends State<Toolbar> {
                   buttonOptions: QuillToolbarButtonOptions(
                     base: QuillToolbarBaseButtonOptions(
                       globalIconSize: 22,
+                      globalIconButtonFactor: 1.6,
                       iconTheme: iconTheme,
                     ),
                   ),
