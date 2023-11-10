@@ -39,7 +39,25 @@
           }
         },
         {
-          "insert": "n\n"
+          "insert": "code"
+        },
+        {
+          "insert": "\n",
+          "attributes": {
+            "code-block": true
+          }
+        },
+        {
+          "insert": "normal text with "
+        },
+        {
+          "insert": "inline code",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "\n"
         }
       ]
     }
