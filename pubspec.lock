@@ -454,10 +454,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "50be86cf1c77b89feec908e64b570c0fd43e45029108fca744aad95a21569a8c"
+      sha256: "775233a9e073099b77cf30b72cefcb6e7365f473e8b245b898f923ee30d8fdfe"
       url: "https://pub.dev"
     source: hosted
-    version: "8.3.0"
+    version: "8.5.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -601,14 +601,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-  i18n_extension:
-    dependency: transitive
-    description:
-      name: i18n_extension
-      sha256: db45cd88cf3114f5b9368d975aebebe4ac37fa634fbc5643634289cdfd4d3631
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.0.2"
   icons_launcher:
     dependency: "direct dev"
     description:
