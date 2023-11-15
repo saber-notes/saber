@@ -77,14 +77,16 @@ class _NewNoteButtonState extends State<NewNoteButton>{
               );
               if (path == null) return;
               if (!mounted) return;
-              context.push(RoutePaths.editFilePath(path.substring(0, path.length - (filePath.endsWith('.sbn') ? '.sbn'.length : '.sbn2'.length))));
+
+              final filePathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
+              context.push(RoutePaths.editFilePath(filePathWithoutExtension));
             } else if (filePath.endsWith('.pdf')) {
               if (!Editor.canRasterPdf) return;
               if (!mounted) return;
-              
+            
               final fileNameWithoutExtension = fileName.substring(0, fileName.length - '.pdf'.length);
               final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
-                widget.path == null ? '/$fileNameWithoutExtension' : '${widget.path}/$fileNameWithoutExtension',
+                '${widget.path ?? ''}/$fileNameWithoutExtension',
                 false,
               );
               if (!mounted) return;
