@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/home/export_note_button.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
@@ -239,6 +240,18 @@ class _BrowsePageState extends State<BrowsePage> {
             },
             icon: const Icon(Icons.delete_forever),
           ),
+        ),
+        ValueListenableBuilder(
+          valueListenable: selectedFiles,
+          builder: (context, selectedFiles, child) {
+            return Collapsible(
+              axis: CollapsibleAxis.vertical,
+              collapsed: selectedFiles.isEmpty,
+              child: ExportNoteButton(
+                selectedFiles: selectedFiles,
+              ),
+            );
+          },
         ),
       ],
     );

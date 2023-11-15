@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: New note
     showUpdateDialog: Show update dialog
+    exportNote: Export note
   create:
     newNote: New note
     importNote: Import note
