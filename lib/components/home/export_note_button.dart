@@ -37,9 +37,11 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       final Uint8List content = sbn2
           ? await (await EditorExporter.generatePdf(coreInfo, context)).save()
           : BSON().serialize(coreInfo).byteList;
-      final String fileName = sbn2
-          ? '${coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1)}.pdf'
-          : '${coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1)}.sbn2';
+      final fileNameWithoutExtension =
+          coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
+      final fileName = sbn2
+          ? '$fileNameWithoutExtension.pdf'
+          : '$fileNameWithoutExtension.sbn2';
       files.add(ArchiveFile(fileName, content.length, content));
     }
 
