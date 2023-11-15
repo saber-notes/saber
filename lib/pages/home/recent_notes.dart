@@ -190,7 +190,6 @@ class _RecentPageState extends State<RecentPage> {
             );
           },
           child: ExportNoteButton(
-            cupertino: cupertino,
             selectedFiles: selectedFiles.value,
           ),
         ),

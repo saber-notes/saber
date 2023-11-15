@@ -251,7 +251,6 @@ class _BrowsePageState extends State<BrowsePage> {
             );
           },
           child: ExportNoteButton(
-            cupertino: cupertino,
             selectedFiles: selectedFiles.value,
           ),
         ),

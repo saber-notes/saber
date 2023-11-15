@@ -14,11 +14,9 @@ import 'package:saber/i18n/strings.g.dart';
 class ExportNoteButton extends StatefulWidget {
   const ExportNoteButton({
     super.key,
-    required this.cupertino,
     required this.selectedFiles,
   });
 
-  final bool cupertino;
   final List<String> selectedFiles;
 
   @override
