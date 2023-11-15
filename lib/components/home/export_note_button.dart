@@ -48,7 +48,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
     if (selectedFiles.length == 1) {
       await FileManager.exportFile(
         files.single.name,
-        await files.single.content,
+        files.single.content,
       );
     } else {
       final archive = Archive();
