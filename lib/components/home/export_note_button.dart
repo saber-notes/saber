@@ -50,13 +50,13 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
         files.single.name,
         files.single.content,
       );
-    } else {
+    } else if (selectedFiles.length > 1) {
       final archive = Archive();
       for (final archiveFile in files) {
         archive.addFile(archiveFile);
       }
       await FileManager.exportFile(
-        '${files[0].name}.zip',
+        '${files.first.name}.zip',
         Uint8List.fromList(ZipEncoder().encode(archive)!),
       );
     }
