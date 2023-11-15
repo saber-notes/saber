@@ -23,37 +23,45 @@ class ExportNoteButton extends StatefulWidget {
   State<ExportNoteButton> createState() => _ExportNoteButtonState();
 }
 
-class _ExportNoteButtonState extends State<ExportNoteButton>{
+class _ExportNoteButtonState extends State<ExportNoteButton> {
   final ValueNotifier<bool> isDialOpen = ValueNotifier(false);
   bool _currentlyExporting = false;
 
   Future exportFile(List<String> selectedFiles, bool sbn2) async {
-    setState(() {_currentlyExporting = true;}); 
-    List<ArchiveFile> files = [];
+    setState(() => _currentlyExporting = true);
+
+    final files = <ArchiveFile>[];
     for (String filePath in selectedFiles) {
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
-      if (context.mounted){
-        Uint8List content = sbn2
-        ? await (await EditorExporter.generatePdf(coreInfo, context)).save()
-        : BSON().serialize(coreInfo).byteList;
-        String fileName = sbn2
-        ? '${coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1)}.pdf'
-        : '${coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1)}.sbn2';
-        files.add(ArchiveFile(fileName, content.length, content));
+      if (!context.mounted) break;
+      final Uint8List content = sbn2
+          ? await (await EditorExporter.generatePdf(coreInfo, context)).save()
+          : BSON().serialize(coreInfo).byteList;
+      final String fileName = sbn2
+          ? '${coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1)}.pdf'
+          : '${coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1)}.sbn2';
+      files.add(ArchiveFile(fileName, content.length, content));
+    }
+
+    if (selectedFiles.length == 1) {
+      await FileManager.exportFile(
+        files.single.name,
+        await files.single.content,
+      );
+    } else {
+      final archive = Archive();
+      for (final archiveFile in files) {
+        archive.addFile(archiveFile);
       }
+      await FileManager.exportFile(
+        '${files[0].name}.zip',
+        Uint8List.fromList(ZipEncoder().encode(archive)!),
+      );
     }
-    if(selectedFiles.length == 1) {
-      await FileManager.exportFile(files[0].name, await files[0].content);
-    }
-    else {
-      Archive archive = Archive();
-      for (ArchiveFile pdf in files) {
-        archive.addFile(pdf);
-      }
-      await FileManager.exportFile('${files[0].name}.zip', Uint8List.fromList(ZipEncoder().encode(archive)!));
-    }
-    setState(() {_currentlyExporting = false;}); 
+
+    setState(() => _currentlyExporting = false);
   }
+
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
@@ -62,26 +70,26 @@ class _ExportNoteButtonState extends State<ExportNoteButton>{
       openCloseDial: isDialOpen,
       childPadding: const EdgeInsets.all(5),
       spaceBetweenChildren: 4,
-      dialRoot: (ctx, open, toggleChildren) {
+      dialRoot: (context, open, toggleChildren) {
         return _currentlyExporting
-        ? const SpinningLoadingIcon()
-        : IconButton(
-            padding: EdgeInsets.zero,
-            tooltip: t.home.tooltips.exportNote,
-            onPressed: toggleChildren,
-            icon: const Icon(Icons.share)
-          );
+            ? const SpinningLoadingIcon()
+            : IconButton(
+                padding: EdgeInsets.zero,
+                tooltip: t.home.tooltips.exportNote,
+                onPressed: toggleChildren,
+                icon: const Icon(Icons.share),
+              );
       },
       children: [
         SpeedDialChild(
           child: const Icon(CupertinoIcons.doc_text),
           label: 'PDF',
-          onTap: () => exportFile(widget.selectedFiles, true)
+          onTap: () => exportFile(widget.selectedFiles, true),
         ),
         SpeedDialChild(
           child: const Icon(Icons.note),
           label: 'SBN2',
-          onTap: () => exportFile(widget.selectedFiles, false)
+          onTap: () => exportFile(widget.selectedFiles, false),
         ),
       ],
     );
