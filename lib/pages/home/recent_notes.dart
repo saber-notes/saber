@@ -186,12 +186,11 @@ class _RecentPageState extends State<RecentPage> {
             return Collapsible(
               axis: CollapsibleAxis.vertical,
               collapsed: selectedFiles.isEmpty,
-              child: child!,
+              child: ExportNoteButton(
+                selectedFiles: selectedFiles,
+              ),
             );
           },
-          child: ExportNoteButton(
-            selectedFiles: selectedFiles.value,
-          ),
         ),
       ],
     );

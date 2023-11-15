@@ -247,12 +247,11 @@ class _BrowsePageState extends State<BrowsePage> {
             return Collapsible(
               axis: CollapsibleAxis.vertical,
               collapsed: selectedFiles.isEmpty,
-              child: child!,
+              child: ExportNoteButton(
+                selectedFiles: selectedFiles,
+              ),
             );
           },
-          child: ExportNoteButton(
-            selectedFiles: selectedFiles.value,
-          ),
         ),
       ],
     );
