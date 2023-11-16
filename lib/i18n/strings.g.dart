@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3967 (247 per locale)
 ///
-/// Built on 2023-11-16 at 17:34 UTC
+/// Built on 2023-11-16 at 17:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7364,12 +7364,12 @@ class _StringsHomeMoveNoteIt extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Sposta nota';
+	@override String moveNotes({required Object n}) => 'Sposta ${n} note';
 	@override String moveName({required Object f}) => 'Sposta ${f}';
 	@override String get move => 'Sposta';
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
-	@override String moveNotes({required Object n}) => 'Sposta ${n} note';
-	@override String get multipleRenamedTo => 'Le seguenti note saranno rinominate:';
-	@override String numberRenamedTo({required Object n}) => '${n} note verranno rinominate per evitare conflitti';
+	@override String get multipleRenamedTo => 'Le note seguenti verranno rinominate:';
+	@override String numberRenamedTo({required Object n}) => '${n} le note verranno rinominate per evitare conflitti';
 }
 
 // Path: home.renameFolder
@@ -7443,9 +7443,9 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
+	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
-	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 }
 
 // Path: settings.prefDescriptions
@@ -7731,8 +7731,8 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 	@override String get colorPicker => 'Selettore di colori';
 	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizzato ${b} ${h}';
 	@override String customHue({required Object h}) => 'Personalizzato ${h}';
-	@override String get dark => 'buio';
-	@override String get light => 'leggero';
+	@override String get dark => 'scuro';
+	@override String get light => 'chiaro';
 	@override String get black => 'Nero';
 	@override String get darkGrey => 'Grigio scuro';
 	@override String get grey => 'Grigio';
@@ -7740,9 +7740,11 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 	@override String get white => 'Bianco';
 	@override String get red => 'Rosso';
 	@override String get green => 'Verde';
+	@override String get cyan => 'Ciano';
 	@override String get blue => 'Blu';
 	@override String get yellow => 'Giallo';
 	@override String get purple => 'Porpora';
+	@override String get pink => 'Rosa';
 	@override String get orange => 'Arancione';
 	@override String get pastelRed => 'Rosso pastello';
 	@override String get pastelOrange => 'Arancione pastello';
@@ -7752,8 +7754,6 @@ class _StringsEditorColorsIt extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Blu pastello';
 	@override String get pastelPurple => 'Porpora pastella';
 	@override String get pastelPink => 'Rosa pastello';
-	@override String get cyan => 'Ciano';
-	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
