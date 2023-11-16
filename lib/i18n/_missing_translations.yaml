@@ -529,9 +529,19 @@ tr:
       moveNotes(OUTDATED): $n tane notu taşı
       multipleRenamedTo(OUTDATED): "Bu notlar yeniden adlandırılacak:"
       numberRenamedTo(OUTDATED): $n tane not çakışma olmaması için yeniden adlandırılacak
+  settings:
+    prefLabels:
+      recentColorsLength(OUTDATED): Kaç tane son kullanılan renk saklanacak
   editor:
     pens:
       shapePen(OUTDATED): Şekil kalemi
+    colors:
+      customBrightnessHue(OUTDATED): Seçili $b $h
+      customHue(OUTDATED): Seçili $h
+      dark(OUTDATED): karanlık
+      light(OUTDATED): aydınlık
+      cyan(OUTDATED): Turkuaz
+      pink(OUTDATED): Pembe
 zh-Hans-CN:
   home:
     moveNote:
