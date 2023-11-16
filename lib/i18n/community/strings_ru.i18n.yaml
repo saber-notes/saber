@@ -36,12 +36,12 @@ home:
     noteNameExists: Заметка с таким названием уже существует
   moveNote:
     moveNote: Переместить заметку
+    moveNotes: Переместить $n заметок
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
-    moveNotes(OUTDATED): Переместить $n заметки
-    multipleRenamedTo(OUTDATED): "Следующие заметки будут переименованы:"
-    numberRenamedTo(OUTDATED): "$n заметки будут переименованы, чтобы избежать конфликтов"
+    multipleRenamedTo: "Следующие заметки будут переименованы:"
+    numberRenamedTo: "$n заметок будут переименованы, чтобы избежать конфликтов"
   deleteNote: Удалить заметку
   renameFolder:
     renameFolder: Переименовать папку
@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Предлагать переименовывать новые заметки
     hideHomeBackgrounds: Скрыть фон на главном экране
     recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
+    recentColorsLength: Количество последних сохраняемых цветов
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
-    recentColorsLength(OUTDATED): Сколько последних цветов хранить
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -224,10 +224,10 @@ editor:
     sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"
   colors:
     colorPicker: Выбор цвета
-    customBrightnessHue(OUTDATED): Пользовательский $b $h
-    customHue(OUTDATED): Пользовательский $h
-    dark(OUTDATED): темный
-    light(OUTDATED): свет
+    customBrightnessHue: Свой $b $h
+    customHue: Свой $h
+    dark: тёмный
+    light: светлый
     black: Чёрный
     darkGrey: Тёмно-серый
     grey: Серый
@@ -235,9 +235,11 @@ editor:
     white: Белый
     red: Красный
     green: Зелёный
+    cyan: Голубой
     blue: Синий
     yellow: Жёлтый
     purple: Фиолетовый
+    pink: Розовый
     orange: Оранжевый
     pastelRed: Пастельный красный
     pastelOrange: Пастельный оранжевый
@@ -247,8 +249,6 @@ editor:
     pastelBlue: Пастельный синий
     pastelPurple: Пастельный фиолетовый
     pastelPink: Пастельный розовый
-    cyan(OUTDATED): Голубой
-    pink(OUTDATED): Розовый
   imageOptions:
     title: Параметры изображения
     invertible: Инвертировать
