@@ -65,6 +65,7 @@ jobs:
         if: success()
         uses: codecov/codecov-action@v3
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/lcov.info
 
       - name: Ensure test failures directory exists
