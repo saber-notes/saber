@@ -73,10 +73,7 @@ ar:
 cs:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
+      exportNote: Exportovat poznámku
 de:
   home:
     titles:
