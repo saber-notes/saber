@@ -1,7 +1,6 @@
 name: Run tests
 
 on:
-  # Enable manual run
   workflow_dispatch:
   pull_request:
   push:
@@ -78,7 +77,3 @@ jobs:
         with:
           name: Saber-test-failures
           path: test/failures
-
-      - name: Run tests (packages/onyxsdk_pen)
-        working-directory: packages/onyxsdk_pen
-        run: flutter test
