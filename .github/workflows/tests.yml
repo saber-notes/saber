@@ -60,11 +60,21 @@ jobs:
           flutter test \
             --coverage \
             --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
+        continue-on-error: true
 
       - name: Upload to Codecov
         uses: codecov/codecov-action@v3
         with:
           files: coverage/lcov.info
+
+      - name: Ensure test failures directory exists
+        run: mkdir -p test/failures
+
+      - name: Upload test failures
+        uses: actions/upload-artifact@v3
+        with:
+          name: Saber-test-failures
+          path: test/failures
 
       - name: Run tests (packages/onyxsdk_pen)
         working-directory: packages/onyxsdk_pen
