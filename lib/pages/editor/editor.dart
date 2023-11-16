@@ -1790,6 +1790,7 @@ class EditorState extends State<Editor> {
     Prefs.lastFountainPenProperties.notifyListeners();
     Prefs.lastBallpointPenProperties.notifyListeners();
     Prefs.lastHighlighterProperties.notifyListeners();
+    Prefs.lastShapePenProperties.notifyListeners();
 
     super.dispose();
   }
