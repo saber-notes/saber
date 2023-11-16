@@ -1,5 +1,6 @@
 {
     "files.exclude": {
         "submodules/": true
-    }
+    },
+    "editor.formatOnSave": false
 }
