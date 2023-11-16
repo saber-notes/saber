@@ -5,6 +5,8 @@ ar:
   home:
     titles:
       browse(OUTDATED): Browse
+    tooltips:
+      exportNote: Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -68,6 +70,9 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  home:
+    tooltips:
+      exportNote: Export note
   settings:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
@@ -83,6 +88,8 @@ de:
   home:
     titles:
       browse(OUTDATED): Browse
+    tooltips:
+      exportNote: Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -141,6 +148,8 @@ de:
         tablature(OUTDATED): Tablature
 es:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -162,6 +171,8 @@ es:
       duplicate(OUTDATED): Duplicate
 fa:
   home:
+    tooltips:
+      exportNote: Export note
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     moveNote:
       moveNotes(OUTDATED): Move $n notes
@@ -195,6 +206,8 @@ fa:
         tablature(OUTDATED): Tablature
 fr:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -216,6 +229,8 @@ fr:
       duplicate(OUTDATED): Duplicate
 he:
   home:
+    tooltips:
+      exportNote: Export note
     renameNote:
       noteNameEmpty(OUTDATED): Note name can't be empty
       noteNameContainsSlash(OUTDATED): Note name can't contain a slash
@@ -246,6 +261,8 @@ hu:
   home:
     titles:
       browse(OUTDATED): Browse
+    tooltips:
+      exportNote: Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -413,6 +430,8 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -432,6 +451,8 @@ ja:
   home:
     titles:
       browse(OUTDATED): Browse
+    tooltips:
+      exportNote: Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -487,6 +508,8 @@ ja:
         tablature(OUTDATED): Tablature
 pt-BR:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -508,6 +531,8 @@ pt-BR:
       duplicate(OUTDATED): Duplicate
 ru:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -525,25 +550,12 @@ ru:
       pink(OUTDATED): Pink
 tr:
   home:
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-  editor:
-    pens:
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
+    tooltips:
+      exportNote: Export note
 zh-Hans-CN:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -563,6 +575,8 @@ zh-Hans-CN:
       pink(OUTDATED): Pink
 zh-Hant-TW:
   home:
+    tooltips:
+      exportNote: Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"

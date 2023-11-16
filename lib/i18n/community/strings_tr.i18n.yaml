@@ -36,12 +36,12 @@ home:
     noteNameExists: Bu isimde bir not zaten var
   moveNote:
     moveNote: Notu taşı
+    moveNotes: $n tane notu taşı
     moveName: $f dosyasını taşı
     move: Taşı
     renamedTo: Not $newName olarak yeniden adlandırılacak
-    moveNotes(OUTDATED): $n notu taşı
-    multipleRenamedTo(OUTDATED): "Aşağıdaki notlar yeniden adlandırılacaktır:"
-    numberRenamedTo(OUTDATED): Çakışmaları önlemek için $n notu yeniden adlandırılacak
+    multipleRenamedTo: "Bu notlar yeniden adlandırılacak:"
+    numberRenamedTo: $n tane not çakışma olmaması için yeniden adlandırılacak
   deleteNote: Notu sil
   renameFolder:
     renameFolder: Klasörü adlandır
@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Notları yeniden adlandırmak için uyar
     hideHomeBackgrounds: Ana ekranda arkaplanları gizle
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
+    recentColorsLength: Kaç tane son kullanılan renk saklanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
-    recentColorsLength(OUTDATED): Kaç tane yeni renk depolanacak
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -218,17 +218,17 @@ editor:
     fountainPen: Dolma kalem
     ballpointPen: Tükenmez kalem
     highlighter: İşaretleme kalemi
+    shapePen: Şekil kalemi
     laserPointer: Lazer işaretçi
-    shapePen(OUTDATED): Şekil kalemi
   penOptions:
     size: Boyut
     sizeDragHint: Boyutu değiştirmek için sağa veya sola kaydır
   colors:
     colorPicker: Renk seçici
-    customBrightnessHue(OUTDATED): Özel $b $h
-    customHue(OUTDATED): Özel $h
-    dark(OUTDATED): karanlık
-    light(OUTDATED): ışık
+    customBrightnessHue: Seçili $b $h
+    customHue: Seçili $h
+    dark: karanlık
+    light: aydınlık
     black: Siyah
     darkGrey: Koyu gri
     grey: Gri
@@ -236,9 +236,11 @@ editor:
     white: Beyaz
     red: Kırmızı
     green: Yeşil
+    cyan: Turkuaz
     blue: Mavi
     yellow: Sarı
     purple: Mor
+    pink: Pembe
     orange: Turuncu
     pastelRed: Pastel kırmızı
     pastelOrange: Pastel turuncu
@@ -248,8 +250,6 @@ editor:
     pastelBlue: Pastel mavi
     pastelPurple: Pastel mor
     pastelPink: Pastel pembe
-    cyan(OUTDATED): Camgöbeği
-    pink(OUTDATED): Pembe
   imageOptions:
     title: Görüntü ayarları
     invertible: (Rengi) Tersine çevrilebilir

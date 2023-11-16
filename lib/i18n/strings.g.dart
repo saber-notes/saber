@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3966 (247 per locale)
+/// Strings: 3967 (247 per locale)
 ///
-/// Built on 2023-10-30 at 22:46 UTC
+/// Built on 2023-11-16 at 17:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -10464,12 +10464,12 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notu taşı';
+	@override String moveNotes({required Object n}) => '${n} tane notu taşı';
 	@override String moveName({required Object f}) => '${f} dosyasını taşı';
 	@override String get move => 'Taşı';
 	@override String renamedTo({required Object newName}) => 'Not ${newName} olarak yeniden adlandırılacak';
-	@override String moveNotes({required Object n}) => '${n} notu taşı';
-	@override String get multipleRenamedTo => 'Aşağıdaki notlar yeniden adlandırılacaktır:';
-	@override String numberRenamedTo({required Object n}) => 'Çakışmaları önlemek için ${n} notu yeniden adlandırılacak';
+	@override String get multipleRenamedTo => 'Bu notlar yeniden adlandırılacak:';
+	@override String numberRenamedTo({required Object n}) => '${n} tane not çakışma olmaması için yeniden adlandırılacak';
 }
 
 // Path: home.renameFolder
@@ -10543,9 +10543,9 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
+	@override String get recentColorsLength => 'Kaç tane son kullanılan renk saklanacak';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
-	@override String get recentColorsLength => 'Kaç tane yeni renk depolanacak';
 }
 
 // Path: settings.prefDescriptions
@@ -10806,8 +10806,8 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
-	@override String get laserPointer => 'Lazer işaretçi';
 	@override String get shapePen => 'Şekil kalemi';
+	@override String get laserPointer => 'Lazer işaretçi';
 }
 
 // Path: editor.penOptions
@@ -10829,10 +10829,10 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Renk seçici';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Özel ${b} ${h}';
-	@override String customHue({required Object h}) => 'Özel ${h}';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Seçili ${b} ${h}';
+	@override String customHue({required Object h}) => 'Seçili ${h}';
 	@override String get dark => 'karanlık';
-	@override String get light => 'ışık';
+	@override String get light => 'aydınlık';
 	@override String get black => 'Siyah';
 	@override String get darkGrey => 'Koyu gri';
 	@override String get grey => 'Gri';
@@ -10840,9 +10840,11 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 	@override String get white => 'Beyaz';
 	@override String get red => 'Kırmızı';
 	@override String get green => 'Yeşil';
+	@override String get cyan => 'Turkuaz';
 	@override String get blue => 'Mavi';
 	@override String get yellow => 'Sarı';
 	@override String get purple => 'Mor';
+	@override String get pink => 'Pembe';
 	@override String get orange => 'Turuncu';
 	@override String get pastelRed => 'Pastel kırmızı';
 	@override String get pastelOrange => 'Pastel turuncu';
@@ -10852,8 +10854,6 @@ class _StringsEditorColorsTr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastel mavi';
 	@override String get pastelPurple => 'Pastel mor';
 	@override String get pastelPink => 'Pastel pembe';
-	@override String get cyan => 'Camgöbeği';
-	@override String get pink => 'Pembe';
 }
 
 // Path: editor.imageOptions
