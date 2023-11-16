@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Vybízet k přejmenování nových poznámek
     hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
+    recentColorsLength: Kolik naposledy použitých barev se má ukládat
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
-    recentColorsLength(OUTDATED): Kolik posledních barev uložit
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -224,10 +224,10 @@ editor:
     sizeDragHint: Posunem vlevo nebo vpravo změníte velikost
   colors:
     colorPicker: Vybrat vlastní barvu
-    customBrightnessHue(OUTDATED): Vlastní $b $h
-    customHue(OUTDATED): Vlastní $h
-    dark(OUTDATED): temný
-    light(OUTDATED): světlo
+    customBrightnessHue: Vlastní $b $h
+    customHue: Vlastní $h
+    dark: tmavě
+    light: světle
     black: Černá
     darkGrey: Tmavě šedá
     grey: Šedá
@@ -235,9 +235,11 @@ editor:
     white: Bílá
     red: Červená
     green: Zelená
+    cyan: Azurová
     blue: Modrá
     yellow: Žlutá
     purple: Purpurová
+    pink: Růžová
     orange: Oranžová
     pastelRed: Pastelová červená
     pastelOrange: Pastelová oranžová
@@ -247,8 +249,6 @@ editor:
     pastelBlue: Pastelová modrá
     pastelPurple: Pastelová purpurová
     pastelPink: Pastelová růžová
-    cyan(OUTDATED): Tyrkysová
-    pink(OUTDATED): Růžový
   imageOptions:
     title: Možnosti obrázku
     invertible: Invertovat barvy podle motivu

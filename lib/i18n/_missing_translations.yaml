@@ -73,17 +73,6 @@ cs:
   home:
     tooltips:
       exportNote: Export note
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-  editor:
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
 de:
   home:
     titles:

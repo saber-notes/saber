@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3967 (247 per locale)
 ///
-/// Built on 2023-11-16 at 17:11 UTC
+/// Built on 2023-11-16 at 17:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2021,9 +2021,9 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get hideHomeBackgrounds => 'Skrýt pozadí poznámek na hlavní obrazovce';
 	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
+	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
-	@override String get recentColorsLength => 'Kolik posledních barev uložit';
 }
 
 // Path: settings.prefDescriptions
@@ -2309,8 +2309,8 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 	@override String get colorPicker => 'Vybrat vlastní barvu';
 	@override String customBrightnessHue({required Object b, required Object h}) => 'Vlastní ${b} ${h}';
 	@override String customHue({required Object h}) => 'Vlastní ${h}';
-	@override String get dark => 'temný';
-	@override String get light => 'světlo';
+	@override String get dark => 'tmavě';
+	@override String get light => 'světle';
 	@override String get black => 'Černá';
 	@override String get darkGrey => 'Tmavě šedá';
 	@override String get grey => 'Šedá';
@@ -2318,9 +2318,11 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 	@override String get white => 'Bílá';
 	@override String get red => 'Červená';
 	@override String get green => 'Zelená';
+	@override String get cyan => 'Azurová';
 	@override String get blue => 'Modrá';
 	@override String get yellow => 'Žlutá';
 	@override String get purple => 'Purpurová';
+	@override String get pink => 'Růžová';
 	@override String get orange => 'Oranžová';
 	@override String get pastelRed => 'Pastelová červená';
 	@override String get pastelOrange => 'Pastelová oranžová';
@@ -2330,8 +2332,6 @@ class _StringsEditorColorsCs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastelová modrá';
 	@override String get pastelPurple => 'Pastelová purpurová';
 	@override String get pastelPink => 'Pastelová růžová';
-	@override String get cyan => 'Tyrkysová';
-	@override String get pink => 'Růžový';
 }
 
 // Path: editor.imageOptions
