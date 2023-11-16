@@ -566,18 +566,3 @@ zh-Hant-TW:
   home:
     tooltips:
       exportNote: Export note
-    moveNote:
-      moveNotes(OUTDATED): 移動 $n 份筆記
-      multipleRenamedTo(OUTDATED): 「以下筆記將被重新命名：」"
-      numberRenamedTo(OUTDATED): $n 份筆記將被重命名以避免衝突
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): 要儲存多少種最近的顏色
-  editor:
-    colors:
-      customBrightnessHue(OUTDATED): 自訂的 $b $h
-      customHue(OUTDATED): 自訂的 $h
-      dark(OUTDATED): 黑色
-      light(OUTDATED): 白色
-      cyan(OUTDATED): 青色
-      pink(OUTDATED): 粉紅色
