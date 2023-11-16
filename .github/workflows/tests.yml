@@ -6,7 +6,8 @@ on:
   push:
 
 env:
-  project-id: com.adilhanney.saber
+  # MAINTENANCE_CHECKS_ENABLED is overridden later
+  MAINTENANCE_CHECKS_ENABLED: true
 
 jobs:
   run-tests:
