@@ -36,12 +36,12 @@ home:
     noteNameExists: 此名称的笔记已经存在
   moveNote:
     moveNote: 移动笔记
+    moveNotes: 移动 $n 个笔记
     moveName: 移动 $f
     move: 移动
     renamedTo: 笔记将重命名为 $newName
-    moveNotes(OUTDATED): 移动 $n 笔记
-    multipleRenamedTo(OUTDATED): 以下注释将被重命名：
-    numberRenamedTo(OUTDATED): $n 笔记将被重命名以避免冲突
+    multipleRenamedTo: 以下笔记将被重命名：
+    numberRenamedTo: $n 个笔记将被重命名以避免冲突
   deleteNote: 删除笔记
   renameFolder:
     renameFolder: 重命名文件夹
@@ -85,9 +85,9 @@ settings:
     editorPromptRename: 提示您重命名新笔记
     hideHomeBackgrounds: 在主页隐藏背景
     recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
+    recentColorsLength: 要存储多少种最近的颜色
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
-    recentColorsLength(OUTDATED): 要存储多少种最近的颜色
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -217,17 +217,17 @@ editor:
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
+    shapePen: 形状笔
     laserPointer: 激光笔
-    shapePen(OUTDATED): 造型笔
   penOptions:
     size: 粗细
     sizeDragHint: 左右拖动更改粗细
   colors:
     colorPicker: 选色器
-    customBrightnessHue(OUTDATED): 定制 $b $h
-    customHue(OUTDATED): 定制 $h
-    dark(OUTDATED): 黑暗的
-    light(OUTDATED): 光
+    customBrightnessHue: 自定义 $b $h
+    customHue: 自定义 $h
+    dark: 暗色
+    light: 亮色
     black: 黑色
     darkGrey: 深灰色
     grey: 灰色
@@ -235,9 +235,11 @@ editor:
     white: 白色
     red: 红色
     green: 绿色
+    cyan: 青色
     blue: 蓝色
     yellow: 黄色
     purple: 紫色
+    pink: 粉色
     orange: 橙色
     pastelRed: 浅红色
     pastelOrange: 浅橙色
@@ -247,8 +249,6 @@ editor:
     pastelBlue: 浅蓝色
     pastelPurple: 浅紫色
     pastelPink: 浅粉色
-    cyan(OUTDATED): 青色
-    pink(OUTDATED): 粉色的
   imageOptions:
     title: 图片选项
     invertible: 反转颜色

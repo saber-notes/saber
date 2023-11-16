@@ -530,23 +530,6 @@ zh-Hans-CN:
   home:
     tooltips:
       exportNote: Export note
-    moveNote:
-      moveNotes(OUTDATED): 移动 $n 个笔记
-      multipleRenamedTo(OUTDATED): "以下笔记将被重命名："
-      numberRenamedTo(OUTDATED): $n 个笔记将被重命名以避免冲突
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): 要存储多少种最近的颜色
-  editor:
-    pens:
-      shapePen(OUTDATED): 形状笔
-    colors:
-      customBrightnessHue(OUTDATED): 自定义 $b $h
-      customHue(OUTDATED): 自定义 $h
-      dark(OUTDATED): 暗色
-      light(OUTDATED): 亮色
-      cyan(OUTDATED): 青色
-      pink(OUTDATED): 粉色
 zh-Hant-TW:
   home:
     tooltips:

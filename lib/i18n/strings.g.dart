@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3967 (247 per locale)
 ///
-/// Built on 2023-11-16 at 17:28 UTC
+/// Built on 2023-11-16 at 17:34 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -11239,12 +11239,12 @@ class _StringsHomeMoveNoteZhHansCn extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => '移动笔记';
+	@override String moveNotes({required Object n}) => '移动 ${n} 个笔记';
 	@override String moveName({required Object f}) => '移动 ${f}';
 	@override String get move => '移动';
 	@override String renamedTo({required Object newName}) => '笔记将重命名为 ${newName}';
-	@override String moveNotes({required Object n}) => '移动 ${n} 笔记';
-	@override String get multipleRenamedTo => '以下注释将被重命名：';
-	@override String numberRenamedTo({required Object n}) => '${n} 笔记将被重命名以避免冲突';
+	@override String get multipleRenamedTo => '以下笔记将被重命名：';
+	@override String numberRenamedTo({required Object n}) => '${n} 个笔记将被重命名以避免冲突';
 }
 
 // Path: home.renameFolder
@@ -11318,9 +11318,9 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => '提示您重命名新笔记';
 	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
+	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
-	@override String get recentColorsLength => '要存储多少种最近的颜色';
 }
 
 // Path: settings.prefDescriptions
@@ -11581,8 +11581,8 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 	@override String get fountainPen => '钢笔';
 	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
+	@override String get shapePen => '形状笔';
 	@override String get laserPointer => '激光笔';
-	@override String get shapePen => '造型笔';
 }
 
 // Path: editor.penOptions
@@ -11604,10 +11604,10 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => '选色器';
-	@override String customBrightnessHue({required Object b, required Object h}) => '定制 ${b} ${h}';
-	@override String customHue({required Object h}) => '定制 ${h}';
-	@override String get dark => '黑暗的';
-	@override String get light => '光';
+	@override String customBrightnessHue({required Object b, required Object h}) => '自定义 ${b} ${h}';
+	@override String customHue({required Object h}) => '自定义 ${h}';
+	@override String get dark => '暗色';
+	@override String get light => '亮色';
 	@override String get black => '黑色';
 	@override String get darkGrey => '深灰色';
 	@override String get grey => '灰色';
@@ -11615,9 +11615,11 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '红色';
 	@override String get green => '绿色';
+	@override String get cyan => '青色';
 	@override String get blue => '蓝色';
 	@override String get yellow => '黄色';
 	@override String get purple => '紫色';
+	@override String get pink => '粉色';
 	@override String get orange => '橙色';
 	@override String get pastelRed => '浅红色';
 	@override String get pastelOrange => '浅橙色';
@@ -11627,8 +11629,6 @@ class _StringsEditorColorsZhHansCn extends _StringsEditorColorsEn {
 	@override String get pastelBlue => '浅蓝色';
 	@override String get pastelPurple => '浅紫色';
 	@override String get pastelPink => '浅粉色';
-	@override String get cyan => '青色';
-	@override String get pink => '粉色的';
 }
 
 // Path: editor.imageOptions
