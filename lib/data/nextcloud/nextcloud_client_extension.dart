@@ -14,7 +14,7 @@ extension NextcloudClientExtension on NextcloudClient {
   static final Uri defaultNextcloudUri = Uri.parse('https://nc.saber.adil.hanney.org');
 
   static const String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
-  static final Uri configFileUri = Uri.parse('$appRootDirectoryPrefix/config.sbc');
+  static final PathUri configFileUri = PathUri.parse('$appRootDirectoryPrefix/config.sbc');
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
@@ -72,7 +72,7 @@ extension NextcloudClientExtension on NextcloudClient {
     String json = jsonEncode(config);
     Uint8List file = Uint8List.fromList(json.codeUnits);
     try {
-      await webdav.mkcol(Uri.parse(appRootDirectoryPrefix));
+      await webdav.mkcol(PathUri.parse(appRootDirectoryPrefix));
     } on DynamiteApiException catch (e) {
       if (e.statusCode != HttpStatus.methodNotAllowed) rethrow;
     }

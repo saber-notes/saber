@@ -64,7 +64,7 @@ abstract class FileSyncer {
     List<WebDavFile> remoteFiles;
     try {
       remoteFiles = await _client!.webdav.propfind(
-        Uri.parse(FileManager.appRootDirectoryPrefix),
+        PathUri.parse(FileManager.appRootDirectoryPrefix),
         prop: WebDavPropWithoutValues.fromBools(
           davgetcontentlength: true,
           davgetlastmodified: true,
@@ -73,7 +73,7 @@ abstract class FileSyncer {
     } on DynamiteApiException catch (e) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('startSync: App directory doesn\'t exist; creating it', e);
-        await _client!.webdav.mkcol(Uri.parse(FileManager.appRootDirectoryPrefix));
+        await _client!.webdav.mkcol(PathUri.parse(FileManager.appRootDirectoryPrefix));
         log.fine('startSync: Generating config');
         await _client!.getConfig()
           .then((config) => _client!.generateConfig(config: config))
@@ -195,7 +195,7 @@ abstract class FileSyncer {
             () async {
               final stringUnencrypted = utf8.decode(localDataUnencrypted);
               final encrypted = encrypter.encrypt(stringUnencrypted, iv: iv);
-              return utf8.encode(encrypted.base64) as Uint8List;
+              return utf8.encode(encrypted.base64);
             },
             priority: WorkPriority.highRegular,
           );
@@ -211,7 +211,7 @@ abstract class FileSyncer {
 
         log.info('Uploading $filePathUnencrypted (${syncFile.remotePath}): ${localDataEncrypted.length} bytes');
       } else {
-        localDataEncrypted = utf8.encode(deletedFileDummyContent) as Uint8List;
+        localDataEncrypted = utf8.encode(deletedFileDummyContent);
       }
 
       DateTime lastModified;
@@ -224,7 +224,7 @@ abstract class FileSyncer {
       // upload file
       await webdav.put(
         localDataEncrypted,
-        Uri.parse(syncFile.remotePath),
+        PathUri.parse(syncFile.remotePath),
         lastModified: lastModified,
       );
     } on SocketException catch (e) { // network error
@@ -325,7 +325,7 @@ abstract class FileSyncer {
 
     final Uint8List encryptedDataBytes;
     try {
-      encryptedDataBytes = await _client!.webdav.get(Uri.parse(file.remotePath));
+      encryptedDataBytes = await _client!.webdav.get(PathUri.parse(file.remotePath));
     } on DynamiteApiException {
       return false;
     }
@@ -340,7 +340,7 @@ abstract class FileSyncer {
           () async {
             final String encrypted = utf8.decode(encryptedDataBytes.cast<int>());
             final String decrypted = encrypter.decrypt64(encrypted, iv: iv);
-            return utf8.encode(decrypted) as Uint8List;
+            return utf8.encode(decrypted);
           },
           priority: WorkPriority.regular,
         );
@@ -374,7 +374,7 @@ abstract class FileSyncer {
     // get remote file
     try {
       file.webDavFile ??= await _client!.webdav.propfind(
-        Uri.parse(file.remotePath),
+        PathUri.parse(file.remotePath),
         depth: WebDavDepth.zero,
         prop: WebDavPropWithoutValues.fromBools(
           davgetlastmodified: true,
