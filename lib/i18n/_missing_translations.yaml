@@ -73,17 +73,6 @@ cs:
   home:
     tooltips:
       exportNote: Export note
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): Kolik naposledy použitých barev se má ukládat
-  editor:
-    colors:
-      customBrightnessHue(OUTDATED): Vlastní $b $h
-      customHue(OUTDATED): Vlastní $h
-      dark(OUTDATED): tmavě
-      light(OUTDATED): světle
-      cyan(OUTDATED): Azurová
-      pink(OUTDATED): Růžová
 de:
   home:
     titles:
