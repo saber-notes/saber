@@ -1437,19 +1437,27 @@ class EditorState extends State<Editor> {
       );
     }
 
-    return WillPopScope(
-      // don't allow user to go back until saving is done
-      onWillPop: () async => switch (savingState.value) {
-        SavingState.waitingToSave => (){
-          saveToFile(); // trigger save now
-          snackBarNeedsToSaveBeforeExiting();
-          return false;
-        }(),
-        SavingState.saving => (){
-          snackBarNeedsToSaveBeforeExiting();
-          return false;
-        }(),
-        SavingState.saved => true,
+    return ValueListenableBuilder(
+      valueListenable: savingState,
+      builder: (context, savingState, child) {
+        // don't allow user to go back until saving is done
+        return PopScope(
+          canPop: savingState == SavingState.saved,
+          onPopInvoked: (didPop) {
+            switch (savingState) {
+              case SavingState.waitingToSave:
+                assert(!didPop);
+                saveToFile(); // trigger save now
+                snackBarNeedsToSaveBeforeExiting();
+              case SavingState.saving:
+                assert(!didPop);
+                snackBarNeedsToSaveBeforeExiting();
+              case SavingState.saved:
+                break;
+            }
+          },
+          child: child!,
+        );
       },
       child: Scaffold(
         appBar: DynamicMaterialApp.isFullscreen ? null : AppBar(
