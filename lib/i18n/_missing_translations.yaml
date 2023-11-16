@@ -522,21 +522,6 @@ ru:
   home:
     tooltips:
       exportNote: Export note
-    moveNote:
-      moveNotes(OUTDATED): Переместить $n заметок
-      multipleRenamedTo(OUTDATED): "Следующие заметки будут переименованы:"
-      numberRenamedTo(OUTDATED): $n заметок будут переименованы, чтобы избежать конфликтов
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): Количество последних сохраняемых цветов
-  editor:
-    colors:
-      customBrightnessHue(OUTDATED): Свой $b $h
-      customHue(OUTDATED): Свой $h
-      dark(OUTDATED): тёмный
-      light(OUTDATED): светлый
-      cyan(OUTDATED): Голубой
-      pink(OUTDATED): Розовый
 tr:
   home:
     tooltips:

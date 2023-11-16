@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3967 (247 per locale)
 ///
-/// Built on 2023-11-16 at 17:21 UTC
+/// Built on 2023-11-16 at 17:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -9689,12 +9689,12 @@ class _StringsHomeMoveNoteRu extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Переместить заметку';
+	@override String moveNotes({required Object n}) => 'Переместить ${n} заметок';
 	@override String moveName({required Object f}) => 'Переместить ${f}';
 	@override String get move => 'Перемещение';
 	@override String renamedTo({required Object newName}) => 'Заметка будет переименована в ${newName}';
-	@override String moveNotes({required Object n}) => 'Переместить ${n} заметки';
 	@override String get multipleRenamedTo => 'Следующие заметки будут переименованы:';
-	@override String numberRenamedTo({required Object n}) => '${n} заметки будут переименованы, чтобы избежать конфликтов';
+	@override String numberRenamedTo({required Object n}) => '${n} заметок будут переименованы, чтобы избежать конфликтов';
 }
 
 // Path: home.renameFolder
@@ -9768,9 +9768,9 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
+	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
-	@override String get recentColorsLength => 'Сколько последних цветов хранить';
 }
 
 // Path: settings.prefDescriptions
@@ -10054,10 +10054,10 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Выбор цвета';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Пользовательский ${b} ${h}';
-	@override String customHue({required Object h}) => 'Пользовательский ${h}';
-	@override String get dark => 'темный';
-	@override String get light => 'свет';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Свой ${b} ${h}';
+	@override String customHue({required Object h}) => 'Свой ${h}';
+	@override String get dark => 'тёмный';
+	@override String get light => 'светлый';
 	@override String get black => 'Чёрный';
 	@override String get darkGrey => 'Тёмно-серый';
 	@override String get grey => 'Серый';
@@ -10065,9 +10065,11 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 	@override String get white => 'Белый';
 	@override String get red => 'Красный';
 	@override String get green => 'Зелёный';
+	@override String get cyan => 'Голубой';
 	@override String get blue => 'Синий';
 	@override String get yellow => 'Жёлтый';
 	@override String get purple => 'Фиолетовый';
+	@override String get pink => 'Розовый';
 	@override String get orange => 'Оранжевый';
 	@override String get pastelRed => 'Пастельный красный';
 	@override String get pastelOrange => 'Пастельный оранжевый';
@@ -10077,8 +10079,6 @@ class _StringsEditorColorsRu extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Пастельный синий';
 	@override String get pastelPurple => 'Пастельный фиолетовый';
 	@override String get pastelPink => 'Пастельный розовый';
-	@override String get cyan => 'Голубой';
-	@override String get pink => 'Розовый';
 }
 
 // Path: editor.imageOptions
