@@ -421,21 +421,6 @@ it:
   home:
     tooltips:
       exportNote: Export note
-    moveNote:
-      moveNotes(OUTDATED): Sposta $n note
-      multipleRenamedTo(OUTDATED): "Le note seguenti verranno rinominate:"
-      numberRenamedTo(OUTDATED): $n le note verranno rinominate per evitare conflitti
-  settings:
-    prefLabels:
-      recentColorsLength(OUTDATED): Quanti colori recenti memorizzare
-  editor:
-    colors:
-      customBrightnessHue(OUTDATED): Personalizzato $b $h
-      customHue(OUTDATED): Personalizzato $h
-      dark(OUTDATED): scuro
-      light(OUTDATED): chiaro
-      cyan(OUTDATED): Ciano
-      pink(OUTDATED): Rosa
 ja:
   home:
     titles:

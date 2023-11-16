@@ -36,12 +36,12 @@ home:
     noteNameExists: Esiste già una nota con questo nome
   moveNote:
     moveNote: Sposta nota
+    moveNotes: Sposta $n note
     moveName: Sposta $f
     move: Sposta
     renamedTo: La nota verrà rinominata in $newName
-    moveNotes(OUTDATED): Sposta $n note
-    multipleRenamedTo(OUTDATED): "Le seguenti note saranno rinominate:"
-    numberRenamedTo(OUTDATED): $n note verranno rinominate per evitare conflitti
+    multipleRenamedTo: "Le note seguenti verranno rinominate:"
+    numberRenamedTo: $n le note verranno rinominate per evitare conflitti
   deleteNote: Elimina nota
   renameFolder:
     renameFolder: Rinomina cartella
@@ -85,9 +85,9 @@ settings:
     editorPromptRename: Richiede di rinominare nuove note
     hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
+    recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
-    recentColorsLength(OUTDATED): Quanti colori recenti memorizzare
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -224,10 +224,10 @@ editor:
     sizeDragHint: Trascina a sinistra o a destra per modificare le dimensioni
   colors:
     colorPicker: Selettore di colori
-    customBrightnessHue(OUTDATED): Personalizzato $b $h
-    customHue(OUTDATED): Personalizzato $h
-    dark(OUTDATED): buio
-    light(OUTDATED): leggero
+    customBrightnessHue: Personalizzato $b $h
+    customHue: Personalizzato $h
+    dark: scuro
+    light: chiaro
     black: Nero
     darkGrey: Grigio scuro
     grey: Grigio
@@ -235,9 +235,11 @@ editor:
     white: Bianco
     red: Rosso
     green: Verde
+    cyan: Ciano
     blue: Blu
     yellow: Giallo
     purple: Porpora
+    pink: Rosa
     orange: Arancione
     pastelRed: Rosso pastello
     pastelOrange: Arancione pastello
@@ -247,8 +249,6 @@ editor:
     pastelBlue: Blu pastello
     pastelPurple: Porpora pastella
     pastelPink: Rosa pastello
-    cyan(OUTDATED): Ciano
-    pink(OUTDATED): Rosa
   imageOptions:
     title: Opzioni immagine
     invertible: Invertibile
