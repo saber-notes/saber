@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
+import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -25,9 +26,10 @@ void main() {
     Prefs.init();
     FileManager.init();
 
-    setUpAll(() async {
-      await InvertShader.init();
-    });
+    setUpAll(() => Future.wait([
+      InvertShader.init(),
+      PencilShader.init(),
+    ]));
 
     final sbnExamples = Directory('test/sbn_examples/')
         .listSync()
