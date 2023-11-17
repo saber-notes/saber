@@ -424,10 +424,10 @@ hu:
 it:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): Esporta nota
   editor:
     pens:
-      pencil(OUTDATED): Pencil
+      pencil(OUTDATED): Matita
 ja:
   home:
     titles:
