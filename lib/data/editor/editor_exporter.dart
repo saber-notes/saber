@@ -13,11 +13,23 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
   static const Color _primaryColor = Colors.blue;
   static const Color _secondaryColor = Colors.red;
+
+  /// Most* strokes can be drawn to the PDF canvas as vector graphics.
+  /// This function returns true if [stroke] is one of those strokes.
+  ///
+  /// Strokes that can't be drawn as vector graphics include:
+  /// - Highlighter strokes, because PDFs don't support transparency
+  /// - Pencil strokes, which need a special shader to look correct
+  static bool _shouldRasterizeStroke(Stroke stroke) {
+    return stroke.penType == (Highlighter).toString()
+        || stroke.penType == (Pencil).toString();
+  }
 
   static Future<pw.Document> generatePdf(EditorCoreInfo coreInfo, BuildContext context) async {
     coreInfo = coreInfo.copyWith(
@@ -60,9 +72,8 @@ abstract class EditorExporter {
                           ?? InnerCanvas.defaultBackgroundColor.value
                   ).flatten();
 
-                  // only draw non-highlighter strokes
                   final Iterable<Stroke> strokes = page.strokes
-                    .where((stroke) => stroke.penType != (Highlighter).toString());
+                    .where((stroke) => !_shouldRasterizeStroke(stroke));
                   for (Stroke stroke in strokes) {
                     final bool shapePaint;
                     if (stroke is CircleStroke) {
@@ -126,10 +137,9 @@ abstract class EditorExporter {
 
   /// Returns a screenshot of the page at [pageIndex] in [coreInfo].
   ///
-  /// Note that screenshots do not include (non-highlighter) strokes
-  /// because strokes are added separately to the PDF as vector graphics
-  /// (highlighter strokes are screenshotted because PDFs don't support
-  /// transparency).
+  /// Note that screenshots do not include most* strokes
+  /// because they're added separately to the PDF as vector graphics.
+  /// See [_shouldRasterizeStroke] for more details.
   static Future<Uint8List> screenshotPage({
     required EditorCoreInfo coreInfo,
     required int pageIndex,
@@ -158,7 +168,7 @@ abstract class EditorExporter {
             coreInfo: coreInfo.copyWith(
               pages: coreInfo.pages.map((page) => page.copyWith(
                 strokes: page.strokes
-                    .where((stroke) => stroke.penType == (Highlighter).toString())
+                    .where((stroke) => _shouldRasterizeStroke(stroke))
                     .toList(),
               )).toList(),
             ),
