@@ -5,6 +5,7 @@ import 'package:saber/components/toolbar/size_picker.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -40,7 +41,7 @@ class _PenModalState extends State<PenModal> {
           pen: currentPen,
         ),
 
-        if (currentPen is! Highlighter) ...[
+        if (currentPen is! Highlighter && currentPen is! Pencil) ...[
           const SizedBox(width: 8),
           IconButton(
             onPressed: () => setState(() {

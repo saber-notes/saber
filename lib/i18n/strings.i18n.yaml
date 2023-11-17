@@ -219,6 +219,7 @@ editor:
     fountainPen: Fountain pen
     ballpointPen: Ballpoint pen
     highlighter: Highlighter
+    pencil: Pencil
     shapePen: Shape pen
     laserPointer: Laser pointer
   penOptions:

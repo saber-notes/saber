@@ -94,6 +94,7 @@ abstract class Prefs {
       lastFountainPenProperties,
       lastBallpointPenProperties,
       lastHighlighterProperties,
+      lastPencilProperties,
       lastShapePenProperties;
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
@@ -182,6 +183,7 @@ abstract class Prefs {
     lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: const ['lastPenColor']);
     lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
     lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: const ['lastHighlighterColor']);
+    lastPencilProperties = PlainPref('lastPencilProperties', StrokeProperties.pencil);
     lastShapePenProperties = PlainPref('lastShapePenProperties', StrokeProperties.shapePen);
 
     lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);

@@ -43,6 +43,7 @@ import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -146,6 +147,8 @@ class EditorState extends State<Editor> {
         return Pen.currentPen;
       case ToolId.highlighter:
         return Highlighter.currentHighlighter;
+      case ToolId.pencil:
+        return Pencil.currentPencil;
       case ToolId.eraser:
         return Eraser();
       case ToolId.select:
@@ -1263,6 +1266,8 @@ class EditorState extends State<Editor> {
 
               if (currentTool is Highlighter) {
                 Highlighter.currentHighlighter = currentTool as Highlighter;
+              } else if (currentTool is Pencil) {
+                Pencil.currentPencil = currentTool as Pencil;
               } else if (currentTool is Pen) {
                 Pen.currentPen = currentTool as Pen;
               }

@@ -90,5 +90,5 @@ class StrokeProperties {
     color: Colors.yellow.withAlpha(Highlighter.alpha),
     pressureEnabled: false,
   );
-
+  static StrokeProperties get pencil => StrokeProperties();
 }

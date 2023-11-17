@@ -20,6 +20,7 @@ import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -215,6 +216,10 @@ class _ToolbarState extends State<Toolbar> {
                 getTool: () => Highlighter.currentHighlighter,
                 setTool: widget.setTool,
               ),
+              ToolOptions.pencil => PenModal(
+                getTool: () => Pencil.currentPencil,
+                setTool: widget.setTool,
+              ),
               ToolOptions.select => SelectionBar(
                 duplicateSelection: widget.duplicateSelection,
                 deleteSelection: widget.deleteSelection,
@@ -312,6 +317,25 @@ class _ToolbarState extends State<Toolbar> {
                 child: FaIcon(Pen.currentPen.icon, size: 16),
               ),
               ToolbarIconButton(
+                tooltip: t.editor.pens.pencil,
+                selected: widget.currentTool == Pencil.currentPencil,
+                enabled: !widget.readOnly,
+                onPressed: () {
+                  if (widget.currentTool == Pencil.currentPencil) {
+                    if (toolOptionsType.value == ToolOptions.pencil) {
+                      toolOptionsType.value = ToolOptions.hide;
+                    } else {
+                      toolOptionsType.value = ToolOptions.pencil;
+                    }
+                  } else {
+                    toolOptionsType.value = ToolOptions.hide;
+                    widget.setTool(Pencil.currentPencil);
+                  }
+                },
+                padding: buttonPadding,
+                child: const FaIcon(Pencil.pencilIcon, size: 16),
+              ),
+              ToolbarIconButton(
                 tooltip: t.editor.pens.highlighter,
                 selected: widget.currentTool == Highlighter.currentHighlighter,
                 enabled: !widget.readOnly,
@@ -328,7 +352,7 @@ class _ToolbarState extends State<Toolbar> {
                   }
                 },
                 padding: buttonPadding,
-                child: const FaIcon(FontAwesomeIcons.highlighter, size: 16),
+                child: const FaIcon(Highlighter.highlighterIcon, size: 16),
               ),
               ValueListenableBuilder(
                 valueListenable: showColorOptions,
@@ -515,5 +539,6 @@ enum ToolOptions {
   hide,
   pen,
   highlighter,
+  pencil,
   select,
 }
