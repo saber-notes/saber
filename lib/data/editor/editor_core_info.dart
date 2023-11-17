@@ -22,8 +22,9 @@ class EditorCoreInfo {
   /// Increment this if earlier versions of the app can't satisfiably read the file.
   /// 
   /// Version history:
+  /// - 18: [Pencil] tool introduced
   /// - 17: [PdfEditorImage] introduced
-  /// - 16: [ShapePen] introduced
+  /// - 16: [ShapePen] tool introduced
   /// - 15: Tablature background pattern
   /// - 14: Store images as BsonBinary
   /// - 13: Save points as BsonBinary
@@ -39,7 +40,7 @@ class EditorCoreInfo {
   /// - 3: Store page sizes for each page
   /// - 2: Store width and height in sbn
   /// - 1: Store version in sbn
-  static const int sbnVersion = 17;
+  static const int sbnVersion = 18;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
