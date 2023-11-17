@@ -98,14 +98,15 @@ class CanvasPainter extends CustomPainter {
       if (currentSelection?.strokes.contains(stroke) ?? false) {
         color = Color.lerp(color, primaryColor, 0.5)!;
       }
-      paint.color = color;
 
       if (stroke.penType == (Pencil).toString()) {
+        paint.color = Colors.white;
         paint.shader = page.pencilShader
             ..setFloat(0, color.red / 255)
             ..setFloat(1, color.green / 255)
             ..setFloat(2, color.blue / 255);
       } else {
+        paint.color = color;
         paint.shader = null;
       }
 
@@ -142,8 +143,19 @@ class CanvasPainter extends CustomPainter {
   void _drawCurrentStroke(Canvas canvas) {
     if (currentStroke == null) return;
 
-    final paint = Paint()
-        ..color = currentStroke!.strokeProperties.color.withInversion(invert);
+    final color = currentStroke!.strokeProperties.color.withInversion(invert);
+    final paint = Paint();
+
+    if (currentStroke!.penType == (Pencil).toString()) {
+      paint.color = Colors.white;
+      paint.shader = page.pencilShader
+          ..setFloat(0, color.red / 255)
+          ..setFloat(1, color.green / 255)
+          ..setFloat(2, color.blue / 255);
+    } else {
+      paint.color = color;
+      paint.shader = null;
+    }
 
     if (currentStroke!.length <= 2) { // a dot
       final bounds = currentStroke!.path.getBounds();
