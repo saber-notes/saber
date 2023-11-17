@@ -41,18 +41,21 @@ void main() {
         .toList();
 
     for (final sbnName in sbnExamples) {
-      testWidgets(sbnName, (tester) async {
+      group(sbnName, () {
         final path = 'test/sbn_examples/$sbnName';
-        final coreInfo = await tester.runAsync(() async {
+        late final EditorCoreInfo coreInfo;
+        late final page = coreInfo.pages.first;
+
+        setUpAll(() async {
           if (sbnName.endsWith('.sbn2')) {
-            return await EditorCoreInfo.loadFromFileContents(
+            coreInfo = await EditorCoreInfo.loadFromFileContents(
               bsonBytes: File(path).readAsBytesSync(),
               path: path,
               readOnly: true,
               onlyFirstPage: true,
             );
           } else {
-            return await EditorCoreInfo.loadFromFileContents(
+            coreInfo = await EditorCoreInfo.loadFromFileContents(
               jsonString: File(path).readAsStringSync(),
               path: path,
               readOnly: true,
@@ -60,48 +63,46 @@ void main() {
             );
           }
         });
-        final page = coreInfo!.pages.first;
 
-        // set up tester display size
-        tester.view.physicalSize = page.size;
-        addTearDown(tester.view.resetPhysicalSize);
+        testWidgets('(Light)', (tester) async {
+          await tester.pumpWidget(_buildCanvas(
+            brightness: Brightness.light,
+            path: path,
+            page: page,
+            coreInfo: coreInfo,
+          ));
 
-        // create Canvas widget
-        await tester.pumpWidget(_buildCanvas(
-          brightness: Brightness.light,
-          path: path,
-          page: page,
-          coreInfo: coreInfo,
-        ));
+          await tester.runAsync(() => _precacheImages(
+            context: tester.binding.rootElement!,
+            page: page,
+          ));
+          await tester.pumpAndSettle();
 
-        // precache images
-        final context = tester.binding.rootElement!;
-        await tester.runAsync(
-          () => Future.wait([
-            for (final image in page.images) image.precache(context),
-            page.backgroundImage?.precache(context) ?? Future.value(),
-          ]),
-        );
-        await tester.pumpAndSettle();
+          await expectLater(
+            find.byType(Canvas),
+            matchesGoldenFile('sbn_examples/$sbnName.png'),
+          );
+        });
 
-        // compare to golden image
-        await expectLater(
-          find.byType(Canvas),
-          matchesGoldenFile('sbn_examples/$sbnName.png'),
-        );
+        testWidgets('(Dark)', (tester) async {
+          await tester.pumpWidget(_buildCanvas(
+            brightness: Brightness.dark,
+            path: path,
+            page: page,
+            coreInfo: coreInfo,
+          ));
 
-        // now test dark mode
-        await tester.pumpWidget(_buildCanvas(
-          brightness: Brightness.dark,
-          path: path,
-          page: page,
-          coreInfo: coreInfo,
-        ));
-        await tester.pumpAndSettle();
-        await expectLater(
-          find.byType(Canvas),
-          matchesGoldenFile('sbn_examples/$sbnName.dark.png'),
-        );
+          await tester.runAsync(() => _precacheImages(
+            context: tester.binding.rootElement!,
+            page: page,
+          ));
+          await tester.pumpAndSettle();
+
+          await expectLater(
+            find.byType(Canvas),
+            matchesGoldenFile('sbn_examples/$sbnName.dark.png'),
+          );
+        });
       });
     }
   });
@@ -114,32 +115,43 @@ Widget _buildCanvas({
   required EditorCoreInfo coreInfo,
 }) {
   return TranslationProvider(
-    child: SizedBox(
-      width: page.size.width,
-      height: page.size.height,
-      child: MaterialApp(
-        theme: ThemeData(
-          brightness: brightness,
-        ),
-        home: SizedBox(
-          width: page.size.width,
-          height: page.size.height,
-          child: RepaintBoundary(
-            child: Canvas(
-              path: coreInfo.filePath,
-              page: page,
-              pageIndex: 0,
-              textEditing: false,
-              coreInfo: coreInfo,
-              currentStroke: null,
-              currentStrokeDetectedShape: null,
-              currentSelection: null,
-              setAsBackground: null,
-              currentToolIsSelect: false,
+    child: MaterialApp(
+      theme: ThemeData(
+        brightness: brightness,
+      ),
+      home: Center(
+        child: FittedBox(
+          child: SizedBox(
+            width: page.size.width,
+            height: page.size.height,
+            child: RepaintBoundary(
+              child: Canvas(
+                path: coreInfo.filePath,
+                page: page,
+                pageIndex: 0,
+                textEditing: false,
+                coreInfo: coreInfo,
+                currentStroke: null,
+                currentStrokeDetectedShape: null,
+                currentSelection: null,
+                setAsBackground: null,
+                currentToolIsSelect: false,
+              ),
             ),
           ),
         ),
       ),
     ),
   );
+}
+
+Future<void> _precacheImages({
+  required BuildContext context,
+  required EditorPage page,
+}) {
+  return Future.wait([
+    for (final image in page.images) image.precache(context),
+    if (page.backgroundImage != null)
+      page.backgroundImage!.precache(context),
+  ]);
 }
