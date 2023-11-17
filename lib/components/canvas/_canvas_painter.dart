@@ -42,37 +42,54 @@ class CanvasPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Rect canvasRect = Offset.zero & size;
-    Paint paint = Paint();
 
-    // highlighter
-    Paint highlighterLayerPaint = Paint()
+    _drawHighlighterStrokes(canvas, canvasRect);
+    _drawNonHighlighterStrokes(canvas);
+    _drawCurrentStroke(canvas);
+    _drawDetectedShape(canvas);
+    _drawSelection(canvas);
+    _drawPageIndicator(canvas, size);
+  }
+
+  @override
+  bool shouldRepaint(CanvasPainter oldDelegate) {
+    return currentStroke != null
+      || oldDelegate.currentStroke != null
+      || strokes.length != oldDelegate.strokes.length;
+  }
+
+  void _drawHighlighterStrokes(Canvas canvas, Rect canvasRect) {
+    final layerPaint = Paint()
       ..blendMode = invert ? BlendMode.lighten : BlendMode.darken
       ..color = Colors.white.withAlpha(Highlighter.alpha);
     bool needToRestoreCanvasLayer = false;
-    {
-      Color? lastColor;
-      for (Stroke stroke in strokes) {
-        if (stroke.penType != (Highlighter).toString()) continue;
-        if (stroke.strokeProperties.color != lastColor) { // new layer for each color
-          lastColor = stroke.strokeProperties.color;
-          if (needToRestoreCanvasLayer) canvas.restore();
-          canvas.saveLayer(canvasRect, highlighterLayerPaint);
-          needToRestoreCanvasLayer = true;
-        }
-        final color = stroke.strokeProperties.color.withAlpha(255).withInversion(invert);
-        if (currentSelection?.strokes.contains(stroke) ?? false) {
-          paint.color = Color.lerp(color, primaryColor, 0.5)!;
-        } else {
-          paint.color = color;
-        }
-        canvas.drawPath(stroke.path, paint);
-      }
-    }
-    if (needToRestoreCanvasLayer) canvas.restore();
 
-    // pen
+    Color? lastColor;
+    for (Stroke stroke in strokes) {
+      if (stroke.penType != (Highlighter).toString()) continue;
+
+      final color = stroke.strokeProperties.color.withOpacity(1).withInversion(invert);
+
+      if (color != lastColor) { // new layer for each color
+        if (needToRestoreCanvasLayer) canvas.restore();
+        canvas.saveLayer(canvasRect, layerPaint);
+
+        needToRestoreCanvasLayer = true;
+        lastColor = color;
+      }
+
+      canvas.drawPath(stroke.path, Paint()..color = color);
+    }
+
+    if (needToRestoreCanvasLayer) canvas.restore();
+  }
+
+  void _drawNonHighlighterStrokes(Canvas canvas) {
+    late final paint = Paint();
+
     for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
+
       final color = stroke.strokeProperties.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
         paint.color = Color.lerp(color, primaryColor, 0.5)!;
@@ -108,84 +125,85 @@ class CanvasPainter extends CustomPainter {
         canvas.drawPath(stroke.path, paint);
       }
     }
+  }
 
-    if (currentStroke != null) {
-      paint.color = currentStroke!.strokeProperties.color.withInversion(invert);
+  void _drawCurrentStroke(Canvas canvas) {
+    if (currentStroke == null) return;
 
-      if (currentStroke!.length <= 2) { // a dot
-        final bounds = currentStroke!.path.getBounds();
-        final radius = max(bounds.size.width, currentStroke!.strokeProperties.size * 0.5) / 2;
-        canvas.drawCircle(bounds.center, radius, paint);
-      } else {
-        canvas.drawPath(currentStroke!.path, paint);
-      }
-    }
-    if (ShapePen.detectedShape != null) {
-      final color = currentStroke?.strokeProperties.color.withInversion(invert) ?? Colors.black;
-      final shapePaint = Paint()
-        ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
-      switch (ShapePen.detectedShape!.shape) {
-        case Shape.unknown:
-          break;
-        case Shape.line:
-          canvas.drawLine(
-            ShapePen.detectedShape!.firstPoint,
-            ShapePen.detectedShape!.lastPoint,
-            shapePaint,
-          );
-        case Shape.rectangle:
-          canvas.drawRect(
-            ShapePen.detectedShape!.generateRectangle(),
-            shapePaint,
-          );
-        case Shape.circle:
-          final circle = ShapePen.detectedShape!.generateCircle();
-          canvas.drawCircle(
-            circle.$2,
-            circle.$1,
-            shapePaint,
-          );
-      }
-    }
+    final paint = Paint()
+        ..color = currentStroke!.strokeProperties.color.withInversion(invert);
 
-    if (currentSelection != null) {
-      // draw translucent fill
-      paint.color = primaryColor.withOpacity(0.1);
-      canvas.drawPath(currentSelection!.path, paint);
-
-      // draw dashed stroke
-      paint.color = primaryColor;
-      paint.strokeWidth = 3;
-      paint.style = PaintingStyle.stroke;
-      canvas.drawPath(dashPath(
-        currentSelection!.path,
-        dashArray: CircularIntervalList([10, 10]),
-      ), paint);
-    }
-
-    if (showPageIndicator) {
-      canvas.drawParagraph(
-        _getPageIndicator(size.width),
-        Offset(
-          _pageIndicatorPadding,
-          size.height - _pageIndicatorPadding - _pageIndicatorFontSize * 1.2,
-        ),
-      );
+    if (currentStroke!.length <= 2) { // a dot
+      final bounds = currentStroke!.path.getBounds();
+      final radius = max(bounds.size.width, currentStroke!.strokeProperties.size * 0.5) / 2;
+      canvas.drawCircle(bounds.center, radius, paint);
+    } else {
+      canvas.drawPath(currentStroke!.path, paint);
     }
   }
 
-  @override
-  bool shouldRepaint(CanvasPainter oldDelegate) {
-    return currentStroke != null
-      || oldDelegate.currentStroke != null
-      || strokes.length != oldDelegate.strokes.length;
+  void _drawDetectedShape(Canvas canvas) {
+    if (ShapePen.detectedShape == null) return;
+    if (ShapePen.detectedShape!.shape == Shape.unknown) return;
+
+    final color = currentStroke?.strokeProperties.color.withInversion(invert)
+        ?? Colors.black;
+    final shapePaint = Paint()
+        ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
+
+    switch (ShapePen.detectedShape!.shape) {
+      case Shape.line:
+        canvas.drawLine(
+          ShapePen.detectedShape!.firstPoint,
+          ShapePen.detectedShape!.lastPoint,
+          shapePaint,
+        );
+      case Shape.rectangle:
+        canvas.drawRect(
+          ShapePen.detectedShape!.generateRectangle(),
+          shapePaint,
+        );
+      case Shape.circle:
+        final circle = ShapePen.detectedShape!.generateCircle();
+        canvas.drawCircle(
+          circle.$2,
+          circle.$1,
+          shapePaint,
+        );
+      case Shape.unknown:
+        throw StateError('Shape.unknown should have an early return');
+    }
+  }
+
+  void _drawSelection(Canvas canvas) {
+    if (currentSelection == null) return;
+
+    // draw translucent fill
+    canvas.drawPath(
+      currentSelection!.path,
+      Paint()..color = primaryColor.withOpacity(0.1),
+    );
+
+    // draw dashed stroke
+    canvas.drawPath(
+      dashPath(
+        currentSelection!.path,
+        dashArray: CircularIntervalList([10, 10]),
+      ),
+      Paint()
+          ..color = primaryColor
+          ..strokeWidth = 3
+          ..style = PaintingStyle.stroke,
+    );
   }
 
   static const double _pageIndicatorFontSize = 20;
   static const double _pageIndicatorPadding = 5;
-  Paragraph _getPageIndicator(double pageWidth) {
+  void _drawPageIndicator(Canvas canvas, Size pageSize) {
+    if (!showPageIndicator) return;
+
     ParagraphStyle style = ParagraphStyle(
       textAlign: TextAlign.end,
       textDirection: TextDirection.ltr,
@@ -201,9 +219,15 @@ class CanvasPainter extends CustomPainter {
 
     Paragraph paragraph = builder.build();
     paragraph.layout(ParagraphConstraints(
-      width: pageWidth - 2 * _pageIndicatorPadding,
+      width: pageSize.width - 2 * _pageIndicatorPadding,
     ));
 
-    return paragraph;
+    canvas.drawParagraph(
+      paragraph,
+      Offset(
+        _pageIndicatorPadding,
+        pageSize.height - _pageIndicatorPadding - _pageIndicatorFontSize * 1.2,
+      ),
+    );
   }
 }
