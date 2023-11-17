@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: Nuova nota
     showUpdateDialog: Mostra finestra di aggiornamento
+    exportNote(OUTDATED): Nota sull'esportazione
   create:
     newNote: Nuova nota
     importNote: Importa nota
@@ -217,6 +218,7 @@ editor:
     fountainPen: Penna stilografica
     ballpointPen: Penna a sfera
     highlighter: Evidenziatore
+    pencil(OUTDATED): Matita
     shapePen: Forma della penna
     laserPointer: Puntatore laser
   penOptions:

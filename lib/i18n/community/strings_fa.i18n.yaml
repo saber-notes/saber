@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: یادداشت جدید
     showUpdateDialog: نمایش به روز رسانی
+    exportNote(OUTDATED): یادداشت صادرات
   create:
     newNote: یادداشت جدید
     importNote: یادداشت وارد کنید
@@ -213,6 +214,7 @@ editor:
     fountainPen: خودنویس
     ballpointPen: خودکار
     highlighter: هایلایتر
+    pencil(OUTDATED): مداد
     laserPointer: اشاره گر لیزری
     shapePen(OUTDATED): قلم شکل
   penOptions:
@@ -220,10 +222,6 @@ editor:
     sizeDragHint: برای تغییر اندازه به چپ یا راست بکشید
   colors:
     colorPicker: انتخاب کننده رنگ
-    customBrightnessHue(OUTDATED): سفارشی $b $h
-    customHue(OUTDATED): سفارشی $h
-    dark(OUTDATED): تاریک
-    light(OUTDATED): سبک
     black: مشکی
     darkGrey: خاکستری تیره
     grey: خاکستری
@@ -243,6 +241,10 @@ editor:
     pastelBlue: آبی پاستلی
     pastelPurple: بنفش پاستلی
     pastelPink: صورتی پاستلی
+    customBrightnessHue(OUTDATED): سفارشی $b $h
+    customHue(OUTDATED): سفارشی $h
+    dark(OUTDATED): تاریک
+    light(OUTDATED): سبک
     cyan(OUTDATED): فیروزه ای
     pink(OUTDATED): رنگ صورتی
   imageOptions:

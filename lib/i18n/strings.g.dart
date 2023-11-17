@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3968 (248 per locale)
+/// Strings: 3998 (249 per locale)
 ///
-/// Built on 2023-11-17 at 14:51 UTC
+/// Built on 2023-11-17 at 17:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1117,6 +1117,7 @@ class _StringsHomeTooltipsAr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'محلاظة جديدة';
 	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
+	@override String get exportNote => 'ملاحظة التصدير';
 }
 
 // Path: home.create
@@ -1510,6 +1511,7 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
+	@override String get pencil => 'قلم';
 	@override String get laserPointer => 'مؤشر الليزر';
 	@override String get shapePen => 'قلم الشكل';
 }
@@ -1533,10 +1535,6 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'أداة انتقاء اللون';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'مخصص ${b} ${h}';
-	@override String customHue({required Object h}) => 'مخصص ${h}';
-	@override String get dark => 'مظلم';
-	@override String get light => 'ضوء';
 	@override String get black => 'أسود';
 	@override String get darkGrey => 'الرمادي الداكن';
 	@override String get grey => 'رمادي';
@@ -1556,6 +1554,10 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'الباستيل الأزرق';
 	@override String get pastelPurple => 'الباستيل الأرجواني';
 	@override String get pastelPink => 'الباستيل الوردي';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'مخصص ${b} ${h}';
+	@override String customHue({required Object h}) => 'مخصص ${h}';
+	@override String get dark => 'مظلم';
+	@override String get light => 'ضوء';
 	@override String get cyan => 'ازرق سماوي';
 	@override String get pink => 'لون القرنفل';
 }
@@ -1892,6 +1894,7 @@ class _StringsHomeTooltipsCs extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nová poznámka';
 	@override String get showUpdateDialog => 'Zobrazit dialogové okno aktualizace';
+	@override String get exportNote => 'Exportovat poznámku';
 }
 
 // Path: home.create
@@ -2285,6 +2288,7 @@ class _StringsEditorPensCs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Plnící pero';
 	@override String get ballpointPen => 'Kuličkové pero';
 	@override String get highlighter => 'Zvýrazňovač';
+	@override String get pencil => 'Čeština';
 	@override String get shapePen => 'Pero pro kreslení tvarů';
 	@override String get laserPointer => 'Laserové ukazovátko';
 }
@@ -2667,6 +2671,7 @@ class _StringsHomeTooltipsDe extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Notiz erstellen';
 	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
+	@override String get exportNote => 'Notiz exportieren';
 }
 
 // Path: home.create
@@ -3060,6 +3065,7 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get ballpointPen => 'Kugelschreiber';
 	@override String get highlighter => 'Textmarker';
+	@override String get pencil => 'Bleistift';
 	@override String get laserPointer => 'Laserpointer';
 	@override String get shapePen => 'Formstift';
 }
@@ -3083,10 +3089,6 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Farbauswahl';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Benutzerdefiniert ${b} ${h}';
-	@override String customHue({required Object h}) => 'Benutzerdefiniert ${h}';
-	@override String get dark => 'dunkel';
-	@override String get light => 'Licht';
 	@override String get black => 'Schwarz';
 	@override String get darkGrey => 'Dunkelgrau';
 	@override String get grey => 'Grau';
@@ -3106,6 +3108,10 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastellfarbenes Blau';
 	@override String get pastelPurple => 'Pastellfarbenes Lila';
 	@override String get pastelPink => 'Pastellfarbenes Rosa';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Benutzerdefiniert ${b} ${h}';
+	@override String customHue({required Object h}) => 'Benutzerdefiniert ${h}';
+	@override String get dark => 'dunkel';
+	@override String get light => 'Licht';
 	@override String get pink => 'Rosa';
 }
 
@@ -3440,6 +3446,7 @@ class _StringsHomeTooltipsEs extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Crear nota';
 	@override String get showUpdateDialog => 'Mostrar cuadro de diálogo de actualizaciónes';
+	@override String get exportNote => 'Nota de exportación';
 }
 
 // Path: home.create
@@ -3833,6 +3840,7 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Lápiz';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
+	@override String get pencil => 'Lápiz';
 	@override String get laserPointer => 'Puntero láser';
 	@override String get shapePen => 'Pluma de forma';
 }
@@ -3856,10 +3864,6 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
-	@override String customHue({required Object h}) => '${h} personalizados';
-	@override String get dark => 'oscuro';
-	@override String get light => 'luz';
 	@override String get black => 'Negro';
 	@override String get darkGrey => 'Gris oscuro';
 	@override String get grey => 'Gris';
@@ -3879,6 +3883,10 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Morado pastel';
 	@override String get pastelPink => 'Rosa pastel';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
+	@override String customHue({required Object h}) => '${h} personalizados';
+	@override String get dark => 'oscuro';
+	@override String get light => 'luz';
 	@override String get cyan => 'cian';
 	@override String get pink => 'Rosa';
 }
@@ -4215,6 +4223,7 @@ class _StringsHomeTooltipsFa extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'یادداشت جدید';
 	@override String get showUpdateDialog => 'نمایش به روز رسانی';
+	@override String get exportNote => 'یادداشت صادرات';
 }
 
 // Path: home.create
@@ -4608,6 +4617,7 @@ class _StringsEditorPensFa extends _StringsEditorPensEn {
 	@override String get fountainPen => 'خودنویس';
 	@override String get ballpointPen => 'خودکار';
 	@override String get highlighter => 'هایلایتر';
+	@override String get pencil => 'مداد';
 	@override String get laserPointer => 'اشاره گر لیزری';
 	@override String get shapePen => 'قلم شکل';
 }
@@ -4631,10 +4641,6 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'انتخاب کننده رنگ';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'سفارشی ${b} ${h}';
-	@override String customHue({required Object h}) => 'سفارشی ${h}';
-	@override String get dark => 'تاریک';
-	@override String get light => 'سبک';
 	@override String get black => 'مشکی';
 	@override String get darkGrey => 'خاکستری تیره';
 	@override String get grey => 'خاکستری';
@@ -4654,6 +4660,10 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'آبی پاستلی';
 	@override String get pastelPurple => 'بنفش پاستلی';
 	@override String get pastelPink => 'صورتی پاستلی';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'سفارشی ${b} ${h}';
+	@override String customHue({required Object h}) => 'سفارشی ${h}';
+	@override String get dark => 'تاریک';
+	@override String get light => 'سبک';
 	@override String get cyan => 'فیروزه ای';
 	@override String get pink => 'رنگ صورتی';
 }
@@ -4990,6 +5000,7 @@ class _StringsHomeTooltipsFr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nouvelle note';
 	@override String get showUpdateDialog => 'Afficher le dialogue de mise à jour';
+	@override String get exportNote => 'Note d \' exportation';
 }
 
 // Path: home.create
@@ -5383,6 +5394,7 @@ class _StringsEditorPensFr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Stylo encre';
 	@override String get ballpointPen => 'Stylo bille';
 	@override String get highlighter => 'Surligneur';
+	@override String get pencil => 'Crayon';
 	@override String get laserPointer => 'Pointeur laser';
 	@override String get shapePen => 'Stylo de forme';
 }
@@ -5406,10 +5418,6 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Pipette de couleur';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Personnalisé ${b} ${h}';
-	@override String customHue({required Object h}) => '${h} personnalisé';
-	@override String get dark => 'sombre';
-	@override String get light => 'lumière';
 	@override String get black => 'Noir';
 	@override String get darkGrey => 'Gris sombre';
 	@override String get grey => 'Gris';
@@ -5429,6 +5437,10 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Bleu pâle';
 	@override String get pastelPurple => 'Violet pâle';
 	@override String get pastelPink => 'Rose pâle';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personnalisé ${b} ${h}';
+	@override String customHue({required Object h}) => '${h} personnalisé';
+	@override String get dark => 'sombre';
+	@override String get light => 'lumière';
 	@override String get pink => 'Rose';
 }
 
@@ -5764,6 +5776,7 @@ class _StringsHomeTooltipsHe extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'פתק חדש';
 	@override String get showUpdateDialog => 'תיבת הדו-שיח הצג עדכון';
+	@override String get exportNote => 'ייצא הערה';
 }
 
 // Path: home.create
@@ -6157,6 +6170,7 @@ class _StringsEditorPensHe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'עט נובע';
 	@override String get ballpointPen => 'עט כדורי';
 	@override String get highlighter => 'מרקר';
+	@override String get pencil => 'עִפָּרוֹן';
 	@override String get laserPointer => 'סמן לייזר';
 	@override String get shapePen => 'עט צורה';
 }
@@ -6180,10 +6194,6 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'בורר צבעים';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'מותאם אישית ${b} ${h}';
-	@override String customHue({required Object h}) => 'מותאם אישית ${h}';
-	@override String get dark => 'אפל';
-	@override String get light => 'אוֹר';
 	@override String get black => 'שחור';
 	@override String get darkGrey => 'עפור ככה';
 	@override String get grey => 'עפור';
@@ -6203,6 +6213,10 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'כחול פסטל';
 	@override String get pastelPurple => 'סגול פסטל';
 	@override String get pastelPink => 'ורוד פסטל';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'מותאם אישית ${b} ${h}';
+	@override String customHue({required Object h}) => 'מותאם אישית ${h}';
+	@override String get dark => 'אפל';
+	@override String get light => 'אוֹר';
 	@override String get cyan => 'טורקיז';
 	@override String get pink => 'וָרוֹד';
 }
@@ -6539,6 +6553,7 @@ class _StringsHomeTooltipsHu extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Új jegyzet';
 	@override String get showUpdateDialog => 'Frissítési párbeszédablak megjelenítése';
+	@override String get exportNote => 'Megjegyzés exportálása';
 }
 
 // Path: home.create
@@ -6932,6 +6947,7 @@ class _StringsEditorPensHu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Töltőtoll';
 	@override String get ballpointPen => 'Golyóstoll';
 	@override String get highlighter => 'Kiemelő';
+	@override String get pencil => 'Ceruza';
 	@override String get shapePen => 'Forma toll';
 	@override String get laserPointer => 'Lézer mutató';
 }
@@ -7314,6 +7330,7 @@ class _StringsHomeTooltipsIt extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nuova nota';
 	@override String get showUpdateDialog => 'Mostra finestra di aggiornamento';
+	@override String get exportNote => 'Nota sull\'esportazione';
 }
 
 // Path: home.create
@@ -7707,6 +7724,7 @@ class _StringsEditorPensIt extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Penna stilografica';
 	@override String get ballpointPen => 'Penna a sfera';
 	@override String get highlighter => 'Evidenziatore';
+	@override String get pencil => 'Matita';
 	@override String get shapePen => 'Forma della penna';
 	@override String get laserPointer => 'Puntatore laser';
 }
@@ -8089,6 +8107,7 @@ class _StringsHomeTooltipsJa extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新しいメモ';
 	@override String get showUpdateDialog => '更新ダイアログの表示';
+	@override String get exportNote => 'エクスポートメモ';
 }
 
 // Path: home.create
@@ -8482,6 +8501,7 @@ class _StringsEditorPensJa extends _StringsEditorPensEn {
 	@override String get fountainPen => '万年筆';
 	@override String get ballpointPen => 'ボールペン';
 	@override String get highlighter => '蛍光ペン';
+	@override String get pencil => '鉛筆';
 	@override String get laserPointer => 'レーザーポインター';
 	@override String get shapePen => 'シェイプペン';
 }
@@ -8505,10 +8525,6 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'カラーピッカー';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'カスタム ${b} ${h}';
-	@override String customHue({required Object h}) => 'カスタム ${h}';
-	@override String get dark => '暗い';
-	@override String get light => 'ライト';
 	@override String get black => '黒';
 	@override String get darkGrey => '濃い灰色';
 	@override String get grey => '灰色';
@@ -8528,6 +8544,10 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'パステル・青色';
 	@override String get pastelPurple => 'パステル・紫色';
 	@override String get pastelPink => 'パステル・桃色';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'カスタム ${b} ${h}';
+	@override String customHue({required Object h}) => 'カスタム ${h}';
+	@override String get dark => '暗い';
+	@override String get light => 'ライト';
 	@override String get cyan => 'シアン';
 	@override String get pink => 'ピンク';
 }
@@ -8864,6 +8884,7 @@ class _StringsHomeTooltipsPtBr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nova nota';
 	@override String get showUpdateDialog => 'Mostrar caixa de diálogo de atualização';
+	@override String get exportNote => 'Nota de exportação';
 }
 
 // Path: home.create
@@ -9257,6 +9278,7 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
 	@override String get highlighter => 'Marcador';
+	@override String get pencil => 'Lápis';
 	@override String get laserPointer => 'Apontador laser';
 	@override String get shapePen => 'Caneta de forma';
 }
@@ -9280,10 +9302,6 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Seletor de cores';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
-	@override String customHue({required Object h}) => '${h} personalizado';
-	@override String get dark => 'escuro';
-	@override String get light => 'luz';
 	@override String get black => 'Preto';
 	@override String get darkGrey => 'Cinza escuro';
 	@override String get grey => 'Cinza';
@@ -9303,6 +9321,10 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Roxo pastel';
 	@override String get pastelPink => 'Rosa pastel';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
+	@override String customHue({required Object h}) => '${h} personalizado';
+	@override String get dark => 'escuro';
+	@override String get light => 'luz';
 	@override String get cyan => 'Ciano';
 	@override String get pink => 'Rosa';
 }
@@ -9639,6 +9661,7 @@ class _StringsHomeTooltipsRu extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Новая заметка';
 	@override String get showUpdateDialog => 'Показывать диалог обновления';
+	@override String get exportNote => 'Экспортировать примечание';
 }
 
 // Path: home.create
@@ -10032,6 +10055,7 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
+	@override String get pencil => 'Карандаш';
 	@override String get shapePen => 'Вид ручки';
 	@override String get laserPointer => 'Лазерная указка';
 }
@@ -10414,6 +10438,7 @@ class _StringsHomeTooltipsTr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Yeni not';
 	@override String get showUpdateDialog => 'Güncelleme diyalogunu göster';
+	@override String get exportNote => 'Notu dışa aktar';
 }
 
 // Path: home.create
@@ -10807,6 +10832,7 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
+	@override String get pencil => 'Kalem';
 	@override String get shapePen => 'Şekil kalemi';
 	@override String get laserPointer => 'Lazer işaretçi';
 }
@@ -11189,6 +11215,7 @@ class _StringsHomeTooltipsZhHansCn extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新建笔记';
 	@override String get showUpdateDialog => '显示更新对话框';
+	@override String get exportNote => '出口备注';
 }
 
 // Path: home.create
@@ -11582,6 +11609,7 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 	@override String get fountainPen => '钢笔';
 	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
+	@override String get pencil => '铅笔';
 	@override String get shapePen => '形状笔';
 	@override String get laserPointer => '激光笔';
 }
@@ -11964,6 +11992,7 @@ class _StringsHomeTooltipsZhHantTw extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新增筆記';
 	@override String get showUpdateDialog => '顯示更新對話框';
+	@override String get exportNote => '出口備註';
 }
 
 // Path: home.create
@@ -12357,6 +12386,7 @@ class _StringsEditorPensZhHantTw extends _StringsEditorPensEn {
 	@override String get fountainPen => '鋼筆';
 	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
+	@override String get pencil => '鉛筆';
 	@override String get shapePen => '塑形筆';
 	@override String get laserPointer => '雷射筆';
 }

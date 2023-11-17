@@ -6,7 +6,7 @@ ar:
     titles:
       browse(OUTDATED): Browse
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -55,6 +55,7 @@ ar:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -72,13 +73,16 @@ ar:
 cs:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil
 de:
   home:
     titles:
       browse(OUTDATED): Browse
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -121,6 +125,7 @@ de:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -138,7 +143,7 @@ de:
 es:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -148,6 +153,7 @@ es:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -161,7 +167,7 @@ es:
 fa:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
     moveNote:
       moveNotes(OUTDATED): Move $n notes
@@ -179,6 +185,7 @@ fa:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -196,7 +203,7 @@ fa:
 fr:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -206,6 +213,7 @@ fr:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -219,7 +227,7 @@ fr:
 he:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     renameNote:
       noteNameEmpty(OUTDATED): Note name can't be empty
       noteNameContainsSlash(OUTDATED): Note name can't contain a slash
@@ -233,6 +241,7 @@ he:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -251,7 +260,7 @@ hu:
     titles:
       browse(OUTDATED): Browse
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -368,6 +377,7 @@ hu:
     updateAvailableDescription(OUTDATED): "A new version of the app is available, with these changes:"
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
       laserPointer(OUTDATED): Laser pointer
     colors:
@@ -420,13 +430,16 @@ hu:
 it:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil
 ja:
   home:
     titles:
       browse(OUTDATED): Browse
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
@@ -466,6 +479,7 @@ ja:
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -483,7 +497,7 @@ ja:
 pt-BR:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -493,6 +507,7 @@ pt-BR:
       recentColorsLength(OUTDATED): How many recent colors to store
   editor:
     pens:
+      pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
@@ -506,16 +521,28 @@ pt-BR:
 ru:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil
 tr:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil
 zh-Hans-CN:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil
 zh-Hant-TW:
   home:
     tooltips:
-      exportNote: Export note
+      exportNote(OUTDATED): Export note
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil

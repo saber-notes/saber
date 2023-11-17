@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: محلاظة جديدة
     showUpdateDialog: إظهار مربع حوار التحديث
+    exportNote(OUTDATED): ملاحظة التصدير
   create:
     importNote(OUTDATED): مذكرة استيراد
     newNote(OUTDATED): مذكرة جديدة
@@ -217,6 +218,7 @@ editor:
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
+    pencil(OUTDATED): قلم
     laserPointer: مؤشر الليزر
     shapePen(OUTDATED): قلم الشكل
   penOptions:
@@ -224,10 +226,6 @@ editor:
     sizeDragHint: اسحب لليسار أو لليمين لتغيير الحجم
   colors:
     colorPicker: أداة انتقاء اللون
-    customBrightnessHue(OUTDATED): مخصص $b $h
-    customHue(OUTDATED): مخصص $h
-    dark(OUTDATED): مظلم
-    light(OUTDATED): ضوء
     black: أسود
     darkGrey: الرمادي الداكن
     grey: رمادي
@@ -247,6 +245,10 @@ editor:
     pastelBlue: الباستيل الأزرق
     pastelPurple: الباستيل الأرجواني
     pastelPink: الباستيل الوردي
+    customBrightnessHue(OUTDATED): مخصص $b $h
+    customHue(OUTDATED): مخصص $h
+    dark(OUTDATED): مظلم
+    light(OUTDATED): ضوء
     cyan(OUTDATED): ازرق سماوي
     pink(OUTDATED): لون القرنفل
   imageOptions:

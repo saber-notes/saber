@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: Новая заметка
     showUpdateDialog: Показывать диалог обновления
+    exportNote(OUTDATED): Экспортировать примечание
   create:
     newNote: Новая заметка
     importNote: Импорт заметки
@@ -217,6 +218,7 @@ editor:
     fountainPen: Перьевая ручка
     ballpointPen: Шариковая ручка
     highlighter: Маркер
+    pencil(OUTDATED): Карандаш
     shapePen: Вид ручки
     laserPointer: Лазерная указка
   penOptions:

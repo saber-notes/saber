@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: Nova nota
     showUpdateDialog: Mostrar caixa de diálogo de atualização
+    exportNote(OUTDATED): Nota de exportação
   create:
     newNote: Nova nota
     importNote: Importar nota
@@ -217,6 +218,7 @@ editor:
     fountainPen: Caneta tinteiro
     ballpointPen: Caneta esferográfica
     highlighter: Marcador
+    pencil(OUTDATED): Lápis
     laserPointer: Apontador laser
     shapePen(OUTDATED): Caneta de forma
   penOptions:
@@ -224,10 +226,6 @@ editor:
     sizeDragHint: Arraste para a esquerda ou para a direita para alterar o tamanho
   colors:
     colorPicker: Seletor de cores
-    customBrightnessHue(OUTDATED): Personalizado $b $h
-    customHue(OUTDATED): $h personalizado
-    dark(OUTDATED): escuro
-    light(OUTDATED): luz
     black: Preto
     darkGrey: Cinza escuro
     grey: Cinza
@@ -247,6 +245,10 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Roxo pastel
     pastelPink: Rosa pastel
+    customBrightnessHue(OUTDATED): Personalizado $b $h
+    customHue(OUTDATED): $h personalizado
+    dark(OUTDATED): escuro
+    light(OUTDATED): luz
     cyan(OUTDATED): Ciano
     pink(OUTDATED): Rosa
   imageOptions:

@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: 新しいメモ
     showUpdateDialog: 更新ダイアログの表示
+    exportNote(OUTDATED): エクスポートメモ
   create:
     newNote(OUTDATED): 新しいメモ
     importNote(OUTDATED): インポートメモ
@@ -214,6 +215,7 @@ editor:
     fountainPen: 万年筆
     ballpointPen: ボールペン
     highlighter: 蛍光ペン
+    pencil(OUTDATED): 鉛筆
     laserPointer: レーザーポインター
     shapePen(OUTDATED): シェイプペン
   penOptions:
@@ -221,10 +223,6 @@ editor:
     sizeDragHint: 左右にドラッグしてサイズを変更
   colors:
     colorPicker: カラーピッカー
-    customBrightnessHue(OUTDATED): カスタム $b $h
-    customHue(OUTDATED): カスタム $h
-    dark(OUTDATED): 暗い
-    light(OUTDATED): ライト
     black: 黒
     darkGrey: 濃い灰色
     grey: 灰色
@@ -244,6 +242,10 @@ editor:
     pastelBlue: パステル・青色
     pastelPurple: パステル・紫色
     pastelPink: パステル・桃色
+    customBrightnessHue(OUTDATED): カスタム $b $h
+    customHue(OUTDATED): カスタム $h
+    dark(OUTDATED): 暗い
+    light(OUTDATED): ライト
     cyan(OUTDATED): シアン
     pink(OUTDATED): ピンク
   imageOptions:

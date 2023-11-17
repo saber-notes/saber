@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: Yeni not
     showUpdateDialog: Güncelleme diyalogunu göster
+    exportNote(OUTDATED): Notu dışa aktar
   create:
     newNote: Yeni not
     importNote: Notu içeri aktar
@@ -218,6 +219,7 @@ editor:
     fountainPen: Dolma kalem
     ballpointPen: Tükenmez kalem
     highlighter: İşaretleme kalemi
+    pencil(OUTDATED): Kalem
     shapePen: Şekil kalemi
     laserPointer: Lazer işaretçi
   penOptions:

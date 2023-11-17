@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: Nouvelle note
     showUpdateDialog: Afficher le dialogue de mise à jour
+    exportNote(OUTDATED): Note d ' exportation
   create:
     newNote: Nouvelle note
     importNote: Importer une note
@@ -217,6 +218,7 @@ editor:
     fountainPen: Stylo encre
     ballpointPen: Stylo bille
     highlighter: Surligneur
+    pencil(OUTDATED): Crayon
     laserPointer: Pointeur laser
     shapePen(OUTDATED): Stylo de forme
   penOptions:
@@ -224,10 +226,6 @@ editor:
     sizeDragHint: Glisser vers la gauche ou la droite pour changer la taille
   colors:
     colorPicker: Pipette de couleur
-    customBrightnessHue(OUTDATED): Personnalisé $b $h
-    customHue(OUTDATED): $h personnalisé
-    dark(OUTDATED): sombre
-    light(OUTDATED): lumière
     black: Noir
     darkGrey: Gris sombre
     grey: Gris
@@ -247,6 +245,10 @@ editor:
     pastelBlue: Bleu pâle
     pastelPurple: Violet pâle
     pastelPink: Rose pâle
+    customBrightnessHue(OUTDATED): Personnalisé $b $h
+    customHue(OUTDATED): $h personnalisé
+    dark(OUTDATED): sombre
+    light(OUTDATED): lumière
     pink(OUTDATED): Rose
   imageOptions:
     title: Options d'image

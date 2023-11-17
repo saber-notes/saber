@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: 新建笔记
     showUpdateDialog: 显示更新对话框
+    exportNote(OUTDATED): 出口备注
   create:
     newNote: 新建笔记
     importNote: 导入笔记
@@ -217,6 +218,7 @@ editor:
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
+    pencil(OUTDATED): 铅笔
     shapePen: 形状笔
     laserPointer: 激光笔
   penOptions:

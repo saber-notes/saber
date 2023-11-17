@@ -12,6 +12,7 @@ home:
   tooltips:
     newNote: Notiz erstellen
     showUpdateDialog: Aktualisierungsdialog anzeigen
+    exportNote(OUTDATED): Notiz exportieren
   create:
     newNote(OUTDATED): Neue Notiz
     importNote(OUTDATED): Notiz importieren
@@ -218,6 +219,7 @@ editor:
     fountainPen: Füllfederhalter
     ballpointPen: Kugelschreiber
     highlighter: Textmarker
+    pencil(OUTDATED): Bleistift
     laserPointer: Laserpointer
     shapePen(OUTDATED): Formstift
   penOptions:
@@ -225,10 +227,6 @@ editor:
     sizeDragHint: "Nach links oder rechts ziehen, um die Dicke zu ändern"
   colors:
     colorPicker: Farbauswahl
-    customBrightnessHue(OUTDATED): Benutzerdefiniert $b $h
-    customHue(OUTDATED): Benutzerdefiniert $h
-    dark(OUTDATED): dunkel
-    light(OUTDATED): Licht
     black: Schwarz
     darkGrey: Dunkelgrau
     grey: Grau
@@ -248,6 +246,10 @@ editor:
     pastelBlue: Pastellfarbenes Blau
     pastelPurple: Pastellfarbenes Lila
     pastelPink: Pastellfarbenes Rosa
+    customBrightnessHue(OUTDATED): Benutzerdefiniert $b $h
+    customHue(OUTDATED): Benutzerdefiniert $h
+    dark(OUTDATED): dunkel
+    light(OUTDATED): Licht
     pink(OUTDATED): Rosa
   imageOptions:
     title: Bildoptionen
