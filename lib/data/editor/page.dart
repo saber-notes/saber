@@ -6,6 +6,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
+import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/tools/highlighter.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
@@ -33,6 +34,8 @@ class EditorPage extends Listenable {
     // reset renderBox as renderObject has changed
     _renderBox = null;
   }
+
+  late final pencilShader = PencilShader.create();
 
   final List<Stroke> strokes;
   final List<Stroke> laserStrokes;

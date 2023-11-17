@@ -249,6 +249,7 @@ flutter:
 
   shaders:
     - shaders/invert.frag
+    - shaders/pencil.frag
 
 
 # dart run icons_launcher:create

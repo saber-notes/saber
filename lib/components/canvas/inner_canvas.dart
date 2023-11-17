@@ -141,6 +141,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           currentSelection: widget.currentSelection,
           primaryColor: colorScheme.primary,
 
+          page: page,
           showPageIndicator: !widget.isPreview && (!widget.isPrint || Prefs.printPageIndicators.value),
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,

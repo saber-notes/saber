@@ -7,8 +7,10 @@ import 'package:path_drawing/path_drawing.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
@@ -23,6 +25,7 @@ class CanvasPainter extends CustomPainter {
     required this.currentSelection,
     required this.primaryColor,
 
+    required this.page,
     required this.showPageIndicator,
     required this.pageIndex,
     required this.totalPages,
@@ -35,6 +38,7 @@ class CanvasPainter extends CustomPainter {
   final SelectResult? currentSelection;
   final Color primaryColor;
 
+  final EditorPage page;
   final bool showPageIndicator;
   final int pageIndex;
   final int totalPages;
@@ -90,11 +94,19 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
 
-      final color = stroke.strokeProperties.color.withInversion(invert);
+      var color = stroke.strokeProperties.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
-        paint.color = Color.lerp(color, primaryColor, 0.5)!;
+        color = Color.lerp(color, primaryColor, 0.5)!;
+      }
+      paint.color = color;
+
+      if (stroke.penType == (Pencil).toString()) {
+        paint.shader = page.pencilShader
+            ..setFloat(0, color.red / 255)
+            ..setFloat(1, color.green / 255)
+            ..setFloat(2, color.blue / 255);
       } else {
-        paint.color = color;
+        paint.shader = null;
       }
 
       late final shapePaint = Paint()
