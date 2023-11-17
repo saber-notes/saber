@@ -84,7 +84,7 @@ void main() {
 
           await expectLater(
             find.byType(Canvas),
-            matchesGoldenFile('sbn_examples/$sbnName.png'),
+            matchesGoldenFile('sbn_examples/$sbnName.light.png'),
           );
         });
 
