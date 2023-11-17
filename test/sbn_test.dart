@@ -1,11 +1,15 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:printing/printing.dart';
+import 'package:process_run/shell.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -103,9 +107,70 @@ void main() {
             matchesGoldenFile('sbn_examples/$sbnName.dark.png'),
           );
         });
+
+        testWidgets('(PDF)', (tester) async {
+          final context = await _getBuildContext(tester, page.size);
+
+          final pdfFile = File('/tmp/$sbnName.pdf');
+          final pngFile = File('/tmp/$sbnName.pdf.png');
+
+          // Generate PDF file and write to disk
+          final pdf = await tester.runAsync(() async {
+            final doc = await EditorExporter.generatePdf(coreInfo, context);
+            final bytes = await doc.save();
+            await pdfFile.writeAsBytes(bytes);
+          });
+
+          // Convert PDF to PNG with Ghostscript
+          final shell = Shell(verbose: false);
+          await tester.runAsync(() => shell.run('gs -sDEVICE=pngalpha -o ${pngFile.path} ${pdfFile.path}'));
+
+          // Load PNG from disk
+          final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
+
+          // Precache image and render it
+          final pdfImageProvider = MemoryImage(pdfImage!);
+          await tester.runAsync(() => precacheImage(pdfImageProvider, context));
+          await tester.pumpWidget(Center(
+            child: RepaintBoundary(
+              child: Image(image: pdfImageProvider),
+            ),
+          ));
+
+          await expectLater(
+            find.byType(Image),
+            matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
+          );
+        });
       });
     }
   });
+}
+
+/// Provides a [BuildContext] with the necessary inherited widgets
+Future<BuildContext> _getBuildContext(WidgetTester tester, Size pageSize) async {
+  final completer = Completer<BuildContext>();
+
+  await tester.pumpWidget(TranslationProvider(
+    child: MaterialApp(
+      home: Center(
+        child: FittedBox(
+          child: SizedBox(
+            width: pageSize.width,
+            height: pageSize.height,
+            child: Builder(
+              builder: (context) {
+                completer.complete(context);
+                return const SizedBox();
+              },
+            ),
+          ),
+        ),
+      ),
+    ),
+  ));
+
+  return completer.future;
 }
 
 Widget _buildCanvas({
