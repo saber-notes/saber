@@ -71,12 +71,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Export note
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
 de:
   home:
     titles:
