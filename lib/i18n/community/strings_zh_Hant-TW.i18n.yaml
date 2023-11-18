@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: 新增筆記
     showUpdateDialog: 顯示更新對話框
-    exportNote(OUTDATED): 出口備註
+    exportNote: 匯出筆記
   create:
     newNote: 新增筆記
     importNote: 匯入筆記
@@ -217,7 +217,7 @@ editor:
     fountainPen: 鋼筆
     ballpointPen: 原子筆
     highlighter: 螢光筆
-    pencil(OUTDATED): 鉛筆
+    pencil: 鉛筆
     shapePen: 塑形筆
     laserPointer: 雷射筆
   penOptions:

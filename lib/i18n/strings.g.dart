@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3998 (249 per locale)
 ///
-/// Built on 2023-11-18 at 13:38 UTC
+/// Built on 2023-11-18 at 13:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -11992,7 +11992,7 @@ class _StringsHomeTooltipsZhHantTw extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新增筆記';
 	@override String get showUpdateDialog => '顯示更新對話框';
-	@override String get exportNote => '出口備註';
+	@override String get exportNote => '匯出筆記';
 }
 
 // Path: home.create

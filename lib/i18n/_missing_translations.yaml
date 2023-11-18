@@ -528,9 +528,3 @@ zh-Hans-CN:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hant-TW:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Export note
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
