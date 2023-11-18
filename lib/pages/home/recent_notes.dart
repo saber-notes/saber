@@ -11,6 +11,7 @@ import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/home/welcome.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -28,12 +29,26 @@ class _RecentPageState extends State<RecentPage> {
 
   final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
+  //Move files that got imported (and moved) with a missing '/' in the path
+  void moveIncorrectlyImportedFiles() async {
+    for(String file in Prefs.recentFiles.value) {
+      if(!file.startsWith('/')) {
+        String newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$file', false);
+        await FileManager.moveFile(
+          file,
+          newFilePath,
+        );
+      }
+    }
+  }
+
   @override
   void initState() {
     findRecentlyAccessedNotes();
     fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
     super.initState();
+    moveIncorrectlyImportedFiles();
   }
 
   StreamSubscription? fileWriteSubscription;
