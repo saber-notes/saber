@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3998 (249 per locale)
 ///
-/// Built on 2023-11-18 at 13:33 UTC
+/// Built on 2023-11-18 at 13:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -7330,7 +7330,7 @@ class _StringsHomeTooltipsIt extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nuova nota';
 	@override String get showUpdateDialog => 'Mostra finestra di aggiornamento';
-	@override String get exportNote => 'Nota sull\'esportazione';
+	@override String get exportNote => 'Esporta nota';
 }
 
 // Path: home.create

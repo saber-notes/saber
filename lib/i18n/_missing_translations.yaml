@@ -422,12 +422,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Esporta nota
-  editor:
-    pens:
-      pencil(OUTDATED): Matita
 ja:
   home:
     titles:
