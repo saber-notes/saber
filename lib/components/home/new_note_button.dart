@@ -72,7 +72,7 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             if (filePath.endsWith('.sbn') || filePath.endsWith('.sbn2')) {
               final path = await FileManager.importFile(
                 filePath,
-                widget.path == null ? null : '${widget.path}/',
+                '${widget.path ?? ''}/',
                 filePath.endsWith('.sbn'),
               );
               if (path == null) return;

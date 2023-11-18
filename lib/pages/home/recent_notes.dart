@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/home/export_note_button.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
@@ -29,21 +30,27 @@ class _RecentPageState extends State<RecentPage> {
 
   final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
-  //Move files that got imported (and moved) with a missing '/' in the path
+  final log = Logger('RecentPage');
+
+  /// Mitigates a bug where files got imported starting with `null/` instead of `/`.
+  ///
+  /// This caused them to be written to `Documents/Sabernull/...` instead of `Documents/Saber/...`.
+  /// 
+  /// See https://github.com/saber-notes/saber/issues/996
+  /// and https://github.com/saber-notes/saber/pull/977.
   void moveIncorrectlyImportedFiles() async {
-    for(String file in Prefs.recentFiles.value) {
-      if(!file.startsWith('/')) {
-        String newFilePath;
-        if(file.startsWith('null')) {
-          newFilePath = await FileManager.suffixFilePathToMakeItUnique(file.substring('null'.length), false);
-        } else {
-          newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$file', false);
-        }
-        await FileManager.moveFile(
-          file,
-          newFilePath,
-        );
+    for (final filePath in Prefs.recentFiles.value) {
+      if (filePath.startsWith('/')) continue;
+
+      final String newFilePath;
+      if (filePath.startsWith('null/')) {
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique(filePath.substring('null'.length), false);
+      } else {
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$filePath', false);
       }
+      
+      log.warning('Found incorrectly imported file at `$filePath`; moving to `$newFilePath`');
+      await FileManager.moveFile(filePath, newFilePath);
     }
   }
 
