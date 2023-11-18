@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/home/export_note_button.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
@@ -11,6 +12,7 @@ import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/home/welcome.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -28,12 +30,37 @@ class _RecentPageState extends State<RecentPage> {
 
   final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
+  final log = Logger('RecentPage');
+
+  /// Mitigates a bug where files got imported starting with `null/` instead of `/`.
+  ///
+  /// This caused them to be written to `Documents/Sabernull/...` instead of `Documents/Saber/...`.
+  /// 
+  /// See https://github.com/saber-notes/saber/issues/996
+  /// and https://github.com/saber-notes/saber/pull/977.
+  void moveIncorrectlyImportedFiles() async {
+    for (final filePath in Prefs.recentFiles.value) {
+      if (filePath.startsWith('/')) continue;
+
+      final String newFilePath;
+      if (filePath.startsWith('null/')) {
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique(filePath.substring('null'.length), false);
+      } else {
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$filePath', false);
+      }
+      
+      log.warning('Found incorrectly imported file at `$filePath`; moving to `$newFilePath`');
+      await FileManager.moveFile(filePath, newFilePath);
+    }
+  }
+
   @override
   void initState() {
     findRecentlyAccessedNotes();
     fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
     super.initState();
+    moveIncorrectlyImportedFiles();
   }
 
   StreamSubscription? fileWriteSubscription;
