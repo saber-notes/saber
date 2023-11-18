@@ -33,7 +33,12 @@ class _RecentPageState extends State<RecentPage> {
   void moveIncorrectlyImportedFiles() async {
     for(String file in Prefs.recentFiles.value) {
       if(!file.startsWith('/')) {
-        String newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$file', false);
+        String newFilePath;
+        if(file.startsWith('null')) {
+          newFilePath = await FileManager.suffixFilePathToMakeItUnique(file.substring('null'.length), false);
+        } else {
+          newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$file', false);
+        }
         await FileManager.moveFile(
           file,
           newFilePath,
