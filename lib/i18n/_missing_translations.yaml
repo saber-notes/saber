@@ -530,7 +530,7 @@ zh-Hans-CN:
 zh-Hant-TW:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): 匯出筆記
   editor:
     pens:
-      pencil(OUTDATED): Pencil
+      pencil(OUTDATED): 鉛筆
