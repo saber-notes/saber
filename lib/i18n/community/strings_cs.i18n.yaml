@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: Nová poznámka
     showUpdateDialog: Zobrazit dialogové okno aktualizace
-    exportNote(OUTDATED): Exportovat poznámku
+    exportNote: Exportovat poznámku
   create:
     newNote: Nová poznámka
     importNote: Import poznámky
@@ -218,7 +218,7 @@ editor:
     fountainPen: Plnící pero
     ballpointPen: Kuličkové pero
     highlighter: Zvýrazňovač
-    pencil(OUTDATED): Čeština
+    pencil: Tužka
     shapePen: Pero pro kreslení tvarů
     laserPointer: Laserové ukazovátko
   penOptions:

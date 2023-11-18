@@ -71,12 +71,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Exportovat poznámku
-  editor:
-    pens:
-      pencil(OUTDATED): Tužka
 de:
   home:
     titles:
