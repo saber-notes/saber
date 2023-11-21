@@ -155,6 +155,7 @@ jobs:
 
             echo Creating nonroot user
             useradd -m -d /home/nonroot -s /bin/bash nonroot
+            chown -R nonroot .
             echo 'export PATH="$PATH:/opt/flutter/bin"' >> /home/nonroot/.bashrc
             echo 'export PATH="$PATH:/opt/cargo/bin"' >> /home/nonroot/.bashrc
             echo 'export CARGO_HOME="/opt/cargo"' >> /home/nonroot/.bashrc
@@ -181,10 +182,13 @@ jobs:
             echo Installing Rust
             mkdir -p $CARGO_HOME
             mkdir -p $RUSTUP_HOME
+            mkdir -p "$RUSTUP_HOME/tmp"
             chown -R nonroot $CARGO_HOME
             chown -R nonroot $RUSTUP_HOME
             sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
               curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
+            chmod -R a+rw $CARGO_HOME
+            chmod -R a+rw $RUSTUP_HOME
             sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
               ls -l $CARGO_HOME/bin
             sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
@@ -192,7 +196,8 @@ jobs:
 
           run: |
             echo Setting up environment
-            chown -R nonroot .
+            chown -R nonroot /opt/flutter
+            chown -R nonroot /opt/cargo
             export PATH="$PATH:/opt/flutter/bin"
             export PATH="$PATH:/opt/cargo/bin"
             export CARGO_HOME="/opt/cargo"
@@ -208,13 +213,13 @@ jobs:
 
             echo Building
             sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              flutter build linux -v \
+              flutter build linux \
                 --target-platform linux-arm64 \
                 --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
             mv build/linux/arm64/release/bundle/* /AppDir/
             chown -R nonroot /AppDir/
             chmod -R a+rw /AppDir/
-            chmod +x /AppDir/saber
+            chmod a+x /AppDir/saber
 
       - name: Compress Flutter build
         id: compress
