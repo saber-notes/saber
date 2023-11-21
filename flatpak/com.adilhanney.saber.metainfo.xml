@@ -265,6 +265,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.17.2" type="development" date="2023-11-21">
+            <description>
+                <ul>
+                    <li>Long press a recent color to pin it</li>
+                    <li>You can now export notes from the home screen</li>
+                    <li>Various bug fixes</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.17.1" type="development" date="2023-10-28">
             <description>
                 <ul>
