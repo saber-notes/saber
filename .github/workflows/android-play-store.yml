@@ -122,8 +122,13 @@ jobs:
               lang=${dir#metadata/}
               lang=${lang%/changelogs}
 
-              # copy changelog file to whatsnew
-              cp "$dir/$VERSION_CODE.txt" "whatsnew/whatsnew-${lang}"
+              # get original changelog file
+              original="$dir/$VERSION_CODE.txt"
+
+              if [ -f "$original" ]; then
+                # copy changelog file to whatsnew
+                cp "$original" "whatsnew/whatsnew-${lang}"
+              fi
           done
 
       - name: Upload to Play Store
