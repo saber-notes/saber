@@ -1,5 +1,6 @@
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -316,7 +317,7 @@ class _ToolbarState extends State<Toolbar> {
                 padding: buttonPadding,
                 child: FaIcon(Pen.currentPen.icon, size: 16),
               ),
-              ToolbarIconButton(
+              if (kDebugMode) ToolbarIconButton(
                 tooltip: t.editor.pens.pencil,
                 selected: widget.currentTool == Pencil.currentPencil,
                 enabled: !widget.readOnly,
