@@ -27,6 +27,7 @@
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:launchMode="singleTask"
+        android:enableOnBackInvokedCallback="true"
         tools:targetApi="donut"
         tools:replace="android:label,android:allowBackup">
         <activity
