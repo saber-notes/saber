@@ -34,22 +34,22 @@ class _NcLoginPageState extends State<NcLoginPage> {
     );
 
     final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities;
-    final bool ncServerIsSupported;
-    final int ncSupportedVersion;
+    final VersionCheck versionCheck;
     try {
       capabilities = await client.core.ocs.getCapabilities()
         .then((capabilities) => capabilities.body.ocs.data);
-      (isSupported: ncServerIsSupported, minimumVersion: ncSupportedVersion) = client.core.isSupported(capabilities);
-      log.info('ncServerIsSupported: $ncServerIsSupported, ncSupportedVersion: $ncSupportedVersion');
+      versionCheck = client.core.getVersionCheck(capabilities);
+      log.info('versionCheck: isSupported=${versionCheck.isSupported}, minimumVersion=${versionCheck.minimumVersion}');
     } catch (e) {
       log.severe('Failed to get capabilities: $e', e);
       throw NcLoginFailure();
     }
-    if (!ncServerIsSupported) {
+
+    if (!versionCheck.isSupported) {
       log.warning('Nextcloud server is not supported');
       throw NcUnsupportedFailure(
         currentVersion: capabilities.version.major,
-        supportedVersion: ncSupportedVersion,
+        supportedVersion: versionCheck.minimumVersion.major,
       );
     }
 
