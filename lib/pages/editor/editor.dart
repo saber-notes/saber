@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bson/bson.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -190,7 +189,7 @@ class EditorState extends State<Editor> {
   }
   void _initAsync() async {
     coreInfo = PreviewCard.getCachedCoreInfo(await widget.initialPath);
-    filenameTextEditingController.text = _filename;
+    filenameTextEditingController.text = coreInfo.fileName;
 
     if (needsNaming) {
       filenameTextEditingController.selection = TextSelection(
@@ -765,13 +764,6 @@ class EditorState extends State<Editor> {
     });
   }
 
-
-  String get _filename => coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
-  Uint8List _saveToBinary() {
-    coreInfo.initialPageIndex = currentPageIndex;
-    final bsonBinary = BSON().serialize(coreInfo);
-    return bsonBinary.byteList;
-  }
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
 
@@ -789,9 +781,16 @@ class EditorState extends State<Editor> {
         savingState.value = SavingState.saving;
     }
 
-    final toSave = _saveToBinary();
+    final (bson, assets) = coreInfo.saveToBinary(
+      currentPageIndex: currentPageIndex,
+    );
     try {
-      await FileManager.writeFile(coreInfo.filePath + Editor.extension, toSave, awaitWrite: true);
+      final filePath = coreInfo.filePath + Editor.extension;
+      await Future.wait([
+        FileManager.writeFile(filePath, bson, awaitWrite: true),
+        for (int i = 0; i < assets.length; ++i)
+          FileManager.writeFile('$filePath.$i', assets[i], awaitWrite: true),
+      ]);
       savingState.value = SavingState.saved;
     } catch (e) {
       log.severe('Failed to save file: $e', e);
@@ -807,10 +806,11 @@ class EditorState extends State<Editor> {
     _renameTimer?.cancel();
 
     if (newName.contains('/') || newName.isEmpty) { // if invalid name, don't rename
+      // TODO(adil192): notify user
       _renameTimer = Timer(const Duration(milliseconds: 5000), () {
         filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
-          text: _filename,
-          selection: TextSelection.fromPosition(TextPosition(offset: _filename.length)),
+          text: coreInfo.fileName,
+          selection: TextSelection.fromPosition(TextPosition(offset: coreInfo.fileName.length)),
           composing: TextRange.empty,
         );
       });
@@ -821,13 +821,13 @@ class EditorState extends State<Editor> {
     }
   }
   Future<void> _renameFileNow(String newName) async {
-    if (newName == _filename) return;
+    if (newName == coreInfo.fileName) return;
 
     coreInfo.filePath = await FileManager.moveFile(coreInfo.filePath + Editor.extension, newName + Editor.extension);
     coreInfo.filePath = coreInfo.filePath.substring(0, coreInfo.filePath.lastIndexOf(Editor.extension));
     needsNaming = false;
 
-    final String actualName = _filename;
+    final String actualName = coreInfo.fileName;
     if (actualName != newName) { // update text field if renamed differently
       filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
         text: actualName,
@@ -1108,11 +1108,17 @@ class EditorState extends State<Editor> {
 
   Future exportAsPdf() async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
-    await FileManager.exportFile('$_filename.pdf', await pdf.save());
+    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save());
   }
-  Future exportAsSbn() async {
-    final content = _saveToBinary();
-    await FileManager.exportFile('$_filename${Editor.extension}', content);
+  /// Exports the current note as an SBA (Saber Archive) file.
+  Future exportAsSba() async {
+    final sba = coreInfo.saveToSba(
+      currentPageIndex: currentPageIndex,
+    );
+    await FileManager.exportFile(
+      '${coreInfo.fileName}${Editor.extension}',
+      sba,
+    );
   }
 
   void setAndroidNavBarColor() async {
@@ -1410,7 +1416,7 @@ class EditorState extends State<Editor> {
           pickPhoto: _pickPhotos,
           paste: paste,
 
-          exportAsSbn: exportAsSbn,
+          exportAsSba: exportAsSba,
           exportAsPdf: exportAsPdf,
           exportAsPng: null,
         ),

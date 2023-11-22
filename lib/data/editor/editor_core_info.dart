@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:archive/archive_io.dart';
 import 'package:bson/bson.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/foundation.dart';
@@ -45,6 +46,8 @@ class EditorCoreInfo {
   bool readOnlyBecauseOfVersion = false;
 
   String filePath;
+  /// The file name without its parent directories.
+  String get fileName => filePath.substring(filePath.lastIndexOf('/') + 1);
 
   int nextImageId;
   Color? backgroundColor;
@@ -412,7 +415,9 @@ class EditorCoreInfo {
     }
   }
 
-  Map<String, dynamic> toJson() {
+  /// Returns the json map and a list of assets.
+  /// Assets are stored in separate files.
+  (Map<String, dynamic> json, List<Uint8List> assets) toJson() {
     /// This will be populated in various [toJson] methods.
     final List<Uint8List> assets = [];
 
@@ -426,8 +431,48 @@ class EditorCoreInfo {
       'c': initialPageIndex,
     };
 
-    json['a'] = assets.map((Uint8List asset) => BsonBinary.from(asset)).toList();
-    return json;
+    return (json, assets);
+  }
+
+  /// Converts the current note as an SBA (Saber Archive) file,
+  /// which contains the main bson file and all the assets
+  /// compressed into a gzip file.
+  /// 
+  /// In the archive, the main bson file is named `main.sbn2`,
+  /// and the assets are named `main.sbn2.0`, `main.sbn2.1`, etc.
+  List<int> saveToSba({
+    required int? currentPageIndex,
+  }) {
+    final (bson, assets) = saveToBinary(
+      currentPageIndex: currentPageIndex,
+    );
+    const filePath = 'main${Editor.extension}';
+
+    final archive = Archive();
+    archive.addFile(ArchiveFile(
+      filePath,
+      bson.length,
+      bson,
+    ));
+    for (int i = 0; i < assets.length; ++i) {
+      archive.addFile(ArchiveFile(
+        '$filePath.$i',
+        assets[i].length,
+        assets[i],
+      ));
+    }
+
+    return GZipEncoder().encode(archive)!;
+  }
+
+  /// Returns the bson bytes and the assets.
+  (Uint8List bson, List<Uint8List> assets) saveToBinary({
+    required int? currentPageIndex,
+  }) {
+    initialPageIndex = currentPageIndex ?? initialPageIndex;
+    final (json, assets) = toJson();
+    final bson = BSON().serialize(json);
+    return (bson.byteList, assets);
   }
 
   EditorCoreInfo copyWith({

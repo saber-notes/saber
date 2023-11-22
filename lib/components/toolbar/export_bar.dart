@@ -8,7 +8,7 @@ class ExportBar extends StatefulWidget {
     super.key,
     required this.axis,
     required this.toggleExportBar,
-    required this.exportAsSbn,
+    required this.exportAsSba,
     required this.exportAsPdf,
     required this.exportAsPng,
   });
@@ -17,7 +17,7 @@ class ExportBar extends StatefulWidget {
 
   final VoidCallback toggleExportBar;
 
-  final Future Function()? exportAsSbn;
+  final Future Function()? exportAsSba;
   final Future Function()? exportAsPdf;
   final Future Function()? exportAsPng;
 
@@ -56,8 +56,8 @@ class _ExportBarState extends State<ExportBar> {
       const SizedBox.square(dimension: 8),
 
       TextButton(
-        onPressed: _onPressed(widget.exportAsSbn),
-        child: _buttonChild(widget.exportAsSbn, 'SBN2'),
+        onPressed: _onPressed(widget.exportAsSba),
+        child: _buttonChild(widget.exportAsSba, 'SBA'),
       ),
       TextButton(
         onPressed: _onPressed(widget.exportAsPdf),

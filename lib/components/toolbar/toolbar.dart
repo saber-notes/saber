@@ -53,7 +53,7 @@ class Toolbar extends StatefulWidget {
     required this.duplicateSelection,
     required this.deleteSelection,
 
-    required this.exportAsSbn,
+    required this.exportAsSba,
     required this.exportAsPdf,
     required this.exportAsPng,
   });
@@ -82,7 +82,7 @@ class Toolbar extends StatefulWidget {
   final VoidCallback duplicateSelection;
   final VoidCallback deleteSelection;
 
-  final Future Function()? exportAsSbn;
+  final Future Function()? exportAsSba;
   final Future Function()? exportAsPdf;
   final Future Function()? exportAsPng;
 
@@ -195,7 +195,7 @@ class _ToolbarState extends State<Toolbar> {
         child: ExportBar(
           axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
           toggleExportBar: toggleExportBar,
-          exportAsSbn: widget.exportAsSbn,
+          exportAsSba: widget.exportAsSba,
           exportAsPdf: widget.exportAsPdf,
           exportAsPng: widget.exportAsPng,
         ),

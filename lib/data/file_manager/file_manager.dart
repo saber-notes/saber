@@ -138,7 +138,7 @@ class FileManager {
     await dir.create(recursive: true);
   }
 
-  static Future exportFile(String fileName, Uint8List bytes, {bool isImage = false}) async {
+  static Future exportFile(String fileName, List<int> bytes, {bool isImage = false}) async {
     File? tempFile;
     Future<File> getTempFile() async {
       final String tempFolder = (await getTemporaryDirectory()).path;
@@ -150,7 +150,7 @@ class FileManager {
     if (Platform.isAndroid || Platform.isIOS) {
       if (isImage) { // save image to gallery
         await ImageSave.saveImage(
-          bytes,
+          Uint8List.fromList(bytes),
           fileName,
           albumName: 'Saber',
         );

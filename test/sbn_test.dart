@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:printing/printing.dart';
 import 'package:process_run/shell.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
@@ -115,7 +114,7 @@ void main() {
           final pngFile = File('/tmp/$sbnName.pdf.png');
 
           // Generate PDF file and write to disk
-          final pdf = await tester.runAsync(() async {
+          await tester.runAsync(() async {
             final doc = await EditorExporter.generatePdf(coreInfo, context);
             final bytes = await doc.save();
             await pdfFile.writeAsBytes(bytes);

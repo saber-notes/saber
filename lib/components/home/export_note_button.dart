@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:archive/archive_io.dart';
-import 'package:bson/bson.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -27,22 +26,33 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
   final ValueNotifier<bool> isDialOpen = ValueNotifier(false);
   bool _currentlyExporting = false;
 
-  Future exportFile(List<String> selectedFiles, bool sbn2) async {
+  Future exportFile(List<String> selectedFiles, bool exportPdf) async {
     setState(() => _currentlyExporting = true);
 
     final files = <ArchiveFile>[];
     for (String filePath in selectedFiles) {
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
       if (!context.mounted) break;
-      final Uint8List content = sbn2
-          ? await (await EditorExporter.generatePdf(coreInfo, context)).save()
-          : BSON().serialize(coreInfo).byteList;
+
       final fileNameWithoutExtension =
           coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
-      final fileName = sbn2
-          ? '$fileNameWithoutExtension.pdf'
-          : '$fileNameWithoutExtension.sbn2';
-      files.add(ArchiveFile(fileName, content.length, content));
+
+      if (exportPdf) {
+        final pdfDoc = await EditorExporter.generatePdf(coreInfo, context);
+        final pdfBytes = await pdfDoc.save();
+        files.add(ArchiveFile(
+          '$fileNameWithoutExtension.pdf',
+          pdfBytes.length,
+          pdfBytes,
+        ));
+      } else {
+        final sba = coreInfo.saveToSba(currentPageIndex: null);
+        files.add(ArchiveFile(
+          '$fileNameWithoutExtension.sba',
+          sba.length,
+          sba,
+        ));
+      }
     }
 
     if (selectedFiles.length == 1) {
