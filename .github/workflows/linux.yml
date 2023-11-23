@@ -155,7 +155,6 @@ jobs:
 
             echo Creating nonroot user
             useradd -m -d /home/nonroot -s /bin/bash nonroot
-            chown -R nonroot .
             echo 'export PATH="$PATH:/opt/flutter/bin"' >> /home/nonroot/.bashrc
             echo 'export PATH="$PATH:/opt/cargo/bin"' >> /home/nonroot/.bashrc
             echo 'export CARGO_HOME="/opt/cargo"' >> /home/nonroot/.bashrc
@@ -196,6 +195,7 @@ jobs:
 
           run: |
             echo Setting up environment
+            chown -R nonroot .
             chown -R nonroot /opt/flutter
             chown -R nonroot /opt/cargo
             export PATH="$PATH:/opt/flutter/bin"
