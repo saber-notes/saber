@@ -27,10 +27,15 @@
     </recommends>
 
     <provides>
-        <mediatype>application/json</mediatype>
         <mediatype>application/sbn</mediatype>
+        <mediatype>application/json</mediatype>
+        <mediatype>text/*</mediatype>
+
         <mediatype>application/sbn2</mediatype>
+        <mediatype>application/octet-stream</mediatype>
+
         <mediatype>application/sba</mediatype>
+        <mediatype>application/zip</mediatype>
     </provides>
 
     <description>
