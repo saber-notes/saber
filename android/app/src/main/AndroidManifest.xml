@@ -73,7 +73,7 @@
                 <data android:scheme="content" />
                 <data android:scheme="file" />
                 <data android:host="*" />
-                <data android:pathPattern=".*\.sb(a|n2?)"/>
+                <data android:pathAdvancedPattern=".*\.sb[n2a]+"/>
 
                 <data android:mimeType="application/sbn" />
                 <data android:mimeType="application/json" />
