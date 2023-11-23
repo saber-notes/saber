@@ -3,6 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/painting.dart';
 
+/// A cache for assets that are loaded from disk.
+/// 
+/// This is the analogue to Flutter's image cache,
+/// but for non-image assets.
+/// 
+/// There should be one instance of this class per
+/// [EditorCoreInfo] instance.
 class AssetCache {
   AssetCache();
 
@@ -15,6 +22,10 @@ class AssetCache {
   /// Returns null if the key is not found.
   T? get<T extends Object>(File key) {
     return _cache[key] as T?;
+  }
+
+  void dispose() {
+    _cache.clear();
   }
 }
 

@@ -1811,9 +1811,7 @@ class EditorState extends State<Editor> {
 
     _removeKeybindings();
 
-    for (EditorPage page in coreInfo.pages) {
-      page.dispose();
-    }
+    coreInfo.dispose();
 
     // manually save pen properties since the listeners don't fire if a property is changed
     Prefs.lastFountainPenProperties.notifyListeners();

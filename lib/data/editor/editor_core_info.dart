@@ -498,6 +498,13 @@ class EditorCoreInfo {
     return (bson.byteList, assets);
   }
 
+  void dispose() {
+    for (final page in pages) {
+      page.dispose();
+    }
+    assetCache.dispose();
+  }
+
   EditorCoreInfo copyWith({
     String? filePath,
     bool? readOnly,
