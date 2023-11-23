@@ -128,7 +128,10 @@ class SvgEditorImage extends EditorImage {
 
   @override
   Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
-    svgString ??= await svgFile!.readAsString();
+    if (svgString == null) {
+      svgString = await svgFile!.readAsString();
+      assetCache.add(svgFile!, svgString!);
+    }
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       final PictureInfo pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);

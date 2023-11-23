@@ -136,7 +136,10 @@ class PdfEditorImage extends EditorImage {
     assert(srcRect.isEmpty);
     assert(!naturalSize.isEmpty);
 
-    pdfBytes ??= await pdfFile!.readAsBytes();
+    if (pdfBytes == null) {
+      pdfBytes = await pdfFile!.readAsBytes();
+      assetCache.add(pdfFile!, pdfBytes!);
+    }
 
     if (dstRect.isEmpty) {
       final Size dstSize = pageSize != null
