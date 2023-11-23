@@ -223,9 +223,13 @@ class EditorImage extends ChangeNotifier {
       if (naturalSize.width != 0) 'nw': naturalSize.width,
       if (naturalSize.height != 0) 'nh': naturalSize.height,
 
-      // only export thumbnails in first page
-      if (thumbnailBytes != null && pageIndex == 0)
-        't': thumbnailBytes,
+      // We don't need to store thumbnails anymore for external assets.
+      // We should still import them in fromJson, though,
+      // for performance with older notes.
+      //
+      // // only export thumbnails in first page
+      // if (thumbnailBytes != null && pageIndex == 0)
+      //   't': thumbnailBytes,
     };
 
     if (imageProvider != null) {
