@@ -1,23 +1,33 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class PdfEditorImage extends EditorImage {
-  final Uint8List pdfBytes;
+  Uint8List? pdfBytes;
   final int pdfPage;
+
+  /// If the pdf needs to be loaded from disk, this is the File
+  /// that the pdf will be loaded from.
+  final File? pdfFile;
 
   static final log = Logger('PdfEditorImage');
 
   PdfEditorImage({
     required super.id,
+    required super.assetCache,
     required this.pdfBytes,
+    required this.pdfFile,
     required this.pdfPage,
     required super.pageIndex,
     required super.pageSize,
@@ -33,24 +43,33 @@ class PdfEditorImage extends EditorImage {
     super.isThumbnail,
     super.onMainThread,
   }): assert(!naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
+      assert(pdfBytes != null || pdfFile != null, 'pdfFile must be set if pdfBytes is null'),
       super(
         extension: '.pdf',
-        bytes: Uint8List(0),
+        imageProvider: null,
         srcRect: Rect.zero,
       );
 
   factory PdfEditorImage.fromJson(Map<String, dynamic> json, {
-    required List<Uint8List> assets,
+    required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     bool onMainThread = true,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.pdf');
 
     final assetIndex = json['a'] as int?;
-    final Uint8List pdfBytes;
+    final Uint8List? pdfBytes;
+    File? pdfFile;
     if (assetIndex != null) {
-      pdfBytes = assets[assetIndex];
+      if (inlineAssets == null) {
+        pdfFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        pdfBytes = assetCache.get(pdfFile.path);
+      } else {
+        pdfBytes = inlineAssets[assetIndex];
+      }
     } else {
       if (kDebugMode) {
         throw Exception('PdfEditorImage.fromJson: pdf bytes not found');
@@ -60,7 +79,9 @@ class PdfEditorImage extends EditorImage {
 
     return PdfEditorImage(
       id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      assetCache: assetCache,
       pdfBytes: pdfBytes,
+      pdfFile: pdfFile,
       pdfPage: json['pdfi'],
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
@@ -87,7 +108,7 @@ class PdfEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(List<Uint8List> assets) {
+  Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = super.toJson(
       assets,
     );
@@ -97,12 +118,13 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    int assetIndex = assets.indexOf(pdfBytes);
-    if (assetIndex == -1) {
-      assetIndex = assets.length;
-      assets.add(pdfBytes);
+    // try to find the pdf in the cache
+    pdfBytes ??= assetCache.get(pdfFile!.path);
+    if (pdfBytes != null) {
+      json['a'] = assets.add(pdfBytes!);
+    } else {
+      json['a'] = assets.add(pdfFile!);
     }
-    json['a'] = assetIndex;
 
     json['pdfi'] = pdfPage;
 
@@ -113,6 +135,8 @@ class PdfEditorImage extends EditorImage {
   Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
     assert(srcRect.isEmpty);
     assert(!naturalSize.isEmpty);
+
+    pdfBytes ??= await pdfFile!.readAsBytes();
 
     if (dstRect.isEmpty) {
       final Size dstSize = pageSize != null
@@ -155,13 +179,15 @@ class PdfEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
+    if (loaded) {
+      lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
+    }
 
     return ValueListenableBuilder(
       valueListenable: anyDpiRaster,
       builder: (context, imageProvider, child) {
         if (imageProvider == null) {
-          return const SizedBox.shrink();
+          return const Center(child: CircularProgressIndicator());
         }
         return Image(
           image: imageProvider,
@@ -189,7 +215,7 @@ class PdfEditorImage extends EditorImage {
 
   Future<ImageProvider> _getRasterizedWithDpi({required bool highDpi}) async {
     final raster = await Printing.raster(
-      pdfBytes,
+      pdfBytes!,
       pages: [pdfPage],
       dpi: PdfPageFormat.inch * (highDpi ? 4 : 2),
     ).single;
@@ -231,6 +257,9 @@ class PdfEditorImage extends EditorImage {
       for (final image in [...page.images, page.backgroundImage]) {
         if (image == null) continue;
         if (image is! PdfEditorImage) continue;
+
+        // skip pdfs that haven't been loaded yet
+        if (!image.loaded) continue;
 
         if (highDpiPage) {
           if (image.highDpiFuture != null) continue;

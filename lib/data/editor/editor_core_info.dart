@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:logging/logging.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -23,6 +24,7 @@ class EditorCoreInfo {
   /// Increment this if earlier versions of the app can't satisfiably read the file.
   /// 
   /// Version history:
+  /// - 19: Assets are now stored in separate files, and added the `sba` file format.
   /// - 18: [Pencil] tool introduced
   /// - 17: [PdfEditorImage] introduced
   /// - 16: [ShapePen] tool introduced
@@ -41,7 +43,7 @@ class EditorCoreInfo {
   /// - 3: Store page sizes for each page
   /// - 2: Store width and height in sbn
   /// - 1: Store version in sbn
-  static const int sbnVersion = 18;
+  static const int sbnVersion = 19;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
 
@@ -49,6 +51,7 @@ class EditorCoreInfo {
   /// The file name without its parent directories.
   String get fileName => filePath.substring(filePath.lastIndexOf('/') + 1);
 
+  AssetCache assetCache;
   int nextImageId;
   Color? backgroundColor;
   CanvasBackgroundPattern backgroundPattern;
@@ -68,12 +71,13 @@ class EditorCoreInfo {
     lineHeight: Prefs.lastLineHeight.value,
     pages: [],
     initialPageIndex: null,
+    assetCache: null,
   )
     .._migrateOldStrokesAndImages(
       fileVersion: sbnVersion,
       strokesJson: null,
       imagesJson: null,
-      assets: const [],
+      inlineAssets: null,
       onlyFirstPage: true,
     );
 
@@ -87,7 +91,8 @@ class EditorCoreInfo {
         nextImageId = 0,
         backgroundPattern = Prefs.lastBackgroundPattern.value,
         lineHeight = Prefs.lastLineHeight.value,
-        pages = [];
+        pages = [],
+        assetCache = AssetCache();
 
   EditorCoreInfo._({
     required this.filePath,
@@ -99,7 +104,8 @@ class EditorCoreInfo {
     required this.lineHeight,
     required this.pages,
     required this.initialPageIndex,
-  }) {
+    required AssetCache? assetCache,
+  }): assetCache = assetCache ?? AssetCache() {
     _handleEmptyImageIds();
   }
 
@@ -112,18 +118,20 @@ class EditorCoreInfo {
     bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
-    List<Uint8List>? assets = (json['a'] as List<dynamic>?)
-        ?.map((asset) => switch (asset) {
-          (String base64) => base64Decode(base64),
-          (Uint8List bytes) => bytes,
-          (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
-          (BsonBinary bsonBinary) => bsonBinary.byteList,
-          _ => (){
-            log.severe('Invalid asset type in $filePath: ${asset.runtimeType}');
-            return Uint8List(0);
-          }(),
-        })
-        .toList();
+    /// Note that inline assets aren't used anymore
+    /// since sbnVersion 19.
+    final List<Uint8List>? inlineAssets = (json['a'] as List?)
+      ?.map((asset) => switch (asset) {
+        (String base64) => base64Decode(base64),
+        (Uint8List bytes) => bytes,
+        (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
+        (BsonBinary bsonBinary) => bsonBinary.byteList,
+        _ => (){
+          log.severe('Invalid asset type in $filePath: ${asset.runtimeType}');
+          return Uint8List(0);
+        }(),
+      })
+      .toList();
 
     final Color? backgroundColor;
     switch (json['b']) {
@@ -136,6 +144,8 @@ class EditorCoreInfo {
       default:
         throw Exception('Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
     }
+
+    final assetCache = AssetCache();
 
     return EditorCoreInfo._(
       filePath: filePath,
@@ -153,18 +163,21 @@ class EditorCoreInfo {
       lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
       pages: _parsePagesJson(
         json['z'] as List?,
-        assets: assets,
+        inlineAssets: inlineAssets,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
         fileVersion: fileVersion,
+        sbnPath: filePath,
+        assetCache: assetCache,
       ),
       initialPageIndex: json['c'] as int?,
+      assetCache: assetCache,
     )
       .._migrateOldStrokesAndImages(
         fileVersion: fileVersion,
         strokesJson: json['s'] as List?,
         imagesJson: json['i'] as List?,
-        assets: assets,
+        inlineAssets: inlineAssets,
         fallbackPageWidth: json['w'] as double?,
         fallbackPageHeight: json['h'] as double?,
         onlyFirstPage: onlyFirstPage,
@@ -179,22 +192,25 @@ class EditorCoreInfo {
   }): nextImageId = 0,
       backgroundPattern = CanvasBackgroundPattern.none,
       lineHeight = Prefs.lastLineHeight.value,
-      pages = [] {
+      pages = [],
+      assetCache = AssetCache() {
     _migrateOldStrokesAndImages(
       fileVersion: 0,
       strokesJson: json,
       imagesJson: null,
-      assets: null,
+      inlineAssets: null,
       onlyFirstPage: onlyFirstPage,
     );
     _sortStrokes();
   }
 
   static List<EditorPage> _parsePagesJson(List<dynamic>? pages, {
-    required List<Uint8List>? assets,
+    required List<Uint8List>? inlineAssets,
     required bool readOnly,
     required bool onlyFirstPage,
     required int fileVersion,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) {
     if (pages == null || pages.isEmpty) return [];
     if (pages[0] is List) { // old format (list of [width, height])
@@ -210,9 +226,11 @@ class EditorCoreInfo {
         .take(onlyFirstPage ? 1 : pages.length)
         .map((dynamic page) => EditorPage.fromJson(
           page as Map<String, dynamic>,
-          assets: assets ?? const [],
+          inlineAssets: inlineAssets,
           readOnly: readOnly,
           fileVersion: fileVersion,
+          sbnPath: sbnPath,
+          assetCache: assetCache,
         ))
         .toList();
     }
@@ -239,7 +257,7 @@ class EditorCoreInfo {
     required int fileVersion,
     required List<dynamic>? strokesJson,
     required List<dynamic>? imagesJson,
-    required List<Uint8List>? assets,
+    required List<Uint8List>? inlineAssets,
     double? fallbackPageWidth,
     double? fallbackPageHeight,
     required bool onlyFirstPage,
@@ -262,9 +280,11 @@ class EditorCoreInfo {
     if (imagesJson != null) {
       final images = EditorPage.parseImagesJson(
         imagesJson,
-        assets: assets ?? const [],
+        inlineAssets: inlineAssets,
         isThumbnail: readOnly,
         onlyFirstPage: onlyFirstPage,
+        sbnPath: filePath,
+        assetCache: assetCache,
       );
       for (EditorImage image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
@@ -417,9 +437,9 @@ class EditorCoreInfo {
 
   /// Returns the json map and a list of assets.
   /// Assets are stored in separate files.
-  (Map<String, dynamic> json, List<Uint8List> assets) toJson() {
+  (Map<String, dynamic> json, OrderedAssetCache) toJson() {
     /// This will be populated in various [toJson] methods.
-    final List<Uint8List> assets = [];
+    final OrderedAssetCache assets = OrderedAssetCache();
 
     final json = {
       'v': sbnVersion,
@@ -440,9 +460,9 @@ class EditorCoreInfo {
   /// 
   /// In the archive, the main bson file is named `main.sbn2`,
   /// and the assets are named `main.sbn2.0`, `main.sbn2.1`, etc.
-  List<int> saveToSba({
+  Future<List<int>> saveToSba({
     required int? currentPageIndex,
-  }) {
+  }) async {
     final (bson, assets) = saveToBinary(
       currentPageIndex: currentPageIndex,
     );
@@ -454,19 +474,22 @@ class EditorCoreInfo {
       bson.length,
       bson,
     ));
-    for (int i = 0; i < assets.length; ++i) {
-      archive.addFile(ArchiveFile(
-        '$filePath.$i',
-        assets[i].length,
-        assets[i],
-      ));
-    }
+    
+    await Future.wait([
+      for (int i = 0; i < assets.length; ++i)
+        assets.getBytes(i)
+          .then((bytes) => archive.addFile(ArchiveFile(
+            '$filePath.$i',
+            bytes.length,
+            bytes,
+          ))),
+    ]);
 
     return GZipEncoder().encode(archive)!;
   }
 
   /// Returns the bson bytes and the assets.
-  (Uint8List bson, List<Uint8List> assets) saveToBinary({
+  (Uint8List bson, OrderedAssetCache assets) saveToBinary({
     required int? currentPageIndex,
   }) {
     initialPageIndex = currentPageIndex ?? initialPageIndex;
@@ -496,6 +519,7 @@ class EditorCoreInfo {
       lineHeight: lineHeight ?? this.lineHeight,
       pages: pages ?? this.pages,
       initialPageIndex: initialPageIndex,
+      assetCache: assetCache,
     );
   }
 }

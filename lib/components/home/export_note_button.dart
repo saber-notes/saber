@@ -46,7 +46,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
           pdfBytes,
         ));
       } else {
-        final sba = coreInfo.saveToSba(currentPageIndex: null);
+        final sba = await coreInfo.saveToSba(currentPageIndex: null);
         files.add(ArchiveFile(
           '$fileNameWithoutExtension.sba',
           sba.length,

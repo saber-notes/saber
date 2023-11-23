@@ -789,7 +789,12 @@ class EditorState extends State<Editor> {
       await Future.wait([
         FileManager.writeFile(filePath, bson, awaitWrite: true),
         for (int i = 0; i < assets.length; ++i)
-          FileManager.writeFile('$filePath.$i', assets[i], awaitWrite: true),
+          assets.getBytes(i)
+            .then((bytes) => FileManager.writeFile(
+              '$filePath.$i',
+              bytes,
+              awaitWrite: true,
+            )),
       ]);
       savingState.value = SavingState.saved;
     } catch (e) {
@@ -897,24 +902,27 @@ class EditorState extends State<Editor> {
           SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
+            svgFile: null,
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
+            assetCache: coreInfo.assetCache,
           )
         else
           EditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
-            bytes: photoInfo.bytes,
+            imageProvider: MemoryImage(photoInfo.bytes),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
+            assetCache: coreInfo.assetCache,
           ),
     ];
 
@@ -980,10 +988,10 @@ class EditorState extends State<Editor> {
   }
 
   Future<bool> importPdfFromFilePath(String path) async{
-    final File tempFile = File(path);
+    final pdfFile = File(path);
     final Uint8List pdfBytes;
     try {
-      pdfBytes = await tempFile.readAsBytes();
+      pdfBytes = await pdfFile.readAsBytes();
     } catch (e) {
       log.severe('Failed to read file when importing $path: $e', e);
       return false;
@@ -1015,6 +1023,7 @@ class EditorState extends State<Editor> {
       page.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
         pdfBytes: pdfBytes,
+        pdfFile: null,
         pdfPage: currentPdfPage,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
@@ -1023,6 +1032,7 @@ class EditorState extends State<Editor> {
         onDeleteImage: onDeleteImage,
         onMiscChange: autosaveAfterDelay,
         onLoad: () => setState(() {}),
+        assetCache: coreInfo.assetCache,
       );
       coreInfo.pages.add(page);
       history.recordChange(EditorHistoryItem(
@@ -1112,7 +1122,7 @@ class EditorState extends State<Editor> {
   }
   /// Exports the current note as an SBA (Saber Archive) file.
   Future exportAsSba() async {
-    final sba = coreInfo.saveToSba(
+    final sba = await coreInfo.saveToSba(
       currentPageIndex: currentPageIndex,
     );
     await FileManager.exportFile(

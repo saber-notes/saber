@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
@@ -71,9 +72,11 @@ class EditorPage extends Listenable {
       );
 
   factory EditorPage.fromJson(Map<String, dynamic> json, {
-    required List<Uint8List> assets,
+    required List<Uint8List>? inlineAssets,
     required bool readOnly,
     required int fileVersion,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) {
     return EditorPage(
       size: Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
@@ -84,9 +87,11 @@ class EditorPage extends Listenable {
       ),
       images: parseImagesJson(
         json['i'] as List?,
-        assets: assets,
+        inlineAssets: inlineAssets,
         isThumbnail: readOnly,
         onlyFirstPage: false,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
       ),
       quill: QuillStruct(
         controller: json['q'] != null ? QuillController(
@@ -98,14 +103,16 @@ class EditorPage extends Listenable {
       backgroundImage: json['b'] != null
           ? parseImageJson(
               json['b'],
-              assets: assets,
+              inlineAssets: inlineAssets,
               isThumbnail: false,
+              sbnPath: sbnPath,
+              assetCache: assetCache,
             )
           : null,
     );
   }
 
-  Map<String, dynamic> toJson(List<Uint8List> assets) => {
+  Map<String, dynamic> toJson(OrderedAssetCache assets) => {
     'w': size.width,
     'h': size.height,
     if (strokes.isNotEmpty)
@@ -162,17 +169,21 @@ class EditorPage extends Listenable {
       .toList() ?? [];
 
   static List<EditorImage> parseImagesJson(List<dynamic>? images, {
-    required List<Uint8List> assets,
+    required List<Uint8List>? inlineAssets,
     required bool isThumbnail,
     required bool onlyFirstPage,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) => images
       ?.cast<Map<String, dynamic>>()
       .map((Map<String, dynamic> image) {
         if (onlyFirstPage && image['i'] > 0) return null;
         return parseImageJson(
           image,
-          assets: assets,
+          inlineAssets: inlineAssets,
           isThumbnail: isThumbnail,
+          sbnPath: sbnPath,
+          assetCache: assetCache,
         );
       })
       .where((element) => element != null)
@@ -180,13 +191,17 @@ class EditorPage extends Listenable {
       .toList() ?? [];
 
   static EditorImage parseImageJson(Map<String, dynamic> json, {
-    required List<Uint8List> assets,
+    required List<Uint8List>? inlineAssets,
     required bool isThumbnail,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) => EditorImage.fromJson(
     json,
-    assets: assets,
+    inlineAssets: inlineAssets,
     isThumbnail: isThumbnail,
     onMainThread: false,
+    sbnPath: sbnPath,
+    assetCache: assetCache,
   );
 
   final List<VoidCallback> _listeners = [];

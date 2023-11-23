@@ -91,6 +91,10 @@ class FileManager {
     return result;
   }
 
+  static File getFile(String filePath) {
+    return File('$documentsDirectory$filePath');
+  }
+
   /// Writes [toWrite] to [filePath].
   static Future<void> writeFile(String filePath, List<int> toWrite, { bool awaitWrite = false, bool alsoUpload = true }) async {
     filePath = _sanitisePath(filePath);

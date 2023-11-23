@@ -1,19 +1,29 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 class SvgEditorImage extends EditorImage {
-  String svgString;
+  String? svgString;
+
+  /// If the svg needs to be loaded from disk, this is the File
+  /// that the svg will be loaded from.
+  final File? svgFile;
 
   static final log = Logger('SvgEditorImage');
 
   SvgEditorImage({
     required super.id,
+    required super.assetCache,
     required this.svgString,
+    required this.svgFile,
     required super.pageIndex,
     required super.pageSize,
     super.invertible,
@@ -28,23 +38,32 @@ class SvgEditorImage extends EditorImage {
     super.naturalSize,
     super.isThumbnail,
     super.onMainThread,
-  }) :  super(
-          extension: '.svg',
-          bytes: Uint8List(0),
-        );
+  }): assert(svgString != null || svgFile != null, 'svgFile must be set if svgString is null'),
+      super(
+        extension: '.svg',
+        imageProvider: null,
+      );
 
   factory SvgEditorImage.fromJson(Map<String, dynamic> json, {
-    required List<Uint8List> assets,
+    required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     bool onMainThread = true,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
 
     final assetIndex = json['a'] as int?;
-    final String svgString;
+    final String? svgString;
+    File? svgFile;
     if (assetIndex != null) {
-      svgString = utf8.decode(assets[assetIndex]);
+      if (inlineAssets == null) {
+        svgFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        svgString = assetCache.get(svgFile.path);
+      } else {
+        svgString = utf8.decode(inlineAssets[assetIndex]);
+      }
     } else if (json['b'] != null) {
       svgString = json['b'] as String;
     } else {
@@ -54,7 +73,9 @@ class SvgEditorImage extends EditorImage {
 
     return SvgEditorImage(
       id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      assetCache: assetCache,
       svgString: svgString,
+      svgFile: svgFile,
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -86,31 +107,31 @@ class SvgEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(List<Uint8List> assets) {
-    final json = super.toJson(
-      assets,
-    );
+  Map<String, dynamic> toJson(OrderedAssetCache assets) {
+    final json = super.toJson(assets);
 
     // remove non-svg fields
     json.remove('t'); // thumbnail bytes
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    Uint8List svgBytes = Uint8List.fromList(utf8.encode(svgString));
-    int assetIndex = assets.indexOf(svgBytes);
-    if (assetIndex == -1) {
-      assetIndex = assets.length;
-      assets.add(svgBytes);
+    // try to load from cache
+    svgString ??= assetCache.get(svgFile!.path);
+    if (svgString != null) {
+      json['a'] = assets.add(svgString!);
+    } else {
+      json['a'] = assets.add(svgFile!);
     }
-    json['a'] = assetIndex;
 
     return json;
   }
 
   @override
   Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
+    svgString ??= await svgFile!.readAsString();
+
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      final PictureInfo pictureInfo = await vg.loadPicture(SvgStringLoader(svgString), null);
+      final PictureInfo pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);
       naturalSize = pictureInfo.size;
 
       if (srcRect.shortestSide == 0) {
@@ -131,7 +152,8 @@ class SvgEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    final loader = SvgStringLoader(svgString);
+    if (svgString == null) return;
+    final loader = SvgStringLoader(svgString!);
     final pictureInfo = await vg.loadPicture(loader, null);
     pictureInfo.picture.dispose();
   }
@@ -141,6 +163,10 @@ class SvgEditorImage extends EditorImage {
     required BoxFit? overrideBoxFit,
     required bool isBackground,
   }) {
+    if (svgString == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
       boxFit = overrideBoxFit;
@@ -151,7 +177,7 @@ class SvgEditorImage extends EditorImage {
     }
 
     return SvgPicture.string(
-      svgString,
+      svgString!,
       fit: boxFit,
       theme: const SvgTheme(
         currentColor: Colors.black,

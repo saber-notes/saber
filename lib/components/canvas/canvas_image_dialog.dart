@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/_pdf_editor_image.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -65,16 +65,26 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
         ),
       ),
       _CanvasImageDialogItem(
-        onTap: () {
+        onTap: () async {
           final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
           final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
-          final Uint8List bytes;
-          if (widget.image is SvgEditorImage) {
-            bytes = Uint8List.fromList(utf8.encode((widget.image as SvgEditorImage).svgString));
+          final List<int> bytes;
+          if (widget.image is PdfEditorImage) {
+            if (!widget.image.loaded) return;
+            bytes = (widget.image as PdfEditorImage).pdfBytes!;
+          } else if (widget.image is SvgEditorImage) {
+            if (!widget.image.loaded) return;
+            final svgString = (widget.image as SvgEditorImage).svgString!;
+            bytes = utf8.encode(svgString);
+          } else if (widget.image.imageProvider is MemoryImage) {
+            bytes = (widget.image.imageProvider as MemoryImage).bytes;
+          } else if (widget.image.imageProvider is FileImage) {
+            bytes = await (widget.image.imageProvider as FileImage).file.readAsBytes();
           } else {
-            bytes = widget.image.memoryImage?.bytes ?? Uint8List(0);
+            return;
           }
           FileManager.exportFile(imageFileName, bytes, isImage: true);
+          if (!mounted) return;
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.download,

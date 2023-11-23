@@ -1,7 +1,7 @@
-import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
@@ -81,17 +81,20 @@ void main() {
 }
 
 class TestImage extends EditorImage {
+  static final _assetCache = AssetCache();
+
   TestImage({
     required super.dstRect,
   })  : super(
           id: -1,
           extension: '.png',
-          bytes: Uint8List(0),
+          imageProvider: null,
           pageIndex: 0,
           pageSize: const Size(100, 100),
           onMoveImage: null,
           onDeleteImage: null,
           onMiscChange: null,
+          assetCache: _assetCache,
         );
 
   @override

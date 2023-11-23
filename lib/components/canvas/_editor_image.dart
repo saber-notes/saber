@@ -1,12 +1,16 @@
+import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui' as ui;
 
 import 'package:fast_image_resizer/fast_image_resizer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_pdf_editor_image.dart';
 import 'package:saber/components/canvas/_svg_editor_image.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/pages/editor/editor.dart';
 
 /// The data for an image in the editor.
 /// This is listenable for changes to the image's position ([dstRect]).
@@ -18,7 +22,9 @@ class EditorImage extends ChangeNotifier {
   /// This is used when "downloading" the image to the user's photo gallery.
   final String extension;
 
-  late MemoryImage? memoryImage;
+  ImageProvider? imageProvider;
+
+  final AssetCache assetCache;
 
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
@@ -34,7 +40,7 @@ class EditorImage extends ChangeNotifier {
   set isThumbnail(bool isThumbnail) {
     _isThumbnail = isThumbnail;
     if (isThumbnail && thumbnailBytes != null) {
-      memoryImage = MemoryImage(thumbnailBytes!);
+      imageProvider = MemoryImage(thumbnailBytes!);
       final scale = thumbnailSize.width / naturalSize.width;
       srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale, srcRect.width * scale, srcRect.height * scale);
     }
@@ -67,8 +73,9 @@ class EditorImage extends ChangeNotifier {
 
   EditorImage({
     required this.id,
+    required this.assetCache,
     required this.extension,
-    required Uint8List bytes,
+    required this.imageProvider,
     required this.pageIndex,
     required Size pageSize,
     this.maxSize,
@@ -87,8 +94,7 @@ class EditorImage extends ChangeNotifier {
     /// If [onMainThread], the image will be loaded automatically.
     /// Otherwise, [getImage] must be called manually.
     bool onMainThread = true,
-  }) :  assert(extension.startsWith('.')),
-        memoryImage = bytes.isEmpty ? null : MemoryImage(bytes) {
+  }) :  assert(extension.startsWith('.')) {
     this.dstRect = dstRect;
     _isThumbnail = isThumbnail;
 
@@ -99,6 +105,7 @@ class EditorImage extends ChangeNotifier {
     }
   }
 
+  /// Loads the image. This should be called on the main thread.
   void loadOnMainThread({
     required Size pageSize,
   }) async {
@@ -110,31 +117,43 @@ class EditorImage extends ChangeNotifier {
   }
 
   factory EditorImage.fromJson(Map<String, dynamic> json, {
-    required List<Uint8List> assets,
+    required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required bool onMainThread,
+    required String sbnPath,
+    required AssetCache assetCache,
   }) {
     String? extension = json['e'];
     if (extension == '.svg') {
       return SvgEditorImage.fromJson(
         json,
-        assets: assets,
+        inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         onMainThread: onMainThread,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
       );
     } else if (extension == '.pdf') {
       return PdfEditorImage.fromJson(
         json,
-        assets: assets,
+        inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         onMainThread: onMainThread,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
       );
     }
 
     final assetIndex = json['a'] as int?;
-    final Uint8List bytes;
+    final Uint8List? bytes;
+    File? imageFile;
     if (assetIndex != null) {
-      bytes = assets[assetIndex];
+      if (inlineAssets == null) {
+        imageFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        bytes = assetCache.get(imageFile.path);
+      } else {
+        bytes = inlineAssets[assetIndex];
+      }
     } else if (json['b'] != null) {
       bytes = Uint8List.fromList((json['b'] as List<dynamic>).cast<int>());
     } else {
@@ -143,12 +162,16 @@ class EditorImage extends ChangeNotifier {
       }
       bytes = Uint8List(0);
     }
+    assert(bytes != null || imageFile != null, 'Either bytes or imageFile must be non-null');
 
     return EditorImage(
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
       id: json['id'] ?? -1,
+      assetCache: assetCache,
       extension: extension ?? '.jpg',
-      bytes: bytes,
+      imageProvider: bytes != null
+        ? MemoryImage(bytes) as ImageProvider
+        : FileImage(imageFile!),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -180,7 +203,7 @@ class EditorImage extends ChangeNotifier {
     );
   }
 
-  Map<String, dynamic> toJson(List<Uint8List> assets) {
+  Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = {
       'id': id,
       'e': extension,
@@ -205,14 +228,8 @@ class EditorImage extends ChangeNotifier {
         't': thumbnailBytes,
     };
 
-    if (memoryImage != null) {
-      final bytes = memoryImage!.bytes;
-      int assetIndex = assets.indexOf(bytes);
-      if (assetIndex == -1) {
-        assetIndex = assets.length;
-        assets.add(bytes);
-      }
-      json['a'] = assetIndex;
+    if (imageProvider != null) {
+      json['a'] = assets.add(imageProvider!);
     }
 
     return json;
@@ -220,10 +237,18 @@ class EditorImage extends ChangeNotifier {
 
   Future<void> getImage({Size? pageSize}) async {
     assert(Isolate.current.debugName == 'main');
-    assert(memoryImage != null);
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      naturalSize = await ui.ImmutableBuffer.fromUint8List(memoryImage!.bytes)
+      final Uint8List bytes;
+      if (imageProvider is MemoryImage) {
+        bytes = (imageProvider as MemoryImage).bytes;
+      } else if (imageProvider is FileImage) {
+        bytes = await (imageProvider as FileImage).file.readAsBytes();
+      } else {
+        throw Exception('EditorImage.getImage: imageProvider is ${imageProvider.runtimeType}');
+      }
+
+      naturalSize = await ui.ImmutableBuffer.fromUint8List(bytes)
           .then((buffer) => ui.ImageDescriptor.encoded(buffer))
           .then((descriptor) => Size(descriptor.width.toDouble(), descriptor.height.toDouble()));
 
@@ -236,12 +261,12 @@ class EditorImage extends ChangeNotifier {
         await null; // wait for next event-loop iteration
 
         final resizedByteData = await resizeImage(
-          memoryImage!.bytes,
+          bytes,
           width: reducedSize.width.toInt(),
           height: reducedSize.height.toInt(),
         );
         if (resizedByteData != null) {
-          memoryImage = MemoryImage(resizedByteData.buffer.asUint8List());
+          imageProvider = MemoryImage(resizedByteData.buffer.asUint8List());
         }
 
         naturalSize = reducedSize;
@@ -260,13 +285,13 @@ class EditorImage extends ChangeNotifier {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
 
-    if ((thumbnailBytes?.isEmpty ?? true) && !isThumbnail) {
+    if ((thumbnailBytes?.isEmpty ?? true) && !isThumbnail && imageProvider is MemoryImage) {
       thumbnailSize = resize(naturalSize, const Size(300, 300));
       // if [naturalSize] is big enough to warrant a thumbnail
       if (thumbnailSize.width * 1.5 < naturalSize.width) {
         await null; // wait for next event-loop iteration
         final resizedByteData = await resizeImage(
-          memoryImage!.bytes,
+          (imageProvider as MemoryImage).bytes,
           width: thumbnailSize.width.toInt(),
           height: thumbnailSize.height.toInt(),
         );
@@ -283,8 +308,8 @@ class EditorImage extends ChangeNotifier {
   }
 
   Future<void> precache(BuildContext context) async {
-    if (memoryImage == null) return;
-    return await precacheImage(memoryImage!, context);
+    if (imageProvider == null) return;
+    return await precacheImage(imageProvider!, context);
   }
 
   Widget buildImageWidget({
@@ -301,7 +326,7 @@ class EditorImage extends ChangeNotifier {
     }
 
     return Image(
-      image: memoryImage!,
+      image: imageProvider!,
       fit: boxFit,
     );
   }
@@ -326,8 +351,9 @@ class EditorImage extends ChangeNotifier {
 
   EditorImage copy() => EditorImage(
     id: id,
+    assetCache: assetCache,
     extension: extension,
-    bytes: memoryImage?.bytes ?? Uint8List(0),
+    imageProvider: imageProvider,
     pageIndex: pageIndex,
     pageSize: Size.infinite,
     invertible: invertible,
