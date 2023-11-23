@@ -22,6 +22,7 @@ void main() {
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
+    await FileManager.init();
 
     Prefs.username.value = 'test.deletion';
     Prefs.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';

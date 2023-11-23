@@ -23,7 +23,7 @@ void main() {
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
-    FileManager.init();
+    await tester.runAsync(FileManager.init);
 
     const filePath = '/tests/editor_undo_redo_test';
     await tester.runAsync(() async {

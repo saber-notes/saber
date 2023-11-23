@@ -19,7 +19,8 @@ void main() {
 
     late final String rootDir;
     setUpAll(() async {
-      rootDir = await FileManager.documentsDirectory;
+      await FileManager.init();
+      rootDir = FileManager.documentsDirectory;
     });
 
     test('readFile', () async {

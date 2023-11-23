@@ -13,7 +13,7 @@ void main() {
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
-    FileManager.init();
+    await FileManager.init();
 
     const String filePath = '/tests/distinct_name.sbn2';
     const String filePath2 = '/tests/distinct_name (2).sbn2';

@@ -40,9 +40,9 @@ void main() {
       TestWidgetsFlutterBinding.ensureInitialized();
       setupMockPathProvider();
 
-      FileManager.watchRootDirectory();
+      await FileManager.init();
 
-      final String rootDir = await FileManager.documentsDirectory;
+      final String rootDir = FileManager.documentsDirectory;
       final File file = File('$rootDir/test.sbn2');
 
       // write to file

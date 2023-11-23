@@ -23,7 +23,7 @@ class FileManager {
 
   static const String appRootDirectoryPrefix = 'Saber';
   @visibleForTesting
-  static Future<String> get documentsDirectory async => '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+  static late final String documentsDirectory;
 
   static final StreamController<FileOperation> fileWriteStream = StreamController.broadcast(
     onListen: () => _fileWriteStreamIsListening = true,
@@ -34,12 +34,13 @@ class FileManager {
   static String _sanitisePath(String path) => File(path).path;
 
   static Future<void> init() async {
+    documentsDirectory = '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
     await watchRootDirectory();
   }
 
   @visibleForTesting
   static Future<void> watchRootDirectory() async {
-    Directory rootDir = Directory(await documentsDirectory);
+    Directory rootDir = Directory(documentsDirectory);
     await rootDir.create(recursive: true);
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {
       final type = event.type == FileSystemEvent.create
@@ -51,7 +52,7 @@ class FileManager {
           .replaceAll('\\', '/')
           // The path may or may not be relative,
           // so remove the root directory path to make sure it's relative.
-          .replaceFirst(rootDir.path, '');
+          .replaceFirst(documentsDirectory, '');
       broadcastFileWrite(type, path);
     });
   }
@@ -75,7 +76,7 @@ class FileManager {
     filePath = _sanitisePath(filePath);
 
     Uint8List? result;
-    final File file = File(await documentsDirectory + filePath);
+    final File file = File(documentsDirectory + filePath);
     if (file.existsSync()) {
       result = await file.readAsBytes();
       if (result.isEmpty) result = null;
@@ -102,7 +103,6 @@ class FileManager {
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    final documentsDirectory = await FileManager.documentsDirectory;
     final File file = File('$documentsDirectory$filePath');
     await _createFileDirectory(filePath);
     Future writeFuture = Future.wait([
@@ -138,7 +138,7 @@ class FileManager {
   static Future<void> createFolder(String folderPath) async {
     folderPath = _sanitisePath(folderPath);
 
-    final Directory dir = Directory(await documentsDirectory + folderPath);
+    final Directory dir = Directory(documentsDirectory + folderPath);
     await dir.create(recursive: true);
   }
 
@@ -201,8 +201,8 @@ class FileManager {
 
     if (fromPath == toPath) return toPath;
 
-    final File fromFile = File(await documentsDirectory + fromPath);
-    final File toFile = File(await documentsDirectory + toPath);
+    final File fromFile = File(documentsDirectory + fromPath);
+    final File toFile = File(documentsDirectory + toPath);
     await _createFileDirectory(toPath);
     if (fromFile.existsSync()) {
       await fromFile.rename(toFile.path);
@@ -223,7 +223,7 @@ class FileManager {
   static Future deleteFile(String filePath, {bool alsoUpload = true}) async {
     filePath = _sanitisePath(filePath);
 
-    final File file = File(await documentsDirectory + filePath);
+    final File file = File(documentsDirectory + filePath);
     if (!file.existsSync()) return;
     await file.delete();
 
@@ -235,8 +235,6 @@ class FileManager {
 
   static Future renameDirectory(String directoryPath, String newName) async {
     directoryPath = _sanitisePath(directoryPath);
-
-    final documentsDirectory = await FileManager.documentsDirectory;
 
     final Directory directory = Directory(documentsDirectory + directoryPath);
     if (!directory.existsSync()) return;
@@ -262,14 +260,14 @@ class FileManager {
   static Future deleteDirectory(String directoryPath, [bool recursive = true]) async {
     directoryPath = _sanitisePath(directoryPath);
 
-    final Directory directory = Directory(await documentsDirectory + directoryPath);
+    final Directory directory = Directory(documentsDirectory + directoryPath);
     if (!directory.existsSync()) return;
 
     if (recursive) {
       // call [deleteFile] on all files that are descendants of the directory
       await for (final entity in directory.list(recursive: true)) {
         if (entity is File) {
-          await deleteFile(entity.path.substring((await documentsDirectory).length));
+          await deleteFile(entity.path.substring(documentsDirectory.length));
         }
       }
     }
@@ -284,7 +282,7 @@ class FileManager {
     final Iterable<String> allChildren;
     final List<String> directories = [], files = [];
 
-    final String documentsDirectory = await FileManager.documentsDirectory;
+    final String documentsDirectory = FileManager.documentsDirectory;
     final Directory dir = Directory(documentsDirectory + directory);
     if (!dir.existsSync()) return null;
 
@@ -339,19 +337,19 @@ class FileManager {
   /// Behaviour is undefined if [filePath] is not a valid path.
   static Future<bool> isDirectory(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final Directory directory = Directory(await documentsDirectory + filePath);
+    final Directory directory = Directory(documentsDirectory + filePath);
     return directory.existsSync();
   }
 
   static Future<bool> doesFileExist(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final File file = File(await documentsDirectory + filePath);
+    final File file = File(documentsDirectory + filePath);
     return file.existsSync();
   }
 
   static Future<DateTime> lastModified(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final File file = File(await documentsDirectory + filePath);
+    final File file = File(documentsDirectory + filePath);
     return file.lastModifiedSync();
   }
 
@@ -435,7 +433,7 @@ class FileManager {
   static Future _createFileDirectory(String filePath) async {
     assert(filePath.contains('/'), 'filePath must be a path, not a file name');
     final String parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
-    await Directory(await documentsDirectory + parentDirectory).create(recursive: true);
+    await Directory(documentsDirectory + parentDirectory).create(recursive: true);
   }
 
   static Future _renameReferences(String fromPath, String toPath) async {
