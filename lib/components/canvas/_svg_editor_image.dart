@@ -60,7 +60,7 @@ class SvgEditorImage extends EditorImage {
     if (assetIndex != null) {
       if (inlineAssets == null) {
         svgFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
-        svgString = assetCache.get(svgFile.path);
+        svgString = assetCache.get(svgFile);
       } else {
         svgString = utf8.decode(inlineAssets[assetIndex]);
       }
@@ -116,7 +116,7 @@ class SvgEditorImage extends EditorImage {
     assert(!json.containsKey('b'));
 
     // try to load from cache
-    svgString ??= assetCache.get(svgFile!.path);
+    svgString ??= assetCache.get(svgFile!);
     if (svgString != null) {
       json['a'] = assets.add(svgString!);
     } else {

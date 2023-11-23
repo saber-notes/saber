@@ -6,29 +6,15 @@ import 'package:flutter/painting.dart';
 class AssetCache {
   AssetCache();
 
-  final Map<String, Object> _cache = {};
+  final Map<File, Object> _cache = {};
 
-  void add<T extends Object>(String key, T value) {
+  void add<T extends Object>(File key, T value) {
     _cache[key] = value;
   }
 
   /// Returns null if the key is not found.
-  T? get<T extends Object>(String key) {
+  T? get<T extends Object>(File key) {
     return _cache[key] as T?;
-  }
-
-  /// Replaces [oldValue] with [newValue],
-  /// or adds [newValue] if [oldValue] is not found.
-  void replace<T extends Object, U extends Object>(T oldValue, U newValue) {
-    final key = _cache.keys.firstWhere(
-      (key) => _cache[key] == oldValue,
-      orElse: () => '',
-    );
-    if (key.isNotEmpty) {
-      _cache[key] = newValue;
-    } else {
-      add(key, newValue);
-    }
   }
 }
 

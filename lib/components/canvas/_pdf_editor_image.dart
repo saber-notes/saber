@@ -66,7 +66,7 @@ class PdfEditorImage extends EditorImage {
     if (assetIndex != null) {
       if (inlineAssets == null) {
         pdfFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
-        pdfBytes = assetCache.get(pdfFile.path);
+        pdfBytes = assetCache.get(pdfFile);
       } else {
         pdfBytes = inlineAssets[assetIndex];
       }
@@ -119,7 +119,7 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('b'));
 
     // try to find the pdf in the cache
-    pdfBytes ??= assetCache.get(pdfFile!.path);
+    pdfBytes ??= assetCache.get(pdfFile!);
     if (pdfBytes != null) {
       json['a'] = assets.add(pdfBytes!);
     } else {
