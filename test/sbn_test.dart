@@ -46,38 +46,43 @@ void main() {
     for (final sbnName in sbnExamples) {
       group(sbnName, () {
         final path = 'test/sbn_examples/$sbnName';
+        final pathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
+
         late final EditorCoreInfo coreInfo;
         late final page = coreInfo.pages.first;
 
         setUpAll(() async {
+          FileManager.shouldUseRawFilePath = true;
           if (sbnName.endsWith('.sbn2')) {
             coreInfo = await EditorCoreInfo.loadFromFileContents(
               bsonBytes: File(path).readAsBytesSync(),
-              path: path,
-              readOnly: true,
+              path: pathWithoutExtension,
+              readOnly: false,
               onlyFirstPage: true,
             );
           } else {
             coreInfo = await EditorCoreInfo.loadFromFileContents(
               jsonString: File(path).readAsStringSync(),
-              path: path,
-              readOnly: true,
+              path: pathWithoutExtension,
+              readOnly: false,
               onlyFirstPage: true,
             );
           }
         });
+        tearDownAll(() {
+          FileManager.shouldUseRawFilePath = false;
+        });
 
         testWidgets('(Light)', (tester) async {
+          await tester.runAsync(() => _precacheImages(
+            context: tester.binding.rootElement!,
+            page: page,
+          ));
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.light,
             path: path,
             page: page,
             coreInfo: coreInfo,
-          ));
-
-          await tester.runAsync(() => _precacheImages(
-            context: tester.binding.rootElement!,
-            page: page,
           ));
           await tester.pumpAndSettle();
 
@@ -88,16 +93,15 @@ void main() {
         });
 
         testWidgets('(Dark)', (tester) async {
+          await tester.runAsync(() => _precacheImages(
+            context: tester.binding.rootElement!,
+            page: page,
+          ));
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.dark,
             path: path,
             page: page,
             coreInfo: coreInfo,
-          ));
-
-          await tester.runAsync(() => _precacheImages(
-            context: tester.binding.rootElement!,
-            page: page,
           ));
           await tester.pumpAndSettle();
 
@@ -212,9 +216,22 @@ Widget _buildCanvas({
 Future<void> _precacheImages({
   required BuildContext context,
   required EditorPage page,
-}) {
-  return Future.wait([
-    for (final image in page.images) image.precache(context),
+}) async {
+  // FileImages aren't working in tests, so replace them with MemoryImages
+  await Future.wait([
+    for (final image in page.images)
+      if (image.imageProvider is FileImage)
+        (image.imageProvider as FileImage).file.readAsBytes()
+          .then((bytes) => image.imageProvider = MemoryImage(bytes)),
+    if (page.backgroundImage?.imageProvider is FileImage)
+      (page.backgroundImage!.imageProvider as FileImage).file.readAsBytes()
+        .then((bytes) => page.backgroundImage!.imageProvider = MemoryImage(bytes)),
+  ]);
+
+  // Precache images
+  await Future.wait([
+    for (final image in page.images)
+      image.precache(context),
     if (page.backgroundImage != null)
       page.backgroundImage!.precache(context),
   ]);

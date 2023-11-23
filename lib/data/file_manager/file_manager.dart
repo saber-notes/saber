@@ -92,8 +92,19 @@ class FileManager {
     return result;
   }
 
+  /// Whether getFile should just return File(filePath)
+  /// instead of prefixing with the documents directory.
+  /// This is useful for testing when test files
+  /// aren't in the documents directory.
+  @visibleForTesting
+  static bool shouldUseRawFilePath = false;
+
   static File getFile(String filePath) {
-    return File('$documentsDirectory$filePath');
+    if (shouldUseRawFilePath) {
+      return File(filePath);
+    } else {
+      return File('$documentsDirectory$filePath');
+    }
   }
 
   /// Writes [toWrite] to [filePath].
