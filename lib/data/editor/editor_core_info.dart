@@ -456,7 +456,7 @@ class EditorCoreInfo {
 
   /// Converts the current note as an SBA (Saber Archive) file,
   /// which contains the main bson file and all the assets
-  /// compressed into a gzip file.
+  /// compressed into a zip file.
   /// 
   /// In the archive, the main bson file is named `main.sbn2`,
   /// and the assets are named `main.sbn2.0`, `main.sbn2.1`, etc.
@@ -485,7 +485,7 @@ class EditorCoreInfo {
           ))),
     ]);
 
-    return GZipEncoder().encode(archive)!;
+    return ZipEncoder().encode(archive)!;
   }
 
   /// Returns the bson bytes and the assets.
