@@ -51,15 +51,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <!-- Support opening sbn (json) and sbn2 (binary) files -->
+            <!-- Support opening sbn (json), sbn2 (binary), and sba (zip) files -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="application/sbn" />
                 <data android:mimeType="application/json" />
-                <data android:mimeType="application/sbn2" />
                 <data android:mimeType="text/*" />
+
+                <data android:mimeType="application/sbn2" />
+                <data android:mimeType="application/octet-stream" />
+
+                <data android:mimeType="application/sba" />
+                <data android:mimeType="application/zip" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -68,12 +73,17 @@
                 <data android:scheme="content" />
                 <data android:scheme="file" />
                 <data android:host="*" />
-                <data android:pathPattern=".*\.sbn2?"/>
+                <data android:pathPattern=".*\.sb(a|n2?)"/>
 
-                <data android:mimeType="application/json" />
                 <data android:mimeType="application/sbn" />
-                <data android:mimeType="application/sbn2" />
+                <data android:mimeType="application/json" />
                 <data android:mimeType="text/*" />
+
+                <data android:mimeType="application/sbn2" />
+                <data android:mimeType="application/octet-stream" />
+
+                <data android:mimeType="application/sba" />
+                <data android:mimeType="application/zip" />
             </intent-filter>
 
             <!-- Support opening pdf files -->

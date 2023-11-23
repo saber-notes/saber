@@ -154,7 +154,7 @@ class App extends StatefulWidget {
       extension = 'sbn2';
     }
 
-    if (extension == 'sbn' || extension == 'sbn2') {
+    if (extension == 'sbn' || extension == 'sbn2' || extension == 'sba') {
       final String? path = await FileManager.importFile(
         file.path,
         null,

@@ -30,6 +30,7 @@
         <mediatype>application/json</mediatype>
         <mediatype>application/sbn</mediatype>
         <mediatype>application/sbn2</mediatype>
+        <mediatype>application/sba</mediatype>
     </provides>
 
     <description>

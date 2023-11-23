@@ -100,7 +100,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
         ),
         SpeedDialChild(
           child: const Icon(Icons.note),
-          label: 'SBN2',
+          label: 'SBA',
           onTap: () => exportFile(widget.selectedFiles, false),
         ),
       ],
