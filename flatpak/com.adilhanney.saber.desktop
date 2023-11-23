@@ -12,5 +12,6 @@ Categories=Office;WordProcessor;
 
 Icon=com.adilhanney.saber
 Exec=saber
+MimeType=application/sbn;application/sbn2;application/sba
 Terminal=false
 StartupWMClass=saber
