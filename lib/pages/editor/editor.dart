@@ -1126,7 +1126,7 @@ class EditorState extends State<Editor> {
       currentPageIndex: currentPageIndex,
     );
     await FileManager.exportFile(
-      '${coreInfo.fileName}${Editor.extension}',
+      '${coreInfo.fileName}.sba',
       sba,
     );
   }
