@@ -27,17 +27,17 @@ void main() {
       FileManager.deleteFile(filePath3, alsoUpload: false),
     ]);
 
-    suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath, false);
+    suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
     expect(suffixedPath == filePath, true, reason: "filePath doesn't exist, so it should be returned as is");
 
     await FileManager.writeFile(suffixedPath, [1,2,3], awaitWrite: true, alsoUpload: false);
 
-    suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath, false);
+    suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
     expect(suffixedPath == filePath2, true, reason: "filePath exists, but filePath2 doesn't, so filePath2 should be returned");
 
     await FileManager.writeFile(suffixedPath, [1,2,3], awaitWrite: true, alsoUpload: false);
 
-    suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath, false);
+    suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
     expect(suffixedPath == filePath3, true, reason: "filePath and filePath2 exist, but filePath3 doesn't, so filePath3 should be returned");
 
     // cleanup

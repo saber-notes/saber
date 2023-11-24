@@ -102,8 +102,10 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
       final oldExtension = oldExtensions[i];
       final newFileName = await FileManager.suffixFilePathToMakeItUnique(
         '$currentFolder${originalFileNames[i]}',
-        oldExtension,
-        '${widget.filesToMove[i]}${oldExtension ? Editor.extensionOldJson : Editor.extension}',
+        intendedExtension: oldExtension
+          ? Editor.extensionOldJson
+          : Editor.extension,
+        currentPath: '${widget.filesToMove[i]}${oldExtension ? Editor.extensionOldJson : Editor.extension}',
       ).then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
 
       newFileNames.add(newFileName);

@@ -158,7 +158,7 @@ class App extends StatefulWidget {
       final String? path = await FileManager.importFile(
         file.path,
         null,
-        extension == 'sbn',
+        extension: '.$extension',
       );
       if (path == null) return;
 
@@ -173,7 +173,6 @@ class App extends StatefulWidget {
           .substring(0, file.path.length - '.pdf'.length);
       final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
         '/$fileNameWithoutExtension',
-        false,
       );
       _router.push(RoutePaths.editImportPdf(sbnFilePath, file.path));
     } else {

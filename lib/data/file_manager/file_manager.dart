@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:archive/archive_io.dart';
+import 'package:collection/collection.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_save/image_save.dart';
@@ -207,7 +209,7 @@ class FileManager {
     }
 
     if (!replaceExistingFile || Editor.isReservedPath(toPath)) {
-      toPath = await suffixFilePathToMakeItUnique(toPath, false, fromPath);
+      toPath = await suffixFilePathToMakeItUnique(toPath, currentPath: fromPath);
     }
 
     if (fromPath == toPath) return toPath;
@@ -371,7 +373,7 @@ class FileManager {
     final String filePath = '$parentPath${DateFormat("yy-MM-dd").format(now)} '
         '${t.editor.untitled}';
 
-    return await suffixFilePathToMakeItUnique(filePath, false);
+    return await suffixFilePathToMakeItUnique(filePath);
   }
 
   /// Returns a unique file path by appending a number to the end of the [filePath].
@@ -382,7 +384,11 @@ class FileManager {
   /// 
   /// If [currentPath] is provided, it must
   /// end with [Editor.extension] or [Editor.extensionOldJson].
-  static Future<String> suffixFilePathToMakeItUnique(String filePath, bool useOldExtension, [String? currentPath]) async {
+  static Future<String> suffixFilePathToMakeItUnique(
+    String filePath, {
+    String? intendedExtension,
+    String? currentPath,
+  }) async {
     String newFilePath = filePath;
     bool hasExtension = false;
 
@@ -390,10 +396,14 @@ class FileManager {
       filePath = filePath.substring(0, filePath.length - Editor.extension.length);
       newFilePath = filePath;
       hasExtension = true;
+      intendedExtension ??= Editor.extension;
     } else if (filePath.endsWith(Editor.extensionOldJson)) {
       filePath = filePath.substring(0, filePath.length - Editor.extensionOldJson.length);
       newFilePath = filePath;
       hasExtension = true;
+      intendedExtension ??= Editor.extensionOldJson;
+    } else {
+      intendedExtension ??= Editor.extension;
     }
 
     int i = 1;
@@ -408,35 +418,103 @@ class FileManager {
       newFilePath = '$filePath ($i)';
     }
 
-    if (useOldExtension) {
-      return newFilePath + (hasExtension ? Editor.extensionOldJson : '');
-    }
-    return newFilePath + (hasExtension ? Editor.extension : '');
+    return newFilePath + (hasExtension ? intendedExtension : '');
   }
 
   /// Imports a file from a sharing intent.
   /// 
   /// [parentDir], if provided, must start and end with a slash.
   /// 
+  /// [extension], if provided, must start with a dot.
+  /// If not provided, it will be inferred from the [path].
+  /// 
   /// Returns the file path of the imported file.
-  static Future<String?> importFile(String path, String? parentDir, bool useOldExtension, {bool awaitWrite = true}) async {
+  static Future<String?> importFile(String path, String? parentDir, {String? extension, bool awaitWrite = true}) async {
     assert(parentDir == null || parentDir.startsWith('/') && parentDir.endsWith('/'));
 
-    // TODO(adil192): import sba files
-
-    final String fileName = path.split('/').last;
-    final String importedPath = await suffixFilePathToMakeItUnique('${parentDir ?? '/'}$fileName', useOldExtension);
-
-    final File tempFile = File(path);
-    final Uint8List fileContents;
-    try {
-      fileContents = await tempFile.readAsBytes();
-    } catch (e) {
-      log.severe('Failed to read file when importing $path: $e', e);
-      return null;
+    if (extension == null) {
+      extension = '.${path.split('.').last}';
+      assert(extension.length > 1);
+    } else {
+      assert(extension.startsWith('.')); // extension must start with a dot
     }
 
-    await writeFile(importedPath, fileContents, awaitWrite: awaitWrite);
+    /// The file name without its extension
+    String fileName = path.split('/').last;
+    fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+    final String importedPath;
+
+    final writeFutures = <Future>[];
+
+    if (extension == '.sba') {
+      final inputStream = InputFileStream(path);
+      final archive = ZipDecoder().decodeBuffer(inputStream);
+
+      final mainFile = archive.files.firstWhereOrNull(
+        (file) => file.name.endsWith('sbn') || file.name.endsWith('sbn2'),
+      );
+      if (mainFile == null) {
+        log.severe('Failed to find main note in sba: $path');
+        return null;
+      }
+      final mainFileExtension = '.${mainFile.name.split('.').last}';
+      importedPath = await suffixFilePathToMakeItUnique(
+        '${parentDir ?? '/'}$fileName',
+        intendedExtension: mainFileExtension,
+      );
+      final mainFileContents = () {
+        final output = OutputStream();
+        mainFile.writeContent(output);
+        return output.getBytes();
+      }();
+      writeFutures.add(
+        writeFile(
+          importedPath + mainFileExtension,
+          mainFileContents,
+          awaitWrite: awaitWrite,
+        ),
+      );
+
+      // now import assets
+      for (var file in archive.files) {
+        if (!file.isFile) continue;
+        if (file == mainFile) continue;
+
+        final extension = file.name.split('.').last;
+        final assetNumber = int.tryParse(extension);
+        if (assetNumber == null) continue;
+        if (assetNumber < 0) continue;
+
+        final assetBytes = () {
+          final output = OutputStream();
+          file.writeContent(output);
+          return output.getBytes();
+        }();
+        writeFutures.add(
+          writeFile(
+            '$importedPath$mainFileExtension.$assetNumber',
+            assetBytes,
+            awaitWrite: awaitWrite,
+          ),
+        );
+      }
+    } else { // import sbn or sbn2
+      final file = File(path);
+      final fileContents = await file.readAsBytes();
+      importedPath = await suffixFilePathToMakeItUnique(
+        '${parentDir ?? '/'}$fileName',
+        intendedExtension: extension,
+      );
+      writeFutures.add(
+        writeFile(
+          importedPath + extension,
+          fileContents,
+          awaitWrite: awaitWrite,
+        ),
+      );
+    }
+    
+    await Future.wait(writeFutures);
 
     return importedPath;
   }

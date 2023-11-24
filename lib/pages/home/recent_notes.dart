@@ -44,9 +44,9 @@ class _RecentPageState extends State<RecentPage> {
 
       final String newFilePath;
       if (filePath.startsWith('null/')) {
-        newFilePath = await FileManager.suffixFilePathToMakeItUnique(filePath.substring('null'.length), false);
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique(filePath.substring('null'.length));
       } else {
-        newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$filePath', false);
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$filePath');
       }
       
       log.warning('Found incorrectly imported file at `$filePath`; moving to `$newFilePath`');
