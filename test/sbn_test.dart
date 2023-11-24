@@ -154,16 +154,16 @@ void main() {
 
       // copy the file to the temporary directory
       await tester.runAsync(() => Future.wait([
-        File(path).copy(
-          FileManager.getFile(path).path,
-        ),
-        File('$path.0').copy(
-          FileManager.getFile('$path.0').path,
-        ),
+        FileManager.getFile('/$path')
+          .create(recursive: true)
+          .then((file) => File(path).copy(file.path)),
+        FileManager.getFile('/$path.0')
+          .create(recursive: true)
+          .then((file) => File('$path.0').copy(file.path)),
       ]));
 
       final coreInfo = await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
-        pathWithoutExtension,
+        '/$pathWithoutExtension',
       ));
       if (coreInfo == null) fail('Failed to load core info');
 
@@ -172,19 +172,16 @@ void main() {
       ));
       if (sba == null) fail('Failed to save SBA');
 
-      await tester.runAsync(() => FileManager.writeFile(
-        '$pathWithoutExtension.sba',
-        sba,
-        awaitWrite: true,
-        alsoUpload: false,
-      ));
-      
+      final sbaFile = File('$pathWithoutExtension.sba');
+      await tester.runAsync(() => sbaFile.writeAsBytes(sba));
+      addTearDown(sbaFile.delete);
+
       final importedPath = await tester.runAsync(() => FileManager.importFile(
-        FileManager.getFile('$pathWithoutExtension.sba').path,
+        sbaFile.path,
         null,
       ));
       if (importedPath == null) fail('Failed to import SBA');
-      
+
       final importedCoreInfo = await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
         importedPath,
       ));

@@ -105,6 +105,7 @@ class FileManager {
     if (shouldUseRawFilePath) {
       return File(filePath);
     } else {
+      assert(filePath.startsWith('/'), 'Expected filePath to start with a slash, got $filePath');
       return File('$documentsDirectory$filePath');
     }
   }
