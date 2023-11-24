@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   pull_request:
   push:
+    branches:
+      - main
 
 env:
   # MAINTENANCE_CHECKS_ENABLED is overridden later
