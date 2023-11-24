@@ -147,6 +147,66 @@ void main() {
         });
       });
     }
+
+    testWidgets('SBA export and import', (tester) async {
+      const path = 'test/sbn_examples/v19_separate_assets.sbn2';
+      final pathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
+
+      // copy the file to the temporary directory
+      await tester.runAsync(() => Future.wait([
+        File(path).copy(
+          FileManager.getFile(path).path,
+        ),
+        File('$path.0').copy(
+          FileManager.getFile('$path.0').path,
+        ),
+      ]));
+
+      final coreInfo = await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
+        pathWithoutExtension,
+      ));
+      if (coreInfo == null) fail('Failed to load core info');
+
+      final sba = await tester.runAsync(() => coreInfo.saveToSba(
+        currentPageIndex: null,
+      ));
+      if (sba == null) fail('Failed to save SBA');
+
+      await tester.runAsync(() => FileManager.writeFile(
+        '$pathWithoutExtension.sba',
+        sba,
+        awaitWrite: true,
+        alsoUpload: false,
+      ));
+      
+      final importedPath = await tester.runAsync(() => FileManager.importFile(
+        FileManager.getFile('$pathWithoutExtension.sba').path,
+        null,
+      ));
+      if (importedPath == null) fail('Failed to import SBA');
+      
+      final importedCoreInfo = await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
+        importedPath,
+      ));
+      if (importedCoreInfo == null) fail('Failed to load imported core info');
+
+      await tester.runAsync(() => _precacheImages(
+        context: tester.binding.rootElement!,
+        page: importedCoreInfo.pages.first,
+      ));
+      await tester.pumpWidget(_buildCanvas(
+        brightness: Brightness.light,
+        path: importedPath,
+        page: importedCoreInfo.pages.first,
+        coreInfo: importedCoreInfo,
+      ));
+      await tester.pumpAndSettle();
+
+      await expectLater(
+        find.byType(Canvas),
+        matchesGoldenFile('sbn_examples/v19_separate_assets.sbn2.light.png'),
+      );
+    });
   });
 }
 

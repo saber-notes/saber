@@ -460,6 +460,9 @@ class EditorCoreInfo {
   /// 
   /// In the archive, the main bson file is named `main.sbn2`,
   /// and the assets are named `main.sbn2.0`, `main.sbn2.1`, etc.
+  /// 
+  /// If [currentPageIndex] isn't null,
+  /// [initialPageIndex] will be updated to it before saving.
   Future<List<int>> saveToSba({
     required int? currentPageIndex,
   }) async {
