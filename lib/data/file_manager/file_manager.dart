@@ -554,6 +554,9 @@ class FileManager {
   }
 
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
+    // don't add assets (e.g. `mynote.sbn2.1`) to recently accessed
+    if (RegExp(r'\.\d+').hasMatch(filePath)) return;
+
     Prefs.recentFiles.value.remove(filePath);
     Prefs.recentFiles.value.insert(0, filePath);
     if (Prefs.recentFiles.value.length > maxRecentlyAccessedFiles) Prefs.recentFiles.value.removeLast();
