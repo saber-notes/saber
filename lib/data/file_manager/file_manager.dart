@@ -33,6 +33,7 @@ class FileManager {
   );
   static bool _fileWriteStreamIsListening = false;
 
+  // TODO(adil192): Implement or remove this
   static String _sanitisePath(String path) => File(path).path;
 
   static Future<void> init() async {
@@ -78,7 +79,7 @@ class FileManager {
     filePath = _sanitisePath(filePath);
 
     Uint8List? result;
-    final File file = File(documentsDirectory + filePath);
+    final File file = getFile(filePath);
     if (file.existsSync()) {
       result = await file.readAsBytes();
       if (result.isEmpty) result = null;
@@ -106,7 +107,7 @@ class FileManager {
       return File(filePath);
     } else {
       assert(filePath.startsWith('/'), 'Expected filePath to start with a slash, got $filePath');
-      return File('$documentsDirectory$filePath');
+      return File(documentsDirectory + filePath);
     }
   }
 
@@ -117,15 +118,14 @@ class FileManager {
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    final File file = File('$documentsDirectory$filePath');
+    final File file = getFile(filePath);
     await _createFileDirectory(filePath);
     Future writeFuture = Future.wait([
       file.writeAsBytes(toWrite),
 
       // if we're using a new format, also delete the old file
       if (filePath.endsWith(Editor.extension))
-        File(
-          '$documentsDirectory'
+        getFile(
           '${filePath.substring(0, filePath.length - Editor.extension.length)}'
           '${Editor.extensionOldJson}'
         )
@@ -215,8 +215,8 @@ class FileManager {
 
     if (fromPath == toPath) return toPath;
 
-    final File fromFile = File(documentsDirectory + fromPath);
-    final File toFile = File(documentsDirectory + toPath);
+    final File fromFile = getFile(fromPath);
+    final File toFile = getFile(toPath);
     await _createFileDirectory(toPath);
     if (fromFile.existsSync()) {
       await fromFile.rename(toFile.path);
@@ -237,7 +237,7 @@ class FileManager {
   static Future deleteFile(String filePath, {bool alsoUpload = true}) async {
     filePath = _sanitisePath(filePath);
 
-    final File file = File(documentsDirectory + filePath);
+    final File file = getFile(filePath);
     if (!file.existsSync()) return;
     await file.delete();
 
@@ -296,7 +296,6 @@ class FileManager {
     final Iterable<String> allChildren;
     final List<String> directories = [], files = [];
 
-    final String documentsDirectory = FileManager.documentsDirectory;
     final Directory dir = Directory(documentsDirectory + directory);
     if (!dir.existsSync()) return null;
 
@@ -357,13 +356,13 @@ class FileManager {
 
   static Future<bool> doesFileExist(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final File file = File(documentsDirectory + filePath);
+    final File file = getFile(filePath);
     return file.existsSync();
   }
 
   static Future<DateTime> lastModified(String filePath) async {
     filePath = _sanitisePath(filePath);
-    final File file = File(documentsDirectory + filePath);
+    final File file = getFile(filePath);
     return file.lastModifiedSync();
   }
 
