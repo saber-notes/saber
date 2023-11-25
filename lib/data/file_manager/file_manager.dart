@@ -322,6 +322,8 @@ class FileManager {
     await Future.wait(allChildren.map((child) async {
       if (await FileManager.isDirectory(directory + child) && !directories.contains(child)) {
         directories.add(child);
+      } else if (RegExp(r'\.\d+').hasMatch(child)) {
+        // if the file is an asset, don't add it to the list of files
       } else {
         files.add(child);
       }
