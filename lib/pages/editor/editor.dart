@@ -809,34 +809,24 @@ class EditorState extends State<Editor> {
   }
 
 
+  late final _filenameFormKey = GlobalKey<FormState>();
   late final filenameTextEditingController = TextEditingController();
   Timer? _renameTimer;
-  void renameFile(String newName) {
+  void renameFile([String? _]) {
     _renameTimer?.cancel();
-
-    if (newName.contains('/') || newName.isEmpty) { // if invalid name, don't rename
-      // TODO(adil192): notify user
-      _renameTimer = Timer(const Duration(milliseconds: 5000), () {
-        filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
-          text: coreInfo.fileName,
-          selection: TextSelection.fromPosition(TextPosition(offset: coreInfo.fileName.length)),
-          composing: TextRange.empty,
-        );
-      });
-    } else { // rename after a delay
-      _renameTimer = Timer(const Duration(milliseconds: 5000), () {
-        _renameFileNow(newName);
-      });
-    }
+    _renameTimer = Timer(const Duration(seconds: 5), _renameFileNow);
   }
-  Future<void> _renameFileNow(String newName) async {
+  Future<void> _renameFileNow() async {
+    final newName = filenameTextEditingController.text;
     if (newName == coreInfo.fileName) return;
 
-    coreInfo.filePath = await FileManager.moveFile(coreInfo.filePath + Editor.extension, newName + Editor.extension);
-    coreInfo.filePath = coreInfo.filePath.substring(0, coreInfo.filePath.lastIndexOf(Editor.extension));
-    needsNaming = false;
+    if (_filenameFormKey.currentState?.validate() ?? true) {
+      coreInfo.filePath = await FileManager.moveFile(coreInfo.filePath + Editor.extension, newName + Editor.extension);
+      coreInfo.filePath = coreInfo.filePath.substring(0, coreInfo.filePath.lastIndexOf(Editor.extension));
+      needsNaming = false;
+    }
 
-    final String actualName = coreInfo.fileName;
+    final actualName = coreInfo.fileName;
     if (actualName != newName) { // update text field if renamed differently
       filenameTextEditingController.value = filenameTextEditingController.value.copyWith(
         text: actualName,
@@ -844,6 +834,12 @@ class EditorState extends State<Editor> {
         composing: TextRange.empty,
       );
     }
+  }
+  String? _validateFilenameTextField(String? newName) {
+    if (newName == null) return null;
+    if (newName.isEmpty) return t.home.renameNote.noteNameEmpty;
+    if (newName.contains('/')) return t.home.renameNote.noteNameContainsSlash;
+    return null;
   }
 
   void updateColorBar(Color color) {
@@ -1487,13 +1483,18 @@ class EditorState extends State<Editor> {
       child: Scaffold(
         appBar: DynamicMaterialApp.isFullscreen ? null : AppBar(
           toolbarHeight: kToolbarHeight,
-          title: widget.customTitle != null ? Text(widget.customTitle!) : TextField(
-            decoration: const InputDecoration(
-              border: InputBorder.none,
+          title: widget.customTitle != null ? Text(widget.customTitle!) : Form(
+            key: _filenameFormKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: TextFormField(
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+              controller: filenameTextEditingController,
+              onChanged: renameFile,
+              autofocus: needsNaming,
+              validator: _validateFilenameTextField,
             ),
-            controller: filenameTextEditingController,
-            onChanged: renameFile,
-            autofocus: needsNaming,
           ),
           leading: SaveIndicator(
             savingState: savingState,
@@ -1802,7 +1803,7 @@ class EditorState extends State<Editor> {
     (() async {
       if (_renameTimer?.isActive ?? false) {
         _renameTimer!.cancel();
-        await _renameFileNow(filenameTextEditingController.text);
+        await _renameFileNow();
         filenameTextEditingController.dispose();
       }
       await saveToFile();
