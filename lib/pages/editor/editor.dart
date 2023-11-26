@@ -795,6 +795,10 @@ class EditorState extends State<Editor> {
               bytes,
               awaitWrite: true,
             )),
+        FileManager.removeUnusedAssets(
+          filePath,
+          numAssets: assets.length,
+        ),
       ]);
       savingState.value = SavingState.saved;
     } catch (e) {

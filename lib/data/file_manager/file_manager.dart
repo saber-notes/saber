@@ -247,6 +247,21 @@ class FileManager {
     broadcastFileWrite(FileOperationType.delete, filePath);
   }
 
+  static Future removeUnusedAssets(String filePath, {required int numAssets}) async {
+    final futures = <Future>[];
+
+    for (int assetNumber = numAssets; true; assetNumber++) {
+      final assetPath = '$filePath.$assetNumber';
+      if (getFile(assetPath).existsSync()) {
+        futures.add(deleteFile(assetPath));
+      } else {
+        break;
+      }
+    }
+
+    await Future.wait(futures);
+  }
+
   static Future renameDirectory(String directoryPath, String newName) async {
     directoryPath = _sanitisePath(directoryPath);
 
