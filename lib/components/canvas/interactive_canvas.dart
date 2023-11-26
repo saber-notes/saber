@@ -1,7 +1,7 @@
 // Adapted for Saber from Flutter's InteractiveViewer class
 // https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
 // Using this commit (Flutter 3.16.0):
-// https://github.com/flutter/flutter/blob/28605398ec4b797a45c1b56ed489ddcda9f738aa/packages/flutter/lib/src/widgets/interactive_viewer.dart
+// https://github.com/flutter/flutter/blob/6e5134b0673eabe85fbd898b876185daf5a1b110/packages/flutter/lib/src/widgets/interactive_viewer.dart
 
 // Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -20,8 +20,6 @@ typedef InteractiveCanvasViewerWidgetBuilder = Widget Function(BuildContext cont
 @immutable
 class InteractiveCanvasViewer extends StatefulWidget {
   /// Create an InteractiveCanvasViewer.
-  ///
-  /// The [child] parameter must not be null.
   InteractiveCanvasViewer({
     super.key,
     this.clipBehavior = Clip.hardEdge,
@@ -71,8 +69,8 @@ class InteractiveCanvasViewer extends StatefulWidget {
   /// Can be used to render a child that changes in response to the current
   /// transformation.
   ///
-  /// The [builder] parameter must not be null. See its docs for an example of
-  /// using it to optimize a large child.
+  /// See the [builder] attribute docs for an example of using it to optimize a
+  /// large child.
   InteractiveCanvasViewer.builder({
     super.key,
     this.clipBehavior = Clip.hardEdge,
@@ -269,7 +267,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Defaults to 2.5.
   ///
-  /// Cannot be null, and must be greater than zero and greater than minScale.
+  /// Must be greater than zero and greater than minScale.
   final double maxScale;
 
   /// The minimum allowed scale.
@@ -283,7 +281,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Defaults to 0.8.
   ///
-  /// Cannot be null, and must be a finite number greater than zero and less
+  /// Must be a finite number greater than zero and less
   /// than maxScale.
   final double minScale;
 
@@ -291,7 +289,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Defaults to 0.0000135.
   ///
-  /// Cannot be null, and must be a finite number greater than zero.
+  /// Must be a finite number greater than zero.
   final double interactionEndFrictionCoefficient;
 
   /// Called when the user ends a pan or scale gesture on the widget.
