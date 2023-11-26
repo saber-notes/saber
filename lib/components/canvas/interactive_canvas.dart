@@ -1,7 +1,7 @@
 // Adapted for Saber from Flutter's InteractiveViewer class
 // https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
-// Using this commit (Flutter 3.10.0):
-// https://github.com/flutter/flutter/blob/fda9ecfef76b57ae459675fdf262342a77c2c6ba/packages/flutter/lib/src/widgets/interactive_viewer.dart
+// Using this commit (Flutter 3.16.0):
+// https://github.com/flutter/flutter/blob/28605398ec4b797a45c1b56ed489ddcda9f738aa/packages/flutter/lib/src/widgets/interactive_viewer.dart
 
 // Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -954,7 +954,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer> with 
   void _receivedPointerSignal(PointerSignalEvent event) {
     final double scaleChange;
     if (event is PointerScrollEvent) {
-      if (event.kind == PointerDeviceKind.trackpad) {
+      if (event.kind == PointerDeviceKind.trackpad && !widget.trackpadScrollCausesScale) {
         // Trackpad scroll, so treat it as a pan.
         if (!_gestureIsSupported(_GestureType.pan)) return;
 
