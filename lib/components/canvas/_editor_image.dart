@@ -289,21 +289,6 @@ class EditorImage extends ChangeNotifier {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
 
-    if ((thumbnailBytes?.isEmpty ?? true) && !isThumbnail && imageProvider is MemoryImage) {
-      thumbnailSize = resize(naturalSize, const Size(300, 300));
-      // if [naturalSize] is big enough to warrant a thumbnail
-      if (thumbnailSize.width * 1.5 < naturalSize.width) {
-        await null; // wait for next event-loop iteration
-        final resizedByteData = await resizeImage(
-          (imageProvider as MemoryImage).bytes,
-          width: thumbnailSize.width.toInt(),
-          height: thumbnailSize.height.toInt(),
-        );
-        thumbnailBytes = resizedByteData?.buffer.asUint8List();
-      } else { // no need to resize
-        thumbnailBytes = null; // will fall back to full-size image
-      }
-    }
     if (isThumbnail) {
       isThumbnail = true; // updates bytes and srcRect
     }
