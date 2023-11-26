@@ -110,10 +110,10 @@ packages:
     dependency: transitive
     description:
       name: built_value
-      sha256: "723b4021e903217dfc445ec4cf5b42e27975aece1fc4ebbc1ca6329c2d9fb54e"
+      sha256: "69acb7007eb2a31dc901512bfe0f7b767168be34cb734835d54c070bfa74c1b2"
       url: "https://pub.dev"
     source: hosted
-    version: "8.7.0"
+    version: "8.8.0"
   characters:
     dependency: transitive
     description:
@@ -122,14 +122,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.0"
-  charcode:
-    dependency: transitive
-    description:
-      name: charcode
-      sha256: fb98c0f6d12c920a02ee2d998da788bca066ca5f148492b7085ee23372b12306
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.1"
   checked_yaml:
     dependency: transitive
     description:
@@ -190,10 +182,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: "445db18de832dba8d851e287aff8ccf169bed30d2e94243cb54c7d2f1ed2142c"
+      sha256: "2f9d2cbccb76127ba28528cb3ae2c2326a122446a83de5a056aaa3880d3882c5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.3+6"
+    version: "0.3.3+7"
   crypto:
     dependency: "direct main"
     description:
@@ -279,7 +271,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "36200dcb414e8ee4ab1abb3ee901b352e3c725d9"
+      resolved-ref: e22b6f3ca2ebb0bd64fe5a4719c0dfd7516c0c63
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -364,10 +356,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_animate
-      sha256: "62f346340a96192070e31e3f2a1bd30a28530f1fe8be978821e06cd56b74d6d2"
+      sha256: "1dbc1aabfb8ec1e9d9feed2b675c21fb6b0a11f99be53ec3bc0f1901af6a8eb7"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0+1"
+    version: "4.3.0"
   flutter_colorpicker:
     dependency: "direct main"
     description:
@@ -454,10 +446,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "7ffe6f0ea651ee64aa3ac0e659fa82f097f25ab060a533081ad0ec26ea354b57"
+      sha256: "25f34f5bd775306f80f5bb33db19f9fa58998c2defb85008bbffba688cd1f9dd"
       url: "https://pub.dev"
     source: hosted
-    version: "8.6.1"
+    version: "8.6.3"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -764,7 +756,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: main
-      resolved-ref: "36200dcb414e8ee4ab1abb3ee901b352e3c725d9"
+      resolved-ref: e22b6f3ca2ebb0bd64fe5a4719c0dfd7516c0c63
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -975,10 +967,10 @@ packages:
     dependency: "direct dev"
     description:
       name: process_run
-      sha256: "1cb96f835ec02ba1a35af4e6f99f937618023b6d2ffba88f0c0f1041af2e9f12"
+      sha256: "94413ec6bbd05dfe7c3002c379724f75f185ff7f0a5dfb1851a42473d84c956e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.2"
+    version: "0.13.3"
   provider:
     dependency: transitive
     description:
@@ -1257,6 +1249,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.2"
+  uri:
+    dependency: transitive
+    description:
+      name: uri
+      sha256: "889eea21e953187c6099802b7b4cf5219ba8f3518f604a1033064d45b1b8268a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   uri_to_file:
     dependency: transitive
     description:
@@ -1318,10 +1318,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: "7fd2f55fe86cea2897b963e864dc01a7eb0719ecc65fcef4c1cc3d686d718bb2"
+      sha256: "138bd45b3a456dcfafc46d1a146787424f8d2edfbf2809c9324361e58f851cf7"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.1"
   url_launcher_windows:
     dependency: transitive
     description:
