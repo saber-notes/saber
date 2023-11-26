@@ -203,6 +203,7 @@ class _RecentPageState extends State<RecentPage> {
                       filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
                     )),
               ]);
+              selectedFiles.value = [];
             },
             icon: const Icon(Icons.delete_forever),
           ),
