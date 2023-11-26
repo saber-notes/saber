@@ -1,0 +1,2 @@
+• Leistungsverbesserungen durch separates Speichern von Bildern/PDFs in der Hauptnotiz
+• Fehler beim Umbenennen einer Notiz werden dem Benutzer jetzt gemeldet

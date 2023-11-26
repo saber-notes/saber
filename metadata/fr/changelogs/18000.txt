@@ -1,0 +1,2 @@
+• Améliorations des performances en stockant les images/PDF séparément dans la note principale
+• Les erreurs lors du renommage d'une note sont désormais signalées à l'utilisateur

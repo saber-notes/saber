@@ -1,0 +1,2 @@
+• Zlepšení výkonu ukládáním obrázků/souborů PDF odděleně do hlavní poznámky
+• Chyby při přejmenování poznámky jsou nyní hlášeny uživateli

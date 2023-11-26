@@ -271,6 +271,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.0" type="development" date="2023-11-26">
+            <description>
+                <ul>
+                    <li>Performance improvements by storing images/PDFs separately to the main note</li>
+                    <li>Errors when renaming a note are now reported to the user</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.17.2" type="development" date="2023-11-21">
             <description>
                 <ul>

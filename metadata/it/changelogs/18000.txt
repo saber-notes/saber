@@ -1,0 +1,2 @@
+• Miglioramenti delle prestazioni memorizzando immagini/PDF separatamente nella nota principale
+• Gli errori durante la ridenominazione di una nota vengono ora segnalati all'utente

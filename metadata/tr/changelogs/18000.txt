@@ -1,0 +1,2 @@
+• Görüntüleri/PDF'leri ana notta ayrı ayrı saklayarak performans iyileştirmeleri
+• Bir notu yeniden adlandırırken oluşan hatalar artık kullanıcıya bildiriliyor
