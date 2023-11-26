@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';

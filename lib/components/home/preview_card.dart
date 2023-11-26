@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';

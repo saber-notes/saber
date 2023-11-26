@@ -9,7 +9,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';

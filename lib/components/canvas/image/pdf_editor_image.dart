@@ -7,7 +7,7 @@ import 'package:logging/logging.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';

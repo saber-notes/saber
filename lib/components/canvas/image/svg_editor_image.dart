@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/pages/editor/editor.dart';
 

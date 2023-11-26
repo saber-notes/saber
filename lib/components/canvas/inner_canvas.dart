@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_canvas_painter.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
