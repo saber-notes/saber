@@ -41,8 +41,15 @@ class _BrowsePageState extends State<BrowsePage> {
 
     findChildrenOfPath();
     fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
+    selectedFiles.addListener(_setState);
 
     super.initState();
+  }
+  @override
+  void dispose() {
+    selectedFiles.removeListener(_setState);
+    fileWriteSubscription?.cancel();
+    super.dispose();
   }
 
   StreamSubscription? fileWriteSubscription;
@@ -50,6 +57,8 @@ class _BrowsePageState extends State<BrowsePage> {
     if (!event.filePath.startsWith(path ?? '/')) return;
     findChildrenOfPath(fromFileListener: true);
   }
+
+  void _setState() => setState(() {});
 
   Future findChildrenOfPath({bool fromFileListener = false}) async {
     if (!mounted) return;
@@ -190,76 +199,37 @@ class _BrowsePageState extends State<BrowsePage> {
         cupertino: cupertino,
         path: path,
       ),
-      persistentFooterButtons: [
-        ValueListenableBuilder(
-          valueListenable: selectedFiles,
-          builder: (context, selectedFiles, _) {
-            return Collapsible(
-              axis: CollapsibleAxis.vertical,
-              collapsed: selectedFiles.length != 1,
-              child: RenameNoteButton(
-                existingPath: selectedFiles.isEmpty
-                  ? ''
-                  : selectedFiles.first,
-              )
-            );
-          },
+      persistentFooterButtons: selectedFiles.value.isEmpty ? null : [
+        Collapsible(
+          axis: CollapsibleAxis.vertical,
+          collapsed: selectedFiles.value.length != 1,
+          child: RenameNoteButton(
+            existingPath: selectedFiles.value.isEmpty
+              ? ''
+              : selectedFiles.value.first,
+          )
         ),
-        ValueListenableBuilder(
-          valueListenable: selectedFiles,
-          builder: (context, selectedFiles, _) {
-            return Collapsible(
-              axis: CollapsibleAxis.vertical,
-              collapsed: selectedFiles.isEmpty,
-              child: MoveNoteButton(
-                filesToMove: selectedFiles,
-              ),
-            );
-          },
+        MoveNoteButton(
+          filesToMove: selectedFiles.value,
         ),
-        ValueListenableBuilder(
-          valueListenable: selectedFiles,
-          builder: (context, selectedFiles, child) {
-            return Collapsible(
-              axis: CollapsibleAxis.vertical,
-              collapsed: selectedFiles.isEmpty,
-              child: child!,
-            );
+        IconButton(
+          padding: EdgeInsets.zero,
+          tooltip: t.home.deleteNote,
+          onPressed: () async {
+            await Future.wait([
+              for (String filePath in selectedFiles.value)
+                FileManager.doesFileExist(filePath + Editor.extensionOldJson)
+                  .then((oldExtension) => FileManager.deleteFile(
+                    filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
+                  )),
+            ]);
           },
-          child: IconButton(
-            padding: EdgeInsets.zero,
-            tooltip: t.home.deleteNote,
-            onPressed: () async {
-              await Future.wait([
-                for (String filePath in selectedFiles.value)
-                  FileManager.doesFileExist(filePath + Editor.extensionOldJson)
-                    .then((oldExtension) => FileManager.deleteFile(
-                      filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
-                    )),
-              ]);
-            },
-            icon: const Icon(Icons.delete_forever),
-          ),
+          icon: const Icon(Icons.delete_forever),
         ),
-        ValueListenableBuilder(
-          valueListenable: selectedFiles,
-          builder: (context, selectedFiles, child) {
-            return Collapsible(
-              axis: CollapsibleAxis.vertical,
-              collapsed: selectedFiles.isEmpty,
-              child: ExportNoteButton(
-                selectedFiles: selectedFiles,
-              ),
-            );
-          },
+        ExportNoteButton(
+          selectedFiles: selectedFiles.value,
         ),
       ],
     );
-  }
-
-  @override
-  void dispose() {
-    fileWriteSubscription?.cancel();
-    super.dispose();
   }
 }
