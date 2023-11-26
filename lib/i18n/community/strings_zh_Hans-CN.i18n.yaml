@@ -17,7 +17,7 @@ home:
     newNote: 新建笔记
     importNote: 导入笔记
   welcome: 欢迎使用 Saber
-  invalidFormat: 不支持该文件。请选择 .sbn、.sbn2 或 .pdf 文件。
+  invalidFormat: 不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。
   noFiles: 未找到文件
   createNewNote: 点击 + 按钮新建一个笔记
   backFolder: 回到上一个文件夹

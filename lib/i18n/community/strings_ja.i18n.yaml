@@ -55,7 +55,7 @@ home:
     alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
   backFolder(OUTDATED): 前のフォルダーに戻ります
   deleteNote(OUTDATED): メモの削除
-  invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。
+  invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
 settings:
   prefCategories:
     general: 一般

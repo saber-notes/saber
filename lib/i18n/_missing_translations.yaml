@@ -10,7 +10,7 @@ ar:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveNotes(OUTDATED): Move $n notes
@@ -80,7 +80,7 @@ de:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveNotes(OUTDATED): Move $n notes
@@ -162,7 +162,7 @@ fa:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
     moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -258,7 +258,7 @@ hu:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     newFolder:
       newFolder(OUTDATED): New folder
@@ -431,7 +431,7 @@ ja:
     create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file."
+    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
     backFolder(OUTDATED): Go back to the previous folder
     moveNote:
       moveNotes(OUTDATED): Move $n notes

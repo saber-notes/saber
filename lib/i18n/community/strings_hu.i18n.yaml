@@ -55,7 +55,7 @@ home:
     deleteName(OUTDATED): $f törlése
   backFolder(OUTDATED): Menjen vissza az előző mappába
   deleteNote(OUTDATED): Jegyzet törlése
-  invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt."
+  invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt."
 settings:
   prefCategories:
     general: Általános

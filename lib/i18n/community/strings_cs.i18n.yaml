@@ -17,7 +17,7 @@ home:
     newNote: Nová poznámka
     importNote: Import poznámky
   welcome: Vítejte v aplikaci Saber
-  invalidFormat: "Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2 nebo .pdf."
+  invalidFormat: "Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf."
   noFiles: Žádné poznámky nebyly nalezeny
   createNewNote: Pro přidání nové poznámky klepněte na tlačítko +
   backFolder: Přejít do předchozí složky

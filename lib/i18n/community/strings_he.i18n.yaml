@@ -17,7 +17,7 @@ home:
     newNote: פתק חדש
     importNote: יבא פתק
   welcome: ברוכים הבאים ל Saber
-  invalidFormat: הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn' .sbn2 או .pdf
+  invalidFormat: הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn' .sbn2' .sba או .pdf
   noFiles: קבצים לא נמצאו
   createNewNote: הקש על הלחצן + כדי ליצור הערה חדשה
   backFolder: חזור אחורה לתקייה הקודמת

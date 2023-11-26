@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 3998 (249 per locale)
 ///
-/// Built on 2023-11-18 at 13:42 UTC
+/// Built on 2023-11-26 at 18:43 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -178,7 +178,7 @@ class _StringsHomeEn {
 	late final _StringsHomeTooltipsEn tooltips = _StringsHomeTooltipsEn._(_root);
 	late final _StringsHomeCreateEn create = _StringsHomeCreateEn._(_root);
 	String get welcome => 'Welcome to Saber';
-	String get invalidFormat => 'The file you selected is not supported. Please select a .sbn, .sbn2 or .pdf file.';
+	String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
 	String get noFiles => 'No files found';
 	String get createNewNote => 'Tap the + button to create a new note';
 	String get backFolder => 'Go back to the previous folder';
@@ -964,7 +964,7 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
 	@override String get backFolder => 'ارجع إلى المجلد السابق';
 	@override String get deleteNote => 'حذف الملاحظة';
-	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.';
+	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf.';
 }
 
 // Path: settings
@@ -1732,7 +1732,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsCs tooltips = _StringsHomeTooltipsCs._(_root);
 	@override late final _StringsHomeCreateCs create = _StringsHomeCreateCs._(_root);
 	@override String get welcome => 'Vítejte v aplikaci Saber';
-	@override String get invalidFormat => 'Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2 nebo .pdf.';
+	@override String get invalidFormat => 'Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
 	@override String get backFolder => 'Přejít do předchozí složky';
@@ -2518,7 +2518,7 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
 	@override String get backFolder => 'Zurück zum vorherigen Ordner';
 	@override String get deleteNote => 'Notiz löschen';
-	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus.';
+	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2-, .sba oder .pdf-Datei aus.';
 }
 
 // Path: settings
@@ -3285,7 +3285,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsEs tooltips = _StringsHomeTooltipsEs._(_root);
 	@override late final _StringsHomeCreateEs create = _StringsHomeCreateEs._(_root);
 	@override String get welcome => 'Te damos la bienvenida a Saber';
-	@override String get invalidFormat => 'El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2 or .pdf.';
+	@override String get invalidFormat => 'El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf.';
 	@override String get noFiles => 'No se ha encontrado ninguna nota';
 	@override String get createNewNote => 'Presiona el botón + para crear una nueva nota';
 	@override String get backFolder => 'Volver a la carpeta anterior';
@@ -4070,7 +4070,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override String get deleteNote => 'حذف یادداشت';
 	@override late final _StringsHomeRenameFolderFa renameFolder = _StringsHomeRenameFolderFa._(_root);
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
-	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2 یا pdf. انتخاب کنید.';
+	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2, .sba یا pdf. انتخاب کنید.';
 }
 
 // Path: settings
@@ -4838,7 +4838,7 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsFr tooltips = _StringsHomeTooltipsFr._(_root);
 	@override late final _StringsHomeCreateFr create = _StringsHomeCreateFr._(_root);
 	@override String get welcome => 'Bienvenue dans Saber';
-	@override String get invalidFormat => 'Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2 ou .pdf.';
+	@override String get invalidFormat => 'Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.';
 	@override String get noFiles => 'Aucun fichier trouvé';
 	@override String get createNewNote => 'Presser le bouton + pour créer une nouvelle note';
 	@override String get backFolder => 'Retour au dossier précédent';
@@ -5614,7 +5614,7 @@ class _StringsHomeHe extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsHe tooltips = _StringsHomeTooltipsHe._(_root);
 	@override late final _StringsHomeCreateHe create = _StringsHomeCreateHe._(_root);
 	@override String get welcome => 'ברוכים הבאים ל Saber';
-	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2 או .pdf';
+	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2\' .sba או .pdf';
 	@override String get noFiles => 'קבצים לא נמצאו';
 	@override String get createNewNote => 'הקש על הלחצן + כדי ליצור הערה חדשה';
 	@override String get backFolder => 'חזור אחורה לתקייה הקודמת';
@@ -6400,7 +6400,7 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
 	@override String get backFolder => 'Menjen vissza az előző mappába';
 	@override String get deleteNote => 'Jegyzet törlése';
-	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2 vagy .pdf fájlt.';
+	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
 }
 
 // Path: settings
@@ -7168,7 +7168,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsIt tooltips = _StringsHomeTooltipsIt._(_root);
 	@override late final _StringsHomeCreateIt create = _StringsHomeCreateIt._(_root);
 	@override String get welcome => 'Benvenuto su Saber';
-	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf.';
+	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
 	@override String get backFolder => 'Torna alla cartella precedente';
@@ -7954,7 +7954,7 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
 	@override String get backFolder => '前のフォルダーに戻ります';
 	@override String get deleteNote => 'メモの削除';
-	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、または .pdf ファイルを選択してください。';
+	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。';
 }
 
 // Path: settings
@@ -8722,7 +8722,7 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsPtBr tooltips = _StringsHomeTooltipsPtBr._(_root);
 	@override late final _StringsHomeCreatePtBr create = _StringsHomeCreatePtBr._(_root);
 	@override String get welcome => 'Bem-vindo(a) ao Saber';
-	@override String get invalidFormat => 'O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2 ou .pdf.';
+	@override String get invalidFormat => 'O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf.';
 	@override String get noFiles => 'Nenhum arquivo encontrado';
 	@override String get createNewNote => 'Toque no botão + para criar uma nova nota';
 	@override String get backFolder => 'Retornar para a pasta anterior';
@@ -9499,7 +9499,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsRu tooltips = _StringsHomeTooltipsRu._(_root);
 	@override late final _StringsHomeCreateRu create = _StringsHomeCreateRu._(_root);
 	@override String get welcome => 'Приветствуем в Saber';
-	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2 или .pdf.';
+	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.';
 	@override String get noFiles => 'Файлов ещё нет';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
 	@override String get backFolder => 'Вернуться к предыдущей папке';
@@ -10276,7 +10276,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsTr tooltips = _StringsHomeTooltipsTr._(_root);
 	@override late final _StringsHomeCreateTr create = _StringsHomeCreateTr._(_root);
 	@override String get welcome => 'Saber\'a hoş geldiniz';
-	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2 veya .pdf dosyası seçin.';
+	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.';
 	@override String get noFiles => 'Dosya yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
 	@override String get backFolder => 'Önceki klasöre dön';
@@ -11053,7 +11053,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsZhHansCn tooltips = _StringsHomeTooltipsZhHansCn._(_root);
 	@override late final _StringsHomeCreateZhHansCn create = _StringsHomeCreateZhHansCn._(_root);
 	@override String get welcome => '欢迎使用 Saber';
-	@override String get invalidFormat => '不支持该文件。请选择 .sbn、.sbn2 或 .pdf 文件。';
+	@override String get invalidFormat => '不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。';
 	@override String get noFiles => '未找到文件';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
 	@override String get backFolder => '回到上一个文件夹';
@@ -11830,7 +11830,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsZhHantTw tooltips = _StringsHomeTooltipsZhHantTw._(_root);
 	@override late final _StringsHomeCreateZhHantTw create = _StringsHomeCreateZhHantTw._(_root);
 	@override String get welcome => '歡迎使用 Saber';
-	@override String get invalidFormat => '「不支援您選擇的檔案，請選擇 .sbn、.sbn2 或 .pdf 檔案。」';
+	@override String get invalidFormat => '「不支援您選擇的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。」';
 	@override String get noFiles => '未找到檔案';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
 	@override String get backFolder => '返回上一個資料夾';

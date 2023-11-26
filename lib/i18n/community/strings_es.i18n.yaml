@@ -17,7 +17,7 @@ home:
     newNote: Nueva nota
     importNote: Importar nota
   welcome: Te damos la bienvenida a Saber
-  invalidFormat: "El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2 or .pdf."
+  invalidFormat: "El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf."
   noFiles: No se ha encontrado ninguna nota
   createNewNote: Presiona el botón + para crear una nueva nota
   backFolder: Volver a la carpeta anterior

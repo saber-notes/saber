@@ -55,7 +55,7 @@ home:
     delete(OUTDATED): يمسح
   backFolder(OUTDATED): ارجع إلى المجلد السابق
   deleteNote(OUTDATED): حذف الملاحظة
-  invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2 أو .pdf.
+  invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf.
 settings:
   prefCategories:
     general: عام

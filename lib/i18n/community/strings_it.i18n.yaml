@@ -17,7 +17,7 @@ home:
     newNote: Nuova nota
     importNote: Importa nota
   welcome: Benvenuto su Saber
-  invalidFormat: "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2 o .pdf."
+  invalidFormat: "Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf."
   noFiles: Nessun file trovato
   createNewNote: Tocca il pulsante + per creare una nuova nota
   backFolder: Torna alla cartella precedente

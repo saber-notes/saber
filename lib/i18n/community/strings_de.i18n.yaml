@@ -55,7 +55,7 @@ home:
     alsoDeleteContents(OUTDATED): Lösche außerdem alle Notizen in diesem Ordner
   backFolder(OUTDATED): Zurück zum vorherigen Ordner
   deleteNote(OUTDATED): Notiz löschen
-  invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2- oder .pdf-Datei aus."
+  invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2-, .sba oder .pdf-Datei aus."
 settings:
   prefCategories:
     general: Allgemein
