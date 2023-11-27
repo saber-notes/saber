@@ -77,6 +77,8 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   void initState() {
+    widget.image.loadIn();
+
     if (widget.image.newImage) { // if the image is new, make it [active]
       active = true;
       widget.image.newImage = false;
@@ -255,6 +257,7 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   void dispose() {
+    widget.image.loadOut();
     widget.image.removeListener(imageListener);
     CanvasImage.activeListener.removeListener(disableActive);
     super.dispose();

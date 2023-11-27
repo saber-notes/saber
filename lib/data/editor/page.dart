@@ -199,7 +199,6 @@ class EditorPage extends Listenable {
     json,
     inlineAssets: inlineAssets,
     isThumbnail: isThumbnail,
-    onMainThread: false,
     sbnPath: sbnPath,
     assetCache: assetCache,
   );

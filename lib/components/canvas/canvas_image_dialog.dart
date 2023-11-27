@@ -69,10 +69,10 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           final List<int> bytes;
           switch (widget.image) {
             case PdfEditorImage image:
-              if (!image.loaded) return;
+              if (!image.loadedIn) await image.loadIn();
               bytes = image.pdfBytes!;
             case SvgEditorImage image:
-              if (!image.loaded) return;
+              if (!image.loadedIn) await image.loadIn();
               bytes = utf8.encode(image.svgString!);
             case PngEditorImage image:
               if (image.imageProvider is MemoryImage) {

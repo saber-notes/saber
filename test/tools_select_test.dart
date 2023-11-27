@@ -80,6 +80,7 @@ void main() {
   });
 }
 
+// ignore: missing_override_of_must_be_overridden
 class TestImage extends PngEditorImage {
   static final _assetCache = AssetCache();
 
@@ -98,14 +99,7 @@ class TestImage extends PngEditorImage {
         );
 
   @override
-  Future<void> getImage({Size? pageSize}) async {
+  Future<void> firstLoad() async {
     // do nothing
-  }
-  
-  @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) {
-    return {
-      ...super.toJson(assets),
-    };
   }
 }

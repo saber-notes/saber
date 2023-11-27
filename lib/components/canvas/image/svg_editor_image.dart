@@ -27,7 +27,6 @@ class SvgEditorImage extends EditorImage {
     super.srcRect,
     super.naturalSize,
     super.isThumbnail,
-    super.onMainThread,
   }): assert(svgString != null || svgFile != null, 'svgFile must be set if svgString is null'),
       super(
         extension: '.svg',
@@ -36,7 +35,6 @@ class SvgEditorImage extends EditorImage {
   factory SvgEditorImage.fromJson(Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
-    bool onMainThread = true,
     required String sbnPath,
     required AssetCache assetCache,
   }) {
@@ -91,7 +89,6 @@ class SvgEditorImage extends EditorImage {
         json['nh'] ?? 0,
       ),
       isThumbnail: isThumbnail,
-      onMainThread: onMainThread,
     );
   }
 
@@ -116,7 +113,7 @@ class SvgEditorImage extends EditorImage {
   }
 
   @override
-  Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
+  Future<void> firstLoad() async {
     if (svgString == null) {
       svgString = await svgFile!.readAsString();
       assetCache.add(svgFile!, svgString!);
@@ -130,7 +127,9 @@ class SvgEditorImage extends EditorImage {
         srcRect = srcRect.topLeft & naturalSize;
       }
       if (dstRect.shortestSide == 0) {
-        final Size dstSize = pageSize != null ? EditorImage.resize(naturalSize, pageSize) : naturalSize;
+        final Size dstSize = pageSize != null
+            ? EditorImage.resize(naturalSize, pageSize!)
+            : naturalSize;
         dstRect = dstRect.topLeft & dstSize;
       }
     }
@@ -138,8 +137,24 @@ class SvgEditorImage extends EditorImage {
     if (naturalSize.shortestSide == 0) {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
+  }
 
-    loaded = true;
+  @override
+  Future<void> loadIn() async {
+    await super.loadIn();
+
+    svgString ??= assetCache.get(svgFile!);
+    if (svgString == null) {
+      svgString = await svgFile!.readAsString();
+      assetCache.add(svgFile!, svgString!);
+    }
+  }
+  @override
+  Future<void> loadOut() async {
+    await super.loadOut();
+
+    // TODO: vacate cache if no image is loaded in
+    svgString = null;
   }
 
   @override
@@ -196,6 +211,5 @@ class SvgEditorImage extends EditorImage {
     srcRect: srcRect,
     naturalSize: naturalSize,
     isThumbnail: isThumbnail,
-    onMainThread: true,
   );
 }

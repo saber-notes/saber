@@ -382,15 +382,6 @@ class EditorCoreInfo {
       }
     }
 
-    // now that we're back on the main thread,
-    // we can parse the images
-    for (final page in coreInfo.pages) {
-      for (final image in page.images) {
-        await image.getImage(pageSize: page.size);
-      }
-      page.backgroundImage?.getImage(pageSize: page.size);
-    }
-
     return coreInfo;
   }
 

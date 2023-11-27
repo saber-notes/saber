@@ -40,13 +40,11 @@ class PngEditorImage extends EditorImage {
     super.naturalSize,
     this.thumbnailBytes,
     super.isThumbnail,
-    super.onMainThread,
   });
 
   factory PngEditorImage.fromJson(Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
-    required bool onMainThread,
     required String sbnPath,
     required AssetCache assetCache,
   }) {
@@ -105,7 +103,6 @@ class PngEditorImage extends EditorImage {
       ),
       thumbnailBytes: json['t'] != null ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>()) : null,
       isThumbnail: isThumbnail,
-      onMainThread: onMainThread,
     );
   }
 
@@ -122,7 +119,7 @@ class PngEditorImage extends EditorImage {
     });
 
   @override
-  Future<void> getImage({Size? pageSize}) async {
+  Future<void> firstLoad() async {
     assert(Isolate.current.debugName == 'main');
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
@@ -164,7 +161,7 @@ class PngEditorImage extends EditorImage {
       }
       if (dstRect.shortestSide == 0) {
         final Size dstSize = pageSize != null
-          ? EditorImage.resize(naturalSize, pageSize)
+          ? EditorImage.resize(naturalSize, pageSize!)
           : naturalSize;
         dstRect = dstRect.topLeft & dstSize;
       }
@@ -177,9 +174,12 @@ class PngEditorImage extends EditorImage {
     if (isThumbnail) {
       isThumbnail = true; // updates bytes and srcRect
     }
-
-    loaded = true;
   }
+
+  @override
+  Future<void> loadIn() async => await super.loadIn();
+  @override
+  Future<void> loadOut() async => await super.loadOut();
 
   @override
   Future<void> precache(BuildContext context) async {
@@ -227,6 +227,5 @@ class PngEditorImage extends EditorImage {
     naturalSize: naturalSize,
     thumbnailBytes: thumbnailBytes,
     isThumbnail: isThumbnail,
-    onMainThread: true,
   );
 }

@@ -28,7 +28,6 @@ class PdfEditorImage extends EditorImage {
     super.dstRect,
     required super.naturalSize,
     super.isThumbnail,
-    super.onMainThread,
   }): assert(!naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
       assert(pdfBytes != null || pdfFile != null, 'pdfFile must be set if pdfBytes is null'),
       super(
@@ -39,7 +38,6 @@ class PdfEditorImage extends EditorImage {
   factory PdfEditorImage.fromJson(Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
-    bool onMainThread = true,
     required String sbnPath,
     required AssetCache assetCache,
   }) {
@@ -89,7 +87,6 @@ class PdfEditorImage extends EditorImage {
         json['nh'] ?? 0,
       ),
       isThumbnail: isThumbnail,
-      onMainThread: onMainThread,
     );
   }
 
@@ -118,7 +115,7 @@ class PdfEditorImage extends EditorImage {
   }
 
   @override
-  Future<void> getImage({Size? pageSize, bool allowCalculations = true}) async {
+  Future<void> firstLoad() async {
     assert(srcRect.isEmpty);
     assert(!naturalSize.isEmpty);
 
@@ -129,12 +126,28 @@ class PdfEditorImage extends EditorImage {
 
     if (dstRect.isEmpty) {
       final Size dstSize = pageSize != null
-          ? EditorImage.resize(naturalSize, pageSize)
+          ? EditorImage.resize(naturalSize, pageSize!)
           : naturalSize;
       dstRect = dstRect.topLeft & dstSize;
     }
+  }
 
-    loaded = true;
+  @override
+  Future<void> loadIn() async {
+    await super.loadIn();
+
+    pdfBytes ??= assetCache.get(pdfFile!);
+    if (pdfBytes == null) {
+      pdfBytes = await pdfFile!.readAsBytes();
+      assetCache.add(pdfFile!, pdfBytes!);
+    }
+  }
+  @override
+  Future<void> loadOut() async {
+    await super.loadOut();
+
+    // TODO(adil192): vacate cache if no pdf image is loaded in
+    pdfBytes = null;
   }
 
   BuildContext? _lastPrecacheContext;
@@ -168,7 +181,7 @@ class PdfEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    if (loaded) {
+    if (loadedIn) {
       lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
     }
 
@@ -239,7 +252,6 @@ class PdfEditorImage extends EditorImage {
     dstRect: dstRect,
     naturalSize: naturalSize,
     isThumbnail: isThumbnail,
-    onMainThread: true,
   );
 
   static Timer? _checkIfHighDpiNeededDebounce;
@@ -269,8 +281,8 @@ class PdfEditorImage extends EditorImage {
         if (image == null) continue;
         if (image is! PdfEditorImage) continue;
 
-        // skip pdfs that haven't been loaded yet
-        if (!image.loaded) continue;
+        // skip pdfs that aren't loaded in/visible
+        if (!image.loadedIn) continue;
 
         if (highDpiPage) {
           if (image.highDpiFuture != null) continue;
