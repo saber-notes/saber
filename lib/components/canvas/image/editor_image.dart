@@ -176,6 +176,7 @@ sealed class EditorImage extends ChangeNotifier {
     }
 
     _shouldLoadOut?.complete(false);
+    _shouldLoadOut = null;
     _loadedIn = true;
   }
   /// Free up resources when the image is no longer visible.
@@ -192,6 +193,7 @@ sealed class EditorImage extends ChangeNotifier {
         // load out if [loadIn] isn't called again in 5 seconds
         if (!_shouldLoadOut!.isCompleted) {
           _shouldLoadOut!.complete(true);
+          _shouldLoadOut = null;
         }
       });
     }
