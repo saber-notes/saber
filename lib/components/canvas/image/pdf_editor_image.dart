@@ -147,8 +147,10 @@ class PdfEditorImage extends EditorImage {
     final shouldLoadOut = await super.loadOut();
     if (!shouldLoadOut) return false;
 
-    // TODO(adil192): vacate cache if no pdf image is loaded in
-    pdfBytes = null;
+    if (pdfFile != null) {
+      // TODO(adil192): vacate cache if no pdf image is loaded in
+      pdfBytes = null;
+    }
 
     return true;
   }

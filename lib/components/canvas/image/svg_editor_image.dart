@@ -154,8 +154,10 @@ class SvgEditorImage extends EditorImage {
     final shouldLoadOut = await super.loadOut();
     if (!shouldLoadOut) return false;
 
-    // TODO: vacate cache if no image is loaded in
-    svgString = null;
+    if (svgFile != null) {
+      // TODO: vacate cache if no image is loaded in
+      svgString = null;
+    }
 
     return true;
   }
