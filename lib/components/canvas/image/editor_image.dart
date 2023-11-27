@@ -145,6 +145,9 @@ sealed class EditorImage extends ChangeNotifier {
     if (srcRect.top != 0) 'sy': srcRect.top,
     if (srcRect.width != 0) 'sw': srcRect.width,
     if (srcRect.height != 0) 'sh': srcRect.height,
+
+    if (naturalSize.width != 0) 'nw': naturalSize.width,
+    if (naturalSize.height != 0) 'nh': naturalSize.height,
   };
 
   Completer? _firstLoadStatus;

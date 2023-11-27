@@ -109,11 +109,6 @@ class PngEditorImage extends EditorImage {
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) => super.toJson(assets)
     ..addAll({
-      if (naturalSize.width != 0)
-        'nw': naturalSize.width,
-      if (naturalSize.height != 0)
-        'nh': naturalSize.height,
-      
       if (imageProvider != null)
         'a': assets.add(imageProvider!),
     });
