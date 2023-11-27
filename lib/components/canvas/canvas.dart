@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';

@@ -3,8 +3,8 @@ import 'dart:ui' as ui;
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/shader_sampler.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';

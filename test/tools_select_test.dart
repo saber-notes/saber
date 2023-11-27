@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
@@ -80,7 +80,7 @@ void main() {
   });
 }
 
-class TestImage extends EditorImage {
+class TestImage extends PngEditorImage {
   static final _assetCache = AssetCache();
 
   TestImage({
@@ -100,5 +100,12 @@ class TestImage extends EditorImage {
   @override
   Future<void> getImage({Size? pageSize}) async {
     // do nothing
+  }
+  
+  @override
+  Map<String, dynamic> toJson(OrderedAssetCache assets) {
+    return {
+      ...super.toJson(assets),
+    };
   }
 }

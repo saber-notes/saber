@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/canvas/image/pdf_editor_image.dart';
-import 'package:saber/components/canvas/image/svg_editor_image.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -69,19 +67,21 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
           final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
           final List<int> bytes;
-          if (widget.image is PdfEditorImage) {
-            if (!widget.image.loaded) return;
-            bytes = (widget.image as PdfEditorImage).pdfBytes!;
-          } else if (widget.image is SvgEditorImage) {
-            if (!widget.image.loaded) return;
-            final svgString = (widget.image as SvgEditorImage).svgString!;
-            bytes = utf8.encode(svgString);
-          } else if (widget.image.imageProvider is MemoryImage) {
-            bytes = (widget.image.imageProvider as MemoryImage).bytes;
-          } else if (widget.image.imageProvider is FileImage) {
-            bytes = await (widget.image.imageProvider as FileImage).file.readAsBytes();
-          } else {
-            return;
+          switch (widget.image) {
+            case PdfEditorImage image:
+              if (!image.loaded) return;
+              bytes = image.pdfBytes!;
+            case SvgEditorImage image:
+              if (!image.loaded) return;
+              bytes = utf8.encode(image.svgString!);
+            case PngEditorImage image:
+              if (image.imageProvider is MemoryImage) {
+                bytes = (image.imageProvider as MemoryImage).bytes;
+              } else if (image.imageProvider is FileImage) {
+                bytes = await (image.imageProvider as FileImage).file.readAsBytes();
+              } else {
+                throw Exception('Unknown image provider type: ${image.imageProvider.runtimeType}');
+              }
           }
           FileManager.exportFile(imageFileName, bytes, isImage: true);
           if (!mounted) return;

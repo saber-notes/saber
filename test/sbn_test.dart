@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:process_run/shell.dart';
 import 'package:saber/components/canvas/canvas.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
@@ -275,14 +276,18 @@ Future<void> _precacheImages({
   required EditorPage page,
 }) async {
   // FileImages aren't working in tests, so replace them with MemoryImages
+  final backgroundImage = page.backgroundImage;
   await Future.wait([
     for (final image in page.images)
-      if (image.imageProvider is FileImage)
-        (image.imageProvider as FileImage).file.readAsBytes()
-          .then((bytes) => image.imageProvider = MemoryImage(bytes)),
-    if (page.backgroundImage?.imageProvider is FileImage)
-      (page.backgroundImage!.imageProvider as FileImage).file.readAsBytes()
-        .then((bytes) => page.backgroundImage!.imageProvider = MemoryImage(bytes)),
+      if (image is PngEditorImage)
+        if (image.imageProvider is FileImage)
+          (image.imageProvider as FileImage).file.readAsBytes()
+            .then((bytes) => image.imageProvider = MemoryImage(bytes)),
+    if (backgroundImage is PngEditorImage)
+      if (backgroundImage.imageProvider is FileImage)
+        (backgroundImage.imageProvider as FileImage).file.readAsBytes()
+          .then((bytes) => (page.backgroundImage as PngEditorImage)
+              .imageProvider = MemoryImage(bytes)),
   ]);
 
   // Precache images

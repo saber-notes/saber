@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:saber/components/canvas/_editor_image.dart';
-import 'package:saber/components/canvas/_svg_editor_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -53,7 +52,7 @@ void main() {
       coreInfo.pages = [
         EditorPage(
           images: [
-            EditorImage(
+            PngEditorImage(
               id: 0,
               extension: '.png',
               imageProvider: MemoryImage(imageBytes),
@@ -77,7 +76,7 @@ void main() {
       coreInfo.pages = [
         EditorPage(
           images: [
-            EditorImage(
+            PngEditorImage(
               id: 0,
               extension: '.png',
               imageProvider: MemoryImage(imageBytes),

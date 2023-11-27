@@ -1,14 +1,4 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:logging/logging.dart';
-import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/data/file_manager/file_manager.dart';
-import 'package:saber/pages/editor/editor.dart';
+part of 'editor_image.dart';
 
 class SvgEditorImage extends EditorImage {
   String? svgString;
@@ -41,7 +31,6 @@ class SvgEditorImage extends EditorImage {
   }): assert(svgString != null || svgFile != null, 'svgFile must be set if svgString is null'),
       super(
         extension: '.svg',
-        imageProvider: null,
       );
 
   factory SvgEditorImage.fromJson(Map<String, dynamic> json, {
@@ -134,7 +123,7 @@ class SvgEditorImage extends EditorImage {
     }
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      final PictureInfo pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);
+      final pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);
       naturalSize = pictureInfo.size;
 
       if (srcRect.shortestSide == 0) {
@@ -187,4 +176,26 @@ class SvgEditorImage extends EditorImage {
       ),
     );
   }
+
+  @override
+  SvgEditorImage copy() => SvgEditorImage(
+    id: id,
+    assetCache: assetCache,
+    svgString: svgString,
+    svgFile: svgFile,
+    pageIndex: pageIndex,
+    pageSize: Size.infinite,
+    invertible: invertible,
+    backgroundFit: backgroundFit,
+    onMoveImage: onMoveImage,
+    onDeleteImage: onDeleteImage,
+    onMiscChange: onMiscChange,
+    onLoad: onLoad,
+    newImage: newImage,
+    dstRect: dstRect,
+    srcRect: srcRect,
+    naturalSize: naturalSize,
+    isThumbnail: isThumbnail,
+    onMainThread: true,
+  );
 }

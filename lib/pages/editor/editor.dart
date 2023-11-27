@@ -12,13 +12,11 @@ import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:printing/printing.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/canvas/image/pdf_editor_image.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/components/canvas/image/svg_editor_image.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
@@ -912,7 +910,7 @@ class EditorState extends State<Editor> {
             assetCache: coreInfo.assetCache,
           )
         else
-          EditorImage(
+          PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
             imageProvider: MemoryImage(photoInfo.bytes),
