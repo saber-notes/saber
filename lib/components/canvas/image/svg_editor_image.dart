@@ -150,11 +150,14 @@ class SvgEditorImage extends EditorImage {
     }
   }
   @override
-  Future<void> loadOut() async {
-    await super.loadOut();
+  Future<bool> loadOut() async {
+    final shouldLoadOut = await super.loadOut();
+    if (!shouldLoadOut) return false;
 
     // TODO: vacate cache if no image is loaded in
     svgString = null;
+
+    return true;
   }
 
   @override

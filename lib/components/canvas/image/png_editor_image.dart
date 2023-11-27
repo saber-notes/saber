@@ -179,7 +179,7 @@ class PngEditorImage extends EditorImage {
   @override
   Future<void> loadIn() async => await super.loadIn();
   @override
-  Future<void> loadOut() async => await super.loadOut();
+  Future<bool> loadOut() async => await super.loadOut();
 
   @override
   Future<void> precache(BuildContext context) async {

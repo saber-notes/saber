@@ -148,6 +148,7 @@ sealed class EditorImage extends ChangeNotifier {
   };
 
   Completer? _firstLoadStatus;
+  Completer<bool>? _shouldLoadOut;
   bool _loadedIn = false;
   bool get loadedIn => _loadedIn;
 
@@ -171,6 +172,7 @@ sealed class EditorImage extends ChangeNotifier {
       await _firstLoadStatus!.future;
     }
 
+    _shouldLoadOut?.complete(false);
     _loadedIn = true;
   }
   /// Free up resources when the image is no longer visible.
@@ -180,8 +182,22 @@ sealed class EditorImage extends ChangeNotifier {
   /// * [loadedIn], which is true after [loadIn] and false after [loadOut]
   @mustBeOverridden
   @mustCallSuper
-  Future<void> loadOut() async {
-    _loadedIn = false;
+  Future<bool> loadOut() async {
+    if (_shouldLoadOut == null) {
+      _shouldLoadOut = Completer();
+      Future.delayed(const Duration(seconds: 5)).then((_) {
+        // load out if [loadIn] isn't called again in 5 seconds
+        if (!_shouldLoadOut!.isCompleted) {
+          _shouldLoadOut!.complete(true);
+        }
+      });
+    }
+
+    final shouldLoadOut = await _shouldLoadOut!.future;
+    if (shouldLoadOut) {
+      _loadedIn = false;
+    }
+    return shouldLoadOut;
   }
 
   /// Adds the image to Flutter's image cache.

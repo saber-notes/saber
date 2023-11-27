@@ -143,11 +143,14 @@ class PdfEditorImage extends EditorImage {
     }
   }
   @override
-  Future<void> loadOut() async {
-    await super.loadOut();
+  Future<bool> loadOut() async {
+    final shouldLoadOut = await super.loadOut();
+    if (!shouldLoadOut) return false;
 
     // TODO(adil192): vacate cache if no pdf image is loaded in
     pdfBytes = null;
+
+    return true;
   }
 
   BuildContext? _lastPrecacheContext;
