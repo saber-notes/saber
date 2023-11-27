@@ -157,8 +157,8 @@ echo " - $CHANGELOG_FILE"
 echo " - $FLATPAK_FILE"
 echo "And then run:"
 echo " - dart scripts/translate_changelogs.dart"
-echo "And then:"
-echo " - Go to https://snapcraft.io/saber/builds and click 'Trigger new build'"
+echo "Next steps:"
+echo " - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore"
 
 if [ "$EDITOR" != "" ]; then
   echo
