@@ -219,6 +219,8 @@ class PdfEditorImage extends EditorImage {
     });
 
   Future<ImageProvider> _getRasterizedWithDpi({required bool highDpi}) async {
+    if (pdfBytes == null) await loadIn();
+
     final raster = await Printing.raster(
       pdfBytes!,
       pages: [pdfPage],
