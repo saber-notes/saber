@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/painting.dart';
+import 'package:saber/components/canvas/image/editor_image.dart';
 
 /// A cache for assets that are loaded from disk.
 /// 
@@ -13,18 +14,45 @@ import 'package:flutter/painting.dart';
 class AssetCache {
   AssetCache();
 
+  /// Maps a file to its value.
   final Map<File, Object> _cache = {};
+  /// Maps a file to the visible images that use it.
+  final Map<File, Set<EditorImage>> _images = {};
 
-  void add<T extends Object>(File key, T value) {
-    _cache[key] = value;
+  /// Marks [image] as currently visible.
+  ///
+  /// It's safe to call this method multiple times.
+  void addImage<T extends Object>(EditorImage image, File file, T value) {
+    _images.putIfAbsent(file, () => {}).add(image);
+    _cache[file] = value;
   }
 
-  /// Returns null if the key is not found.
-  T? get<T extends Object>(File key) {
-    return _cache[key] as T?;
+  /// Returns null if [file] is not found.
+  T? get<T extends Object>(File file) {
+    return _cache[file] as T?;
+  }
+
+  /// Marks [image] as no longer visible.
+  ///
+  /// It's safe to call this method multiple times.
+  ///
+  /// If [image] is the last image using its file,
+  /// the file is also removed from the cache.
+  ///
+  /// Returns whether the image was present in the cache.
+  bool removeImage(EditorImage image) {
+    for (final file in _images.keys) {
+      if (_images[file]!.remove(image)) {
+        _images.remove(file);
+        _cache.remove(file);
+        return true;
+      }
+    }
+    return false;
   }
 
   void dispose() {
+    _images.clear();
     _cache.clear();
   }
 }

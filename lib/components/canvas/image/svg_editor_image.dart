@@ -114,10 +114,9 @@ class SvgEditorImage extends EditorImage {
 
   @override
   Future<void> firstLoad() async {
-    if (svgString == null) {
-      svgString = await svgFile!.readAsString();
-      assetCache.add(svgFile!, svgString!);
-    }
+    svgString ??= assetCache.get(svgFile!);
+    svgString ??= await svgFile!.readAsString();
+    assetCache.addImage(this, svgFile!, svgString!);
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       final pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);
@@ -144,10 +143,8 @@ class SvgEditorImage extends EditorImage {
     await super.loadIn();
 
     svgString ??= assetCache.get(svgFile!);
-    if (svgString == null) {
-      svgString = await svgFile!.readAsString();
-      assetCache.add(svgFile!, svgString!);
-    }
+    svgString ??= await svgFile!.readAsString();
+    assetCache.addImage(this, svgFile!, svgString!);
   }
   @override
   Future<bool> loadOut() async {
@@ -155,8 +152,8 @@ class SvgEditorImage extends EditorImage {
     if (!shouldLoadOut) return false;
 
     if (svgFile != null) {
-      // TODO: vacate cache if no image is loaded in
       svgString = null;
+      assetCache.removeImage(this);
     }
 
     return true;

@@ -119,10 +119,9 @@ class PdfEditorImage extends EditorImage {
     assert(srcRect.isEmpty);
     assert(!naturalSize.isEmpty);
 
-    if (pdfBytes == null) {
-      pdfBytes = await pdfFile!.readAsBytes();
-      assetCache.add(pdfFile!, pdfBytes!);
-    }
+    pdfBytes ??= assetCache.get(pdfFile!);
+    pdfBytes ??= await pdfFile!.readAsBytes();
+    assetCache.addImage(this, pdfFile!, pdfBytes!);
 
     if (dstRect.isEmpty) {
       final Size dstSize = pageSize != null
@@ -137,10 +136,8 @@ class PdfEditorImage extends EditorImage {
     await super.loadIn();
 
     pdfBytes ??= assetCache.get(pdfFile!);
-    if (pdfBytes == null) {
-      pdfBytes = await pdfFile!.readAsBytes();
-      assetCache.add(pdfFile!, pdfBytes!);
-    }
+    pdfBytes ??= await pdfFile!.readAsBytes();
+    assetCache.addImage(this, pdfFile!, pdfBytes!);
   }
   @override
   Future<bool> loadOut() async {
@@ -148,8 +145,8 @@ class PdfEditorImage extends EditorImage {
     if (!shouldLoadOut) return false;
 
     if (pdfFile != null) {
-      // TODO(adil192): vacate cache if no pdf image is loaded in
       pdfBytes = null;
+      assetCache.removeImage(this);
     }
 
     return true;
