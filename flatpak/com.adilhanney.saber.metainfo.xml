@@ -271,6 +271,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.1" type="development" date="2023-11-27">
+            <description>
+                <ul>
+                    <li>Assets are now lazily loaded as you scroll to them</li>
+                    <li>Removed unused thumbnail generation</li>
+                    <li>Fixed a bug where deleted files wouldn't be unselected</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.18.0" type="development" date="2023-11-26">
             <description>
                 <ul>

@@ -1,0 +1,3 @@
+• Le risorse ora vengono caricate lentamente mentre le scorri
+• Rimossa la generazione di miniature inutilizzate
+• Risolto un bug per il quale i file eliminati non venivano deselezionati
