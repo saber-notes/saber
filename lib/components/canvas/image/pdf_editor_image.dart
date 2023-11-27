@@ -121,7 +121,7 @@ class PdfEditorImage extends EditorImage {
 
     pdfBytes ??= assetCache.get(pdfFile!);
     pdfBytes ??= await pdfFile!.readAsBytes();
-    assetCache.addImage(this, pdfFile!, pdfBytes!);
+    assetCache.addImage(this, pdfFile, pdfBytes!);
 
     if (dstRect.isEmpty) {
       final Size dstSize = pageSize != null
@@ -137,7 +137,7 @@ class PdfEditorImage extends EditorImage {
 
     pdfBytes ??= assetCache.get(pdfFile!);
     pdfBytes ??= await pdfFile!.readAsBytes();
-    assetCache.addImage(this, pdfFile!, pdfBytes!);
+    assetCache.addImage(this, pdfFile, pdfBytes!);
   }
   @override
   Future<bool> loadOut() async {

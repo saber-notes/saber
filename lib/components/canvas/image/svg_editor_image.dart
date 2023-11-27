@@ -116,7 +116,7 @@ class SvgEditorImage extends EditorImage {
   Future<void> firstLoad() async {
     svgString ??= assetCache.get(svgFile!);
     svgString ??= await svgFile!.readAsString();
-    assetCache.addImage(this, svgFile!, svgString!);
+    assetCache.addImage(this, svgFile, svgString!);
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       final pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);
@@ -144,7 +144,7 @@ class SvgEditorImage extends EditorImage {
 
     svgString ??= assetCache.get(svgFile!);
     svgString ??= await svgFile!.readAsString();
-    assetCache.addImage(this, svgFile!, svgString!);
+    assetCache.addImage(this, svgFile, svgString!);
   }
   @override
   Future<bool> loadOut() async {

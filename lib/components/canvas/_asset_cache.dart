@@ -22,7 +22,11 @@ class AssetCache {
   /// Marks [image] as currently visible.
   ///
   /// It's safe to call this method multiple times.
-  void addImage<T extends Object>(EditorImage image, File file, T value) {
+  /// 
+  /// [file] is allowed to be null for convenience,
+  /// in which case this function does nothing.
+  void addImage<T extends Object>(EditorImage image, File? file, T value) {
+    if (file == null) return;
     _images.putIfAbsent(file, () => {}).add(image);
     _cache[file] = value;
   }
