@@ -54,6 +54,7 @@ void main() {
 
         setUpAll(() async {
           FileManager.shouldUseRawFilePath = true;
+          EditorImage.shouldLoadOutImmediately = true;
           if (sbnName.endsWith('.sbn2')) {
             coreInfo = await EditorCoreInfo.loadFromFileContents(
               bsonBytes: File(path).readAsBytesSync(),
@@ -72,6 +73,7 @@ void main() {
         });
         tearDownAll(() {
           FileManager.shouldUseRawFilePath = false;
+          EditorImage.shouldLoadOutImmediately = false;
         });
 
         testWidgets('(Light)', (tester) async {
@@ -152,6 +154,9 @@ void main() {
     testWidgets('SBA export and import', (tester) async {
       const path = 'test/sbn_examples/v19_separate_assets.sbn2';
       final pathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
+
+      EditorImage.shouldLoadOutImmediately = true;
+      addTearDown(() => EditorImage.shouldLoadOutImmediately = false);
 
       // copy the file to the temporary directory
       await tester.runAsync(() => Future.wait([

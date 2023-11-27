@@ -150,6 +150,14 @@ sealed class EditorImage extends ChangeNotifier {
     if (naturalSize.height != 0) 'nh': naturalSize.height,
   };
 
+  /// Images are loaded out after 5 seconds of not being visible.
+  /// 
+  /// Set this to true to load out immediately.
+  /// 
+  /// This is useful for tests that can't have pending timers.
+  @visibleForTesting
+  static bool shouldLoadOutImmediately = false;
+
   Completer? _firstLoadStatus;
   Completer<bool>? _shouldLoadOut;
   bool _loadedIn = false;
@@ -176,7 +184,6 @@ sealed class EditorImage extends ChangeNotifier {
     }
 
     _shouldLoadOut?.complete(false);
-    _shouldLoadOut = null;
     _loadedIn = true;
   }
   /// Free up resources when the image is no longer visible.
@@ -189,16 +196,20 @@ sealed class EditorImage extends ChangeNotifier {
   Future<bool> loadOut() async {
     if (_shouldLoadOut == null) {
       _shouldLoadOut = Completer();
-      Future.delayed(const Duration(seconds: 5)).then((_) {
-        // load out if [loadIn] isn't called again in 5 seconds
-        if (!_shouldLoadOut!.isCompleted) {
-          _shouldLoadOut!.complete(true);
-          _shouldLoadOut = null;
-        }
-      });
+      if (shouldLoadOutImmediately) {
+        _shouldLoadOut!.complete(true);
+      } else {
+        Future.delayed(const Duration(seconds: 5)).then((_) {
+          // load out if [loadIn] isn't called again in 5 seconds
+          if (!_shouldLoadOut!.isCompleted) {
+            _shouldLoadOut!.complete(true);
+          }
+        });
+      }
     }
 
     final shouldLoadOut = await _shouldLoadOut!.future;
+    _shouldLoadOut = null;
     if (shouldLoadOut) {
       _loadedIn = false;
     }
