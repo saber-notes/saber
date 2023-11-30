@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -62,7 +63,8 @@ class ShapePen extends Pen {
         log.info('Detected unknown shape');
         return rawStroke;
       case DefaultUnistrokeNames.line:
-        final (firstPoint, lastPoint) = detectedShape.convertToLine();
+        var (firstPoint, lastPoint) = detectedShape.convertToLine();
+        (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
         log.info('Detected line: $firstPoint -> $lastPoint');
         return Stroke(
           strokeProperties: rawStroke.strokeProperties,
@@ -102,6 +104,28 @@ class ShapePen extends Pen {
         )
           ..addPoints(polygon)
           ..isComplete = true;
+    }
+  }
+
+  /// Snaps a line to either horizontal or vertical
+  /// if the angle is close enough.
+  static (Offset firstPoint, Offset lastPoint) snapLine(
+    Offset firstPoint,
+    Offset lastPoint,
+  ) {
+    final dx = (lastPoint.dx - firstPoint.dx).abs();
+    final dy = (lastPoint.dy - firstPoint.dy).abs();
+    final angle = math.atan2(dy, dx);
+
+    const snapAngle = 5 * math.pi / 180; // 5 degrees
+    if (angle < snapAngle) {
+      // snap to horizontal
+      return (firstPoint, Offset(lastPoint.dx, firstPoint.dy));
+    } else if (angle > math.pi / 2 - snapAngle) {
+      // snap to vertical
+      return (firstPoint, Offset(firstPoint.dx, lastPoint.dy));
+    } else {
+      return (firstPoint, lastPoint);
     }
   }
 }

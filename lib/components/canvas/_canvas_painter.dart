@@ -181,7 +181,8 @@ class CanvasPainter extends CustomPainter {
       case null:
         break;
       case DefaultUnistrokeNames.line:
-        final (firstPoint, lastPoint) = shape.convertToLine();
+        var (firstPoint, lastPoint) = shape.convertToLine();
+        (firstPoint, lastPoint) = ShapePen.snapLine(firstPoint, lastPoint);
         canvas.drawLine(firstPoint, lastPoint, shapePaint);
       case DefaultUnistrokeNames.rectangle:
         final rect = shape.convertToRect();
