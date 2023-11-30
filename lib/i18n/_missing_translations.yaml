@@ -143,32 +143,32 @@ de:
 es:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): Exportar nota
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+      moveNotes(OUTDATED): Mover $n notas
+      multipleRenamedTo(OUTDATED): "Renombrar las siguientes notas"
+      numberRenamedTo(OUTDATED): $n notas serán renombradas para evitar conflictos
   settings:
     prefCategories:
       performance(OUTDATED): Performance
     prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
+      recentColorsLength(OUTDATED): Número de colores recientes a almacenar
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
+      pencil(OUTDATED): Bolígrafo
+      shapePen(OUTDATED): Bolígrafo con formas
     colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
+      customBrightnessHue(OUTDATED): $b $h personalizado
+      customHue(OUTDATED): $h personalizado
+      dark(OUTDATED): Oscuro
+      light(OUTDATED): Claro
       cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
+      pink(OUTDATED): Rosa
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): Duplicar
 fa:
 fr:
   home:
