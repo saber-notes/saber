@@ -94,7 +94,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                 semanticsLabel: 'Storage usage',
                 semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
               ),
-              Text('${readableBytes(quota?.used?.$double)} / ${readableBytes(quota?.total?.$double)}'),
+              Text(readableQuota(quota)),
             ],
           );
         },
@@ -108,7 +108,12 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     super.dispose();
   }
 
-  String readableBytes(num? bytes) {
+  static String readableQuota(Quota? quota) {
+    final used = readableBytes(quota?.used?.$int ?? quota?.used?.$double);
+    final total = readableBytes(quota?.total?.$int ?? quota?.total?.$double);
+    return '$used / $total';
+  }
+  static String readableBytes(num? bytes) {
     if (bytes == null) {
       return '... B';
     } else if (bytes < 1024) {
