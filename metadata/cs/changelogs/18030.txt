@@ -1,0 +1,4 @@
+• Přepnuto na nový algoritmus rozpoznávání tvarů
+• Přidána detekce trojúhelníků
+• Přidáno uchopování čar pomocí nástroje tvar
+• Opraveno některé selhání importu SBN

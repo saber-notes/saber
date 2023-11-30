@@ -271,6 +271,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.3" type="development" date="2023-11-30">
+            <description>
+                <ul>
+                    <li>Switched to a new shape recognition library</li>
+                    <li>Added triangle detection</li>
+                    <li>Added line snapping with the shape tool</li>
+                    <li>Fixed some SBN imports failing</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.18.2" type="development" date="2023-11-30">
             <description>
                 <ul>

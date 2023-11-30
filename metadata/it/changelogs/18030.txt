@@ -1,0 +1,4 @@
+• Passato a un nuovo algoritmo di riconoscimento della forma
+• Rilevamento del triangolo aggiunto
+• Aggiunta linea di scatto con lo strumento di forma
+• Risolto alcune importazioni SBN in mancanza
