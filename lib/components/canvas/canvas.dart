@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
@@ -31,7 +31,7 @@ class Canvas extends StatelessWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
-  final DetectedShape? currentStrokeDetectedShape;
+  final RecognizedUnistroke<DefaultUnistrokeNames>? currentStrokeDetectedShape;
   final SelectResult? currentSelection;
 
   final void Function(EditorImage image)? setAsBackground;

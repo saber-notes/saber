@@ -1,8 +1,8 @@
 import 'dart:math' hide atan2;
 
 import 'package:flutter/material.dart';
-import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:logging/logging.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
@@ -126,6 +126,12 @@ class Stroke {
     _polygonNeedsUpdating = true;
   }
 
+  void addPoints(List<Offset> points) {
+    for (final point in points) {
+      addPoint(point);
+    }
+  }
+
   void popFirstPoint() {
     points.removeAt(0);
     _polygonNeedsUpdating = true;
@@ -237,9 +243,9 @@ class Stroke {
     }
   }
 
-  DetectedShape? getDetectedShape() {
+  RecognizedUnistroke<DefaultUnistrokeNames>? detectShape() {
     if (points.length < 3) return null;
-    return detectShape(
+    return recognizeUnistroke(
       points.map((point) => Offset(point.x, point.y)).toList(),
     );
   }

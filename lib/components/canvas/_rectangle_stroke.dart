@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
@@ -124,30 +124,12 @@ class RectangleStroke extends Stroke {
 
   @override
   @Deprecated('We already know the shape is a rectangle.')
-  DetectedShape getDetectedShape() {
-    return DetectedShape(
-      shape: Shape.rectangle,
-      maybeCircle: false,
-      maybeLine: false,
-      maybeRectangle: true,
-      enclosingRect: [
-        rect.topLeft,
-        rect.topRight,
-        rect.bottomRight,
-        rect.bottomLeft,
-      ],
-      convexHull: [
-        rect.topLeft,
-        rect.topRight,
-        rect.bottomRight,
-        rect.bottomLeft,
-      ],
-      firstPoint: rect.topCenter,
-      lastPoint: rect.bottomCenter,
-      rLenPch: 0,
-      rThinness: 0,
-      rAltAch: 0,
-      rPchPer: 0,
+  RecognizedUnistroke<DefaultUnistrokeNames> detectShape() {
+    return RecognizedUnistroke(
+      DefaultUnistrokeNames.rectangle,
+      1,
+      originalPoints: polygon,
+      referenceUnistrokes: default$1Unistrokes,
     );
   }
 

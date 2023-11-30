@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
@@ -108,31 +108,12 @@ class CircleStroke extends Stroke {
 
   @override
   @Deprecated('We already know the shape is a circle.')
-  DetectedShape getDetectedShape() {
-    final rect = Rect.fromCircle(center: center, radius: radius);
-    return DetectedShape(
-      shape: Shape.circle,
-      maybeCircle: true,
-      maybeLine: false,
-      maybeRectangle: false,
-      enclosingRect: [
-        rect.topLeft,
-        rect.topRight,
-        rect.bottomRight,
-        rect.bottomLeft,
-      ],
-      convexHull: [
-        rect.topLeft,
-        rect.topRight,
-        rect.bottomRight,
-        rect.bottomLeft,
-      ],
-      firstPoint: rect.topCenter,
-      lastPoint: rect.bottomCenter,
-      rLenPch: 0,
-      rThinness: 0,
-      rAltAch: 0,
-      rPchPer: 0,
+  RecognizedUnistroke<DefaultUnistrokeNames> detectShape() {
+    return RecognizedUnistroke(
+      DefaultUnistrokeNames.circle,
+      1,
+      originalPoints: polygon,
+      referenceUnistrokes: default$1Unistrokes,
     );
   }
 
@@ -144,6 +125,4 @@ class CircleStroke extends Stroke {
     center: center,
     radius: radius,
   );
-
-  // TODO(adil192): Add HighlighterStroke class and move canvas drawing logic to Stroke.
 }

@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.9"
-  area_polygon:
-    dependency: transitive
-    description:
-      name: area_polygon
-      sha256: ed3072f73a922b5e7cfca79f274a750123108f0ccf3510579d2eac88424ba13a
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   args:
     dependency: transitive
     description:
@@ -162,14 +154,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
-  convex_hull:
-    dependency: transitive
-    description:
-      name: convex_hull
-      sha256: "67489a600f0ae7b4a4851e896bbea01cf9f599af520ab8ab8390332d59da340d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.2"
   cookie_jar:
     dependency: transitive
     description:
@@ -622,14 +606,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  interactive_shape_recognition:
-    dependency: "direct main"
-    description:
-      name: interactive_shape_recognition
-      sha256: "9d44b70c45d60c81bc2a3340d25ee74e54bb616711d0592c274162bdc4e45742"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   intl:
     dependency: "direct main"
     description:
@@ -760,6 +736,14 @@ packages:
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
+  one_dollar_unistroke_recognizer:
+    dependency: "direct main"
+    description:
+      name: one_dollar_unistroke_recognizer
+      sha256: "478ae7ccbe544d6a696c6fed222bd71f64f697f837fbbee158d5d0f6956e7f48"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.1"
   onyxsdk_pen:
     dependency: "direct main"
     description:

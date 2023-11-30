@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
 import 'package:logging/logging.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -28,9 +28,9 @@ class ShapePen extends Pen {
 
   static const IconData shapePenIcon = FontAwesomeIcons.shapes;
 
-  static DetectedShape? detectedShape;
+  static RecognizedUnistroke<DefaultUnistrokeNames>? detectedShape;
   void _detectShape() {
-    detectedShape = Pen.currentStroke?.getDetectedShape();
+    detectedShape = Pen.currentStroke?.detectShape();
   }
 
   static Timer? _detectShapeDebouncer;
@@ -57,23 +57,24 @@ class ShapePen extends Pen {
 
     if (detectedShape == null) return rawStroke;
 
-    switch (detectedShape.shape) {
-      case Shape.unknown:
+    switch (detectedShape.name) {
+      case null:
         log.info('Detected unknown shape');
         return rawStroke;
-      case Shape.line:
-        log.info('Detected line: ${detectedShape.firstPoint} -> ${detectedShape.lastPoint}');
+      case DefaultUnistrokeNames.line:
+        final (firstPoint, lastPoint) = detectedShape.convertToLine();
+        log.info('Detected line: $firstPoint -> $lastPoint');
         return Stroke(
           strokeProperties: rawStroke.strokeProperties,
           pageIndex: rawStroke.pageIndex,
           penType: rawStroke.penType,
         )
-          ..addPoint(detectedShape.firstPoint)
-          ..addPoint(detectedShape.lastPoint)
-          ..addPoint(detectedShape.lastPoint)
+          ..addPoint(firstPoint)
+          ..addPoint(lastPoint)
+          ..addPoint(lastPoint)
           ..isComplete = true;
-      case Shape.rectangle:
-        final rect = detectedShape.generateRectangle();
+      case DefaultUnistrokeNames.rectangle:
+        final rect = detectedShape.convertToRect();
         log.info('Detected rectangle: $rect');
         return RectangleStroke(
           strokeProperties: rawStroke.strokeProperties,
@@ -81,16 +82,26 @@ class ShapePen extends Pen {
           penType: rawStroke.penType,
           rect: rect,
         );
-      case Shape.circle:
-        final circle = detectedShape.generateCircle();
-        log.info('Detected circle: $circle');
+      case DefaultUnistrokeNames.circle:
+        final (center, radius) = detectedShape.convertToCircle();
+        log.info('Detected circle: c=$center, r=$radius');
         return CircleStroke(
           strokeProperties: rawStroke.strokeProperties,
           pageIndex: rawStroke.pageIndex,
           penType: rawStroke.penType,
-          radius: circle.$1,
-          center: circle.$2,
+          radius: radius,
+          center: center,
         );
+      case DefaultUnistrokeNames.triangle:
+        final polygon = detectedShape.convertToCanonicalPolygon();
+        log.info('Detected triangle');
+        return Stroke(
+          strokeProperties: rawStroke.strokeProperties,
+          pageIndex: rawStroke.pageIndex,
+          penType: rawStroke.penType,
+        )
+          ..addPoints(polygon)
+          ..isComplete = true;
     }
   }
 }

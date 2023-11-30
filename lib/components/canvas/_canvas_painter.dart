@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart' hide TextStyle;
-import 'package:interactive_shape_recognition/interactive_shape_recognition.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:path_drawing/path_drawing.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
@@ -167,8 +167,8 @@ class CanvasPainter extends CustomPainter {
   }
 
   void _drawDetectedShape(Canvas canvas) {
-    if (ShapePen.detectedShape == null) return;
-    if (ShapePen.detectedShape!.shape == Shape.unknown) return;
+    final shape = ShapePen.detectedShape;
+    if (shape == null) return;
 
     final color = currentStroke?.strokeProperties.color.withInversion(invert)
         ?? Colors.black;
@@ -177,27 +177,24 @@ class CanvasPainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
 
-    switch (ShapePen.detectedShape!.shape) {
-      case Shape.line:
-        canvas.drawLine(
-          ShapePen.detectedShape!.firstPoint,
-          ShapePen.detectedShape!.lastPoint,
+    switch (shape.name) {
+      case null:
+        break;
+      case DefaultUnistrokeNames.line:
+        final (firstPoint, lastPoint) = shape.convertToLine();
+        canvas.drawLine(firstPoint, lastPoint, shapePaint);
+      case DefaultUnistrokeNames.rectangle:
+        final rect = shape.convertToRect();
+        canvas.drawRect(rect, shapePaint);
+      case DefaultUnistrokeNames.circle:
+        final (center, radius) = shape.convertToCircle();
+        canvas.drawCircle(center, radius, shapePaint);
+      case DefaultUnistrokeNames.triangle:
+        final polygon = shape.convertToCanonicalPolygon();
+        canvas.drawPath(
+          Path()..addPolygon(polygon, true),
           shapePaint,
         );
-      case Shape.rectangle:
-        canvas.drawRect(
-          ShapePen.detectedShape!.generateRectangle(),
-          shapePaint,
-        );
-      case Shape.circle:
-        final circle = ShapePen.detectedShape!.generateCircle();
-        canvas.drawCircle(
-          circle.$2,
-          circle.$1,
-          shapePaint,
-        );
-      case Shape.unknown:
-        throw StateError('Shape.unknown should have an early return');
     }
   }
 
