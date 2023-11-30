@@ -18,5 +18,12 @@ void main() {
       expect(FileManager.assetFileRegex.hasMatch('name.10.sbn'), false);
       expect(FileManager.assetFileRegex.hasMatch('2023.11.30.sbn2'), false);
     });
+    test('doesn\'t match files without an extension', () {
+      expect(FileManager.assetFileRegex.hasMatch('name.0'), false);
+      expect(FileManager.assetFileRegex.hasMatch('name.1'), false);
+      expect(FileManager.assetFileRegex.hasMatch('name.10'), false);
+      expect(FileManager.assetFileRegex.hasMatch('2023.11.30'), false);
+      expect(FileManager.assetFileRegex.hasMatch('name.sbn3.0'), false);
+    });
   });
 }

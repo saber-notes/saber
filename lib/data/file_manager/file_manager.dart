@@ -39,7 +39,7 @@ class FileManager {
   /// A regex that matches the file names/paths of asset files,
   /// e.g. `mynote.sbn2.1`.
   @visibleForTesting
-  static final assetFileRegex = RegExp(r'\.\d+$');
+  static final assetFileRegex = RegExp(r'\.sbn2?\.\d+$');
 
   static Future<void> init() async {
     documentsDirectory = '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
