@@ -1,0 +1,2 @@
+• Problem behoben, bei dem die Nextcloud-Speichernutzung nicht angezeigt wurde
+• Es wurde ein Fehler behoben, bei dem Notizen mit bestimmten Namen nicht auf dem Startbildschirm angezeigt wurden

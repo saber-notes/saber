@@ -271,6 +271,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.2" type="development" date="2023-11-30">
+            <description>
+                <ul>
+                    <li>Fixed Nextcloud storage usage not being displayed</li>
+                    <li>Fixed a bug where notes with certain names wouldn't be shown on the home screen</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.18.1" type="development" date="2023-11-27">
             <description>
                 <ul>

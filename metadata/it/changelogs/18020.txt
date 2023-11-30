@@ -1,0 +1,2 @@
+• Risolto il problema relativo all'utilizzo dello spazio di archiviazione di Nextcloud che non veniva visualizzato
+• Risolto un bug per il quale le note con determinati nomi non venivano visualizzate nella schermata principale
