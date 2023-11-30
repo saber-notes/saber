@@ -36,6 +36,11 @@ class FileManager {
   // TODO(adil192): Implement or remove this
   static String _sanitisePath(String path) => File(path).path;
 
+  /// A regex that matches the file names/paths of asset files,
+  /// e.g. `mynote.sbn2.1`.
+  @visibleForTesting
+  static final assetFileRegex = RegExp(r'\.\d+$');
+
   static Future<void> init() async {
     documentsDirectory = '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
     await watchRootDirectory();
@@ -337,7 +342,7 @@ class FileManager {
     await Future.wait(allChildren.map((child) async {
       if (await FileManager.isDirectory(directory + child) && !directories.contains(child)) {
         directories.add(child);
-      } else if (RegExp(r'\.\d+').hasMatch(child)) {
+      } else if (assetFileRegex.hasMatch(child)) {
         // if the file is an asset, don't add it to the list of files
       } else {
         files.add(child);
@@ -571,8 +576,8 @@ class FileManager {
   }
 
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
-    // don't add assets (e.g. `mynote.sbn2.1`) to recently accessed
-    if (RegExp(r'\.\d+').hasMatch(filePath)) return;
+    // don't add assets to recently accessed
+    if (assetFileRegex.hasMatch(filePath)) return;
 
     Prefs.recentFiles.value.remove(filePath);
     Prefs.recentFiles.value.insert(0, filePath);
