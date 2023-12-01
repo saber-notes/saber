@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -49,7 +51,15 @@ class Pen extends Tool {
   static Stroke? currentStroke;
   StrokeProperties strokeProperties = StrokeProperties();
 
-  static Pen currentPen = Pen.fountainPen();
+  static Pen _currentPen = Pen.fountainPen();
+  static Pen get currentPen => _currentPen;
+  static set currentPen(Pen currentPen) {
+    assert(currentPen is! Highlighter,
+        'Use Highlighter.currentHighlighter instead');
+    assert(currentPen is! Pencil,
+        'Use Pencil.currentPencil instead');
+    _currentPen = currentPen;
+  }
 
   void onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
