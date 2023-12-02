@@ -76,11 +76,11 @@ ar:
 cs:
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): Výkon
     prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      shapeRecognitionDelay(OUTDATED): Zpoždění rozpoznávání tvarů
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      shapeRecognitionDelay(OUTDATED): Jak často aktualizovat náhled tvaru
 de:
   home:
     titles:
