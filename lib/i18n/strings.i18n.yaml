@@ -83,6 +83,7 @@ settings:
     autoClearWhiteboardOnExit: Auto-clear the whiteboard
     disableEraserAfterUse: Auto-disable the eraser
     hideFingerDrawingToggle: Hide the finger drawing toggle
+    showShapePreview: Shape pen preview
     editorPromptRename: Prompt you to rename new notes
     hideHomeBackgrounds: Hide backgrounds on the home screen
     recentColorsDontSavePresets: Don't save preset colors in recent colors
@@ -102,6 +103,7 @@ settings:
       shown: Prevents accidental toggling
       fixedOn: Finger drawing is fixed as enabled
       fixedOff: Finger drawing is fixed as disabled
+    showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
     editorPromptRename: You can always rename notes later
     hideHomeBackgrounds: For a cleaner look
     printPageIndicators: Show page indicators in exports

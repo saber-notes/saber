@@ -41,7 +41,7 @@ class ShapePen extends Pen {
   void onDragUpdate(Offset position, double? pressure) {
     super.onDragUpdate(position, pressure);
 
-    if (_detectShapeDebouncer == null || !_detectShapeDebouncer!.isActive) {
+    if (Prefs.showShapePreview.value && (_detectShapeDebouncer == null || !_detectShapeDebouncer!.isActive)) {
       _detectShapeDebouncer = Timer(_debounceDuration, _detectShape);
     }
   }

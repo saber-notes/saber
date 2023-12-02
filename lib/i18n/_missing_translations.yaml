@@ -41,6 +41,7 @@ ar:
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
@@ -51,6 +52,7 @@ ar:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
@@ -71,6 +73,11 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefLabels:
+      showShapePreview: Shape pen preview
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
 de:
   home:
     titles:
@@ -107,6 +114,7 @@ de:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
@@ -115,6 +123,7 @@ de:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
@@ -144,7 +153,10 @@ es:
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
     prefLabels:
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -176,7 +188,10 @@ fa:
       folderNameExists(OUTDATED): A folder with this name already exists
   settings:
     prefLabels:
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -204,7 +219,10 @@ fr:
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
     prefLabels:
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -232,7 +250,10 @@ he:
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
     prefLabels:
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -307,6 +328,7 @@ hu:
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
@@ -318,6 +340,7 @@ hu:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
       printPageIndicators(OUTDATED): Show page indicators in exports
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
@@ -422,6 +445,11 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      showShapePreview: Shape pen preview
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
 ja:
   home:
     titles:
@@ -455,6 +483,7 @@ ja:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
     prefDescriptions:
@@ -463,6 +492,7 @@ ja:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
@@ -492,7 +522,10 @@ pt-BR:
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
     prefLabels:
+      showShapePreview: Shape pen preview
       recentColorsLength(OUTDATED): How many recent colors to store
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -510,6 +543,11 @@ ru:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
+  settings:
+    prefLabels:
+      showShapePreview: Shape pen preview
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -517,6 +555,11 @@ tr:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
+  settings:
+    prefLabels:
+      showShapePreview: Shape pen preview
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -524,7 +567,17 @@ zh-Hans-CN:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
+  settings:
+    prefLabels:
+      showShapePreview: Shape pen preview
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)
   editor:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      showShapePreview: Shape pen preview
+    prefDescriptions:
+      showShapePreview: Show a preview of the shape when using the shape pen (disabling this may reduce lag)

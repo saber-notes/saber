@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3998 (249 per locale)
+/// Strings: 4000 (250 per locale)
 ///
-/// Built on 2023-11-26 at 18:43 UTC
+/// Built on 2023-12-02 at 15:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -468,6 +468,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get autoClearWhiteboardOnExit => 'Auto-clear the whiteboard';
 	String get disableEraserAfterUse => 'Auto-disable the eraser';
 	String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
+	String get showShapePreview => 'Shape pen preview';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
 	String get recentColorsDontSavePresets => 'Don\'t save preset colors in recent colors';
@@ -492,6 +493,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get disableEraserAfterUse => 'Automatically switches back to the pen after using the eraser';
 	String get maxImageSize => 'Larger images will be compressed';
 	late final _StringsSettingsPrefDescriptionsHideFingerDrawingEn hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingEn._(_root);
+	String get showShapePreview => 'Show a preview of the shape when using the shape pen (disabling this may reduce lag)';
 	String get editorPromptRename => 'You can always rename notes later';
 	String get hideHomeBackgrounds => 'For a cleaner look';
 	String get printPageIndicators => 'Show page indicators in exports';

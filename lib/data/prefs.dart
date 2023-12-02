@@ -83,6 +83,8 @@ abstract class Prefs {
   static late final PlainPref<bool> disableEraserAfterUse;
   static late final PlainPref<bool> hideFingerDrawingToggle;
 
+  static late final PlainPref<bool> showShapePreview;
+
   static late final PlainPref<List<String>> recentColorsChronological;
   static late final PlainPref<List<String>> recentColorsPositioned;
   static late final PlainPref<List<String>> pinnedColors;
@@ -164,6 +166,8 @@ abstract class Prefs {
 
     disableEraserAfterUse = PlainPref('disableEraserAfterUse', false);
     hideFingerDrawingToggle = PlainPref('hideFingerDrawingToggle', false);
+
+    showShapePreview = PlainPref('showShapePreview', true);
 
     recentColorsChronological = PlainPref('recentColorsChronological', []);
     recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: const ['recentColors']);

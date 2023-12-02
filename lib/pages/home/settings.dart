@@ -328,6 +328,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.hideFingerDrawingToggle,
                 afterChange: (_) => setState(() {}),
               ),
+              SettingsSwitch(
+                title: t.settings.prefLabels.showShapePreview,
+                subtitle: t.settings.prefDescriptions.showShapePreview,
+                icon: FontAwesomeIcons.shapes,
+                pref: Prefs.showShapePreview,
+              ),
               
               SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
               SettingsSelection(
