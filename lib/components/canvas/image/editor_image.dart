@@ -201,9 +201,9 @@ sealed class EditorImage extends ChangeNotifier {
       } else {
         Future.delayed(const Duration(seconds: 5)).then((_) {
           // load out if [loadIn] isn't called again in 5 seconds
-          if (!_shouldLoadOut!.isCompleted) {
-            _shouldLoadOut!.complete(true);
-          }
+          if (_shouldLoadOut == null) return;
+          if (_shouldLoadOut!.isCompleted) return;
+          _shouldLoadOut!.complete(true);
         });
       }
     }
