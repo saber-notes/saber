@@ -61,6 +61,7 @@ settings:
     general: General
     writing: Writing
     editor: Editor
+    performance: Performance
     advanced: Advanced
   prefLabels:
     locale: App language

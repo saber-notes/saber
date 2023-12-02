@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3998 (249 per locale)
+/// Strings: 3999 (249 per locale)
 ///
-/// Built on 2023-11-26 at 18:43 UTC
+/// Built on 2023-12-02 at 19:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -438,6 +438,7 @@ class _StringsSettingsPrefCategoriesEn {
 	String get general => 'General';
 	String get writing => 'Writing';
 	String get editor => 'Editor';
+	String get performance => 'Performance';
 	String get advanced => 'Advanced';
 }
 

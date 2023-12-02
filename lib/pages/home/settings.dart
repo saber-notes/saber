@@ -290,17 +290,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
                 pref: Prefs.preferGreyscale,
               ),
-              SettingsSelection(
-                title: t.settings.prefLabels.maxImageSize,
-                subtitle: t.settings.prefDescriptions.maxImageSize,
-                icon: Icons.photo_size_select_large,
-                pref: Prefs.maxImageSize,
-                options: const <ToggleButtonsOption<double>>[
-                  ToggleButtonsOption(500, Text('500')),
-                  ToggleButtonsOption(1000, Text('1000')),
-                  ToggleButtonsOption(2000, Text('2000')),
-                ],
-              ),
               SettingsSwitch(
                 title: t.settings.prefLabels.autoClearWhiteboardOnExit,
                 subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
@@ -408,6 +397,30 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.printPageIndicators,
               ),
 
+              SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
+              SettingsSelection(
+                title: t.settings.prefLabels.maxImageSize,
+                subtitle: t.settings.prefDescriptions.maxImageSize,
+                icon: Icons.photo_size_select_large,
+                pref: Prefs.maxImageSize,
+                options: const <ToggleButtonsOption<double>>[
+                  ToggleButtonsOption(500, Text('500')),
+                  ToggleButtonsOption(1000, Text('1000')),
+                  ToggleButtonsOption(2000, Text('2000')),
+                ],
+              ),
+              SettingsSelection(
+                title: t.settings.prefLabels.autosaveDelay,
+                subtitle: t.settings.prefDescriptions.autosaveDelay,
+                icon: Icons.save,
+                pref: Prefs.autosaveDelay,
+                options: const [
+                  ToggleButtonsOption(5000, Text('5s')),
+                  ToggleButtonsOption(10000, Text('10s')),
+                  ToggleButtonsOption(-1, Icon(Icons.close)),
+                ],
+              ),
+
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
               if (requiresManualUpdates || Prefs.shouldCheckForUpdates.value != Prefs.shouldCheckForUpdates.defaultValue) ...[
                 SettingsSwitch(
@@ -427,17 +440,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
               ],
-              SettingsSelection(
-                title: t.settings.prefLabels.autosaveDelay,
-                subtitle: t.settings.prefDescriptions.autosaveDelay,
-                icon: Icons.save,
-                pref: Prefs.autosaveDelay,
-                options: const [
-                  ToggleButtonsOption(5000, Text('5s')),
-                  ToggleButtonsOption(10000, Text('10s')),
-                  ToggleButtonsOption(-1, Icon(Icons.close)),
-                ],
-              ),
               if (AdState.adsSupported) ...[
                 SettingsSwitch(
                   title: t.settings.prefLabels.disableAds,
