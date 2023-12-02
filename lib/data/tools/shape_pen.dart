@@ -35,14 +35,23 @@ class ShapePen extends Pen {
   }
 
   static Timer? _detectShapeDebouncer;
-  static const _debounceDuration = Duration(milliseconds: 100);
+  static var debounceDuration = getDebounceFromPref();
+  static Duration getDebounceFromPref() {
+    assert(Prefs.shapeRecognitionDelay.loaded);
+    final ms = Prefs.shapeRecognitionDelay.value;
+    if (ms < 0) {
+      return const Duration(seconds: 10);
+    } else {
+      return Duration(milliseconds: ms);
+    }
+  }
 
   @override
   void onDragUpdate(Offset position, double? pressure) {
     super.onDragUpdate(position, pressure);
 
     if (_detectShapeDebouncer == null || !_detectShapeDebouncer!.isActive) {
-      _detectShapeDebouncer = Timer(_debounceDuration, _detectShape);
+      _detectShapeDebouncer = Timer(debounceDuration, _detectShape);
     }
   }
 

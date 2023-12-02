@@ -90,6 +90,7 @@ settings:
     recentColorsLength: How many recent colors to store
     printPageIndicators: Print page indicators
     autosaveDelay: Auto-save delay
+    shapeRecognitionDelay: Shape recognition delay
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
@@ -107,6 +108,7 @@ settings:
     hideHomeBackgrounds: For a cleaner look
     printPageIndicators: Show page indicators in exports
     autosaveDelay: How long to wait before auto-saving a note
+    shapeRecognitionDelay: How often to update the shape preview
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
   themeModes:
     system: System

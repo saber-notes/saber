@@ -72,6 +72,7 @@ abstract class Prefs {
   static late final PlainPref<int> editorStraightenDelay;
   static late final PlainPref<bool> editorPromptRename;
   static late final PlainPref<int> autosaveDelay;
+  static late final PlainPref<int> shapeRecognitionDelay;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
@@ -154,6 +155,7 @@ abstract class Prefs {
     editorStraightenDelay = PlainPref('__editorStraightenDelay', 500, deprecatedKeys: const ['editorStraightenDelay']);
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);
     autosaveDelay = PlainPref('autosaveDelay', 10000);
+    shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);

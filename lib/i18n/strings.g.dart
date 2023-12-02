@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 3999 (249 per locale)
+/// Strings: 4001 (250 per locale)
 ///
-/// Built on 2023-12-02 at 19:39 UTC
+/// Built on 2023-12-02 at 20:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -475,6 +475,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get recentColorsLength => 'How many recent colors to store';
 	String get printPageIndicators => 'Print page indicators';
 	String get autosaveDelay => 'Auto-save delay';
+	String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -497,6 +498,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get hideHomeBackgrounds => 'For a cleaner look';
 	String get printPageIndicators => 'Show page indicators in exports';
 	String get autosaveDelay => 'How long to wait before auto-saving a note';
+	String get shapeRecognitionDelay => 'How often to update the shape preview';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 }
 

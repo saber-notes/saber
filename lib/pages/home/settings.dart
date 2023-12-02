@@ -19,6 +19,7 @@ import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -419,6 +420,20 @@ class _SettingsPageState extends State<SettingsPage> {
                   ToggleButtonsOption(10000, Text('10s')),
                   ToggleButtonsOption(-1, Icon(Icons.close)),
                 ],
+              ),
+              SettingsSelection(
+                title: t.settings.prefLabels.shapeRecognitionDelay,
+                subtitle: t.settings.prefDescriptions.shapeRecognitionDelay,
+                icon: FontAwesomeIcons.shapes,
+                pref: Prefs.shapeRecognitionDelay,
+                options: const [
+                  ToggleButtonsOption(500, Text('0.5s')),
+                  ToggleButtonsOption(1000, Text('1s')),
+                  ToggleButtonsOption(-1, Icon(Icons.close)),
+                ],
+                afterChange: (ms) {
+                  ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
+                },
               ),
 
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
