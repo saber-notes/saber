@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 import 'dart:math';
@@ -10,6 +11,7 @@ import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
@@ -182,19 +184,77 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         ..scale(newScale);
   }
 
-  Keybinding? _ctrlPlus, _ctrlEquals, _ctrlMinus;
+  final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
+  void arrowKeyPan(AxisDirection direction, bool pressed) {
+    if (pressed) {
+      _arrowKeyPanTimers[direction]?.cancel();
+      _arrowKeyPanTimers[direction] = Timer.periodic(
+        const Duration(milliseconds: 100),
+        (_) => _arrowKeyPanNow(direction),
+      );
+    } else {
+      _arrowKeyPanTimers[direction]?.cancel();
+      _arrowKeyPanTimers.remove(direction);
+    }
+  }
+  void _arrowKeyPanNow(AxisDirection direction) {
+    final transformation = widget._transformationController.value;
+    const panAmount = 50.0;
+
+    transformation.leftTranslate(
+      switch (direction) {
+        AxisDirection.left => panAmount,
+        AxisDirection.right => -panAmount,
+        AxisDirection.up => 0.0,
+        AxisDirection.down => 0.0,
+      },
+      switch (direction) {
+        AxisDirection.left => 0.0,
+        AxisDirection.right => 0.0,
+        AxisDirection.up => panAmount,
+        AxisDirection.down => -panAmount,
+      },
+    );
+    widget._transformationController.notifyListenersPlease();
+  }
+
+
+  bool _setupKeybindings = false;
+  late Keybinding _ctrlPlus, _ctrlEquals, _ctrlMinus;
+  late Keybinding _leftKey, _rightKey, _upKey, _downKey;
   void _assignKeybindings() {
     _ctrlPlus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.add)], inclusive: true);
     _ctrlEquals = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.equal)], inclusive: true);
     _ctrlMinus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.minus)], inclusive: true);
-    Keybinder.bind(_ctrlPlus!, zoomIn);
-    Keybinder.bind(_ctrlEquals!, zoomIn);
-    Keybinder.bind(_ctrlMinus!, zoomOut);
+    Keybinder.bind(_ctrlPlus, zoomIn);
+    Keybinder.bind(_ctrlEquals, zoomIn);
+    Keybinder.bind(_ctrlMinus, zoomOut);
+
+    _leftKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowLeft)], inclusive: true);
+    _rightKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowRight)], inclusive: true);
+    _upKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowUp)], inclusive: true);
+    _downKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowDown)], inclusive: true);
+    // TODO: disable scroll keybindings when in quill mode
+    Keybinder.bind(_leftKey, (bool pressed) => arrowKeyPan(AxisDirection.left, pressed));
+    Keybinder.bind(_rightKey, (bool pressed) => arrowKeyPan(AxisDirection.right, pressed));
+    Keybinder.bind(_upKey, (bool pressed) => arrowKeyPan(AxisDirection.up, pressed));
+    Keybinder.bind(_downKey, (bool pressed) => arrowKeyPan(AxisDirection.down, pressed));
+
+    _setupKeybindings = true;
   }
   void _removeKeybindings() {
-    if (_ctrlPlus != null) Keybinder.remove(_ctrlPlus!);
-    if (_ctrlEquals != null) Keybinder.remove(_ctrlEquals!);
-    if (_ctrlMinus != null) Keybinder.remove(_ctrlMinus!);
+    if (!_setupKeybindings) return;
+    _setupKeybindings = false;
+
+    Keybinder.remove(_ctrlPlus);
+    Keybinder.remove(_ctrlEquals);
+    Keybinder.remove(_ctrlMinus);
+
+    Keybinder.remove(_leftKey);
+    Keybinder.remove(_rightKey);
+    Keybinder.remove(_upKey);
+    Keybinder.remove(_downKey);
+    _arrowKeyPanTimers.forEach((_, timer) => timer.cancel());
   }
 
   @override
