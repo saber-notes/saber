@@ -60,6 +60,7 @@ settings:
   prefCategories:
     general: Allgemein
     writing: Eingabe
+    performance(OUTDATED): Leistung
     advanced(OUTDATED): Fortgeschritten
     editor(OUTDATED): Herausgeber
   prefLabels:
@@ -84,6 +85,7 @@ settings:
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     printPageIndicators: Seitennummerierung drucken
+    shapeRecognitionDelay(OUTDATED): Verzögerung der Formerkennung
     recentColorsLength(OUTDATED): Wie viele aktuelle Farben gespeichert werden sollen
     autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
     hideFingerDrawingToggle(OUTDATED): Den Fingerzeichnungsschalter ausblenden
@@ -104,6 +106,7 @@ settings:
     editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
+    shapeRecognitionDelay(OUTDATED): "Wie oft soll die Formvorschau aktualisiert werden?"
     autosaveDelay(OUTDATED): "Wartezeit, bevor eine Notiz automatisch gespeichert wird"
     disableEraserAfterUse(OUTDATED): Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück
     shouldAlwaysAlertForUpdates(OUTDATED): "Informiere mich über Updates, sobald sie verfügbar sind"
@@ -219,8 +222,8 @@ editor:
     fountainPen: Füllfederhalter
     ballpointPen: Kugelschreiber
     highlighter: Textmarker
-    pencil(OUTDATED): Bleistift
     laserPointer: Laserpointer
+    pencil(OUTDATED): Bleistift
     shapePen(OUTDATED): Formstift
   penOptions:
     size: Dicke

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 16
-/// Strings: 4001 (250 per locale)
+/// Strings: 4046 (252 per locale)
 ///
-/// Built on 2023-12-02 at 20:07 UTC
+/// Built on 2023-12-02 at 20:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1217,6 +1217,7 @@ class _StringsSettingsPrefCategoriesAr extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'عام';
 	@override String get writing => 'كتابة';
+	@override String get performance => 'أداء';
 	@override String get editor => 'محرر';
 	@override String get advanced => 'متقدم';
 }
@@ -1246,6 +1247,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get shapeRecognitionDelay => 'تأخير التعرف على الشكل';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي سيتم تخزينها';
 	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
 	@override String get disableAds => 'عطل الاعلانات';
@@ -1272,6 +1274,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
+	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
 	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
 	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
@@ -1514,8 +1517,8 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
-	@override String get pencil => 'قلم';
 	@override String get laserPointer => 'مؤشر الليزر';
+	@override String get pencil => 'قلم';
 	@override String get shapePen => 'قلم الشكل';
 }
 
@@ -1995,6 +1998,7 @@ class _StringsSettingsPrefCategoriesCs extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Obecné';
 	@override String get writing => 'Psaní';
 	@override String get editor => 'Editor';
+	@override String get performance => 'Výkon';
 	@override String get advanced => 'Pokročilé';
 }
 
@@ -2031,6 +2035,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
+	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznání tvaru';
 }
 
 // Path: settings.prefDescriptions
@@ -2053,6 +2058,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
+	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 }
 
@@ -2771,6 +2777,7 @@ class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Allgemein';
 	@override String get writing => 'Eingabe';
+	@override String get performance => 'Leistung';
 	@override String get advanced => 'Fortgeschritten';
 	@override String get editor => 'Herausgeber';
 }
@@ -2803,6 +2810,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
+	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get recentColorsLength => 'Wie viele aktuelle Farben gespeichert werden sollen';
 	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
 	@override String get hideFingerDrawingToggle => 'Den Fingerzeichnungsschalter ausblenden';
@@ -2828,6 +2836,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
+	@override String get shapeRecognitionDelay => 'Wie oft soll die Formvorschau aktualisiert werden?';
 	@override String get autosaveDelay => 'Wartezeit, bevor eine Notiz automatisch gespeichert wird';
 	@override String get disableEraserAfterUse => 'Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück';
 	@override String get shouldAlwaysAlertForUpdates => 'Informiere mich über Updates, sobald sie verfügbar sind';
@@ -3068,8 +3077,8 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get ballpointPen => 'Kugelschreiber';
 	@override String get highlighter => 'Textmarker';
-	@override String get pencil => 'Bleistift';
 	@override String get laserPointer => 'Laserpointer';
+	@override String get pencil => 'Bleistift';
 	@override String get shapePen => 'Formstift';
 }
 
@@ -3547,6 +3556,7 @@ class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'General';
 	@override String get writing => 'Escritura';
 	@override String get editor => 'Editor';
+	@override String get performance => 'Actuación';
 	@override String get advanced => 'Avanzado';
 }
 
@@ -3582,6 +3592,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
+	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
 	@override String get recentColorsLength => '¿Cuántos colores recientes almacenar?';
 }
 
@@ -3605,6 +3616,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
+	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 }
 
@@ -3843,8 +3855,8 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Lápiz';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
-	@override String get pencil => 'Lápiz';
 	@override String get laserPointer => 'Puntero láser';
+	@override String get pencil => 'Lápiz';
 	@override String get shapePen => 'Pluma de forma';
 }
 
@@ -4324,6 +4336,7 @@ class _StringsSettingsPrefCategoriesFa extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'عمومی';
 	@override String get writing => 'نوشتن';
 	@override String get editor => 'ویرایشگر';
+	@override String get performance => 'کارایی';
 	@override String get advanced => 'پیشرفته';
 }
 
@@ -4359,6 +4372,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
+	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 }
 
@@ -4382,6 +4396,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
+	@override String get shapeRecognitionDelay => 'هر چند وقت یکبار برای به روز رسانی پیش نمایش شکل';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 }
 
@@ -4620,8 +4635,8 @@ class _StringsEditorPensFa extends _StringsEditorPensEn {
 	@override String get fountainPen => 'خودنویس';
 	@override String get ballpointPen => 'خودکار';
 	@override String get highlighter => 'هایلایتر';
-	@override String get pencil => 'مداد';
 	@override String get laserPointer => 'اشاره گر لیزری';
+	@override String get pencil => 'مداد';
 	@override String get shapePen => 'قلم شکل';
 }
 
@@ -5101,6 +5116,7 @@ class _StringsSettingsPrefCategoriesFr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Général';
 	@override String get writing => 'Tracé';
 	@override String get editor => 'Editeur';
+	@override String get performance => 'Rendement';
 	@override String get advanced => 'Avancé';
 }
 
@@ -5136,6 +5152,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
+	@override String get shapeRecognitionDelay => 'Retard de reconnaissance de forme';
 	@override String get recentColorsLength => 'Combien de couleurs récentes stocker';
 }
 
@@ -5159,6 +5176,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
+	@override String get shapeRecognitionDelay => 'À quelle fréquence mettre à jour l\'aperçu de la forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 }
 
@@ -5397,8 +5415,8 @@ class _StringsEditorPensFr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Stylo encre';
 	@override String get ballpointPen => 'Stylo bille';
 	@override String get highlighter => 'Surligneur';
-	@override String get pencil => 'Crayon';
 	@override String get laserPointer => 'Pointeur laser';
+	@override String get pencil => 'Crayon';
 	@override String get shapePen => 'Stylo de forme';
 }
 
@@ -5877,6 +5895,7 @@ class _StringsSettingsPrefCategoriesHe extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'כללי';
 	@override String get writing => 'כתיבה';
 	@override String get editor => 'עורך';
+	@override String get performance => 'ביצועים';
 	@override String get advanced => 'מתקדם';
 }
 
@@ -5912,6 +5931,7 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get shapeRecognitionDelay => 'עיכוב זיהוי צורות';
 	@override String get recentColorsLength => 'כמה צבעים אחרונים לאחסן';
 }
 
@@ -5935,6 +5955,7 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
+	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 }
 
@@ -6173,8 +6194,8 @@ class _StringsEditorPensHe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'עט נובע';
 	@override String get ballpointPen => 'עט כדורי';
 	@override String get highlighter => 'מרקר';
-	@override String get pencil => 'עִפָּרוֹן';
 	@override String get laserPointer => 'סמן לייזר';
+	@override String get pencil => 'עִפָּרוֹן';
 	@override String get shapePen => 'עט צורה';
 }
 
@@ -6653,6 +6674,7 @@ class _StringsSettingsPrefCategoriesHu extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Általános';
 	@override String get writing => 'Írás';
+	@override String get performance => 'Teljesítmény';
 	@override String get editor => 'Szerkesztő';
 	@override String get advanced => 'Fejlett';
 }
@@ -6680,6 +6702,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get shapeRecognitionDelay => 'Alakfelismerési késleltetés';
 	@override String get recentColorsLength => 'Hány friss színt kell tárolni';
 	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
 	@override String get layoutSize => 'Elrendezés típusa';
@@ -6707,6 +6730,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
@@ -7431,6 +7455,7 @@ class _StringsSettingsPrefCategoriesIt extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Generale';
 	@override String get writing => 'Scrittura';
 	@override String get editor => 'Editor';
+	@override String get performance => 'Prestazione';
 	@override String get advanced => 'Avanzato';
 }
 
@@ -7467,6 +7492,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
+	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 }
 
 // Path: settings.prefDescriptions
@@ -7489,6 +7515,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
+	@override String get shapeRecognitionDelay => 'La frequenza con cui aggiornare l\'anteprima della forma';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 }
 
@@ -8208,6 +8235,7 @@ class _StringsSettingsPrefCategoriesJa extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => '一般';
 	@override String get writing => '文章';
 	@override String get editor => '編集';
+	@override String get performance => 'パフォーマンス';
 	@override String get advanced => 'アドバンスド';
 }
 
@@ -8239,6 +8267,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get shapeRecognitionDelay => '形状認識の遅延';
 	@override String get recentColorsLength => '最近使用した色を何色保存するか';
 	@override String get autosaveDelay => '自動保存の遅延';
 	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
@@ -8264,6 +8293,7 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
+	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
 	@override String get disableEraserAfterUse => '消しゴムを使用した後は自動的にペンに戻ります';
 	@override String get shouldAlwaysAlertForUpdates => 'アップデートが利用可能になり次第お知らせください';
@@ -8504,8 +8534,8 @@ class _StringsEditorPensJa extends _StringsEditorPensEn {
 	@override String get fountainPen => '万年筆';
 	@override String get ballpointPen => 'ボールペン';
 	@override String get highlighter => '蛍光ペン';
-	@override String get pencil => '鉛筆';
 	@override String get laserPointer => 'レーザーポインター';
+	@override String get pencil => '鉛筆';
 	@override String get shapePen => 'シェイプペン';
 }
 
@@ -8985,6 +9015,7 @@ class _StringsSettingsPrefCategoriesPtBr extends _StringsSettingsPrefCategoriesE
 	@override String get general => 'Geral';
 	@override String get writing => 'Escrita';
 	@override String get editor => 'editor';
+	@override String get performance => 'Desempenho';
 	@override String get advanced => 'Avançado';
 }
 
@@ -9020,6 +9051,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
+	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de forma';
 	@override String get recentColorsLength => 'Quantas cores recentes armazenar';
 }
 
@@ -9043,6 +9075,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
+	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 }
 
@@ -9281,8 +9314,8 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
 	@override String get highlighter => 'Marcador';
-	@override String get pencil => 'Lápis';
 	@override String get laserPointer => 'Apontador laser';
+	@override String get pencil => 'Lápis';
 	@override String get shapePen => 'Caneta de forma';
 }
 
@@ -9762,6 +9795,7 @@ class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Общие';
 	@override String get writing => 'Письмо';
 	@override String get editor => 'Редактор';
+	@override String get performance => 'Производительность';
 	@override String get advanced => 'Дополнительно';
 }
 
@@ -9798,6 +9832,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
+	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 }
 
 // Path: settings.prefDescriptions
@@ -9820,6 +9855,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
+	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр фигуры';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 }
 
@@ -10058,9 +10094,9 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
-	@override String get pencil => 'Карандаш';
 	@override String get shapePen => 'Вид ручки';
 	@override String get laserPointer => 'Лазерная указка';
+	@override String get pencil => 'Карандаш';
 }
 
 // Path: editor.penOptions
@@ -10539,6 +10575,7 @@ class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Genel';
 	@override String get writing => 'Yazım';
 	@override String get editor => 'Editör';
+	@override String get performance => 'Verim';
 	@override String get advanced => 'Gelişmiş';
 }
 
@@ -10575,6 +10612,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Kaç tane son kullanılan renk saklanacak';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
+	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 }
 
 // Path: settings.prefDescriptions
@@ -10597,6 +10635,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
+	@override String get shapeRecognitionDelay => 'Şekil önizlemesinin ne sıklıkla güncelleneceği';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 }
 
@@ -10835,9 +10874,9 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
-	@override String get pencil => 'Kalem';
 	@override String get shapePen => 'Şekil kalemi';
 	@override String get laserPointer => 'Lazer işaretçi';
+	@override String get pencil => 'Kalem';
 }
 
 // Path: editor.penOptions
@@ -11316,6 +11355,7 @@ class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategor
 	@override String get general => '通用';
 	@override String get writing => '书写';
 	@override String get editor => '编辑器';
+	@override String get performance => '表现';
 	@override String get advanced => '高级';
 }
 
@@ -11352,6 +11392,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
+	@override String get shapeRecognitionDelay => '形状识别延迟';
 }
 
 // Path: settings.prefDescriptions
@@ -11374,6 +11415,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
+	@override String get shapeRecognitionDelay => '多久更新一次形状预览';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 }
 
@@ -11612,9 +11654,9 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 	@override String get fountainPen => '钢笔';
 	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
-	@override String get pencil => '铅笔';
 	@override String get shapePen => '形状笔';
 	@override String get laserPointer => '激光笔';
+	@override String get pencil => '铅笔';
 }
 
 // Path: editor.penOptions
@@ -12093,6 +12135,7 @@ class _StringsSettingsPrefCategoriesZhHantTw extends _StringsSettingsPrefCategor
 	@override String get general => '一般';
 	@override String get writing => '書寫';
 	@override String get editor => '編輯器';
+	@override String get performance => '表現';
 	@override String get advanced => '進階';
 }
 
@@ -12129,6 +12172,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
+	@override String get shapeRecognitionDelay => '形狀辨識延遲';
 }
 
 // Path: settings.prefDescriptions
@@ -12151,6 +12195,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
+	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 }
 

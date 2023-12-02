@@ -61,6 +61,7 @@ settings:
     general: כללי
     writing: כתיבה
     editor: עורך
+    performance(OUTDATED): ביצועים
     advanced: מתקדם
   prefLabels:
     locale: שפת התוכנה
@@ -88,6 +89,7 @@ settings:
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
+    shapeRecognitionDelay(OUTDATED): עיכוב זיהוי צורות
     recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
   prefDescriptions:
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
+    shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
   themeModes:
     system: מערכת
@@ -219,8 +222,8 @@ editor:
     fountainPen: עט נובע
     ballpointPen: עט כדורי
     highlighter: מרקר
-    pencil(OUTDATED): עִפָּרוֹן
     laserPointer: סמן לייזר
+    pencil(OUTDATED): עִפָּרוֹן
     shapePen(OUTDATED): עט צורה
   penOptions:
     size: גודל

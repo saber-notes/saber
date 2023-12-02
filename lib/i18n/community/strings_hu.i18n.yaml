@@ -60,6 +60,7 @@ settings:
   prefCategories:
     general: Általános
     writing: Írás
+    performance(OUTDATED): Teljesítmény
     editor(OUTDATED): Szerkesztő
     advanced(OUTDATED): Fejlett
   prefLabels:
@@ -79,6 +80,7 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    shapeRecognitionDelay(OUTDATED): Alakfelismerési késleltetés
     recentColorsLength(OUTDATED): Hány friss színt kell tárolni
     changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     layoutSize(OUTDATED): Elrendezés típusa
@@ -101,6 +103,7 @@ settings:
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
+    shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
     disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
     allowInsecureConnections(OUTDATED): "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"

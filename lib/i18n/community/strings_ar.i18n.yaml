@@ -55,11 +55,12 @@ home:
     delete(OUTDATED): يمسح
   backFolder(OUTDATED): ارجع إلى المجلد السابق
   deleteNote(OUTDATED): حذف الملاحظة
-  invalidFormat(OUTDATED): الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf.
+  invalidFormat(OUTDATED): "الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf."
 settings:
   prefCategories:
     general: عام
     writing: كتابة
+    performance(OUTDATED): أداء
     editor(OUTDATED): محرر
     advanced(OUTDATED): متقدم
   prefLabels:
@@ -81,6 +82,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
     recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
     changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
     disableAds(OUTDATED): عطل الاعلانات
@@ -102,6 +104,7 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
+    shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
     allowInsecureConnections(OUTDATED): (غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها
     autosaveDelay(OUTDATED): كم من الوقت للانتظار قبل تقديم مذكرة
@@ -218,8 +221,8 @@ editor:
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
-    pencil(OUTDATED): قلم
     laserPointer: مؤشر الليزر
+    pencil(OUTDATED): قلم
     shapePen(OUTDATED): قلم الشكل
   penOptions:
     size: حجم

@@ -33,6 +33,7 @@ ar:
   settings:
     prefCategories:
       editor(OUTDATED): Editor
+      performance(OUTDATED): Performance
       advanced(OUTDATED): Advanced
     prefLabels:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
@@ -43,6 +44,7 @@ ar:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -52,6 +54,7 @@ ar:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     pens:
@@ -71,6 +74,13 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefCategories:
+      performance(OUTDATED): Performance
+    prefLabels:
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
 de:
   home:
     titles:
@@ -102,6 +112,7 @@ de:
   settings:
     prefCategories:
       editor(OUTDATED): Editor
+      performance(OUTDATED): Performance
       advanced(OUTDATED): Advanced
     prefLabels:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
@@ -109,6 +120,7 @@ de:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -116,6 +128,7 @@ de:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     pens:
@@ -143,8 +156,13 @@ es:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
+    prefCategories:
+      performance(OUTDATED): Performance
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -175,8 +193,13 @@ fa:
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
   settings:
+    prefCategories:
+      performance(OUTDATED): Performance
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -203,8 +226,13 @@ fr:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
+    prefCategories:
+      performance(OUTDATED): Performance
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -231,8 +259,13 @@ he:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
+    prefCategories:
+      performance(OUTDATED): Performance
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -298,6 +331,7 @@ hu:
   settings:
     prefCategories:
       editor(OUTDATED): Editor
+      performance(OUTDATED): Performance
       advanced(OUTDATED): Advanced
     prefLabels:
       layoutSize(OUTDATED): Layout type
@@ -310,6 +344,7 @@ hu:
       recentColorsLength(OUTDATED): How many recent colors to store
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -320,6 +355,7 @@ hu:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       printPageIndicators(OUTDATED): Show page indicators in exports
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     layoutSizes:
       auto(OUTDATED): Auto
@@ -422,6 +458,13 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefCategories:
+      performance(OUTDATED): Performance
+    prefLabels:
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
 ja:
   home:
     titles:
@@ -451,12 +494,15 @@ ja:
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
   settings:
+    prefCategories:
+      performance(OUTDATED): Performance
     prefLabels:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -464,6 +510,7 @@ ja:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
   editor:
     pens:
@@ -491,8 +538,13 @@ pt-BR:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
   settings:
+    prefCategories:
+      performance(OUTDATED): Performance
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -510,6 +562,13 @@ ru:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
+  settings:
+    prefCategories:
+      performance(OUTDATED): Performance
+    prefLabels:
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -517,6 +576,13 @@ tr:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
+  settings:
+    prefCategories:
+      performance(OUTDATED): Performance
+    prefLabels:
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -524,7 +590,21 @@ zh-Hans-CN:
   home:
     tooltips:
       exportNote(OUTDATED): Export note
+  settings:
+    prefCategories:
+      performance(OUTDATED): Performance
+    prefLabels:
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hant-TW:
+  settings:
+    prefCategories:
+      performance(OUTDATED): Performance
+    prefLabels:
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+    prefDescriptions:
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview

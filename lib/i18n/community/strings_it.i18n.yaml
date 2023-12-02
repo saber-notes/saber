@@ -61,6 +61,7 @@ settings:
     general: Generale
     writing: Scrittura
     editor: Editor
+    performance(OUTDATED): Prestazione
     advanced: Avanzato
   prefLabels:
     locale: Lingua app
@@ -89,6 +90,7 @@ settings:
     recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
+    shapeRecognitionDelay(OUTDATED): Ritardo nel riconoscimento della forma
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
+    shapeRecognitionDelay(OUTDATED): La frequenza con cui aggiornare l'anteprima della forma
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
   themeModes:
     system: Sistema

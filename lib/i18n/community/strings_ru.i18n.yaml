@@ -61,6 +61,7 @@ settings:
     general: Общие
     writing: Письмо
     editor: Редактор
+    performance(OUTDATED): Производительность
     advanced: Дополнительно
   prefLabels:
     locale: Язык приложения
@@ -89,6 +90,7 @@ settings:
     recentColorsLength: Количество последних сохраняемых цветов
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
+    shapeRecognitionDelay(OUTDATED): Задержка распознавания формы
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
+    shapeRecognitionDelay(OUTDATED): Как часто обновлять предварительный просмотр фигуры
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
   themeModes:
     system: Системная
@@ -218,9 +221,9 @@ editor:
     fountainPen: Перьевая ручка
     ballpointPen: Шариковая ручка
     highlighter: Маркер
-    pencil(OUTDATED): Карандаш
     shapePen: Вид ручки
     laserPointer: Лазерная указка
+    pencil(OUTDATED): Карандаш
   penOptions:
     size: Размер
     sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"

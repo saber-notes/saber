@@ -61,6 +61,7 @@ settings:
     general: Obecné
     writing: Psaní
     editor: Editor
+    performance(OUTDATED): Výkon
     advanced: Pokročilé
   prefLabels:
     locale: Jazyk aplikace
@@ -89,6 +90,7 @@ settings:
     recentColorsLength: Kolik naposledy použitých barev se má ukládat
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
+    shapeRecognitionDelay(OUTDATED): Zpoždění rozpoznání tvaru
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
+    shapeRecognitionDelay(OUTDATED): Jak často aktualizovat náhled tvaru
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
   themeModes:
     system: Systémový

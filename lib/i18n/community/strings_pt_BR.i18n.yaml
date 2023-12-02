@@ -61,6 +61,7 @@ settings:
     general: Geral
     writing: Escrita
     editor: editor
+    performance(OUTDATED): Desempenho
     advanced: Avançado
   prefLabels:
     locale: Idioma do aplicativo
@@ -88,6 +89,7 @@ settings:
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
+    shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
+    shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
   themeModes:
     system: Sistema
@@ -218,8 +221,8 @@ editor:
     fountainPen: Caneta tinteiro
     ballpointPen: Caneta esferográfica
     highlighter: Marcador
-    pencil(OUTDATED): Lápis
     laserPointer: Apontador laser
+    pencil(OUTDATED): Lápis
     shapePen(OUTDATED): Caneta de forma
   penOptions:
     size: Tamanho

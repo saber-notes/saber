@@ -61,6 +61,7 @@ settings:
     general: Général
     writing: Tracé
     editor: Editeur
+    performance(OUTDATED): Rendement
     advanced: Avancé
   prefLabels:
     locale: Langue
@@ -88,6 +89,7 @@ settings:
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
+    shapeRecognitionDelay(OUTDATED): Retard de reconnaissance de forme
     recentColorsLength(OUTDATED): Combien de couleurs récentes stocker
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
+    shapeRecognitionDelay(OUTDATED): À quelle fréquence mettre à jour l'aperçu de la forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
   themeModes:
     system: Système
@@ -218,8 +221,8 @@ editor:
     fountainPen: Stylo encre
     ballpointPen: Stylo bille
     highlighter: Surligneur
-    pencil(OUTDATED): Crayon
     laserPointer: Pointeur laser
+    pencil(OUTDATED): Crayon
     shapePen(OUTDATED): Stylo de forme
   penOptions:
     size: Taille

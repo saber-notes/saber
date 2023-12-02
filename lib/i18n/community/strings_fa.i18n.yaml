@@ -55,12 +55,13 @@ home:
     deleteName: $f را حذف کنید
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
-  invalidFormat(OUTDATED): فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2, .sba یا pdf. انتخاب کنید.
+  invalidFormat(OUTDATED): "فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2, .sba یا pdf. انتخاب کنید."
 settings:
   prefCategories:
     general: عمومی
     writing: نوشتن
     editor: ویرایشگر
+    performance(OUTDATED): کارایی
     advanced: پیشرفته
   prefLabels:
     locale: زبان برنامه
@@ -88,6 +89,7 @@ settings:
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
+    shapeRecognitionDelay(OUTDATED): تاخیر در تشخیص شکل
     recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
@@ -106,6 +108,7 @@ settings:
     hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
+    shapeRecognitionDelay(OUTDATED): هر چند وقت یکبار برای به روز رسانی پیش نمایش شکل
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
   themeModes:
     system: سیستم
@@ -214,8 +217,8 @@ editor:
     fountainPen: خودنویس
     ballpointPen: خودکار
     highlighter: هایلایتر
-    pencil(OUTDATED): مداد
     laserPointer: اشاره گر لیزری
+    pencil(OUTDATED): مداد
     shapePen(OUTDATED): قلم شکل
   penOptions:
     size: اندازه
