@@ -186,14 +186,22 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
   void arrowKeyPan(AxisDirection direction, bool pressed) {
+    _arrowKeyPanTimers[direction]?.cancel();
+
     if (pressed) {
-      _arrowKeyPanTimers[direction]?.cancel();
-      _arrowKeyPanTimers[direction] = Timer.periodic(
-        const Duration(milliseconds: 100),
-        (_) => _arrowKeyPanNow(direction),
+      _arrowKeyPanNow(direction);
+
+      // Wait for 200ms, then pan every 100ms
+      _arrowKeyPanTimers[direction] = Timer(
+        const Duration(milliseconds: 200),
+        () {
+          _arrowKeyPanTimers[direction] = Timer.periodic(
+            const Duration(milliseconds: 100),
+            (_) => _arrowKeyPanNow(direction),
+          );
+        }
       );
     } else {
-      _arrowKeyPanTimers[direction]?.cancel();
       _arrowKeyPanTimers.remove(direction);
     }
   }
