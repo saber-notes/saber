@@ -17,6 +17,7 @@ jobs:
     outputs:
       buildName: ${{ steps.get_version.outputs.buildName }}
       buildNumber: ${{ steps.get_version.outputs.buildNumber }}
+    timeout-minutes: 1
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,6 +39,7 @@ jobs:
     needs: get-version
     permissions:
       contents: write
+    timeout-minutes: 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

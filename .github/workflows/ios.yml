@@ -20,6 +20,7 @@ jobs:
     outputs:
       buildName: ${{ steps.get_version.outputs.buildName }}
       buildNumber: ${{ steps.get_version.outputs.buildNumber }}
+    timeout-minutes: 1
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -39,6 +40,7 @@ jobs:
     name: Build for iOS
     runs-on: macos-latest
     needs: get-version
+    timeout-minutes: 30
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}

@@ -10,9 +10,10 @@ on:
       - 'packages/onyxsdk_pen/**'
 
 jobs:
-  run-tests:
+  run-onyx-tests:
     name: Run Flutter tests
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

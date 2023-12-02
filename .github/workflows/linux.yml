@@ -17,6 +17,7 @@ jobs:
     outputs:
       buildName: ${{ steps.get_version.outputs.buildName }}
       buildNumber: ${{ steps.get_version.outputs.buildNumber }}
+    timeout-minutes: 1
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,6 +39,7 @@ jobs:
     needs: get-version
     permissions:
       contents: write
+    timeout-minutes: 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -123,6 +125,7 @@ jobs:
     needs: get-version
     permissions:
       contents: write
+    timeout-minutes: 60
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -259,6 +262,7 @@ jobs:
     container:
       image: bilelmoussaoui/flatpak-github-actions:freedesktop-22.08
       options: --privileged
+    timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -313,6 +317,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -383,6 +388,7 @@ jobs:
   build-snap:
     name: Build Snap
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout Git repository
         uses: actions/checkout@v4
