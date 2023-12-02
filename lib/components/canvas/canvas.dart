@@ -31,7 +31,7 @@ class Canvas extends StatelessWidget {
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
-  final RecognizedUnistroke<DefaultUnistrokeNames>? currentStrokeDetectedShape;
+  final RecognizedUnistroke? currentStrokeDetectedShape;
   final SelectResult? currentSelection;
 
   final void Function(EditorImage image)? setAsBackground;

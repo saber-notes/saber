@@ -148,7 +148,7 @@ dependencies:
 
   yaru: ^1.1.0
 
-  one_dollar_unistroke_recognizer: ^0.6.1
+  one_dollar_unistroke_recognizer: ^0.7.0
 
   meta: ^1.0.0
 

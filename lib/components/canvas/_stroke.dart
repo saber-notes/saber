@@ -243,7 +243,7 @@ class Stroke {
     }
   }
 
-  RecognizedUnistroke<DefaultUnistrokeNames>? detectShape() {
+  RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;
     return recognizeUnistroke(
       points.map((point) => Offset(point.x, point.y)).toList(),

@@ -29,7 +29,7 @@ class ShapePen extends Pen {
 
   static const IconData shapePenIcon = FontAwesomeIcons.shapes;
 
-  static RecognizedUnistroke<DefaultUnistrokeNames>? detectedShape;
+  static RecognizedUnistroke? detectedShape;
   void _detectShape() {
     detectedShape = Pen.currentStroke?.detectShape();
   }

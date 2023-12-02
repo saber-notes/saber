@@ -108,7 +108,7 @@ class CircleStroke extends Stroke {
 
   @override
   @Deprecated('We already know the shape is a circle.')
-  RecognizedUnistroke<DefaultUnistrokeNames> detectShape() {
+  RecognizedUnistroke detectShape() {
     return RecognizedUnistroke(
       DefaultUnistrokeNames.circle,
       1,

@@ -77,8 +77,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
           final Quota? quota = snapshot.data;
           final double? relativePercent;
-          if (quota?.relative?.$double != null) {
-            relativePercent = quota!.relative!.$double! / 100;
+          if (quota != null) {
+            relativePercent = quota.relative / 100;
           } else {
             relativePercent = null;
           }
@@ -109,8 +109,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   static String readableQuota(Quota? quota) {
-    final used = readableBytes(quota?.used?.$int ?? quota?.used?.$double);
-    final total = readableBytes(quota?.total?.$int ?? quota?.total?.$double);
+    final used = readableBytes(quota?.used);
+    final total = readableBytes(quota?.total);
     return '$used / $total';
   }
   static String readableBytes(num? bytes) {
