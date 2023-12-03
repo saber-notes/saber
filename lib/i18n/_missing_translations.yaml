@@ -575,15 +575,15 @@ tr:
 zh-Hans-CN:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): 导出笔记
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): 性能
     prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      shapeRecognitionDelay(OUTDATED): 形状识别延迟
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      shapeRecognitionDelay(OUTDATED): 形状预览更新频率
   editor:
     pens:
-      pencil(OUTDATED): Pencil
+      pencil(OUTDATED): 铅笔
 zh-Hant-TW:
