@@ -596,8 +596,8 @@ zh-Hans-CN:
 zh-Hant-TW:
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): 效能
     prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      shapeRecognitionDelay(OUTDATED): 形狀識別延遲
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      shapeRecognitionDelay(OUTDATED): 多久更新一次形狀預覽
