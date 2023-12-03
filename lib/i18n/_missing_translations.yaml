@@ -453,11 +453,11 @@ hu:
 it:
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): Prestazioni
     prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      shapeRecognitionDelay(OUTDATED): Ritardo nel riconoscimento della forma
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      shapeRecognitionDelay(OUTDATED): Quanto spesso aggiornare l'anteprima della forma
 ja:
   home:
     titles:
