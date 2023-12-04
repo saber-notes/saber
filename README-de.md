@@ -146,9 +146,11 @@ Dies ist ausreichend um es auf dem eigenen Computer zu benutzen, aber falls du d
 Du musst eventuell ein signiertes Zertifikat genieren und eine `android/key.properties`-Datei erstellen.
 Mehr Informationen in der [Flutter-Dokumentation](https://docs.flutter.dev/deployment/android#create-an-upload-keystore).
 
-Hinweis: F-Droid-Veröffentlichungen sind leicht anders gebuildet:
-`./patches/remove_proprietary_dependencies.sh`
-`flutter build apk -t lib/main_fdroid.dart`
+Hinweis: [F-Droid][f-droid-manifest]-Veröffentlichungen sind leicht anders gebuildet:
+```bash
+./patches/remove_proprietary_dependencies.sh
+flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+```
 
 #### Windows
 
@@ -327,3 +329,5 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 [releases]: https://github.com/saber-notes/saber/releases
 [issues]: https://github.com/saber-notes/saber/issues
 [progress]: https://github.com/saber-notes/saber/discussions/1
+
+[f-droid-manifest]: https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.adilhanney.saber.yml

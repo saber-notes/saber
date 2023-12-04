@@ -150,9 +150,11 @@ budete potřebovat použitít předvídatelné prostředí: udělejte fork totoh
 Budete potřevoat vygenerovat a podepsat certifikát a vytvořit soubor `android/key.properties`.
 Více informací nahttps://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
-Poznámka: vydání pro F-Droid jsou sestavena výrazně odlišně
-`./patches/remove_proprietary_dependencies.sh`
-`flutter build apk -t lib/main_fdroid.dart`
+Poznámka: vydání pro [F-Droid][f-droid-manifest] jsou sestavena výrazně odlišně
+```bash
+./patches/remove_proprietary_dependencies.sh
+flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+```
 
 #### Windows
 
@@ -337,3 +339,5 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [releases]: https://github.com/saber-notes/saber/releases
 [issues]: https://github.com/saber-notes/saber/issues
 [progress]: https://github.com/saber-notes/saber/discussions/1
+
+[f-droid-manifest]: https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.adilhanney.saber.yml

@@ -153,9 +153,11 @@ flutter pub get
 您可能需要生成簽名證書並創建 `android/key.properties` 檔案。
 有關 https://docs.flutter.dev/deployment/android#create-an-upload-keystore 的更多資訊
 
-注意：F-Droid 版本的構建略有不同：
-`./patches/remove_proprietary_dependencies.sh`
-`flutter build apk -t lib/main_fdroid.dart`
+注意：[F-Droid][f-droid-manifest] 版本的構建略有不同：
+```bash
+./patches/remove_proprietary_dependencies.sh
+flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+```
 
 #### Windows
 
@@ -320,3 +322,5 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 [releases]: https://github.com/saber-notes/saber/releases
 [issues]: https://github.com/saber-notes/saber/issues
 [progress]: https://github.com/saber-notes/saber/discussions/1
+
+[f-droid-manifest]: https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.adilhanney.saber.yml

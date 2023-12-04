@@ -150,9 +150,12 @@ you need to use a predictable environment: fork this repo and use the GitHub Act
 You may need to generate a signing certificate and create the `android/key.properties` file.
 More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
-Note: F-Droid releases are built slightly differently:
-`./patches/remove_proprietary_dependencies.sh`
-`flutter build apk -t lib/main_fdroid.dart`
+Note:
+FOSS/[F-Droid][f-droid-manifest] builds are done slightly differently:
+```bash
+./patches/remove_proprietary_dependencies.sh
+flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+```
 
 #### Windows
 
@@ -338,3 +341,5 @@ If you like Saber, please consider supporting it by:
 [releases]: https://github.com/saber-notes/saber/releases
 [issues]: https://github.com/saber-notes/saber/issues
 [progress]: https://github.com/saber-notes/saber/discussions/1
+
+[f-droid-manifest]: https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.adilhanney.saber.yml
