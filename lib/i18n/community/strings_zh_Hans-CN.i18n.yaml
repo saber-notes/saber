@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: 新建笔记
     showUpdateDialog: 显示更新对话框
-    exportNote(OUTDATED): 出口备注
+    exportNote: 导出笔记
   create:
     newNote: 新建笔记
     importNote: 导入笔记
@@ -61,7 +61,7 @@ settings:
     general: 通用
     writing: 书写
     editor: 编辑器
-    performance(OUTDATED): 表现
+    performance: 性能
     advanced: 高级
   prefLabels:
     locale: 应用语言
@@ -90,7 +90,7 @@ settings:
     recentColorsLength: 要存储多少种最近的颜色
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
-    shapeRecognitionDelay(OUTDATED): 形状识别延迟
+    shapeRecognitionDelay: 形状识别延迟
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -108,7 +108,7 @@ settings:
     hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
-    shapeRecognitionDelay(OUTDATED): 多久更新一次形状预览
+    shapeRecognitionDelay: 形状预览更新频率
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
   themeModes:
     system: 系统
@@ -221,9 +221,9 @@ editor:
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
+    pencil: 铅笔
     shapePen: 形状笔
     laserPointer: 激光笔
-    pencil(OUTDATED): 铅笔
   penOptions:
     size: 粗细
     sizeDragHint: 左右拖动更改粗细

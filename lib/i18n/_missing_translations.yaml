@@ -573,17 +573,4 @@ tr:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hans-CN:
-  home:
-    tooltips:
-      exportNote(OUTDATED): 导出笔记
-  settings:
-    prefCategories:
-      performance(OUTDATED): 性能
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): 形状识别延迟
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): 形状预览更新频率
-  editor:
-    pens:
-      pencil(OUTDATED): 铅笔
 zh-Hant-TW:
