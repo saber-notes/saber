@@ -255,7 +255,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: ff85e73c7868e9201a2e1539541e8b4edd3dadf8
+      resolved-ref: "1e7fa3fa1ecf9b5fe3c1910a9e832eba8f0166a1"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -430,10 +430,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "25f34f5bd775306f80f5bb33db19f9fa58998c2defb85008bbffba688cd1f9dd"
+      sha256: "9028fdec46e80ff513418ef151ffc236f4adfd306028476161b0909e36631104"
       url: "https://pub.dev"
     source: hosted
-    version: "8.6.3"
+    version: "8.6.4"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -581,10 +581,10 @@ packages:
     dependency: "direct dev"
     description:
       name: icons_launcher
-      sha256: "0c4a46dfbc1e9025745c1d28949149d601bdf56a892338e74c4b4dd9a7066987"
+      sha256: "3ed4560181f238e69ca5d55589d6946ef31e6a321c934251a26ce1d9e9867305"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.6"
   image:
     dependency: transitive
     description:
@@ -732,7 +732,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: main
-      resolved-ref: ff85e73c7868e9201a2e1539541e8b4edd3dadf8
+      resolved-ref: "1e7fa3fa1ecf9b5fe3c1910a9e832eba8f0166a1"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -869,7 +869,7 @@ packages:
     description:
       path: pdf
       ref: HEAD
-      resolved-ref: "1031e2eff13a914b01bd32d63f78cfe5f30e7adf"
+      resolved-ref: "98882ff7a6b8a53aab3639b51d3df57762085ba0"
       url: "https://github.com/DavBfr/dart_pdf"
     source: git
     version: "3.10.7"
@@ -935,7 +935,7 @@ packages:
     description:
       path: printing
       ref: HEAD
-      resolved-ref: "1031e2eff13a914b01bd32d63f78cfe5f30e7adf"
+      resolved-ref: "98882ff7a6b8a53aab3639b51d3df57762085ba0"
       url: "https://github.com/DavBfr/dart_pdf"
     source: git
     version: "5.11.1"
@@ -1117,18 +1117,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "829ae38374a328ac8d97d5835e8b4e9bbed1993f66ca85771c5ccec9c87ac397"
+      sha256: fe73e995287db77a32ef5a4ab8247bd20adc7a27ba2a4ba373a8132164eba654
       url: "https://pub.dev"
     source: hosted
-    version: "3.25.0"
+    version: "3.26.1"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: cb5e1611744cca620cc03f93a54eca6918e25ae7d600cd940ef2d556e2be4c64
+      sha256: df1d6e5a7237028bcf94f7401d575fdfee8c9ca066b3e9a02acdcd5096e2a25a
       url: "https://pub.dev"
     source: hosted
-    version: "3.25.0"
+    version: "3.26.1"
   source_span:
     dependency: transitive
     description:
@@ -1478,10 +1478,10 @@ packages:
     dependency: transitive
     description:
       name: xml
-      sha256: af5e77e9b83f2f4adc5d3f0a4ece1c7f45a2467b695c2540381bac793e34e556
+      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
       url: "https://pub.dev"
     source: hosted
-    version: "6.4.2"
+    version: "6.5.0"
   xml_annotation:
     dependency: transitive
     description:
