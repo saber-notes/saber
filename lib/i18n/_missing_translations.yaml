@@ -594,10 +594,3 @@ zh-Hans-CN:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hant-TW:
-  settings:
-    prefCategories:
-      performance(OUTDATED): 效能
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): 形狀識別延遲
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): 多久更新一次形狀預覽
