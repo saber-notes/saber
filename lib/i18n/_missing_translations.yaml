@@ -74,13 +74,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefCategories:
-      performance(OUTDATED): Výkon
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Zpoždění rozpoznávání tvarů
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): Jak často aktualizovat náhled tvaru
 de:
   home:
     titles:

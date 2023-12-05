@@ -6,7 +6,7 @@
 /// Locales: 16
 /// Strings: 4046 (252 per locale)
 ///
-/// Built on 2023-12-02 at 20:24 UTC
+/// Built on 2023-12-05 at 18:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -2035,7 +2035,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
-	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznání tvaru';
+	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 }
 
 // Path: settings.prefDescriptions
