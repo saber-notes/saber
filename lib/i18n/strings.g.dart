@@ -11236,7 +11236,7 @@ class _StringsHomeTooltipsZhHansCn extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新建笔记';
 	@override String get showUpdateDialog => '显示更新对话框';
-	@override String get exportNote => '出口备注';
+	@override String get exportNote => '导出笔记';
 }
 
 // Path: home.create
@@ -11334,7 +11334,7 @@ class _StringsSettingsPrefCategoriesZhHansCn extends _StringsSettingsPrefCategor
 	@override String get general => '通用';
 	@override String get writing => '书写';
 	@override String get editor => '编辑器';
-	@override String get performance => '表现';
+	@override String get performance => '性能';
 	@override String get advanced => '高级';
 }
 
@@ -11394,7 +11394,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
-	@override String get shapeRecognitionDelay => '多久更新一次形状预览';
+	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 }
 
@@ -11633,9 +11633,9 @@ class _StringsEditorPensZhHansCn extends _StringsEditorPensEn {
 	@override String get fountainPen => '钢笔';
 	@override String get ballpointPen => '圆珠笔';
 	@override String get highlighter => '荧光笔';
+	@override String get pencil => '铅笔';
 	@override String get shapePen => '形状笔';
 	@override String get laserPointer => '激光笔';
-	@override String get pencil => '铅笔';
 }
 
 // Path: editor.penOptions
