@@ -7439,7 +7439,7 @@ class _StringsSettingsPrefCategoriesIt extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Generale';
 	@override String get writing => 'Scrittura';
 	@override String get editor => 'Editor';
-	@override String get performance => 'Prestazione';
+	@override String get performance => 'Prestazioni';
 	@override String get advanced => 'Avanzato';
 }
 
@@ -7499,7 +7499,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
-	@override String get shapeRecognitionDelay => 'La frequenza con cui aggiornare l\'anteprima della forma';
+	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 }
 
