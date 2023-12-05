@@ -2,11 +2,6 @@
 ///
 /// Original: lib/i18n
 /// To regenerate, run: `dart run slang`
-///
-/// Locales: 16
-/// Strings: 4046 (252 per locale)
-///
-/// Built on 2023-12-05 at 18:37 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -24,8 +19,8 @@ const AppLocale _baseLocale = AppLocale.en;
 /// - LocaleSettings.setLocale(AppLocale.en) // set locale
 /// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
-enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
-	en(languageCode: 'en', build: _StringsEn.build),
+enum AppLocale with BaseAppLocale<AppLocale, Translations> {
+	en(languageCode: 'en', build: Translations.build),
 	ar(languageCode: 'ar', build: _StringsAr.build),
 	cs(languageCode: 'cs', build: _StringsCs.build),
 	de(languageCode: 'de', build: _StringsDe.build),
@@ -47,10 +42,10 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 	@override final String languageCode;
 	@override final String? scriptCode;
 	@override final String? countryCode;
-	@override final TranslationBuilder<AppLocale, _StringsEn> build;
+	@override final TranslationBuilder<AppLocale, Translations> build;
 
 	/// Gets current instance managed by [LocaleSettings].
-	_StringsEn get translations => LocaleSettings.instance.translationMap[this]!;
+	Translations get translations => LocaleSettings.instance.translationMap[this]!;
 }
 
 /// Method A: Simple
@@ -61,7 +56,7 @@ enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
 ///
 /// Usage:
 /// String a = t.someKey.anotherKey;
-_StringsEn get t => LocaleSettings.instance.currentTranslations;
+Translations get t => LocaleSettings.instance.currentTranslations;
 
 /// Method B: Advanced
 ///
@@ -77,17 +72,10 @@ _StringsEn get t => LocaleSettings.instance.currentTranslations;
 /// Step 2:
 /// final t = Translations.of(context); // Get t variable.
 /// String a = t.someKey.anotherKey; // Use t variable.
-class Translations {
-	Translations._(); // no constructor
-
-	static _StringsEn of(BuildContext context) => InheritedLocaleData.of<AppLocale, _StringsEn>(context).translations;
-}
-
-/// The provider for method B
-class TranslationProvider extends BaseTranslationProvider<AppLocale, _StringsEn> {
+class TranslationProvider extends BaseTranslationProvider<AppLocale, Translations> {
 	TranslationProvider({required super.child}) : super(settings: LocaleSettings.instance);
 
-	static InheritedLocaleData<AppLocale, _StringsEn> of(BuildContext context) => InheritedLocaleData.of<AppLocale, _StringsEn>(context);
+	static InheritedLocaleData<AppLocale, Translations> of(BuildContext context) => InheritedLocaleData.of<AppLocale, Translations>(context);
 }
 
 /// Method B shorthand via [BuildContext] extension method.
@@ -96,11 +84,11 @@ class TranslationProvider extends BaseTranslationProvider<AppLocale, _StringsEn>
 /// Usage (e.g. in a widget's build method):
 /// context.t.someKey.anotherKey
 extension BuildContextTranslationsExtension on BuildContext {
-	_StringsEn get t => TranslationProvider.of(this).translations;
+	Translations get t => TranslationProvider.of(this).translations;
 }
 
 /// Manages all translation instances and the current locale
-class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
+class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, Translations> {
 	LocaleSettings._() : super(utils: AppLocaleUtils.instance);
 
 	static final instance = LocaleSettings._();
@@ -122,7 +110,7 @@ class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
 }
 
 /// Provides utility functions without any side effects.
-class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, _StringsEn> {
+class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, Translations> {
 	AppLocaleUtils._() : super(baseLocale: _baseLocale, locales: AppLocale.values);
 
 	static final instance = AppLocaleUtils._();
@@ -138,11 +126,16 @@ class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, _StringsEn> {
 // translations
 
 // Path: <root>
-class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
+class Translations implements BaseTranslations<AppLocale, Translations> {
+	/// Returns the current translations of the given [context].
+	///
+	/// Usage:
+	/// final t = Translations.of(context);
+	static Translations of(BuildContext context) => InheritedLocaleData.of<AppLocale, Translations>(context).translations;
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	_StringsEn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	Translations.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
 		    locale: AppLocale.en,
@@ -152,9 +145,9 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 		  );
 
 	/// Metadata for the translations of <en>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
-	late final _StringsEn _root = this; // ignore: unused_field
+	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
@@ -170,7 +163,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 class _StringsHomeEn {
 	_StringsHomeEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	late final _StringsHomeTabsEn tabs = _StringsHomeTabsEn._(_root);
@@ -194,7 +187,7 @@ class _StringsHomeEn {
 class _StringsSettingsEn {
 	_StringsSettingsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	late final _StringsSettingsPrefCategoriesEn prefCategories = _StringsSettingsPrefCategoriesEn._(_root);
@@ -217,7 +210,7 @@ class _StringsSettingsEn {
 class _StringsLoginEn {
 	_StringsLoginEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => 'Login';
@@ -242,7 +235,7 @@ class _StringsLoginEn {
 class _StringsProfileEn {
 	_StringsProfileEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => 'My profile';
@@ -260,7 +253,7 @@ class _StringsProfileEn {
 class _StringsAppInfoEn {
 	_StringsAppInfoEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
@@ -275,7 +268,7 @@ class _StringsAppInfoEn {
 class _StringsUpdateEn {
 	_StringsUpdateEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get updateAvailable => 'Update available';
@@ -287,7 +280,7 @@ class _StringsUpdateEn {
 class _StringsEditorEn {
 	_StringsEditorEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	late final _StringsEditorToolbarEn toolbar = _StringsEditorToolbarEn._(_root);
@@ -309,7 +302,7 @@ class _StringsEditorEn {
 class _StringsHomeTabsEn {
 	_StringsHomeTabsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get home => 'Home';
@@ -322,7 +315,7 @@ class _StringsHomeTabsEn {
 class _StringsHomeTitlesEn {
 	_StringsHomeTitlesEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get home => 'Recent notes';
@@ -335,7 +328,7 @@ class _StringsHomeTitlesEn {
 class _StringsHomeTooltipsEn {
 	_StringsHomeTooltipsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get newNote => 'New note';
@@ -347,7 +340,7 @@ class _StringsHomeTooltipsEn {
 class _StringsHomeCreateEn {
 	_StringsHomeCreateEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get newNote => 'New note';
@@ -358,7 +351,7 @@ class _StringsHomeCreateEn {
 class _StringsHomeNewFolderEn {
 	_StringsHomeNewFolderEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get newFolder => 'New folder';
@@ -373,7 +366,7 @@ class _StringsHomeNewFolderEn {
 class _StringsHomeRenameNoteEn {
 	_StringsHomeRenameNoteEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get renameNote => 'Rename note';
@@ -388,7 +381,7 @@ class _StringsHomeRenameNoteEn {
 class _StringsHomeMoveNoteEn {
 	_StringsHomeMoveNoteEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get moveNote => 'Move note';
@@ -404,7 +397,7 @@ class _StringsHomeMoveNoteEn {
 class _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get renameFolder => 'Rename folder';
@@ -419,7 +412,7 @@ class _StringsHomeRenameFolderEn {
 class _StringsHomeDeleteFolderEn {
 	_StringsHomeDeleteFolderEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get deleteFolder => 'Delete folder';
@@ -432,7 +425,7 @@ class _StringsHomeDeleteFolderEn {
 class _StringsSettingsPrefCategoriesEn {
 	_StringsSettingsPrefCategoriesEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get general => 'General';
@@ -446,7 +439,7 @@ class _StringsSettingsPrefCategoriesEn {
 class _StringsSettingsPrefLabelsEn {
 	_StringsSettingsPrefLabelsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get locale => 'App language';
@@ -482,7 +475,7 @@ class _StringsSettingsPrefLabelsEn {
 class _StringsSettingsPrefDescriptionsEn {
 	_StringsSettingsPrefDescriptionsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get hyperlegibleFont => 'Increases legibility for users with low vision';
@@ -506,7 +499,7 @@ class _StringsSettingsPrefDescriptionsEn {
 class _StringsSettingsThemeModesEn {
 	_StringsSettingsThemeModesEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get system => 'System';
@@ -518,7 +511,7 @@ class _StringsSettingsThemeModesEn {
 class _StringsSettingsLayoutSizesEn {
 	_StringsSettingsLayoutSizesEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get auto => 'Auto';
@@ -530,7 +523,7 @@ class _StringsSettingsLayoutSizesEn {
 class _StringsSettingsAccentColorPickerEn {
 	_StringsSettingsAccentColorPickerEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get pickAColor => 'Pick a color';
@@ -540,7 +533,7 @@ class _StringsSettingsAccentColorPickerEn {
 class _StringsSettingsResetEn {
 	_StringsSettingsResetEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => 'Reset this setting?';
@@ -551,7 +544,7 @@ class _StringsSettingsResetEn {
 class _StringsLoginFeedbacksEn {
 	_StringsLoginFeedbacksEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get checkUsername => 'Please double check your username or email.';
@@ -568,7 +561,7 @@ class _StringsLoginFeedbacksEn {
 class _StringsLoginFormEn {
 	_StringsLoginFormEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get useCustomServer => 'I want to use a custom Nextcloud server';
@@ -588,7 +581,7 @@ class _StringsLoginFormEn {
 class _StringsLoginStatusEn {
 	_StringsLoginStatusEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get loggedIn => 'Logged in with Nextcloud';
@@ -600,7 +593,7 @@ class _StringsLoginStatusEn {
 class _StringsLogin$faq$0i0$En {
 	_StringsLogin$faq$0i0$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'What is Nextcloud?';
@@ -611,7 +604,7 @@ class _StringsLogin$faq$0i0$En {
 class _StringsLogin$faq$0i1$En {
 	_StringsLogin$faq$0i1$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'What is the encryption password?';
@@ -622,7 +615,7 @@ class _StringsLogin$faq$0i1$En {
 class _StringsLogin$faq$0i2$En {
 	_StringsLogin$faq$0i2$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'Why use two passwords?';
@@ -633,7 +626,7 @@ class _StringsLogin$faq$0i2$En {
 class _StringsLogin$faq$0i3$En {
 	_StringsLogin$faq$0i3$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'How do I login if I use 2FA?';
@@ -644,7 +637,7 @@ class _StringsLogin$faq$0i3$En {
 class _StringsLogin$faq$0i4$En {
 	_StringsLogin$faq$0i4$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'Can I use the same password for both?';
@@ -655,7 +648,7 @@ class _StringsLogin$faq$0i4$En {
 class _StringsProfileQuickLinksEn {
 	_StringsProfileQuickLinksEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => 'Quick links';
@@ -667,7 +660,7 @@ class _StringsProfileQuickLinksEn {
 class _StringsProfile$faq$0i0$En {
 	_StringsProfile$faq$0i0$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'Will I lose my notes if I log out?';
@@ -678,7 +671,7 @@ class _StringsProfile$faq$0i0$En {
 class _StringsProfile$faq$0i1$En {
 	_StringsProfile$faq$0i1$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'How do I change my Nextcloud password?';
@@ -689,7 +682,7 @@ class _StringsProfile$faq$0i1$En {
 class _StringsProfile$faq$0i2$En {
 	_StringsProfile$faq$0i2$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'How do I change my encryption password?';
@@ -700,7 +693,7 @@ class _StringsProfile$faq$0i2$En {
 class _StringsProfile$faq$0i3$En {
 	_StringsProfile$faq$0i3$En._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get q => 'How can I delete my account?';
@@ -711,7 +704,7 @@ class _StringsProfile$faq$0i3$En {
 class _StringsEditorToolbarEn {
 	_StringsEditorToolbarEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get toggleColors => 'Toggle colors (Ctrl C)';
@@ -731,7 +724,7 @@ class _StringsEditorToolbarEn {
 class _StringsEditorPensEn {
 	_StringsEditorPensEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get fountainPen => 'Fountain pen';
@@ -746,7 +739,7 @@ class _StringsEditorPensEn {
 class _StringsEditorPenOptionsEn {
 	_StringsEditorPenOptionsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get size => 'Size';
@@ -757,7 +750,7 @@ class _StringsEditorPenOptionsEn {
 class _StringsEditorColorsEn {
 	_StringsEditorColorsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get colorPicker => 'Color picker';
@@ -792,7 +785,7 @@ class _StringsEditorColorsEn {
 class _StringsEditorImageOptionsEn {
 	_StringsEditorImageOptionsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get title => 'Image options';
@@ -807,7 +800,7 @@ class _StringsEditorImageOptionsEn {
 class _StringsEditorSelectionBarEn {
 	_StringsEditorSelectionBarEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get delete => 'Delete';
@@ -818,7 +811,7 @@ class _StringsEditorSelectionBarEn {
 class _StringsEditorMenuEn {
 	_StringsEditorMenuEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String clearPage({required Object page, required Object totalPages}) => 'Clear page ${page}/${totalPages}';
@@ -839,7 +832,7 @@ class _StringsEditorMenuEn {
 class _StringsEditorNewerFileFormatEn {
 	_StringsEditorNewerFileFormatEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get readOnlyMode => 'Read-only mode';
@@ -853,7 +846,7 @@ class _StringsEditorNewerFileFormatEn {
 class _StringsEditorQuillEn {
 	_StringsEditorQuillEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get typeSomething => 'Type something here...';
@@ -863,7 +856,7 @@ class _StringsEditorQuillEn {
 class _StringsEditorHudEn {
 	_StringsEditorHudEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get unlockZoom => 'Unlock zoom';
@@ -878,7 +871,7 @@ class _StringsEditorHudEn {
 class _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_StringsSettingsPrefDescriptionsHideFingerDrawingEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get shown => 'Prevents accidental toggling';
@@ -890,7 +883,7 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
 class _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get fill => 'Stretch';
@@ -902,7 +895,7 @@ class _StringsEditorMenuBoxFitsEn {
 class _StringsEditorMenuBgPatternsEn {
 	_StringsEditorMenuBgPatternsEn._(this._root);
 
-	final _StringsEn _root; // ignore: unused_field
+	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get none => 'Blank';
@@ -917,8 +910,7 @@ class _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsAr extends _StringsEn {
-
+class _StringsAr extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsAr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -932,7 +924,7 @@ class _StringsAr extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <ar>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsAr _root = this; // ignore: unused_field
 
@@ -1697,8 +1689,7 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsCs extends _StringsEn {
-
+class _StringsCs extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsCs.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -1712,7 +1703,7 @@ class _StringsCs extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <cs>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsCs _root = this; // ignore: unused_field
 
@@ -2477,8 +2468,7 @@ class _StringsEditorMenuBgPatternsCs extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsDe extends _StringsEn {
-
+class _StringsDe extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsDe.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -2492,7 +2482,7 @@ class _StringsDe extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <de>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsDe _root = this; // ignore: unused_field
 
@@ -3256,8 +3246,7 @@ class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsEs extends _StringsEn {
-
+class _StringsEs extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsEs.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -3271,7 +3260,7 @@ class _StringsEs extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <es>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsEs _root = this; // ignore: unused_field
 
@@ -4035,8 +4024,7 @@ class _StringsEditorMenuBgPatternsEs extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsFa extends _StringsEn {
-
+class _StringsFa extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsFa.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -4050,7 +4038,7 @@ class _StringsFa extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <fa>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsFa _root = this; // ignore: unused_field
 
@@ -4815,8 +4803,7 @@ class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsFr extends _StringsEn {
-
+class _StringsFr extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsFr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -4830,7 +4817,7 @@ class _StringsFr extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <fr>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsFr _root = this; // ignore: unused_field
 
@@ -5594,8 +5581,7 @@ class _StringsEditorMenuBgPatternsFr extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsHe extends _StringsEn {
-
+class _StringsHe extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsHe.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -5609,7 +5595,7 @@ class _StringsHe extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <he>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsHe _root = this; // ignore: unused_field
 
@@ -6374,8 +6360,7 @@ class _StringsEditorMenuBgPatternsHe extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsHu extends _StringsEn {
-
+class _StringsHu extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsHu.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -6389,7 +6374,7 @@ class _StringsHu extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <hu>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsHu _root = this; // ignore: unused_field
 
@@ -7154,8 +7139,7 @@ class _StringsEditorMenuBgPatternsHu extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsIt extends _StringsEn {
-
+class _StringsIt extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsIt.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -7169,7 +7153,7 @@ class _StringsIt extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <it>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsIt _root = this; // ignore: unused_field
 
@@ -7934,8 +7918,7 @@ class _StringsEditorMenuBgPatternsIt extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsJa extends _StringsEn {
-
+class _StringsJa extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsJa.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -7949,7 +7932,7 @@ class _StringsJa extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <ja>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsJa _root = this; // ignore: unused_field
 
@@ -8714,8 +8697,7 @@ class _StringsEditorMenuBgPatternsJa extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsPtBr extends _StringsEn {
-
+class _StringsPtBr extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsPtBr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -8729,7 +8711,7 @@ class _StringsPtBr extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <pt-BR>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsPtBr _root = this; // ignore: unused_field
 
@@ -9494,8 +9476,7 @@ class _StringsEditorMenuBgPatternsPtBr extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsRu extends _StringsEn {
-
+class _StringsRu extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsRu.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -9509,7 +9490,7 @@ class _StringsRu extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <ru>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsRu _root = this; // ignore: unused_field
 
@@ -10274,8 +10255,7 @@ class _StringsEditorMenuBgPatternsRu extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsTr extends _StringsEn {
-
+class _StringsTr extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsTr.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -10289,7 +10269,7 @@ class _StringsTr extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <tr>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsTr _root = this; // ignore: unused_field
 
@@ -11054,8 +11034,7 @@ class _StringsEditorMenuBgPatternsTr extends _StringsEditorMenuBgPatternsEn {
 }
 
 // Path: <root>
-class _StringsZhHansCn extends _StringsEn {
-
+class _StringsZhHansCn extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsZhHansCn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -11069,7 +11048,7 @@ class _StringsZhHansCn extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <zh-Hans-CN>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsZhHansCn _root = this; // ignore: unused_field
 
@@ -11834,8 +11813,7 @@ class _StringsEditorMenuBgPatternsZhHansCn extends _StringsEditorMenuBgPatternsE
 }
 
 // Path: <root>
-class _StringsZhHantTw extends _StringsEn {
-
+class _StringsZhHantTw extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_StringsZhHantTw.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -11849,7 +11827,7 @@ class _StringsZhHantTw extends _StringsEn {
 		  super.build(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <zh-Hant-TW>.
-	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	@override late final _StringsZhHantTw _root = this; // ignore: unused_field
 

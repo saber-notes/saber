@@ -4,3 +4,5 @@ input_directory: lib/i18n
 input_file_pattern: .i18n.yaml
 output_directory: lib/i18n
 flat_map: false
+statistics: false
+timestamp: false
