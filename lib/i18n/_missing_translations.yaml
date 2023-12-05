@@ -74,13 +74,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
 de:
   home:
     titles:
