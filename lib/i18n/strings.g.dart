@@ -12113,7 +12113,7 @@ class _StringsSettingsPrefCategoriesZhHantTw extends _StringsSettingsPrefCategor
 	@override String get general => '一般';
 	@override String get writing => '書寫';
 	@override String get editor => '編輯器';
-	@override String get performance => '表現';
+	@override String get performance => '效能';
 	@override String get advanced => '進階';
 }
 
@@ -12150,7 +12150,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
-	@override String get shapeRecognitionDelay => '形狀辨識延遲';
+	@override String get shapeRecognitionDelay => '形狀識別延遲';
 }
 
 // Path: settings.prefDescriptions

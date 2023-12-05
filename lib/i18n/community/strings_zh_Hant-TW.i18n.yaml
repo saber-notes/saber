@@ -61,7 +61,7 @@ settings:
     general: 一般
     writing: 書寫
     editor: 編輯器
-    performance(OUTDATED): 表現
+    performance: 效能
     advanced: 進階
   prefLabels:
     locale: 應用程式語言
@@ -90,7 +90,7 @@ settings:
     recentColorsLength: 要儲存多少種最近的顏色
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
-    shapeRecognitionDelay(OUTDATED): 形狀辨識延遲
+    shapeRecognitionDelay: 形狀識別延遲
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -108,7 +108,7 @@ settings:
     hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
     autosaveDelay: 自動儲存筆記之前等待多少時間
-    shapeRecognitionDelay(OUTDATED): 多久更新一次形狀預覽
+    shapeRecognitionDelay: 多久更新一次形狀預覽
     shouldAlwaysAlertForUpdates: 一旦有更新請告訴我
   themeModes:
     system: 系統

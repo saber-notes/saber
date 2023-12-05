@@ -594,10 +594,3 @@ zh-Hans-CN:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hant-TW:
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
