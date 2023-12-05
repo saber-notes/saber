@@ -451,13 +451,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
 ja:
   home:
     titles:
