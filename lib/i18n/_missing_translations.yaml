@@ -172,44 +172,44 @@ es:
 fa:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
+      exportNote(OUTDATED): صدور یادداشت
+    invalidFormat(OUTDATED): "فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید."
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+      moveNotes(OUTDATED): انتقال یادداشت $n
+      multipleRenamedTo(OUTDATED): "یادداشت های زیر تغییر نام خواهند داد:"
+      numberRenamedTo(OUTDATED): $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): تغییر نام پوشه
+      folderName(OUTDATED): نام پوشه
+      rename(OUTDATED): تغییر نام
+      folderNameEmpty(OUTDATED): نام پوشه نمی تواند خالی باشد
+      folderNameContainsSlash(OUTDATED): نام پوشه نمی تواند دارای اسلش باشد
+      folderNameExists(OUTDATED): پوشه ای با این نام از قبل وجود دارد
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): کارایی
     prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
+      shapeRecognitionDelay(OUTDATED): تاخیر در تشخیص شکل
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      shapeRecognitionDelay(OUTDATED): به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
   editor:
     pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
+      pencil(OUTDATED): مداد
+      shapePen(OUTDATED): شکل قلم
     colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
+      customBrightnessHue(OUTDATED): شخصی سازی $b $h
+      customHue(OUTDATED): شخصی سازی $h
+      dark(OUTDATED): تاریک
+      light(OUTDATED): روشن
+      cyan(OUTDATED): فیروزه ای
+      pink(OUTDATED): صورتی
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): تکراری
     menu:
-      backgroundImageFit(OUTDATED): Background image fit
+      backgroundImageFit(OUTDATED): مناسب تصویر پس زمینه
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): جدول بندی
 fr:
   home:
     tooltips:
