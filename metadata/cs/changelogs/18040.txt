@@ -1,0 +1,5 @@
+• Opravená synchronizace!
+• Opravena chyba, kde bude majetek ponechán za odstranění nebo přesunu poznámky.
+• Použijte šipky pro přesun kolem poznámky.
+• Vylepšení výkonu pro tvarový nástroj.
+.

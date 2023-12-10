@@ -271,6 +271,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.4" type="development" date="2023-12-10">
+            <description>
+                <ul>
+                    <li>Fixed syncing!</li>
+                    <li>Fixed a bug where assets would be left behind when deleting or moving a note.</li>
+                    <li>Use the arrow keys to move around a note.</li>
+                    <li>Performance improvements for the shape tool.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.18.3" type="development" date="2023-11-30">
             <description>
                 <ul>
