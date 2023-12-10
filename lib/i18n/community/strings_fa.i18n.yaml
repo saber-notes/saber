@@ -12,11 +12,12 @@ home:
   tooltips:
     newNote: یادداشت جدید
     showUpdateDialog: نمایش به روز رسانی
-    exportNote(OUTDATED): یادداشت صادرات
+    exportNote: صدور یادداشت
   create:
     newNote: یادداشت جدید
     importNote: یادداشت وارد کنید
   welcome: خوش آمدید
+  invalidFormat: فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.
   noFiles: فایلی پیدا نشد
   createNewNote: برای ساخت یادداشت دکمه + را بزنید
   backFolder: به پوشه قبلی برگردید
@@ -36,32 +37,31 @@ home:
     noteNameExists: یادداشتی با این نام از قبل وجود دارد
   moveNote:
     moveNote: انتقال یادداشت
+    moveNotes: انتقال یادداشت $n
     moveName: انتقال $f
     move: انتقال
     renamedTo: یادداشت به $newName تغییر نام می یابد
-    numberRenamedTo(OUTDATED): $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
-    moveNotes(OUTDATED): $n یادداشت را جابجا کنید
-    multipleRenamedTo(OUTDATED): "یادداشت های زیر تغییر خواهند کرد:"
+    multipleRenamedTo: "یادداشت های زیر تغییر نام خواهند داد:"
+    numberRenamedTo: $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
   deleteNote: حذف یادداشت
   renameFolder:
-    folderNameEmpty(OUTDATED): نام پوشه نمی تواند خالی باشد
-    folderNameContainsSlash(OUTDATED): نام پوشه نمی تواند حاوی یک برش باشد
-    folderNameExists(OUTDATED): پوشه ای با این نام از قبل وجود دارد
-    renameFolder(OUTDATED): تغییر نام پوشه
-    folderName(OUTDATED): نام پوشه
-    rename(OUTDATED): تغییر نام دهید
+    renameFolder: تغییر نام پوشه
+    folderName: نام پوشه
+    rename: تغییر نام
+    folderNameEmpty: نام پوشه نمی تواند خالی باشد
+    folderNameContainsSlash: نام پوشه نمی تواند دارای اسلش باشد
+    folderNameExists: پوشه ای با این نام از قبل وجود دارد
   deleteFolder:
     deleteFolder: پوشه را حذف کنید
     deleteName: $f را حذف کنید
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
-  invalidFormat(OUTDATED): "فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2, .sba یا pdf. انتخاب کنید."
 settings:
   prefCategories:
     general: عمومی
     writing: نوشتن
     editor: ویرایشگر
-    performance(OUTDATED): کارایی
+    performance: کارایی
     advanced: پیشرفته
   prefLabels:
     locale: زبان برنامه
@@ -87,10 +87,10 @@ settings:
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
     hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
+    recentColorsLength: چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
-    shapeRecognitionDelay(OUTDATED): تاخیر در تشخیص شکل
-    recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
+    shapeRecognitionDelay: تاخیر در تشخیص شکل
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
@@ -108,7 +108,7 @@ settings:
     hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
-    shapeRecognitionDelay(OUTDATED): هر چند وقت یکبار برای به روز رسانی پیش نمایش شکل
+    shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
   themeModes:
     system: سیستم
@@ -217,14 +217,18 @@ editor:
     fountainPen: خودنویس
     ballpointPen: خودکار
     highlighter: هایلایتر
+    pencil: مداد
+    shapePen: شکل قلم
     laserPointer: اشاره گر لیزری
-    pencil(OUTDATED): مداد
-    shapePen(OUTDATED): قلم شکل
   penOptions:
     size: اندازه
     sizeDragHint: برای تغییر اندازه به چپ یا راست بکشید
   colors:
     colorPicker: انتخاب کننده رنگ
+    customBrightnessHue: شخصی سازی $b $h
+    customHue: شخصی سازی $h
+    dark: تاریک
+    light: روشن
     black: مشکی
     darkGrey: خاکستری تیره
     grey: خاکستری
@@ -232,9 +236,11 @@ editor:
     white: سفید
     red: قرمز
     green: سبز
+    cyan: فیروزه ای
     blue: آبی
     yellow: زرد
     purple: بنفش
+    pink: صورتی
     orange: نارنجی
     pastelRed: قرمز پاستلی
     pastelOrange: نارنجی پاستلی
@@ -244,12 +250,6 @@ editor:
     pastelBlue: آبی پاستلی
     pastelPurple: بنفش پاستلی
     pastelPink: صورتی پاستلی
-    customBrightnessHue(OUTDATED): سفارشی $b $h
-    customHue(OUTDATED): سفارشی $h
-    dark(OUTDATED): تاریک
-    light(OUTDATED): سبک
-    cyan(OUTDATED): فیروزه ای
-    pink(OUTDATED): رنگ صورتی
   imageOptions:
     title: گزینه های تصویر
     invertible: معکوس پذیر
@@ -259,7 +259,7 @@ editor:
     delete: حذف
   selectionBar:
     delete: حذف
-    duplicate(OUTDATED): تکراری
+    duplicate: تکراری
   menu:
     clearPage: صفحه $page/$totalPages را پاک کنید
     clearAllPages: تمام صفحات را پاک کنید
@@ -268,6 +268,7 @@ editor:
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
     lineHeightDescription: همچنین اندازه متن را کنترل می کند
+    backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
     boxFits:
@@ -282,9 +283,8 @@ editor:
       grid: توری
       dots: نقطه ای
       staffs: کارکنان
+      tablature: جدول بندی
       cornell: کرنل
-      tablature(OUTDATED): جدول بندی
-    backgroundImageFit(OUTDATED): تصویر پس زمینه
   newerFileFormat:
     readOnlyMode: حالت فقط خواندنی
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است
