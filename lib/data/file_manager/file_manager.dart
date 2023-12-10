@@ -206,7 +206,7 @@ class FileManager {
   /// If [replaceExistingFile] is true but the file is a reserved file name,
   /// the filename will be suffixed with a number instead
   /// (like if [replaceExistingFile] was false).
-  static Future<String> moveFile(String fromPath, String toPath, [bool replaceExistingFile = false]) async {
+  static Future<String> moveFile(String fromPath, String toPath, {bool replaceExistingFile = false, bool alsoMoveAssets = true}) async {
     fromPath = _sanitisePath(fromPath);
     toPath = _sanitisePath(toPath);
 
@@ -236,10 +236,31 @@ class FileManager {
     broadcastFileWrite(FileOperationType.delete, fromPath);
     broadcastFileWrite(FileOperationType.write, toPath);
 
+    if (alsoMoveAssets && !assetFileRegex.hasMatch(fromPath)) {
+      final assets = <int>[];
+      for (int assetNumber = 0; true; assetNumber++) {
+        final assetFile = getFile('$fromPath.$assetNumber');
+        if (assetFile.existsSync()) {
+          assets.add(assetNumber);
+        } else {
+          break;
+        }
+      }
+
+      await Future.wait([
+        for (final assetNumber in assets)
+          moveFile(
+            '$fromPath.$assetNumber',
+            '$toPath.$assetNumber',
+            replaceExistingFile: replaceExistingFile,
+          ),
+      ]);
+    }
+
     return toPath;
   }
 
-  static Future deleteFile(String filePath, {bool alsoUpload = true}) async {
+  static Future deleteFile(String filePath, {bool alsoUpload = true, bool alsoDeleteAssets = true}) async {
     filePath = _sanitisePath(filePath);
 
     final File file = getFile(filePath);
@@ -250,6 +271,23 @@ class FileManager {
 
     _removeReferences(filePath);
     broadcastFileWrite(FileOperationType.delete, filePath);
+
+    if (alsoDeleteAssets && !assetFileRegex.hasMatch(filePath)) {
+      final assets = <int>[];
+      for (int assetNumber = 0; true; assetNumber++) {
+        final assetFile = getFile('$filePath.$assetNumber');
+        if (assetFile.existsSync()) {
+          assets.add(assetNumber);
+        } else {
+          break;
+        }
+      }
+
+      await Future.wait([
+        for (final assetNumber in assets)
+          deleteFile('$filePath.$assetNumber'),
+      ]);
+    }
   }
 
   static Future removeUnusedAssets(String filePath, {required int numAssets}) async {
