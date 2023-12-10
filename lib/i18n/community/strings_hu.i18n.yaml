@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Visszaállítsa ezt a beállítást?"
     button: Visszaállítás
+  resyncEverything(OUTDATED): Resync mindent
 login:
   title: Bejelentkezés
   feedbacks:

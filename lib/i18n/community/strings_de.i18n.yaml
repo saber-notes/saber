@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Diese Einstellung zurücksetzen?"
     button: Zurücksetzen
+  resyncEverything(OUTDATED): Alles in Ordnung bringen
 login:
   title: Login
   feedbacks:

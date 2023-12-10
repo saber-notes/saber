@@ -61,8 +61,8 @@ settings:
     general: 一般
     writing: 文章
     editor: 編集
-    performance(OUTDATED): パフォーマンス
     advanced: アドバンスド
+    performance(OUTDATED): パフォーマンス
   prefLabels:
     locale: アプリの言語
     appTheme: アプリのテーマ
@@ -129,6 +129,7 @@ settings:
   reset:
     title: この設定をリセットしますか？
     button: リセット
+  resyncEverything(OUTDATED): すべてを再同期する
 login:
   title: ログイン
   feedbacks:

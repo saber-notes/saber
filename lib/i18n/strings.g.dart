@@ -984,6 +984,7 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 		'يسار',
 	];
 	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
+	@override String get resyncEverything => 'إعادة ترتيب كل شيء';
 }
 
 // Path: login
@@ -1763,6 +1764,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 		'Vlevo',
 	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
+	@override String get resyncEverything => 'Znovu vše synchronizujte';
 }
 
 // Path: login
@@ -2542,6 +2544,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 		'Links',
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
+	@override String get resyncEverything => 'Alles in Ordnung bringen';
 }
 
 // Path: login
@@ -3320,6 +3323,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 		'Izquierda',
 	];
 	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
+	@override String get resyncEverything => 'Resync todo';
 }
 
 // Path: login
@@ -3546,8 +3550,8 @@ class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'General';
 	@override String get writing => 'Escritura';
 	@override String get editor => 'Editor';
-	@override String get performance => 'Actuación';
 	@override String get advanced => 'Avanzado';
+	@override String get performance => 'Actuación';
 }
 
 // Path: settings.prefLabels
@@ -3606,8 +3610,8 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
-	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
+	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
 
 // Path: settings.themeModes
@@ -3842,12 +3846,12 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => 'Estilográfica';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
-	@override String get pencil => 'Lápiz';
 	@override String get shapePen => 'Bolígrafo con formas';
 	@override String get laserPointer => 'Puntero láser';
+	@override String get fountainPen => 'Estilográfica';
+	@override String get pencil => 'Lápiz';
 }
 
 // Path: editor.penOptions
@@ -3869,7 +3873,6 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
-	@override String customBrightnessHue({required Object h, required Object b}) => '${h} ${b} personalizado';
 	@override String customHue({required Object h}) => '${h} personalizado';
 	@override String get dark => 'oscuro';
 	@override String get light => 'claro';
@@ -3894,6 +3897,7 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Morado pastel';
 	@override String get pastelPink => 'Rosa pastel';
+	@override String customBrightnessHue({required Object h, required Object b}) => '${h} ${b} personalizado';
 }
 
 // Path: editor.imageOptions
@@ -4098,6 +4102,7 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 		'چپ',
 	];
 	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
+	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
 }
 
 // Path: login
@@ -4877,6 +4882,7 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 		'Gauche',
 	];
 	@override late final _StringsSettingsResetFr reset = _StringsSettingsResetFr._(_root);
+	@override String get resyncEverything => 'Resync tout';
 }
 
 // Path: login
@@ -5104,8 +5110,8 @@ class _StringsSettingsPrefCategoriesFr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Général';
 	@override String get writing => 'Tracé';
 	@override String get editor => 'Editeur';
-	@override String get performance => 'Rendement';
 	@override String get advanced => 'Avancé';
+	@override String get performance => 'Rendement';
 }
 
 // Path: settings.prefLabels
@@ -5164,8 +5170,8 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
-	@override String get shapeRecognitionDelay => 'À quelle fréquence mettre à jour l\'aperçu de la forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
+	@override String get shapeRecognitionDelay => 'À quelle fréquence mettre à jour l\'aperçu de la forme';
 }
 
 // Path: settings.themeModes
@@ -5655,6 +5661,7 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 		'שמאל',
 	];
 	@override late final _StringsSettingsResetHe reset = _StringsSettingsResetHe._(_root);
+	@override String get resyncEverything => 'סנכרן הכל מחדש';
 }
 
 // Path: login
@@ -5882,8 +5889,8 @@ class _StringsSettingsPrefCategoriesHe extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'כללי';
 	@override String get writing => 'כתיבה';
 	@override String get editor => 'עורך';
-	@override String get performance => 'ביצועים';
 	@override String get advanced => 'מתקדם';
+	@override String get performance => 'ביצועים';
 }
 
 // Path: settings.prefLabels
@@ -5942,8 +5949,8 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
-	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
+	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
 
 // Path: settings.themeModes
@@ -6434,6 +6441,7 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 		'Balra',
 	];
 	@override late final _StringsSettingsResetHu reset = _StringsSettingsResetHu._(_root);
+	@override String get resyncEverything => 'Resync mindent';
 }
 
 // Path: login
@@ -7213,6 +7221,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 		'Sotto',
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
+	@override String get resyncEverything => 'Resync tutto';
 }
 
 // Path: login
@@ -7992,6 +8001,7 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 		'左側',
 	];
 	@override late final _StringsSettingsResetJa reset = _StringsSettingsResetJa._(_root);
+	@override String get resyncEverything => 'すべてを再同期する';
 }
 
 // Path: login
@@ -8219,8 +8229,8 @@ class _StringsSettingsPrefCategoriesJa extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => '一般';
 	@override String get writing => '文章';
 	@override String get editor => '編集';
-	@override String get performance => 'パフォーマンス';
 	@override String get advanced => 'アドバンスド';
+	@override String get performance => 'パフォーマンス';
 }
 
 // Path: settings.prefLabels
@@ -8771,6 +8781,7 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 		'Esquerda',
 	];
 	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
+	@override String get resyncEverything => 'Resync tudo';
 }
 
 // Path: login
@@ -8998,8 +9009,8 @@ class _StringsSettingsPrefCategoriesPtBr extends _StringsSettingsPrefCategoriesE
 	@override String get general => 'Geral';
 	@override String get writing => 'Escrita';
 	@override String get editor => 'editor';
-	@override String get performance => 'Desempenho';
 	@override String get advanced => 'Avançado';
+	@override String get performance => 'Desempenho';
 }
 
 // Path: settings.prefLabels
@@ -9058,8 +9069,8 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
-	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
+	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
 
 // Path: settings.themeModes
@@ -9550,6 +9561,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 		'Слева',
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
+	@override String get resyncEverything => 'Повторно синхронизировать все';
 }
 
 // Path: login
@@ -9777,8 +9789,8 @@ class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Общие';
 	@override String get writing => 'Письмо';
 	@override String get editor => 'Редактор';
-	@override String get performance => 'Производительность';
 	@override String get advanced => 'Дополнительно';
+	@override String get performance => 'Производительность';
 }
 
 // Path: settings.prefLabels
@@ -9837,8 +9849,8 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
-	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр фигуры';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
+	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр фигуры';
 }
 
 // Path: settings.themeModes
@@ -10329,6 +10341,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 		'Sol',
 	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
+	@override String get resyncEverything => 'Her şeyi tekrar et';
 }
 
 // Path: login
@@ -10556,8 +10569,8 @@ class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Genel';
 	@override String get writing => 'Yazım';
 	@override String get editor => 'Editör';
-	@override String get performance => 'Verim';
 	@override String get advanced => 'Gelişmiş';
+	@override String get performance => 'Verim';
 }
 
 // Path: settings.prefLabels
@@ -10616,8 +10629,8 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
-	@override String get shapeRecognitionDelay => 'Şekil önizlemesinin ne sıklıkla güncelleneceği';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
+	@override String get shapeRecognitionDelay => 'Şekil önizlemesinin ne sıklıkla güncelleneceği';
 }
 
 // Path: settings.themeModes
@@ -11108,6 +11121,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 		'左',
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
+	@override String get resyncEverything => '重新同步一切';
 }
 
 // Path: login
@@ -11887,6 +11901,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 		'靠左',
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
+	@override String get resyncEverything => '重新同步一切';
 }
 
 // Path: login

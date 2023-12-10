@@ -61,8 +61,8 @@ settings:
     general: General
     writing: Escritura
     editor: Editor
-    performance(OUTDATED): Actuación
     advanced: Avanzado
+    performance(OUTDATED): Actuación
   prefLabels:
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
-    shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
+    shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
     system: Sistema
     light: Claro
@@ -129,6 +129,7 @@ settings:
   reset:
     title: "¿Quieres restablecer esta configuración?"
     button: Restablecer
+  resyncEverything(OUTDATED): Resync todo
 login:
   title: Iniciar sesión
   feedbacks:
@@ -218,18 +219,17 @@ editor:
     exportAs: "Exportar cómo:"
     fullscreen: Pantalla completa (F11)
   pens:
-    fountainPen(OUTDATED): Estilográfica
     ballpointPen: Bolígrafo
     highlighter: Resaltador
-    pencil(OUTDATED): Lápiz
     shapePen: Bolígrafo con formas
     laserPointer: Puntero láser
+    fountainPen(OUTDATED): Estilográfica
+    pencil(OUTDATED): Lápiz
   penOptions:
     size: Tamaño
     sizeDragHint: Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño
   colors:
     colorPicker: Selector de color
-    customBrightnessHue(OUTDATED): $h $b personalizado
     customHue: $h personalizado
     dark: oscuro
     light: claro
@@ -254,6 +254,7 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
+    customBrightnessHue(OUTDATED): $h $b personalizado
   imageOptions:
     title: Opciones de imagen
     invertible: Invertible

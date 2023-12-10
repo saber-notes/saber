@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Chcete resetovat tuto volbu?"
     button: Resetovat
+  resyncEverything(OUTDATED): Znovu vše synchronizujte
 login:
   title: Přihlásit se
   feedbacks:

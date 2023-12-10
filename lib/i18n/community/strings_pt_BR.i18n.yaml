@@ -61,8 +61,8 @@ settings:
     general: Geral
     writing: Escrita
     editor: editor
-    performance(OUTDATED): Desempenho
     advanced: Avançado
+    performance(OUTDATED): Desempenho
   prefLabels:
     locale: Idioma do aplicativo
     appTheme: Tema do aplicativo
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
-    shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
+    shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:
     system: Sistema
     light: Claro
@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Redefinir esta configuração?"
     button: Redefinir
+  resyncEverything(OUTDATED): Resync tudo
 login:
   title: Login
   feedbacks:

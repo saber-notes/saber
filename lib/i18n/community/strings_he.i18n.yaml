@@ -61,8 +61,8 @@ settings:
     general: כללי
     writing: כתיבה
     editor: עורך
-    performance(OUTDATED): ביצועים
     advanced: מתקדם
+    performance(OUTDATED): ביצועים
   prefLabels:
     locale: שפת התוכנה
     appTheme: ערכת הנושא של האפליקציה
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
-    shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
+    shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
   themeModes:
     system: מערכת
     light: בהיר
@@ -129,6 +129,7 @@ settings:
   reset:
     title: "אפס הגדרה זו?"
     button: אפס
+  resyncEverything(OUTDATED): סנכרן הכל מחדש
 login:
   title: התחבר
   feedbacks:

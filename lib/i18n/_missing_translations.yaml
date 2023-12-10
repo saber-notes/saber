@@ -56,6 +56,7 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -74,6 +75,8 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    resyncEverything(OUTDATED): Resync everything
 de:
   home:
     titles:
@@ -123,6 +126,7 @@ de:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -148,6 +152,7 @@ es:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       fountainPen(OUTDATED): Fountain pen
@@ -155,6 +160,8 @@ es:
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
 fa:
+  settings:
+    resyncEverything(OUTDATED): Resync everything
 fr:
   home:
     tooltips:
@@ -171,6 +178,7 @@ fr:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -204,6 +212,7 @@ he:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -299,6 +308,7 @@ hu:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
       tablet(OUTDATED): Tablet
+    resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s.
@@ -396,6 +406,8 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    resyncEverything(OUTDATED): Resync everything
 ja:
   home:
     titles:
@@ -443,6 +455,7 @@ ja:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -476,6 +489,7 @@ pt-BR:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -500,6 +514,7 @@ ru:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -514,8 +529,13 @@ tr:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+    resyncEverything(OUTDATED): Resync everything
   editor:
     pens:
       pencil(OUTDATED): Pencil
 zh-Hans-CN:
+  settings:
+    resyncEverything(OUTDATED): Resync everything
 zh-Hant-TW:
+  settings:
+    resyncEverything(OUTDATED): Resync everything

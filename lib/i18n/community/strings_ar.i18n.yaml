@@ -129,6 +129,7 @@ settings:
   reset:
     title: إعادة تعيين هذا الإعداد؟
     button: إعادة تعيين
+  resyncEverything(OUTDATED): إعادة ترتيب كل شيء
 login:
   title: تسجيل الدخول
   feedbacks:

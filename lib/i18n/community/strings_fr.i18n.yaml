@@ -61,8 +61,8 @@ settings:
     general: Général
     writing: Tracé
     editor: Editeur
-    performance(OUTDATED): Rendement
     advanced: Avancé
+    performance(OUTDATED): Rendement
   prefLabels:
     locale: Langue
     appTheme: Thème de l'application
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
-    shapeRecognitionDelay(OUTDATED): À quelle fréquence mettre à jour l'aperçu de la forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
+    shapeRecognitionDelay(OUTDATED): À quelle fréquence mettre à jour l'aperçu de la forme
   themeModes:
     system: Système
     light: Clair
@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Rétablir les valeurs par défaut ?"
     button: Défaut
+  resyncEverything(OUTDATED): Resync tout
 login:
   title: Connexion
   feedbacks:

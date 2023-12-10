@@ -61,8 +61,8 @@ settings:
     general: Общие
     writing: Письмо
     editor: Редактор
-    performance(OUTDATED): Производительность
     advanced: Дополнительно
+    performance(OUTDATED): Производительность
   prefLabels:
     locale: Язык приложения
     appTheme: Тема оформления
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
-    shapeRecognitionDelay(OUTDATED): Как часто обновлять предварительный просмотр фигуры
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
+    shapeRecognitionDelay(OUTDATED): Как часто обновлять предварительный просмотр фигуры
   themeModes:
     system: Системная
     light: Светлая
@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Сбросить эту настройку?"
     button: Сбросить
+  resyncEverything(OUTDATED): Повторно синхронизировать все
 login:
   title: Авторизация
   feedbacks:

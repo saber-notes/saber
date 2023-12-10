@@ -129,6 +129,7 @@ settings:
   reset:
     title: 重置此设置？
     button: 重置
+  resyncEverything(OUTDATED): 重新同步一切
 login:
   title: 登录
   feedbacks:

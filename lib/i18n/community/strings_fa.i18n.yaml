@@ -129,6 +129,7 @@ settings:
   reset:
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
+  resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
 login:
   title: وارد شدن
   feedbacks:
