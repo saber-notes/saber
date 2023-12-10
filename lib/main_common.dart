@@ -48,9 +48,9 @@ Future<void> main() async {
   }
 
   Prefs.init();
-  FileManager.init();
 
   await Future.wait([
+    FileManager.init(),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),

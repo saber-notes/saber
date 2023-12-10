@@ -43,7 +43,7 @@ class FileManager {
 
   static Future<void> init() async {
     documentsDirectory = '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
-    await watchRootDirectory();
+    unawaited(watchRootDirectory());
   }
 
   @visibleForTesting
