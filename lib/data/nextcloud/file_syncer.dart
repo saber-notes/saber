@@ -257,10 +257,15 @@ abstract class FileSyncer {
     } // TODO: also sync config.sbc
 
     // decrypt file path
-    final localPath = await workerManager.execute(
+    String localPath = await workerManager.execute(
       () => encrypter.decrypt16(encryptedName, iv: iv),
       priority: WorkPriority.veryHigh,
     );
+
+    // Mitigates a bug where files got imported starting with `null/` instead of `/`.
+    if (localPath.startsWith('null/')) {
+      localPath = localPath.substring('null/'.length - 1);
+    }
 
     final syncFile = SyncFile(
       encryptedName: encryptedName,
