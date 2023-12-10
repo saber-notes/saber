@@ -390,6 +390,26 @@ class FileManager {
     return DirectoryChildren(directories, files);
   }
 
+  static Future<List<String>> getAllFiles() async {
+    final allFiles = <String>[];
+    final directories = <String>['/'];
+
+    while (directories.isNotEmpty) {
+      final directory = directories.removeLast();
+      final children = await getChildrenOfDirectory(directory);
+      if (children == null) continue;
+      
+      for (final file in children.files) {
+        allFiles.add('$directory$file');
+      }
+      for (final childDirectory in children.directories) {
+        directories.add('$directory$childDirectory/');
+      }
+    }
+
+    return allFiles;
+  }
+
   static Future<List<String>> getRecentlyAccessed() async {
     await Prefs.recentFiles.waitUntilLoaded();
     return Prefs.recentFiles.value

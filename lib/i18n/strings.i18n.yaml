@@ -129,6 +129,7 @@ settings:
   reset:
     title: "Reset this setting?"
     button: Reset
+  resyncEverything: Resync everything
 login:
   title: Login
   feedbacks:

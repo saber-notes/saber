@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
+import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -71,34 +75,52 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
             ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: loggedIn ? FutureBuilder(
-        future: NextcloudProfile.getStorageQuota(),
-        initialData: Prefs.lastStorageQuota.value,
-        builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
-          final Quota? quota = snapshot.data;
-          final double? relativePercent;
-          if (quota != null) {
-            relativePercent = quota.relative / 100;
-          } else {
-            relativePercent = null;
-          }
-
-          return Stack(
-            alignment: Alignment.center,
-            children: [
-              CircularProgressIndicator(
-                value: relativePercent,
-                color: colorScheme.primary.withOpacity(0.5),
-                backgroundColor: colorScheme.primary.withOpacity(0.1),
-                strokeWidth: 8,
-                semanticsLabel: 'Storage usage',
-                semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
-              ),
-              Text(readableQuota(quota)),
-            ],
-          );
-        },
-      ) : null,
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (loggedIn) FutureBuilder(
+            future: NextcloudProfile.getStorageQuota(),
+            initialData: Prefs.lastStorageQuota.value,
+            builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
+              final Quota? quota = snapshot.data;
+              final double? relativePercent;
+              if (quota != null) {
+                relativePercent = quota.relative / 100;
+              } else {
+                relativePercent = null;
+              }
+          
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    value: relativePercent,
+                    color: colorScheme.primary.withOpacity(0.5),
+                    backgroundColor: colorScheme.primary.withOpacity(0.1),
+                    strokeWidth: 8,
+                    semanticsLabel: 'Storage usage',
+                    semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
+                  ),
+                  Text(readableQuota(quota)),
+                ],
+              );
+            },
+          ),
+          IconButton(
+            icon: const AdaptiveIcon(
+              icon: Icons.cloud_upload,
+              cupertinoIcon: CupertinoIcons.cloud_upload,
+            ),
+            tooltip: t.settings.resyncEverything,
+            onPressed: () async {
+              final allFiles = await FileManager.getAllFiles();
+              for (final file in allFiles) {
+                FileSyncer.addToUploadQueue(file);
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 

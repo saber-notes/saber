@@ -204,6 +204,7 @@ class _StringsSettingsEn {
 		'Left',
 	];
 	late final _StringsSettingsResetEn reset = _StringsSettingsResetEn._(_root);
+	String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
