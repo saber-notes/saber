@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:process_run/shell.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
@@ -33,6 +34,11 @@ void main() {
     setUpAll(() => Future.wait([
       InvertShader.init(),
       PencilShader.init(),
+      GoogleFonts.pendingFonts([
+        GoogleFonts.neucha(),
+        GoogleFonts.dekko(),
+        GoogleFonts.firaMono(),
+      ]),
     ]));
 
     final sbnExamples = Directory('test/sbn_examples/')
