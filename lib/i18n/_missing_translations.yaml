@@ -170,46 +170,6 @@ es:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 fa:
-  home:
-    tooltips:
-      exportNote(OUTDATED): صدور یادداشت
-    invalidFormat(OUTDATED): "فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید."
-    moveNote:
-      moveNotes(OUTDATED): انتقال یادداشت $n
-      multipleRenamedTo(OUTDATED): "یادداشت های زیر تغییر نام خواهند داد:"
-      numberRenamedTo(OUTDATED): $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
-    renameFolder:
-      renameFolder(OUTDATED): تغییر نام پوشه
-      folderName(OUTDATED): نام پوشه
-      rename(OUTDATED): تغییر نام
-      folderNameEmpty(OUTDATED): نام پوشه نمی تواند خالی باشد
-      folderNameContainsSlash(OUTDATED): نام پوشه نمی تواند دارای اسلش باشد
-      folderNameExists(OUTDATED): پوشه ای با این نام از قبل وجود دارد
-  settings:
-    prefCategories:
-      performance(OUTDATED): کارایی
-    prefLabels:
-      recentColorsLength(OUTDATED): چند رنگ اخیر برای ذخیره
-      shapeRecognitionDelay(OUTDATED): تاخیر در تشخیص شکل
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
-  editor:
-    pens:
-      pencil(OUTDATED): مداد
-      shapePen(OUTDATED): شکل قلم
-    colors:
-      customBrightnessHue(OUTDATED): شخصی سازی $b $h
-      customHue(OUTDATED): شخصی سازی $h
-      dark(OUTDATED): تاریک
-      light(OUTDATED): روشن
-      cyan(OUTDATED): فیروزه ای
-      pink(OUTDATED): صورتی
-    selectionBar:
-      duplicate(OUTDATED): تکراری
-    menu:
-      backgroundImageFit(OUTDATED): مناسب تصویر پس زمینه
-      bgPatterns:
-        tablature(OUTDATED): جدول بندی
 fr:
   home:
     tooltips:

@@ -4064,6 +4064,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsFa tooltips = _StringsHomeTooltipsFa._(_root);
 	@override late final _StringsHomeCreateFa create = _StringsHomeCreateFa._(_root);
 	@override String get welcome => 'خوش آمدید';
+	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.';
 	@override String get noFiles => 'فایلی پیدا نشد';
 	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
 	@override String get backFolder => 'به پوشه قبلی برگردید';
@@ -4073,7 +4074,6 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override String get deleteNote => 'حذف یادداشت';
 	@override late final _StringsHomeRenameFolderFa renameFolder = _StringsHomeRenameFolderFa._(_root);
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
-	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل .sbn، .sbn2, .sba یا pdf. انتخاب کنید.';
 }
 
 // Path: settings
@@ -4226,7 +4226,7 @@ class _StringsHomeTooltipsFa extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'یادداشت جدید';
 	@override String get showUpdateDialog => 'نمایش به روز رسانی';
-	@override String get exportNote => 'یادداشت صادرات';
+	@override String get exportNote => 'صدور یادداشت';
 }
 
 // Path: home.create
@@ -4278,12 +4278,12 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'انتقال یادداشت';
+	@override String moveNotes({required Object n}) => 'انتقال یادداشت ${n}';
 	@override String moveName({required Object f}) => 'انتقال ${f}';
 	@override String get move => 'انتقال';
 	@override String renamedTo({required Object newName}) => 'یادداشت به ${newName} تغییر نام می یابد';
+	@override String get multipleRenamedTo => 'یادداشت های زیر تغییر نام خواهند داد:';
 	@override String numberRenamedTo({required Object n}) => '${n} یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد';
-	@override String moveNotes({required Object n}) => '${n} یادداشت را جابجا کنید';
-	@override String get multipleRenamedTo => 'یادداشت های زیر تغییر خواهند کرد:';
 }
 
 // Path: home.renameFolder
@@ -4293,12 +4293,12 @@ class _StringsHomeRenameFolderFa extends _StringsHomeRenameFolderEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderNameEmpty => 'نام پوشه نمی تواند خالی باشد';
-	@override String get folderNameContainsSlash => 'نام پوشه نمی تواند حاوی یک برش باشد';
-	@override String get folderNameExists => 'پوشه ای با این نام از قبل وجود دارد';
 	@override String get renameFolder => 'تغییر نام پوشه';
 	@override String get folderName => 'نام پوشه';
-	@override String get rename => 'تغییر نام دهید';
+	@override String get rename => 'تغییر نام';
+	@override String get folderNameEmpty => 'نام پوشه نمی تواند خالی باشد';
+	@override String get folderNameContainsSlash => 'نام پوشه نمی تواند دارای اسلش باشد';
+	@override String get folderNameExists => 'پوشه ای با این نام از قبل وجود دارد';
 }
 
 // Path: home.deleteFolder
@@ -4358,10 +4358,10 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
+	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
-	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 }
 
 // Path: settings.prefDescriptions
@@ -4384,7 +4384,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
-	@override String get shapeRecognitionDelay => 'هر چند وقت یکبار برای به روز رسانی پیش نمایش شکل';
+	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 }
 
@@ -4623,9 +4623,9 @@ class _StringsEditorPensFa extends _StringsEditorPensEn {
 	@override String get fountainPen => 'خودنویس';
 	@override String get ballpointPen => 'خودکار';
 	@override String get highlighter => 'هایلایتر';
-	@override String get laserPointer => 'اشاره گر لیزری';
 	@override String get pencil => 'مداد';
-	@override String get shapePen => 'قلم شکل';
+	@override String get shapePen => 'شکل قلم';
+	@override String get laserPointer => 'اشاره گر لیزری';
 }
 
 // Path: editor.penOptions
@@ -4647,6 +4647,10 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'انتخاب کننده رنگ';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'شخصی سازی ${b} ${h}';
+	@override String customHue({required Object h}) => 'شخصی سازی ${h}';
+	@override String get dark => 'تاریک';
+	@override String get light => 'روشن';
 	@override String get black => 'مشکی';
 	@override String get darkGrey => 'خاکستری تیره';
 	@override String get grey => 'خاکستری';
@@ -4654,9 +4658,11 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get white => 'سفید';
 	@override String get red => 'قرمز';
 	@override String get green => 'سبز';
+	@override String get cyan => 'فیروزه ای';
 	@override String get blue => 'آبی';
 	@override String get yellow => 'زرد';
 	@override String get purple => 'بنفش';
+	@override String get pink => 'صورتی';
 	@override String get orange => 'نارنجی';
 	@override String get pastelRed => 'قرمز پاستلی';
 	@override String get pastelOrange => 'نارنجی پاستلی';
@@ -4666,12 +4672,6 @@ class _StringsEditorColorsFa extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'آبی پاستلی';
 	@override String get pastelPurple => 'بنفش پاستلی';
 	@override String get pastelPink => 'صورتی پاستلی';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'سفارشی ${b} ${h}';
-	@override String customHue({required Object h}) => 'سفارشی ${h}';
-	@override String get dark => 'تاریک';
-	@override String get light => 'سبک';
-	@override String get cyan => 'فیروزه ای';
-	@override String get pink => 'رنگ صورتی';
 }
 
 // Path: editor.imageOptions
@@ -4714,11 +4714,11 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
+	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
-	@override String get backgroundImageFit => 'تصویر پس زمینه';
 }
 
 // Path: editor.newerFileFormat
@@ -4798,8 +4798,8 @@ class _StringsEditorMenuBgPatternsFa extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'توری';
 	@override String get dots => 'نقطه ای';
 	@override String get staffs => 'کارکنان';
-	@override String get cornell => 'کرنل';
 	@override String get tablature => 'جدول بندی';
+	@override String get cornell => 'کرنل';
 }
 
 // Path: <root>
