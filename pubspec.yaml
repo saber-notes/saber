@@ -133,7 +133,7 @@ dependencies:
 
   fast_image_resizer: ^0.0.2
 
-  google_mobile_ads: ^3.0.0
+  google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
   bson: ^4.0.0

@@ -5,10 +5,10 @@ packages:
     dependency: "direct main"
     description:
       name: animations
-      sha256: ef57563eed3620bd5d75ad96189846aca1e033c0c45fc9a7d26e80ab02b88a70
+      sha256: "708e4b68c23228c264b038fe7003a2f5d01ce85fc64d8cae090e86b27fcea6c5"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.10"
   app_tracking_transparency:
     dependency: "direct main"
     description:
@@ -255,7 +255,7 @@ packages:
     description:
       path: "packages/dynamite/dynamite_runtime"
       ref: HEAD
-      resolved-ref: "1e7fa3fa1ecf9b5fe3c1910a9e832eba8f0166a1"
+      resolved-ref: "866d1c1cb8a4791d2e2ff618a3c6e6123287b7a9"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -533,10 +533,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: c247a4f76071c3b97bb5ae8912968870d5565644801c5e09f3bc961b4d874895
+      sha256: c5fa45fa502ee880839e3b2152d987c44abae26d064a2376d4aad434cf0f7b15
       url: "https://pub.dev"
     source: hosted
-    version: "12.1.1"
+    version: "12.1.3"
   google_fonts:
     dependency: "direct main"
     description:
@@ -549,10 +549,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_mobile_ads
-      sha256: "7b8915f0ad358f49ba7d547b5187204cfe72ca668fb83aa303f96a2eacdc4033"
+      sha256: d2ef5ec1e1f31137fc241bdeab3037c31062d387dd221fd884fb1160444c788b
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "4.0.0"
   gtk:
     dependency: transitive
     description:
@@ -732,7 +732,7 @@ packages:
     description:
       path: "packages/nextcloud"
       ref: main
-      resolved-ref: "1e7fa3fa1ecf9b5fe3c1910a9e832eba8f0166a1"
+      resolved-ref: "866d1c1cb8a4791d2e2ff618a3c6e6123287b7a9"
       url: "https://github.com/nextcloud/neon"
     source: git
     version: "1.0.0"
@@ -1117,18 +1117,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: fe73e995287db77a32ef5a4ab8247bd20adc7a27ba2a4ba373a8132164eba654
+      sha256: "3231d9b11163acb96e7611c5da54404e93d1e0d0eb8f31126ce86a1a43a1c7d4"
       url: "https://pub.dev"
     source: hosted
-    version: "3.26.1"
+    version: "3.26.2"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: df1d6e5a7237028bcf94f7401d575fdfee8c9ca066b3e9a02acdcd5096e2a25a
+      sha256: "88e40b238307abdc191c9c26cdfb7c1b6d5075f461e8fbcf89f6f2a3f92cd5d7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.26.1"
+    version: "3.26.2"
   source_span:
     dependency: transitive
     description:
@@ -1254,10 +1254,10 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-      sha256: b1c9e98774adf8820c96fbc7ae3601231d324a7d5ebd8babe27b6dfac91357ba
+      sha256: e9aa5ea75c84cf46b3db4eea212523591211c3cf2e13099ee4ec147f54201c86
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.1"
+    version: "6.2.2"
   url_launcher_android:
     dependency: transitive
     description:
@@ -1302,10 +1302,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: "138bd45b3a456dcfafc46d1a146787424f8d2edfbf2809c9324361e58f851cf7"
+      sha256: "7286aec002c8feecc338cc33269e96b73955ab227456e9fb2a91f7fab8a358e9"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   url_launcher_windows:
     dependency: transitive
     description:
@@ -1362,14 +1362,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
-  visibility_detector:
-    dependency: transitive
-    description:
-      name: visibility_detector
-      sha256: dd5cc11e13494f432d15939c3aa8ae76844c42b723398643ce9addb88a5ed420
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.0+2"
   vm_service:
     dependency: transitive
     description:
