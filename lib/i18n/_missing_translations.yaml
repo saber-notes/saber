@@ -504,18 +504,18 @@ pt-BR:
 ru:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): Экспортировать заметку
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): Производительность
     prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      shapeRecognitionDelay(OUTDATED): Задержка распознавания формы
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
+      shapeRecognitionDelay(OUTDATED): Как часто обновлять предварительный просмотр формы
+    resyncEverything(OUTDATED): Повторная синхронизация всего
   editor:
     pens:
-      pencil(OUTDATED): Pencil
+      pencil(OUTDATED): Карандаш
 tr:
   home:
     tooltips:
