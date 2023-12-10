@@ -3447,7 +3447,7 @@ class _StringsHomeTooltipsEs extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Crear nota';
 	@override String get showUpdateDialog => 'Mostrar cuadro de diálogo de actualizaciónes';
-	@override String get exportNote => 'Nota de exportación';
+	@override String get exportNote => 'Exportar nota';
 }
 
 // Path: home.create
@@ -3499,11 +3499,11 @@ class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover nota';
+	@override String moveNotes({required Object n}) => 'Mover ${n} notas';
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
-	@override String moveNotes({required Object n}) => 'Mover notas de ${n}';
-	@override String get multipleRenamedTo => 'Las siguientes notas cambiarán de nombre:';
+	@override String get multipleRenamedTo => 'Renombrar las siguientes notas';
 	@override String numberRenamedTo({required Object n}) => '${n} notas serán renombradas para evitar conflictos';
 }
 
@@ -3579,10 +3579,10 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
+	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
-	@override String get recentColorsLength => '¿Cuántos colores recientes almacenar?';
 }
 
 // Path: settings.prefDescriptions
@@ -3841,12 +3841,12 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get fountainPen => 'Lápiz';
+	@override String get fountainPen => 'Estilográfica';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
-	@override String get laserPointer => 'Puntero láser';
 	@override String get pencil => 'Lápiz';
-	@override String get shapePen => 'Pluma de forma';
+	@override String get shapePen => 'Bolígrafo con formas';
+	@override String get laserPointer => 'Puntero láser';
 }
 
 // Path: editor.penOptions
@@ -3868,6 +3868,10 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
+	@override String customBrightnessHue({required Object h, required Object b}) => '${h} ${b} personalizado';
+	@override String customHue({required Object h}) => '${h} personalizado';
+	@override String get dark => 'oscuro';
+	@override String get light => 'claro';
 	@override String get black => 'Negro';
 	@override String get darkGrey => 'Gris oscuro';
 	@override String get grey => 'Gris';
@@ -3875,9 +3879,11 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get white => 'Blanco';
 	@override String get red => 'Rojo';
 	@override String get green => 'Verde';
+	@override String get cyan => 'Cyan';
 	@override String get blue => 'Azul';
 	@override String get yellow => 'Amarillo';
 	@override String get purple => 'Morado';
+	@override String get pink => 'Rosa';
 	@override String get orange => 'Naranja';
 	@override String get pastelRed => 'Rojo pastel';
 	@override String get pastelOrange => 'Naranja pastel';
@@ -3887,12 +3893,6 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Morado pastel';
 	@override String get pastelPink => 'Rosa pastel';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
-	@override String customHue({required Object h}) => '${h} personalizados';
-	@override String get dark => 'oscuro';
-	@override String get light => 'luz';
-	@override String get cyan => 'cian';
-	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions

@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: Crear nota
     showUpdateDialog: Mostrar cuadro de diálogo de actualizaciónes
-    exportNote(OUTDATED): Nota de exportación
+    exportNote: Exportar nota
   create:
     newNote: Nueva nota
     importNote: Importar nota
@@ -37,12 +37,12 @@ home:
     noteNameExists: Ya existe una nota con este nombre
   moveNote:
     moveNote: Mover nota
+    moveNotes: Mover $n notas
     moveName: Mover $f
     move: Mover
     renamedTo: Se renombrará la nota a $newName
-    moveNotes(OUTDATED): Mover notas de $n
-    multipleRenamedTo(OUTDATED): "Las siguientes notas cambiarán de nombre:"
-    numberRenamedTo(OUTDATED): $n notas serán renombradas para evitar conflictos
+    multipleRenamedTo: Renombrar las siguientes notas
+    numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
   renameFolder:
     renameFolder: Renombrar carpeta
@@ -87,10 +87,10 @@ settings:
     editorPromptRename: Solicitarte cambiar el nombre de nuevas notas
     hideHomeBackgrounds: Ocultar fondos en la pantalla de inicio
     recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
+    recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
-    recentColorsLength(OUTDATED): "¿Cuántos colores recientes almacenar?"
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     disableAds: "Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres"
@@ -218,17 +218,21 @@ editor:
     exportAs: "Exportar cómo:"
     fullscreen: Pantalla completa (F11)
   pens:
-    fountainPen: Lápiz
+    fountainPen(OUTDATED): Estilográfica
     ballpointPen: Bolígrafo
     highlighter: Resaltador
-    laserPointer: Puntero láser
     pencil(OUTDATED): Lápiz
-    shapePen(OUTDATED): Pluma de forma
+    shapePen: Bolígrafo con formas
+    laserPointer: Puntero láser
   penOptions:
     size: Tamaño
     sizeDragHint: Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño
   colors:
     colorPicker: Selector de color
+    customBrightnessHue(OUTDATED): $h $b personalizado
+    customHue: $h personalizado
+    dark: oscuro
+    light: claro
     black: Negro
     darkGrey: Gris oscuro
     grey: Gris
@@ -236,9 +240,11 @@ editor:
     white: Blanco
     red: Rojo
     green: Verde
+    cyan: Cyan
     blue: Azul
     yellow: Amarillo
     purple: Morado
+    pink: Rosa
     orange: Naranja
     pastelRed: Rojo pastel
     pastelOrange: Naranja pastel
@@ -248,12 +254,6 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
-    customBrightnessHue(OUTDATED): Personalizado $b $h
-    customHue(OUTDATED): $h personalizados
-    dark(OUTDATED): oscuro
-    light(OUTDATED): luz
-    cyan(OUTDATED): cian
-    pink(OUTDATED): Rosa
   imageOptions:
     title: Opciones de imagen
     invertible: Invertible
@@ -263,7 +263,7 @@ editor:
     delete: Eliminar
   selectionBar:
     delete: Eliminar
-    duplicate(OUTDATED): Duplicar
+    duplicate: Duplicar
   menu:
     clearPage: Eliminar páginas $page/$totalPages
     clearAllPages: Borrar todas las páginas
