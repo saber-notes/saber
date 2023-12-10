@@ -141,34 +141,19 @@ de:
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Exportar nota
-    moveNote:
-      moveNotes(OUTDATED): Mover $n notas
-      multipleRenamedTo(OUTDATED): "Renombrar las siguientes notas"
-      numberRenamedTo(OUTDATED): $n notas serán renombradas para evitar conflictos
   settings:
     prefCategories:
       performance(OUTDATED): Performance
     prefLabels:
-      recentColorsLength(OUTDATED): Número de colores recientes a almacenar
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
   editor:
     pens:
-      pencil(OUTDATED): Bolígrafo
-      shapePen(OUTDATED): Bolígrafo con formas
+      fountainPen(OUTDATED): Fountain pen
+      pencil(OUTDATED): Pencil
     colors:
-      customBrightnessHue(OUTDATED): $b $h personalizado
-      customHue(OUTDATED): $h personalizado
-      dark(OUTDATED): Oscuro
-      light(OUTDATED): Claro
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Rosa
-    selectionBar:
-      duplicate(OUTDATED): Duplicar
+      customBrightnessHue(OUTDATED): Custom $b $h
 fa:
 fr:
   home:
