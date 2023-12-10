@@ -407,7 +407,7 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   settings:
-    resyncEverything(OUTDATED): Resync everything
+    resyncEverything(OUTDATED): Risincronizza tutto
 ja:
   home:
     titles:
