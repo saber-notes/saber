@@ -75,10 +75,10 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
             ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: Row(
+      trailing: loggedIn ? Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (loggedIn) FutureBuilder(
+          FutureBuilder(
             future: NextcloudProfile.getStorageQuota(),
             initialData: Prefs.lastStorageQuota.value,
             builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
@@ -120,7 +120,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
             },
           ),
         ],
-      ),
+      ) : null,
     );
   }
 
