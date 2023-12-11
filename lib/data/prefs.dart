@@ -113,6 +113,10 @@ abstract class Prefs {
   static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
   /// File paths that are known to be corrupted on Nextcloud
   static late final PlainPref<Set<String>> fileSyncCorruptFiles;
+  /// Set when we want to resync everything.
+  /// Files on the server older than this date will be
+  /// reuploaded with the local version.
+  static late final PlainPref<DateTime> fileSyncResyncEverythingDate;
   /// The last storage quota that was fetched from Nextcloud
   static late final PlainPref<Quota?> lastStorageQuota;
 
@@ -201,6 +205,7 @@ abstract class Prefs {
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
+    fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate', DateTime.fromMillisecondsSinceEpoch(0));
     lastStorageQuota = PlainPref('lastStorageQuota', null);
 
     shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
@@ -317,6 +322,7 @@ class PlainPref<T> extends IPref<T> {
         || T == AxisDirection || T == ThemeMode || T == TargetPlatform
         || T == LayoutSize
         || T == ToolId || T == CanvasBackgroundPattern
+        || T == DateTime
     );
   }
 
@@ -395,6 +401,13 @@ class PlainPref<T> extends IPref<T> {
         return await _prefs!.setString(key, (value as ToolId).id);
       } else if (T == CanvasBackgroundPattern) {
         return await _prefs!.setString(key, (value as CanvasBackgroundPattern).name);
+      } else if (T == DateTime) {
+        final date = value as DateTime;
+        if (date.millisecondsSinceEpoch == 0) {
+          return await _prefs!.remove(key);
+        } else {
+          return await _prefs!.setString(key, date.toIso8601String());
+        }
       } else {
         return await _prefs!.setString(key, value as String);
       }
@@ -460,6 +473,10 @@ class PlainPref<T> extends IPref<T> {
             .cast<CanvasBackgroundPattern?>()
             .firstWhere((pattern) => pattern!.name == name, orElse: () => null)
             as T?;
+      } else if (T == DateTime) {
+        String? iso8601 = _prefs!.getString(key);
+        if (iso8601 == null) return null;
+        return DateTime.parse(iso8601) as T;
       } else {
         return _prefs!.get(key) as T?;
       }

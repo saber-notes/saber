@@ -391,8 +391,18 @@ abstract class FileSyncer {
       return true;
     }
 
-    // file exists locally, check if it's newer
+    // If we've prompted a full resync at [resyncEverythingDate]
+    // keep the local file if it was modified before [resyncEverythingDate]
+    final resyncEverythingDate = Prefs.fileSyncResyncEverythingDate.value;
     final DateTime? lastModifiedRemote = file.webDavFile!.lastModified;
+    if (inUploadQueue && resyncEverythingDate != null && file.webDavFile!.lastModified != null) {
+      final lastModifiedRemote = file.webDavFile!.lastModified!;
+      if (lastModifiedRemote.isBefore(resyncEverythingDate)) {
+        return true;
+      }
+    }
+
+    // file exists locally, check if it's newer
     final DateTime lastModifiedLocal = await FileManager.lastModified(file.localPath);
     if (lastModifiedRemote != null && lastModifiedRemote.isAfter(lastModifiedLocal)) {
       // remote is newer; keep remote
