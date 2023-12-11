@@ -11901,7 +11901,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 		'靠左',
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
-	@override String get resyncEverything => '重新同步一切';
+	@override String get resyncEverything => '全部重新同步';
 }
 
 // Path: login
