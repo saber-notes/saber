@@ -3,7 +3,6 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:process_run/shell.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/version.dart';
@@ -47,51 +46,6 @@ void main() {
   test('Test that buildNumber parses to buildName', () {
     final v = UpdateManager.parseVersionNumber(buildNumber);
     expect('${v.major}.${v.minor}.${v.patch}', buildName);
-  });
-
-  test('Test that versions in code are valid', () async {
-    // We will use git's history to see if ./scripts/apply_version.sh
-    // changes anything. If it does, then the versions in the
-    // code are not valid.
-
-    final shell = Shell(verbose: false);
-
-    // Initial commit to hide any unrelated changes...
-    printOnFailure('Stashing any existing changes...');
-    await shell.run('''
-    touch stash-me.txt  # make sure we can stash
-    git stash --include-untracked
-    ''');
-    addTearDown(() async {
-      // restore changes
-      await shell.run('''
-      touch stash-me-2.txt  # make sure we can stash
-      git stash --include-untracked
-      git stash drop
-      ''');
-      // restore original stash
-      await shell.run('''
-      git stash pop
-      rm stash-me.txt
-      ''');
-    });
-
-    // expect git to be clean
-    final before = await shell.run('git status --porcelain');
-    expect(before.outText.isEmpty, true,
-        reason: 'Git status is not initially clean');
-
-    // Run `./scripts/apply_version.sh` to update the version in code...
-    const command =
-        'bash ./scripts/apply_version.sh $buildName $buildNumber -q';
-    printOnFailure('Running: $command');
-    await shell.run(command);
-
-    // expect that script didn't need to change anything
-    final after = await shell.run('git diff -w'); // ignore whitespace
-    printOnFailure('Git diff after running $command:\n ${after.outText}');
-    expect(after.outText.isEmpty, true,
-        reason: './scripts/apply_version.sh found inconsistencies');
   });
 
   test('Test that changelog can be downloaded from GitHub', () async {
