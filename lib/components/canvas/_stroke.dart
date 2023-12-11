@@ -7,7 +7,6 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
-import 'package:saber/data/fast_math.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 
@@ -219,28 +218,6 @@ class Stroke {
 
   static num sqrDistBetweenPoints(Point p1, Point p2) {
     return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2);
-  }
-
-  /// The maximum angle away from a right angle for a line to be snapped to a right angle.
-  static const rightAngleThreshold = 0.1;
-  /// The minimum length for a line to be snapped to a right angle.
-  static const rightAngleMinLength = 10;
-  /// Transforms the [last] point to be at a right angle to [first].
-  static Point snapLineToRightAngle(Point first, Point last) {
-    double dx = (last.x - first.x).abs(),
-        dy = (last.y - first.y).abs();
-    if (dx < rightAngleMinLength && dy < rightAngleMinLength) {
-      return last;
-    }
-
-    double angle = diffToRightAngle(dy, dx);
-    if (angle > rightAngleThreshold) {
-      return last;
-    } else if (dx > dy) {
-      return Point(last.x, first.y);
-    } else {
-      return Point(first.x, last.y);
-    }
   }
 
   RecognizedUnistroke? detectShape() {
