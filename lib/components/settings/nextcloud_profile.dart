@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -31,18 +33,6 @@ class NextcloudProfile extends StatefulWidget {
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
   @override
-  void initState() {
-    onPfpChange();
-    Prefs.pfp.addListener(onPfpChange);
-
-    super.initState();
-  }
-
-  void onPfpChange() {
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
     final String heading, subheading;
     final bool loggedIn = Prefs.username.value.isNotEmpty;
@@ -59,20 +49,27 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       onTap: () {
         context.push(loggedIn ? RoutePaths.profile : RoutePaths.login);
       },
-      leading: Prefs.pfp.value == null
-          ? const Icon(Icons.account_circle, size: 48)
-          : ClipPath(
+      leading: ValueListenableBuilder(
+        valueListenable: Prefs.pfp,
+        builder: (BuildContext context, Uint8List? pfp, _) {
+          if (pfp == null) {
+            return const Icon(Icons.account_circle, size: 48);
+          } else {
+            return ClipPath(
               clipper: ShapeBorderClipper(
                 shape: ContinuousRectangleBorder(
                   borderRadius: BorderRadius.circular(40),
                 ),
               ),
               child: Image.memory(
-                Prefs.pfp.value!,
+                pfp,
                 width: 48,
                 height: 48,
               ),
-            ),
+            );
+          }
+        },
+      ),
       title: Text(heading),
       subtitle: Text(subheading),
       trailing: loggedIn ? Row(
@@ -122,12 +119,6 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         ],
       ) : null,
     );
-  }
-
-  @override
-  void dispose() {
-    Prefs.pfp.removeListener(onPfpChange);
-    super.dispose();
   }
 
   static String readableQuota(Quota? quota) {
