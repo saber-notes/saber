@@ -406,8 +406,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    resyncEverything(OUTDATED): Resync everything
 ja:
   home:
     titles:

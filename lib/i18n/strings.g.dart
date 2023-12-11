@@ -7221,7 +7221,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 		'Sotto',
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
-	@override String get resyncEverything => 'Resync tutto';
+	@override String get resyncEverything => 'Risincronizza tutto';
 }
 
 // Path: login

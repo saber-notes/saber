@@ -129,7 +129,7 @@ settings:
   reset:
     title: "Ripristinare questa impostazione?"
     button: Ripristina
-  resyncEverything(OUTDATED): Resync tutto
+  resyncEverything: Risincronizza tutto
 login:
   title: Login
   feedbacks:
