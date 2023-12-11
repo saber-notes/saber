@@ -17,14 +17,12 @@ import 'package:saber/data/tools/shape_pen.dart';
 class CanvasPainter extends CustomPainter {
   const CanvasPainter({
     super.repaint,
-
     this.invert = false,
     required this.strokes,
     required this.laserStrokes,
     required this.currentStroke,
     required this.currentSelection,
     required this.primaryColor,
-
     required this.page,
     required this.showPageIndicator,
     required this.pageIndex,
@@ -57,9 +55,9 @@ class CanvasPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CanvasPainter oldDelegate) {
-    return currentStroke != null
-      || oldDelegate.currentStroke != null
-      || strokes.length != oldDelegate.strokes.length;
+    return currentStroke != null ||
+        oldDelegate.currentStroke != null ||
+        strokes.length != oldDelegate.strokes.length;
   }
 
   void _drawHighlighterStrokes(Canvas canvas, Rect canvasRect) {
@@ -72,9 +70,11 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in strokes) {
       if (stroke.penType != (Highlighter).toString()) continue;
 
-      final color = stroke.strokeProperties.color.withOpacity(1).withInversion(invert);
+      final color =
+          stroke.strokeProperties.color.withOpacity(1).withInversion(invert);
 
-      if (color != lastColor) { // new layer for each color
+      if (color != lastColor) {
+        // new layer for each color
         if (needToRestoreCanvasLayer) canvas.restore();
         canvas.saveLayer(canvasRect, layerPaint);
 
@@ -102,9 +102,9 @@ class CanvasPainter extends CustomPainter {
       if (stroke.penType == (Pencil).toString()) {
         paint.color = Colors.white;
         paint.shader = page.pencilShader
-            ..setFloat(0, color.red / 255)
-            ..setFloat(1, color.green / 255)
-            ..setFloat(2, color.blue / 255);
+          ..setFloat(0, color.red / 255)
+          ..setFloat(1, color.green / 255)
+          ..setFloat(2, color.blue / 255);
       } else {
         paint.color = color;
         paint.shader = null;
@@ -130,7 +130,8 @@ class CanvasPainter extends CustomPainter {
           ),
           shapePaint,
         );
-      } else if (stroke.length <= 2) { // a dot
+      } else if (stroke.length <= 2) {
+        // a dot
         final bounds = stroke.path.getBounds();
         final radius = max(bounds.size.width, stroke.strokeProperties.size) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
@@ -149,17 +150,21 @@ class CanvasPainter extends CustomPainter {
     if (currentStroke!.penType == (Pencil).toString()) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
-          ..setFloat(0, color.red / 255)
-          ..setFloat(1, color.green / 255)
-          ..setFloat(2, color.blue / 255);
+        ..setFloat(0, color.red / 255)
+        ..setFloat(1, color.green / 255)
+        ..setFloat(2, color.blue / 255);
     } else {
       paint.color = color;
       paint.shader = null;
     }
 
-    if (currentStroke!.length <= 2) { // a dot
+    if (currentStroke!.length <= 2) {
+      // a dot
       final bounds = currentStroke!.path.getBounds();
-      final radius = max(bounds.size.width, currentStroke!.strokeProperties.size * 0.5) / 2;
+      final radius = max(
+        bounds.size.width * 0.5,
+        currentStroke!.strokeProperties.size * 0.25,
+      );
       canvas.drawCircle(bounds.center, radius, paint);
     } else {
       canvas.drawPath(currentStroke!.path, paint);
@@ -170,12 +175,12 @@ class CanvasPainter extends CustomPainter {
     final shape = ShapePen.detectedShape;
     if (shape == null) return;
 
-    final color = currentStroke?.strokeProperties.color.withInversion(invert)
-        ?? Colors.black;
+    final color = currentStroke?.strokeProperties.color.withInversion(invert) ??
+        Colors.black;
     final shapePaint = Paint()
-        ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
+      ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
 
     switch (shape.name) {
       case null:
@@ -215,9 +220,9 @@ class CanvasPainter extends CustomPainter {
         dashArray: CircularIntervalList([10, 10]),
       ),
       Paint()
-          ..color = primaryColor
-          ..strokeWidth = 3
-          ..style = PaintingStyle.stroke,
+        ..color = primaryColor
+        ..strokeWidth = 3
+        ..style = PaintingStyle.stroke,
     );
   }
 

@@ -11,10 +11,13 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 
 extension NextcloudClientExtension on NextcloudClient {
-  static final Uri defaultNextcloudUri = Uri.parse('https://nc.saber.adil.hanney.org');
+  static final Uri defaultNextcloudUri =
+      Uri.parse('https://nc.saber.adil.hanney.org');
 
-  static const String appRootDirectoryPrefix = FileManager.appRootDirectoryPrefix;
-  static final PathUri configFileUri = PathUri.parse('$appRootDirectoryPrefix/config.sbc');
+  static const String appRootDirectoryPrefix =
+      FileManager.appRootDirectoryPrefix;
+  static final PathUri configFileUri =
+      PathUri.parse('$appRootDirectoryPrefix/config.sbc');
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
@@ -45,12 +48,13 @@ extension NextcloudClientExtension on NextcloudClient {
     Map<String, dynamic> bytes = jsonDecode(_utf8Decoder.convert(file));
     return bytes.cast<String, String>();
   }
+
   /// Generates a config using known values (i.e. from [Prefs]),
   /// updating the given [config] in place.
-  /// 
+  ///
   /// This is usually preceded by a call to [getConfig]
   /// and followed by a call to [setConfig].
-  /// 
+  ///
   /// Returns the existing [config] for convenience.
   Future<Map<String, String>> generateConfig({
     required Map<String, String> config,
@@ -67,6 +71,7 @@ extension NextcloudClientExtension on NextcloudClient {
 
     return config;
   }
+
   /// Uploads the given [config] to Nextcloud
   Future<void> setConfig(Map<String, String> config) async {
     String json = jsonEncode(config);
@@ -124,7 +129,8 @@ extension NextcloudClientExtension on NextcloudClient {
   }
 
   Future<Encrypter> get encrypter async {
-    final List<int> encodedPassword = utf8.encode(Prefs.encPassword.value + reproducibleSalt);
+    final List<int> encodedPassword =
+        utf8.encode(Prefs.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
     final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
     return Encrypter(AES(passwordKey));

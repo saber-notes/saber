@@ -15,7 +15,8 @@ class AdaptiveIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
     if (cupertino) {
       return Icon(cupertinoIcon ?? icon, size: size);

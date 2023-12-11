@@ -15,29 +15,34 @@ void main() {
     });
 
     test('on iOS', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.iOS);
+      final url = await UpdateManager.getLatestDownloadUrl(
+          apiResponse, TargetPlatform.iOS);
       expect(url, isNull);
     });
 
     test('on macOS', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.macOS);
+      final url = await UpdateManager.getLatestDownloadUrl(
+          apiResponse, TargetPlatform.macOS);
       expect(url, isNull);
     });
 
     test('on Windows', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.windows);
+      final url = await UpdateManager.getLatestDownloadUrl(
+          apiResponse, TargetPlatform.windows);
       expect(url, isNotNull);
       expect(url, startsWith('http'));
       expect(url, endsWith('.exe'));
     });
 
     test('on Linux', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.linux);
+      final url = await UpdateManager.getLatestDownloadUrl(
+          apiResponse, TargetPlatform.linux);
       expect(url, isNull);
     });
 
     test('on Android', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, TargetPlatform.android);
+      final url = await UpdateManager.getLatestDownloadUrl(
+          apiResponse, TargetPlatform.android);
       expect(url, isNotNull);
       expect(url, startsWith('http'));
       expect(url, endsWith('.apk'));

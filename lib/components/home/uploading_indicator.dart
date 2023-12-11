@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
@@ -32,8 +31,10 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
     });
   }
 
-  bool _isInUploadQueue() => Prefs.fileSyncUploadQueue.value.contains(widget.filePath)
-      || Prefs.fileSyncUploadQueue.value.contains(widget.filePath + Editor.extension);
+  bool _isInUploadQueue() =>
+      Prefs.fileSyncUploadQueue.value.contains(widget.filePath) ||
+      Prefs.fileSyncUploadQueue.value
+          .contains(widget.filePath + Editor.extension);
   late bool isInUploadQueue = _isInUploadQueue();
 
   @override

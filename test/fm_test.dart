@@ -46,7 +46,8 @@ void main() {
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, utf8.encode(content), awaitWrite: true);
+      await FileManager.writeFile(filePath, utf8.encode(content),
+          awaitWrite: true);
 
       // read file
       final file = File('$rootDir$filePath');
@@ -62,7 +63,8 @@ void main() {
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, utf8.encode(content), awaitWrite: true);
+      await FileManager.writeFile(filePath, utf8.encode(content),
+          awaitWrite: true);
 
       // read file
       final readBytes = await FileManager.readFile(filePath);
@@ -80,12 +82,14 @@ void main() {
       const content = 'test content for $filePathBefore';
 
       // write file
-      await FileManager.writeFile(filePathBefore, utf8.encode(content), awaitWrite: true);
+      await FileManager.writeFile(filePathBefore, utf8.encode(content),
+          awaitWrite: true);
       // ensure file does not exist (in case of previous test failure
       await FileManager.deleteFile(filePathAfter);
 
       // move file
-      final filePathActual = await FileManager.moveFile(filePathBefore, filePathAfter);
+      final filePathActual =
+          await FileManager.moveFile(filePathBefore, filePathAfter);
       expect(filePathActual, filePathAfter);
 
       // verify filePathBefore does not exist, but filePathAfter does
@@ -108,7 +112,8 @@ void main() {
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, utf8.encode(content), awaitWrite: true);
+      await FileManager.writeFile(filePath, utf8.encode(content),
+          awaitWrite: true);
 
       // delete file
       await FileManager.deleteFile(filePath);

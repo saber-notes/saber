@@ -28,14 +28,17 @@ class PdfEditorImage extends EditorImage {
     super.dstRect,
     required super.naturalSize,
     super.isThumbnail,
-  }): assert(!naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
-      assert(pdfBytes != null || pdfFile != null, 'pdfFile must be set if pdfBytes is null'),
-      super(
-        extension: '.pdf',
-        srcRect: Rect.zero,
-      );
+  })  : assert(
+            !naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
+        assert(pdfBytes != null || pdfFile != null,
+            'pdfFile must be set if pdfBytes is null'),
+        super(
+          extension: '.pdf',
+          srcRect: Rect.zero,
+        );
 
-  factory PdfEditorImage.fromJson(Map<String, dynamic> json, {
+  factory PdfEditorImage.fromJson(
+    Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
@@ -49,7 +52,8 @@ class PdfEditorImage extends EditorImage {
     File? pdfFile;
     if (assetIndex != null) {
       if (inlineAssets == null) {
-        pdfFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        pdfFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
         pdfBytes = assetCache.get(pdfFile);
       } else {
         pdfBytes = inlineAssets[assetIndex];
@@ -62,7 +66,8 @@ class PdfEditorImage extends EditorImage {
     }
 
     return PdfEditorImage(
-      id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      id: json['id'] ??
+          -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
       pdfBytes: pdfBytes,
       pdfFile: pdfFile,
@@ -70,7 +75,8 @@ class PdfEditorImage extends EditorImage {
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
-      backgroundFit: json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
+      backgroundFit:
+          json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
@@ -139,6 +145,7 @@ class PdfEditorImage extends EditorImage {
     pdfBytes ??= await pdfFile!.readAsBytes();
     assetCache.addImage(this, pdfFile, pdfBytes!);
   }
+
   @override
   Future<bool> loadOut() async {
     final shouldLoadOut = await super.loadOut();
@@ -161,6 +168,7 @@ class PdfEditorImage extends EditorImage {
 
     return await _precacheImage(memoryImage);
   }
+
   Future<void> _precacheImage(ImageProvider imageProvider) async {
     final context = _lastPrecacheContext;
     if (context == null) return;
@@ -239,24 +247,24 @@ class PdfEditorImage extends EditorImage {
 
   @override
   PdfEditorImage copy() => PdfEditorImage(
-    id: id,
-    assetCache: assetCache,
-    pdfBytes: pdfBytes,
-    pdfPage: pdfPage,
-    pdfFile: pdfFile,
-    pageIndex: pageIndex,
-    pageSize: Size.infinite,
-    invertible: invertible,
-    backgroundFit: backgroundFit,
-    onMoveImage: onMoveImage,
-    onDeleteImage: onDeleteImage,
-    onMiscChange: onMiscChange,
-    onLoad: onLoad,
-    newImage: true,
-    dstRect: dstRect,
-    naturalSize: naturalSize,
-    isThumbnail: isThumbnail,
-  );
+        id: id,
+        assetCache: assetCache,
+        pdfBytes: pdfBytes,
+        pdfPage: pdfPage,
+        pdfFile: pdfFile,
+        pageIndex: pageIndex,
+        pageSize: Size.infinite,
+        invertible: invertible,
+        backgroundFit: backgroundFit,
+        onMoveImage: onMoveImage,
+        onDeleteImage: onDeleteImage,
+        onMiscChange: onMiscChange,
+        onLoad: onLoad,
+        newImage: true,
+        dstRect: dstRect,
+        naturalSize: naturalSize,
+        isThumbnail: isThumbnail,
+      );
 
   static Timer? _checkIfHighDpiNeededDebounce;
   static Future<void> _checkIfHighDpiNeededDebounceCallback({
@@ -278,7 +286,8 @@ class PdfEditorImage extends EditorImage {
 
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       // high dpi on current page, the page before, and the page after
-      final highDpiPage = highDpiNeeded && (pageIndex - currentPageIndex).abs() <= 1;
+      final highDpiPage =
+          highDpiNeeded && (pageIndex - currentPageIndex).abs() <= 1;
 
       final page = pages[pageIndex];
       for (final image in [...page.images, page.backgroundImage]) {
@@ -301,6 +310,7 @@ class PdfEditorImage extends EditorImage {
       }
     }
   }
+
   /// When a user has not moved for 500ms,
   /// check if they are zoomed in to a PDF page,
   /// and increase the raster dpi if needed.

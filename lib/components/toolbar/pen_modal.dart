@@ -40,7 +40,6 @@ class _PenModalState extends State<PenModal> {
         SizePicker(
           pen: currentPen,
         ),
-
         if (currentPen is! Highlighter && currentPen is! Pencil) ...[
           const SizedBox(width: 8),
           IconButton(

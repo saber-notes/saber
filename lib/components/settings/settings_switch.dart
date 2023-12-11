@@ -9,10 +9,10 @@ class SettingsSwitch extends StatefulWidget {
     this.subtitle,
     this.icon,
     this.iconBuilder,
-
     required this.pref,
     this.afterChange,
-  }): assert(icon == null || iconBuilder == null, 'Cannot set both icon and iconBuilder');
+  }) : assert(icon == null || iconBuilder == null,
+            'Cannot set both icon and iconBuilder');
 
   final String title;
   final String? subtitle;
@@ -35,7 +35,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
 
   void onChanged() {
     widget.afterChange?.call(widget.pref.value);
-    setState(() { });
+    setState(() {});
   }
 
   @override
@@ -67,7 +67,8 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
                 : null,
           ),
         ),
-        subtitle: Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+        subtitle:
+            Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
         value: widget.pref.value,
         onChanged: (bool value) {
           widget.pref.value = value;

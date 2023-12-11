@@ -59,6 +59,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   /// Defines the aspect ratio of the image.
   Size naturalSize;
+
   /// The size of the page this image is on,
   /// used to make sure the image isn't too big.
   Size? pageSize;
@@ -90,11 +91,12 @@ sealed class EditorImage extends ChangeNotifier {
     Rect dstRect = Rect.zero,
     this.srcRect = Rect.zero,
     bool isThumbnail = false,
-  }): assert(extension.startsWith('.')),
-      _dstRect = dstRect,
-      _isThumbnail = isThumbnail;
+  })  : assert(extension.startsWith('.')),
+        _dstRect = dstRect,
+        _isThumbnail = isThumbnail;
 
-  factory EditorImage.fromJson(Map<String, dynamic> json, {
+  factory EditorImage.fromJson(
+    Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
@@ -131,29 +133,27 @@ sealed class EditorImage extends ChangeNotifier {
   @mustBeOverridden
   @mustCallSuper
   Map<String, dynamic> toJson(OrderedAssetCache assets) => {
-    'id': id,
-    'e': extension,
-    'i': pageIndex,
-    'v': invertible,
-    'f': backgroundFit.index,
-    'x': dstRect.left,
-    'y': dstRect.top,
-    'w': dstRect.width,
-    'h': dstRect.height,
-
-    if (srcRect.left != 0) 'sx': srcRect.left,
-    if (srcRect.top != 0) 'sy': srcRect.top,
-    if (srcRect.width != 0) 'sw': srcRect.width,
-    if (srcRect.height != 0) 'sh': srcRect.height,
-
-    if (naturalSize.width != 0) 'nw': naturalSize.width,
-    if (naturalSize.height != 0) 'nh': naturalSize.height,
-  };
+        'id': id,
+        'e': extension,
+        'i': pageIndex,
+        'v': invertible,
+        'f': backgroundFit.index,
+        'x': dstRect.left,
+        'y': dstRect.top,
+        'w': dstRect.width,
+        'h': dstRect.height,
+        if (srcRect.left != 0) 'sx': srcRect.left,
+        if (srcRect.top != 0) 'sy': srcRect.top,
+        if (srcRect.width != 0) 'sw': srcRect.width,
+        if (srcRect.height != 0) 'sh': srcRect.height,
+        if (naturalSize.width != 0) 'nw': naturalSize.width,
+        if (naturalSize.height != 0) 'nh': naturalSize.height,
+      };
 
   /// Images are loaded out after 5 seconds of not being visible.
-  /// 
+  ///
   /// Set this to true to load out immediately.
-  /// 
+  ///
   /// This is useful for tests that can't have pending timers.
   @visibleForTesting
   static bool shouldLoadOutImmediately = false;
@@ -186,8 +186,9 @@ sealed class EditorImage extends ChangeNotifier {
     _shouldLoadOut?.complete(false);
     _loadedIn = true;
   }
+
   /// Free up resources when the image is no longer visible.
-  /// 
+  ///
   /// See also:
   /// * [loadIn], which will be called again when the image is visible again.
   /// * [loadedIn], which is true after [loadIn] and false after [loadOut]

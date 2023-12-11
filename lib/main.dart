@@ -4,7 +4,6 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/main_common.dart' as common;
 
 Future<void> main() async {
-
   /// To set the flavor config e.g. for the Play Store, use:
   /// flutter build \
   ///   --dart-define=FLAVOR="Google Play" \
@@ -14,11 +13,13 @@ Future<void> main() async {
   FlavorConfig.setup(
     flavor: const String.fromEnvironment('FLAVOR'),
     appStore: const String.fromEnvironment('APP_STORE'),
-    shouldCheckForUpdatesByDefault: const bool.fromEnvironment('UPDATE_CHECK', defaultValue: true),
+    shouldCheckForUpdatesByDefault:
+        const bool.fromEnvironment('UPDATE_CHECK', defaultValue: true),
     dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
   );
 
-  if (const bool.fromEnvironment('OFFLINE_FONTS_ONLY', defaultValue: kDebugMode)) {
+  if (const bool.fromEnvironment('OFFLINE_FONTS_ONLY',
+      defaultValue: kDebugMode)) {
     // All fonts should already be included (offline) in the app, but in case
     // I've forgot to add one, it'll be fetched from the internet.
     // This prevents the app from fetching fonts from Google Servers,

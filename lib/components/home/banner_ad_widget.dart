@@ -21,7 +21,8 @@ abstract class AdState {
   static final log = Logger('AdState');
 
   static void init() {
-    if (kDebugMode) { // test ads
+    if (kDebugMode) {
+      // test ads
       if (Platform.isAndroid) {
         _bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';
       } else if (Platform.isIOS) {
@@ -29,7 +30,8 @@ abstract class AdState {
       } else {
         _bannerAdUnitId = '';
       }
-    } else { // actual ads
+    } else {
+      // actual ads
       if (Platform.isAndroid) {
         _bannerAdUnitId = 'ca-app-pub-1312561055261176/7616317590';
       } else if (Platform.isIOS) {
@@ -85,17 +87,16 @@ abstract class AdState {
       (formError) {},
     );
   }
+
   static void showConsentForm() {
     ConsentForm.loadConsentForm(
       (ConsentForm consentForm) async {
-        consentForm.show(
-          (formError) async {
-            if (formError != null) {
-              // Handle dismissal by reloading form
-              showConsentForm();
-            }
+        consentForm.show((formError) async {
+          if (formError != null) {
+            // Handle dismissal by reloading form
+            showConsentForm();
           }
-        );
+        });
       },
       (formError) {},
     );
@@ -143,7 +144,8 @@ class BannerAdWidget extends StatefulWidget {
   State<BannerAdWidget> createState() => _BannerAdWidgetState();
 }
 
-class _BannerAdWidgetState extends State<BannerAdWidget> with AutomaticKeepAliveClientMixin {
+class _BannerAdWidgetState extends State<BannerAdWidget>
+    with AutomaticKeepAliveClientMixin {
   BannerAd? _bannerAd;
 
   @override
@@ -191,9 +193,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> with AutomaticKeepAlive
               child: SizedBox(
                 width: widget.adSize.width.toDouble(),
                 height: widget.adSize.height.toDouble(),
-                child: _bannerAd == null
-                  ? null
-                  : AdWidget(ad: _bannerAd!),
+                child: _bannerAd == null ? null : AdWidget(ad: _bannerAd!),
               ),
             ),
           ],
@@ -208,7 +208,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> with AutomaticKeepAlive
     _bannerAd = null;
     super.dispose();
   }
-  
+
   @override
   bool get wantKeepAlive => _bannerAd != null;
 }

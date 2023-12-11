@@ -22,21 +22,28 @@ import 'package:url_launcher/url_launcher.dart';
 abstract class UpdateManager {
   static final log = Logger('UpdateManager');
 
-  static final Uri versionUrl = Uri.parse('https://raw.githubusercontent.com/saber-notes/saber/main/lib/data/version.dart');
-  static final Uri apiUrl = Uri.parse('https://api.github.com/repos/saber-notes/saber/releases/latest');
+  static final Uri versionUrl = Uri.parse(
+      'https://raw.githubusercontent.com/saber-notes/saber/main/lib/data/version.dart');
+  static final Uri apiUrl = Uri.parse(
+      'https://api.github.com/repos/saber-notes/saber/releases/latest');
+
   /// The availability of an update.
-  static final ValueNotifier<UpdateStatus> status = ValueNotifier(UpdateStatus.upToDate);
+  static final ValueNotifier<UpdateStatus> status =
+      ValueNotifier(UpdateStatus.upToDate);
   static int? newestVersion;
 
   static bool _hasShownUpdateDialog = false;
-  static Future<void> showUpdateDialog(BuildContext context, {bool userTriggered = false}) async {
+  static Future<void> showUpdateDialog(BuildContext context,
+      {bool userTriggered = false}) async {
     if (!userTriggered) {
-      if (status.value == UpdateStatus.upToDate) { // check for updates if not already done
+      if (status.value == UpdateStatus.upToDate) {
+        // check for updates if not already done
         await Prefs.shouldCheckForUpdates.waitUntilLoaded();
         if (!Prefs.shouldCheckForUpdates.value) return;
         status.value = await _checkForUpdate();
       }
-      if (status.value != UpdateStatus.updateRecommended) return; // no update available
+      if (status.value != UpdateStatus.updateRecommended)
+        return; // no update available
       if (_hasShownUpdateDialog) return; // already shown
     }
 
@@ -73,12 +80,10 @@ abstract class UpdateManager {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(t.update.updateAvailableDescription),
-
               if (showTranslatedChangelog)
                 Text(translatedChangelog!)
               else if (englishChangelog != null)
                 Text(englishChangelog),
-
               if (translatedChangelog != null && englishChangelog != null)
                 TextButton(
                   onPressed: () => setState(() {
@@ -90,25 +95,27 @@ abstract class UpdateManager {
                         : localeNames['en']!,
                   ),
                 ),
-
             ],
           ),
           actions: [
             CupertinoDialogAction(
               onPressed: () => Navigator.pop(context),
-              child: Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
+              child: Text(
+                  MaterialLocalizations.of(context).modalBarrierDismissLabel),
             ),
             CupertinoDialogAction(
-              onPressed: directDownloadStarted ? null : () {
-                if (directDownloadLink != null) {
-                  _directlyDownloadUpdate(directDownloadLink)
-                      .then((_) => Navigator.pop(context));
-                  setState(() => directDownloadStarted = true);
-                } else {
-                  launchUrl(AppInfo.releasesUrl);
-                }
-              },
-              child: (){
+              onPressed: directDownloadStarted
+                  ? null
+                  : () {
+                      if (directDownloadLink != null) {
+                        _directlyDownloadUpdate(directDownloadLink)
+                            .then((_) => Navigator.pop(context));
+                        setState(() => directDownloadStarted = true);
+                      } else {
+                        launchUrl(AppInfo.releasesUrl);
+                      }
+                    },
+              child: () {
                 if (directDownloadStarted) {
                   return const SpinningLoadingIcon();
                 } else {
@@ -144,7 +151,8 @@ abstract class UpdateManager {
 
     // extract the number from the latest version.dart
     final RegExp numberRegex = RegExp(r'(\d+)');
-    final RegExpMatch? newestVersionMatch = numberRegex.firstMatch(latestVersionFile);
+    final RegExpMatch? newestVersionMatch =
+        numberRegex.firstMatch(latestVersionFile);
     if (newestVersionMatch == null) return null;
 
     final int newestVersion = int.tryParse(newestVersionMatch[0] ?? '0') ?? 0;
@@ -161,18 +169,22 @@ abstract class UpdateManager {
     } catch (e) {
       throw SocketException('Failed to download version.dart, ${e.toString()}');
     }
-    if (response.statusCode >= 400) throw SocketException('Failed to download version.dart, HTTP status code ${response.statusCode}');
+    if (response.statusCode >= 400)
+      throw SocketException(
+          'Failed to download version.dart, HTTP status code ${response.statusCode}');
 
     return response.body;
   }
 
   @visibleForTesting
-  static UpdateStatus getUpdateStatus(int currentVersionNumber, int newestVersionNumber) {
+  static UpdateStatus getUpdateStatus(
+      int currentVersionNumber, int newestVersionNumber) {
     final currentVersion = parseVersionNumber(currentVersionNumber);
     final newestVersion = parseVersionNumber(newestVersionNumber);
 
     // Check if we're up to date
-    if ((newestVersionNumber - newestVersion.silent) <= (currentVersionNumber - currentVersion.silent)) {
+    if ((newestVersionNumber - newestVersion.silent) <=
+        (currentVersionNumber - currentVersion.silent)) {
       return UpdateStatus.upToDate;
     }
     // Now we know that there is a new update available
@@ -180,7 +192,8 @@ abstract class UpdateManager {
     // Check if the update is low priority
     if (!Prefs.shouldAlwaysAlertForUpdates.value) {
       // Only prompt user every second patch
-      if (currentVersion.major == newestVersion.major && currentVersion.minor == newestVersion.minor) {
+      if (currentVersion.major == newestVersion.major &&
+          currentVersion.minor == newestVersion.minor) {
         if ((newestVersion.patch - currentVersion.patch) < 2) {
           return UpdateStatus.updateOptional;
         }
@@ -197,7 +210,8 @@ abstract class UpdateManager {
   }
 
   @visibleForTesting
-  static ({int major, int minor, int patch, int silent}) parseVersionNumber(int versionNumber) {
+  static ({int major, int minor, int patch, int silent}) parseVersionNumber(
+      int versionNumber) {
     // rightmost digit is silent update
     final silent = versionNumber % 10;
     // next 2 digits are patch version
@@ -235,15 +249,16 @@ abstract class UpdateManager {
       } catch (e) {
         throw const SocketException('Failed to fetch latest release');
       }
-      if (response.statusCode >= 400) throw SocketException('Failed to fetch latest release, HTTP status code ${response.statusCode}');
+      if (response.statusCode >= 400)
+        throw SocketException(
+            'Failed to fetch latest release, HTTP status code ${response.statusCode}');
       apiResponse = response.body;
     }
 
     final Map<String, dynamic> json = jsonDecode(apiResponse);
     final RegExp platformFileRegex = _platformFileRegex[platform]!;
-    return (json['assets'] as List)
-        .firstWhereOrNull((asset) => platformFileRegex.hasMatch(asset['name']))
-    ?['browser_download_url'];
+    return (json['assets'] as List).firstWhereOrNull((asset) =>
+        platformFileRegex.hasMatch(asset['name']))?['browser_download_url'];
   }
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {
@@ -295,8 +310,10 @@ abstract class UpdateManager {
 enum UpdateStatus {
   /// The app is up to date, or we failed to check for an update.
   upToDate,
+
   /// An update is available, but the user doesn't need to be notified
   updateOptional,
+
   /// An update is available and the user should be notified
   updateRecommended,
 }

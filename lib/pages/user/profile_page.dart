@@ -75,7 +75,8 @@ class ProfilePage extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         launchUrl(
-                          Uri.parse('${Prefs.url.value}/index.php/settings/user/drop_account'),
+                          Uri.parse(
+                              '${Prefs.url.value}/index.php/settings/user/drop_account'),
                         );
                       },
                       child: Text(t.profile.quickLinks.deleteAccount),

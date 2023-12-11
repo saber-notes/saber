@@ -81,7 +81,8 @@ class _GridFolder extends StatefulWidget {
     required this.isFolderEmpty,
     required this.deleteFolder,
     required this.onTap,
-  })  : assert((folderName == null) ^ (cardType == _FolderCardType.realFolder), 'Real folders must specify a folder name');
+  }) : assert((folderName == null) ^ (cardType == _FolderCardType.realFolder),
+            'Real folders must specify a folder name');
 
   final _FolderCardType cardType;
   final String? folderName;
@@ -147,30 +148,35 @@ class _GridFolderState extends State<_GridFolder> {
                         child: Tooltip(
                           message: switch (widget.cardType) {
                             _FolderCardType.backFolder => t.home.backFolder,
-                            _FolderCardType.newFolder => t.home.newFolder.newFolder,
+                            _FolderCardType.newFolder =>
+                              t.home.newFolder.newFolder,
                             _FolderCardType.realFolder => '',
                           },
                           child: AdaptiveIcon(
                             icon: switch (widget.cardType) {
                               _FolderCardType.backFolder => Icons.folder_open,
-                              _FolderCardType.newFolder => Icons.create_new_folder,
+                              _FolderCardType.newFolder =>
+                                Icons.create_new_folder,
                               _FolderCardType.realFolder => Icons.folder,
                             },
                             cupertinoIcon: switch (widget.cardType) {
-                              _FolderCardType.backFolder => CupertinoIcons.folder_open,
-                              _FolderCardType.newFolder => CupertinoIcons.folder_fill_badge_plus,
-                              _FolderCardType.realFolder => CupertinoIcons.folder_fill,
+                              _FolderCardType.backFolder =>
+                                CupertinoIcons.folder_open,
+                              _FolderCardType.newFolder =>
+                                CupertinoIcons.folder_fill_badge_plus,
+                              _FolderCardType.realFolder =>
+                                CupertinoIcons.folder_fill,
                             },
                             size: 50,
                           ),
                         ),
                       ),
-                      
                       if (widget.cardType == _FolderCardType.realFolder)
                         Positioned.fill(
                           child: ValueListenableBuilder(
                             valueListenable: expanded,
-                            builder: (context, expanded, child) => AnimatedOpacity(
+                            builder: (context, expanded, child) =>
+                                AnimatedOpacity(
                               opacity: expanded ? 1 : 0,
                               duration: const Duration(milliseconds: 200),
                               child: IgnorePointer(
@@ -200,7 +206,8 @@ class _GridFolderState extends State<_GridFolder> {
                                       folderName: widget.folderName!,
                                       doesFolderExist: widget.doesFolderExist,
                                       renameFolder: (String folderName) async {
-                                        await widget.renameFolder(widget.folderName!, folderName);
+                                        await widget.renameFolder(
+                                            widget.folderName!, folderName);
                                         expanded.value = false;
                                       },
                                     ),
@@ -221,9 +228,7 @@ class _GridFolderState extends State<_GridFolder> {
                     ],
                   ),
                 ),
-      
                 const SizedBox(height: 8),
-      
                 switch (widget.cardType) {
                   _FolderCardType.backFolder => const Icon(Icons.arrow_back),
                   _FolderCardType.newFolder => Text(t.home.newFolder.newFolder),

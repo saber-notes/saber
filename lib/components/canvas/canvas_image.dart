@@ -39,6 +39,7 @@ class CanvasImage extends StatefulWidget {
 
   /// The minimum size of the interactive area for the image.
   static double minInteractiveSize = 50;
+
   /// The minimum size of the image itself, inside of the interactive area.
   static double minImageSize = 10;
 
@@ -48,13 +49,15 @@ class CanvasImage extends StatefulWidget {
 
 class _CanvasImageState extends State<CanvasImage> {
   bool _active = false;
+
   /// Whether this image can be dragged
   bool get active => _active;
   set active(bool value) {
     if (active == value) return;
 
     if (value) {
-      CanvasImage.activeListener.notifyListenersPlease(); // de-activate all other images
+      CanvasImage.activeListener
+          .notifyListenersPlease(); // de-activate all other images
     }
 
     _active = value;
@@ -79,7 +82,8 @@ class _CanvasImageState extends State<CanvasImage> {
   void initState() {
     widget.image.loadIn();
 
-    if (widget.image.newImage) { // if the image is new, make it [active]
+    if (widget.image.newImage) {
+      // if the image is new, make it [active]
       active = true;
       widget.image.newImage = false;
     }
@@ -135,51 +139,67 @@ class _CanvasImageState extends State<CanvasImage> {
               },
               onLongPress: active ? showModal : null,
               onSecondaryTap: active ? showModal : null,
-              onPanStart: active ? (details) {
-                panStartRect = widget.image.dstRect;
-              } : null,
-              onPanUpdate: active ? (details) {
-                setState(() {
-                  double fivePercent = min(widget.pageSize.width * 0.05, widget.pageSize.height * 0.05);
-                  widget.image.dstRect = Rect.fromLTWH(
-                    (widget.image.dstRect.left + details.delta.dx).clamp(
-                      fivePercent - widget.image.dstRect.width,
-                      widget.pageSize.width - fivePercent,
-                    ).toDouble(),
-                    (widget.image.dstRect.top + details.delta.dy).clamp(
-                      fivePercent - widget.image.dstRect.height,
-                      widget.pageSize.height - fivePercent,
-                    ).toDouble(),
-                    widget.image.dstRect.width,
-                    widget.image.dstRect.height,
-                  );
-                });
-              } : null,
-              onPanEnd: active ? (details) {
-                if (panStartRect == widget.image.dstRect) return;
-                widget.image.onMoveImage?.call(widget.image, Rect.fromLTRB(
-                  widget.image.dstRect.left - panStartRect.left,
-                  widget.image.dstRect.top - panStartRect.top,
-                  widget.image.dstRect.right - panStartRect.right,
-                  widget.image.dstRect.bottom - panStartRect.bottom,
-                ));
-                panStartRect = Rect.zero;
-              } : null,
+              onPanStart: active
+                  ? (details) {
+                      panStartRect = widget.image.dstRect;
+                    }
+                  : null,
+              onPanUpdate: active
+                  ? (details) {
+                      setState(() {
+                        double fivePercent = min(widget.pageSize.width * 0.05,
+                            widget.pageSize.height * 0.05);
+                        widget.image.dstRect = Rect.fromLTWH(
+                          (widget.image.dstRect.left + details.delta.dx)
+                              .clamp(
+                                fivePercent - widget.image.dstRect.width,
+                                widget.pageSize.width - fivePercent,
+                              )
+                              .toDouble(),
+                          (widget.image.dstRect.top + details.delta.dy)
+                              .clamp(
+                                fivePercent - widget.image.dstRect.height,
+                                widget.pageSize.height - fivePercent,
+                              )
+                              .toDouble(),
+                          widget.image.dstRect.width,
+                          widget.image.dstRect.height,
+                        );
+                      });
+                    }
+                  : null,
+              onPanEnd: active
+                  ? (details) {
+                      if (panStartRect == widget.image.dstRect) return;
+                      widget.image.onMoveImage?.call(
+                          widget.image,
+                          Rect.fromLTRB(
+                            widget.image.dstRect.left - panStartRect.left,
+                            widget.image.dstRect.top - panStartRect.top,
+                            widget.image.dstRect.right - panStartRect.right,
+                            widget.image.dstRect.bottom - panStartRect.bottom,
+                          ));
+                      panStartRect = Rect.zero;
+                    }
+                  : null,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: active ? colorScheme.onBackground : Colors.transparent,
+                    color:
+                        active ? colorScheme.onBackground : Colors.transparent,
                     width: 2,
                   ),
                 ),
                 child: Center(
                   child: SizedBox(
                     width: widget.isBackground
-                      ? widget.pageSize.width
-                      : max(widget.image.dstRect.width, CanvasImage.minImageSize),
+                        ? widget.pageSize.width
+                        : max(widget.image.dstRect.width,
+                            CanvasImage.minImageSize),
                     height: widget.isBackground
-                      ? widget.pageSize.height
-                      : max(widget.image.dstRect.height, CanvasImage.minImageSize),
+                        ? widget.pageSize.height
+                        : max(widget.image.dstRect.height,
+                            CanvasImage.minImageSize),
                     child: SizedOverflowBox(
                       size: widget.image.srcRect.size,
                       child: Transform.translate(
@@ -230,12 +250,10 @@ class _CanvasImageState extends State<CanvasImage> {
       return AnimatedPositioned(
         duration: const Duration(milliseconds: 300),
         curve: Curves.fastLinearToSlowEaseIn,
-
         left: 0,
         top: 0,
         right: 0,
         bottom: 0,
-
         child: unpositioned,
       );
     }
@@ -273,7 +291,6 @@ class _CanvasImageState extends State<CanvasImage> {
             filePath: widget.filePath,
             image: widget.image,
             redrawImage: () => setState(() {}),
-
             isBackground: false,
             toggleAsBackground: () {
               widget.setAsBackground?.call(widget.image);
@@ -310,87 +327,106 @@ class _CanvasImageResizeHandle extends StatelessWidget {
       child: DeferPointer(
         paintOnTop: true,
         child: MouseRegion(
-          cursor: (){
+          cursor: () {
             if (!active) return MouseCursor.defer;
 
-            if (position.dx == 0 && position.dy < 0) return SystemMouseCursors.resizeUp;
-            if (position.dx == 0 && position.dy > 0) return SystemMouseCursors.resizeDown;
-            if (position.dx < 0 && position.dy == 0) return SystemMouseCursors.resizeLeft;
-            if (position.dx > 0 && position.dy == 0) return SystemMouseCursors.resizeRight;
+            if (position.dx == 0 && position.dy < 0)
+              return SystemMouseCursors.resizeUp;
+            if (position.dx == 0 && position.dy > 0)
+              return SystemMouseCursors.resizeDown;
+            if (position.dx < 0 && position.dy == 0)
+              return SystemMouseCursors.resizeLeft;
+            if (position.dx > 0 && position.dy == 0)
+              return SystemMouseCursors.resizeRight;
 
-            if (position.dx < 0 && position.dy < 0) return SystemMouseCursors.resizeUpLeft;
-            if (position.dx < 0 && position.dy > 0) return SystemMouseCursors.resizeDownLeft;
-            if (position.dx > 0 && position.dy < 0) return SystemMouseCursors.resizeUpRight;
-            if (position.dx > 0 && position.dy > 0) return SystemMouseCursors.resizeDownRight;
+            if (position.dx < 0 && position.dy < 0)
+              return SystemMouseCursors.resizeUpLeft;
+            if (position.dx < 0 && position.dy > 0)
+              return SystemMouseCursors.resizeDownLeft;
+            if (position.dx > 0 && position.dy < 0)
+              return SystemMouseCursors.resizeUpRight;
+            if (position.dx > 0 && position.dy > 0)
+              return SystemMouseCursors.resizeDownRight;
 
             return MouseCursor.defer;
           }(),
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
-            onPanStart: active ? (details) {
-              parent.panStartRect = parent.widget.image.dstRect;
-              parent.panStartPosition = details.localPosition;
-            } : null,
-            onPanUpdate: active ? (details) {
-              final Offset delta = details.localPosition - parent.panStartPosition;
+            onPanStart: active
+                ? (details) {
+                    parent.panStartRect = parent.widget.image.dstRect;
+                    parent.panStartPosition = details.localPosition;
+                  }
+                : null,
+            onPanUpdate: active
+                ? (details) {
+                    final Offset delta =
+                        details.localPosition - parent.panStartPosition;
 
-              double newWidth;
-              if (position.dx < 0) {
-                newWidth = parent.panStartRect.width - delta.dx;
-              } else if (position.dx > 0) {
-                newWidth = parent.panStartRect.width + delta.dx;
-              } else {
-                newWidth = parent.panStartRect.width;
-              }
+                    double newWidth;
+                    if (position.dx < 0) {
+                      newWidth = parent.panStartRect.width - delta.dx;
+                    } else if (position.dx > 0) {
+                      newWidth = parent.panStartRect.width + delta.dx;
+                    } else {
+                      newWidth = parent.panStartRect.width;
+                    }
 
-              double newHeight;
-              if (position.dy < 0) {
-                newHeight = parent.panStartRect.height - delta.dy;
-              } else if (position.dy > 0) {
-                newHeight = parent.panStartRect.height + delta.dy;
-              } else {
-                newHeight = parent.panStartRect.height;
-              }
+                    double newHeight;
+                    if (position.dy < 0) {
+                      newHeight = parent.panStartRect.height - delta.dy;
+                    } else if (position.dy > 0) {
+                      newHeight = parent.panStartRect.height + delta.dy;
+                    } else {
+                      newHeight = parent.panStartRect.height;
+                    }
 
-              if (newWidth <= 0 || newHeight <= 0) return;
+                    if (newWidth <= 0 || newHeight <= 0) return;
 
-              // preserve aspect ratio if diagonal
-              if (position.dx != 0 && position.dy != 0) { // if diagonal
-                final double aspectRatio = image.dstRect.width / image.dstRect.height;
-                if (newWidth / newHeight > aspectRatio) {
-                  newHeight = newWidth / aspectRatio;
-                } else {
-                  newWidth = newHeight * aspectRatio;
-                }
-              }
+                    // preserve aspect ratio if diagonal
+                    if (position.dx != 0 && position.dy != 0) {
+                      // if diagonal
+                      final double aspectRatio =
+                          image.dstRect.width / image.dstRect.height;
+                      if (newWidth / newHeight > aspectRatio) {
+                        newHeight = newWidth / aspectRatio;
+                      } else {
+                        newWidth = newHeight * aspectRatio;
+                      }
+                    }
 
-              // resize from the correct corner
-              double left = image.dstRect.left, top = image.dstRect.top;
-              if (position.dx < 0) {
-                left = image.dstRect.right - newWidth;
-              }
-              if (position.dy < 0) {
-                top = image.dstRect.bottom - newHeight;
-              }
+                    // resize from the correct corner
+                    double left = image.dstRect.left, top = image.dstRect.top;
+                    if (position.dx < 0) {
+                      left = image.dstRect.right - newWidth;
+                    }
+                    if (position.dy < 0) {
+                      top = image.dstRect.bottom - newHeight;
+                    }
 
-              image.dstRect = Rect.fromLTWH(
-                left,
-                top,
-                newWidth,
-                newHeight,
-              );
-              afterDrag();
-            } : null,
-            onPanEnd: active ? (details) {
-              if (parent.panStartRect == image.dstRect) return;
-              image.onMoveImage?.call(image, Rect.fromLTRB(
-                image.dstRect.left - parent.panStartRect.left,
-                image.dstRect.top - parent.panStartRect.top,
-                image.dstRect.right - parent.panStartRect.right,
-                image.dstRect.bottom - parent.panStartRect.bottom,
-              ));
-              parent.panStartRect = Rect.zero;
-            } : null,
+                    image.dstRect = Rect.fromLTWH(
+                      left,
+                      top,
+                      newWidth,
+                      newHeight,
+                    );
+                    afterDrag();
+                  }
+                : null,
+            onPanEnd: active
+                ? (details) {
+                    if (parent.panStartRect == image.dstRect) return;
+                    image.onMoveImage?.call(
+                        image,
+                        Rect.fromLTRB(
+                          image.dstRect.left - parent.panStartRect.left,
+                          image.dstRect.top - parent.panStartRect.top,
+                          image.dstRect.right - parent.panStartRect.right,
+                          image.dstRect.bottom - parent.panStartRect.bottom,
+                        ));
+                    parent.panStartRect = Rect.zero;
+                  }
+                : null,
             child: AnimatedOpacity(
               opacity: active ? 1 : 0,
               duration: const Duration(milliseconds: 100),

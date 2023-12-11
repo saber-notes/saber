@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/files/file_tree.dart';
@@ -19,6 +18,7 @@ class VerticalNavbar extends StatefulWidget {
   @override
   State<VerticalNavbar> createState() => _VerticalNavbarState();
 }
+
 class _VerticalNavbarState extends State<VerticalNavbar> {
   bool expanded = false;
 
@@ -38,34 +38,32 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: kToolbarHeight),
-
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             child: TextButton(
-              onPressed: () {setState(() {
-                expanded = !expanded;
-              });},
+              onPressed: () {
+                setState(() {
+                  expanded = !expanded;
+                });
+              },
               child: AdaptiveIcon(
                 icon: expanded ? Icons.chevron_left : Icons.chevron_right,
-                cupertinoIcon: expanded ? CupertinoIcons.chevron_left : CupertinoIcons.chevron_right,
+                cupertinoIcon: expanded
+                    ? CupertinoIcons.chevron_left
+                    : CupertinoIcons.chevron_right,
               ),
             ),
           ),
-
           IntrinsicHeight(
             child: NavigationRail(
               destinations: widget.destinations,
               selectedIndex: widget.selectedIndex,
-
               backgroundColor: backgroundColor,
-
               extended: expanded,
               minExtendedWidth: 300,
-
               onDestinationSelected: widget.onDestinationSelected,
             ),
           ),
-
           if (expanded) const Expanded(child: FileTree()),
         ],
       ),

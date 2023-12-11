@@ -5,10 +5,10 @@ import 'package:flutter/painting.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 
 /// A cache for assets that are loaded from disk.
-/// 
+///
 /// This is the analogue to Flutter's image cache,
 /// but for non-image assets.
-/// 
+///
 /// There should be one instance of this class per
 /// [EditorCoreInfo] instance.
 class AssetCache {
@@ -16,13 +16,14 @@ class AssetCache {
 
   /// Maps a file to its value.
   final Map<File, Object> _cache = {};
+
   /// Maps a file to the visible images that use it.
   final Map<File, Set<EditorImage>> _images = {};
 
   /// Marks [image] as currently visible.
   ///
   /// It's safe to call this method multiple times.
-  /// 
+  ///
   /// [file] is allowed to be null for convenience,
   /// in which case this function does nothing.
   void addImage<T extends Object>(EditorImage image, File? file, T value) {
@@ -98,7 +99,8 @@ class OrderedAssetCache {
     } else if (item is FileImage) {
       return item.file.readAsBytes();
     } else {
-      throw Exception('OrderedAssetCache.getBytes: unknown type ${item.runtimeType}');
+      throw Exception(
+          'OrderedAssetCache.getBytes: unknown type ${item.runtimeType}');
     }
   }
 }

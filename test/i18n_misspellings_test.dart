@@ -9,7 +9,8 @@ void main() {
       ...Directory('lib/i18n/community').listSync(),
 
       // All files of the format metadata/XX/full_description.txt
-      ...Directory('metadata').listSync()
+      ...Directory('metadata')
+          .listSync()
           .whereType<Directory>()
           .expand((dir) => dir.listSync())
           .whereType<File>()
@@ -19,7 +20,8 @@ void main() {
     for (final file in files) {
       test('in ${file.path}', () async {
         final contents = await File(file.path).readAsString();
-        expect(contents, isNot(contains('Sabre')), reason: 'Saber is misspelled as Sabre in ${file.path}');
+        expect(contents, isNot(contains('Sabre')),
+            reason: 'Saber is misspelled as Sabre in ${file.path}');
       });
     }
   });

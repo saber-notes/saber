@@ -82,15 +82,16 @@ class _ShaderSnapshotPainter extends SnapshotPainter {
   });
 
   @override
-  void paint(PaintingContext context, Offset offset, Size size, PaintingContextCallback painter) {
+  void paint(PaintingContext context, Offset offset, Size size,
+      PaintingContextCallback painter) {
     painter(context, offset);
   }
 
   @override
-  void paintSnapshot(PaintingContext context, Offset offset, Size size, ui.Image image, Size sourceSize, double pixelRatio) {
+  void paintSnapshot(PaintingContext context, Offset offset, Size size,
+      ui.Image image, Size sourceSize, double pixelRatio) {
     final shader = shaderBuilder(image, size);
-    final Paint paint = Paint()
-      ..shader = shader;
+    final Paint paint = Paint()..shader = shader;
     context.pushTransform(
       true,
       Offset.zero,

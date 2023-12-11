@@ -57,24 +57,30 @@ void main() {
     ];
 
     List<Stroke> strokes = [...strokesToErase, ...strokesToKeep];
-    List<Stroke> erased = eraser.checkForOverlappingStrokes(_eraserPos, strokes);
+    List<Stroke> erased =
+        eraser.checkForOverlappingStrokes(_eraserPos, strokes);
 
     for (Stroke stroke in strokesToErase) {
-      expect(erased.contains(stroke), true, reason: 'Stroke should be erased: $stroke');
+      expect(erased.contains(stroke), true,
+          reason: 'Stroke should be erased: $stroke');
     }
 
     for (Stroke stroke in strokesToKeep) {
-      expect(erased.contains(stroke), false, reason: 'Stroke should not be erased: $stroke');
+      expect(erased.contains(stroke), false,
+          reason: 'Stroke should not be erased: $stroke');
     }
 
     List<Stroke> erasedStrokes = eraser.onDragEnd();
-    expect(erasedStrokes.length, strokesToErase.length, reason: 'The correct number of strokes should have been erased');
-    expect(erasedStrokes.every((stroke) => strokesToErase.contains(stroke)), true, reason: 'The correct strokes should have been erased');
+    expect(erasedStrokes.length, strokesToErase.length,
+        reason: 'The correct number of strokes should have been erased');
+    expect(
+        erasedStrokes.every((stroke) => strokesToErase.contains(stroke)), true,
+        reason: 'The correct strokes should have been erased');
   });
 }
 
 Stroke _strokeWithPoint(Offset point) => Stroke(
-  strokeProperties: _strokeProperties,
-  pageIndex: 0,
-  penType: _penType,
-)..addPoint(point);
+      strokeProperties: _strokeProperties,
+      pageIndex: 0,
+      penType: _penType,
+    )..addPoint(point);

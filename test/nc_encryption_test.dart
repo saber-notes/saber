@@ -32,13 +32,17 @@ void main() {
 
     final Encrypter encrypter = await client.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
-    final String filePathEncrypted = encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
-    expect(filePathEncrypted.isNotEmpty, true, reason: 'Encrypted file path is empty');
+    final String filePathEncrypted =
+        encrypter.encrypt(filePathUnencrypted, iv: iv).base16;
+    expect(filePathEncrypted.isNotEmpty, true,
+        reason: 'Encrypted file path is empty');
 
     final key2 = await client.loadEncryptionKey();
     expect(key1 == key2, true, reason: 'Key changed');
 
-    final String filePathDecrypted = encrypter.decrypt(Encrypted.fromBase16(filePathEncrypted), iv: iv);
-    expect(filePathDecrypted == filePathUnencrypted, true, reason: 'Decrypted file path is not the same as the original');
+    final String filePathDecrypted =
+        encrypter.decrypt(Encrypted.fromBase16(filePathEncrypted), iv: iv);
+    expect(filePathDecrypted == filePathUnencrypted, true,
+        reason: 'Decrypted file path is not the same as the original');
   });
 }

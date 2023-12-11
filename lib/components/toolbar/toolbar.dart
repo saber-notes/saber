@@ -28,31 +28,22 @@ import 'package:saber/i18n/strings.g.dart';
 class Toolbar extends StatefulWidget {
   const Toolbar({
     super.key,
-
     required this.readOnly,
-
     required this.setTool,
     required this.currentTool,
     required this.setColor,
-
     required this.quillFocus,
     required this.textEditing,
     required this.toggleTextEditing,
-
     required this.undo,
     required this.isUndoPossible,
     required this.redo,
     required this.isRedoPossible,
-
     required this.toggleFingerDrawing,
-
     required this.pickPhoto,
-
     required this.paste,
-
     required this.duplicateSelection,
     required this.deleteSelection,
-
     required this.exportAsSba,
     required this.exportAsPdf,
     required this.exportAsPng,
@@ -89,8 +80,10 @@ class Toolbar extends StatefulWidget {
   @override
   State<Toolbar> createState() => _ToolbarState();
 
-  static const EdgeInsets _buttonPaddingHorizontal = EdgeInsets.symmetric(horizontal: 6);
-  static const EdgeInsets _buttonPaddingVertical = EdgeInsets.symmetric(vertical: 6);
+  static const EdgeInsets _buttonPaddingHorizontal =
+      EdgeInsets.symmetric(horizontal: 6);
+  static const EdgeInsets _buttonPaddingVertical =
+      EdgeInsets.symmetric(vertical: 6);
 }
 
 class _ToolbarState extends State<Toolbar> {
@@ -107,7 +100,7 @@ class _ToolbarState extends State<Toolbar> {
     super.initState();
   }
 
-  void _setState() => setState(() { });
+  void _setState() => setState(() {});
 
   Keybinding? _ctrlF;
   Keybinding? _ctrlE;
@@ -116,12 +109,18 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _f11;
   Keybinding? _ctrlV;
   void _assignKeybindings() {
-    _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)], inclusive: true);
-    _ctrlE = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyE)], inclusive: true);
-    _ctrlC = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyC)], inclusive: true);
-    _ctrlShiftS = Keybinding([KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyS)], inclusive: true);
+    _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)],
+        inclusive: true);
+    _ctrlE = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyE)],
+        inclusive: true);
+    _ctrlC = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyC)],
+        inclusive: true);
+    _ctrlShiftS = Keybinding(
+        [KeyCode.ctrl, KeyCode.shift, KeyCode.from(LogicalKeyboardKey.keyS)],
+        inclusive: true);
     _f11 = Keybinding([KeyCode.from(LogicalKeyboardKey.f11)], inclusive: true);
-    _ctrlV = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyV)], inclusive: true);
+    _ctrlV = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyV)],
+        inclusive: true);
 
     Keybinder.bind(_ctrlF!, widget.toggleFingerDrawing);
     Keybinder.bind(_ctrlE!, toggleEraser);
@@ -130,6 +129,7 @@ class _ToolbarState extends State<Toolbar> {
     Keybinder.bind(_f11!, toggleFullscreen);
     Keybinder.bind(_ctrlV!, widget.paste);
   }
+
   void _removeKeybindings() {
     if (_ctrlF != null) Keybinder.remove(_ctrlF!);
     if (_ctrlE != null) Keybinder.remove(_ctrlE!);
@@ -143,15 +143,18 @@ class _ToolbarState extends State<Toolbar> {
     toolOptionsType.value = ToolOptions.hide;
     widget.setTool(Eraser()); // this toggles eraser
   }
+
   void toggleColorOptions() {
     showColorOptions.value = !showColorOptions.value;
   }
+
   void toggleExportBar() {
     showExportOptions.value = !showExportOptions.value;
   }
 
   void toggleFullscreen() async {
-    DynamicMaterialApp.setFullscreen(!DynamicMaterialApp.isFullscreen, updateSystem: true);
+    DynamicMaterialApp.setFullscreen(!DynamicMaterialApp.isFullscreen,
+        updateSystem: true);
   }
 
   @override
@@ -161,8 +164,9 @@ class _ToolbarState extends State<Toolbar> {
     Brightness brightness = Theme.of(context).brightness;
     bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
 
-    final isToolbarVertical = Prefs.editorToolbarAlignment.value == AxisDirection.left
-        || Prefs.editorToolbarAlignment.value == AxisDirection.right;
+    final isToolbarVertical =
+        Prefs.editorToolbarAlignment.value == AxisDirection.left ||
+            Prefs.editorToolbarAlignment.value == AxisDirection.right;
 
     final buttonPadding = isToolbarVertical
         ? Toolbar._buttonPaddingVertical
@@ -186,7 +190,9 @@ class _ToolbarState extends State<Toolbar> {
         valueListenable: showExportOptions,
         builder: (context, showExportOptions, child) {
           return Collapsible(
-            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            axis: isToolbarVertical
+                ? CollapsibleAxis.horizontal
+                : CollapsibleAxis.vertical,
             maintainState: true,
             collapsed: !showExportOptions,
             child: child!,
@@ -204,27 +210,29 @@ class _ToolbarState extends State<Toolbar> {
         valueListenable: toolOptionsType,
         builder: (context, toolOptionsType, _) {
           return Collapsible(
-            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            axis: isToolbarVertical
+                ? CollapsibleAxis.horizontal
+                : CollapsibleAxis.vertical,
             maintainState: false,
             collapsed: toolOptionsType == ToolOptions.hide,
             child: switch (toolOptionsType) {
               ToolOptions.hide => const SizedBox(),
               ToolOptions.pen => PenModal(
-                getTool: () => Pen.currentPen,
-                setTool: widget.setTool,
-              ),
+                  getTool: () => Pen.currentPen,
+                  setTool: widget.setTool,
+                ),
               ToolOptions.highlighter => PenModal(
-                getTool: () => Highlighter.currentHighlighter,
-                setTool: widget.setTool,
-              ),
+                  getTool: () => Highlighter.currentHighlighter,
+                  setTool: widget.setTool,
+                ),
               ToolOptions.pencil => PenModal(
-                getTool: () => Pencil.currentPencil,
-                setTool: widget.setTool,
-              ),
+                  getTool: () => Pencil.currentPencil,
+                  setTool: widget.setTool,
+                ),
               ToolOptions.select => SelectionBar(
-                duplicateSelection: widget.duplicateSelection,
-                deleteSelection: widget.deleteSelection,
-              ),
+                  duplicateSelection: widget.duplicateSelection,
+                  deleteSelection: widget.deleteSelection,
+                ),
             },
           );
         },
@@ -233,7 +241,9 @@ class _ToolbarState extends State<Toolbar> {
         valueListenable: showColorOptions,
         builder: (context, showColorOptions, child) {
           return Collapsible(
-            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
+            axis: isToolbarVertical
+                ? CollapsibleAxis.horizontal
+                : CollapsibleAxis.vertical,
             maintainState: true,
             collapsed: !showColorOptions,
             child: child!,
@@ -247,49 +257,54 @@ class _ToolbarState extends State<Toolbar> {
         ),
       ),
       ValueListenableBuilder(
-        valueListenable: widget.quillFocus,
-        builder: (context, quill, _) {
-          final iconTheme = QuillIconTheme(
-            iconSelectedColor: colorScheme.onPrimary,
-            iconUnselectedColor: colorScheme.primary,
-            iconSelectedFillColor: colorScheme.primary,
-            iconUnselectedFillColor: Colors.transparent,
-            disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
-            disabledIconFillColor: Colors.transparent,
-            borderRadius: 22,
-          );
-          return Collapsible(
-            axis: isToolbarVertical ? CollapsibleAxis.horizontal : CollapsibleAxis.vertical,
-            maintainState: false,
-            collapsed: !widget.textEditing || quill == null,
-            child: quill != null ? QuillProvider(
-              configurations: QuillConfigurations(
-                controller: quill.controller,
-                sharedConfigurations: QuillSharedConfigurations(
-                  locale: TranslationProvider.of(context).flutterLocale,
-                ),
-              ),
-              child: QuillToolbar(
-                configurations: QuillToolbarConfigurations(
-                  axis: isToolbarVertical ? Axis.vertical : Axis.horizontal,
-                  buttonOptions: QuillToolbarButtonOptions(
-                    base: QuillToolbarBaseButtonOptions(
-                      globalIconSize: 22,
-                      globalIconButtonFactor: 1.6,
-                      iconTheme: iconTheme,
-                    ),
-                  ),
-                  showUndo: false,
-                  showRedo: false,
-                  showFontSize: false,
-                  showFontFamily: false,
-                  showClearFormat: false,
-                ),
-              ),
-            ) : const SizedBox.shrink(),
-          );
-        }
-      ),
+          valueListenable: widget.quillFocus,
+          builder: (context, quill, _) {
+            final iconTheme = QuillIconTheme(
+              iconSelectedColor: colorScheme.onPrimary,
+              iconUnselectedColor: colorScheme.primary,
+              iconSelectedFillColor: colorScheme.primary,
+              iconUnselectedFillColor: Colors.transparent,
+              disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
+              disabledIconFillColor: Colors.transparent,
+              borderRadius: 22,
+            );
+            return Collapsible(
+              axis: isToolbarVertical
+                  ? CollapsibleAxis.horizontal
+                  : CollapsibleAxis.vertical,
+              maintainState: false,
+              collapsed: !widget.textEditing || quill == null,
+              child: quill != null
+                  ? QuillProvider(
+                      configurations: QuillConfigurations(
+                        controller: quill.controller,
+                        sharedConfigurations: QuillSharedConfigurations(
+                          locale: TranslationProvider.of(context).flutterLocale,
+                        ),
+                      ),
+                      child: QuillToolbar(
+                        configurations: QuillToolbarConfigurations(
+                          axis: isToolbarVertical
+                              ? Axis.vertical
+                              : Axis.horizontal,
+                          buttonOptions: QuillToolbarButtonOptions(
+                            base: QuillToolbarBaseButtonOptions(
+                              globalIconSize: 22,
+                              globalIconButtonFactor: 1.6,
+                              iconTheme: iconTheme,
+                            ),
+                          ),
+                          showUndo: false,
+                          showRedo: false,
+                          showFontSize: false,
+                          showFontFamily: false,
+                          showClearFormat: false,
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+            );
+          }),
       Center(
         child: Padding(
           padding: const EdgeInsets.all(8),
@@ -317,25 +332,26 @@ class _ToolbarState extends State<Toolbar> {
                 padding: buttonPadding,
                 child: FaIcon(Pen.currentPen.icon, size: 16),
               ),
-              if (kDebugMode) ToolbarIconButton(
-                tooltip: t.editor.pens.pencil,
-                selected: widget.currentTool == Pencil.currentPencil,
-                enabled: !widget.readOnly,
-                onPressed: () {
-                  if (widget.currentTool == Pencil.currentPencil) {
-                    if (toolOptionsType.value == ToolOptions.pencil) {
-                      toolOptionsType.value = ToolOptions.hide;
+              if (kDebugMode)
+                ToolbarIconButton(
+                  tooltip: t.editor.pens.pencil,
+                  selected: widget.currentTool == Pencil.currentPencil,
+                  enabled: !widget.readOnly,
+                  onPressed: () {
+                    if (widget.currentTool == Pencil.currentPencil) {
+                      if (toolOptionsType.value == ToolOptions.pencil) {
+                        toolOptionsType.value = ToolOptions.hide;
+                      } else {
+                        toolOptionsType.value = ToolOptions.pencil;
+                      }
                     } else {
-                      toolOptionsType.value = ToolOptions.pencil;
+                      toolOptionsType.value = ToolOptions.hide;
+                      widget.setTool(Pencil.currentPencil);
                     }
-                  } else {
-                    toolOptionsType.value = ToolOptions.hide;
-                    widget.setTool(Pencil.currentPencil);
-                  }
-                },
-                padding: buttonPadding,
-                child: const FaIcon(Pencil.pencilIcon, size: 16),
-              ),
+                  },
+                  padding: buttonPadding,
+                  child: const FaIcon(Pencil.pencilIcon, size: 16),
+                ),
               ToolbarIconButton(
                 tooltip: t.editor.pens.highlighter,
                 selected: widget.currentTool == Highlighter.currentHighlighter,
@@ -373,7 +389,8 @@ class _ToolbarState extends State<Toolbar> {
                         width: 18,
                         height: 18,
                         decoration: BoxDecoration(
-                          color: currentColor.withInversion(invert).withOpacity(1),
+                          color:
+                              currentColor.withInversion(invert).withOpacity(1),
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: colorScheme.primary,
@@ -391,18 +408,22 @@ class _ToolbarState extends State<Toolbar> {
                   widget.setTool(Select.currentSelect);
                 },
                 padding: buttonPadding,
-                child: Icon(CupertinoIcons.lasso, shadows: !widget.readOnly ? [
-                  BoxShadow(
-                    color: colorScheme.primary,
-                    blurRadius: 0.1,
-                    spreadRadius: 10,
-                    blurStyle: BlurStyle.solid,
-                  ),
-                ] : null),
+                child: Icon(CupertinoIcons.lasso,
+                    shadows: !widget.readOnly
+                        ? [
+                            BoxShadow(
+                              color: colorScheme.primary,
+                              blurRadius: 0.1,
+                              spreadRadius: 10,
+                              blurStyle: BlurStyle.solid,
+                            ),
+                          ]
+                        : null),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.pens.laserPointer,
-                selected: widget.currentTool == LaserPointer.currentLaserPointer,
+                selected:
+                    widget.currentTool == LaserPointer.currentLaserPointer,
                 enabled: true, // even in read-only mode
                 onPressed: () {
                   toolOptionsType.value = ToolOptions.hide;
@@ -441,14 +462,15 @@ class _ToolbarState extends State<Toolbar> {
                   cupertinoIcon: CupertinoIcons.text_cursor,
                 ),
               ),
-              if (!Prefs.hideFingerDrawingToggle.value) ToolbarIconButton(
-                tooltip: t.editor.toolbar.toggleFingerDrawing,
-                selected: Prefs.editorFingerDrawing.value,
-                enabled: !widget.readOnly,
-                onPressed: widget.toggleFingerDrawing,
-                padding: buttonPadding,
-                child: const Icon(CupertinoIcons.hand_draw),
-              ),
+              if (!Prefs.hideFingerDrawingToggle.value)
+                ToolbarIconButton(
+                  tooltip: t.editor.toolbar.toggleFingerDrawing,
+                  selected: Prefs.editorFingerDrawing.value,
+                  enabled: !widget.readOnly,
+                  onPressed: widget.toggleFingerDrawing,
+                  padding: buttonPadding,
+                  child: const Icon(CupertinoIcons.hand_draw),
+                ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.fullscreen,
                 selected: DynamicMaterialApp.isFullscreen,
@@ -456,8 +478,12 @@ class _ToolbarState extends State<Toolbar> {
                 onPressed: toggleFullscreen,
                 padding: buttonPadding,
                 child: AdaptiveIcon(
-                  icon: DynamicMaterialApp.isFullscreen ? Icons.fullscreen_exit : Icons.fullscreen,
-                  cupertinoIcon: DynamicMaterialApp.isFullscreen ? CupertinoIcons.fullscreen_exit : CupertinoIcons.fullscreen,
+                  icon: DynamicMaterialApp.isFullscreen
+                      ? Icons.fullscreen_exit
+                      : Icons.fullscreen,
+                  cupertinoIcon: DynamicMaterialApp.isFullscreen
+                      ? CupertinoIcons.fullscreen_exit
+                      : CupertinoIcons.fullscreen,
                 ),
               ),
               Wrap(
@@ -511,18 +537,20 @@ class _ToolbarState extends State<Toolbar> {
     return Material(
       color: colorScheme.background,
       child: isToolbarVertical
-        ? Row(
-            textDirection: Prefs.editorToolbarAlignment.value == AxisDirection.left
-              ? TextDirection.rtl
-              : TextDirection.ltr,
-            children: children,
-          )
-        : Column(
-            verticalDirection: Prefs.editorToolbarAlignment.value == AxisDirection.down
-              ? VerticalDirection.down
-              : VerticalDirection.up,
-            children: children,
-          ),
+          ? Row(
+              textDirection:
+                  Prefs.editorToolbarAlignment.value == AxisDirection.left
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
+              children: children,
+            )
+          : Column(
+              verticalDirection:
+                  Prefs.editorToolbarAlignment.value == AxisDirection.down
+                      ? VerticalDirection.down
+                      : VerticalDirection.up,
+              children: children,
+            ),
     );
   }
 

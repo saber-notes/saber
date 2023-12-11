@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 extension ChangeNotifierExtensions on ChangeNotifier {
   /// This is a hack to allow us to call [notifyListeners]
   /// which is usually protected.
-  /// 
+  ///
   /// In my (@adil192) opinion, [notifyListeners] should be public. See
   /// - https://github.com/flutter/flutter/issues/135478
   /// - https://github.com/flutter/flutter/issues/27448

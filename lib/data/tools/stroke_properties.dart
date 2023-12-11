@@ -49,7 +49,8 @@ class StrokeProperties {
       case null:
         color = defaultColor;
       default:
-        throw Exception('Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+        throw Exception(
+            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
     }
     size = json['s'] ?? defaultSize;
     thinning = json['t'] ?? defaultThinning;
@@ -63,36 +64,36 @@ class StrokeProperties {
     simulatePressure = json['sp'] ?? defaultSimulatePressure;
   }
   Map<String, dynamic> toJson() => {
-    if (color != defaultColor) 'c': color.value,
-    if (size != defaultSize) 's': size,
-    if (thinning != defaultThinning) 't': thinning,
-    if (smoothing != defaultSmoothing) 'sm': smoothing,
-    if (streamline != defaultStreamline) 'sl': streamline,
-    if (taperStart != defaultTaperStart) 'ts': taperStart,
-    if (taperEnd != defaultTaperEnd) 'te': taperEnd,
-    if (capStart != defaultCapStart) 'cs': capStart,
-    if (capEnd != defaultCapEnd) 'ce': capEnd,
-    if (pressureEnabled != defaultPressureEnabled) 'pe': pressureEnabled,
-    if (simulatePressure != defaultSimulatePressure) 'sp': simulatePressure,
-  };
+        if (color != defaultColor) 'c': color.value,
+        if (size != defaultSize) 's': size,
+        if (thinning != defaultThinning) 't': thinning,
+        if (smoothing != defaultSmoothing) 'sm': smoothing,
+        if (streamline != defaultStreamline) 'sl': streamline,
+        if (taperStart != defaultTaperStart) 'ts': taperStart,
+        if (taperEnd != defaultTaperEnd) 'te': taperEnd,
+        if (capStart != defaultCapStart) 'cs': capStart,
+        if (capEnd != defaultCapEnd) 'ce': capEnd,
+        if (pressureEnabled != defaultPressureEnabled) 'pe': pressureEnabled,
+        if (simulatePressure != defaultSimulatePressure) 'sp': simulatePressure,
+      };
 
   StrokeProperties copy() => StrokeProperties.fromJson(toJson());
 
   static StrokeProperties get fountainPen => StrokeProperties();
   static StrokeProperties get ballpointPen => StrokeProperties(
-    pressureEnabled: false,
-  );
+        pressureEnabled: false,
+      );
   static StrokeProperties get shapePen => StrokeProperties(
-    pressureEnabled: false,
-  );
+        pressureEnabled: false,
+      );
   static StrokeProperties get highlighter => StrokeProperties(
-    size: defaultSize * 5,
-    color: Colors.yellow.withAlpha(Highlighter.alpha),
-    pressureEnabled: false,
-  );
+        size: defaultSize * 5,
+        color: Colors.yellow.withAlpha(Highlighter.alpha),
+        pressureEnabled: false,
+      );
   static StrokeProperties get pencil => StrokeProperties(
-    streamline: 0.1,
-    taperStart: 1,
-    taperEnd: 1,
-  );
+        streamline: 0.1,
+        taperStart: 1,
+        taperEnd: 1,
+      );
 }

@@ -12,7 +12,7 @@ class NcHttpOverrides extends HttpOverrides {
   static final log = Logger('NcHttpOverrides');
 
   @override
-  HttpClient createHttpClient(SecurityContext? context){
+  HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
       ..badCertificateCallback = _badCertificateCallback;
   }
@@ -22,11 +22,13 @@ class NcHttpOverrides extends HttpOverrides {
   // false if it should be rejected.
   bool _badCertificateCallback(X509Certificate cert, String host, int port) {
     if (!Prefs.allowInsecureConnections.loaded || !Prefs.url.loaded) {
-      log.severe('The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
+      log.severe(
+          'The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
       return false;
     }
 
-    if (host == Uri.tryParse(Prefs.url.value)?.host || host == temporarilyExemptHost) {
+    if (host == Uri.tryParse(Prefs.url.value)?.host ||
+        host == temporarilyExemptHost) {
       // Allow self-signed certificates for self-hosted Nextcloud servers
       return Prefs.allowInsecureConnections.value;
     } else {

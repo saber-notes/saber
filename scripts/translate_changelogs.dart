@@ -21,9 +21,11 @@ Future<String> getEnglishChangelog() async {
   final changelog = await file.readAsString();
   return changelog;
 }
+
 Future symlinkChangelog(String localeCode) async {
   final fileNormal = File('metadata/$localeCode/changelogs/$buildNumber.txt');
-  final fileFDroid = Link('metadata/$localeCode/changelogs/${buildNumber}3.txt');
+  final fileFDroid =
+      Link('metadata/$localeCode/changelogs/${buildNumber}3.txt');
   if (fileFDroid.existsSync()) return;
   fileFDroid.create(fileNormal.path);
 }
@@ -33,14 +35,16 @@ void main() async {
 
   final useLibreEngine = random.nextBool();
   print('Using ${useLibreEngine ? 'Libre' : 'Google'} translation engine...\n');
-  final translator = SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
+  final translator =
+      SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
 
   final englishChangelog = await getEnglishChangelog();
   print('English changelog for $buildName ($buildNumber):');
   print(englishChangelog);
 
   if (englishChangelog.length > 500) {
-    print('Warning: The English changelog has length ${englishChangelog.length}, '
+    print(
+        'Warning: The English changelog has length ${englishChangelog.length}, '
         'but Google Play only allows 500 characters.');
     print('Please shorten the changelog and try again.');
     return;
@@ -67,7 +71,8 @@ void main() async {
 
     final file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
     if (file.existsSync()) {
-      print('$stepPrefix. Skipped $localeCode ($localeName) because it already exists');
+      print(
+          '$stepPrefix. Skipped $localeCode ($localeName) because it already exists');
       continue;
     } else {
       print('$stepPrefix. Translating to $localeCode ($localeName)...');
@@ -78,10 +83,12 @@ void main() async {
       nearestLocaleCode = localeCode;
     } else if (nearestLocaleCodes.containsKey(localeCode)) {
       nearestLocaleCode = nearestLocaleCodes[localeCode]!;
-    } else if (LanguageList.contains(localeCode.substring(0, localeCode.indexOf('-')))) {
+    } else if (LanguageList.contains(
+        localeCode.substring(0, localeCode.indexOf('-')))) {
       nearestLocaleCode = localeCode.substring(0, localeCode.indexOf('-'));
     } else {
-      print('${' ' * stepPrefix.length}  ! Language not supported, skipping...');
+      print(
+          '${' ' * stepPrefix.length}  ! Language not supported, skipping...');
       someTranslationsFailed = true;
       continue;
     }
@@ -91,12 +98,14 @@ void main() async {
 
     Translation translation;
     try {
-      translation = await translator.translateSimply(
-        englishChangelog,
-        from: 'en',
-        to: nearestLocaleCode,
-        retries: 3,
-      ).timeout(const Duration(seconds: 5));
+      translation = await translator
+          .translateSimply(
+            englishChangelog,
+            from: 'en',
+            to: nearestLocaleCode,
+            retries: 3,
+          )
+          .timeout(const Duration(seconds: 5));
     } catch (e) {
       print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
       someTranslationsFailed = true;
@@ -122,7 +131,8 @@ void main() async {
       var linesRemoved = -1; // -1 to account for removing the trailing newline
       while (translatedChangelog.length > 500 - suffix.length) {
         final lastNewlineIndex = translatedChangelog.lastIndexOf('\n');
-        translatedChangelog = translatedChangelog.substring(0, lastNewlineIndex);
+        translatedChangelog =
+            translatedChangelog.substring(0, lastNewlineIndex);
         linesRemoved++;
       }
       translatedChangelog += suffix;

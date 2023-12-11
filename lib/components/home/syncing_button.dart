@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -13,7 +12,6 @@ class SyncingButton extends StatefulWidget {
 }
 
 class _SyncingButtonState extends State<SyncingButton> {
-
   @override
   void initState() {
     FileSyncer.filesDone.addListener(listener);
@@ -45,15 +43,17 @@ class _SyncingButtonState extends State<SyncingButton> {
     bool loggedIn = Prefs.username.loaded && Prefs.username.value.isNotEmpty;
 
     return IconButton(
-      onPressed: loggedIn ? () {
-        FileSyncer.filesDone.value = null; // reset progress indicator
-        FileSyncer.startSync();
-      } : null,
+      onPressed: loggedIn
+          ? () {
+              FileSyncer.filesDone.value = null; // reset progress indicator
+              FileSyncer.startSync();
+            }
+          : null,
       icon: Stack(
         alignment: Alignment.center,
         children: [
           AnimatedOpacity(
-            opacity:  (loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
+            opacity: (loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
             duration: const Duration(milliseconds: 200),
             child: _AnimatedCircularProgressIndicator(
               duration: const Duration(milliseconds: 200),
@@ -86,18 +86,19 @@ class _AnimatedCircularProgressIndicator extends ImplicitlyAnimatedWidget {
   final double? percentage;
 
   @override
-  ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() => _AnimatedCircularProgressIndicatorState();
+  ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() =>
+      _AnimatedCircularProgressIndicatorState();
 }
-class _AnimatedCircularProgressIndicatorState extends AnimatedWidgetBaseState<_AnimatedCircularProgressIndicator> {
+
+class _AnimatedCircularProgressIndicatorState
+    extends AnimatedWidgetBaseState<_AnimatedCircularProgressIndicator> {
   Tween<double>? _valueTween;
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
-    _valueTween = visitor(
-      _valueTween,
-      widget.percentage ?? 0.0,
-      (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double)
-    ) as Tween<double>?;
+    _valueTween = visitor(_valueTween, widget.percentage ?? 0.0,
+            (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double))
+        as Tween<double>?;
   }
 
   @override

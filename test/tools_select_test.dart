@@ -19,7 +19,8 @@ void main() {
     select.onDragUpdate(const Offset(10, 10));
     select.onDragUpdate(const Offset(10, 0));
 
-    expect(select.selectResult.pageIndex, 0, reason: 'The page index should be 0');
+    expect(select.selectResult.pageIndex, 0,
+        reason: 'The page index should be 0');
 
     List<Stroke> strokes = [
       // index 0 is inside
@@ -38,9 +39,12 @@ void main() {
 
     select.onDragEnd(strokes, const []);
 
-    expect(select.selectResult.strokes.length, 1, reason: 'Only one stroke should be selected');
-    expect(select.selectResult.strokes.first, strokes[0], reason: 'The first stroke should be selected');
-    expect(select.selectResult.images.isEmpty, true, reason: 'No images should be selected');
+    expect(select.selectResult.strokes.length, 1,
+        reason: 'Only one stroke should be selected');
+    expect(select.selectResult.strokes.first, strokes[0],
+        reason: 'The first stroke should be selected');
+    expect(select.selectResult.images.isEmpty, true,
+        reason: 'No images should be selected');
   });
 
   test('Test that the select tool selects the right images', () async {
@@ -54,7 +58,8 @@ void main() {
     select.onDragUpdate(const Offset(10, 10));
     select.onDragUpdate(const Offset(10, 0));
 
-    expect(select.selectResult.pageIndex, 0, reason: 'The page index should be 0');
+    expect(select.selectResult.pageIndex, 0,
+        reason: 'The page index should be 0');
 
     List<EditorImage> images = [
       // index 0 is inside (100% in the selection)
@@ -73,10 +78,14 @@ void main() {
 
     select.onDragEnd(const [], images);
 
-    expect(select.selectResult.images.length, 2, reason: 'Two images should be selected');
-    expect(select.selectResult.images.contains(images[0]), true, reason: 'The first image should be selected');
-    expect(select.selectResult.images.contains(images[1]), true, reason: 'The second image should be selected');
-    expect(select.selectResult.strokes.length, 0, reason: 'No strokes should be selected');
+    expect(select.selectResult.images.length, 2,
+        reason: 'Two images should be selected');
+    expect(select.selectResult.images.contains(images[0]), true,
+        reason: 'The first image should be selected');
+    expect(select.selectResult.images.contains(images[1]), true,
+        reason: 'The second image should be selected');
+    expect(select.selectResult.strokes.length, 0,
+        reason: 'No strokes should be selected');
   });
 }
 
@@ -86,7 +95,7 @@ class TestImage extends PngEditorImage {
 
   TestImage({
     required super.dstRect,
-  })  : super(
+  }) : super(
           id: -1,
           extension: '.png',
           imageProvider: null,

@@ -32,9 +32,7 @@ import 'package:worker_manager/worker_manager.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Logger.root.level = kDebugMode
-      ? Level.INFO
-      : Level.WARNING;
+  Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
@@ -43,8 +41,10 @@ Future<void> main() async {
   if (Platform.isAndroid) {
     final deviceInfo = DeviceInfoPlugin();
     final androidInfo = await deviceInfo.androidInfo;
-    Logger.root.fine('androidInfo.version.release: ${androidInfo.version.release}');
-    Prefs.androidVersion = int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
+    Logger.root
+        .fine('androidInfo.version.release: ${androidInfo.version.release}');
+    Prefs.androidVersion =
+        int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
   }
 
   Prefs.init();
@@ -85,7 +85,8 @@ void startSyncAfterUsernameLoaded() async {
   await Prefs.username.waitUntilLoaded();
 
   Prefs.username.removeListener(startSyncAfterUsernameLoaded);
-  if (Prefs.username.value.isEmpty) { // try again when logged in
+  if (Prefs.username.value.isEmpty) {
+    // try again when logged in
     return Prefs.username.addListener(startSyncAfterUsernameLoaded);
   }
 
@@ -97,7 +98,8 @@ void startSyncAfterUsernameLoaded() async {
 }
 
 void setLocale() {
-  if (Prefs.locale.value.isNotEmpty && AppLocaleUtils.supportedLocalesRaw.contains(Prefs.locale.value)) {
+  if (Prefs.locale.value.isNotEmpty &&
+      AppLocaleUtils.supportedLocalesRaw.contains(Prefs.locale.value)) {
     LocaleSettings.setLocaleRaw(Prefs.locale.value);
   } else {
     LocaleSettings.useDeviceLocale();
@@ -109,7 +111,8 @@ class App extends StatefulWidget {
 
   static final log = Logger('App');
 
-  static String initialLocation = pathToFunction(RoutePaths.home)({'subpage': HomePage.recentSubpage});
+  static String initialLocation =
+      pathToFunction(RoutePaths.home)({'subpage': HomePage.recentSubpage});
   static final GoRouter _router = GoRouter(
     initialLocation: initialLocation,
     routes: <GoRoute>[
@@ -168,8 +171,10 @@ class App extends StatefulWidget {
       _router.push(RoutePaths.editFilePath(path));
     } else if (extension == 'pdf' && Editor.canRasterPdf) {
       final fileNameWithoutExtension = file.path
-          .split('/').last
-          .split('\\').last
+          .split('/')
+          .last
+          .split('\\')
+          .last
           .substring(0, file.path.length - '.pdf'.length);
       final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
         '/$fileNameWithoutExtension',
@@ -196,7 +201,8 @@ class _AppState extends State<App> {
   void setupSharingIntent() {
     if (Platform.isAndroid || Platform.isIOS) {
       // for files opened while the app is closed
-      ReceiveSharingIntent.getInitialMedia().then((List<SharedMediaFile> files) {
+      ReceiveSharingIntent.getInitialMedia()
+          .then((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
         }
@@ -204,7 +210,8 @@ class _AppState extends State<App> {
 
       // for files opened while the app is open
       final stream = ReceiveSharingIntent.getMediaStream();
-      _intentDataStreamSubscription = stream.listen((List<SharedMediaFile> files) {
+      _intentDataStreamSubscription =
+          stream.listen((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
         }
@@ -215,7 +222,8 @@ class _AppState extends State<App> {
       // this only works for files opened while the app is closed
       OpenAsDefault.getFileIntent.then((File? file) {
         if (file == null) return;
-        App.openFile(SharedMediaFile(file.path, null, null, SharedMediaType.FILE));
+        App.openFile(
+            SharedMediaFile(file.path, null, null, SharedMediaType.FILE));
       });
     }
   }

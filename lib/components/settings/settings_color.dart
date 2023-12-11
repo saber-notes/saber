@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -14,10 +13,10 @@ class SettingsColor extends StatefulWidget {
     this.subtitle,
     this.icon,
     this.iconBuilder,
-
     required this.pref,
     this.afterChange,
-  }): assert(icon == null || iconBuilder == null, 'Cannot set both icon and iconBuilder');
+  }) : assert(icon == null || iconBuilder == null,
+            'Cannot set both icon and iconBuilder');
 
   final String title;
   final String? subtitle;
@@ -47,12 +46,13 @@ class _SettingsSwitchState extends State<SettingsColor> {
       defaultColor = color;
     }
     widget.afterChange?.call(color);
-    setState(() { });
+    setState(() {});
   }
 
   AdaptiveAlertDialog get colorPickerDialog {
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     return AdaptiveAlertDialog(
       title: Text(t.settings.accentColorPicker.pickAColor),
       content: SingleChildScrollView(
@@ -97,7 +97,8 @@ class _SettingsSwitchState extends State<SettingsColor> {
               : null,
         ),
       ),
-      subtitle: Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+      subtitle:
+          Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

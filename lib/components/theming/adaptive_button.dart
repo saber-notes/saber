@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,8 @@ class AdaptiveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    bool cupertino = theme.platform == TargetPlatform.iOS || theme.platform == TargetPlatform.macOS;
+    bool cupertino = theme.platform == TargetPlatform.iOS ||
+        theme.platform == TargetPlatform.macOS;
     if (cupertino) {
       return CupertinoButton(
         onPressed: onPressed,

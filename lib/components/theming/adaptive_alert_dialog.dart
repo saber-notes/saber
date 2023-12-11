@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,15 +15,16 @@ class AdaptiveAlertDialog extends StatelessWidget {
 
   List<Widget> get _materialActions => actions
       .map((CupertinoDialogAction action) => TextButton(
-        onPressed: action.onPressed,
-        child: action.child,
-      ))
+            onPressed: action.onPressed,
+            child: action.child,
+          ))
       .toList();
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    bool cupertino = theme.platform == TargetPlatform.iOS || theme.platform == TargetPlatform.macOS;
+    bool cupertino = theme.platform == TargetPlatform.iOS ||
+        theme.platform == TargetPlatform.macOS;
 
     if (cupertino) {
       return CupertinoAlertDialog(

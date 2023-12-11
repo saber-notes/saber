@@ -69,7 +69,9 @@ class _CanvasHudState extends State<CanvasHud> {
                 lock: widget.zoomLock,
                 setLock: widget.setZoomLock,
                 icon: widget.zoomLock ? Icons.lock : Icons.lock_open,
-                tooltip: widget.zoomLock ? t.editor.hud.unlockZoom : t.editor.hud.lockZoom,
+                tooltip: widget.zoomLock
+                    ? t.editor.hud.unlockZoom
+                    : t.editor.hud.lockZoom,
               ),
             ),
             Positioned(
@@ -90,10 +92,12 @@ class _CanvasHudState extends State<CanvasHud> {
               child: CanvasGestureLockBtn(
                 lock: widget.axisAlignedPanLock,
                 setLock: widget.setAxisAlignedPanLock,
-                tooltip: widget.axisAlignedPanLock ? t.editor.hud.unlockAxisAlignedPan : t.editor.hud.lockAxisAlignedPan,
+                tooltip: widget.axisAlignedPanLock
+                    ? t.editor.hud.unlockAxisAlignedPan
+                    : t.editor.hud.lockAxisAlignedPan,
                 child: AnimatedRotation(
                   duration: const Duration(milliseconds: 200),
-                  turns: widget.axisAlignedPanLock ? 0 : 1/8,
+                  turns: widget.axisAlignedPanLock ? 0 : 1 / 8,
                   // TODO: use [Icons.drag_pan] once it's available
                   child: const FaIcon(FontAwesomeIcons.arrowsUpDownLeftRight),
                 ),
@@ -105,7 +109,8 @@ class _CanvasHudState extends State<CanvasHud> {
               child: AnimatedBuilder(
                 animation: widget.transformationController,
                 builder: (context, _) => CanvasZoomIndicator(
-                  scale: widget.transformationController.value.getMaxScaleOnAxis(),
+                  scale:
+                      widget.transformationController.value.getMaxScaleOnAxis(),
                   resetZoom: widget.resetZoom,
                 ),
               ),

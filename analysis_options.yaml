@@ -72,5 +72,7 @@ linter:
 
     use_string_buffers: true
 
+    curly_braces_in_flow_control_structures: false
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

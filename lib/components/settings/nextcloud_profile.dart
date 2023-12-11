@@ -72,53 +72,58 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: loggedIn ? Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FutureBuilder(
-            future: NextcloudProfile.getStorageQuota(),
-            initialData: Prefs.lastStorageQuota.value,
-            builder: (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
-              final Quota? quota = snapshot.data;
-              final double? relativePercent;
-              if (quota != null) {
-                relativePercent = quota.relative / 100;
-              } else {
-                relativePercent = null;
-              }
-          
-              return Stack(
-                alignment: Alignment.center,
-                children: [
-                  CircularProgressIndicator(
-                    value: relativePercent,
-                    color: colorScheme.primary.withOpacity(0.5),
-                    backgroundColor: colorScheme.primary.withOpacity(0.1),
-                    strokeWidth: 8,
-                    semanticsLabel: 'Storage usage',
-                    semanticsValue: snapshot.data != null ? '${snapshot.data}%' : null,
+      trailing: loggedIn
+          ? Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                FutureBuilder(
+                  future: NextcloudProfile.getStorageQuota(),
+                  initialData: Prefs.lastStorageQuota.value,
+                  builder:
+                      (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
+                    final Quota? quota = snapshot.data;
+                    final double? relativePercent;
+                    if (quota != null) {
+                      relativePercent = quota.relative / 100;
+                    } else {
+                      relativePercent = null;
+                    }
+
+                    return Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          value: relativePercent,
+                          color: colorScheme.primary.withOpacity(0.5),
+                          backgroundColor: colorScheme.primary.withOpacity(0.1),
+                          strokeWidth: 8,
+                          semanticsLabel: 'Storage usage',
+                          semanticsValue: snapshot.data != null
+                              ? '${snapshot.data}%'
+                              : null,
+                        ),
+                        Text(readableQuota(quota)),
+                      ],
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: const AdaptiveIcon(
+                    icon: Icons.cloud_upload,
+                    cupertinoIcon: CupertinoIcons.cloud_upload,
                   ),
-                  Text(readableQuota(quota)),
-                ],
-              );
-            },
-          ),
-          IconButton(
-            icon: const AdaptiveIcon(
-              icon: Icons.cloud_upload,
-              cupertinoIcon: CupertinoIcons.cloud_upload,
-            ),
-            tooltip: t.settings.resyncEverything,
-            onPressed: () async {
-              final allFiles = await FileManager.getAllFiles();
-              Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
-              for (final file in allFiles) {
-                FileSyncer.addToUploadQueue(file);
-              }
-            },
-          ),
-        ],
-      ) : null,
+                  tooltip: t.settings.resyncEverything,
+                  onPressed: () async {
+                    final allFiles = await FileManager.getAllFiles();
+                    Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
+                    for (final file in allFiles) {
+                      FileSyncer.addToUploadQueue(file);
+                    }
+                  },
+                ),
+              ],
+            )
+          : null,
     );
   }
 
@@ -127,24 +132,29 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     final total = readableBytes(quota?.total);
     return '$used / $total';
   }
+
   static String readableBytes(num? bytes) {
     if (bytes == null) {
       return '... B';
     } else if (bytes < 1024) {
       return '$bytes B';
-    } else if (bytes < 1024 * 2) { // e.g. 1.5 KB
+    } else if (bytes < 1024 * 2) {
+      // e.g. 1.5 KB
       return '${(bytes / 1024).toStringAsFixed(1)} KB';
     } else if (bytes < 1024 * 1024) {
       return '${(bytes / 1024).round()} KB';
-    } else if (bytes < 1024 * 1024 * 2) { // e.g. 1.5 MB
+    } else if (bytes < 1024 * 1024 * 2) {
+      // e.g. 1.5 MB
       return '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
     } else if (bytes < 1024 * 1024 * 1024) {
       return '${(bytes / 1024 / 1024).round()} MB';
-    } else if (bytes < 1024 * 1024 * 1024 * 2) { // e.g. 1.5 GB
+    } else if (bytes < 1024 * 1024 * 1024 * 2) {
+      // e.g. 1.5 GB
       return '${(bytes / 1024 / 1024 / 1024).toStringAsFixed(1)} GB';
     } else if (bytes < 1024 * 1024 * 1024 * 1024) {
       return '${(bytes / 1024 / 1024 / 1024).round()} GB';
-    } else if (bytes < 1024 * 1024 * 1024 * 1024 * 2) { // e.g. 1.5 TB
+    } else if (bytes < 1024 * 1024 * 1024 * 1024 * 2) {
+      // e.g. 1.5 TB
       return '${(bytes / 1024 / 1024 / 1024 / 1024).toStringAsFixed(1)} TB';
     } else {
       return '${(bytes / 1024 / 1024 / 1024 / 1024).round()} TB';

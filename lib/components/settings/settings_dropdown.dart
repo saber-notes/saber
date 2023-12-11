@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
@@ -12,11 +11,11 @@ class SettingsDropdown<T> extends StatefulWidget {
     this.subtitle,
     this.icon,
     this.iconBuilder,
-
     required this.pref,
     required this.options,
     this.afterChange,
-  }): assert(icon == null || iconBuilder == null, 'Cannot set both icon and iconBuilder');
+  }) : assert(icon == null || iconBuilder == null,
+            'Cannot set both icon and iconBuilder');
 
   final String title;
   final String? subtitle;
@@ -39,7 +38,8 @@ class SettingsDropdown<T> extends StatefulWidget {
 }
 
 class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
-  late FocusNode dropdownFocusNode = FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
+  late FocusNode dropdownFocusNode =
+      FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
 
   @override
   void initState() {
@@ -49,13 +49,15 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
 
   void onChanged() {
     widget.afterChange?.call(widget.pref.value);
-    setState(() { });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     if (widget.indexOf(widget.pref.value) == null) {
-      if (kDebugMode) throw Exception('SettingsDropdown (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
+      if (kDebugMode)
+        throw Exception(
+            'SettingsDropdown (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
       widget.pref.value = widget.options.first.value;
     }
 
@@ -109,7 +111,8 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
                 : null,
           ),
         ),
-        subtitle: Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+        subtitle:
+            Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
         trailing: dropdown,
       ),
     );

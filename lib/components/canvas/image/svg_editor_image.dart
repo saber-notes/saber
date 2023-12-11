@@ -27,12 +27,14 @@ class SvgEditorImage extends EditorImage {
     super.srcRect,
     super.naturalSize,
     super.isThumbnail,
-  }): assert(svgString != null || svgFile != null, 'svgFile must be set if svgString is null'),
-      super(
-        extension: '.svg',
-      );
+  })  : assert(svgString != null || svgFile != null,
+            'svgFile must be set if svgString is null'),
+        super(
+          extension: '.svg',
+        );
 
-  factory SvgEditorImage.fromJson(Map<String, dynamic> json, {
+  factory SvgEditorImage.fromJson(
+    Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
@@ -46,7 +48,8 @@ class SvgEditorImage extends EditorImage {
     File? svgFile;
     if (assetIndex != null) {
       if (inlineAssets == null) {
-        svgFile = FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        svgFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
         svgString = assetCache.get(svgFile);
       } else {
         svgString = utf8.decode(inlineAssets[assetIndex]);
@@ -59,14 +62,16 @@ class SvgEditorImage extends EditorImage {
     }
 
     return SvgEditorImage(
-      id: json['id'] ?? -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      id: json['id'] ??
+          -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
       svgString: svgString,
       svgFile: svgFile,
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
-      backgroundFit: json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
+      backgroundFit:
+          json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
@@ -119,7 +124,8 @@ class SvgEditorImage extends EditorImage {
     assetCache.addImage(this, svgFile, svgString!);
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      final pictureInfo = await vg.loadPicture(SvgStringLoader(svgString!), null);
+      final pictureInfo =
+          await vg.loadPicture(SvgStringLoader(svgString!), null);
       naturalSize = pictureInfo.size;
 
       if (srcRect.shortestSide == 0) {
@@ -146,6 +152,7 @@ class SvgEditorImage extends EditorImage {
     svgString ??= await svgFile!.readAsString();
     assetCache.addImage(this, svgFile, svgString!);
   }
+
   @override
   Future<bool> loadOut() async {
     final shouldLoadOut = await super.loadOut();
@@ -196,22 +203,22 @@ class SvgEditorImage extends EditorImage {
 
   @override
   SvgEditorImage copy() => SvgEditorImage(
-    id: id,
-    assetCache: assetCache,
-    svgString: svgString,
-    svgFile: svgFile,
-    pageIndex: pageIndex,
-    pageSize: Size.infinite,
-    invertible: invertible,
-    backgroundFit: backgroundFit,
-    onMoveImage: onMoveImage,
-    onDeleteImage: onDeleteImage,
-    onMiscChange: onMiscChange,
-    onLoad: onLoad,
-    newImage: newImage,
-    dstRect: dstRect,
-    srcRect: srcRect,
-    naturalSize: naturalSize,
-    isThumbnail: isThumbnail,
-  );
+        id: id,
+        assetCache: assetCache,
+        svgString: svgString,
+        svgFile: svgFile,
+        pageIndex: pageIndex,
+        pageSize: Size.infinite,
+        invertible: invertible,
+        backgroundFit: backgroundFit,
+        onMoveImage: onMoveImage,
+        onDeleteImage: onDeleteImage,
+        onMiscChange: onMiscChange,
+        onLoad: onLoad,
+        newImage: newImage,
+        dstRect: dstRect,
+        srcRect: srcRect,
+        naturalSize: naturalSize,
+        isThumbnail: isThumbnail,
+      );
 }

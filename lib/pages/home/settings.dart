@@ -107,7 +107,8 @@ class _SettingsPageState extends State<SettingsPage> {
     TargetPlatform.linux => true,
     _ => false,
   };
-  static final bool usesMaterialByDefault = !usesCupertinoByDefault && !usesYaruByDefault;
+  static final bool usesMaterialByDefault =
+      !usesCupertinoByDefault && !usesYaruByDefault;
 
   static const cupertinoDirectionIcons = [
     CupertinoIcons.arrow_up_to_line,
@@ -126,8 +127,8 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS
-        || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
     final bool requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
@@ -160,17 +161,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               actions: [
-                if (UpdateManager.status.value != UpdateStatus.upToDate) IconButton(
-                  tooltip: t.home.tooltips.showUpdateDialog,
-                  icon: const Icon(Icons.system_update),
-                  onPressed: () {
-                    UpdateManager.showUpdateDialog(context, userTriggered: true);
-                  },
-                ),
+                if (UpdateManager.status.value != UpdateStatus.upToDate)
+                  IconButton(
+                    tooltip: t.home.tooltips.showUpdateDialog,
+                    icon: const Icon(Icons.system_update),
+                    onPressed: () {
+                      UpdateManager.showUpdateDialog(context,
+                          userTriggered: true);
+                    },
+                  ),
               ],
             ),
           ),
-          SliverSafeArea(sliver: SliverList.list(
+          SliverSafeArea(
+              sliver: SliverList.list(
             children: [
               const NextcloudProfile(),
               const Padding(
@@ -189,7 +193,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   ...AppLocaleUtils.supportedLocales.map((locale) {
                     final String localeCode = locale.toLanguageTag();
                     String? localeName = localeNames[localeCode];
-                    assert(localeName != null, 'Missing locale name for $localeCode');
+                    assert(localeName != null,
+                        'Missing locale name for $localeCode');
                     return ToggleButtonsOption(
                       localeCode,
                       Text(localeName ?? localeCode),
@@ -208,9 +213,18 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: _SettingsPrefs.appTheme,
                 optionsWidth: 60,
                 options: [
-                  ToggleButtonsOption(ThemeMode.system.index, Icon(Icons.brightness_auto, semanticLabel: t.settings.themeModes.system)),
-                  ToggleButtonsOption(ThemeMode.light.index, Icon(Icons.light_mode, semanticLabel: t.settings.themeModes.light)),
-                  ToggleButtonsOption(ThemeMode.dark.index, Icon(Icons.dark_mode, semanticLabel: t.settings.themeModes.dark)),
+                  ToggleButtonsOption(
+                      ThemeMode.system.index,
+                      Icon(Icons.brightness_auto,
+                          semanticLabel: t.settings.themeModes.system)),
+                  ToggleButtonsOption(
+                      ThemeMode.light.index,
+                      Icon(Icons.light_mode,
+                          semanticLabel: t.settings.themeModes.light)),
+                  ToggleButtonsOption(
+                      ThemeMode.dark.index,
+                      Icon(Icons.dark_mode,
+                          semanticLabel: t.settings.themeModes.dark)),
                 ],
               ),
               SettingsSelection(
@@ -225,14 +239,16 @@ class _SettingsPageState extends State<SettingsPage> {
                 options: [
                   ToggleButtonsOption(
                     () {
-                      if (usesMaterialByDefault) return defaultTargetPlatform.index;
+                      if (usesMaterialByDefault)
+                        return defaultTargetPlatform.index;
                       return TargetPlatform.android.index;
                     }(),
                     Icon(materialIcon, semanticLabel: 'Material'),
                   ),
                   ToggleButtonsOption(
                     () {
-                      if (usesCupertinoByDefault) return defaultTargetPlatform.index;
+                      if (usesCupertinoByDefault)
+                        return defaultTargetPlatform.index;
                       return TargetPlatform.iOS.index;
                     }(),
                     const Icon(Icons.apple, semanticLabel: 'Cupertino'),
@@ -262,9 +278,18 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: _SettingsPrefs.layoutSize,
                 optionsWidth: 60,
                 options: [
-                  ToggleButtonsOption(LayoutSize.auto.index, Icon(Icons.aspect_ratio, semanticLabel: t.settings.layoutSizes.auto)),
-                  ToggleButtonsOption(LayoutSize.phone.index, Icon(Icons.smartphone, semanticLabel: t.settings.layoutSizes.phone)),
-                  ToggleButtonsOption(LayoutSize.tablet.index, Icon(Icons.tablet, semanticLabel: t.settings.layoutSizes.tablet)),
+                  ToggleButtonsOption(
+                      LayoutSize.auto.index,
+                      Icon(Icons.aspect_ratio,
+                          semanticLabel: t.settings.layoutSizes.auto)),
+                  ToggleButtonsOption(
+                      LayoutSize.phone.index,
+                      Icon(Icons.smartphone,
+                          semanticLabel: t.settings.layoutSizes.phone)),
+                  ToggleButtonsOption(
+                      LayoutSize.tablet.index,
+                      Icon(Icons.tablet,
+                          semanticLabel: t.settings.layoutSizes.tablet)),
                 ],
               ),
               SettingsColor(
@@ -276,18 +301,24 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.hyperlegibleFont,
                 subtitle: t.settings.prefDescriptions.hyperlegibleFont,
                 iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.textformat : Icons.font_download;
-                  return cupertino ? CupertinoIcons.textformat_alt : Icons.font_download_off;
+                  if (b)
+                    return cupertino
+                        ? CupertinoIcons.textformat
+                        : Icons.font_download;
+                  return cupertino
+                      ? CupertinoIcons.textformat_alt
+                      : Icons.font_download_off;
                 },
                 pref: Prefs.hyperlegibleFont,
               ),
-
               SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
               SettingsSwitch(
                 title: t.settings.prefLabels.preferGreyscale,
                 subtitle: t.settings.prefDescriptions.preferGreyscale,
                 iconBuilder: (b) {
-                  return b ? Icons.monochrome_photos : Icons.enhance_photo_translate;
+                  return b
+                      ? Icons.monochrome_photos
+                      : Icons.enhance_photo_translate;
                 },
                 pref: Prefs.preferGreyscale,
               ),
@@ -309,23 +340,28 @@ class _SettingsPageState extends State<SettingsPage> {
                   if (!Prefs.hideFingerDrawingToggle.value) {
                     return t.settings.prefDescriptions.hideFingerDrawing.shown;
                   } else if (Prefs.editorFingerDrawing.value) {
-                    return t.settings.prefDescriptions.hideFingerDrawing.fixedOn;
+                    return t
+                        .settings.prefDescriptions.hideFingerDrawing.fixedOn;
                   } else {
-                    return t.settings.prefDescriptions.hideFingerDrawing.fixedOff;
+                    return t
+                        .settings.prefDescriptions.hideFingerDrawing.fixedOff;
                   }
                 }(),
                 icon: CupertinoIcons.hand_draw,
                 pref: Prefs.hideFingerDrawingToggle,
                 afterChange: (_) => setState(() {}),
               ),
-              
               SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
               SettingsSelection(
                 title: t.settings.prefLabels.editorToolbarAlignment,
-                subtitle: t.settings.axisDirections[_SettingsPrefs.editorToolbarAlignment.value],
+                subtitle: t.settings.axisDirections[
+                    _SettingsPrefs.editorToolbarAlignment.value],
                 iconBuilder: (num i) {
-                  if (i is! int || i >= materialDirectionIcons.length) return null;
-                  return cupertino ? cupertinoDirectionIcons[i] : materialDirectionIcons[i];
+                  if (i is! int || i >= materialDirectionIcons.length)
+                    return null;
+                  return cupertino
+                      ? cupertinoDirectionIcons[i]
+                      : materialDirectionIcons[i];
                 },
                 pref: _SettingsPrefs.editorToolbarAlignment,
                 optionsWidth: 60,
@@ -334,8 +370,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     ToggleButtonsOption(
                       direction.index,
                       Icon(
-                        cupertino ? cupertinoDirectionIcons[direction.index] : materialDirectionIcons[direction.index],
-                        semanticLabel: t.settings.axisDirections[direction.index],
+                        cupertino
+                            ? cupertinoDirectionIcons[direction.index]
+                            : materialDirectionIcons[direction.index],
+                        semanticLabel:
+                            t.settings.axisDirections[direction.index],
                       ),
                     ),
                 ],
@@ -363,8 +402,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.editorPromptRename,
                 subtitle: t.settings.prefDescriptions.editorPromptRename,
                 iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.keyboard : Icons.keyboard;
-                  return cupertino ? CupertinoIcons.keyboard_chevron_compact_down : Icons.keyboard_hide;
+                  if (b)
+                    return cupertino ? CupertinoIcons.keyboard : Icons.keyboard;
+                  return cupertino
+                      ? CupertinoIcons.keyboard_chevron_compact_down
+                      : Icons.keyboard_hide;
                 },
                 pref: Prefs.editorPromptRename,
               ),
@@ -373,7 +415,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.hideHomeBackgrounds,
                 iconBuilder: (b) {
                   if (b) return cupertino ? CupertinoIcons.photo : Icons.photo;
-                  return cupertino ? CupertinoIcons.photo_fill : Icons.photo_library;
+                  return cupertino
+                      ? CupertinoIcons.photo_fill
+                      : Icons.photo_library;
                 },
                 pref: Prefs.hideHomeBackgrounds,
               ),
@@ -397,7 +441,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 icon: Icons.numbers,
                 pref: Prefs.printPageIndicators,
               ),
-
               SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
               SettingsSelection(
                 title: t.settings.prefLabels.maxImageSize,
@@ -435,9 +478,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
                 },
               ),
-
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
-              if (requiresManualUpdates || Prefs.shouldCheckForUpdates.value != Prefs.shouldCheckForUpdates.defaultValue) ...[
+              if (requiresManualUpdates ||
+                  Prefs.shouldCheckForUpdates.value !=
+                      Prefs.shouldCheckForUpdates.defaultValue) ...[
                 SettingsSwitch(
                   title: t.settings.prefLabels.shouldCheckForUpdates,
                   icon: Icons.system_update,
@@ -449,7 +493,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   axis: CollapsibleAxis.vertical,
                   child: SettingsSwitch(
                     title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
-                    subtitle: t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
+                    subtitle:
+                        t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
                     icon: Icons.system_security_update_warning,
                     pref: Prefs.shouldAlwaysAlertForUpdates,
                   ),

@@ -26,7 +26,8 @@ void main() {
     test('PlainPref<StrokeProperties>', () async {
       final defaultValue = StrokeProperties();
       await testPref<StrokeProperties>(
-        prefBuilder: () => PlainPref('testPlainPrefStrokeProperties', defaultValue),
+        prefBuilder: () =>
+            PlainPref('testPlainPrefStrokeProperties', defaultValue),
         defaultValue: defaultValue,
         alteredValue: defaultValue.copy()
           ..size = StrokeProperties.defaultSize / 2,

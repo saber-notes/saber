@@ -25,7 +25,12 @@ class HomePage extends StatefulWidget {
   static const String browseSubpage = 'browse';
   static const String whiteboardSubpage = 'whiteboard';
   static const String settingsSubpage = 'settings';
-  static const List<String> subpages = [recentSubpage, browseSubpage, whiteboardSubpage, settingsSubpage];
+  static const List<String> subpages = [
+    recentSubpage,
+    browseSubpage,
+    whiteboardSubpage,
+    settingsSubpage
+  ];
 }
 
 class _HomePageState extends State<HomePage> {
@@ -54,7 +59,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // hide navbar in fullscreen whiteboard
-    if (widget.subpage == HomePage.whiteboardSubpage && DynamicMaterialApp.isFullscreen) {
+    if (widget.subpage == HomePage.whiteboardSubpage &&
+        DynamicMaterialApp.isFullscreen) {
       return body;
     }
 

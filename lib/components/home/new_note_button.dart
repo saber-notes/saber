@@ -21,7 +21,7 @@ class NewNoteButton extends StatefulWidget {
   State<NewNoteButton> createState() => _NewNoteButtonState();
 }
 
-class _NewNoteButtonState extends State<NewNoteButton>{
+class _NewNoteButtonState extends State<NewNoteButton> {
   final ValueNotifier<bool> isDialOpen = ValueNotifier(false);
 
   @override
@@ -34,11 +34,10 @@ class _NewNoteButtonState extends State<NewNoteButton>{
       spaceBetweenChildren: 4,
       dialRoot: (ctx, open, toggleChildren) {
         return FloatingActionButton(
-          shape: widget.cupertino ? const CircleBorder() : null,
-          onPressed: toggleChildren,
-          tooltip: t.home.tooltips.newNote,
-          child: const Icon(Icons.add)
-        );
+            shape: widget.cupertino ? const CircleBorder() : null,
+            onPressed: toggleChildren,
+            tooltip: t.home.tooltips.newNote,
+            child: const Icon(Icons.add));
       },
       children: [
         SpeedDialChild(
@@ -47,8 +46,9 @@ class _NewNoteButtonState extends State<NewNoteButton>{
           onTap: () async {
             if (widget.path == null) {
               context.push(RoutePaths.edit);
-            } else{
-              final newFilePath = await FileManager.newFilePath('${widget.path}/');
+            } else {
+              final newFilePath =
+                  await FileManager.newFilePath('${widget.path}/');
               if (!mounted) return;
               context.push(RoutePaths.editFilePath(newFilePath));
             }
@@ -69,7 +69,9 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             final fileName = result.files.single.name;
             if (filePath == null) return;
 
-            if (filePath.endsWith('.sbn') || filePath.endsWith('.sbn2') || filePath.endsWith('.sba')) {
+            if (filePath.endsWith('.sbn') ||
+                filePath.endsWith('.sbn2') ||
+                filePath.endsWith('.sba')) {
               final path = await FileManager.importFile(
                 filePath,
                 '${widget.path ?? ''}/',
@@ -81,9 +83,11 @@ class _NewNoteButtonState extends State<NewNoteButton>{
             } else if (filePath.endsWith('.pdf')) {
               if (!Editor.canRasterPdf) return;
               if (!mounted) return;
-            
-              final fileNameWithoutExtension = fileName.substring(0, fileName.length - '.pdf'.length);
-              final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
+
+              final fileNameWithoutExtension =
+                  fileName.substring(0, fileName.length - '.pdf'.length);
+              final sbnFilePath =
+                  await FileManager.suffixFilePathToMakeItUnique(
                 '${widget.path ?? ''}/$fileNameWithoutExtension',
               );
               if (!mounted) return;

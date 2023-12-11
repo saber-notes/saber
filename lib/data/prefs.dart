@@ -26,10 +26,10 @@ abstract class Prefs {
   static bool testingMode = false;
 
   /// The current Android version.
-  /// 
+  ///
   /// If the user is on Android 9 or older, we can't use
   /// platform views (e.g. ads) performantly.
-  /// 
+  ///
   /// If the device is not an Android device, this will be 9999.
   static int androidVersion = 9999;
 
@@ -44,8 +44,10 @@ abstract class Prefs {
   static late final EncPref<bool> allowInsecureConnections;
   static late final EncPref<String> url;
   static late final EncPref<String> username;
+
   /// the password used to login to Nextcloud
   static late final EncPref<String> ncPassword;
+
   /// the password used to encrypt/decrypt notes
   static late final EncPref<String> encPassword;
 
@@ -55,9 +57,11 @@ abstract class Prefs {
   static late final PlainPref<Uint8List?> pfp;
 
   static late final PlainPref<ThemeMode> appTheme;
+
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
   static late final PlainPref<TargetPlatform> platform;
   static late final PlainPref<LayoutSize> layoutSize;
+
   /// The accent color of the app. If 0, the system accent color will be used.
   static late final PlainPref<int> accentColor;
   static late final PlainPref<bool> hyperlegibleFont;
@@ -68,7 +72,8 @@ abstract class Prefs {
   static late final PlainPref<bool> editorAutoInvert;
   static late final PlainPref<bool> editorOpaqueBackgrounds;
   static late final PlainPref<bool> preferGreyscale;
-  @Deprecated('Straight line detection now only happens with ShapePen (and happens immediately)')
+  @Deprecated(
+      'Straight line detection now only happens with ShapePen (and happens immediately)')
   static late final PlainPref<int> editorStraightenDelay;
   static late final PlainPref<bool> editorPromptRename;
   static late final PlainPref<int> autosaveDelay;
@@ -91,8 +96,7 @@ abstract class Prefs {
   static late final PlainPref<int> recentColorsLength;
 
   static late final PlainPref<ToolId> lastTool;
-  static late final PlainPref<StrokeProperties>
-      lastFountainPenProperties,
+  static late final PlainPref<StrokeProperties> lastFountainPenProperties,
       lastBallpointPenProperties,
       lastHighlighterProperties,
       lastPencilProperties,
@@ -109,14 +113,18 @@ abstract class Prefs {
 
   /// File paths that need to be uploaded to Nextcloud
   static late final PlainPref<Queue<String>> fileSyncUploadQueue;
+
   /// File paths that have been deleted locally
   static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
+
   /// File paths that are known to be corrupted on Nextcloud
   static late final PlainPref<Set<String>> fileSyncCorruptFiles;
+
   /// Set when we want to resync everything.
   /// Files on the server older than this date will be
   /// reuploaded with the local version.
   static late final PlainPref<DateTime> fileSyncResyncEverythingDate;
+
   /// The last storage quota that was fetched from Nextcloud
   static late final PlainPref<Quota?> lastStorageQuota;
 
@@ -128,7 +136,8 @@ abstract class Prefs {
   static void init() {
     final disableAdsDefault = androidVersion < 10;
     if (disableAdsDefault) {
-      log.info('Disabling ads because Android version ($androidVersion) is < 10');
+      log.info(
+          'Disabling ads because Android version ($androidVersion) is < 10');
     }
     disableAds = PlainPref('disableAds', disableAdsDefault);
 
@@ -149,14 +158,18 @@ abstract class Prefs {
     accentColor = PlainPref('accentColor', 0);
     hyperlegibleFont = PlainPref('hyperlegibleFont', false);
 
-    editorToolbarAlignment = PlainPref('editorToolbarAlignment', AxisDirection.down);
-    editorToolbarShowInFullscreen = PlainPref('editorToolbarShowInFullscreen', true);
+    editorToolbarAlignment =
+        PlainPref('editorToolbarAlignment', AxisDirection.down);
+    editorToolbarShowInFullscreen =
+        PlainPref('editorToolbarShowInFullscreen', true);
     editorFingerDrawing = PlainPref('editorFingerDrawing', true);
-    editorAutoInvert = PlainPref('editorAutoInvert', true, historicalKeys: const ['editorAutoDarken']);
+    editorAutoInvert = PlainPref('editorAutoInvert', true,
+        historicalKeys: const ['editorAutoDarken']);
     editorOpaqueBackgrounds = PlainPref('editorOpaqueBackgrounds', true);
     preferGreyscale = PlainPref('preferGreyscale', false);
     // ignore: deprecated_member_use_from_same_package
-    editorStraightenDelay = PlainPref('__editorStraightenDelay', 500, deprecatedKeys: const ['editorStraightenDelay']);
+    editorStraightenDelay = PlainPref('__editorStraightenDelay', 500,
+        deprecatedKeys: const ['editorStraightenDelay']);
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);
     autosaveDelay = PlainPref('autosaveDelay', 10000);
     shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
@@ -172,45 +185,61 @@ abstract class Prefs {
     hideFingerDrawingToggle = PlainPref('hideFingerDrawingToggle', false);
 
     recentColorsChronological = PlainPref('recentColorsChronological', []);
-    recentColorsPositioned = PlainPref('recentColorsPositioned', [], historicalKeys: const ['recentColors']);
+    recentColorsPositioned = PlainPref('recentColorsPositioned', [],
+        historicalKeys: const ['recentColors']);
     pinnedColors = PlainPref('pinnedColors', []);
     recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
     recentColorsLength = PlainPref('recentColorsLength', 5)
-        ..addListener(() {
-          // truncate if needed
-          while (recentColorsLength.value < recentColorsPositioned.value.length) {
-            // remove oldest color
-            final removed = recentColorsChronological.value.removeAt(0);
-            recentColorsPositioned.value.remove(removed);
-          }
-        });
+      ..addListener(() {
+        // truncate if needed
+        while (recentColorsLength.value < recentColorsPositioned.value.length) {
+          // remove oldest color
+          final removed = recentColorsChronological.value.removeAt(0);
+          recentColorsPositioned.value.remove(removed);
+        }
+      });
 
     lastTool = PlainPref('lastTool', ToolId.fountainPen);
-    lastFountainPenProperties = PlainPref('lastFountainPenProperties', StrokeProperties.fountainPen, deprecatedKeys: const ['lastPenColor']);
-    lastBallpointPenProperties = PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
-    lastHighlighterProperties = PlainPref('lastHighlighterProperties', StrokeProperties.highlighter, deprecatedKeys: const ['lastHighlighterColor']);
-    lastPencilProperties = PlainPref('lastPencilProperties', StrokeProperties.pencil);
-    lastShapePenProperties = PlainPref('lastShapePenProperties', StrokeProperties.shapePen);
+    lastFountainPenProperties = PlainPref(
+        'lastFountainPenProperties', StrokeProperties.fountainPen,
+        deprecatedKeys: const ['lastPenColor']);
+    lastBallpointPenProperties =
+        PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
+    lastHighlighterProperties = PlainPref(
+        'lastHighlighterProperties', StrokeProperties.highlighter,
+        deprecatedKeys: const ['lastHighlighterColor']);
+    lastPencilProperties =
+        PlainPref('lastPencilProperties', StrokeProperties.pencil);
+    lastShapePenProperties =
+        PlainPref('lastShapePenProperties', StrokeProperties.shapePen);
 
-    lastBackgroundPattern = PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
+    lastBackgroundPattern =
+        PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
     lastLineHeight = PlainPref('lastLineHeight', 40);
     lastZoomLock = PlainPref('lastZoomLock', false);
-    lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false, historicalKeys: const ['lastPanLock']);
+    lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
+        historicalKeys: const ['lastPanLock']);
     lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
-    hasDraggedSizeIndicatorBefore = PlainPref('hasDraggedSizeIndicatorBefore', false);
+    hasDraggedSizeIndicatorBefore =
+        PlainPref('hasDraggedSizeIndicatorBefore', false);
 
-    recentFiles = PlainPref('recentFiles', [], historicalKeys: const ['recentlyAccessed']);
+    recentFiles = PlainPref('recentFiles', [],
+        historicalKeys: const ['recentlyAccessed']);
 
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
     // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
-    fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate', DateTime.parse('2023-12-10T10:06:31.000Z'));
+    fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
+        DateTime.parse('2023-12-10T10:06:31.000Z'));
     lastStorageQuota = PlainPref('lastStorageQuota', null);
 
-    shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
-    shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates', (kDebugMode || FlavorConfig.dirty) ? true : false, deprecatedKeys: const ['updatesToIgnore']);
+    shouldCheckForUpdates = PlainPref('shouldCheckForUpdates',
+        FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
+    shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates',
+        (kDebugMode || FlavorConfig.dirty) ? true : false,
+        deprecatedKeys: const ['updatesToIgnore']);
 
     locale = PlainPref('locale', '');
 
@@ -229,13 +258,16 @@ abstract class Prefs {
     username.value = await client.getUsername();
   }
 
-  static bool get isDesktop => Platform.isLinux || Platform.isWindows || Platform.isMacOS;
+  static bool get isDesktop =>
+      Platform.isLinux || Platform.isWindows || Platform.isMacOS;
 }
 
 abstract class IPref<T> extends ValueNotifier<T> {
   final String key;
+
   /// The keys that were used in the past for this Pref. If one of these keys is found, the value will be migrated to the current key.
   final List<String> historicalKeys;
+
   /// The keys that were used in the past for a similar Pref. If one of these keys is found, it will be deleted.
   final List<String> deprecatedKeys;
 
@@ -247,10 +279,12 @@ abstract class IPref<T> extends ValueNotifier<T> {
   @protected
   bool _saved = true;
 
-  IPref(this.key, this.defaultValue, {
+  IPref(
+    this.key,
+    this.defaultValue, {
     List<String>? historicalKeys,
     List<String>? deprecatedKeys,
-  }) : historicalKeys = historicalKeys ?? [],
+  })  : historicalKeys = historicalKeys ?? [],
         deprecatedKeys = deprecatedKeys ?? [],
         super(defaultValue) {
     if (Prefs.testingMode) {
@@ -285,6 +319,7 @@ abstract class IPref<T> extends ValueNotifier<T> {
     }
     return super.value;
   }
+
   bool get loaded => _loaded;
   bool get saved => _saved;
 
@@ -309,22 +344,30 @@ abstract class IPref<T> extends ValueNotifier<T> {
   @override
   void notifyListeners() => super.notifyListeners();
 }
+
 class PlainPref<T> extends IPref<T> {
   SharedPreferences? _prefs;
 
-  PlainPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
+  PlainPref(super.key, super.defaultValue,
+      {super.historicalKeys, super.deprecatedKeys}) {
     // Accepted types
-    assert(
-      T == bool || T == int || T == double || T == String
-        || T == typeOf<Uint8List?>()
-        || T == typeOf<List<String>>() || T == typeOf<Set<String>>()
-        || T == typeOf<Queue<String>>()
-        || T == StrokeProperties || T == typeOf<Quota?>()
-        || T == AxisDirection || T == ThemeMode || T == TargetPlatform
-        || T == LayoutSize
-        || T == ToolId || T == CanvasBackgroundPattern
-        || T == DateTime
-    );
+    assert(T == bool ||
+        T == int ||
+        T == double ||
+        T == String ||
+        T == typeOf<Uint8List?>() ||
+        T == typeOf<List<String>>() ||
+        T == typeOf<Set<String>>() ||
+        T == typeOf<Queue<String>>() ||
+        T == StrokeProperties ||
+        T == typeOf<Quota?>() ||
+        T == AxisDirection ||
+        T == ThemeMode ||
+        T == TargetPlatform ||
+        T == LayoutSize ||
+        T == ToolId ||
+        T == CanvasBackgroundPattern ||
+        T == DateTime);
   }
 
   @override
@@ -351,6 +394,7 @@ class PlainPref<T> extends IPref<T> {
 
     return null;
   }
+
   @override
   Future<void> _afterLoad() async {
     _prefs = null;
@@ -378,9 +422,11 @@ class PlainPref<T> extends IPref<T> {
       } else if (T == typeOf<List<String>>()) {
         return await _prefs!.setStringList(key, value as List<String>);
       } else if (T == typeOf<Set<String>>()) {
-        return await _prefs!.setStringList(key, (value as Set<String>).toList());
+        return await _prefs!
+            .setStringList(key, (value as Set<String>).toList());
       } else if (T == typeOf<Queue<String>>()) {
-        return await _prefs!.setStringList(key, (value as Queue<String>).toList());
+        return await _prefs!
+            .setStringList(key, (value as Queue<String>).toList());
       } else if (T == StrokeProperties) {
         return await _prefs!.setString(key, jsonEncode(value));
       } else if (T == typeOf<Quota?>()) {
@@ -388,7 +434,8 @@ class PlainPref<T> extends IPref<T> {
         if (quota == null) {
           return await _prefs!.remove(key);
         } else {
-          return await _prefs!.setStringList(key, [quota.used.toString(), quota.total.toString()]);
+          return await _prefs!.setStringList(
+              key, [quota.used.toString(), quota.total.toString()]);
         }
       } else if (T == AxisDirection) {
         return await _prefs!.setInt(key, (value as AxisDirection).index);
@@ -401,7 +448,8 @@ class PlainPref<T> extends IPref<T> {
       } else if (T == ToolId) {
         return await _prefs!.setString(key, (value as ToolId).id);
       } else if (T == CanvasBackgroundPattern) {
-        return await _prefs!.setString(key, (value as CanvasBackgroundPattern).name);
+        return await _prefs!
+            .setString(key, (value as CanvasBackgroundPattern).name);
       } else if (T == DateTime) {
         final date = value as DateTime;
         if (date.millisecondsSinceEpoch == 0) {
@@ -434,7 +482,8 @@ class PlainPref<T> extends IPref<T> {
         List? list = _prefs!.getStringList(key);
         return list != null ? Queue<String>.from(list) as T : null;
       } else if (T == StrokeProperties) {
-        return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!)) as T?;
+        return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!))
+            as T?;
       } else if (T == typeOf<Quota?>()) {
         List<String>? list = _prefs!.getStringList(key);
         if (list == null || list.length != 2) return null;
@@ -445,7 +494,8 @@ class PlainPref<T> extends IPref<T> {
           'used': used,
           'total': total,
           'relative': used / total * 100,
-          'quota': total, // I don't know what this [quota] field is for, but I don't use it
+          'quota':
+              total, // I don't know what this [quota] field is for, but I don't use it
         }) as T;
       } else if (T == AxisDirection) {
         final index = _prefs!.getInt(key);
@@ -466,14 +516,13 @@ class PlainPref<T> extends IPref<T> {
         String id = _prefs!.getString(key)!;
         return ToolId.values
             .cast<ToolId?>()
-            .firstWhere((toolId) => toolId?.id == id, orElse: () => null)
-            as T?;
+            .firstWhere((toolId) => toolId?.id == id, orElse: () => null) as T?;
       } else if (T == CanvasBackgroundPattern) {
         String name = _prefs!.getString(key)!;
         return CanvasBackgroundPattern.values
             .cast<CanvasBackgroundPattern?>()
-            .firstWhere((pattern) => pattern!.name == name, orElse: () => null)
-            as T?;
+            .firstWhere((pattern) => pattern!.name == name,
+                orElse: () => null) as T?;
       } else if (T == DateTime) {
         String? iso8601 = _prefs!.getString(key);
         if (iso8601 == null) return null;
@@ -497,7 +546,8 @@ class PlainPref<T> extends IPref<T> {
 class EncPref<T> extends IPref<T> {
   FlutterSecureStorage? _storage;
 
-  EncPref(super.key, super.defaultValue, {super.historicalKeys, super.deprecatedKeys}) {
+  EncPref(super.key, super.defaultValue,
+      {super.historicalKeys, super.deprecatedKeys}) {
     assert(T == String || T == typeOf<List<String>>() || T == bool);
   }
 
@@ -525,6 +575,7 @@ class EncPref<T> extends IPref<T> {
 
     return null;
   }
+
   @override
   Future<void> _afterLoad() async {
     _storage = null;
@@ -535,8 +586,10 @@ class EncPref<T> extends IPref<T> {
     _saved = false;
     try {
       _storage ??= const FlutterSecureStorage();
-      if (T == String) return await _storage!.write(key: key, value: value as String);
-      if (T == bool) return await _storage!.write(key: key, value: jsonEncode(value));
+      if (T == String)
+        return await _storage!.write(key: key, value: value as String);
+      if (T == bool)
+        return await _storage!.write(key: key, value: jsonEncode(value));
       return await _storage!.write(key: key, value: jsonEncode(value));
     } finally {
       _saved = true;

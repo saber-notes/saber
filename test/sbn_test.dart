@@ -32,14 +32,14 @@ void main() {
     FileManager.init();
 
     setUpAll(() => Future.wait([
-      InvertShader.init(),
-      PencilShader.init(),
-      GoogleFonts.pendingFonts([
-        GoogleFonts.neucha(),
-        GoogleFonts.dekko(),
-        GoogleFonts.firaMono(),
-      ]),
-    ]));
+          InvertShader.init(),
+          PencilShader.init(),
+          GoogleFonts.pendingFonts([
+            GoogleFonts.neucha(),
+            GoogleFonts.dekko(),
+            GoogleFonts.firaMono(),
+          ]),
+        ]));
 
     final sbnExamples = Directory('test/sbn_examples/')
         .listSync()
@@ -84,9 +84,9 @@ void main() {
 
         testWidgets('(Light)', (tester) async {
           await tester.runAsync(() => _precacheImages(
-            context: tester.binding.rootElement!,
-            page: page,
-          ));
+                context: tester.binding.rootElement!,
+                page: page,
+              ));
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.light,
             path: path,
@@ -103,9 +103,9 @@ void main() {
 
         testWidgets('(Dark)', (tester) async {
           await tester.runAsync(() => _precacheImages(
-            context: tester.binding.rootElement!,
-            page: page,
-          ));
+                context: tester.binding.rootElement!,
+                page: page,
+              ));
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.dark,
             path: path,
@@ -135,7 +135,8 @@ void main() {
 
           // Convert PDF to PNG with Ghostscript
           final shell = Shell(verbose: false);
-          await tester.runAsync(() => shell.run('gs -sDEVICE=pngalpha -o ${pngFile.path} ${pdfFile.path}'));
+          await tester.runAsync(() => shell
+              .run('gs -sDEVICE=pngalpha -o ${pngFile.path} ${pdfFile.path}'));
 
           // Load PNG from disk
           final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
@@ -166,22 +167,23 @@ void main() {
 
       // copy the file to the temporary directory
       await tester.runAsync(() => Future.wait([
-        FileManager.getFile('/$path')
-          .create(recursive: true)
-          .then((file) => File(path).copy(file.path)),
-        FileManager.getFile('/$path.0')
-          .create(recursive: true)
-          .then((file) => File('$path.0').copy(file.path)),
-      ]));
+            FileManager.getFile('/$path')
+                .create(recursive: true)
+                .then((file) => File(path).copy(file.path)),
+            FileManager.getFile('/$path.0')
+                .create(recursive: true)
+                .then((file) => File('$path.0').copy(file.path)),
+          ]));
 
-      final coreInfo = await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
-        '/$pathWithoutExtension',
-      ));
+      final coreInfo =
+          await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
+                '/$pathWithoutExtension',
+              ));
       if (coreInfo == null) fail('Failed to load core info');
 
       final sba = await tester.runAsync(() => coreInfo.saveToSba(
-        currentPageIndex: null,
-      ));
+            currentPageIndex: null,
+          ));
       if (sba == null) fail('Failed to save SBA');
 
       final sbaFile = File('$pathWithoutExtension.sba');
@@ -189,20 +191,21 @@ void main() {
       addTearDown(sbaFile.delete);
 
       final importedPath = await tester.runAsync(() => FileManager.importFile(
-        sbaFile.path,
-        null,
-      ));
+            sbaFile.path,
+            null,
+          ));
       if (importedPath == null) fail('Failed to import SBA');
 
-      final importedCoreInfo = await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
-        importedPath,
-      ));
+      final importedCoreInfo =
+          await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
+                importedPath,
+              ));
       if (importedCoreInfo == null) fail('Failed to load imported core info');
 
       await tester.runAsync(() => _precacheImages(
-        context: tester.binding.rootElement!,
-        page: importedCoreInfo.pages.first,
-      ));
+            context: tester.binding.rootElement!,
+            page: importedCoreInfo.pages.first,
+          ));
       await tester.pumpWidget(_buildCanvas(
         brightness: Brightness.light,
         path: importedPath,
@@ -220,7 +223,8 @@ void main() {
 }
 
 /// Provides a [BuildContext] with the necessary inherited widgets
-Future<BuildContext> _getBuildContext(WidgetTester tester, Size pageSize) async {
+Future<BuildContext> _getBuildContext(
+    WidgetTester tester, Size pageSize) async {
   final completer = Completer<BuildContext>();
 
   await tester.pumpWidget(TranslationProvider(
@@ -292,20 +296,20 @@ Future<void> _precacheImages({
     for (final image in page.images)
       if (image is PngEditorImage)
         if (image.imageProvider is FileImage)
-          (image.imageProvider as FileImage).file.readAsBytes()
-            .then((bytes) => image.imageProvider = MemoryImage(bytes)),
+          (image.imageProvider as FileImage)
+              .file
+              .readAsBytes()
+              .then((bytes) => image.imageProvider = MemoryImage(bytes)),
     if (backgroundImage is PngEditorImage)
       if (backgroundImage.imageProvider is FileImage)
-        (backgroundImage.imageProvider as FileImage).file.readAsBytes()
-          .then((bytes) => (page.backgroundImage as PngEditorImage)
-              .imageProvider = MemoryImage(bytes)),
+        (backgroundImage.imageProvider as FileImage).file.readAsBytes().then(
+            (bytes) => (page.backgroundImage as PngEditorImage).imageProvider =
+                MemoryImage(bytes)),
   ]);
 
   // Precache images
   await Future.wait([
-    for (final image in page.images)
-      image.precache(context),
-    if (page.backgroundImage != null)
-      page.backgroundImage!.precache(context),
+    for (final image in page.images) image.precache(context),
+    if (page.backgroundImage != null) page.backgroundImage!.precache(context),
   ]);
 }

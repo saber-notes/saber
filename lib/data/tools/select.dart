@@ -69,13 +69,13 @@ class Select extends Tool {
   /// Adds the indices of any [strokes] that are inside the selection area
   /// to [selectResult.indices].
   void onDragEnd(List<Stroke> strokes, List<EditorImage> images) {
-
     selectResult.path.close();
     doneSelecting = true;
 
     for (int i = 0; i < strokes.length; i++) {
       final stroke = strokes[i];
-      final percentInside = polygonPercentInside(selectResult.path, stroke.polygon);
+      final percentInside =
+          polygonPercentInside(selectResult.path, stroke.polygon);
       if (percentInside > minPercentInside) {
         selectResult.strokes.add(stroke);
       }
@@ -110,6 +110,7 @@ class Select extends Tool {
     // times 1.25 because the grid is not very accurate
     return pointsInside / (gridSize * gridSize) * 1.25;
   }
+
   static double polygonPercentInside(Path selection, List<Offset> polygon) {
     int pointsInside = 0;
     for (Offset point in polygon) {

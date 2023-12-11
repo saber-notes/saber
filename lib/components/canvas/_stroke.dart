@@ -41,10 +41,12 @@ class Stroke {
     if (_polygonNeedsUpdating) _updatePolygon();
     return _polygon;
   }
+
   Path get path {
     if (_polygonNeedsUpdating) _updatePolygon();
     return _path;
   }
+
   void _updatePolygon() {
     _polygon = _getPolygon();
     _path = Path()..addPolygon(_polygon, true);
@@ -86,15 +88,15 @@ class Stroke {
     final Iterable<Point> points;
     if (fileVersion >= 13) {
       points = pointsJson.map((point) => PointExtensions.fromBsonBinary(
-        json: point,
-        offset: offset,
-      ));
+            json: point,
+            offset: offset,
+          ));
     } else {
       // ignore: deprecated_member_use_from_same_package
       points = pointsJson.map((point) => PointExtensions.fromJson(
-        json: Map<String, dynamic>.from(point),
-        offset: offset,
-      ));
+            json: Map<String, dynamic>.from(point),
+            offset: offset,
+          ));
     }
 
     return Stroke(
@@ -116,7 +118,7 @@ class Stroke {
     }..addAll(strokeProperties.toJson());
   }
 
-  void addPoint(Offset point, [ double? pressure ]) {
+  void addPoint(Offset point, [double? pressure]) {
     if (!strokeProperties.pressureEnabled) pressure = null;
 
     if (pressure != null) strokeProperties.simulatePressure = false;
@@ -140,11 +142,12 @@ class Stroke {
   /// threshold multiplied by the stroke's size
   /// will be counted as duplicates.
   static const double _optimisePointsThreshold = 0.1;
+
   /// Removes points that are too close together. See [_optimisePointsThreshold].
-  /// 
+  ///
   /// This function is idempotent, so running it multiple times
   /// will not change the result.
-  /// 
+  ///
   /// This function does not change [_polygonNeedsUpdating].
   void optimisePoints({double thresholdMultiplier = _optimisePointsThreshold}) {
     if (points.length <= 3) return;
@@ -165,13 +168,13 @@ class Stroke {
   }
 
   List<Offset> _getPolygon() {
-    final simulatePressure = strokeProperties.simulatePressure && strokeProperties.pressureEnabled;
+    final simulatePressure =
+        strokeProperties.simulatePressure && strokeProperties.pressureEnabled;
     final rememberSimulatedPressure = simulatePressure && isComplete;
 
     final polygon = getStroke(
       points,
       isComplete: isComplete,
-
       size: strokeProperties.size,
       thinning: strokeProperties.thinning,
       smoothing: strokeProperties.smoothing,
@@ -182,9 +185,7 @@ class Stroke {
       capEnd: strokeProperties.capEnd,
       simulatePressure: simulatePressure,
       rememberSimulatedPressure: rememberSimulatedPressure,
-    )
-      .map((Point point) => Offset(point.x, point.y))
-      .toList(growable: false);
+    ).map((point) => Offset(point.x, point.y)).toList(growable: false);
 
     if (rememberSimulatedPressure) {
       strokeProperties.simulatePressure = false;
@@ -213,7 +214,7 @@ class Stroke {
   }
 
   double get maxY {
-    return points.isEmpty ? 0 : points.map((Point point) => point.y).reduce(max);
+    return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
   }
 
   static num sqrDistBetweenPoints(Point p1, Point p2) {
@@ -228,8 +229,8 @@ class Stroke {
   }
 
   Stroke copy() => Stroke(
-    strokeProperties: strokeProperties.copy(),
-    pageIndex: pageIndex,
-    penType: penType,
-  )..points.addAll(points);
+        strokeProperties: strokeProperties.copy(),
+        pageIndex: pageIndex,
+        penType: penType,
+      )..points.addAll(points);
 }

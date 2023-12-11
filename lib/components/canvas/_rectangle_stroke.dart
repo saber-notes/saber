@@ -50,6 +50,7 @@ class RectangleStroke extends Stroke {
   bool _polygonNeedsUpdating = true;
   late List<Offset> _polygon = const [];
   late Path _path = Path();
+
   /// A list of points that form the
   /// rectangle's perimeter.
   /// Each side has 25 points.
@@ -58,28 +59,35 @@ class RectangleStroke extends Stroke {
     if (_polygonNeedsUpdating) _updatePolygon();
     return _polygon;
   }
+
   @override
   Path get path {
     if (_polygonNeedsUpdating) _updatePolygon();
     return _path;
   }
+
   void _updatePolygon() {
     _polygon = _getPolygon();
     _path = Path()..addPolygon(_polygon, true);
     _polygonNeedsUpdating = false;
   }
+
   List<Offset> _getPolygon() {
     final polygon = <Offset>[];
-    for (int i = 0; i < 25; ++i) { // left side
+    for (int i = 0; i < 25; ++i) {
+      // left side
       polygon.add(Offset(rect.left, rect.top + rect.height * i / 25));
     }
-    for (int i = 0; i < 25; ++i) { // bottom side
+    for (int i = 0; i < 25; ++i) {
+      // bottom side
       polygon.add(Offset(rect.left + rect.width * i / 25, rect.bottom));
     }
-    for (int i = 0; i < 25; ++i) { // right side
+    for (int i = 0; i < 25; ++i) {
+      // right side
       polygon.add(Offset(rect.right, rect.bottom - rect.height * i / 25));
     }
-    for (int i = 0; i < 25; ++i) { // top side
+    for (int i = 0; i < 25; ++i) {
+      // top side
       polygon.add(Offset(rect.right - rect.width * i / 25, rect.top));
     }
     return polygon;
@@ -135,9 +143,9 @@ class RectangleStroke extends Stroke {
 
   @override
   RectangleStroke copy() => RectangleStroke(
-    strokeProperties: strokeProperties.copy(),
-    pageIndex: pageIndex,
-    penType: penType,
-    rect: rect,
-  );
+        strokeProperties: strokeProperties.copy(),
+        pageIndex: pageIndex,
+        penType: penType,
+        rect: rect,
+      );
 }

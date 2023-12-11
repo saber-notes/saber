@@ -20,8 +20,8 @@ class Pen extends Tool {
     required this.toolId,
   });
 
-  Pen.fountainPen() :
-        name = t.editor.pens.fountainPen,
+  Pen.fountainPen()
+      : name = t.editor.pens.fountainPen,
         sizeMin = 1,
         sizeMax = 25,
         sizeStep = 1,
@@ -29,8 +29,8 @@ class Pen extends Tool {
         strokeProperties = Prefs.lastFountainPenProperties.value,
         toolId = ToolId.fountainPen;
 
-  Pen.ballpointPen() :
-        name = t.editor.pens.ballpointPen,
+  Pen.ballpointPen()
+      : name = t.editor.pens.ballpointPen,
         sizeMin = 1,
         sizeMax = 25,
         sizeStep = 1,
@@ -56,8 +56,7 @@ class Pen extends Tool {
   static set currentPen(Pen currentPen) {
     assert(currentPen is! Highlighter,
         'Use Highlighter.currentHighlighter instead');
-    assert(currentPen is! Pencil,
-        'Use Pencil.currentPencil instead');
+    assert(currentPen is! Pencil, 'Use Pencil.currentPencil instead');
     _currentPen = currentPen;
   }
 

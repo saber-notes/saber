@@ -27,6 +27,7 @@ class BrowsePage extends StatefulWidget {
   @override
   State<BrowsePage> createState() => _BrowsePageState();
 }
+
 class _BrowsePageState extends State<BrowsePage> {
   DirectoryChildren? children;
 
@@ -40,11 +41,13 @@ class _BrowsePageState extends State<BrowsePage> {
     path = widget.initialPath;
 
     findChildrenOfPath();
-    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
+    fileWriteSubscription =
+        FileManager.fileWriteStream.stream.listen(fileWriteListener);
     selectedFiles.addListener(_setState);
 
     super.initState();
   }
+
   @override
   void dispose() {
     selectedFiles.removeListener(_setState);
@@ -96,8 +99,8 @@ class _BrowsePageState extends State<BrowsePage> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS
-        || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
     String title = t.home.titles.browse;
     if (path?.isNotEmpty ?? false) {
@@ -130,9 +133,7 @@ class _BrowsePageState extends State<BrowsePage> {
                   ),
                   centerTitle: cupertino,
                   titlePadding: EdgeInsetsDirectional.only(
-                    start: cupertino ? 0 : 16,
-                    bottom: 16
-                  ),
+                      start: cupertino ? 0 : 16, bottom: 16),
                 ),
                 actions: const [
                   SyncingButton(),
@@ -154,7 +155,8 @@ class _BrowsePageState extends State<BrowsePage> {
               },
               isFolderEmpty: (String folderName) async {
                 final folderPath = '${path ?? ''}/$folderName';
-                final children = await FileManager.getChildrenOfDirectory(folderPath);
+                final children =
+                    await FileManager.getChildrenOfDirectory(folderPath);
                 return children?.isEmpty ?? true;
               },
               deleteFolder: (String folderName) async {
@@ -167,7 +169,6 @@ class _BrowsePageState extends State<BrowsePage> {
                   directoryPath,
               ],
             ),
-
             if (children == null) ...[
               // loading
             ] else if (children!.isEmpty) ...[
@@ -199,37 +200,41 @@ class _BrowsePageState extends State<BrowsePage> {
         cupertino: cupertino,
         path: path,
       ),
-      persistentFooterButtons: selectedFiles.value.isEmpty ? null : [
-        Collapsible(
-          axis: CollapsibleAxis.vertical,
-          collapsed: selectedFiles.value.length != 1,
-          child: RenameNoteButton(
-            existingPath: selectedFiles.value.isEmpty
-              ? ''
-              : selectedFiles.value.first,
-          )
-        ),
-        MoveNoteButton(
-          filesToMove: selectedFiles.value,
-        ),
-        IconButton(
-          padding: EdgeInsets.zero,
-          tooltip: t.home.deleteNote,
-          onPressed: () async {
-            await Future.wait([
-              for (String filePath in selectedFiles.value)
-                FileManager.doesFileExist(filePath + Editor.extensionOldJson)
-                  .then((oldExtension) => FileManager.deleteFile(
-                    filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
+      persistentFooterButtons: selectedFiles.value.isEmpty
+          ? null
+          : [
+              Collapsible(
+                  axis: CollapsibleAxis.vertical,
+                  collapsed: selectedFiles.value.length != 1,
+                  child: RenameNoteButton(
+                    existingPath: selectedFiles.value.isEmpty
+                        ? ''
+                        : selectedFiles.value.first,
                   )),
-            ]);
-          },
-          icon: const Icon(Icons.delete_forever),
-        ),
-        ExportNoteButton(
-          selectedFiles: selectedFiles.value,
-        ),
-      ],
+              MoveNoteButton(
+                filesToMove: selectedFiles.value,
+              ),
+              IconButton(
+                padding: EdgeInsets.zero,
+                tooltip: t.home.deleteNote,
+                onPressed: () async {
+                  await Future.wait([
+                    for (String filePath in selectedFiles.value)
+                      FileManager.doesFileExist(
+                              filePath + Editor.extensionOldJson)
+                          .then((oldExtension) => FileManager.deleteFile(
+                              filePath +
+                                  (oldExtension
+                                      ? Editor.extensionOldJson
+                                      : Editor.extension))),
+                  ]);
+                },
+                icon: const Icon(Icons.delete_forever),
+              ),
+              ExportNoteButton(
+                selectedFiles: selectedFiles.value,
+              ),
+            ],
     );
   }
 }

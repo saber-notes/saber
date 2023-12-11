@@ -96,7 +96,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     if (!valid) return;
 
     if (_usingCustomServer) {
-      _customServerController.text = LoginInputGroup.prefixUrlWithHttps(_customServerController.text);
+      _customServerController.text =
+          LoginInputGroup.prefixUrlWithHttps(_customServerController.text);
     }
 
     try {
@@ -136,8 +137,10 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
     final username = Prefs.username.value;
 
     if (url.isNotEmpty) {
-      if (_customServerController.text.isEmpty) _customServerController.text = url;
-      if (url != NextcloudClientExtension.defaultNextcloudUri.toString()) _toggleCustomServer(true);
+      if (_customServerController.text.isEmpty)
+        _customServerController.text = url;
+      if (url != NextcloudClientExtension.defaultNextcloudUri.toString())
+        _toggleCustomServer(true);
     }
     if (_usernameController.text.isEmpty) {
       _usernameController.text = username;
@@ -181,41 +184,41 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 ),
               ),
               const SizedBox(height: 8),
-
               Collapsible(
-                collapsed: !_usingCustomServer,
-                axis: CollapsibleAxis.vertical,
-                alignment: Alignment.topCenter,
-                fade: true,
-                maintainState: true,
-                child: Column(children: [
-                  const SizedBox(height: 4),
-                  AdaptiveTextField(
-                    controller: _customServerController,
-                    placeholder: t.login.form.customServerUrl,
-                    keyboardType: TextInputType.url,
-                    textInputAction: TextInputAction.next,
-                    focusOrder: const NumericFocusOrder(1),
-                    autofillHints: const [AutofillHints.url],
-                    prefixIcon: const AdaptiveIcon(
-                      icon: Icons.link,
-                      cupertinoIcon: CupertinoIcons.link,
+                  collapsed: !_usingCustomServer,
+                  axis: CollapsibleAxis.vertical,
+                  alignment: Alignment.topCenter,
+                  fade: true,
+                  maintainState: true,
+                  child: Column(children: [
+                    const SizedBox(height: 4),
+                    AdaptiveTextField(
+                      controller: _customServerController,
+                      placeholder: t.login.form.customServerUrl,
+                      keyboardType: TextInputType.url,
+                      textInputAction: TextInputAction.next,
+                      focusOrder: const NumericFocusOrder(1),
+                      autofillHints: const [AutofillHints.url],
+                      prefixIcon: const AdaptiveIcon(
+                        icon: Icons.link,
+                        cupertinoIcon: CupertinoIcons.link,
+                      ),
+                      validator: (String? value) {
+                        if (!_usingCustomServer) return null;
+                        return LoginInputGroup.validateCustomServer(value);
+                      },
                     ),
-                    validator: (String? value) {
-                      if (!_usingCustomServer) return null;
-                      return LoginInputGroup.validateCustomServer(value);
-                    },
-                  ),
-                  const SizedBox(height: 8),
-                ])
-              ),
-
+                    const SizedBox(height: 8),
+                  ])),
               AdaptiveTextField(
                 controller: _usernameController,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 focusOrder: const NumericFocusOrder(2),
-                autofillHints: const [AutofillHints.username, AutofillHints.email],
+                autofillHints: const [
+                  AutofillHints.username,
+                  AutofillHints.email
+                ],
                 placeholder: t.login.form.username,
                 prefixIcon: const AdaptiveIcon(
                   icon: Icons.person,
@@ -246,7 +249,6 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 validator: LoginInputGroup.validateEncPassword,
               ),
               const SizedBox(height: 16),
-
               if (_errorMessage != null) ...[
                 Text(
                   _errorMessage!,
@@ -254,15 +256,15 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 ),
                 const SizedBox(height: 8),
               ],
-
               Text.rich(
                 t.login.signup(
                   linkToSignup: (text) => TextSpan(
                     text: text,
                     style: TextStyle(color: colorScheme.primary),
-                    recognizer: TapGestureRecognizer()..onTap = () {
-                      launchUrl(NcLoginPage.signupUrl);
-                    },
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        launchUrl(NcLoginPage.signupUrl);
+                      },
                   ),
                 ),
               ),
@@ -272,19 +274,21 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                   linkToPrivacyPolicy: (text) => TextSpan(
                     text: text,
                     style: TextStyle(color: colorScheme.primary),
-                    recognizer: TapGestureRecognizer()..onTap = () {
-                      launchUrl(AppInfo.privacyPolicyUrl);
-                    },
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        launchUrl(AppInfo.privacyPolicyUrl);
+                      },
                   ),
                 ),
               ),
-
               const SizedBox(height: 16),
               FocusTraversalOrder(
                 order: const NumericFocusOrder(5),
                 child: AdaptiveButton(
                   onPressed: _isLoading ? null : _login,
-                  child: _isLoading ? const SpinningLoadingIcon() : Text(t.login.form.login),
+                  child: _isLoading
+                      ? const SpinningLoadingIcon()
+                      : Text(t.login.form.login),
                 ),
               ),
             ],
@@ -306,21 +310,24 @@ class LoginDetailsStruct {
     required this.loginName,
     required this.ncPassword,
     required this.encPassword,
-  }): uri = url != null
-        ? Uri.parse(url)
-        : NextcloudClientExtension.defaultNextcloudUri;
+  }) : uri = url != null
+            ? Uri.parse(url)
+            : NextcloudClientExtension.defaultNextcloudUri;
 }
 
 abstract class LoginFailure implements Exception {
   final String message = 'Login failed';
 }
+
 class NcLoginFailure implements LoginFailure {
   @override
   final String message = t.login.feedbacks.ncLoginFailed;
 }
+
 class NcUnsupportedFailure implements LoginFailure {
   /// The Nextcloud version of the server
   final int? currentVersion;
+
   /// The Nextcloud version supported with the [nextcloud] package
   final int supportedVersion;
 
@@ -335,6 +342,7 @@ class NcUnsupportedFailure implements LoginFailure {
     s: supportedVersion,
   );
 }
+
 class EncLoginFailure implements LoginFailure {
   @override
   final String message = t.login.feedbacks.encLoginFailed;

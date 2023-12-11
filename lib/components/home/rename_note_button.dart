@@ -48,6 +48,7 @@ class _RenameNoteDialog extends StatefulWidget {
   @override
   State<_RenameNoteDialog> createState() => _RenameNoteDialogState();
 }
+
 class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();

@@ -29,7 +29,8 @@ abstract class FileSyncer {
   static final ChangeNotifier uploadNotifier = ChangeNotifier();
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
-  static int get filesToSync => _uploadQueue.value.length + _downloadQueue.length;
+  static int get filesToSync =>
+      _uploadQueue.value.length + _downloadQueue.length;
   static const int filesDoneLimit = 100000000;
 
   /// We write [deletedFileDummyContent] to a deleted file on the cloud
@@ -63,21 +64,25 @@ abstract class FileSyncer {
     // Get list of remote files from server
     List<WebDavFile> remoteFiles;
     try {
-      remoteFiles = await _client!.webdav.propfind(
-        PathUri.parse(FileManager.appRootDirectoryPrefix),
-        prop: WebDavPropWithoutValues.fromBools(
-          davgetcontentlength: true,
-          davgetlastmodified: true,
-        ),
-      ).then((multistatus) => multistatus.toWebDavFiles());
+      remoteFiles = await _client!.webdav
+          .propfind(
+            PathUri.parse(FileManager.appRootDirectoryPrefix),
+            prop: WebDavPropWithoutValues.fromBools(
+              davgetcontentlength: true,
+              davgetlastmodified: true,
+            ),
+          )
+          .then((multistatus) => multistatus.toWebDavFiles());
     } on DynamiteApiException catch (e) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('startSync: App directory doesn\'t exist; creating it', e);
-        await _client!.webdav.mkcol(PathUri.parse(FileManager.appRootDirectoryPrefix));
+        await _client!.webdav
+            .mkcol(PathUri.parse(FileManager.appRootDirectoryPrefix));
         log.fine('startSync: Generating config');
-        await _client!.getConfig()
-          .then((config) => _client!.generateConfig(config: config))
-          .then((config) => _client!.setConfig(config));
+        await _client!
+            .getConfig()
+            .then((config) => _client!.generateConfig(config: config))
+            .then((config) => _client!.setConfig(config));
         remoteFiles = [];
       } else {
         log.severe('Failed to get list of remote files: $e', e);
@@ -86,7 +91,8 @@ abstract class FileSyncer {
         if (kDebugMode) rethrow;
         return;
       }
-    } on SocketException catch (e) { // network error
+    } on SocketException catch (e) {
+      // network error
       log.warning('startSync: Network error: $e', e);
       filesDone.value = filesDoneLimit;
       downloadCancellable.cancelled = true;
@@ -98,8 +104,8 @@ abstract class FileSyncer {
     log.finer('startSync: Adding files to download queue');
     await Future.wait(
       remoteFiles.map((WebDavFile file) {
-        return _addToDownloadQueue(file)
-          .catchError((e) => log.severe('Failed to add ${file.name} to download queue: $e', e));
+        return _addToDownloadQueue(file).catchError((e) =>
+            log.severe('Failed to add ${file.name} to download queue: $e', e));
       }),
     );
     log.finer('startSync: Sorting download queue');
@@ -113,7 +119,8 @@ abstract class FileSyncer {
       // Start downloading files one by one
       while (_downloadQueue.isNotEmpty) {
         final SyncFile file = _downloadQueue.removeFirst();
-        log.finer('startSync: Downloading ${file.localPath} (${file.remotePath})');
+        log.finer(
+            'startSync: Downloading ${file.localPath} (${file.remotePath})');
         final bool success = await downloadFile(file);
         if (downloadCancellable.cancelled) return;
         if (success) {
@@ -173,7 +180,8 @@ abstract class FileSyncer {
         priority: WorkPriority.veryHigh,
       );
 
-      final syncFile = SyncFile(encryptedName: encryptedName, localPath: filePathUnencrypted);
+      final syncFile = SyncFile(
+          encryptedName: encryptedName, localPath: filePathUnencrypted);
       if (!await _shouldLocalFileBeKept(syncFile, inUploadQueue: true)) {
         // remote file is newer; download it instead
         _downloadQueue.add(syncFile);
@@ -184,7 +192,8 @@ abstract class FileSyncer {
 
       final Uint8List localDataEncrypted;
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
-        Uint8List? localDataUnencrypted = await FileManager.readFile(filePathUnencrypted);
+        Uint8List? localDataUnencrypted =
+            await FileManager.readFile(filePathUnencrypted);
         if (localDataUnencrypted == null) {
           log.severe('Failed to read file $filePathUnencrypted to upload');
           return;
@@ -202,14 +211,16 @@ abstract class FileSyncer {
         } else {
           localDataEncrypted = await workerManager.execute(
             () async {
-              final encrypted = encrypter.encryptBytes(localDataUnencrypted, iv: iv);
+              final encrypted =
+                  encrypter.encryptBytes(localDataUnencrypted, iv: iv);
               return encrypted.bytes;
             },
             priority: WorkPriority.highRegular,
           );
         }
 
-        log.info('Uploading $filePathUnencrypted (${syncFile.remotePath}): ${localDataEncrypted.length} bytes');
+        log.info(
+            'Uploading $filePathUnencrypted (${syncFile.remotePath}): ${localDataEncrypted.length} bytes');
       } else {
         localDataEncrypted = utf8.encode(deletedFileDummyContent);
       }
@@ -227,7 +238,8 @@ abstract class FileSyncer {
         PathUri.parse(syncFile.remotePath),
         lastModified: lastModified,
       );
-    } on SocketException catch (e) { // network error
+    } on SocketException catch (e) {
+      // network error
       log.warning('Failed to upload $filePathUnencrypted: network error', e);
       _uploadQueue.value.add(filePathUnencrypted);
       await Future.delayed(const Duration(seconds: 2));
@@ -250,7 +262,8 @@ abstract class FileSyncer {
     // remove extension
     final String encryptedName;
     if (file.name.endsWith(encExtension)) {
-      encryptedName = file.name.substring(0, file.name.length - encExtension.length);
+      encryptedName =
+          file.name.substring(0, file.name.length - encExtension.length);
     } else {
       log.info('remote file not in recognised encrypted format: ${file.path}');
       return;
@@ -291,23 +304,28 @@ abstract class FileSyncer {
 
     final files = _downloadQueue.toSet();
     for (final file in files) {
-      late final knownCorrupted = Prefs.fileSyncCorruptFiles.value.contains(file.localPath);
+      late final knownCorrupted =
+          Prefs.fileSyncCorruptFiles.value.contains(file.localPath);
       late final deleted = (file.webDavFile!.size ?? 0) == 0;
 
       if (knownCorrupted) {
         corruptedFiles.add(file);
       } else if (deleted) {
-        final alreadyDeleted = Prefs.fileSyncAlreadyDeleted.value.contains(file.localPath);
+        final alreadyDeleted =
+            Prefs.fileSyncAlreadyDeleted.value.contains(file.localPath);
         if (!alreadyDeleted) deletedFiles.add(file);
       } else {
         newFiles.add(file);
       }
     }
 
-    log.info(() => 'New files: ${newFiles.length}, deleted files: ${deletedFiles.length}, corrupted files: ${corruptedFiles.length}');
+    log.info(() =>
+        'New files: ${newFiles.length}, deleted files: ${deletedFiles.length}, corrupted files: ${corruptedFiles.length}');
     log.fine(() => 'New files: ${newFiles.map((file) => file.localPath)}');
-    log.fine(() => 'Deleted files: ${deletedFiles.map((file) => file.localPath)}');
-    log.fine(() => 'Corrupted files: ${corruptedFiles.map((file) => file.localPath)}');
+    log.fine(
+        () => 'Deleted files: ${deletedFiles.map((file) => file.localPath)}');
+    log.fine(() =>
+        'Corrupted files: ${corruptedFiles.map((file) => file.localPath)}');
 
     _downloadQueue.clear();
     _downloadQueue.addAll(newFiles);
@@ -315,13 +333,16 @@ abstract class FileSyncer {
     _downloadQueue.addAll(corruptedFiles);
 
     // forget un-deleted files that were previously deleted locally
-    Prefs.fileSyncAlreadyDeleted.value.removeWhere((filePath) => !deletedFiles.any((file) => file.localPath == filePath));
+    Prefs.fileSyncAlreadyDeleted.value.removeWhere(
+        (filePath) => !deletedFiles.any((file) => file.localPath == filePath));
     Prefs.fileSyncAlreadyDeleted.notifyListeners();
   }
 
   @visibleForTesting
-  static Future<bool> downloadFile(SyncFile file, { bool awaitWrite = false }) async {
-    if (file.webDavFile!.size == 0) { // deleted file
+  static Future<bool> downloadFile(SyncFile file,
+      {bool awaitWrite = false}) async {
+    if (file.webDavFile!.size == 0) {
+      // deleted file
       FileManager.deleteFile(file.localPath);
       Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
       Prefs.fileSyncAlreadyDeleted.notifyListeners();
@@ -330,7 +351,8 @@ abstract class FileSyncer {
 
     final Uint8List encryptedDataBytes;
     try {
-      encryptedDataBytes = await _client!.webdav.get(PathUri.parse(file.remotePath));
+      encryptedDataBytes =
+          await _client!.webdav.get(PathUri.parse(file.remotePath));
     } on DynamiteApiException {
       return false;
     }
@@ -343,7 +365,8 @@ abstract class FileSyncer {
       if (file.localPath.endsWith(Editor.extensionOldJson)) {
         decryptedData = await workerManager.execute(
           () async {
-            final String encrypted = utf8.decode(encryptedDataBytes.cast<int>());
+            final String encrypted =
+                utf8.decode(encryptedDataBytes.cast<int>());
             final String decrypted = encrypter.decrypt64(encrypted, iv: iv);
             return utf8.encode(decrypted);
           },
@@ -353,24 +376,30 @@ abstract class FileSyncer {
         decryptedData = await workerManager.execute(
           () async {
             final Encrypted encrypted = Encrypted(encryptedDataBytes);
-            final List<int> decrypted = encrypter.decryptBytes(encrypted, iv: iv);
+            final List<int> decrypted =
+                encrypter.decryptBytes(encrypted, iv: iv);
             return Uint8List.fromList(decrypted);
           },
           priority: WorkPriority.regular,
         );
       }
-      assert(decryptedData.isNotEmpty, 'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
-      FileManager.writeFile(file.localPath, decryptedData, awaitWrite: awaitWrite, alsoUpload: false);
+      assert(decryptedData.isNotEmpty,
+          'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
+      FileManager.writeFile(file.localPath, decryptedData,
+          awaitWrite: awaitWrite, alsoUpload: false);
       return true;
     } catch (e) {
-      log.severe('Failed to download file ${file.localPath} (${file.remotePath}): $e', e);
+      log.severe(
+          'Failed to download file ${file.localPath} (${file.remotePath}): $e',
+          e);
       return false;
     }
   }
 
   /// Decides if the local or remote version of a file should be kept
   /// by comparing the last modified date of each file.
-  static Future<bool> _shouldLocalFileBeKept(SyncFile file, {bool inUploadQueue = false}) async {
+  static Future<bool> _shouldLocalFileBeKept(SyncFile file,
+      {bool inUploadQueue = false}) async {
     // if local file doesn't exist, keep remote (unless we're "uploading" a file that we want to delete)
     if (!await FileManager.doesFileExist(file.localPath)) {
       return inUploadQueue;
@@ -378,14 +407,16 @@ abstract class FileSyncer {
 
     // get remote file
     try {
-      file.webDavFile ??= await _client!.webdav.propfind(
-        PathUri.parse(file.remotePath),
-        depth: WebDavDepth.zero,
-        prop: WebDavPropWithoutValues.fromBools(
-          davgetlastmodified: true,
-          davgetcontentlength: true,
-        ),
-      ).then((multistatus) => multistatus.toWebDavFiles().single);
+      file.webDavFile ??= await _client!.webdav
+          .propfind(
+            PathUri.parse(file.remotePath),
+            depth: WebDavDepth.zero,
+            prop: WebDavPropWithoutValues.fromBools(
+              davgetlastmodified: true,
+              davgetcontentlength: true,
+            ),
+          )
+          .then((multistatus) => multistatus.toWebDavFiles().single);
     } catch (e) {
       // remote file doesn't exist; keep local
       return true;
@@ -393,18 +424,20 @@ abstract class FileSyncer {
 
     // If we've prompted a full resync at [resyncEverythingDate]
     // keep the local file if it was modified before [resyncEverythingDate]
-    final resyncEverythingDate = Prefs.fileSyncResyncEverythingDate.value;
     final DateTime? lastModifiedRemote = file.webDavFile!.lastModified;
-    if (inUploadQueue && resyncEverythingDate != null && file.webDavFile!.lastModified != null) {
+    if (inUploadQueue && file.webDavFile!.lastModified != null) {
       final lastModifiedRemote = file.webDavFile!.lastModified!;
-      if (lastModifiedRemote.isBefore(resyncEverythingDate)) {
+      if (lastModifiedRemote
+          .isBefore(Prefs.fileSyncResyncEverythingDate.value)) {
         return true;
       }
     }
 
     // file exists locally, check if it's newer
-    final DateTime lastModifiedLocal = await FileManager.lastModified(file.localPath);
-    if (lastModifiedRemote != null && lastModifiedRemote.isAfter(lastModifiedLocal)) {
+    final DateTime lastModifiedLocal =
+        await FileManager.lastModified(file.localPath);
+    if (lastModifiedRemote != null &&
+        lastModifiedRemote.isAfter(lastModifiedLocal)) {
       // remote is newer; keep remote
       return false;
     } else {
@@ -428,11 +461,11 @@ class SyncFile {
     required this.encryptedName,
     required this.localPath,
     this.webDavFile,
-  }): assert(encryptedName.isNotEmpty),
-      assert(!encryptedName.contains('/')),
-      assert(!encryptedName.contains('\\')),
-      assert(!encryptedName.contains('.')),
-      assert(localPath.isNotEmpty);
+  })  : assert(encryptedName.isNotEmpty),
+        assert(!encryptedName.contains('/')),
+        assert(!encryptedName.contains('\\')),
+        assert(!encryptedName.contains('.')),
+        assert(localPath.isNotEmpty);
 }
 
 class CancellableStruct {

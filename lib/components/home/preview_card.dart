@@ -34,33 +34,39 @@ class PreviewCard extends StatefulWidget {
   @override
   State<PreviewCard> createState() => _PreviewCardState();
 
-  static EditorCoreInfo getCachedCoreInfo(String filePath)
-      => _PreviewCardState.getCachedCoreInfo(filePath);
-  static void moveFileInCache(String oldPath, String newPath)
-      => _PreviewCardState.moveFileInCache(oldPath, newPath);
+  static EditorCoreInfo getCachedCoreInfo(String filePath) =>
+      _PreviewCardState.getCachedCoreInfo(filePath);
+  static void moveFileInCache(String oldPath, String newPath) =>
+      _PreviewCardState.moveFileInCache(oldPath, newPath);
 }
 
 class _PreviewCardState extends State<PreviewCard> {
   /// cache strokes so there's no delay the second time we see this preview card
   static final Map<String, EditorCoreInfo> _mapFilePathToEditorInfo = {};
   static EditorCoreInfo getCachedCoreInfo(String filePath) {
-    return _mapFilePathToEditorInfo[filePath] ?? EditorCoreInfo(filePath: filePath);
+    return _mapFilePathToEditorInfo[filePath] ??
+        EditorCoreInfo(filePath: filePath);
   }
+
   static void moveFileInCache(String oldPath, String newPath) {
     if (oldPath.endsWith(Editor.extension)) {
       oldPath = oldPath.substring(0, oldPath.length - Editor.extension.length);
     } else if (oldPath.endsWith(Editor.extensionOldJson)) {
-      oldPath = oldPath.substring(0, oldPath.length - Editor.extensionOldJson.length);
+      oldPath =
+          oldPath.substring(0, oldPath.length - Editor.extensionOldJson.length);
     } else {
-      assert(false, 'oldPath must end with ${Editor.extension} or ${Editor.extensionOldJson}');
+      assert(false,
+          'oldPath must end with ${Editor.extension} or ${Editor.extensionOldJson}');
     }
 
     if (newPath.endsWith(Editor.extension)) {
       newPath = newPath.substring(0, newPath.length - Editor.extension.length);
     } else if (newPath.endsWith(Editor.extensionOldJson)) {
-      newPath = newPath.substring(0, newPath.length - Editor.extensionOldJson.length);
+      newPath =
+          newPath.substring(0, newPath.length - Editor.extensionOldJson.length);
     } else {
-      assert(false, 'newPath must end with ${Editor.extension} or ${Editor.extensionOldJson}');
+      assert(false,
+          'newPath must end with ${Editor.extension} or ${Editor.extensionOldJson}');
     }
 
     if (!_mapFilePathToEditorInfo.containsKey(oldPath)) return;
@@ -115,20 +121,20 @@ class _PreviewCardState extends State<PreviewCard> {
     }
     if (!firstPage.quill.controller.document.isEmpty()) {
       // this does not account for text that wraps to the next line
-      int linesOfText = firstPage.quill.controller.document.toPlainText().split('\n').length;
-      maxY = max(maxY, linesOfText * coreInfo.lineHeight * 1.5); // ×1.5 fudge factor
+      int linesOfText =
+          firstPage.quill.controller.document.toPlainText().split('\n').length;
+      maxY = max(
+          maxY, linesOfText * coreInfo.lineHeight * 1.5); // ×1.5 fudge factor
     }
 
     /// The height of the first page (uncropped).
     /// e.g. the default height is 1400 [EditorPage.defaultHeight]
     /// and the default width is 1000 [EditorPage.defaultWidth].
     double fullHeight = firstPage.size.height;
+
     /// The height of the canvas (cropped),
     /// adjusted to be between 10% and 100% of the full height.
-    final canvasHeight = min(
-        fullHeight,
-        max(maxY, 0) + (0.1 * fullHeight)
-    );
+    final canvasHeight = min(fullHeight, max(maxY, 0) + (0.1 * fullHeight));
 
     return canvasHeight / firstPage.size.width;
   }
@@ -138,7 +144,8 @@ class _PreviewCardState extends State<PreviewCard> {
     if (_coreInfo.isEmpty) {
       findStrokes();
     }
-    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
+    fileWriteSubscription =
+        FileManager.fileWriteStream.stream.listen(fileWriteListener);
 
     expanded.value = widget.selected;
     super.initState();
@@ -194,11 +201,12 @@ class _PreviewCardState extends State<PreviewCard> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.of(context).disableAnimations;
-    final transitionDuration = Duration(milliseconds: disableAnimations ? 0 : 300);
-    final background = coreInfo.backgroundColor
-        ?? InnerCanvas.defaultBackgroundColor;
-    final invert = theme.brightness == Brightness.dark
-        && Prefs.editorAutoInvert.value;
+    final transitionDuration =
+        Duration(milliseconds: disableAnimations ? 0 : 300);
+    final background =
+        coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
+    final invert =
+        theme.brightness == Brightness.dark && Prefs.editorAutoInvert.value;
     final firstPageWidth = coreInfo.pages.isEmpty
         ? EditorPage.defaultWidth
         : coreInfo.pages.first.size.width;
@@ -206,9 +214,7 @@ class _PreviewCardState extends State<PreviewCard> {
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: widget.isAnythingSelected
-          ? _toggleCardSelection
-          : null,
+        onTap: widget.isAnythingSelected ? _toggleCardSelection : null,
         onSecondaryTap: _toggleCardSelection,
         onLongPress: _toggleCardSelection,
         child: ColoredBox(
@@ -238,7 +244,6 @@ class _PreviewCardState extends State<PreviewCard> {
                           ),
                         ),
                       ),
-
                       Positioned.fill(
                         left: -1,
                         top: -1,
@@ -246,7 +251,8 @@ class _PreviewCardState extends State<PreviewCard> {
                         bottom: -1,
                         child: ValueListenableBuilder(
                           valueListenable: expanded,
-                          builder: (context, expanded, child) => AnimatedOpacity(
+                          builder: (context, expanded, child) =>
+                              AnimatedOpacity(
                             opacity: expanded ? 1 : 0,
                             duration: const Duration(milliseconds: 200),
                             child: IgnorePointer(
@@ -277,14 +283,13 @@ class _PreviewCardState extends State<PreviewCard> {
                       ),
                     ],
                   ),
-        
                   Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Text(widget.filePath.substring(widget.filePath.lastIndexOf('/') + 1)),
+                    child: Text(widget.filePath
+                        .substring(widget.filePath.lastIndexOf('/') + 1)),
                   ),
                 ],
               ),
-        
               UploadingIndicator(
                 filePath: widget.filePath,
               ),
@@ -295,33 +300,33 @@ class _PreviewCardState extends State<PreviewCard> {
     );
 
     return ValueListenableBuilder(
-      valueListenable: expanded,
-      builder: (context, expanded, _) {
-        return OpenContainer(
-          closedColor: colorScheme.surface,
-          closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          closedElevation: expanded ? 4 : 1,
-          closedBuilder: (context, action) => card,
+        valueListenable: expanded,
+        builder: (context, expanded, _) {
+          return OpenContainer(
+            closedColor: colorScheme.surface,
+            closedShape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            closedElevation: expanded ? 4 : 1,
+            closedBuilder: (context, action) => card,
+            openColor: colorScheme.background,
+            openBuilder: (context, action) => Editor(path: widget.filePath),
+            transitionDuration: transitionDuration,
+            routeSettings: RouteSettings(
+              name: RoutePaths.editFilePath(widget.filePath),
+            ),
+            onClosed: (_) async {
+              findStrokes();
 
-          openColor: colorScheme.background,
-          openBuilder: (context, action) => Editor(path: widget.filePath),
-
-          transitionDuration: transitionDuration,
-          routeSettings: RouteSettings(
-            name: RoutePaths.editFilePath(widget.filePath),
-          ),
-
-          onClosed: (_) async {
-            findStrokes();
-
-            await Future.delayed(transitionDuration);
-            if (!mounted) return;
-            if (!GoRouterState.of(context).uri.toString().startsWith(RoutePaths.prefixOfHome)) return;
-            ResponsiveNavbar.setAndroidNavBarColor(theme);
-          },
-        );
-      }
-    );
+              await Future.delayed(transitionDuration);
+              if (!mounted) return;
+              if (!GoRouterState.of(context)
+                  .uri
+                  .toString()
+                  .startsWith(RoutePaths.prefixOfHome)) return;
+              ResponsiveNavbar.setAndroidNavBarColor(theme);
+            },
+          );
+        });
   }
 
   @override

@@ -59,13 +59,14 @@ class InnerCanvas extends StatefulWidget {
 }
 
 class _InnerCanvasState extends State<InnerCanvas> {
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final Brightness brightness = Theme.of(context).brightness;
-    final bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
-    final Color backgroundColor = widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
+    final bool invert =
+        Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+    final Color backgroundColor =
+        widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
     if (widget.coreInfo.pages.isEmpty) {
       return SizedBox(
@@ -82,41 +83,47 @@ class _InnerCanvasState extends State<InnerCanvas> {
         ? null
         : TranslationProvider.of(context).flutterLocale;
 
-    Widget? quillEditor = widget.coreInfo.pages.isNotEmpty ? QuillProvider(
-      configurations: QuillConfigurations(
-        controller: widget.coreInfo.pages[widget.pageIndex].quill.controller,
-        sharedConfigurations: QuillSharedConfigurations(
-          locale: locale,
-        ),
-      ),
-      child: QuillEditor(
-        configurations: QuillEditorConfigurations(
-          customStyles: _getQuillStyles(invert: invert),
-          scrollable: false,
-          autoFocus: false,
-          readOnly: false,
-          expands: true,
-          placeholder: widget.textEditing ? t.editor.quill.typeSomething : null,
-          showCursor: true,
-          keyboardAppearance: invert ? Brightness.dark : Brightness.light,
-          padding: EdgeInsets.only(
-            top: widget.coreInfo.lineHeight * 1.2,
-            left: widget.coreInfo.lineHeight * 0.5,
-            right: widget.coreInfo.lineHeight * 0.5,
-            bottom: widget.coreInfo.lineHeight * 0.5,
-          ),
-        ),
-        scrollController: ScrollController(),
-        focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
-      ),
-    ) : null;
+    Widget? quillEditor = widget.coreInfo.pages.isNotEmpty
+        ? QuillProvider(
+            configurations: QuillConfigurations(
+              controller:
+                  widget.coreInfo.pages[widget.pageIndex].quill.controller,
+              sharedConfigurations: QuillSharedConfigurations(
+                locale: locale,
+              ),
+            ),
+            child: QuillEditor(
+              configurations: QuillEditorConfigurations(
+                customStyles: _getQuillStyles(invert: invert),
+                scrollable: false,
+                autoFocus: false,
+                readOnly: false,
+                expands: true,
+                placeholder:
+                    widget.textEditing ? t.editor.quill.typeSomething : null,
+                showCursor: true,
+                keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+                padding: EdgeInsets.only(
+                  top: widget.coreInfo.lineHeight * 1.2,
+                  left: widget.coreInfo.lineHeight * 0.5,
+                  right: widget.coreInfo.lineHeight * 0.5,
+                  bottom: widget.coreInfo.lineHeight * 0.5,
+                ),
+              ),
+              scrollController: ScrollController(),
+              focusNode:
+                  widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
+            ),
+          )
+        : null;
 
     return RepaintBoundary(
       child: CustomPaint(
         painter: CanvasBackgroundPainter(
           invert: invert,
           backgroundColor: () {
-            if (page.backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
+            if (page.backgroundImage != null &&
+                Prefs.editorOpaqueBackgrounds.value) {
               return Colors.white;
             } else if (widget.hideBackground) {
               return InnerCanvas.defaultBackgroundColor;
@@ -125,7 +132,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
             }
           }(),
           backgroundPattern: () {
-            if (page.backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
+            if (page.backgroundImage != null &&
+                Prefs.editorOpaqueBackgrounds.value) {
               return CanvasBackgroundPattern.none;
             } else if (widget.hideBackground) {
               return CanvasBackgroundPattern.none;
@@ -139,16 +147,15 @@ class _InnerCanvasState extends State<InnerCanvas> {
         ),
         foregroundPainter: CanvasPainter(
           repaint: widget.redrawPageListenable,
-
           invert: invert,
           strokes: page.strokes,
           laserStrokes: page.laserStrokes,
           currentStroke: widget.currentStroke,
           currentSelection: widget.currentSelection,
           primaryColor: colorScheme.primary,
-
           page: page,
-          showPageIndicator: !widget.isPreview && (!widget.isPrint || Prefs.printPageIndicators.value),
+          showPageIndicator: !widget.isPreview &&
+              (!widget.isPrint || Prefs.printPageIndicators.value),
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,
         ),
@@ -185,11 +192,11 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     image: page.images[i],
                     pageSize: Size(widget.width, widget.height),
                     setAsBackground: widget.setAsBackground,
-                    readOnly: widget.coreInfo.readOnly
-                        || !widget.currentToolIsSelect,
-                    selected: widget.currentSelection
-                        ?.images.contains(page.images[i])
-                        ?? false,
+                    readOnly:
+                        widget.coreInfo.readOnly || !widget.currentToolIsSelect,
+                    selected: widget.currentSelection?.images
+                            .contains(page.images[i]) ??
+                        false,
                   ),
               ],
             ),
@@ -236,7 +243,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
       displayLarge: defaultStyle.copyWith(
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
-
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.6),
         decorationThickness: 3,
@@ -244,7 +250,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
       displayMedium: defaultStyle.copyWith(
         fontSize: lineHeight * 1,
         height: 1 / 1,
-
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.5),
         decorationThickness: 3,
@@ -252,7 +257,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
       displaySmall: defaultStyle.copyWith(
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
-
         decoration: TextDecoration.underline,
         decorationColor: defaultStyle.color?.withOpacity(0.4),
         decorationThickness: 3,
@@ -263,21 +267,13 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     return DefaultStyles(
       h1: DefaultTextBlockStyle(
-        textTheme.displayLarge!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.displayLarge!, zeroSpacing, zeroSpacing, null),
       h2: DefaultTextBlockStyle(
-        textTheme.displayMedium!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.displayMedium!, zeroSpacing, zeroSpacing, null),
       h3: DefaultTextBlockStyle(
-        textTheme.displaySmall!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.displaySmall!, zeroSpacing, zeroSpacing, null),
       paragraph: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
       small: TextStyle(
         fontSize: lineHeight * 0.4,
         height: 1 / 0.4,
@@ -305,18 +301,18 @@ class _InnerCanvasState extends State<InnerCanvas> {
         decoration: TextDecoration.underline,
       ),
       placeHolder: DefaultTextBlockStyle(
-        textTheme.bodyLarge!.copyWith(
-          color: Colors.grey.withOpacity(0.6),
-        ),
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.bodyLarge!.copyWith(
+            color: Colors.grey.withOpacity(0.6),
+          ),
+          zeroSpacing,
+          zeroSpacing,
+          null),
       lists: DefaultListBlockStyle(
-        textTheme.bodyLarge!,
-        zeroSpacing, zeroSpacing, null, null
-      ),
+          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null, null),
       quote: DefaultTextBlockStyle(
         TextStyle(color: textTheme.bodyLarge!.color!.withOpacity(0.6)),
-        zeroSpacing, zeroSpacing,
+        zeroSpacing,
+        zeroSpacing,
         BoxDecoration(
           border: Border(
             left: BorderSide(
@@ -336,17 +332,11 @@ class _InnerCanvasState extends State<InnerCanvas> {
         ),
       ),
       indent: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
       align: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
       leading: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        zeroSpacing, zeroSpacing, null
-      ),
+          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
       sizeSmall: TextStyle(
         fontSize: textTheme.bodyLarge!.fontSize!,
       ),

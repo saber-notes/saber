@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
@@ -17,11 +16,14 @@ class CanvasBackgroundPainter extends CustomPainter {
 
   final bool invert;
   final Color backgroundColor;
+
   /// The pattern to use for the background. See [CanvasBackgroundPatterns].
   final CanvasBackgroundPattern backgroundPattern;
+
   /// The height between each line in the background pattern
   final int lineHeight;
   final Color primaryColor, secondaryColor;
+
   /// Whether to draw the background pattern in a preview mode (more opaque).
   final bool preview;
 
@@ -54,13 +56,14 @@ class CanvasBackgroundPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(CanvasBackgroundPainter oldDelegate) => kDebugMode
-        || oldDelegate.invert != invert
-        || oldDelegate.backgroundColor != backgroundColor
-        || oldDelegate.backgroundPattern != backgroundPattern
-        || oldDelegate.lineHeight != lineHeight
-        || oldDelegate.primaryColor != primaryColor
-        || oldDelegate.secondaryColor != secondaryColor;
+  bool shouldRepaint(CanvasBackgroundPainter oldDelegate) =>
+      kDebugMode ||
+      oldDelegate.invert != invert ||
+      oldDelegate.backgroundColor != backgroundColor ||
+      oldDelegate.backgroundPattern != backgroundPattern ||
+      oldDelegate.lineHeight != lineHeight ||
+      oldDelegate.primaryColor != primaryColor ||
+      oldDelegate.secondaryColor != secondaryColor;
 
   static Iterable<PatternElement> getPatternElements({
     required CanvasBackgroundPattern pattern,
@@ -130,8 +133,8 @@ class CanvasBackgroundPainter extends CustomPainter {
         final staffSpacing = lineHeight * 3;
 
         for (double topOfStaff = staffSpacing.toDouble() - lineHeight;
-             topOfStaff + staffHeight < size.height;
-             topOfStaff += staffHeight + staffSpacing) {
+            topOfStaff + staffHeight < size.height;
+            topOfStaff += staffHeight + staffSpacing) {
           // horizontal lines
           for (int line = 0; line < staffSpaces + 1; line++) {
             yield PatternElement(
@@ -185,17 +188,23 @@ class CanvasBackgroundPainter extends CustomPainter {
         }
     }
   }
-
 }
 
 class PatternElement {
   final Offset start, end;
+
   /// Whether this is a line or a dot
   final bool isLine;
+
   /// Whether this should use a secondary color
   final bool secondaryColor;
 
-  PatternElement(this.start, this.end, {this.isLine = true, this.secondaryColor = false});
+  PatternElement(
+    this.start,
+    this.end, {
+    this.isLine = true,
+    this.secondaryColor = false,
+  });
 }
 
 enum CanvasBackgroundPattern {
@@ -205,6 +214,7 @@ enum CanvasBackgroundPattern {
   /// College ruled paper (ltr): horizontal lines with one
   /// vertical line along the left margin
   collegeLtr('college'),
+
   /// College ruled paper (rtl): horizontal lines with one
   /// vertical line along the right margin
   collegeRtl('college-rtl'),
@@ -222,8 +232,9 @@ enum CanvasBackgroundPattern {
 
   /// Music staffs
   staffs('staffs'),
+
   /// Music tablature
-  /// 
+  ///
   /// Like staffs but with 6 lines instead of 5 (and 5 spaces instead of 4).
   tablature('tablature'),
 

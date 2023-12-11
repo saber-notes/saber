@@ -17,6 +17,7 @@ abstract class RoutePaths {
   static String editFilePath(String filePath) {
     return '$edit?path=${Uri.encodeQueryComponent(filePath)}';
   }
+
   static String editImportPdf(String filePath, String pdfPath) {
     return '$edit'
         '?path=${Uri.encodeQueryComponent(filePath)}'
@@ -32,50 +33,50 @@ abstract class HomeRoutes {
   static final PathFunction _homeFunction = pathToFunction(RoutePaths.home);
 
   static List<_Route> get _routes => <_Route>[
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.recentSubpage}),
-      label: t.home.tabs.home,
-      icon: const AdaptiveIcon(
-        icon: Icons.home,
-        cupertinoIcon: CupertinoIcons.house_fill,
-      ),
-    ),
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.browseSubpage}),
-      label: t.home.tabs.browse,
-      icon: const AdaptiveIcon(
-        icon: Icons.folder,
-        cupertinoIcon: CupertinoIcons.folder_fill,
-      ),
-    ),
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.whiteboardSubpage}),
-      label: t.home.tabs.whiteboard,
-      icon: const AdaptiveIcon(
-        icon: Icons.draw,
-        cupertinoIcon: CupertinoIcons.pencil_outline,
-      ),
-    ),
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.settingsSubpage}),
-      label: t.home.tabs.settings,
-      icon: const AdaptiveIcon(
-        icon: Icons.settings,
-        cupertinoIcon: CupertinoIcons.settings_solid,
-      ),
-    ),
-  ];
+        _Route(
+          routePath: _homeFunction({'subpage': HomePage.recentSubpage}),
+          label: t.home.tabs.home,
+          icon: const AdaptiveIcon(
+            icon: Icons.home,
+            cupertinoIcon: CupertinoIcons.house_fill,
+          ),
+        ),
+        _Route(
+          routePath: _homeFunction({'subpage': HomePage.browseSubpage}),
+          label: t.home.tabs.browse,
+          icon: const AdaptiveIcon(
+            icon: Icons.folder,
+            cupertinoIcon: CupertinoIcons.folder_fill,
+          ),
+        ),
+        _Route(
+          routePath: _homeFunction({'subpage': HomePage.whiteboardSubpage}),
+          label: t.home.tabs.whiteboard,
+          icon: const AdaptiveIcon(
+            icon: Icons.draw,
+            cupertinoIcon: CupertinoIcons.pencil_outline,
+          ),
+        ),
+        _Route(
+          routePath: _homeFunction({'subpage': HomePage.settingsSubpage}),
+          label: t.home.tabs.settings,
+          icon: const AdaptiveIcon(
+            icon: Icons.settings,
+            cupertinoIcon: CupertinoIcons.settings_solid,
+          ),
+        ),
+      ];
 
   static String getRoute(int index) {
     return _routes[index].routePath;
   }
 
-  static List<NavigationDestination> get navigationDestinations => _routes
-      .map((e) => e.toNavigationDestination())
-      .toList(growable: false);
-  static List<NavigationRailDestination> get navigationRailDestinations => _routes
-      .map((e) => e.toNavigationRailDestination())
-      .toList(growable: false);
+  static List<NavigationDestination> get navigationDestinations =>
+      _routes.map((e) => e.toNavigationDestination()).toList(growable: false);
+  static List<NavigationRailDestination> get navigationRailDestinations =>
+      _routes
+          .map((e) => e.toNavigationRailDestination())
+          .toList(growable: false);
 }
 
 class _Route {
@@ -90,11 +91,12 @@ class _Route {
   });
 
   NavigationDestination toNavigationDestination() => NavigationDestination(
-    label: label,
-    icon: icon,
-  );
-  NavigationRailDestination toNavigationRailDestination() => NavigationRailDestination(
-    label: Text(label),
-    icon: icon,
-  );
+        label: label,
+        icon: icon,
+      );
+  NavigationRailDestination toNavigationRailDestination() =>
+      NavigationRailDestination(
+        label: Text(label),
+        icon: icon,
+      );
 }

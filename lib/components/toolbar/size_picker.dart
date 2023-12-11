@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -19,7 +18,6 @@ class SizePicker extends StatefulWidget {
 }
 
 class _SizePickerState extends State<SizePicker> {
-
   final TextEditingController _controller = TextEditingController();
 
   Offset? startingOffset;
@@ -44,7 +42,9 @@ class _SizePickerState extends State<SizePicker> {
   void updateValue({double? newValue, bool manuallyTypedIn = false}) {
     if (newValue != null) {
       setState(() {
-        widget.pen.strokeProperties.size = newValue.clamp(widget.pen.sizeMin, widget.pen.sizeMax).roundToDouble();
+        widget.pen.strokeProperties.size = newValue
+            .clamp(widget.pen.sizeMin, widget.pen.sizeMax)
+            .roundToDouble();
       });
     }
 
@@ -62,8 +62,12 @@ class _SizePickerState extends State<SizePicker> {
   void onDrag(Offset currentOffset) {
     if (startingOffset == null) return;
 
-    final double delta = (currentOffset.dx - startingOffset!.dx) / widget.pen.sizeMax * 4 * widget.pen.sizeStep;
-    final double newValue = startingValue + delta ~/ widget.pen.sizeStep * widget.pen.sizeStep;
+    final double delta = (currentOffset.dx - startingOffset!.dx) /
+        widget.pen.sizeMax *
+        4 *
+        widget.pen.sizeStep;
+    final double newValue =
+        startingValue + delta ~/ widget.pen.sizeStep * widget.pen.sizeStep;
     setState(() {
       updateValue(newValue: newValue);
     });
@@ -118,8 +122,12 @@ class _SizePickerState extends State<SizePicker> {
                 child: Center(
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 100),
-                    width: widget.pen.strokeProperties.size / widget.pen.sizeMax * 25,
-                    height: widget.pen.strokeProperties.size / widget.pen.sizeMax * 25,
+                    width: widget.pen.strokeProperties.size /
+                        widget.pen.sizeMax *
+                        25,
+                    height: widget.pen.strokeProperties.size /
+                        widget.pen.sizeMax *
+                        25,
                     decoration: BoxDecoration(
                       color: colorScheme.onBackground,
                       shape: BoxShape.circle,
@@ -167,7 +175,8 @@ class _SizePickerState extends State<SizePicker> {
           backgroundColor: colorScheme.surface,
           action: SnackBarAction(
             label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-            onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+            onPressed: () =>
+                ScaffoldMessenger.of(context).hideCurrentSnackBar(),
           ),
           content: Text(
             t.editor.penOptions.sizeDragHint,

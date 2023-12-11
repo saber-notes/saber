@@ -86,10 +86,12 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               spacing: 8,
               children: [
                 ElevatedButton(
-                  onPressed: widget.coreInfo.isNotEmpty ? () {
-                    widget.clearPage();
-                    Navigator.pop(context);
-                  } : null,
+                  onPressed: widget.coreInfo.isNotEmpty
+                      ? () {
+                          widget.clearPage();
+                          Navigator.pop(context);
+                        }
+                      : null,
                   child: Wrap(
                     children: [
                       const Icon(Icons.cleaning_services),
@@ -104,10 +106,12 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: widget.coreInfo.isNotEmpty ? () {
-                    widget.clearAllPages();
-                    Navigator.pop(context);
-                  } : null,
+                  onPressed: widget.coreInfo.isNotEmpty
+                      ? () {
+                          widget.clearAllPages();
+                          Navigator.pop(context);
+                        }
+                      : null,
                   child: Wrap(
                     children: [
                       const Icon(Icons.cleaning_services),
@@ -143,8 +147,10 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           CanvasBackgroundPreview(
                             selected: backgroundImage?.backgroundFit == boxFit,
                             invert: widget.invert,
-                            backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
-                            backgroundPattern: widget.coreInfo.backgroundPattern,
+                            backgroundColor: widget.coreInfo.backgroundColor ??
+                                InnerCanvas.defaultBackgroundColor,
+                            backgroundPattern:
+                                widget.coreInfo.backgroundPattern,
                             backgroundImage: backgroundImage,
                             overrideBoxFit: boxFit,
                             pageSize: pageSize,
@@ -190,7 +196,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 itemCount: CanvasBackgroundPattern.values.length,
                 separatorBuilder: (_, __) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
-                  final backgroundPattern = CanvasBackgroundPattern.values[index];
+                  final backgroundPattern =
+                      CanvasBackgroundPattern.values[index];
                   return InkWell(
                     borderRadius: BorderRadius.circular(8),
                     onTap: () => setState(() {
@@ -199,9 +206,11 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     child: Stack(
                       children: [
                         CanvasBackgroundPreview(
-                          selected: widget.coreInfo.backgroundPattern == backgroundPattern,
+                          selected: widget.coreInfo.backgroundPattern ==
+                              backgroundPattern,
                           invert: widget.invert,
-                          backgroundColor: widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor,
+                          backgroundColor: widget.coreInfo.backgroundColor ??
+                              InnerCanvas.defaultBackgroundColor,
                           backgroundPattern: backgroundPattern,
                           backgroundImage: null, // focus on background pattern
                           pageSize: pageSize,
@@ -213,7 +222,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           right: 0,
                           child: Center(
                             child: _PermanentTooltip(
-                              text: CanvasBackgroundPattern.localizedName(backgroundPattern),
+                              text: CanvasBackgroundPattern.localizedName(
+                                  backgroundPattern),
                             ),
                           ),
                         ),
@@ -266,16 +276,17 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   },
                   child: Text(t.editor.toolbar.photo),
                 ),
-                if (widget.canRasterPdf) ElevatedButton(
-                  onPressed: () async {
-                    bool pdfImported = await widget.importPdf();
-                    if (pdfImported) {
-                      if (!mounted) return;
-                      Navigator.pop(context);
-                    }
-                  },
-                  child: const Text('PDF'),
-                ),
+                if (widget.canRasterPdf)
+                  ElevatedButton(
+                    onPressed: () async {
+                      bool pdfImported = await widget.importPdf();
+                      if (pdfImported) {
+                        if (!mounted) return;
+                        Navigator.pop(context);
+                      }
+                    },
+                    child: const Text('PDF'),
+                  ),
               ],
             ),
             const SizedBox(height: 16),

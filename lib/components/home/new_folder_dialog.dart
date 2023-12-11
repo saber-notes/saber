@@ -19,6 +19,7 @@ class NewFolderDialog extends StatefulWidget {
   @override
   State<NewFolderDialog> createState() => _NewFolderDialogState();
 }
+
 class _NewFolderDialogState extends State<NewFolderDialog> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();

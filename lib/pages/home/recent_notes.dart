@@ -35,7 +35,7 @@ class _RecentPageState extends State<RecentPage> {
   /// Mitigates a bug where files got imported starting with `null/` instead of `/`.
   ///
   /// This caused them to be written to `Documents/Sabernull/...` instead of `Documents/Saber/...`.
-  /// 
+  ///
   /// See https://github.com/saber-notes/saber/issues/996
   /// and https://github.com/saber-notes/saber/pull/977.
   void moveIncorrectlyImportedFiles() async {
@@ -44,12 +44,15 @@ class _RecentPageState extends State<RecentPage> {
 
       final String newFilePath;
       if (filePath.startsWith('null/')) {
-        newFilePath = await FileManager.suffixFilePathToMakeItUnique(filePath.substring('null'.length));
+        newFilePath = await FileManager.suffixFilePathToMakeItUnique(
+            filePath.substring('null'.length));
       } else {
-        newFilePath = await FileManager.suffixFilePathToMakeItUnique('/$filePath');
+        newFilePath =
+            await FileManager.suffixFilePathToMakeItUnique('/$filePath');
       }
-      
-      log.warning('Found incorrectly imported file at `$filePath`; moving to `$newFilePath`');
+
+      log.warning(
+          'Found incorrectly imported file at `$filePath`; moving to `$newFilePath`');
       await FileManager.moveFile(filePath, newFilePath);
     }
   }
@@ -57,12 +60,14 @@ class _RecentPageState extends State<RecentPage> {
   @override
   void initState() {
     findRecentlyAccessedNotes();
-    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(fileWriteListener);
+    fileWriteSubscription =
+        FileManager.fileWriteStream.stream.listen(fileWriteListener);
     selectedFiles.addListener(_setState);
 
     super.initState();
     moveIncorrectlyImportedFiles();
   }
+
   @override
   void dispose() {
     selectedFiles.removeListener(_setState);
@@ -102,8 +107,8 @@ class _RecentPageState extends State<RecentPage> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS
-        || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
     return Scaffold(
       body: RefreshIndicator(
@@ -129,9 +134,7 @@ class _RecentPageState extends State<RecentPage> {
                   ),
                   centerTitle: cupertino,
                   titlePadding: EdgeInsetsDirectional.only(
-                    start: cupertino ? 0 : 16,
-                    bottom: 16
-                  ),
+                      start: cupertino ? 0 : 16, bottom: 16),
                 ),
                 actions: const [
                   SyncingButton(),
@@ -165,38 +168,43 @@ class _RecentPageState extends State<RecentPage> {
       floatingActionButton: NewNoteButton(
         cupertino: cupertino,
       ),
-      persistentFooterButtons: selectedFiles.value.isEmpty ? null : [
-        Collapsible(
-          axis: CollapsibleAxis.vertical,
-          collapsed: selectedFiles.value.length != 1,
-          child: RenameNoteButton(
-            existingPath: selectedFiles.value.isEmpty
-              ? ''
-              : selectedFiles.value.first,
-          ),
-        ),
-        MoveNoteButton(
-          filesToMove: selectedFiles.value,
-        ),
-        IconButton(
-          padding: EdgeInsets.zero,
-          tooltip: t.home.deleteNote,
-          onPressed: () async {
-            await Future.wait([
-              for (String filePath in selectedFiles.value)
-                FileManager.doesFileExist(filePath + Editor.extensionOldJson)
-                  .then((oldExtension) => FileManager.deleteFile(
-                    filePath + (oldExtension ? Editor.extensionOldJson : Editor.extension)
-                  )),
-            ]);
-            selectedFiles.value = [];
-          },
-          icon: const Icon(Icons.delete_forever),
-        ),
-        ExportNoteButton(
-          selectedFiles: selectedFiles.value,
-        ),
-      ],
+      persistentFooterButtons: selectedFiles.value.isEmpty
+          ? null
+          : [
+              Collapsible(
+                axis: CollapsibleAxis.vertical,
+                collapsed: selectedFiles.value.length != 1,
+                child: RenameNoteButton(
+                  existingPath: selectedFiles.value.isEmpty
+                      ? ''
+                      : selectedFiles.value.first,
+                ),
+              ),
+              MoveNoteButton(
+                filesToMove: selectedFiles.value,
+              ),
+              IconButton(
+                padding: EdgeInsets.zero,
+                tooltip: t.home.deleteNote,
+                onPressed: () async {
+                  await Future.wait([
+                    for (String filePath in selectedFiles.value)
+                      FileManager.doesFileExist(
+                              filePath + Editor.extensionOldJson)
+                          .then((oldExtension) => FileManager.deleteFile(
+                              filePath +
+                                  (oldExtension
+                                      ? Editor.extensionOldJson
+                                      : Editor.extension))),
+                  ]);
+                  selectedFiles.value = [];
+                },
+                icon: const Icon(Icons.delete_forever),
+              ),
+              ExportNoteButton(
+                selectedFiles: selectedFiles.value,
+              ),
+            ],
     );
   }
 }

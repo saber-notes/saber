@@ -6,14 +6,15 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Highlighter extends Pen {
-  Highlighter() : super(
-    name: t.editor.pens.highlighter,
-    sizeMin: 10,
-    sizeMax: 100,
-    sizeStep: 10,
-    icon: highlighterIcon,
-    toolId: ToolId.highlighter,
-  ) {
+  Highlighter()
+      : super(
+          name: t.editor.pens.highlighter,
+          sizeMin: 10,
+          sizeMax: 100,
+          sizeStep: 10,
+          icon: highlighterIcon,
+          toolId: ToolId.highlighter,
+        ) {
     strokeProperties = Prefs.lastHighlighterProperties.value;
   }
 

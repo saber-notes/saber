@@ -46,37 +46,42 @@ class Canvas extends StatelessWidget {
       child: FittedBox(
         child: DecoratedBox(
           decoration: BoxDecoration(
-            boxShadow: [BoxShadow(
-              color: Colors.black.withOpacity(0.1), // dark regardless of theme
-              blurRadius: 10,
-              spreadRadius: 2,
-            )],
+            boxShadow: [
+              BoxShadow(
+                color:
+                    Colors.black.withOpacity(0.1), // dark regardless of theme
+                blurRadius: 10,
+                spreadRadius: 2,
+              )
+            ],
           ),
-          child: !placeholder ? ClipRect(
-            child: SizedBox(
-              width: page.size.width,
-              height: page.size.height,
-              child: OnyxSdkPenArea(
-                child: InnerCanvas(
-                  key: page.innerCanvasKey,
-                  pageIndex: pageIndex,
-                  redrawPageListenable: page,
+          child: !placeholder
+              ? ClipRect(
+                  child: SizedBox(
+                    width: page.size.width,
+                    height: page.size.height,
+                    child: OnyxSdkPenArea(
+                      child: InnerCanvas(
+                        key: page.innerCanvasKey,
+                        pageIndex: pageIndex,
+                        redrawPageListenable: page,
+                        width: page.size.width,
+                        height: page.size.height,
+                        textEditing: textEditing,
+                        coreInfo: coreInfo,
+                        currentStroke: currentStroke,
+                        currentStrokeDetectedShape: currentStrokeDetectedShape,
+                        currentSelection: currentSelection,
+                        setAsBackground: setAsBackground,
+                        currentToolIsSelect: currentToolIsSelect,
+                      ),
+                    ),
+                  ),
+                )
+              : SizedBox(
                   width: page.size.width,
                   height: page.size.height,
-                  textEditing: textEditing,
-                  coreInfo: coreInfo,
-                  currentStroke: currentStroke,
-                  currentStrokeDetectedShape: currentStrokeDetectedShape,
-                  currentSelection: currentSelection,
-                  setAsBackground: setAsBackground,
-                  currentToolIsSelect: currentToolIsSelect,
                 ),
-              ),
-            ),
-          ) : SizedBox(
-            width: page.size.width,
-            height: page.size.height,
-          ),
         ),
       ),
     );

@@ -24,9 +24,10 @@ class LaserPointer extends Tool {
 
   /// List of timings that correspond to the delay between each point
   /// in the stroke. The first point has a delay of 0.
-  /// 
+  ///
   /// This is used to fade out each point in the stroke one by one.
   List<Duration> strokePointDelays = [];
+
   /// Stopwatch used to find the time elapsed since the last point.
   final Stopwatch _stopwatch = Stopwatch();
 
@@ -49,7 +50,8 @@ class LaserPointer extends Tool {
     _stopwatch.reset();
   }
 
-  Stroke onDragEnd(VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
+  Stroke onDragEnd(
+      VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
     fadeOutStroke(
       stroke: Pen.currentStroke!,
       strokePointDelays: strokePointDelays,
@@ -64,12 +66,11 @@ class LaserPointer extends Tool {
 
   static const Duration _fadeOutDelay = Duration(milliseconds: 500);
   @visibleForTesting
-  static void fadeOutStroke({
-    required Stroke stroke,
-    required List<Duration> strokePointDelays,
-    required VoidCallback redrawPage,
-    required void Function(Stroke) deleteStroke
-  }) async {
+  static void fadeOutStroke(
+      {required Stroke stroke,
+      required List<Duration> strokePointDelays,
+      required VoidCallback redrawPage,
+      required void Function(Stroke) deleteStroke}) async {
     await Future.delayed(_fadeOutDelay);
 
     for (Duration delay in strokePointDelays) {

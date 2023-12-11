@@ -66,7 +66,8 @@ class _MasonryFilesState extends State<MasonryFiles> {
           }
 
           final file = files[index];
-          if (file == null) { // ad
+          if (file == null) {
+            // ad
             return const BannerAdWidget(
               adSize: AdSize(
                 width: 300,
@@ -75,16 +76,15 @@ class _MasonryFilesState extends State<MasonryFiles> {
             );
           } else {
             return ValueListenableBuilder(
-              valueListenable: isAnythingSelected,
-              builder: (context, isAnythingSelected, _) {
-                return PreviewCard(
-                  filePath: file,
-                  toggleSelection: toggleSelection,
-                  selected: widget.selectedFiles.value.contains(file),
-                  isAnythingSelected: isAnythingSelected,
-                );
-              }
-            );
+                valueListenable: isAnythingSelected,
+                builder: (context, isAnythingSelected, _) {
+                  return PreviewCard(
+                    filePath: file,
+                    toggleSelection: toggleSelection,
+                    selected: widget.selectedFiles.value.contains(file),
+                    isAnythingSelected: isAnythingSelected,
+                  );
+                });
           }
         },
       ),

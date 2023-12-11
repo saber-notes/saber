@@ -54,6 +54,7 @@ class _RenameFolderDialog extends StatefulWidget {
   @override
   State<_RenameFolderDialog> createState() => _RenameFolderDialogState();
 }
+
 class _RenameFolderDialogState extends State<_RenameFolderDialog> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _controller = TextEditingController();

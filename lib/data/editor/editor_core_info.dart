@@ -22,7 +22,7 @@ class EditorCoreInfo {
 
   /// The version of the file format.
   /// Increment this if earlier versions of the app can't satisfiably read the file.
-  /// 
+  ///
   /// Version history:
   /// - 19: Assets are now stored in separate files, and added the `sba` file format.
   /// - 18: [Pencil] tool introduced
@@ -48,6 +48,7 @@ class EditorCoreInfo {
   bool readOnlyBecauseOfVersion = false;
 
   String filePath;
+
   /// The file name without its parent directories.
   String get fileName => filePath.substring(filePath.lastIndexOf('/') + 1);
 
@@ -72,8 +73,7 @@ class EditorCoreInfo {
     pages: [],
     initialPageIndex: null,
     assetCache: null,
-  )
-    .._migrateOldStrokesAndImages(
+  ).._migrateOldStrokesAndImages(
       fileVersion: sbnVersion,
       strokesJson: null,
       imagesJson: null,
@@ -86,9 +86,9 @@ class EditorCoreInfo {
 
   EditorCoreInfo({
     required this.filePath,
-    this.readOnly = true, // default to read-only, until it's loaded with [loadFromFilePath]
-  }):
-        nextImageId = 0,
+    this.readOnly =
+        true, // default to read-only, until it's loaded with [loadFromFilePath]
+  })  : nextImageId = 0,
         backgroundPattern = Prefs.lastBackgroundPattern.value,
         lineHeight = Prefs.lastLineHeight.value,
         pages = [],
@@ -105,11 +105,12 @@ class EditorCoreInfo {
     required this.pages,
     required this.initialPageIndex,
     required AssetCache? assetCache,
-  }): assetCache = assetCache ?? AssetCache() {
+  }) : assetCache = assetCache ?? AssetCache() {
     _handleEmptyImageIds();
   }
 
-  factory EditorCoreInfo.fromJson(Map<String, dynamic> json, {
+  factory EditorCoreInfo.fromJson(
+    Map<String, dynamic> json, {
     required String filePath,
     required bool readOnly,
     required bool onlyFirstPage,
@@ -121,17 +122,18 @@ class EditorCoreInfo {
     /// Note that inline assets aren't used anymore
     /// since sbnVersion 19.
     final List<Uint8List>? inlineAssets = (json['a'] as List?)
-      ?.map((asset) => switch (asset) {
-        (String base64) => base64Decode(base64),
-        (Uint8List bytes) => bytes,
-        (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
-        (BsonBinary bsonBinary) => bsonBinary.byteList,
-        _ => (){
-          log.severe('Invalid asset type in $filePath: ${asset.runtimeType}');
-          return Uint8List(0);
-        }(),
-      })
-      .toList();
+        ?.map((asset) => switch (asset) {
+              (String base64) => base64Decode(base64),
+              (Uint8List bytes) => bytes,
+              (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
+              (BsonBinary bsonBinary) => bsonBinary.byteList,
+              _ => () {
+                  log.severe(
+                      'Invalid asset type in $filePath: ${asset.runtimeType}');
+                  return Uint8List(0);
+                }(),
+            })
+        .toList();
 
     final Color? backgroundColor;
     switch (json['b']) {
@@ -142,7 +144,8 @@ class EditorCoreInfo {
       case null:
         backgroundColor = null;
       default:
-        throw Exception('Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
+        throw Exception(
+            'Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
     }
 
     final assetCache = AssetCache();
@@ -153,7 +156,7 @@ class EditorCoreInfo {
       readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
       nextImageId: json['ni'] as int? ?? 0,
       backgroundColor: backgroundColor,
-      backgroundPattern: (){
+      backgroundPattern: () {
         final String? pattern = json['p'] as String?;
         for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
           if (p.name == pattern) return p;
@@ -184,16 +187,18 @@ class EditorCoreInfo {
       )
       .._sortStrokes();
   }
+
   /// Old json format is just a list of strokes
-  EditorCoreInfo.fromOldJson(List<dynamic> json, {
+  EditorCoreInfo.fromOldJson(
+    List<dynamic> json, {
     required this.filePath,
     this.readOnly = false,
     required bool onlyFirstPage,
-  }): nextImageId = 0,
-      backgroundPattern = CanvasBackgroundPattern.none,
-      lineHeight = Prefs.lastLineHeight.value,
-      pages = [],
-      assetCache = AssetCache() {
+  })  : nextImageId = 0,
+        backgroundPattern = CanvasBackgroundPattern.none,
+        lineHeight = Prefs.lastLineHeight.value,
+        pages = [],
+        assetCache = AssetCache() {
     _migrateOldStrokesAndImages(
       fileVersion: 0,
       strokesJson: json,
@@ -204,7 +209,8 @@ class EditorCoreInfo {
     _sortStrokes();
   }
 
-  static List<EditorPage> _parsePagesJson(List<dynamic>? pages, {
+  static List<EditorPage> _parsePagesJson(
+    List<dynamic>? pages, {
     required List<Uint8List>? inlineAssets,
     required bool readOnly,
     required bool onlyFirstPage,
@@ -213,26 +219,27 @@ class EditorCoreInfo {
     required AssetCache assetCache,
   }) {
     if (pages == null || pages.isEmpty) return [];
-    if (pages[0] is List) { // old format (list of [width, height])
+    if (pages[0] is List) {
+      // old format (list of [width, height])
       return pages
-        .take(onlyFirstPage ? 1 : pages.length)
-        .map((dynamic page) => EditorPage(
-          width: page[0] as double?,
-          height: page[1] as double?,
-        ))
-        .toList();
+          .take(onlyFirstPage ? 1 : pages.length)
+          .map((dynamic page) => EditorPage(
+                width: page[0] as double?,
+                height: page[1] as double?,
+              ))
+          .toList();
     } else {
       return pages
-        .take(onlyFirstPage ? 1 : pages.length)
-        .map((dynamic page) => EditorPage.fromJson(
-          page as Map<String, dynamic>,
-          inlineAssets: inlineAssets,
-          readOnly: readOnly,
-          fileVersion: fileVersion,
-          sbnPath: sbnPath,
-          assetCache: assetCache,
-        ))
-        .toList();
+          .take(onlyFirstPage ? 1 : pages.length)
+          .map((dynamic page) => EditorPage.fromJson(
+                page as Map<String, dynamic>,
+                inlineAssets: inlineAssets,
+                readOnly: readOnly,
+                fileVersion: fileVersion,
+                sbnPath: sbnPath,
+                assetCache: assetCache,
+              ))
+          .toList();
     }
   }
 
@@ -245,12 +252,12 @@ class EditorCoreInfo {
   }
 
   /// Performs the following migrations:
-  /// 
+  ///
   /// Migrates from fileVersion 7 to 8.
   /// In version 8, strokes and images are stored in their respective pages.
   ///
   /// Creates a page if there are no pages.
-  /// 
+  ///
   /// Migrates from fileVersion 11 to 12.
   /// In version 12, points are deleted if they are too close to each other.
   void _migrateOldStrokesAndImages({
@@ -271,7 +278,8 @@ class EditorCoreInfo {
       for (Stroke stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
-          pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+          pages.add(
+              EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
         }
         pages[stroke.pageIndex].insertStroke(stroke);
       }
@@ -289,7 +297,8 @@ class EditorCoreInfo {
       for (EditorImage image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
         while (image.pageIndex >= pages.length) {
-          pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+          pages.add(
+              EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
         }
         pages[image.pageIndex].images.add(image);
       }
@@ -298,7 +307,8 @@ class EditorCoreInfo {
     // add a page if there are no pages,
     // or if the last page is not empty
     if (pages.isEmpty || pages.last.isNotEmpty && !onlyFirstPage) {
-      pages.add(EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+      pages.add(
+          EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
     }
 
     // delete points that are too close to each other
@@ -317,7 +327,8 @@ class EditorCoreInfo {
     }
   }
 
-  static Future<EditorCoreInfo> loadFromFilePath(String path, {
+  static Future<EditorCoreInfo> loadFromFilePath(
+    String path, {
     bool readOnly = false,
     bool onlyFirstPage = false,
   }) async {
@@ -327,10 +338,11 @@ class EditorCoreInfo {
     if (bsonBytes != null) {
       jsonString = null;
     } else {
-      final jsonBytes = await FileManager.readFile(path + Editor.extensionOldJson);
+      final jsonBytes =
+          await FileManager.readFile(path + Editor.extensionOldJson);
       jsonString = jsonBytes != null ? utf8.decode(jsonBytes) : null;
     }
-    
+
     if (bsonBytes == null && jsonString == null) {
       return EditorCoreInfo(filePath: path, readOnly: readOnly);
     }
@@ -356,18 +368,20 @@ class EditorCoreInfo {
     EditorCoreInfo coreInfo;
     try {
       EditorCoreInfo isolate() => _loadFromFileIsolate(
-        jsonString,
-        bsonBytes,
-        path,
-        readOnly,
-        onlyFirstPage,
-      );
+            jsonString,
+            bsonBytes,
+            path,
+            readOnly,
+            onlyFirstPage,
+          );
 
       final length = jsonString?.length ?? bsonBytes!.length;
-      if (alwaysUseIsolate || length > 2 * 1024 * 1024) { // 2 MB
+      if (alwaysUseIsolate || length > 2 * 1024 * 1024) {
+        // 2 MB
         coreInfo = await workerManager.execute(
           isolate,
-          priority: WorkPriority.veryHigh, // less important than [WorkPriority.immediately]
+          priority: WorkPriority
+              .veryHigh, // less important than [WorkPriority.immediately]
         );
       } else {
         // if the file is small, just run it on the main thread
@@ -386,11 +400,11 @@ class EditorCoreInfo {
   }
 
   static EditorCoreInfo _loadFromFileIsolate(
-      String? jsonString,
-      Uint8List? bsonBytes,
-      String path,
-      bool readOnly,
-      bool onlyFirstPage,
+    String? jsonString,
+    Uint8List? bsonBytes,
+    String path,
+    bool readOnly,
+    bool onlyFirstPage,
   ) {
     final dynamic json;
     try {
@@ -409,7 +423,8 @@ class EditorCoreInfo {
 
     if (json == null) {
       throw Exception('Failed to parse json from $path');
-    } else if (json is List) { // old format
+    } else if (json is List) {
+      // old format
       return EditorCoreInfo.fromOldJson(
         json,
         filePath: path,
@@ -448,10 +463,10 @@ class EditorCoreInfo {
   /// Converts the current note as an SBA (Saber Archive) file,
   /// which contains the main bson file and all the assets
   /// compressed into a zip file.
-  /// 
+  ///
   /// In the archive, the main bson file is named `main.sbn2`,
   /// and the assets are named `main.sbn2.0`, `main.sbn2.1`, etc.
-  /// 
+  ///
   /// If [currentPageIndex] isn't null,
   /// [initialPageIndex] will be updated to it before saving.
   Future<List<int>> saveToSba({
@@ -468,15 +483,14 @@ class EditorCoreInfo {
       bson.length,
       bson,
     ));
-    
+
     await Future.wait([
       for (int i = 0; i < assets.length; ++i)
-        assets.getBytes(i)
-          .then((bytes) => archive.addFile(ArchiveFile(
-            '$filePath.$i',
-            bytes.length,
-            bytes,
-          ))),
+        assets.getBytes(i).then((bytes) => archive.addFile(ArchiveFile(
+              '$filePath.$i',
+              bytes.length,
+              bytes,
+            ))),
     ]);
 
     return ZipEncoder().encode(archive)!;
@@ -513,7 +527,8 @@ class EditorCoreInfo {
     return EditorCoreInfo._(
       filePath: filePath ?? this.filePath,
       readOnly: readOnly ?? this.readOnly,
-      readOnlyBecauseOfVersion: readOnlyBecauseOfVersion ?? this.readOnlyBecauseOfVersion,
+      readOnlyBecauseOfVersion:
+          readOnlyBecauseOfVersion ?? this.readOnlyBecauseOfVersion,
       nextImageId: nextImageId ?? this.nextImageId,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,

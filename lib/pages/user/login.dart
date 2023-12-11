@@ -16,7 +16,8 @@ import 'package:saber/i18n/strings.g.dart';
 class NcLoginPage extends StatefulWidget {
   const NcLoginPage({super.key});
 
-  static final Uri signupUrl = Uri.parse('https://nc.saber.adil.hanney.org/index.php/apps/registration/');
+  static final Uri signupUrl = Uri.parse(
+      'https://nc.saber.adil.hanney.org/index.php/apps/registration/');
 
   @override
   State<NcLoginPage> createState() => _NcLoginPageState();
@@ -36,10 +37,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
     final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities;
     final VersionCheck versionCheck;
     try {
-      capabilities = await client.core.ocs.getCapabilities()
-        .then((capabilities) => capabilities.body.ocs.data);
+      capabilities = await client.core.ocs
+          .getCapabilities()
+          .then((capabilities) => capabilities.body.ocs.data);
       versionCheck = client.core.getVersionCheck(capabilities);
-      log.info('versionCheck: isSupported=${versionCheck.isSupported}, minimumVersion=${versionCheck.minimumVersion}');
+      log.info(
+          'versionCheck: isSupported=${versionCheck.isSupported}, minimumVersion=${versionCheck.minimumVersion}');
     } catch (e) {
       log.severe('Failed to get capabilities: $e', e);
       throw NcLoginFailure();
@@ -77,7 +80,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
       log.severe('Failed to load encryption key, wrong encryption password');
       Prefs.encPassword.value = previousEncPassword;
       rethrow;
-    } catch (e) { // Probably a webdav error
+    } catch (e) {
+      // Probably a webdav error
       log.severe('Failed to load encryption key: $e', e);
       Prefs.encPassword.value = previousEncPassword;
       if (kDebugMode) rethrow;
@@ -89,11 +93,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
     Prefs.ncPassword.value = loginDetails.ncPassword;
 
     Prefs.pfp.value = null;
-    client.core.avatar.getAvatar(userId: username, size: 512)
+    client.core.avatar
+        .getAvatar(userId: username, size: 512)
         .then((response) => response.body)
         .then((Uint8List pfp) {
-          Prefs.pfp.value = pfp;
-        });
+      Prefs.pfp.value = pfp;
+    });
 
     Prefs.lastStorageQuota.value = null;
 
@@ -120,7 +125,6 @@ class _NcLoginPageState extends State<NcLoginPage> {
                   height: 240,
                   excludeFromSemantics: true,
                 ),
-
                 const SizedBox(height: 64),
                 LoginInputGroup(
                   tryLogin: _tryLogin,

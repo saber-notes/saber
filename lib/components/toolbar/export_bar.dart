@@ -41,10 +41,12 @@ class _ExportBarState extends State<ExportBar> {
       });
     };
   }
+
   Widget _buttonChild(Future Function()? exportFunction, String text) {
     if (exportFunction == null || _currentlyExporting != exportFunction) {
       return Text(text);
-    } else { // if this is currently exporting, show a loading icon
+    } else {
+      // if this is currently exporting, show a loading icon
       return const SpinningLoadingIcon();
     }
   }
@@ -54,7 +56,6 @@ class _ExportBarState extends State<ExportBar> {
     final children = <Widget>[
       Text(t.editor.toolbar.exportAs),
       const SizedBox.square(dimension: 8),
-
       TextButton(
         onPressed: _onPressed(widget.exportAsSba),
         child: _buttonChild(widget.exportAsSba, 'SBA'),
@@ -63,10 +64,11 @@ class _ExportBarState extends State<ExportBar> {
         onPressed: _onPressed(widget.exportAsPdf),
         child: _buttonChild(widget.exportAsPdf, 'PDF'),
       ),
-      if (kDebugMode) TextButton(
-        onPressed: _onPressed(widget.exportAsPng),
-        child: _buttonChild(widget.exportAsPng, 'PNG'),
-      ),
+      if (kDebugMode)
+        TextButton(
+          onPressed: _onPressed(widget.exportAsPng),
+          child: _buttonChild(widget.exportAsPng, 'PNG'),
+        ),
     ];
 
     return Center(
@@ -75,8 +77,8 @@ class _ExportBarState extends State<ExportBar> {
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: widget.axis == Axis.horizontal
-            ? Row(children: children)
-            : Column(children: children),
+              ? Row(children: children)
+              : Column(children: children),
         ),
       ),
     );

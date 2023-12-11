@@ -42,11 +42,12 @@ class _YaruBuilderState extends State<YaruBuilder> {
   static YaruVariant findClosestYaruVariant(Color primary) {
     final primaryHue = HSLColor.fromColor(primary).hue;
     return YaruVariant.values
-      .map((variant) {
-        final variantHue = HSLColor.fromColor(variant.color).hue;
-        return MapEntry(variant, (variantHue - primaryHue).abs());
-      })
-      .reduce((a, b) => a.value < b.value ? a : b).key;
+        .map((variant) {
+          final variantHue = HSLColor.fromColor(variant.color).hue;
+          return MapEntry(variant, (variantHue - primaryHue).abs());
+        })
+        .reduce((a, b) => a.value < b.value ? a : b)
+        .key;
   }
 
   @override

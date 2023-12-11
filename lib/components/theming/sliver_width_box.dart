@@ -15,9 +15,8 @@ class SliverWidthBox extends StatelessWidget {
     final windowSize = MediaQuery.of(context).size;
     return SliverPadding(
       padding: EdgeInsets.symmetric(
-        horizontal: windowSize.width > width
-            ? (windowSize.width - width) / 2
-            : 0,
+        horizontal:
+            windowSize.width > width ? (windowSize.width - width) / 2 : 0,
       ),
       sliver: sliver,
     );

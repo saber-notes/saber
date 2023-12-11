@@ -12,13 +12,13 @@ class SettingsSelection<T extends num> extends StatefulWidget {
     this.subtitle,
     this.icon,
     this.iconBuilder,
-
     required this.pref,
     required this.options,
     this.afterChange,
     this.optionsWidth = 72,
     this.optionsHeight = 40,
-  }): assert(icon == null || iconBuilder == null, 'Cannot set both icon and iconBuilder');
+  }) : assert(icon == null || iconBuilder == null,
+            'Cannot set both icon and iconBuilder');
 
   final String title;
   final String? subtitle;
@@ -35,8 +35,10 @@ class SettingsSelection<T extends num> extends StatefulWidget {
   State<SettingsSelection> createState() => _SettingsSelectionState<T>();
 }
 
-class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>> {
-  late FocusNode dropdownFocusNode = FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
+class _SettingsSelectionState<T extends num>
+    extends State<SettingsSelection<T>> {
+  late FocusNode dropdownFocusNode =
+      FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
 
   @override
   void initState() {
@@ -46,13 +48,16 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
 
   void onChanged() {
     widget.afterChange?.call(widget.pref.value);
-    setState(() { });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!widget.options.any((ToggleButtonsOption option) => widget.pref.value == option.value)) {
-      if (kDebugMode) throw Exception('SettingsSelection (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
+    if (!widget.options.any(
+        (ToggleButtonsOption option) => widget.pref.value == option.value)) {
+      if (kDebugMode)
+        throw Exception(
+            'SettingsSelection (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
       widget.pref.value = widget.options.first.value;
     }
 
@@ -67,9 +72,13 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
       onTap: () {
         if (useDropdownInstead) {
           dropdownFocusNode.requestFocus();
-        } else { // cycle through options
-          final int i = widget.options.indexWhere((ToggleButtonsOption option) => option.value == widget.pref.value);
-          widget.pref.value = widget.options[(i + 1) % widget.options.length].value;
+        } else {
+          // cycle through options
+          final int i = widget.options.indexWhere(
+              (ToggleButtonsOption option) =>
+                  option.value == widget.pref.value);
+          widget.pref.value =
+              widget.options[(i + 1) % widget.options.length].value;
         }
       },
       onLongPress: () {
@@ -93,37 +102,40 @@ class _SettingsSelectionState<T extends num> extends State<SettingsSelection<T>>
               : null,
         ),
       ),
-      subtitle: Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
-      trailing: !useDropdownInstead ? AdaptiveToggleButtons(
-        value: widget.pref.value,
-        options: widget.options,
-        onChange: (T? value) {
-          // setState is automatically called when the pref changes
-          if (value != null) {
-            widget.pref.value = value;
-          }
-        },
-        optionsWidth: widget.optionsWidth,
-        optionsHeight: widget.optionsHeight,
-      ) : DropdownButton<T>(
-        value: widget.pref.value,
-        onChanged: (T? value) {
-          if (value == null) return;
-          widget.pref.value = value;
-        },
-        items: widget.options.map((ToggleButtonsOption<T> option) {
-          return DropdownMenuItem<T>(
-            value: option.value,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: option.widget,
+      subtitle:
+          Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+      trailing: !useDropdownInstead
+          ? AdaptiveToggleButtons(
+              value: widget.pref.value,
+              options: widget.options,
+              onChange: (T? value) {
+                // setState is automatically called when the pref changes
+                if (value != null) {
+                  widget.pref.value = value;
+                }
+              },
+              optionsWidth: widget.optionsWidth,
+              optionsHeight: widget.optionsHeight,
+            )
+          : DropdownButton<T>(
+              value: widget.pref.value,
+              onChanged: (T? value) {
+                if (value == null) return;
+                widget.pref.value = value;
+              },
+              items: widget.options.map((ToggleButtonsOption<T> option) {
+                return DropdownMenuItem<T>(
+                  value: option.value,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: option.widget,
+                  ),
+                );
+              }).toList(),
+              focusNode: dropdownFocusNode,
+              borderRadius: BorderRadius.circular(32),
+              underline: const SizedBox.shrink(),
             ),
-          );
-        }).toList(),
-        focusNode: dropdownFocusNode,
-        borderRadius: BorderRadius.circular(32),
-        underline: const SizedBox.shrink(),
-      ),
     );
   }
 

@@ -23,18 +23,19 @@ void main() {
 }
 
 Stroke _stroke(Offset point) => Stroke(
-  strokeProperties: StrokeProperties(size: _penSize),
-  pageIndex: 0,
-  penType: 'testingPen',
-)..addPoint(point);
+      strokeProperties: StrokeProperties(size: _penSize),
+      pageIndex: 0,
+      penType: 'testingPen',
+    )..addPoint(point);
 
 void _testStrokeSvg(Stroke stroke) {
   final svgPath = stroke.toSvgPath(_pageSize);
-  final svgPoints = svgPath.split(RegExp(r'[ML]'))
-        .where((e) => e.isNotEmpty)
-        .map((e) => e.split(' ').map((e) => double.parse(e)).toList())
-        .map((e) => Offset(e[0], e[1]))
-        .toList();
+  final svgPoints = svgPath
+      .split(RegExp(r'[ML]'))
+      .where((e) => e.isNotEmpty)
+      .map((e) => e.split(' ').map((e) => double.parse(e)).toList())
+      .map((e) => Offset(e[0], e[1]))
+      .toList();
   final center = stroke.points.first;
   for (int i = 0; i < stroke.points.length; i++) {
     final svgPoint = svgPoints[i];
@@ -42,7 +43,9 @@ void _testStrokeSvg(Stroke stroke) {
     expect(svgPoint.dx, greaterThanOrEqualTo(center.x - _penSize));
     expect(svgPoint.dx, lessThanOrEqualTo(center.x + _penSize));
 
-    expect(svgPoint.dy, greaterThanOrEqualTo(_pageSize.height - center.y - _penSize));
-    expect(svgPoint.dy, lessThanOrEqualTo(_pageSize.height - center.y + _penSize));
+    expect(svgPoint.dy,
+        greaterThanOrEqualTo(_pageSize.height - center.y - _penSize));
+    expect(
+        svgPoint.dy, lessThanOrEqualTo(_pageSize.height - center.y + _penSize));
   }
 }

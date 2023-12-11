@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SpinningLoadingIcon extends StatefulWidget {
@@ -8,7 +7,8 @@ class SpinningLoadingIcon extends StatefulWidget {
   State<SpinningLoadingIcon> createState() => _SpinningLoadingIconState();
 }
 
-class _SpinningLoadingIconState extends State<SpinningLoadingIcon> with TickerProviderStateMixin {
+class _SpinningLoadingIconState extends State<SpinningLoadingIcon>
+    with TickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -17,8 +17,8 @@ class _SpinningLoadingIconState extends State<SpinningLoadingIcon> with TickerPr
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
     _controller.repeat();
     super.initState();
   }
@@ -31,6 +31,7 @@ class _SpinningLoadingIconState extends State<SpinningLoadingIcon> with TickerPr
 
   @override
   Widget build(BuildContext context) {
-    return RotationTransition(turns: _controller, child: const Icon(Icons.refresh));
+    return RotationTransition(
+        turns: _controller, child: const Icon(Icons.refresh));
   }
 }

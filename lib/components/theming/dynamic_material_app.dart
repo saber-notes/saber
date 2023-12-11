@@ -35,14 +35,14 @@ class DynamicMaterialApp extends StatefulWidget {
       windowManager.setFullScreen(value);
     } else {
       SystemChrome.setEnabledSystemUIMode(
-        value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge
-      );
+          value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge);
     }
   }
 
   static void addFullscreenListener(void Function() listener) {
     _isFullscreen.addListener(listener);
   }
+
   static void removeFullscreenListener(void Function() listener) {
     _isFullscreen.removeListener(listener);
   }
@@ -51,7 +51,8 @@ class DynamicMaterialApp extends StatefulWidget {
   State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
 }
 
-class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowListener {
+class _DynamicMaterialAppState extends State<DynamicMaterialApp>
+    with WindowListener {
   bool requiresCustomFont = false;
 
   @override
@@ -69,19 +70,22 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
   }
 
   void onChanged() {
-    setState(() { });
+    setState(() {});
   }
 
   @override
   void onWindowEnterFullScreen() {
     DynamicMaterialApp.setFullscreen(true, updateSystem: false);
   }
+
   @override
   void onWindowLeaveFullScreen() {
     DynamicMaterialApp.setFullscreen(false, updateSystem: false);
   }
+
   Future<void> _onFullscreenChange(bool systemOverlaysAreVisible) async {
-    DynamicMaterialApp.setFullscreen(!systemOverlaysAreVisible, updateSystem: false);
+    DynamicMaterialApp.setFullscreen(!systemOverlaysAreVisible,
+        updateSystem: false);
   }
 
   /// We need to use a custom font if macOS < 10.13,
@@ -90,7 +94,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
     if (!Platform.isMacOS) return;
 
     final RegExp numberRegex = RegExp(r'\d+\.\d+'); // e.g. 10.13 or 12.5
-    final RegExpMatch? osVersionMatch = numberRegex.firstMatch(Platform.operatingSystemVersion);
+    final RegExpMatch? osVersionMatch =
+        numberRegex.firstMatch(Platform.operatingSystemVersion);
     if (osVersionMatch == null) return;
 
     final double osVersion = double.tryParse(osVersionMatch[0] ?? '0') ?? 0;
@@ -147,13 +152,15 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
           );
         }
 
-        final ColorScheme highContrastLightColorScheme = SeedColorScheme.fromSeeds(
+        final ColorScheme highContrastLightColorScheme =
+            SeedColorScheme.fromSeeds(
           brightness: Brightness.light,
           primaryKey: seedColor,
           background: Colors.white,
           tones: FlexTones.ultraContrast(Brightness.light),
         );
-        final ColorScheme highContrastDarkColorScheme = SeedColorScheme.fromSeeds(
+        final ColorScheme highContrastDarkColorScheme =
+            SeedColorScheme.fromSeeds(
           brightness: Brightness.dark,
           primaryKey: seedColor,
           background: Colors.black,
@@ -168,54 +175,58 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp> with WindowList
         };
 
         return YaruBuilder(
-          enabled: platform == TargetPlatform.linux,
-          primary: lightColorScheme.primary,
-          builder: (context, yaruTheme, yaruHighContrastTheme) {
-            return MaterialApp.router(
-              routeInformationProvider: widget.router.routeInformationProvider,
-              routeInformationParser: widget.router.routeInformationParser,
-              routerDelegate: widget.router.routerDelegate,
-
-              locale: TranslationProvider.of(context).flutterLocale,
-              supportedLocales: AppLocaleUtils.supportedLocales,
-              localizationsDelegates: GlobalMaterialLocalizations.delegates,
-
-              title: widget.title,
-
-              themeMode: Prefs.appTheme.loaded ? Prefs.appTheme.value : ThemeMode.system,
-              theme: yaruTheme?.theme ?? ThemeData(
-                useMaterial3: true,
-                colorScheme: lightColorScheme,
-                textTheme: getTextTheme(Brightness.light),
-                scaffoldBackgroundColor: lightColorScheme.background,
-                platform: platform,
-              ),
-              darkTheme: yaruTheme?.darkTheme ?? ThemeData(
-                useMaterial3: true,
-                colorScheme: darkColorScheme,
-                textTheme: getTextTheme(Brightness.dark),
-                scaffoldBackgroundColor: darkColorScheme.background,
-                platform: platform,
-              ),
-              highContrastTheme: yaruHighContrastTheme?.theme ?? ThemeData(
-                useMaterial3: true,
-                colorScheme: highContrastLightColorScheme,
-                textTheme: getTextTheme(Brightness.light),
-                scaffoldBackgroundColor: highContrastLightColorScheme.background,
-                platform: platform,
-              ),
-              highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ?? ThemeData(
-                useMaterial3: true,
-                colorScheme: highContrastDarkColorScheme,
-                textTheme: getTextTheme(Brightness.dark),
-                scaffoldBackgroundColor: highContrastDarkColorScheme.background,
-                platform: platform,
-              ),
-
-              debugShowCheckedModeBanner: false,
-            );
-          }
-        );
+            enabled: platform == TargetPlatform.linux,
+            primary: lightColorScheme.primary,
+            builder: (context, yaruTheme, yaruHighContrastTheme) {
+              return MaterialApp.router(
+                routeInformationProvider:
+                    widget.router.routeInformationProvider,
+                routeInformationParser: widget.router.routeInformationParser,
+                routerDelegate: widget.router.routerDelegate,
+                locale: TranslationProvider.of(context).flutterLocale,
+                supportedLocales: AppLocaleUtils.supportedLocales,
+                localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                title: widget.title,
+                themeMode: Prefs.appTheme.loaded
+                    ? Prefs.appTheme.value
+                    : ThemeMode.system,
+                theme: yaruTheme?.theme ??
+                    ThemeData(
+                      useMaterial3: true,
+                      colorScheme: lightColorScheme,
+                      textTheme: getTextTheme(Brightness.light),
+                      scaffoldBackgroundColor: lightColorScheme.background,
+                      platform: platform,
+                    ),
+                darkTheme: yaruTheme?.darkTheme ??
+                    ThemeData(
+                      useMaterial3: true,
+                      colorScheme: darkColorScheme,
+                      textTheme: getTextTheme(Brightness.dark),
+                      scaffoldBackgroundColor: darkColorScheme.background,
+                      platform: platform,
+                    ),
+                highContrastTheme: yaruHighContrastTheme?.theme ??
+                    ThemeData(
+                      useMaterial3: true,
+                      colorScheme: highContrastLightColorScheme,
+                      textTheme: getTextTheme(Brightness.light),
+                      scaffoldBackgroundColor:
+                          highContrastLightColorScheme.background,
+                      platform: platform,
+                    ),
+                highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ??
+                    ThemeData(
+                      useMaterial3: true,
+                      colorScheme: highContrastDarkColorScheme,
+                      textTheme: getTextTheme(Brightness.dark),
+                      scaffoldBackgroundColor:
+                          highContrastDarkColorScheme.background,
+                      platform: platform,
+                    ),
+                debugShowCheckedModeBanner: false,
+              );
+            });
       },
     );
   }

@@ -22,8 +22,8 @@ class EditorPage extends Listenable {
   late final CanvasKey innerCanvasKey = CanvasKey();
   RenderBox? _renderBox;
   RenderBox? get renderBox {
-    return _renderBox
-      ??= innerCanvasKey.currentState?.context.findRenderObject() as RenderBox?;
+    return _renderBox ??=
+        innerCanvasKey.currentState?.context.findRenderObject() as RenderBox?;
   }
 
   bool _isRendered = false;
@@ -45,33 +45,35 @@ class EditorPage extends Listenable {
 
   EditorImage? backgroundImage;
 
-  bool get isEmpty => strokes.isEmpty
-      && images.isEmpty
-      && quill.controller.document.isEmpty()
-      && backgroundImage == null;
+  bool get isEmpty =>
+      strokes.isEmpty &&
+      images.isEmpty &&
+      quill.controller.document.isEmpty() &&
+      backgroundImage == null;
   bool get isNotEmpty => !isEmpty;
 
   EditorPage({
     Size? size,
     double? width,
     double? height,
-
     List<Stroke>? strokes,
     List<EditorImage>? images,
     QuillStruct? quill,
     this.backgroundImage,
-  }): assert((size == null) || (width == null && height == null),
-        "size and width/height shouldn't both be specified"),
-      size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
-      strokes = strokes ?? [],
-      laserStrokes = [],
-      images = images ?? [],
-      quill = quill ?? QuillStruct(
-        controller: QuillController.basic(),
-        focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
-      );
+  })  : assert((size == null) || (width == null && height == null),
+            "size and width/height shouldn't both be specified"),
+        size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
+        strokes = strokes ?? [],
+        laserStrokes = [],
+        images = images ?? [],
+        quill = quill ??
+            QuillStruct(
+              controller: QuillController.basic(),
+              focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
+            );
 
-  factory EditorPage.fromJson(Map<String, dynamic> json, {
+  factory EditorPage.fromJson(
+    Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     required bool readOnly,
     required int fileVersion,
@@ -94,10 +96,12 @@ class EditorPage extends Listenable {
         assetCache: assetCache,
       ),
       quill: QuillStruct(
-        controller: json['q'] != null ? QuillController(
-          document: Document.fromJson(json['q'] as List),
-          selection: const TextSelection.collapsed(offset: 0),
-        ) : QuillController.basic(),
+        controller: json['q'] != null
+            ? QuillController(
+                document: Document.fromJson(json['q'] as List),
+                selection: const TextSelection.collapsed(offset: 0),
+              )
+            : QuillController.basic(),
         focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
       ),
       backgroundImage: json['b'] != null
@@ -113,17 +117,15 @@ class EditorPage extends Listenable {
   }
 
   Map<String, dynamic> toJson(OrderedAssetCache assets) => {
-    'w': size.width,
-    'h': size.height,
-    if (strokes.isNotEmpty)
-      's': strokes,
-    if (images.isNotEmpty)
-      'i': images.map((image) => image.toJson(assets)).toList(),
-    if (!quill.controller.document.isEmpty())
-      'q': quill.controller.document.toDelta().toJson(),
-    if (backgroundImage != null)
-      'b': backgroundImage?.toJson(assets)
-  };
+        'w': size.width,
+        'h': size.height,
+        if (strokes.isNotEmpty) 's': strokes,
+        if (images.isNotEmpty)
+          'i': images.map((image) => image.toJson(assets)).toList(),
+        if (!quill.controller.document.isEmpty())
+          'q': quill.controller.document.toDelta().toJson(),
+        if (backgroundImage != null) 'b': backgroundImage?.toJson(assets)
+      };
 
   /// Inserts a stroke, while keeping the strokes sorted by
   /// pen type and color.
@@ -136,8 +138,9 @@ class EditorPage extends Listenable {
       int color = stroke.strokeProperties.color.value;
       if (penTypeComparison > 0) {
         break; // this stroke's pen type comes after the new stroke's pen type
-      } else if (stroke.penType == (Highlighter).toString()
-          && penTypeComparison == 0 && color > newStrokeColor) {
+      } else if (stroke.penType == (Highlighter).toString() &&
+          penTypeComparison == 0 &&
+          color > newStrokeColor) {
         break; // this highlighter color comes after the new highlighter color
       }
       index++;
@@ -145,63 +148,73 @@ class EditorPage extends Listenable {
 
     strokes.insert(index, newStroke);
   }
+
   /// Sorts the strokes by pen type and color.
   void sortStrokes() {
     strokes.sort((Stroke a, Stroke b) {
       int penTypeComparison = a.penType.compareTo(b.penType);
       if (penTypeComparison != 0) return penTypeComparison;
       if (a.penType != (Highlighter).toString()) return 0;
-      return a.strokeProperties.color.value.compareTo(b.strokeProperties.color.value);
+      return a.strokeProperties.color.value
+          .compareTo(b.strokeProperties.color.value);
     });
   }
 
-  static List<Stroke> parseStrokesJson(List<dynamic>? strokes, {
+  static List<Stroke> parseStrokesJson(
+    List<dynamic>? strokes, {
     required bool onlyFirstPage,
     required int fileVersion,
-  }) => strokes
-      ?.map((dynamic stroke) {
-        final map = stroke as Map<String, dynamic>;
-        if (onlyFirstPage && map['i'] > 0) return null;
-        return Stroke.fromJson(map, fileVersion);
-      })
-      .where((element) => element != null)
-      .cast<Stroke>()
-      .toList() ?? [];
+  }) =>
+      strokes
+          ?.map((dynamic stroke) {
+            final map = stroke as Map<String, dynamic>;
+            if (onlyFirstPage && map['i'] > 0) return null;
+            return Stroke.fromJson(map, fileVersion);
+          })
+          .where((element) => element != null)
+          .cast<Stroke>()
+          .toList() ??
+      [];
 
-  static List<EditorImage> parseImagesJson(List<dynamic>? images, {
+  static List<EditorImage> parseImagesJson(
+    List<dynamic>? images, {
     required List<Uint8List>? inlineAssets,
     required bool isThumbnail,
     required bool onlyFirstPage,
     required String sbnPath,
     required AssetCache assetCache,
-  }) => images
-      ?.cast<Map<String, dynamic>>()
-      .map((Map<String, dynamic> image) {
-        if (onlyFirstPage && image['i'] > 0) return null;
-        return parseImageJson(
-          image,
-          inlineAssets: inlineAssets,
-          isThumbnail: isThumbnail,
-          sbnPath: sbnPath,
-          assetCache: assetCache,
-        );
-      })
-      .where((element) => element != null)
-      .cast<EditorImage>()
-      .toList() ?? [];
+  }) =>
+      images
+          ?.cast<Map<String, dynamic>>()
+          .map((Map<String, dynamic> image) {
+            if (onlyFirstPage && image['i'] > 0) return null;
+            return parseImageJson(
+              image,
+              inlineAssets: inlineAssets,
+              isThumbnail: isThumbnail,
+              sbnPath: sbnPath,
+              assetCache: assetCache,
+            );
+          })
+          .where((element) => element != null)
+          .cast<EditorImage>()
+          .toList() ??
+      [];
 
-  static EditorImage parseImageJson(Map<String, dynamic> json, {
+  static EditorImage parseImageJson(
+    Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     required bool isThumbnail,
     required String sbnPath,
     required AssetCache assetCache,
-  }) => EditorImage.fromJson(
-    json,
-    inlineAssets: inlineAssets,
-    isThumbnail: isThumbnail,
-    sbnPath: sbnPath,
-    assetCache: assetCache,
-  );
+  }) =>
+      EditorImage.fromJson(
+        json,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
 
   final List<VoidCallback> _listeners = [];
   bool _disposed = false;
@@ -217,7 +230,8 @@ class EditorPage extends Listenable {
 
   @override
   void addListener(VoidCallback listener) {
-    if (_disposed) throw Exception('Cannot add listener to disposed EditorPage');
+    if (_disposed)
+      throw Exception('Cannot add listener to disposed EditorPage');
     _listeners.add(listener);
   }
 
@@ -237,13 +251,14 @@ class EditorPage extends Listenable {
     List<EditorImage>? images,
     QuillStruct? quill,
     EditorImage? backgroundImage,
-  }) => EditorPage(
-    size: size ?? this.size,
-    strokes: strokes ?? this.strokes,
-    images: images ?? this.images,
-    quill: quill ?? this.quill,
-    backgroundImage: backgroundImage ?? this.backgroundImage,
-  );
+  }) =>
+      EditorPage(
+        size: size ?? this.size,
+        strokes: strokes ?? this.strokes,
+        images: images ?? this.images,
+        quill: quill ?? this.quill,
+        backgroundImage: backgroundImage ?? this.backgroundImage,
+      );
 }
 
 class QuillStruct {

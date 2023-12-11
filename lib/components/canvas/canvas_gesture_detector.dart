@@ -19,9 +19,7 @@ import 'package:vector_math/vector_math_64.dart';
 class CanvasGestureDetector extends StatefulWidget {
   CanvasGestureDetector({
     super.key,
-
     required this.filePath,
-
     required this.isDrawGesture,
     this.onInteractionEnd,
     required this.onDrawStart,
@@ -29,17 +27,15 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawEnd,
     required this.onPressureChanged,
     required this.onStylusButtonChanged,
-
     required this.undo,
     required this.redo,
-
     required this.pages,
     required this.initialPageIndex,
     required this.pageBuilder,
     required this.placeholderPageBuilder,
-
     TransformationController? transformationController,
-  })  : _transformationController = transformationController ?? TransformationController();
+  }) : _transformationController =
+            transformationController ?? TransformationController();
 
   final String filePath;
 
@@ -48,6 +44,7 @@ class CanvasGestureDetector extends StatefulWidget {
   final ValueChanged<ScaleStartDetails> onDrawStart;
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
+
   /// Called when the pressure of the stylus changes,
   /// pressure is negative if stylus button is pressed
   final ValueChanged<double?> onPressureChanged;
@@ -59,7 +56,8 @@ class CanvasGestureDetector extends StatefulWidget {
   final List<EditorPage> pages;
   final int? initialPageIndex;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
-  final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
+  final Widget Function(BuildContext context, int pageIndex)
+      placeholderPageBuilder;
 
   late final TransformationController _transformationController;
 
@@ -91,6 +89,7 @@ class CanvasGestureDetector extends StatefulWidget {
 
     return top;
   }
+
   static void scrollToPage({
     required int pageIndex,
     required List<EditorPage> pages,
@@ -109,6 +108,7 @@ class CanvasGestureDetector extends StatefulWidget {
       0,
     );
   }
+
   static int getPageIndex({
     required double scrollY,
     required List<EditorPage> pages,
@@ -143,23 +143,27 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   late double? zoomLockedValue = Prefs.lastZoomLock.value
       ? widget._transformationController.value.getMaxScaleOnAxis()
       : null;
+
   /// Whether single-finger panning is locked.
   /// Two-finger panning is always enabled.
   late bool singleFingerPanLock = Prefs.lastSingleFingerPanLock.value;
+
   /// Whether panning is locked to being horizontal or vertical.
   /// Otherwise, panning can be done in any (i.e. diagonal) direction.
   late bool axisAlignedPanLock = Prefs.lastAxisAlignedPanLock.value;
 
   void zoomIn() => widget._transformationController.value = setZoom(
-    scaleDelta: 0.1,
-    transformation: widget._transformationController.value,
-    containerBounds: containerBounds,
-  ) ?? widget._transformationController.value;
+        scaleDelta: 0.1,
+        transformation: widget._transformationController.value,
+        containerBounds: containerBounds,
+      ) ??
+      widget._transformationController.value;
   void zoomOut() => widget._transformationController.value = setZoom(
-    scaleDelta: -0.1,
-    transformation: widget._transformationController.value,
-    containerBounds: containerBounds,
-  ) ?? widget._transformationController.value;
+        scaleDelta: -0.1,
+        transformation: widget._transformationController.value,
+        containerBounds: containerBounds,
+      ) ??
+      widget._transformationController.value;
   @visibleForTesting
   static Matrix4? setZoom({
     required double scaleDelta,
@@ -177,11 +181,11 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       containerBounds.maxHeight / 2,
       0,
     );
-    final translation = (transformation.getTranslation() - center)
-        * (newScale / oldScale) + center;
+    final translation =
+        (transformation.getTranslation() - center) * (newScale / oldScale) +
+            center;
 
-    return Matrix4.translation(translation)
-        ..scale(newScale);
+    return Matrix4.translation(translation)..scale(newScale);
   }
 
   final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
@@ -192,19 +196,18 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       _arrowKeyPanNow(direction);
 
       // Wait for 200ms, then pan every 100ms
-      _arrowKeyPanTimers[direction] = Timer(
-        const Duration(milliseconds: 200),
-        () {
-          _arrowKeyPanTimers[direction] = Timer.periodic(
-            const Duration(milliseconds: 100),
-            (_) => _arrowKeyPanNow(direction),
-          );
-        }
-      );
+      _arrowKeyPanTimers[direction] =
+          Timer(const Duration(milliseconds: 200), () {
+        _arrowKeyPanTimers[direction] = Timer.periodic(
+          const Duration(milliseconds: 100),
+          (_) => _arrowKeyPanNow(direction),
+        );
+      });
     } else {
       _arrowKeyPanTimers.remove(direction);
     }
   }
+
   void _arrowKeyPanNow(AxisDirection direction) {
     final transformation = widget._transformationController.value;
     const panAmount = 50.0;
@@ -226,30 +229,43 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     widget._transformationController.notifyListenersPlease();
   }
 
-
   bool _setupKeybindings = false;
   late Keybinding _ctrlPlus, _ctrlEquals, _ctrlMinus;
   late Keybinding _leftKey, _rightKey, _upKey, _downKey;
   void _assignKeybindings() {
-    _ctrlPlus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.add)], inclusive: true);
-    _ctrlEquals = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.equal)], inclusive: true);
-    _ctrlMinus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.minus)], inclusive: true);
+    _ctrlPlus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.add)],
+        inclusive: true);
+    _ctrlEquals = Keybinding(
+        [KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.equal)],
+        inclusive: true);
+    _ctrlMinus = Keybinding(
+        [KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.minus)],
+        inclusive: true);
     Keybinder.bind(_ctrlPlus, zoomIn);
     Keybinder.bind(_ctrlEquals, zoomIn);
     Keybinder.bind(_ctrlMinus, zoomOut);
 
-    _leftKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowLeft)], inclusive: true);
-    _rightKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowRight)], inclusive: true);
-    _upKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowUp)], inclusive: true);
-    _downKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowDown)], inclusive: true);
+    _leftKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowLeft)],
+        inclusive: true);
+    _rightKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowRight)],
+        inclusive: true);
+    _upKey =
+        Keybinding([KeyCode.from(LogicalKeyboardKey.arrowUp)], inclusive: true);
+    _downKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowDown)],
+        inclusive: true);
     // TODO: disable scroll keybindings when in quill mode
-    Keybinder.bind(_leftKey, (bool pressed) => arrowKeyPan(AxisDirection.left, pressed));
-    Keybinder.bind(_rightKey, (bool pressed) => arrowKeyPan(AxisDirection.right, pressed));
-    Keybinder.bind(_upKey, (bool pressed) => arrowKeyPan(AxisDirection.up, pressed));
-    Keybinder.bind(_downKey, (bool pressed) => arrowKeyPan(AxisDirection.down, pressed));
+    Keybinder.bind(
+        _leftKey, (bool pressed) => arrowKeyPan(AxisDirection.left, pressed));
+    Keybinder.bind(
+        _rightKey, (bool pressed) => arrowKeyPan(AxisDirection.right, pressed));
+    Keybinder.bind(
+        _upKey, (bool pressed) => arrowKeyPan(AxisDirection.up, pressed));
+    Keybinder.bind(
+        _downKey, (bool pressed) => arrowKeyPan(AxisDirection.down, pressed));
 
     _setupKeybindings = true;
   }
+
   void _removeKeybindings() {
     if (!_setupKeybindings) return;
     _setupKeybindings = false;
@@ -277,8 +293,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Wait for note to be loaded before setting the initial transform.
   @override
   void didUpdateWidget(CanvasGestureDetector oldWidget) {
-    if (oldWidget.initialPageIndex != widget.initialPageIndex
-        || oldWidget.filePath != widget.filePath) {
+    if (oldWidget.initialPageIndex != widget.initialPageIndex ||
+        oldWidget.filePath != widget.filePath) {
       setInitialTransform();
     }
     super.didUpdateWidget(oldWidget);
@@ -357,10 +373,11 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     if (scale == 1) return;
 
     widget._transformationController.value = setZoom(
-      scaleDelta: 1 - scale,
-      transformation: transformation,
-      containerBounds: containerBounds,
-    ) ?? transformation;
+          scaleDelta: 1 - scale,
+          transformation: transformation,
+          containerBounds: containerBounds,
+        ) ??
+        transformation;
   }
 
   void _listenerPointerEvent(PointerEvent event) {
@@ -410,7 +427,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   panEnabled: !singleFingerPanLock,
                   panAxis: axisAlignedPanLock ? PanAxis.aligned : PanAxis.free,
 
-                  interactionEndFrictionCoefficient: InteractiveCanvasViewer.kDrag * 100,
+                  interactionEndFrictionCoefficient:
+                      InteractiveCanvasViewer.kDrag * 100,
 
                   // we need a non-zero boundary margin so we can zoom out
                   // past the size of the page (for minScale < 1)
@@ -470,7 +488,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
-    CanvasTransformCache.add(widget.filePath, widget._transformationController.value);
+    CanvasTransformCache.add(
+        widget.filePath, widget._transformationController.value);
     widget._transformationController.removeListener(onTransformChanged);
     widget._transformationController.dispose();
     _removeKeybindings();
@@ -488,8 +507,10 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       quad.point3,
     ];
 
-    final List<double> xValues = points.map((Vector3 point) => point.x).toList();
-    final List<double> yValues = points.map((Vector3 point) => point.y).toList();
+    final List<double> xValues =
+        points.map((Vector3 point) => point.x).toList();
+    final List<double> yValues =
+        points.map((Vector3 point) => point.y).toList();
 
     final double left = xValues.reduce(min);
     final double right = xValues.reduce(max);
@@ -504,7 +525,6 @@ class _PagesBuilder extends StatelessWidget {
   const _PagesBuilder({
     // ignore: unused_element
     super.key,
-
     required this.pages,
     required this.pageBuilder,
     required this.placeholderPageBuilder,
@@ -514,7 +534,8 @@ class _PagesBuilder extends StatelessWidget {
 
   final List<EditorPage> pages;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
-  final Widget Function(BuildContext context, int pageIndex) placeholderPageBuilder;
+  final Widget Function(BuildContext context, int pageIndex)
+      placeholderPageBuilder;
   final Rect boundingBox;
   final double containerWidth;
 
@@ -528,7 +549,8 @@ class _PagesBuilder extends StatelessWidget {
     double topOfPage = Editor.gapBetweenPages * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final Size pageSize = pages[pageIndex].size;
-      final double pageWidth = min(pageSize.width, containerWidth); // because of FittedBox
+      final double pageWidth =
+          min(pageSize.width, containerWidth); // because of FittedBox
       final double pageHeight = pageWidth / pageSize.width * pageSize.height;
       final double bottomOfPage = topOfPage + pageHeight;
 
@@ -585,7 +607,8 @@ class CanvasTransformCache {
 }
 
 @visibleForTesting
-base class CanvasTransformCacheItem extends LinkedListEntry<CanvasTransformCacheItem> {
+base class CanvasTransformCacheItem
+    extends LinkedListEntry<CanvasTransformCacheItem> {
   final String filePath;
   final Matrix4 transform;
 

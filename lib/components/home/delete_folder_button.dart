@@ -73,29 +73,35 @@ class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
     bool deleteAllowed = isFolderEmpty || alsoDeleteContents;
     return AdaptiveAlertDialog(
       title: Text(t.home.deleteFolder.deleteName(f: widget.folderName)),
-      content: isFolderEmpty ? const SizedBox.shrink() : Row(
-        children: [
-          Checkbox(
-            value: alsoDeleteContents,
-            onChanged: isFolderEmpty ? null : (value) {
-              setState(() => alsoDeleteContents = value!);
-            },
-          ),
-          Expanded(
-            child: Text(t.home.deleteFolder.alsoDeleteContents),
-          ),
-        ],
-      ),
+      content: isFolderEmpty
+          ? const SizedBox.shrink()
+          : Row(
+              children: [
+                Checkbox(
+                  value: alsoDeleteContents,
+                  onChanged: isFolderEmpty
+                      ? null
+                      : (value) {
+                          setState(() => alsoDeleteContents = value!);
+                        },
+                ),
+                Expanded(
+                  child: Text(t.home.deleteFolder.alsoDeleteContents),
+                ),
+              ],
+            ),
       actions: [
         CupertinoDialogAction(
           onPressed: () => Navigator.of(context).pop(),
           child: Text(t.editor.newerFileFormat.cancel),
         ),
         CupertinoDialogAction(
-          onPressed: deleteAllowed ? () async {
-            await widget.deleteFolder(widget.folderName);
-            if (mounted) Navigator.of(context).pop();
-          } : null,
+          onPressed: deleteAllowed
+              ? () async {
+                  await widget.deleteFolder(widget.folderName);
+                  if (mounted) Navigator.of(context).pop();
+                }
+              : null,
           isDestructiveAction: true,
           child: Text(t.home.deleteFolder.delete),
         ),

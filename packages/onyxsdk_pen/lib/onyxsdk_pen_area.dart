@@ -28,10 +28,10 @@ class OnyxSdkPenArea extends StatefulWidget {
   State<OnyxSdkPenArea> createState() => _OnyxSdkPenAreaState();
 
   /// Optional method to initialize the onyxsdk_pen package.
-  /// 
+  ///
   /// This method should be called in the main() method before runApp(),
   /// or before the first OnyxSdkPenArea widget is created.
-  /// 
+  ///
   /// Returns true if the device is an Onyx device, false otherwise.
   static Future<bool> init() async {
     return await _OnyxSdkPenAreaState._findIsOnyxDevice();

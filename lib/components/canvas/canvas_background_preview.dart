@@ -60,14 +60,17 @@ class CanvasBackgroundPreview extends StatelessWidget {
                 painter: CanvasBackgroundPainter(
                   invert: invert,
                   backgroundColor: () {
-                    if (backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
+                    if (backgroundImage != null &&
+                        Prefs.editorOpaqueBackgrounds.value) {
                       return Colors.white;
                     } else {
-                      return backgroundColor ?? InnerCanvas.defaultBackgroundColor;
+                      return backgroundColor ??
+                          InnerCanvas.defaultBackgroundColor;
                     }
                   }(),
                   backgroundPattern: () {
-                    if (backgroundImage != null && Prefs.editorOpaqueBackgrounds.value) {
+                    if (backgroundImage != null &&
+                        Prefs.editorOpaqueBackgrounds.value) {
                       return CanvasBackgroundPattern.none;
                     } else {
                       return backgroundPattern;
@@ -84,15 +87,16 @@ class CanvasBackgroundPreview extends StatelessWidget {
                 ),
               ),
             ),
-            if (backgroundImage != null) CanvasImage(
-              filePath: '',
-              image: backgroundImage!,
-              overrideBoxFit: overrideBoxFit,
-              pageSize: previewSize,
-              setAsBackground: null,
-              isBackground: true,
-              readOnly: true,
-            ),
+            if (backgroundImage != null)
+              CanvasImage(
+                filePath: '',
+                image: backgroundImage!,
+                overrideBoxFit: overrideBoxFit,
+                pageSize: previewSize,
+                setAsBackground: null,
+                isBackground: true,
+                readOnly: true,
+              ),
           ],
         ),
       ),

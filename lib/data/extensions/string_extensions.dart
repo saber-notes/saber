@@ -12,8 +12,7 @@ extension StringExtensions on String {
 
     /// Pre-calculate all replacements asynchronously
     final replacements = await Future.wait([
-      for (Match match in matches)
-        replace(match),
+      for (Match match in matches) replace(match),
     ]);
 
     int stringIndex = 0;

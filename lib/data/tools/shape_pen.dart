@@ -14,14 +14,15 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class ShapePen extends Pen {
-  ShapePen(): super(
-    name: t.editor.pens.shapePen,
-    sizeMin: 1,
-    sizeMax: 25,
-    sizeStep: 1,
-    icon: shapePenIcon,
-    toolId: ToolId.shapePen,
-  ) {
+  ShapePen()
+      : super(
+          name: t.editor.pens.shapePen,
+          sizeMin: 1,
+          sizeMax: 25,
+          sizeStep: 1,
+          icon: shapePenIcon,
+          toolId: ToolId.shapePen,
+        ) {
     strokeProperties = Prefs.lastShapePenProperties.value;
   }
 

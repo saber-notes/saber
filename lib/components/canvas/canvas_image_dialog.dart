@@ -14,11 +14,9 @@ class CanvasImageDialog extends StatefulWidget {
     required this.filePath,
     required this.image,
     required this.redrawImage,
-
     required this.isBackground,
     required this.toggleAsBackground,
-
-    this.singleRow = false
+    this.singleRow = false,
   });
 
   final String filePath;
@@ -33,20 +31,21 @@ class CanvasImageDialog extends StatefulWidget {
   @override
   State<CanvasImageDialog> createState() => _CanvasImageDialogState();
 }
+
 class _CanvasImageDialogState extends State<CanvasImageDialog> {
   void setInvertible([bool? value]) => setState(() {
-    widget.image.invertible = value ?? !widget.image.invertible;
-    widget.image.onMiscChange?.call();
-    widget.redrawImage();
-  });
+        widget.image.invertible = value ?? !widget.image.invertible;
+        widget.image.onMiscChange?.call();
+        widget.redrawImage();
+      });
 
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
     final children = <Widget>[
-
       MergeSemantics(
         child: _CanvasImageDialogItem(
           onTap: Prefs.editorAutoInvert.value ? setInvertible : null,
@@ -54,18 +53,18 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           child: Switch.adaptive(
             value: widget.image.invertible,
             onChanged: Prefs.editorAutoInvert.value ? setInvertible : null,
-            thumbIcon: MaterialStateProperty.all(
-                widget.image.invertible
-                    ? const Icon(Icons.invert_colors)
-                    : const Icon(Icons.invert_colors_off)
-            ),
+            thumbIcon: MaterialStateProperty.all(widget.image.invertible
+                ? const Icon(Icons.invert_colors)
+                : const Icon(Icons.invert_colors_off)),
           ),
         ),
       ),
       _CanvasImageDialogItem(
         onTap: () async {
-          final String filePathSanitized = widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
-          final String imageFileName = 'image$filePathSanitized${widget.image.id}${widget.image.extension}';
+          final String filePathSanitized =
+              widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
+          final String imageFileName =
+              'image$filePathSanitized${widget.image.id}${widget.image.extension}';
           final List<int> bytes;
           switch (widget.image) {
             case PdfEditorImage image:
@@ -78,9 +77,11 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
               if (image.imageProvider is MemoryImage) {
                 bytes = (image.imageProvider as MemoryImage).bytes;
               } else if (image.imageProvider is FileImage) {
-                bytes = await (image.imageProvider as FileImage).file.readAsBytes();
+                bytes =
+                    await (image.imageProvider as FileImage).file.readAsBytes();
               } else {
-                throw Exception('Unknown image provider type: ${image.imageProvider.runtimeType}');
+                throw Exception(
+                    'Unknown image provider type: ${image.imageProvider.runtimeType}');
               }
           }
           FileManager.exportFile(imageFileName, bytes, isImage: true);
@@ -140,7 +141,6 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
       );
     }
   }
-
 }
 
 class _CanvasImageDialogItem extends StatelessWidget {

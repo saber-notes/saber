@@ -9,11 +9,14 @@ class Whiteboard extends StatelessWidget {
 
   static const String filePath = '/_whiteboard';
 
-  static bool needsToAutoClearWhiteboard = Prefs.autoClearWhiteboardOnExit.value;
+  static bool needsToAutoClearWhiteboard =
+      Prefs.autoClearWhiteboardOnExit.value;
 
-  static final _whiteboardKey = GlobalKey<EditorState>(debugLabel: 'whiteboard');
+  static final _whiteboardKey =
+      GlobalKey<EditorState>(debugLabel: 'whiteboard');
 
-  static SavingState? get savingState => _whiteboardKey.currentState?.savingState.value;
+  static SavingState? get savingState =>
+      _whiteboardKey.currentState?.savingState.value;
   static void triggerSave() {
     final editorState = _whiteboardKey.currentState;
     if (editorState == null) return;

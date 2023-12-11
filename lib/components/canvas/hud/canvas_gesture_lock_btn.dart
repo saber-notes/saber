@@ -11,7 +11,7 @@ class CanvasGestureLockBtn extends StatelessWidget {
     required this.tooltip,
     this.icon,
     this.child,
-  })  : assert(icon != null || child != null);
+  }) : assert(icon != null || child != null);
 
   final bool lock;
   final ValueChanged<bool> setLock;
@@ -32,13 +32,14 @@ class CanvasGestureLockBtn extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         child: Tooltip(
           message: tooltip,
-          child: child ?? AnimatedSwitcher(
-            duration: const Duration(milliseconds: 200),
-            child: Icon(
-              icon,
-              color: colorScheme.onBackground,
-            ),
-          ),
+          child: child ??
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                child: Icon(
+                  icon,
+                  color: colorScheme.onBackground,
+                ),
+              ),
         ),
       ),
     );

@@ -8,5 +8,6 @@ final _r = Random();
 String randomString(int len) {
   final start = 'a'.codeUnitAt(0);
   final end = 'z'.codeUnitAt(0);
-  return String.fromCharCodes(List.generate(len, (_) => _r.nextInt(end - start) + start));
+  return String.fromCharCodes(
+      List.generate(len, (_) => _r.nextInt(end - start) + start));
 }

@@ -66,7 +66,8 @@ void main() {
       );
     });
 
-    test('returns last page index when scroll position is beyond last page', () {
+    test('returns last page index when scroll position is beyond last page',
+        () {
       expect(
         EditorState.getPageIndexFromScrollPosition(
           scrollY: 100000,

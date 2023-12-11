@@ -14,12 +14,10 @@ class EditorPageManager extends StatefulWidget {
     required this.coreInfo,
     required this.currentPageIndex,
     required this.redrawAndSave,
-
     required this.insertPageAfter,
     required this.duplicatePage,
     required this.clearPage,
     required this.deletePage,
-
     required this.transformationController,
   });
 
@@ -40,16 +38,17 @@ class EditorPageManager extends StatefulWidget {
 
 class _EditorPageManagerState extends State<EditorPageManager> {
   void scrollToPage(int pageIndex) => CanvasGestureDetector.scrollToPage(
-    pageIndex: pageIndex,
-    pages: widget.coreInfo.pages,
-    screenWidth: MediaQuery.of(context).size.width,
-    transformationController: widget.transformationController,
-  );
+        pageIndex: pageIndex,
+        pages: widget.coreInfo.pages,
+        screenWidth: MediaQuery.of(context).size.width,
+        transformationController: widget.transformationController,
+      );
 
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
-    final cupertino = platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino =
+        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     return SizedBox(
       width: cupertino ? null : 300,
       height: cupertino ? 600 : null,
@@ -57,7 +56,9 @@ class _EditorPageManagerState extends State<EditorPageManager> {
         buildDefaultDragHandles: false,
         itemCount: widget.coreInfo.pages.length,
         itemBuilder: (context, pageIndex) {
-          final isEmptyLastPage = pageIndex == widget.coreInfo.pages.length - 1 && widget.coreInfo.pages[pageIndex].isEmpty;
+          final isEmptyLastPage =
+              pageIndex == widget.coreInfo.pages.length - 1 &&
+                  widget.coreInfo.pages[pageIndex].isEmpty;
           return InkWell(
             key: ValueKey(pageIndex),
             onTap: () => scrollToPage(pageIndex),
@@ -129,10 +130,12 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                           totalPages: widget.coreInfo.pages.length,
                         ),
                         icon: const Icon(Icons.cleaning_services),
-                        onPressed: isEmptyLastPage ? null : () => setState(() {
-                          widget.clearPage(pageIndex);
-                          scrollToPage(pageIndex);
-                        }),
+                        onPressed: isEmptyLastPage
+                            ? null
+                            : () => setState(() {
+                                  widget.clearPage(pageIndex);
+                                  scrollToPage(pageIndex);
+                                }),
                       ),
                       IconButton(
                         tooltip: t.editor.menu.deletePage,
@@ -140,10 +143,12 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                           icon: Icons.delete,
                           cupertinoIcon: CupertinoIcons.delete,
                         ),
-                        onPressed: isEmptyLastPage ? null : () => setState(() {
-                          widget.deletePage(pageIndex);
-                          scrollToPage(pageIndex);
-                        }),
+                        onPressed: isEmptyLastPage
+                            ? null
+                            : () => setState(() {
+                                  widget.deletePage(pageIndex);
+                                  scrollToPage(pageIndex);
+                                }),
                       ),
                     ],
                   ),
@@ -157,7 +162,8 @@ class _EditorPageManagerState extends State<EditorPageManager> {
           if (oldIndex < newIndex) {
             newIndex -= 1;
           }
-          widget.coreInfo.pages.insert(newIndex, widget.coreInfo.pages.removeAt(oldIndex));
+          widget.coreInfo.pages
+              .insert(newIndex, widget.coreInfo.pages.removeAt(oldIndex));
 
           // reassign pageIndex of pages' strokes and images
           for (int i = 0; i < widget.coreInfo.pages.length; i++) {

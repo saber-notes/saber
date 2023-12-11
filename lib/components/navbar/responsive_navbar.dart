@@ -28,9 +28,8 @@ class ResponsiveNavbar extends StatefulWidget {
     await null;
 
     final brightness = theme.brightness;
-    final otherBrightness = brightness == Brightness.dark
-        ? Brightness.light
-        : Brightness.dark;
+    final otherBrightness =
+        brightness == Brightness.dark ? Brightness.light : Brightness.dark;
     final overlayStyle = brightness == Brightness.dark
         ? SystemUiOverlayStyle.dark
         : SystemUiOverlayStyle.light;
@@ -41,6 +40,7 @@ class ResponsiveNavbar extends StatefulWidget {
     ));
   }
 }
+
 class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   void initState() {
@@ -57,7 +57,8 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     if (index == widget.selectedIndex) return;
 
     // if on whiteboard, check if saved
-    final whiteboardPath = pathToFunction(RoutePaths.home)({'subpage': HomePage.whiteboardSubpage});
+    final whiteboardPath = pathToFunction(RoutePaths.home)(
+        {'subpage': HomePage.whiteboardSubpage});
     if (HomeRoutes.getRoute(widget.selectedIndex) == whiteboardPath) {
       final savingState = Whiteboard.savingState;
       switch (savingState) {

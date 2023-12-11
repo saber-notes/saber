@@ -40,7 +40,8 @@ String _nearestLocaleCode(String localeCode) {
 }
 
 /// Translate the given tree of strings in place. Note that the tree can contain lists, maps, and strings.
-Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathOfKeys) async {
+Future<void> translateTree(
+    String languageCode, YamlMap tree, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
   for (final key in tree.keys) {
     if (key.endsWith('(OUTDATED)')) continue;
@@ -52,9 +53,11 @@ Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathO
     if (value is! String) continue;
 
     final translated = await translateString(translator, languageCode, value);
-    if (translated == null || translated == value) continue; // error occured in translation, so skip for now
+    if (translated == null || translated == value)
+      continue; // error occured in translation, so skip for now
     try {
-      await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+      await shell.run(
+          'dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
     } catch (e) {
       print('    Adding translation failed: $e');
       errorOccurredInTranslatingTree = true;
@@ -79,8 +82,10 @@ Future<void> translateTree(String languageCode, YamlMap tree, List<String> pathO
     }
   }
 }
+
 /// Translates the given list of strings in place. Note that the list can contain lists, maps, and strings.
-Future<void> translateList(String languageCode, YamlList list, List<String> pathOfKeys) async {
+Future<void> translateList(
+    String languageCode, YamlList list, List<String> pathOfKeys) async {
   // first translate all direct descendants that are strings
   for (int i = 0; i < list.length; ++i) {
     final pathToKey = [...pathOfKeys, i].join('.');
@@ -90,13 +95,16 @@ Future<void> translateList(String languageCode, YamlList list, List<String> path
     if (value is! String) continue;
 
     final translated = await translateString(translator, languageCode, value);
-    if (translated == null || translated == value) continue; // error occurred in translation, so skip for now
-    await shell.run('dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
+    if (translated == null || translated == value)
+      continue; // error occurred in translation, so skip for now
+    await shell.run(
+        'dart run slang add $languageCode $pathToKey "${translated.replaceAll('"', '\\"')}"');
     newlyTranslatedPaths.add('$languageCode/$pathToKey');
   }
 
   // then recurse
-  for (int i = 0; i < list.length; ++i) { // then recurse
+  for (int i = 0; i < list.length; ++i) {
+    // then recurse
     final value = list[i];
     if (value is String) {
       // already done
@@ -109,15 +117,20 @@ Future<void> translateList(String languageCode, YamlList list, List<String> path
     }
   }
 }
-Future<String?> translateString(SimplyTranslator translator, String languageCode, String english) async {
-  print('  Translating into $languageCode: ${english.length > 20 ? '${english.substring(0, 20)}...' : english}');
+
+Future<String?> translateString(
+    SimplyTranslator translator, String languageCode, String english) async {
+  print(
+      '  Translating into $languageCode: ${english.length > 20 ? '${english.substring(0, 20)}...' : english}');
   Translation translation;
   try {
-    translation = await translator.translateSimply(
-      english,
-      from: 'en',
-      to: _nearestLocaleCode(languageCode),
-    ).timeout(const Duration(seconds: 3));
+    translation = await translator
+        .translateSimply(
+          english,
+          from: 'en',
+          to: _nearestLocaleCode(languageCode),
+        )
+        .timeout(const Duration(seconds: 3));
   } catch (e) {
     print('    Translation failed: $e');
     errorOccurredInTranslatingTree = true;
@@ -145,18 +158,22 @@ void main() async {
   final missingTranslations = await _getMissingTranslations();
 
   final missingLanguageCodes = missingTranslations.keys
-      .where((languageCode) => missingTranslations[languageCode]?.isNotEmpty ?? false)
+      .where((languageCode) =>
+          missingTranslations[languageCode]?.isNotEmpty ?? false)
       .where((languageCode) => !languageCode.startsWith('@@'))
       .toList();
-  print('Found missing translations for ${missingLanguageCodes.length} languages.');
+  print(
+      'Found missing translations for ${missingLanguageCodes.length} languages.');
 
   errorOccurredInTranslatingTree = true;
   while (errorOccurredInTranslatingTree) {
     errorOccurredInTranslatingTree = false;
 
     final useLibreEngine = random.nextBool();
-    print('Using ${useLibreEngine ? 'Libre' : 'Google'} translation engine...\n');
-    translator = SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
+    print(
+        'Using ${useLibreEngine ? 'Libre' : 'Google'} translation engine...\n');
+    translator =
+        SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
 
     for (final languageCode in missingLanguageCodes) {
       print('Translating $languageCode...');
@@ -172,9 +189,8 @@ void main() async {
 
   // mark all newly translated paths as outdated
   // for a human to review
-  final pathsWithoutLanguageCode = newlyTranslatedPaths
-      .map((e) => e.substring(e.indexOf('/') + 1))
-      .toSet();
+  final pathsWithoutLanguageCode =
+      newlyTranslatedPaths.map((e) => e.substring(e.indexOf('/') + 1)).toSet();
   for (final path in pathsWithoutLanguageCode) {
     print('Marking $path as outdated...');
     await shell.run('dart run slang outdated $path');

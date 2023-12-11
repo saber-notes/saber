@@ -10,7 +10,8 @@ void setupMockFlutterSecureStorage() {
     if (methodCall.method == 'delete') {
       _mockSecureStorage.remove(methodCall.arguments['key'] as String);
     } else if (methodCall.method == 'write') {
-      _mockSecureStorage[methodCall.arguments['key'] as String] = methodCall.arguments['value'] as String;
+      _mockSecureStorage[methodCall.arguments['key'] as String] =
+          methodCall.arguments['value'] as String;
     } else if (methodCall.method == 'read') {
       return _mockSecureStorage[methodCall.arguments['key'] as String];
     }

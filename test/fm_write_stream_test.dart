@@ -14,10 +14,10 @@ void main() {
     setUp(() async {
       events.clear();
       await subscription?.cancel();
-      subscription = FileManager.fileWriteStream.stream
-        .listen((FileOperation event) {
-          events.add(event);
-        });
+      subscription =
+          FileManager.fileWriteStream.stream.listen((FileOperation event) {
+        events.add(event);
+      });
     });
     tearDown(() async {
       await subscription?.cancel();

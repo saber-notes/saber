@@ -57,7 +57,7 @@ void main() {
 
   test('Zoom in with Ctrl + above max zoom', () {
     final oldMatrix = Matrix4.identity()
-        ..scale(CanvasGestureDetector.kMaxScale);
+      ..scale(CanvasGestureDetector.kMaxScale);
     final newMatrix = CanvasGestureDetectorState.setZoom(
       scaleDelta: 0.1,
       transformation: oldMatrix,
@@ -68,7 +68,7 @@ void main() {
 
   test('Zoom out with Ctrl - below min zoom', () {
     final oldMatrix = Matrix4.identity()
-        ..scale(CanvasGestureDetector.kMinScale);
+      ..scale(CanvasGestureDetector.kMinScale);
     final newMatrix = CanvasGestureDetectorState.setZoom(
       scaleDelta: -0.1,
       transformation: oldMatrix,

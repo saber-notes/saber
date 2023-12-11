@@ -6,14 +6,15 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Pencil extends Pen {
-  Pencil() : super(
-    name: t.editor.pens.pencil,
-    sizeMin: 1,
-    sizeMax: 25,
-    sizeStep: 1,
-    icon: pencilIcon,
-    toolId: ToolId.pencil,
-  ) {
+  Pencil()
+      : super(
+          name: t.editor.pens.pencil,
+          sizeMin: 1,
+          sizeMax: 25,
+          sizeStep: 1,
+          icon: pencilIcon,
+          toolId: ToolId.pencil,
+        ) {
     strokeProperties = Prefs.lastPencilProperties.value;
   }
 
