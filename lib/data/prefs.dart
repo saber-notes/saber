@@ -205,7 +205,8 @@ abstract class Prefs {
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
-    fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate', DateTime.fromMillisecondsSinceEpoch(0));
+    // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
+    fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate', DateTime.parse('2023-12-10T10:06:31.000Z'));
     lastStorageQuota = PlainPref('lastStorageQuota', null);
 
     shouldCheckForUpdates = PlainPref('shouldCheckForUpdates', FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
