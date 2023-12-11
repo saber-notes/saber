@@ -503,18 +503,18 @@ ru:
 tr:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): Notu dışa aktar
   settings:
     prefCategories:
-      performance(OUTDATED): Performance
+      performance(OUTDATED): Performans
     prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      shapeRecognitionDelay(OUTDATED): Şekil tanıma gecikmesi
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
+      shapeRecognitionDelay(OUTDATED): Çizilen şekilleri tanımlama sıklığını belirler
+    resyncEverything(OUTDATED): Her şeyi yeniden senkronize et
   editor:
     pens:
-      pencil(OUTDATED): Pencil
+      pencil(OUTDATED): Kalem
 zh-Hans-CN:
   settings:
     resyncEverything(OUTDATED): Resync everything
