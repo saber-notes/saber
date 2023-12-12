@@ -231,6 +231,9 @@ abstract class FileSyncer {
       } on FileSystemException {
         lastModified = DateTime.now();
       }
+      if (lastModified.isBefore(Prefs.fileSyncResyncEverythingDate.value)) {
+        lastModified = Prefs.fileSyncResyncEverythingDate.value;
+      }
 
       // upload file
       await webdav.put(
