@@ -132,9 +132,11 @@ abstract class FileSyncer {
         Prefs.fileSyncCorruptFiles.notifyListeners();
       }
     } finally {
-      log.warning('startSync: Failed to download ${failedFiles.length} files');
-      // Add failed files back to queue for next sync
-      _downloadQueue.addAll(failedFiles);
+      if (failedFiles.isNotEmpty) {
+        log.warning('startSync: ${failedFiles.length} downloads failed');
+        // Add failed files back to queue for next sync
+        _downloadQueue.addAll(failedFiles);
+      }
     }
 
     log.fine('startSync: Sync complete');
