@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -19,22 +20,34 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
   @override
   void initState() {
     Prefs.username.addListener(onFileUploaded);
-    FileSyncer.uploadNotifier.addListener(onFileUploaded);
+    Prefs.fileSyncUploadQueue.addListener(onFileUploaded);
     super.initState();
   }
 
   /// Called when some file is uploaded (or when login state changes)
   void onFileUploaded() {
-    if (isInUploadQueue == _isInUploadQueue()) return;
-    setState(() {
-      isInUploadQueue = !isInUploadQueue;
-    });
+    final wasInUploadQueue = isInUploadQueue;
+    isInUploadQueue = _isInUploadQueue();
+    if (wasInUploadQueue != isInUploadQueue) setState(() {});
   }
 
-  bool _isInUploadQueue() =>
-      Prefs.fileSyncUploadQueue.value.contains(widget.filePath) ||
-      Prefs.fileSyncUploadQueue.value
-          .contains(widget.filePath + Editor.extension);
+  bool _matchesPath(String path) {
+    if (path == widget.filePath) return true;
+    if (path == widget.filePath + Editor.extension) return true;
+    if (path == widget.filePath + Editor.extensionOldJson) return true;
+    return false;
+  }
+
+  bool _isInUploadQueue() => Prefs.fileSyncUploadQueue.value.any((path) {
+        if (_matchesPath(path)) return true;
+
+        if (FileManager.assetFileRegex.hasMatch(path)) {
+          final assetOwner = path.substring(0, path.lastIndexOf('.'));
+          if (_matchesPath(assetOwner)) return true;
+        }
+
+        return false;
+      });
   late bool isInUploadQueue = _isInUploadQueue();
 
   @override
@@ -58,7 +71,7 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
   @override
   void dispose() {
     Prefs.username.removeListener(onFileUploaded);
-    FileSyncer.uploadNotifier.removeListener(onFileUploaded);
+    Prefs.fileSyncUploadQueue.removeListener(onFileUploaded);
     super.dispose();
   }
 }

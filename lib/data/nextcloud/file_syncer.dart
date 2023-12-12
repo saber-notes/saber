@@ -26,7 +26,6 @@ abstract class FileSyncer {
   static NextcloudClient? _client;
 
   static bool _isUploadingFile = false;
-  static final ChangeNotifier uploadNotifier = ChangeNotifier();
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync =>
@@ -248,7 +247,6 @@ abstract class FileSyncer {
       await Future.delayed(const Duration(seconds: 2));
     } finally {
       _isUploadingFile = false;
-      uploadNotifier.notifyListenersPlease();
       uploadFileFromQueue();
     }
   }
