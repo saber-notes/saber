@@ -8,13 +8,16 @@ void main() {
       File('lib/i18n/_missing_translations.yaml'),
       ...Directory('lib/i18n/community').listSync().whereType<File>(),
 
-      // All files of the format metadata/XX/full_description.txt
+      // Metadata files like metadata/XX/full_description.txt
       ...Directory('metadata')
           .listSync()
           .whereType<Directory>()
           .expand((dir) => dir.listSync())
           .whereType<File>()
-          .where((file) => file.path.endsWith('full_description.txt')),
+          .where((file) =>
+              file.path.endsWith('full_description.txt') ||
+              file.path.endsWith('short_description.txt') ||
+              file.path.endsWith('title.txt')),
     ];
 
     await Future.wait([
