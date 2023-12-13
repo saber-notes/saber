@@ -42,26 +42,11 @@ jobs:
           json=$(printf '%s\n' "${tags[@]}" | jq -R . | jq -c -s .)
           echo "tags=$json"
           echo "tags=$json" >> $GITHUB_OUTPUT
-  
-  precache-flutter:
-    name: Precache Flutter
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
 
-      - name: Precache Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
-
-  run-tests:
-    name: Run Flutter tests
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
-    needs: [filter-tests, precache-flutter]
+    needs: filter-tests
     timeout-minutes: 5
     strategy:
       fail-fast: false
