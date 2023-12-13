@@ -24,5 +24,5 @@ void main() {
               reason: 'Saber is misspelled as Sabre in ${file.path}');
         }),
     ]);
-  });
+  }, tags: 'i18n');
 }

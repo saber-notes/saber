@@ -7,15 +7,66 @@ on:
     branches:
       - main
 
-env:
-  # MAINTENANCE_CHECKS_ENABLED is overridden later
-  MAINTENANCE_CHECKS_ENABLED: true
-
 jobs:
+  filter-tests:
+    name: Choose which tests to run
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    outputs:
+      tags: ${{ steps.tags.outputs.tags }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Choose test tags
+        id: tags
+        run: |
+          # Outputs a json list of tags to run, out of the following:
+          # - mainbranch
+          # - i18n
+          # - untagged
+          tags=()
+
+          if [ "$GITHUB_REPOSITORY" = "saber-notes/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "On main branch, enabling all tests"
+            tags=(mainbranch i18n untagged)
+          elif [ "$GITHUB_REPOSITORY" = "saber-notes/saber" ] && [[ "$GITHUB_REF_NAME" =~ ^i18n/ ]]; then
+            echo "In i18n PR; enabling i18n tests only"
+            tags=(i18n)
+          else
+            echo "In non-i18n PR; enabling all tests except mainbranch"
+            tags=(i18n untagged)
+          fi
+
+          # output the tags as a json list
+          json=$(printf '%s\n' "${tags[@]}" | jq -R . | jq -c -s .)
+          echo "tags=$json"
+          echo "tags=$json" >> $GITHUB_OUTPUT
+  
+  precache-flutter:
+    name: Precache Flutter
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Precache Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+
   run-tests:
     name: Run Flutter tests
     runs-on: ubuntu-latest
+    needs: [filter-tests, precache-flutter]
     timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        tag: ${{ fromJson(needs.filter-tests.outputs.tags) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -48,21 +99,20 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Prepare environment for tests
-        run: |
-          if [ "$GITHUB_REPOSITORY" = "saber-notes/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
-            MAINTENANCE_CHECKS_ENABLED=true
-          else
-            MAINTENANCE_CHECKS_ENABLED=false
-          fi
-          echo "MAINTENANCE_CHECKS_ENABLED=$MAINTENANCE_CHECKS_ENABLED" >> $GITHUB_ENV
-
       - name: Run tests
         id: tests
         run: |
-          flutter test \
-            --coverage \
-            --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
+          if [ "${{ matrix.tag }}" = "untagged" ]; then
+            echo "Running untagged tests"
+            flutter test \
+              --coverage \
+              --exclude-tags "mainbranch,i18n" \
+          else
+            echo "Running tagged tests: ${{ matrix.tag }}"
+            flutter test \
+              --coverage \
+              --tags "${{ matrix.tag }}"
+          fi
 
       - name: Upload to Codecov
         if: success()

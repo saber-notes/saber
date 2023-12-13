@@ -13,5 +13,5 @@ void main() {
     expect(() => BoxFit.fitWidth.localizedName, throwsException);
     expect(() => BoxFit.fitHeight.localizedName, throwsException);
     expect(() => BoxFit.scaleDown.localizedName, throwsException);
-  });
+  }, tags: 'i18n');
 }

@@ -1,0 +1,4 @@
+tags:
+  i18n: # Tests for when translators submit PRs
+  nextcloud: # Tests that use the Nextcloud server
+  mainbranch: # Maintenance tests that should only run on the main branch
