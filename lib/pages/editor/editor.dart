@@ -16,6 +16,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
@@ -847,12 +848,19 @@ class EditorState extends State<Editor> {
     if (!mounted) return;
     final screenshotter = ScreenshotController();
     final pageSize = coreInfo.pages.first.size;
+    final thumbnailSize = Size(720, 720 * pageSize.height / pageSize.width);
     final thumbnail = await screenshotter.captureFromWidget(
-      SizedBox(
-        width: 720,
-        height: 720 * pageSize.height / pageSize.width,
-        child: pageBuilder(context, 0),
+      Localizations.override(
+        context: context,
+        child: SizedBox(
+          width: thumbnailSize.width,
+          height: thumbnailSize.height,
+          child: pagePreviewBuilder(context, 0),
+        ),
       ),
+      pixelRatio: 1,
+      context: context,
+      targetSize: thumbnailSize,
     );
     await FileManager.writeFile(
       // Note that this ends with .sbn2.png
@@ -1707,6 +1715,18 @@ class EditorState extends State<Editor> {
         setState(() {});
       },
       currentToolIsSelect: currentTool is Select,
+    );
+  }
+
+  Widget pagePreviewBuilder(BuildContext context, int pageIndex) {
+    final page = coreInfo.pages[pageIndex];
+    final previewHeight = page.previewHeight(
+      lineHeight: coreInfo.lineHeight,
+    );
+    return CanvasPreview(
+      pageIndex: pageIndex,
+      height: previewHeight,
+      coreInfo: coreInfo,
     );
   }
 

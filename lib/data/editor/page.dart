@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -51,6 +52,48 @@ class EditorPage extends Listenable {
       quill.controller.document.isEmpty() &&
       backgroundImage == null;
   bool get isNotEmpty => !isEmpty;
+
+  /// The height of the canvas cropped to the content.
+  double previewHeight({
+    required int lineHeight,
+  }) {
+    // avoid dividing by zero (this should never happen)
+    assert(size.height != 0);
+    assert(size.width != 0);
+    if (size.height == 0 || size.width == 0) {
+      return 0;
+    }
+
+    // if we have a background image, show full height
+    if (backgroundImage != null) {
+      return size.height;
+    }
+
+    /// The maximum y value of any stroke, image, or text.
+    double maxY = 0;
+    for (final stroke in strokes) {
+      maxY = max(maxY, stroke.maxY);
+    }
+    for (final image in images) {
+      maxY = max(maxY, image.dstRect.bottom);
+    }
+    if (!quill.controller.document.isEmpty()) {
+      // this does not account for text that wraps to the next line
+      int linesOfText =
+          quill.controller.document.toPlainText().split('\n').length;
+      maxY = max(maxY, linesOfText * lineHeight * 1.5); // ×1.5 fudge factor
+    }
+
+    /// The uncropped height of the page.
+    /// In lots of cases, this is [Editor.defaultHeight].
+    final fullHeight = size.height;
+
+    /// The height of the canvas (cropped),
+    /// adjusted to be between 10% and 100% of the full height.
+    final croppedHeight = min(fullHeight, max(maxY, 0) + (0.1 * fullHeight));
+
+    return croppedHeight;
+  }
 
   EditorPage({
     Size? size,
