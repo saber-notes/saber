@@ -863,8 +863,8 @@ class EditorState extends State<Editor> {
       targetSize: thumbnailSize,
     );
     await FileManager.writeFile(
-      // Note that this ends with .sbn2.png
-      '$filePath.png',
+      // Note that this ends with .sbn2.p
+      '$filePath.p',
       thumbnail,
       awaitWrite: true,
     );

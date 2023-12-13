@@ -25,5 +25,9 @@ void main() {
       expect(FileManager.assetFileRegex.hasMatch('2023.11.30'), false);
       expect(FileManager.assetFileRegex.hasMatch('name.sbn3.0'), false);
     });
+    test('matches previews', () {
+      expect(FileManager.assetFileRegex.hasMatch('name.sbn.p'), true);
+      expect(FileManager.assetFileRegex.hasMatch('name.sbn2.p'), true);
+    });
   });
 }

@@ -48,7 +48,7 @@ class _PreviewCardState extends State<PreviewCard> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     thumbnailImage = FileImage(
-      FileManager.getFile('${widget.filePath}${Editor.extension}.png'),
+      FileManager.getFile('${widget.filePath}${Editor.extension}.p'),
     );
   }
 
