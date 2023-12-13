@@ -91,7 +91,7 @@ jobs:
             echo "Running untagged tests"
             flutter test \
               --coverage \
-              --exclude-tags "mainbranch,i18n" \
+              --exclude-tags "mainbranch,i18n"
           else
             echo "Running tagged tests: ${{ matrix.tag }}"
             flutter test \
