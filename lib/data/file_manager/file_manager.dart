@@ -639,9 +639,6 @@ class FileManager {
   }
 
   static Future _renameReferences(String fromPath, String toPath) async {
-    // rename file in cache
-    PreviewCard.moveFileInCache(fromPath, toPath);
-
     // rename file in recently accessed
     bool replaced = false;
     for (int i = 0; i < Prefs.recentFiles.value.length; i++) {

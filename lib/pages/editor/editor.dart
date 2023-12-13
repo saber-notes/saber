@@ -18,7 +18,6 @@ import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
-import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -195,7 +194,7 @@ class EditorState extends State<Editor> {
   }
 
   void _initAsync() async {
-    coreInfo = PreviewCard.getCachedCoreInfo(await widget.initialPath);
+    coreInfo.filePath = await widget.initialPath;
     filenameTextEditingController.text = coreInfo.fileName;
 
     if (needsNaming) {
@@ -856,6 +855,7 @@ class EditorState extends State<Editor> {
       ),
     );
     await FileManager.writeFile(
+      // Note that this ends with .sbn2.png
       '$filePath.png',
       thumbnail,
       awaitWrite: true,
