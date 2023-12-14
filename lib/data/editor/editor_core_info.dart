@@ -379,9 +379,15 @@ class EditorCoreInfo {
       if (alwaysUseIsolate || length > 2 * 1024 * 1024) {
         // 2 MB
         coreInfo = await workerManager.execute(
-          isolate,
-          priority: WorkPriority
-              .veryHigh, // less important than [WorkPriority.immediately]
+          () async {
+            // We need to rerun "init" methods in the isolate,
+            // see https://github.com/saber-notes/saber/issues/1031.
+
+            await FileManager.init(shouldWatchRootDirectory: false);
+            return isolate();
+          },
+          // less important than [WorkPriority.immediately]
+          priority: WorkPriority.veryHigh,
         );
       } else {
         // if the file is small, just run it on the main thread

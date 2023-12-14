@@ -41,10 +41,10 @@ class FileManager {
   /// e.g. `mynote.sbn2.1`.
   static final assetFileRegex = RegExp(r'\.sbn2?\.\d+$');
 
-  static Future<void> init() async {
+  static Future<void> init({bool shouldWatchRootDirectory = true}) async {
     documentsDirectory =
         '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
-    unawaited(watchRootDirectory());
+    if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
   }
 
   @visibleForTesting
