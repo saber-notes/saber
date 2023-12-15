@@ -180,7 +180,7 @@ class SvgEditorImage extends EditorImage {
     required bool isBackground,
   }) {
     if (svgString == null) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator.adaptive());
     }
 
     final BoxFit boxFit;

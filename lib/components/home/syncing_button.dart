@@ -107,7 +107,7 @@ class _AnimatedCircularProgressIndicatorState
     if (percentage == 0 && widget.percentage == null) {
       percentage = null;
     }
-    return CircularProgressIndicator(
+    return CircularProgressIndicator.adaptive(
       semanticsLabel: 'Syncing progress',
       semanticsValue: '${(percentage ?? 0) * 100}%',
       value: percentage,
