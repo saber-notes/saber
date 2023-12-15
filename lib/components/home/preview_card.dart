@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/shader_sampler.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
@@ -114,6 +116,23 @@ class _PreviewCardState extends State<PreviewCard> {
                                   child: Image(
                                     key: ValueKey(thumbnailState.updateCount),
                                     image: thumbnailImage,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      // If the thumbnail image doesn't exist,
+                                      // (i.e. for old notes), render the first page.
+                                      if (error is! PathNotFoundException) {
+                                        throw error;
+                                      }
+
+                                      return FittedBox(
+                                        child: ClipRect(
+                                          child: CanvasPreview.fromFile(
+                                            key: ValueKey(
+                                                'CanvasPreview${thumbnailState.updateCount}'),
+                                            filePath: widget.filePath,
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
                         ),
