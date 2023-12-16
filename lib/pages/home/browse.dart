@@ -228,6 +228,7 @@ class _BrowsePageState extends State<BrowsePage> {
                                       ? Editor.extensionOldJson
                                       : Editor.extension))),
                   ]);
+                  selectedFiles.value = [];
                 },
                 icon: const Icon(Icons.delete_forever),
               ),
