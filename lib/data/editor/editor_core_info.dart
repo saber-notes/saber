@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:archive/archive_io.dart';
@@ -5,6 +6,7 @@ import 'package:bson/bson.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
@@ -377,13 +379,16 @@ class EditorCoreInfo {
 
       final length = jsonString?.length ?? bsonBytes!.length;
       if (alwaysUseIsolate || length > 2 * 1024 * 1024) {
-        // 2 MB
+        // > 2 MB, run on a separate isolate
+        final documentsDirectory = FileManager.documentsDirectory;
         coreInfo = await workerManager.execute(
           () async {
-            // We need to rerun "init" methods in the isolate,
+            // We need to rerun some "init" methods in the isolate,
             // see https://github.com/saber-notes/saber/issues/1031.
-
-            await FileManager.init(shouldWatchRootDirectory: false);
+            await FileManager.init(
+              documentsDirectory: documentsDirectory,
+              shouldWatchRootDirectory: false,
+            );
             return isolate();
           },
           // less important than [WorkPriority.immediately]

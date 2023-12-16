@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:process_run/shell.dart';
@@ -22,6 +23,9 @@ import 'utils/test_mock_channel_handlers.dart';
 void main() {
   group('Test SBN parsing:', () {
     TestWidgetsFlutterBinding.ensureInitialized();
+    BackgroundIsolateBinaryMessenger.ensureInitialized(
+      ServicesBinding.rootIsolateToken!,
+    );
 
     setupMockPathProvider();
     setupMockPrinting();
@@ -29,9 +33,9 @@ void main() {
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
-    FileManager.init();
 
     setUpAll(() => Future.wait([
+          FileManager.init(),
           InvertShader.init(),
           PencilShader.init(),
           GoogleFonts.pendingFonts([

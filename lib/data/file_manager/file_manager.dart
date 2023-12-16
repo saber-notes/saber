@@ -24,7 +24,6 @@ class FileManager {
   static final log = Logger('FileManager');
 
   static const String appRootDirectoryPrefix = 'Saber';
-  @visibleForTesting
   static late final String documentsDirectory;
 
   static final StreamController<FileOperation> fileWriteStream =
@@ -41,8 +40,11 @@ class FileManager {
   /// e.g. `mynote.sbn2.1`.
   static final assetFileRegex = RegExp(r'\.sbn2?\.\d+$');
 
-  static Future<void> init({bool shouldWatchRootDirectory = true}) async {
-    documentsDirectory =
+  static Future<void> init({
+    String? documentsDirectory,
+    bool shouldWatchRootDirectory = true,
+  }) async {
+    FileManager.documentsDirectory = documentsDirectory ??
         '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
   }
