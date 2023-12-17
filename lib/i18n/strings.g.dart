@@ -4882,7 +4882,7 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 		'Gauche',
 	];
 	@override late final _StringsSettingsResetFr reset = _StringsSettingsResetFr._(_root);
-	@override String get resyncEverything => 'Resync tout';
+	@override String get resyncEverything => 'Tout re-syncroniser';
 }
 
 // Path: login
@@ -5012,7 +5012,7 @@ class _StringsHomeTooltipsFr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nouvelle note';
 	@override String get showUpdateDialog => 'Afficher le dialogue de mise à jour';
-	@override String get exportNote => 'Note d \' exportation';
+	@override String get exportNote => 'Exporter la note';
 }
 
 // Path: home.create
@@ -5064,12 +5064,12 @@ class _StringsHomeMoveNoteFr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Déplacer la note';
+	@override String moveNotes({required Object n}) => 'Déplacer ${n} notes';
 	@override String moveName({required Object f}) => 'Déplacer ${f}';
 	@override String get move => 'Déplacer';
 	@override String renamedTo({required Object newName}) => 'La note sera renommée en ${newName}';
-	@override String moveNotes({required Object n}) => 'Déplacer les notes ${n}';
-	@override String get multipleRenamedTo => 'Les notes suivantes seront renommées :';
-	@override String numberRenamedTo({required Object n}) => '${n} notes sera renommé pour éviter les conflits';
+	@override String get multipleRenamedTo => 'Les notes suivantes vont être renommées :';
+	@override String numberRenamedTo({required Object n}) => '${n} notes vont être renommées pour résoudre des conflits';
 }
 
 // Path: home.renameFolder
@@ -5110,8 +5110,8 @@ class _StringsSettingsPrefCategoriesFr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Général';
 	@override String get writing => 'Tracé';
 	@override String get editor => 'Editeur';
+	@override String get performance => 'Performance';
 	@override String get advanced => 'Avancé';
-	@override String get performance => 'Rendement';
 }
 
 // Path: settings.prefLabels
@@ -5144,10 +5144,10 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
+	@override String get recentColorsLength => 'Nombre de couleurs récentes à conserver';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
-	@override String get shapeRecognitionDelay => 'Retard de reconnaissance de forme';
-	@override String get recentColorsLength => 'Combien de couleurs récentes stocker';
+	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
 }
 
 // Path: settings.prefDescriptions
@@ -5170,8 +5170,8 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
+	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
-	@override String get shapeRecognitionDelay => 'À quelle fréquence mettre à jour l\'aperçu de la forme';
 }
 
 // Path: settings.themeModes
@@ -5409,9 +5409,9 @@ class _StringsEditorPensFr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Stylo encre';
 	@override String get ballpointPen => 'Stylo bille';
 	@override String get highlighter => 'Surligneur';
-	@override String get laserPointer => 'Pointeur laser';
 	@override String get pencil => 'Crayon';
-	@override String get shapePen => 'Stylo de forme';
+	@override String get shapePen => 'Forme du stylo';
+	@override String get laserPointer => 'Pointeur laser';
 }
 
 // Path: editor.penOptions
@@ -5433,6 +5433,10 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Pipette de couleur';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Personnaliser ${b} ${h}';
+	@override String customHue({required Object h}) => 'Personnaliser ${h}';
+	@override String get dark => 'sombre';
+	@override String get light => 'clair';
 	@override String get black => 'Noir';
 	@override String get darkGrey => 'Gris sombre';
 	@override String get grey => 'Gris';
@@ -5440,9 +5444,11 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get white => 'Blanc';
 	@override String get red => 'Rouge';
 	@override String get green => 'Vert';
+	@override String get cyan => 'Cyan';
 	@override String get blue => 'Bleu';
 	@override String get yellow => 'Jaune';
 	@override String get purple => 'Violet';
+	@override String get pink => 'Rose';
 	@override String get orange => 'Orange';
 	@override String get pastelRed => 'Rouge pâle';
 	@override String get pastelOrange => 'Orange pâle';
@@ -5452,11 +5458,6 @@ class _StringsEditorColorsFr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Bleu pâle';
 	@override String get pastelPurple => 'Violet pâle';
 	@override String get pastelPink => 'Rose pâle';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Personnalisé ${b} ${h}';
-	@override String customHue({required Object h}) => '${h} personnalisé';
-	@override String get dark => 'sombre';
-	@override String get light => 'lumière';
-	@override String get pink => 'Rose';
 }
 
 // Path: editor.imageOptions

@@ -161,35 +161,6 @@ fa:
   settings:
     resyncEverything(OUTDATED): Resync everything
 fr:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Export note
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan: Cyan
-      pink(OUTDATED): Pink
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
 he:
   home:
     tooltips:
