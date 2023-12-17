@@ -161,35 +161,6 @@ fa:
   settings:
     resyncEverything(OUTDATED): Resync everything
 fr:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Exporter la note
-    moveNote:
-      moveNotes(OUTDATED): Déplacer $n notes
-      multipleRenamedTo(OUTDATED): "Les notes suivantes vont être renommées :"
-      numberRenamedTo(OUTDATED): $n notes vont être renommées pour résoudre des conflits
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      recentColorsLength(OUTDATED): Nombre de couleurs récentes à conserver
-      shapeRecognitionDelay(OUTDATED): Délai de reconnaissance de forme
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): Avec quelle fréquence mettre à jour la prévisualisation de forme
-    resyncEverything(OUTDATED): Tout re-syncroniser
-  editor:
-    pens:
-      pencil(OUTDATED): Crayon
-      shapePen(OUTDATED): Forme du stylo
-    colors:
-      customBrightnessHue(OUTDATED): Personnaliser $b $h
-      customHue(OUTDATED): Personnaliser $h
-      dark(OUTDATED): sombre
-      light(OUTDATED): clair
-      cyan: Cyan
-      pink(OUTDATED): Rose
-    selectionBar:
-      duplicate(OUTDATED): Dupliquer
 he:
   home:
     tooltips:

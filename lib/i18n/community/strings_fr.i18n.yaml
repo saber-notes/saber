@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: Nouvelle note
     showUpdateDialog: Afficher le dialogue de mise à jour
-    exportNote(OUTDATED): Note d ' exportation
+    exportNote: Exporter la note
   create:
     newNote: Nouvelle note
     importNote: Importer une note
@@ -37,12 +37,12 @@ home:
     noteNameExists: Une note du même nom existe déjà
   moveNote:
     moveNote: Déplacer la note
+    moveNotes: Déplacer $n notes
     moveName: Déplacer $f
     move: Déplacer
     renamedTo: La note sera renommée en $newName
-    moveNotes(OUTDATED): Déplacer les notes $n
-    multipleRenamedTo(OUTDATED): "Les notes suivantes seront renommées :"
-    numberRenamedTo(OUTDATED): $n notes sera renommé pour éviter les conflits
+    multipleRenamedTo: "Les notes suivantes vont être renommées :"
+    numberRenamedTo: $n notes vont être renommées pour résoudre des conflits
   deleteNote: Effacer la note
   renameFolder:
     renameFolder: Renommer le dossier
@@ -61,8 +61,8 @@ settings:
     general: Général
     writing: Tracé
     editor: Editeur
+    performance: Performance
     advanced: Avancé
-    performance(OUTDATED): Rendement
   prefLabels:
     locale: Langue
     appTheme: Thème de l'application
@@ -87,10 +87,10 @@ settings:
     editorPromptRename: Vous rappeler de renommer les notes
     hideHomeBackgrounds: Cacher le fond de la page d'accueil
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
+    recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
-    shapeRecognitionDelay(OUTDATED): Retard de reconnaissance de forme
-    recentColorsLength(OUTDATED): Combien de couleurs récentes stocker
+    shapeRecognitionDelay: Délai de reconnaissance de forme
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     disableAds: "Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
+    shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
-    shapeRecognitionDelay(OUTDATED): À quelle fréquence mettre à jour l'aperçu de la forme
   themeModes:
     system: Système
     light: Clair
@@ -129,7 +129,7 @@ settings:
   reset:
     title: "Rétablir les valeurs par défaut ?"
     button: Défaut
-  resyncEverything(OUTDATED): Resync tout
+  resyncEverything: Tout re-syncroniser
 login:
   title: Connexion
   feedbacks:
@@ -222,14 +222,18 @@ editor:
     fountainPen: Stylo encre
     ballpointPen: Stylo bille
     highlighter: Surligneur
+    pencil: Crayon
+    shapePen: Forme du stylo
     laserPointer: Pointeur laser
-    pencil(OUTDATED): Crayon
-    shapePen(OUTDATED): Stylo de forme
   penOptions:
     size: Taille
     sizeDragHint: Glisser vers la gauche ou la droite pour changer la taille
   colors:
     colorPicker: Pipette de couleur
+    customBrightnessHue: Personnaliser $b $h
+    customHue: Personnaliser $h
+    dark: sombre
+    light: clair
     black: Noir
     darkGrey: Gris sombre
     grey: Gris
@@ -237,9 +241,11 @@ editor:
     white: Blanc
     red: Rouge
     green: Vert
+    cyan: Cyan
     blue: Bleu
     yellow: Jaune
     purple: Violet
+    pink: Rose
     orange: Orange
     pastelRed: Rouge pâle
     pastelOrange: Orange pâle
@@ -249,11 +255,6 @@ editor:
     pastelBlue: Bleu pâle
     pastelPurple: Violet pâle
     pastelPink: Rose pâle
-    customBrightnessHue(OUTDATED): Personnalisé $b $h
-    customHue(OUTDATED): $h personnalisé
-    dark(OUTDATED): sombre
-    light(OUTDATED): lumière
-    pink(OUTDATED): Rose
   imageOptions:
     title: Options d'image
     invertible: Couleurs inversibles
@@ -263,7 +264,7 @@ editor:
     delete: Effacer
   selectionBar:
     delete: Effacer
-    duplicate(OUTDATED): Dupliquer
+    duplicate: Dupliquer
   menu:
     clearPage: Effacer la page $page/$totalPages
     clearAllPages: Effacer toutes les pages
