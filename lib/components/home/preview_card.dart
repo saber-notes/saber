@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
@@ -33,8 +32,7 @@ class PreviewCard extends StatefulWidget {
 
 class _PreviewCardState extends State<PreviewCard> {
   final expanded = ValueNotifier(false);
-  final thumbnailState = _ThumbnailState();
-  late FileImage thumbnailImage;
+  final thumbnail = _ThumbnailState();
   late final shader = InvertShader.create();
 
   @override
@@ -49,7 +47,7 @@ class _PreviewCardState extends State<PreviewCard> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    thumbnailImage = FileImage(
+    thumbnail.image = FileImage(
       FileManager.getFile('${widget.filePath}${Editor.extension}.p'),
     );
   }
@@ -58,10 +56,10 @@ class _PreviewCardState extends State<PreviewCard> {
   void fileWriteListener(FileOperation event) {
     if (event.filePath != widget.filePath) return;
     if (event.type == FileOperationType.delete) {
-      thumbnailState.hide = true;
+      thumbnail.image = null;
     } else if (event.type == FileOperationType.write) {
-      thumbnailImage.evict();
-      thumbnailState.markAsChanged();
+      thumbnail.image?.evict();
+      thumbnail.markAsChanged();
     } else {
       throw Exception('Unknown file operation type: ${event.type}');
     }
@@ -98,15 +96,14 @@ class _PreviewCardState extends State<PreviewCard> {
                   Stack(
                     children: [
                       AnimatedBuilder(
-                        animation: thumbnailState,
+                        animation: thumbnail,
                         builder: (context, _) => AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
-                          child: thumbnailState.hide
-                              ? const SizedBox.shrink()
-                              : ShaderSampler(
+                          child: thumbnail.image?.file.existsSync() ?? false
+                              ? ShaderSampler(
                                   shaderEnabled: invert,
                                   prepareForSnapshot: () =>
-                                      precacheImage(thumbnailImage, context),
+                                      precacheImage(thumbnail.image!, context),
                                   shaderBuilder: (image, size) {
                                     shader.setFloat(0, size.width);
                                     shader.setFloat(1, size.height);
@@ -114,25 +111,17 @@ class _PreviewCardState extends State<PreviewCard> {
                                     return shader;
                                   },
                                   child: Image(
-                                    key: ValueKey(thumbnailState.updateCount),
-                                    image: thumbnailImage,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      // If the thumbnail image doesn't exist,
-                                      // (i.e. for old notes), render the first page.
-                                      if (error is! PathNotFoundException) {
-                                        throw error;
-                                      }
-
-                                      return FittedBox(
-                                        child: ClipRect(
-                                          child: CanvasPreview.fromFile(
-                                            key: ValueKey(
-                                                'CanvasPreview${thumbnailState.updateCount}'),
-                                            filePath: widget.filePath,
-                                          ),
-                                        ),
-                                      );
-                                    },
+                                    key: ValueKey(thumbnail.updateCount),
+                                    image: thumbnail.image!,
+                                  ),
+                                )
+                              : FittedBox(
+                                  child: ClipRect(
+                                    child: CanvasPreview.fromFile(
+                                      key: ValueKey(
+                                          'CanvasPreview${thumbnail.updateCount}'),
+                                      filePath: widget.filePath,
+                                    ),
                                   ),
                                 ),
                         ),
@@ -208,8 +197,8 @@ class _PreviewCardState extends State<PreviewCard> {
             name: RoutePaths.editFilePath(widget.filePath),
           ),
           onClosed: (_) async {
-            thumbnailImage.evict();
-            thumbnailState.markAsChanged();
+            thumbnail.image?.evict();
+            thumbnail.markAsChanged();
 
             await Future.delayed(transitionDuration);
             if (!mounted) return;
@@ -233,21 +222,16 @@ class _PreviewCardState extends State<PreviewCard> {
 
 class _ThumbnailState extends ChangeNotifier {
   int updateCount = 0;
-
-  bool _hide = false;
-
-  /// Whether to hide the thumbnail,
-  /// i.e. if the note has been deleted.
-  bool get hide => _hide;
-  set hide(bool value) {
-    if (_hide == value) return;
-    _hide = value;
-    ++updateCount;
-    notifyListeners();
-  }
+  FileImage? _image;
 
   void markAsChanged() {
     ++updateCount;
     notifyListeners();
+  }
+
+  FileImage? get image => _image;
+  set image(FileImage? image) {
+    _image = image;
+    markAsChanged();
   }
 }
