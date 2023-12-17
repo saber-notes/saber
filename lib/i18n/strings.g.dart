@@ -9561,7 +9561,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 		'Слева',
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
-	@override String get resyncEverything => 'Повторно синхронизировать все';
+	@override String get resyncEverything => 'Повторная синхронизация всего';
 }
 
 // Path: login
@@ -9691,7 +9691,7 @@ class _StringsHomeTooltipsRu extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Новая заметка';
 	@override String get showUpdateDialog => 'Показывать диалог обновления';
-	@override String get exportNote => 'Экспортировать примечание';
+	@override String get exportNote => 'Экспортировать заметку';
 }
 
 // Path: home.create
@@ -9789,8 +9789,8 @@ class _StringsSettingsPrefCategoriesRu extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Общие';
 	@override String get writing => 'Письмо';
 	@override String get editor => 'Редактор';
-	@override String get advanced => 'Дополнительно';
 	@override String get performance => 'Производительность';
+	@override String get advanced => 'Дополнительно';
 }
 
 // Path: settings.prefLabels
@@ -9849,8 +9849,8 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
+	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
-	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр фигуры';
 }
 
 // Path: settings.themeModes
@@ -10088,9 +10088,9 @@ class _StringsEditorPensRu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Перьевая ручка';
 	@override String get ballpointPen => 'Шариковая ручка';
 	@override String get highlighter => 'Маркер';
+	@override String get pencil => 'Карандаш';
 	@override String get shapePen => 'Вид ручки';
 	@override String get laserPointer => 'Лазерная указка';
-	@override String get pencil => 'Карандаш';
 }
 
 // Path: editor.penOptions

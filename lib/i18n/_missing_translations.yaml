@@ -502,20 +502,6 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Экспортировать заметку
-  settings:
-    prefCategories:
-      performance(OUTDATED): Производительность
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Задержка распознавания формы
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): Как часто обновлять предварительный просмотр формы
-    resyncEverything(OUTDATED): Повторная синхронизация всего
-  editor:
-    pens:
-      pencil(OUTDATED): Карандаш
 tr:
   home:
     tooltips:
