@@ -9,7 +9,6 @@ import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -24,7 +23,9 @@ class FileManager {
   static final log = Logger('FileManager');
 
   static const String appRootDirectoryPrefix = 'Saber';
-  static late final String documentsDirectory;
+  /// This isn't final because isolates sometimes init multiple times.
+  /// Realistically, this value never changes.
+  static late String documentsDirectory;
 
   static final StreamController<FileOperation> fileWriteStream =
       StreamController.broadcast(
