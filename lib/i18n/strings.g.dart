@@ -1764,7 +1764,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 		'Vlevo',
 	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
-	@override String get resyncEverything => 'Znovu vše synchronizujte';
+	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
 }
 
 // Path: login

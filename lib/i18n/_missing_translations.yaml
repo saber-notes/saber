@@ -75,8 +75,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    resyncEverything(OUTDATED): Resync everything
 de:
   home:
     titles:
