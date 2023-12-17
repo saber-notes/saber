@@ -10341,7 +10341,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 		'Sol',
 	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
-	@override String get resyncEverything => 'Her şeyi tekrar et';
+	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
 }
 
 // Path: login
@@ -10569,8 +10569,8 @@ class _StringsSettingsPrefCategoriesTr extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'Genel';
 	@override String get writing => 'Yazım';
 	@override String get editor => 'Editör';
+	@override String get performance => 'Performans';
 	@override String get advanced => 'Gelişmiş';
-	@override String get performance => 'Verim';
 }
 
 // Path: settings.prefLabels
@@ -10629,8 +10629,8 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
+	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
-	@override String get shapeRecognitionDelay => 'Şekil önizlemesinin ne sıklıkla güncelleneceği';
 }
 
 // Path: settings.themeModes
@@ -10868,9 +10868,9 @@ class _StringsEditorPensTr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Dolma kalem';
 	@override String get ballpointPen => 'Tükenmez kalem';
 	@override String get highlighter => 'İşaretleme kalemi';
+	@override String get pencil => 'Kalem';
 	@override String get shapePen => 'Şekil kalemi';
 	@override String get laserPointer => 'Lazer işaretçi';
-	@override String get pencil => 'Kalem';
 }
 
 // Path: editor.penOptions

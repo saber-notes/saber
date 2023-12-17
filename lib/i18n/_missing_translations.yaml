@@ -501,20 +501,6 @@ pt-BR:
       duplicate(OUTDATED): Duplicate
 ru:
 tr:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Export note
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
 zh-Hans-CN:
   settings:
     resyncEverything(OUTDATED): Resync everything
