@@ -199,7 +199,7 @@ class PdfEditorImage extends EditorImage {
       valueListenable: anyDpiRaster,
       builder: (context, imageProvider, child) {
         if (imageProvider == null) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator.adaptive());
         }
         return Image(
           image: imageProvider,

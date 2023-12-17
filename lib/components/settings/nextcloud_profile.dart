@@ -94,8 +94,10 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                       children: [
                         CircularProgressIndicator(
                           value: relativePercent,
-                          color: colorScheme.primary.withOpacity(0.5),
                           backgroundColor: colorScheme.primary.withOpacity(0.1),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            colorScheme.primary.withOpacity(0.5),
+                          ),
                           strokeWidth: 8,
                           semanticsLabel: 'Storage usage',
                           semanticsValue: snapshot.data != null

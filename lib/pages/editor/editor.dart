@@ -16,9 +16,9 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
+import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
-import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -45,6 +45,7 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
 typedef _PhotoInfo = ({Uint8List bytes, String extension});
@@ -194,7 +195,7 @@ class EditorState extends State<Editor> {
   }
 
   void _initAsync() async {
-    coreInfo = PreviewCard.getCachedCoreInfo(await widget.initialPath);
+    coreInfo.filePath = await widget.initialPath;
     filenameTextEditingController.text = coreInfo.fileName;
 
     if (needsNaming) {
@@ -818,11 +819,11 @@ class EditorState extends State<Editor> {
         savingState.value = SavingState.saving;
     }
 
+    final filePath = coreInfo.filePath + Editor.extension;
     final (bson, assets) = coreInfo.saveToBinary(
       currentPageIndex: currentPageIndex,
     );
     try {
-      final filePath = coreInfo.filePath + Editor.extension;
       await Future.wait([
         FileManager.writeFile(filePath, bson, awaitWrite: true),
         for (int i = 0; i < assets.length; ++i)
@@ -841,7 +842,32 @@ class EditorState extends State<Editor> {
       log.severe('Failed to save file: $e', e);
       savingState.value = SavingState.waitingToSave;
       if (kDebugMode) rethrow;
+      return;
     }
+
+    if (!mounted) return;
+    final screenshotter = ScreenshotController();
+    final pageSize = coreInfo.pages.first.size;
+    final thumbnailSize = Size(720, 720 * pageSize.height / pageSize.width);
+    final thumbnail = await screenshotter.captureFromWidget(
+      Localizations.override(
+        context: context,
+        child: SizedBox(
+          width: thumbnailSize.width,
+          height: thumbnailSize.height,
+          child: pagePreviewBuilder(context, 0),
+        ),
+      ),
+      pixelRatio: 1,
+      context: context,
+      targetSize: thumbnailSize,
+    );
+    await FileManager.writeFile(
+      // Note that this ends with .sbn2.p
+      '$filePath.p',
+      thumbnail,
+      awaitWrite: true,
+    );
   }
 
   late final _filenameFormKey = GlobalKey<FormState>();
@@ -1240,45 +1266,7 @@ class EditorState extends State<Editor> {
       redo: redo,
       pages: coreInfo.pages,
       initialPageIndex: coreInfo.initialPageIndex,
-      pageBuilder: (BuildContext context, int pageIndex) {
-        final page = coreInfo.pages[pageIndex];
-        final currentStroke = Pen.currentStroke?.pageIndex == pageIndex
-            ? Pen.currentStroke
-            : null;
-        return Canvas(
-          path: coreInfo.filePath,
-          page: page,
-          pageIndex: pageIndex,
-          textEditing: currentTool == Tool.textEditing,
-          coreInfo: coreInfo,
-          currentStroke: currentStroke,
-          currentStrokeDetectedShape:
-              currentTool is ShapePen && currentStroke != null
-                  ? ShapePen.detectedShape
-                  : null,
-          currentSelection: () {
-            if (currentTool is! Select) return null;
-            final selectResult = (currentTool as Select).selectResult;
-            if (selectResult.pageIndex != pageIndex) return null;
-            return selectResult;
-          }(),
-          setAsBackground: (EditorImage image) {
-            if (page.backgroundImage != null) {
-              // restore previous background image as normal image
-              page.images.add(page.backgroundImage!);
-            }
-            page.images.remove(image);
-            page.backgroundImage = image;
-
-            CanvasImage.activeListener
-                .notifyListenersPlease(); // un-select active image
-
-            autosaveAfterDelay();
-            setState(() {});
-          },
-          currentToolIsSelect: currentTool is Select,
-        );
-      },
+      pageBuilder: pageBuilder,
       placeholderPageBuilder: (BuildContext context, int pageIndex) {
         return Canvas(
           path: coreInfo.filePath,
@@ -1688,6 +1676,57 @@ class EditorState extends State<Editor> {
       pickPhotos: _pickPhotos,
       importPdf: importPdf,
       canRasterPdf: Editor.canRasterPdf,
+    );
+  }
+
+  Widget pageBuilder(BuildContext context, int pageIndex) {
+    final page = coreInfo.pages[pageIndex];
+    final currentStroke =
+        Pen.currentStroke?.pageIndex == pageIndex ? Pen.currentStroke : null;
+    return Canvas(
+      path: coreInfo.filePath,
+      page: page,
+      pageIndex: pageIndex,
+      textEditing: currentTool == Tool.textEditing,
+      coreInfo: coreInfo,
+      currentStroke: currentStroke,
+      currentStrokeDetectedShape:
+          currentTool is ShapePen && currentStroke != null
+              ? ShapePen.detectedShape
+              : null,
+      currentSelection: () {
+        if (currentTool is! Select) return null;
+        final selectResult = (currentTool as Select).selectResult;
+        if (selectResult.pageIndex != pageIndex) return null;
+        return selectResult;
+      }(),
+      setAsBackground: (EditorImage image) {
+        if (page.backgroundImage != null) {
+          // restore previous background image as normal image
+          page.images.add(page.backgroundImage!);
+        }
+        page.images.remove(image);
+        page.backgroundImage = image;
+
+        CanvasImage.activeListener
+            .notifyListenersPlease(); // un-select active image
+
+        autosaveAfterDelay();
+        setState(() {});
+      },
+      currentToolIsSelect: currentTool is Select,
+    );
+  }
+
+  Widget pagePreviewBuilder(BuildContext context, int pageIndex) {
+    final page = coreInfo.pages[pageIndex];
+    final previewHeight = page.previewHeight(
+      lineHeight: coreInfo.lineHeight,
+    );
+    return CanvasPreview(
+      pageIndex: pageIndex,
+      height: previewHeight,
+      coreInfo: coreInfo,
     );
   }
 

@@ -27,7 +27,7 @@ class SaveIndicator extends StatelessWidget {
             onPressed: () => _onPressed(context),
             icon: switch (savingState.value) {
               SavingState.waitingToSave => const Icon(Icons.save),
-              SavingState.saving => const CircularProgressIndicator(),
+              SavingState.saving => const CircularProgressIndicator.adaptive(),
               SavingState.saved => const Icon(Icons.arrow_back),
             },
           ),

@@ -37,8 +37,8 @@ class FileManager {
   static String _sanitisePath(String path) => File(path).path;
 
   /// A regex that matches the file names/paths of asset files,
-  /// e.g. `mynote.sbn2.1`.
-  static final assetFileRegex = RegExp(r'\.sbn2?\.\d+$');
+  /// including previews, e.g. `mynote.sbn2.1`.
+  static final assetFileRegex = RegExp(r'\.sbn2?\.[\dp]+$');
 
   static Future<void> init({
     String? documentsDirectory,
@@ -248,13 +248,20 @@ class FileManager {
     broadcastFileWrite(FileOperationType.write, toPath);
 
     if (alsoMoveAssets && !assetFileRegex.hasMatch(fromPath)) {
-      final assets = <int>[];
+      final assets = <String>[];
       for (int assetNumber = 0; true; assetNumber++) {
         final assetFile = getFile('$fromPath.$assetNumber');
         if (assetFile.existsSync()) {
-          assets.add(assetNumber);
+          assets.add('$assetNumber');
         } else {
           break;
+        }
+      }
+      {
+        const assetNumber = 'p';
+        final assetFile = getFile('$fromPath.$assetNumber');
+        if (assetFile.existsSync()) {
+          assets.add(assetNumber);
         }
       }
 
@@ -639,9 +646,6 @@ class FileManager {
   }
 
   static Future _renameReferences(String fromPath, String toPath) async {
-    // rename file in cache
-    PreviewCard.moveFileInCache(fromPath, toPath);
-
     // rename file in recently accessed
     bool replaced = false;
     for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
