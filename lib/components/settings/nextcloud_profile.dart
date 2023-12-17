@@ -92,7 +92,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                     return Stack(
                       alignment: Alignment.center,
                       children: [
-                        CircularProgressIndicator.adaptive(
+                        CircularProgressIndicator(
                           value: relativePercent,
                           backgroundColor: colorScheme.primary.withOpacity(0.1),
                           valueColor: AlwaysStoppedAnimation<Color>(
