@@ -87,6 +87,13 @@ if [[ ! $BUILD_NUMBER =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 
+# check if the build number is 5 digits
+if [[ ${#BUILD_NUMBER} -ne 5 ]]; then
+  echo "The build number '$BUILD_NUMBER' is expected to be 5 digits long."
+  echo "If this was intentional, please update the script to allow this."
+  exit 1
+fi
+
 echo "Applying version $BUILD_NAME ($BUILD_NUMBER) ($DATE) to the relevant files..."
 
 echo " - Updating MyAppVersion in installers/desktop_inno_script.iss" # e.g. #define MyAppVersion "0.5.5"
