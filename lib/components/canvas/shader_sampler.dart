@@ -16,7 +16,7 @@ class ShaderSampler extends StatefulWidget {
   });
 
   final bool shaderEnabled;
-  final Future<void> Function()? prepareForSnapshot;
+  final Future Function()? prepareForSnapshot;
   final ShaderBuilder shaderBuilder;
   final Widget child;
 
@@ -25,33 +25,26 @@ class ShaderSampler extends StatefulWidget {
 }
 
 class _ShaderSamplerState extends State<ShaderSampler> {
-  late final SnapshotController _controller;
-  bool preparedForSnapshot = false;
+  late final _controller = SnapshotController(
+    allowSnapshotting: widget.shaderEnabled,
+  );
 
   @override
   void initState() {
-    _controller = SnapshotController(allowSnapshotting: false);
-
-    if (widget.prepareForSnapshot != null) {
-      widget.prepareForSnapshot!().then((_) {
-        preparedForSnapshot = true;
-        try {
-          _controller.allowSnapshotting = widget.shaderEnabled;
-        } catch (e) {
-          // ignore if controller has been disposed
-        }
-      });
-    } else {
-      preparedForSnapshot = true;
-      _controller.allowSnapshotting = widget.shaderEnabled;
-    }
+    widget.prepareForSnapshot?.call().then((_) {
+      try {
+        _controller.clear();
+      } catch (e) {
+        // ignore if controller is disposed by the time the future is done
+      }
+    });
 
     super.initState();
   }
 
   @override
   void didUpdateWidget(covariant ShaderSampler oldWidget) {
-    _controller.allowSnapshotting = widget.shaderEnabled && preparedForSnapshot;
+    _controller.allowSnapshotting = widget.shaderEnabled;
     _controller.clear();
     super.didUpdateWidget(oldWidget);
   }
@@ -91,7 +84,7 @@ class _ShaderSnapshotPainter extends SnapshotPainter {
   void paintSnapshot(PaintingContext context, Offset offset, Size size,
       ui.Image image, Size sourceSize, double pixelRatio) {
     final shader = shaderBuilder(image, size);
-    final Paint paint = Paint()..shader = shader;
+    final paint = Paint()..shader = shader;
     context.pushTransform(
       true,
       Offset.zero,
