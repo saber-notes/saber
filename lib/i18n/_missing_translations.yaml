@@ -163,33 +163,33 @@ fa:
 fr:
   home:
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): Exporter la note
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+      moveNotes(OUTDATED): Déplacer $n notes
+      multipleRenamedTo(OUTDATED): "Les notes suivantes vont être renommées :"
+      numberRenamedTo(OUTDATED): $n notes vont être renommées pour résoudre des conflits
   settings:
     prefCategories:
       performance(OUTDATED): Performance
     prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      recentColorsLength(OUTDATED): Nombre de couleurs récentes à conserver
+      shapeRecognitionDelay(OUTDATED): Délai de reconnaissance de forme
     prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
+      shapeRecognitionDelay(OUTDATED): Avec quelle fréquence mettre à jour la prévisualisation de forme
+    resyncEverything(OUTDATED): Tout re-syncroniser
   editor:
     pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
+      pencil(OUTDATED): Crayon
+      shapePen(OUTDATED): Forme du stylo
     colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
+      customBrightnessHue(OUTDATED): Personnaliser $b $h
+      customHue(OUTDATED): Personnaliser $h
+      dark(OUTDATED): sombre
+      light(OUTDATED): clair
       cyan: Cyan
-      pink(OUTDATED): Pink
+      pink(OUTDATED): Rose
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): Dupliquer
 he:
   home:
     tooltips:
