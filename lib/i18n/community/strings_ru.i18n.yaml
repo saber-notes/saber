@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: Новая заметка
     showUpdateDialog: Показывать диалог обновления
-    exportNote(OUTDATED): Экспортировать примечание
+    exportNote: Экспортировать заметку
   create:
     newNote: Новая заметка
     importNote: Импорт заметки
@@ -61,8 +61,8 @@ settings:
     general: Общие
     writing: Письмо
     editor: Редактор
+    performance: Производительность
     advanced: Дополнительно
-    performance(OUTDATED): Производительность
   prefLabels:
     locale: Язык приложения
     appTheme: Тема оформления
@@ -90,7 +90,7 @@ settings:
     recentColorsLength: Количество последних сохраняемых цветов
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
-    shapeRecognitionDelay(OUTDATED): Задержка распознавания формы
+    shapeRecognitionDelay: Задержка распознавания формы
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
+    shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
-    shapeRecognitionDelay(OUTDATED): Как часто обновлять предварительный просмотр фигуры
   themeModes:
     system: Системная
     light: Светлая
@@ -129,7 +129,7 @@ settings:
   reset:
     title: "Сбросить эту настройку?"
     button: Сбросить
-  resyncEverything(OUTDATED): Повторно синхронизировать все
+  resyncEverything: Повторная синхронизация всего
 login:
   title: Авторизация
   feedbacks:
@@ -222,9 +222,9 @@ editor:
     fountainPen: Перьевая ручка
     ballpointPen: Шариковая ручка
     highlighter: Маркер
+    pencil: Карандаш
     shapePen: Вид ручки
     laserPointer: Лазерная указка
-    pencil(OUTDATED): Карандаш
   penOptions:
     size: Размер
     sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"
