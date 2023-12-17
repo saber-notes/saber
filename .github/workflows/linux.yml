@@ -255,62 +255,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ steps.compress.outputs.archiveName }}
 
-  build-flatpak:
-    name: Build flatpak
-    runs-on: ubuntu-latest
-    needs: [build-flutter-app-x86_64, get-version]
-    container:
-      image: bilelmoussaoui/flatpak-github-actions:freedesktop-22.08
-      options: --privileged
-    timeout-minutes: 10
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Remove unneeded files
-        run: |
-          rm -rf android
-          rm -rf assets_raw
-          rm -rf installers
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf macos
-          rm -rf metadata
-          rm -rf test
-          rm -rf windows
-
-      - name: Download app archive
-        uses: actions/download-artifact@v3
-        with:
-          name: Saber-Archive-x86_64
-
-      - name: Rename app archive
-        run: |
-          mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
-
-      - name: Build .flatpak
-        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v6
-        with:
-          bundle: Saber.flatpak
-          manifest-path: flatpak/com.adilhanney.saber.json
-          cache-key: flatpak-builder-cache-${{ hashFiles('flatpak/com.adilhanney.saber.json') }}
-
-      - name: Rename .flatpak
-        id: rename
-        run: |
-          flatpakName="Saber_v${{ needs.get-version.outputs.buildName }}.flatpak"
-          echo "flatpakName=$flatpakName" >> $GITHUB_OUTPUT
-
-          mv Saber.flatpak $flatpakName
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Flatpak artifact
-          path: ${{ steps.rename.outputs.flatpakName }}
-
   build-appimage:
     name: Build AppImage
     needs: [build-flutter-app-x86_64, get-version]
