@@ -1,0 +1,4 @@
+• Visualizações de tela inicial são feitas antes do tempo para o desempenho
+• Corrigido alguns erros de sincronização e adicionou um botão "resync tudo" nas configurações
+• Corrigido um erro com o carregamento de notas grandes
+• Corrigido o atraso de dois segundos antes que as imagens sejam invertidos

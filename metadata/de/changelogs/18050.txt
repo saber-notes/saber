@@ -1,0 +1,4 @@
+• Vorschauen auf dem Startbildschirm werden aus Leistungsgründen vorab erstellt
+• Einige Synchronisierungsfehler wurden behoben und in den Einstellungen die Schaltfläche „Alles neu synchronisieren“ hinzugefügt
+• Ein Fehler beim Laden großer Notizen wurde behoben
+• Die Sekundenbruchteil-Verzögerung, bevor Bilder invertiert werden, wurde behoben

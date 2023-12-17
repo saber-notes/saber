@@ -271,6 +271,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.5" type="development" date="2023-12-17">
+            <description>
+                <ul>
+                    <li>Home screen previews are done ahead of time for performance</li>
+                    <li>Fixed some syncing errors and added a "resync everything" button in settings</li>
+                    <li>Fixed a bug with loading large notes</li>
+                    <li>Fixed the split-second delay before images are inverted</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.18.4" type="development" date="2023-12-10">
             <description>
                 <ul>

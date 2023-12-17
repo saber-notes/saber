@@ -1,0 +1,4 @@
+• Les aperçus de l'écran d'accueil sont effectués à l'avance pour des raisons de performances.
+• Correction de quelques erreurs de synchronisation et ajout d'un bouton "Tout resynchroniser" dans les paramètres
+• Correction d'un bug lors du chargement de notes volumineuses
+• Correction du délai d'une fraction de seconde avant que les images ne soient inversées
