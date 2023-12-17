@@ -182,6 +182,7 @@ class _RecentPageState extends State<RecentPage> {
               ),
               MoveNoteButton(
                 filesToMove: selectedFiles.value,
+                unselectNotes: () => selectedFiles.value = [],
               ),
               IconButton(
                 padding: EdgeInsets.zero,

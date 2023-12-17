@@ -213,6 +213,7 @@ class _BrowsePageState extends State<BrowsePage> {
                   )),
               MoveNoteButton(
                 filesToMove: selectedFiles.value,
+                unselectNotes: () => selectedFiles.value = [],
               ),
               IconButton(
                 padding: EdgeInsets.zero,
