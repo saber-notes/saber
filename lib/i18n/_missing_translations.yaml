@@ -501,20 +501,6 @@ pt-BR:
       duplicate(OUTDATED): Duplicate
 ru:
 tr:
-  home:
-    tooltips:
-      exportNote(OUTDATED): Notu dışa aktar
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performans
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Şekil tanıma gecikmesi
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): Çizilen şekilleri tanımlama sıklığını belirler
-    resyncEverything(OUTDATED): Her şeyi yeniden senkronize et
-  editor:
-    pens:
-      pencil(OUTDATED): Kalem
 zh-Hans-CN:
   settings:
     resyncEverything(OUTDATED): Resync everything

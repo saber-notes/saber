@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: Yeni not
     showUpdateDialog: Güncelleme diyalogunu göster
-    exportNote(OUTDATED): Notu dışa aktar
+    exportNote: Notu dışa aktar
   create:
     newNote: Yeni not
     importNote: Notu içeri aktar
@@ -61,8 +61,8 @@ settings:
     general: Genel
     writing: Yazım
     editor: Editör
+    performance: Performans
     advanced: Gelişmiş
-    performance(OUTDATED): Verim
   prefLabels:
     locale: Uygulama dili
     appTheme: Uygulama teması
@@ -90,7 +90,7 @@ settings:
     recentColorsLength: Kaç tane son kullanılan renk saklanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
-    shapeRecognitionDelay(OUTDATED): Şekil tanıma gecikmesi
+    shapeRecognitionDelay: Şekil tanıma gecikmesi
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -108,8 +108,8 @@ settings:
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
+    shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
-    shapeRecognitionDelay(OUTDATED): Şekil önizlemesinin ne sıklıkla güncelleneceği
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -129,7 +129,7 @@ settings:
   reset:
     title: "Ayarı sıfırlamak istiyor musunuz?"
     button: Sıfırla
-  resyncEverything(OUTDATED): Her şeyi tekrar et
+  resyncEverything: Her şeyi yeniden senkronize et
 login:
   title: Giriş yap
   feedbacks:
@@ -223,9 +223,9 @@ editor:
     fountainPen: Dolma kalem
     ballpointPen: Tükenmez kalem
     highlighter: İşaretleme kalemi
+    pencil: Kalem
     shapePen: Şekil kalemi
     laserPointer: Lazer işaretçi
-    pencil(OUTDATED): Kalem
   penOptions:
     size: Boyut
     sizeDragHint: Boyutu değiştirmek için sağa veya sola kaydır
