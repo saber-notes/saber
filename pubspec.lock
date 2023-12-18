@@ -1117,18 +1117,18 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "3231d9b11163acb96e7611c5da54404e93d1e0d0eb8f31126ce86a1a43a1c7d4"
+      sha256: "679eb608889634f57310aa4660189e7e7ef5eed5eab20f613e966d1b257b2c13"
       url: "https://pub.dev"
     source: hosted
-    version: "3.26.2"
+    version: "3.27.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: "88e40b238307abdc191c9c26cdfb7c1b6d5075f461e8fbcf89f6f2a3f92cd5d7"
+      sha256: fd770bcaf6379cbeb4ef509b44f3b101d38695856e4eb933d8ee6d34740895f9
       url: "https://pub.dev"
     source: hosted
-    version: "3.26.2"
+    version: "3.27.0"
   source_span:
     dependency: transitive
     description:
