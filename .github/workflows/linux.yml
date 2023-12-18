@@ -107,7 +107,7 @@ jobs:
           tar -C AppDir -cvf $archiveName .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Saber-Archive-x86_64
           path: ${{ steps.compress.outputs.archiveName }}
@@ -243,7 +243,7 @@ jobs:
           tar -C AppDir -cvf $archiveName .
       
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Saber-Archive-arm64
           path: ${{ steps.compress.outputs.archiveName }}
@@ -316,7 +316,7 @@ jobs:
           ./appimage-builder-x86_64.AppImage --skip-test
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AppImage artifact
           path: appimage/Saber-*-x86_64.AppImage*

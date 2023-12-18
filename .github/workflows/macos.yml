@@ -158,7 +158,7 @@ jobs:
           keychain use-login
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Saber-macOS-Archive
           path: build/macos/Build/Products/Release/${{ steps.compress.outputs.zipName }}
