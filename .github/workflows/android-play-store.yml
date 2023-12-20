@@ -86,7 +86,7 @@ jobs:
         run: mv ${{ steps.sign_app.outputs.signedFile }} output/Saber.aab
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Saber-Android-PlayStore
           path: output/Saber.aab
