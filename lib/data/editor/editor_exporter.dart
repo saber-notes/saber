@@ -17,8 +17,8 @@ import 'package:saber/data/tools/pencil.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
-  static const Color _primaryColor = Colors.blue;
-  static const Color _secondaryColor = Colors.red;
+  static const Color primaryColor = Colors.blue;
+  static const Color secondaryColor = Colors.red;
 
   /// Most* strokes can be drawn to the PDF canvas as vector graphics.
   /// This function returns true if [stroke] is one of those strokes.
@@ -162,8 +162,8 @@ abstract class EditorExporter {
           data: ThemeData(
             brightness: Brightness.light,
             colorScheme: const ColorScheme.light(
-              primary: _primaryColor,
-              secondary: _secondaryColor,
+              primary: primaryColor,
+              secondary: secondaryColor,
             ),
           ),
           child: InnerCanvas(

@@ -850,12 +850,21 @@ class EditorState extends State<Editor> {
     final pageSize = coreInfo.pages.first.size;
     final thumbnailSize = Size(720, 720 * pageSize.height / pageSize.width);
     final thumbnail = await screenshotter.captureFromWidget(
-      Localizations.override(
-        context: context,
-        child: SizedBox(
-          width: thumbnailSize.width,
-          height: thumbnailSize.height,
-          child: pagePreviewBuilder(context, 0),
+      Theme(
+        data: ThemeData(
+          brightness: Brightness.light,
+          colorScheme: const ColorScheme.light(
+            primary: EditorExporter.primaryColor,
+            secondary: EditorExporter.secondaryColor,
+          ),
+        ),
+        child: Localizations.override(
+          context: context,
+          child: SizedBox(
+            width: thumbnailSize.width,
+            height: thumbnailSize.height,
+            child: pagePreviewBuilder(context, 0),
+          ),
         ),
       ),
       pixelRatio: 1,
