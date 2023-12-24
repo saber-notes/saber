@@ -50,6 +50,13 @@ void main() {
     vec2 uv = FlutterFragCoord().xy / uSize;
     vec4 color = texture(uTexture, uv);
 
+    if (color.r == 0.0 && color.g == 0.0 && color.b == 0.0) {
+        // If the pixel is pure black, just output white.
+        // (The HSL conversion will fail for black pixels.)
+        fragColor = vec4(color.w);
+        return;
+    }
+
     // Convert the color to HSL
     vec3 hsl = RGBtoHSL(color.xyz);
 
