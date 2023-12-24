@@ -1,0 +1,2 @@
+• Problem behoben, bei dem Miniaturansichten beim Speichern im dunklen Modus falsch invertiert wurden
+• Ein seit langem bestehender Inversionsfehler mit rein schwarzen Pixeln wurde behoben

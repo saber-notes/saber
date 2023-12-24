@@ -1,0 +1,2 @@
+• Correction des vignettes incorrectement inversées lors de l'enregistrement en mode sombre.
+• Correction d'un bug d'inversion de longue date avec des pixels noirs purs

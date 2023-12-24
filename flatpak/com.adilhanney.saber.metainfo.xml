@@ -271,6 +271,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.18.6" type="development" date="2023-12-24">
+            <description>
+                <ul>
+                    <li>Fixed thumbnails being inverted incorrectly when saved in dark mode</li>
+                    <li>Fixed a long-standing inversion bug with pure black pixels</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.18.5" type="development" date="2023-12-17">
             <description>
                 <ul>

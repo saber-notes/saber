@@ -1,0 +1,2 @@
+• Javítva a bélyegképek helytelen megfordítása, amikor sötét módban menti őket
+• Javítva egy régóta fennálló inverziós hiba a tiszta fekete képpontokkal
