@@ -23,6 +23,7 @@ class FileManager {
   static final log = Logger('FileManager');
 
   static const String appRootDirectoryPrefix = 'Saber';
+
   /// This isn't final because isolates sometimes init multiple times.
   /// Realistically, this value never changes.
   static late String documentsDirectory;

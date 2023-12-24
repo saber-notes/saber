@@ -2,5 +2,10 @@
     "files.exclude": {
         "submodules/": true
     },
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true,
+    "dart.doNotFormat": [
+        "**/submodules/**",
+        "**/lib/i18n/strings.g.dart"
+    ]
 }

@@ -39,6 +39,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
   @override
   Widget build(BuildContext context) {
     isAnythingSelected.value = widget.selectedFiles.value.isNotEmpty;
+
     /// List of file paths with ads inserted every [itemsBeforeAd] items
     /// (ads are represented by null).
     final List<String?> files = List.from(widget.files);
