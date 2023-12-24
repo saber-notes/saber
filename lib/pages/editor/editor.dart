@@ -1162,7 +1162,9 @@ class EditorState extends State<Editor> {
       Formats.webp: '.webp',
     };
 
-    final reader = await ClipboardReader.readClipboard();
+    final reader = await SystemClipboard.instance?.read();
+    if (reader == null) return;
+
     final List<_PhotoInfo> photoInfos = [];
     final List<ReadProgress> progresses = [];
 
