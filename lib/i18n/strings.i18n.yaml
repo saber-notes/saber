@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: Toolbar position
     editorToolbarShowInFullscreen: Show the toolbar in fullscreen mode
     editorAutoInvert: Invert notes in dark mode
-    editorOpaqueBackgrounds: Opaque backgrounds
     preferGreyscale: Prefer greyscale colors
     maxImageSize: Maximum image size
     autoClearWhiteboardOnExit: Auto-clear the whiteboard
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
     allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-    editorOpaqueBackgrounds: Remove transparency from background images and PDFs
     preferGreyscale: For e-ink displays
     autoClearWhiteboardOnExit: Clears the whiteboard after you exit the app
     disableEraserAfterUse: Automatically switches back to the pen after using the eraser

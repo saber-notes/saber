@@ -393,12 +393,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.editorAutoInvert,
               ),
               SettingsSwitch(
-                title: t.settings.prefLabels.editorOpaqueBackgrounds,
-                subtitle: t.settings.prefDescriptions.editorOpaqueBackgrounds,
-                icon: Icons.format_color_fill,
-                pref: Prefs.editorOpaqueBackgrounds,
-              ),
-              SettingsSwitch(
                 title: t.settings.prefLabels.editorPromptRename,
                 subtitle: t.settings.prefDescriptions.editorPromptRename,
                 iconBuilder: (b) {

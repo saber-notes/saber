@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: Umístění nabídky editoru
     editorToolbarShowInFullscreen: Zobrazovat nabídku editoru v režimu celé obrazovky
     editorAutoInvert: V tmavém režimu invertovat poznámky
-    editorOpaqueBackgrounds: Neprůhledná pozadí
     preferGreyscale: Preferovat černobílé barvy
     maxImageSize: Maximální velikost obrázku
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
-    editorOpaqueBackgrounds: Odstraní průhlednost z obrázků a PDF na pozadí
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení
     disableEraserAfterUse: Po použití gumy automaticky přepnout zpět na pero

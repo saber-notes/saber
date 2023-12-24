@@ -74,7 +74,6 @@ settings:
     editorToolbarAlignment: محاذاة شريط أدوات المحرر
     editorToolbarShowInFullscreen: أظهر شريط أدوات المحرر في وضع ملء الشاشة
     editorAutoInvert: اقلب الملاحظات في الوضع المظلم
-    editorOpaqueBackgrounds: خلفيات معتمة
     preferGreyscale: تفضيل الألوان الرمادية
     maxImageSize: الحجم الأقصى للصورة
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
@@ -93,7 +92,6 @@ settings:
     disableEraserAfterUse(OUTDATED): تعطيل تلقائي للممحاة
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
-    editorOpaqueBackgrounds: قم بإزالة الشفافية من صور الخلفية وملفات PDF
     preferGreyscale: لشاشات الحبر الإلكتروني
     autoClearWhiteboardOnExit: ستظل متزامنة مع أجهزتك الأخرى
     maxImageSize: سيتم ضغط الصور الأكبر من هذا

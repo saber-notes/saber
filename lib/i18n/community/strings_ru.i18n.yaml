@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: Панель инструментов редактора
     editorToolbarShowInFullscreen: Показывать инструменты в полноэкранном режиме
     editorAutoInvert: Инвертировать заметки в тёмном режиме
-    editorOpaqueBackgrounds: Непрозрачные фоны
     preferGreyscale: Предпочтение оттенкам серого
     maxImageSize: Макс. размер изображения
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
-    editorOpaqueBackgrounds: Удалить прозрачность фоновых изображений и PDF-файлов
     preferGreyscale: Для e-ink экранов
     autoClearWhiteboardOnExit: Это будет синхронизировано с другими вашими устройствами
     disableEraserAfterUse: Автоматически переключается на перо после использования ластика

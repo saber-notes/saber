@@ -4,7 +4,6 @@ import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
-import 'package:saber/data/prefs.dart';
 
 class CanvasBackgroundPreview extends StatelessWidget {
   const CanvasBackgroundPreview({
@@ -60,8 +59,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
                 painter: CanvasBackgroundPainter(
                   invert: invert,
                   backgroundColor: () {
-                    if (backgroundImage != null &&
-                        Prefs.editorOpaqueBackgrounds.value) {
+                    if (backgroundImage != null) {
                       return Colors.white;
                     } else {
                       return backgroundColor ??
@@ -69,8 +67,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
                     }
                   }(),
                   backgroundPattern: () {
-                    if (backgroundImage != null &&
-                        Prefs.editorOpaqueBackgrounds.value) {
+                    if (backgroundImage != null) {
                       return CanvasBackgroundPattern.none;
                     } else {
                       return backgroundPattern;

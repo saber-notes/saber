@@ -73,7 +73,6 @@ settings:
     editorToolbarAlignment: A szerkesztő eszköztár igazítása
     editorToolbarShowInFullscreen: A szerkesztő eszköztár megjelenítése teljes képernyős módban
     editorAutoInvert: Jegyzetek színének felcserélése sötét módban
-    editorOpaqueBackgrounds: Áttetsző hátterek
     preferGreyscale: Szürkeárnyalatos színek előnyben részesítése
     maxImageSize: Maximális képméret
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
@@ -93,7 +92,6 @@ settings:
     disableEraserAfterUse(OUTDATED): A radír automatikus letiltása
   prefDescriptions:
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
-    editorOpaqueBackgrounds: Átlátszóság eltávolítása a háttérképről és a PDF-ekből
     preferGreyscale: E-tinta kijelzőkhöz
     autoClearWhiteboardOnExit: Továbbra is szinkronizálva lesz a többi eszközzel
     maxImageSize: Az ennél nagyobb képek tömörítve lesznek

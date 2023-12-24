@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: Position de la barre d'outils
     editorToolbarShowInFullscreen: Afficher la barre d'outils en mode plein écran
     editorAutoInvert: Inverser les couleurs en mode sombre
-    editorOpaqueBackgrounds: Fonds opaques
     preferGreyscale: Préférer les nuances de gris
     maxImageSize: Taille d'image maximum
     autoClearWhiteboardOnExit: Effacer le tableau blanc quand vous fermez l'application
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     disableAds: "Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
     allowInsecureConnections: (Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
-    editorOpaqueBackgrounds: Supprime la transparence du fond dans les images et les PDF
     preferGreyscale: Pour les couleurs de stylos proposées
     autoClearWhiteboardOnExit: Il restera synchronisé avec vos autres appareils
     disableEraserAfterUse: Revenir automatiquement au stylo après usage de la gomme

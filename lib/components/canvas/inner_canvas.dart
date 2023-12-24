@@ -122,8 +122,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         painter: CanvasBackgroundPainter(
           invert: invert,
           backgroundColor: () {
-            if (page.backgroundImage != null &&
-                Prefs.editorOpaqueBackgrounds.value) {
+            if (page.backgroundImage != null) {
               return Colors.white;
             } else if (widget.hideBackground) {
               return InnerCanvas.defaultBackgroundColor;
@@ -132,8 +131,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
             }
           }(),
           backgroundPattern: () {
-            if (page.backgroundImage != null &&
-                Prefs.editorOpaqueBackgrounds.value) {
+            if (page.backgroundImage != null) {
               return CanvasBackgroundPattern.none;
             } else if (widget.hideBackground) {
               return CanvasBackgroundPattern.none;

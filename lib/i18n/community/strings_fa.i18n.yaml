@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: تراز کردن نوار ابزار ویرایشگر
     editorToolbarShowInFullscreen: نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید
     editorAutoInvert: معکوس کردن رنگ یادداشت ها در حالت تاریک
-    editorOpaqueBackgrounds: پس زمینه مات
     preferGreyscale: رنگ های خاکستری را در اولویت قرار دهید
     maxImageSize: حداکثر اندازه تصویر
     autoClearWhiteboardOnExit: پس از خروج از برنامه، وایت برد پاک شود
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
     allowInsecureConnections: (توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود
-    editorOpaqueBackgrounds: حذف شفافیت از تصاویر پس زمینه و PDFها
     preferGreyscale: برای نمایشگر های e-ink
     autoClearWhiteboardOnExit: همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود
     disableEraserAfterUse: پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد

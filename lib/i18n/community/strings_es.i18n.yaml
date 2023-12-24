@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: Alineación de la barra de herramientas del editor
     editorToolbarShowInFullscreen: Mostrar la barra de herramientas del editor en el modo de pantalla completa
     editorAutoInvert: Invertir notas en el modo oscuro
-    editorOpaqueBackgrounds: Fondos opacos
     preferGreyscale: Preferir colores en escala de grises
     maxImageSize: Tamaño máximo de la imagen
     autoClearWhiteboardOnExit: Borrar la pizarra después de salir de la aplicación
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     disableAds: "Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres"
     allowInsecureConnections: (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
-    editorOpaqueBackgrounds: Elimina la transparencia de las imágenes de fondo y los archivos PDF
     preferGreyscale: Para pantallas con tinta electrónica
     autoClearWhiteboardOnExit: Aún se sincronizará con tus otros dispositivos
     disableEraserAfterUse: Volver automáticamente al bolígrafo tras usar la goma

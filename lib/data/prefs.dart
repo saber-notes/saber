@@ -70,6 +70,7 @@ abstract class Prefs {
   static late final PlainPref<bool> editorToolbarShowInFullscreen;
   static late final PlainPref<bool> editorFingerDrawing;
   static late final PlainPref<bool> editorAutoInvert;
+  @Deprecated('Backgrounds are always opaque now. Use [true] instead.')
   static late final PlainPref<bool> editorOpaqueBackgrounds;
   static late final PlainPref<bool> preferGreyscale;
   @Deprecated(
@@ -165,7 +166,9 @@ abstract class Prefs {
     editorFingerDrawing = PlainPref('editorFingerDrawing', true);
     editorAutoInvert = PlainPref('editorAutoInvert', true,
         historicalKeys: const ['editorAutoDarken']);
-    editorOpaqueBackgrounds = PlainPref('editorOpaqueBackgrounds', true);
+    // ignore: deprecated_member_use_from_same_package
+    editorOpaqueBackgrounds = PlainPref('__editorOpaqueBackgrounds', true,
+        deprecatedKeys: const ['editorOpaqueBackgrounds']);
     preferGreyscale = PlainPref('preferGreyscale', false);
     // ignore: deprecated_member_use_from_same_package
     editorStraightenDelay = PlainPref('__editorStraightenDelay', 500,

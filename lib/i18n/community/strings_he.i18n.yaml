@@ -78,7 +78,6 @@ settings:
     editorToolbarAlignment: מיקום סרגל הכלים
     editorToolbarShowInFullscreen: הצג את סרגל הכלים במצב מסך מלא
     editorAutoInvert: הפוך הערות במצב כהה
-    editorOpaqueBackgrounds: רקעים אטומים
     preferGreyscale: העדיפו צבעי גווני אפור
     maxImageSize: גודל תמונה מקסימלי
     autoClearWhiteboardOnExit: נקה אוטומטית את הלוח הלבן
@@ -95,7 +94,6 @@ settings:
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
     disableAds: "מודעות עוזרות לתמוך בפיתוח של סאבר, אבל אתה יכול להשבית אותן אם תרצה"
     allowInsecureConnections: (לא מומלץ) אפשר לסבר להתחבר לשרתים עם אישורים חתומים/לא מהימנים
-    editorOpaqueBackgrounds: הסר שקיפות מתמונות רקע וקובצי PDF
     preferGreyscale: עבור תצוגות דיו אלקטרוני
     autoClearWhiteboardOnExit: מנקה את לוח הציור לאחר היציאה מהאפליקציה
     disableEraserAfterUse: מעבר אוטומטי חזרה לעט לאחר שימוש במחק
