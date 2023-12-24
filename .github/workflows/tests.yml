@@ -25,10 +25,12 @@ jobs:
           rm -rf assets_raw
           rm -rf submodules
 
-      - name: Install Flutter dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript
+      - name: Install apt dependencies
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript
+          version: 1.0
+          execute_install_scripts: true
 
       - name: Setup cache
         uses: actions/cache@v3
