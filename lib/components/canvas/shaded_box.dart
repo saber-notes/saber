@@ -171,11 +171,14 @@ class _ShaderImageRenderObject extends RenderBox {
     markNeedsLayout();
   }
 
-  late Rect srcRect, dstRect;
+  late Rect srcRect = Rect.zero, dstRect = Rect.zero;
 
   @override
   void performLayout() {
-    if (image == null) return;
+    if (image == null) {
+      size = constraints.smallest;
+      return;
+    }
 
     final parentSize = constraints.biggest;
     final FittedSizes sizes = applyBoxFit(fit, imageSize, parentSize);
