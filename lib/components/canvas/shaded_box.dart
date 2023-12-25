@@ -85,11 +85,13 @@ class _ShaderImageState extends State<ShaderImage> {
 
   @override
   Widget build(BuildContext context) {
-    return _ShaderImageRenderObjectWidget(
-      shaderBuilder: widget.shaderEnabled ? widget.shaderBuilder : null,
-      imageInfo: _imageInfo,
+    return FittedBox(
       fit: widget.fit,
       alignment: widget.alignment,
+      child: _ShaderImageRenderObjectWidget(
+        shaderBuilder: widget.shaderEnabled ? widget.shaderBuilder : null,
+        imageInfo: _imageInfo,
+      ),
     );
   }
 }
@@ -100,22 +102,16 @@ class _ShaderImageRenderObjectWidget extends LeafRenderObjectWidget {
     super.key,
     required this.shaderBuilder,
     required this.imageInfo,
-    required this.fit,
-    required this.alignment,
   });
 
   final ShaderBuilder? shaderBuilder;
   final ImageInfo? imageInfo;
-  final BoxFit fit;
-  final Alignment alignment;
 
   @override
   RenderObject createRenderObject(BuildContext context) {
     return _ShaderImageRenderObject()
       ..shaderBuilder = shaderBuilder
-      ..image = imageInfo?.image
-      ..fit = fit
-      ..alignment = alignment;
+      ..image = imageInfo?.image;
   }
 
   @override
@@ -123,9 +119,7 @@ class _ShaderImageRenderObjectWidget extends LeafRenderObjectWidget {
       BuildContext context, _ShaderImageRenderObject renderObject) {
     renderObject
       ..shaderBuilder = shaderBuilder
-      ..image = imageInfo?.image
-      ..fit = fit
-      ..alignment = alignment;
+      ..image = imageInfo?.image;
   }
 }
 
@@ -155,24 +149,6 @@ class _ShaderImageRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
-  late BoxFit _fit = BoxFit.contain;
-  BoxFit get fit => _fit;
-  set fit(BoxFit value) {
-    if (_fit == value) return;
-    _fit = value;
-    markNeedsLayout();
-  }
-
-  late Alignment _alignment = Alignment.center;
-  Alignment get alignment => _alignment;
-  set alignment(Alignment value) {
-    if (_alignment == value) return;
-    _alignment = value;
-    markNeedsLayout();
-  }
-
-  late Rect srcRect = Rect.zero, dstRect = Rect.zero;
-
   @override
   void performLayout() {
     if (image == null) {
@@ -180,11 +156,7 @@ class _ShaderImageRenderObject extends RenderBox {
       return;
     }
 
-    final parentSize = constraints.biggest;
-    final FittedSizes sizes = applyBoxFit(fit, imageSize, parentSize);
-    size = sizes.destination;
-    srcRect = alignment.inscribe(sizes.source, Offset.zero & imageSize);
-    dstRect = alignment.inscribe(sizes.destination, Offset.zero & parentSize);
+    size = constraints.constrain(imageSize);
   }
 
   @override
@@ -199,20 +171,22 @@ class _ShaderImageRenderObject extends RenderBox {
 
     if (shader == null) {
       // no shader, just draw the image
-      context.canvas.drawImageRect(
+      context.canvas.drawImage(
         image!,
-        srcRect,
-        dstRect,
+        offset,
         paint,
       );
     } else {
       // draw the shader
       paint.shader = shader;
       context.pushTransform(
-        true,
+        needsCompositing,
         Offset.zero,
         Matrix4.translationValues(offset.dx, offset.dy, 0),
-        (context, offset) => context.canvas.drawRect(Offset.zero & size, paint),
+        (context, offset) => context.canvas.drawRect(
+          offset & size,
+          paint,
+        ),
       );
     }
   }

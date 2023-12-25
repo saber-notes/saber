@@ -47,18 +47,16 @@ void main() {
                           (invert ?? true) ? Colors.deepOrange : Colors.orange,
                       width: 500,
                       height: 500,
-                      child: Center(
-                        child: ShaderImage(
-                          shaderEnabled: invert ?? true,
-                          shaderBuilder: (image, size) {
-                            shader.setFloat(0, size.width);
-                            shader.setFloat(1, size.height);
-                            shader.setImageSampler(0, image);
-                            return shader;
-                          },
-                          image: image,
-                          fit: boxFit,
-                        ),
+                      child: ShaderImage(
+                        shaderEnabled: invert ?? true,
+                        shaderBuilder: (image, size) {
+                          shader.setFloat(0, size.width);
+                          shader.setFloat(1, size.height);
+                          shader.setImageSampler(0, image);
+                          return shader;
+                        },
+                        image: image,
+                        fit: boxFit,
                       ),
                     ),
                   ),
