@@ -202,7 +202,7 @@ class _ShaderImageRenderObject extends RenderBox {
       context.canvas.drawImageRect(
         image!,
         srcRect,
-        dstRect.shift(offset),
+        dstRect,
         paint,
       );
     } else {
