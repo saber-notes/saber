@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -136,27 +137,33 @@ class _ShaderImageRenderObject extends RenderBox {
     markNeedsPaint();
   }
 
+  /// The last known image size.
+  ///
+  /// Note that if the image is set to null,
+  /// the size will be kept until a new image is set.
+  /// This is to avoid layout changes when the image is null.
+  ///
+  /// Also note that this shouldn't be zero,
+  /// as that would fail an assert in Flutter.
+  late Size imageSize = const Size.square(1);
+
   ui.Image? _image;
-  late Size imageSize = Size.zero;
   ui.Image? get image => _image;
   set image(ui.Image? value) {
     if (_image == value) return;
     _image = value;
-    imageSize = Size(
-      value?.width.toDouble() ?? 0.0,
-      value?.height.toDouble() ?? 0.0,
-    );
+    if (value != null) {
+      imageSize = Size(
+        value.width.toDouble(),
+        value.height.toDouble(),
+      );
+    }
     markNeedsPaint();
   }
 
   @override
   void performLayout() {
-    if (image == null) {
-      size = constraints.smallest;
-      return;
-    }
-
-    size = constraints.constrain(imageSize);
+    size = imageSize;
   }
 
   @override
