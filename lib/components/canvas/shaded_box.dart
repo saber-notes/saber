@@ -207,7 +207,6 @@ class _ShaderImageRenderObject extends RenderBox {
       );
     } else {
       // draw the shader
-      // TODO(adil192): test/implement srcRect
       paint.shader = shader;
       context.pushTransform(
         true,
