@@ -185,8 +185,8 @@ sealed class EditorImage extends ChangeNotifier {
       await _firstLoadStatus!.future;
     }
 
-    _shouldLoadOut?.complete(false);
     _loadedIn = true;
+    if (_shouldLoadOut?.isCompleted == false) _shouldLoadOut?.complete(false);
   }
 
   /// Free up resources when the image is no longer visible.
