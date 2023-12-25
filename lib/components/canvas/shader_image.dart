@@ -158,7 +158,7 @@ class _ShaderImageRenderObject extends RenderBox {
         value.height.toDouble(),
       );
     }
-    markNeedsPaint();
+    markNeedsLayout();
   }
 
   @override
