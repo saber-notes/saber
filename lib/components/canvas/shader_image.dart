@@ -170,11 +170,8 @@ class _ShaderImageRenderObject extends RenderBox {
   void paint(PaintingContext context, Offset offset) {
     if (image == null) return;
 
-    final shader = image == null ? null : shaderBuilder?.call(image!, size);
-    final paint = Paint()
-      ..filterQuality = FilterQuality.medium
-      ..isAntiAlias = true
-      ..style = PaintingStyle.fill;
+    final shader = shaderBuilder?.call(image!, size);
+    final paint = Paint()..filterQuality = FilterQuality.medium;
 
     if (shader == null) {
       // no shader, just draw the image
