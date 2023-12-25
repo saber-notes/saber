@@ -196,15 +196,17 @@ class SvgEditorImage extends EditorImage {
     }
 
     return ShaderSampler(
-      shaderEnabled: true,
+      shaderEnabled: shaderEnabled,
       shaderBuilder: shaderBuilder,
       prepareForSnapshot: () => precache(context),
-      child: SvgPicture.string(
-        svgString!,
-        fit: boxFit,
-        theme: const SvgTheme(
-          currentColor: Colors.black,
+      child: SvgPicture(
+        SvgStringLoader(
+          svgString!,
+          theme: const SvgTheme(
+            currentColor: Colors.black,
+          ),
         ),
+        fit: boxFit,
       ),
     );
   }

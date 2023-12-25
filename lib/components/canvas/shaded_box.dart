@@ -6,6 +6,9 @@ typedef ShaderBuilder = ui.FragmentShader? Function(ui.Image, Size);
 
 /// A widget that renders an [image] with a shader applied to it.
 ///
+/// See also:
+/// * [ShaderSampler], which applies a shader to an arbitrary child widget.
+///
 /// This widget is based on the documentation's bare-bones
 /// Image widget example, but using a RenderObject to apply
 /// the shader:
@@ -83,7 +86,7 @@ class _ShaderImageState extends State<ShaderImage> {
   @override
   Widget build(BuildContext context) {
     return _ShaderImageRenderObjectWidget(
-      shaderBuilder: widget.shaderBuilder,
+      shaderBuilder: widget.shaderEnabled ? widget.shaderBuilder : null,
       imageInfo: _imageInfo,
       fit: widget.fit,
       alignment: widget.alignment,
@@ -101,7 +104,7 @@ class _ShaderImageRenderObjectWidget extends LeafRenderObjectWidget {
     required this.alignment,
   });
 
-  final ShaderBuilder shaderBuilder;
+  final ShaderBuilder? shaderBuilder;
   final ImageInfo? imageInfo;
   final BoxFit fit;
   final Alignment alignment;
@@ -127,15 +130,19 @@ class _ShaderImageRenderObjectWidget extends LeafRenderObjectWidget {
 }
 
 class _ShaderImageRenderObject extends RenderBox {
-  late ShaderBuilder _shaderBuilder;
-  ShaderBuilder get shaderBuilder => _shaderBuilder;
-  set shaderBuilder(ShaderBuilder value) {
+  ShaderBuilder? _shaderBuilder;
+
+  /// The shader builder function.
+  /// Set this to null to disable the shader
+  /// and render the image normally.
+  ShaderBuilder? get shaderBuilder => _shaderBuilder;
+  set shaderBuilder(ShaderBuilder? value) {
     if (_shaderBuilder == value) return;
     _shaderBuilder = value;
     markNeedsPaint();
   }
 
-  late ui.Image? _image;
+  ui.Image? _image;
   late Size imageSize = Size.zero;
   ui.Image? get image => _image;
   set image(ui.Image? value) {
@@ -181,18 +188,30 @@ class _ShaderImageRenderObject extends RenderBox {
   void paint(PaintingContext context, Offset offset) {
     if (image == null) return;
 
-    final shader = image == null ? null : shaderBuilder(image!, size);
+    final shader = image == null ? null : shaderBuilder?.call(image!, size);
     final paint = Paint()
-      ..shader = shader
       ..filterQuality = FilterQuality.medium
       ..isAntiAlias = true
       ..style = PaintingStyle.fill;
 
-    context.canvas.drawImageRect(
-      image!,
-      srcRect,
-      dstRect.shift(offset),
-      paint,
-    );
+    if (shader == null) {
+      // no shader, just draw the image
+      context.canvas.drawImageRect(
+        image!,
+        srcRect,
+        dstRect.shift(offset),
+        paint,
+      );
+    } else {
+      // draw the shader
+      // TODO(adil192): test/implement srcRect
+      paint.shader = shader;
+      context.pushTransform(
+        true,
+        Offset.zero,
+        Matrix4.translationValues(offset.dx, offset.dy, 0),
+        (context, offset) => context.canvas.drawRect(Offset.zero & size, paint),
+      );
+    }
   }
 }
