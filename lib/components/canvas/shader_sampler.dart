@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:saber/components/canvas/shaded_box.dart' show ShaderBuilder;
+import 'package:saber/components/canvas/shader_image.dart' show ShaderBuilder;
 
 /// This widget applies a shader to an arbitrary child widget.
 ///

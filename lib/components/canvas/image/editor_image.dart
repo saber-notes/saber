@@ -14,7 +14,7 @@ import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
-import 'package:saber/components/canvas/shaded_box.dart';
+import 'package:saber/components/canvas/shader_image.dart';
 import 'package:saber/components/canvas/shader_sampler.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
