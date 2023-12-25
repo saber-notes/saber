@@ -16,11 +16,15 @@ class ShaderImage extends StatefulWidget {
     this.shaderEnabled = true,
     required this.shaderBuilder,
     required this.image,
+    this.fit = BoxFit.contain,
+    this.alignment = Alignment.center,
   });
 
   final bool shaderEnabled;
   final ShaderBuilder shaderBuilder;
   final ImageProvider image;
+  final BoxFit fit;
+  final Alignment alignment;
 
   @override
   State<ShaderImage> createState() => _ShaderImageState();
@@ -81,6 +85,8 @@ class _ShaderImageState extends State<ShaderImage> {
     return _ShaderImageRenderObjectWidget(
       shaderBuilder: widget.shaderBuilder,
       imageInfo: _imageInfo,
+      fit: widget.fit,
+      alignment: widget.alignment,
     );
   }
 }
@@ -91,17 +97,22 @@ class _ShaderImageRenderObjectWidget extends LeafRenderObjectWidget {
     super.key,
     required this.shaderBuilder,
     required this.imageInfo,
+    required this.fit,
+    required this.alignment,
   });
 
   final ShaderBuilder shaderBuilder;
   final ImageInfo? imageInfo;
+  final BoxFit fit;
+  final Alignment alignment;
 
   @override
   RenderObject createRenderObject(BuildContext context) {
     return _ShaderImageRenderObject()
       ..shaderBuilder = shaderBuilder
       ..image = imageInfo?.image
-      ..scale = imageInfo?.scale ?? 1.0;
+      ..fit = fit
+      ..alignment = alignment;
   }
 
   @override
@@ -110,7 +121,8 @@ class _ShaderImageRenderObjectWidget extends LeafRenderObjectWidget {
     renderObject
       ..shaderBuilder = shaderBuilder
       ..image = imageInfo?.image
-      ..scale = imageInfo?.scale ?? 1.0;
+      ..fit = fit
+      ..alignment = alignment;
   }
 }
 
@@ -124,27 +136,46 @@ class _ShaderImageRenderObject extends RenderBox {
   }
 
   late ui.Image? _image;
+  late Size imageSize = Size.zero;
   ui.Image? get image => _image;
   set image(ui.Image? value) {
     if (_image == value) return;
     _image = value;
+    imageSize = Size(
+      value?.width.toDouble() ?? 0.0,
+      value?.height.toDouble() ?? 0.0,
+    );
     markNeedsPaint();
   }
 
-  late double _scale = 1;
-  double get scale => _scale;
-  set scale(double value) {
-    if (_scale == value) return;
-    _scale = value;
-    markNeedsPaint();
+  late BoxFit _fit = BoxFit.contain;
+  BoxFit get fit => _fit;
+  set fit(BoxFit value) {
+    if (_fit == value) return;
+    _fit = value;
+    markNeedsLayout();
   }
 
-  ui.FragmentShader? shader;
+  late Alignment _alignment = Alignment.center;
+  Alignment get alignment => _alignment;
+  set alignment(Alignment value) {
+    if (_alignment == value) return;
+    _alignment = value;
+    markNeedsLayout();
+  }
+
+  late Rect srcRect, dstRect;
 
   @override
-  bool get sizedByParent => true;
-  @override
-  void performResize() => size = constraints.biggest;
+  void performLayout() {
+    if (image == null) return;
+
+    final parentSize = constraints.biggest;
+    final FittedSizes sizes = applyBoxFit(fit, imageSize, parentSize);
+    size = sizes.destination;
+    srcRect = alignment.inscribe(sizes.source, Offset.zero & imageSize);
+    dstRect = alignment.inscribe(sizes.destination, Offset.zero & parentSize);
+  }
 
   @override
   void paint(PaintingContext context, Offset offset) {
@@ -152,22 +183,16 @@ class _ShaderImageRenderObject extends RenderBox {
 
     final shader = image == null ? null : shaderBuilder(image!, size);
     final paint = Paint()
+      ..shader = shader
       ..filterQuality = FilterQuality.medium
       ..isAntiAlias = true
       ..style = PaintingStyle.fill;
 
-    if (shader == null) {
-      // paint the image directly
-      context.canvas.drawImage(image!, offset, paint);
-    } else {
-      // paint the fragment shader (which samples the image)
-      paint.shader = shader;
-      context.pushTransform(
-        true,
-        Offset.zero,
-        Matrix4.translationValues(offset.dx, offset.dy, 0),
-        (context, offset) => context.canvas.drawRect(Offset.zero & size, paint),
-      );
-    }
+    context.canvas.drawImageRect(
+      image!,
+      srcRect,
+      dstRect.shift(offset),
+      paint,
+    );
   }
 }
