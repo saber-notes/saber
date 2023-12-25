@@ -176,8 +176,11 @@ class SvgEditorImage extends EditorImage {
 
   @override
   Widget buildImageWidget({
+    required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
+    required bool shaderEnabled,
+    required ShaderBuilder shaderBuilder,
   }) {
     if (svgString == null) {
       return const Center(child: CircularProgressIndicator.adaptive());
@@ -192,11 +195,16 @@ class SvgEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return SvgPicture.string(
-      svgString!,
-      fit: boxFit,
-      theme: const SvgTheme(
-        currentColor: Colors.black,
+    return ShaderSampler(
+      shaderEnabled: true,
+      shaderBuilder: shaderBuilder,
+      prepareForSnapshot: () => precache(context),
+      child: SvgPicture.string(
+        svgString!,
+        fit: boxFit,
+        theme: const SvgTheme(
+          currentColor: Colors.black,
+        ),
       ),
     );
   }

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
-import 'package:saber/components/canvas/shader_sampler.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
@@ -204,21 +203,17 @@ class _CanvasImageState extends State<CanvasImage> {
                       size: widget.image.srcRect.size,
                       child: Transform.translate(
                         offset: -widget.image.srcRect.topLeft,
-                        child: ShaderSampler(
+                        child: widget.image.buildImageWidget(
+                          context: context,
+                          overrideBoxFit: widget.overrideBoxFit,
+                          isBackground: widget.isBackground,
                           shaderEnabled: imageBrightness == Brightness.dark,
-                          prepareForSnapshot: () async {
-                            await widget.image.precache(context);
-                          },
                           shaderBuilder: (ui.Image image, Size size) {
                             shader.setFloat(0, size.width);
                             shader.setFloat(1, size.height);
                             shader.setImageSampler(0, image);
                             return shader;
                           },
-                          child: widget.image.buildImageWidget(
-                            overrideBoxFit: widget.overrideBoxFit,
-                            isBackground: widget.isBackground,
-                          ),
                         ),
                       ),
                     ),

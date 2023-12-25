@@ -179,8 +179,11 @@ class PdfEditorImage extends EditorImage {
 
   @override
   Widget buildImageWidget({
+    required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
+    required bool shaderEnabled,
+    required ShaderBuilder shaderBuilder,
   }) {
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
@@ -201,7 +204,9 @@ class PdfEditorImage extends EditorImage {
         if (imageProvider == null) {
           return const Center(child: CircularProgressIndicator.adaptive());
         }
-        return Image(
+        return ShaderImage(
+          shaderEnabled: shaderEnabled,
+          shaderBuilder: shaderBuilder,
           image: imageProvider,
           fit: boxFit,
         );

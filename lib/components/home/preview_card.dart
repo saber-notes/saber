@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
-import 'package:saber/components/canvas/shader_sampler.dart';
+import 'package:saber/components/canvas/shaded_box.dart';
 import 'package:saber/components/home/uploading_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -100,20 +100,16 @@ class _PreviewCardState extends State<PreviewCard> {
                         builder: (context, _) => AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
                           child: thumbnail.image?.file.existsSync() ?? false
-                              ? ShaderSampler(
+                              ? ShaderImage(
+                                  key: ValueKey(thumbnail.updateCount),
                                   shaderEnabled: invert,
-                                  prepareForSnapshot: () =>
-                                      precacheImage(thumbnail.image!, context),
                                   shaderBuilder: (image, size) {
                                     shader.setFloat(0, size.width);
                                     shader.setFloat(1, size.height);
                                     shader.setImageSampler(0, image);
                                     return shader;
                                   },
-                                  child: Image(
-                                    key: ValueKey(thumbnail.updateCount),
-                                    image: thumbnail.image!,
-                                  ),
+                                  image: thumbnail.image!,
                                 )
                               : FittedBox(
                                   child: ClipRect(
