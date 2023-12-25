@@ -3,9 +3,11 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:saber/components/canvas/shaded_box.dart' show ShaderBuilder;
 
-typedef ShaderBuilder = ui.FragmentShader? Function(ui.Image, Size);
-
+/// This widget applies a shader to an arbitrary child widget.
+///
+/// If the child widget is an Image, use [ShaderImage] instead.
 class ShaderSampler extends StatefulWidget {
   const ShaderSampler({
     super.key,
@@ -13,7 +15,8 @@ class ShaderSampler extends StatefulWidget {
     this.prepareForSnapshot,
     required this.shaderBuilder,
     required this.child,
-  });
+  }) : assert(child is! Image,
+            'Use ShaderImage instead of ShaderSampler for images.');
 
   final bool shaderEnabled;
   final Future Function()? prepareForSnapshot;
