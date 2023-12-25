@@ -1,7 +1,19 @@
 part of 'editor_image.dart';
 
 class SvgEditorImage extends EditorImage {
-  String? svgString;
+  SvgStringLoader? svgStringLoader;
+  String? get svgString => svgStringLoader?.provideSvg(null);
+  set svgString(String? svgString) {
+    if (svgString == this.svgString) return;
+    svgStringLoader = svgString == null
+        ? null
+        : SvgStringLoader(
+            svgString,
+            theme: const SvgTheme(
+              currentColor: Colors.black,
+            ),
+          );
+  }
 
   /// If the svg needs to be loaded from disk, this is the File
   /// that the svg will be loaded from.
@@ -12,7 +24,7 @@ class SvgEditorImage extends EditorImage {
   SvgEditorImage({
     required super.id,
     required super.assetCache,
-    required this.svgString,
+    required String? svgString,
     required this.svgFile,
     required super.pageIndex,
     required super.pageSize,
@@ -31,7 +43,9 @@ class SvgEditorImage extends EditorImage {
             'svgFile must be set if svgString is null'),
         super(
           extension: '.svg',
-        );
+        ) {
+    this.svgString = svgString;
+  }
 
   factory SvgEditorImage.fromJson(
     Map<String, dynamic> json, {
@@ -108,17 +122,14 @@ class SvgEditorImage extends EditorImage {
 
     // try to load from cache
     svgString ??= assetCache.get(svgFile!);
-    if (svgString != null) {
-      json['a'] = assets.add(svgString!);
-    } else {
-      json['a'] = assets.add(svgFile!);
-    }
+    json['a'] = assets.add(svgString ?? svgFile!);
 
     return json;
   }
 
   @override
   Future<void> firstLoad() async {
+    // TODO(adil192): Use [SvgFileLoader] instead of [SvgStringLoader]
     svgString ??= assetCache.get(svgFile!);
     svgString ??= await svgFile!.readAsString();
     assetCache.addImage(this, svgFile, svgString!);
@@ -168,9 +179,8 @@ class SvgEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (svgString == null) return;
-    final loader = SvgStringLoader(svgString!);
-    final pictureInfo = await vg.loadPicture(loader, null);
+    if (svgStringLoader == null) return;
+    final pictureInfo = await vg.loadPicture(svgStringLoader!, null);
     pictureInfo.picture.dispose();
   }
 
@@ -182,7 +192,7 @@ class SvgEditorImage extends EditorImage {
     required bool shaderEnabled,
     required ShaderBuilder shaderBuilder,
   }) {
-    if (svgString == null) {
+    if (svgStringLoader == null) {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
 
@@ -200,12 +210,7 @@ class SvgEditorImage extends EditorImage {
       shaderBuilder: shaderBuilder,
       prepareForSnapshot: () => precache(context),
       child: SvgPicture(
-        SvgStringLoader(
-          svgString!,
-          theme: const SvgTheme(
-            currentColor: Colors.black,
-          ),
-        ),
+        svgStringLoader!,
         fit: boxFit,
       ),
     );
