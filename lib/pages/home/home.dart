@@ -71,8 +71,10 @@ class _HomePageState extends State<HomePage> {
           ? Column(
               children: [
                 Expanded(child: body),
-                BannerAdWidget.adaptive(
-                  screenWidth: MediaQuery.of(context).size.width,
+                SafeArea(
+                  child: BannerAdWidget.adaptive(
+                    screenWidth: MediaQuery.of(context).size.width,
+                  ),
                 ),
               ],
             )
