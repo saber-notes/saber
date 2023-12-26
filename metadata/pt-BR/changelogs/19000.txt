@@ -1,0 +1,1 @@
+Feliz Natal! Adicionei uma série de melhorias de desempenho, incluindo inversão de imagem mais eficiente, melhor manuseio de arquivos SVG e movimentação dos anúncios da tela inicial (agora há apenas 1 anúncio) para a parte inferior da tela para acelerar a rolagem. Boa sorte a todos que farão os exames nas próximas semanas!

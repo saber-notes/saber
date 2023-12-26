@@ -119,7 +119,9 @@ void main() async {
     }
 
     // Response might be something like "Invalid request: request (276) exceeds text limit (250)"
-    if (!translatedChangelog.contains('•')) {
+    const bullet = '•';
+    if (englishChangelog.contains(bullet) &&
+        !translatedChangelog.contains(bullet)) {
       print('${' ' * stepPrefix.length}  ! Translation invalid, skipping...');
       someTranslationsFailed = true;
       continue;

@@ -1,0 +1,1 @@
+Veselé Vánoce! Přidal jsem řadu vylepšení výkonu, včetně efektivnějšího invertování obrázků, lepšího zacházení se soubory SVG a přesunutí reklam na domovské obrazovce (nyní je zde pouze 1 reklama) do spodní části obrazovky, aby se urychlilo posouvání. Hodně štěstí všem při zkouškách v příštích několika týdnech!

@@ -1,0 +1,1 @@
+Mutlu Noeller! Daha verimli görüntü ters çevirme, SVG dosyalarının daha iyi işlenmesi ve kaydırmayı hızlandırmak için ana ekran reklamlarının (artık yalnızca 1 reklam var) ekranın alt kısmına taşınması da dahil olmak üzere bir dizi performans iyileştirmesi ekledim. Önümüzdeki birkaç haftadaki sınavlarda herkese başarılar!
