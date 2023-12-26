@@ -551,7 +551,7 @@ class _StringsLoginFeedbacksEn {
 	String get enterEncPassword => 'Please enter your encryption password.';
 	String get checkUrl => 'Please enter a valid URL.';
 	String get ncLoginFailed => 'Log in failed, please check your details and network connection.';
-	String ncUnsupportedFailure({required Object v, required Object s}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s}.';
+	String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	String get encLoginFailed => 'Log in failed, please check your encryption password.';
 	String get loginSuccess => 'Log in successful! Please wait while we set up...';
 }

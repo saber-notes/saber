@@ -136,7 +136,7 @@ login:
     enterEncPassword: Please enter your encryption password.
     checkUrl: Please enter a valid URL.
     ncLoginFailed: "Log in failed, please check your details and network connection."
-    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s.
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: "Log in failed, please check your encryption password."
     loginSuccess: "Log in successful! Please wait while we set up..."
   form:

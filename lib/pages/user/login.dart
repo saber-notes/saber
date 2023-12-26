@@ -52,7 +52,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
       log.warning('Nextcloud server is not supported');
       throw NcUnsupportedFailure(
         currentVersion: capabilities.version.major,
-        supportedVersion: versionCheck.minimumVersion.major,
+        minVersion: versionCheck.minimumVersion.major,
+        maxVersion: versionCheck.maximumMajor,
       );
     }
 

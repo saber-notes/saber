@@ -326,20 +326,25 @@ class NcLoginFailure implements LoginFailure {
 
 class NcUnsupportedFailure implements LoginFailure {
   /// The Nextcloud version of the server
-  final int? currentVersion;
+  final int currentVersion;
 
-  /// The Nextcloud version supported with the [nextcloud] package
-  final int supportedVersion;
+  /// The minimum Nextcloud version supported with the [nextcloud] package
+  final int minVersion;
+
+  /// The maximum Nextcloud version supported with the [nextcloud] package
+  final int maxVersion;
 
   NcUnsupportedFailure({
     required this.currentVersion,
-    required this.supportedVersion,
+    required this.minVersion,
+    required this.maxVersion,
   });
 
   @override
   late final String message = t.login.feedbacks.ncUnsupportedFailure(
-    v: currentVersion ?? '?',
-    s: supportedVersion,
+    v: currentVersion,
+    s: minVersion,
+    t: maxVersion,
   );
 }
 
