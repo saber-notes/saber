@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -71,8 +72,13 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
               if (!image.loadedIn) await image.loadIn();
               bytes = image.pdfBytes!;
             case SvgEditorImage image:
-              if (!image.loadedIn) await image.loadIn();
-              bytes = utf8.encode(image.svgString!);
+              bytes = switch (image.svgLoader) {
+                (SvgStringLoader loader) =>
+                  utf8.encode(loader.provideSvg(null)),
+                (SvgFileLoader loader) => await loader.file.readAsBytes(),
+                (_) => throw ArgumentError.value(
+                    image.svgLoader, 'svgLoader', 'Unknown SVG loader type'),
+              };
             case PngEditorImage image:
               if (image.imageProvider is MemoryImage) {
                 bytes = (image.imageProvider as MemoryImage).bytes;
@@ -80,8 +86,8 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
                 bytes =
                     await (image.imageProvider as FileImage).file.readAsBytes();
               } else {
-                throw Exception(
-                    'Unknown image provider type: ${image.imageProvider.runtimeType}');
+                throw ArgumentError.value(image.imageProvider, 'imageProvider',
+                    'Unknown image provider type');
               }
           }
           FileManager.exportFile(imageFileName, bytes, isImage: true);

@@ -1,31 +1,19 @@
 part of 'editor_image.dart';
 
 class SvgEditorImage extends EditorImage {
-  SvgStringLoader? svgStringLoader;
-  String? get svgString => svgStringLoader?.provideSvg(null);
-  set svgString(String? svgString) {
-    if (svgString == this.svgString) return;
-    svgStringLoader = svgString == null
-        ? null
-        : SvgStringLoader(
-            svgString,
-            theme: const SvgTheme(
-              currentColor: Colors.black,
-            ),
-          );
-  }
-
-  /// If the svg needs to be loaded from disk, this is the File
-  /// that the svg will be loaded from.
-  final File? svgFile;
+  late SvgLoader svgLoader;
 
   static final log = Logger('SvgEditorImage');
+
+  @override
+  @Deprecated('Use the file directly instead')
+  AssetCache get assetCache => super.assetCache;
 
   SvgEditorImage({
     required super.id,
     required super.assetCache,
     required String? svgString,
-    required this.svgFile,
+    required File? svgFile,
     required super.pageIndex,
     required super.pageSize,
     super.invertible,
@@ -44,7 +32,11 @@ class SvgEditorImage extends EditorImage {
         super(
           extension: '.svg',
         ) {
-    this.svgString = svgString;
+    if (svgString != null) {
+      svgLoader = SvgStringLoader(svgString);
+    } else {
+      svgLoader = SvgFileLoader(svgFile!);
+    }
   }
 
   factory SvgEditorImage.fromJson(
@@ -120,23 +112,26 @@ class SvgEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    // try to load from cache
-    svgString ??= assetCache.get(svgFile!);
-    json['a'] = assets.add(svgString ?? svgFile!);
+    final svgData = _extractSvg();
+    json['a'] = assets.add(svgData.string ?? svgData.file!);
 
     return json;
   }
 
+  ({String? string, File? file}) _extractSvg() => switch (svgLoader) {
+        (SvgStringLoader loader) => (
+            string: loader.provideSvg(null),
+            file: null
+          ),
+        (SvgFileLoader loader) => (string: null, file: loader.file),
+        (_) => throw ArgumentError.value(svgLoader, 'svgLoader',
+            'SvgEditorImage.toJson: svgLoader must be a SvgStringLoader or SvgFileLoader'),
+      };
+
   @override
   Future<void> firstLoad() async {
-    // TODO(adil192): Use [SvgFileLoader] instead of [SvgStringLoader]
-    svgString ??= assetCache.get(svgFile!);
-    svgString ??= await svgFile!.readAsString();
-    assetCache.addImage(this, svgFile, svgString!);
-
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
-      final pictureInfo =
-          await vg.loadPicture(SvgStringLoader(svgString!), null);
+      final pictureInfo = await vg.loadPicture(svgLoader, null);
       naturalSize = pictureInfo.size;
 
       if (srcRect.shortestSide == 0) {
@@ -156,31 +151,14 @@ class SvgEditorImage extends EditorImage {
   }
 
   @override
-  Future<void> loadIn() async {
-    await super.loadIn();
-
-    svgString ??= assetCache.get(svgFile!);
-    svgString ??= await svgFile!.readAsString();
-    assetCache.addImage(this, svgFile, svgString!);
-  }
+  Future<void> loadIn() async => await super.loadIn();
 
   @override
-  Future<bool> loadOut() async {
-    final shouldLoadOut = await super.loadOut();
-    if (!shouldLoadOut) return false;
-
-    if (svgFile != null) {
-      svgString = null;
-      assetCache.removeImage(this);
-    }
-
-    return true;
-  }
+  Future<bool> loadOut() async => await super.loadOut();
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (svgStringLoader == null) return;
-    final pictureInfo = await vg.loadPicture(svgStringLoader!, null);
+    final pictureInfo = await vg.loadPicture(svgLoader, null);
     pictureInfo.picture.dispose();
   }
 
@@ -192,10 +170,6 @@ class SvgEditorImage extends EditorImage {
     required bool shaderEnabled,
     required ShaderBuilder shaderBuilder,
   }) {
-    if (svgStringLoader == null) {
-      return const Center(child: CircularProgressIndicator.adaptive());
-    }
-
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
       boxFit = overrideBoxFit;
@@ -210,30 +184,34 @@ class SvgEditorImage extends EditorImage {
       shaderBuilder: shaderBuilder,
       prepareForSnapshot: () => precache(context),
       child: SvgPicture(
-        svgStringLoader!,
+        svgLoader,
         fit: boxFit,
       ),
     );
   }
 
   @override
-  SvgEditorImage copy() => SvgEditorImage(
-        id: id,
-        assetCache: assetCache,
-        svgString: svgString,
-        svgFile: svgFile,
-        pageIndex: pageIndex,
-        pageSize: Size.infinite,
-        invertible: invertible,
-        backgroundFit: backgroundFit,
-        onMoveImage: onMoveImage,
-        onDeleteImage: onDeleteImage,
-        onMiscChange: onMiscChange,
-        onLoad: onLoad,
-        newImage: newImage,
-        dstRect: dstRect,
-        srcRect: srcRect,
-        naturalSize: naturalSize,
-        isThumbnail: isThumbnail,
-      );
+  SvgEditorImage copy() {
+    final svgData = _extractSvg();
+    return SvgEditorImage(
+      id: id,
+      // ignore: deprecated_member_use_from_same_package
+      assetCache: assetCache,
+      svgString: svgData.string,
+      svgFile: svgData.file,
+      pageIndex: pageIndex,
+      pageSize: Size.infinite,
+      invertible: invertible,
+      backgroundFit: backgroundFit,
+      onMoveImage: onMoveImage,
+      onDeleteImage: onDeleteImage,
+      onMiscChange: onMiscChange,
+      onLoad: onLoad,
+      newImage: newImage,
+      dstRect: dstRect,
+      srcRect: srcRect,
+      naturalSize: naturalSize,
+      isThumbnail: isThumbnail,
+    );
+  }
 }
