@@ -7,9 +7,6 @@ on:
     tags:
       - '**'
 
-env:
-  project-id: com.adilhanney.saber
-
 jobs:
   get-version:
     name: Get version

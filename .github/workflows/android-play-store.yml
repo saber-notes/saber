@@ -7,9 +7,6 @@ on:
     tags:
       - '**'
 
-env:
-  project-id: com.adilhanney.saber
-
 jobs:
   build-aab:
     name: Build AAB for the Play Store

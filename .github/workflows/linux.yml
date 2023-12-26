@@ -7,9 +7,6 @@ on:
     tags:
       - '**'
 
-env:
-  project-id: com.adilhanney.saber
-
 jobs:
   get-version:
     name: Get version
@@ -127,10 +124,20 @@ jobs:
     needs: get-version
     permissions:
       contents: write
+      packages: write
     timeout-minutes: 60
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            build
+          key: ${{ runner.OS }}-saberarm64-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saberarm64-
 
       - name: Build Linux (arm64)
         uses: uraimo/run-on-arch-action@v2
@@ -142,12 +149,16 @@ jobs:
 
           setup: |
             mkdir -p "${PWD}/AppDir"
+            mkdir -p "${PWD}/build/pub_cache"
           dockerRunArgs: |
             --volume "${PWD}/AppDir:/AppDir"
 
           install: |
             quiet () {
               output=`"$@" 2>&1` || echo $output
+            }
+            unsudo () {
+              sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" PUB_CACHE="$PUB_CACHE" "$@"
             }
 
             echo Installing dependencies
@@ -162,26 +173,32 @@ jobs:
             useradd -m -d /home/nonroot -s /bin/bash nonroot
             echo 'export PATH="$PATH:/opt/flutter/bin"' >> /home/nonroot/.bashrc
             echo 'export PATH="$PATH:/opt/cargo/bin"' >> /home/nonroot/.bashrc
-            echo 'export CARGO_HOME="/opt/cargo"' >> /home/nonroot/.bashrc
-            echo 'export RUSTUP_HOME="/opt/rustup"' >> /home/nonroot/.bashrc
+            echo 'export CARGO_HOME=/opt/cargo' >> /home/nonroot/.bashrc
+            echo 'export RUSTUP_HOME=/opt/rustup' >> /home/nonroot/.bashrc
+            echo 'export PUB_CACHE=build/pub_cache' >> /home/nonroot/.bashrc
             export PATH="$PATH:/opt/flutter/bin"
             export PATH="$PATH:/opt/cargo/bin"
-            export CARGO_HOME="/opt/cargo"
-            export RUSTUP_HOME="/opt/rustup"
+            export CARGO_HOME=/opt/cargo
+            export RUSTUP_HOME=/opt/rustup
+            export PUB_CACHE=build/pub_cache
 
             echo Installing Flutter
-            mkdir -p /opt/flutter
-            chown -R nonroot /opt/flutter
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              git clone https://github.com/flutter/flutter.git -b stable --depth 1 /opt/flutter
+            if [ -z "$(which flutter)" ]; then
+              echo Flutter not installed, installing...
+              mkdir -p /opt/flutter
+              chown -R nonroot /opt/flutter
+              unsudo git clone https://github.com/flutter/flutter.git -b stable --depth 1 /opt/flutter
+            else
+              echo Flutter already installed, updating...
+              chown -R nonroot /opt/flutter
+              unsudo flutter upgrade
+            fi
 
             echo flutter doctor
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              flutter doctor -v
+            unsudo flutter doctor -v
 
             echo Precaching Flutter
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              flutter precache --no-universal --linux
+            unsudo flutter precache --no-universal --linux
 
             echo Installing Rust
             mkdir -p $CARGO_HOME
@@ -189,38 +206,37 @@ jobs:
             mkdir -p "$RUSTUP_HOME/tmp"
             chown -R nonroot $CARGO_HOME
             chown -R nonroot $RUSTUP_HOME
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
+            unsudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
             chmod -R a+rw $CARGO_HOME
             chmod -R a+rw $RUSTUP_HOME
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              ls -l $CARGO_HOME/bin
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              which rustup
+            unsudo ls -l $CARGO_HOME/bin
+            unsudo which rustup
 
           run: |
+            unsudo () {
+              sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" PUB_CACHE="$PUB_CACHE" "$@"
+            }
+
             echo Setting up environment
             chown -R nonroot .
             chown -R nonroot /opt/flutter
             chown -R nonroot /opt/cargo
             export PATH="$PATH:/opt/flutter/bin"
             export PATH="$PATH:/opt/cargo/bin"
-            export CARGO_HOME="/opt/cargo"
-            export RUSTUP_HOME="/opt/rustup"
+            export CARGO_HOME=/opt/cargo
+            export RUSTUP_HOME=/opt/rustup
+            export PUB_CACHE=build/pub_cache
 
             echo flutter pub get
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              flutter pub get
+            unsudo flutter pub get
 
             echo Verifying that rustup is installed
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              which rustup
+            unsudo which rustup
 
             echo Building
-            sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" \
-              flutter build linux \
-                --target-platform linux-arm64 \
-                --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
+            unsudo flutter build linux \
+              --target-platform linux-arm64 \
+              --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
             mv build/linux/arm64/release/bundle/* /AppDir/
             chown -R nonroot /AppDir/
             chmod -R a+rw /AppDir/
