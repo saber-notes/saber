@@ -135,10 +135,21 @@ abstract class AdState {
 class BannerAdWidget extends StatefulWidget {
   const BannerAdWidget({
     super.key,
-    required this.adSize,
-  });
+    required AdSize this.adSize,
+  }) : fallbackAdSize = adSize;
 
-  final AdSize adSize;
+  BannerAdWidget.adaptive({
+    super.key,
+    required double screenWidth,
+    this.fallbackAdSize = AdSize.banner,
+  }) : adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+          screenWidth.floor(),
+        ).then((adSize) => adSize ?? fallbackAdSize);
+
+  final FutureOr<AdSize> adSize;
+
+  /// Used to display a blank space while the actual adSize is loading.
+  final AdSize fallbackAdSize;
 
   @override
   State<BannerAdWidget> createState() => _BannerAdWidgetState();
@@ -146,27 +157,32 @@ class BannerAdWidget extends StatefulWidget {
 
 class _BannerAdWidgetState extends State<BannerAdWidget>
     with AutomaticKeepAliveClientMixin {
+  late AdSize _adSize = widget.fallbackAdSize;
   BannerAd? _bannerAd;
 
   @override
   void initState() {
     super.initState();
-    AdState._createBannerAd(widget.adSize).then((bannerAd) {
-      if (mounted) {
-        setState(() => _bannerAd = bannerAd);
-      } else {
-        _bannerAd = null;
-        bannerAd?.dispose();
-      }
-      updateKeepAlive();
-    });
+    _createBannerAd();
+  }
+
+  Future<void> _createBannerAd() async {
+    _adSize = await widget.adSize;
+    final bannerAd = await AdState._createBannerAd(_adSize);
+    if (mounted) {
+      setState(() => _bannerAd = bannerAd);
+    } else {
+      _bannerAd = null;
+      bannerAd?.dispose();
+    }
+    updateKeepAlive();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
 
-    late final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Card(
       shape: RoundedRectangleBorder(
@@ -191,8 +207,8 @@ class _BannerAdWidgetState extends State<BannerAdWidget>
             FittedBox(
               fit: BoxFit.fill,
               child: SizedBox(
-                width: widget.adSize.width.toDouble(),
-                height: widget.adSize.height.toDouble(),
+                width: _adSize.width.toDouble(),
+                height: _adSize.height.toDouble(),
                 child: _bannerAd == null ? null : AdWidget(ad: _bannerAd!),
               ),
             ),
