@@ -253,12 +253,11 @@ packages:
   dynamite_runtime:
     dependency: transitive
     description:
-      path: "packages/dynamite/dynamite_runtime"
-      ref: HEAD
-      resolved-ref: f2d85162152aaeafd9c06e5aef7d8f9b80f1b855
-      url: "https://github.com/nextcloud/neon"
-    source: git
-    version: "1.0.0"
+      name: dynamite_runtime
+      sha256: "7dc42157d5523a5223b8a778590846bbe6437a064eddbd21d73da05da5cb1edd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   encrypt:
     dependency: "direct main"
     description:
@@ -618,18 +617,18 @@ packages:
     dependency: transitive
     description:
       name: irondash_engine_context
-      sha256: "0e803321935ca7af1a88f1391be9edfdb940df800353670bfc694934c7643ff3"
+      sha256: "8b8c58f2b6414b0db739b329ca08baf3b66d4fcfc3c315525ddac61639addb90"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1"
+    version: "0.5.0"
   irondash_message_channel:
     dependency: transitive
     description:
       name: irondash_message_channel
-      sha256: "500daa1fbe679f7d28a5258df3ff47dab6de352e680dc93c1ca9eae1555d8db5"
+      sha256: "131d64d97a3612bc3617aefc878f3e3a8e23e0ce18b3bba8e78cb1930befcec1"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.1"
+    version: "0.5.0"
   js:
     dependency: transitive
     description:
@@ -730,12 +729,11 @@ packages:
   nextcloud:
     dependency: "direct main"
     description:
-      path: "packages/nextcloud"
-      ref: main
-      resolved-ref: f2d85162152aaeafd9c06e5aef7d8f9b80f1b855
-      url: "https://github.com/nextcloud/neon"
-    source: git
-    version: "1.0.0"
+      name: nextcloud
+      sha256: "37c64ef63e415bc8cc02f2225d62721f1a164c31eba916b5c194f9854dad41bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   one_dollar_unistroke_recognizer:
     dependency: "direct main"
     description:
@@ -1173,18 +1171,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "4d60238ca99aa2c6ca6696d80aaec5976d231b8962da37b6388b799d1f4e1168"
+      sha256: "6281b19e4f4af4c4897c7b4117758164a21f63bbeee63da09c04d47823f8b228"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.0"
+    version: "0.8.1"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: "30f2a49e41d11d32e9555cc2fe2e60458521db5fef221f29b46ef94e089591dd"
+      sha256: d6d445a644856430cdca70c233213065c413bc3046a3b1e21858e19087d01645
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.0"
+    version: "0.8.1"
   sync_http:
     dependency: transitive
     description:
