@@ -136,9 +136,9 @@ login:
     enterEncPassword: "Kérem, adja meg a titkosítási jelszavát"
     checkUrl: Kérem adjon meg egy érvényes URL-címet
     ncLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát"
+    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s és $t között támogatja."
     encLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát"
     loginSuccess: "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
-    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s-t támogatja."
   form:
     useCustomServer: Egyéni Nextcloud-kiszolgálót szeretnék használni
     customServerUrl: Egyéni kiszolgáló URL-címe

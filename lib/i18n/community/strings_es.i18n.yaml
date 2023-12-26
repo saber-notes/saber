@@ -136,7 +136,7 @@ login:
     enterEncPassword: Por favor introduce tu contraseña de cifrado.
     checkUrl: Por favor introduce una dirección URL válida.
     ncLoginFailed: "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet."
-    ncUnsupportedFailure: El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo soporta la versión $s.
+    ncUnsupportedFailure(OUTDATED): El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo admite Nextcloud $s a $t.
     encLoginFailed: "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
     loginSuccess: "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
   form:

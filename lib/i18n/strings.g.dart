@@ -1329,7 +1329,7 @@ class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
 	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
 	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} لكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
 	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
 	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
 }
@@ -2107,7 +2107,7 @@ class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Zadejte prosím své heslo pro šifrování.';
 	@override String get checkUrl => 'Zadejte prosím správnou URL adresu.';
 	@override String get ncLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Zadaný server používá Nextcloud ${v}, ale tato verze aplikace Saber podporuje pouze Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Zadaný server používá Nextcloud ${v}, ale tato verze aplikace Saber podporuje pouze Nextcloud ${s} až ${t}.';
 	@override String get encLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.';
 	@override String get loginSuccess => 'Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...';
 }
@@ -2885,7 +2885,7 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
 }
@@ -3661,7 +3661,7 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo soporta la versión ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
 	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
 }
@@ -4439,7 +4439,7 @@ class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
 	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
 	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} پشتیبانی می کند.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
 	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
 	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید';
 }
@@ -5217,7 +5217,7 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Le serveur indiqué utilise Nextcloud ${v} mais cette version de Saber ne supporte que Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
 }
@@ -5995,7 +5995,7 @@ class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'הזן את סיסמת ההצפנה שלך.';
 	@override String get checkUrl => 'הזן כתובת URL חוקית.';
 	@override String get ncLoginFailed => 'הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'השרת הנתון מריץ את NextCloud ${v} אך גרסה זו של Saber תומכת רק ב- NextCloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
 	@override String get encLoginFailed => 'הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך.';
 	@override String get loginSuccess => 'ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים...';
 }
@@ -6773,9 +6773,9 @@ class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
 	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
 	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
 	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
 	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s}-t támogatja.';
 }
 
 // Path: login.form
@@ -7551,7 +7551,7 @@ class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Inserisci la tua password di crittografia.';
 	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
 	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Il server specificato esegue Nextcloud ${v} ma questa versione di Saber supporta solo Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Il server indicato esegue Nextcloud ${v} ma questa versione di Saber supporta solo Nextcloud da ${s} a ${t}.';
 	@override String get encLoginFailed => 'Accesso non riuscito, controllare la password di crittografia.';
 	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
 }
@@ -8329,7 +8329,7 @@ class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
 	@override String get checkUrl => '有効なURLを入力してください。';
 	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => '指定されたサーバーはNextcloud ${v} を実行していますが、このバージョンのSaberはNextcloud ${s} しかサポートしていません。';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
 	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
 	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
 }
@@ -9107,7 +9107,7 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
 	@override String get checkUrl => 'Por favor insira uma URL válida.';
 	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'O servidor fornecido está executando o Nextcloud ${v}, mas esta versão do Saber apenas suporta o Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
 	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
 }
@@ -9885,7 +9885,7 @@ class _StringsLoginFeedbacksRu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Введите пароль шифрования.';
 	@override String get checkUrl => 'Пожалуйста, введите корректный URL адрес.';
 	@override String get ncLoginFailed => 'Ошибка входа. Проверьте свои данные и подключение к сети.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'На данном сервере запущен Nextcloud ${v}. Но, эта версия Saber поддерживает только Nextcloud ${s}.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'На данном сервере работает Nextcloud ${v}, но эта версия Saber поддерживает только Nextcloud от ${s} до ${t}.';
 	@override String get encLoginFailed => 'Не удалось войти. Проверьте пароль шифрования.';
 	@override String get loginSuccess => 'Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…';
 }
@@ -10663,7 +10663,7 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => 'Girilen sunucu Nextcloud ${v} sürümünü kullanıyor ancak Saber\'ın bu sürümü sadece Nextcloud ${s} sürümünü destekliyor.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
 }
@@ -11441,7 +11441,7 @@ class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => '指定的服务器正在运行 Nextcloud ${v}，但此版本的 Saber 仅支持 Nextcloud ${s}。';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '给定的服务器正在运行 Nextcloud ${v}，但此版本的 Saber 仅支持 Nextcloud ${s} 到 ${t}。';
 	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 }
@@ -12219,7 +12219,7 @@ class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '請輸入您的加密密碼。';
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s}) => '伺服器正在運行Nextcloud ${v}，但這個版本的Saber只支援Nextcloud ${s}。';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '給定的伺服器正在運行 Nextcloud ${v}，但此版本的 Saber 僅支援 Nextcloud ${s} 到 ${t}。';
 	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
 }

@@ -136,7 +136,7 @@ login:
     enterEncPassword: הזן את סיסמת ההצפנה שלך.
     checkUrl: הזן כתובת URL חוקית.
     ncLoginFailed: "הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת."
-    ncUnsupportedFailure: השרת הנתון מריץ את NextCloud $v אך גרסה זו של Saber תומכת רק ב- NextCloud $s.
+    ncUnsupportedFailure(OUTDATED): השרת הנתון מריץ את Nextcloud $v אבל גרסה זו של Saber תומכת רק ב-Nextcloud $s עד $t.
     encLoginFailed: "הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך."
     loginSuccess: "ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים..."
   form:

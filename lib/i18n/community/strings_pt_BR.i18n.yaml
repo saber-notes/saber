@@ -136,7 +136,7 @@ login:
     enterEncPassword: Por favor digite a sua senha de criptografia.
     checkUrl: Por favor insira uma URL válida.
     ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
-    ncUnsupportedFailure: "O servidor fornecido está executando o Nextcloud $v, mas esta versão do Saber apenas suporta o Nextcloud $s."
+    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
     encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
     loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
   form:

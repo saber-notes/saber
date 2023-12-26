@@ -136,7 +136,7 @@ login:
     enterEncPassword: 请输入您的加密密码。
     checkUrl: 请输入有效链接。
     ncLoginFailed: 登录失败，请检查您的详细信息和网络连接。
-    ncUnsupportedFailure: 指定的服务器正在运行 Nextcloud $v，但此版本的 Saber 仅支持 Nextcloud $s。
+    ncUnsupportedFailure(OUTDATED): 给定的服务器正在运行 Nextcloud $v，但此版本的 Saber 仅支持 Nextcloud $s 到 $t。
     encLoginFailed: 登录失败，请检查您的加密密码。
     loginSuccess: 登录成功！我们正在设置中，请稍候……
   form:

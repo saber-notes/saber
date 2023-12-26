@@ -57,6 +57,9 @@ ar:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -75,6 +78,9 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 de:
   home:
     titles:
@@ -125,6 +131,9 @@ de:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -151,6 +160,9 @@ es:
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   editor:
     pens:
       fountainPen(OUTDATED): Fountain pen
@@ -160,7 +172,13 @@ es:
 fa:
   settings:
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 fr:
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 he:
   home:
     tooltips:
@@ -182,6 +200,9 @@ he:
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -280,7 +301,7 @@ hu:
     resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s.
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     faq(OUTDATED):
       - q: "What is Nextcloud?"
         a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
@@ -375,6 +396,9 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 ja:
   home:
     titles:
@@ -423,6 +447,9 @@ ja:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -457,6 +484,9 @@ pt-BR:
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -471,8 +501,20 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 tr:
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 zh-Hans-CN:
   settings:
     resyncEverything(OUTDATED): Resync everything
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 zh-Hant-TW:
+  login:
+    feedbacks:
+      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.

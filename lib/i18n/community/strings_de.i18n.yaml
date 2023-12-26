@@ -136,7 +136,7 @@ login:
     enterEncPassword: Bitte gib dein Verschlüsselungspasswort ein.
     checkUrl: Bitte gib eine gültige URL an.
     ncLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung."
-    ncUnsupportedFailure: "Der angegebene Nextcloud-Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s."
+    ncUnsupportedFailure(OUTDATED): "Der angegebene Nextcloud-Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t."
     encLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
     loginSuccess: "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
   form:

@@ -136,7 +136,7 @@ login:
     enterEncPassword: الرجاء إدخال كلمة مرور التشفير الخاصة بك.
     checkUrl: أدخل رابط URL صالح من فضلك.
     ncLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.
-    ncUnsupportedFailure: يقوم الخادم المحدد بتشغيل Nextcloud $v لكن هذا الإصدار من Saber يدعم فقط Nextcloud $s.
+    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
     encLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.
     loginSuccess: "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
   form:

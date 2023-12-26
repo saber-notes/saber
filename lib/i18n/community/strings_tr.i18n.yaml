@@ -136,7 +136,7 @@ login:
     enterEncPassword: Lütfen şifreleme parolanızı girin.
     checkUrl: Lütfen geçerli bir URL girin.
     ncLoginFailed: "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin."
-    ncUnsupportedFailure: Girilen sunucu Nextcloud $v sürümünü kullanıyor ancak Saber'ın bu sürümü sadece Nextcloud $s sürümünü destekliyor.
+    ncUnsupportedFailure(OUTDATED): Belirtilen sunucu Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s ila $t'yi destekliyor.
     encLoginFailed: "Giriş başarısız, şifreleme parolanızı kontrol ediniz."
     loginSuccess: "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
   form:
