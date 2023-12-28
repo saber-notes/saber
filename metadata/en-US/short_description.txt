@@ -1,1 +1,1 @@
-Handwritten notes
+The notes app built for handwriting
