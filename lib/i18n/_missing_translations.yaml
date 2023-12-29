@@ -395,7 +395,7 @@ hu:
 it:
   login:
     feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+      ncUnsupportedFailure(OUTDATED): Il server indicato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud da $s a $t.
 ja:
   home:
     titles:
