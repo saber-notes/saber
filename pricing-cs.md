@@ -1,29 +1,28 @@
-# Ceník Nextcloud úložiště
+# Ceník
 
-Aplikace je k použití zdarma. Pro podporu vývoje Sabre a financování serveru nabízím následují sponzorství úložiště na serveru Saber Nextcloud
+Aplikace je dostupná k použití zdarma. Za účelem podpory vývoje aplikace Saber a financování provozu serveru však nabízím tarify úložiště na oficiálním Nextcloud serveru aplikace Saber...
 
-| Sponzorství | Úložiště                                                            |
-|-------------|---------------------------------------------------------------------|
-| Free        | Základní úložiště 5 GB pro všechny účty.                            |
-| Standard    | Jakýkoli měsíční sponzorský příspěvek pro úložistě 10 GB.           |
-| Premium     | Měsíční sponzorský příspěvek 5$ a více pro úložistě 50 GB.          |
-| Hoarder     | 	Měsíční sponzorský příspěvek 7$ a více pro úložistě 100 GB. |
+| Sponzorství | Úložiště                                                          |
+|-------------|-------------------------------------------------------------------|
+| Zdarma      | Všechny účty ve výchozím případě dostanou 5 GB úložiště.          |
+| Standardní  | Sponzorujte mě měsíčně _jakoukoli částkou_ pro 10 GB úložiště.    |
+| Prémium     | Sponzorujte mě $5 měsíčně nebo vyšší částkou pro 50 GB úložiště.  |
+| Hromadič    | Sponzorujte mě $7 měsíčně nebo vyšší částkou pro 100 GB úložiště. |
 
-Všechna sponzorství jsou v USD ($) kvůli sponzorům GitHub.
+Všechna sponzorství jsou v amerických dolarech ($) kvůli GitHub Sponsors.
 
 ## Jak sponzorovat
 
-- Jdi na https://github.com/sponsors/adil192
-- Zvol měsíční sponzorskou částku
-- Vlož detaily platební karty
-- Pošli mi email na adilhanney@disroot.org s uživatelským jménem na Nextcloud serveru a potvrzení o sponsorství a upgraduji tvůj účet.
+- Přejděte na stránku https://github.com/sponsors/adil192
+- Zvolte částku, kterou mě chcete měsíčně sponzorovat
+- Vyplňte údaje platební karty
+- Na adresu adilhanney@disroot.org mi pošlete e-mail s uživatelským jménem na Nextcloud serveru a potvrzením o sponzorství a já vám navýším úložiště.
 
 ## Jsem student
 
-Student může získat sponzorství Standard zdarma! Pošli mi email na
-adilhanney@disroot.org s uživatelským jménem na Nextcloud serveru a potvrzení o tvém studiu (kopii ISIC karty) a upgraduji tvůj účet.
+Student může zdarma získat úroveň sponzorství Standard! Na adresu adilhanney@disroot.org mi pošlete e-mail s uživatelským jménem na Nextcloud serveru a potvrzením o studiu (např. sken ISIC) a já vám navýším úložiště.
 
 # Další možnosti
 
-- Mnoho alternativních provozovatelů Nextcloud nabízí účty zdartma. Můžete je najít na seznamu aktualizovaném komunitou: https://github.com/nextcloud/providers#providers.
-- Můžete také provozovat vlastní Nextcloud server. Detaily na https://nextcloud.com/install/#instructions-server
+- Můžete se podívat do komunitně spravovaného seznamu alternativních poskytovatelů Nextcloud serverů, mnoho z nich nabízí tarify zdarma: https://github.com/nextcloud/providers#providers.
+- Případně můžete provozovat vlastní Nextcloud server. Více informací se dozvíte na https://nextcloud.com/install/#instructions-server.
