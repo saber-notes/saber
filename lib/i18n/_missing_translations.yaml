@@ -500,7 +500,7 @@ pt-BR:
 ru:
   login:
     feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+      ncUnsupportedFailure(OUTDATED): На данном сервере работает Nextcloud $v, но эта версия Saber поддерживает только Nextcloud от $s до $t.
 tr:
   login:
     feedbacks:
