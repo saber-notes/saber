@@ -585,9 +585,13 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawUpdate(ScaleUpdateDetails details) {
+    const distOffset=50.0;  // when focal point moves at least this distance from the current page
+                                    // then move selection to new page
+    int pageOffset=0; // offset of selection to another page. Nonzero value indicates moving selection to another page
+
     final page = coreInfo.pages[dragPageIndex!];
-    final position = page.renderBox!.globalToLocal(details.focalPoint);
-    final offset = position - previousPosition;
+    Offset position = page.renderBox!.globalToLocal(details.focalPoint);
+    Offset offset = position - previousPosition;
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
@@ -601,13 +605,46 @@ class EditorState extends State<Editor> {
     } else if (currentTool is Select) {
       Select select = currentTool as Select;
       if (select.doneSelecting) {
+        //log.info('Update selection position');
+        double rectBottom=page.size.height;
+        double rectTop=0;
+        double cursorPosition=position.dy;
+        //log.info('page rect $rectTop to $rectBottom. Position is $cursorPosition');
+        if (cursorPosition>rectBottom+distOffset){
+          // selection should be moved to next page
+          //log.info('Selection should be moved to next page >');
+          if (coreInfo.pages.length>select.selectResult.pageIndex+1){
+            //log.info('Selection can be moved');
+            offset=Offset(offset.dx,offset.dy-(rectBottom+distOffset)); // recalculate offset so entities moved to new page will be at correct position
+            pageOffset=1;
+          }
+        }
+        else{
+          if (cursorPosition<(rectTop-distOffset)){
+            // selection should be moved to previous page
+            //log.info('Selection should be moved to previous page <');
+            if (select.selectResult.pageIndex>0){
+              //log.info('Selection can be moved');
+              offset=Offset(offset.dx,offset.dy+(rectBottom+distOffset));
+              pageOffset=-1;
+            }
+          }
+        }
         for (Stroke stroke in select.selectResult.strokes) {
           stroke.shift(offset);
         }
         for (EditorImage image in select.selectResult.images) {
           image.dstRect = image.dstRect.shift(offset);
         }
+        // shift also selection path
         select.selectResult.path = select.selectResult.path.shift(offset);
+        if (pageOffset!=0) {
+          // before page redraw we need to move selected entities to another page
+          // this page will be redrawn later
+          //log.info('Moving selected item to new page and deleting them from original page');
+          selectionOffsetPage(pageOffset); // move entities to new page and remove them from current one
+        }
+
       } else {
         select.onDragUpdate(position);
       }
@@ -616,8 +653,61 @@ class EditorState extends State<Editor> {
       (currentTool as LaserPointer).onDragUpdate(position);
       page.redrawStrokes();
     }
+
+    if (pageOffset!=0){
+      // now handle new page, cursor position and another things
+      // change index of drag page
+      dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint); // update page and create paint rectangle
+      if (dragPageIndex==null){
+        return; // page does not exist
+      }
+      final pageNew = coreInfo.pages[dragPageIndex!];
+      // recalculate position according new drag page
+      position = pageNew.renderBox!.globalToLocal(details.focalPoint);
+      double rectBottom=pageNew.size.height;
+      //log.info('New page rect $rectTop to $rectBottom. Position on new page is $cursorPosition');
+      offset=Offset(offset.dx,offset.dy-pageOffset*(rectBottom+distOffset));  // put offset to original page
+      setState(() {}); // force update of builder so movement of selection to another page is taken into account
+      pageNew.redrawStrokes();  // and finally redraw new page
+    }
+
     previousPosition = position;
-    moveOffset += offset;
+    moveOffset += offset; // this value is keeped due to Undo/redo
+  }
+
+  void selectionOffsetPage(int pageOffset){
+    // selected items should be moved to another page
+    Select select = currentTool as Select;
+    // test if pages exist
+    final int oldPage=select.selectResult.pageIndex;
+    final int newPage=select.selectResult.pageIndex+pageOffset;
+    if (oldPage<0 || oldPage>coreInfo.pages.length-1){
+      return;
+    }
+    if (newPage<0 || newPage>coreInfo.pages.length-1){
+      return;
+    }
+    final pageOld = coreInfo.pages[oldPage];
+    final pageNew = coreInfo.pages[newPage];
+    final strokes = select.selectResult.strokes;
+    final images = select.selectResult.images;
+
+    // remove from original page
+    for (Stroke stroke in strokes) {
+      pageOld.strokes.remove(stroke);
+    }
+    for (EditorImage image in images) {
+      pageOld.images.remove(image);
+    }
+    // add to new page
+    for (Stroke stroke in strokes) {
+      pageNew.strokes.add(stroke);
+    }
+    for (EditorImage image in images) {
+      pageNew.images.add(image);
+    }
+    // move selection to new page
+    select.selectResult.pageIndex+=pageOffset;
   }
 
   void onDrawEnd(ScaleEndDetails details) {
