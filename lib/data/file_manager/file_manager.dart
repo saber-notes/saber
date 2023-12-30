@@ -386,7 +386,10 @@ class FileManager {
   }
 
   static Future<DirectoryChildren?> getChildrenOfDirectory(
-      String directory) async {
+      String directory,
+      [bool removeExtension = true]) async {
+    // removeExtension=true is default because it is used all the time
+    // it is false only when called from Resync Everything button.
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
 
@@ -404,18 +407,19 @@ class FileManager {
         .map((FileSystemEntity entity) {
           String filePath = entity.path.substring(documentsDirectory.length);
 
-          // remove extension
-          if (filePath.endsWith(Editor.extension)) {
-            filePath = filePath.substring(
-                0, filePath.length - Editor.extension.length);
-          } else if (filePath.endsWith(Editor.extensionOldJson)) {
-            filePath = filePath.substring(
-                0, filePath.length - Editor.extensionOldJson.length);
+          if (removeExtension){
+            // remove extension
+            if (filePath.endsWith(Editor.extension)) {
+              filePath = filePath.substring(
+                  0, filePath.length - Editor.extension.length);
+            } else if (filePath.endsWith(Editor.extensionOldJson)) {
+              filePath = filePath.substring(
+                  0, filePath.length - Editor.extensionOldJson.length);
+            }
+
+            if (Editor.isReservedPath(filePath))
+              return null; // filter out reserved files
           }
-
-          if (Editor.isReservedPath(filePath))
-            return null; // filter out reserved files
-
           return filePath
               .substring(directoryPrefixLength); // remove directory prefix
         })
@@ -437,13 +441,14 @@ class FileManager {
     return DirectoryChildren(directories, files);
   }
 
-  static Future<List<String>> getAllFiles() async {
+  static Future<List<String>> getAllFiles([bool removeExtension = true]) async {
+    // removeExtension is false only when called from ResyncEverything button
     final allFiles = <String>[];
     final directories = <String>['/'];
 
     while (directories.isNotEmpty) {
       final directory = directories.removeLast();
-      final children = await getChildrenOfDirectory(directory);
+      final children = await getChildrenOfDirectory(directory,removeExtension);
       if (children == null) continue;
 
       for (final file in children.files) {
