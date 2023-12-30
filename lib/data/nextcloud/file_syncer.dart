@@ -161,17 +161,45 @@ abstract class FileSyncer {
   static Future uploadFileFromQueue() async {
     if (_isUploadingFile) return;
     await _uploadQueue.waitUntilLoaded();
-    if (_uploadQueue.value.isEmpty) return;
-
+    if (_uploadQueue.value.isEmpty) {
+      return;
+    }
+    if (_isUploadingFile){
+      // some other thread already started uploading do not continue
+      // this is better to solve using C++ semaphores, but I am not familiar
+      // with dart
+      log.info('_isUploadingFile is set, finishing upload preparation');
+      return;
+    }
     if (_client?.loginName != Prefs.username.value) _client = null;
     _client ??= NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
-    final String filePathUnencrypted = _uploadQueue.value.removeFirst();
-    _uploadQueue.notifyListeners();
+    if (_isUploadingFile){
+      // some other thread already started uploading do not continue
+      log.info('_isUploadingFile is set, finishing upload preparation 2');
+      return;
+    }
 
+    final String filePathUnencrypted = _uploadQueue.value.removeFirst();
+    if (_isUploadingFile){
+      // some other thread already started uploading do not continue
+      log.info('_isUploadingFile is set, finishing upload preparation 3');
+      // but I already removed file from Queue, it should be put back
+      addToUploadQueue(filePathUnencrypted);
+      return;
+    }
+    _uploadQueue.notifyListeners();
     try {
+      if (_isUploadingFile){
+        // some other thread already started uploading do not continue
+        log.info('_isUploadingFile is set, finishing upload preparation 4');
+        // but I already removed file from Queue, it should be put back
+        addToUploadQueue(filePathUnencrypted);
+        return;
+      }
       _isUploadingFile = true;
+      log.info('Uploading file $filePathUnencrypted');
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
