@@ -122,8 +122,11 @@ class EditorHistoryItem {
     this.page,
     this.quillChange,
     this.colorChange,
+    this.pageIndexStart, // original page of selection before it was moved to another page
   })  : assert(type != EditorHistoryItemType.move || offset != null,
             'Offset must be provided for move'),
+        assert(type != EditorHistoryItemType.move || pageIndexStart != null,
+            'PageIndexStart must be provided for move'),
         assert(type != EditorHistoryItemType.deletePage || page != null,
             'Page must be provided for deletePage'),
         assert(type != EditorHistoryItemType.insertPage || page != null,
@@ -141,6 +144,7 @@ class EditorHistoryItem {
 
   final EditorHistoryItemType type;
   final int pageIndex;
+  final int? pageIndexStart;  // original page of selected items before moved to another one
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
@@ -151,6 +155,7 @@ class EditorHistoryItem {
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
     int? pageIndex,
+    int? pageIndexStart,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Rect? offset,
@@ -161,6 +166,7 @@ class EditorHistoryItem {
     return EditorHistoryItem(
       type: type ?? this.type,
       pageIndex: pageIndex ?? this.pageIndex,
+      pageIndexStart: pageIndexStart ?? this.pageIndexStart,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       offset: offset ?? this.offset,

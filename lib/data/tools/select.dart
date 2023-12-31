@@ -18,6 +18,7 @@ class Select extends Tool {
     strokes: const [],
     images: const [],
     path: Path(),
+    pageIndexStart: -1,  // page index when selection was created
   );
   bool doneSelecting = false;
 
@@ -57,6 +58,7 @@ class Select extends Tool {
       strokes: [],
       images: [],
       path: Path(),
+      pageIndexStart: pageIndex,  // page index when selection was created
     );
     selectResult.path.moveTo(position.dx, position.dy);
     onDragUpdate(position);
@@ -127,12 +129,14 @@ class SelectResult {
   final List<Stroke> strokes;
   final List<EditorImage> images;
   Path path;
+  int pageIndexStart;
 
   SelectResult({
     required this.pageIndex,
     required this.strokes,
     required this.images,
     required this.path,
+    required this.pageIndexStart,
   });
 
   bool get isEmpty {
@@ -144,12 +148,14 @@ class SelectResult {
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Path? path,
+    int? pageIndexStart,
   }) {
     return SelectResult(
       pageIndex: pageIndex ?? this.pageIndex,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       path: path ?? this.path,
+      pageIndexStart: pageIndexStart ?? this.pageIndexStart,
     );
   }
 }
