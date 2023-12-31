@@ -503,4 +503,4 @@ zh-Hans-CN:
 zh-Hant-TW:
   login:
     feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+      ncUnsupportedFailure(OUTDATED): 選定的伺服器正在運行 Nextcloud $v，但此版本的 Saber 僅支援 Nextcloud $s 到 $t。
