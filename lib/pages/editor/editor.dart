@@ -862,6 +862,7 @@ class EditorState extends State<Editor> {
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.move,
       pageIndex: image.pageIndex,
+      pageIndexStart: image.pageIndex,
       strokes: [],
       images: [image],
       offset: offset,
