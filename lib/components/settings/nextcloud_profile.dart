@@ -120,6 +120,21 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                     Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
                     for (final file in allFiles) {
                       FileSyncer.addToUploadQueue(file);
+                      // upload also all file assets if any
+                      int i=0;
+                      while (true) {
+                        String assetFile='$file.$i';  // asset file name
+                        if (await FileManager.doesFileExist(assetFile)) {
+                          // asset file exists, upload it
+                          FileSyncer.addToUploadQueue(assetFile);
+                          i++; // try next asset
+                        }
+                        else {
+                          // there are no more assets finish
+                          break;
+                        }
+                      }
+
                     }
                   },
                 ),
