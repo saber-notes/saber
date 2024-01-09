@@ -78,9 +78,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 de:
   home:
     titles:
