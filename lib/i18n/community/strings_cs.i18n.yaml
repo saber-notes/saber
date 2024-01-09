@@ -136,7 +136,7 @@ login:
     enterEncPassword: Zadejte prosím své heslo pro šifrování.
     checkUrl: Zadejte prosím správnou URL adresu.
     ncLoginFailed: "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu."
-    ncUnsupportedFailure(OUTDATED): "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s až $t."
+    ncUnsupportedFailure: "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s až $t."
     encLoginFailed: "Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování."
     loginSuccess: "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
   form:

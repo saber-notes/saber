@@ -78,9 +78,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s až $t."
 de:
   home:
     titles:
