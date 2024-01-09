@@ -11094,7 +11094,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 		'左',
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
-	@override String get resyncEverything => '重新同步一切';
+	@override String get resyncEverything => '重新同步所有';
 }
 
 // Path: login
@@ -11441,7 +11441,7 @@ class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '请输入您的加密密码。';
 	@override String get checkUrl => '请输入有效链接。';
 	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '给定的服务器正在运行 Nextcloud ${v}，但此版本的 Saber 仅支持 Nextcloud ${s} 到 ${t}。';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '给定服务器正在运行 Nextcloud ${v}，但此版本 Saber 仅支持 Nextcloud ${s} 至 ${t}。';
 	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
 	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
 }
