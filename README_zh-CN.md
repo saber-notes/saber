@@ -1,10 +1,9 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-您可以使用这些语言阅读此文件：
-[English](https://github.com/saber-notes/saber/blob/main/README.md),
-[češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md),
-[Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md),
-[中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md),
+[English](https://github.com/saber-notes/saber/blob/main/README.md) |
+[češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
+[Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
+[中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
 Saber 是一款专为手写而设计的笔记应用。
