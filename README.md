@@ -1,6 +1,11 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-You can read this file in: [English](https://github.com/saber-notes/saber/blob/main/README.md), [češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md), [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md), [繁體中文](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
+You can read this file in:
+[English](https://github.com/saber-notes/saber/blob/main/README.md),
+[češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md),
+[Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md),
+[中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md),
+[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
 Saber is the notes app built for handwriting.
 

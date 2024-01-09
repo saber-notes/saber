@@ -506,11 +506,6 @@ tr:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 zh-Hans-CN:
-  settings:
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 zh-Hant-TW:
   login:
     feedbacks:

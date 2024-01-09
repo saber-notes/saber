@@ -1,6 +1,11 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
-您可以在以下位置閱讀此文件：[English](https://github.com/saber-notes/saber/blob/main/README.md), [češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md), [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md), [繁體中文](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
+您可以在以下位置閱讀此文件：
+[English](https://github.com/saber-notes/saber/blob/main/README.md),
+[češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md),
+[Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md),
+[中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md),
+[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
 作為 Saber 的開發者，我很高興向您介紹一款徹底改變您記筆記方式的應用程式。Saber 是終極手寫筆記應用程式，旨在將您的筆記體驗提升到新的高度！透過這款由尖端技術提供支援、功能豐富的應用程式，擁抱手寫藝術並釋放您的創造力。Saber 直觀而現代的界面讓您可以輕鬆地記下筆記、繪製圖表或精確註釋 PDF。
 
