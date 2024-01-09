@@ -136,7 +136,7 @@ login:
     enterEncPassword: Inserisci la tua password di crittografia.
     checkUrl: "Per favore, inserisci un URL valido."
     ncLoginFailed: "Accesso fallito, controlla i tuoi dati e la connessione di rete."
-    ncUnsupportedFailure(OUTDATED): Il server indicato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud da $s a $t.
+    ncUnsupportedFailure: Il server indicato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud da $s a $t.
     encLoginFailed: "Accesso non riuscito, controllare la password di crittografia."
     loginSuccess: "Accesso riuscito! Si prega di attendere mentre configuriamo..."
   form:

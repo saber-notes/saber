@@ -393,9 +393,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 ja:
   home:
     titles:
