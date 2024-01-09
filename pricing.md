@@ -1,5 +1,7 @@
 # Pricing
 
+[English](./pricing.md) | [čeština](./pricing-cs.md)
+
 The app is free to use. However, to support Saber's development and fund the server,
 I'm offering some storage plans for the Saber Nextcloud server...
 
