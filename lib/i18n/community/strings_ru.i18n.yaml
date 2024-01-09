@@ -136,7 +136,7 @@ login:
     enterEncPassword: Введите пароль шифрования.
     checkUrl: "Пожалуйста, введите корректный URL адрес."
     ncLoginFailed: Ошибка входа. Проверьте свои данные и подключение к сети.
-    ncUnsupportedFailure(OUTDATED): "На данном сервере работает Nextcloud $v, но эта версия Saber поддерживает только Nextcloud от $s до $t."
+    ncUnsupportedFailure: "На данном сервере работает Nextcloud $v, но эта версия Saber поддерживает только Nextcloud от $s до $t."
     encLoginFailed: Не удалось войти. Проверьте пароль шифрования.
     loginSuccess: "Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…"
   form:

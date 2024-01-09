@@ -498,9 +498,6 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): На данном сервере работает Nextcloud $v, но эта версия Saber поддерживает только Nextcloud от $s до $t.
 tr:
   login:
     feedbacks:
