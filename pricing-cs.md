@@ -1,5 +1,7 @@
 # Ceník
 
+[English](./pricing.md) | [čeština](./pricing-cs.md)
+
 Aplikace je dostupná k použití zdarma. Za účelem podpory vývoje aplikace Saber a financování provozu serveru však nabízím tarify úložiště na oficiálním Nextcloud serveru aplikace Saber...
 
 | Sponzorství | Úložiště                                                          |
