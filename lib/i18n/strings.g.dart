@@ -12219,7 +12219,7 @@ class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '請輸入您的加密密碼。';
 	@override String get checkUrl => '請輸入有效連結。';
 	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '給定的伺服器正在運行 Nextcloud ${v}，但此版本的 Saber 僅支援 Nextcloud ${s} 到 ${t}。';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '選定的伺服器正在運行 Nextcloud ${v}，但此版本的 Saber 僅支援 Nextcloud ${s} 到 ${t}。';
 	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
 	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
 }
