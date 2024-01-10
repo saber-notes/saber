@@ -239,6 +239,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.19.1" type="development" date="2024-01-09">
+            <description>
+                <ul>
+                    <li>Lines are more accurately recognized with the shape tool</li>
+                    <li>Adapted to multiple Nextcloud versions being supported</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.19.0" type="development" date="2023-12-26">
             <description>
                 <p>Merry Christmas! I've added a number of performance improvements, including more efficient image inverting and better handling of SVG files. Good luck to everyone sitting exams in the next few weeks!</p>

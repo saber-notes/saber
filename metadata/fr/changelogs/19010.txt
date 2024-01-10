@@ -1,0 +1,3 @@
+• Les lignes sont plus précisément reconnues avec l'outil de forme
+• Adapté à plusieurs versions Nextcloud prises en charge
+• Les annonces fixes se chevauchent avec la navbar
