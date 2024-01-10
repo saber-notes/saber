@@ -259,14 +259,26 @@ class _ToolbarState extends State<Toolbar> {
       ValueListenableBuilder(
           valueListenable: widget.quillFocus,
           builder: (context, quill, _) {
+            final baseButtonStyle =
+                Theme.of(context).iconButtonTheme.style ?? const ButtonStyle();
+
             final iconTheme = QuillIconTheme(
-              iconSelectedColor: colorScheme.onPrimary,
-              iconUnselectedColor: colorScheme.primary,
-              iconSelectedFillColor: colorScheme.primary,
-              iconUnselectedFillColor: Colors.transparent,
-              disabledIconColor: colorScheme.onSurface.withOpacity(0.4),
-              disabledIconFillColor: Colors.transparent,
-              borderRadius: 22,
+              iconButtonUnselectedData: IconButtonData(
+                style: baseButtonStyle.copyWith(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.transparent),
+                  foregroundColor:
+                      MaterialStateProperty.all(colorScheme.primary),
+                ),
+              ),
+              iconButtonSelectedData: IconButtonData(
+                style: baseButtonStyle.copyWith(
+                  backgroundColor:
+                      MaterialStateProperty.all(colorScheme.primary),
+                  foregroundColor:
+                      MaterialStateProperty.all(colorScheme.onPrimary),
+                ),
+              ),
             );
             return Collapsible(
               axis: isToolbarVertical
@@ -275,31 +287,24 @@ class _ToolbarState extends State<Toolbar> {
               maintainState: false,
               collapsed: !widget.textEditing || quill == null,
               child: quill != null
-                  ? QuillProvider(
-                      configurations: QuillConfigurations(
+                  ? QuillToolbar.simple(
+                      configurations: QuillSimpleToolbarConfigurations(
                         controller: quill.controller,
                         sharedConfigurations: QuillSharedConfigurations(
                           locale: TranslationProvider.of(context).flutterLocale,
                         ),
-                      ),
-                      child: QuillToolbar(
-                        configurations: QuillToolbarConfigurations(
-                          axis: isToolbarVertical
-                              ? Axis.vertical
-                              : Axis.horizontal,
-                          buttonOptions: QuillToolbarButtonOptions(
-                            base: QuillToolbarBaseButtonOptions(
-                              globalIconSize: 22,
-                              globalIconButtonFactor: 1.6,
-                              iconTheme: iconTheme,
-                            ),
+                        axis:
+                            isToolbarVertical ? Axis.vertical : Axis.horizontal,
+                        buttonOptions: QuillSimpleToolbarButtonOptions(
+                          base: QuillToolbarBaseButtonOptions(
+                            iconTheme: iconTheme,
                           ),
-                          showUndo: false,
-                          showRedo: false,
-                          showFontSize: false,
-                          showFontFamily: false,
-                          showClearFormat: false,
                         ),
+                        showUndo: false,
+                        showRedo: false,
+                        showFontSize: false,
+                        showFontFamily: false,
+                        showClearFormat: false,
                       ),
                     )
                   : const SizedBox.shrink(),

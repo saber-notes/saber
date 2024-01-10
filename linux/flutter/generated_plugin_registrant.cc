@@ -10,7 +10,6 @@
 #include <flutter_secure_storage_linux/flutter_secure_storage_linux_plugin.h>
 #include <gtk/gtk_plugin.h>
 #include <irondash_engine_context/irondash_engine_context_plugin.h>
-#include <pasteboard/pasteboard_plugin.h>
 #include <printing/printing_plugin.h>
 #include <screen_retriever/screen_retriever_plugin.h>
 #include <super_native_extensions/super_native_extensions_plugin.h>
@@ -30,9 +29,6 @@ void fl_register_plugins(FlPluginRegistry* registry) {
   g_autoptr(FlPluginRegistrar) irondash_engine_context_registrar =
       fl_plugin_registry_get_registrar_for_plugin(registry, "IrondashEngineContextPlugin");
   irondash_engine_context_plugin_register_with_registrar(irondash_engine_context_registrar);
-  g_autoptr(FlPluginRegistrar) pasteboard_registrar =
-      fl_plugin_registry_get_registrar_for_plugin(registry, "PasteboardPlugin");
-  pasteboard_plugin_register_with_registrar(pasteboard_registrar);
   g_autoptr(FlPluginRegistrar) printing_registrar =
       fl_plugin_registry_get_registrar_for_plugin(registry, "PrintingPlugin");
   printing_plugin_register_with_registrar(printing_registrar);

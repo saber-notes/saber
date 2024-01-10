@@ -84,36 +84,31 @@ class _InnerCanvasState extends State<InnerCanvas> {
         : TranslationProvider.of(context).flutterLocale;
 
     Widget? quillEditor = widget.coreInfo.pages.isNotEmpty
-        ? QuillProvider(
-            configurations: QuillConfigurations(
+        ? QuillEditor(
+            configurations: QuillEditorConfigurations(
               controller:
                   widget.coreInfo.pages[widget.pageIndex].quill.controller,
               sharedConfigurations: QuillSharedConfigurations(
                 locale: locale,
               ),
-            ),
-            child: QuillEditor(
-              configurations: QuillEditorConfigurations(
-                customStyles: _getQuillStyles(invert: invert),
-                scrollable: false,
-                autoFocus: false,
-                readOnly: false,
-                expands: true,
-                placeholder:
-                    widget.textEditing ? t.editor.quill.typeSomething : null,
-                showCursor: true,
-                keyboardAppearance: invert ? Brightness.dark : Brightness.light,
-                padding: EdgeInsets.only(
-                  top: widget.coreInfo.lineHeight * 1.2,
-                  left: widget.coreInfo.lineHeight * 0.5,
-                  right: widget.coreInfo.lineHeight * 0.5,
-                  bottom: widget.coreInfo.lineHeight * 0.5,
-                ),
+              customStyles: _getQuillStyles(invert: invert),
+              scrollable: false,
+              autoFocus: false,
+              readOnly: false,
+              expands: true,
+              placeholder:
+                  widget.textEditing ? t.editor.quill.typeSomething : null,
+              showCursor: true,
+              keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+              padding: EdgeInsets.only(
+                top: widget.coreInfo.lineHeight * 1.2,
+                left: widget.coreInfo.lineHeight * 0.5,
+                right: widget.coreInfo.lineHeight * 0.5,
+                bottom: widget.coreInfo.lineHeight * 0.5,
               ),
-              scrollController: ScrollController(),
-              focusNode:
-                  widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
             ),
+            scrollController: ScrollController(),
+            focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
           )
         : null;
 

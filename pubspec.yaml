@@ -93,7 +93,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^8.3.0
+  flutter_quill: ^9.2.2
 
   window_manager: ^0.3.0
 
@@ -144,7 +144,7 @@ dependencies:
 
   yaru: ^1.1.0
 
-  one_dollar_unistroke_recognizer: ^0.7.0
+  one_dollar_unistroke_recognizer: ^1.0.0
 
   meta: ^1.0.0
 
@@ -163,7 +163,7 @@ dev_dependencies:
 
   icons_launcher: ^2.1.0
 
-  process_run: ^0.13.0
+  process_run: ^0.14.0+1
 
   simplytranslate: ^1.2.2
 
