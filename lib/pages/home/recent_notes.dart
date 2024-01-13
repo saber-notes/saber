@@ -178,6 +178,7 @@ class _RecentPageState extends State<RecentPage> {
                   existingPath: selectedFiles.value.isEmpty
                       ? ''
                       : selectedFiles.value.first,
+                  unselectNotes: () => selectedFiles.value = [],
                 ),
               ),
               MoveNoteButton(
