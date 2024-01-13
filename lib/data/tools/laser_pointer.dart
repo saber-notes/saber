@@ -59,7 +59,9 @@ class LaserPointer extends Tool {
       deleteStroke: deleteStroke,
     );
 
-    final Stroke stroke = Pen.currentStroke!..isComplete = true;
+    final Stroke stroke = Pen.currentStroke!
+      ..options.isComplete = true
+      ..markPolygonNeedsUpdating();
     Pen.currentStroke = null;
     return stroke;
   }

@@ -442,7 +442,7 @@ class EditorState extends State<Editor> {
           quill.controller.redo();
         case EditorHistoryItemType.changeColor:
           for (Stroke stroke in item.strokes) {
-            stroke.strokeProperties.color = item.colorChange![stroke]!.previous;
+            stroke.color = item.colorChange![stroke]!.previous;
           }
       }
 
@@ -1434,10 +1434,9 @@ class EditorState extends State<Editor> {
 
                   Map<Stroke, ColorChange> colorChange = {};
                   for (Stroke stroke in strokes) {
-                    colorChange[stroke] = ColorChange(
-                        previous: stroke.strokeProperties.color,
-                        current: color);
-                    stroke.strokeProperties.color = color;
+                    colorChange[stroke] =
+                        ColorChange(previous: stroke.color, current: color);
+                    stroke.color = color;
                   }
 
                   history.recordChange(EditorHistoryItem(

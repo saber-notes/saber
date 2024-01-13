@@ -178,7 +178,7 @@ class EditorPage extends Listenable {
     int index = 0;
     for (final Stroke stroke in strokes) {
       int penTypeComparison = stroke.penType.compareTo(newStroke.penType);
-      int color = stroke.strokeProperties.color.value;
+      int color = stroke.color.value;
       if (penTypeComparison > 0) {
         break; // this stroke's pen type comes after the new stroke's pen type
       } else if (stroke.penType == (Highlighter).toString() &&

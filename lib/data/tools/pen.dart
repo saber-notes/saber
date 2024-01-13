@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -26,7 +27,7 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = fountainPenIcon,
-        strokeProperties = Prefs.lastFountainPenProperties.value,
+        options = Prefs.lastFountainPenOptions.value,
         toolId = ToolId.fountainPen;
 
   Pen.ballpointPen()
@@ -35,7 +36,7 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = ballpointPenIcon,
-        strokeProperties = Prefs.lastBallpointPenProperties.value,
+        options = Prefs.lastBallpointPenOptions.value,
         toolId = ToolId.ballpointPen;
 
   final String name;
@@ -49,7 +50,9 @@ class Pen extends Tool {
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
 
   static Stroke? currentStroke;
-  StrokeProperties strokeProperties = StrokeProperties();
+  Color color = Stroke.defaultColor;
+  bool pressureEnabled = Stroke.defaultPressureEnabled;
+  StrokeOptions options;
 
   static Pen _currentPen = Pen.fountainPen();
   static Pen get currentPen => _currentPen;
@@ -62,7 +65,9 @@ class Pen extends Tool {
 
   void onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
-      strokeProperties: strokeProperties.copy(),
+      color: color,
+      pressureEnabled: pressureEnabled,
+      options: options.copyWith(),
       pageIndex: pageIndex,
       penType: runtimeType.toString(),
     );
@@ -74,7 +79,9 @@ class Pen extends Tool {
   }
 
   Stroke onDragEnd() {
-    final Stroke stroke = currentStroke!..isComplete = true;
+    final Stroke stroke = currentStroke!
+      ..options.isComplete = true
+      ..markPolygonNeedsUpdating();
     currentStroke = null;
     return stroke;
   }

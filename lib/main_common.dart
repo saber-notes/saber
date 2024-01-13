@@ -21,6 +21,7 @@ import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
@@ -47,6 +48,7 @@ Future<void> main() async {
         int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
   }
 
+  StrokeOptionsExtension.setDefaults();
   Prefs.init();
 
   await Future.wait([

@@ -84,7 +84,7 @@ class ShapePen extends Pen {
           ..addPoint(firstPoint)
           ..addPoint(lastPoint)
           ..addPoint(lastPoint)
-          ..isComplete = true;
+          ..options.isComplete = true;
       case DefaultUnistrokeNames.rectangle:
         final rect = detectedShape.convertToRect();
         log.info('Detected rectangle: $rect');

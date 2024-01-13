@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:logging/logging.dart';
 import 'package:nextcloud/provisioning_api.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -97,11 +99,16 @@ abstract class Prefs {
   static late final PlainPref<int> recentColorsLength;
 
   static late final PlainPref<ToolId> lastTool;
-  static late final PlainPref<StrokeProperties> lastFountainPenProperties,
-      lastBallpointPenProperties,
-      lastHighlighterProperties,
-      lastPencilProperties,
-      lastShapePenProperties;
+  static late final PlainPref<StrokeOptions> lastFountainPenOptions,
+      lastBallpointPenOptions,
+      lastHighlighterOptions,
+      lastPencilOptions,
+      lastShapePenOptions;
+  static late final PlainPref<int> lastFountainPenColor,
+      lastBallpointPenColor,
+      lastHighlighterColor,
+      lastPencilColor,
+      lastShapePenColor;
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
   static late final PlainPref<bool> lastZoomLock,
@@ -203,18 +210,27 @@ abstract class Prefs {
       });
 
     lastTool = PlainPref('lastTool', ToolId.fountainPen);
-    lastFountainPenProperties = PlainPref(
+    lastFountainPenOptions = PlainPref(
         'lastFountainPenProperties', StrokeProperties.fountainPen,
         deprecatedKeys: const ['lastPenColor']);
-    lastBallpointPenProperties =
+    lastBallpointPenOptions =
         PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
-    lastHighlighterProperties = PlainPref(
+    lastHighlighterOptions = PlainPref(
         'lastHighlighterProperties', StrokeProperties.highlighter,
         deprecatedKeys: const ['lastHighlighterColor']);
-    lastPencilProperties =
+    lastPencilOptions =
         PlainPref('lastPencilProperties', StrokeProperties.pencil);
-    lastShapePenProperties =
+    lastShapePenOptions =
         PlainPref('lastShapePenProperties', StrokeProperties.shapePen);
+
+    lastFountainPenColor =
+        PlainPref('lastFountainPenColor', Colors.black.value);
+    lastBallpointPenColor =
+        PlainPref('lastBallpointPenColor', Colors.black.value);
+    lastHighlighterColor = PlainPref('lastHighlighterColor',
+        Colors.yellow.withAlpha(Highlighter.alpha).value);
+    lastPencilColor = PlainPref('lastPencilColor', Colors.black.value);
+    lastShapePenColor = PlainPref('lastShapePenColor', Colors.black.value);
 
     lastBackgroundPattern =
         PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
@@ -362,7 +378,7 @@ class PlainPref<T> extends IPref<T> {
         T == typeOf<List<String>>() ||
         T == typeOf<Set<String>>() ||
         T == typeOf<Queue<String>>() ||
-        T == StrokeProperties ||
+        T == StrokeOptions ||
         T == typeOf<Quota?>() ||
         T == AxisDirection ||
         T == ThemeMode ||
@@ -430,7 +446,7 @@ class PlainPref<T> extends IPref<T> {
       } else if (T == typeOf<Queue<String>>()) {
         return await _prefs!
             .setStringList(key, (value as Queue<String>).toList());
-      } else if (T == StrokeProperties) {
+      } else if (T == StrokeOptions) {
         return await _prefs!.setString(key, jsonEncode(value));
       } else if (T == typeOf<Quota?>()) {
         Quota? quota = value as Quota?;
@@ -484,9 +500,9 @@ class PlainPref<T> extends IPref<T> {
       } else if (T == typeOf<Queue<String>>()) {
         List? list = _prefs!.getStringList(key);
         return list != null ? Queue<String>.from(list) as T : null;
-      } else if (T == StrokeProperties) {
-        return StrokeProperties.fromJson(jsonDecode(_prefs!.getString(key)!))
-            as T?;
+      } else if (T == StrokeOptions) {
+        return StrokeOptionsExtension.fromJson(
+            jsonDecode(_prefs!.getString(key)!)) as T?;
       } else if (T == typeOf<Quota?>()) {
         List<String>? list = _prefs!.getStringList(key);
         if (list == null || list.length != 2) return null;

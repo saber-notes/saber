@@ -70,8 +70,7 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in strokes) {
       if (stroke.penType != (Highlighter).toString()) continue;
 
-      final color =
-          stroke.strokeProperties.color.withOpacity(1).withInversion(invert);
+      final color = stroke.color.withOpacity(1).withInversion(invert);
 
       if (color != lastColor) {
         // new layer for each color
@@ -94,7 +93,7 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in [...strokes, ...laserStrokes]) {
       if (stroke.penType == (Highlighter).toString()) continue;
 
-      var color = stroke.strokeProperties.color.withInversion(invert);
+      var color = stroke.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
         color = Color.lerp(color, primaryColor, 0.5)!;
       }
@@ -113,7 +112,7 @@ class CanvasPainter extends CustomPainter {
       late final shapePaint = Paint()
         ..color = paint.color
         ..style = PaintingStyle.stroke
-        ..strokeWidth = stroke.strokeProperties.size;
+        ..strokeWidth = stroke.options.size;
 
       if (stroke is CircleStroke) {
         canvas.drawCircle(
@@ -122,7 +121,7 @@ class CanvasPainter extends CustomPainter {
           shapePaint,
         );
       } else if (stroke is RectangleStroke) {
-        final strokeSize = stroke.strokeProperties.size;
+        final strokeSize = stroke.options.size;
         canvas.drawRRect(
           RRect.fromRectAndRadius(
             stroke.rect,
@@ -133,7 +132,7 @@ class CanvasPainter extends CustomPainter {
       } else if (stroke.length <= 2) {
         // a dot
         final bounds = stroke.path.getBounds();
-        final radius = max(bounds.size.width, stroke.strokeProperties.size) / 2;
+        final radius = max(bounds.size.width, stroke.options.size) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
       } else {
         canvas.drawPath(stroke.path, paint);
@@ -144,7 +143,7 @@ class CanvasPainter extends CustomPainter {
   void _drawCurrentStroke(Canvas canvas) {
     if (currentStroke == null) return;
 
-    final color = currentStroke!.strokeProperties.color.withInversion(invert);
+    final color = currentStroke!.color.withInversion(invert);
     final paint = Paint();
 
     if (currentStroke!.penType == (Pencil).toString()) {
@@ -163,7 +162,7 @@ class CanvasPainter extends CustomPainter {
       final bounds = currentStroke!.path.getBounds();
       final radius = max(
         bounds.size.width * 0.5,
-        currentStroke!.strokeProperties.size * 0.25,
+        currentStroke!.options.size * 0.25,
       );
       canvas.drawCircle(bounds.center, radius, paint);
     } else {
@@ -175,12 +174,11 @@ class CanvasPainter extends CustomPainter {
     final shape = ShapePen.detectedShape;
     if (shape == null) return;
 
-    final color = currentStroke?.strokeProperties.color.withInversion(invert) ??
-        Colors.black;
+    final color = currentStroke?.color.withInversion(invert) ?? Colors.black;
     final shapePaint = Paint()
       ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = currentStroke?.strokeProperties.size ?? 3;
+      ..strokeWidth = currentStroke?.options.size ?? 3;
 
     switch (shape.name) {
       case null:

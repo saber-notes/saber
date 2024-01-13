@@ -1,5 +1,6 @@
-import 'dart:math' hide atan2;
+import 'dart:math';
 
+import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
@@ -24,15 +25,12 @@ class Stroke {
   int pageIndex;
   final String penType;
 
-  late final StrokeProperties strokeProperties;
+  static const defaultColor = Colors.black;
+  static const defaultPressureEnabled = true;
 
-  bool _isComplete = false;
-  bool get isComplete => _isComplete;
-  set isComplete(bool value) {
-    if (value == _isComplete) return;
-    _isComplete = value;
-    _polygonNeedsUpdating = true;
-  }
+  Color color;
+  bool pressureEnabled;
+  final StrokeOptions options;
 
   bool _polygonNeedsUpdating = true;
   late List<Offset> _polygon = const [];
@@ -63,8 +61,14 @@ class Stroke {
     _polygonNeedsUpdating = true;
   }
 
+  void markPolygonNeedsUpdating() {
+    _polygonNeedsUpdating = true;
+  }
+
   Stroke({
-    required this.strokeProperties,
+    required this.color,
+    required this.pressureEnabled,
+    required this.options,
     required this.pageIndex,
     required this.penType,
   });
@@ -81,7 +85,21 @@ class Stroke {
         log.severe('Unknown shape: ${json['shape']}');
     }
 
-    final strokeProperties = StrokeProperties.fromJson(json);
+    final options = StrokeOptionsExtension.fromJson(json);
+    final pressureEnabled = json['pe'] ?? defaultPressureEnabled;
+
+    final Color color;
+    switch (json['c']) {
+      case (int value):
+        color = Color(value);
+      case (Int64 value):
+        color = Color(value.toInt());
+      case null:
+        color = defaultColor;
+      default:
+        throw Exception(
+            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+    }
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
     final pointsJson = json['p'] as List<dynamic>;
@@ -100,29 +118,30 @@ class Stroke {
     }
 
     return Stroke(
-      strokeProperties: strokeProperties,
+      color: color,
+      pressureEnabled: pressureEnabled,
+      options: options,
       pageIndex: json['i'] ?? 0,
       penType: json['ty'] ?? (Pen).toString(),
-    )
-      .._isComplete = json['f'] ?? false
-      ..points.addAll(points);
+    )..points.addAll(points);
   }
   // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
     return {
       'shape': null,
-      'f': isComplete,
       'p': points.map((PointVector point) => point.toBsonBinary()).toList(),
       'i': pageIndex,
-      'ty': penType.toString(),
-    }..addAll(strokeProperties.toJson());
+      'ty': penType,
+      'pe': pressureEnabled,
+      'c': color.value,
+    }..addAll(options.toJson());
   }
 
   void addPoint(Offset point, [double? pressure]) {
-    if (!strokeProperties.pressureEnabled) {
+    if (!pressureEnabled) {
       pressure = null;
     } else if (pressure != null) {
-      strokeProperties.simulatePressure = false;
+      options.simulatePressure = false;
     }
 
     points.add(PointVector(point.dx, point.dy, pressure));
@@ -154,7 +173,7 @@ class Stroke {
   void optimisePoints({double thresholdMultiplier = _optimisePointsThreshold}) {
     if (points.length <= 3) return;
 
-    final minDistance = strokeProperties.size * thresholdMultiplier;
+    final minDistance = options.size * thresholdMultiplier;
 
     for (int i = 1; i < points.length - 1; i++) {
       final point = points[i];
@@ -170,27 +189,21 @@ class Stroke {
   }
 
   List<Offset> _getPolygon() {
-    final simulatePressure =
-        strokeProperties.simulatePressure && strokeProperties.pressureEnabled;
-    final rememberSimulatedPressure = simulatePressure && isComplete;
+    if (!pressureEnabled) {
+      options.simulatePressure = false;
+    }
+    final rememberSimulatedPressure =
+        options.simulatePressure && options.isComplete;
 
     final polygon = getStroke(
       points,
-      isComplete: isComplete,
-      size: strokeProperties.size,
-      thinning: strokeProperties.thinning,
-      smoothing: strokeProperties.smoothing,
-      streamline: strokeProperties.streamline,
-      taperStart: strokeProperties.taperStart,
-      taperEnd: strokeProperties.taperEnd,
-      capStart: strokeProperties.capStart,
-      capEnd: strokeProperties.capEnd,
-      simulatePressure: simulatePressure,
+      options: options,
       rememberSimulatedPressure: rememberSimulatedPressure,
     ).toList(growable: false);
 
     if (rememberSimulatedPressure) {
-      strokeProperties.simulatePressure = false;
+      // Ensure we don't simulate pressure again
+      options.simulatePressure = false;
       // Remove points with null pressure because they were duplicates
       points.removeWhere((point) => point.pressure == null);
       // Remove points that are too close together
@@ -231,7 +244,9 @@ class Stroke {
   }
 
   Stroke copy() => Stroke(
-        strokeProperties: strokeProperties.copy(),
+        color: color,
+        pressureEnabled: pressureEnabled,
+        options: options.copyWith(),
         pageIndex: pageIndex,
         penType: penType,
       )..points.addAll(points);
