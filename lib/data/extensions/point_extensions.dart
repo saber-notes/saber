@@ -14,7 +14,7 @@ extension PointExtensions on PointVector {
       Point(
         json['x'] + offset.dx,
         json['y'] + offset.dy,
-        json['p'] ?? 0.5,
+        json['p'],
       );
 
   static PointVector fromBsonBinary({
@@ -25,7 +25,7 @@ extension PointExtensions on PointVector {
     return PointVector(
       point[0] + offset.dx,
       point[1] + offset.dy,
-      point.length == 2 ? 0.5 : point[2],
+      point.length == 2 ? null : point[2],
     );
   }
 
@@ -33,7 +33,7 @@ extension PointExtensions on PointVector {
     final Float32List point = Float32List.fromList([
       x,
       y,
-      if (pressure != 0.5) pressure,
+      if (pressure != null) pressure!,
     ]);
     return BsonBinary.from(point.buffer.asUint8List());
   }

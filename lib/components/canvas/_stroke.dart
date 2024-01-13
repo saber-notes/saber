@@ -119,11 +119,13 @@ class Stroke {
   }
 
   void addPoint(Offset point, [double? pressure]) {
-    if (!strokeProperties.pressureEnabled) pressure = null;
+    if (!strokeProperties.pressureEnabled) {
+      pressure = null;
+    } else if (pressure != null) {
+      strokeProperties.simulatePressure = false;
+    }
 
-    if (pressure != null) strokeProperties.simulatePressure = false;
-
-    points.add(PointVector(point.dx, point.dy, pressure ?? 0.5));
+    points.add(PointVector(point.dx, point.dy, pressure));
     _polygonNeedsUpdating = true;
   }
 
@@ -185,12 +187,12 @@ class Stroke {
       capEnd: strokeProperties.capEnd,
       simulatePressure: simulatePressure,
       rememberSimulatedPressure: rememberSimulatedPressure,
-    ).map((point) => Offset(point.x, point.y)).toList(growable: false);
+    ).toList(growable: false);
 
     if (rememberSimulatedPressure) {
       strokeProperties.simulatePressure = false;
-      // Remove points with pressure 0.5 because they're not needed anymore
-      points.removeWhere((point) => point.pressure == 0.5);
+      // Remove points with null pressure because they were duplicates
+      points.removeWhere((point) => point.pressure == null);
       // Remove points that are too close together
       optimisePoints();
       // Get polygon again with slightly different input
