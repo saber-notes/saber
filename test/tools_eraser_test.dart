@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/tools/eraser.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 const String _penType = 'testing pen';
-final StrokeProperties _strokeProperties = StrokeProperties(
+final StrokeOptions _options = StrokeOptions(
   size: 1, // small size so we have more precision in test
 );
 const Offset _eraserPos = Offset(50, 50);
@@ -32,12 +32,7 @@ void main() {
       _strokeWithPoint(_eraserPos + const Offset(0.5, 0) * eraser.size),
 
       // straight line that passes through center
-      Stroke(
-        strokeProperties: _strokeProperties,
-        pageIndex: 0,
-        penType: _penType,
-      )
-        ..addPoint(_eraserPos + const Offset(-20, -20) * eraser.size)
+      _strokeWithPoint(_eraserPos + const Offset(-20, -20) * eraser.size)
         ..addPoint(_eraserPos + const Offset(20, 20) * eraser.size)
         ..addPoint(_eraserPos + const Offset(20, 20) * eraser.size),
     ];
@@ -80,7 +75,9 @@ void main() {
 }
 
 Stroke _strokeWithPoint(Offset point) => Stroke(
-      strokeProperties: _strokeProperties,
+      color: Stroke.defaultColor,
+      pressureEnabled: Stroke.defaultPressureEnabled,
+      options: _options,
       pageIndex: 0,
       penType: _penType,
     )..addPoint(point);

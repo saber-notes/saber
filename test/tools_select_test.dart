@@ -1,17 +1,17 @@
 import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/data/tools/select.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 void main() {
   test('Test that the select tool selects the right strokes', () async {
     Select select = Select.currentSelect;
-    StrokeProperties strokeProperties = StrokeProperties();
+    StrokeOptions options = StrokeOptions();
 
     // Drag gesture in a 10x10 square shape, on page 0
     select.onDragStart(Offset.zero, 0);
@@ -25,13 +25,17 @@ void main() {
     List<Stroke> strokes = [
       // index 0 is inside
       Stroke(
-        strokeProperties: strokeProperties,
+        color: Stroke.defaultColor,
+        pressureEnabled: Stroke.defaultPressureEnabled,
+        options: options,
         pageIndex: 0,
         penType: 'testing pen',
       )..addPoint(const Offset(5, 5)),
       // index > 0 is outside
       Stroke(
-        strokeProperties: strokeProperties,
+        color: Stroke.defaultColor,
+        pressureEnabled: Stroke.defaultPressureEnabled,
+        options: options,
         pageIndex: 0,
         penType: 'testing pen',
       )..addPoint(const Offset(15, 15)),

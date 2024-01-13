@@ -1422,10 +1422,10 @@ class EditorState extends State<Editor> {
               updateColorBar(color);
 
               if (currentTool is Highlighter) {
-                (currentTool as Highlighter).strokeProperties.color =
+                (currentTool as Highlighter).color =
                     color.withAlpha(Highlighter.alpha);
               } else if (currentTool is Pen) {
-                (currentTool as Pen).strokeProperties.color = color;
+                (currentTool as Pen).color = color;
               } else if (currentTool is Select) {
                 // Changes color of selected strokes
                 final select = currentTool as Select;
@@ -1938,10 +1938,11 @@ class EditorState extends State<Editor> {
     coreInfo.dispose();
 
     // manually save pen properties since the listeners don't fire if a property is changed
-    Prefs.lastFountainPenProperties.notifyListeners();
-    Prefs.lastBallpointPenProperties.notifyListeners();
-    Prefs.lastHighlighterProperties.notifyListeners();
-    Prefs.lastShapePenProperties.notifyListeners();
+    Prefs.lastFountainPenOptions.notifyListeners();
+    Prefs.lastBallpointPenOptions.notifyListeners();
+    Prefs.lastHighlighterOptions.notifyListeners();
+    Prefs.lastPencilOptions.notifyListeners();
+    Prefs.lastShapePenOptions.notifyListeners();
 
     super.dispose();
   }

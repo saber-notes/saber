@@ -173,7 +173,7 @@ class EditorPage extends Listenable {
   /// Inserts a stroke, while keeping the strokes sorted by
   /// pen type and color.
   void insertStroke(Stroke newStroke) {
-    int newStrokeColor = newStroke.strokeProperties.color.value;
+    int newStrokeColor = newStroke.color.value;
 
     int index = 0;
     for (final Stroke stroke in strokes) {
@@ -198,8 +198,7 @@ class EditorPage extends Listenable {
       int penTypeComparison = a.penType.compareTo(b.penType);
       if (penTypeComparison != 0) return penTypeComparison;
       if (a.penType != (Highlighter).toString()) return 0;
-      return a.strokeProperties.color.value
-          .compareTo(b.strokeProperties.color.value);
+      return a.color.value.compareTo(b.color.value);
     });
   }
 

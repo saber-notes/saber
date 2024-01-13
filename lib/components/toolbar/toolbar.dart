@@ -173,7 +173,7 @@ class _ToolbarState extends State<Toolbar> {
         : Toolbar._buttonPaddingHorizontal;
 
     final currentColor = switch (widget.currentTool) {
-      Pen pen => pen.strokeProperties.color,
+      Pen pen => pen.color,
       Select select => select.getDominantStrokeColor(),
       _ => null,
     };

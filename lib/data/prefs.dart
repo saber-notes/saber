@@ -14,6 +14,7 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -211,17 +212,16 @@ abstract class Prefs {
 
     lastTool = PlainPref('lastTool', ToolId.fountainPen);
     lastFountainPenOptions = PlainPref(
-        'lastFountainPenProperties', StrokeProperties.fountainPen,
+        'lastFountainPenProperties', Pen.fountainPenOptions,
         deprecatedKeys: const ['lastPenColor']);
     lastBallpointPenOptions =
-        PlainPref('lastBallpointPenProperties', StrokeProperties.ballpointPen);
+        PlainPref('lastBallpointPenProperties', Pen.ballpointPenOptions);
     lastHighlighterOptions = PlainPref(
-        'lastHighlighterProperties', StrokeProperties.highlighter,
+        'lastHighlighterProperties', Pen.highlighterOptions,
         deprecatedKeys: const ['lastHighlighterColor']);
-    lastPencilOptions =
-        PlainPref('lastPencilProperties', StrokeProperties.pencil);
+    lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions);
     lastShapePenOptions =
-        PlainPref('lastShapePenProperties', StrokeProperties.shapePen);
+        PlainPref('lastShapePenProperties', Pen.shapePenOptions);
 
     lastFountainPenColor =
         PlainPref('lastFountainPenColor', Colors.black.value);

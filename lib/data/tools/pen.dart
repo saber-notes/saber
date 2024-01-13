@@ -6,7 +6,6 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pencil.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Pen extends Tool {
@@ -18,6 +17,9 @@ class Pen extends Tool {
     required this.sizeMax,
     required this.sizeStep,
     required this.icon,
+    required this.options,
+    required this.pressureEnabled,
+    required this.color,
     required this.toolId,
   });
 
@@ -28,6 +30,8 @@ class Pen extends Tool {
         sizeStep = 1,
         icon = fountainPenIcon,
         options = Prefs.lastFountainPenOptions.value,
+        pressureEnabled = true,
+        color = Color(Prefs.lastFountainPenColor.value),
         toolId = ToolId.fountainPen;
 
   Pen.ballpointPen()
@@ -37,6 +41,8 @@ class Pen extends Tool {
         sizeStep = 1,
         icon = ballpointPenIcon,
         options = Prefs.lastBallpointPenOptions.value,
+        pressureEnabled = false,
+        color = Color(Prefs.lastBallpointPenColor.value),
         toolId = ToolId.ballpointPen;
 
   final String name;
@@ -50,8 +56,8 @@ class Pen extends Tool {
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
 
   static Stroke? currentStroke;
-  Color color = Stroke.defaultColor;
-  bool pressureEnabled = Stroke.defaultPressureEnabled;
+  Color color;
+  bool pressureEnabled;
   StrokeOptions options;
 
   static Pen _currentPen = Pen.fountainPen();
@@ -85,4 +91,16 @@ class Pen extends Tool {
     currentStroke = null;
     return stroke;
   }
+
+  static StrokeOptions get fountainPenOptions => StrokeOptions();
+  static StrokeOptions get ballpointPenOptions => StrokeOptions();
+  static StrokeOptions get shapePenOptions => StrokeOptions();
+  static StrokeOptions get highlighterOptions => StrokeOptions(
+        size: StrokeOptions.defaultSize * 5,
+      );
+  static StrokeOptions get pencilOptions => StrokeOptions(
+        streamline: 0.1,
+        start: StrokeEndOptions.start(taperEnabled: true),
+        end: StrokeEndOptions.end(taperEnabled: true),
+      );
 }
