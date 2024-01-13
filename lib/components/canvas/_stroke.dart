@@ -14,7 +14,7 @@ class Stroke {
   static final log = Logger('Stroke');
 
   @visibleForTesting
-  final List<Point> points = [];
+  final List<PointVector> points = [];
 
   /// Note that [isEmpty] is also true if there is only one point,
   /// since it was just initially added in [onDrawStart].
@@ -85,7 +85,7 @@ class Stroke {
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
     final pointsJson = json['p'] as List<dynamic>;
-    final Iterable<Point> points;
+    final Iterable<PointVector> points;
     if (fileVersion >= 13) {
       points = pointsJson.map((point) => PointExtensions.fromBsonBinary(
             json: point,
@@ -112,7 +112,7 @@ class Stroke {
     return {
       'shape': null,
       'f': isComplete,
-      'p': points.map((Point point) => point.toBsonBinary()).toList(),
+      'p': points.map((PointVector point) => point.toBsonBinary()).toList(),
       'i': pageIndex,
       'ty': penType.toString(),
     }..addAll(strokeProperties.toJson());
@@ -123,7 +123,7 @@ class Stroke {
 
     if (pressure != null) strokeProperties.simulatePressure = false;
 
-    points.add(Point(point.dx, point.dy, pressure ?? 0.5));
+    points.add(PointVector(point.dx, point.dy, pressure ?? 0.5));
     _polygonNeedsUpdating = true;
   }
 
@@ -190,7 +190,7 @@ class Stroke {
     if (rememberSimulatedPressure) {
       strokeProperties.simulatePressure = false;
       // Remove points with pressure 0.5 because they're not needed anymore
-      points.removeWhere((point) => point.p == 0.5);
+      points.removeWhere((point) => point.pressure == 0.5);
       // Remove points that are too close together
       optimisePoints();
       // Get polygon again with slightly different input
@@ -217,7 +217,7 @@ class Stroke {
     return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
   }
 
-  static num sqrDistBetweenPoints(Point p1, Point p2) {
+  static num sqrDistBetweenPoints(PointVector p1, PointVector p2) {
     return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2);
   }
 
