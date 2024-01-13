@@ -44,7 +44,7 @@ Saber 擁有您整理筆記所需的一切。根據您的喜好在資料夾內�
     alt="取得 AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="在 Snap Store 上取得"
     height=80>][snap]
 

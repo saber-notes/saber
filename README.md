@@ -48,7 +48,7 @@ Discover a whole new way to capture and organize your thoughts with Saber. Wheth
     alt="Get it as an AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=80>][snap]
 

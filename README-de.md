@@ -44,7 +44,7 @@ Entdecke einen völlig neuen Weg um mit Saber deine Gedanken zu sammeln und zu o
     alt="Get it as an AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=80>][snap]
 

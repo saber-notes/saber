@@ -44,7 +44,7 @@ Objevte úplně nové možnosti zachycování a organizování myšlenek s aplik
     alt="Stáhnout jako AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Stáhnout ze Snap Store"
     height=80>][snap]
 

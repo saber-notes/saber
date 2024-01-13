@@ -47,7 +47,7 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
     alt="Get it as an AppImage"
     height=80>][download_appimage]
 &nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=80>][snap]
 
