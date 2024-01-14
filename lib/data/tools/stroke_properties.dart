@@ -18,11 +18,11 @@ extension StrokeOptionsExtension on StrokeOptions {
       smoothing: json['sm'] ?? StrokeOptions.defaultSmoothing,
       streamline: json['sl'] ?? StrokeOptions.defaultStreamline,
       start: StrokeEndOptions.start(
-        taperEnabled: (json['ts'] ?? 0.0) > 0,
+        customTaper: json['ts'],
         cap: json['cs'] ?? StrokeEndOptions.defaultCap,
       ),
       end: StrokeEndOptions.end(
-        taperEnabled: (json['te'] ?? 0.0) > 0,
+        customTaper: json['te'],
         cap: json['ce'] ?? StrokeEndOptions.defaultCap,
       ),
       simulatePressure: json['sp'] ?? StrokeOptions.defaultSimulatePressure,
@@ -36,10 +36,10 @@ extension StrokeOptionsExtension on StrokeOptions {
         if (smoothing != StrokeOptions.defaultSmoothing) 'sm': smoothing,
         if (streamline != StrokeOptions.defaultStreamline) 'sl': streamline,
         if (start.taperEnabled != StrokeEndOptions.defaultTaperEnabled)
-          'ts': start.taperEnabled ? 1.0 : 0.0,
+          'ts': start.customTaper,
         if (start.cap != StrokeEndOptions.defaultCap) 'cs': start.cap,
         if (end.taperEnabled != StrokeEndOptions.defaultTaperEnabled)
-          'te': end.taperEnabled ? 1.0 : 0.0,
+          'te': end.customTaper,
         if (end.cap != StrokeEndOptions.defaultCap) 'ce': end.cap,
         if (simulatePressure != StrokeOptions.defaultSimulatePressure)
           'sp': simulatePressure,
