@@ -11,7 +11,7 @@ import 'package:saber/data/tools/select.dart';
 void main() {
   test('Test that the select tool selects the right strokes', () async {
     Select select = Select.currentSelect;
-    StrokeOptions options = StrokeOptions();
+    StrokeOptions options = StrokeOptions(size: 9);
 
     // Drag gesture in a 10x10 square shape, on page 0
     select.onDragStart(Offset.zero, 0);
@@ -32,6 +32,13 @@ void main() {
         penType: 'testing pen',
       )..addPoint(const Offset(5, 5)),
       // index > 0 is outside
+      Stroke(
+        color: Stroke.defaultColor,
+        pressureEnabled: Stroke.defaultPressureEnabled,
+        options: options,
+        pageIndex: 0,
+        penType: 'testing pen',
+      )..addPoint(const Offset(10, 10)),
       Stroke(
         color: Stroke.defaultColor,
         pressureEnabled: Stroke.defaultPressureEnabled,
