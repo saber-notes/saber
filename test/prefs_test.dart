@@ -23,16 +23,15 @@ void main() {
         alteredValue: true,
       );
     });
-    test('PlainPref<StrokeProperties>', () async {
+    test('PlainPref<StrokeOptions>', () async {
       final defaultValue = StrokeOptions();
       await testPref<StrokeOptions>(
         prefBuilder: () =>
-            PlainPref('testPlainPrefStrokeProperties', defaultValue),
+            PlainPref('testPlainPrefStrokeOptions', defaultValue),
         defaultValue: defaultValue,
         alteredValue: defaultValue.copyWith(
           size: StrokeOptions.defaultSize / 2,
         ),
-        useJson: true,
       );
     });
 

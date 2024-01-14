@@ -15,7 +15,6 @@ import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 typedef Quota = UserDetailsQuota;
@@ -501,8 +500,8 @@ class PlainPref<T> extends IPref<T> {
         List? list = _prefs!.getStringList(key);
         return list != null ? Queue<String>.from(list) as T : null;
       } else if (T == StrokeOptions) {
-        return StrokeOptionsExtension.fromJson(
-            jsonDecode(_prefs!.getString(key)!)) as T?;
+        return StrokeOptions.fromJson(jsonDecode(_prefs!.getString(key)!))
+            as T?;
       } else if (T == typeOf<Quota?>()) {
         List<String>? list = _prefs!.getStringList(key);
         if (list == null || list.length != 2) return null;

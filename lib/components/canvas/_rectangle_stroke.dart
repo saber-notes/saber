@@ -1,9 +1,9 @@
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/tools/shape_pen.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 class RectangleStroke extends Stroke {
   Rect rect;
@@ -38,7 +38,7 @@ class RectangleStroke extends Stroke {
     return RectangleStroke(
       color: color,
       pressureEnabled: json['pe'] ?? Stroke.defaultPressureEnabled,
-      options: StrokeOptionsExtension.fromJson(json),
+      options: StrokeOptions.fromJson(json),
       pageIndex: json['i'] ?? 0,
       penType: json['ty'] ?? (ShapePen).toString(),
       rect: Rect.fromLTWH(

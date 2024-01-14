@@ -907,10 +907,10 @@ packages:
     dependency: "direct main"
     description:
       name: perfect_freehand
-      sha256: cf46168484a6c82b0f4b3cf3a9988bb3c57d3d29a6046f816c213ce0f0c345ef
+      sha256: "2dd4a89fd1291f2a3312d2e6bbc65c4059d8f4e8086515f2311c4c1162e064d8"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.0"
   petitparser:
     dependency: transitive
     description:

@@ -9,7 +9,6 @@ import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 class Stroke {
   static final log = Logger('Stroke');
@@ -85,7 +84,7 @@ class Stroke {
         log.severe('Unknown shape: ${json['shape']}');
     }
 
-    final options = StrokeOptionsExtension.fromJson(json);
+    final options = StrokeOptions.fromJson(json);
     final pressureEnabled = json['pe'] ?? defaultPressureEnabled;
 
     final Color color;
