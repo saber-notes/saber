@@ -203,18 +203,16 @@ class _InnerCanvasState extends State<InnerCanvas> {
   DefaultStyles _getQuillStyles({required bool invert}) {
     final colorScheme = Theme.of(context).colorScheme;
     final backgroundColor = invert ? Colors.black : Colors.white;
-
-    /// lineHeight in local space
-    final num lineHeight = widget.coreInfo.lineHeight;
+    final lineHeight = widget.coreInfo.lineHeight;
 
     // Load handwriting fonts
-    final TextStyle neucha = GoogleFonts.neucha();
-    final TextStyle dekko = GoogleFonts.dekko();
-    final String fontFamily = neucha.fontFamily ?? 'Neucha';
-    List<String> fontFamilyFallback = <String?>[
-      neucha.fontFamily,
+    final neucha = GoogleFonts.neucha();
+    final dekko = GoogleFonts.dekko();
+    final fontFamily = neucha.fontFamily ?? 'Neucha';
+    final fontFamilyFallback = [
+      if (neucha.fontFamily != null) neucha.fontFamily!,
       'Neucha',
-      dekko.fontFamily,
+      if (dekko.fontFamily != null) dekko.fontFamily!,
       'Dekko',
       // Fallback fonts from https://github.com/system-fonts/modern-font-stacks#handwritten
       'Segoe Print',
@@ -226,9 +224,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
       'cursive',
       'handwriting',
       'sans-serif',
-    ].where((String? s) => s != null).cast<String>().toList();
+    ];
 
-    final TextStyle defaultStyle = TextStyle(
+    final defaultStyle = TextStyle(
       inherit: false,
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
