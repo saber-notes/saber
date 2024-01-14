@@ -16,6 +16,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -63,6 +64,7 @@ void main() {
         late final page = coreInfo.pages.first;
 
         setUpAll(() async {
+          StrokeOptionsExtension.setDefaults();
           FileManager.shouldUseRawFilePath = true;
           EditorImage.shouldLoadOutImmediately = true;
           if (sbnName.endsWith('.sbn2')) {

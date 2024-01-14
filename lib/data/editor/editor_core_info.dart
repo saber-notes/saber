@@ -16,6 +16,7 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:worker_manager/worker_manager.dart';
 
@@ -389,6 +390,7 @@ class EditorCoreInfo {
               documentsDirectory: documentsDirectory,
               shouldWatchRootDirectory: false,
             );
+            StrokeOptionsExtension.setDefaults();
             return isolate();
           },
           // less important than [WorkPriority.immediately]
