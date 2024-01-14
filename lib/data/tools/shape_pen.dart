@@ -21,10 +21,11 @@ class ShapePen extends Pen {
           sizeMax: 25,
           sizeStep: 1,
           icon: shapePenIcon,
+          options: Prefs.lastShapePenOptions.value,
+          pressureEnabled: false,
+          color: Color(Prefs.lastShapePenColor.value),
           toolId: ToolId.shapePen,
-        ) {
-    strokeProperties = Prefs.lastShapePenProperties.value;
-  }
+        );
 
   static final log = Logger('ShapePen');
 
@@ -63,6 +64,8 @@ class ShapePen extends Pen {
     _detectShape();
 
     final rawStroke = super.onDragEnd();
+    assert(rawStroke.options.isComplete == true);
+
     final detectedShape = ShapePen.detectedShape;
     ShapePen.detectedShape = null;
 
@@ -77,19 +80,23 @@ class ShapePen extends Pen {
         (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
         log.info('Detected line: $firstPoint -> $lastPoint');
         return Stroke(
-          strokeProperties: rawStroke.strokeProperties,
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           penType: rawStroke.penType,
         )
           ..addPoint(firstPoint)
           ..addPoint(lastPoint)
           ..addPoint(lastPoint)
-          ..isComplete = true;
+          ..options.isComplete = true;
       case DefaultUnistrokeNames.rectangle:
         final rect = detectedShape.convertToRect();
         log.info('Detected rectangle: $rect');
         return RectangleStroke(
-          strokeProperties: rawStroke.strokeProperties,
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           penType: rawStroke.penType,
           rect: rect,
@@ -98,7 +105,9 @@ class ShapePen extends Pen {
         final (center, radius) = detectedShape.convertToCircle();
         log.info('Detected circle: c=$center, r=$radius');
         return CircleStroke(
-          strokeProperties: rawStroke.strokeProperties,
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           penType: rawStroke.penType,
           radius: radius,
@@ -108,12 +117,12 @@ class ShapePen extends Pen {
         final polygon = detectedShape.convertToCanonicalPolygon();
         log.info('Detected triangle');
         return Stroke(
-          strokeProperties: rawStroke.strokeProperties,
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           penType: rawStroke.penType,
-        )
-          ..addPoints(polygon)
-          ..isComplete = true;
+        )..addPoints(polygon);
     }
   }
 

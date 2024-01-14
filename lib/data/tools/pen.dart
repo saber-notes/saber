@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pencil.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Pen extends Tool {
@@ -17,6 +17,9 @@ class Pen extends Tool {
     required this.sizeMax,
     required this.sizeStep,
     required this.icon,
+    required this.options,
+    required this.pressureEnabled,
+    required this.color,
     required this.toolId,
   });
 
@@ -26,7 +29,9 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = fountainPenIcon,
-        strokeProperties = Prefs.lastFountainPenProperties.value,
+        options = Prefs.lastFountainPenOptions.value,
+        pressureEnabled = true,
+        color = Color(Prefs.lastFountainPenColor.value),
         toolId = ToolId.fountainPen;
 
   Pen.ballpointPen()
@@ -35,7 +40,9 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = ballpointPenIcon,
-        strokeProperties = Prefs.lastBallpointPenProperties.value,
+        options = Prefs.lastBallpointPenOptions.value,
+        pressureEnabled = false,
+        color = Color(Prefs.lastBallpointPenColor.value),
         toolId = ToolId.ballpointPen;
 
   final String name;
@@ -49,7 +56,9 @@ class Pen extends Tool {
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
 
   static Stroke? currentStroke;
-  StrokeProperties strokeProperties = StrokeProperties();
+  Color color;
+  bool pressureEnabled;
+  StrokeOptions options;
 
   static Pen _currentPen = Pen.fountainPen();
   static Pen get currentPen => _currentPen;
@@ -62,7 +71,9 @@ class Pen extends Tool {
 
   void onDragStart(Offset position, int pageIndex, double? pressure) {
     currentStroke = Stroke(
-      strokeProperties: strokeProperties.copy(),
+      color: color,
+      pressureEnabled: pressureEnabled,
+      options: options.copyWith(),
       pageIndex: pageIndex,
       penType: runtimeType.toString(),
     );
@@ -74,8 +85,22 @@ class Pen extends Tool {
   }
 
   Stroke onDragEnd() {
-    final Stroke stroke = currentStroke!..isComplete = true;
+    final Stroke stroke = currentStroke!
+      ..options.isComplete = true
+      ..markPolygonNeedsUpdating();
     currentStroke = null;
     return stroke;
   }
+
+  static StrokeOptions get fountainPenOptions => StrokeOptions();
+  static StrokeOptions get ballpointPenOptions => StrokeOptions();
+  static StrokeOptions get shapePenOptions => StrokeOptions();
+  static StrokeOptions get highlighterOptions => StrokeOptions(
+        size: StrokeOptions.defaultSize * 5,
+      );
+  static StrokeOptions get pencilOptions => StrokeOptions(
+        streamline: 0.1,
+        start: StrokeEndOptions.start(taperEnabled: true),
+        end: StrokeEndOptions.end(taperEnabled: true),
+      );
 }

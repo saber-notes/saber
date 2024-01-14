@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/pen.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 class LaserPointer extends Tool {
   LaserPointer._();
@@ -14,12 +14,12 @@ class LaserPointer extends Tool {
   @override
   ToolId get toolId => ToolId.laserPointer;
 
-  final strokeProperties = StrokeProperties(
-    color: Colors.red,
+  final color = Colors.red;
+  final pressureEnabled = false;
+  final options = StrokeOptions(
     thinning: 0,
     smoothing: 0.7,
     streamline: 0.7,
-    pressureEnabled: false,
   );
 
   /// List of timings that correspond to the delay between each point
@@ -33,7 +33,9 @@ class LaserPointer extends Tool {
 
   void onDragStart(Offset position, int pageIndex) {
     Pen.currentStroke = Stroke(
-      strokeProperties: strokeProperties.copy(),
+      color: color,
+      pressureEnabled: pressureEnabled,
+      options: options.copyWith(),
       pageIndex: pageIndex,
       penType: runtimeType.toString(),
     );
@@ -59,7 +61,9 @@ class LaserPointer extends Tool {
       deleteStroke: deleteStroke,
     );
 
-    final Stroke stroke = Pen.currentStroke!..isComplete = true;
+    final Stroke stroke = Pen.currentStroke!
+      ..options.isComplete = true
+      ..markPolygonNeedsUpdating();
     Pen.currentStroke = null;
     return stroke;
   }

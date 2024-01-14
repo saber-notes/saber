@@ -43,10 +43,7 @@ dependencies:
   go_router: ^13.0.0
   path_to_regexp: ^0.4.0
 
-  # todo: use pub.dev when the new release (> 1.0.4) is available
-  perfect_freehand:
-    git:
-      url: https://github.com/steveruizok/perfect-freehand-dart
+  perfect_freehand: ^2.2.1
 
   path_provider: ^2.0.11
 
@@ -179,12 +176,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
-
-  # https://github.com/steveruizok/perfect-freehand-dart/pull/13
-  perfect_freehand:
-    git:
-      url: https://github.com/adil192/perfect-freehand-dart
-      ref: store-simulated-pressure
 
   # https://github.com/mongo-dart/bson/pull/38
   bson:

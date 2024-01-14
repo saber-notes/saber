@@ -4,7 +4,7 @@ import 'dart:ui' show Offset;
 import 'package:bson/bson.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
-extension PointExtensions on Point {
+extension PointExtensions on PointVector {
   @Deprecated(
       'Use fromBsonBinary instead; fromJson is only for backward compatibility')
   static Point fromJson({
@@ -14,18 +14,18 @@ extension PointExtensions on Point {
       Point(
         json['x'] + offset.dx,
         json['y'] + offset.dy,
-        json['p'] ?? 0.5,
+        json['p'],
       );
 
-  static Point fromBsonBinary({
+  static PointVector fromBsonBinary({
     required BsonBinary json,
     Offset offset = Offset.zero,
   }) {
     Float32List point = json.byteList.buffer.asFloat32List();
-    return Point(
+    return PointVector(
       point[0] + offset.dx,
       point[1] + offset.dy,
-      point.length == 2 ? 0.5 : point[2],
+      point.length == 2 ? null : point[2],
     );
   }
 
@@ -33,14 +33,14 @@ extension PointExtensions on Point {
     final Float32List point = Float32List.fromList([
       x,
       y,
-      if (p != 0.5) p,
+      if (pressure != null) pressure!,
     ]);
     return BsonBinary.from(point.buffer.asUint8List());
   }
 
-  Point operator +(Offset offset) => Point(
+  PointVector operator +(Offset offset) => PointVector(
         x + offset.dx,
         y + offset.dy,
-        p,
+        pressure,
       );
 }

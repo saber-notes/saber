@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 const _pageSize = Size(100, 100);
 const _penSize = 1.0;
@@ -23,7 +23,11 @@ void main() {
 }
 
 Stroke _stroke(Offset point) => Stroke(
-      strokeProperties: StrokeProperties(size: _penSize),
+      color: Stroke.defaultColor,
+      pressureEnabled: Stroke.defaultPressureEnabled,
+      options: StrokeOptions(
+        size: _penSize,
+      ),
       pageIndex: 0,
       penType: 'testingPen',
     )..addPoint(point);

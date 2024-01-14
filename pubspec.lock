@@ -906,12 +906,11 @@ packages:
   perfect_freehand:
     dependency: "direct main"
     description:
-      path: "."
-      ref: store-simulated-pressure
-      resolved-ref: f26bc5d5527e61df8be852e1558817b071e741e6
-      url: "https://github.com/adil192/perfect-freehand-dart"
-    source: git
-    version: "1.0.4"
+      name: perfect_freehand
+      sha256: "2dd4a89fd1291f2a3312d2e6bbc65c4059d8f4e8086515f2311c4c1162e064d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   petitparser:
     dependency: transitive
     description:

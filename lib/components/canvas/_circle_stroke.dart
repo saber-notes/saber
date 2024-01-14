@@ -1,29 +1,48 @@
 import 'dart:math';
 
+import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/tools/shape_pen.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 
 class CircleStroke extends Stroke {
   Offset center;
   double radius;
 
   CircleStroke({
-    required super.strokeProperties,
+    required super.color,
+    required super.pressureEnabled,
+    required super.options,
     required super.pageIndex,
     required super.penType,
     required this.center,
     required this.radius,
   }) {
-    isComplete = true;
+    options.isComplete = true;
   }
 
   factory CircleStroke.fromJson(Map<String, dynamic> json, int fileVersion) {
     assert(json['shape'] == 'circle');
+
+    final Color color;
+    switch (json['c']) {
+      case (int value):
+        color = Color(value);
+      case (Int64 value):
+        color = Color(value.toInt());
+      case null:
+        color = Stroke.defaultColor;
+      default:
+        throw Exception(
+            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+    }
+
     return CircleStroke(
-      strokeProperties: StrokeProperties.fromJson(json),
+      color: color,
+      pressureEnabled: json['pe'] ?? Stroke.defaultPressureEnabled,
+      options: StrokeOptions.fromJson(json),
       pageIndex: json['i'] ?? 0,
       penType: json['ty'] ?? (ShapePen).toString(),
       center: Offset(
@@ -41,7 +60,9 @@ class CircleStroke extends Stroke {
       'cx': center.dx,
       'cy': center.dy,
       'r': radius,
-    }..addAll(strokeProperties.toJson());
+      'pe': pressureEnabled,
+      'c': color.value,
+    }..addAll(options.toJson());
   }
 
   @override
@@ -122,7 +143,9 @@ class CircleStroke extends Stroke {
 
   @override
   CircleStroke copy() => CircleStroke(
-        strokeProperties: strokeProperties.copy(),
+        color: color,
+        pressureEnabled: pressureEnabled,
+        options: options.copyWith(),
         pageIndex: pageIndex,
         penType: penType,
         center: center,

@@ -85,7 +85,7 @@ abstract class EditorExporter {
                       );
                     } else if (stroke is RectangleStroke) {
                       shapePaint = true;
-                      final strokeSize = stroke.strokeProperties.size;
+                      final strokeSize = stroke.options.size;
                       pdfGraphics.drawRRect(
                         stroke.rect.left,
                         pageSize.height - stroke.rect.bottom,
@@ -98,9 +98,8 @@ abstract class EditorExporter {
                       // a dot
                       shapePaint = false;
                       final bounds = stroke.path.getBounds();
-                      final radius = max(bounds.size.width,
-                              stroke.strokeProperties.size * 0.5) /
-                          2;
+                      final radius =
+                          max(bounds.size.width, stroke.options.size * 0.5) / 2;
                       pdfGraphics.drawEllipse(
                         bounds.center.dx,
                         pageSize.height - bounds.center.dy,
@@ -115,14 +114,14 @@ abstract class EditorExporter {
                     if (shapePaint) {
                       // stroke
                       pdfGraphics.setStrokeColor(
-                          PdfColor.fromInt(stroke.strokeProperties.color.value)
+                          PdfColor.fromInt(stroke.color.value)
                               .flatten(background: backgroundColor));
-                      pdfGraphics.setLineWidth(stroke.strokeProperties.size);
+                      pdfGraphics.setLineWidth(stroke.options.size);
                       pdfGraphics.strokePath();
                     } else {
                       // fill
                       pdfGraphics.setFillColor(
-                          PdfColor.fromInt(stroke.strokeProperties.color.value)
+                          PdfColor.fromInt(stroke.color.value)
                               .flatten(background: backgroundColor));
                       pdfGraphics.fillPath();
                     }

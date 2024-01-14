@@ -38,7 +38,7 @@ class Select extends Tool {
       int strokeSize = stroke.polygon.length;
 
       colorDistribution.update(
-        stroke.strokeProperties.color,
+        stroke.color,
         (value) => value + strokeSize,
         ifAbsent: () => strokeSize,
       );

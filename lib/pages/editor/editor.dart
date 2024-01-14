@@ -442,7 +442,7 @@ class EditorState extends State<Editor> {
           quill.controller.redo();
         case EditorHistoryItemType.changeColor:
           for (Stroke stroke in item.strokes) {
-            stroke.strokeProperties.color = item.colorChange![stroke]!.previous;
+            stroke.color = item.colorChange![stroke]!.previous;
           }
       }
 
@@ -1422,10 +1422,10 @@ class EditorState extends State<Editor> {
               updateColorBar(color);
 
               if (currentTool is Highlighter) {
-                (currentTool as Highlighter).strokeProperties.color =
+                (currentTool as Highlighter).color =
                     color.withAlpha(Highlighter.alpha);
               } else if (currentTool is Pen) {
-                (currentTool as Pen).strokeProperties.color = color;
+                (currentTool as Pen).color = color;
               } else if (currentTool is Select) {
                 // Changes color of selected strokes
                 final select = currentTool as Select;
@@ -1434,10 +1434,9 @@ class EditorState extends State<Editor> {
 
                   Map<Stroke, ColorChange> colorChange = {};
                   for (Stroke stroke in strokes) {
-                    colorChange[stroke] = ColorChange(
-                        previous: stroke.strokeProperties.color,
-                        current: color);
-                    stroke.strokeProperties.color = color;
+                    colorChange[stroke] =
+                        ColorChange(previous: stroke.color, current: color);
+                    stroke.color = color;
                   }
 
                   history.recordChange(EditorHistoryItem(
@@ -1939,10 +1938,11 @@ class EditorState extends State<Editor> {
     coreInfo.dispose();
 
     // manually save pen properties since the listeners don't fire if a property is changed
-    Prefs.lastFountainPenProperties.notifyListeners();
-    Prefs.lastBallpointPenProperties.notifyListeners();
-    Prefs.lastHighlighterProperties.notifyListeners();
-    Prefs.lastShapePenProperties.notifyListeners();
+    Prefs.lastFountainPenOptions.notifyListeners();
+    Prefs.lastBallpointPenOptions.notifyListeners();
+    Prefs.lastHighlighterOptions.notifyListeners();
+    Prefs.lastPencilOptions.notifyListeners();
+    Prefs.lastShapePenOptions.notifyListeners();
 
     super.dispose();
   }

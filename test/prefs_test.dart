@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -23,15 +23,15 @@ void main() {
         alteredValue: true,
       );
     });
-    test('PlainPref<StrokeProperties>', () async {
-      final defaultValue = StrokeProperties();
-      await testPref<StrokeProperties>(
+    test('PlainPref<StrokeOptions>', () async {
+      final defaultValue = StrokeOptions();
+      await testPref<StrokeOptions>(
         prefBuilder: () =>
-            PlainPref('testPlainPrefStrokeProperties', defaultValue),
+            PlainPref('testPlainPrefStrokeOptions', defaultValue),
         defaultValue: defaultValue,
-        alteredValue: defaultValue.copy()
-          ..size = StrokeProperties.defaultSize / 2,
-        useJson: true,
+        alteredValue: defaultValue.copyWith(
+          size: StrokeOptions.defaultSize / 2,
+        ),
       );
     });
 

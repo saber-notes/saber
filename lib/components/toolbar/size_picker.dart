@@ -42,13 +42,13 @@ class _SizePickerState extends State<SizePicker> {
   void updateValue({double? newValue, bool manuallyTypedIn = false}) {
     if (newValue != null) {
       setState(() {
-        widget.pen.strokeProperties.size = newValue
+        widget.pen.options.size = newValue
             .clamp(widget.pen.sizeMin, widget.pen.sizeMax)
             .roundToDouble();
       });
     }
 
-    String valueString = widget.pen.strokeProperties.size.round().toString();
+    String valueString = widget.pen.options.size.round().toString();
     updateTextFieldTimer?.cancel();
     if (manuallyTypedIn) {
       updateTextFieldTimer = Timer(const Duration(milliseconds: 3000), () {
@@ -95,7 +95,7 @@ class _SizePickerState extends State<SizePicker> {
         onTap: hintUserToDragSizePicker,
         onPanStart: (DragStartDetails details) {
           startingOffset = details.globalPosition;
-          startingValue = widget.pen.strokeProperties.size;
+          startingValue = widget.pen.options.size;
         },
         onPanUpdate: (DragUpdateDetails details) {
           onDrag(details.globalPosition);
@@ -122,12 +122,8 @@ class _SizePickerState extends State<SizePicker> {
                 child: Center(
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 100),
-                    width: widget.pen.strokeProperties.size /
-                        widget.pen.sizeMax *
-                        25,
-                    height: widget.pen.strokeProperties.size /
-                        widget.pen.sizeMax *
-                        25,
+                    width: widget.pen.options.size / widget.pen.sizeMax * 25,
+                    height: widget.pen.options.size / widget.pen.sizeMax * 25,
                     decoration: BoxDecoration(
                       color: colorScheme.onBackground,
                       shape: BoxShape.circle,

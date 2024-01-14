@@ -13,10 +13,11 @@ class Highlighter extends Pen {
           sizeMax: 100,
           sizeStep: 10,
           icon: highlighterIcon,
+          options: Prefs.lastHighlighterOptions.value,
+          pressureEnabled: false,
+          color: Colors.yellow.withAlpha(Highlighter.alpha),
           toolId: ToolId.highlighter,
-        ) {
-    strokeProperties = Prefs.lastHighlighterProperties.value;
-  }
+        );
 
   static const int alpha = 100;
 

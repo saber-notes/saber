@@ -13,10 +13,11 @@ class Pencil extends Pen {
           sizeMax: 25,
           sizeStep: 1,
           icon: pencilIcon,
+          options: Prefs.lastPencilOptions.value,
+          pressureEnabled: true,
+          color: Color(Prefs.lastPencilColor.value),
           toolId: ToolId.pencil,
-        ) {
-    strokeProperties = Prefs.lastPencilProperties.value;
-  }
+        );
 
   static Pencil currentPencil = Pencil();
 
