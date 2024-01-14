@@ -216,7 +216,14 @@ class _InnerCanvasState extends State<InnerCanvas> {
       'Neucha',
       dekko.fontFamily,
       'Dekko',
-      'Kalam',
+      // Fallback fonts from https://github.com/system-fonts/modern-font-stacks#handwritten
+      'Segoe Print',
+      'Bradley Hand',
+      'Chilanka',
+      'TSCu_Comic',
+      'Coming Soon',
+      'casual',
+      'cursive',
       'handwriting',
       'sans-serif',
     ].where((String? s) => s != null).cast<String>().toList();
