@@ -179,8 +179,8 @@ class Stroke {
       final prev = points[i - 1];
       final next = points[i + 1];
 
-      if (sqrDistBetweenPoints(prev, point) < minDistance * minDistance &&
-          sqrDistBetweenPoints(point, next) < minDistance * minDistance) {
+      if (prev.distanceSquaredTo(point) < minDistance * minDistance &&
+          point.distanceSquaredTo(next) < minDistance * minDistance) {
         points.removeAt(i);
         i--;
       }
@@ -229,10 +229,6 @@ class Stroke {
 
   double get maxY {
     return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
-  }
-
-  static num sqrDistBetweenPoints(PointVector p1, PointVector p2) {
-    return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2);
   }
 
   RecognizedUnistroke? detectShape() {
