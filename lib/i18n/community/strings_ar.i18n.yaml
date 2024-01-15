@@ -41,6 +41,11 @@ home:
     multipleRenamedTo(OUTDATED): "وستعاد تسمية الملاحظات التالية:"
     numberRenamedTo(OUTDATED): ستتم إعادة تسمية الملاحظات $n لتجنب التعارضات
     moveName(OUTDATED): نقل $f
+  deleteNote:
+    deleteNote(OUTDATED): تحذف الملاحظة
+    deleteNotes(OUTDATED): حذف $n الملاحظات
+    deleteAllowed(OUTDATED): حذف جميع الملاحظات المحددة (لا يمكن استعادتها)
+    delete(OUTDATED): تحذف
   renameFolder:
     folderName(OUTDATED): إسم الملف
     folderNameExists(OUTDATED): يوجد مجلد بهذا الاسم بالفعل
@@ -54,7 +59,6 @@ home:
     alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
     delete(OUTDATED): يمسح
   backFolder(OUTDATED): ارجع إلى المجلد السابق
-  deleteNote(OUTDATED): حذف الملاحظة
   invalidFormat(OUTDATED): "الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf."
 settings:
   prefCategories:
@@ -136,9 +140,9 @@ login:
     enterEncPassword: الرجاء إدخال كلمة مرور التشفير الخاصة بك.
     checkUrl: أدخل رابط URL صالح من فضلك.
     ncLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.
-    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
     encLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.
     loginSuccess: "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
+    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
   form:
     useCustomServer: أريد استخدام خادم Nextcloud مخصص
     customServerUrl: عنوان URL مخصص للخادم

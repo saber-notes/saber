@@ -43,7 +43,12 @@ home:
     renamedTo: Not $newName olarak yeniden adlandırılacak
     multipleRenamedTo: "Bu notlar yeniden adlandırılacak:"
     numberRenamedTo: $n tane not çakışma olmaması için yeniden adlandırılacak
-  deleteNote: Notu sil
+  deleteNote:
+    deleteName(OUTDATED): $f'yi sil
+    deleteNote(OUTDATED): Notu sil
+    deleteNotes(OUTDATED): $n notu sil
+    deleteAllowed(OUTDATED): Seçilen tüm notları sil (geri yüklenemezler)
+    delete(OUTDATED): Silmek
   renameFolder:
     renameFolder: Klasörü adlandır
     folderName: Klasör ismi
@@ -136,9 +141,9 @@ login:
     enterEncPassword: Lütfen şifreleme parolanızı girin.
     checkUrl: Lütfen geçerli bir URL girin.
     ncLoginFailed: "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin."
-    ncUnsupportedFailure(OUTDATED): Belirtilen sunucu Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s ila $t'yi destekliyor.
     encLoginFailed: "Giriş başarısız, şifreleme parolanızı kontrol ediniz."
     loginSuccess: "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
+    ncUnsupportedFailure(OUTDATED): Belirtilen sunucu Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s ila $t'yi destekliyor.
   form:
     useCustomServer: Farklı bir Nextcloud sunucusu kullanmak istiyorum
     customServerUrl: Farklı bir sunucu URL'i

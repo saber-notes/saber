@@ -41,6 +41,12 @@ home:
     moveNotes(OUTDATED): $nのノートを移動する
     multipleRenamedTo(OUTDATED): 次のメモの名前が変更されます。
     numberRenamedTo(OUTDATED): $n のノートは、競合を避けるために名前を変更されます
+  deleteNote:
+    deleteNote(OUTDATED): メモを削除
+    deleteNotes(OUTDATED): $n 個のメモを削除
+    deleteName(OUTDATED): 削除 $f
+    deleteAllowed(OUTDATED): 選択したメモをすべて削除します（復元できません）
+    delete(OUTDATED): 削除
   renameFolder:
     folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
     renameFolder(OUTDATED): フォルダーの名前を変更する
@@ -54,7 +60,6 @@ home:
     delete(OUTDATED): 消去
     alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
   backFolder(OUTDATED): 前のフォルダーに戻ります
-  deleteNote(OUTDATED): メモの削除
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
 settings:
   prefCategories:
@@ -136,9 +141,9 @@ login:
     enterEncPassword: 暗号化パスワードを入力してください。
     checkUrl: 有効なURLを入力してください。
     ncLoginFailed: ログインに失敗しました。詳細とネットワーク接続を確認してください。
-    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
     encLoginFailed: ログインに失敗しました。暗号化パスワードを確認してください。
     loginSuccess: ログインに成功しました！セットアップ中です。しばらくお待ちください...
+    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
   form:
     useCustomServer: カスタムNextcloudサーバーを使いたい
     customServerUrl: カスタムサーバーURL

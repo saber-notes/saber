@@ -41,6 +41,12 @@ home:
     moveName(OUTDATED): Mozgassa $f
     move(OUTDATED): Mozog
     renamedTo(OUTDATED): "A jegyzet a következőre lesz átnevezve: $newName"
+  deleteNote:
+    deleteNote(OUTDATED): Megjegyzés törlése
+    deleteNotes(OUTDATED): $n jegyzet törlése
+    deleteName(OUTDATED): Törlés $f
+    deleteAllowed(OUTDATED): Az összes kijelölt jegyzet törlése (nem állíthatók vissza)
+    delete(OUTDATED): Törlés
   renameFolder:
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     renameFolder(OUTDATED): Mappa átnevezése
@@ -54,7 +60,6 @@ home:
     deleteFolder(OUTDATED): Mappa törlése
     deleteName(OUTDATED): $f törlése
   backFolder(OUTDATED): Menjen vissza az előző mappába
-  deleteNote(OUTDATED): Jegyzet törlése
   invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt."
 settings:
   prefCategories:
@@ -136,9 +141,9 @@ login:
     enterEncPassword: "Kérem, adja meg a titkosítási jelszavát"
     checkUrl: Kérem adjon meg egy érvényes URL-címet
     ncLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát"
-    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s és $t között támogatja."
     encLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát"
     loginSuccess: "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
+    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s és $t között támogatja."
   form:
     useCustomServer: Egyéni Nextcloud-kiszolgálót szeretnék használni
     customServerUrl: Egyéni kiszolgáló URL-címe

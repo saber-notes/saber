@@ -3,6 +3,9 @@
   - "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
 en:
 ar:
+  home:
+    deleteNote:
+      deleteName(OUTDATED): تحذف حرف (و)
 cs:
 de:
 es:

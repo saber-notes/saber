@@ -43,7 +43,12 @@ home:
     renamedTo: Poznámka bude přejmenována na $newName
     multipleRenamedTo: "Následující poznámky budou přejmenovány:"
     numberRenamedTo: $n poznámek bude přejmenováno
-  deleteNote: Odstranit poznámku
+  deleteNote:
+    deleteName(OUTDATED): Smazat $f
+    deleteNote(OUTDATED): Smazat poznámka
+    deleteNotes(OUTDATED): Smazat $n poznámek
+    deleteAllowed(OUTDATED): Smazat všechny vybrané poznámky (není možné obnovit)
+    delete(OUTDATED): Vymazat
   renameFolder:
     renameFolder: Přejmenovat složku
     folderName: Název složky

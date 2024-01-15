@@ -43,7 +43,12 @@ home:
     renamedTo: 笔记将重命名为 $newName
     multipleRenamedTo: 以下笔记将被重命名：
     numberRenamedTo: $n 个笔记将被重命名以避免冲突
-  deleteNote: 删除笔记
+  deleteNote:
+    deleteName(OUTDATED): 删除$f
+    deleteNote(OUTDATED): 删除注释
+    deleteNotes(OUTDATED): 删除$n条笔记
+    deleteAllowed(OUTDATED): 删除所有选定的笔记（无法恢复）
+    delete(OUTDATED): 删除
   renameFolder:
     renameFolder: 重命名文件夹
     folderName: 文件夹名称

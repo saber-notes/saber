@@ -43,7 +43,12 @@ home:
     moveNotes(OUTDATED): Mover $n notas
     multipleRenamedTo(OUTDATED): "As seguintes notas serão renomeadas:"
     numberRenamedTo(OUTDATED): $n notas serão renomeadas para evitar conflitos
-  deleteNote: Apagar nota
+  deleteNote:
+    deleteName(OUTDATED): Excluir $f
+    deleteNote(OUTDATED): Excluir nota
+    deleteNotes(OUTDATED): Excluir $n notas
+    deleteAllowed(OUTDATED): Exclua todas as notas selecionadas (elas não podem ser restauradas)
+    delete(OUTDATED): Excluir
   renameFolder:
     renameFolder: Renomear pasta
     folderName: Nome da pasta
@@ -136,9 +141,9 @@ login:
     enterEncPassword: Por favor digite a sua senha de criptografia.
     checkUrl: Por favor insira uma URL válida.
     ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
-    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
     encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
     loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
+    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
   form:
     useCustomServer: Eu quero usar um servidor Nextcloud personalizado
     customServerUrl: URL do servidor personalizado

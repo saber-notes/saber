@@ -41,6 +41,12 @@ home:
     moveNotes(OUTDATED): $n Notizen verschieben
     multipleRenamedTo(OUTDATED): "Folgende Anmerkungen werden umbenannt:"
     numberRenamedTo(OUTDATED): "$n Notizen werden umbenannt, um Konflikte zu vermeiden"
+  deleteNote:
+    deleteNote(OUTDATED): Löschen der Notiz
+    deleteNotes(OUTDATED): $n Notizen löschen
+    deleteName(OUTDATED): Löschen Sie $f
+    deleteAllowed(OUTDATED): Alle ausgewählten Notizen löschen (sie können nicht wiederhergestellt werden)
+    delete(OUTDATED): Löschen
   renameFolder:
     folderNameEmpty(OUTDATED): Der Ordnername darf nicht leer sein
     renameFolder(OUTDATED): Ordner umbenennen
@@ -54,7 +60,6 @@ home:
     delete(OUTDATED): Löschen
     alsoDeleteContents(OUTDATED): Lösche außerdem alle Notizen in diesem Ordner
   backFolder(OUTDATED): Zurück zum vorherigen Ordner
-  deleteNote(OUTDATED): Notiz löschen
   invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2-, .sba oder .pdf-Datei aus."
 settings:
   prefCategories:
@@ -136,9 +141,9 @@ login:
     enterEncPassword: Bitte gib dein Verschlüsselungspasswort ein.
     checkUrl: Bitte gib eine gültige URL an.
     ncLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung."
-    ncUnsupportedFailure(OUTDATED): "Der angegebene Nextcloud-Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t."
     encLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
     loginSuccess: "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
+    ncUnsupportedFailure(OUTDATED): "Der angegebene Nextcloud-Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t."
   form:
     useCustomServer: Ich möchte einen eigenen Nextcloud-Server verwenden
     customServerUrl: Eigene Server-URL

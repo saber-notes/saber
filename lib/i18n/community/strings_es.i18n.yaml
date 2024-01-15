@@ -43,7 +43,12 @@ home:
     renamedTo: Se renombrará la nota a $newName
     multipleRenamedTo: Renombrar las siguientes notas
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
-  deleteNote: Eliminar nota
+  deleteNote:
+    deleteName(OUTDATED): Suprimir $f
+    deleteNote(OUTDATED): Borrar nota
+    deleteNotes(OUTDATED): Suprimir notas de $n
+    deleteAllowed(OUTDATED): Eliminar todas las notas seleccionadas (no se pueden restaurar)
+    delete(OUTDATED): Suprímase
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
@@ -136,9 +141,9 @@ login:
     enterEncPassword: Por favor introduce tu contraseña de cifrado.
     checkUrl: Por favor introduce una dirección URL válida.
     ncLoginFailed: "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet."
-    ncUnsupportedFailure(OUTDATED): El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo admite Nextcloud $s a $t.
     encLoginFailed: "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
     loginSuccess: "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
+    ncUnsupportedFailure(OUTDATED): El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo admite Nextcloud $s a $t.
   form:
     useCustomServer: Quiero utilizar un servidor de Nextcloud personalizado
     customServerUrl: Dirección URL del servidor personalizada

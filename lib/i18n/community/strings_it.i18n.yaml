@@ -43,7 +43,12 @@ home:
     renamedTo: La nota verrà rinominata in $newName
     multipleRenamedTo: "Le note seguenti verranno rinominate:"
     numberRenamedTo: $n le note verranno rinominate per evitare conflitti
-  deleteNote: Elimina nota
+  deleteNote:
+    deleteName(OUTDATED): Cancella $f
+    deleteNote(OUTDATED): Elimina nota
+    deleteNotes(OUTDATED): Elimina $n note
+    deleteAllowed(OUTDATED): Elimina tutte le note selezionate (non possono essere ripristinate)
+    delete(OUTDATED): Eliminare
   renameFolder:
     renameFolder: Rinomina cartella
     folderName: Nome cartella

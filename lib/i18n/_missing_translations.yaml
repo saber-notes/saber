@@ -17,7 +17,12 @@ ar:
       moveName(OUTDATED): Move $f
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -78,6 +83,13 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
 de:
   home:
     titles:
@@ -93,7 +105,12 @@ de:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -149,6 +166,13 @@ de:
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
   settings:
     prefCategories:
       performance(OUTDATED): Performance
@@ -167,12 +191,26 @@ es:
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
 fa:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
   settings:
     resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 fr:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -188,6 +226,12 @@ he:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
   settings:
     prefCategories:
       performance(OUTDATED): Performance
@@ -249,7 +293,12 @@ hu:
       renamedTo(OUTDATED): Note will be renamed to $newName
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -393,6 +442,13 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
 ja:
   home:
     titles:
@@ -408,7 +464,12 @@ ja:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -469,6 +530,12 @@ pt-BR:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
   settings:
     prefCategories:
       performance(OUTDATED): Performance
@@ -495,9 +562,37 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
 tr:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
 zh-Hans-CN:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete
 zh-Hant-TW:
+  home:
+    deleteNote:
+      deleteNote(OUTDATED): Delete note
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      deleteAllowed(OUTDATED): Delete all selected notes (they cannot be restored)
+      delete(OUTDATED): Delete

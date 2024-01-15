@@ -43,7 +43,12 @@ home:
     renamedTo: Заметка будет переименована в $newName
     multipleRenamedTo: "Следующие заметки будут переименованы:"
     numberRenamedTo: "$n заметок будут переименованы, чтобы избежать конфликтов"
-  deleteNote: Удалить заметку
+  deleteNote:
+    deleteName(OUTDATED): Исключить $f
+    deleteNote(OUTDATED): Удалить заметку
+    deleteNotes(OUTDATED): Удалить $n заметок
+    deleteAllowed(OUTDATED): Удалить все выбранные заметки (их невозможно восстановить)
+    delete(OUTDATED): Удалить
   renameFolder:
     renameFolder: Переименовать папку
     folderName: Имя папки

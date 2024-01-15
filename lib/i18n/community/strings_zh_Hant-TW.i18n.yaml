@@ -43,7 +43,12 @@ home:
     renamedTo: 筆記將重新命名為 $newName
     multipleRenamedTo: 「以下筆記將被重新命名：」"
     numberRenamedTo: $n 份筆記將被重命名以避免衝突
-  deleteNote: 刪除筆記
+  deleteNote:
+    deleteName(OUTDATED): 刪除$f
+    deleteNote(OUTDATED): 刪除註釋
+    deleteNotes(OUTDATED): 刪除$n條筆記
+    deleteAllowed(OUTDATED): 刪除所有選定的筆記（無法恢復）
+    delete(OUTDATED): 刪除
   renameFolder:
     renameFolder: 重新命名資料夾
     folderName: 資料夾名稱

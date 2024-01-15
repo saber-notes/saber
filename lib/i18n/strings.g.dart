@@ -178,7 +178,7 @@ class _StringsHomeEn {
 	late final _StringsHomeNewFolderEn newFolder = _StringsHomeNewFolderEn._(_root);
 	late final _StringsHomeRenameNoteEn renameNote = _StringsHomeRenameNoteEn._(_root);
 	late final _StringsHomeMoveNoteEn moveNote = _StringsHomeMoveNoteEn._(_root);
-	String get deleteNote => 'Delete note';
+	late final _StringsHomeDeleteNoteEn deleteNote = _StringsHomeDeleteNoteEn._(_root);
 	late final _StringsHomeRenameFolderEn renameFolder = _StringsHomeRenameFolderEn._(_root);
 	late final _StringsHomeDeleteFolderEn deleteFolder = _StringsHomeDeleteFolderEn._(_root);
 }
@@ -392,6 +392,20 @@ class _StringsHomeMoveNoteEn {
 	String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
 	String get multipleRenamedTo => 'The following notes will be renamed:';
 	String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
+}
+
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get deleteNote => 'Delete note';
+	String deleteNotes({required Object n}) => 'Delete ${n} notes';
+	String deleteName({required Object f}) => 'Delete ${f}';
+	String get deleteAllowed => 'Delete all selected notes (they cannot be restored)';
+	String get delete => 'Delete';
 }
 
 // Path: home.renameFolder
@@ -954,10 +968,10 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderAr newFolder = _StringsHomeNewFolderAr._(_root);
 	@override late final _StringsHomeRenameNoteAr renameNote = _StringsHomeRenameNoteAr._(_root);
 	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
+	@override late final _StringsHomeDeleteNoteAr deleteNote = _StringsHomeDeleteNoteAr._(_root);
 	@override late final _StringsHomeRenameFolderAr renameFolder = _StringsHomeRenameFolderAr._(_root);
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
 	@override String get backFolder => 'ارجع إلى المجلد السابق';
-	@override String get deleteNote => 'حذف الملاحظة';
 	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf.';
 }
 
@@ -1172,6 +1186,19 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 	@override String moveName({required Object f}) => 'نقل ${f}';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteAr extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteNote => 'تحذف الملاحظة';
+	@override String deleteNotes({required Object n}) => 'حذف ${n} الملاحظات';
+	@override String get deleteAllowed => 'حذف جميع الملاحظات المحددة (لا يمكن استعادتها)';
+	@override String get delete => 'تحذف';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderAr extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1329,9 +1356,9 @@ class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
 	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
 	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
 	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
 	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
 }
 
 // Path: login.form
@@ -1734,7 +1761,7 @@ class _StringsHomeCs extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderCs newFolder = _StringsHomeNewFolderCs._(_root);
 	@override late final _StringsHomeRenameNoteCs renameNote = _StringsHomeRenameNoteCs._(_root);
 	@override late final _StringsHomeMoveNoteCs moveNote = _StringsHomeMoveNoteCs._(_root);
-	@override String get deleteNote => 'Odstranit poznámku';
+	@override late final _StringsHomeDeleteNoteCs deleteNote = _StringsHomeDeleteNoteCs._(_root);
 	@override late final _StringsHomeRenameFolderCs renameFolder = _StringsHomeRenameFolderCs._(_root);
 	@override late final _StringsHomeDeleteFolderCs deleteFolder = _StringsHomeDeleteFolderCs._(_root);
 }
@@ -1948,6 +1975,20 @@ class _StringsHomeMoveNoteCs extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenována na ${newName}';
 	@override String get multipleRenamedTo => 'Následující poznámky budou přejmenovány:';
 	@override String numberRenamedTo({required Object n}) => '${n} poznámek bude přejmenováno';
+}
+
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteCs extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Smazat ${f}';
+	@override String get deleteNote => 'Smazat poznámka';
+	@override String deleteNotes({required Object n}) => 'Smazat ${n} poznámek';
+	@override String get deleteAllowed => 'Smazat všechny vybrané poznámky (není možné obnovit)';
+	@override String get delete => 'Vymazat';
 }
 
 // Path: home.renameFolder
@@ -2510,10 +2551,10 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderDe newFolder = _StringsHomeNewFolderDe._(_root);
 	@override late final _StringsHomeRenameNoteDe renameNote = _StringsHomeRenameNoteDe._(_root);
 	@override late final _StringsHomeMoveNoteDe moveNote = _StringsHomeMoveNoteDe._(_root);
+	@override late final _StringsHomeDeleteNoteDe deleteNote = _StringsHomeDeleteNoteDe._(_root);
 	@override late final _StringsHomeRenameFolderDe renameFolder = _StringsHomeRenameFolderDe._(_root);
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
 	@override String get backFolder => 'Zurück zum vorherigen Ordner';
-	@override String get deleteNote => 'Notiz löschen';
 	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2-, .sba oder .pdf-Datei aus.';
 }
 
@@ -2728,6 +2769,20 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} Notizen werden umbenannt, um Konflikte zu vermeiden';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteDe extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteNote => 'Löschen der Notiz';
+	@override String deleteNotes({required Object n}) => '${n} Notizen löschen';
+	@override String deleteName({required Object f}) => 'Löschen Sie ${f}';
+	@override String get deleteAllowed => 'Alle ausgewählten Notizen löschen (sie können nicht wiederhergestellt werden)';
+	@override String get delete => 'Löschen';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderDe extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderDe._(_StringsDe root) : this._root = root, super._(root);
@@ -2885,9 +2940,9 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 }
 
 // Path: login.form
@@ -3289,7 +3344,7 @@ class _StringsHomeEs extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderEs newFolder = _StringsHomeNewFolderEs._(_root);
 	@override late final _StringsHomeRenameNoteEs renameNote = _StringsHomeRenameNoteEs._(_root);
 	@override late final _StringsHomeMoveNoteEs moveNote = _StringsHomeMoveNoteEs._(_root);
-	@override String get deleteNote => 'Eliminar nota';
+	@override late final _StringsHomeDeleteNoteEs deleteNote = _StringsHomeDeleteNoteEs._(_root);
 	@override late final _StringsHomeRenameFolderEs renameFolder = _StringsHomeRenameFolderEs._(_root);
 	@override late final _StringsHomeDeleteFolderEs deleteFolder = _StringsHomeDeleteFolderEs._(_root);
 }
@@ -3504,6 +3559,20 @@ class _StringsHomeMoveNoteEs extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} notas serán renombradas para evitar conflictos';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteEs extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Suprimir ${f}';
+	@override String get deleteNote => 'Borrar nota';
+	@override String deleteNotes({required Object n}) => 'Suprimir notas de ${n}';
+	@override String get deleteAllowed => 'Eliminar todas las notas seleccionadas (no se pueden restaurar)';
+	@override String get delete => 'Suprímase';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderEs extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderEs._(_StringsEs root) : this._root = root, super._(root);
@@ -3661,9 +3730,9 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
 	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
 }
 
 // Path: login.form
@@ -4066,7 +4135,7 @@ class _StringsHomeFa extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderFa newFolder = _StringsHomeNewFolderFa._(_root);
 	@override late final _StringsHomeRenameNoteFa renameNote = _StringsHomeRenameNoteFa._(_root);
 	@override late final _StringsHomeMoveNoteFa moveNote = _StringsHomeMoveNoteFa._(_root);
-	@override String get deleteNote => 'حذف یادداشت';
+	@override late final _StringsHomeDeleteNoteFa deleteNote = _StringsHomeDeleteNoteFa._(_root);
 	@override late final _StringsHomeRenameFolderFa renameFolder = _StringsHomeRenameFolderFa._(_root);
 	@override late final _StringsHomeDeleteFolderFa deleteFolder = _StringsHomeDeleteFolderFa._(_root);
 }
@@ -4282,6 +4351,20 @@ class _StringsHomeMoveNoteFa extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteFa extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => '${f} را حذف کنید';
+	@override String get deleteNote => 'حذف یادداشت';
+	@override String deleteNotes({required Object n}) => 'حذف اسکناس های ${n}';
+	@override String get deleteAllowed => 'تمام یادداشت های انتخاب شده را حذف کنید (آنها قابل بازیابی نیستند)';
+	@override String get delete => 'حذف';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderFa extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4439,9 +4522,9 @@ class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
 	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
 	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
 	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
 	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
 }
 
 // Path: login.form
@@ -4844,7 +4927,7 @@ class _StringsHomeFr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderFr newFolder = _StringsHomeNewFolderFr._(_root);
 	@override late final _StringsHomeRenameNoteFr renameNote = _StringsHomeRenameNoteFr._(_root);
 	@override late final _StringsHomeMoveNoteFr moveNote = _StringsHomeMoveNoteFr._(_root);
-	@override String get deleteNote => 'Effacer la note';
+	@override late final _StringsHomeDeleteNoteFr deleteNote = _StringsHomeDeleteNoteFr._(_root);
 	@override late final _StringsHomeRenameFolderFr renameFolder = _StringsHomeRenameFolderFr._(_root);
 	@override late final _StringsHomeDeleteFolderFr deleteFolder = _StringsHomeDeleteFolderFr._(_root);
 }
@@ -5060,6 +5143,20 @@ class _StringsHomeMoveNoteFr extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} notes vont être renommées pour résoudre des conflits';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteFr extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Supprimer ${f}';
+	@override String get deleteNote => 'Supprimer la note';
+	@override String deleteNotes({required Object n}) => 'Supprimer ${n} notes';
+	@override String get deleteAllowed => 'Supprimer toutes les notes sélectionnées (elles ne peuvent pas être restaurées)';
+	@override String get delete => 'Supprimer';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderFr extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderFr._(_StringsFr root) : this._root = root, super._(root);
@@ -5217,9 +5314,9 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
 }
 
 // Path: login.form
@@ -5622,7 +5719,7 @@ class _StringsHomeHe extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderHe newFolder = _StringsHomeNewFolderHe._(_root);
 	@override late final _StringsHomeRenameNoteHe renameNote = _StringsHomeRenameNoteHe._(_root);
 	@override late final _StringsHomeMoveNoteHe moveNote = _StringsHomeMoveNoteHe._(_root);
-	@override String get deleteNote => 'מחק פתק';
+	@override late final _StringsHomeDeleteNoteHe deleteNote = _StringsHomeDeleteNoteHe._(_root);
 	@override late final _StringsHomeRenameFolderHe renameFolder = _StringsHomeRenameFolderHe._(_root);
 	@override late final _StringsHomeDeleteFolderHe deleteFolder = _StringsHomeDeleteFolderHe._(_root);
 }
@@ -5838,6 +5935,20 @@ class _StringsHomeMoveNoteHe extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => 'השם של ${n} הערות ישונה כדי למנוע התנגשויות';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteHe extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'מחק ${f}';
+	@override String get deleteNote => 'מחק הערה';
+	@override String deleteNotes({required Object n}) => 'מחק ${n} הערות';
+	@override String get deleteAllowed => 'מחק את כל ההערות שנבחרו (לא ניתן לשחזר אותן)';
+	@override String get delete => 'לִמְחוֹק';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderHe extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderHe._(_StringsHe root) : this._root = root, super._(root);
@@ -5995,9 +6106,9 @@ class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'הזן את סיסמת ההצפנה שלך.';
 	@override String get checkUrl => 'הזן כתובת URL חוקית.';
 	@override String get ncLoginFailed => 'הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
 	@override String get encLoginFailed => 'הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך.';
 	@override String get loginSuccess => 'ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
 }
 
 // Path: login.form
@@ -6398,10 +6509,10 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderHu newFolder = _StringsHomeNewFolderHu._(_root);
 	@override late final _StringsHomeRenameNoteHu renameNote = _StringsHomeRenameNoteHu._(_root);
 	@override late final _StringsHomeMoveNoteHu moveNote = _StringsHomeMoveNoteHu._(_root);
+	@override late final _StringsHomeDeleteNoteHu deleteNote = _StringsHomeDeleteNoteHu._(_root);
 	@override late final _StringsHomeRenameFolderHu renameFolder = _StringsHomeRenameFolderHu._(_root);
 	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
 	@override String get backFolder => 'Menjen vissza az előző mappába';
-	@override String get deleteNote => 'Jegyzet törlése';
 	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
 }
 
@@ -6616,6 +6727,20 @@ class _StringsHomeMoveNoteHu extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'A jegyzet a következőre lesz átnevezve: ${newName}';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteHu extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteNote => 'Megjegyzés törlése';
+	@override String deleteNotes({required Object n}) => '${n} jegyzet törlése';
+	@override String deleteName({required Object f}) => 'Törlés ${f}';
+	@override String get deleteAllowed => 'Az összes kijelölt jegyzet törlése (nem állíthatók vissza)';
+	@override String get delete => 'Törlés';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderHu extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderHu._(_StringsHu root) : this._root = root, super._(root);
@@ -6773,9 +6898,9 @@ class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
 	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
 	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
 	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
 	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
 }
 
 // Path: login.form
@@ -7178,7 +7303,7 @@ class _StringsHomeIt extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderIt newFolder = _StringsHomeNewFolderIt._(_root);
 	@override late final _StringsHomeRenameNoteIt renameNote = _StringsHomeRenameNoteIt._(_root);
 	@override late final _StringsHomeMoveNoteIt moveNote = _StringsHomeMoveNoteIt._(_root);
-	@override String get deleteNote => 'Elimina nota';
+	@override late final _StringsHomeDeleteNoteIt deleteNote = _StringsHomeDeleteNoteIt._(_root);
 	@override late final _StringsHomeRenameFolderIt renameFolder = _StringsHomeRenameFolderIt._(_root);
 	@override late final _StringsHomeDeleteFolderIt deleteFolder = _StringsHomeDeleteFolderIt._(_root);
 }
@@ -7392,6 +7517,20 @@ class _StringsHomeMoveNoteIt extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
 	@override String get multipleRenamedTo => 'Le note seguenti verranno rinominate:';
 	@override String numberRenamedTo({required Object n}) => '${n} le note verranno rinominate per evitare conflitti';
+}
+
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteIt extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Cancella ${f}';
+	@override String get deleteNote => 'Elimina nota';
+	@override String deleteNotes({required Object n}) => 'Elimina ${n} note';
+	@override String get deleteAllowed => 'Elimina tutte le note selezionate (non possono essere ripristinate)';
+	@override String get delete => 'Eliminare';
 }
 
 // Path: home.renameFolder
@@ -7954,10 +8093,10 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderJa newFolder = _StringsHomeNewFolderJa._(_root);
 	@override late final _StringsHomeRenameNoteJa renameNote = _StringsHomeRenameNoteJa._(_root);
 	@override late final _StringsHomeMoveNoteJa moveNote = _StringsHomeMoveNoteJa._(_root);
+	@override late final _StringsHomeDeleteNoteJa deleteNote = _StringsHomeDeleteNoteJa._(_root);
 	@override late final _StringsHomeRenameFolderJa renameFolder = _StringsHomeRenameFolderJa._(_root);
 	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
 	@override String get backFolder => '前のフォルダーに戻ります';
-	@override String get deleteNote => 'メモの削除';
 	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。';
 }
 
@@ -8172,6 +8311,20 @@ class _StringsHomeMoveNoteJa extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} のノートは、競合を避けるために名前を変更されます';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteJa extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteNote => 'メモを削除';
+	@override String deleteNotes({required Object n}) => '${n} 個のメモを削除';
+	@override String deleteName({required Object f}) => '削除 ${f}';
+	@override String get deleteAllowed => '選択したメモをすべて削除します（復元できません）';
+	@override String get delete => '削除';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderJa extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderJa._(_StringsJa root) : this._root = root, super._(root);
@@ -8329,9 +8482,9 @@ class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
 	@override String get checkUrl => '有効なURLを入力してください。';
 	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
 	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
 	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
 }
 
 // Path: login.form
@@ -8734,7 +8887,7 @@ class _StringsHomePtBr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderPtBr newFolder = _StringsHomeNewFolderPtBr._(_root);
 	@override late final _StringsHomeRenameNotePtBr renameNote = _StringsHomeRenameNotePtBr._(_root);
 	@override late final _StringsHomeMoveNotePtBr moveNote = _StringsHomeMoveNotePtBr._(_root);
-	@override String get deleteNote => 'Apagar nota';
+	@override late final _StringsHomeDeleteNotePtBr deleteNote = _StringsHomeDeleteNotePtBr._(_root);
 	@override late final _StringsHomeRenameFolderPtBr renameFolder = _StringsHomeRenameFolderPtBr._(_root);
 	@override late final _StringsHomeDeleteFolderPtBr deleteFolder = _StringsHomeDeleteFolderPtBr._(_root);
 }
@@ -8950,6 +9103,20 @@ class _StringsHomeMoveNotePtBr extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} notas serão renomeadas para evitar conflitos';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNotePtBr extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNotePtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Excluir ${f}';
+	@override String get deleteNote => 'Excluir nota';
+	@override String deleteNotes({required Object n}) => 'Excluir ${n} notas';
+	@override String get deleteAllowed => 'Exclua todas as notas selecionadas (elas não podem ser restauradas)';
+	@override String get delete => 'Excluir';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderPtBr extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -9107,9 +9274,9 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
 	@override String get checkUrl => 'Por favor insira uma URL válida.';
 	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
 	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
 }
 
 // Path: login.form
@@ -9512,7 +9679,7 @@ class _StringsHomeRu extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderRu newFolder = _StringsHomeNewFolderRu._(_root);
 	@override late final _StringsHomeRenameNoteRu renameNote = _StringsHomeRenameNoteRu._(_root);
 	@override late final _StringsHomeMoveNoteRu moveNote = _StringsHomeMoveNoteRu._(_root);
-	@override String get deleteNote => 'Удалить заметку';
+	@override late final _StringsHomeDeleteNoteRu deleteNote = _StringsHomeDeleteNoteRu._(_root);
 	@override late final _StringsHomeRenameFolderRu renameFolder = _StringsHomeRenameFolderRu._(_root);
 	@override late final _StringsHomeDeleteFolderRu deleteFolder = _StringsHomeDeleteFolderRu._(_root);
 }
@@ -9726,6 +9893,20 @@ class _StringsHomeMoveNoteRu extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Заметка будет переименована в ${newName}';
 	@override String get multipleRenamedTo => 'Следующие заметки будут переименованы:';
 	@override String numberRenamedTo({required Object n}) => '${n} заметок будут переименованы, чтобы избежать конфликтов';
+}
+
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteRu extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => 'Исключить ${f}';
+	@override String get deleteNote => 'Удалить заметку';
+	@override String deleteNotes({required Object n}) => 'Удалить ${n} заметок';
+	@override String get deleteAllowed => 'Удалить все выбранные заметки (их невозможно восстановить)';
+	@override String get delete => 'Удалить';
 }
 
 // Path: home.renameFolder
@@ -10290,7 +10471,7 @@ class _StringsHomeTr extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderTr newFolder = _StringsHomeNewFolderTr._(_root);
 	@override late final _StringsHomeRenameNoteTr renameNote = _StringsHomeRenameNoteTr._(_root);
 	@override late final _StringsHomeMoveNoteTr moveNote = _StringsHomeMoveNoteTr._(_root);
-	@override String get deleteNote => 'Notu sil';
+	@override late final _StringsHomeDeleteNoteTr deleteNote = _StringsHomeDeleteNoteTr._(_root);
 	@override late final _StringsHomeRenameFolderTr renameFolder = _StringsHomeRenameFolderTr._(_root);
 	@override late final _StringsHomeDeleteFolderTr deleteFolder = _StringsHomeDeleteFolderTr._(_root);
 }
@@ -10506,6 +10687,20 @@ class _StringsHomeMoveNoteTr extends _StringsHomeMoveNoteEn {
 	@override String numberRenamedTo({required Object n}) => '${n} tane not çakışma olmaması için yeniden adlandırılacak';
 }
 
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteTr extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => '${f}\'yi sil';
+	@override String get deleteNote => 'Notu sil';
+	@override String deleteNotes({required Object n}) => '${n} notu sil';
+	@override String get deleteAllowed => 'Seçilen tüm notları sil (geri yüklenemezler)';
+	@override String get delete => 'Silmek';
+}
+
 // Path: home.renameFolder
 class _StringsHomeRenameFolderTr extends _StringsHomeRenameFolderEn {
 	_StringsHomeRenameFolderTr._(_StringsTr root) : this._root = root, super._(root);
@@ -10663,9 +10858,9 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 }
 
 // Path: login.form
@@ -11068,7 +11263,7 @@ class _StringsHomeZhHansCn extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderZhHansCn newFolder = _StringsHomeNewFolderZhHansCn._(_root);
 	@override late final _StringsHomeRenameNoteZhHansCn renameNote = _StringsHomeRenameNoteZhHansCn._(_root);
 	@override late final _StringsHomeMoveNoteZhHansCn moveNote = _StringsHomeMoveNoteZhHansCn._(_root);
-	@override String get deleteNote => '删除笔记';
+	@override late final _StringsHomeDeleteNoteZhHansCn deleteNote = _StringsHomeDeleteNoteZhHansCn._(_root);
 	@override late final _StringsHomeRenameFolderZhHansCn renameFolder = _StringsHomeRenameFolderZhHansCn._(_root);
 	@override late final _StringsHomeDeleteFolderZhHansCn deleteFolder = _StringsHomeDeleteFolderZhHansCn._(_root);
 }
@@ -11282,6 +11477,20 @@ class _StringsHomeMoveNoteZhHansCn extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => '笔记将重命名为 ${newName}';
 	@override String get multipleRenamedTo => '以下笔记将被重命名：';
 	@override String numberRenamedTo({required Object n}) => '${n} 个笔记将被重命名以避免冲突';
+}
+
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteZhHansCn extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => '删除${f}';
+	@override String get deleteNote => '删除注释';
+	@override String deleteNotes({required Object n}) => '删除${n}条笔记';
+	@override String get deleteAllowed => '删除所有选定的笔记（无法恢复）';
+	@override String get delete => '删除';
 }
 
 // Path: home.renameFolder
@@ -11846,7 +12055,7 @@ class _StringsHomeZhHantTw extends _StringsHomeEn {
 	@override late final _StringsHomeNewFolderZhHantTw newFolder = _StringsHomeNewFolderZhHantTw._(_root);
 	@override late final _StringsHomeRenameNoteZhHantTw renameNote = _StringsHomeRenameNoteZhHantTw._(_root);
 	@override late final _StringsHomeMoveNoteZhHantTw moveNote = _StringsHomeMoveNoteZhHantTw._(_root);
-	@override String get deleteNote => '刪除筆記';
+	@override late final _StringsHomeDeleteNoteZhHantTw deleteNote = _StringsHomeDeleteNoteZhHantTw._(_root);
 	@override late final _StringsHomeRenameFolderZhHantTw renameFolder = _StringsHomeRenameFolderZhHantTw._(_root);
 	@override late final _StringsHomeDeleteFolderZhHantTw deleteFolder = _StringsHomeDeleteFolderZhHantTw._(_root);
 }
@@ -12060,6 +12269,20 @@ class _StringsHomeMoveNoteZhHantTw extends _StringsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 	@override String get multipleRenamedTo => '「以下筆記將被重新命名：」"';
 	@override String numberRenamedTo({required Object n}) => '${n} 份筆記將被重命名以避免衝突';
+}
+
+// Path: home.deleteNote
+class _StringsHomeDeleteNoteZhHantTw extends _StringsHomeDeleteNoteEn {
+	_StringsHomeDeleteNoteZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteName({required Object f}) => '刪除${f}';
+	@override String get deleteNote => '刪除註釋';
+	@override String deleteNotes({required Object n}) => '刪除${n}條筆記';
+	@override String get deleteAllowed => '刪除所有選定的筆記（無法恢復）';
+	@override String get delete => '刪除';
 }
 
 // Path: home.renameFolder
