@@ -73,7 +73,9 @@ class Pen extends Tool {
     currentStroke = Stroke(
       color: color,
       pressureEnabled: pressureEnabled,
-      options: options.copyWith(),
+      options: options.copyWith(
+        isComplete: false,
+      ),
       pageIndex: pageIndex,
       penType: runtimeType.toString(),
     );
