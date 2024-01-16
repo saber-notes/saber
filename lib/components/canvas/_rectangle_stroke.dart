@@ -89,7 +89,7 @@ class RectangleStroke extends Stroke {
 
   void _updatePolygon() {
     _polygon = _getPolygon();
-    _path = Path()..addPolygon(_polygon, true);
+    _path = Path()..addRect(rect);
     _polygonNeedsUpdating = false;
   }
 

@@ -93,7 +93,7 @@ class CircleStroke extends Stroke {
         .map((radians) => Offset(cos(radians), sin(radians)))
         .map((unitDir) => unitDir * radius + center)
         .toList();
-    _path = Path()..addPolygon(_polygon, true);
+    _path = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
     _polygonNeedsUpdating = false;
   }
 
