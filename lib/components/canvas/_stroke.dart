@@ -46,7 +46,7 @@ class Stroke {
 
   void _updatePolygon() {
     _polygon = _getPolygon();
-    _path = Path()..addPolygon(_polygon, true);
+    _path = _getPath();
     _polygonNeedsUpdating = false;
   }
 
@@ -213,6 +213,29 @@ class Stroke {
     }
 
     return polygon;
+  }
+
+  /// Returns a [Path] that represents the stroke.
+  ///
+  /// If the stroke is not complete,
+  /// the path will just follow the polygon for performance.
+  ///
+  /// If the stroke is complete,
+  /// the path will be a smooth curve between the points.
+  Path _getPath() {
+    if (!options.isComplete) {
+      return Path()..addPolygon(_polygon, true);
+    }
+
+    final path = Path();
+    path.moveTo(_polygon.first.dx, _polygon.first.dy);
+    for (int i = 1; i < _polygon.length - 1; i++) {
+      final p1 = _polygon[i];
+      final p2 = _polygon[i + 1];
+      final mid = (p1 + p2) / 2;
+      path.quadraticBezierTo(p1.dx, p1.dy, mid.dx, mid.dy);
+    }
+    return path..close();
   }
 
   String toSvgPath(Size pageSize) {
