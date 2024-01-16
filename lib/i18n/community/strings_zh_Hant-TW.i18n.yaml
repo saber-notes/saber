@@ -202,6 +202,7 @@ update:
   updateAvailable: 可用更新
   updateAvailableDescription: "新版本的應用程式已推出，有了以下變化:"
   update: 更新
+  downloadNotAvailableYet(OUTDATED): 您的平台尚無法下載。請稍後回來查看。
 editor:
   toolbar:
     toggleColors: 切換顏色 (Ctrl C)

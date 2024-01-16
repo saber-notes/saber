@@ -60,6 +60,8 @@ ar:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -78,6 +80,8 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 de:
   home:
     titles:
@@ -131,6 +135,8 @@ de:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -160,6 +166,8 @@ es:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       fountainPen(OUTDATED): Fountain pen
@@ -172,10 +180,14 @@ fa:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 fr:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 he:
   home:
     tooltips:
@@ -200,6 +212,8 @@ he:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -339,7 +353,8 @@ hu:
           If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
           If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
   update:
-    updateAvailableDescription(OUTDATED): "A new version of the app is available, with these changes:"
+    updateAvailableDescription(OUTDATED): "A new version of the app is available:"
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -393,6 +408,8 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 ja:
   home:
     titles:
@@ -444,6 +461,8 @@ ja:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -481,6 +500,8 @@ pt-BR:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
     pens:
       pencil(OUTDATED): Pencil
@@ -495,9 +516,17 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 tr:
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 zh-Hans-CN:
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 zh-Hant-TW:
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.

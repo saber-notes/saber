@@ -136,9 +136,9 @@ login:
     enterEncPassword: 暗号化パスワードを入力してください。
     checkUrl: 有効なURLを入力してください。
     ncLoginFailed: ログインに失敗しました。詳細とネットワーク接続を確認してください。
-    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
     encLoginFailed: ログインに失敗しました。暗号化パスワードを確認してください。
     loginSuccess: ログインに成功しました！セットアップ中です。しばらくお待ちください...
+    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
   form:
     useCustomServer: カスタムNextcloudサーバーを使いたい
     customServerUrl: カスタムサーバーURL
@@ -200,6 +200,7 @@ update:
   updateAvailable: 更新が可能です
   updateAvailableDescription: 新バージョンのアプリがリリースされ、以下の変更があった：
   update: 更新
+  downloadNotAvailableYet(OUTDATED): お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。
 editor:
   toolbar:
     toggleColors: 色の切り替え (Ctrl C)

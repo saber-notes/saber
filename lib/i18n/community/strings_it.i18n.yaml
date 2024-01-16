@@ -203,6 +203,7 @@ update:
   updateAvailable: Aggiornamento disponibile
   updateAvailableDescription: "È disponibile una nuova versione dell'app, con queste modifiche:"
   update: Aggiornamento
+  downloadNotAvailableYet(OUTDATED): Il download non è ancora disponibile per la tua piattaforma. Ricontrolla a breve.
 editor:
   toolbar:
     toggleColors: Attiva/disattiva i colori (Ctrl C)

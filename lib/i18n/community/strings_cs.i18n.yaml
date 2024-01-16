@@ -203,6 +203,7 @@ update:
   updateAvailable: Aktualizace k dispozici
   updateAvailableDescription: "Je k dispozici nová verze aplikace, která zahrnuje tyto změny:"
   update: Aktualizovat
+  downloadNotAvailableYet(OUTDATED): Stahování zatím není pro vaši platformu k dispozici. Vraťte se prosím brzy.
 editor:
   toolbar:
     toggleColors: Změnit barvu (Ctrl C)

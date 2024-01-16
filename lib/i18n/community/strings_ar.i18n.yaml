@@ -136,9 +136,9 @@ login:
     enterEncPassword: الرجاء إدخال كلمة مرور التشفير الخاصة بك.
     checkUrl: أدخل رابط URL صالح من فضلك.
     ncLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.
-    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
     encLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.
     loginSuccess: "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
+    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
   form:
     useCustomServer: أريد استخدام خادم Nextcloud مخصص
     customServerUrl: عنوان URL مخصص للخادم
@@ -203,6 +203,7 @@ update:
   updateAvailable: تحديث متاح
   updateAvailableDescription: "يتوفر إصدار جديد من التطبيق مع هذه التغييرات:"
   update: تحديث
+  downloadNotAvailableYet(OUTDATED): التنزيل غير متاح بعد لنظامك الأساسي. يرجى التحقق مرة أخرى قريبا.
 editor:
   toolbar:
     toggleColors: تبديل الألوان (Ctrl C)

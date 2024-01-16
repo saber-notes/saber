@@ -1054,6 +1054,7 @@ class _StringsUpdateAr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'تحديث متاح';
 	@override String get updateAvailableDescription => 'يتوفر إصدار جديد من التطبيق مع هذه التغييرات:';
 	@override String get update => 'تحديث';
+	@override String get downloadNotAvailableYet => 'التنزيل غير متاح بعد لنظامك الأساسي. يرجى التحقق مرة أخرى قريبا.';
 }
 
 // Path: editor
@@ -1330,9 +1331,9 @@ class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
 	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
 	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
 	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
 	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
 }
 
 // Path: login.form
@@ -1832,6 +1833,7 @@ class _StringsUpdateCs extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Aktualizace k dispozici';
 	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace, která zahrnuje tyto změny:';
 	@override String get update => 'Aktualizovat';
+	@override String get downloadNotAvailableYet => 'Stahování zatím není pro vaši platformu k dispozici. Vraťte se prosím brzy.';
 }
 
 // Path: editor
@@ -2610,6 +2612,7 @@ class _StringsUpdateDe extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Aktualisierung verfügbar';
 	@override String get updateAvailableDescription => 'Eine neue Version der App ist verfügbar, mit folgenden Änderungen:';
 	@override String get update => 'Aktualisieren';
+	@override String get downloadNotAvailableYet => 'Der Download ist für Ihre Plattform noch nicht verfügbar. Bitte schauen Sie in Kürze noch einmal vorbei.';
 }
 
 // Path: editor
@@ -2886,9 +2889,9 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 }
 
 // Path: login.form
@@ -3386,6 +3389,7 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Actualización disponible';
 	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible. Novedades en esta versión:';
 	@override String get update => 'Actualizar';
+	@override String get downloadNotAvailableYet => 'La descarga aún no está disponible para su plataforma. Vuelve a consultar en breve.';
 }
 
 // Path: editor
@@ -3662,9 +3666,9 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
 	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
 }
 
 // Path: login.form
@@ -4164,6 +4168,7 @@ class _StringsUpdateFa extends _StringsUpdateEn {
 	@override String get updateAvailable => 'به‌روزرسانی‌ در دسترس است';
 	@override String get updateAvailableDescription => 'نسخه جدیدی از برنامه با این تغییرات در دسترس است:';
 	@override String get update => 'بروزرسانی';
+	@override String get downloadNotAvailableYet => 'دانلود هنوز برای پلتفرم شما در دسترس نیست. لطفا به زودی دوباره بررسی کنید.';
 }
 
 // Path: editor
@@ -4440,9 +4445,9 @@ class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
 	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
 	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
 	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
 	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
 }
 
 // Path: login.form
@@ -4942,6 +4947,7 @@ class _StringsUpdateFr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Mise à jour disponible';
 	@override String get updateAvailableDescription => 'Une nouvelle version de cette application est disponible, avec les changements suivants :';
 	@override String get update => 'Mettre à jour';
+	@override String get downloadNotAvailableYet => 'Le téléchargement n\'est pas encore disponible pour votre plateforme. Veuillez revenir sous peu.';
 }
 
 // Path: editor
@@ -5218,9 +5224,9 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
 }
 
 // Path: login.form
@@ -5720,6 +5726,7 @@ class _StringsUpdateHe extends _StringsUpdateEn {
 	@override String get updateAvailable => 'עדכון זמין';
 	@override String get updateAvailableDescription => 'גרסה חדשה של היישום זמינה עם שינויים אלה:';
 	@override String get update => 'עדכן';
+	@override String get downloadNotAvailableYet => 'ההורדה עדיין לא זמינה עבור הפלטפורמה שלך. אנא בדוק שוב בקרוב.';
 }
 
 // Path: editor
@@ -5996,9 +6003,9 @@ class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'הזן את סיסמת ההצפנה שלך.';
 	@override String get checkUrl => 'הזן כתובת URL חוקית.';
 	@override String get ncLoginFailed => 'הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
 	@override String get encLoginFailed => 'הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך.';
 	@override String get loginSuccess => 'ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
 }
 
 // Path: login.form
@@ -6497,6 +6504,7 @@ class _StringsUpdateHu extends _StringsUpdateEn {
 	// Translations
 	@override String get updateAvailable => 'Frissítés elérhető';
 	@override String get update => 'Frissítés';
+	@override String get downloadNotAvailableYet => 'A letöltés még nem érhető el az Ön platformjára. Kérjük, nézzen vissza rövidesen.';
 	@override String get updateAvailableDescription => 'Elérhető az alkalmazás új verziója a következő változtatásokkal:';
 }
 
@@ -6774,9 +6782,9 @@ class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
 	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
 	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
 	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
 	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
 }
 
 // Path: login.form
@@ -7276,6 +7284,7 @@ class _StringsUpdateIt extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Aggiornamento disponibile';
 	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app, con queste modifiche:';
 	@override String get update => 'Aggiornamento';
+	@override String get downloadNotAvailableYet => 'Il download non è ancora disponibile per la tua piattaforma. Ricontrolla a breve.';
 }
 
 // Path: editor
@@ -8054,6 +8063,7 @@ class _StringsUpdateJa extends _StringsUpdateEn {
 	@override String get updateAvailable => '更新が可能です';
 	@override String get updateAvailableDescription => '新バージョンのアプリがリリースされ、以下の変更があった：';
 	@override String get update => '更新';
+	@override String get downloadNotAvailableYet => 'お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。';
 }
 
 // Path: editor
@@ -8330,9 +8340,9 @@ class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
 	@override String get checkUrl => '有効なURLを入力してください。';
 	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
 	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
 	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
 }
 
 // Path: login.form
@@ -8832,6 +8842,7 @@ class _StringsUpdatePtBr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Atualização disponível';
 	@override String get updateAvailableDescription => 'Uma nova versão do aplicativo está disponível, com estas mudanças:';
 	@override String get update => 'Atualizar';
+	@override String get downloadNotAvailableYet => 'O download ainda não está disponível para sua plataforma. Verifique novamente em breve.';
 }
 
 // Path: editor
@@ -9108,9 +9119,9 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
 	@override String get checkUrl => 'Por favor insira uma URL válida.';
 	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
 	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
 }
 
 // Path: login.form
@@ -9610,6 +9621,7 @@ class _StringsUpdateRu extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Доступно обновление';
 	@override String get updateAvailableDescription => 'Доступна новая версия приложения со следующими изменениями:';
 	@override String get update => 'Обновить';
+	@override String get downloadNotAvailableYet => 'Загрузка пока недоступна для вашей платформы. Пожалуйста, зайдите позже.';
 }
 
 // Path: editor
@@ -10388,6 +10400,7 @@ class _StringsUpdateTr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Güncelleme var';
 	@override String get updateAvailableDescription => 'Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:';
 	@override String get update => 'Güncelle';
+	@override String get downloadNotAvailableYet => 'İndirme henüz platformunuz için kullanılamıyor. Lütfen kısa süre sonra tekrar kontrol edin.';
 }
 
 // Path: editor
@@ -10664,9 +10677,9 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 }
 
 // Path: login.form
@@ -11166,6 +11179,7 @@ class _StringsUpdateZhHansCn extends _StringsUpdateEn {
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '该应用的新版本可用，具有以下变更：';
 	@override String get update => '更新';
+	@override String get downloadNotAvailableYet => '您的平台尚无法下载。请稍后回来查看。';
 }
 
 // Path: editor
@@ -11944,6 +11958,7 @@ class _StringsUpdateZhHantTw extends _StringsUpdateEn {
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '新版本的應用程式已推出，有了以下變化:';
 	@override String get update => '更新';
+	@override String get downloadNotAvailableYet => '您的平台尚無法下載。請稍後回來查看。';
 }
 
 // Path: editor

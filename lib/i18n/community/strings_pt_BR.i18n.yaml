@@ -136,9 +136,9 @@ login:
     enterEncPassword: Por favor digite a sua senha de criptografia.
     checkUrl: Por favor insira uma URL válida.
     ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
-    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
     encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
     loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
+    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
   form:
     useCustomServer: Eu quero usar um servidor Nextcloud personalizado
     customServerUrl: URL do servidor personalizado
@@ -203,6 +203,7 @@ update:
   updateAvailable: Atualização disponível
   updateAvailableDescription: "Uma nova versão do aplicativo está disponível, com estas mudanças:"
   update: Atualizar
+  downloadNotAvailableYet(OUTDATED): O download ainda não está disponível para sua plataforma. Verifique novamente em breve.
 editor:
   toolbar:
     toggleColors: Paleta de cores (Ctrl C)

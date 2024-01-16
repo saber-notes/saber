@@ -136,9 +136,9 @@ login:
     enterEncPassword: הזן את סיסמת ההצפנה שלך.
     checkUrl: הזן כתובת URL חוקית.
     ncLoginFailed: "הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת."
-    ncUnsupportedFailure(OUTDATED): השרת הנתון מריץ את Nextcloud $v אבל גרסה זו של Saber תומכת רק ב-Nextcloud $s עד $t.
     encLoginFailed: "הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך."
     loginSuccess: "ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים..."
+    ncUnsupportedFailure(OUTDATED): השרת הנתון מריץ את Nextcloud $v אבל גרסה זו של Saber תומכת רק ב-Nextcloud $s עד $t.
   form:
     useCustomServer: אני רוצה להשתמש בשרת Nextcloud מותאם אישית
     customServerUrl: כתובת אתר מותאמת אישית של שרת
@@ -204,6 +204,7 @@ update:
   updateAvailable: עדכון זמין
   updateAvailableDescription: "גרסה חדשה של היישום זמינה עם שינויים אלה:"
   update: עדכן
+  downloadNotAvailableYet(OUTDATED): ההורדה עדיין לא זמינה עבור הפלטפורמה שלך. אנא בדוק שוב בקרוב.
 editor:
   toolbar:
     toggleColors: החלפת מצב צבע (Ctrl C)

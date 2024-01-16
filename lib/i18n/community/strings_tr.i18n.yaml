@@ -136,9 +136,9 @@ login:
     enterEncPassword: Lütfen şifreleme parolanızı girin.
     checkUrl: Lütfen geçerli bir URL girin.
     ncLoginFailed: "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin."
-    ncUnsupportedFailure(OUTDATED): Belirtilen sunucu Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s ila $t'yi destekliyor.
     encLoginFailed: "Giriş başarısız, şifreleme parolanızı kontrol ediniz."
     loginSuccess: "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
+    ncUnsupportedFailure(OUTDATED): Belirtilen sunucu Nextcloud $v'yi çalıştırıyor ancak Saber'nin bu sürümü yalnızca Nextcloud $s ila $t'yi destekliyor.
   form:
     useCustomServer: Farklı bir Nextcloud sunucusu kullanmak istiyorum
     customServerUrl: Farklı bir sunucu URL'i
@@ -204,6 +204,7 @@ update:
   updateAvailable: Güncelleme var
   updateAvailableDescription: "Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:"
   update: Güncelle
+  downloadNotAvailableYet(OUTDATED): İndirme henüz platformunuz için kullanılamıyor. Lütfen kısa süre sonra tekrar kontrol edin.
 editor:
   toolbar:
     toggleColors: Renklere geç (Ctrl C)

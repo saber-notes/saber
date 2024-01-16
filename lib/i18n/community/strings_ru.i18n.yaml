@@ -203,6 +203,7 @@ update:
   updateAvailable: Доступно обновление
   updateAvailableDescription: "Доступна новая версия приложения со следующими изменениями:"
   update: Обновить
+  downloadNotAvailableYet(OUTDATED): "Загрузка пока недоступна для вашей платформы. Пожалуйста, зайдите позже."
 editor:
   toolbar:
     toggleColors: Выбор цвета (Ctrl C)
