@@ -1,0 +1,1 @@
+Les traits aux bords irréguliers ont désormais été lissés, en particulier ceux dessinés avec une souris ou un trackpad.

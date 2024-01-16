@@ -1,0 +1,1 @@
+I tratti che presentavano bordi frastagliati ora sono stati smussati, in particolare quelli disegnati con il mouse o il trackpad.

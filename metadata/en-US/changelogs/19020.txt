@@ -1,0 +1,1 @@
+Strokes that had jagged edges have now been smoothed out, particularly ones drawn with a mouse or trackpad.

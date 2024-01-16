@@ -239,6 +239,11 @@
     </screenshots>
 
     <releases>
+        <release version="0.19.2" type="development" date="2024-01-16">
+            <description>
+                <p>Strokes that had jagged edges have now been smoothed out, particularly ones drawn with a mouse or trackpad.</p>
+            </description>
+        </release>
         <release version="0.19.1" type="development" date="2024-01-09">
             <description>
                 <ul>
