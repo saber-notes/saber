@@ -174,6 +174,9 @@ class Stroke {
 
     final minDistance = options.size * thresholdMultiplier;
 
+    // Remove points with null pressure because they were duplicates
+    points.removeWhere((point) => point.pressure == null);
+
     for (int i = 1; i < points.length - 1; i++) {
       final point = points[i];
       final prev = points[i - 1];
@@ -203,8 +206,6 @@ class Stroke {
     if (rememberSimulatedPressure) {
       // Ensure we don't simulate pressure again
       options.simulatePressure = false;
-      // Remove points with null pressure because they were duplicates
-      points.removeWhere((point) => point.pressure == null);
       // Remove points that are too close together
       optimisePoints();
       // Get polygon again with slightly different input
