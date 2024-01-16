@@ -48,6 +48,9 @@ abstract class UpdateManager {
     }
 
     String? directDownloadLink = await getLatestDownloadUrl();
+    final canNotDownloadYet =
+        _platformFileRegex.containsKey(defaultTargetPlatform) &&
+            directDownloadLink == null;
     bool directDownloadStarted = false;
 
     final currentLocale = LocaleSettings.currentLocale;
@@ -95,6 +98,13 @@ abstract class UpdateManager {
                         : localeNames['en']!,
                   ),
                 ),
+              if (canNotDownloadYet)
+                Text(
+                  t.update.downloadNotAvailableYet,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                ),
             ],
           ),
           actions: [
@@ -104,7 +114,7 @@ abstract class UpdateManager {
                   MaterialLocalizations.of(context).modalBarrierDismissLabel),
             ),
             CupertinoDialogAction(
-              onPressed: directDownloadStarted
+              onPressed: (directDownloadStarted || canNotDownloadYet)
                   ? null
                   : () {
                       if (directDownloadLink != null) {

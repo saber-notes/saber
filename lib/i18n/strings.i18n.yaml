@@ -202,8 +202,9 @@ appInfo:
   privacyPolicyButton: Tap here to view the privacy policy
 update:
   updateAvailable: Update available
-  updateAvailableDescription: "A new version of the app is available, with these changes:"
+  updateAvailableDescription: "A new version of the app is available:"
   update: Update
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: Toggle colors (Ctrl C)

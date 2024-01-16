@@ -273,8 +273,9 @@ class _StringsUpdateEn {
 
 	// Translations
 	String get updateAvailable => 'Update available';
-	String get updateAvailableDescription => 'A new version of the app is available, with these changes:';
+	String get updateAvailableDescription => 'A new version of the app is available:';
 	String get update => 'Update';
+	String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
