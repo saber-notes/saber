@@ -81,7 +81,7 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
   update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+    downloadNotAvailableYet(OUTDATED): Pro vaši platformu zatím není stažení aplikace dostupné. Zkuste to prosím o něco později.
 de:
   home:
     titles:
