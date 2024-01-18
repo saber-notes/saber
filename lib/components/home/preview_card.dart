@@ -197,7 +197,7 @@ class _PreviewCardState extends State<PreviewCard> {
             thumbnail.markAsChanged();
 
             await Future.delayed(transitionDuration);
-            if (!mounted) return;
+            if (!context.mounted) return;
             if (!GoRouterState.of(context)
                 .uri
                 .toString()

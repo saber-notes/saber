@@ -107,8 +107,8 @@ class _RenameFolderDialogState extends State<_RenameFolderDialog> {
             if (!_formKey.currentState!.validate()) return;
             if (_controller.text != widget.folderName) {
               await widget.renameFolder(_controller.text);
-              if (!mounted) return;
             }
+            if (!context.mounted) return;
             Navigator.of(context).pop();
           },
           child: Text(t.home.renameFolder.rename),

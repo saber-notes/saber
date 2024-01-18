@@ -99,7 +99,7 @@ class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
           onPressed: deleteAllowed
               ? () async {
                   await widget.deleteFolder(widget.folderName);
-                  if (mounted) Navigator.of(context).pop();
+                  if (context.mounted) Navigator.of(context).pop();
                 }
               : null,
           isDestructiveAction: true,

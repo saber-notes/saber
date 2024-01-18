@@ -49,7 +49,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
             } else {
               final newFilePath =
                   await FileManager.newFilePath('${widget.path}/');
-              if (!mounted) return;
+              if (!context.mounted) return;
               context.push(RoutePaths.editFilePath(newFilePath));
             }
           },
@@ -77,7 +77,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
                 '${widget.path ?? ''}/',
               );
               if (path == null) return;
-              if (!mounted) return;
+              if (!context.mounted) return;
 
               context.push(RoutePaths.editFilePath(path));
             } else if (filePath.endsWith('.pdf')) {
@@ -90,7 +90,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
                   await FileManager.suffixFilePathToMakeItUnique(
                 '${widget.path ?? ''}/$fileNameWithoutExtension',
               );
-              if (!mounted) return;
+              if (!context.mounted) return;
 
               context.push(RoutePaths.editImportPdf(sbnFilePath, filePath));
             } else {

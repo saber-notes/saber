@@ -123,8 +123,8 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
             if (!_formKey.currentState!.validate()) return;
             if (_controller.text != oldName) {
               await renameNote(_controller.text);
-              if (!mounted) return;
             }
+            if (!context.mounted) return;
             Navigator.of(context).pop();
           },
           child: Text(t.home.renameNote.rename),

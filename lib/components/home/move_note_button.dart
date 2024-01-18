@@ -254,7 +254,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
               );
             }
             widget.unselectNotes();
-            if (!mounted) return;
+            if (!context.mounted) return;
             Navigator.of(context).pop();
           },
           child: Text(t.home.moveNote.move),

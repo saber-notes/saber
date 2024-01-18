@@ -270,7 +270,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   onPressed: () async {
                     int photosPicked = await widget.pickPhotos();
                     if (photosPicked > 0) {
-                      if (!mounted) return;
+                      if (!context.mounted) return;
                       Navigator.pop(context);
                     }
                   },
@@ -281,7 +281,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     onPressed: () async {
                       bool pdfImported = await widget.importPdf();
                       if (pdfImported) {
-                        if (!mounted) return;
+                        if (!context.mounted) return;
                         Navigator.pop(context);
                       }
                     },

@@ -91,7 +91,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
               }
           }
           FileManager.exportFile(imageFileName, bytes, isImage: true);
-          if (!mounted) return;
+          if (!context.mounted) return;
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.download,

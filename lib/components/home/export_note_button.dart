@@ -32,7 +32,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
     final files = <ArchiveFile>[];
     for (String filePath in selectedFiles) {
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
-      if (!context.mounted) break;
+      if (!mounted) break;
 
       final fileNameWithoutExtension =
           coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);

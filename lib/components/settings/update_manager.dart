@@ -70,7 +70,6 @@ abstract class UpdateManager {
     }
     bool showTranslatedChangelog = translatedChangelog != null;
 
-    // ignore: use_build_context_synchronously
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
     return await showDialog(
