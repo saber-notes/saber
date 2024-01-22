@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:js';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -319,12 +320,12 @@ class EditorState extends State<Editor> {
       late final topOfLastPage = -CanvasGestureDetector.getTopOfPage(
         pageIndex: coreInfo.pages.length - 1,
         pages: coreInfo.pages,
-        screenWidth: MediaQuery.of(context).size.width,
+        screenWidth: MediaQuery.sizeOf(context).width,
       );
       final bottomOfLastPage = -CanvasGestureDetector.getTopOfPage(
         pageIndex: coreInfo.pages.length,
         pages: coreInfo.pages,
-        screenWidth: MediaQuery.of(context).size.width,
+        screenWidth: MediaQuery.sizeOf(context).width,
       );
 
       if (scrollY < bottomOfLastPage) {
@@ -1578,7 +1579,7 @@ class EditorState extends State<Editor> {
                       CanvasGestureDetector.scrollToPage(
                         pageIndex: currentPageIndex + 1,
                         pages: coreInfo.pages,
-                        screenWidth: MediaQuery.of(context).size.width,
+                        screenWidth: MediaQuery.sizeOf(context).width,
                         transformationController: _transformationController,
                       );
                     }),
@@ -1887,7 +1888,7 @@ class EditorState extends State<Editor> {
   int get currentPageIndex {
     if (!mounted) return _lastCurrentPageIndex;
 
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
 
     return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
       scrollY: -scrollY,

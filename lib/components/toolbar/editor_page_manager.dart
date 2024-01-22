@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -40,7 +42,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
   void scrollToPage(int pageIndex) => CanvasGestureDetector.scrollToPage(
         pageIndex: pageIndex,
         pages: widget.coreInfo.pages,
-        screenWidth: MediaQuery.of(context).size.width,
+        screenWidth: MediaQuery.sizeOf(context).width,
         transformationController: widget.transformationController,
       );
 

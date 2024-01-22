@@ -79,7 +79,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   Widget build(BuildContext context) {
     ResponsiveNavbar.isLargeScreen = switch (Prefs.layoutSize.value) {
-      LayoutSize.auto => MediaQuery.of(context).size.width >= 600,
+      LayoutSize.auto => MediaQuery.sizeOf(context).width >= 600,
       LayoutSize.phone => false,
       LayoutSize.tablet => true,
     };

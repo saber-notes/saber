@@ -109,7 +109,7 @@ class _RecentPageState extends State<RecentPage> {
     final platform = Theme.of(context).platform;
     final cupertino =
         platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
-    final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
+    final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
