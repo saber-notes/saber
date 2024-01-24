@@ -214,8 +214,8 @@ All translations are crowd-sourced. Saber has so far been translated into:
 - Brazilian Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
 - Russian ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
 - Turkish ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- Chinese Simplified ([zh_Hans-CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
-- Chinese Traditional ([zh_Hant-TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
+- Chinese Simplified ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
+- Chinese Traditional ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
 
 ### Extending existing languages
 

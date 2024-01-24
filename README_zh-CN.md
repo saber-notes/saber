@@ -205,8 +205,8 @@ Windows 安装器使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 创建�
 - 巴西葡萄牙语 ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
 - 俄语 ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
 - 土耳其语 ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- 简体中文 ([zh_Hans-CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans-CN.i18n.yaml))
-- 繁体中文 ([zh_Hant-TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant-TW.i18n.yaml))
+- 简体中文 ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
+- 繁体中文 ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
 
 ### 扩展现有语言
 
