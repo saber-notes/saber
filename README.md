@@ -217,6 +217,10 @@ All translations are crowd-sourced. Saber has so far been translated into:
 - Chinese Simplified ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
 - Chinese Traditional ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
 
+I'm experimenting with using
+[Weblate](https://hosted.weblate.org/projects/saber-notes/saber/)
+to crowd-source translations. More information coming soon.
+
 ### Extending existing languages
 
 Check [_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml)
