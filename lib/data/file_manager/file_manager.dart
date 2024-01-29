@@ -387,7 +387,7 @@ class FileManager {
 
   static Future<DirectoryChildren?> getChildrenOfDirectory(
       String directory,
-      [bool removeExtension = true]) async {
+      {required bool removeExtension}) async {
     // removeExtension=true is default because it is used all the time
     // it is false only when called from Resync Everything button.
     directory = _sanitisePath(directory);
