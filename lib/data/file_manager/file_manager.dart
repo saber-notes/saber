@@ -387,8 +387,11 @@ class FileManager {
 
   static Future<DirectoryChildren?> getChildrenOfDirectory(
       String directory,
-      {required bool removeExtension}) async {
-    // removeExtension=true is default because it is used all the time
+      {bool removeExtension=true,
+      bool includeAssetFiles = false}) async {
+    // removeExtension=true should be used to  get all notes in directory
+    // includeAssetFiles also provide filenames of assets
+    //    it should not be used together with removeExtension !!!
     // it is false only when called from Resync Everything button.
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
@@ -407,8 +410,12 @@ class FileManager {
         .map((FileSystemEntity entity) {
           String filePath = entity.path.substring(documentsDirectory.length);
 
+          //log.info('Listing file $filePath');
+          if (Editor.isReservedPath(filePath))
+            return null; // filter out reserved files - always
+
           if (removeExtension){
-            // remove extension
+            // remove extension - return only names of notes (not assets)
             if (filePath.endsWith(Editor.extension)) {
               filePath = filePath.substring(
                   0, filePath.length - Editor.extension.length);
@@ -416,9 +423,22 @@ class FileManager {
               filePath = filePath.substring(
                   0, filePath.length - Editor.extensionOldJson.length);
             }
-
-            if (Editor.isReservedPath(filePath))
-              return null; // filter out reserved files
+            else {
+              return null; // filePath is name of some asset
+            }
+          }
+          else {
+            if (includeAssetFiles){
+              // return also names of asset files  *.sbn2.x
+              // return also names of thumbnail files *.sbn2.p
+              // so all files
+            }
+            else {
+              // return only names of notes
+              if (! (filePath.endsWith(Editor.extension) || filePath.endsWith(Editor.extensionOldJson))) {
+                return null; //  filePath is name of note but some asset
+              }
+            }
           }
           return filePath
               .substring(directoryPrefixLength); // remove directory prefix
@@ -431,8 +451,8 @@ class FileManager {
       if (await FileManager.isDirectory(directory + child) &&
           !directories.contains(child)) {
         directories.add(child);
-      } else if (assetFileRegex.hasMatch(child)) {
-        // if the file is an asset, don't add it to the list of files
+      } else if (assetFileRegex.hasMatch(child) && !includeAssetFiles) {
+        // if the file is an asset, don't add it to the list of files except if requested setting includeAssetFiles
       } else {
         files.add(child);
       }
@@ -441,14 +461,14 @@ class FileManager {
     return DirectoryChildren(directories, files);
   }
 
-  static Future<List<String>> getAllFiles([bool removeExtension = true]) async {
+  static Future<List<String>> getAllFiles([bool removeExtension = true,bool includeAssetFiles = false]) async {
     // removeExtension is false only when called from ResyncEverything button
     final allFiles = <String>[];
     final directories = <String>['/'];
 
     while (directories.isNotEmpty) {
       final directory = directories.removeLast();
-      final children = await getChildrenOfDirectory(directory,removeExtension);
+      final children = await getChildrenOfDirectory(directory,removeExtension: removeExtension,includeAssetFiles: includeAssetFiles);
       if (children == null) continue;
 
       for (final file in children.files) {
