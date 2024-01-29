@@ -145,6 +145,8 @@ dependencies:
 
   meta: ^1.0.0
 
+  mutex: ^3.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

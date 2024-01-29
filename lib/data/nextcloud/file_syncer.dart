@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
+import 'package:mutex/mutex.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -23,8 +24,6 @@ abstract class FileSyncer {
   static CancellableStruct _downloadCancellable = CancellableStruct();
 
   static NextcloudClient? _client;
-
-  static bool _isUploadingFile = false;
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync =>
@@ -156,10 +155,12 @@ abstract class FileSyncer {
     }
   }
 
+  /// Prevents multiple uploads from happening at once
+  static final _uploadMutex = Mutex();
+
   /// Picks the first filePath from [_uploadQueue] and uploads it
   @visibleForTesting
   static Future uploadFileFromQueue() async {
-    if (_isUploadingFile) return;
     await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
 
@@ -167,11 +168,10 @@ abstract class FileSyncer {
     _client ??= NextcloudClientExtension.withSavedDetails();
     if (_client == null) return;
 
-    final String filePathUnencrypted = _uploadQueue.value.removeFirst();
-    _uploadQueue.notifyListeners();
-
-    try {
-      _isUploadingFile = true;
+    await _uploadMutex.protect(() async {
+      if (_uploadQueue.value.isEmpty) return;
+      final String filePathUnencrypted = _uploadQueue.value.removeFirst();
+      _uploadQueue.notifyListeners();
 
       final Encrypter encrypter = await _client!.encrypter;
       final IV iv = IV.fromBase64(Prefs.iv.value);
@@ -187,8 +187,6 @@ abstract class FileSyncer {
         _downloadQueue.add(syncFile);
         return;
       }
-
-      final WebDavClient webdav = _client!.webdav;
 
       final Uint8List localDataEncrypted;
       if (await FileManager.doesFileExist(filePathUnencrypted)) {
@@ -235,21 +233,24 @@ abstract class FileSyncer {
         lastModified = Prefs.fileSyncResyncEverythingDate.value;
       }
 
-      // upload file
-      await webdav.put(
-        localDataEncrypted,
-        PathUri.parse(syncFile.remotePath),
-        lastModified: lastModified,
-      );
-    } on SocketException catch (e) {
-      // network error
-      log.warning('Failed to upload $filePathUnencrypted: network error', e);
-      _uploadQueue.value.add(filePathUnencrypted);
-      await Future.delayed(const Duration(seconds: 2));
-    } finally {
-      _isUploadingFile = false;
-      uploadFileFromQueue();
-    }
+      try {
+        // upload file
+        final webdav = _client!.webdav;
+        await webdav.put(
+          localDataEncrypted,
+          PathUri.parse(syncFile.remotePath),
+          lastModified: lastModified,
+        );
+      } on SocketException catch (e) {
+        // network error
+        log.warning('Failed to upload $filePathUnencrypted: network error', e);
+        _uploadQueue.value.add(filePathUnencrypted);
+        // wait 2 seconds before trying to upload the next file
+        await Future.delayed(const Duration(seconds: 2));
+      }
+    });
+
+    uploadFileFromQueue();
   }
 
   static Future _addToDownloadQueue(WebDavFile file) async {
