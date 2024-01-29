@@ -12,9 +12,11 @@ class RenameNoteButton extends StatelessWidget {
   const RenameNoteButton({
     super.key,
     required this.existingPath,
+    required this.unselectNotes,
   });
 
   final String existingPath;
+  final void Function() unselectNotes;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class RenameNoteButton extends StatelessWidget {
           builder: (BuildContext context) {
             return _RenameNoteDialog(
               existingPath: existingPath,
+              unselectNotes: unselectNotes,
             );
           },
         );
@@ -41,9 +44,11 @@ class _RenameNoteDialog extends StatefulWidget {
     // ignore: unused_element
     super.key,
     required this.existingPath,
+    required this.unselectNotes,
   });
 
   final String existingPath;
+  final void Function() unselectNotes;
 
   @override
   State<_RenameNoteDialog> createState() => _RenameNoteDialogState();
@@ -126,6 +131,7 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
             }
             if (!context.mounted) return;
             Navigator.of(context).pop();
+            widget.unselectNotes();
           },
           child: Text(t.home.renameNote.rename),
         ),

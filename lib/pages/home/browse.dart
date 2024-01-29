@@ -210,6 +210,7 @@ class _BrowsePageState extends State<BrowsePage> {
                     existingPath: selectedFiles.value.isEmpty
                         ? ''
                         : selectedFiles.value.first,
+                    unselectNotes: () => selectedFiles.value = [],
                   )),
               MoveNoteButton(
                 filesToMove: selectedFiles.value,
