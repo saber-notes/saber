@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -266,8 +265,11 @@ abstract class UpdateManager {
 
     final Map<String, dynamic> json = jsonDecode(apiResponse);
     final RegExp platformFileRegex = _platformFileRegex[platform]!;
-    return (json['assets'] as List).firstWhereOrNull((asset) =>
-        platformFileRegex.hasMatch(asset['name']))?['browser_download_url'];
+    final Map<String, dynamic>? asset = (json['assets'] as List).firstWhere(
+      (asset) => platformFileRegex.hasMatch(asset['name']),
+      orElse: () => null,
+    );
+    return asset?['browser_download_url'];
   }
 
   static final Map<TargetPlatform, RegExp> _platformFileRegex = {

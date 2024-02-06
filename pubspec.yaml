@@ -115,8 +115,6 @@ dependencies:
 
   screenshot: ^2.0.0
 
-  collection: ^1.17.0
-
   path_drawing: ^1.0.1
 
   printing: ^5.10.1
