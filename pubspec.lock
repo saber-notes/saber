@@ -1043,12 +1043,11 @@ packages:
   receive_sharing_intent:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "receive-.txt-v2"
-      resolved-ref: a0ed7870fb2012a954908100d6385a2331595df8
-      url: "https://github.com/adil192/receive_sharing_intent.git"
-    source: git
-    version: "1.4.5"
+      name: receive_sharing_intent
+      sha256: "8fdf5927934041264becf65199ef8057b8b176e879d95ffa0420cd2a6219c0fd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.7"
   regexed_validator:
     dependency: "direct main"
     description:
