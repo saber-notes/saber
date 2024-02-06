@@ -19,6 +19,7 @@ version: 0.19.2+19020
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -52,7 +53,7 @@ dependencies:
 
   url_launcher: ^6.1.8
 
-  nextcloud: ^4.0.0
+  nextcloud: ^5.0.0
 
   collapsible: ^1.0.0
 
