@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pdf/pdf.dart';
@@ -11,14 +10,21 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pencil.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
-  static const Color primaryColor = Colors.blue;
-  static const Color secondaryColor = Colors.red;
+  /// The primary color used in exports.
+  /// This is independent to the user's color theme,
+  /// so that the export will look the same when
+  /// exported from different devices.
+  /// See also [secondaryColor].
+  static const primaryColor = Colors.blue;
+
+  /// The secondary color used in exports.
+  /// See also [primaryColor].
+  static const secondaryColor = Colors.red;
 
   /// Most* strokes can be drawn to the PDF canvas as vector graphics.
   /// This function returns true if [stroke] is one of those strokes.
@@ -32,31 +38,37 @@ abstract class EditorExporter {
   }
 
   static Future<pw.Document> generatePdf(
-      EditorCoreInfo coreInfo, BuildContext context) async {
-    coreInfo = coreInfo.copyWith(
-      pages: coreInfo.pages
-          // don't export the empty last page
-          .whereIndexed((index, page) =>
-              index != coreInfo.pages.length - 1 || page.isNotEmpty)
-          .toList(),
+    EditorCoreInfo coreInfo,
+    BuildContext context,
+  ) async {
+    if (coreInfo.pages.isNotEmpty && coreInfo.pages.last.isEmpty) {
+      // don't export the empty last page
+      coreInfo = coreInfo.copyWith(
+        pages: coreInfo.pages.toList()..removeLast(),
+      );
+    }
+
+    final pdf = pw.Document();
+    final screenshotController = ScreenshotController();
+
+    // screenshot each page
+    final pageScreenshots = await Future.wait(
+      List.generate(
+        coreInfo.pages.length,
+        (pageIndex) => screenshotPage(
+          coreInfo: coreInfo,
+          pageIndex: pageIndex,
+          screenshotController: screenshotController,
+          context: context,
+        ),
+      ),
     );
 
-    final pw.Document pdf = pw.Document();
-    ScreenshotController screenshotController = ScreenshotController();
-
-    List<Uint8List> pageScreenshots = await Future.wait(coreInfo.pages
-        // screenshot each page
-        .mapIndexed((index, page) => screenshotPage(
-              coreInfo: coreInfo,
-              pageIndex: index,
-              screenshotController: screenshotController,
-              context: context,
-            )));
-    assert(pageScreenshots.length <= coreInfo.pages.length);
-
     for (int pageIndex = 0; pageIndex < pageScreenshots.length; ++pageIndex) {
-      Size pageSize = coreInfo.pages[pageIndex].size;
-      pdf.addPage(pw.Page(
+      final page = coreInfo.pages[pageIndex];
+      final pageSize = page.size;
+      pdf.addPage(
+        pw.Page(
           pageFormat: PdfPageFormat(pageSize.width, pageSize.height),
           build: (pw.Context context) {
             return pw.SizedBox(
@@ -64,18 +76,21 @@ abstract class EditorExporter {
               height: pageSize.height,
               child: pw.CustomPaint(
                 foregroundPainter: (PdfGraphics pdfGraphics, PdfPoint size) {
-                  final EditorPage page = coreInfo.pages[pageIndex];
-                  final PdfColor backgroundColor = PdfColor.fromInt(
-                          coreInfo.backgroundColor?.value ??
-                              InnerCanvas.defaultBackgroundColor.value)
-                      .flatten();
+                  final backgroundColor = PdfColor.fromInt(
+                    coreInfo.backgroundColor?.value ??
+                        InnerCanvas.defaultBackgroundColor.value,
+                  ).flatten();
 
-                  final Iterable<Stroke> strokes = page.strokes
+                  final strokes = page.strokes
                       .where((stroke) => !_shouldRasterizeStroke(stroke));
-                  for (Stroke stroke in strokes) {
-                    final bool shapePaint;
+                  for (final stroke in strokes) {
+                    final strokeColor = PdfColor.fromInt(stroke.color.value)
+                        .flatten(background: backgroundColor);
+
+                    /// Whether we need to fill the shape, or draw its stroke
+                    final bool shouldFillShape;
                     if (stroke is CircleStroke) {
-                      shapePaint = true;
+                      shouldFillShape = false;
                       pdfGraphics.drawEllipse(
                         stroke.center.dx,
                         pageSize.height - stroke.center.dy,
@@ -84,7 +99,7 @@ abstract class EditorExporter {
                         clockwise: false,
                       );
                     } else if (stroke is RectangleStroke) {
-                      shapePaint = true;
+                      shouldFillShape = false;
                       final strokeSize = stroke.options.size;
                       pdfGraphics.drawRRect(
                         stroke.rect.left,
@@ -96,7 +111,7 @@ abstract class EditorExporter {
                       );
                     } else if (stroke.length <= 2) {
                       // a dot
-                      shapePaint = false;
+                      shouldFillShape = true;
                       final bounds = stroke.path.getBounds();
                       final radius =
                           max(bounds.size.width, stroke.options.size * 0.5) / 2;
@@ -107,23 +122,19 @@ abstract class EditorExporter {
                         radius,
                       );
                     } else {
-                      shapePaint = false;
+                      shouldFillShape = true;
                       pdfGraphics.drawShape(stroke.toSvgPath(pageSize));
                     }
 
-                    if (shapePaint) {
+                    if (shouldFillShape) {
+                      // fill
+                      pdfGraphics.setFillColor(strokeColor);
+                      pdfGraphics.fillPath();
+                    } else {
                       // stroke
-                      pdfGraphics.setStrokeColor(
-                          PdfColor.fromInt(stroke.color.value)
-                              .flatten(background: backgroundColor));
+                      pdfGraphics.setStrokeColor(strokeColor);
                       pdfGraphics.setLineWidth(stroke.options.size);
                       pdfGraphics.strokePath();
-                    } else {
-                      // fill
-                      pdfGraphics.setFillColor(
-                          PdfColor.fromInt(stroke.color.value)
-                              .flatten(background: backgroundColor));
-                      pdfGraphics.fillPath();
                     }
                   }
                 },
@@ -134,7 +145,9 @@ abstract class EditorExporter {
                 ),
               ),
             );
-          }));
+          },
+        ),
+      );
     }
 
     return pdf;
@@ -174,9 +187,8 @@ abstract class EditorExporter {
             coreInfo: coreInfo.copyWith(
               pages: coreInfo.pages
                   .map((page) => page.copyWith(
-                        strokes: page.strokes
-                            .where((stroke) => _shouldRasterizeStroke(stroke))
-                            .toList(),
+                        strokes:
+                            page.strokes.where(_shouldRasterizeStroke).toList(),
                       ))
                   .toList(),
             ),
