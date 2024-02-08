@@ -68,33 +68,21 @@ class CircleStroke extends Stroke {
   @override
   bool get isEmpty => radius <= 0;
   @override
-  int get length => 100;
-
-  bool _polygonNeedsUpdating = true;
-  late List<Offset> _polygon = const [];
-  late Path _path = Path();
+  int get length => 25;
 
   /// A list of 25 points that form a circle
   /// with [center] and [radius].
   @override
-  List<Offset> get polygon {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon;
-  }
+  List<Offset> get polygon => super.polygon;
 
   @override
-  Path get path {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _path;
-  }
-
-  void _updatePolygon() {
-    _polygon = List.generate(25, (i) => i / 25 * 2 * pi)
+  void updatePolygon() {
+    lastPolygon = List.generate(25, (i) => i / 25 * 2 * pi)
         .map((radians) => Offset(cos(radians), sin(radians)))
         .map((unitDir) => unitDir * radius + center)
         .toList();
-    _path = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
-    _polygonNeedsUpdating = false;
+    lastPath = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
+    polygonNeedsUpdating = false;
   }
 
   @override
@@ -127,7 +115,7 @@ class CircleStroke extends Stroke {
   @override
   void shift(Offset offset) {
     center += offset;
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   @override

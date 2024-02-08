@@ -66,31 +66,19 @@ class RectangleStroke extends Stroke {
   @override
   bool get isEmpty => rect.isEmpty;
   @override
-  int get length => 4;
-
-  bool _polygonNeedsUpdating = true;
-  late List<Offset> _polygon = const [];
-  late Path _path = Path();
+  int get length => 100;
 
   /// A list of points that form the
   /// rectangle's perimeter.
   /// Each side has 25 points.
   @override
-  List<Offset> get polygon {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon;
-  }
+  List<Offset> get polygon => super.polygon;
 
   @override
-  Path get path {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _path;
-  }
-
-  void _updatePolygon() {
-    _polygon = _getPolygon();
-    _path = Path()..addRect(rect);
-    _polygonNeedsUpdating = false;
+  void updatePolygon() {
+    lastPolygon = _getPolygon();
+    lastPath = Path()..addRect(rect);
+    polygonNeedsUpdating = false;
   }
 
   List<Offset> _getPolygon() {
@@ -148,7 +136,7 @@ class RectangleStroke extends Stroke {
   @override
   void shift(Offset offset) {
     rect = rect.shift(offset);
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   @override

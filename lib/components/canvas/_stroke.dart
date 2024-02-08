@@ -31,23 +31,28 @@ class Stroke {
   bool pressureEnabled;
   final StrokeOptions options;
 
-  bool _polygonNeedsUpdating = true;
-  late List<Offset> _polygon = const [];
-  late Path _path = Path();
+  @protected
+  bool polygonNeedsUpdating = true;
+  @protected
+  late List<Offset> lastPolygon = const [];
+  @protected
+  late Path lastPath = Path();
+
   List<Offset> get polygon {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon;
+    if (polygonNeedsUpdating) updatePolygon();
+    return lastPolygon;
   }
 
   Path get path {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _path;
+    if (polygonNeedsUpdating) updatePolygon();
+    return lastPath;
   }
 
-  void _updatePolygon() {
-    _polygon = _getPolygon();
-    _path = _getPath();
-    _polygonNeedsUpdating = false;
+  @protected
+  void updatePolygon() {
+    lastPolygon = _getPolygon();
+    lastPath = _getPath();
+    polygonNeedsUpdating = false;
   }
 
   void shift(Offset offset) {
@@ -57,11 +62,11 @@ class Stroke {
       points[i] += offset;
     }
 
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   void markPolygonNeedsUpdating() {
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   Stroke({
@@ -144,7 +149,7 @@ class Stroke {
     }
 
     points.add(PointVector(point.dx, point.dy, pressure));
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   void addPoints(List<Offset> points) {
@@ -155,7 +160,7 @@ class Stroke {
 
   void popFirstPoint() {
     points.removeAt(0);
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   /// Points that are closer than this
@@ -224,14 +229,14 @@ class Stroke {
   /// the path will be a smooth curve between the points.
   Path _getPath() {
     if (!options.isComplete) {
-      return Path()..addPolygon(_polygon, true);
+      return Path()..addPolygon(polygon, true);
     }
 
     final path = Path();
-    path.moveTo(_polygon.first.dx, _polygon.first.dy);
-    for (int i = 1; i < _polygon.length - 1; i++) {
-      final p1 = _polygon[i];
-      final p2 = _polygon[i + 1];
+    path.moveTo(polygon.first.dx, polygon.first.dy);
+    for (int i = 1; i < polygon.length - 1; i++) {
+      final p1 = polygon[i];
+      final p2 = polygon[i + 1];
       final mid = (p1 + p2) / 2;
       path.quadraticBezierTo(p1.dx, p1.dy, mid.dx, mid.dy);
     }
