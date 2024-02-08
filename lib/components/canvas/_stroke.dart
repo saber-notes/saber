@@ -54,9 +54,9 @@ class Stroke {
 
   @protected
   void updatePolygon() {
+    polygonNeedsUpdating = false;
     lastPolygon = _getPolygon();
     lastPath = _getPath();
-    polygonNeedsUpdating = false;
   }
 
   void shift(Offset offset) {
