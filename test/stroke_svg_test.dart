@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 
 const _pageSize = Size(100, 100);
 const _penSize = 1.0;
@@ -29,11 +30,12 @@ Stroke _stroke(Offset point) => Stroke(
         size: _penSize,
       ),
       pageIndex: 0,
+      page: const HasSize(_pageSize),
       penType: 'testingPen',
     )..addPoint(point);
 
 void _testStrokeSvg(Stroke stroke) {
-  final svgPath = stroke.toSvgPath(_pageSize);
+  final svgPath = stroke.toSvgPath();
   final svgPoints = svgPath
       .split(RegExp(r'[ML]'))
       .where((e) => e.isNotEmpty)

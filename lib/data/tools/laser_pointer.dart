@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/pen.dart';
@@ -31,12 +32,13 @@ class LaserPointer extends Tool {
   /// Stopwatch used to find the time elapsed since the last point.
   final Stopwatch _stopwatch = Stopwatch();
 
-  void onDragStart(Offset position, int pageIndex) {
+  void onDragStart(Offset position, EditorPage page, int pageIndex) {
     Pen.currentStroke = Stroke(
       color: color,
       pressureEnabled: pressureEnabled,
       options: options.copyWith(),
       pageIndex: pageIndex,
+      page: page,
       penType: runtimeType.toString(),
     );
 

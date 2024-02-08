@@ -13,11 +13,17 @@ import 'package:saber/data/tools/highlighter.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
 
-class EditorPage extends Listenable {
+class HasSize {
+  const HasSize(this.size);
+  final Size size;
+}
+
+class EditorPage extends Listenable implements HasSize {
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
   static const Size defaultSize = Size(defaultWidth, defaultHeight);
 
+  @override
   final Size size;
 
   late final CanvasKey innerCanvasKey = CanvasKey();
@@ -123,10 +129,12 @@ class EditorPage extends Listenable {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
+    final size = Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight);
     return EditorPage(
-      size: Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight),
+      size: size,
       strokes: parseStrokesJson(
         json['s'] as List?,
+        page: HasSize(size),
         onlyFirstPage: false,
         fileVersion: fileVersion,
       ),
@@ -204,19 +212,25 @@ class EditorPage extends Listenable {
 
   static List<Stroke> parseStrokesJson(
     List<dynamic>? strokes, {
+    required HasSize page,
     required bool onlyFirstPage,
     required int fileVersion,
   }) =>
-      strokes
-          ?.map((dynamic stroke) {
+      (strokes ?? [])
+          .map((dynamic stroke) {
             final map = stroke as Map<String, dynamic>;
-            if (onlyFirstPage && map['i'] > 0) return null;
-            return Stroke.fromJson(map, fileVersion);
+            final pageIndex = map['i'] ?? 0;
+            if (onlyFirstPage && pageIndex > 0) return null;
+            return Stroke.fromJson(
+              map,
+              fileVersion: fileVersion,
+              pageIndex: pageIndex,
+              page: page,
+            );
           })
           .where((element) => element != null)
           .cast<Stroke>()
-          .toList() ??
-      [];
+          .toList();
 
   static List<EditorImage> parseImagesJson(
     List<dynamic>? images, {

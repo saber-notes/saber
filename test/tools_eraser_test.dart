@@ -1,8 +1,10 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/eraser.dart';
 
 const String _penType = 'testing pen';
@@ -79,5 +81,6 @@ Stroke _strokeWithPoint(Offset point) => Stroke(
       pressureEnabled: Stroke.defaultPressureEnabled,
       options: _options,
       pageIndex: 0,
+      page: const HasSize(Size(100, 100)),
       penType: _penType,
     )..addPoint(point);

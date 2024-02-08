@@ -123,7 +123,7 @@ abstract class EditorExporter {
                       );
                     } else {
                       shouldFillShape = true;
-                      pdfGraphics.drawShape(stroke.toSvgPath(pageSize));
+                      pdfGraphics.drawShape(stroke.toSvgPath());
                     }
 
                     if (shouldFillShape) {

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,10 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/pencil.dart';
 
 class Stroke {
   static final log = Logger('Stroke');
@@ -22,6 +25,7 @@ class Stroke {
   int get length => points.length;
 
   int pageIndex;
+  HasSize page;
   final String penType;
 
   static const defaultColor = Colors.black;
@@ -74,17 +78,26 @@ class Stroke {
     required this.pressureEnabled,
     required this.options,
     required this.pageIndex,
+    required this.page,
     required this.penType,
   });
 
-  factory Stroke.fromJson(Map<String, dynamic> json, int fileVersion) {
+  factory Stroke.fromJson(
+    Map<String, dynamic> json, {
+    required int fileVersion,
+    required int pageIndex,
+    required HasSize page,
+  }) {
+    assert(json['i'] == pageIndex || json['i'] == null);
     switch (json['shape'] as String?) {
       case null:
         break;
       case 'circle':
-        return CircleStroke.fromJson(json, fileVersion);
+        return CircleStroke.fromJson(json,
+            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
       case 'rect':
-        return RectangleStroke.fromJson(json, fileVersion);
+        return RectangleStroke.fromJson(json,
+            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
       default:
         log.severe('Unknown shape: ${json['shape']}');
     }
@@ -125,7 +138,8 @@ class Stroke {
       color: color,
       pressureEnabled: pressureEnabled,
       options: options,
-      pageIndex: json['i'] ?? 0,
+      pageIndex: pageIndex,
+      page: page,
       penType: json['ty'] ?? (Pen).toString(),
     )..points.addAll(points);
   }
@@ -243,10 +257,10 @@ class Stroke {
     return path..close();
   }
 
-  String toSvgPath(Size pageSize) {
+  String toSvgPath() {
     String toSvgPoint(Offset point) {
       return '${point.dx} '
-          '${pageSize.height - point.dy}';
+          '${page.size.height - point.dy}';
     }
 
     if (polygon.isEmpty) {
@@ -272,6 +286,7 @@ class Stroke {
         pressureEnabled: pressureEnabled,
         options: options.copyWith(),
         pageIndex: pageIndex,
+        page: page,
         penType: penType,
       )..points.addAll(points);
 }

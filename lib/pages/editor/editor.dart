@@ -552,7 +552,7 @@ class EditorState extends State<Editor> {
 
     if (currentTool is Pen) {
       (currentTool as Pen)
-          .onDragStart(position, dragPageIndex!, currentPressure);
+          .onDragStart(position, page, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser)
           .checkForOverlappingStrokes(position, page.strokes)) {
@@ -570,7 +570,7 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
-      (currentTool as LaserPointer).onDragStart(position, dragPageIndex!);
+      (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
     }
 
     previousPosition = position;

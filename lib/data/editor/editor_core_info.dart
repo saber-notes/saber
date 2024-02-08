@@ -184,8 +184,9 @@ class EditorCoreInfo {
         strokesJson: json['s'] as List?,
         imagesJson: json['i'] as List?,
         inlineAssets: inlineAssets,
-        fallbackPageWidth: json['w'] as double?,
-        fallbackPageHeight: json['h'] as double?,
+        fallbackPageSize: json['w'] != null && json['h'] != null
+            ? Size(json['w'] as double, json['h'] as double)
+            : null,
         onlyFirstPage: onlyFirstPage,
       )
       .._sortStrokes();
@@ -268,21 +269,23 @@ class EditorCoreInfo {
     required List<dynamic>? strokesJson,
     required List<dynamic>? imagesJson,
     required List<Uint8List>? inlineAssets,
-    double? fallbackPageWidth,
-    double? fallbackPageHeight,
+    Size? fallbackPageSize,
     required bool onlyFirstPage,
   }) {
     if (strokesJson != null) {
+      final hasSize = HasSize(fallbackPageSize ?? EditorPage.defaultSize);
       final strokes = EditorPage.parseStrokesJson(
         strokesJson,
+        page: hasSize,
         onlyFirstPage: onlyFirstPage,
         fileVersion: fileVersion,
       );
       for (Stroke stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
-          pages.add(
-              EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+          pages.add(EditorPage(
+            size: fallbackPageSize,
+          ));
         }
         pages[stroke.pageIndex].insertStroke(stroke);
       }
@@ -300,8 +303,7 @@ class EditorCoreInfo {
       for (EditorImage image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
         while (image.pageIndex >= pages.length) {
-          pages.add(
-              EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+          pages.add(EditorPage(size: fallbackPageSize));
         }
         pages[image.pageIndex].images.add(image);
       }
@@ -310,8 +312,7 @@ class EditorCoreInfo {
     // add a page if there are no pages,
     // or if the last page is not empty
     if (pages.isEmpty || pages.last.isNotEmpty && !onlyFirstPage) {
-      pages.add(
-          EditorPage(width: fallbackPageWidth, height: fallbackPageHeight));
+      pages.add(EditorPage(size: fallbackPageSize));
     }
 
     // delete points that are too close to each other
