@@ -74,7 +74,7 @@ class _PreviewCardState extends State<PreviewCard> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final disableAnimations = MediaQuery.of(context).disableAnimations;
+    final disableAnimations = MediaQuery.disableAnimationsOf(context);
     final transitionDuration =
         Duration(milliseconds: disableAnimations ? 0 : 300);
     final invert =
