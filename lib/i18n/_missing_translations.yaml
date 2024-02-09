@@ -80,8 +80,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  update:
-    downloadNotAvailableYet(OUTDATED): Pro vaši platformu zatím není stažení aplikace dostupné. Zkuste to prosím o něco později.
 de:
   home:
     titles:

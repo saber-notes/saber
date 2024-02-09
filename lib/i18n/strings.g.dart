@@ -1831,9 +1831,9 @@ class _StringsUpdateCs extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Aktualizace k dispozici';
-	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace, která zahrnuje tyto změny:';
+	@override String get updateAvailableDescription => 'Je k dispozici nová verze aplikace:';
 	@override String get update => 'Aktualizovat';
-	@override String get downloadNotAvailableYet => 'Stahování zatím není pro vaši platformu k dispozici. Vraťte se prosím brzy.';
+	@override String get downloadNotAvailableYet => 'Pro vaši platformu zatím není stažení aplikace dostupné. Zkuste to prosím o něco později.';
 }
 
 // Path: editor
