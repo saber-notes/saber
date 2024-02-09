@@ -137,7 +137,7 @@ flutter pub get
 ### 4. 安裝額外的依賴項
 
 [super_clipboard](https://pub.dev/packages/super_clipboard) 的設定
-套件可以概括為： -安裝 [Rust](https://www.rust-lang.org/tools/install) -如果您正在針對 Android 進行構建，請安裝 NDK 25.2.9519653
+套件可以概括為： -安裝 [Rust](https://www.rust-lang.org/tools/install) -如果您正在針對 Android 進行構建，請安裝 NDK 26.1.10909125
 
 ### 5. 為...構建
 

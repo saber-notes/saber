@@ -132,7 +132,7 @@ flutter pub get
 
 Das Setup für das [super_clipboard](https://pub.dev/packages/super_clipboard)-Paket kann wie folgt zusammengefasst werden:
 - Installiere [Rust](https://www.rust-lang.org/tools/install)
-- Installiere NDK 25.2.9519653 falls du einen Build für Android erstellst
+- Installiere NDK 26.1.10909125 falls du einen Build für Android erstellst
 
 ### 5. Build für...
 

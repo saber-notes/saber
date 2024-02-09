@@ -134,7 +134,7 @@ flutter pub get
 Postup pro balíček [super_clipboard](https://pub.dev/packages/super_clipboard)
 se dá shrnout jako:
 - Instalace [Rustu](https://www.rust-lang.org/tools/install)
-- Instalace NDK 25.2.9519653 pro případ, že sestavujete pro Android
+- Instalace NDK 26.1.10909125 pro případ, že sestavujete pro Android
 
 ### 5. Sestavení pro...
 

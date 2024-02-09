@@ -134,7 +134,7 @@ flutter pub get
 
 设置 [super_clipboard](https://pub.dev/packages/super_clipboard)，可以总结为：
 - 安装 [Rust](https://www.rust-lang.org/tools/install)
-- 如果你要构建 Android，安装 NDK 25.2.9519653
+- 如果你要构建 Android，安装 NDK 26.1.10909125
 
 ### 5. 构建...
 
