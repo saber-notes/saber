@@ -847,8 +847,11 @@ class EditorState extends State<Editor> {
 
     if (!mounted) return;
     final screenshotter = ScreenshotController();
-    final pageSize = coreInfo.pages.first.size;
-    final thumbnailSize = Size(720, 720 * pageSize.height / pageSize.width);
+    final page = coreInfo.pages.first;
+    final previewHeight = page.previewHeight(
+      lineHeight: coreInfo.lineHeight,
+    );
+    final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
     final thumbnail = await screenshotter.captureFromWidget(
       Theme(
         data: ThemeData(
@@ -863,7 +866,13 @@ class EditorState extends State<Editor> {
           child: SizedBox(
             width: thumbnailSize.width,
             height: thumbnailSize.height,
-            child: pagePreviewBuilder(context, 0),
+            child: FittedBox(
+              child: pagePreviewBuilder(
+                context,
+                pageIndex: 0,
+                previewHeight: previewHeight,
+              ),
+            ),
           ),
         ),
       ),
@@ -1728,9 +1737,13 @@ class EditorState extends State<Editor> {
     );
   }
 
-  Widget pagePreviewBuilder(BuildContext context, int pageIndex) {
+  Widget pagePreviewBuilder(
+    BuildContext context, {
+    required int pageIndex,
+    double? previewHeight,
+  }) {
     final page = coreInfo.pages[pageIndex];
-    final previewHeight = page.previewHeight(
+    previewHeight ??= page.previewHeight(
       lineHeight: coreInfo.lineHeight,
     );
     return CanvasPreview(
