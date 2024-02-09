@@ -1,0 +1,3 @@
+• Correction des notes qui n'étaient pas désélectionnées après le changement de nom.
+• Correction du bouton « Tout resynchroniser » provoquant plusieurs téléchargements à la fois.
+• Le programme de mise à jour intégré à l'application n'affichera plus le bouton de téléchargement si le téléchargement n'est pas encore disponible. Cela s'applique uniquement au programme de mise à jour intégré à l'application, et à aucune autre méthode de mise à jour comme une boutique d'applications.

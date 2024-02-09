@@ -1,0 +1,3 @@
+• Se corrigió que las notas no se deseleccionaran después de cambiarles el nombre.
+• Se corrigió el botón "resincronizar todo" que causaba múltiples cargas a la vez.
+• El actualizador en la aplicación ya no mostrará el botón de descarga si la descarga aún no está disponible. Esto solo se aplica al actualizador en la aplicación y no a ningún otro método de actualización como una tienda de aplicaciones.
