@@ -201,9 +201,9 @@ appInfo:
   privacyPolicyButton: Klepněte sem pro zobrazení zásad ochrany osobních údajů
 update:
   updateAvailable: Aktualizace k dispozici
-  updateAvailableDescription: "Je k dispozici nová verze aplikace, která zahrnuje tyto změny:"
+  updateAvailableDescription: "Je k dispozici nová verze aplikace:"
   update: Aktualizovat
-  downloadNotAvailableYet(OUTDATED): Stahování zatím není pro vaši platformu k dispozici. Vraťte se prosím brzy.
+  downloadNotAvailableYet: Pro vaši platformu zatím není stažení aplikace dostupné. Zkuste to prosím o něco později.
 editor:
   toolbar:
     toggleColors: Změnit barvu (Ctrl C)
