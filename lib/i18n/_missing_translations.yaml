@@ -407,7 +407,7 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+    downloadNotAvailableYet(OUTDATED): Il download non è ancora disponibile per la tua piattaforma. Ti invitiamo a controllare nuovamente a breve.
 ja:
   home:
     titles:
