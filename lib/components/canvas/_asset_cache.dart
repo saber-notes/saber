@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/painting.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:logging/logging.dart';
 
 /// A cache for assets that are loaded from disk.
 ///
@@ -13,12 +15,13 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 /// [EditorCoreInfo] instance.
 class AssetCache {
   AssetCache();
+  static final log = Logger('AssetCache');
 
   /// Maps a file to its value.
-  final Map<File, Object> _cache = {};
+  final Map<String, Object> _cache = {};
 
   /// Maps a file to the visible images that use it.
-  final Map<File, Set<EditorImage>> _images = {};
+  final Map<String, Set<EditorImage>> _images = {};
 
   /// Marks [image] as currently visible.
   ///
@@ -28,13 +31,13 @@ class AssetCache {
   /// in which case this function does nothing.
   void addImage<T extends Object>(EditorImage image, File? file, T value) {
     if (file == null) return;
-    _images.putIfAbsent(file, () => {}).add(image);
-    _cache[file] = value;
+    _images.putIfAbsent(file.path, () => {}).add(image);
+    _cache[file.path] = value;
   }
 
   /// Returns null if [file] is not found.
   T? get<T extends Object>(File file) {
-    return _cache[file] as T?;
+    return _cache[file.path] as T?;
   }
 
   /// Marks [image] as no longer visible.
@@ -64,15 +67,36 @@ class AssetCache {
 
 class OrderedAssetCache {
   OrderedAssetCache();
+  static final log = Logger('OrderedAssetCache');
 
   final List<Object> _cache = [];
+
+  Function eq = const ListEquality().equals;  // compares Lists for equality. Used in add
 
   /// Adds [value] to the cache if it is not already present and
   /// returns the index of the added item.
   int add<T extends Object>(T value) {
-    final index = _cache.indexOf(value);
+    int index = _cache.indexOf(value);
+    log.info('Index in OrederdAssetCache is ${index} of file ${value}');
+    if (index==-1){
+      if (value is List<int>) {
+        // sometimes are lists compared as different but are the same. This is second check
+        for (int i=0;i<_cache.length;i++) {
+          Object x = _cache[i];
+          if (x is List<int>) {
+            // compare lists manually
+            if (eq(value,x)){
+              log.info('Value is the same as cache index ${i}');
+              index=i;
+              break;
+            }
+          }
+        }
+      }
+    }
     if (index == -1) {
       _cache.add(value);
+      log.info('File ${value} was added to OrederdAssetCache as ${_cache.length-1}');
       return _cache.length - 1;
     } else {
       return index;
