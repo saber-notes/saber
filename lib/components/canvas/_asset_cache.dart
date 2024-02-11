@@ -16,12 +16,19 @@ import 'package:logging/logging.dart';
 class AssetCache {
   AssetCache();
   static final log = Logger('AssetCache');
-
   /// Maps a file to its value.
   final Map<String, Object> _cache = {};
 
   /// Maps a file to the visible images that use it.
   final Map<String, Set<EditorImage>> _images = {};
+
+  bool EnabledRemove=true;  // if EnabledRemove then items from cache can be removed. During File save is set to false
+  bool get GetEnabledRemove=>EnabledRemove;
+
+  set SetEnabledRemove(bool EnabledRemoveIn){
+    EnabledRemove=EnabledRemoveIn;
+  }
+
 
   /// Marks [image] as currently visible.
   ///
@@ -49,6 +56,10 @@ class AssetCache {
   ///
   /// Returns whether the image was present in the cache.
   bool removeImage(EditorImage image) {
+    if (!EnabledRemove){
+      // removing from cache is disabled, probably saving to file and cannot manipulate cache
+      return false;
+    }
     for (final file in _images.keys) {
       if (_images[file]!.remove(image)) {
         _images.remove(file);

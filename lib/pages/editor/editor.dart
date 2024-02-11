@@ -827,9 +827,11 @@ class EditorState extends State<Editor> {
     }
 
     final filePath = coreInfo.filePath + Editor.extension;
+    coreInfo.assetCache.SetEnabledRemove=false;  // disable removing from AssetCache during file is saved
     final (bson, assets) = coreInfo.saveToBinary(
       currentPageIndex: currentPageIndex,
     );
+    coreInfo.assetCache.SetEnabledRemove=true;  // enable removing from AssetCache because assets are already set
     try {
       await Future.wait([
         FileManager.writeFile(filePath, bson, awaitWrite: true),
