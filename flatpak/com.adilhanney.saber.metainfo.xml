@@ -242,6 +242,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.19.4" type="development" date="2024-02-12">
+            <description>
+                <ul>
+                    <li>Fixed note previews being cropped weirdly</li>
+                    <li>Fixed exports on iOS</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.19.3" type="development" date="2024-02-09">
             <description>
                 <ul>
