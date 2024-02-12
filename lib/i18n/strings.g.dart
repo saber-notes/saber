@@ -7284,7 +7284,7 @@ class _StringsUpdateIt extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Aggiornamento disponibile';
 	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app, con queste modifiche:';
 	@override String get update => 'Aggiornamento';
-	@override String get downloadNotAvailableYet => 'Il download non è ancora disponibile per la tua piattaforma. Ricontrolla a breve.';
+	@override String get downloadNotAvailableYet => 'Il download non è ancora disponibile per la tua piattaforma. Ti invitiamo a controllare nuovamente a breve.';
 }
 
 // Path: editor
