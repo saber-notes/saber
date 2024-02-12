@@ -1217,19 +1217,23 @@ class EditorState extends State<Editor> {
     await _pickPhotos(photoInfos);
   }
 
-  Future exportAsPdf() async {
+  Future exportAsPdf(BuildContext context) async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
-    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save());
+    if (!context.mounted) return;
+    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save(),
+        context: context);
   }
 
   /// Exports the current note as an SBA (Saber Archive) file.
-  Future exportAsSba() async {
+  Future exportAsSba(BuildContext context) async {
     final sba = await coreInfo.saveToSba(
       currentPageIndex: currentPageIndex,
     );
+    if (!context.mounted) return;
     await FileManager.exportFile(
       '${coreInfo.fileName}.sba',
       sba,
+      context: context,
     );
   }
 

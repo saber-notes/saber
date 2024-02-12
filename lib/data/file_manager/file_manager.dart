@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:archive/archive_io.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:logging/logging.dart';
@@ -166,8 +167,12 @@ class FileManager {
     await dir.create(recursive: true);
   }
 
-  static Future exportFile(String fileName, List<int> bytes,
-      {bool isImage = false}) async {
+  static Future exportFile(
+    String fileName,
+    List<int> bytes, {
+    bool isImage = false,
+    required BuildContext context,
+  }) async {
     File? tempFile;
     Future<File> getTempFile() async {
       final String tempFolder = (await getTemporaryDirectory()).path;
@@ -187,7 +192,17 @@ class FileManager {
       } else {
         // share file
         tempFile = await getTempFile();
-        await Share.shareXFiles([XFile(tempFile.path)]);
+        if (Platform.isIOS) {
+          if (!context.mounted) return;
+          final box = context.findRenderObject() as RenderBox;
+          await Share.shareXFiles(
+            [XFile(tempFile.path)],
+            // iOS requires a sharePositionOrigin for the share sheet to appear
+            sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
+          );
+        } else {
+          await Share.shareXFiles([XFile(tempFile.path)]);
+        }
       }
     } else {
       // desktop, open save-as dialog

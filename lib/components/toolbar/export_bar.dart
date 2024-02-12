@@ -17,9 +17,9 @@ class ExportBar extends StatefulWidget {
 
   final VoidCallback toggleExportBar;
 
-  final Future Function()? exportAsSba;
-  final Future Function()? exportAsPdf;
-  final Future Function()? exportAsPng;
+  final Future Function(BuildContext)? exportAsSba;
+  final Future Function(BuildContext)? exportAsPdf;
+  final Future Function(BuildContext)? exportAsPng;
 
   @override
   State<ExportBar> createState() => _ExportBarState();
@@ -28,21 +28,27 @@ class ExportBar extends StatefulWidget {
 class _ExportBarState extends State<ExportBar> {
   /// The current export function being executed.
   /// If this is null, no export is being executed.
-  Future Function()? _currentlyExporting;
+  Future Function(BuildContext)? _currentlyExporting;
 
-  void Function()? _onPressed(Future Function()? exportFunction) {
+  void Function()? _onPressed(
+    Future Function(BuildContext)? exportFunction,
+    BuildContext context,
+  ) {
     if (_currentlyExporting != null) return null;
     if (exportFunction == null) return null;
     return () {
       setState(() => _currentlyExporting = exportFunction);
-      exportFunction().then((_) {
+      exportFunction(context).then((_) {
         widget.toggleExportBar();
         setState(() => _currentlyExporting = null);
       });
     };
   }
 
-  Widget _buttonChild(Future Function()? exportFunction, String text) {
+  Widget _buttonChild(
+    Future Function(BuildContext)? exportFunction,
+    String text,
+  ) {
     if (exportFunction == null || _currentlyExporting != exportFunction) {
       return Text(text);
     } else {
@@ -56,19 +62,25 @@ class _ExportBarState extends State<ExportBar> {
     final children = <Widget>[
       Text(t.editor.toolbar.exportAs),
       const SizedBox.square(dimension: 8),
-      TextButton(
-        onPressed: _onPressed(widget.exportAsSba),
-        child: _buttonChild(widget.exportAsSba, 'SBA'),
-      ),
-      TextButton(
-        onPressed: _onPressed(widget.exportAsPdf),
-        child: _buttonChild(widget.exportAsPdf, 'PDF'),
-      ),
+      Builder(builder: (context) {
+        return TextButton(
+          onPressed: _onPressed(widget.exportAsSba, context),
+          child: _buttonChild(widget.exportAsSba, 'SBA'),
+        );
+      }),
+      Builder(builder: (context) {
+        return TextButton(
+          onPressed: _onPressed(widget.exportAsPdf, context),
+          child: _buttonChild(widget.exportAsPdf, 'PDF'),
+        );
+      }),
       if (kDebugMode)
-        TextButton(
-          onPressed: _onPressed(widget.exportAsPng),
-          child: _buttonChild(widget.exportAsPng, 'PNG'),
-        ),
+        Builder(builder: (context) {
+          return TextButton(
+            onPressed: _onPressed(widget.exportAsPng, context),
+            child: _buttonChild(widget.exportAsPng, 'PNG'),
+          );
+        }),
     ];
 
     return Center(

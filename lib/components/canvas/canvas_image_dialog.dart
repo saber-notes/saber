@@ -90,8 +90,9 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
                     'Unknown image provider type');
               }
           }
-          FileManager.exportFile(imageFileName, bytes, isImage: true);
           if (!context.mounted) return;
+          FileManager.exportFile(imageFileName, bytes,
+              isImage: true, context: context);
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.download,

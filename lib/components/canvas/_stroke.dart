@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui' as ui;
 
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
-import 'package:saber/data/tools/pencil.dart';
 
 class Stroke {
   static final log = Logger('Stroke');
