@@ -78,12 +78,28 @@ void main() {
 
     test('moveFile', () async {
       const filePathBefore = '/test_moveFile_before.sbn2';
+      const filePathBeforeA = '/test_moveFile_before.sbn2.0';
+      const filePathBeforeP = '/test_moveFile_before.sbn2.p';
       const filePathAfter = '/test_moveFile_after.sbn2';
+      const filePathAfterA = '/test_moveFile_after.sbn2.0';
+      const filePathAfterP = '/test_moveFile_after.sbn2.p';
       const content = 'test content for $filePathBefore';
+      const contentA = 'test content for $filePathBefore.0';
+      const contentP = 'test content for $filePathBefore.p';
 
       // write file
       await FileManager.writeFile(filePathBefore, utf8.encode(content),
           awaitWrite: true);
+
+      // write asset file
+      await FileManager.writeFile(filePathBeforeA, utf8.encode(contentA),
+          awaitWrite: true);
+
+      // write asset file
+      await FileManager.writeFile(filePathBeforeP, utf8.encode(contentP),
+          awaitWrite: true);
+
+
       // ensure file does not exist (in case of previous test failure
       await FileManager.deleteFile(filePathAfter);
 
@@ -97,30 +113,70 @@ void main() {
       final fileAfter = File('$rootDir$filePathAfter');
       expect(fileBefore.existsSync(), false);
       expect(fileAfter.existsSync(), true);
-
       // read file
       final readBytes = await FileManager.readFile(filePathAfter);
       final readContent = utf8.decode(readBytes!);
       expect(readContent, content);
+
+      final fileBeforeA = File('$rootDir$filePathBeforeA');
+      final fileAfterA = File('$rootDir$filePathAfterA');
+      expect(fileBeforeA.existsSync(), false);
+      expect(fileAfterA.existsSync(), true);
+      // read file
+      final readBytesA = await FileManager.readFile(filePathAfterA);
+      final readContentA = utf8.decode(readBytesA!);
+      expect(readContentA, contentA);
+
+      final fileBeforeP = File('$rootDir$filePathBeforeP');
+      final fileAfterP = File('$rootDir$filePathAfterP');
+      expect(fileBeforeP.existsSync(), false);
+      expect(fileAfterP.existsSync(), true);
+      // read file
+      final readBytesP = await FileManager.readFile(filePathAfterP);
+      final readContentP = utf8.decode(readBytesP!);
+      expect(readContentP, contentP);
 
       // delete file
       await fileAfter.delete();
     });
 
     test('deleteFile', () async {
-      const filePath = '/test_deleteFile.sbn2';
-      const content = 'test content for $filePath';
+      String filePath = '/test_deleteFile.sbn2';
+      String content = 'test content for $filePath';
 
       // write file
       await FileManager.writeFile(filePath, utf8.encode(content),
+          awaitWrite: true);
+
+      String filePatha = '/test_deleteFile.sbn2.0';   // create asset
+      content = 'test content for $filePath.0';
+
+      // write file
+      await FileManager.writeFile(filePatha, utf8.encode(content),
+          awaitWrite: true);
+
+      String filePathp = '/test_deleteFile.sbn2.p';   // create preview
+      content = 'test content for $filePath.p';
+
+      // write file
+      await FileManager.writeFile(filePathp, utf8.encode(content),
           awaitWrite: true);
 
       // delete file
       await FileManager.deleteFile(filePath);
 
       // verify file does not exist
-      final file = File('$rootDir$filePath');
+      File file = File('$rootDir$filePath');
       expect(file.existsSync(), false);
+
+      // verify asset file does not exist
+      file = File('$rootDir$filePatha');
+      expect(file.existsSync(), false);
+
+      // verify preview file does not exist
+      file = File('$rootDir$filePathp');
+      expect(file.existsSync(), false);
+
     });
 
     group('getChildrenOfDirectory', () {
