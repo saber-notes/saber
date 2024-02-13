@@ -410,7 +410,11 @@ class FileManager {
         .map((FileSystemEntity entity) {
           String filePath = entity.path.substring(documentsDirectory.length);
 
-          //log.info('Listing file $filePath');
+          if (entity is Directory) {
+            // return directory name
+            return filePath.substring(directoryPrefixLength); // remove directory prefix
+          }
+            //log.info('Listing file $filePath');
           if (Editor.isReservedPath(filePath))
             return null; // filter out reserved files - always
 
