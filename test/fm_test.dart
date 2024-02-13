@@ -137,6 +137,10 @@ void main() {
       for (final fileName in fileNames) {
         final file = File('$rootDir$dirPath/$fileName.sbn2');
         await file.create(recursive: true);
+        final filea = File('$rootDir$dirPath/$fileName.sbn2.0');  // create assets
+        await filea.create(recursive: true);
+        final filep = File('$rootDir$dirPath/$fileName.sbn2.p');  // create preview
+        await filep.create(recursive: true);
       }
       addTearDown(() async {
         // delete files
@@ -158,6 +162,44 @@ void main() {
         expect(children.files.contains(fileName), true);
       }
       expect(children.directories.contains('subdir'), true);
+
+
+      final childrenR = await FileManager.getChildrenOfDirectory(dirPath,removeExtension: false);
+      expect(childrenR, isNotNull);
+      printOnFailure('children.files: ${childrenR!.files}');
+      printOnFailure('children.directories: ${childrenR.directories}');
+      expect(childrenR.files.length, 3);
+      expect(childrenR.directories.length, 1);
+      expect(childrenR.files.contains('test_file3.sbn2'), true);
+
+      // verify children
+      for (final fileName in fileNames) {
+        if (fileName.contains('subdir')) continue;
+        expect(childrenR.files.contains('$fileName.sbn2'), true);
+        expect(childrenR.files.contains('$fileName.sbn2.0'), false);  // cannot contain asset
+        expect(childrenR.files.contains('$fileName.sbn2.p'), false);  // cannot contain preview
+      }
+      expect(childrenR.directories.contains('subdir'), true);
+
+      final childrenRA = await FileManager.getChildrenOfDirectory(dirPath,removeExtension: false,includeAssetFiles: true);
+      expect(childrenRA, isNotNull);
+      printOnFailure('children.files: ${childrenRA!.files}');
+      printOnFailure('children.directories: ${childrenRA.directories}');
+      expect(childrenRA.files.length, 9);
+      expect(childrenRA.directories.length, 1);
+      expect(childrenRA.files.contains('test_file3.sbn2'), true);
+      expect(childrenRA.files.contains('test_file3.sbn2.0'), true);
+      expect(childrenRA.files.contains('test_file3.sbn2.p'), true);
+
+      // verify children
+      for (final fileName in fileNames) {
+        if (fileName.contains('subdir')) continue;
+        expect(childrenRA.files.contains('$fileName.sbn2'), true);
+        expect(childrenRA.files.contains('$fileName.sbn2.0'), true);  // cannot contain asset
+        expect(childrenRA.files.contains('$fileName.sbn2.p'), true);  // cannot contain preview
+      }
+      expect(childrenRA.directories.contains('subdir'), true);
+
     });
 
     test('getRecentlyAccessed', () async {
