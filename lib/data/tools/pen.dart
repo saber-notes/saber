@@ -97,13 +97,22 @@ class Pen extends Tool {
     return stroke;
   }
 
-  static StrokeOptions get fountainPenOptions => StrokeOptions();
-  static StrokeOptions get ballpointPenOptions => StrokeOptions();
-  static StrokeOptions get shapePenOptions => StrokeOptions();
-  static StrokeOptions get highlighterOptions => StrokeOptions(
-        size: StrokeOptions.defaultSize * 5,
+  /// The default stroke options.
+  ///
+  /// Note that these are different to the default options in [StrokeOptions]
+  /// e.g. [StrokeOptions.defaultSize] for historical reasons
+  /// (i.e. [StrokeOptions.toJson] does not include default values.)
+  static final defaultOptions = StrokeOptions(
+    size: 5,
+  );
+
+  static StrokeOptions get fountainPenOptions => defaultOptions.copyWith();
+  static StrokeOptions get ballpointPenOptions => defaultOptions.copyWith();
+  static StrokeOptions get shapePenOptions => defaultOptions.copyWith();
+  static StrokeOptions get highlighterOptions => defaultOptions.copyWith(
+        size: 50,
       );
-  static StrokeOptions get pencilOptions => StrokeOptions(
+  static StrokeOptions get pencilOptions => defaultOptions.copyWith(
         streamline: 0.1,
         start: StrokeEndOptions.start(taperEnabled: true),
         end: StrokeEndOptions.end(taperEnabled: true),
