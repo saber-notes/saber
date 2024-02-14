@@ -242,6 +242,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.20.0" type="development" date="2024-02-14">
+            <description>
+                <ul>
+                    <li>Added the pencil tool</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.19.4" type="development" date="2024-02-12">
             <description>
                 <ul>
