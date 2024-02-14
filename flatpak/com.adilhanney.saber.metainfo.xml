@@ -242,6 +242,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.20.1" type="development" date="2024-02-14">
+            <description>
+                <ul>
+                    <li>Fixed pencil fading out at the start and end</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.20.0" type="development" date="2024-02-14">
             <description>
                 <ul>

@@ -1,0 +1,1 @@
+• Se corrigió que el lápiz se desvaneciera al principio y al final.
