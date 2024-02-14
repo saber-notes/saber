@@ -337,26 +337,25 @@ class _ToolbarState extends State<Toolbar> {
                 padding: buttonPadding,
                 child: FaIcon(Pen.currentPen.icon, size: 16),
               ),
-              if (kDebugMode)
-                ToolbarIconButton(
-                  tooltip: t.editor.pens.pencil,
-                  selected: widget.currentTool == Pencil.currentPencil,
-                  enabled: !widget.readOnly,
-                  onPressed: () {
-                    if (widget.currentTool == Pencil.currentPencil) {
-                      if (toolOptionsType.value == ToolOptions.pencil) {
-                        toolOptionsType.value = ToolOptions.hide;
-                      } else {
-                        toolOptionsType.value = ToolOptions.pencil;
-                      }
-                    } else {
+              ToolbarIconButton(
+                tooltip: t.editor.pens.pencil,
+                selected: widget.currentTool == Pencil.currentPencil,
+                enabled: !widget.readOnly,
+                onPressed: () {
+                  if (widget.currentTool == Pencil.currentPencil) {
+                    if (toolOptionsType.value == ToolOptions.pencil) {
                       toolOptionsType.value = ToolOptions.hide;
-                      widget.setTool(Pencil.currentPencil);
+                    } else {
+                      toolOptionsType.value = ToolOptions.pencil;
                     }
-                  },
-                  padding: buttonPadding,
-                  child: const FaIcon(Pencil.pencilIcon, size: 16),
-                ),
+                  } else {
+                    toolOptionsType.value = ToolOptions.hide;
+                    widget.setTool(Pencil.currentPencil);
+                  }
+                },
+                padding: buttonPadding,
+                child: const FaIcon(Pencil.pencilIcon, size: 16),
+              ),
               ToolbarIconButton(
                 tooltip: t.editor.pens.highlighter,
                 selected: widget.currentTool == Highlighter.currentHighlighter,
