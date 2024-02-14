@@ -222,10 +222,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: "092ee0c757fb725177f7a1c50d043bde2338836107a1ade10982c85831fde1ef"
+      sha256: "66b98298d1cbfb4df7d4d3ad39458daf409705034c6d44ed03387b775861615f"
       url: "https://pub.dev"
     source: hosted
-    version: "9.2.12"
+    version: "9.2.13"
   decimal:
     dependency: transitive
     description:
@@ -445,10 +445,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "944267939e4feb88151461c7204973ee59c29ebfe9d74a89431e11516f74238b"
+      sha256: e0eca50a04047255e2f035650a4d9af6083e1424e7da944ddaa45f070e3c0fec
       url: "https://pub.dev"
     source: hosted
-    version: "9.2.12"
+    version: "9.2.13"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -620,10 +620,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "49a0d4b0c12402853d3f227fe7c315601b238d126aa4caa5dbb2dcf99421aa4a"
+      sha256: "4c68bfd5ae83e700b5204c1e74451e7bf3cf750e6843c6e158289cf56bda018e"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.6"
+    version: "4.1.7"
   image_save:
     dependency: "direct main"
     description:
@@ -778,10 +778,10 @@ packages:
     dependency: "direct main"
     description:
       name: nextcloud
-      sha256: "09ba02e7b7e289ade0ee964f10de60a10deb9c424187ec551a35ae6c523daf24"
+      sha256: "8939720c2b6f964f1ee4fc8a9b36eb126eb3e76b9301a05835a9268c8d0f6ecc"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   one_dollar_unistroke_recognizer:
     dependency: "direct main"
     description:
@@ -1306,10 +1306,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "507dc655b1d9cb5ebc756032eb785f114e415f91557b73bf60b7e201dfedeb2f"
+      sha256: d4ed0711849dd8e33eb2dd69c25db0d0d3fdc37e0a62e629fe32f57a22db2745
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.2"
+    version: "6.3.0"
   url_launcher_ios:
     dependency: transitive
     description:
