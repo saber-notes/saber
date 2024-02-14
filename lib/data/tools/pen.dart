@@ -114,7 +114,7 @@ class Pen extends Tool {
       );
   static StrokeOptions get pencilOptions => defaultOptions.copyWith(
         streamline: 0.1,
-        start: StrokeEndOptions.start(taperEnabled: true),
-        end: StrokeEndOptions.end(taperEnabled: true),
+        start: StrokeEndOptions.start(taperEnabled: true, customTaper: 1),
+        end: StrokeEndOptions.end(taperEnabled: true, customTaper: 1),
       );
 }
