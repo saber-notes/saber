@@ -6,7 +6,7 @@
 #include <flutter/runtime_effect.glsl>
 
 /// Pencil color, represented as a vec3 of RGB values between 0 and 1.
-uniform vec3 uPencilColor;
+uniform vec3 uColor;
 
 /// Output color at a given pixel.
 /// Represented as a vec4 of RGBA values between 0 and 1.
@@ -46,21 +46,21 @@ float noise(vec2 x) {
     vec2 i = floor(x);
     vec2 f = fract(x);
 
-	// Four corners in 2D of a tile
-	float a = hash(i);
+    // Four corners in 2D of a tile
+    float a = hash(i);
     float b = hash(i + vec2(1.0, 0.0));
     float c = hash(i + vec2(0.0, 1.0));
     float d = hash(i + vec2(1.0, 1.0));
 
     // Simple 2D lerp using smoothstep envelope between the values.
-	// return vec3(mix(mix(a, b, smoothstep(0.0, 1.0, f.x)),
-	//			mix(c, d, smoothstep(0.0, 1.0, f.x)),
-	//			smoothstep(0.0, 1.0, f.y)));
+    // return vec3(mix(mix(a, b, smoothstep(0.0, 1.0, f.x)),
+    //			mix(c, d, smoothstep(0.0, 1.0, f.x)),
+    //			smoothstep(0.0, 1.0, f.y)));
 
-	// Same code, with the clamps in smoothstep and common subexpressions
-	// optimized away.
+    // Same code, with the clamps in smoothstep and common subexpressions
+    // optimized away.
     vec2 u = f * f * (3.0 - 2.0 * f);
-	return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
 }
 
 
@@ -83,43 +83,43 @@ float noise(vec3 x) {
 
 
 float fbm(float x) {
-	float v = 0.0;
-	float a = 0.5;
-	float shift = float(100);
-	for (int i = 0; i < NUM_NOISE_OCTAVES; ++i) {
-		v += a * noise(x);
-		x = x * 2.0 + shift;
-		a *= 0.5;
-	}
-	return v;
+    float v = 0.0;
+    float a = 0.5;
+    float shift = float(100);
+    for (int i = 0; i < NUM_NOISE_OCTAVES; ++i) {
+        v += a * noise(x);
+        x = x * 2.0 + shift;
+        a *= 0.5;
+    }
+    return v;
 }
 
 
 float fbm(vec2 x) {
-	float v = 0.0;
-	float a = 0.5;
-	vec2 shift = vec2(100);
-	// Rotate to reduce axial bias
+    float v = 0.0;
+    float a = 0.5;
+    vec2 shift = vec2(100);
+    // Rotate to reduce axial bias
     mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
-	for (int i = 0; i < NUM_NOISE_OCTAVES; ++i) {
-		v += a * noise(x);
-		x = rot * x * 2.0 + shift;
-		a *= 0.5;
-	}
-	return v;
+    for (int i = 0; i < NUM_NOISE_OCTAVES; ++i) {
+        v += a * noise(x);
+        x = rot * x * 2.0 + shift;
+        a *= 0.5;
+    }
+    return v;
 }
 
 
 float fbm(vec3 x) {
-	float v = 0.0;
-	float a = 0.5;
-	vec3 shift = vec3(100);
-	for (int i = 0; i < NUM_NOISE_OCTAVES; ++i) {
-		v += a * noise(x);
-		x = x * 2.0 + shift;
-		a *= 0.5;
-	}
-	return v;
+    float v = 0.0;
+    float a = 0.5;
+    vec3 shift = vec3(100);
+    for (int i = 0; i < NUM_NOISE_OCTAVES; ++i) {
+        v += a * noise(x);
+        x = x * 2.0 + shift;
+        a *= 0.5;
+    }
+    return v;
 }
 
 // <!-- END NOISE FUNCTIONS FROM https://www.shadertoy.com/view/4dS3Wd -->
@@ -128,15 +128,22 @@ float fbm(vec3 x) {
 
 
 void main() {
-    vec2 uv = FlutterFragCoord().xy * vec2(0.5, 0.1);
+    vec2 fragCoord = FlutterFragCoord().xy;
+
+    const float freq = 0.7;
 
     // Get the noise value between -1.0 and 1.0
-    float noise = NOISE(uv);
+    float noise = NOISE(fragCoord * vec2(freq, freq * 0.5));
     // Remap the noise value to be between 0.0 and 1.0
     noise = noise * 0.5 + 0.5;
-    // Apply a cubic curve
-    noise = 1.0 - noise * noise * noise;
 
-    // Use noise as the opacity
-    fragColor = vec4(uPencilColor * noise, noise);
+    float opacity = noise * 0.8;
+    // Ease-in-out-quad
+    // return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    if (opacity < 0.5) {
+        opacity = 2.0 * opacity * opacity;
+    } else {
+        opacity = 1.0 - pow(-2.0 * opacity + 2.0, 2.0) / 2.0;
+    }
+    fragColor = vec4(uColor * opacity, opacity);
 }

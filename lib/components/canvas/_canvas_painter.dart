@@ -98,15 +98,17 @@ class CanvasPainter extends CustomPainter {
         color = Color.lerp(color, primaryColor, 0.5)!;
       }
 
+      paint.color = color;
+      paint.shader = null;
+      paint.maskFilter = null;
       if (stroke.penType == (Pencil).toString()) {
         paint.color = Colors.white;
         paint.shader = page.pencilShader
           ..setFloat(0, color.red / 255)
           ..setFloat(1, color.green / 255)
           ..setFloat(2, color.blue / 255);
-      } else {
-        paint.color = color;
-        paint.shader = null;
+        paint.maskFilter =
+            MaskFilter.blur(BlurStyle.normal, stroke.options.size * 0.3);
       }
 
       late final shapePaint = Paint()
@@ -146,15 +148,17 @@ class CanvasPainter extends CustomPainter {
     final color = currentStroke!.color.withInversion(invert);
     final paint = Paint();
 
+    paint.color = color;
+    paint.shader = null;
+    paint.maskFilter = null;
     if (currentStroke!.penType == (Pencil).toString()) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
         ..setFloat(0, color.red / 255)
         ..setFloat(1, color.green / 255)
         ..setFloat(2, color.blue / 255);
-    } else {
-      paint.color = color;
-      paint.shader = null;
+      paint.maskFilter =
+          MaskFilter.blur(BlurStyle.normal, currentStroke!.options.size * 0.3);
     }
 
     if (currentStroke!.length <= 2) {
