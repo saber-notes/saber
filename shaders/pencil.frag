@@ -137,7 +137,7 @@ void main() {
     // Remap the noise value to be between 0.0 and 1.0
     noise = noise * 0.5 + 0.5;
 
-    float opacity = noise * 0.8;
+    float opacity = noise;
     // Ease-in-out-quad
     // return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
     if (opacity < 0.5) {
@@ -145,5 +145,7 @@ void main() {
     } else {
         opacity = 1.0 - pow(-2.0 * opacity + 2.0, 2.0) / 2.0;
     }
+    // Max opacity to look more like a pencil stroke
+    opacity *= 0.7;
     fragColor = vec4(uColor * opacity, opacity);
 }
