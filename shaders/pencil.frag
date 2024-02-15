@@ -125,27 +125,24 @@ float fbm(vec3 x) {
 // <!-- END NOISE FUNCTIONS FROM https://www.shadertoy.com/view/4dS3Wd -->
 
 
-
+/// Ease-in-out-quad function, from https://easings.net/#easeInOutQuad
+float easeInOutQuad(float x) {
+    if (x < 0.5) {
+        return 2.0 * x * x;
+    } else {
+        float t = -2.0 * x + 2.0;
+        return 1.0 - (t * t) / 2.0;
+    }
+}
 
 void main() {
     vec2 fragCoord = FlutterFragCoord().xy;
 
     const float freq = 0.7;
+    // The noise value remapped to be between 0.0 and 1.0
+    float noise = NOISE(fragCoord * vec2(freq, freq * 0.5)) * 0.5 + 0.5;
 
-    // Get the noise value between -1.0 and 1.0
-    float noise = NOISE(fragCoord * vec2(freq, freq * 0.5));
-    // Remap the noise value to be between 0.0 and 1.0
-    noise = noise * 0.5 + 0.5;
-
-    float opacity = noise;
-    // Ease-in-out-quad
-    // return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-    if (opacity < 0.5) {
-        opacity = 2.0 * opacity * opacity;
-    } else {
-        opacity = 1.0 - pow(-2.0 * opacity + 2.0, 2.0) / 2.0;
-    }
-    // Max opacity to look more like a pencil stroke
-    opacity *= 0.7;
+    // Opacity limited to 0.7 to look more like a pencil stroke
+    float opacity = easeInOutQuad(noise) * 0.7;
     fragColor = vec4(uColor * opacity, opacity);
 }
