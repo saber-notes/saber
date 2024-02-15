@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
@@ -69,7 +70,8 @@ class Pen extends Tool {
     _currentPen = currentPen;
   }
 
-  void onDragStart(Offset position, int pageIndex, double? pressure) {
+  void onDragStart(
+      Offset position, EditorPage page, int pageIndex, double? pressure) {
     currentStroke = Stroke(
       color: color,
       pressureEnabled: pressureEnabled,
@@ -77,6 +79,7 @@ class Pen extends Tool {
         isComplete: false,
       ),
       pageIndex: pageIndex,
+      page: page,
       penType: runtimeType.toString(),
     );
     onDragUpdate(position, pressure);
@@ -94,15 +97,24 @@ class Pen extends Tool {
     return stroke;
   }
 
-  static StrokeOptions get fountainPenOptions => StrokeOptions();
-  static StrokeOptions get ballpointPenOptions => StrokeOptions();
-  static StrokeOptions get shapePenOptions => StrokeOptions();
-  static StrokeOptions get highlighterOptions => StrokeOptions(
-        size: StrokeOptions.defaultSize * 5,
+  /// The default stroke options.
+  ///
+  /// Note that these are different to the default options in [StrokeOptions]
+  /// e.g. [StrokeOptions.defaultSize] for historical reasons
+  /// (i.e. [StrokeOptions.toJson] does not include default values.)
+  static final defaultOptions = StrokeOptions(
+    size: 5,
+  );
+
+  static StrokeOptions get fountainPenOptions => defaultOptions.copyWith();
+  static StrokeOptions get ballpointPenOptions => defaultOptions.copyWith();
+  static StrokeOptions get shapePenOptions => defaultOptions.copyWith();
+  static StrokeOptions get highlighterOptions => defaultOptions.copyWith(
+        size: 50,
       );
-  static StrokeOptions get pencilOptions => StrokeOptions(
+  static StrokeOptions get pencilOptions => defaultOptions.copyWith(
         streamline: 0.1,
-        start: StrokeEndOptions.start(taperEnabled: true),
-        end: StrokeEndOptions.end(taperEnabled: true),
+        start: StrokeEndOptions.start(taperEnabled: true, customTaper: 1),
+        end: StrokeEndOptions.end(taperEnabled: true, customTaper: 1),
       );
 }

@@ -64,13 +64,13 @@ abstract class FileSyncer {
       remoteFiles = await _client!.webdav
           .propfind(
             PathUri.parse(FileManager.appRootDirectoryPrefix),
-            prop: WebDavPropWithoutValues.fromBools(
+            prop: const WebDavPropWithoutValues.fromBools(
               davgetcontentlength: true,
               davgetlastmodified: true,
             ),
           )
           .then((multistatus) => multistatus.toWebDavFiles());
-    } on DynamiteApiException catch (e) {
+    } on DynamiteStatusCodeException catch (e) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('startSync: App directory doesn\'t exist; creating it', e);
         await _client!.webdav
@@ -414,7 +414,7 @@ abstract class FileSyncer {
           .propfind(
             PathUri.parse(file.remotePath),
             depth: WebDavDepth.zero,
-            prop: WebDavPropWithoutValues.fromBools(
+            prop: const WebDavPropWithoutValues.fromBools(
               davgetlastmodified: true,
               davgetcontentlength: true,
             ),

@@ -322,7 +322,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       CanvasGestureDetector.scrollToPage(
         pageIndex: widget.initialPageIndex!,
         pages: widget.pages,
-        screenWidth: MediaQuery.of(context).size.width,
+        screenWidth: MediaQuery.sizeOf(context).width,
         transformationController: widget._transformationController,
       );
     }
@@ -406,7 +406,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
 
     return Stack(
       children: [

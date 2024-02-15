@@ -30,7 +30,7 @@ void main() {
             PlainPref('testPlainPrefStrokeOptions', defaultValue),
         defaultValue: defaultValue,
         alteredValue: defaultValue.copyWith(
-          size: StrokeOptions.defaultSize / 2,
+          size: defaultValue.size * 2,
         ),
       );
     });

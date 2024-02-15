@@ -6,6 +6,7 @@ import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/select.dart';
 
 void main() {
@@ -22,6 +23,8 @@ void main() {
     expect(select.selectResult.pageIndex, 0,
         reason: 'The page index should be 0');
 
+    const page = HasSize(Size(100, 100));
+
     List<Stroke> strokes = [
       // index 0 is inside
       Stroke(
@@ -29,6 +32,7 @@ void main() {
         pressureEnabled: Stroke.defaultPressureEnabled,
         options: options,
         pageIndex: 0,
+        page: page,
         penType: 'testing pen',
       )..addPoint(const Offset(5, 5)),
       // index > 0 is outside
@@ -37,6 +41,7 @@ void main() {
         pressureEnabled: Stroke.defaultPressureEnabled,
         options: options,
         pageIndex: 0,
+        page: page,
         penType: 'testing pen',
       )..addPoint(const Offset(10, 10)),
       Stroke(
@@ -44,6 +49,7 @@ void main() {
         pressureEnabled: Stroke.defaultPressureEnabled,
         options: options,
         pageIndex: 0,
+        page: page,
         penType: 'testing pen',
       )..addPoint(const Offset(15, 15)),
     ];

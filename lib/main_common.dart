@@ -150,7 +150,7 @@ class App extends StatefulWidget {
   static void openFile(SharedMediaFile file) async {
     log.info('Opening file: (${file.type}) ${file.path}');
 
-    if (file.type != SharedMediaType.FILE) return;
+    if (file.type != SharedMediaType.file) return;
 
     final String extension;
     if (file.path.contains('.')) {
@@ -225,7 +225,8 @@ class _AppState extends State<App> {
       OpenAsDefault.getFileIntent.then((File? file) {
         if (file == null) return;
         App.openFile(
-            SharedMediaFile(file.path, null, null, SharedMediaType.FILE));
+          SharedMediaFile(path: file.path, type: SharedMediaType.file),
+        );
       });
     }
   }

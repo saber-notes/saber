@@ -1,7 +1,7 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
-[češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
+[čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
@@ -138,7 +138,7 @@ flutter pub get
 Setup for the [super_clipboard](https://pub.dev/packages/super_clipboard)
 package can be summarised as:
 - Install [Rust](https://www.rust-lang.org/tools/install)
-- Install NDK 25.2.9519653 if you're building for Android
+- Install NDK 26.1.10909125 if you're building for Android
 
 ### 5. Build for...
 
@@ -342,8 +342,8 @@ If you like Saber, please consider supporting it by:
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.19.2/SaberInstaller_v0.19.2.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.19.2/Saber-0.19.2-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.20.1/SaberInstaller_v0.20.1.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.20.1/Saber-0.20.1-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

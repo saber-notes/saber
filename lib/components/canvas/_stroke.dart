@@ -7,6 +7,7 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
 
@@ -22,6 +23,7 @@ class Stroke {
   int get length => points.length;
 
   int pageIndex;
+  HasSize page;
   final String penType;
 
   static const defaultColor = Colors.black;
@@ -31,23 +33,28 @@ class Stroke {
   bool pressureEnabled;
   final StrokeOptions options;
 
-  bool _polygonNeedsUpdating = true;
-  late List<Offset> _polygon = const [];
-  late Path _path = Path();
+  @protected
+  bool polygonNeedsUpdating = true;
+  @protected
+  late List<Offset> lastPolygon = const [];
+  @protected
+  late Path lastPath = Path();
+
   List<Offset> get polygon {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon;
+    if (polygonNeedsUpdating) updatePolygon();
+    return lastPolygon;
   }
 
   Path get path {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _path;
+    if (polygonNeedsUpdating) updatePolygon();
+    return lastPath;
   }
 
-  void _updatePolygon() {
-    _polygon = _getPolygon();
-    _path = _getPath();
-    _polygonNeedsUpdating = false;
+  @protected
+  void updatePolygon() {
+    polygonNeedsUpdating = false;
+    lastPolygon = _getPolygon();
+    lastPath = _getPath();
   }
 
   void shift(Offset offset) {
@@ -57,11 +64,11 @@ class Stroke {
       points[i] += offset;
     }
 
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   void markPolygonNeedsUpdating() {
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   Stroke({
@@ -69,17 +76,26 @@ class Stroke {
     required this.pressureEnabled,
     required this.options,
     required this.pageIndex,
+    required this.page,
     required this.penType,
   });
 
-  factory Stroke.fromJson(Map<String, dynamic> json, int fileVersion) {
+  factory Stroke.fromJson(
+    Map<String, dynamic> json, {
+    required int fileVersion,
+    required int pageIndex,
+    required HasSize page,
+  }) {
+    assert(json['i'] == pageIndex || json['i'] == null);
     switch (json['shape'] as String?) {
       case null:
         break;
       case 'circle':
-        return CircleStroke.fromJson(json, fileVersion);
+        return CircleStroke.fromJson(json,
+            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
       case 'rect':
-        return RectangleStroke.fromJson(json, fileVersion);
+        return RectangleStroke.fromJson(json,
+            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
       default:
         log.severe('Unknown shape: ${json['shape']}');
     }
@@ -120,7 +136,8 @@ class Stroke {
       color: color,
       pressureEnabled: pressureEnabled,
       options: options,
-      pageIndex: json['i'] ?? 0,
+      pageIndex: pageIndex,
+      page: page,
       penType: json['ty'] ?? (Pen).toString(),
     )..points.addAll(points);
   }
@@ -144,7 +161,7 @@ class Stroke {
     }
 
     points.add(PointVector(point.dx, point.dy, pressure));
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   void addPoints(List<Offset> points) {
@@ -155,7 +172,7 @@ class Stroke {
 
   void popFirstPoint() {
     points.removeAt(0);
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   /// Points that are closer than this
@@ -224,24 +241,24 @@ class Stroke {
   /// the path will be a smooth curve between the points.
   Path _getPath() {
     if (!options.isComplete) {
-      return Path()..addPolygon(_polygon, true);
+      return Path()..addPolygon(polygon, true);
     }
 
     final path = Path();
-    path.moveTo(_polygon.first.dx, _polygon.first.dy);
-    for (int i = 1; i < _polygon.length - 1; i++) {
-      final p1 = _polygon[i];
-      final p2 = _polygon[i + 1];
+    path.moveTo(polygon.first.dx, polygon.first.dy);
+    for (int i = 1; i < polygon.length - 1; i++) {
+      final p1 = polygon[i];
+      final p2 = polygon[i + 1];
       final mid = (p1 + p2) / 2;
       path.quadraticBezierTo(p1.dx, p1.dy, mid.dx, mid.dy);
     }
     return path..close();
   }
 
-  String toSvgPath(Size pageSize) {
+  String toSvgPath() {
     String toSvgPoint(Offset point) {
       return '${point.dx} '
-          '${pageSize.height - point.dy}';
+          '${page.size.height - point.dy}';
     }
 
     if (polygon.isEmpty) {
@@ -267,6 +284,7 @@ class Stroke {
         pressureEnabled: pressureEnabled,
         options: options.copyWith(),
         pageIndex: pageIndex,
+        page: page,
         penType: penType,
       )..points.addAll(points);
 }

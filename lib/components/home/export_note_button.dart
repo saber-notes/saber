@@ -55,10 +55,12 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       }
     }
 
+    if (!mounted) return;
     if (selectedFiles.length == 1) {
       await FileManager.exportFile(
         files.single.name,
         files.single.content,
+        context: context,
       );
     } else if (selectedFiles.length > 1) {
       final archive = Archive();
@@ -68,6 +70,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       await FileManager.exportFile(
         '${files.first.name}.zip',
         Uint8List.fromList(ZipEncoder().encode(archive)!),
+        context: context,
       );
     }
 

@@ -107,7 +107,7 @@ class _BrowsePageState extends State<BrowsePage> {
       title += ': $path';
     }
 
-    final crossAxisCount = MediaQuery.of(context).size.width ~/ 300 + 1;
+    final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
 
     return Scaffold(
       body: RefreshIndicator(

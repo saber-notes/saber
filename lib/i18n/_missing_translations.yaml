@@ -80,8 +80,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 de:
   home:
     titles:
@@ -408,8 +406,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 ja:
   home:
     titles:
@@ -528,5 +524,3 @@ zh-Hans-CN:
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 zh-Hant-TW:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.

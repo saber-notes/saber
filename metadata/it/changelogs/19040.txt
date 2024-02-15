@@ -1,0 +1,2 @@
+• Risolto il problema per cui le anteprime delle note venivano ritagliate in modo strano
+• Risolte le esportazioni su iOS

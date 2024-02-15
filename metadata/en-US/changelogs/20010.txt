@@ -1,0 +1,1 @@
+• Fixed pencil fading out at the start and end

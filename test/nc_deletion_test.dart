@@ -73,7 +73,7 @@ void main() {
     final webDavFile = await webdav
         .propfind(PathUri.parse(syncFile.remotePath),
             depth: WebDavDepth.zero,
-            prop: WebDavPropWithoutValues.fromBools(
+            prop: const WebDavPropWithoutValues.fromBools(
               davgetcontentlength: true,
             ))
         .then((multistatus) => multistatus.toWebDavFiles().single);

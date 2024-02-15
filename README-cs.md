@@ -1,7 +1,7 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
-[češtině](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
+[čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
@@ -134,7 +134,7 @@ flutter pub get
 Postup pro balíček [super_clipboard](https://pub.dev/packages/super_clipboard)
 se dá shrnout jako:
 - Instalace [Rustu](https://www.rust-lang.org/tools/install)
-- Instalace NDK 25.2.9519653 pro případ, že sestavujete pro Android
+- Instalace NDK 26.1.10909125 pro případ, že sestavujete pro Android
 
 ### 5. Sestavení pro...
 

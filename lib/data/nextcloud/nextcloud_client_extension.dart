@@ -78,7 +78,7 @@ extension NextcloudClientExtension on NextcloudClient {
     Uint8List file = Uint8List.fromList(json.codeUnits);
     try {
       await webdav.mkcol(PathUri.parse(appRootDirectoryPrefix));
-    } on DynamiteApiException catch (e) {
+    } on DynamiteStatusCodeException catch (e) {
       if (e.statusCode != HttpStatus.methodNotAllowed) rethrow;
     }
     await webdav.put(file, configFileUri);

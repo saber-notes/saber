@@ -1,0 +1,3 @@
+• Problem behoben, bei dem die Auswahl von Notizen nach dem Umbenennen nicht aufgehoben wurde.
+• Die Schaltfläche „Alles neu synchronisieren“ wurde behoben, wodurch mehrere Uploads gleichzeitig verursacht wurden.
+• Der In-App-Updater zeigt die Download-Schaltfläche nicht mehr an, wenn der Download noch nicht verfügbar ist. Dies gilt nur für den In-App-Updater und nicht für andere Update-Methoden wie einen App Store.

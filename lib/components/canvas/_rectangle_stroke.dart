@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
 class RectangleStroke extends Stroke {
@@ -13,14 +14,21 @@ class RectangleStroke extends Stroke {
     required super.pressureEnabled,
     required super.options,
     required super.pageIndex,
+    required super.page,
     required super.penType,
     required this.rect,
   }) {
     options.isComplete = true;
   }
 
-  factory RectangleStroke.fromJson(Map<String, dynamic> json, int fileVersion) {
+  factory RectangleStroke.fromJson(
+    Map<String, dynamic> json, {
+    required int fileVersion,
+    required int pageIndex,
+    required HasSize page,
+  }) {
     assert(json['shape'] == 'rect');
+    assert(json['i'] == pageIndex || json['i'] == null);
 
     final Color color;
     switch (json['c']) {
@@ -39,7 +47,8 @@ class RectangleStroke extends Stroke {
       color: color,
       pressureEnabled: json['pe'] ?? Stroke.defaultPressureEnabled,
       options: StrokeOptions.fromJson(json),
-      pageIndex: json['i'] ?? 0,
+      pageIndex: pageIndex,
+      page: page,
       penType: json['ty'] ?? (ShapePen).toString(),
       rect: Rect.fromLTWH(
         json['rl'] ?? 0,
@@ -66,31 +75,19 @@ class RectangleStroke extends Stroke {
   @override
   bool get isEmpty => rect.isEmpty;
   @override
-  int get length => 4;
-
-  bool _polygonNeedsUpdating = true;
-  late List<Offset> _polygon = const [];
-  late Path _path = Path();
+  int get length => 100;
 
   /// A list of points that form the
   /// rectangle's perimeter.
   /// Each side has 25 points.
   @override
-  List<Offset> get polygon {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon;
-  }
+  List<Offset> get polygon => super.polygon;
 
   @override
-  Path get path {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _path;
-  }
-
-  void _updatePolygon() {
-    _polygon = _getPolygon();
-    _path = Path()..addRect(rect);
-    _polygonNeedsUpdating = false;
+  void updatePolygon() {
+    lastPolygon = _getPolygon();
+    lastPath = Path()..addRect(rect);
+    polygonNeedsUpdating = false;
   }
 
   List<Offset> _getPolygon() {
@@ -132,7 +129,7 @@ class RectangleStroke extends Stroke {
   }
 
   @override
-  String toSvgPath(Size pageSize) {
+  String toSvgPath() {
     return 'M${rect.left},${rect.top} '
         'L${rect.right},${rect.top} '
         'L${rect.right},${rect.bottom} '
@@ -148,7 +145,7 @@ class RectangleStroke extends Stroke {
   @override
   void shift(Offset offset) {
     rect = rect.shift(offset);
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   @override
@@ -168,6 +165,7 @@ class RectangleStroke extends Stroke {
         pressureEnabled: pressureEnabled,
         options: options.copyWith(),
         pageIndex: pageIndex,
+        page: page,
         penType: penType,
         rect: rect,
       );

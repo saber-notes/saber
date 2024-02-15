@@ -319,12 +319,12 @@ class EditorState extends State<Editor> {
       late final topOfLastPage = -CanvasGestureDetector.getTopOfPage(
         pageIndex: coreInfo.pages.length - 1,
         pages: coreInfo.pages,
-        screenWidth: MediaQuery.of(context).size.width,
+        screenWidth: MediaQuery.sizeOf(context).width,
       );
       final bottomOfLastPage = -CanvasGestureDetector.getTopOfPage(
         pageIndex: coreInfo.pages.length,
         pages: coreInfo.pages,
-        screenWidth: MediaQuery.of(context).size.width,
+        screenWidth: MediaQuery.sizeOf(context).width,
       );
 
       if (scrollY < bottomOfLastPage) {
@@ -552,7 +552,7 @@ class EditorState extends State<Editor> {
 
     if (currentTool is Pen) {
       (currentTool as Pen)
-          .onDragStart(position, dragPageIndex!, currentPressure);
+          .onDragStart(position, page, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
       for (Stroke stroke in (currentTool as Eraser)
           .checkForOverlappingStrokes(position, page.strokes)) {
@@ -570,7 +570,7 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
-      (currentTool as LaserPointer).onDragStart(position, dragPageIndex!);
+      (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
     }
 
     previousPosition = position;
@@ -847,8 +847,11 @@ class EditorState extends State<Editor> {
 
     if (!mounted) return;
     final screenshotter = ScreenshotController();
-    final pageSize = coreInfo.pages.first.size;
-    final thumbnailSize = Size(720, 720 * pageSize.height / pageSize.width);
+    final page = coreInfo.pages.first;
+    final previewHeight = page.previewHeight(
+      lineHeight: coreInfo.lineHeight,
+    );
+    final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
     final thumbnail = await screenshotter.captureFromWidget(
       Theme(
         data: ThemeData(
@@ -863,7 +866,13 @@ class EditorState extends State<Editor> {
           child: SizedBox(
             width: thumbnailSize.width,
             height: thumbnailSize.height,
-            child: pagePreviewBuilder(context, 0),
+            child: FittedBox(
+              child: pagePreviewBuilder(
+                context,
+                pageIndex: 0,
+                previewHeight: previewHeight,
+              ),
+            ),
           ),
         ),
       ),
@@ -1208,19 +1217,23 @@ class EditorState extends State<Editor> {
     await _pickPhotos(photoInfos);
   }
 
-  Future exportAsPdf() async {
+  Future exportAsPdf(BuildContext context) async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
-    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save());
+    if (!context.mounted) return;
+    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save(),
+        context: context);
   }
 
   /// Exports the current note as an SBA (Saber Archive) file.
-  Future exportAsSba() async {
+  Future exportAsSba(BuildContext context) async {
     final sba = await coreInfo.saveToSba(
       currentPageIndex: currentPageIndex,
     );
+    if (!context.mounted) return;
     await FileManager.exportFile(
       '${coreInfo.fileName}.sba',
       sba,
+      context: context,
     );
   }
 
@@ -1578,7 +1591,7 @@ class EditorState extends State<Editor> {
                       CanvasGestureDetector.scrollToPage(
                         pageIndex: currentPageIndex + 1,
                         pages: coreInfo.pages,
-                        screenWidth: MediaQuery.of(context).size.width,
+                        screenWidth: MediaQuery.sizeOf(context).width,
                         transformationController: _transformationController,
                       );
                     }),
@@ -1728,9 +1741,13 @@ class EditorState extends State<Editor> {
     );
   }
 
-  Widget pagePreviewBuilder(BuildContext context, int pageIndex) {
+  Widget pagePreviewBuilder(
+    BuildContext context, {
+    required int pageIndex,
+    double? previewHeight,
+  }) {
     final page = coreInfo.pages[pageIndex];
-    final previewHeight = page.previewHeight(
+    previewHeight ??= page.previewHeight(
       lineHeight: coreInfo.lineHeight,
     );
     return CanvasPreview(
@@ -1887,7 +1904,7 @@ class EditorState extends State<Editor> {
   int get currentPageIndex {
     if (!mounted) return _lastCurrentPageIndex;
 
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
 
     return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
       scrollY: -scrollY,

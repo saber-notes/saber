@@ -84,6 +84,7 @@ class ShapePen extends Pen {
           pressureEnabled: pressureEnabled,
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
+          page: rawStroke.page,
           penType: rawStroke.penType,
         )
           ..addPoint(firstPoint)
@@ -98,6 +99,7 @@ class ShapePen extends Pen {
           pressureEnabled: pressureEnabled,
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
+          page: rawStroke.page,
           penType: rawStroke.penType,
           rect: rect,
         );
@@ -109,6 +111,7 @@ class ShapePen extends Pen {
           pressureEnabled: pressureEnabled,
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
+          page: rawStroke.page,
           penType: rawStroke.penType,
           radius: radius,
           center: center,
@@ -121,6 +124,7 @@ class ShapePen extends Pen {
           pressureEnabled: pressureEnabled,
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
+          page: rawStroke.page,
           penType: rawStroke.penType,
         )..addPoints(polygon);
     }

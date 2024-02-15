@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
 class CircleStroke extends Stroke {
@@ -16,6 +17,7 @@ class CircleStroke extends Stroke {
     required super.pressureEnabled,
     required super.options,
     required super.pageIndex,
+    required super.page,
     required super.penType,
     required this.center,
     required this.radius,
@@ -23,8 +25,14 @@ class CircleStroke extends Stroke {
     options.isComplete = true;
   }
 
-  factory CircleStroke.fromJson(Map<String, dynamic> json, int fileVersion) {
+  factory CircleStroke.fromJson(
+    Map<String, dynamic> json, {
+    required int fileVersion,
+    required int pageIndex,
+    required HasSize page,
+  }) {
     assert(json['shape'] == 'circle');
+    assert(json['i'] == pageIndex || json['i'] == null);
 
     final Color color;
     switch (json['c']) {
@@ -43,7 +51,8 @@ class CircleStroke extends Stroke {
       color: color,
       pressureEnabled: json['pe'] ?? Stroke.defaultPressureEnabled,
       options: StrokeOptions.fromJson(json),
-      pageIndex: json['i'] ?? 0,
+      pageIndex: pageIndex,
+      page: page,
       penType: json['ty'] ?? (ShapePen).toString(),
       center: Offset(
         json['cx'] ?? 0,
@@ -68,33 +77,21 @@ class CircleStroke extends Stroke {
   @override
   bool get isEmpty => radius <= 0;
   @override
-  int get length => 100;
-
-  bool _polygonNeedsUpdating = true;
-  late List<Offset> _polygon = const [];
-  late Path _path = Path();
+  int get length => 25;
 
   /// A list of 25 points that form a circle
   /// with [center] and [radius].
   @override
-  List<Offset> get polygon {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _polygon;
-  }
+  List<Offset> get polygon => super.polygon;
 
   @override
-  Path get path {
-    if (_polygonNeedsUpdating) _updatePolygon();
-    return _path;
-  }
-
-  void _updatePolygon() {
-    _polygon = List.generate(25, (i) => i / 25 * 2 * pi)
+  void updatePolygon() {
+    lastPolygon = List.generate(25, (i) => i / 25 * 2 * pi)
         .map((radians) => Offset(cos(radians), sin(radians)))
         .map((unitDir) => unitDir * radius + center)
         .toList();
-    _path = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
-    _polygonNeedsUpdating = false;
+    lastPath = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
+    polygonNeedsUpdating = false;
   }
 
   @override
@@ -115,7 +112,7 @@ class CircleStroke extends Stroke {
   }
 
   @override
-  String toSvgPath(Size pageSize) {
+  String toSvgPath() {
     return 'M${center.dx},${center.dy} m${-radius},0 a$radius,$radius 0 1,0 ${radius * 2},0 a$radius,$radius 0 1,0 ${-radius * 2},0';
   }
 
@@ -127,7 +124,7 @@ class CircleStroke extends Stroke {
   @override
   void shift(Offset offset) {
     center += offset;
-    _polygonNeedsUpdating = true;
+    polygonNeedsUpdating = true;
   }
 
   @override
@@ -147,6 +144,7 @@ class CircleStroke extends Stroke {
         pressureEnabled: pressureEnabled,
         options: options.copyWith(),
         pageIndex: pageIndex,
+        page: page,
         penType: penType,
         center: center,
         radius: radius,

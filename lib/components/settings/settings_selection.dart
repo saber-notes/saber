@@ -65,8 +65,7 @@ class _SettingsSelectionState<T extends num>
     icon ??= widget.iconBuilder?.call(widget.pref.value);
     icon ??= Icons.settings;
 
-    final mediaQuery = MediaQuery.of(context);
-    final useDropdownInstead = mediaQuery.size.width < 450;
+    final useDropdownInstead = MediaQuery.sizeOf(context).width < 450;
 
     return ListTile(
       onTap: () {
