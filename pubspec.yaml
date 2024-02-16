@@ -189,6 +189,12 @@ dependency_overrides:
     git:
       url: https://github.com/DavBfr/dart_pdf
       path: pdf
+  # https://github.com/DavBfr/dart_pdf/pull/1604
+  pdf_widget_wrapper:
+    git:
+      url: https://github.com/adil192/dart_pdf
+      ref: fix-flutter-3.19
+      path: widget_wrapper
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

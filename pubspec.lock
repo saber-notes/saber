@@ -936,12 +936,13 @@ packages:
     source: git
     version: "3.10.8"
   pdf_widget_wrapper:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: pdf_widget_wrapper
-      sha256: "9dd21bfeeb366613c12ce1c4da5a40e43d8309e463b9609c9b532e002bc47704"
-      url: "https://pub.dev"
-    source: hosted
+      path: widget_wrapper
+      ref: "fix-flutter-3.19"
+      resolved-ref: e601174d5820f40ad0f5ab241e732423738792ab
+      url: "https://github.com/adil192/dart_pdf"
+    source: git
     version: "1.0.2"
   perfect_freehand:
     dependency: "direct main"
