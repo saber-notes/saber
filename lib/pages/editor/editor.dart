@@ -1219,8 +1219,9 @@ class EditorState extends State<Editor> {
 
   Future exportAsPdf(BuildContext context) async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
+    final bytes = await pdf.save();
     if (!context.mounted) return;
-    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save(),
+    await FileManager.exportFile('${coreInfo.fileName}.pdf', bytes,
         context: context);
   }
 
