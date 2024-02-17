@@ -226,7 +226,6 @@ editor:
     laserPointer: Puntatore laser
   penOptions:
     size: Dimesione
-    sizeDragHint: Trascina a sinistra o a destra per modificare le dimensioni
   colors:
     colorPicker: Selettore di colori
     customBrightnessHue: Personalizzato $b $h

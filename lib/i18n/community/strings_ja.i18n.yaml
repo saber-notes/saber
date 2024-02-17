@@ -223,7 +223,6 @@ editor:
     shapePen(OUTDATED): シェイプペン
   penOptions:
     size: サイズ
-    sizeDragHint: 左右にドラッグしてサイズを変更
   colors:
     colorPicker: カラーピッカー
     black: 黒

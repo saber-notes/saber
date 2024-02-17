@@ -222,7 +222,6 @@ editor:
     laserPointer: اشاره گر لیزری
   penOptions:
     size: اندازه
-    sizeDragHint: برای تغییر اندازه به چپ یا راست بکشید
   colors:
     colorPicker: انتخاب کننده رنگ
     customBrightnessHue: شخصی سازی $b $h

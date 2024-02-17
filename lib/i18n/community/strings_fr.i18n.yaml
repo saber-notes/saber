@@ -226,7 +226,6 @@ editor:
     laserPointer: Pointeur laser
   penOptions:
     size: Taille
-    sizeDragHint: Glisser vers la gauche ou la droite pour changer la taille
   colors:
     colorPicker: Pipette de couleur
     customBrightnessHue: Personnaliser $b $h

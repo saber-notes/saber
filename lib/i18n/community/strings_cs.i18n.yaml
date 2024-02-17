@@ -226,7 +226,6 @@ editor:
     laserPointer: Laserové ukazovátko
   penOptions:
     size: Velikost
-    sizeDragHint: Posunem vlevo nebo vpravo změníte velikost
   colors:
     colorPicker: Vybrat vlastní barvu
     customBrightnessHue: Vlastní $b $h

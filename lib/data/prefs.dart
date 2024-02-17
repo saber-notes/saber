@@ -115,7 +115,10 @@ abstract class Prefs {
       lastSingleFingerPanLock,
       lastAxisAlignedPanLock;
 
-  static late final PlainPref<bool> hasDraggedSizeIndicatorBefore;
+  @Deprecated('Hint isn\'t needed anymore. '
+      'This Pref exists to deprecate the shared preference.')
+  // ignore: unused_field
+  static late final PlainPref<bool> _hasDraggedSizeIndicatorBefore;
 
   static late final PlainPref<List<String>> recentFiles;
 
@@ -239,8 +242,9 @@ abstract class Prefs {
         historicalKeys: const ['lastPanLock']);
     lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
-    hasDraggedSizeIndicatorBefore =
-        PlainPref('hasDraggedSizeIndicatorBefore', false);
+    _hasDraggedSizeIndicatorBefore = PlainPref(
+        '_hasDraggedSizeIndicatorBefore', true,
+        deprecatedKeys: const ['hasDraggedSizeIndicatorBefore']);
 
     recentFiles = PlainPref('recentFiles', [],
         historicalKeys: const ['recentlyAccessed']);

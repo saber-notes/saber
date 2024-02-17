@@ -226,7 +226,6 @@ editor:
     laserPointer(OUTDATED): Lézer mutató
   penOptions:
     size: Méret
-    sizeDragHint: Húzza balra vagy jobbra a méret megváltoztatásához
   colors:
     customBrightnessHue(OUTDATED): Egyedi $b $h
     customHue(OUTDATED): Egyedi $h

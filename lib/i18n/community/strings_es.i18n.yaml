@@ -226,7 +226,6 @@ editor:
     pencil(OUTDATED): Lápiz
   penOptions:
     size: Tamaño
-    sizeDragHint: Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño
   colors:
     colorPicker: Selector de color
     customHue: $h personalizado

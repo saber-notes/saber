@@ -227,7 +227,6 @@ editor:
     laserPointer: Lazer işaretçi
   penOptions:
     size: Boyut
-    sizeDragHint: Boyutu değiştirmek için sağa veya sola kaydır
   colors:
     colorPicker: Renk seçici
     customBrightnessHue: Seçili $b $h

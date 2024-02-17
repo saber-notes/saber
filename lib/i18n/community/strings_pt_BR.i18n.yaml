@@ -226,7 +226,6 @@ editor:
     shapePen(OUTDATED): Caneta de forma
   penOptions:
     size: Tamanho
-    sizeDragHint: Arraste para a esquerda ou para a direita para alterar o tamanho
   colors:
     colorPicker: Seletor de cores
     black: Preto

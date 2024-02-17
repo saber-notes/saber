@@ -743,7 +743,6 @@ class _StringsEditorPenOptionsEn {
 
 	// Translations
 	String get size => 'Size';
-	String get sizeDragHint => 'Drag left or right to change the size';
 }
 
 // Path: editor.colors
@@ -1522,7 +1521,6 @@ class _StringsEditorPenOptionsAr extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'حجم';
-	@override String get sizeDragHint => 'اسحب لليسار أو لليمين لتغيير الحجم';
 }
 
 // Path: editor.colors
@@ -2301,7 +2299,6 @@ class _StringsEditorPenOptionsCs extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Velikost';
-	@override String get sizeDragHint => 'Posunem vlevo nebo vpravo změníte velikost';
 }
 
 // Path: editor.colors
@@ -3080,7 +3077,6 @@ class _StringsEditorPenOptionsDe extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Dicke';
-	@override String get sizeDragHint => 'Nach links oder rechts ziehen, um die Dicke zu ändern';
 }
 
 // Path: editor.colors
@@ -3857,7 +3853,6 @@ class _StringsEditorPenOptionsEs extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Tamaño';
-	@override String get sizeDragHint => 'Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño';
 }
 
 // Path: editor.colors
@@ -4636,7 +4631,6 @@ class _StringsEditorPenOptionsFa extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'اندازه';
-	@override String get sizeDragHint => 'برای تغییر اندازه به چپ یا راست بکشید';
 }
 
 // Path: editor.colors
@@ -5415,7 +5409,6 @@ class _StringsEditorPenOptionsFr extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Taille';
-	@override String get sizeDragHint => 'Glisser vers la gauche ou la droite pour changer la taille';
 }
 
 // Path: editor.colors
@@ -6194,7 +6187,6 @@ class _StringsEditorPenOptionsHe extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'גודל';
-	@override String get sizeDragHint => 'גרור שמאלה או ימינה כדי לשנות את הגודל';
 }
 
 // Path: editor.colors
@@ -6973,7 +6965,6 @@ class _StringsEditorPenOptionsHu extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Méret';
-	@override String get sizeDragHint => 'Húzza balra vagy jobbra a méret megváltoztatásához';
 }
 
 // Path: editor.colors
@@ -7752,7 +7743,6 @@ class _StringsEditorPenOptionsIt extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Dimesione';
-	@override String get sizeDragHint => 'Trascina a sinistra o a destra per modificare le dimensioni';
 }
 
 // Path: editor.colors
@@ -8531,7 +8521,6 @@ class _StringsEditorPenOptionsJa extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'サイズ';
-	@override String get sizeDragHint => '左右にドラッグしてサイズを変更';
 }
 
 // Path: editor.colors
@@ -9310,7 +9299,6 @@ class _StringsEditorPenOptionsPtBr extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Tamanho';
-	@override String get sizeDragHint => 'Arraste para a esquerda ou para a direita para alterar o tamanho';
 }
 
 // Path: editor.colors
@@ -10089,7 +10077,6 @@ class _StringsEditorPenOptionsRu extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Размер';
-	@override String get sizeDragHint => 'Тяните влево или вправо, чтобы изменить размер';
 }
 
 // Path: editor.colors
@@ -10868,7 +10855,6 @@ class _StringsEditorPenOptionsTr extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => 'Boyut';
-	@override String get sizeDragHint => 'Boyutu değiştirmek için sağa veya sola kaydır';
 }
 
 // Path: editor.colors
@@ -11647,7 +11633,6 @@ class _StringsEditorPenOptionsZhHansCn extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => '粗细';
-	@override String get sizeDragHint => '左右拖动更改粗细';
 }
 
 // Path: editor.colors
@@ -12426,7 +12411,6 @@ class _StringsEditorPenOptionsZhHantTw extends _StringsEditorPenOptionsEn {
 
 	// Translations
 	@override String get size => '粗細';
-	@override String get sizeDragHint => '向左或向右拖動以更改大小';
 }
 
 // Path: editor.colors

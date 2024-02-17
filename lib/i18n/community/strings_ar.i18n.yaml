@@ -226,7 +226,6 @@ editor:
     shapePen(OUTDATED): قلم الشكل
   penOptions:
     size: حجم
-    sizeDragHint: اسحب لليسار أو لليمين لتغيير الحجم
   colors:
     colorPicker: أداة انتقاء اللون
     black: أسود

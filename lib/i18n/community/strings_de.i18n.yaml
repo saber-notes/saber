@@ -227,7 +227,6 @@ editor:
     shapePen(OUTDATED): Formstift
   penOptions:
     size: Dicke
-    sizeDragHint: "Nach links oder rechts ziehen, um die Dicke zu ändern"
   colors:
     colorPicker: Farbauswahl
     black: Schwarz

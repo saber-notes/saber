@@ -227,7 +227,6 @@ editor:
     shapePen(OUTDATED): עט צורה
   penOptions:
     size: גודל
-    sizeDragHint: גרור שמאלה או ימינה כדי לשנות את הגודל
   colors:
     colorPicker: בורר צבעים
     black: שחור

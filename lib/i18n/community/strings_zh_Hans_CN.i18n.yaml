@@ -226,7 +226,6 @@ editor:
     laserPointer: 激光笔
   penOptions:
     size: 粗细
-    sizeDragHint: 左右拖动更改粗细
   colors:
     colorPicker: 选色器
     customBrightnessHue: 自定义 $b $h

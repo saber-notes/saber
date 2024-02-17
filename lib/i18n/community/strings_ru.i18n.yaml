@@ -226,7 +226,6 @@ editor:
     laserPointer: Лазерная указка
   penOptions:
     size: Размер
-    sizeDragHint: "Тяните влево или вправо, чтобы изменить размер"
   colors:
     colorPicker: Выбор цвета
     customBrightnessHue: Свой $b $h

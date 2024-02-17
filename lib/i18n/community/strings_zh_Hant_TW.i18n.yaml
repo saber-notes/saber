@@ -225,7 +225,6 @@ editor:
     laserPointer: 雷射筆
   penOptions:
     size: 粗細
-    sizeDragHint: 向左或向右拖動以更改大小
   colors:
     colorPicker: 顏色選擇器
     customBrightnessHue: 自訂的 $b $h
