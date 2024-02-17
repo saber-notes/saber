@@ -72,6 +72,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(child: body),
                 SafeArea(
+                  top: false,
                   child: BannerAdWidget.adaptive(
                     screenWidth: MediaQuery.sizeOf(context).width,
                   ),
