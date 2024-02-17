@@ -242,6 +242,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.20.2" type="development" date="2024-02-17">
+            <description>
+                <ul>
+                    <li>Changing the pen size is now more intuitive with a slider input</li>
+                    <li>Minor performance and fidelity improvements for the pencil</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.20.1" type="development" date="2024-02-14">
             <description>
                 <ul>
