@@ -48,6 +48,8 @@ class Pen extends Tool {
 
   final String name;
   final double sizeMin, sizeMax, sizeStep;
+  late final int sizeStepsBetweenMinAndMax =
+      ((sizeMax - sizeMin) / sizeStep).round();
   final IconData icon;
 
   @override

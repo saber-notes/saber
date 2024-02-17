@@ -1,5 +1,4 @@
-import 'dart:async';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -16,135 +15,153 @@ class SizePicker extends StatefulWidget {
   State<SizePicker> createState() => _SizePickerState();
 }
 
+/// Returns a string representation of [num] that:
+/// - Has no decimal point if [num] is an integer
+/// - Has one decimal point if [num] has a non-zero fractional part
+String _prettyNum(double num) {
+  final rounded = num.round();
+  if (num == rounded) return rounded.toString();
+  return num.toStringAsFixed(1);
+}
+
 class _SizePickerState extends State<SizePicker> {
-  final TextEditingController _controller = TextEditingController();
-
-  Offset? startingOffset;
-  double startingValue = 0;
-
   @override
-  void initState() {
-    super.initState();
-    updateValue();
-    _controller.addListener(() {
-      updateValue(
-        newValue: double.tryParse(_controller.text),
-        manuallyTypedIn: true,
-      );
-    });
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Column(
+          children: [
+            Text(
+              t.editor.penOptions.size,
+              style: TextStyle(
+                color: colorScheme.onSurface.withOpacity(0.8),
+                fontSize: 10,
+                height: 1,
+              ),
+            ),
+            Text(_prettyNum(widget.pen.options.size)),
+          ],
+        ),
+        const SizedBox(width: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: _SizeSlider(
+            pen: widget.pen,
+            setState: setState,
+          ),
+        ),
+      ],
+    );
   }
+}
 
-  Timer? updateTextFieldTimer;
-  void updateValue({double? newValue, bool manuallyTypedIn = false}) {
-    if (newValue != null) {
-      setState(() {
-        widget.pen.options.size = newValue
-            .clamp(widget.pen.sizeMin, widget.pen.sizeMax)
-            .roundToDouble();
-      });
-    }
+class _SizeSlider extends StatelessWidget {
+  const _SizeSlider({
+    // ignore: unused_element
+    super.key,
+    required this.pen,
+    required this.setState,
+  });
 
-    String valueString = widget.pen.options.size.round().toString();
-    updateTextFieldTimer?.cancel();
-    if (manuallyTypedIn) {
-      updateTextFieldTimer = Timer(const Duration(milliseconds: 3000), () {
-        _controller.text = valueString;
-      });
-    } else if (_controller.text != valueString) {
-      _controller.text = valueString;
-    }
-  }
+  final Pen pen;
+  final void Function(void Function()) setState;
 
-  void onDrag(Offset currentOffset) {
-    if (startingOffset == null) return;
+  static const Size _size = Size(150, 25);
 
-    final double delta = (currentOffset.dx - startingOffset!.dx) /
-        widget.pen.sizeMax *
-        4 *
-        widget.pen.sizeStep;
-    final double newValue =
-        startingValue + delta ~/ widget.pen.sizeStep * widget.pen.sizeStep;
+  void onDrag(double localDx) {
+    final relX = clampDouble(localDx / _size.width, 0, 1);
+    final stepsFromMin = (relX * pen.sizeStepsBetweenMinAndMax).round();
+    final newSize = pen.sizeMin + stepsFromMin * pen.sizeStep;
+    if (newSize == pen.options.size) return;
     setState(() {
-      updateValue(newValue: newValue);
+      pen.options = pen.options.copyWith(size: newSize);
     });
-  }
-
-  @override
-  void didUpdateWidget(SizePicker oldWidget) {
-    updateValue();
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    return MouseRegion(
-      cursor: SystemMouseCursors.resizeLeftRight,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onPanStart: (DragStartDetails details) {
-          startingOffset = details.globalPosition;
-          startingValue = widget.pen.options.size;
-        },
-        onPanUpdate: (DragUpdateDetails details) {
-          onDrag(details.globalPosition);
-        },
-        onPanEnd: (DragEndDetails details) {
-          startingOffset = null;
-        },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            children: [
-              Text(t.editor.penOptions.size),
-              Container(
-                width: 25,
-                height: 25,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: colorScheme.onBackground,
-                    width: 1,
-                  ),
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 100),
-                    width: widget.pen.options.size / widget.pen.sizeMax * 25,
-                    height: widget.pen.options.size / widget.pen.sizeMax * 25,
-                    decoration: BoxDecoration(
-                      color: colorScheme.onBackground,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 30,
-                child: TextField(
-                  controller: _controller,
-                  decoration: const InputDecoration(
-                    isDense: true,
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(top: 2),
-                  ),
-                  style: const TextStyle(
-                    fontSize: 14,
-                  ),
-                  textAlign: TextAlign.center,
-                  scribbleEnabled: false,
-                ),
-              ),
-            ],
-          ),
+    return GestureDetector(
+      onHorizontalDragStart: (details) => onDrag(details.localPosition.dx),
+      onHorizontalDragUpdate: (details) => onDrag(details.localPosition.dx),
+      child: CustomPaint(
+        size: _size,
+        painter: _SizeSliderPainter(
+          minSize: pen.sizeMin,
+          maxSize: pen.sizeMax,
+          currentSize: pen.options.size,
+          trackColor: colorScheme.onBackground.withOpacity(0.2),
+          thumbColor: colorScheme.primary,
         ),
       ),
     );
+  }
+}
+
+class _SizeSliderPainter extends CustomPainter {
+  _SizeSliderPainter({
+    required this.minSize,
+    required this.maxSize,
+    required this.currentSize,
+    required this.trackColor,
+    required this.thumbColor,
+  });
+
+  final double minSize;
+  final double maxSize;
+  final double currentSize;
+  final Color trackColor;
+  final Color thumbColor;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    /// The smallest height the track can be
+    final leftHeight = size.height * minSize / maxSize;
+    final topLeft = Offset(0, (size.height - leftHeight) / 2);
+    final bottomLeft = Offset(0, topLeft.dy + leftHeight);
+    final topRight = Offset(size.width, 0);
+    final bottomRight = Offset(size.width, size.height);
+
+    // track
+    canvas.drawPath(
+      Path()
+        ..moveTo(topLeft.dx, topLeft.dy)
+        ..lineTo(bottomLeft.dx, bottomLeft.dy)
+        ..lineTo(bottomRight.dx, bottomRight.dy)
+        ..lineTo(topRight.dx, topRight.dy)
+        ..close(),
+      Paint()
+        ..color = trackColor
+        ..style = PaintingStyle.fill,
+    );
+
+    // thumb
+    final ratio = (currentSize - minSize) / (maxSize - minSize);
+    final thumbHeight = size.height * ratio;
+    final thumbRight = size.width * ratio;
+    final thumbTop = (size.height - thumbHeight) / 2;
+    canvas.drawPath(
+      Path()
+        ..moveTo(topLeft.dx, topLeft.dy)
+        ..lineTo(bottomLeft.dx, bottomLeft.dy)
+        ..lineTo(thumbRight, thumbTop + thumbHeight)
+        ..lineTo(thumbRight, thumbTop)
+        ..close(),
+      Paint()
+        ..color = thumbColor
+        ..style = PaintingStyle.fill,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return oldDelegate is! _SizeSliderPainter ||
+        oldDelegate.minSize != minSize ||
+        oldDelegate.maxSize != maxSize ||
+        oldDelegate.currentSize != currentSize ||
+        oldDelegate.trackColor != trackColor ||
+        oldDelegate.thumbColor != thumbColor;
   }
 }
