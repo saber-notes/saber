@@ -107,8 +107,7 @@ class CanvasPainter extends CustomPainter {
           ..setFloat(0, color.red / 255)
           ..setFloat(1, color.green / 255)
           ..setFloat(2, color.blue / 255);
-        paint.maskFilter =
-            MaskFilter.blur(BlurStyle.normal, stroke.options.size * 0.3);
+        paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
       }
 
       late final shapePaint = Paint()
@@ -157,8 +156,7 @@ class CanvasPainter extends CustomPainter {
         ..setFloat(0, color.red / 255)
         ..setFloat(1, color.green / 255)
         ..setFloat(2, color.blue / 255);
-      paint.maskFilter =
-          MaskFilter.blur(BlurStyle.normal, currentStroke!.options.size * 0.3);
+      paint.maskFilter = _getPencilMaskFilter(currentStroke!.options.size);
     }
 
     if (currentStroke!.length <= 2) {
@@ -259,4 +257,9 @@ class CanvasPainter extends CustomPainter {
       ),
     );
   }
+
+  static MaskFilter _getPencilMaskFilter(double size) => MaskFilter.blur(
+        BlurStyle.normal,
+        min(size * 0.3, 5),
+      );
 }
