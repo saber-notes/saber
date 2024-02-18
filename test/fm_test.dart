@@ -169,8 +169,8 @@ void main() {
       test('with extensions and assets', () async {
         final children = await FileManager.getChildrenOfDirectory(
           dirPath,
-          removeExtension: false,
-          includeAssetFiles: true,
+          includeExtensions: true,
+          includeAssets: true,
         );
         expect(children, isNotNull);
         printOnFailure('childrenWithAssets.files: ${children!.files}');

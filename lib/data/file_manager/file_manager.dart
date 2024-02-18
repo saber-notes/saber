@@ -388,21 +388,22 @@ class FileManager {
   /// Gets the children of a directory, separated into
   /// [DirectoryChildren.directories] and [DirectoryChildren.files].
   ///
-  /// If [removeExtension] is true (default), the extension will be removed from the file names. We use this to get all notes in a directory.
+  /// If [includeExtensions] is false (default), the extension will be removed
+  /// from the file names. We use this to get all notes in a directory.
   ///
-  /// If [includeAssetFiles] is true, assets and previews will be included.
+  /// If [includeAssets] is true, assets and previews will be included.
   /// We use this for syncing.
   ///
-  /// Note: [removeExtension] and [includeAssetFiles] can't both be true,
-  /// since then we wouldn't be able to tell the difference between notes
+  /// Note: [includeAssets] can't be true without [includeExtension],
+  /// since otherwise we wouldn't be able to tell the difference between notes
   /// and assets.
   static Future<DirectoryChildren?> getChildrenOfDirectory(
     String directory, {
-    bool removeExtension = true,
-    bool includeAssetFiles = false,
+    bool includeExtensions = false,
+    bool includeAssets = false,
   }) async {
-    assert(!removeExtension || !includeAssetFiles,
-        'removeExtension and includeAssetFiles can\'t both be true');
+    assert(!includeAssets || includeExtensions,
+        'includeAssets can\'t be true without includeExtensions');
 
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
@@ -430,7 +431,7 @@ class FileManager {
           late final isSbn2 = filePath.endsWith(Editor.extension);
           late final isSbn1 = filePath.endsWith(Editor.extensionOldJson);
 
-          if (removeExtension) {
+          if (!includeExtensions) {
             if (isSbn2) {
               return filePath.substring(
                   0, filePath.length - Editor.extension.length);
@@ -440,7 +441,7 @@ class FileManager {
             } else {
               return null; // filePath is name of some asset
             }
-          } else if (!includeAssetFiles) {
+          } else if (!includeAssets) {
             final isAsset = !isSbn2 && !isSbn1;
             if (isAsset) return null;
           }
@@ -456,7 +457,7 @@ class FileManager {
       if (await FileManager.isDirectory(directory + child) &&
           !directories.contains(child)) {
         directories.add(child);
-      } else if (!includeAssetFiles && assetFileRegex.hasMatch(child)) {
+      } else if (!includeAssets && assetFileRegex.hasMatch(child)) {
         // if the file is an asset, don't add it to the list of files
       } else {
         files.add(child);
@@ -470,8 +471,8 @@ class FileManager {
   ///
   /// See [getChildrenOfDirectory] for more information on the parameters.
   static Future<List<String>> getAllFiles({
-    bool removeExtension = true,
-    bool includeAssetFiles = false,
+    bool includeExtensions = false,
+    bool includeAssets = false,
   }) async {
     final allFiles = <String>[];
     final directories = <String>['/'];
@@ -480,8 +481,8 @@ class FileManager {
       final directory = directories.removeLast();
       final children = await getChildrenOfDirectory(
         directory,
-        removeExtension: removeExtension,
-        includeAssetFiles: includeAssetFiles,
+        includeExtensions: includeExtensions,
+        includeAssets: includeAssets,
       );
       if (children == null) continue;
 
