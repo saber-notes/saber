@@ -385,12 +385,25 @@ class FileManager {
     await directory.delete(recursive: recursive);
   }
 
-  static Future<DirectoryChildren?> getChildrenOfDirectory(String directory,
-      {bool removeExtension = true, bool includeAssetFiles = false}) async {
-    // removeExtension=true should be used to  get all notes in directory
-    // includeAssetFiles also provide filenames of assets
-    //    it should not be used together with removeExtension !!!
-    // it is false only when called from Resync Everything button.
+  /// Gets the children of a directory, separated into
+  /// [DirectoryChildren.directories] and [DirectoryChildren.files].
+  ///
+  /// If [removeExtension] is true (default), the extension will be removed from the file names. We use this to get all notes in a directory.
+  ///
+  /// If [includeAssetFiles] is true, assets and previews will be included.
+  /// We use this for syncing.
+  ///
+  /// Note: [removeExtension] and [includeAssetFiles] can't both be true,
+  /// since then we wouldn't be able to tell the difference between notes
+  /// and assets.
+  static Future<DirectoryChildren?> getChildrenOfDirectory(
+    String directory, {
+    bool removeExtension = true,
+    bool includeAssetFiles = false,
+  }) async {
+    assert(!removeExtension || !includeAssetFiles,
+        'removeExtension and includeAssetFiles can\'t both be true');
+
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
 
