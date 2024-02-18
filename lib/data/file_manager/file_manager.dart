@@ -452,8 +452,8 @@ class FileManager {
       if (await FileManager.isDirectory(directory + child) &&
           !directories.contains(child)) {
         directories.add(child);
-      } else if (assetFileRegex.hasMatch(child) && !includeAssetFiles) {
-        // if the file is an asset, don't add it to the list of files except if requested setting includeAssetFiles
+      } else if (!includeAssetFiles && assetFileRegex.hasMatch(child)) {
+        // if the file is an asset, don't add it to the list of files
       } else {
         files.add(child);
       }
