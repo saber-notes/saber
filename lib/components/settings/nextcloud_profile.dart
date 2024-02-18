@@ -116,7 +116,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   ),
                   tooltip: t.settings.resyncEverything,
                   onPressed: () async {
-                    final allFiles = await FileManager.getAllFiles(false,true); // do not remove extensions and include also assets
+                    final allFiles = await FileManager.getAllFiles(
+                        removeExtension: false, includeAssetFiles: true);
                     Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
                     for (final file in allFiles) {
                       FileSyncer.addToUploadQueue(file);

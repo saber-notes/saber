@@ -385,10 +385,8 @@ class FileManager {
     await directory.delete(recursive: recursive);
   }
 
-  static Future<DirectoryChildren?> getChildrenOfDirectory(
-      String directory,
-      {bool removeExtension=true,
-      bool includeAssetFiles = false}) async {
+  static Future<DirectoryChildren?> getChildrenOfDirectory(String directory,
+      {bool removeExtension = true, bool includeAssetFiles = false}) async {
     // removeExtension=true should be used to  get all notes in directory
     // includeAssetFiles also provide filenames of assets
     //    it should not be used together with removeExtension !!!
@@ -412,13 +410,14 @@ class FileManager {
 
           if (entity is Directory) {
             // return directory name
-            return filePath.substring(directoryPrefixLength); // remove directory prefix
+            return filePath
+                .substring(directoryPrefixLength); // remove directory prefix
           }
-            //log.info('Listing file $filePath');
+          //log.info('Listing file $filePath');
           if (Editor.isReservedPath(filePath))
             return null; // filter out reserved files - always
 
-          if (removeExtension){
+          if (removeExtension) {
             // remove extension - return only names of notes (not assets)
             if (filePath.endsWith(Editor.extension)) {
               filePath = filePath.substring(
@@ -426,20 +425,18 @@ class FileManager {
             } else if (filePath.endsWith(Editor.extensionOldJson)) {
               filePath = filePath.substring(
                   0, filePath.length - Editor.extensionOldJson.length);
-            }
-            else {
+            } else {
               return null; // filePath is name of some asset
             }
-          }
-          else {
-            if (includeAssetFiles){
+          } else {
+            if (includeAssetFiles) {
               // return also names of asset files  *.sbn2.x
               // return also names of thumbnail files *.sbn2.p
               // so all files
-            }
-            else {
+            } else {
               // return only names of notes
-              if (! (filePath.endsWith(Editor.extension) || filePath.endsWith(Editor.extensionOldJson))) {
+              if (!(filePath.endsWith(Editor.extension) ||
+                  filePath.endsWith(Editor.extensionOldJson))) {
                 return null; //  filePath is name of note but some asset
               }
             }
@@ -465,14 +462,21 @@ class FileManager {
     return DirectoryChildren(directories, files);
   }
 
-  static Future<List<String>> getAllFiles([bool removeExtension = true,bool includeAssetFiles = false]) async {
+  static Future<List<String>> getAllFiles({
+    bool removeExtension = true,
+    bool includeAssetFiles = false,
+  }) async {
     // removeExtension is false only when called from ResyncEverything button
     final allFiles = <String>[];
     final directories = <String>['/'];
 
     while (directories.isNotEmpty) {
       final directory = directories.removeLast();
-      final children = await getChildrenOfDirectory(directory,removeExtension: removeExtension,includeAssetFiles: includeAssetFiles);
+      final children = await getChildrenOfDirectory(
+        directory,
+        removeExtension: removeExtension,
+        includeAssetFiles: includeAssetFiles,
+      );
       if (children == null) continue;
 
       for (final file in children.files) {
