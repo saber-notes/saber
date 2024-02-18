@@ -466,11 +466,13 @@ class FileManager {
     return DirectoryChildren(directories, files);
   }
 
+  /// Returns a list of all files recursively in the root directory.
+  ///
+  /// See [getChildrenOfDirectory] for more information on the parameters.
   static Future<List<String>> getAllFiles({
     bool removeExtension = true,
     bool includeAssetFiles = false,
   }) async {
-    // removeExtension is false only when called from ResyncEverything button
     final allFiles = <String>[];
     final directories = <String>['/'];
 
