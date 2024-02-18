@@ -419,46 +419,37 @@ class FileManager {
     allChildren = await dir
         .list()
         .map((FileSystemEntity entity) {
-          String filePath = entity.path.substring(documentsDirectory.length);
+          final filePath = entity.path.substring(documentsDirectory.length);
 
-          if (entity is Directory) {
-            // return directory name
-            return filePath
-                .substring(directoryPrefixLength); // remove directory prefix
-          }
-          //log.info('Listing file $filePath');
-          if (Editor.isReservedPath(filePath))
-            return null; // filter out reserved files - always
+          // directories don't need any further processing
+          if (entity is Directory) return filePath;
+
+          // filter out reserved files
+          if (Editor.isReservedPath(filePath)) return null;
+
+          late final isSbn2 = filePath.endsWith(Editor.extension);
+          late final isSbn1 = filePath.endsWith(Editor.extensionOldJson);
 
           if (removeExtension) {
-            // remove extension - return only names of notes (not assets)
-            if (filePath.endsWith(Editor.extension)) {
-              filePath = filePath.substring(
+            if (isSbn2) {
+              return filePath.substring(
                   0, filePath.length - Editor.extension.length);
-            } else if (filePath.endsWith(Editor.extensionOldJson)) {
-              filePath = filePath.substring(
+            } else if (isSbn1) {
+              return filePath.substring(
                   0, filePath.length - Editor.extensionOldJson.length);
             } else {
               return null; // filePath is name of some asset
             }
-          } else {
-            if (includeAssetFiles) {
-              // return also names of asset files  *.sbn2.x
-              // return also names of thumbnail files *.sbn2.p
-              // so all files
-            } else {
-              // return only names of notes
-              if (!(filePath.endsWith(Editor.extension) ||
-                  filePath.endsWith(Editor.extensionOldJson))) {
-                return null; //  filePath is name of note but some asset
-              }
-            }
+          } else if (!includeAssetFiles) {
+            final isAsset = !isSbn2 && !isSbn1;
+            if (isAsset) return null;
           }
-          return filePath
-              .substring(directoryPrefixLength); // remove directory prefix
+
+          return filePath;
         })
         .where((String? file) => file != null)
-        .cast<String>()
+        // remove parent folder
+        .map((file) => file!.substring(directoryPrefixLength))
         .toList();
 
     await Future.wait(allChildren.map((child) async {
