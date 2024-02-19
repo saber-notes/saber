@@ -222,10 +222,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: "56111be3b4de7cce7abb4076ce7c9cf3fd3d27ca7e2b96f64e6ab544fd933f12"
+      sha256: "54c3057ce4f9649e71726bf0d9cc5e22f838586b253810875ecc7ddc21eccf70"
       url: "https://pub.dev"
     source: hosted
-    version: "9.2.14"
+    version: "9.3.1"
   decimal:
     dependency: transitive
     description:
@@ -445,10 +445,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "6f547382315f4752379f8aab95e1f5c1cd72e7344c407f86469e922f539b5214"
+      sha256: "0f20a201611130916ff5eb50903606ca9328282cc66370d97d31fa2b0a2a0c43"
       url: "https://pub.dev"
     source: hosted
-    version: "9.2.14"
+    version: "9.3.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -1523,10 +1523,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: caab0544cb95471e8d1417d21e25838ee4f614f4651a9e8e5a4f26bfeff5f312
+      sha256: c64ada43c5adc1bcd4635f1ce386857e7fdec7fc494589e2ca61cad0a1304377
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.1"
+    version: "6.3.2"
   xdg_directories:
     dependency: transitive
     description:
