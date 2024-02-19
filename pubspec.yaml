@@ -68,7 +68,7 @@ dependencies:
 
   keybinder: ^1.0.1
 
-  pdf: ^3.8.4
+  pdf: ^3.10.7
   share_plus: ^7.0.0
   file_picker: ^6.0.0
 
@@ -95,7 +95,7 @@ dependencies:
 
   window_manager: ^0.3.0
 
-  worker_manager: ^6.0.0
+  worker_manager: ^6.3.2
 
   archive: ^3.4.6
 
@@ -113,7 +113,7 @@ dependencies:
 
   path_drawing: ^1.0.1
 
-  printing: ^5.10.1
+  printing: ^5.11.1
 
   open_filex: ^4.3.2
 
@@ -124,7 +124,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.3
 
   flutter_speed_dial: ^7.0.0
 
