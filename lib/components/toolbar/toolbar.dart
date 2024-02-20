@@ -107,6 +107,8 @@ class _ToolbarState extends State<Toolbar> {
   Keybinding? _ctrlShiftS;
   Keybinding? _f11;
   Keybinding? _ctrlV;
+  Keybinding? _pageUp;
+  Keybinding? _pageDown;
   void _assignKeybindings() {
     _ctrlF = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyF)],
         inclusive: true);
@@ -120,6 +122,10 @@ class _ToolbarState extends State<Toolbar> {
     _f11 = Keybinding([KeyCode.from(LogicalKeyboardKey.f11)], inclusive: true);
     _ctrlV = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.keyV)],
         inclusive: true);
+    _pageUp =
+        Keybinding([KeyCode.from(LogicalKeyboardKey.pageUp)], inclusive: true);
+    _pageDown = Keybinding([KeyCode.from(LogicalKeyboardKey.pageDown)],
+        inclusive: true);
 
     Keybinder.bind(_ctrlF!, widget.toggleFingerDrawing);
     Keybinder.bind(_ctrlE!, toggleEraser);
@@ -127,6 +133,8 @@ class _ToolbarState extends State<Toolbar> {
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
     Keybinder.bind(_f11!, toggleFullscreen);
     Keybinder.bind(_ctrlV!, widget.paste);
+    Keybinder.bind(_pageUp!, toggleColorOptions);
+    Keybinder.bind(_pageDown!, toggleEraser);
   }
 
   void _removeKeybindings() {
@@ -136,6 +144,8 @@ class _ToolbarState extends State<Toolbar> {
     if (_ctrlShiftS != null) Keybinder.remove(_ctrlShiftS!);
     if (_f11 != null) Keybinder.remove(_f11!);
     if (_ctrlV != null) Keybinder.remove(_ctrlV!);
+    if (_pageUp != null) Keybinder.remove(_pageUp!);
+    if (_pageDown != null) Keybinder.remove(_pageDown!);
   }
 
   void toggleEraser() {
