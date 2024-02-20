@@ -133,7 +133,7 @@ class _ToolbarState extends State<Toolbar> {
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
     Keybinder.bind(_f11!, toggleFullscreen);
     Keybinder.bind(_ctrlV!, widget.paste);
-    Keybinder.bind(_pageUp!, toggleColorOptions);
+    Keybinder.bind(_pageUp!, togglePrimarySecondaryColor);
     Keybinder.bind(_pageDown!, toggleEraser);
   }
 
@@ -155,6 +155,38 @@ class _ToolbarState extends State<Toolbar> {
 
   void toggleColorOptions() {
     showColorOptions.value = !showColorOptions.value;
+  }
+
+  void togglePrimarySecondaryColor() {
+    toolOptionsType.value = ToolOptions.hide;
+    widget.setTool(Pen.currentPen);
+
+    if (Prefs.pinnedColors.value.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('No pinned colors available!'),
+      ));
+      return;
+    }
+
+    if (Prefs.pinnedColors.value.length < 2) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content:
+            Text('Pin at least two colors to toggle primary and secondary!'),
+      ));
+      return;
+    }
+
+    var primaryColorString = Prefs.pinnedColors.value[0];
+    var secondaryColorString = Prefs.pinnedColors.value[1];
+
+    var primary = Color(int.parse(primaryColorString));
+    var secondary = Color(int.parse(secondaryColorString));
+
+    if (Pen.currentPen.color != primary) {
+      widget.setColor(primary);
+    } else {
+      widget.setColor(secondary);
+    }
   }
 
   void toggleExportBar() {
