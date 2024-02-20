@@ -9,6 +9,7 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -77,6 +78,9 @@ void main() {
 
     // draw something
     await drawOnEditor(tester);
+
+    // visibility detector triggers error withour this
+    VisibilityDetectorController.instance.updateInterval = Duration.zero;
     await tester.pumpAndSettle();
     expect(getUndoBtn().onPressed, isNotNull,
         reason: 'Undo button should be enabled after first draw');
