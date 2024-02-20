@@ -1,3 +1,7 @@
+## 1.2.2
+
+- Improved pub.dev scores
+
 ## 1.2.1
 
 - Updated the Onyx SDK
