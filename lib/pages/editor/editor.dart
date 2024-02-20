@@ -1123,7 +1123,7 @@ class EditorState extends State<Editor> {
       page.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
         pdfBytes: pdfBytes,
-        pdfFile: null,
+        pdfFile: pdfFile,
         pdfPage: currentPdfPage,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
