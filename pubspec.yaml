@@ -138,6 +138,8 @@ dependencies:
 
   one_dollar_unistroke_recognizer: ^1.0.0
 
+  focus_detector: ^2.0.1
+
   meta: ^1.0.0
 
   mutex: ^3.1.0
