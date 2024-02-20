@@ -123,7 +123,7 @@ void main() {
       expect(file.existsSync(), false);
     });
 
-    test('getChildrenOfDirectory', () async {
+    group('getChildrenOfDirectory', () {
       const dirPath = '/test_getChildrenOfDirectory';
       const fileNames = [
         'test_file1',
@@ -131,33 +131,57 @@ void main() {
         'test_file3',
         'subdir/test_file4',
       ];
-      printOnFailure('fileNames: $fileNames');
 
-      // create files
-      for (final fileName in fileNames) {
-        final file = File('$rootDir$dirPath/$fileName.sbn2');
-        await file.create(recursive: true);
-      }
-      addTearDown(() async {
+      setUp(() async {
+        // create files
+        for (final fileName in fileNames) {
+          final file = File('$rootDir$dirPath/$fileName.sbn2');
+          await file.create(recursive: true);
+          final asset = File('$rootDir$dirPath/$fileName.sbn2.0');
+          await asset.create(recursive: true);
+          final preview = File('$rootDir$dirPath/$fileName.sbn2.p');
+          await preview.create(recursive: true);
+        }
+      });
+      tearDown(() async {
         // delete files
         final dir = Directory('$rootDir$dirPath');
         await dir.delete(recursive: true);
       });
 
-      // get children
-      final children = await FileManager.getChildrenOfDirectory(dirPath);
-      expect(children, isNotNull);
-      printOnFailure('children.files: ${children!.files}');
-      printOnFailure('children.directories: ${children.directories}');
-      expect(children.files.length, 3);
-      expect(children.directories.length, 1);
+      test('without extensions or assets', () async {
+        // get children
+        final children = await FileManager.getChildrenOfDirectory(dirPath);
+        expect(children, isNotNull);
+        printOnFailure('children.files: ${children!.files}');
+        printOnFailure('children.directories: ${children.directories}');
+        expect(children.files.length, 3);
+        expect(children.directories.length, 1);
 
-      // verify children
-      for (final fileName in fileNames) {
-        if (fileName.contains('subdir')) continue;
-        expect(children.files.contains(fileName), true);
-      }
-      expect(children.directories.contains('subdir'), true);
+        // verify children
+        for (final fileName in fileNames) {
+          if (fileName.contains('subdir')) continue;
+          expect(children.files.contains(fileName), true);
+        }
+        expect(children.directories.contains('subdir'), true);
+      });
+
+      test('with extensions and assets', () async {
+        final children = await FileManager.getChildrenOfDirectory(
+          dirPath,
+          includeExtensions: true,
+          includeAssets: true,
+        );
+        expect(children, isNotNull);
+        printOnFailure('childrenWithAssets.files: ${children!.files}');
+        printOnFailure(
+            'childrenWithAssets.directories: ${children.directories}');
+        expect(children.files.length, 9);
+        expect(children.directories.length, 1);
+        expect(children.files.contains('test_file3.sbn2'), true);
+        expect(children.files.contains('test_file3.sbn2.0'), true);
+        expect(children.files.contains('test_file3.sbn2.p'), true);
+      });
     });
 
     test('getRecentlyAccessed', () async {
