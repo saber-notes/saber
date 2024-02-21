@@ -18,16 +18,16 @@ enum Active {
   crop,          // setting crop rect
 }
 
-/// crop image by rect
+/// crop image by given rect - used to crop image
 class ImgClipper extends CustomClipper<Rect> {
   ImgClipper(
       this.clipRect,
-      );
-  final Rect clipRect;
+  );
+  final Rect clipRect;  // rectangle used to crop Image
 
   @override
-  Rect getClip(Size size) {
-    return clipRect.shift(-clipRect.topLeft);
+  Rect getClip(Size size) {//
+    return clipRect;
   }
 
   @override
@@ -123,6 +123,19 @@ class _CanvasImageState extends State<CanvasImage> {
   // used when cropping image
   Rect cropRect = Rect.zero;
   Rect cropStartRect = Rect.zero;
+
+  // return clip rectangle used to crop image
+  Rect getClipRect(){
+    if (widget.image.showCroppedImage) {
+      Offset o = widget.image.dstRect.topLeft-widget.image.dstFullRect.topLeft;
+      Rect clipRect=o&widget.image.dstRect.size; // offset dstRect by its distance from topLeft of full image
+      return (clipRect);
+    }
+    else {
+      return (Offset.zero & widget.image.dstFullRect.size);
+    }
+  }
+
 
   @override
   void initState() {
@@ -250,6 +263,10 @@ class _CanvasImageState extends State<CanvasImage> {
                             CanvasImage.minImageSize),
 //                    child: Container(
 //                      color: Colors.red,
+                    child: ClipRect( // cliping is done in the sized box. I means that full image topLeft is (0,0)
+                      clipper: ImgClipper(
+                          getClipRect() // return clip rectangle according to actual action
+                      ),
                       child: SizedOverflowBox(
                         size: widget.image.naturalSize,  // size of full image
                         child: Transform.translate(
@@ -259,12 +276,6 @@ class _CanvasImageState extends State<CanvasImage> {
                             child: SizedBox(
                               height: widget.image.dstFullRect.height,
                               width: widget.image.dstFullRect.width,
-//                              child: ClipRect(
-//                                clipper: ImgClipper(
-//                                        widget.image.showCroppedImage ?
-//                                        widget.image.dstRect: // when image crop is active crop by dstRect
-//                                        widget.image.dstFullRect  // show full image
-//                                    ),
                                   child: Container(
                                     height: widget.image.dstFullRect.height,
                                     width: widget.image.dstFullRect.width,
@@ -281,10 +292,10 @@ class _CanvasImageState extends State<CanvasImage> {
                                       return shader;
                                     },
                                   ),
-//                                ),
+                                ),
                               ),
-                            ),
-//                          ),
+//                            ),
+                          ),
                         ),
                       ),
 //                    ),

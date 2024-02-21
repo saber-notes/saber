@@ -174,7 +174,7 @@ class _ShaderImageRenderObject extends RenderBox {
 
     if (shader == null) {
       // no shader, just draw the image
-      context.canvas.drawImage(//
+      context.canvas.drawImage(
         image!,
         offset,
         paint,
