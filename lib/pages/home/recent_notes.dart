@@ -136,8 +136,12 @@ class _RecentPageState extends State<RecentPage> {
                   titlePadding: EdgeInsetsDirectional.only(
                       start: cupertino ? 0 : 16, bottom: 16),
                 ),
-                actions: const [
-                  SyncingButton(),
+                actions: [
+                  IconButton(
+                    onPressed: () => context.push('/trash'),
+                    icon: const Icon(Icons.auto_delete),
+                  ),
+                  const SyncingButton(),
                 ],
               ),
             ),
