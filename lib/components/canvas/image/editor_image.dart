@@ -50,8 +50,10 @@ sealed class EditorImage extends ChangeNotifier {
   void Function()? onMiscChange;
   final VoidCallback? onLoad;
 
+  /// rectangle used to display image (image crop region to be displayed). Full image dimension is given by naturalSize
   Rect srcRect = Rect.zero;
 
+  /// rectangle used to display image on canvas (area of cropped image)
   Rect _dstRect = Rect.zero;
   Rect get dstRect => _dstRect;
   set dstRect(Rect dstRect) {
@@ -59,7 +61,18 @@ sealed class EditorImage extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Defines the aspect ratio of the image.
+  /// rectangle used to display full size of image (without cropping it)
+  Rect _dstFullRect = Rect.zero;
+  Rect get dstFullRect => _dstFullRect;
+  set dstFullRect(Rect dstFullRect) {
+    _dstFullRect = dstFullRect;
+    notifyListeners();
+  }
+
+  /// show only cropped image, if false then show full image (it is used to select crop rect)
+  bool showCroppedImage=true;
+
+  /// Defines the aspect ratio of the original image - image size
   Size naturalSize;
 
   /// The size of the page this image is on,
@@ -250,4 +263,36 @@ sealed class EditorImage extends ChangeNotifier {
 
     return Size(width, height);
   }
+
+
+  // cropping image functions
+
+  Rect getDstFullRect(){
+    /// function returning rectangle in destination coordinates to be used to draw full image
+    /// image is draw in full size, I must calculate destination rect according to it
+    double scaleX= dstRect.width/srcRect.width;
+    double scaleY= dstRect.height/srcRect.height;
+    Offset cs=srcRect.topLeft;  // offset of crop origin (topleft) from image origin (0,0)
+    Offset srcOriginInDest=-Offset(cs.dx*scaleX,cs.dy*scaleY); // offset of image origin (0,0) with respect to cropped origin in canvas dst coordinates
+    dstFullRect=Rect.fromLTWH(srcOriginInDest.dx,srcOriginInDest.dy,naturalSize.width*scaleX,naturalSize.height*scaleY).shift(dstRect.topLeft); // this is Rect in dst coordinates of full size image
+    return(dstFullRect);
+  }
+
+  Rect transformRectFromDstToSrcDuringCrop(Rect dstR){
+    /// rescales rectangle from destination coordinates given by dstRect to source coordinates given by srcRect
+    /// function is called during defining cropped part of image
+    double scaleX= dstRect.width/srcRect.width;
+    double scaleY= dstRect.height/srcRect.height;
+
+    Rect rct=dstR.shift(-dstFullRect.topLeft); // remove destination rect position  - position 0,0 is top left corner cropRect
+    double dx=rct.left/scaleX;  // offset of dstR from src topleft
+    double dy=rct.top/scaleY;
+    double width=rct.width/scaleX;
+    double height=rct.height/scaleY;
+    Rect crp=Rect.fromLTWH(0+dx,0+dy,width,height);
+    return(crp); // this is new srcRect of image
+  }
+
+
+
 }
