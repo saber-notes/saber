@@ -9,6 +9,14 @@ class SyncingButton extends StatefulWidget {
 
   @override
   State<SyncingButton> createState() => _SyncingButtonState();
+
+  /// The action to perform when the syncing button is clicked.
+  ///
+  /// Resets the progress indicator and starts the file sync.
+  static void onClick() {
+    FileSyncer.filesDone.value = null; // reset progress indicator
+    FileSyncer.startSync();
+  }
 }
 
 class _SyncingButtonState extends State<SyncingButton> {
@@ -43,12 +51,7 @@ class _SyncingButtonState extends State<SyncingButton> {
     bool loggedIn = Prefs.username.loaded && Prefs.username.value.isNotEmpty;
 
     return IconButton(
-      onPressed: loggedIn
-          ? () {
-              FileSyncer.filesDone.value = null; // reset progress indicator
-              FileSyncer.startSync();
-            }
-          : null,
+      onPressed: loggedIn ? SyncingButton.onClick : null,
       icon: Stack(
         alignment: Alignment.center,
         children: [

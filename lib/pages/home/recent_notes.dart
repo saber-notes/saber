@@ -112,10 +112,10 @@ class _RecentPageState extends State<RecentPage> {
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () => Future.wait([
-          findRecentlyAccessedNotes(),
-          Future.delayed(const Duration(milliseconds: 500)),
-        ]),
+        onRefresh: () async {
+          SyncingButton.onClick();
+          await findRecentlyAccessedNotes();
+        },
         child: CustomScrollView(
           slivers: [
             SliverPadding(

@@ -111,10 +111,10 @@ class _BrowsePageState extends State<BrowsePage> {
 
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () => Future.wait([
-          findChildrenOfPath(),
-          Future.delayed(const Duration(milliseconds: 500)),
-        ]),
+        onRefresh: () async {
+          SyncingButton.onClick();
+          await findChildrenOfPath();
+        },
         child: CustomScrollView(
           slivers: [
             SliverPadding(
