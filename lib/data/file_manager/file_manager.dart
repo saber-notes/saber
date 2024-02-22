@@ -122,6 +122,16 @@ class FileManager {
     }
   }
 
+  static Directory getDirectory(String directoryPath) {
+    if (shouldUseRawFilePath) {
+      return Directory(directoryPath);
+    } else {
+      assert(directoryPath.startsWith('/'),
+          'Expected directoryPath to start with a slash, got $directoryPath');
+      return Directory(documentsDirectory + directoryPath);
+    }
+  }
+
   /// Writes [toWrite] to [filePath].
   static Future<void> writeFile(String filePath, List<int> toWrite,
       {bool awaitWrite = false, bool alsoUpload = true}) async {
