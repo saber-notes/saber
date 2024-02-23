@@ -18,7 +18,7 @@ enum Active {
   crop,          // setting crop rect
 }
 
-/// crop image by given rect - used to crop image//
+/// crop image by given rect - used to crop image
 class ImgClipper extends CustomClipper<Rect> {
   ImgClipper(
       this._clipRect,
@@ -36,7 +36,7 @@ class ImgClipper extends CustomClipper<Rect> {
 
   @override
   bool shouldReclip(ImgClipper oldClipper) {
-    return (clipRect != oldClipper.clipRect);
+    return (clipRect != oldClipper.clipRect); // when clipping Rectangle changes force repaint
   }
 }
 
@@ -105,8 +105,8 @@ class _CanvasImageState extends State<CanvasImage> {
     }
   }
 
+  /// provide next active type to the current one
   Active setNextActive(){
-    /// provide next active type to the current one
     switch(_activeType) {
       case Active.none:
         return(Active.destination);
@@ -128,14 +128,16 @@ class _CanvasImageState extends State<CanvasImage> {
   Rect cropRect = Rect.zero;
   Rect cropStartRect = Rect.zero;
 
-  // return clip rectangle used to crop image
+  /// return clip rectangle used to crop image
   Rect getClipRect(){
     if (widget.image.showCroppedImage) {
+      // clipRectangle is used
       Offset o = widget.image.dstRect.topLeft-widget.image.dstFullRect.topLeft;
       Rect clipRect=o&widget.image.dstRect.size; // offset dstRect by its distance from topLeft of full image
       return (clipRect);
     }
     else {
+      // show the whole image during clipping rectangle selection
       return (Offset.zero & widget.image.dstFullRect.size);
     }
   }
@@ -248,58 +250,42 @@ class _CanvasImageState extends State<CanvasImage> {
                     }
                   : null,
               child: DecoratedBox(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color:
-                      isActive() ? colorScheme.onBackground : Colors.transparent,
-                    width: 2,
-                  ),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color:
+                    isActive() ? colorScheme.onBackground : Colors.transparent,
+                  width: 2,
                 ),
-                child: Center(
-                  child: SizedBox(
-                    width: widget.isBackground
-                        ? widget.pageSize.width
-                        : max(widget.image.dstFullRect.width,
-                            CanvasImage.minImageSize),
-                    height: widget.isBackground
-                        ? widget.pageSize.height
-                        : max(widget.image.dstFullRect.height,
-                            CanvasImage.minImageSize),
-                    child: Container(
-                      color: Colors.red,
-                    child: ClipRect( // cliping is done in the sized box. I means that full image topLeft is (0,0)
-                      clipper: ImgClipper(
-                          getClipRect() // return clip rectangle according to actual action
-                      ),
-                      child: SizedOverflowBox(
-                        size: widget.image.naturalSize,  // size of full image
-                        child: Transform.translate(
-                          offset: Offset.zero, //-widget.image.srcRect.topLeft,
-//                          child: Container(
-//                            color: Colors.blue,
-                            child: SizedBox(
-                              height: widget.image.dstFullRect.height,
-                              width: widget.image.dstFullRect.width,
-                                  child: Container(
-                                    height: widget.image.dstFullRect.height,
-                                    width: widget.image.dstFullRect.width,
-                                  color: Colors.yellow,
-                                  child: widget.image.buildImageWidget(
-                                    context: context,
-                                    overrideBoxFit: widget.overrideBoxFit,
-                                    isBackground: widget.isBackground,
-                                    shaderEnabled: imageBrightness == Brightness.dark,
-                                    shaderBuilder: (ui.Image image, Size size) {
-                                      shader.setFloat(0, size.width);
-                                      shader.setFloat(1, size.height);
-                                      shader.setImageSampler(0, image);
-                                      return shader;
-                                    },
-                                  ),
-                                ),
-                              ),
-//                            ),
-                          ),
+              ),
+                child: SizedBox(
+                  width: widget.isBackground
+                      ? widget.pageSize.width
+                      : max(widget.image.dstFullRect.width,
+                          CanvasImage.minImageSize),
+                  height: widget.isBackground
+                      ? widget.pageSize.height
+                      : max(widget.image.dstFullRect.height,
+                          CanvasImage.minImageSize),
+                  child: ClipRect( // cliping is done in the sized box. I means that full image topLeft is (0,0)
+                    clipper: ImgClipper(
+                        getClipRect() // return clip rectangle according to actual action
+                    ),
+                    child: SizedOverflowBox(
+                      size: widget.image.naturalSize,  // size of full image
+                      child: SizedBox(
+                        height: widget.image.dstFullRect.height,
+                        width: widget.image.dstFullRect.width,
+                        child: widget.image.buildImageWidget(
+                          context: context,
+                          overrideBoxFit: widget.overrideBoxFit,
+                          isBackground: widget.isBackground,
+                          shaderEnabled: imageBrightness == Brightness.dark,
+                          shaderBuilder: (ui.Image image, Size size) {
+                            shader.setFloat(0, size.width);
+                            shader.setFloat(1, size.height);
+                            shader.setImageSampler(0, image);
+                            return shader;
+                          },
                         ),
                       ),
                     ),
