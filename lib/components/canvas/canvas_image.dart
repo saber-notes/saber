@@ -18,21 +18,25 @@ enum Active {
   crop,          // setting crop rect
 }
 
-/// crop image by given rect - used to crop image
+/// crop image by given rect - used to crop image//
 class ImgClipper extends CustomClipper<Rect> {
   ImgClipper(
-      this.clipRect,
+      this._clipRect,
   );
-  final Rect clipRect;  // rectangle used to crop Image
-
-  @override
-  Rect getClip(Size size) {//
-    return clipRect;
+  Rect _clipRect;  // rectangle used to crop Image
+  Rect get clipRect => _clipRect;
+  set clipRect(Rect clipRect) {
+    _clipRect = clipRect;
   }
 
   @override
-  bool shouldReclip(oldClipper) {
-    return false;
+  Rect getClip(Size size) {//
+    return _clipRect;
+  }
+
+  @override
+  bool shouldReclip(ImgClipper oldClipper) {
+    return (clipRect != oldClipper.clipRect);
   }
 }
 
@@ -57,6 +61,7 @@ class CanvasImage extends StatefulWidget {
   final bool isBackground;
   final bool readOnly;
   final bool selected;
+
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
   static ChangeNotifier activeListener = ChangeNotifier();
@@ -91,7 +96,6 @@ class _CanvasImageState extends State<CanvasImage> {
     }
     _activeType = value;  // set active state
     widget.image.showCroppedImage=_activeType!=Active.crop; // if active state is not crop, then show cropped image
-
     if (mounted) {
       try {
         setState(() {});
@@ -261,8 +265,8 @@ class _CanvasImageState extends State<CanvasImage> {
                         ? widget.pageSize.height
                         : max(widget.image.dstFullRect.height,
                             CanvasImage.minImageSize),
-//                    child: Container(
-//                      color: Colors.red,
+                    child: Container(
+                      color: Colors.red,
                     child: ClipRect( // cliping is done in the sized box. I means that full image topLeft is (0,0)
                       clipper: ImgClipper(
                           getClipRect() // return clip rectangle according to actual action
@@ -298,7 +302,7 @@ class _CanvasImageState extends State<CanvasImage> {
                           ),
                         ),
                       ),
-//                    ),
+                    ),
                   ),
                 ),
               ),
@@ -398,7 +402,7 @@ class _CanvasImageState extends State<CanvasImage> {
                   position: Offset (x, y),
                   image: widget.image,
                   parent: this,
-                  afterDrag: () => setState(() {}),
+                  afterDrag: () => setState(() {}), // force repaint
                 )
             );
           }
@@ -546,7 +550,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                       newHeight,
                     );
                     image.dstFullRect=image.getDstFullRect(); // update image full rect according new dstRect
-                    afterDrag();
+//                    afterDrag();
                   }
                 : null,
             onPanEnd: active
@@ -702,19 +706,17 @@ class _CanvasImageCropHandle extends StatelessWidget {
               if (parent.panStartRect == parent.cropRect) return;
               // now parent.cropRect is new image.dstRect
               // image.cropRect should be recalculated with respect to rectangle of image.srcRect
-              parent.cropRect=parent.panStartRect.topLeft&parent.panStartRect.size/2;
-              parent.cropRect=parent.cropRect.shift(Offset(50,50));
               image.srcRect=image.transformRectFromDstToSrcDuringCrop(parent.cropRect); // this is full rect
               image.dstRect=parent.cropRect;  // and set destination rect to size of cropRect
               image.dstFullRect=image.getDstFullRect(); // update full rect
-//              image.onMoveImage?.call(
-//                  image,
-//                  Rect.fromLTRB(
-//                    image.dstRect.left - parent.panStartRect.left,
-//                    image.dstRect.top - parent.panStartRect.top,
-//                    image.dstRect.right - parent.panStartRect.right,
-//                    image.dstRect.bottom - parent.panStartRect.bottom,
-//                  ));
+              image.onMoveImage?.call(
+                  image,
+                  Rect.fromLTRB(
+                    image.dstRect.left - parent.panStartRect.left,
+                    image.dstRect.top - parent.panStartRect.top,
+                    image.dstRect.right - parent.panStartRect.right,
+                    image.dstRect.bottom - parent.panStartRect.bottom,
+                  ));
               parent.panStartRect = Rect.zero;
             }
                 : null,
