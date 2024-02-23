@@ -268,8 +268,18 @@ sealed class EditorImage extends ChangeNotifier {
 
   /// function returning rectangle in destination coordinates (canvas) to be used to draw full image
   Rect getDstFullRect(){
-    double scaleX= dstRect.width/srcRect.width;
-    double scaleY= dstRect.height/srcRect.height;
+    double scaleX;
+    double scaleY;
+    if (srcRect.width!=0 && srcRect.height!=0){
+      scaleX= dstRect.width/srcRect.width;
+      scaleY= dstRect.height/srcRect.height;
+    }
+    else {
+      // src rect is not set. Assume it is naturalSize
+      // srcrect is zero for pdf images
+      scaleX= dstRect.width/naturalSize.width;
+      scaleY= dstRect.height/naturalSize.height;
+    }
     Offset cs=srcRect.topLeft;  // offset of crop origin (topleft) from image origin (0,0)
     Offset srcOriginInDest=-Offset(cs.dx*scaleX,cs.dy*scaleY); // offset of image origin (0,0) with respect to cropped origin in canvas dst coordinates
     dstFullRect=Rect.fromLTWH(srcOriginInDest.dx,srcOriginInDest.dy,naturalSize.width*scaleX,naturalSize.height*scaleY).shift(dstRect.topLeft); // this is Rect in dst coordinates of full size image
@@ -280,9 +290,18 @@ sealed class EditorImage extends ChangeNotifier {
   /// function is called during defining cropped part of image - dstR is rectangle in canvas coordinates
   /// and represents a part of dstFullRect. From their difference we calculate srcRect - part of image to be displayed
   Rect transformRectFromDstToSrcDuringCrop(Rect dstR){
-    double scaleX= dstRect.width/srcRect.width;
-    double scaleY= dstRect.height/srcRect.height;
-
+    double scaleX;
+    double scaleY;
+    if (srcRect.width!=0 && srcRect.height!=0){
+      scaleX= dstRect.width/srcRect.width;
+      scaleY= dstRect.height/srcRect.height;
+    }
+    else {
+      // src rect is not set. Assume it is naturalSize
+      // srcrect is zero for pdf images
+      scaleX= dstRect.width/naturalSize.width;
+      scaleY= dstRect.height/naturalSize.height;
+    }
     Rect rct=dstR.shift(-dstFullRect.topLeft); // remove destination rect position  - position 0,0 is top left corner cropRect
     double dx=rct.left/scaleX;  // offset of dstR from src topleft
     double dy=rct.top/scaleY;
