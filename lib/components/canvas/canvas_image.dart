@@ -96,6 +96,10 @@ class _CanvasImageState extends State<CanvasImage> {
     }
     _activeType = value;  // set active state
     widget.image.showCroppedImage=_activeType!=Active.crop; // if active state is not crop, then show cropped image
+    if (widget.isBackground){
+      // calculate dstFullRect for background image
+      getClipRect();
+    }
     if (mounted) {
       try {
         setState(() {});
@@ -130,6 +134,15 @@ class _CanvasImageState extends State<CanvasImage> {
 
   /// return clip rectangle used to crop image
   Rect getClipRect(){
+    if (widget.isBackground) {
+      // image is background image, must fit image to full page -> recalculate dstFullRect
+      Rect fullRect = Offset.zero & Size(widget.pageSize.width, widget.pageSize.height);
+      // now calculate size of cropped image to fit page Rectangle
+      final FittedSizes sizes = applyBoxFit(BoxFit.contain, widget.image.dstRect.size, fullRect.size);
+      final Rect dstBackgroundRect = Alignment.center.inscribe(sizes.destination, fullRect); // determine dstRect
+      widget.image.dstRect = dstBackgroundRect;
+      widget.image.dstFullRect =widget.image.getDstFullRect(); // update full rect
+    }
     if (widget.image.showCroppedImage) {
       // clipRectangle is used
       Offset o = widget.image.dstRect.topLeft-widget.image.dstFullRect.topLeft;
@@ -250,21 +263,18 @@ class _CanvasImageState extends State<CanvasImage> {
                     }
                   : null,
               child: DecoratedBox(
-              decoration: BoxDecoration(
+                decoration: BoxDecoration(
                 border: Border.all(
                   color:
                     isActive() ? colorScheme.onBackground : Colors.transparent,
                   width: 2,
+                  ),
                 ),
-              ),
-                child: SizedBox(
-                  width: widget.isBackground
-                      ? widget.pageSize.width
-                      : max(widget.image.dstFullRect.width,
+                child: SizedBox( // size of image box is allways image.dstFullRect. Cropping is limiting image size in ClipRect
+                    // offset of SizedBox to dstFullRect.topleft is done in AnimatedPositioned later
+                  width: max(widget.image.dstFullRect.width,
                           CanvasImage.minImageSize),
-                  height: widget.isBackground
-                      ? widget.pageSize.height
-                      : max(widget.image.dstFullRect.height,
+                  height: max(widget.image.dstFullRect.height,
                           CanvasImage.minImageSize),
                   child: ClipRect( // cliping is done in the sized box. I means that full image topLeft is (0,0)
                     clipper: ImgClipper(
@@ -305,13 +315,13 @@ class _CanvasImageState extends State<CanvasImage> {
     );
 
     if (widget.isBackground) {
-      return AnimatedPositioned(
+      return AnimatedPositioned(//
         duration: const Duration(milliseconds: 300),
         curve: Curves.fastLinearToSlowEaseIn,
-        left: 0,
-        top: 0,
-        right: 0,
-        bottom: 0,
+        left: widget.image.dstFullRect.left,
+        top: widget.image.dstFullRect.top,
+        width: widget.image.dstFullRect.width,
+        height: widget.image.dstFullRect.height,
         child: unpositioned,
       );
     }
