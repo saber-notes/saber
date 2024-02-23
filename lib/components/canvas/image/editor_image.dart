@@ -264,12 +264,10 @@ sealed class EditorImage extends ChangeNotifier {
     return Size(width, height);
   }
 
+  // image cropping functions
 
-  // cropping image functions
-
+  /// function returning rectangle in destination coordinates (canvas) to be used to draw full image
   Rect getDstFullRect(){
-    /// function returning rectangle in destination coordinates to be used to draw full image
-    /// image is draw in full size, I must calculate destination rect according to it
     double scaleX= dstRect.width/srcRect.width;
     double scaleY= dstRect.height/srcRect.height;
     Offset cs=srcRect.topLeft;  // offset of crop origin (topleft) from image origin (0,0)
@@ -278,9 +276,10 @@ sealed class EditorImage extends ChangeNotifier {
     return(dstFullRect);
   }
 
+  /// recalculates rectangle from destination coordinates given by dstR to image source coordinates given by srcRect
+  /// function is called during defining cropped part of image - dstR is rectangle in canvas coordinates
+  /// and represents a part of dstFullRect. From their difference we calculate srcRect - part of image to be displayed
   Rect transformRectFromDstToSrcDuringCrop(Rect dstR){
-    /// rescales rectangle from destination coordinates given by dstRect to source coordinates given by srcRect
-    /// function is called during defining cropped part of image
     double scaleX= dstRect.width/srcRect.width;
     double scaleY= dstRect.height/srcRect.height;
 
