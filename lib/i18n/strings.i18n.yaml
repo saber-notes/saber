@@ -2,11 +2,13 @@ home:
   tabs:
     home: Home
     browse: Browse
+    search: Search
     whiteboard: Whiteboard
     settings: Settings
   titles:
     home: Recent notes
     browse: Browse
+    search: Search for Notes
     whiteboard: Whiteboard
     settings: Settings
   tooltips:

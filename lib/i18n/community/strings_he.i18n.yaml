@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: פתק חדש
     showUpdateDialog: תיבת הדו-שיח הצג עדכון
-    exportNote(OUTDATED): ייצא הערה
+    exportNote: Export note
   create:
     newNote: פתק חדש
     importNote: יבא פתק
@@ -32,17 +32,17 @@ home:
     renameNote: שנה את שם הפתק
     noteName: שם הפתק
     rename: שנה שם
-    noteNameEmpty(OUTDATED): שם הערה לא יכול להיות ריק
-    noteNameContainsSlash(OUTDATED): שם הערה לא יכול להכיל קו נטוי
-    noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
+    noteNameEmpty: Note name can't be empty
+    noteNameContainsSlash: Note name can't contain a slash
+    noteNameExists: A note with this name already exists
   moveNote:
     moveNote: הזז פתק
+    moveNotes: Move $n notes
     moveName: הזז $f
     move: הזז
     renamedTo: שם הפתק ישתנה ל $newName
-    moveNotes(OUTDATED): העבר $n פתקים
-    multipleRenamedTo(OUTDATED): "שמות ההערות הבאות ישונו:"
-    numberRenamedTo(OUTDATED): השם של $n הערות ישונה כדי למנוע התנגשויות
+    multipleRenamedTo: "The following notes will be renamed:"
+    numberRenamedTo: $n notes will be renamed to avoid conflicts
   deleteNote: מחק פתק
   renameFolder:
     renameFolder: שנה את שם התקייה
@@ -61,8 +61,8 @@ settings:
     general: כללי
     writing: כתיבה
     editor: עורך
+    performance: Performance
     advanced: מתקדם
-    performance(OUTDATED): ביצועים
   prefLabels:
     locale: שפת התוכנה
     appTheme: ערכת הנושא של האפליקציה
@@ -86,10 +86,10 @@ settings:
     editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
     hideHomeBackgrounds: הסתר רקעים במסך הבית
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
+    recentColorsLength: How many recent colors to store
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
-    shapeRecognitionDelay(OUTDATED): עיכוב זיהוי צורות
-    recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
+    shapeRecognitionDelay: Shape recognition delay
   prefDescriptions:
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
     disableAds: "מודעות עוזרות לתמוך בפיתוח של סאבר, אבל אתה יכול להשבית אותן אם תרצה"
@@ -106,8 +106,8 @@ settings:
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
+    shapeRecognitionDelay: How often to update the shape preview
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
-    shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
   themeModes:
     system: מערכת
     light: בהיר
@@ -127,7 +127,7 @@ settings:
   reset:
     title: "אפס הגדרה זו?"
     button: אפס
-  resyncEverything(OUTDATED): סנכרן הכל מחדש
+  resyncEverything: Resync everything
 login:
   title: התחבר
   feedbacks:
@@ -136,9 +136,9 @@ login:
     enterEncPassword: הזן את סיסמת ההצפנה שלך.
     checkUrl: הזן כתובת URL חוקית.
     ncLoginFailed: "הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת."
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: "הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך."
     loginSuccess: "ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים..."
-    ncUnsupportedFailure(OUTDATED): השרת הנתון מריץ את Nextcloud $v אבל גרסה זו של Saber תומכת רק ב-Nextcloud $s עד $t.
   form:
     useCustomServer: אני רוצה להשתמש בשרת Nextcloud מותאם אישית
     customServerUrl: כתובת אתר מותאמת אישית של שרת
@@ -204,7 +204,7 @@ update:
   updateAvailable: עדכון זמין
   updateAvailableDescription: "גרסה חדשה של היישום זמינה עם שינויים אלה:"
   update: עדכן
-  downloadNotAvailableYet(OUTDATED): ההורדה עדיין לא זמינה עבור הפלטפורמה שלך. אנא בדוק שוב בקרוב.
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: החלפת מצב צבע (Ctrl C)
@@ -222,13 +222,17 @@ editor:
     fountainPen: עט נובע
     ballpointPen: עט כדורי
     highlighter: מרקר
+    pencil: Pencil
+    shapePen: Shape pen
     laserPointer: סמן לייזר
-    pencil(OUTDATED): עִפָּרוֹן
-    shapePen(OUTDATED): עט צורה
   penOptions:
     size: גודל
   colors:
     colorPicker: בורר צבעים
+    customBrightnessHue: Custom $b $h
+    customHue: Custom $h
+    dark: dark
+    light: light
     black: שחור
     darkGrey: עפור ככה
     grey: עפור
@@ -236,9 +240,11 @@ editor:
     white: לבן
     red: אדום
     green: ירוק
+    cyan: Cyan
     blue: כחול
     yellow: צהוב
     purple: סגול
+    pink: Pink
     orange: כתום
     pastelRed: אדום פסטל
     pastelOrange: כתום פסטל
@@ -248,12 +254,6 @@ editor:
     pastelBlue: כחול פסטל
     pastelPurple: סגול פסטל
     pastelPink: ורוד פסטל
-    customBrightnessHue(OUTDATED): מותאם אישית $b $h
-    customHue(OUTDATED): מותאם אישית $h
-    dark(OUTDATED): אפל
-    light(OUTDATED): אוֹר
-    cyan(OUTDATED): טורקיז
-    pink(OUTDATED): וָרוֹד
   imageOptions:
     title: אפשרויות תמונה
     invertible: הפיך
@@ -286,9 +286,9 @@ editor:
       lined: שורות
       grid: משבצות
       dots: נקודות
-      staffs(OUTDATED): צוותים
-      tablature(OUTDATED): כרטיסייה
-      cornell(OUTDATED): קורנל
+      staffs: Staffs
+      tablature: Tablature
+      cornell: Cornell
   newerFileFormat:
     readOnlyMode: מצב צפייה בלבד
     title: הערה זו נערכה באמצעות גרסה חדשה יותר של Saber

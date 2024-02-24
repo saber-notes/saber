@@ -61,8 +61,8 @@ settings:
     general: General
     writing: Escritura
     editor: Editor
+    performance: Performance
     advanced: Avanzado
-    performance(OUTDATED): Actuación
   prefLabels:
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
@@ -89,7 +89,7 @@ settings:
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
-    shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
+    shapeRecognitionDelay: Shape recognition delay
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     disableAds: "Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres"
@@ -106,8 +106,8 @@ settings:
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
+    shapeRecognitionDelay: How often to update the shape preview
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
-    shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
     system: Sistema
     light: Claro
@@ -127,7 +127,7 @@ settings:
   reset:
     title: "¿Quieres restablecer esta configuración?"
     button: Restablecer
-  resyncEverything(OUTDATED): Resync todo
+  resyncEverything: Resync everything
 login:
   title: Iniciar sesión
   feedbacks:
@@ -136,9 +136,9 @@ login:
     enterEncPassword: Por favor introduce tu contraseña de cifrado.
     checkUrl: Por favor introduce una dirección URL válida.
     ncLoginFailed: "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet."
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
     loginSuccess: "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
-    ncUnsupportedFailure(OUTDATED): El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo admite Nextcloud $s a $t.
   form:
     useCustomServer: Quiero utilizar un servidor de Nextcloud personalizado
     customServerUrl: Dirección URL del servidor personalizada
@@ -203,7 +203,7 @@ update:
   updateAvailable: Actualización disponible
   updateAvailableDescription: "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:"
   update: Actualizar
-  downloadNotAvailableYet(OUTDATED): La descarga aún no está disponible para su plataforma. Vuelve a consultar en breve.
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: Paleta de colores (Ctrl C)
@@ -218,16 +218,17 @@ editor:
     exportAs: "Exportar cómo:"
     fullscreen: Pantalla completa (F11)
   pens:
+    fountainPen: Fountain pen
     ballpointPen: Bolígrafo
     highlighter: Resaltador
+    pencil: Pencil
     shapePen: Bolígrafo con formas
     laserPointer: Puntero láser
-    fountainPen(OUTDATED): Estilográfica
-    pencil(OUTDATED): Lápiz
   penOptions:
     size: Tamaño
   colors:
     colorPicker: Selector de color
+    customBrightnessHue: Custom $b $h
     customHue: $h personalizado
     dark: oscuro
     light: claro
@@ -252,7 +253,6 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
-    customBrightnessHue(OUTDATED): $h $b personalizado
   imageOptions:
     title: Opciones de imagen
     invertible: Invertible

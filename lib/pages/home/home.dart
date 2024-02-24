@@ -6,6 +6,7 @@ import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
+import 'package:saber/pages/home/search.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 
@@ -26,11 +27,13 @@ class HomePage extends StatefulWidget {
   static const String browseSubpage = 'browse';
   static const String whiteboardSubpage = 'whiteboard';
   static const String settingsSubpage = 'settings';
+  static const String searchSubpage = 'search';
   static const List<String> subpages = [
     recentSubpage,
     browseSubpage,
+    searchSubpage,
     whiteboardSubpage,
-    settingsSubpage
+    settingsSubpage,
   ];
 }
 
@@ -52,6 +55,8 @@ class _HomePageState extends State<HomePage> {
         return const Whiteboard();
       case HomePage.settingsSubpage:
         return const SettingsPage();
+      case HomePage.searchSubpage:
+        return const SearchPage();
       default:
         return const RecentPage();
     }

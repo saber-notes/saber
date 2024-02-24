@@ -6,19 +6,21 @@ home:
     settings: الإعدادات
   titles:
     home: الملاحظات الأخيرة
+    browse: Browse
     whiteboard: السبورة
     settings: الإعدادات
-    browse(OUTDATED): تصفح
   tooltips:
     newNote: محلاظة جديدة
     showUpdateDialog: إظهار مربع حوار التحديث
-    exportNote(OUTDATED): ملاحظة التصدير
+    exportNote: Export note
   create:
-    importNote(OUTDATED): مذكرة استيراد
-    newNote(OUTDATED): مذكرة جديدة
+    newNote: New note
+    importNote: Import note
   welcome: مرحباً بك في Saber
+  invalidFormat: "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
   noFiles: لم يتم العثور على ملفات
   createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
+  backFolder: Go back to the previous folder
   newFolder:
     newFolder: مجلد جديد
     folderName: إسم المجلد
@@ -35,34 +37,32 @@ home:
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
   moveNote:
     moveNote: تحريك الملاحظة
+    moveNotes: Move $n notes
+    moveName: Move $f
     move: تحريك
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
-    moveNotes(OUTDATED): نقل $n الملاحظات
-    multipleRenamedTo(OUTDATED): "وستعاد تسمية الملاحظات التالية:"
-    numberRenamedTo(OUTDATED): ستتم إعادة تسمية الملاحظات $n لتجنب التعارضات
-    moveName(OUTDATED): نقل $f
+    multipleRenamedTo: "The following notes will be renamed:"
+    numberRenamedTo: $n notes will be renamed to avoid conflicts
+  deleteNote: Delete note
   renameFolder:
-    folderName(OUTDATED): إسم الملف
-    folderNameExists(OUTDATED): يوجد مجلد بهذا الاسم بالفعل
-    rename(OUTDATED): إعادة تسمية
-    folderNameEmpty(OUTDATED): لا يمكن أن يكون اسماً فارغاً
-    folderNameContainsSlash(OUTDATED): لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
-    renameFolder(OUTDATED): إعادة تسمية المجلد
+    renameFolder: Rename folder
+    folderName: Folder name
+    rename: Rename
+    folderNameEmpty: Folder name can't be empty
+    folderNameContainsSlash: Folder name can't contain a slash
+    folderNameExists: A folder with this name already exists
   deleteFolder:
-    deleteName(OUTDATED): حذف $f
-    deleteFolder(OUTDATED): احذف المجلد
-    alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
-    delete(OUTDATED): يمسح
-  backFolder(OUTDATED): ارجع إلى المجلد السابق
-  deleteNote(OUTDATED): حذف الملاحظة
-  invalidFormat(OUTDATED): "الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf."
+    deleteFolder: Delete folder
+    deleteName: Delete $f
+    delete: Delete
+    alsoDeleteContents: Also delete all notes inside this folder
 settings:
   prefCategories:
     general: عام
     writing: كتابة
-    performance(OUTDATED): أداء
-    editor(OUTDATED): محرر
-    advanced(OUTDATED): متقدم
+    editor: Editor
+    performance: Performance
+    advanced: Advanced
   prefLabels:
     locale: لغة التطبيق
     appTheme: مظهر التطبيق
@@ -71,43 +71,43 @@ settings:
     customAccentColor: لون التمييز المخصص
     hyperlegibleFont: Hyperlegible خط
     shouldCheckForUpdates: تحقق تلقائيًا من وجود تحديثات Saber
+    shouldAlwaysAlertForUpdates: Faster updates
+    disableAds: Disable ads
+    changeAdsConsent: Change ads consent
+    allowInsecureConnections: Allow insecure connections
     editorToolbarAlignment: محاذاة شريط أدوات المحرر
     editorToolbarShowInFullscreen: أظهر شريط أدوات المحرر في وضع ملء الشاشة
     editorAutoInvert: اقلب الملاحظات في الوضع المظلم
     preferGreyscale: تفضيل الألوان الرمادية
     maxImageSize: الحجم الأقصى للصورة
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
+    disableEraserAfterUse: Auto-disable the eraser
+    hideFingerDrawingToggle: Hide the finger drawing toggle
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
+    recentColorsLength: How many recent colors to store
     printPageIndicators: طباعة مؤشرات الصفحة
-    shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
-    recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
-    changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
-    disableAds(OUTDATED): عطل الاعلانات
-    allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
-    autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
-    hideFingerDrawingToggle(OUTDATED): إخفاء تبديل رسم الإصبع
-    shouldAlwaysAlertForUpdates(OUTDATED): التحديثات السريعة
-    disableEraserAfterUse(OUTDATED): تعطيل تلقائي للممحاة
+    autosaveDelay: Auto-save delay
+    shapeRecognitionDelay: Shape recognition delay
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
+    disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
+    allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
     preferGreyscale: لشاشات الحبر الإلكتروني
     autoClearWhiteboardOnExit: ستظل متزامنة مع أجهزتك الأخرى
+    disableEraserAfterUse: Automatically switches back to the pen after using the eraser
     maxImageSize: سيتم ضغط الصور الأكبر من هذا
     hideFingerDrawing:
-      shown(OUTDATED): يمنع التبديل العرضي
-      fixedOn(OUTDATED): تم إصلاح رسم الإصبع على أنه ممكن
-      fixedOff(OUTDATED): تم إصلاح رسم الإصبع على أنه معطل
+      shown: Prevents accidental toggling
+      fixedOn: Finger drawing is fixed as enabled
+      fixedOff: Finger drawing is fixed as disabled
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
-    shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
-    disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
-    allowInsecureConnections(OUTDATED): (غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها
-    autosaveDelay(OUTDATED): كم من الوقت للانتظار قبل تقديم مذكرة
-    disableEraserAfterUse(OUTDATED): يعود تلقائيًا إلى القلم بعد استخدام الممحاة
-    shouldAlwaysAlertForUpdates(OUTDATED): أخبرني عن التحديثات بمجرد توفرها
+    autosaveDelay: How long to wait before auto-saving a note
+    shapeRecognitionDelay: How often to update the shape preview
+    shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
   themeModes:
     system: النظام
     light: ساطع
@@ -127,7 +127,7 @@ settings:
   reset:
     title: إعادة تعيين هذا الإعداد؟
     button: إعادة تعيين
-  resyncEverything(OUTDATED): إعادة ترتيب كل شيء
+  resyncEverything: Resync everything
 login:
   title: تسجيل الدخول
   feedbacks:
@@ -136,9 +136,9 @@ login:
     enterEncPassword: الرجاء إدخال كلمة مرور التشفير الخاصة بك.
     checkUrl: أدخل رابط URL صالح من فضلك.
     ncLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.
     loginSuccess: "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
-    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
   form:
     useCustomServer: أريد استخدام خادم Nextcloud مخصص
     customServerUrl: عنوان URL مخصص للخادم
@@ -203,7 +203,7 @@ update:
   updateAvailable: تحديث متاح
   updateAvailableDescription: "يتوفر إصدار جديد من التطبيق مع هذه التغييرات:"
   update: تحديث
-  downloadNotAvailableYet(OUTDATED): التنزيل غير متاح بعد لنظامك الأساسي. يرجى التحقق مرة أخرى قريبا.
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: تبديل الألوان (Ctrl C)
@@ -221,13 +221,17 @@ editor:
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
+    pencil: Pencil
+    shapePen: Shape pen
     laserPointer: مؤشر الليزر
-    pencil(OUTDATED): قلم
-    shapePen(OUTDATED): قلم الشكل
   penOptions:
     size: حجم
   colors:
     colorPicker: أداة انتقاء اللون
+    customBrightnessHue: Custom $b $h
+    customHue: Custom $h
+    dark: dark
+    light: light
     black: أسود
     darkGrey: الرمادي الداكن
     grey: رمادي
@@ -235,9 +239,11 @@ editor:
     white: أبيض
     red: أحمر
     green: أخضر
+    cyan: Cyan
     blue: أزرق
     yellow: أصفر
     purple: أرجواني
+    pink: Pink
     orange: برتقالي
     pastelRed: باستيل أحمر
     pastelOrange: برتقال باستيل
@@ -247,12 +253,6 @@ editor:
     pastelBlue: الباستيل الأزرق
     pastelPurple: الباستيل الأرجواني
     pastelPink: الباستيل الوردي
-    customBrightnessHue(OUTDATED): مخصص $b $h
-    customHue(OUTDATED): مخصص $h
-    dark(OUTDATED): مظلم
-    light(OUTDATED): ضوء
-    cyan(OUTDATED): ازرق سماوي
-    pink(OUTDATED): لون القرنفل
   imageOptions:
     title: خيارات الصورة
     invertible: قابل للعكس
@@ -262,7 +262,7 @@ editor:
     delete: حذف
   selectionBar:
     delete: حذف
-    duplicate(OUTDATED): ينسخ
+    duplicate: Duplicate
   menu:
     clearPage: تنظيف الصفحة $page/$totalPages
     clearAllPages: امسح كل الصفحات
@@ -271,6 +271,7 @@ editor:
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
     lineHeightDescription: يتحكم أيضًا في حجم النص
+    backgroundImageFit: Background image fit
     backgroundPattern: نمط الخلفية
     import: يستورد
     boxFits:
@@ -285,9 +286,8 @@ editor:
       grid: شبكة
       dots: نقاط
       staffs: موظفون
+      tablature: Tablature
       cornell: كورنيل
-      tablature(OUTDATED): تبلتثر
-    backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber

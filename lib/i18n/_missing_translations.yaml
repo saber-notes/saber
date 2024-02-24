@@ -3,83 +3,16 @@
   - "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
 ar:
   home:
+    tabs:
+      search: Search
     titles:
-      browse(OUTDATED): Browse
-    tooltips:
-      exportNote(OUTDATED): Export note
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      moveName(OUTDATED): Move $f
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editor
-      performance(OUTDATED): Performance
-      advanced(OUTDATED): Advanced
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      recentColorsLength(OUTDATED): How many recent colors to store
-      autosaveDelay(OUTDATED): Auto-save delay
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
+      search: Search for Notes
 cs:
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 de:
   home:
     titles:
@@ -153,374 +86,74 @@ de:
       bgPatterns:
         tablature(OUTDATED): Tablature
 es:
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      fountainPen(OUTDATED): Fountain pen
-      pencil(OUTDATED): Pencil
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 fa:
-  settings:
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 fr:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 he:
   home:
-    tooltips:
-      exportNote(OUTDATED): Export note
-    renameNote:
-      noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameContainsSlash(OUTDATED): Note name can't contain a slash
-      noteNameExists(OUTDATED): A note with this name already exists
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
-    menu:
-      bgPatterns:
-        staffs(OUTDATED): Staffs
-        tablature(OUTDATED): Tablature
-        cornell(OUTDATED): Cornell
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 hu:
   home:
+    tabs:
+      search: Search
     titles:
-      browse(OUTDATED): Browse
-    tooltips:
-      exportNote(OUTDATED): Export note
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
-    newFolder:
-      newFolder(OUTDATED): New folder
-      folderName(OUTDATED): Folder name
-      create(OUTDATED): Create
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): Folder already exists
-    renameNote:
-      renameNote(OUTDATED): Rename note
-      noteName(OUTDATED): Note name
-      rename(OUTDATED): Rename
-      noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameContainsSlash(OUTDATED): Note name can't contain a slash
-      noteNameExists(OUTDATED): A note with this name already exists
-    moveNote:
-      moveNote(OUTDATED): Move note
-      moveNotes(OUTDATED): Move $n notes
-      moveName(OUTDATED): Move $f
-      move(OUTDATED): Move
-      renamedTo(OUTDATED): Note will be renamed to $newName
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editor
-      performance(OUTDATED): Performance
-      advanced(OUTDATED): Advanced
-    prefLabels:
-      layoutSize(OUTDATED): Layout type
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableAds(OUTDATED): Disable ads
-      changeAdsConsent(OUTDATED): Change ads consent
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      recentColorsLength(OUTDATED): How many recent colors to store
-      printPageIndicators(OUTDATED): Print page indicators
-      autosaveDelay(OUTDATED): Auto-save delay
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      printPageIndicators(OUTDATED): Show page indicators in exports
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-    layoutSizes:
-      auto(OUTDATED): Auto
-      phone(OUTDATED): Phone
-      tablet(OUTDATED): Tablet
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-    faq(OUTDATED):
-      - q: "What is Nextcloud?"
-        a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
-      - q: "What is the encryption password?"
-        a: |-
-          The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.
-          No-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.
-      - q: "Why use two passwords?"
-        a: |-
-          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-      - q: "How do I login if I use 2FA?"
-        a: "Instead of your regular Nextcloud password, you'll need to create an \"app password\". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected."
-      - q: "Can I use the same password for both?"
-        a: "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
-  profile:
-    title(OUTDATED): My profile
-    logout(OUTDATED): Log out
-    quickLinks:
-      title(OUTDATED): Quick links
-      serverHomepage(OUTDATED): Server homepage
-      deleteAccount(OUTDATED): Delete account
-    faq(OUTDATED):
-      - q: "Will I lose my notes if I log out?"
-        a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-      - q: "How do I change my Nextcloud password?"
-        a: "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
-      - q: "How do I change my encryption password?"
-        a: |-
-          0. Make sure syncing is complete (see the sync progress on the home screen).
-          1. Log out of Saber.
-          2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
-          3. Log back in to Saber. You can choose a new encryption password when logging in.
-          4. Don't forget to log out and log back in to Saber on your other devices too.
-      - q: "How can I delete my account?"
-        a: |-
-          Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
-          If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
-          If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
-  update:
-    updateAvailableDescription(OUTDATED): "A new version of the app is available:"
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-      laserPointer(OUTDATED): Laser pointer
-    colors:
-      colorPicker(OUTDATED): Color picker
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      black(OUTDATED): Black
-      darkGrey(OUTDATED): Dark grey
-      grey(OUTDATED): Grey
-      lightGrey(OUTDATED): Light grey
-      white(OUTDATED): White
-      red(OUTDATED): Red
-      green(OUTDATED): Green
-      cyan(OUTDATED): Cyan
-      blue(OUTDATED): Blue
-      yellow(OUTDATED): Yellow
-      purple(OUTDATED): Purple
-      pink(OUTDATED): Pink
-      orange(OUTDATED): Orange
-      pastelRed(OUTDATED): Pastel red
-      pastelOrange(OUTDATED): Pastel orange
-      pastelYellow(OUTDATED): Pastel yellow
-      pastelGreen(OUTDATED): Pastel green
-      pastelCyan(OUTDATED): Pastel cyan
-      pastelBlue(OUTDATED): Pastel blue
-      pastelPurple(OUTDATED): Pastel purple
-      pastelPink(OUTDATED): Pastel pink
-    imageOptions:
-      removeAsBackground(OUTDATED): Remove as background
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
-    menu:
-      clearPage(OUTDATED): Clear page $page/$totalPages
-      insertPage(OUTDATED): Insert page below
-      duplicatePage(OUTDATED): Duplicate page
-      deletePage(OUTDATED): Delete page
-      lineHeightDescription(OUTDATED): Also controls the text size
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        collegeRtl(OUTDATED): College-ruled (Reverse)
-        staffs(OUTDATED): Staffs
-        tablature(OUTDATED): Tablature
-        cornell(OUTDATED): Cornell
-    hud:
-      unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
-      lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
-    needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
+      search: Search for Notes
 it:
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 ja:
   home:
+    tabs:
+      search: Search
     titles:
-      browse(OUTDATED): Browse
-    tooltips:
-      exportNote(OUTDATED): Export note
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      recentColorsLength(OUTDATED): How many recent colors to store
-      autosaveDelay(OUTDATED): Auto-save delay
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
-    menu:
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
+      search: Search for Notes
 pt-BR:
   home:
-    tooltips:
-      exportNote(OUTDATED): Export note
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      recentColorsLength(OUTDATED): How many recent colors to store
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-    prefDescriptions:
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 ru:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 tr:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 zh-Hans-CN:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes
 zh-Hant-TW:
+  home:
+    tabs:
+      search: Search
+    titles:
+      search: Search for Notes

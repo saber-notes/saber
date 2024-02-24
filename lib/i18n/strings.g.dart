@@ -309,6 +309,7 @@ class _StringsHomeTabsEn {
 	// Translations
 	String get home => 'Home';
 	String get browse => 'Browse';
+	String get search => 'Search';
 	String get whiteboard => 'Whiteboard';
 	String get settings => 'Settings';
 }
@@ -322,6 +323,7 @@ class _StringsHomeTitlesEn {
 	// Translations
 	String get home => 'Recent notes';
 	String get browse => 'Browse';
+	String get search => 'Search for Notes';
 	String get whiteboard => 'Whiteboard';
 	String get settings => 'Settings';
 }
@@ -949,16 +951,16 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsAr tooltips = _StringsHomeTooltipsAr._(_root);
 	@override late final _StringsHomeCreateAr create = _StringsHomeCreateAr._(_root);
 	@override String get welcome => 'مرحباً بك في Saber';
+	@override String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
+	@override String get backFolder => 'Go back to the previous folder';
 	@override late final _StringsHomeNewFolderAr newFolder = _StringsHomeNewFolderAr._(_root);
 	@override late final _StringsHomeRenameNoteAr renameNote = _StringsHomeRenameNoteAr._(_root);
 	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
+	@override String get deleteNote => 'Delete note';
 	@override late final _StringsHomeRenameFolderAr renameFolder = _StringsHomeRenameFolderAr._(_root);
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
-	@override String get backFolder => 'ارجع إلى المجلد السابق';
-	@override String get deleteNote => 'حذف الملاحظة';
-	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf.';
 }
 
 // Path: settings
@@ -982,7 +984,7 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 		'يسار',
 	];
 	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
-	@override String get resyncEverything => 'إعادة ترتيب كل شيء';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -1053,7 +1055,7 @@ class _StringsUpdateAr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'تحديث متاح';
 	@override String get updateAvailableDescription => 'يتوفر إصدار جديد من التطبيق مع هذه التغييرات:';
 	@override String get update => 'تحديث';
-	@override String get downloadNotAvailableYet => 'التنزيل غير متاح بعد لنظامك الأساسي. يرجى التحقق مرة أخرى قريبا.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -1099,9 +1101,9 @@ class _StringsHomeTitlesAr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'الملاحظات الأخيرة';
+	@override String get browse => 'Browse';
 	@override String get whiteboard => 'السبورة';
 	@override String get settings => 'الإعدادات';
-	@override String get browse => 'تصفح';
 }
 
 // Path: home.tooltips
@@ -1113,7 +1115,7 @@ class _StringsHomeTooltipsAr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'محلاظة جديدة';
 	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
-	@override String get exportNote => 'ملاحظة التصدير';
+	@override String get exportNote => 'Export note';
 }
 
 // Path: home.create
@@ -1123,8 +1125,8 @@ class _StringsHomeCreateAr extends _StringsHomeCreateEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get importNote => 'مذكرة استيراد';
-	@override String get newNote => 'مذكرة جديدة';
+	@override String get newNote => 'New note';
+	@override String get importNote => 'Import note';
 }
 
 // Path: home.newFolder
@@ -1165,12 +1167,12 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'تحريك الملاحظة';
+	@override String moveNotes({required Object n}) => 'Move ${n} notes';
+	@override String moveName({required Object f}) => 'Move ${f}';
 	@override String get move => 'تحريك';
 	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
-	@override String moveNotes({required Object n}) => 'نقل ${n} الملاحظات';
-	@override String get multipleRenamedTo => 'وستعاد تسمية الملاحظات التالية:';
-	@override String numberRenamedTo({required Object n}) => 'ستتم إعادة تسمية الملاحظات ${n} لتجنب التعارضات';
-	@override String moveName({required Object f}) => 'نقل ${f}';
+	@override String get multipleRenamedTo => 'The following notes will be renamed:';
+	@override String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
 }
 
 // Path: home.renameFolder
@@ -1180,12 +1182,12 @@ class _StringsHomeRenameFolderAr extends _StringsHomeRenameFolderEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderName => 'إسم الملف';
-	@override String get folderNameExists => 'يوجد مجلد بهذا الاسم بالفعل';
-	@override String get rename => 'إعادة تسمية';
-	@override String get folderNameEmpty => 'لا يمكن أن يكون اسماً فارغاً';
-	@override String get folderNameContainsSlash => 'لا يمكن أن يحتوي اسم المجلد على شرطة مائلة';
-	@override String get renameFolder => 'إعادة تسمية المجلد';
+	@override String get renameFolder => 'Rename folder';
+	@override String get folderName => 'Folder name';
+	@override String get rename => 'Rename';
+	@override String get folderNameEmpty => 'Folder name can\'t be empty';
+	@override String get folderNameContainsSlash => 'Folder name can\'t contain a slash';
+	@override String get folderNameExists => 'A folder with this name already exists';
 }
 
 // Path: home.deleteFolder
@@ -1195,10 +1197,10 @@ class _StringsHomeDeleteFolderAr extends _StringsHomeDeleteFolderEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String deleteName({required Object f}) => 'حذف ${f}';
-	@override String get deleteFolder => 'احذف المجلد';
-	@override String get alsoDeleteContents => 'احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد';
-	@override String get delete => 'يمسح';
+	@override String get deleteFolder => 'Delete folder';
+	@override String deleteName({required Object f}) => 'Delete ${f}';
+	@override String get delete => 'Delete';
+	@override String get alsoDeleteContents => 'Also delete all notes inside this folder';
 }
 
 // Path: settings.prefCategories
@@ -1210,9 +1212,9 @@ class _StringsSettingsPrefCategoriesAr extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'عام';
 	@override String get writing => 'كتابة';
-	@override String get performance => 'أداء';
-	@override String get editor => 'محرر';
-	@override String get advanced => 'متقدم';
+	@override String get editor => 'Editor';
+	@override String get performance => 'Performance';
+	@override String get advanced => 'Advanced';
 }
 
 // Path: settings.prefLabels
@@ -1229,25 +1231,25 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'لون التمييز المخصص';
 	@override String get hyperlegibleFont => 'Hyperlegible خط';
 	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Faster updates';
+	@override String get disableAds => 'Disable ads';
+	@override String get changeAdsConsent => 'Change ads consent';
+	@override String get allowInsecureConnections => 'Allow insecure connections';
 	@override String get editorToolbarAlignment => 'محاذاة شريط أدوات المحرر';
 	@override String get editorToolbarShowInFullscreen => 'أظهر شريط أدوات المحرر في وضع ملء الشاشة';
 	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
 	@override String get preferGreyscale => 'تفضيل الألوان الرمادية';
 	@override String get maxImageSize => 'الحجم الأقصى للصورة';
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
+	@override String get disableEraserAfterUse => 'Auto-disable the eraser';
+	@override String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
+	@override String get recentColorsLength => 'How many recent colors to store';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
-	@override String get shapeRecognitionDelay => 'تأخير التعرف على الشكل';
-	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي سيتم تخزينها';
-	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
-	@override String get disableAds => 'عطل الاعلانات';
-	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
-	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
-	@override String get hideFingerDrawingToggle => 'إخفاء تبديل رسم الإصبع';
-	@override String get shouldAlwaysAlertForUpdates => 'التحديثات السريعة';
-	@override String get disableEraserAfterUse => 'تعطيل تلقائي للممحاة';
+	@override String get autosaveDelay => 'Auto-save delay';
+	@override String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -1258,19 +1260,19 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية';
+	@override String get disableAds => 'Ads help support Saber\'s development, but you can disable them if you\'d like';
+	@override String get allowInsecureConnections => '(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates';
 	@override String get preferGreyscale => 'لشاشات الحبر الإلكتروني';
 	@override String get autoClearWhiteboardOnExit => 'ستظل متزامنة مع أجهزتك الأخرى';
+	@override String get disableEraserAfterUse => 'Automatically switches back to the pen after using the eraser';
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
-	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
-	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
-	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
-	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
-	@override String get disableEraserAfterUse => 'يعود تلقائيًا إلى القلم بعد استخدام الممحاة';
-	@override String get shouldAlwaysAlertForUpdates => 'أخبرني عن التحديثات بمجرد توفرها';
+	@override String get autosaveDelay => 'How long to wait before auto-saving a note';
+	@override String get shapeRecognitionDelay => 'How often to update the shape preview';
+	@override String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 }
 
 // Path: settings.themeModes
@@ -1330,9 +1332,9 @@ class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
 	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
 	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
 	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
 }
 
 // Path: login.form
@@ -1508,9 +1510,9 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
+	@override String get pencil => 'Pencil';
+	@override String get shapePen => 'Shape pen';
 	@override String get laserPointer => 'مؤشر الليزر';
-	@override String get pencil => 'قلم';
-	@override String get shapePen => 'قلم الشكل';
 }
 
 // Path: editor.penOptions
@@ -1531,6 +1533,10 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'أداة انتقاء اللون';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get dark => 'dark';
+	@override String get light => 'light';
 	@override String get black => 'أسود';
 	@override String get darkGrey => 'الرمادي الداكن';
 	@override String get grey => 'رمادي';
@@ -1538,9 +1544,11 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get white => 'أبيض';
 	@override String get red => 'أحمر';
 	@override String get green => 'أخضر';
+	@override String get cyan => 'Cyan';
 	@override String get blue => 'أزرق';
 	@override String get yellow => 'أصفر';
 	@override String get purple => 'أرجواني';
+	@override String get pink => 'Pink';
 	@override String get orange => 'برتقالي';
 	@override String get pastelRed => 'باستيل أحمر';
 	@override String get pastelOrange => 'برتقال باستيل';
@@ -1550,12 +1558,6 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'الباستيل الأزرق';
 	@override String get pastelPurple => 'الباستيل الأرجواني';
 	@override String get pastelPink => 'الباستيل الوردي';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'مخصص ${b} ${h}';
-	@override String customHue({required Object h}) => 'مخصص ${h}';
-	@override String get dark => 'مظلم';
-	@override String get light => 'ضوء';
-	@override String get cyan => 'ازرق سماوي';
-	@override String get pink => 'لون القرنفل';
 }
 
 // Path: editor.imageOptions
@@ -1581,7 +1583,7 @@ class _StringsEditorSelectionBarAr extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => 'حذف';
-	@override String get duplicate => 'ينسخ';
+	@override String get duplicate => 'Duplicate';
 }
 
 // Path: editor.menu
@@ -1598,11 +1600,11 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
+	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
-	@override String get backgroundImageFit => 'الصورة الخلفية';
 }
 
 // Path: editor.newerFileFormat
@@ -1651,9 +1653,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingAr extends _StringsSettin
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get shown => 'يمنع التبديل العرضي';
-	@override String get fixedOn => 'تم إصلاح رسم الإصبع على أنه ممكن';
-	@override String get fixedOff => 'تم إصلاح رسم الإصبع على أنه معطل';
+	@override String get shown => 'Prevents accidental toggling';
+	@override String get fixedOn => 'Finger drawing is fixed as enabled';
+	@override String get fixedOff => 'Finger drawing is fixed as disabled';
 }
 
 // Path: editor.menu.boxFits
@@ -1682,8 +1684,8 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'شبكة';
 	@override String get dots => 'نقاط';
 	@override String get staffs => 'موظفون';
+	@override String get tablature => 'Tablature';
 	@override String get cornell => 'كورنيل';
-	@override String get tablature => 'تبلتثر';
 }
 
 // Path: <root>
@@ -2643,6 +2645,7 @@ class _StringsHomeTabsDe extends _StringsHomeTabsEn {
 	// Translations
 	@override String get home => 'Startseite';
 	@override String get browse => 'Durchsuchen';
+	@override String get search => 'Suche';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Einstellungen';
 }
@@ -2655,6 +2658,7 @@ class _StringsHomeTitlesDe extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Letzte Notizen';
+	@override String get search => 'Nach Notizen suchen';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Einstellungen';
 	@override String get browse => 'Durchsuchen';
@@ -3315,7 +3319,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 		'Izquierda',
 	];
 	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
-	@override String get resyncEverything => 'Resync todo';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -3385,7 +3389,7 @@ class _StringsUpdateEs extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Actualización disponible';
 	@override String get updateAvailableDescription => 'Hay una nueva versión de la aplicación disponible. Novedades en esta versión:';
 	@override String get update => 'Actualizar';
-	@override String get downloadNotAvailableYet => 'La descarga aún no está disponible para su plataforma. Vuelve a consultar en breve.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -3543,8 +3547,8 @@ class _StringsSettingsPrefCategoriesEs extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'General';
 	@override String get writing => 'Escritura';
 	@override String get editor => 'Editor';
+	@override String get performance => 'Performance';
 	@override String get advanced => 'Avanzado';
-	@override String get performance => 'Actuación';
 }
 
 // Path: settings.prefLabels
@@ -3579,7 +3583,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
-	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
+	@override String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -3601,8 +3605,8 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
+	@override String get shapeRecognitionDelay => 'How often to update the shape preview';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
-	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
 
 // Path: settings.themeModes
@@ -3662,9 +3666,9 @@ class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
 	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
 	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
 	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
 }
 
 // Path: login.form
@@ -3837,12 +3841,12 @@ class _StringsEditorPensEs extends _StringsEditorPensEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get fountainPen => 'Fountain pen';
 	@override String get ballpointPen => 'Bolígrafo';
 	@override String get highlighter => 'Resaltador';
+	@override String get pencil => 'Pencil';
 	@override String get shapePen => 'Bolígrafo con formas';
 	@override String get laserPointer => 'Puntero láser';
-	@override String get fountainPen => 'Estilográfica';
-	@override String get pencil => 'Lápiz';
 }
 
 // Path: editor.penOptions
@@ -3863,6 +3867,7 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
 	@override String customHue({required Object h}) => '${h} personalizado';
 	@override String get dark => 'oscuro';
 	@override String get light => 'claro';
@@ -3887,7 +3892,6 @@ class _StringsEditorColorsEs extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Morado pastel';
 	@override String get pastelPink => 'Rosa pastel';
-	@override String customBrightnessHue({required Object h, required Object b}) => '${h} ${b} personalizado';
 }
 
 // Path: editor.imageOptions
@@ -4092,7 +4096,7 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 		'چپ',
 	];
 	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
-	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -4163,7 +4167,7 @@ class _StringsUpdateFa extends _StringsUpdateEn {
 	@override String get updateAvailable => 'به‌روزرسانی‌ در دسترس است';
 	@override String get updateAvailableDescription => 'نسخه جدیدی از برنامه با این تغییرات در دسترس است:';
 	@override String get update => 'بروزرسانی';
-	@override String get downloadNotAvailableYet => 'دانلود هنوز برای پلتفرم شما در دسترس نیست. لطفا به زودی دوباره بررسی کنید.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -4440,9 +4444,9 @@ class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
 	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
 	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
 	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
 }
 
 // Path: login.form
@@ -4941,7 +4945,7 @@ class _StringsUpdateFr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Mise à jour disponible';
 	@override String get updateAvailableDescription => 'Une nouvelle version de cette application est disponible, avec les changements suivants :';
 	@override String get update => 'Mettre à jour';
-	@override String get downloadNotAvailableYet => 'Le téléchargement n\'est pas encore disponible pour votre plateforme. Veuillez revenir sous peu.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -5218,9 +5222,9 @@ class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
 	@override String get checkUrl => 'Veuillez saisir une URL valide.';
 	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
 	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
 }
 
 // Path: login.form
@@ -5648,7 +5652,7 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 		'שמאל',
 	];
 	@override late final _StringsSettingsResetHe reset = _StringsSettingsResetHe._(_root);
-	@override String get resyncEverything => 'סנכרן הכל מחדש';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -5719,7 +5723,7 @@ class _StringsUpdateHe extends _StringsUpdateEn {
 	@override String get updateAvailable => 'עדכון זמין';
 	@override String get updateAvailableDescription => 'גרסה חדשה של היישום זמינה עם שינויים אלה:';
 	@override String get update => 'עדכן';
-	@override String get downloadNotAvailableYet => 'ההורדה עדיין לא זמינה עבור הפלטפורמה שלך. אנא בדוק שוב בקרוב.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -5779,7 +5783,7 @@ class _StringsHomeTooltipsHe extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'פתק חדש';
 	@override String get showUpdateDialog => 'תיבת הדו-שיח הצג עדכון';
-	@override String get exportNote => 'ייצא הערה';
+	@override String get exportNote => 'Export note';
 }
 
 // Path: home.create
@@ -5818,9 +5822,9 @@ class _StringsHomeRenameNoteHe extends _StringsHomeRenameNoteEn {
 	@override String get renameNote => 'שנה את שם הפתק';
 	@override String get noteName => 'שם הפתק';
 	@override String get rename => 'שנה שם';
-	@override String get noteNameEmpty => 'שם הערה לא יכול להיות ריק';
-	@override String get noteNameContainsSlash => 'שם הערה לא יכול להכיל קו נטוי';
-	@override String get noteNameExists => 'הערה בשם זה כבר קיימת';
+	@override String get noteNameEmpty => 'Note name can\'t be empty';
+	@override String get noteNameContainsSlash => 'Note name can\'t contain a slash';
+	@override String get noteNameExists => 'A note with this name already exists';
 }
 
 // Path: home.moveNote
@@ -5831,12 +5835,12 @@ class _StringsHomeMoveNoteHe extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'הזז פתק';
+	@override String moveNotes({required Object n}) => 'Move ${n} notes';
 	@override String moveName({required Object f}) => 'הזז ${f}';
 	@override String get move => 'הזז';
 	@override String renamedTo({required Object newName}) => 'שם הפתק ישתנה ל ${newName}';
-	@override String moveNotes({required Object n}) => 'העבר ${n} פתקים';
-	@override String get multipleRenamedTo => 'שמות ההערות הבאות ישונו:';
-	@override String numberRenamedTo({required Object n}) => 'השם של ${n} הערות ישונה כדי למנוע התנגשויות';
+	@override String get multipleRenamedTo => 'The following notes will be renamed:';
+	@override String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
 }
 
 // Path: home.renameFolder
@@ -5877,8 +5881,8 @@ class _StringsSettingsPrefCategoriesHe extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => 'כללי';
 	@override String get writing => 'כתיבה';
 	@override String get editor => 'עורך';
+	@override String get performance => 'Performance';
 	@override String get advanced => 'מתקדם';
-	@override String get performance => 'ביצועים';
 }
 
 // Path: settings.prefLabels
@@ -5910,10 +5914,10 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'מבקש ממך לשנות את שם הערות חדשות';
 	@override String get hideHomeBackgrounds => 'הסתר רקעים במסך הבית';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
+	@override String get recentColorsLength => 'How many recent colors to store';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
-	@override String get shapeRecognitionDelay => 'עיכוב זיהוי צורות';
-	@override String get recentColorsLength => 'כמה צבעים אחרונים לאחסן';
+	@override String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -5935,8 +5939,8 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
+	@override String get shapeRecognitionDelay => 'How often to update the shape preview';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
-	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
 
 // Path: settings.themeModes
@@ -5996,9 +6000,9 @@ class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'הזן את סיסמת ההצפנה שלך.';
 	@override String get checkUrl => 'הזן כתובת URL חוקית.';
 	@override String get ncLoginFailed => 'הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך.';
 	@override String get loginSuccess => 'ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
 }
 
 // Path: login.form
@@ -6174,9 +6178,9 @@ class _StringsEditorPensHe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'עט נובע';
 	@override String get ballpointPen => 'עט כדורי';
 	@override String get highlighter => 'מרקר';
+	@override String get pencil => 'Pencil';
+	@override String get shapePen => 'Shape pen';
 	@override String get laserPointer => 'סמן לייזר';
-	@override String get pencil => 'עִפָּרוֹן';
-	@override String get shapePen => 'עט צורה';
 }
 
 // Path: editor.penOptions
@@ -6197,6 +6201,10 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'בורר צבעים';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get dark => 'dark';
+	@override String get light => 'light';
 	@override String get black => 'שחור';
 	@override String get darkGrey => 'עפור ככה';
 	@override String get grey => 'עפור';
@@ -6204,9 +6212,11 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 	@override String get white => 'לבן';
 	@override String get red => 'אדום';
 	@override String get green => 'ירוק';
+	@override String get cyan => 'Cyan';
 	@override String get blue => 'כחול';
 	@override String get yellow => 'צהוב';
 	@override String get purple => 'סגול';
+	@override String get pink => 'Pink';
 	@override String get orange => 'כתום';
 	@override String get pastelRed => 'אדום פסטל';
 	@override String get pastelOrange => 'כתום פסטל';
@@ -6216,12 +6226,6 @@ class _StringsEditorColorsHe extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'כחול פסטל';
 	@override String get pastelPurple => 'סגול פסטל';
 	@override String get pastelPink => 'ורוד פסטל';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'מותאם אישית ${b} ${h}';
-	@override String customHue({required Object h}) => 'מותאם אישית ${h}';
-	@override String get dark => 'אפל';
-	@override String get light => 'אוֹר';
-	@override String get cyan => 'טורקיז';
-	@override String get pink => 'וָרוֹד';
 }
 
 // Path: editor.imageOptions
@@ -6347,9 +6351,9 @@ class _StringsEditorMenuBgPatternsHe extends _StringsEditorMenuBgPatternsEn {
 	@override String get lined => 'שורות';
 	@override String get grid => 'משבצות';
 	@override String get dots => 'נקודות';
-	@override String get staffs => 'צוותים';
-	@override String get tablature => 'כרטיסייה';
-	@override String get cornell => 'קורנל';
+	@override String get staffs => 'Staffs';
+	@override String get tablature => 'Tablature';
+	@override String get cornell => 'Cornell';
 }
 
 // Path: <root>
@@ -6393,16 +6397,16 @@ class _StringsHomeHu extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsHu tooltips = _StringsHomeTooltipsHu._(_root);
 	@override late final _StringsHomeCreateHu create = _StringsHomeCreateHu._(_root);
 	@override String get welcome => 'Üdvözli a Saber';
+	@override String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
 	@override String get noFiles => 'Nem található ilyen fájl';
 	@override String get createNewNote => 'Kattintson a + gombora egy új jegyzet létrehozásához';
+	@override String get backFolder => 'Go back to the previous folder';
 	@override late final _StringsHomeNewFolderHu newFolder = _StringsHomeNewFolderHu._(_root);
 	@override late final _StringsHomeRenameNoteHu renameNote = _StringsHomeRenameNoteHu._(_root);
 	@override late final _StringsHomeMoveNoteHu moveNote = _StringsHomeMoveNoteHu._(_root);
+	@override String get deleteNote => 'Delete note';
 	@override late final _StringsHomeRenameFolderHu renameFolder = _StringsHomeRenameFolderHu._(_root);
 	@override late final _StringsHomeDeleteFolderHu deleteFolder = _StringsHomeDeleteFolderHu._(_root);
-	@override String get backFolder => 'Menjen vissza az előző mappába';
-	@override String get deleteNote => 'Jegyzet törlése';
-	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
 }
 
 // Path: settings
@@ -6426,7 +6430,7 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 		'Balra',
 	];
 	@override late final _StringsSettingsResetHu reset = _StringsSettingsResetHu._(_root);
-	@override String get resyncEverything => 'Resync mindent';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -6461,9 +6465,9 @@ class _StringsProfileHu extends _StringsProfileEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'My profile';
+	@override String get logout => 'Log out';
 	@override late final _StringsProfileQuickLinksHu quickLinks = _StringsProfileQuickLinksHu._(_root);
-	@override String get title => 'A profilom';
-	@override String get logout => 'Kijelentkezés';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Hu._(_root),
 		_StringsProfile$faq$0i1$Hu._(_root),
@@ -6495,9 +6499,9 @@ class _StringsUpdateHu extends _StringsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Frissítés elérhető';
+	@override String get updateAvailableDescription => 'A new version of the app is available:';
 	@override String get update => 'Frissítés';
-	@override String get downloadNotAvailableYet => 'A letöltés még nem érhető el az Ön platformjára. Kérjük, nézzen vissza rövidesen.';
-	@override String get updateAvailableDescription => 'Elérhető az alkalmazás új verziója a következő változtatásokkal:';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -6519,7 +6523,7 @@ class _StringsEditorHu extends _StringsEditorEn {
 	@override late final _StringsEditorHudHu hud = _StringsEditorHudHu._(_root);
 	@override String get pages => 'Oldalak';
 	@override String get untitled => 'Névtelen';
-	@override String get needsToSaveBeforeExiting => 'A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből';
+	@override String get needsToSaveBeforeExiting => 'Saving your changes... You can safely exit the editor when it\'s done';
 }
 
 // Path: home.tabs
@@ -6543,9 +6547,9 @@ class _StringsHomeTitlesHu extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Legutóbbi jegyzetek';
+	@override String get browse => 'Browse';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Beállítások';
-	@override String get browse => 'Böngészés';
 }
 
 // Path: home.tooltips
@@ -6557,7 +6561,7 @@ class _StringsHomeTooltipsHu extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Új jegyzet';
 	@override String get showUpdateDialog => 'Frissítési párbeszédablak megjelenítése';
-	@override String get exportNote => 'Megjegyzés exportálása';
+	@override String get exportNote => 'Export note';
 }
 
 // Path: home.create
@@ -6567,8 +6571,8 @@ class _StringsHomeCreateHu extends _StringsHomeCreateEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => 'Új jegyzet';
-	@override String get importNote => 'Megjegyzés importálása';
+	@override String get newNote => 'New note';
+	@override String get importNote => 'Import note';
 }
 
 // Path: home.newFolder
@@ -6578,12 +6582,12 @@ class _StringsHomeNewFolderHu extends _StringsHomeNewFolderEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get newFolder => 'Új mappa';
-	@override String get folderName => 'Mappa neve';
-	@override String get create => 'Teremt';
-	@override String get folderNameEmpty => 'A mappa neve nem lehet üres';
-	@override String get folderNameContainsSlash => 'A mappa neve nem tartalmazhat perjelet';
-	@override String get folderNameExists => 'Folder már létezik';
+	@override String get newFolder => 'New folder';
+	@override String get folderName => 'Folder name';
+	@override String get create => 'Create';
+	@override String get folderNameEmpty => 'Folder name can\'t be empty';
+	@override String get folderNameContainsSlash => 'Folder name can\'t contain a slash';
+	@override String get folderNameExists => 'Folder already exists';
 }
 
 // Path: home.renameNote
@@ -6593,12 +6597,12 @@ class _StringsHomeRenameNoteHu extends _StringsHomeRenameNoteEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get renameNote => 'Jegyzet átnevezése';
-	@override String get noteName => 'Megjegyzés neve';
-	@override String get rename => 'Átnevezés';
-	@override String get noteNameEmpty => 'A jegyzet neve nem lehet üres';
-	@override String get noteNameContainsSlash => 'A jegyzet neve nem tartalmazhat perjelet';
-	@override String get noteNameExists => 'Már létezik ilyen nevű jegyzet';
+	@override String get renameNote => 'Rename note';
+	@override String get noteName => 'Note name';
+	@override String get rename => 'Rename';
+	@override String get noteNameEmpty => 'Note name can\'t be empty';
+	@override String get noteNameContainsSlash => 'Note name can\'t contain a slash';
+	@override String get noteNameExists => 'A note with this name already exists';
 }
 
 // Path: home.moveNote
@@ -6608,13 +6612,13 @@ class _StringsHomeMoveNoteHu extends _StringsHomeMoveNoteEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String moveNotes({required Object n}) => '${n} jegyzet mozgatása';
-	@override String numberRenamedTo({required Object n}) => '${n} jegyzet átnevezésre kerül az ütközések elkerülése érdekében';
-	@override String get multipleRenamedTo => 'A következő megjegyzések átnevezésre kerülnek:';
-	@override String get moveNote => 'Jegyzet áthelyezése';
-	@override String moveName({required Object f}) => 'Mozgassa ${f}';
-	@override String get move => 'Mozog';
-	@override String renamedTo({required Object newName}) => 'A jegyzet a következőre lesz átnevezve: ${newName}';
+	@override String get moveNote => 'Move note';
+	@override String moveNotes({required Object n}) => 'Move ${n} notes';
+	@override String moveName({required Object f}) => 'Move ${f}';
+	@override String get move => 'Move';
+	@override String renamedTo({required Object newName}) => 'Note will be renamed to ${newName}';
+	@override String get multipleRenamedTo => 'The following notes will be renamed:';
+	@override String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
 }
 
 // Path: home.renameFolder
@@ -6624,12 +6628,12 @@ class _StringsHomeRenameFolderHu extends _StringsHomeRenameFolderEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderNameEmpty => 'A mappa neve nem lehet üres';
-	@override String get renameFolder => 'Mappa átnevezése';
-	@override String get folderNameExists => 'Már létezik ilyen nevű mappa';
-	@override String get folderName => 'Mappa neve';
-	@override String get rename => 'Átnevezés';
-	@override String get folderNameContainsSlash => 'A mappa neve nem tartalmazhat perjelet';
+	@override String get renameFolder => 'Rename folder';
+	@override String get folderName => 'Folder name';
+	@override String get rename => 'Rename';
+	@override String get folderNameEmpty => 'Folder name can\'t be empty';
+	@override String get folderNameContainsSlash => 'Folder name can\'t contain a slash';
+	@override String get folderNameExists => 'A folder with this name already exists';
 }
 
 // Path: home.deleteFolder
@@ -6639,10 +6643,10 @@ class _StringsHomeDeleteFolderHu extends _StringsHomeDeleteFolderEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get delete => 'Töröl';
-	@override String get alsoDeleteContents => 'Törölje az összes jegyzetet ebben a mappában';
-	@override String get deleteFolder => 'Mappa törlése';
-	@override String deleteName({required Object f}) => '${f} törlése';
+	@override String get deleteFolder => 'Delete folder';
+	@override String deleteName({required Object f}) => 'Delete ${f}';
+	@override String get delete => 'Delete';
+	@override String get alsoDeleteContents => 'Also delete all notes inside this folder';
 }
 
 // Path: settings.prefCategories
@@ -6654,9 +6658,9 @@ class _StringsSettingsPrefCategoriesHu extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Általános';
 	@override String get writing => 'Írás';
-	@override String get performance => 'Teljesítmény';
-	@override String get editor => 'Szerkesztő';
-	@override String get advanced => 'Fejlett';
+	@override String get editor => 'Editor';
+	@override String get performance => 'Performance';
+	@override String get advanced => 'Advanced';
 }
 
 // Path: settings.prefLabels
@@ -6669,29 +6673,29 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get locale => 'Alkalmazás nyelve';
 	@override String get appTheme => 'Alkalmazás témája';
 	@override String get platform => 'Téma típusa';
+	@override String get layoutSize => 'Layout type';
 	@override String get customAccentColor => 'Egyéni akcentusszín';
 	@override String get hyperlegibleFont => 'Hyperlegible betűtipus';
 	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
+	@override String get shouldAlwaysAlertForUpdates => 'Faster updates';
+	@override String get disableAds => 'Disable ads';
+	@override String get changeAdsConsent => 'Change ads consent';
+	@override String get allowInsecureConnections => 'Allow insecure connections';
 	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
 	@override String get editorToolbarShowInFullscreen => 'A szerkesztő eszköztár megjelenítése teljes képernyős módban';
 	@override String get editorAutoInvert => 'Jegyzetek színének felcserélése sötét módban';
 	@override String get preferGreyscale => 'Szürkeárnyalatos színek előnyben részesítése';
 	@override String get maxImageSize => 'Maximális képméret';
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
+	@override String get disableEraserAfterUse => 'Auto-disable the eraser';
+	@override String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
-	@override String get shapeRecognitionDelay => 'Alakfelismerési késleltetés';
-	@override String get recentColorsLength => 'Hány friss színt kell tárolni';
-	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
-	@override String get layoutSize => 'Elrendezés típusa';
-	@override String get disableAds => 'Hirdetések letiltása';
-	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
-	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
-	@override String get autosaveDelay => 'Auto-save késleltetés';
-	@override String get hideFingerDrawingToggle => 'Az ujjrajzolás kapcsoló elrejtése';
-	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb frissítések';
-	@override String get disableEraserAfterUse => 'A radír automatikus letiltása';
+	@override String get recentColorsLength => 'How many recent colors to store';
+	@override String get printPageIndicators => 'Print page indicators';
+	@override String get autosaveDelay => 'Auto-save delay';
+	@override String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -6702,19 +6706,19 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára';
+	@override String get disableAds => 'Ads help support Saber\'s development, but you can disable them if you\'d like';
+	@override String get allowInsecureConnections => '(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates';
 	@override String get preferGreyscale => 'E-tinta kijelzőkhöz';
 	@override String get autoClearWhiteboardOnExit => 'Továbbra is szinkronizálva lesz a többi eszközzel';
+	@override String get disableEraserAfterUse => 'Automatically switches back to the pen after using the eraser';
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
-	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
-	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
-	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
-	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
-	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
-	@override String get shouldAlwaysAlertForUpdates => 'Szóljon nekem a frissítésekről, amint elérhetők';
-	@override String get disableEraserAfterUse => 'A radír használata után automatikusan visszavált a tollra';
+	@override String get printPageIndicators => 'Show page indicators in exports';
+	@override String get autosaveDelay => 'How long to wait before auto-saving a note';
+	@override String get shapeRecognitionDelay => 'How often to update the shape preview';
+	@override String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 }
 
 // Path: settings.themeModes
@@ -6736,9 +6740,9 @@ class _StringsSettingsLayoutSizesHu extends _StringsSettingsLayoutSizesEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get auto => 'Automata';
-	@override String get phone => 'Telefon';
-	@override String get tablet => 'Tabletta';
+	@override String get auto => 'Auto';
+	@override String get phone => 'Phone';
+	@override String get tablet => 'Tablet';
 }
 
 // Path: settings.accentColorPicker
@@ -6774,9 +6778,9 @@ class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
 	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
 	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
 	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
 }
 
 // Path: login.form
@@ -6818,8 +6822,8 @@ class _StringsLogin$faq$0i0$Hu extends _StringsLogin$faq$0i0$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi az a Nextcloud?';
-	@override String get a => 'A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez.';
+	@override String get q => 'What is Nextcloud?';
+	@override String get a => 'Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data.';
 }
 
 // Path: login.faq.1
@@ -6829,8 +6833,8 @@ class _StringsLogin$faq$0i1$Hu extends _StringsLogin$faq$0i1$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi a titkosítási jelszó?';
-	@override String get a => 'A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.';
+	@override String get q => 'What is the encryption password?';
+	@override String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it\'s not related to your Nextcloud account/password.\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
 }
 
 // Path: login.faq.2
@@ -6840,8 +6844,8 @@ class _StringsLogin$faq$0i2$Hu extends _StringsLogin$faq$0i2$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Miért használjunk két jelszót?';
-	@override String get a => 'A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.';
+	@override String get q => 'Why use two passwords?';
+	@override String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
 }
 
 // Path: login.faq.3
@@ -6851,8 +6855,8 @@ class _StringsLogin$faq$0i3$Hu extends _StringsLogin$faq$0i3$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Hogyan tudok bejelentkezni, ha 2FA-t használok?';
-	@override String get a => 'A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik.';
+	@override String get q => 'How do I login if I use 2FA?';
+	@override String get a => 'Instead of your regular Nextcloud password, you\'ll need to create an "app password". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected.';
 }
 
 // Path: login.faq.4
@@ -6862,8 +6866,8 @@ class _StringsLogin$faq$0i4$Hu extends _StringsLogin$faq$0i4$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Használhatom mindkettőhöz ugyanazt a jelszót?';
-	@override String get a => 'Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.';
+	@override String get q => 'Can I use the same password for both?';
+	@override String get a => 'Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.';
 }
 
 // Path: profile.quickLinks
@@ -6873,9 +6877,9 @@ class _StringsProfileQuickLinksHu extends _StringsProfileQuickLinksEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Gyors linkek';
-	@override String get serverHomepage => 'Szerver honlapja';
-	@override String get deleteAccount => 'Fiók törlése';
+	@override String get title => 'Quick links';
+	@override String get serverHomepage => 'Server homepage';
+	@override String get deleteAccount => 'Delete account';
 }
 
 // Path: profile.faq.0
@@ -6885,8 +6889,8 @@ class _StringsProfile$faq$0i0$Hu extends _StringsProfile$faq$0i0$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Elveszítem a jegyzeteimet, ha bejelentem?';
-	@override String get a => 'Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).';
+	@override String get q => 'Will I lose my notes if I log out?';
+	@override String get a => 'No. Your notes will remain both on your device and on the server. They won\'t be synced with the server until you log back in. Make sure syncing is complete before logging out so you don\'t lose any data (see the sync progress on the home screen).';
 }
 
 // Path: profile.faq.1
@@ -6896,8 +6900,8 @@ class _StringsProfile$faq$0i1$Hu extends _StringsProfile$faq$0i1$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Hogyan változtathatom meg a Nextcloud jelszavamat?';
-	@override String get a => 'Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe.';
+	@override String get q => 'How do I change my Nextcloud password?';
+	@override String get a => 'Go to your server website and log in. Then go to Settings > Security > Change password. You\'ll need to log out and log back in to Saber after changing your password.';
 }
 
 // Path: profile.faq.2
@@ -6907,8 +6911,8 @@ class _StringsProfile$faq$0i2$Hu extends _StringsProfile$faq$0i2$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Hogyan változtathatom meg a titkosítási jelszavamat?';
-	@override String get a => '1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Saber szolgáltatásba a többi eszközén sem.';
+	@override String get q => 'How do I change my encryption password?';
+	@override String get a => '0. Make sure syncing is complete (see the sync progress on the home screen).\n1. Log out of Saber.\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
 }
 
 // Path: profile.faq.3
@@ -6918,8 +6922,8 @@ class _StringsProfile$faq$0i3$Hu extends _StringsProfile$faq$0i3$En {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Hogyan törölhetem a fiókomat?';
-	@override String get a => 'Koppintson a fenti "${_root.profile.quickLinks.deleteAccount}" gombra, és ha szükséges, jelentkezzen be.\nHa a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.';
+	@override String get q => 'How can I delete my account?';
+	@override String get a => 'Tap on the "${_root.profile.quickLinks.deleteAccount}" button above, and login if needed.\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\nIf you are using a third party server, there might not be an option to delete your account: you\'ll need to consult the server\'s privacy policy for more information.';
 }
 
 // Path: editor.toolbar
@@ -6952,9 +6956,9 @@ class _StringsEditorPensHu extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Töltőtoll';
 	@override String get ballpointPen => 'Golyóstoll';
 	@override String get highlighter => 'Kiemelő';
-	@override String get pencil => 'Ceruza';
-	@override String get shapePen => 'Forma toll';
-	@override String get laserPointer => 'Lézer mutató';
+	@override String get pencil => 'Pencil';
+	@override String get shapePen => 'Shape pen';
+	@override String get laserPointer => 'Laser pointer';
 }
 
 // Path: editor.penOptions
@@ -6974,32 +6978,32 @@ class _StringsEditorColorsHu extends _StringsEditorColorsEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Egyedi ${b} ${h}';
-	@override String customHue({required Object h}) => 'Egyedi ${h}';
-	@override String get dark => 'sötét';
-	@override String get light => 'fény';
-	@override String get cyan => 'Cián';
-	@override String get pink => 'Rózsaszín';
-	@override String get colorPicker => 'Színválasztó';
-	@override String get black => 'Fekete';
-	@override String get darkGrey => 'Sötét szürke';
-	@override String get grey => 'Szürke';
-	@override String get lightGrey => 'Világos szürke';
-	@override String get white => 'fehér';
-	@override String get red => 'Piros';
-	@override String get green => 'Zöld';
-	@override String get blue => 'Kék';
-	@override String get yellow => 'Sárga';
-	@override String get purple => 'Lila';
-	@override String get orange => 'narancs';
-	@override String get pastelRed => 'Pasztell vörös';
-	@override String get pastelOrange => 'Pasztell narancs';
-	@override String get pastelYellow => 'Pasztell sárga';
-	@override String get pastelGreen => 'Pasztell zöld';
-	@override String get pastelCyan => 'Pasztell cián';
-	@override String get pastelBlue => 'Pasztell kék';
-	@override String get pastelPurple => 'Pasztell lila';
-	@override String get pastelPink => 'Pasztell rózsaszín';
+	@override String get colorPicker => 'Color picker';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get dark => 'dark';
+	@override String get light => 'light';
+	@override String get black => 'Black';
+	@override String get darkGrey => 'Dark grey';
+	@override String get grey => 'Grey';
+	@override String get lightGrey => 'Light grey';
+	@override String get white => 'White';
+	@override String get red => 'Red';
+	@override String get green => 'Green';
+	@override String get cyan => 'Cyan';
+	@override String get blue => 'Blue';
+	@override String get yellow => 'Yellow';
+	@override String get purple => 'Purple';
+	@override String get pink => 'Pink';
+	@override String get orange => 'Orange';
+	@override String get pastelRed => 'Pastel red';
+	@override String get pastelOrange => 'Pastel orange';
+	@override String get pastelYellow => 'Pastel yellow';
+	@override String get pastelGreen => 'Pastel green';
+	@override String get pastelCyan => 'Pastel cyan';
+	@override String get pastelBlue => 'Pastel blue';
+	@override String get pastelPurple => 'Pastel purple';
+	@override String get pastelPink => 'Pastel pink';
 }
 
 // Path: editor.imageOptions
@@ -7013,8 +7017,8 @@ class _StringsEditorImageOptionsHu extends _StringsEditorImageOptionsEn {
 	@override String get invertible => 'Megfordítható';
 	@override String get download => 'Letöltés';
 	@override String get setAsBackground => 'Beállítás háttérképként';
+	@override String get removeAsBackground => 'Remove as background';
 	@override String get delete => 'Törlés';
-	@override String get removeAsBackground => 'Eltávolítás háttérként';
 }
 
 // Path: editor.selectionBar
@@ -7025,7 +7029,7 @@ class _StringsEditorSelectionBarHu extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => 'Törlés';
-	@override String get duplicate => 'Másolat';
+	@override String get duplicate => 'Duplicate';
 }
 
 // Path: editor.menu
@@ -7035,18 +7039,18 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String clearPage({required Object page, required Object totalPages}) => 'Clear page ${page}/${totalPages}';
 	@override String get clearAllPages => 'Összes oldal törlése';
+	@override String get insertPage => 'Insert page below';
+	@override String get duplicatePage => 'Duplicate page';
+	@override String get deletePage => 'Delete page';
 	@override String get lineHeight => 'Vonalmagasság';
+	@override String get lineHeightDescription => 'Also controls the text size';
+	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
-	@override String get backgroundImageFit => 'Háttérkép';
-	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
-	@override String get insertPage => 'Az oldal beszúrása alább';
-	@override String get duplicatePage => 'Ismétlődő oldal';
-	@override String get deletePage => 'Oldal törlése';
-	@override String get lineHeightDescription => 'Szintén ellenőrzi a szöveg méretét';
 }
 
 // Path: editor.newerFileFormat
@@ -7084,8 +7088,8 @@ class _StringsEditorHudHu extends _StringsEditorHudEn {
 	@override String get lockZoom => 'Nagyítás feloldása';
 	@override String get unlockSingleFingerPan => 'Egyujjas lapozás engedélyezése';
 	@override String get lockSingleFingerPan => 'Egyujjas lapozás letiltása';
-	@override String get unlockAxisAlignedPan => 'Oldja fel a pásztázást vízszintesre vagy függőlegesre';
-	@override String get lockAxisAlignedPan => 'A pásztázás rögzítése vízszintesre vagy függőlegesre';
+	@override String get unlockAxisAlignedPan => 'Unlock panning to horizontal or vertical';
+	@override String get lockAxisAlignedPan => 'Lock panning to horizontal or vertical';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -7095,9 +7099,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingHu extends _StringsSettin
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get shown => 'Megakadályozza a véletlen átkapcsolást';
-	@override String get fixedOn => 'Az ujjlenyomat rögzítése engedélyezett állapotban van';
-	@override String get fixedOff => 'Az ujjrajzolás letiltva van rögzítve';
+	@override String get shown => 'Prevents accidental toggling';
+	@override String get fixedOn => 'Finger drawing is fixed as enabled';
+	@override String get fixedOff => 'Finger drawing is fixed as disabled';
 }
 
 // Path: editor.menu.boxFits
@@ -7121,13 +7125,13 @@ class _StringsEditorMenuBgPatternsHu extends _StringsEditorMenuBgPatternsEn {
 	// Translations
 	@override String get none => 'Üres';
 	@override String get college => 'College-ruled';
+	@override String get collegeRtl => 'College-ruled (Reverse)';
 	@override String get lined => 'Vonalas';
 	@override String get grid => 'Kockás';
 	@override String get dots => 'Pontozott';
-	@override String get collegeRtl => 'Főiskolai szabályozás (fordított)';
-	@override String get staffs => 'Vezetők';
+	@override String get staffs => 'Staffs';
+	@override String get tablature => 'Tablature';
 	@override String get cornell => 'Cornell';
-	@override String get tablature => 'Tablatúra';
 }
 
 // Path: <root>
@@ -7949,16 +7953,16 @@ class _StringsHomeJa extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsJa tooltips = _StringsHomeTooltipsJa._(_root);
 	@override late final _StringsHomeCreateJa create = _StringsHomeCreateJa._(_root);
 	@override String get welcome => 'ようこそSaberへ';
+	@override String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
 	@override String get noFiles => 'ファイルが見つかりません';
 	@override String get createNewNote => '+ボタンで新しくメモを作成';
+	@override String get backFolder => 'Go back to the previous folder';
 	@override late final _StringsHomeNewFolderJa newFolder = _StringsHomeNewFolderJa._(_root);
 	@override late final _StringsHomeRenameNoteJa renameNote = _StringsHomeRenameNoteJa._(_root);
 	@override late final _StringsHomeMoveNoteJa moveNote = _StringsHomeMoveNoteJa._(_root);
+	@override String get deleteNote => 'Delete note';
 	@override late final _StringsHomeRenameFolderJa renameFolder = _StringsHomeRenameFolderJa._(_root);
 	@override late final _StringsHomeDeleteFolderJa deleteFolder = _StringsHomeDeleteFolderJa._(_root);
-	@override String get backFolder => '前のフォルダーに戻ります';
-	@override String get deleteNote => 'メモの削除';
-	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。';
 }
 
 // Path: settings
@@ -7982,7 +7986,7 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 		'左側',
 	];
 	@override late final _StringsSettingsResetJa reset = _StringsSettingsResetJa._(_root);
-	@override String get resyncEverything => 'すべてを再同期する';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -8053,7 +8057,7 @@ class _StringsUpdateJa extends _StringsUpdateEn {
 	@override String get updateAvailable => '更新が可能です';
 	@override String get updateAvailableDescription => '新バージョンのアプリがリリースされ、以下の変更があった：';
 	@override String get update => '更新';
-	@override String get downloadNotAvailableYet => 'お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -8099,9 +8103,9 @@ class _StringsHomeTitlesJa extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => '最近のメモ';
+	@override String get browse => 'Browse';
 	@override String get whiteboard => 'ホワイトボード';
 	@override String get settings => '設定';
-	@override String get browse => '閲覧';
 }
 
 // Path: home.tooltips
@@ -8113,7 +8117,7 @@ class _StringsHomeTooltipsJa extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => '新しいメモ';
 	@override String get showUpdateDialog => '更新ダイアログの表示';
-	@override String get exportNote => 'エクスポートメモ';
+	@override String get exportNote => 'Export note';
 }
 
 // Path: home.create
@@ -8123,8 +8127,8 @@ class _StringsHomeCreateJa extends _StringsHomeCreateEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => '新しいメモ';
-	@override String get importNote => 'インポートメモ';
+	@override String get newNote => 'New note';
+	@override String get importNote => 'Import note';
 }
 
 // Path: home.newFolder
@@ -8165,12 +8169,12 @@ class _StringsHomeMoveNoteJa extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'メモを移動';
+	@override String moveNotes({required Object n}) => 'Move ${n} notes';
 	@override String moveName({required Object f}) => '${f} を移動';
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '${newName} に名称を変更した';
-	@override String moveNotes({required Object n}) => '${n}のノートを移動する';
-	@override String get multipleRenamedTo => '次のメモの名前が変更されます。';
-	@override String numberRenamedTo({required Object n}) => '${n} のノートは、競合を避けるために名前を変更されます';
+	@override String get multipleRenamedTo => 'The following notes will be renamed:';
+	@override String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
 }
 
 // Path: home.renameFolder
@@ -8180,12 +8184,12 @@ class _StringsHomeRenameFolderJa extends _StringsHomeRenameFolderEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderNameEmpty => 'フォルダー名を空にすることはできません';
-	@override String get renameFolder => 'フォルダーの名前を変更する';
-	@override String get folderName => 'フォルダ名';
-	@override String get rename => '名前の変更';
-	@override String get folderNameContainsSlash => 'フォルダ名はスラッシュを含まない';
-	@override String get folderNameExists => 'この名前のフォルダーはすでに存在します';
+	@override String get renameFolder => 'Rename folder';
+	@override String get folderName => 'Folder name';
+	@override String get rename => 'Rename';
+	@override String get folderNameEmpty => 'Folder name can\'t be empty';
+	@override String get folderNameContainsSlash => 'Folder name can\'t contain a slash';
+	@override String get folderNameExists => 'A folder with this name already exists';
 }
 
 // Path: home.deleteFolder
@@ -8195,10 +8199,10 @@ class _StringsHomeDeleteFolderJa extends _StringsHomeDeleteFolderEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get deleteFolder => 'フォルダの削除';
-	@override String deleteName({required Object f}) => '${f}を削除';
-	@override String get delete => '消去';
-	@override String get alsoDeleteContents => 'このフォルダー内のすべてのメモも削除します';
+	@override String get deleteFolder => 'Delete folder';
+	@override String deleteName({required Object f}) => 'Delete ${f}';
+	@override String get delete => 'Delete';
+	@override String get alsoDeleteContents => 'Also delete all notes inside this folder';
 }
 
 // Path: settings.prefCategories
@@ -8211,8 +8215,8 @@ class _StringsSettingsPrefCategoriesJa extends _StringsSettingsPrefCategoriesEn 
 	@override String get general => '一般';
 	@override String get writing => '文章';
 	@override String get editor => '編集';
+	@override String get performance => 'Performance';
 	@override String get advanced => 'アドバンスド';
-	@override String get performance => 'パフォーマンス';
 }
 
 // Path: settings.prefLabels
@@ -8229,6 +8233,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'オリジナルの色';
 	@override String get hyperlegibleFont => 'Hyperlegible フォント';
 	@override String get shouldCheckForUpdates => 'Saberの更新を自動的に確認する';
+	@override String get shouldAlwaysAlertForUpdates => 'Faster updates';
 	@override String get disableAds => '広告を表示しない';
 	@override String get changeAdsConsent => '広告の同意を変更する';
 	@override String get allowInsecureConnections => '安全でない接続を許可する';
@@ -8238,16 +8243,15 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'グレースケールを優先';
 	@override String get maxImageSize => '最大画像サイズ';
 	@override String get autoClearWhiteboardOnExit => 'アプリを終了したらホワイトボードを消去する';
+	@override String get disableEraserAfterUse => 'Auto-disable the eraser';
+	@override String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 	@override String get editorPromptRename => '新しいメモの名前を変更するよう促す';
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
+	@override String get recentColorsLength => 'How many recent colors to store';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
-	@override String get shapeRecognitionDelay => '形状認識の遅延';
-	@override String get recentColorsLength => '最近使用した色を何色保存するか';
-	@override String get autosaveDelay => '自動保存の遅延';
-	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
-	@override String get shouldAlwaysAlertForUpdates => 'アップデートの高速化';
-	@override String get disableEraserAfterUse => '消しゴムを自動的に無効にする';
+	@override String get autosaveDelay => 'Auto-save delay';
+	@override String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -8262,15 +8266,15 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get allowInsecureConnections => '(非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする';
 	@override String get preferGreyscale => 'e-inkディスプレイ用';
 	@override String get autoClearWhiteboardOnExit => '他のデバイスと同期されます';
+	@override String get disableEraserAfterUse => 'Automatically switches back to the pen after using the eraser';
 	@override String get maxImageSize => 'これより大きな画像は圧縮されます';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
-	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
-	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
-	@override String get disableEraserAfterUse => '消しゴムを使用した後は自動的にペンに戻ります';
-	@override String get shouldAlwaysAlertForUpdates => 'アップデートが利用可能になり次第お知らせください';
+	@override String get autosaveDelay => 'How long to wait before auto-saving a note';
+	@override String get shapeRecognitionDelay => 'How often to update the shape preview';
+	@override String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 }
 
 // Path: settings.themeModes
@@ -8330,9 +8334,9 @@ class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
 	@override String get checkUrl => '有効なURLを入力してください。';
 	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
 	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
 }
 
 // Path: login.form
@@ -8508,9 +8512,9 @@ class _StringsEditorPensJa extends _StringsEditorPensEn {
 	@override String get fountainPen => '万年筆';
 	@override String get ballpointPen => 'ボールペン';
 	@override String get highlighter => '蛍光ペン';
+	@override String get pencil => 'Pencil';
+	@override String get shapePen => 'Shape pen';
 	@override String get laserPointer => 'レーザーポインター';
-	@override String get pencil => '鉛筆';
-	@override String get shapePen => 'シェイプペン';
 }
 
 // Path: editor.penOptions
@@ -8531,6 +8535,10 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'カラーピッカー';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get dark => 'dark';
+	@override String get light => 'light';
 	@override String get black => '黒';
 	@override String get darkGrey => '濃い灰色';
 	@override String get grey => '灰色';
@@ -8538,9 +8546,11 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 	@override String get white => '白色';
 	@override String get red => '赤色';
 	@override String get green => '緑色';
+	@override String get cyan => 'Cyan';
 	@override String get blue => '青色';
 	@override String get yellow => '黄色';
 	@override String get purple => '紫色';
+	@override String get pink => 'Pink';
 	@override String get orange => '橙色';
 	@override String get pastelRed => 'パステル・赤';
 	@override String get pastelOrange => 'パステル・橙色';
@@ -8550,12 +8560,6 @@ class _StringsEditorColorsJa extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'パステル・青色';
 	@override String get pastelPurple => 'パステル・紫色';
 	@override String get pastelPink => 'パステル・桃色';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'カスタム ${b} ${h}';
-	@override String customHue({required Object h}) => 'カスタム ${h}';
-	@override String get dark => '暗い';
-	@override String get light => 'ライト';
-	@override String get cyan => 'シアン';
-	@override String get pink => 'ピンク';
 }
 
 // Path: editor.imageOptions
@@ -8581,7 +8585,7 @@ class _StringsEditorSelectionBarJa extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => '削除';
-	@override String get duplicate => '重複';
+	@override String get duplicate => 'Duplicate';
 }
 
 // Path: editor.menu
@@ -8598,11 +8602,11 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get deletePage => 'ページの削除';
 	@override String get lineHeight => '行の高さ';
 	@override String get lineHeightDescription => '文字サイズを調整';
+	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
 	@override late final _StringsEditorMenuBgPatternsJa bgPatterns = _StringsEditorMenuBgPatternsJa._(_root);
-	@override String get backgroundImageFit => '背景画像';
 }
 
 // Path: editor.newerFileFormat
@@ -8651,9 +8655,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingJa extends _StringsSettin
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => '指の描画が有効に固定される';
-	@override String get shown => '偶発的な切り替えを防止します';
-	@override String get fixedOff => '指の描画が無効に固定される';
+	@override String get shown => 'Prevents accidental toggling';
+	@override String get fixedOn => 'Finger drawing is fixed as enabled';
+	@override String get fixedOff => 'Finger drawing is fixed as disabled';
 }
 
 // Path: editor.menu.boxFits
@@ -8682,8 +8686,8 @@ class _StringsEditorMenuBgPatternsJa extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => '格子';
 	@override String get dots => '点';
 	@override String get staffs => 'スタッフ';
+	@override String get tablature => 'Tablature';
 	@override String get cornell => '角';
-	@override String get tablature => 'タベルチュア';
 }
 
 // Path: <root>
@@ -8760,7 +8764,7 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 		'Esquerda',
 	];
 	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
-	@override String get resyncEverything => 'Resync tudo';
+	@override String get resyncEverything => 'Resync everything';
 }
 
 // Path: login
@@ -8831,7 +8835,7 @@ class _StringsUpdatePtBr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Atualização disponível';
 	@override String get updateAvailableDescription => 'Uma nova versão do aplicativo está disponível, com estas mudanças:';
 	@override String get update => 'Atualizar';
-	@override String get downloadNotAvailableYet => 'O download ainda não está disponível para sua plataforma. Verifique novamente em breve.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -8891,7 +8895,7 @@ class _StringsHomeTooltipsPtBr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nova nota';
 	@override String get showUpdateDialog => 'Mostrar caixa de diálogo de atualização';
-	@override String get exportNote => 'Nota de exportação';
+	@override String get exportNote => 'Export note';
 }
 
 // Path: home.create
@@ -8943,12 +8947,12 @@ class _StringsHomeMoveNotePtBr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover a nota';
+	@override String moveNotes({required Object n}) => 'Move ${n} notes';
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'A nota será renomeada para ${newName}';
-	@override String moveNotes({required Object n}) => 'Mover ${n} notas';
-	@override String get multipleRenamedTo => 'As seguintes notas serão renomeadas:';
-	@override String numberRenamedTo({required Object n}) => '${n} notas serão renomeadas para evitar conflitos';
+	@override String get multipleRenamedTo => 'The following notes will be renamed:';
+	@override String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
 }
 
 // Path: home.renameFolder
@@ -8989,8 +8993,8 @@ class _StringsSettingsPrefCategoriesPtBr extends _StringsSettingsPrefCategoriesE
 	@override String get general => 'Geral';
 	@override String get writing => 'Escrita';
 	@override String get editor => 'editor';
+	@override String get performance => 'Performance';
 	@override String get advanced => 'Avançado';
-	@override String get performance => 'Desempenho';
 }
 
 // Path: settings.prefLabels
@@ -9022,10 +9026,10 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get hideHomeBackgrounds => 'Ocultar planos de fundo na tela inicial';
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
+	@override String get recentColorsLength => 'How many recent colors to store';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
-	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de forma';
-	@override String get recentColorsLength => 'Quantas cores recentes armazenar';
+	@override String get shapeRecognitionDelay => 'Shape recognition delay';
 }
 
 // Path: settings.prefDescriptions
@@ -9047,8 +9051,8 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
+	@override String get shapeRecognitionDelay => 'How often to update the shape preview';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
-	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
 
 // Path: settings.themeModes
@@ -9108,9 +9112,9 @@ class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
 	@override String get checkUrl => 'Por favor insira uma URL válida.';
 	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
 	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
 }
 
 // Path: login.form
@@ -9286,9 +9290,9 @@ class _StringsEditorPensPtBr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Caneta tinteiro';
 	@override String get ballpointPen => 'Caneta esferográfica';
 	@override String get highlighter => 'Marcador';
+	@override String get pencil => 'Pencil';
+	@override String get shapePen => 'Shape pen';
 	@override String get laserPointer => 'Apontador laser';
-	@override String get pencil => 'Lápis';
-	@override String get shapePen => 'Caneta de forma';
 }
 
 // Path: editor.penOptions
@@ -9309,6 +9313,10 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Seletor de cores';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get dark => 'dark';
+	@override String get light => 'light';
 	@override String get black => 'Preto';
 	@override String get darkGrey => 'Cinza escuro';
 	@override String get grey => 'Cinza';
@@ -9316,9 +9324,11 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 	@override String get white => 'Branco';
 	@override String get red => 'Vermelho';
 	@override String get green => 'Verde';
+	@override String get cyan => 'Cyan';
 	@override String get blue => 'Azul';
 	@override String get yellow => 'Amarelo';
 	@override String get purple => 'Roxo';
+	@override String get pink => 'Pink';
 	@override String get orange => 'Laranja';
 	@override String get pastelRed => 'Vermelho pastel';
 	@override String get pastelOrange => 'Laranja pastel';
@@ -9328,12 +9338,6 @@ class _StringsEditorColorsPtBr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Roxo pastel';
 	@override String get pastelPink => 'Rosa pastel';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Personalizado ${b} ${h}';
-	@override String customHue({required Object h}) => '${h} personalizado';
-	@override String get dark => 'escuro';
-	@override String get light => 'luz';
-	@override String get cyan => 'Ciano';
-	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
@@ -9359,7 +9363,7 @@ class _StringsEditorSelectionBarPtBr extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => 'Excluir';
-	@override String get duplicate => 'Duplicação';
+	@override String get duplicate => 'Duplicate';
 }
 
 // Path: editor.menu
@@ -9609,7 +9613,7 @@ class _StringsUpdateRu extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Доступно обновление';
 	@override String get updateAvailableDescription => 'Доступна новая версия приложения со следующими изменениями:';
 	@override String get update => 'Обновить';
-	@override String get downloadNotAvailableYet => 'Загрузка пока недоступна для вашей платформы. Пожалуйста, зайдите позже.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -10387,7 +10391,7 @@ class _StringsUpdateTr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Güncelleme var';
 	@override String get updateAvailableDescription => 'Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:';
 	@override String get update => 'Güncelle';
-	@override String get downloadNotAvailableYet => 'İndirme henüz platformunuz için kullanılamıyor. Lütfen kısa süre sonra tekrar kontrol edin.';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor
@@ -10664,9 +10668,9 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 }
 
 // Path: login.form
@@ -11165,7 +11169,7 @@ class _StringsUpdateZhHansCn extends _StringsUpdateEn {
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '该应用的新版本可用，具有以下变更：';
 	@override String get update => '更新';
-	@override String get downloadNotAvailableYet => '您的平台尚无法下载。请稍后回来查看。';
+	@override String get downloadNotAvailableYet => 'The download isn\'t available yet for your platform. Please check back shortly.';
 }
 
 // Path: editor

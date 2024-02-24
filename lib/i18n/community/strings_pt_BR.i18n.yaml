@@ -12,7 +12,7 @@ home:
   tooltips:
     newNote: Nova nota
     showUpdateDialog: Mostrar caixa de diálogo de atualização
-    exportNote(OUTDATED): Nota de exportação
+    exportNote: Export note
   create:
     newNote: Nova nota
     importNote: Importar nota
@@ -37,12 +37,12 @@ home:
     noteNameExists: Já existe uma nota com este nome
   moveNote:
     moveNote: Mover a nota
+    moveNotes: Move $n notes
     moveName: Mover $f
     move: Mover
     renamedTo: A nota será renomeada para $newName
-    moveNotes(OUTDATED): Mover $n notas
-    multipleRenamedTo(OUTDATED): "As seguintes notas serão renomeadas:"
-    numberRenamedTo(OUTDATED): $n notas serão renomeadas para evitar conflitos
+    multipleRenamedTo: "The following notes will be renamed:"
+    numberRenamedTo: $n notes will be renamed to avoid conflicts
   deleteNote: Apagar nota
   renameFolder:
     renameFolder: Renomear pasta
@@ -61,8 +61,8 @@ settings:
     general: Geral
     writing: Escrita
     editor: editor
+    performance: Performance
     advanced: Avançado
-    performance(OUTDATED): Desempenho
   prefLabels:
     locale: Idioma do aplicativo
     appTheme: Tema do aplicativo
@@ -86,10 +86,10 @@ settings:
     editorPromptRename: Solicitar que você renomeie novas notas
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
+    recentColorsLength: How many recent colors to store
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
-    shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
-    recentColorsLength(OUTDATED): Quantas cores recentes armazenar
+    shapeRecognitionDelay: Shape recognition delay
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
@@ -106,8 +106,8 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
+    shapeRecognitionDelay: How often to update the shape preview
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
-    shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:
     system: Sistema
     light: Claro
@@ -127,7 +127,7 @@ settings:
   reset:
     title: "Redefinir esta configuração?"
     button: Redefinir
-  resyncEverything(OUTDATED): Resync tudo
+  resyncEverything: Resync everything
 login:
   title: Login
   feedbacks:
@@ -136,9 +136,9 @@ login:
     enterEncPassword: Por favor digite a sua senha de criptografia.
     checkUrl: Por favor insira uma URL válida.
     ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
     loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
-    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
   form:
     useCustomServer: Eu quero usar um servidor Nextcloud personalizado
     customServerUrl: URL do servidor personalizado
@@ -203,7 +203,7 @@ update:
   updateAvailable: Atualização disponível
   updateAvailableDescription: "Uma nova versão do aplicativo está disponível, com estas mudanças:"
   update: Atualizar
-  downloadNotAvailableYet(OUTDATED): O download ainda não está disponível para sua plataforma. Verifique novamente em breve.
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: Paleta de cores (Ctrl C)
@@ -221,13 +221,17 @@ editor:
     fountainPen: Caneta tinteiro
     ballpointPen: Caneta esferográfica
     highlighter: Marcador
+    pencil: Pencil
+    shapePen: Shape pen
     laserPointer: Apontador laser
-    pencil(OUTDATED): Lápis
-    shapePen(OUTDATED): Caneta de forma
   penOptions:
     size: Tamanho
   colors:
     colorPicker: Seletor de cores
+    customBrightnessHue: Custom $b $h
+    customHue: Custom $h
+    dark: dark
+    light: light
     black: Preto
     darkGrey: Cinza escuro
     grey: Cinza
@@ -235,9 +239,11 @@ editor:
     white: Branco
     red: Vermelho
     green: Verde
+    cyan: Cyan
     blue: Azul
     yellow: Amarelo
     purple: Roxo
+    pink: Pink
     orange: Laranja
     pastelRed: Vermelho pastel
     pastelOrange: Laranja pastel
@@ -247,12 +253,6 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Roxo pastel
     pastelPink: Rosa pastel
-    customBrightnessHue(OUTDATED): Personalizado $b $h
-    customHue(OUTDATED): $h personalizado
-    dark(OUTDATED): escuro
-    light(OUTDATED): luz
-    cyan(OUTDATED): Ciano
-    pink(OUTDATED): Rosa
   imageOptions:
     title: Opções de imagem
     invertible: Invertível
@@ -262,7 +262,7 @@ editor:
     delete: Excluir
   selectionBar:
     delete: Excluir
-    duplicate(OUTDATED): Duplicação
+    duplicate: Duplicate
   menu:
     clearPage: Limpar a página $page/$totalPages
     clearAllPages: Limpar todas as páginas

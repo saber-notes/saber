@@ -127,7 +127,7 @@ settings:
   reset:
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
-  resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
+  resyncEverything: Resync everything
 login:
   title: وارد شدن
   feedbacks:
@@ -136,9 +136,9 @@ login:
     enterEncPassword: لطفا رمز رمزگذاری خود را وارد کنید
     checkUrl: لطفا یک آدرس اینترنتی معتبر وارد کنید
     ncLoginFailed: ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید
     loginSuccess: با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید
-    ncUnsupportedFailure(OUTDATED): سرور داده شده Nextcloud $v را اجرا می کند اما این نسخه از Saber فقط از Nextcloud $s تا $t پشتیبانی می کند.
   form:
     useCustomServer: من می خواهم از یک سرور Nextcloud سفارشی استفاده کنم
     customServerUrl: آدرس اینترنتی سرور سفارشی
@@ -199,7 +199,7 @@ update:
   updateAvailable: به‌روزرسانی‌ در دسترس است
   updateAvailableDescription: "نسخه جدیدی از برنامه با این تغییرات در دسترس است:"
   update: بروزرسانی
-  downloadNotAvailableYet(OUTDATED): دانلود هنوز برای پلتفرم شما در دسترس نیست. لطفا به زودی دوباره بررسی کنید.
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: تغییر رنگ (Ctrl C)
