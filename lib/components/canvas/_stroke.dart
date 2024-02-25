@@ -141,11 +141,14 @@ class Stroke {
       penType: json['ty'] ?? (Pen).toString(),
     )..points.addAll(points);
   }
-  // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
+    // these json keys should not be the same as the ones in [StrokeOptions.toJson]
     return {
       'shape': null,
-      'p': points.map((PointVector point) => point.toBsonBinary()).toList(),
+      'p': points
+          .where((point) => point.isFinite)
+          .map((PointVector point) => point.toBsonBinary())
+          .toList(),
       'i': pageIndex,
       'ty': penType,
       'pe': pressureEnabled,
