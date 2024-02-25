@@ -261,19 +261,11 @@ class Stroke {
           '${page.size.height - point.dy}';
     }
 
-    if (polygon.isNotEmpty) {
-      String path = polygon
-          // Remove points with NaN values
-          .where((element) => !(element.dy.isNaN || element.dx.isNaN))
-          .map((point) => toSvgPoint(point))
-          .join('L');
+    // Remove NaN points, and convert to SVG coordinates
+    final svgPoints =
+        polygon.where((offset) => offset.isFinite).map(toSvgPoint);
 
-      if (path.isNotEmpty) {
-        return 'M$path';
-      }
-    }
-
-    return '';
+    return svgPoints.isNotEmpty ? 'M${svgPoints.join('L')}' : '';
   }
 
   double get maxY {
