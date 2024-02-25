@@ -1,0 +1,3 @@
+• Corrigidas falhas nas exportações de PDF em algumas notas
+• Redução do efeito de desfoque em lápis grandes
+• Corrigido o botão "ressincronizar tudo" ao enviar arquivos vazios

@@ -1,0 +1,3 @@
+• Correction de l'échec des exportations PDF sur certaines notes
+• Réduction de l'effet de flou sur les grands crayons
+• Correction du bouton "Tout resynchroniser" lors du téléchargement de fichiers vides
