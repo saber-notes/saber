@@ -6,21 +6,21 @@
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
-Saber is the notes app built for handwriting.
+Saber je aplikace pro psaní poznámek uzpůsobená pro ruční psaní.
 
-It's designed to be as simple and intuitive as possible, while still delivering unique features that you'll actually use. Additionally, Saber is available across all your devices, large and small, and syncs between them seamlessly.
+Je navržena pro nejjednodušší a nejintuitivnější možné používání, přičemž stále nabízí unikátní funkce, které opravdu využijete. Navíc je Saber dostupný napříč všemi vašimi zařízeními, velkými i malými, mezi nimiž se bez povšimnutí synchronizuje.
 
-Notably, it can invert your notes when you're in dark mode. This allows you to write with white ink on a black background, which is much easier on the eyes in low-light environments like when the teacher turns off the lights in class. Images and PDFs are also inverted, so you can still use a digital printout or a textbook without the fuss.
+Je na místě poznamenat, že umí invertovat vaše poznámky, pokud jste v temném módu. To vám umožňuje psát bílým inkoustem na černém pozadí, což je daleko příjemnější pro oči v prostředí s nedostatkem světla, jako když učitel ve třídě vypne osvětlení. Obrázky a PDF jsou také invertovány, takže stále můžete bez problému používat digitální výtisky nebo učebnice.
 
-Saber uses a dual-password system to protect your notes from anyone but you, even if they have complete control over the server. You can safely store your notes on the official Saber server, another server, or even host your own!
+Saber používá systém dvou hesel, aby ochránil vaše poznámky před kýmkoliv kromě vás, i kdyby měl kompletní přístup k serveru. Můžete bezpečně ukládat své poznámky na oficiální server aplikace Saber, jiný server či dokonce pro tyto účely provozovat svůj vlastní server!
 
-The app is completely open-source so that anyone can view the source code and see exactly what it's doing and how it handles your data. Many other note-taking apps are closed-source and proprietary, meaning that their inner workings are a mystery to the public.
+Aplikace má kompletně otevřené zdrojové kódy, takže si je každý může prohlédnout a přesně vidět, co aplikace dělá a jakým způsobem jsou zpracovává vaše data. Spousta dalších aplikací pro pořizování poznámek má uzavřené zdrojové kódy a je proprietární, což znamená, že co se děje uvnitř, je pro veřejnost záhadou.
 
-As someone who studies maths, highlighting multi-line equations was always a hassle with other apps, where the highlighter would change color when it overlapped with itself. Another problem I had was that in some apps, the highlighter would render on top of the text, fading it out and making it hard to read. Saber's highlighter has no such issues. It utilizes canvas compositing to render the highlighter in a way that is consistent with/better than traditional paper, where it handles overlaps and maintains color consistency.
+Jako někdo, kdo studuje matematiku, mohu říct, že pro mě vždy bylo utrpení zvýrazňovat víceřádkové rovnice v jiných aplikacích, kde zvýrazňovač mění barvu po přetažení již zvýrazněné části. Další problém, který jsem měl v některých aplikacích, spočíval v tom, že se zvýrazňovač vykresloval nad textem, takže se text ztrácel a špatně se četl. Zvýrazňovač aplikace Saber těmito neduhy netrpí. Využívá kompozice plátna k vykreslování zvýrazňovače způsobem, který je konzistentní s tradičním papírem, ba možná i lepší, jelikož řeší překrývání a udržuje konzistenci barev.
 
-Saber has everything you need to keep your notes organized. Create folders inside folders inside folders to your heart's content with no limit on the number of nested folders. And even though a note may be buried deep within a nested folder, you can still access it easily with your most recent notes always available on the home screen.
+Saber má vše, co potřebujete k tomu, abyste dokázali organizovat své poznámky. Tvořte složky uvnitř složek uvnitř složek, jak jen chcete bez omezení na počet zanořených složek. Ačkoliv může být poznámka pohřbena hluboko uvnitř vnořené složky, pořád k ní můžete jednoduše přistoupit, jelikož jsou nejnovější poznámky vždy k dispozici na domovské obrazovce.
 
-Discover a whole new way to capture and organize your thoughts with Saber. Whether you're a student, professional, or creative mind, Saber is your trusted companion for digital handwriting. Download now and let your ideas flow freely!
+Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s aplikací Saber. Ať již jste student, profesionál nebo kreativní duše, Saber je vaším důvěryhodným společníkem pro digitální psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
 
 [<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
     alt='Ke stažení na Google Play'
