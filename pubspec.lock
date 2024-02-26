@@ -802,10 +802,10 @@ packages:
     dependency: "direct main"
     description:
       name: nextcloud
-      sha256: "8939720c2b6f964f1ee4fc8a9b36eb126eb3e76b9301a05835a9268c8d0f6ecc"
+      sha256: "6c0e0be07c9563cbf99c00ae1ca97657762741d035175e4caf22c4e8d0ceb693"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.1"
+    version: "5.0.2"
   one_dollar_unistroke_recognizer:
     dependency: "direct main"
     description:
@@ -820,7 +820,7 @@ packages:
       path: "packages/onyxsdk_pen"
       relative: true
     source: path
-    version: "1.2.0"
+    version: "1.2.2"
   open_as_default:
     dependency: "direct main"
     description:
@@ -1523,10 +1523,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: caab0544cb95471e8d1417d21e25838ee4f614f4651a9e8e5a4f26bfeff5f312
+      sha256: c64ada43c5adc1bcd4635f1ce386857e7fdec7fc494589e2ca61cad0a1304377
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.1"
+    version: "6.3.2"
   xdg_directories:
     dependency: transitive
     description:
