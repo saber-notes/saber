@@ -820,7 +820,7 @@ packages:
       path: "packages/onyxsdk_pen"
       relative: true
     source: path
-    version: "1.2.0"
+    version: "1.2.2"
   open_as_default:
     dependency: "direct main"
     description:
@@ -1021,10 +1021,10 @@ packages:
     dependency: "direct dev"
     description:
       name: process_run
-      sha256: cad2c57a34f8313a4182e34e31e0b2f12972eef3d0930cdc7ab3240bb8cad380
+      sha256: "8d9c6198b98fbbfb511edd42e7364e24d85c163e47398919871b952dc86a423e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.1+3"
+    version: "0.14.2"
   provider:
     dependency: transitive
     description:
@@ -1523,10 +1523,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: caab0544cb95471e8d1417d21e25838ee4f614f4651a9e8e5a4f26bfeff5f312
+      sha256: c64ada43c5adc1bcd4635f1ce386857e7fdec7fc494589e2ca61cad0a1304377
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.1"
+    version: "6.3.2"
   xdg_directories:
     dependency: transitive
     description:
