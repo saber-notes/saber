@@ -144,7 +144,8 @@ class EditorHistoryItem {
 
   final EditorHistoryItemType type;
   final int pageIndex;
-  final int? pageIndexStart;  // original page of selected items before moved to another one
+  final int?
+      pageIndexStart; // original page of selected items before moved to another one
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
