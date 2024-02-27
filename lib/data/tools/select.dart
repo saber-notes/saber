@@ -18,7 +18,7 @@ class Select extends Tool {
     strokes: const [],
     images: const [],
     path: Path(),
-    pageIndexStart: -1, // page index when selection was created
+    pageIndexStart: -1,
   );
   bool doneSelecting = false;
 
@@ -58,7 +58,7 @@ class Select extends Tool {
       strokes: [],
       images: [],
       path: Path(),
-      pageIndexStart: pageIndex, // page index when selection was created
+      pageIndexStart: pageIndex,
     );
     selectResult.path.moveTo(position.dx, position.dy);
     onDragUpdate(position);
@@ -129,7 +129,9 @@ class SelectResult {
   final List<Stroke> strokes;
   final List<EditorImage> images;
   Path path;
-  int pageIndexStart;
+
+  /// The page index when the items were selected.
+  final int pageIndexStart;
 
   SelectResult({
     required this.pageIndex,

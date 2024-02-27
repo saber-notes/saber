@@ -116,17 +116,17 @@ class EditorHistoryItem {
   EditorHistoryItem({
     required this.type,
     required this.pageIndex,
+    this.pageIndexStart,
     required this.strokes,
     required this.images,
     this.offset,
     this.page,
     this.quillChange,
     this.colorChange,
-    this.pageIndexStart, // original page of selection before it was moved to another page
   })  : assert(type != EditorHistoryItemType.move || offset != null,
             'Offset must be provided for move'),
         assert(type != EditorHistoryItemType.move || pageIndexStart != null,
-            'PageIndexStart must be provided for move'),
+            'pageIndexStart must be provided for move'),
         assert(type != EditorHistoryItemType.deletePage || page != null,
             'Page must be provided for deletePage'),
         assert(type != EditorHistoryItemType.insertPage || page != null,
@@ -144,8 +144,14 @@ class EditorHistoryItem {
 
   final EditorHistoryItemType type;
   final int pageIndex;
-  final int?
-      pageIndexStart; // original page of selected items before moved to another one
+
+  /// Original page of selected items before being moved to another one.
+  ///
+  /// This can be the same as [pageIndex]
+  /// if the items were moved within the same page.
+  ///
+  /// See also: [SelectResult.pageIndexStart]
+  final int? pageIndexStart;
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
