@@ -619,42 +619,33 @@ class EditorState extends State<Editor> {
     } else if (currentTool is Select) {
       Select select = currentTool as Select;
       if (select.doneSelecting) {
-        //log.info('Update selection position');
-        double rectBottom = page.size.height;
-        double rectTop = 0;
-        double cursorPosition = position.dy;
-        //log.info('page rect $rectTop to $rectBottom. Position is $cursorPosition');
-        if (cursorPosition > rectBottom + changePageThreshold) {
-          // selection should be moved to next page
-          //log.info('Selection should be moved to next page >');
+        int pageOffset = 0; // between -1 and 1
+        if (position.dy > page.size.height + changePageThreshold) {
+          // Selection is dragged past the bottom of the original page
           if (coreInfo.pages.length > select.selectResult.pageIndex + 1) {
-            //log.info('Selection can be moved');
             offset = Offset(
-                offset.dx,
-                offset.dy -
-                    (rectBottom +
-                        changePageThreshold)); // recalculate offset so entities moved to new page will be at correct position
+              offset.dx,
+              offset.dy - (page.size.height + changePageThreshold),
+            );
             pageOffset = 1;
           }
-        } else {
-          if (cursorPosition < (rectTop - changePageThreshold)) {
-            // selection should be moved to previous page
-            //log.info('Selection should be moved to previous page <');
-            if (select.selectResult.pageIndex > 0) {
-              //log.info('Selection can be moved');
-              offset = Offset(
-                  offset.dx, offset.dy + (rectBottom + changePageThreshold));
-              pageOffset = -1;
-            }
+        } else if (position.dy < -changePageThreshold) {
+          // Selection is dragged past the top of the original page
+          if (select.selectResult.pageIndex > 0) {
+            offset = Offset(
+              offset.dx,
+              offset.dy + (page.size.height + changePageThreshold),
+            );
+            pageOffset = -1;
           }
         }
+
         for (Stroke stroke in select.selectResult.strokes) {
           stroke.shift(offset);
         }
         for (EditorImage image in select.selectResult.images) {
           image.dstRect = image.dstRect.shift(offset);
         }
-        // shift also selection path
         select.selectResult.path = select.selectResult.path.shift(offset);
 
         if (pageOffset != 0) {
@@ -685,11 +676,10 @@ class EditorState extends State<Editor> {
       final pageNew = coreInfo.pages[dragPageIndex!];
       // recalculate position according new drag page
       position = pageNew.renderBox!.globalToLocal(details.focalPoint);
-      double rectBottom = pageNew.size.height;
       //log.info('New page rect $rectTop to $rectBottom. Position on new page is $cursorPosition');
       // recalculate the offset as if the selection were always moving to one page. Important for undo/redo
       offset = Offset(offset.dx,
-          offset.dy - pageOffset * (rectBottom + changePageThreshold));
+          offset.dy - pageOffset * (page.size.height + changePageThreshold));
       //  setState(() {}); // force update of builder so movement of selection to another page is taken into account
       pageNew.redrawStrokes(); // and finally redraw new page
     }
