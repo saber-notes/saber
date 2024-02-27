@@ -411,16 +411,13 @@ class EditorState extends State<Editor> {
           }
 
         case EditorHistoryItemType.move:
-          // all movement of selection was on one page
           for (Stroke stroke in item.strokes) {
             stroke.shift(Offset(
               -item.offset!.left,
               -item.offset!.top,
             ));
             if (item.pageIndex != item.pageIndexStart) {
-              // stroke must be on original page when selection movements started
-              int pageIndexStart = item.pageIndexStart ?? -1;
-              moveStrokeToPage(stroke, item.pageIndex, pageIndexStart);
+              moveStrokeToPage(stroke, item.pageIndex, item.pageIndexStart!);
             }
           }
           Select select = Select.currentSelect;
@@ -430,8 +427,8 @@ class EditorState extends State<Editor> {
               -item.offset!.top,
             ));
             if (item.pageIndex != item.pageIndexStart) {
-              int pageIndexStart = item.pageIndexStart ?? -1;
-              select.selectResult.pageIndex = pageIndexStart;
+              // move selection area to the original page
+              select.selectResult.pageIndex = item.pageIndexStart!;
             }
           }
           for (EditorImage image in item.images) {
@@ -442,9 +439,7 @@ class EditorState extends State<Editor> {
               image.dstRect.bottom - item.offset!.bottom,
             );
             if (item.pageIndex != item.pageIndexStart) {
-              // image must be on original page when selection movements started
-              int pageIndexStart = item.pageIndexStart ?? 0;
-              moveImageToPage(image, item.pageIndex, pageIndexStart);
+              moveImageToPage(image, item.pageIndex, item.pageIndexStart!);
             }
           }
 
@@ -484,14 +479,16 @@ class EditorState extends State<Editor> {
         undo(item.copyWith(type: EditorHistoryItemType.deletePage));
       case EditorHistoryItemType.move:
         undo(item.copyWith(
-            pageIndex: item.pageIndexStart, // exchange page and Start page
-            pageIndexStart: item.pageIndex,
-            offset: Rect.fromLTRB(
-              -item.offset!.left,
-              -item.offset!.top,
-              -item.offset!.right,
-              -item.offset!.bottom,
-            )));
+          // swap pageIndex and pageIndexStart
+          pageIndex: item.pageIndexStart,
+          pageIndexStart: item.pageIndex,
+          offset: Rect.fromLTRB(
+            -item.offset!.left,
+            -item.offset!.top,
+            -item.offset!.right,
+            -item.offset!.bottom,
+          ),
+        ));
       case EditorHistoryItemType.quillChange:
         undo(item.copyWith(type: EditorHistoryItemType.quillUndoneChange));
       case EditorHistoryItemType.quillUndoneChange: // this will never happen
@@ -562,6 +559,10 @@ class EditorState extends State<Editor> {
     }
   }
 
+  /// When the selection is dragged this far past the top/bottom of the page,
+  /// the selection will be moved to the previous/next page.
+  static const changePageThreshold = 50.0;
+
   void onDrawStart(ScaleStartDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
@@ -602,12 +603,6 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawUpdate(ScaleUpdateDetails details) {
-    const distOffset =
-        50.0; // when focal point moves at least this distance from the current page
-    // then move selection to new page
-    int pageOffset =
-        0; // offset of selection to another page. Nonzero value indicates moving selection to another page
-
     final page = coreInfo.pages[dragPageIndex!];
     Offset position = page.renderBox!.globalToLocal(details.focalPoint);
     Offset offset = position - previousPosition;
@@ -629,7 +624,7 @@ class EditorState extends State<Editor> {
         double rectTop = 0;
         double cursorPosition = position.dy;
         //log.info('page rect $rectTop to $rectBottom. Position is $cursorPosition');
-        if (cursorPosition > rectBottom + distOffset) {
+        if (cursorPosition > rectBottom + changePageThreshold) {
           // selection should be moved to next page
           //log.info('Selection should be moved to next page >');
           if (coreInfo.pages.length > select.selectResult.pageIndex + 1) {
@@ -638,16 +633,17 @@ class EditorState extends State<Editor> {
                 offset.dx,
                 offset.dy -
                     (rectBottom +
-                        distOffset)); // recalculate offset so entities moved to new page will be at correct position
+                        changePageThreshold)); // recalculate offset so entities moved to new page will be at correct position
             pageOffset = 1;
           }
         } else {
-          if (cursorPosition < (rectTop - distOffset)) {
+          if (cursorPosition < (rectTop - changePageThreshold)) {
             // selection should be moved to previous page
             //log.info('Selection should be moved to previous page <');
             if (select.selectResult.pageIndex > 0) {
               //log.info('Selection can be moved');
-              offset = Offset(offset.dx, offset.dy + (rectBottom + distOffset));
+              offset = Offset(
+                  offset.dx, offset.dy + (rectBottom + changePageThreshold));
               pageOffset = -1;
             }
           }
@@ -692,8 +688,8 @@ class EditorState extends State<Editor> {
       double rectBottom = pageNew.size.height;
       //log.info('New page rect $rectTop to $rectBottom. Position on new page is $cursorPosition');
       // recalculate the offset as if the selection were always moving to one page. Important for undo/redo
-      offset =
-          Offset(offset.dx, offset.dy - pageOffset * (rectBottom + distOffset));
+      offset = Offset(offset.dx,
+          offset.dy - pageOffset * (rectBottom + changePageThreshold));
       //  setState(() {}); // force update of builder so movement of selection to another page is taken into account
       pageNew.redrawStrokes(); // and finally redraw new page
     }
