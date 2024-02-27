@@ -655,6 +655,25 @@ class EditorState extends State<Editor> {
           //log.info('Moving selected item to new page and deleting them from original page');
           selectionOffsetPage(
               pageOffset); // move entities to new page and remove them from current one
+
+          // now handle new page, cursor position and another things
+          // change index of drag page
+          dragPageIndex = onWhichPageIsFocalPoint(
+              details.focalPoint); // update page and create paint rectangle
+          if (dragPageIndex == null) {
+            return; // page does not exist
+          }
+          final pageNew = coreInfo.pages[dragPageIndex!];
+          // recalculate position according new drag page
+          position = pageNew.renderBox!.globalToLocal(details.focalPoint);
+          //log.info('New page rect $rectTop to $rectBottom. Position on new page is $cursorPosition');
+          // recalculate the offset as if the selection were always moving to one page. Important for undo/redo
+          offset = Offset(
+              offset.dx,
+              offset.dy -
+                  pageOffset * (page.size.height + changePageThreshold));
+          //  setState(() {}); // force update of builder so movement of selection to another page is taken into account
+          pageNew.redrawStrokes(); // and finally redraw new page
         }
       } else {
         select.onDragUpdate(position);
@@ -663,25 +682,6 @@ class EditorState extends State<Editor> {
     } else if (currentTool is LaserPointer) {
       (currentTool as LaserPointer).onDragUpdate(position);
       page.redrawStrokes();
-    }
-
-    if (pageOffset != 0) {
-      // now handle new page, cursor position and another things
-      // change index of drag page
-      dragPageIndex = onWhichPageIsFocalPoint(
-          details.focalPoint); // update page and create paint rectangle
-      if (dragPageIndex == null) {
-        return; // page does not exist
-      }
-      final pageNew = coreInfo.pages[dragPageIndex!];
-      // recalculate position according new drag page
-      position = pageNew.renderBox!.globalToLocal(details.focalPoint);
-      //log.info('New page rect $rectTop to $rectBottom. Position on new page is $cursorPosition');
-      // recalculate the offset as if the selection were always moving to one page. Important for undo/redo
-      offset = Offset(offset.dx,
-          offset.dy - pageOffset * (page.size.height + changePageThreshold));
-      //  setState(() {}); // force update of builder so movement of selection to another page is taken into account
-      pageNew.redrawStrokes(); // and finally redraw new page
     }
 
     previousPosition = position;
