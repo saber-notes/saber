@@ -1,0 +1,3 @@
+• Opraveno selhání exportu PDF u některých poznámek
+• Snížení efektu rozmazání u velkých velikostí tužky
+• Opraveno tlačítko „znovu synchronizovat vše“ pro nahrávání prázdných souborů

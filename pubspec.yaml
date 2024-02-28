@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.20.2+20020
+version: 0.20.3+20030
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -179,22 +179,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/bson
       ref: toJson
-
-  # https://github.com/DavBfr/dart_pdf/pull/1460
-  printing:
-    git:
-      url: https://github.com/DavBfr/dart_pdf
-      path: printing
-  pdf:
-    git:
-      url: https://github.com/DavBfr/dart_pdf
-      path: pdf
-  # https://github.com/DavBfr/dart_pdf/pull/1604
-  pdf_widget_wrapper:
-    git:
-      url: https://github.com/adil192/dart_pdf
-      ref: fix-flutter-3.19
-      path: widget_wrapper
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

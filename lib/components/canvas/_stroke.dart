@@ -141,11 +141,14 @@ class Stroke {
       penType: json['ty'] ?? (Pen).toString(),
     )..points.addAll(points);
   }
-  // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
+    // these json keys should not be the same as the ones in [StrokeOptions.toJson]
     return {
       'shape': null,
-      'p': points.map((PointVector point) => point.toBsonBinary()).toList(),
+      'p': points
+          .where((point) => point.isFinite)
+          .map((PointVector point) => point.toBsonBinary())
+          .toList(),
       'i': pageIndex,
       'ty': penType,
       'pe': pressureEnabled,
@@ -261,11 +264,11 @@ class Stroke {
           '${page.size.height - point.dy}';
     }
 
-    if (polygon.isEmpty) {
-      return '';
-    } else {
-      return "M${polygon.map((point) => toSvgPoint(point)).join("L")}";
-    }
+    // Remove NaN points, and convert to SVG coordinates
+    final svgPoints =
+        polygon.where((offset) => offset.isFinite).map(toSvgPoint);
+
+    return svgPoints.isNotEmpty ? 'M${svgPoints.join('L')}' : '';
   }
 
   double get maxY {

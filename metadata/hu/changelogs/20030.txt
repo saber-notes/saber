@@ -1,0 +1,3 @@
+• Javítva a PDF-exportálás sikertelensége egyes megjegyzéseknél
+• Csökkentette az elmosódást nagy ceruzaméreteknél
+• Javítva a "minden újraszinkronizálása" gomb üres fájlok feltöltésekor
