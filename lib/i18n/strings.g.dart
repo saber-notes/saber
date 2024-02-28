@@ -195,6 +195,7 @@ class _StringsSettingsEn {
 	late final _StringsSettingsPrefDescriptionsEn prefDescriptions = _StringsSettingsPrefDescriptionsEn._(_root);
 	late final _StringsSettingsThemeModesEn themeModes = _StringsSettingsThemeModesEn._(_root);
 	late final _StringsSettingsLayoutSizesEn layoutSizes = _StringsSettingsLayoutSizesEn._(_root);
+	late final _StringsSettingsEditorToolbarSizesEn editorToolbarSizes = _StringsSettingsEditorToolbarSizesEn._(_root);
 	late final _StringsSettingsAccentColorPickerEn accentColorPicker = _StringsSettingsAccentColorPickerEn._(_root);
 	String get systemLanguage => 'Default';
 	List<String> get axisDirections => [
@@ -456,6 +457,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get changeAdsConsent => 'Change ads consent';
 	String get allowInsecureConnections => 'Allow insecure connections';
 	String get editorToolbarAlignment => 'Toolbar position';
+	String get editorToolbarSize => 'Toolbar button size';
 	String get editorToolbarShowInFullscreen => 'Show the toolbar in fullscreen mode';
 	String get editorAutoInvert => 'Invert notes in dark mode';
 	String get preferGreyscale => 'Prefer greyscale colors';
@@ -518,6 +520,19 @@ class _StringsSettingsLayoutSizesEn {
 	String get phone => 'Phone';
 	String get tablet => 'Tablet';
 }
+
+// Path: settings.layoutSizes
+class _StringsSettingsEditorToolbarSizesEn {
+	_StringsSettingsEditorToolbarSizesEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get small => 'Small';
+	String get normal => 'Normal';
+	String get big => 'Big';
+}
+
 
 // Path: settings.accentColorPicker
 class _StringsSettingsAccentColorPickerEn {

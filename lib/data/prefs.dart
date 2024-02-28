@@ -10,6 +10,7 @@ import 'package:nextcloud/provisioning_api.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -69,6 +70,7 @@ abstract class Prefs {
   static late final PlainPref<bool> hyperlegibleFont;
 
   static late final PlainPref<AxisDirection> editorToolbarAlignment;
+  static late final PlainPref<ToolbarSize> editorToolbarSize;
   static late final PlainPref<bool> editorToolbarShowInFullscreen;
   static late final PlainPref<bool> editorFingerDrawing;
   static late final PlainPref<bool> editorAutoInvert;
@@ -171,6 +173,8 @@ abstract class Prefs {
 
     editorToolbarAlignment =
         PlainPref('editorToolbarAlignment', AxisDirection.down);
+    editorToolbarSize =
+        PlainPref('editorToolbarSize', ToolbarSize.normal); // normal size
     editorToolbarShowInFullscreen =
         PlainPref('editorToolbarShowInFullscreen', true);
     editorFingerDrawing = PlainPref('editorFingerDrawing', true);
@@ -387,6 +391,7 @@ class PlainPref<T> extends IPref<T> {
         T == ThemeMode ||
         T == TargetPlatform ||
         T == LayoutSize ||
+        T == ToolbarSize ||
         T == ToolId ||
         T == CanvasBackgroundPattern ||
         T == DateTime);
@@ -461,6 +466,8 @@ class PlainPref<T> extends IPref<T> {
         }
       } else if (T == AxisDirection) {
         return await _prefs!.setInt(key, (value as AxisDirection).index);
+      } else if (T == ToolbarSize) {
+        return await _prefs!.setInt(key, (value as ToolbarSize).index);
       } else if (T == ThemeMode) {
         return await _prefs!.setInt(key, (value as ThemeMode).index);
       } else if (T == TargetPlatform) {
@@ -522,6 +529,10 @@ class PlainPref<T> extends IPref<T> {
       } else if (T == AxisDirection) {
         final index = _prefs!.getInt(key);
         return index != null ? AxisDirection.values[index] as T? : null;
+      } else if (T == ToolbarSize) {
+        final index = _prefs!.getInt(key);
+        if (index == null) return null;
+        return ToolbarSize.values[index] as T?;
       } else if (T == ThemeMode) {
         final index = _prefs!.getInt(key);
         return index != null ? ThemeMode.values[index] as T? : null;

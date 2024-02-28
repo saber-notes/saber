@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:saber/data/prefs.dart';
+
+
+/// toolbar button size
+enum ToolbarSize {
+  big,
+  normal,
+  small,
+}
 
 class ToolbarIconButton extends StatelessWidget {
   const ToolbarIconButton({
@@ -19,6 +28,7 @@ class ToolbarIconButton extends StatelessWidget {
   final EdgeInsets padding;
   final Widget child;
 
+
   @override
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
@@ -35,11 +45,18 @@ class ToolbarIconButton extends StatelessWidget {
         disabledColor: colorScheme.onSurface.withOpacity(0.4),
         onPressed: (enabled) ? onPressed : null,
         tooltip: tooltip,
-        iconSize: 20,
-        splashRadius: 20,
+        iconSize: switch (Prefs.editorToolbarSize.value) {
+            ToolbarSize.small => 12,
+            ToolbarSize.normal => 16,
+            ToolbarSize.big => 22,},
+        splashRadius: switch (Prefs.editorToolbarSize.value) {
+            ToolbarSize.small => 12,
+            ToolbarSize.normal => 16,
+            ToolbarSize.big => 22,},
         visualDensity: VisualDensity.compact,
         icon: child,
       ),
     );
   }
 }
+

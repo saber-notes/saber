@@ -25,7 +25,7 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Toolbar extends StatefulWidget {
-  const Toolbar({
+const Toolbar({
     super.key,
     required this.readOnly,
     required this.setTool,
@@ -46,6 +46,7 @@ class Toolbar extends StatefulWidget {
     required this.exportAsSba,
     required this.exportAsPdf,
     required this.exportAsPng,
+    required this.toolbarSize,
   });
 
   final bool readOnly;
@@ -76,13 +77,10 @@ class Toolbar extends StatefulWidget {
   final Future Function(BuildContext)? exportAsPdf;
   final Future Function(BuildContext)? exportAsPng;
 
+  final ToolbarSize toolbarSize; // size of toolbar button
+
   @override
   State<Toolbar> createState() => _ToolbarState();
-
-  static const EdgeInsets _buttonPaddingHorizontal =
-      EdgeInsets.symmetric(horizontal: 6);
-  static const EdgeInsets _buttonPaddingVertical =
-      EdgeInsets.symmetric(vertical: 6);
 }
 
 class _ToolbarState extends State<Toolbar> {
@@ -168,8 +166,16 @@ class _ToolbarState extends State<Toolbar> {
             Prefs.editorToolbarAlignment.value == AxisDirection.right;
 
     final buttonPadding = isToolbarVertical
-        ? Toolbar._buttonPaddingVertical
-        : Toolbar._buttonPaddingHorizontal;
+        ? EdgeInsets.symmetric(vertical:  switch (widget.toolbarSize) {
+      ToolbarSize.small => 2.0,
+      ToolbarSize.normal => 6.0,
+      ToolbarSize.big => 8.0,
+    })
+    : EdgeInsets.symmetric(horizontal:  switch (widget.toolbarSize) {
+      ToolbarSize.small => 2.0,
+      ToolbarSize.normal => 6.0,
+      ToolbarSize.big => 8.0,
+    });
 
     final currentColor = switch (widget.currentTool) {
       Pen pen => pen.color,
@@ -253,6 +259,7 @@ class _ToolbarState extends State<Toolbar> {
           setColor: widget.setColor,
           currentColor: currentColor,
           invert: invert,
+          toolbarSize: widget.toolbarSize,
         ),
       ),
       ValueListenableBuilder(
@@ -310,12 +317,18 @@ class _ToolbarState extends State<Toolbar> {
             );
           }),
       Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
+        child: Padding(// distance between toolbars
+          padding: EdgeInsets.all(switch (widget.toolbarSize) {
+            ToolbarSize.small => 2,
+            ToolbarSize.normal => 8,
+            ToolbarSize.big => 12,}),
           child: Wrap(
             direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
             alignment: WrapAlignment.center,
-            runSpacing: 8,
+            runSpacing: switch (widget.toolbarSize) { // gap between lines
+              ToolbarSize.small => 2,
+              ToolbarSize.normal => 8,
+              ToolbarSize.big => 12,},
             children: [
               ToolbarIconButton(
                 tooltip: Pen.currentPen.name,
@@ -334,7 +347,7 @@ class _ToolbarState extends State<Toolbar> {
                   }
                 },
                 padding: buttonPadding,
-                child: FaIcon(Pen.currentPen.icon, size: 16),
+                child: FaIcon(Pen.currentPen.icon),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.pens.pencil,
@@ -353,7 +366,7 @@ class _ToolbarState extends State<Toolbar> {
                   }
                 },
                 padding: buttonPadding,
-                child: const FaIcon(Pencil.pencilIcon, size: 16),
+                child: const FaIcon(Pencil.pencilIcon),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.pens.highlighter,
@@ -372,7 +385,7 @@ class _ToolbarState extends State<Toolbar> {
                   }
                 },
                 padding: buttonPadding,
-                child: const FaIcon(Highlighter.highlighterIcon, size: 16),
+                child: const FaIcon(Highlighter.highlighterIcon),
               ),
               ValueListenableBuilder(
                 valueListenable: showColorOptions,
@@ -434,7 +447,7 @@ class _ToolbarState extends State<Toolbar> {
                 },
                 padding: buttonPadding,
                 // TODO: use [Icons.stylusLaserPointer] when it's available
-                child: const FaIcon(FontAwesomeIcons.circleDot, size: 16),
+                child: const FaIcon(FontAwesomeIcons.circleDot),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.toggleEraser,
@@ -442,7 +455,7 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: toggleEraser,
                 padding: buttonPadding,
-                child: const FaIcon(FontAwesomeIcons.eraser, size: 16),
+                child: const FaIcon(FontAwesomeIcons.eraser),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.photo,

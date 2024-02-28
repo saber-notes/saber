@@ -4,6 +4,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/toolbar/color_option.dart';
+import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -11,18 +12,20 @@ import 'package:saber/i18n/strings.g.dart';
 typedef NamedColor = ({String name, Color color});
 
 class ColorBar extends StatefulWidget {
-  const ColorBar({
+  ColorBar({
     super.key,
     required this.axis,
     required this.setColor,
     required this.currentColor,
     required this.invert,
+    required this.toolbarSize,
   });
 
   final Axis axis;
   final ValueChanged<Color> setColor;
   final Color? currentColor;
   final bool invert;
+  final ToolbarSize toolbarSize; // size of toolbar button
 
   static List<NamedColor> get colorPresets =>
       Prefs.preferGreyscale.value ? greyScaleColorOptions : normalColorOptions;
@@ -267,7 +270,11 @@ class _ColorBarState extends State<ColorBar> {
             color: Colors.transparent,
             shape: BoxShape.circle,
           ),
-          child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
+          child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: switch (widget.toolbarSize) {
+            ToolbarSize.small => 12.0,
+            ToolbarSize.normal => 16.0,
+            ToolbarSize.big => 22.0,
+          })),
         ),
       ),
 
@@ -294,7 +301,11 @@ class _ColorBarState extends State<ColorBar> {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(switch (widget.toolbarSize) {
+          ToolbarSize.small => 4.0,
+          ToolbarSize.normal => 8.0,
+          ToolbarSize.big => 12.0,
+        }),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: widget.axis == Axis.horizontal
