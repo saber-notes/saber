@@ -12,7 +12,7 @@ import 'package:saber/i18n/strings.g.dart';
 typedef NamedColor = ({String name, Color color});
 
 class ColorBar extends StatefulWidget {
-  ColorBar({
+  const ColorBar({
     super.key,
     required this.axis,
     required this.setColor,
@@ -270,11 +270,8 @@ class _ColorBarState extends State<ColorBar> {
             color: Colors.transparent,
             shape: BoxShape.circle,
           ),
-          child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: switch (widget.toolbarSize) {
-            ToolbarSize.small => 12.0,
-            ToolbarSize.normal => 16.0,
-            ToolbarSize.big => 22.0,
-          })),
+          child: Center(child: FaIcon(FontAwesomeIcons.droplet)
+          ),
         ),
       ),
 
@@ -301,7 +298,7 @@ class _ColorBarState extends State<ColorBar> {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(switch (widget.toolbarSize) {
+        padding: EdgeInsets.all(switch (widget.toolbarSize) {
           ToolbarSize.small => 4.0,
           ToolbarSize.normal => 8.0,
           ToolbarSize.big => 12.0,
