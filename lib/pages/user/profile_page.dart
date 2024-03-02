@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/misc/faq.dart';
+import 'package:saber/components/nextcloud/log_messages.dart';
 import 'package:saber/components/theming/sliver_width_box.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -84,6 +85,19 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
+                Text("Synchronization log"),
+                NextcloudMessages( // nextcloud synchronization log
+                ),
+
+                const SizedBox(height: 16),
+              ],
+            ),
+          ),
+          SliverWidthBox(
+            width: 350,
+            sliver: SliverFaq(
+              items: [
+                for (final item in t.profile.faq) FaqItem(item.q, item.a),
               ],
             ),
           ),

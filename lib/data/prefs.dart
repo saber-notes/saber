@@ -10,6 +10,7 @@ import 'package:nextcloud/provisioning_api.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/components/nextcloud/log_messages.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -130,6 +131,10 @@ abstract class Prefs {
 
   /// File paths that are known to be corrupted on Nextcloud
   static late final PlainPref<Set<String>> fileSyncCorruptFiles;
+
+  /// Nextcloud synchronization messages
+  static late final PlainPref<Set<String>> nextcloudLogMessages;
+
 
   /// Set when we want to resync everything.
   /// Files on the server older than this date will be
@@ -252,6 +257,8 @@ abstract class Prefs {
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
+    nextcloudLogMessages= PlainPref('nextcloudLogMessages', {}); // initialize nextcloud log messages to empty
+
     // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
     fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
         DateTime.parse('2023-12-10T10:06:31.000Z'));
