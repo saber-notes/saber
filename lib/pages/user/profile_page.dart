@@ -85,7 +85,7 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
-                Text("Synchronization log"),
+                Text(t.profile.quickLinks.synchronizationLog),
                 NextcloudMessages( // nextcloud synchronization log
                 ),
 
