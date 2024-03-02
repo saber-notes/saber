@@ -8,6 +8,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+  // class used to keep nextcloud upload/download log in Preferences page
+  static final NextcloudLogMessages nextcloudSyncMessages=NextcloudLogMessages();
 
   void logout() {
     Prefs.url.value = '';
@@ -18,6 +20,9 @@ class ProfilePage extends StatelessWidget {
     Prefs.lastStorageQuota.value = null;
     Prefs.key.value = '';
     Prefs.iv.value = '';
+    nextcloudSyncMessages.add(
+        NextcloudLogMessageType.info,"","","Logged out from nextcloud server"
+    );
   }
 
   @override
