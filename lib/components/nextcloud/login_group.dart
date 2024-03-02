@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:regexed_validator/regexed_validator.dart';
+import 'package:saber/components/nextcloud/log_messages.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/theming/adaptive_button.dart';
@@ -91,6 +92,9 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
   final TextEditingController _ncPasswordController = TextEditingController();
   final TextEditingController _encPasswordController = TextEditingController();
 
+  // class used to keep nextcloud upload/download log in Preferences page
+  static final NextcloudLogMessages nextcloudSyncMessages=NextcloudLogMessages();
+
   void _login() async {
     bool valid = _formKey.currentState?.validate() ?? false;
     if (!valid) return;
@@ -113,11 +117,17 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
       setState(() {
         _errorMessage = t.login.feedbacks.loginSuccess;
       });
+      nextcloudSyncMessages.add(
+          NextcloudLogMessageType.info,"","","Successfull login to nextcloud server"
+      );
       FileSyncer.startSync();
     } on LoginFailure catch (e) {
       setState(() {
         _errorMessage = e.message;
       });
+      nextcloudSyncMessages.add(
+          NextcloudLogMessageType.info,"","","Login to nextcloud server failed Error: "+e.message
+      );
     } finally {
       setState(() {
         _isLoading = false;
