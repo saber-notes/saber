@@ -57,6 +57,7 @@ abstract class Prefs {
   static late final EncPref<String> iv;
 
   static late final PlainPref<Uint8List?> pfp;
+  static late final PlainPref<bool> syncInBackground;
 
   static late final PlainPref<ThemeMode> appTheme;
 
@@ -162,6 +163,7 @@ abstract class Prefs {
     iv = EncPref('iv', '');
 
     pfp = PlainPref('pfp', null);
+    syncInBackground = PlainPref('syncInBackground', true);
 
     appTheme = PlainPref('appTheme', ThemeMode.system);
     platform = PlainPref('platform', defaultTargetPlatform);
