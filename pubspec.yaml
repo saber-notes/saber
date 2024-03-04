@@ -74,8 +74,8 @@ dependencies:
 
   regexed_validator: ^2.0.0+1
 
-  slang: ^3.9.0
-  slang_flutter:
+  slang: ^3.30.1
+  slang_flutter: 3.30.0
 
   flutter_colorpicker: ^1.0.3
 
@@ -124,7 +124,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.3
 
   flutter_speed_dial: ^7.0.0
 
