@@ -79,7 +79,7 @@ dependencies:
 
   flutter_colorpicker: ^1.0.3
 
-  google_fonts: ^6.0.0
+  google_fonts: ^6.2.0
 
   font_awesome_flutter: ^10.3.0
 
@@ -124,7 +124,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.3
 
   flutter_speed_dial: ^7.0.0
 
