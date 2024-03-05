@@ -76,7 +76,7 @@ class _SizeSlider extends StatelessWidget {
     final newSize = pen.sizeMin + stepsFromMin * pen.sizeStep;
     if (newSize == pen.options.size) return;
     setState(() {
-      pen.options = pen.options.copyWith(size: newSize);
+      pen.options.size = newSize;
     });
   }
 
