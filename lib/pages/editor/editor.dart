@@ -626,6 +626,11 @@ class EditorState extends State<Editor> {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
+
+        if (currentTool is! ShapePen && newStroke.isStraightLine()) {
+          newStroke.convertToLine();
+        }
+
         createPage(newStroke.pageIndex);
         page.insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(

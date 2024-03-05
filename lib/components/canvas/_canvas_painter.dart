@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart' hide TextStyle;
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:path_drawing/path_drawing.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -187,7 +188,14 @@ class CanvasPainter extends CustomPainter {
         break;
       case DefaultUnistrokeNames.line:
         var (firstPoint, lastPoint) = shape.convertToLine();
-        (firstPoint, lastPoint) = ShapePen.snapLine(firstPoint, lastPoint);
+        (firstPoint, lastPoint) = Stroke.snapLine(
+          firstPoint is PointVector
+              ? firstPoint
+              : PointVector.fromOffset(offset: firstPoint),
+          lastPoint is PointVector
+              ? lastPoint
+              : PointVector.fromOffset(offset: lastPoint),
+        );
         canvas.drawLine(firstPoint, lastPoint, shapePaint);
       case DefaultUnistrokeNames.rectangle:
         final rect = shape.convertToRect();

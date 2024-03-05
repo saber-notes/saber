@@ -277,9 +277,81 @@ class Stroke {
 
   RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;
-    return recognizeUnistroke(
-      points.map((point) => Offset(point.x, point.y)).toList(),
+    return recognizeUnistroke(points);
+  }
+
+  /// Uses the one_dollar_unistroke_recognizer package
+  /// only to recognize straight lines.
+  ///
+  /// In addition, the line must be sufficiently long
+  /// relative to [options.size].
+  bool isStraightLine([int minLength = 5]) {
+    if (points.length < 3) return false;
+
+    final recognized = recognizeUnistroke(
+      points,
+      overrideReferenceUnistrokes: default$1Unistrokes
+          .where((unistroke) => unistroke.name == DefaultUnistrokeNames.line)
+          .toList(),
     );
+    if (recognized?.name != DefaultUnistrokeNames.line) return false;
+
+    final sqrLength = points.first.distanceSquaredTo(points.last);
+    final sqrMinLength = minLength * minLength * options.size * options.size;
+    return sqrLength >= sqrMinLength;
+  }
+
+  /// Replaces the points in this stroke with a straight line.
+  ///
+  /// If the resulting line is close to horizontal or vertical,
+  /// it will be snapped to be exactly horizontal or vertical.
+  void convertToLine([Offset? firstPoint, Offset? lastPoint]) {
+    assert(points.length >= 2);
+
+    firstPoint ??= points.first;
+    lastPoint ??= points.last;
+    if (firstPoint is! PointVector)
+      firstPoint = PointVector.fromOffset(
+          offset: firstPoint, pressure: points.first.pressure);
+    if (lastPoint is! PointVector)
+      lastPoint = PointVector.fromOffset(
+          offset: lastPoint, pressure: points.last.pressure);
+
+    (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
+
+    points.clear();
+    points.add(firstPoint);
+    points.add(lastPoint);
+    points.add(lastPoint);
+    options.isComplete = true;
+  }
+
+  /// Snaps a line to either horizontal or vertical
+  /// if the angle is close enough.
+  static (PointVector firstPoint, PointVector lastPoint) snapLine(
+    PointVector firstPoint,
+    PointVector lastPoint,
+  ) {
+    final dx = (lastPoint.dx - firstPoint.dx).abs();
+    final dy = (lastPoint.dy - firstPoint.dy).abs();
+    final angle = atan2(dy, dx);
+
+    const snapAngle = 5 * pi / 180; // 5 degrees
+    if (angle < snapAngle) {
+      // snap to horizontal
+      return (
+        firstPoint,
+        PointVector(lastPoint.dx, firstPoint.dy, lastPoint.pressure)
+      );
+    } else if (angle > pi / 2 - snapAngle) {
+      // snap to vertical
+      return (
+        firstPoint,
+        PointVector(firstPoint.dx, lastPoint.dy, lastPoint.pressure)
+      );
+    } else {
+      return (firstPoint, lastPoint);
+    }
   }
 
   Stroke copy() => Stroke(
