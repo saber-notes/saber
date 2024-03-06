@@ -196,6 +196,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.21.0" type="development" date="2024-03-06">
+            <description>
+                <ul>
+                    <li>Long lines are now automatically straightened without having to switch to the shape tool (configurable in settings)</li>
+                    <li>Fixed pen sizes resetting when you switch between pen types</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.20.3" type="development" date="2024-02-25">
             <description>
                 <ul>

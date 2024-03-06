@@ -158,7 +158,7 @@ else
             </description>
         </release>\
 """
-  awk -v release="$RELEASE_TAG" 'NR==245{print release}1' "$FLATPAK_FILE" > "${FLATPAK_FILE}.tmp"
+  awk -v release="$RELEASE_TAG" 'NR==199{print release}1' "$FLATPAK_FILE" > "${FLATPAK_FILE}.tmp"
   mv "${FLATPAK_FILE}.tmp" "$FLATPAK_FILE"
 fi
 
