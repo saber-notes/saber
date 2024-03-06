@@ -512,8 +512,6 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
-  update:
-    downloadNotAvailableYet(OUTDATED): Загрузка недоступна для вашей платформы. Пожалуйста, проверьте ещё раз позже.
 tr:
   login:
     feedbacks:
