@@ -9609,7 +9609,7 @@ class _StringsUpdateRu extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Доступно обновление';
 	@override String get updateAvailableDescription => 'Доступна новая версия приложения со следующими изменениями:';
 	@override String get update => 'Обновить';
-	@override String get downloadNotAvailableYet => 'Загрузка пока недоступна для вашей платформы. Пожалуйста, зайдите позже.';
+	@override String get downloadNotAvailableYet => 'Загрузка недоступна для вашей платформы. Пожалуйста, проверьте ещё раз позже.';
 }
 
 // Path: editor

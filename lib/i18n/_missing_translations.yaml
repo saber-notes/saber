@@ -512,8 +512,6 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 tr:
   login:
     feedbacks:
