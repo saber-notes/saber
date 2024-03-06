@@ -131,6 +131,10 @@ abstract class Prefs {
   /// File paths that are known to be corrupted on Nextcloud
   static late final PlainPref<Set<String>> fileSyncCorruptFiles;
 
+  /// Nextcloud synchronization messages
+  static late final PlainPref<Set<String>> nextcloudLogMessages;
+
+
   /// Set when we want to resync everything.
   /// Files on the server older than this date will be
   /// reuploaded with the local version.
@@ -252,6 +256,8 @@ abstract class Prefs {
     fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
+    nextcloudLogMessages= PlainPref('nextcloudLogMessages', {}); // initialize nextcloud log messages to empty
+
     // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
     fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
         DateTime.parse('2023-12-10T10:06:31.000Z'));

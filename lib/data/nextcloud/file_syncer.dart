@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 import 'package:mutex/mutex.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/components/nextcloud/log_messages.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -41,6 +42,10 @@ abstract class FileSyncer {
   static const List<String> _ignoredFiles = [
     '/Readme.md',
   ];
+
+  // class used to keep nextcloud upload/download log in Preferences page
+  static final NextcloudLogMessages nextcloudSyncMessages=NextcloudLogMessages();
+
 
   static void startSync() async {
     log.fine('startSync: Starting sync');
@@ -194,6 +199,9 @@ abstract class FileSyncer {
             await FileManager.readFile(filePathUnencrypted);
         if (localDataUnencrypted == null) {
           log.severe('Failed to read file $filePathUnencrypted to upload');
+          nextcloudSyncMessages.add(
+              NextcloudLogMessageType.errorUpload,filePathUnencrypted,"","Failed to read file"
+          );
           return;
         }
 
@@ -241,10 +249,16 @@ abstract class FileSyncer {
           PathUri.parse(syncFile.remotePath),
           lastModified: lastModified,
         );
+        nextcloudSyncMessages.add(
+            NextcloudLogMessageType.successUpload,filePathUnencrypted,syncFile.remotePath,""
+        );
       } on SocketException catch (e) {
         // network error
         log.warning('Failed to upload $filePathUnencrypted: network error', e);
         _uploadQueue.value.add(filePathUnencrypted);
+        nextcloudSyncMessages.add(
+            NextcloudLogMessageType.errorUpload,filePathUnencrypted,syncFile.remotePath,e.toString()
+        );
         // wait 2 seconds before trying to upload the next file
         await Future.delayed(const Duration(seconds: 2));
       }
@@ -390,11 +404,17 @@ abstract class FileSyncer {
           'Decrypted data is empty but file.webDavFile!.size is ${file.webDavFile!.size}');
       FileManager.writeFile(file.localPath, decryptedData,
           awaitWrite: awaitWrite, alsoUpload: false);
+      nextcloudSyncMessages.add(
+              NextcloudLogMessageType.successDownload,file.localPath,"",""
+      );
       return true;
     } catch (e) {
       log.severe(
           'Failed to download file ${file.localPath} (${file.remotePath}): $e',
           e);
+      nextcloudSyncMessages.add(
+          NextcloudLogMessageType.errorDownload,file.localPath,file.remotePath,e.toString()
+      );
       return false;
     }
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/misc/faq.dart';
+import 'package:saber/components/nextcloud/log_messages.dart';
 import 'package:saber/components/theming/sliver_width_box.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -7,6 +8,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+  // class used to keep nextcloud upload/download log in Preferences page
+  static final NextcloudLogMessages nextcloudSyncMessages=NextcloudLogMessages();
 
   void logout() {
     Prefs.url.value = '';
@@ -17,6 +20,9 @@ class ProfilePage extends StatelessWidget {
     Prefs.lastStorageQuota.value = null;
     Prefs.key.value = '';
     Prefs.iv.value = '';
+    nextcloudSyncMessages.add(
+        NextcloudLogMessageType.info,"","","Logged out from nextcloud server"
+    );
   }
 
   @override
@@ -84,6 +90,19 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
+                Text(t.profile.quickLinks.synchronizationLog),
+                NextcloudMessages( // nextcloud synchronization log
+                ),
+
+                const SizedBox(height: 16),
+              ],
+            ),
+          ),
+          SliverWidthBox(
+            width: 350,
+            sliver: SliverFaq(
+              items: [
+                for (final item in t.profile.faq) FaqItem(item.q, item.a),
               ],
             ),
           ),

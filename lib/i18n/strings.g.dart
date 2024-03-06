@@ -654,6 +654,7 @@ class _StringsProfileQuickLinksEn {
 	String get title => 'Quick links';
 	String get serverHomepage => 'Server homepage';
 	String get deleteAccount => 'Delete account';
+	String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -1432,6 +1433,7 @@ class _StringsProfileQuickLinksAr extends _StringsProfileQuickLinksEn {
 	@override String get title => 'روابط سريعة';
 	@override String get serverHomepage => 'الصفحة الرئيسية للخادم';
 	@override String get deleteAccount => 'حذف الحساب';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -2210,6 +2212,7 @@ class _StringsProfileQuickLinksCs extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Rychlé odkazy';
 	@override String get serverHomepage => 'Webové stránky serveru';
 	@override String get deleteAccount => 'Odstranit účet';
+	@override String get synchronizationLog => 'Historie synchronizace';
 }
 
 // Path: profile.faq.0
@@ -2988,6 +2991,7 @@ class _StringsProfileQuickLinksDe extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Schnellzugriff';
 	@override String get serverHomepage => 'Server-Startseite';
 	@override String get deleteAccount => 'Account löschen';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -3764,6 +3768,7 @@ class _StringsProfileQuickLinksEs extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Enlaces rápidos';
 	@override String get serverHomepage => 'Página de inicio del servidor';
 	@override String get deleteAccount => 'Eliminar cuenta';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -4542,6 +4547,7 @@ class _StringsProfileQuickLinksFa extends _StringsProfileQuickLinksEn {
 	@override String get title => 'لینک های سریع';
 	@override String get serverHomepage => 'صفحه اصلی سرور';
 	@override String get deleteAccount => 'حذف حساب';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -5320,6 +5326,7 @@ class _StringsProfileQuickLinksFr extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Raccourcis';
 	@override String get serverHomepage => 'Page d\'accueil du serveur';
 	@override String get deleteAccount => 'Supprimer le compte';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -6098,6 +6105,7 @@ class _StringsProfileQuickLinksHe extends _StringsProfileQuickLinksEn {
 	@override String get title => 'קישורים מהירים';
 	@override String get serverHomepage => 'דף הבית של השרת';
 	@override String get deleteAccount => 'מחק משתמש';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -6876,6 +6884,7 @@ class _StringsProfileQuickLinksHu extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Gyors linkek';
 	@override String get serverHomepage => 'Szerver honlapja';
 	@override String get deleteAccount => 'Fiók törlése';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -7654,6 +7663,7 @@ class _StringsProfileQuickLinksIt extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Collegamenti veloci';
 	@override String get serverHomepage => 'Homepage del server';
 	@override String get deleteAccount => 'Elimina account';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -8432,6 +8442,7 @@ class _StringsProfileQuickLinksJa extends _StringsProfileQuickLinksEn {
 	@override String get title => 'クイックリンク';
 	@override String get serverHomepage => 'サーバーホームページ';
 	@override String get deleteAccount => 'アカウントの削除';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -9210,6 +9221,7 @@ class _StringsProfileQuickLinksPtBr extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Links rápidos';
 	@override String get serverHomepage => 'Página inicial do servidor';
 	@override String get deleteAccount => 'Apagar conta';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -9988,6 +10000,7 @@ class _StringsProfileQuickLinksRu extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Быстрые ссылки';
 	@override String get serverHomepage => 'Домашняя страница сервера';
 	@override String get deleteAccount => 'Удалить учётную запись';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -10766,6 +10779,7 @@ class _StringsProfileQuickLinksTr extends _StringsProfileQuickLinksEn {
 	@override String get title => 'Hızlı linkler';
 	@override String get serverHomepage => 'Sunucu anasayfası';
 	@override String get deleteAccount => 'Hesabı sil';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -11544,6 +11558,7 @@ class _StringsProfileQuickLinksZhHansCn extends _StringsProfileQuickLinksEn {
 	@override String get title => '快速链接';
 	@override String get serverHomepage => '服务器主页';
 	@override String get deleteAccount => '删除帐户';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
@@ -12322,6 +12337,7 @@ class _StringsProfileQuickLinksZhHantTw extends _StringsProfileQuickLinksEn {
 	@override String get title => '快速連結';
 	@override String get serverHomepage => '伺服器主頁';
 	@override String get deleteAccount => '刪除帳戶';
+	@override String get synchronizationLog => 'Synchronization log';
 }
 
 // Path: profile.faq.0
