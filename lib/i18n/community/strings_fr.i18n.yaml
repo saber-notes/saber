@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     disableAds: "Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
@@ -107,6 +108,7 @@ settings:
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
+    autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
   themeModes:
     system: Système

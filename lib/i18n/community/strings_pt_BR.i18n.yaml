@@ -88,6 +88,7 @@ settings:
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
+    autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
     shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
   prefDescriptions:
@@ -106,6 +107,7 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
+    autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:

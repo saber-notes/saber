@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Sayfa belirteçlerini yazdır
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
+    autoStraightenLines(OUTDATED): Çizgileri otomatik olarak düzelt
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -107,6 +108,7 @@ settings:
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
+    autoStraightenLines(OUTDATED): Şekil kalemini kullanmaya gerek kalmadan uzun çizgileri düzeltir
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
   themeModes:
     system: Sistem teması

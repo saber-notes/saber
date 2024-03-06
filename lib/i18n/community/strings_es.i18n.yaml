@@ -89,6 +89,7 @@ settings:
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
+    autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
@@ -106,6 +107,7 @@ settings:
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
+    autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
