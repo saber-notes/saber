@@ -470,6 +470,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get printPageIndicators => 'Print page indicators';
 	String get autosaveDelay => 'Auto-save delay';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
+	String get autoStraightenLines => 'Auto straighten lines';
 }
 
 // Path: settings.prefDescriptions
@@ -492,6 +493,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get printPageIndicators => 'Show page indicators in exports';
 	String get autosaveDelay => 'How long to wait before auto-saving a note';
 	String get shapeRecognitionDelay => 'How often to update the shape preview';
+	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 }
 

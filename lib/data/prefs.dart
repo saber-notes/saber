@@ -81,6 +81,7 @@ abstract class Prefs {
   static late final PlainPref<bool> editorPromptRename;
   static late final PlainPref<int> autosaveDelay;
   static late final PlainPref<int> shapeRecognitionDelay;
+  static late final PlainPref<bool> autoStraightenLines;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
@@ -186,6 +187,7 @@ abstract class Prefs {
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);
     autosaveDelay = PlainPref('autosaveDelay', 10000);
     shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
+    autoStraightenLines = PlainPref('autoStraightenLines', true);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);
@@ -242,6 +244,7 @@ abstract class Prefs {
         historicalKeys: const ['lastPanLock']);
     lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
+    // ignore: deprecated_member_use_from_same_package
     _hasDraggedSizeIndicatorBefore = PlainPref(
         '_hasDraggedSizeIndicatorBefore', true,
         deprecatedKeys: const ['hasDraggedSizeIndicatorBefore']);

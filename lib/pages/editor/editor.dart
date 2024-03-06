@@ -627,7 +627,9 @@ class EditorState extends State<Editor> {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
 
-        if (currentTool is! ShapePen && newStroke.isStraightLine()) {
+        if (Prefs.autoStraightenLines.value &&
+            currentTool is! ShapePen &&
+            newStroke.isStraightLine()) {
           newStroke.convertToLine();
         }
 
