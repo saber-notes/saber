@@ -136,9 +136,9 @@ login:
     enterEncPassword: Veuillez saisir votre mot de passe de cryptage.
     checkUrl: Veuillez saisir une URL valide.
     ncLoginFailed: "La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau."
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: "La connexion a échoué, veuillez vérifier votre mot de passe de cryptage."
     loginSuccess: "Connexion reussie ! Veuillez patienter pendant la configuration..."
-    ncUnsupportedFailure(OUTDATED): Le serveur donné exécute Nextcloud $v mais cette version de Saber ne prend en charge que Nextcloud $s à $t.
   form:
     useCustomServer: Je veux utiliser un serveur Nextcloud personnalisé
     customServerUrl: URL du serveur personnalisé
@@ -203,7 +203,7 @@ update:
   updateAvailable: Mise à jour disponible
   updateAvailableDescription: "Une nouvelle version de cette application est disponible, avec les changements suivants :"
   update: Mettre à jour
-  downloadNotAvailableYet(OUTDATED): Le téléchargement n'est pas encore disponible pour votre plateforme. Veuillez revenir sous peu.
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: Afficher/cacher les couleurs (Ctrl C)

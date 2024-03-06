@@ -50,6 +50,14 @@ abstract class HomeRoutes {
           ),
         ),
         _Route(
+          routePath: _homeFunction({'subpage': HomePage.searchSubpage}),
+          label: t.home.tabs.search,
+          icon: const AdaptiveIcon(
+            icon: Icons.search,
+            cupertinoIcon: CupertinoIcons.search_circle_fill,
+          ),
+        ),
+        _Route(
           routePath: _homeFunction({'subpage': HomePage.whiteboardSubpage}),
           label: t.home.tabs.whiteboard,
           icon: const AdaptiveIcon(

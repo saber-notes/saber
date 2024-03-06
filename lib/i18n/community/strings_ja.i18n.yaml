@@ -6,19 +6,21 @@ home:
     settings: 設定
   titles:
     home: 最近のメモ
+    browse: Browse
     whiteboard: ホワイトボード
     settings: 設定
-    browse(OUTDATED): 閲覧
   tooltips:
     newNote: 新しいメモ
     showUpdateDialog: 更新ダイアログの表示
-    exportNote(OUTDATED): エクスポートメモ
+    exportNote: Export note
   create:
-    newNote(OUTDATED): 新しいメモ
-    importNote(OUTDATED): インポートメモ
+    newNote: New note
+    importNote: Import note
   welcome: ようこそSaberへ
+  invalidFormat: "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
   noFiles: ファイルが見つかりません
   createNewNote: +ボタンで新しくメモを作成
+  backFolder: Go back to the previous folder
   newFolder:
     newFolder: 新しいフォルダー
     folderName: フォルダー名
@@ -35,34 +37,32 @@ home:
     noteNameExists: 同一のタイトルがすでに存在します
   moveNote:
     moveNote: メモを移動
+    moveNotes: Move $n notes
     moveName: $f を移動
     move: 移動
     renamedTo: $newName に名称を変更した
-    moveNotes(OUTDATED): $nのノートを移動する
-    multipleRenamedTo(OUTDATED): 次のメモの名前が変更されます。
-    numberRenamedTo(OUTDATED): $n のノートは、競合を避けるために名前を変更されます
+    multipleRenamedTo: "The following notes will be renamed:"
+    numberRenamedTo: $n notes will be renamed to avoid conflicts
+  deleteNote: Delete note
   renameFolder:
-    folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
-    renameFolder(OUTDATED): フォルダーの名前を変更する
-    folderName(OUTDATED): フォルダ名
-    rename(OUTDATED): 名前の変更
-    folderNameContainsSlash(OUTDATED): フォルダ名はスラッシュを含まない
-    folderNameExists(OUTDATED): この名前のフォルダーはすでに存在します
+    renameFolder: Rename folder
+    folderName: Folder name
+    rename: Rename
+    folderNameEmpty: Folder name can't be empty
+    folderNameContainsSlash: Folder name can't contain a slash
+    folderNameExists: A folder with this name already exists
   deleteFolder:
-    deleteFolder(OUTDATED): フォルダの削除
-    deleteName(OUTDATED): $fを削除
-    delete(OUTDATED): 消去
-    alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
-  backFolder(OUTDATED): 前のフォルダーに戻ります
-  deleteNote(OUTDATED): メモの削除
-  invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
+    deleteFolder: Delete folder
+    deleteName: Delete $f
+    delete: Delete
+    alsoDeleteContents: Also delete all notes inside this folder
 settings:
   prefCategories:
     general: 一般
     writing: 文章
     editor: 編集
+    performance: Performance
     advanced: アドバンスド
-    performance(OUTDATED): パフォーマンス
   prefLabels:
     locale: アプリの言語
     appTheme: アプリのテーマ
@@ -71,6 +71,7 @@ settings:
     customAccentColor: オリジナルの色
     hyperlegibleFont: Hyperlegible フォント
     shouldCheckForUpdates: Saberの更新を自動的に確認する
+    shouldAlwaysAlertForUpdates: Faster updates
     disableAds: 広告を表示しない
     changeAdsConsent: 広告の同意を変更する
     allowInsecureConnections: 安全でない接続を許可する
@@ -80,34 +81,33 @@ settings:
     preferGreyscale: グレースケールを優先
     maxImageSize: 最大画像サイズ
     autoClearWhiteboardOnExit: アプリを終了したらホワイトボードを消去する
+    disableEraserAfterUse: Auto-disable the eraser
+    hideFingerDrawingToggle: Hide the finger drawing toggle
     editorPromptRename: 新しいメモの名前を変更するよう促す
     hideHomeBackgrounds: ホーム画面で背景を隠す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
+    recentColorsLength: How many recent colors to store
     printPageIndicators: 印刷ページのインジケーター
-    shapeRecognitionDelay(OUTDATED): 形状認識の遅延
-    recentColorsLength(OUTDATED): 最近使用した色を何色保存するか
-    autosaveDelay(OUTDATED): 自動保存の遅延
-    hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
-    shouldAlwaysAlertForUpdates(OUTDATED): アップデートの高速化
-    disableEraserAfterUse(OUTDATED): 消しゴムを自動的に無効にする
+    autosaveDelay: Auto-save delay
+    shapeRecognitionDelay: Shape recognition delay
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     disableAds: 広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です
     allowInsecureConnections: (非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする
     preferGreyscale: e-inkディスプレイ用
     autoClearWhiteboardOnExit: 他のデバイスと同期されます
+    disableEraserAfterUse: Automatically switches back to the pen after using the eraser
     maxImageSize: これより大きな画像は圧縮されます
     hideFingerDrawing:
-      fixedOn(OUTDATED): 指の描画が有効に固定される
-      shown(OUTDATED): 偶発的な切り替えを防止します
-      fixedOff(OUTDATED): 指の描画が無効に固定される
+      shown: Prevents accidental toggling
+      fixedOn: Finger drawing is fixed as enabled
+      fixedOff: Finger drawing is fixed as disabled
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
-    shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
-    autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
-    disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
-    shouldAlwaysAlertForUpdates(OUTDATED): アップデートが利用可能になり次第お知らせください
+    autosaveDelay: How long to wait before auto-saving a note
+    shapeRecognitionDelay: How often to update the shape preview
+    shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
   themeModes:
     system: システム
     light: ライト
@@ -127,7 +127,7 @@ settings:
   reset:
     title: この設定をリセットしますか？
     button: リセット
-  resyncEverything(OUTDATED): すべてを再同期する
+  resyncEverything: Resync everything
 login:
   title: ログイン
   feedbacks:
@@ -136,9 +136,9 @@ login:
     enterEncPassword: 暗号化パスワードを入力してください。
     checkUrl: 有効なURLを入力してください。
     ncLoginFailed: ログインに失敗しました。詳細とネットワーク接続を確認してください。
+    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
     encLoginFailed: ログインに失敗しました。暗号化パスワードを確認してください。
     loginSuccess: ログインに成功しました！セットアップ中です。しばらくお待ちください...
-    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
   form:
     useCustomServer: カスタムNextcloudサーバーを使いたい
     customServerUrl: カスタムサーバーURL
@@ -200,7 +200,7 @@ update:
   updateAvailable: 更新が可能です
   updateAvailableDescription: 新バージョンのアプリがリリースされ、以下の変更があった：
   update: 更新
-  downloadNotAvailableYet(OUTDATED): お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。
+  downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
 editor:
   toolbar:
     toggleColors: 色の切り替え (Ctrl C)
@@ -218,13 +218,17 @@ editor:
     fountainPen: 万年筆
     ballpointPen: ボールペン
     highlighter: 蛍光ペン
+    pencil: Pencil
+    shapePen: Shape pen
     laserPointer: レーザーポインター
-    pencil(OUTDATED): 鉛筆
-    shapePen(OUTDATED): シェイプペン
   penOptions:
     size: サイズ
   colors:
     colorPicker: カラーピッカー
+    customBrightnessHue: Custom $b $h
+    customHue: Custom $h
+    dark: dark
+    light: light
     black: 黒
     darkGrey: 濃い灰色
     grey: 灰色
@@ -232,9 +236,11 @@ editor:
     white: 白色
     red: 赤色
     green: 緑色
+    cyan: Cyan
     blue: 青色
     yellow: 黄色
     purple: 紫色
+    pink: Pink
     orange: 橙色
     pastelRed: パステル・赤
     pastelOrange: パステル・橙色
@@ -244,12 +250,6 @@ editor:
     pastelBlue: パステル・青色
     pastelPurple: パステル・紫色
     pastelPink: パステル・桃色
-    customBrightnessHue(OUTDATED): カスタム $b $h
-    customHue(OUTDATED): カスタム $h
-    dark(OUTDATED): 暗い
-    light(OUTDATED): ライト
-    cyan(OUTDATED): シアン
-    pink(OUTDATED): ピンク
   imageOptions:
     title: 画像オプション
     invertible: 不可逆
@@ -259,7 +259,7 @@ editor:
     delete: 削除
   selectionBar:
     delete: 削除
-    duplicate(OUTDATED): 重複
+    duplicate: Duplicate
   menu:
     clearPage: ページを削除 $page/$totalPages
     clearAllPages: すべてのページを消去する
@@ -268,6 +268,7 @@ editor:
     deletePage: ページの削除
     lineHeight: 行の高さ
     lineHeightDescription: 文字サイズを調整
+    backgroundImageFit: Background image fit
     backgroundPattern: 背景パターン
     import: インポート
     boxFits:
@@ -282,9 +283,8 @@ editor:
       grid: 格子
       dots: 点
       staffs: スタッフ
+      tablature: Tablature
       cornell: 角
-      tablature(OUTDATED): タベルチュア
-    backgroundImageFit(OUTDATED): 背景画像
   newerFileFormat:
     readOnlyMode: 読み取り専用モード
     title: このメモは新しいバージョンのSaberを使用して編集されたものです

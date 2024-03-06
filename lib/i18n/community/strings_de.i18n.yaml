@@ -2,10 +2,12 @@ home:
   tabs:
     home: Startseite
     browse: Durchsuchen
+    search: Suche
     whiteboard: Whiteboard
     settings: Einstellungen
   titles:
     home: Letzte Notizen
+    search: Nach Notizen suchen
     whiteboard: Whiteboard
     settings: Einstellungen
     browse(OUTDATED): Durchsuchen
