@@ -84,9 +84,9 @@ ar:
 cs:
   settings:
     prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
+      autoStraightenLines(OUTDATED): Automaticky narovnávat čáry
     prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      autoStraightenLines(OUTDATED): Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
 de:
   home:
     titles:
