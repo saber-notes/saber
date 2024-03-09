@@ -548,14 +548,14 @@ ru:
 tr:
   settings:
     prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
+      autoStraightenLines(OUTDATED): Çizgileri otomatik düzleştir
     prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      autoStraightenLines(OUTDATED): Şekil aracını kullanmadığınızda da çizgileri düzleştirir
   login:
     feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+      ncUnsupportedFailure(OUTDATED): Bu sunucu Nextcloud'un $v sürümünü kullanıyor ancak Saber'ın bu versiyonunda Nextcloud $s - $t sürümleri desteklenmekte.
   update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+    downloadNotAvailableYet(OUTDATED): Bu indirme platformunuz için henüz hazır değil. Lütfen daha sonra tekrar deneyiniz.
 zh-Hans-CN:
   settings:
     prefLabels:
