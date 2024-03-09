@@ -10413,7 +10413,7 @@ class _StringsUpdateTr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Güncelleme var';
 	@override String get updateAvailableDescription => 'Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:';
 	@override String get update => 'Güncelle';
-	@override String get downloadNotAvailableYet => 'İndirme henüz platformunuz için kullanılamıyor. Lütfen kısa süre sonra tekrar kontrol edin.';
+	@override String get downloadNotAvailableYet => 'Bu indirme platformunuz için henüz hazır değil. Lütfen daha sonra tekrar deneyiniz.';
 }
 
 // Path: editor
@@ -10608,7 +10608,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
-	@override String get autoStraightenLines => 'Çizgileri otomatik olarak düzelt';
+	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
 }
 
 // Path: settings.prefDescriptions
@@ -10631,7 +10631,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
-	@override String get autoStraightenLines => 'Şekil kalemini kullanmaya gerek kalmadan uzun çizgileri düzeltir';
+	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 }
 
@@ -10692,9 +10692,9 @@ class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
 	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
 	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Bu sunucu Nextcloud\'un ${v} sürümünü kullanıyor ancak Saber\'ın bu versiyonunda Nextcloud ${s} - ${t} sürümleri desteklenmekte.';
 	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
 	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Belirtilen sunucu Nextcloud ${v}\'yi çalıştırıyor ancak Saber\'nin bu sürümü yalnızca Nextcloud ${s} ila ${t}\'yi destekliyor.';
 }
 
 // Path: login.form
