@@ -546,16 +546,6 @@ ru:
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
 tr:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Çizgileri otomatik düzleştir
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Şekil aracını kullanmadığınızda da çizgileri düzleştirir
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): Bu sunucu Nextcloud'un $v sürümünü kullanıyor ancak Saber'ın bu versiyonunda Nextcloud $s - $t sürümleri desteklenmekte.
-  update:
-    downloadNotAvailableYet(OUTDATED): Bu indirme platformunuz için henüz hazır değil. Lütfen daha sonra tekrar deneyiniz.
 zh-Hans-CN:
   settings:
     prefLabels:
