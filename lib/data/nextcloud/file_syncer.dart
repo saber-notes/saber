@@ -42,7 +42,9 @@ abstract class FileSyncer {
     '/Readme.md',
   ];
 
-  static void startSync() async {
+  static Future<int> startSync({
+    int? maxFilesToSync,
+  }) async {
     log.fine('startSync: Starting sync');
 
     log.finer('startSync: Cancelling previous sync');
@@ -53,7 +55,7 @@ abstract class FileSyncer {
     log.finer('startSync: Creating nextcloud client');
     if (_client?.loginName != Prefs.username.value) _client = null;
     _client ??= NextcloudClientExtension.withSavedDetails();
-    if (_client == null) return;
+    if (_client == null) return 0;
 
     log.fine('startSync: Starting upload');
     uploadFileFromQueue();
@@ -86,17 +88,17 @@ abstract class FileSyncer {
         filesDone.value = filesDoneLimit;
         downloadCancellable.cancelled = true;
         if (kDebugMode) rethrow;
-        return;
+        return 0;
       }
     } on SocketException catch (e) {
       // network error
       log.warning('startSync: Network error: $e', e);
       filesDone.value = filesDoneLimit;
       downloadCancellable.cancelled = true;
-      return;
+      return 0;
     }
 
-    if (downloadCancellable.cancelled) return;
+    if (downloadCancellable.cancelled) return 0;
 
     log.finer('startSync: Adding files to download queue');
     await Future.wait(
@@ -109,20 +111,23 @@ abstract class FileSyncer {
     _sortDownloadQueue();
     filesDone.value = 1;
 
-    if (downloadCancellable.cancelled) return;
+    if (downloadCancellable.cancelled) return 0;
 
+    int filesSynced = 0;
     final failedFiles = Queue<SyncFile>();
     try {
       // Start downloading files one by one
-      while (_downloadQueue.isNotEmpty) {
+      while (_downloadQueue.isNotEmpty &&
+          (maxFilesToSync == null || filesSynced < maxFilesToSync)) {
         final SyncFile file = _downloadQueue.removeFirst();
         log.finer(
             'startSync: Downloading ${file.localPath} (${file.remotePath})');
         final bool success = await downloadFile(file);
-        if (downloadCancellable.cancelled) return;
+        if (downloadCancellable.cancelled) return filesSynced;
         if (success) {
           filesDone.value = (filesDone.value ?? 0) + 1;
           Prefs.fileSyncCorruptFiles.value.remove(file.localPath);
+          ++filesSynced;
         } else {
           failedFiles.add(file);
           Prefs.fileSyncCorruptFiles.value.add(file.localPath);
@@ -141,6 +146,7 @@ abstract class FileSyncer {
     // make sure progress indicator is complete
     filesDone.value = (filesDone.value ?? 0) + filesDoneLimit;
     downloadCancellable.cancelled = true;
+    return filesSynced;
   }
 
   /// Queues a file to be uploaded
