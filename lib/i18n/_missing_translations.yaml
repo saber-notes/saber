@@ -82,11 +82,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Automaticky narovnávat čáry
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
 de:
   home:
     titles:
