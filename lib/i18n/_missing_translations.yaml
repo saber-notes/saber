@@ -82,11 +82,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
 de:
   home:
     titles:
