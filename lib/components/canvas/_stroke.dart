@@ -294,7 +294,9 @@ class Stroke {
           .where((unistroke) => unistroke.name == DefaultUnistrokeNames.line)
           .toList(),
     );
-    if (recognized?.name != DefaultUnistrokeNames.line) return false;
+    if (recognized == null) return false;
+    assert(recognized.name == DefaultUnistrokeNames.line);
+    if (recognized.score < 0.7) return false;
 
     final sqrLength = points.first.distanceSquaredTo(points.last);
     final sqrMinLength = minLength * minLength * options.size * options.size;

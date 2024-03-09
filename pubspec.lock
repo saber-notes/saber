@@ -826,10 +826,10 @@ packages:
     dependency: "direct main"
     description:
       name: one_dollar_unistroke_recognizer
-      sha256: "2c29780e326aad6d7cc39851a041e448707398021c62ed9e7a0e34fb3960ecc5"
+      sha256: "6a210e22b62c4e1bd69adda1db7763db9cce97b49c8968f2d33284695c2ac109"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   onyxsdk_pen:
     dependency: "direct main"
     description:
