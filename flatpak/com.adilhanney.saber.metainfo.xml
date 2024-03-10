@@ -196,6 +196,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.21.1" type="development" date="2024-03-10">
+            <description>
+                <ul>
+                    <li>Reduced false positives when auto straightening lines</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.21.0" type="development" date="2024-03-06">
             <description>
                 <ul>

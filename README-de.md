@@ -322,8 +322,8 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.21.0/SaberInstaller_v0.21.0.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.21.0/Saber-0.21.0-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.21.1/SaberInstaller_v0.21.1.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.21.1/Saber-0.21.1-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

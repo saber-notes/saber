@@ -1,0 +1,2 @@
+• Réduction des faux positifs lors du redressement automatique des lignes
+• Prise en charge expérimentale de la synchronisation en arrière-plan sur Android et iOS
