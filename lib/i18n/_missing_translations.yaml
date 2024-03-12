@@ -427,9 +427,9 @@ hu:
 it:
   settings:
     prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
+      autoStraightenLines(OUTDATED): Raddrizzamento automatico delle linee
     prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      autoStraightenLines(OUTDATED): Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
 ja:
   home:
     titles:
