@@ -1,5 +1,33 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
+    alt='在 Google Play 上取得'
+    height=50>][google_play]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+    alt="在 F-Droid 上取得"
+    height=50>][f-droid]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+    alt="在 App Store 下載"
+    height=50>][app_store]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
+    alt="下載 Windows 版"
+    height=50>][download_windows]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+    alt="在 Flathub 上下載"
+    height=50>][flathub]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
+    alt="取得 AppImage"
+    height=50>][download_appimage]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
+    alt="在 Snap Store 上取得"
+    height=50>][snap]
+
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
@@ -21,34 +49,6 @@ Saber使用雙密碼系統來保護您的筆記，使其只能被您存取，即
 Saber具有使筆記井井有條所需的一切功能。在無限嵌套的資料夾中創建資料夾，盡情發揮您的創意，而且對於嵌套資料夾的數量沒有限制。即使筆記可能深藏在嵌套的資料夾中，您仍然可以輕鬆存取，因為最近的筆記始終顯示在主螢幕上。
 
 透過Saber，發現一種全新的捕捉和組織思緒的方式。無論您是學生、專業人士還是具有創造力的思維者，Saber都是您在數位手寫中信賴的伙伴。立即下載，讓您的思想自由流暢！
-
-[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
-    alt='在 Google Play 上取得'
-    height=80>][google_play]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
-    alt="在 F-Droid 上取得"
-    height=80>][f-droid]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
-    alt="在 App Store 下載"
-    height=80>][app_store]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
-    alt="下載 Windows 版"
-    height=80>][download_windows]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
-    alt="在 Flathub 上下載"
-    height=80>][flathub]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
-    alt="取得 AppImage"
-    height=80>][download_appimage]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
-    alt="在 Snap Store 上取得"
-    height=80>][snap]
 
 [![GitHub release (最新發行)](https://img.shields.io/github/v/release/saber-notes/saber)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)

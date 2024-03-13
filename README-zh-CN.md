@@ -1,5 +1,33 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
+    alt='Get it on Google Play'
+    height=50>][google_play]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+    alt="Get it on F-Droid"
+    height=50>][f-droid]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+    alt="Download on the App Store"
+    height=50>][app_store]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
+    alt="Download for Windows"
+    height=50>][download_windows]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+    alt="Download on Flathub"
+    height=50>][flathub]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
+    alt="Get it as an AppImage"
+    height=50>][download_appimage]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
+    alt="Get it from the Snap Store"
+    height=50>][snap]
+
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
@@ -22,34 +50,6 @@ Saber 的荧光笔就不会出现这种问题。它利用画布合成来渲染�
 Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创建文件夹内的文件夹，嵌套文件夹的数量不受限制。即使笔记被深埋在嵌套文件夹中，您仍然可以通过主屏幕上的最新笔记轻松访问它。
 
 使用 Saber，探索一种全新的方式来捕捉和组织您的想法。无论您是学生、专业人士还是创意人士，Saber 都是您值得信赖的数字手写工具。立即下载，让您的创意自由流淌！
-
-[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
-    alt='Get it on Google Play'
-    height=80>][google_play]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
-    alt="Get it on F-Droid"
-    height=80>][f-droid]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
-    alt="Download on the App Store"
-    height=80>][app_store]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
-    alt="Download for Windows"
-    height=80>][download_windows]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
-    alt="Download on Flathub"
-    height=80>][flathub]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
-    alt="Get it as an AppImage"
-    height=80>][download_appimage]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
-    alt="Get it from the Snap Store"
-    height=80>][snap]
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/saber-notes/saber)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
