@@ -87,20 +87,15 @@ void main() {
       const contentA = 'test content for $filePathBefore.0';
       const contentP = 'test content for $filePathBefore.p';
 
-      // write file
+      // write files
       await FileManager.writeFile(filePathBefore, utf8.encode(content),
           awaitWrite: true);
-
-      // write asset file
       await FileManager.writeFile(filePathBeforeA, utf8.encode(contentA),
           awaitWrite: true);
-
-      // write asset file
       await FileManager.writeFile(filePathBeforeP, utf8.encode(contentP),
           awaitWrite: true);
 
-
-      // ensure file does not exist (in case of previous test failure
+      // ensure file does not exist (in case of previous test failure)
       await FileManager.deleteFile(filePathAfter);
 
       // move file
@@ -136,47 +131,35 @@ void main() {
       final readContentP = utf8.decode(readBytesP!);
       expect(readContentP, contentP);
 
-      // delete file
-      await fileAfter.delete();
+      // delete files
+      await Future.wait([
+        fileAfter.delete(),
+        fileAfterA.delete(),
+        fileAfterP.delete(),
+      ]);
     });
 
     test('deleteFile', () async {
       String filePath = '/test_deleteFile.sbn2';
+      String filePathA = '/test_deleteFile.sbn2.0';
+      String filePathP = '/test_deleteFile.sbn2.p';
       String content = 'test content for $filePath';
 
-      // write file
+      // write files
       await FileManager.writeFile(filePath, utf8.encode(content),
           awaitWrite: true);
-
-      String filePatha = '/test_deleteFile.sbn2.0';   // create asset
-      content = 'test content for $filePath.0';
-
-      // write file
-      await FileManager.writeFile(filePatha, utf8.encode(content),
+      await FileManager.writeFile(filePathA, utf8.encode(content),
           awaitWrite: true);
-
-      String filePathp = '/test_deleteFile.sbn2.p';   // create preview
-      content = 'test content for $filePath.p';
-
-      // write file
-      await FileManager.writeFile(filePathp, utf8.encode(content),
+      await FileManager.writeFile(filePathP, utf8.encode(content),
           awaitWrite: true);
 
       // delete file
       await FileManager.deleteFile(filePath);
 
-      // verify file does not exist
-      File file = File('$rootDir$filePath');
-      expect(file.existsSync(), false);
-
-      // verify asset file does not exist
-      file = File('$rootDir$filePatha');
-      expect(file.existsSync(), false);
-
-      // verify preview file does not exist
-      file = File('$rootDir$filePathp');
-      expect(file.existsSync(), false);
-
+      // verify files do not exist
+      expect(File('$rootDir$filePath').existsSync(), false);
+      expect(File('$rootDir$filePathA').existsSync(), false);
+      expect(File('$rootDir$filePathP').existsSync(), false);
     });
 
     group('getChildrenOfDirectory', () {
