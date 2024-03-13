@@ -23,7 +23,7 @@ home:
   backFolder: Retour au dossier précédent
   newFolder:
     newFolder: Nouveau dossier
-    folderName: Mom du dossier
+    folderName: Nom du dossier
     create: Créer
     folderNameEmpty: Le nom de fichier ne peut pas être vide
     folderNameContainsSlash: Le nom de fichier ne peut pas contenir une barre oblique
