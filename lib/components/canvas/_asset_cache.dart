@@ -15,20 +15,18 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 /// [EditorCoreInfo] instance.
 class AssetCache {
   AssetCache();
-  static final log = Logger('AssetCache');
-  /// Maps a file to its value.
+
+  final log = Logger('AssetCache');
+
+  /// Maps a file path to its value.
   final Map<String, Object> _cache = {};
 
-  /// Maps a file to the visible images that use it.
+  /// Maps a file path to the visible images that use it.
   final Map<String, Set<EditorImage>> _images = {};
 
-  bool EnabledRemove=true;  // if EnabledRemove then items from cache can be removed. During File save is set to false
-  bool get GetEnabledRemove=>EnabledRemove;
-
-  set SetEnabledRemove(bool EnabledRemoveIn){
-    EnabledRemove=EnabledRemoveIn;
-  }
-
+  /// Whether items from the cache can be removed:
+  /// set to false during file save.
+  bool allowRemovingAssets = true;
 
   /// Marks [image] as currently visible.
   ///
@@ -56,10 +54,7 @@ class AssetCache {
   ///
   /// Returns whether the image was present in the cache.
   bool removeImage(EditorImage image) {
-    if (!EnabledRemove){
-      // removing from cache is disabled, probably saving to file and cannot manipulate cache
-      return false;
-    }
+    if (!allowRemovingAssets) return false;
     for (final file in _images.keys) {
       if (_images[file]!.remove(image)) {
         _images.remove(file);
@@ -78,36 +73,31 @@ class AssetCache {
 
 class OrderedAssetCache {
   OrderedAssetCache();
-  static final log = Logger('OrderedAssetCache');
+
+  final log = Logger('OrderedAssetCache');
 
   final List<Object> _cache = [];
-
-  Function eq = const ListEquality().equals;  // compares Lists for equality. Used in add
 
   /// Adds [value] to the cache if it is not already present and
   /// returns the index of the added item.
   int add<T extends Object>(T value) {
     int index = _cache.indexOf(value);
-    log.info('Index in OrederdAssetCache is ${index} of file ${value}');
-    if (index==-1){
-      if (value is List<int>) {
-        // sometimes are lists compared as different but are the same. This is second check
-        for (int i=0;i<_cache.length;i++) {
-          Object x = _cache[i];
-          if (x is List<int>) {
-            // compare lists manually
-            if (eq(value,x)){
-              log.info('Value is the same as cache index ${i}');
-              index=i;
-              break;
-            }
-          }
-        }
+    if (index == -1 && value is List<int>) {
+      // Lists need to be compared per item
+      final listEq = const ListEquality().equals;
+      for (int i = 0; i < _cache.length; i++) {
+        final cacheItem = _cache[i];
+        if (cacheItem is! List<int>) continue;
+        if (!listEq(value, cacheItem)) continue;
+
+        index = i;
+        break;
       }
     }
+    log.fine('OrderedAssetCache.add: index = $index, value = $value');
+
     if (index == -1) {
       _cache.add(value);
-      log.info('File ${value} was added to OrederdAssetCache as ${_cache.length-1}');
       return _cache.length - 1;
     } else {
       return index;

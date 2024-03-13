@@ -12,6 +12,7 @@ import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:printing/printing.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
@@ -827,11 +828,16 @@ class EditorState extends State<Editor> {
     }
 
     final filePath = coreInfo.filePath + Editor.extension;
-    coreInfo.assetCache.SetEnabledRemove=false;  // disable removing from AssetCache during file is saved
-    final (bson, assets) = coreInfo.saveToBinary(
-      currentPageIndex: currentPageIndex,
-    );
-    coreInfo.assetCache.SetEnabledRemove=true;  // enable removing from AssetCache because assets are already set
+    final Uint8List bson;
+    final OrderedAssetCache assets;
+    coreInfo.assetCache.allowRemovingAssets = false;
+    try {
+      (bson, assets) = coreInfo.saveToBinary(
+        currentPageIndex: currentPageIndex,
+      );
+    } finally {
+      coreInfo.assetCache.allowRemovingAssets = true;
+    }
     try {
       await Future.wait([
         FileManager.writeFile(filePath, bson, awaitWrite: true),
