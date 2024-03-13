@@ -32,7 +32,13 @@ class LaserPointer extends Tool {
   /// Stopwatch used to find the time elapsed since the last point.
   final Stopwatch _stopwatch = Stopwatch();
 
+  /// Whether the user is currently drawing with the laser.
+  /// This is used to prevent strokes fading out until the user
+  /// has finished drawing.
+  static bool isDrawing = false;
+
   void onDragStart(Offset position, EditorPage page, int pageIndex) {
+    isDrawing = true;
     Pen.currentStroke = Stroke(
       color: color,
       pressureEnabled: pressureEnabled,
@@ -49,6 +55,7 @@ class LaserPointer extends Tool {
   }
 
   void onDragUpdate(Offset position) {
+    isDrawing = true;
     Pen.currentStroke?.addPoint(position);
     strokePointDelays.add(_stopwatch.elapsed);
     _stopwatch.reset();
@@ -56,6 +63,8 @@ class LaserPointer extends Tool {
 
   Stroke onDragEnd(
       VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
+    isDrawing = false;
+
     fadeOutStroke(
       stroke: Pen.currentStroke!,
       strokePointDelays: strokePointDelays,
@@ -70,17 +79,24 @@ class LaserPointer extends Tool {
     return stroke;
   }
 
-  static const Duration _fadeOutDelay = Duration(milliseconds: 500);
+  static const _fadeOutDelay = Duration(seconds: 1);
   @visibleForTesting
-  static void fadeOutStroke(
-      {required Stroke stroke,
-      required List<Duration> strokePointDelays,
-      required VoidCallback redrawPage,
-      required void Function(Stroke) deleteStroke}) async {
+  static void fadeOutStroke({
+    required Stroke stroke,
+    required List<Duration> strokePointDelays,
+    required VoidCallback redrawPage,
+    required void Function(Stroke) deleteStroke,
+  }) async {
     await Future.delayed(_fadeOutDelay);
 
-    for (Duration delay in strokePointDelays) {
+    for (final delay in strokePointDelays) {
       await Future.delayed(delay);
+
+      while (isDrawing) {
+        // if the user starts drawing again, wait until they stop
+        await Future.delayed(const Duration(milliseconds: 100));
+      }
+
       stroke.popFirstPoint();
       redrawPage();
     }
