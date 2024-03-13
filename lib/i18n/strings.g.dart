@@ -5035,7 +5035,7 @@ class _StringsHomeNewFolderFr extends _StringsHomeNewFolderEn {
 
 	// Translations
 	@override String get newFolder => 'Nouveau dossier';
-	@override String get folderName => 'Mom du dossier';
+	@override String get folderName => 'Nom du dossier';
 	@override String get create => 'Créer';
 	@override String get folderNameEmpty => 'Le nom de fichier ne peut pas être vide';
 	@override String get folderNameContainsSlash => 'Le nom de fichier ne peut pas contenir une barre oblique';
