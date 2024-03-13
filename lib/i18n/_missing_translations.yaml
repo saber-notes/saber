@@ -425,11 +425,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Raddrizzamento automatico delle linee
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
 ja:
   home:
     titles:
