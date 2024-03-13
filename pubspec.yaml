@@ -143,6 +143,8 @@ dependencies:
 
   mutex: ^3.1.0
 
+  collection: ^1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
