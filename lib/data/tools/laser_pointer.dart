@@ -79,7 +79,7 @@ class LaserPointer extends Tool {
     return stroke;
   }
 
-  static const _fadeOutDelay = Duration(seconds: 1);
+  static const _fadeOutDelay = Duration(seconds: 2);
   @visibleForTesting
   static void fadeOutStroke({
     required Stroke stroke,
@@ -92,13 +92,16 @@ class LaserPointer extends Tool {
     for (final delay in strokePointDelays) {
       await Future.delayed(delay);
 
-      while (isDrawing) {
-        // if the user starts drawing again, wait until they stop
-        await Future.delayed(const Duration(milliseconds: 100));
-      }
-
       stroke.popFirstPoint();
       redrawPage();
+
+      if (isDrawing) {
+        // if the user starts drawing again, wait until they stop
+        const waitTime = Duration(milliseconds: 100);
+        while (isDrawing) await Future.delayed(waitTime);
+        // now wait the normal delay before continuing
+        await Future.delayed(_fadeOutDelay - waitTime);
+      }
     }
 
     deleteStroke(stroke);
