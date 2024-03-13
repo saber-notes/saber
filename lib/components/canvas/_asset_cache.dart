@@ -55,13 +55,18 @@ class AssetCache {
   /// Returns whether the image was present in the cache.
   bool removeImage(EditorImage image) {
     if (!allowRemovingAssets) return false;
-    for (final file in _images.keys) {
-      if (_images[file]!.remove(image)) {
-        _images.remove(file);
-        _cache.remove(file);
+
+    for (final filePath in _images.keys) {
+      final imagesUsingFile = _images[filePath]!;
+      imagesUsingFile.remove(image);
+
+      if (imagesUsingFile.isEmpty) {
+        _images.remove(filePath);
+        _cache.remove(filePath);
         return true;
       }
     }
+
     return false;
   }
 
