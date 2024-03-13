@@ -425,11 +425,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
 ja:
   home:
     titles:

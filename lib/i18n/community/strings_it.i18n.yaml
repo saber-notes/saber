@@ -90,7 +90,7 @@ settings:
     printPageIndicators: Stampa indicatori di pagina
     autosaveDelay: Ritardo di salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
-    autoStraightenLines(OUTDATED): Raddrizzamento automatico delle linee
+    autoStraightenLines: Raddrizzamento automatico delle linee
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -108,7 +108,7 @@ settings:
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
-    autoStraightenLines(OUTDATED): Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
+    autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
   themeModes:
     system: Sistema
