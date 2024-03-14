@@ -46,6 +46,7 @@ void main() {
           ]),
         ]));
 
+    const laserSbn = 'v17_laser_pointer.sbn2';
     final sbnExamples = Directory('test/sbn_examples/')
         .listSync()
         .whereType<File>()
@@ -53,11 +54,14 @@ void main() {
           (file) => file.path.endsWith('.sbn') || file.path.endsWith('.sbn2'),
         )
         .map((file) => file.path.substring('test/sbn_examples/'.length))
-        .toList();
+        .toList()
+      ..add(laserSbn);
 
     for (final sbnName in sbnExamples) {
       group(sbnName, () {
-        final path = 'test/sbn_examples/$sbnName';
+        final path = sbnName == laserSbn
+            ? 'test/sbn_examples/v17_squiggles.sbn2'
+            : 'test/sbn_examples/$sbnName';
         final pathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
 
         late final EditorCoreInfo coreInfo;
@@ -81,6 +85,11 @@ void main() {
               readOnly: false,
               onlyFirstPage: true,
             );
+          }
+          if (sbnName == laserSbn) {
+            final page = coreInfo.pages.first;
+            page.laserStrokes.addAll(page.strokes);
+            page.strokes.clear();
           }
         });
         tearDownAll(() {
@@ -126,41 +135,43 @@ void main() {
           );
         });
 
-        testWidgets('(PDF)', (tester) async {
-          final context = await _getBuildContext(tester, page.size);
+        if (sbnName != laserSbn)
+          testWidgets('(PDF)', (tester) async {
+            final context = await _getBuildContext(tester, page.size);
 
-          final pdfFile = File('/tmp/$sbnName.pdf');
-          final pngFile = File('/tmp/$sbnName.pdf.png');
+            final pdfFile = File('/tmp/$sbnName.pdf');
+            final pngFile = File('/tmp/$sbnName.pdf.png');
 
-          // Generate PDF file and write to disk
-          await tester.runAsync(() async {
-            final doc = await EditorExporter.generatePdf(coreInfo, context);
-            final bytes = await doc.save();
-            await pdfFile.writeAsBytes(bytes);
+            // Generate PDF file and write to disk
+            await tester.runAsync(() async {
+              final doc = await EditorExporter.generatePdf(coreInfo, context);
+              final bytes = await doc.save();
+              await pdfFile.writeAsBytes(bytes);
+            });
+
+            // Convert PDF to PNG with Ghostscript
+            final shell = Shell(verbose: false);
+            await tester.runAsync(() => shell.run(
+                'gs -sDEVICE=pngalpha -o ${pngFile.path} ${pdfFile.path}'));
+
+            // Load PNG from disk
+            final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
+
+            // Precache image and render it
+            final pdfImageProvider = MemoryImage(pdfImage!);
+            await tester
+                .runAsync(() => precacheImage(pdfImageProvider, context));
+            await tester.pumpWidget(Center(
+              child: RepaintBoundary(
+                child: Image(image: pdfImageProvider),
+              ),
+            ));
+
+            await expectLater(
+              find.byType(Image),
+              matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
+            );
           });
-
-          // Convert PDF to PNG with Ghostscript
-          final shell = Shell(verbose: false);
-          await tester.runAsync(() => shell
-              .run('gs -sDEVICE=pngalpha -o ${pngFile.path} ${pdfFile.path}'));
-
-          // Load PNG from disk
-          final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
-
-          // Precache image and render it
-          final pdfImageProvider = MemoryImage(pdfImage!);
-          await tester.runAsync(() => precacheImage(pdfImageProvider, context));
-          await tester.pumpWidget(Center(
-            child: RepaintBoundary(
-              child: Image(image: pdfImageProvider),
-            ),
-          ));
-
-          await expectLater(
-            find.byType(Image),
-            matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
-          );
-        });
       });
     }
 
