@@ -623,6 +623,7 @@ class EditorState extends State<Editor> {
 
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
+    bool shouldSave = true;
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
@@ -674,6 +675,7 @@ class EditorState extends State<Editor> {
             ),
           ));
         } else {
+          shouldSave = false;
           select.onDragEnd(page.strokes, page.images);
 
           if (select.selectResult.isEmpty) {
@@ -681,6 +683,7 @@ class EditorState extends State<Editor> {
           }
         }
       } else if (currentTool is LaserPointer) {
+        shouldSave = false;
         Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
           page.redrawStrokes,
           (Stroke stroke) {
@@ -690,7 +693,8 @@ class EditorState extends State<Editor> {
         page.laserStrokes.add(newStroke);
       }
     });
-    autosaveAfterDelay();
+
+    if (shouldSave) autosaveAfterDelay();
   }
 
   void onInteractionEnd(ScaleEndDetails details) {
