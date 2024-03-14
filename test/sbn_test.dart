@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:process_run/shell.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
@@ -150,9 +149,8 @@ void main() {
             });
 
             // Convert PDF to PNG with Ghostscript
-            final shell = Shell(verbose: false);
-            await tester.runAsync(() => shell.run(
-                'gs -sDEVICE=pngalpha -o ${pngFile.path} ${pdfFile.path}'));
+            await tester.runAsync(() => Process.run(
+                'gs', ['-sDEVICE=pngalpha', '-o', pngFile.path, pdfFile.path]));
 
             // Load PNG from disk
             final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());

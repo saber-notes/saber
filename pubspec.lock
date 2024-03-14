@@ -1030,14 +1030,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.2"
-  process_run:
-    dependency: "direct dev"
-    description:
-      name: process_run
-      sha256: "8d9c6198b98fbbfb511edd42e7364e24d85c163e47398919871b952dc86a423e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.14.2"
   provider:
     dependency: transitive
     description:
@@ -1046,14 +1038,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.2"
-  pub_semver:
-    dependency: transitive
-    description:
-      name: pub_semver
-      sha256: "40d3ab1bbd474c4c2328c91e3a7df8c6dd629b79ece4c4bd04bee496a224fb0c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.4"
   qr:
     dependency: transitive
     description:
@@ -1275,14 +1259,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.1"
-  synchronized:
-    dependency: transitive
-    description:
-      name: synchronized
-      sha256: "539ef412b170d65ecdafd780f924e5be3f60032a1128df156adad6c5b373d558"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0+1"
   term_glyph:
     dependency: transitive
     description:

@@ -160,8 +160,6 @@ dev_dependencies:
 
   icons_launcher: ^2.1.0
 
-  process_run: ^0.14.0+1
-
   simplytranslate: ^1.2.2
 
   auto_screenshot: ^0.0.2
