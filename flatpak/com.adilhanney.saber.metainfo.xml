@@ -196,6 +196,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.21.2" type="development" date="2024-03-14">
+            <description>
+                <ul>
+                    <li>The laser pointer now waits for you to stop writing before fading out</li>
+                    <li>Fixed a bug that caused some PDF pages to get lost</li>
+                    <li>Fixed a bug where thumbnails of deleted notes weren't removed</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.21.1" type="development" date="2024-03-10">
             <description>
                 <ul>

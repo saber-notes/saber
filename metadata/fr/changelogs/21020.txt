@@ -1,0 +1,3 @@
+• Le pointeur laser vous attend maintenant pour arrêter d'écrire avant de s'évader
+• Correction d'un bug qui a causé quelques pages PDF pour se perdre
+• Correction d'un bug où les vignettes des notes supprimées n'ont pas été enlevées
