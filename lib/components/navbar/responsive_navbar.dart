@@ -64,6 +64,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
       switch (savingState) {
         case null:
         case SavingState.saved:
+        case SavingState.savedNeedThumbnailUpdate:
           break;
         case SavingState.waitingToSave:
           Whiteboard.triggerSave();

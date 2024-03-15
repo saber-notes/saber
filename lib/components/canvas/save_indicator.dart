@@ -29,6 +29,7 @@ class SaveIndicator extends StatelessWidget {
               SavingState.waitingToSave => const Icon(Icons.save),
               SavingState.saving => const CircularProgressIndicator.adaptive(),
               SavingState.saved => const Icon(Icons.arrow_back),
+              SavingState.savedNeedThumbnailUpdate => const Icon(Icons.arrow_back),
             },
           ),
         );
@@ -43,6 +44,9 @@ class SaveIndicator extends StatelessWidget {
       case SavingState.saving:
         break;
       case SavingState.saved:
+        _back(context);
+      case SavingState.savedNeedThumbnailUpdate:
+        triggerSave(); // triggering save will be created thumbnail
         _back(context);
     }
   }
@@ -63,4 +67,5 @@ enum SavingState {
   waitingToSave,
   saving,
   saved,
+  savedNeedThumbnailUpdate,  // when saved using autosave and thumbnail was not updated
 }

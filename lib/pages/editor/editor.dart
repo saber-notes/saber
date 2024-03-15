@@ -806,16 +806,22 @@ class EditorState extends State<Editor> {
     if (Prefs.autosaveDelay.value < 0) return;
     _delayedSaveTimer =
         Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
-      saveToFile();
+      saveToFile(createThumbnail:false);
     });
   }
 
-  Future<void> saveToFile() async {
+  Future<void> saveToFile({bool createThumbnail=true}) async {
+    // createThumbnail=false is used when called from autosave - to avoid lagging during thumbnail creation
     if (coreInfo.readOnly) return;
 
     switch (savingState.value) {
       case SavingState.saved:
         // avoid saving if nothing has changed
+        return;
+      case SavingState.savedNeedThumbnailUpdate:
+        // note is saved, but thumbnail need to be created
+        createThumbnailPreview();
+        savingState.value =SavingState.saved;
         return;
       case SavingState.saving:
         // avoid saving if already saving
@@ -852,13 +858,29 @@ class EditorState extends State<Editor> {
           numAssets: assets.length,
         ),
       ]);
-      savingState.value = SavingState.saved;
+      if (createThumbnail) {
+        savingState.value = SavingState.saved;
+      }
+      else {
+        savingState.value = SavingState.savedNeedThumbnailUpdate;  // note is saved but not a thumbnail
+      }
     } catch (e) {
       log.severe('Failed to save file: $e', e);
       savingState.value = SavingState.waitingToSave;
       if (kDebugMode) rethrow;
       return;
     }
+
+    if (!mounted) return;
+    if (createThumbnail) {//
+      createThumbnailPreview();
+    }
+  }
+
+  Future<void> createThumbnailPreview() async {
+    /// create Thumbnail of note
+    if (coreInfo.readOnly) return;
+    final filePath = coreInfo.filePath + Editor.extension;
 
     if (!mounted) return;
     final screenshotter = ScreenshotController();
@@ -868,6 +890,7 @@ class EditorState extends State<Editor> {
     );
     final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
     final thumbnail = await screenshotter.captureFromWidget(
+
       Theme(
         data: ThemeData(
           brightness: Brightness.light,
@@ -902,6 +925,8 @@ class EditorState extends State<Editor> {
       awaitWrite: true,
     );
   }
+
+
 
   late final _filenameFormKey = GlobalKey<FormState>();
   late final filenameTextEditingController = TextEditingController();
@@ -1564,6 +1589,7 @@ class EditorState extends State<Editor> {
                 assert(!didPop);
                 snackBarNeedsToSaveBeforeExiting();
               case SavingState.saved:
+              case SavingState.savedNeedThumbnailUpdate:
                 break;
             }
           },
