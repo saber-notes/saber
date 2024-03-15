@@ -37,7 +37,7 @@ class SaveIndicator extends StatelessWidget {
     );
   }
 
-  void _onPressed(BuildContext context) {
+  void _onPressed(BuildContext context) {// pressed "Save"/"Exit" button
     switch (savingState.value) {
       case SavingState.waitingToSave:
         triggerSave();
@@ -46,7 +46,7 @@ class SaveIndicator extends StatelessWidget {
       case SavingState.saved:
         _back(context);
       case SavingState.savedNeedThumbnailUpdate:
-        triggerSave(); // triggering save will be created thumbnail
+        triggerSave(); // triggering save will be created thumbnail and then is finished editing
         _back(context);
     }
   }
