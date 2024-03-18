@@ -9,6 +9,7 @@ class ColorOption extends StatelessWidget {
     this.onLongPress,
     required this.tooltip,
     required this.child,
+    required this.diameter,
   });
 
   final bool isSelected;
@@ -18,7 +19,7 @@ class ColorOption extends StatelessWidget {
   final String? tooltip;
   final Widget child;
 
-  static const double diameter = 25;
+  final double diameter;
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +62,11 @@ class ColorOptionSeparatorIcon extends StatelessWidget {
   const ColorOptionSeparatorIcon({
     super.key,
     required this.icon,
+    required this.size,
   });
 
   final IconData icon;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +78,7 @@ class ColorOptionSeparatorIcon extends StatelessWidget {
       ),
       child: Icon(
         icon,
-        size: 16,
+        size: size,
         color: Color.lerp(
           colorScheme.onSurface,
           colorScheme.primary,

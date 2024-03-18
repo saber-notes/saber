@@ -406,15 +406,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 options: [
                   ToggleButtonsOption(
                       ToolbarSize.small.index,
-                      Icon(FontAwesomeIcons.pencil, size: 12,
+                      Icon(FontAwesomeIcons.pencil, size: ToolbarSize.small.getButtonSize(),
                           semanticLabel: t.settings.editorToolbarSizes.small)),
                   ToggleButtonsOption(
                       ToolbarSize.normal.index,
-                      Icon(FontAwesomeIcons.pencil, size: 18,
+                      Icon(FontAwesomeIcons.pencil, size: ToolbarSize.normal.getButtonSize(),
                       semanticLabel: t.settings.editorToolbarSizes.normal)),
                   ToggleButtonsOption(
                       ToolbarSize.big.index,
-                      Icon(FontAwesomeIcons.pencil, size: 22,
+                      Icon(FontAwesomeIcons.pencil, size: ToolbarSize.big.getButtonSize(),
                       semanticLabel: t.settings.editorToolbarSizes.big)),
                 ],
               ),

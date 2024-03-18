@@ -166,16 +166,8 @@ class _ToolbarState extends State<Toolbar> {
             Prefs.editorToolbarAlignment.value == AxisDirection.right;
 
     final buttonPadding = isToolbarVertical
-        ? EdgeInsets.symmetric(vertical:  switch (widget.toolbarSize) {
-      ToolbarSize.small => 2.0,
-      ToolbarSize.normal => 6.0,
-      ToolbarSize.big => 8.0,
-    })
-    : EdgeInsets.symmetric(horizontal:  switch (widget.toolbarSize) {
-      ToolbarSize.small => 2.0,
-      ToolbarSize.normal => 6.0,
-      ToolbarSize.big => 8.0,
-    });
+        ? EdgeInsets.symmetric(vertical:  widget.toolbarSize.getToolbarPadding())
+        : EdgeInsets.symmetric(horizontal: widget.toolbarSize.getToolbarPadding());
 
     final currentColor = switch (widget.currentTool) {
       Pen pen => pen.color,
@@ -225,14 +217,17 @@ class _ToolbarState extends State<Toolbar> {
               ToolOptions.pen => PenModal(
                   getTool: () => Pen.currentPen,
                   setTool: widget.setTool,
+                  toolbarSize: widget.toolbarSize,
                 ),
               ToolOptions.highlighter => PenModal(
                   getTool: () => Highlighter.currentHighlighter,
                   setTool: widget.setTool,
+                  toolbarSize: widget.toolbarSize,
                 ),
               ToolOptions.pencil => PenModal(
                   getTool: () => Pencil.currentPencil,
                   setTool: widget.setTool,
+                  toolbarSize: widget.toolbarSize,
                 ),
               ToolOptions.select => SelectionBar(
                   duplicateSelection: widget.duplicateSelection,
@@ -304,6 +299,7 @@ class _ToolbarState extends State<Toolbar> {
                         buttonOptions: QuillSimpleToolbarButtonOptions(
                           base: QuillToolbarBaseButtonOptions(
                             iconTheme: iconTheme,
+                            iconSize: widget.toolbarSize.getButtonSize(), // set toolbar button size
                           ),
                         ),
                         showUndo: false,
@@ -318,17 +314,11 @@ class _ToolbarState extends State<Toolbar> {
           }),
       Center(
         child: Padding(// distance between toolbars
-          padding: EdgeInsets.all(switch (widget.toolbarSize) {
-            ToolbarSize.small => 2,
-            ToolbarSize.normal => 8,
-            ToolbarSize.big => 12,}),
+          padding: EdgeInsets.all(widget.toolbarSize.getToolbarPadding()),
           child: Wrap(
             direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
             alignment: WrapAlignment.center,
-            runSpacing: switch (widget.toolbarSize) { // gap between lines
-              ToolbarSize.small => 2,
-              ToolbarSize.normal => 8,
-              ToolbarSize.big => 12,},
+            runSpacing: widget.toolbarSize.getToolbarPadding(), // gap between lines
             children: [
               ToolbarIconButton(
                 tooltip: Pen.currentPen.name,
