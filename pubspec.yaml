@@ -110,7 +110,7 @@ dependencies:
 
   flex_seed_scheme: ^1.1.0
 
-  screenshot: ^2.0.0
+  screenshot: ^2.3.0
 
   path_drawing: ^1.0.1
 
@@ -125,7 +125,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.4
 
   flutter_speed_dial: ^7.0.0
 
