@@ -32,7 +32,7 @@ void main() {
 
       // check that the event was received
       expect(events.length, 1);
-      expect(events.last.filePath, '/test'); // without the extension
+      expect(events.last.filePath, '/test.sbn2');
       expect(events.last.type, FileOperationType.write);
     });
 
@@ -50,7 +50,7 @@ void main() {
       await file.writeAsString('test_content');
       await Future.delayed(const Duration(milliseconds: 100));
       expect(events.length, greaterThanOrEqualTo(2));
-      expect(events.last.filePath, '/test'); // without the extension
+      expect(events.last.filePath, '/test.sbn2');
       expect(events.last.type, FileOperationType.write);
       events.clear();
 
@@ -58,7 +58,7 @@ void main() {
       await file.delete();
       await Future.delayed(const Duration(milliseconds: 100));
       expect(events.length, greaterThanOrEqualTo(1));
-      expect(events.last.filePath, '/test'); // without the extension
+      expect(events.last.filePath, '/test.sbn2');
       expect(events.last.type, FileOperationType.delete);
     });
   });
