@@ -308,11 +308,7 @@ class _ColorBarState extends State<ColorBar> {
 
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(switch (widget.toolbarSize) {
-          ToolbarSize.small => 4.0,
-          ToolbarSize.normal => 8.0,
-          ToolbarSize.big => 12.0,
-        }),
+        padding: EdgeInsets.all(widget.toolbarSize.getToolbarPadding()),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: widget.axis == Axis.horizontal
