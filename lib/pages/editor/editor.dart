@@ -12,6 +12,7 @@ import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:printing/printing.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
@@ -622,10 +623,18 @@ class EditorState extends State<Editor> {
 
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
+    bool shouldSave = true;
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
+
+        if (Prefs.autoStraightenLines.value &&
+            currentTool is! ShapePen &&
+            newStroke.isStraightLine()) {
+          newStroke.convertToLine();
+        }
+
         createPage(newStroke.pageIndex);
         page.insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(
@@ -666,6 +675,7 @@ class EditorState extends State<Editor> {
             ),
           ));
         } else {
+          shouldSave = false;
           select.onDragEnd(page.strokes, page.images);
 
           if (select.selectResult.isEmpty) {
@@ -673,6 +683,7 @@ class EditorState extends State<Editor> {
           }
         }
       } else if (currentTool is LaserPointer) {
+        shouldSave = false;
         Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
           page.redrawStrokes,
           (Stroke stroke) {
@@ -682,7 +693,8 @@ class EditorState extends State<Editor> {
         page.laserStrokes.add(newStroke);
       }
     });
-    autosaveAfterDelay();
+
+    if (shouldSave) autosaveAfterDelay();
   }
 
   void onInteractionEnd(ScaleEndDetails details) {
@@ -820,9 +832,16 @@ class EditorState extends State<Editor> {
     }
 
     final filePath = coreInfo.filePath + Editor.extension;
-    final (bson, assets) = coreInfo.saveToBinary(
-      currentPageIndex: currentPageIndex,
-    );
+    final Uint8List bson;
+    final OrderedAssetCache assets;
+    coreInfo.assetCache.allowRemovingAssets = false;
+    try {
+      (bson, assets) = coreInfo.saveToBinary(
+        currentPageIndex: currentPageIndex,
+      );
+    } finally {
+      coreInfo.assetCache.allowRemovingAssets = true;
+    }
     try {
       await Future.wait([
         FileManager.writeFile(filePath, bson, awaitWrite: true),

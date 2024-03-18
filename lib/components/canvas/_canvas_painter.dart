@@ -4,12 +4,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart' hide TextStyle;
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:path_drawing/path_drawing.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
@@ -47,6 +49,7 @@ class CanvasPainter extends CustomPainter {
 
     _drawHighlighterStrokes(canvas, canvasRect);
     _drawNonHighlighterStrokes(canvas);
+    for (final stroke in laserStrokes) _drawLaserStroke(canvas, stroke);
     _drawCurrentStroke(canvas);
     _drawDetectedShape(canvas);
     _drawSelection(canvas);
@@ -90,7 +93,7 @@ class CanvasPainter extends CustomPainter {
   void _drawNonHighlighterStrokes(Canvas canvas) {
     late final paint = Paint();
 
-    for (Stroke stroke in [...strokes, ...laserStrokes]) {
+    for (final stroke in strokes) {
       if (stroke.penType == (Highlighter).toString()) continue;
 
       var color = stroke.color.withInversion(invert);
@@ -144,6 +147,10 @@ class CanvasPainter extends CustomPainter {
   void _drawCurrentStroke(Canvas canvas) {
     if (currentStroke == null) return;
 
+    if (currentStroke!.penType == (LaserPointer).toString()) {
+      return _drawLaserStroke(canvas, currentStroke!);
+    }
+
     final color = currentStroke!.color.withInversion(invert);
     final paint = Paint();
 
@@ -172,6 +179,18 @@ class CanvasPainter extends CustomPainter {
     }
   }
 
+  void _drawLaserStroke(Canvas canvas, Stroke stroke) {
+    canvas.drawPath(
+      stroke.path,
+      Paint()
+        ..color = stroke.color.withInversion(invert)
+        ..maskFilter = MaskFilter.blur(
+          BlurStyle.solid,
+          stroke.options.size * 0.5,
+        ),
+    );
+  }
+
   void _drawDetectedShape(Canvas canvas) {
     final shape = ShapePen.detectedShape;
     if (shape == null) return;
@@ -187,7 +206,14 @@ class CanvasPainter extends CustomPainter {
         break;
       case DefaultUnistrokeNames.line:
         var (firstPoint, lastPoint) = shape.convertToLine();
-        (firstPoint, lastPoint) = ShapePen.snapLine(firstPoint, lastPoint);
+        (firstPoint, lastPoint) = Stroke.snapLine(
+          firstPoint is PointVector
+              ? firstPoint
+              : PointVector.fromOffset(offset: firstPoint),
+          lastPoint is PointVector
+              ? lastPoint
+              : PointVector.fromOffset(offset: lastPoint),
+        );
         canvas.drawLine(firstPoint, lastPoint, shapePaint);
       case DefaultUnistrokeNames.rectangle:
         final rect = shape.convertToRect();

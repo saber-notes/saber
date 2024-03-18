@@ -1,5 +1,33 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
+    alt='Get it on Google Play'
+    height=50>][google_play]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+    alt="Get it on F-Droid"
+    height=50>][f-droid]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+    alt="Download on the App Store"
+    height=50>][app_store]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
+    alt="Download for Windows"
+    height=50>][download_windows]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+    alt="Download on Flathub"
+    height=50>][flathub]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
+    alt="Get it as an AppImage"
+    height=50>][download_appimage]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
+    alt="Get it from the Snap Store"
+    height=50>][snap]
+
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
@@ -19,34 +47,6 @@ Saber hat alles was du brauchst um deine Notizen zu organisieren. Erstelle Ordne
 Saber invertiert deine Notizen intelligent, sobald du den Dark Mode nutzt. Das bedeutet, dass du deine gesamte Notizen-Erfahrung, inklusive deiner Bilder, im Dark Mode genießen kannst, wodurch ein beruhigendes und schlüssiges Interface in dunklen Umgebungen gewährleistet wird.
 
 Entdecke einen völlig neuen Weg um mit Saber deine Gedanken zu sammeln und zu organisieren. Egal ob du studierst, arbeitest oder kreativ bist, Saber ist dein vertrauenswürdiger Begleiter fürs digitale von Hand schreiben. Starte jetzt den Download und lass deinen Ideen freien Lauf!
-
-[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
-    alt='Get it on Google Play'
-    height=80>][google_play]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
-    alt="Get it on F-Droid"
-    height=80>][f-droid]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
-    alt="Download on the App Store"
-    height=80>][app_store]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
-    alt="Download for Windows"
-    height=80>][download_windows]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
-    alt="Download on Flathub"
-    height=80>][flathub]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
-    alt="Get it as an AppImage"
-    height=80>][download_appimage]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
-    alt="Get it from the Snap Store"
-    height=80>][snap]
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/saber-notes/saber)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
@@ -322,8 +322,8 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.15.4/SaberInstaller_v0.15.4.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.15.4/Saber-0.15.4-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.21.2/SaberInstaller_v0.21.2.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.21.2/Saber-0.21.2-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

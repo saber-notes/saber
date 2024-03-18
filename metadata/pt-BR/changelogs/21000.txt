@@ -1,0 +1,2 @@
+• Linhas longas agora são endireitadas automaticamente sem a necessidade de alternar para a ferramenta de forma (configurável nas configurações)
+• Foi corrigida a redefinição dos tamanhos de caneta quando você alterna entre os tipos de caneta

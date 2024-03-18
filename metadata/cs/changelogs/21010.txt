@@ -1,0 +1,2 @@
+• Snížení počtu falešných poplachů při automatickém narovnávání čar
+• Experimentální podpora pro synchronizaci na pozadí v systémech Android a iOS

@@ -81,6 +81,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
     shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
     recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
     changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
@@ -102,6 +103,7 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
+    autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
     shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
     allowInsecureConnections(OUTDATED): (غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها

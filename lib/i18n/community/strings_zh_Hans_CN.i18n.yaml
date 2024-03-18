@@ -90,6 +90,7 @@ settings:
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
     shapeRecognitionDelay: 形状识别延迟
+    autoStraightenLines(OUTDATED): 自动拉直线条
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -107,6 +108,7 @@ settings:
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
     shapeRecognitionDelay: 形状预览更新频率
+    autoStraightenLines(OUTDATED): 无需使用形状笔即可拉直长线
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
   themeModes:
     system: 系统
