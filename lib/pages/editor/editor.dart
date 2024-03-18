@@ -258,7 +258,8 @@ class EditorState extends State<Editor> {
       clearAllPages();
 
       // save cleared whiteboard
-      await saveToFile();
+      // without thumbanil as whiteboard thumbnail is never used
+      await saveToFile(createThumbnail: false);
       Whiteboard.needsToAutoClearWhiteboard = false;
     } else {
       setState(() {});
@@ -810,7 +811,7 @@ class EditorState extends State<Editor> {
     });
   }
 
-  Future<void> saveToFile({bool createThumbnail = true}) async {
+  Future<void> saveToFile({required bool createThumbnail}) async {
     // createThumbnail=false is used when called from autosave - to avoid lagging during thumbnail creation
     if (coreInfo.readOnly) return;
 
@@ -876,8 +877,8 @@ class EditorState extends State<Editor> {
     }
   }
 
+  /// create thumbnail of note
   Future<void> createThumbnailPreview() async {
-    /// create Thumbnail of note
     if (coreInfo.readOnly) return;
     final filePath = coreInfo.filePath + Editor.extension;
 
@@ -1579,7 +1580,7 @@ class EditorState extends State<Editor> {
             switch (savingState) {
               case SavingState.waitingToSave:
                 assert(!didPop);
-                saveToFile(); // trigger save now
+                saveToFile(createThumbnail: true); // trigger save now
                 snackBarNeedsToSaveBeforeExiting();
               case SavingState.saving:
                 assert(!didPop);
@@ -1614,7 +1615,7 @@ class EditorState extends State<Editor> {
                       ),
                 leading: SaveIndicator(
                   savingState: savingState,
-                  triggerSave: saveToFile,
+                  triggerSave: () => saveToFile(createThumbnail: true),
                 ),
                 actions: [
                   IconButton(
@@ -1980,7 +1981,7 @@ class EditorState extends State<Editor> {
         await _renameFileNow();
         filenameTextEditingController.dispose();
       }
-      await saveToFile();
+      await saveToFile(createThumbnail: true);
     })();
 
     DynamicMaterialApp.removeFullscreenListener(_setState);

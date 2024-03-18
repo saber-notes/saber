@@ -112,7 +112,7 @@ void main() {
     // save file now to supersede the save timer (which would run after the test is finished)
     printOnFailure('Saving file: $filePath${Editor.extension}');
     await tester.runAsync(() async {
-      await editorState.saveToFile();
+      await editorState.saveToFile(createThumbnail: false);
       await Future.delayed(const Duration(milliseconds: 100));
       await FileManager.deleteFile(filePath + Editor.extension);
     });
