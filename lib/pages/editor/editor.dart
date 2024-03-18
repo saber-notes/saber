@@ -170,7 +170,7 @@ class EditorState extends State<Editor> {
     Prefs.lastTool.value = tool.toolId;
   }
 
-  ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
+  final savingState = ValueNotifier(SavingState.savedWithThumbnail);
   Timer? _delayedSaveTimer;
 
   // used to prevent accidentally drawing when pinch zooming
@@ -806,22 +806,22 @@ class EditorState extends State<Editor> {
     if (Prefs.autosaveDelay.value < 0) return;
     _delayedSaveTimer =
         Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
-      saveToFile(createThumbnail:false);
+      saveToFile(createThumbnail: false);
     });
   }
 
-  Future<void> saveToFile({bool createThumbnail=true}) async {
+  Future<void> saveToFile({bool createThumbnail = true}) async {
     // createThumbnail=false is used when called from autosave - to avoid lagging during thumbnail creation
     if (coreInfo.readOnly) return;
 
     switch (savingState.value) {
-      case SavingState.saved:
+      case SavingState.savedWithThumbnail:
         // avoid saving if nothing has changed
         return;
-      case SavingState.savedNeedThumbnailUpdate:
+      case SavingState.savedWithoutThumbnail:
         // note is saved, but thumbnail need to be created
         createThumbnailPreview();
-        savingState.value =SavingState.saved;
+        savingState.value = SavingState.savedWithThumbnail;
         return;
       case SavingState.saving:
         // avoid saving if already saving
@@ -859,10 +859,9 @@ class EditorState extends State<Editor> {
         ),
       ]);
       if (createThumbnail) {
-        savingState.value = SavingState.saved;
-      }
-      else {
-        savingState.value = SavingState.savedNeedThumbnailUpdate;  // note is saved but not a thumbnail
+        savingState.value = SavingState.savedWithThumbnail;
+      } else {
+        savingState.value = SavingState.savedWithoutThumbnail;
       }
     } catch (e) {
       log.severe('Failed to save file: $e', e);
@@ -872,7 +871,7 @@ class EditorState extends State<Editor> {
     }
 
     if (!mounted) return;
-    if (createThumbnail) {//
+    if (createThumbnail) {
       createThumbnailPreview();
     }
   }
@@ -890,7 +889,6 @@ class EditorState extends State<Editor> {
     );
     final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
     final thumbnail = await screenshotter.captureFromWidget(
-
       Theme(
         data: ThemeData(
           brightness: Brightness.light,
@@ -925,8 +923,6 @@ class EditorState extends State<Editor> {
       awaitWrite: true,
     );
   }
-
-
 
   late final _filenameFormKey = GlobalKey<FormState>();
   late final filenameTextEditingController = TextEditingController();
@@ -1578,7 +1574,7 @@ class EditorState extends State<Editor> {
       builder: (context, savingState, child) {
         // don't allow user to go back until saving is done
         return PopScope(
-          canPop: savingState == SavingState.saved,
+          canPop: savingState == SavingState.savedWithThumbnail,
           onPopInvoked: (didPop) {
             switch (savingState) {
               case SavingState.waitingToSave:
@@ -1588,8 +1584,8 @@ class EditorState extends State<Editor> {
               case SavingState.saving:
                 assert(!didPop);
                 snackBarNeedsToSaveBeforeExiting();
-              case SavingState.saved:
-              case SavingState.savedNeedThumbnailUpdate:
+              case SavingState.savedWithoutThumbnail:
+              case SavingState.savedWithThumbnail:
                 break;
             }
           },
