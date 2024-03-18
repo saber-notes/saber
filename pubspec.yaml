@@ -91,7 +91,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^9.2.2
+  flutter_quill: ^9.3.3
 
   window_manager: ^0.3.0
 
@@ -125,7 +125,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.4
 
   flutter_speed_dial: ^7.0.0
 
