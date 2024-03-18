@@ -28,6 +28,8 @@ class FileManager {
   /// Realistically, this value never changes.
   static late String documentsDirectory;
 
+  /// A stream of [FileOperation]s. Note that file paths
+  /// include the file extension.
   static final StreamController<FileOperation> fileWriteStream =
       StreamController.broadcast(
     onListen: () => _fileWriteStreamIsListening = true,
@@ -73,14 +75,6 @@ class FileManager {
   @visibleForTesting
   static void broadcastFileWrite(FileOperationType type, String path) async {
     if (!_fileWriteStreamIsListening) return;
-
-    // remove extension
-    if (path.endsWith(Editor.extension)) {
-      path = path.substring(0, path.length - Editor.extension.length);
-    } else if (path.endsWith(Editor.extensionOldJson)) {
-      path = path.substring(0, path.length - Editor.extensionOldJson.length);
-    }
-
     fileWriteStream.add(FileOperation(type, path));
   }
 
