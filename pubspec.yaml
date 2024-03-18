@@ -125,7 +125,7 @@ dependencies:
   google_mobile_ads: ^4.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.4
 
   flutter_speed_dial: ^7.0.0
 
@@ -137,7 +137,7 @@ dependencies:
 
   yaru: ^4.0.0
 
-  one_dollar_unistroke_recognizer: ^1.1.1
+  one_dollar_unistroke_recognizer: ^1.1.2
 
   meta: ^1.0.0
 
