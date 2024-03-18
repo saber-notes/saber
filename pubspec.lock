@@ -238,10 +238,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: "54c3057ce4f9649e71726bf0d9cc5e22f838586b253810875ecc7ddc21eccf70"
+      sha256: "0f6fcefad905e1d4f2f11738fc203612a4b9b3549f79d5cfa54d1334bd7c54e2"
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.1"
+    version: "9.3.3"
   decimal:
     dependency: transitive
     description:
@@ -461,10 +461,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "0f20a201611130916ff5eb50903606ca9328282cc66370d97d31fa2b0a2a0c43"
+      sha256: bc1dff7a07ca45612db1a9801c9617656cb65121f011766849b4586d1c262798
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.1"
+    version: "9.3.3"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -564,10 +564,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "170c46e237d6eb0e6e9f0e8b3f56101e14fb64f787016e42edd74c39cf8b176a"
+      sha256: "7ecb2f391edbca5473db591b48555a8912dde60edd0fb3013bd6743033b2d3f8"
       url: "https://pub.dev"
     source: hosted
-    version: "13.2.0"
+    version: "13.2.1"
   google_fonts:
     dependency: "direct main"
     description:
@@ -762,10 +762,10 @@ packages:
     dependency: transitive
     description:
       name: markdown
-      sha256: "1b134d9f8ff2da15cb298efe6cd8b7d2a78958c1b00384ebcbdf13fe340a6c90"
+      sha256: ef2a1298144e3f985cc736b22e0ccdaf188b5b3970648f2d9dc13efd1d9df051
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.1"
+    version: "7.2.2"
   matcher:
     dependency: transitive
     description:
@@ -826,10 +826,10 @@ packages:
     dependency: "direct main"
     description:
       name: one_dollar_unistroke_recognizer
-      sha256: "6a210e22b62c4e1bd69adda1db7763db9cce97b49c8968f2d33284695c2ac109"
+      sha256: c35bb3c054e792836c9b36d0dd680ec02a447e6bc29a77b9f32c98ffcc11c716
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   onyxsdk_pen:
     dependency: "direct main"
     description:
@@ -1090,10 +1090,10 @@ packages:
     dependency: "direct main"
     description:
       name: screenshot
-      sha256: "455284ff1f5b911d94a43c25e1385485cf6b4f288293eba68f15dad711c7b81c"
+      sha256: "5488135006b34529bf3765a7b1900ca94ccafca300c573550a0474a7162ebf95"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.3.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -1464,10 +1464,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: "3e5f4e9d818086b0d01a66fb1ff9cc72ab0cc58c71980e3d3661c5685ea0efb0"
+      sha256: f038ee2fae73b509dde1bc9d2c5a50ca92054282de17631a9a3d515883740934
       url: "https://pub.dev"
     source: hosted
-    version: "3.15.0"
+    version: "3.16.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
@@ -1480,18 +1480,18 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_wkwebview
-      sha256: "9bf168bccdf179ce90450b5f37e36fe263f591c9338828d6bf09b6f8d0f57f86"
+      sha256: f12f8d8a99784b863e8b85e4a9a5e3cf1839d6803d2c0c3e0533a8f3c5a992a7
       url: "https://pub.dev"
     source: hosted
-    version: "3.12.0"
+    version: "3.13.0"
   win32:
     dependency: transitive
     description:
       name: win32
-      sha256: "464f5674532865248444b4c3daca12bd9bf2d7c47f759ce2617986e7229494a8"
+      sha256: "8cb58b45c47dcb42ab3651533626161d6b67a2921917d8d429791f76972b3480"
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.0"
+    version: "5.3.0"
   win32_registry:
     dependency: transitive
     description:
