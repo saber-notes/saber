@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
-import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
