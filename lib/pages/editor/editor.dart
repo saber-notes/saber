@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,6 +27,7 @@ import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
+import 'package:saber/components/toolbar/editor_camera.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/data/editor/_color_change.dart';
@@ -1052,6 +1054,86 @@ class EditorState extends State<Editor> {
     return images.length;
   }
 
+  Widget takePhoto(BuildContext context, CameraDescription camera ) {
+    return TakePictureScreen(
+      camera: camera,
+    );
+  }
+
+
+
+
+  Future<int> _takePhoto([List<_PhotoInfo>? photoInfos]) async { //
+    if (coreInfo.readOnly) return 0;
+
+    WidgetsFlutterBinding.ensureInitialized();
+    // Obtain a list of the available cameras on the device.
+    final cameras = await availableCameras();
+    // Get a specific camera from the list of available cameras.
+    final CameraDescription camera= cameras.first;
+
+    final currentPageIndex = this.currentPageIndex;
+
+    showDialog(
+      context: context,
+      builder: (context) => AdaptiveAlertDialog(
+        title: Text(t.editor.pages),
+        content: takePhoto(context,camera),
+        actions: const [],
+      ),
+    );
+
+    photoInfos ??= await _pickPhotosWithFilePicker();
+    if (photoInfos.isEmpty) return 0;
+
+    // use the Select tool so that the user can move the new image
+    currentTool = Select.currentSelect;
+
+    List<EditorImage> images = [
+      for (final _PhotoInfo photoInfo in photoInfos)
+        if (photoInfo.extension == '.svg')
+          SvgEditorImage(
+            id: coreInfo.nextImageId++,
+            svgString: utf8.decode(photoInfo.bytes),
+            svgFile: null,
+            pageIndex: currentPageIndex,
+            pageSize: coreInfo.pages[currentPageIndex].size,
+            onMoveImage: onMoveImage,
+            onDeleteImage: onDeleteImage,
+            onMiscChange: autosaveAfterDelay,
+            onLoad: () => setState(() {}),
+            assetCache: coreInfo.assetCache,
+          )
+        else
+          PngEditorImage(
+            id: coreInfo.nextImageId++,
+            extension: photoInfo.extension,
+            imageProvider: MemoryImage(photoInfo.bytes),
+            pageIndex: currentPageIndex,
+            pageSize: coreInfo.pages[currentPageIndex].size,
+            onMoveImage: onMoveImage,
+            onDeleteImage: onDeleteImage,
+            onMiscChange: autosaveAfterDelay,
+            onLoad: () => setState(() {}),
+            assetCache: coreInfo.assetCache,
+          ),
+    ];
+
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.draw,
+      pageIndex: currentPageIndex,
+      strokes: [],
+      images: images,
+    ));
+    createPage(currentPageIndex);
+    coreInfo.pages[currentPageIndex].images.addAll(images);
+    autosaveAfterDelay();
+
+    return images.length;
+  }
+
+
+
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -1513,6 +1595,7 @@ class EditorState extends State<Editor> {
             });
           },
           pickPhoto: _pickPhotos,
+          takePhoto: _takePhoto,
           paste: paste,
           exportAsSba: exportAsSba,
           exportAsPdf: exportAsPdf,
@@ -1675,6 +1758,7 @@ class EditorState extends State<Editor> {
     ));
   }
 
+
   Widget bottomSheet(BuildContext context) {
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert =
@@ -1776,6 +1860,7 @@ class EditorState extends State<Editor> {
       coreInfo: coreInfo,
     );
   }
+
 
   Widget pageManager(BuildContext context) {
     return EditorPageManager(
