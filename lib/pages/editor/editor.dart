@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:path/path.dart' as path;
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -1054,61 +1055,31 @@ class EditorState extends State<Editor> {
     return images.length;
   }
 
-  Widget takePhoto(BuildContext context, CameraDescription camera ) {
-    return TakePictureScreen(
-      camera: camera,
-    );
-  }
 
 
+// functions taking photos
 
-
-  Future<int> _takePhoto([List<_PhotoInfo>? photoInfos]) async { //
-    if (coreInfo.readOnly) return 0;
-
-    WidgetsFlutterBinding.ensureInitialized();
-    // Obtain a list of the available cameras on the device.
-    final cameras = await availableCameras();
-    // Get a specific camera from the list of available cameras.
-    final CameraDescription camera= cameras.first;
-
-    final currentPageIndex = this.currentPageIndex;
-
-    showDialog(
-      context: context,
-      builder: (context) => AdaptiveAlertDialog(
-        title: Text(t.editor.pages),
-        content: takePhoto(context,camera),
-        actions: const [],
-      ),
-    );
-
-    photoInfos ??= await _pickPhotosWithFilePicker();
-    if (photoInfos.isEmpty) return 0;
-
+  /// function called when photo is taken by camera
+  void parsePhotoName(
+      String photoName  // name of photo created by camera
+      ) async{
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
+
+    final jpgFile = File(photoName);
+    final Uint8List jpgBytes;
+    try {
+      jpgBytes = await jpgFile.readAsBytes();
+    } catch (e) {
+      log.severe('Failed to read file when importing $photoName: $e', e);
+      return;
+    }
     List<EditorImage> images = [
-      for (final _PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == '.svg')
-          SvgEditorImage(
-            id: coreInfo.nextImageId++,
-            svgString: utf8.decode(photoInfo.bytes),
-            svgFile: null,
-            pageIndex: currentPageIndex,
-            pageSize: coreInfo.pages[currentPageIndex].size,
-            onMoveImage: onMoveImage,
-            onDeleteImage: onDeleteImage,
-            onMiscChange: autosaveAfterDelay,
-            onLoad: () => setState(() {}),
-            assetCache: coreInfo.assetCache,
-          )
-        else
           PngEditorImage(
             id: coreInfo.nextImageId++,
-            extension: photoInfo.extension,
-            imageProvider: MemoryImage(photoInfo.bytes),
+            extension: path.extension(photoName),
+            imageProvider: MemoryImage(jpgBytes),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
@@ -1128,10 +1099,49 @@ class EditorState extends State<Editor> {
     createPage(currentPageIndex);
     coreInfo.pages[currentPageIndex].images.addAll(images);
     autosaveAfterDelay();
-
-    return images.length;
+//    return images.length;
   }
 
+  void _takePhoto() async {
+    ///  take photo by camera
+    if (coreInfo.readOnly) return;
+
+    WidgetsFlutterBinding.ensureInitialized();
+    // Obtain a list of the available cameras on the device.
+
+    try {
+      final cameras = await availableCameras();
+      // Get a specific camera from the list of available cameras.
+      final CameraDescription camera= cameras.first;
+
+      // show camera dialog and wait until it ends
+      await showDialog(
+          context: context,
+          builder: (context) { return AlertDialog(
+            title: Text(t.editor.camera.takePhoto),
+            content: takePhoto(context,
+              camera,
+              ),
+          );
+          }
+      );
+      return;
+    } catch (e) {
+      // If an error occurs, log the error to the console.
+      log.warning(e.toString());
+      return; // no image taken
+    }
+  }
+
+  /// widget calling camera
+  Widget takePhoto(BuildContext context,
+      CameraDescription camera,
+      ){
+    return TakePictureScreen(
+      camera: camera,
+      onFileNameChanged: parsePhotoName,
+    );
+  }
 
 
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {

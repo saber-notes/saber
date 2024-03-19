@@ -1,14 +1,22 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/i18n/strings.g.dart';
 
+
+/// class used to take photo by camera
+///
 class TakePictureScreen extends StatefulWidget {
-  const TakePictureScreen({
+  TakePictureScreen({
     super.key,
-    required this.camera,
+    required this.camera,     // which camera to use
+    required this.onFileNameChanged,   // function called with photo filename when photo is taken
   });
 
-  final CameraDescription camera;
+  final log = Logger('Camera');
+
+  final CameraDescription camera;  // camera
+  final ValueChanged<String> onFileNameChanged;  // function obtaining photo name
 
   @override
   TakePictureScreenState createState() => TakePictureScreenState();
@@ -44,7 +52,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a picture')),
+      appBar: AppBar(title: Text(t.editor.camera.takePhoto)),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
       // controller has finished initializing.
@@ -74,44 +82,18 @@ class TakePictureScreenState extends State<TakePictureScreen> {
             final image = await _controller.takePicture();
 
             if (!context.mounted) return;
-
-            // // If the picture was taken, display it on a new screen.
-            // await Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => DisplayPictureScreen(
-            //       // Pass the automatically generated path to
-            //       // the DisplayPictureScreen widget.
-            //       imagePath: image.path,
-            //     ),
-            //   ),
-            // );
+            widget.onFileNameChanged(image.path); // call callback with image path
           } catch (e) {
             // If an error occurs, log the error to the console.
-            print(e);
+            widget.log.warning('Error taking photo ${e.toString()}');
           }
+
         },
         child: const Icon(Icons.camera_alt),
       ),
     );
   }
 }
-
-// // A widget that displays the picture taken by the user.
-// class DisplayPictureScreen extends StatelessWidget {
-//   final String imagePath;
-//
-//   const DisplayPictureScreen({super.key, required this.imagePath});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text('Display the Picture')),
-//       // The image is stored as a file on the device. Use the `Image.file`
-//       // constructor with the given path to display the image.
-//       body: Image.file(File(imagePath)),
-//     );
-//   }
-// }
 
 
 

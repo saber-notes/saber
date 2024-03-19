@@ -449,11 +449,21 @@ class _ToolbarState extends State<Toolbar> {
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.photo,
                 enabled: !widget.readOnly,
-                onPressed: widget.takePhoto, //pickPhoto,
+                onPressed: widget.pickPhoto,
                 padding: buttonPadding,
                 child: const AdaptiveIcon(
                   icon: Icons.photo,
                   cupertinoIcon: CupertinoIcons.photo,
+                ),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.camera,
+                enabled: !widget.readOnly,
+                onPressed: widget.takePhoto,
+                padding: buttonPadding,
+                child: const AdaptiveIcon(
+                  icon: Icons.camera_alt,
+                  cupertinoIcon: CupertinoIcons.camera,
                 ),
               ),
               ToolbarIconButton(
