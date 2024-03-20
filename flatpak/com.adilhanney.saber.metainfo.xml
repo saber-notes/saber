@@ -8,9 +8,11 @@
 
     <name>Saber: Handwritten Notes</name>
     <summary>The notes app built for handwriting</summary>
-
-    <developer_name>Adil Hanney</developer_name>
     <url type="homepage">https://github.com/saber-notes/saber</url>
+
+    <developer id="com.adilhanney">
+        <name>Adil Hanney</name>
+    </developer>
 
     <metadata_license>MIT</metadata_license>
     <project_license>GPL-3.0-only</project_license>
