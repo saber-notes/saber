@@ -135,6 +135,8 @@ class PdfEditorImage extends EditorImage {
           : naturalSize;
       dstRect = dstRect.topLeft & dstSize;
     }
+    // each image should have set dstFullRect.
+    dstFullRect=getDstFullRect(); // calculate full image rect
   }
 
   @override
