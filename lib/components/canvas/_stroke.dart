@@ -275,6 +275,18 @@ class Stroke {
     return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
   }
 
+  double get minY {
+    return points.isEmpty ? 0 : points.map((point) => point.y).reduce(min);
+  }
+
+  double get maxX {
+    return points.isEmpty ? 0 : points.map((point) => point.x).reduce(max);
+  }
+
+  double get minX {
+    return points.isEmpty ? 0 : points.map((point) => point.x).reduce(min);
+  }
+
   RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;
     return recognizeUnistroke(points);
@@ -285,7 +297,7 @@ class Stroke {
   ///
   /// In addition, the line must be sufficiently long
   /// relative to [options.size].
-  bool isStraightLine([int minLength = 5]) {
+  bool isStraightLine({int minLength = 5,bool isShapePen=true}) {
     if (points.length < 3) return false;
 
     final recognized = recognizeUnistroke(
@@ -297,6 +309,27 @@ class Stroke {
     if (recognized == null) return false;
     assert(recognized.name == DefaultUnistrokeNames.line);
     if (recognized.score < 0.7) return false;
+
+    if (! isShapePen) {
+      // current pen is not shape pen, it is pencil or pen. If all points of line are not in one direction in x,
+      // it can be a text
+      double dx0 = maxX - minX; // length in x direction
+      double dy0 = maxY - minY; // length in y direction
+      if (dy0 < 3 *
+          dx0) { // points distance in y direction is smaller than 3 times in x direction - it can be a word
+        dx0 = points[1].x - points[0].x;
+        for (int i = 1; i < points.length - 1; i++) {
+          double dxp = points[i + 1].x - points[i].x;
+          if (dx0 == 0.0 &&
+              dxp != 0.0) { // if initial dx is zero use dxp as direction
+            dx0 = dxp;
+          }
+          if (dx0 * dxp < 0.0) {
+            return false; // this line segment is in opposite direction to dx0
+          }
+        }
+      }
+    }
 
     final sqrLength = points.first.distanceSquaredTo(points.last);
     final sqrMinLength = minLength * minLength * options.size * options.size;

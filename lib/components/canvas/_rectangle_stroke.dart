@@ -161,7 +161,7 @@ class RectangleStroke extends Stroke {
 
   @override
   @Deprecated('We already know the shape is a rectangle.')
-  bool isStraightLine([int minLength = 0]) => false;
+  bool isStraightLine({int minLength = 0,bool isShapePen=true}) => false;
 
   @override
   RectangleStroke copy() => RectangleStroke(

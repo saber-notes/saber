@@ -631,7 +631,9 @@ class EditorState extends State<Editor> {
 
         if (Prefs.autoStraightenLines.value &&
             currentTool is! ShapePen &&
-            newStroke.isStraightLine()) {
+            newStroke.isStraightLine(isShapePen: currentTool is! ShapePen &&  // is pen
+                                                  Prefs.lastTool.value == ToolId.shapePen) // is Shape pen, not pencil, fountain, ...
+          ) {
           newStroke.convertToLine();
         }
 
