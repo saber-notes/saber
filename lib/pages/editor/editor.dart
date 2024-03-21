@@ -888,7 +888,11 @@ class EditorState extends State<Editor> {
     );
     final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
     final thumbnail = await screenshotter.captureFromWidget(
-      TranslationProvider(
+      MediaQuery(
+        data: MediaQueryData(
+          size: thumbnailSize,
+          devicePixelRatio: 1,
+        ),
         child: MaterialApp(
           theme: ThemeData(
             brightness: Brightness.light,
@@ -897,12 +901,7 @@ class EditorState extends State<Editor> {
               secondary: EditorExporter.secondaryColor,
             ),
           ),
-          home: MediaQuery(
-            data: MediaQueryData(
-              size: thumbnailSize,
-              devicePixelRatio: 1,
-            ),
-            child: SizedBox(
+          home: SizedBox(
               width: thumbnailSize.width,
               height: thumbnailSize.height,
               child: FittedBox(
@@ -916,7 +915,6 @@ class EditorState extends State<Editor> {
               ),
             ),
           ),
-        ),
       ),
       pixelRatio: 1,
       targetSize: thumbnailSize,
