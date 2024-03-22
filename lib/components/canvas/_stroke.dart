@@ -313,20 +313,17 @@ class Stroke {
     if (! isShapePen) {
       // current pen is not shape pen, it is pencil or pen. If all points of line are not in one direction in x,
       // it can be a text
-      double dx0 = maxX - minX; // length in x direction
-      double dy0 = maxY - minY; // length in y direction
-      if (dy0 < 3 *
-          dx0) { // points distance in y direction is smaller than 3 times in x direction - it can be a word
-        dx0 = points[1].x - points[0].x;
-        for (int i = 1; i < points.length - 1; i++) {
-          double dxp = points[i + 1].x - points[i].x;
-          if (dx0 == 0.0 &&
-              dxp != 0.0) { // if initial dx is zero use dxp as direction
-            dx0 = dxp;
-          }
-          if (dx0 * dxp < 0.0) {
-            return false; // this line segment is in opposite direction to dx0
-          }
+      // vector start-end
+      double dx0 = points[points.length-1].x - points[0].x; // length in x direction
+      double dy0 = points[points.length-1].y - points[0].y; // length in y direction
+      for (int i = 1; i < points.length - 1; i++) {
+        double dxp = points[i + 1].x - points[i].x;
+        double dyp = points[i + 1].y - points[i].y;
+        if (dxp == 0.0 && dyp == 0.0) {
+          continue;
+        }
+        if (dx0 * dxp +dy0*dyp <= 0.0) { // dot product of start-end and one segment
+          return false; // this line segment is opposite or perpendicular to start-end
         }
       }
     }
