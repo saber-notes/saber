@@ -16,8 +16,8 @@ import workmanager
     // register pubspec plugins in the context of a normal run
     AppDelegate.registerPlugins(with: self)
     
-    WorkermanagerPlugin.setPluginRegistrantCallback { registry in
-      // The following code will be called upon WorkermanagerPlugin's registration.
+    WorkmanagerPlugin.setPluginRegistrantCallback { registry in
+      // The following code will be called upon WorkmanagerPlugin's registration.
       AppDelegate.registerPlugins(with: registry)
     }
 
