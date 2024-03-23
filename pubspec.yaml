@@ -69,8 +69,8 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  share_plus: ^7.0.0
-  file_picker: ^6.0.0
+  share_plus: ^8.0.2
+  file_picker: ^8.0.0+1
 
   regexed_validator: ^2.0.0+1
 
@@ -122,7 +122,7 @@ dependencies:
 
   fast_image_resizer: ^0.0.2
 
-  google_mobile_ads: ^4.0.0
+  google_mobile_ads: ^5.0.0
   app_tracking_transparency: ^2.0.4
 
   bson: ^4.0.0
