@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -7,9 +8,11 @@ class SizePicker extends StatefulWidget {
   const SizePicker({
     super.key,
     required this.pen,
+    required this.toolbarSize,
   });
 
   final Pen pen;
+  final ToolbarSize toolbarSize;
 
   @override
   State<SizePicker> createState() => _SizePickerState();
@@ -37,19 +40,20 @@ class _SizePickerState extends State<SizePicker> {
               t.editor.penOptions.size,
               style: TextStyle(
                 color: colorScheme.onSurface.withOpacity(0.8),
-                fontSize: 10,
+                fontSize: widget.toolbarSize.getSizePickerFontSize(),
                 height: 1,
               ),
             ),
             Text(_prettyNum(widget.pen.options.size)),
           ],
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: widget.toolbarSize.getToolbarPadding()),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: EdgeInsets.symmetric(vertical: widget.toolbarSize.getToolbarPadding()),
           child: _SizeSlider(
             pen: widget.pen,
             setState: setState,
+            toolbarSize: widget.toolbarSize,
           ),
         ),
       ],
@@ -63,15 +67,15 @@ class _SizeSlider extends StatelessWidget {
     super.key,
     required this.pen,
     required this.setState,
+    required this.toolbarSize,
   });
 
   final Pen pen;
+  final ToolbarSize toolbarSize;
   final void Function(void Function()) setState;
 
-  static const Size _size = Size(150, 25);
-
   void onDrag(double localDx) {
-    final relX = clampDouble(localDx / _size.width, 0, 1);
+    final relX = clampDouble(localDx / toolbarSize.getSizePickerSize().width, 0, 1);
     final stepsFromMin = (relX * pen.sizeStepsBetweenMinAndMax).round();
     final newSize = pen.sizeMin + stepsFromMin * pen.sizeStep;
     if (newSize == pen.options.size) return;
@@ -87,7 +91,7 @@ class _SizeSlider extends StatelessWidget {
       onHorizontalDragStart: (details) => onDrag(details.localPosition.dx),
       onHorizontalDragUpdate: (details) => onDrag(details.localPosition.dx),
       child: CustomPaint(
-        size: _size,
+        size: toolbarSize.getSizePickerSize(),
         painter: _SizeSliderPainter(
           minSize: pen.sizeMin,
           maxSize: pen.sizeMax,

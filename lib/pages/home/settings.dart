@@ -16,6 +16,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
+import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
@@ -83,6 +84,12 @@ abstract class _SettingsPrefs {
     Prefs.editorToolbarAlignment,
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
+  );
+
+  static final editorToolbarSize = TransformedPref(
+    Prefs.editorToolbarSize,
+        (ToolbarSize value) => value.index,
+        (int value) => ToolbarSize.values[value],
   );
 }
 
@@ -379,6 +386,37 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                 ],
                 afterChange: (_) => setState(() {}),
+              ),
+
+              SettingsSelection(
+                title: t.settings.prefLabels.editorToolbarSize,
+                subtitle: switch (Prefs.editorToolbarSize.value) {
+                  ToolbarSize.small => t.settings.editorToolbarSizes.small,
+                  ToolbarSize.normal => t.settings.editorToolbarSizes.normal,
+                  ToolbarSize.big => t.settings.editorToolbarSizes.big,
+                },
+                afterChange: (_) => setState(() {}),
+                iconBuilder: (i) => switch (ToolbarSize.values[i]) {
+                  ToolbarSize.small => FontAwesomeIcons.pencil,
+                  ToolbarSize.normal => FontAwesomeIcons.pencil,
+                  ToolbarSize.big => FontAwesomeIcons.pencil,
+                },
+                pref: _SettingsPrefs.editorToolbarSize,
+                optionsWidth: 60,
+                options: [
+                  ToggleButtonsOption(
+                      ToolbarSize.small.index,
+                      Icon(FontAwesomeIcons.pencil, size: ToolbarSize.small.getButtonSize(),
+                          semanticLabel: t.settings.editorToolbarSizes.small)),
+                  ToggleButtonsOption(
+                      ToolbarSize.normal.index,
+                      Icon(FontAwesomeIcons.pencil, size: ToolbarSize.normal.getButtonSize(),
+                      semanticLabel: t.settings.editorToolbarSizes.normal)),
+                  ToggleButtonsOption(
+                      ToolbarSize.big.index,
+                      Icon(FontAwesomeIcons.pencil, size: ToolbarSize.big.getButtonSize(),
+                      semanticLabel: t.settings.editorToolbarSizes.big)),
+                ],
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorToolbarShowInFullscreen,
