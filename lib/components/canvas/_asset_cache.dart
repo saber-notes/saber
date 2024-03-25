@@ -83,6 +83,18 @@ class OrderedAssetCache {
 
   final List<Object> _cache = [];
 
+  /// Maps a file path to already added assets.
+  final Map<String, int> _fileIndices = {};
+
+  void addAsset(File? file, int index) {
+    if (file == null) return;
+    _fileIndices[file.path] = index;
+  }
+
+ int? getAsset(File file) {
+    return _fileIndices[file.path] as int?;
+  }
+
   /// Adds [value] to the cache if it is not already present and
   /// returns the index of the added item.
   int add<T extends Object>(T value) {

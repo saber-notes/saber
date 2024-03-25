@@ -107,12 +107,23 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    // try to find the pdf in the cache
-    pdfBytes ??= assetCache.get(pdfFile!);
-    if (pdfBytes != null) {
-      json['a'] = assets.add(pdfBytes!);
+    // check if pdf was loaded as asset before
+    final int? assetId = assets.getAsset(pdfFile!);
+
+    if (assetId == null) {
+      // try to find the pdf in the cache
+      pdfBytes ??= assetCache.get(pdfFile!);
+      if (pdfBytes != null) {
+        final int index = assets.add(pdfBytes!);
+        json['a'] = index;
+        assets.addAsset(pdfFile!, index);
+      } else {
+        final int index = assets.add(pdfFile!);
+        json['a'] = index;
+        assets.addAsset(pdfFile!, index);
+      }
     } else {
-      json['a'] = assets.add(pdfFile!);
+        json['a'] = assetId;
     }
 
     json['pdfi'] = pdfPage;
