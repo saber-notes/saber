@@ -108,7 +108,7 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('b'));
 
     // check if pdf was loaded as asset before
-    final int? assetId = assets.getAsset(pdfFile!);
+    final int? assetId = assets.getFileIndex(pdfFile!);
 
     if (assetId == null) {
       // try to find the pdf in the cache
@@ -116,11 +116,11 @@ class PdfEditorImage extends EditorImage {
       if (pdfBytes != null) {
         final int index = assets.add(pdfBytes!);
         json['a'] = index;
-        assets.addAsset(pdfFile!, index);
+        assets.addFileIndex(pdfFile!, index);
       } else {
         final int index = assets.add(pdfFile!);
         json['a'] = index;
-        assets.addAsset(pdfFile!, index);
+        assets.addFileIndex(pdfFile!, index);
       }
     } else {
         json['a'] = assetId;

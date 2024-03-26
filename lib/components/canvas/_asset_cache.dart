@@ -86,12 +86,12 @@ class OrderedAssetCache {
   /// Maps a file path to already added assets.
   final Map<String, int> _fileIndices = {};
 
-  void addAsset(File? file, int index) {
+  void addFileIndex(File? file, int index) {
     if (file == null) return;
     _fileIndices[file.path] = index;
   }
 
- int? getAsset(File file) {
+ int? getFileIndex(File file) {
     return _fileIndices[file.path] as int?;
   }
 
