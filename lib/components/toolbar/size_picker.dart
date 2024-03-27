@@ -16,6 +16,9 @@ class SizePicker extends StatefulWidget {
 
   @override
   State<SizePicker> createState() => _SizePickerState();
+
+  static const double smallLength = 25;
+  static const double largeLength = 150;
 }
 
 /// Returns a string representation of [num] that:
@@ -75,9 +78,6 @@ class _SizeSlider extends StatelessWidget {
   final Axis axis;
   final void Function(void Function()) setState;
 
-  static const double _smallLength = 25;
-  static const double _largeLength = 150;
-
   /// [percent] is a value between 0 and 1
   /// where 0 is the start of the slider and 1 is the end.
   ///
@@ -97,21 +97,25 @@ class _SizeSlider extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     return GestureDetector(
       onHorizontalDragStart: axis == Axis.horizontal
-          ? (details) => onDrag(details.localPosition.dx / _largeLength)
+          ? (details) =>
+              onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
       onHorizontalDragUpdate: axis == Axis.horizontal
-          ? (details) => onDrag(details.localPosition.dx / _largeLength)
+          ? (details) =>
+              onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
       onVerticalDragStart: axis == Axis.vertical
-          ? (details) => onDrag(details.localPosition.dy / _largeLength)
+          ? (details) =>
+              onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       onVerticalDragUpdate: axis == Axis.vertical
-          ? (details) => onDrag(details.localPosition.dy / _largeLength)
+          ? (details) =>
+              onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       child: RotatedBox(
         quarterTurns: axis == Axis.horizontal ? 0 : 1,
         child: CustomPaint(
-          size: const Size(_largeLength, _smallLength),
+          size: const Size(SizePicker.largeLength, SizePicker.smallLength),
           painter: _SizeSliderPainter(
             axis: axis,
             minSize: pen.sizeMin,
