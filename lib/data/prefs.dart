@@ -113,6 +113,7 @@ abstract class Prefs {
       lastShapePenColor;
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
   static late final PlainPref<int> lastLineHeight;
+  static late final PlainPref<int> lastLineWeight;
   static late final PlainPref<bool> lastZoomLock,
       lastSingleFingerPanLock,
       lastAxisAlignedPanLock;
@@ -241,6 +242,7 @@ abstract class Prefs {
     lastBackgroundPattern =
         PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
     lastLineHeight = PlainPref('lastLineHeight', 40);
+    lastLineWeight = PlainPref('lastLineWeight', 3);
     lastZoomLock = PlainPref('lastZoomLock', false);
     lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
         historicalKeys: const ['lastPanLock']);
