@@ -1,18 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/row_col.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {
   const SizePicker({
     super.key,
+    required this.axis,
     required this.pen,
   });
 
+  final Axis axis;
   final Pen pen;
 
   @override
   State<SizePicker> createState() => _SizePickerState();
+
+  static const double smallLength = 25;
+  static const double largeLength = 150;
 }
 
 /// Returns a string representation of [num] that:
@@ -28,7 +34,8 @@ class _SizePickerState extends State<SizePicker> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    return Row(
+    return RowCol(
+      axis: widget.axis,
       mainAxisSize: MainAxisSize.min,
       children: [
         Column(
@@ -49,6 +56,7 @@ class _SizePickerState extends State<SizePicker> {
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: _SizeSlider(
             pen: widget.pen,
+            axis: widget.axis,
             setState: setState,
           ),
         ),
@@ -62,17 +70,21 @@ class _SizeSlider extends StatelessWidget {
     // ignore: unused_element
     super.key,
     required this.pen,
+    required this.axis,
     required this.setState,
   });
 
   final Pen pen;
+  final Axis axis;
   final void Function(void Function()) setState;
 
-  static const Size _size = Size(150, 25);
-
-  void onDrag(double localDx) {
-    final relX = clampDouble(localDx / _size.width, 0, 1);
-    final stepsFromMin = (relX * pen.sizeStepsBetweenMinAndMax).round();
+  /// [percent] is a value between 0 and 1
+  /// where 0 is the start of the slider and 1 is the end.
+  ///
+  /// Values outside of this range are allowed but will be clamped.
+  void onDrag(double percent) {
+    percent = clampDouble(percent, 0, 1);
+    final stepsFromMin = (percent * pen.sizeStepsBetweenMinAndMax).round();
     final newSize = pen.sizeMin + stepsFromMin * pen.sizeStep;
     if (newSize == pen.options.size) return;
     setState(() {
@@ -84,16 +96,34 @@ class _SizeSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return GestureDetector(
-      onHorizontalDragStart: (details) => onDrag(details.localPosition.dx),
-      onHorizontalDragUpdate: (details) => onDrag(details.localPosition.dx),
-      child: CustomPaint(
-        size: _size,
-        painter: _SizeSliderPainter(
-          minSize: pen.sizeMin,
-          maxSize: pen.sizeMax,
-          currentSize: pen.options.size,
-          trackColor: colorScheme.onBackground.withOpacity(0.2),
-          thumbColor: colorScheme.primary,
+      onHorizontalDragStart: axis == Axis.horizontal
+          ? (details) =>
+              onDrag(details.localPosition.dx / SizePicker.largeLength)
+          : null,
+      onHorizontalDragUpdate: axis == Axis.horizontal
+          ? (details) =>
+              onDrag(details.localPosition.dx / SizePicker.largeLength)
+          : null,
+      onVerticalDragStart: axis == Axis.vertical
+          ? (details) =>
+              onDrag(details.localPosition.dy / SizePicker.largeLength)
+          : null,
+      onVerticalDragUpdate: axis == Axis.vertical
+          ? (details) =>
+              onDrag(details.localPosition.dy / SizePicker.largeLength)
+          : null,
+      child: RotatedBox(
+        quarterTurns: axis == Axis.horizontal ? 0 : 1,
+        child: CustomPaint(
+          size: const Size(SizePicker.largeLength, SizePicker.smallLength),
+          painter: _SizeSliderPainter(
+            axis: axis,
+            minSize: pen.sizeMin,
+            maxSize: pen.sizeMax,
+            currentSize: pen.options.size,
+            trackColor: colorScheme.onBackground.withOpacity(0.2),
+            thumbColor: colorScheme.primary,
+          ),
         ),
       ),
     );
@@ -102,6 +132,7 @@ class _SizeSlider extends StatelessWidget {
 
 class _SizeSliderPainter extends CustomPainter {
   _SizeSliderPainter({
+    required this.axis,
     required this.minSize,
     required this.maxSize,
     required this.currentSize,
@@ -109,6 +140,7 @@ class _SizeSliderPainter extends CustomPainter {
     required this.thumbColor,
   });
 
+  final Axis axis;
   final double minSize;
   final double maxSize;
   final double currentSize;
@@ -158,6 +190,7 @@ class _SizeSliderPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return oldDelegate is! _SizeSliderPainter ||
+        oldDelegate.axis != axis ||
         oldDelegate.minSize != minSize ||
         oldDelegate.maxSize != maxSize ||
         oldDelegate.currentSize != currentSize ||
