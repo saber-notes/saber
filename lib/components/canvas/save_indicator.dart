@@ -28,7 +28,8 @@ class SaveIndicator extends StatelessWidget {
             icon: switch (savingState.value) {
               SavingState.waitingToSave => const Icon(Icons.save),
               SavingState.saving => const CircularProgressIndicator.adaptive(),
-              SavingState.saved => const Icon(Icons.arrow_back),
+              SavingState.savedWithoutThumbnail => const Icon(Icons.arrow_back),
+              SavingState.savedWithThumbnail => const Icon(Icons.arrow_back),
             },
           ),
         );
@@ -36,13 +37,17 @@ class SaveIndicator extends StatelessWidget {
     );
   }
 
+  /// When the save/exit button is pressed
   void _onPressed(BuildContext context) {
     switch (savingState.value) {
       case SavingState.waitingToSave:
         triggerSave();
       case SavingState.saving:
         break;
-      case SavingState.saved:
+      case SavingState.savedWithoutThumbnail:
+        triggerSave(); // triggering save will be created thumbnail and then is finished editing
+        _back(context);
+      case SavingState.savedWithThumbnail:
         _back(context);
     }
   }
@@ -62,5 +67,11 @@ class SaveIndicator extends StatelessWidget {
 enum SavingState {
   waitingToSave,
   saving,
-  saved,
+
+  /// Saved, but the thumbnail still needs updating.
+  /// (Thumbnails aren't created when auto-saving to avoid lag.)
+  savedWithoutThumbnail,
+
+  /// Saved, and the thumbnail is up-to-date.
+  savedWithThumbnail,
 }
