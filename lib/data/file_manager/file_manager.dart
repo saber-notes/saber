@@ -65,17 +65,22 @@ class FileManager {
     if (oldDir.path == newDir.path) return;
     log.info('Migrating data directory from $oldDir to $newDir');
 
-    if (!oldDir.existsSync()) {
-      log.info('Old data directory does not exist, nothing to migrate');
-      return;
-    }
-    if (newDir.existsSync() && newDir.listSync().isNotEmpty) {
-      log.severe('New data directory already exists, not migrating');
+    late final oldDirEmpty =
+        oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    late final newDirEmpty =
+        newDir.existsSync() ? newDir.listSync().isEmpty : true;
+
+    if (!oldDirEmpty && !newDirEmpty) {
+      log.severe('New and old data directory aren\'t empty, can\'t migrate');
       return;
     }
 
     documentsDirectory = newDir.path;
-    await oldDir.rename(newDir.path);
+    if (oldDirEmpty) {
+      log.fine('Old data directory is empty or missing, nothing to migrate');
+    } else {
+      await oldDir.rename(newDir.path);
+    }
   }
 
   @visibleForTesting
