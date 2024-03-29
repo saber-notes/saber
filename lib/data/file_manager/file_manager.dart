@@ -46,11 +46,36 @@ class FileManager {
     String? documentsDirectory,
     bool shouldWatchRootDirectory = true,
   }) async {
-    FileManager.documentsDirectory = documentsDirectory ??
-        Prefs.customDataDir.value ??
-        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+    FileManager.documentsDirectory =
+        documentsDirectory ?? await getDocumentsDirectory();
 
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
+  }
+
+  static Future<String> getDocumentsDirectory() async {
+    return Prefs.customDataDir.value ??
+        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+  }
+
+  static Future<void> migrateDataDir() async {
+    // TODO(adil192): Make sure we're not currently syncing
+
+    final oldDir = Directory(documentsDirectory);
+    final newDir = Directory(await getDocumentsDirectory());
+    if (oldDir.path == newDir.path) return;
+    log.info('Migrating data directory from $oldDir to $newDir');
+
+    if (!oldDir.existsSync()) {
+      log.info('Old data directory does not exist, nothing to migrate');
+      return;
+    }
+    if (newDir.existsSync() && newDir.listSync().isNotEmpty) {
+      log.severe('New data directory already exists, not migrating');
+      return;
+    }
+
+    documentsDirectory = newDir.path;
+    await oldDir.rename(newDir.path);
   }
 
   @visibleForTesting
