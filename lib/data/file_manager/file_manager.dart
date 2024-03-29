@@ -47,7 +47,9 @@ class FileManager {
     bool shouldWatchRootDirectory = true,
   }) async {
     FileManager.documentsDirectory = documentsDirectory ??
+        Prefs.customDataDir.value ??
         '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
   }
 

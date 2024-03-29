@@ -56,6 +56,7 @@ Future<void> main() async {
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
+    Prefs.customDataDir.waitUntilLoaded(),
     Prefs.locale.waitUntilLoaded(),
     Prefs.disableAds.waitUntilLoaded(),
     Prefs.url.waitUntilLoaded(),

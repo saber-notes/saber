@@ -43,6 +43,8 @@ abstract class Prefs {
 
   static late final PlainPref<bool> disableAds;
 
+  static late final PlainPref<String?> customDataDir;
+
   static late final EncPref<bool> allowInsecureConnections;
   static late final EncPref<String> url;
   static late final EncPref<String> username;
@@ -154,6 +156,7 @@ abstract class Prefs {
     }
     disableAds = PlainPref('disableAds', disableAdsDefault);
 
+    customDataDir = PlainPref('customDataDir', null);
     allowInsecureConnections = EncPref('allowInsecureConnections', false);
     url = EncPref('url', '');
     username = EncPref('username', '');
@@ -382,6 +385,7 @@ class PlainPref<T> extends IPref<T> {
         T == int ||
         T == double ||
         T == String ||
+        T == typeOf<String?>() ||
         T == typeOf<Uint8List?>() ||
         T == typeOf<List<String>>() ||
         T == typeOf<Set<String>>() ||
