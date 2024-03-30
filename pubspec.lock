@@ -100,12 +100,11 @@ packages:
   bson:
     dependency: "direct main"
     description:
-      path: "."
-      ref: toJson
-      resolved-ref: "454398817cf10197109adf6524a2cb2d27452d8d"
-      url: "https://github.com/adil192/bson"
-    source: git
-    version: "4.1.0"
+      name: bson
+      sha256: "5a286c4cb9944ab21287579d1f664eb8300daa91d80938349b1a244d165a6ba5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.4"
   built_collection:
     dependency: transitive
     description:

@@ -125,7 +125,7 @@ dependencies:
   google_mobile_ads: ^5.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.0
 
   flutter_speed_dial: ^7.0.0
 
@@ -174,12 +174,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
-
-  # https://github.com/mongo-dart/bson/pull/38
-  bson:
-    git:
-      url: https://github.com/adil192/bson
-      ref: toJson
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
