@@ -7,10 +7,6 @@ on:
     branches:
       - main
 
-env:
-  # MAINTENANCE_CHECKS_ENABLED is overridden later
-  MAINTENANCE_CHECKS_ENABLED: true
-
 jobs:
   run-tests:
     name: Run Flutter tests
@@ -50,21 +46,9 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Prepare environment for tests
-        run: |
-          if [ "$GITHUB_REPOSITORY" = "saber-notes/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
-            MAINTENANCE_CHECKS_ENABLED=true
-          else
-            MAINTENANCE_CHECKS_ENABLED=false
-          fi
-          echo "MAINTENANCE_CHECKS_ENABLED=$MAINTENANCE_CHECKS_ENABLED" >> $GITHUB_ENV
-
       - name: Run tests
         id: tests
-        run: |
-          flutter test \
-            --coverage \
-            --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
+        run: flutter test --coverage
 
       - name: Upload to Codecov
         if: success()
