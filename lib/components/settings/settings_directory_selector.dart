@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -13,13 +16,11 @@ class SettingsDirectorySelector extends StatelessWidget {
     super.key,
     required this.title,
     required this.icon,
-    required this.pref,
     this.afterChange,
   });
 
   final String title;
   final IconData icon;
-  final IPref<String?> pref;
   final ValueChanged<Color?>? afterChange;
 
   void onPressed(context) async {
@@ -47,11 +48,13 @@ class SettingsDirectorySelector extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontStyle:
-                pref.value != pref.defaultValue ? FontStyle.italic : null,
+                Prefs.customDataDir.value != Prefs.customDataDir.defaultValue
+                    ? FontStyle.italic
+                    : null,
           ),
         ),
         subtitle: ValueListenableBuilder(
-          valueListenable: pref,
+          valueListenable: Prefs.customDataDir,
           builder: (context, _, __) => Text(
             FileManager.documentsDirectory,
             style: const TextStyle(fontSize: 13),
@@ -81,17 +84,40 @@ class DirectorySelector extends StatefulWidget {
 }
 
 class _DirectorySelectorState extends State<DirectorySelector> {
-  late String? _directory = widget.initialDirectory;
+  late String _directory = widget.initialDirectory;
+  late bool _isEmpty = true;
 
-  bool get _directoryChanged =>
-      _directory != null && _directory != widget.initialDirectory;
+  Future<void> _pickDir() async {
+    final directory = await FilePicker.platform.getDirectoryPath(
+      dialogTitle: widget.title,
+      initialDirectory: _directory,
+    );
+
+    if (directory == null) return;
+    if (directory == _directory) return;
+    if (!mounted) return;
+
+    final dir = Directory(directory);
+    _directory = directory;
+    _isEmpty = dir.existsSync() ? dir.listSync().isEmpty : true;
+
+    setState(() {});
+  }
 
   void _onConfirm() {
-    if (!_directoryChanged) return;
+    Prefs.customDataDir.value = _directory;
+    context.pop();
   }
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    final emptyError = widget.mustBeEmpty && !_isEmpty;
+    final syncingError = widget.mustBeDoneSyncing &&
+        (FileSyncer.isUploading || FileSyncer.isDownloading);
+    final anyErrors = emptyError || syncingError;
+
     return AdaptiveAlertDialog(
       title: Text(widget.title),
       content: Column(
@@ -101,7 +127,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
             children: [
               Expanded(
                 child: Text(
-                  _directory ?? '',
+                  _directory,
                   style: GoogleFonts.firaMono(
                     textStyle: const TextStyle(fontSize: 13),
                   ),
@@ -109,20 +135,16 @@ class _DirectorySelectorState extends State<DirectorySelector> {
               ),
               IconButton(
                 icon: const Icon(Icons.folder),
-                onPressed: () async {
-                  final directory = await FilePicker.platform.getDirectoryPath(
-                    dialogTitle: widget.title,
-                    initialDirectory: _directory,
-                  );
-
-                  if (directory == null) return;
-                  if (directory == _directory) return;
-                  if (!mounted) return;
-                  setState(() => _directory = directory);
-                },
+                onPressed: _pickDir,
               ),
             ],
           ),
+          if (emptyError)
+            Text(t.settings.customDataDir.mustBeEmpty,
+                style: TextStyle(color: colorScheme.error)),
+          if (syncingError)
+            Text(t.settings.customDataDir.mustBeDoneSyncing,
+                style: TextStyle(color: colorScheme.error)),
         ],
       ),
       actions: [
@@ -132,7 +154,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
         ),
         CupertinoDialogAction(
           isDefaultAction: true,
-          onPressed: _directoryChanged ? _onConfirm : null,
+          onPressed: anyErrors ? null : _onConfirm,
           child: Text(t.settings.customDataDir.select),
         ),
       ],

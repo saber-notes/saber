@@ -486,7 +486,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsDirectorySelector(
                   title: t.settings.prefLabels.customDataDir,
                   icon: Icons.folder,
-                  pref: Prefs.customDataDir,
                 ),
               if (requiresManualUpdates ||
                   Prefs.shouldCheckForUpdates.value !=

@@ -553,6 +553,8 @@ class _StringsSettingsCustomDataDirEn {
 	// Translations
 	String get cancel => 'Cancel';
 	String get select => 'Select';
+	String get mustBeEmpty => 'Selected directory must be empty';
+	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the directory';
 }
 
 // Path: login.feedbacks

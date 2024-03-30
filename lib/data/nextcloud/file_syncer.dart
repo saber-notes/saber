@@ -22,6 +22,7 @@ abstract class FileSyncer {
   static PlainPref<Queue<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
   static CancellableStruct _downloadCancellable = CancellableStruct();
+  static bool get isDownloading => !_downloadCancellable.cancelled;
 
   static NextcloudClient? _client;
 
@@ -163,6 +164,7 @@ abstract class FileSyncer {
 
   /// Prevents multiple uploads from happening at once
   static final _uploadMutex = Mutex();
+  static bool get isUploading => _uploadMutex.isLocked;
 
   /// Picks the first filePath from [_uploadQueue] and uploads it
   @visibleForTesting
