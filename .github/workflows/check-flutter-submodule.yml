@@ -5,8 +5,8 @@ on:
     paths:
       - .github/workflows/check-flutter-submodule.yml
   schedule:
-    # every 2 days at 10:50 am (random time to avoid spikes in GitHub Actions usage)
-    - cron: '50 10 * * *'
+    # every 2 days at 5:58 am (random time to avoid spikes in GitHub Actions usage)
+    - cron: '58 5 */2 * *'
 
 jobs:
   check-flutter-submodule:
