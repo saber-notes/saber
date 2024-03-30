@@ -836,15 +836,6 @@ packages:
       relative: true
     source: path
     version: "1.2.2"
-  open_as_default:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: c390042cacafdea0dd08c2e0dfeafd0552c4a671
-      url: "https://github.com/adil192/open_as_default.git"
-    source: git
-    version: "0.0.4"
   open_filex:
     dependency: "direct main"
     description:
@@ -1298,15 +1289,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  uri_to_file:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "3a32d9d3893eae9449fe39c2061aaad0a266a792"
-      url: "https://github.com/adil192/uri-to-file.git"
-    source: git
-    version: "0.2.0"
   url_launcher:
     dependency: "direct main"
     description:

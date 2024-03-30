@@ -101,9 +101,6 @@ dependencies:
   archive: ^3.4.6
 
   receive_sharing_intent: ^1.6.7
-  open_as_default:
-    git:
-      url: https://github.com/adil192/open_as_default.git
 
   onyxsdk_pen:
     path: packages/onyxsdk_pen
