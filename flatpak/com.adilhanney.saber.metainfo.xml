@@ -198,6 +198,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.21.3" type="development" date="2024-03-31">
+            <description>
+                <ul>
+                    <li>Added a glow effect to the laser pointer</li>
+                    <li>Using the laser pointer no longer triggers the autosave</li>
+                    <li>Fixed the pen size picker not displaying correctly in a vertical toolbar</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.21.2" type="development" date="2024-03-14">
             <description>
                 <ul>
