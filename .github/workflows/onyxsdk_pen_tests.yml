@@ -32,6 +32,11 @@ jobs:
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
-      - name: Run tests (packages/onyxsdk_pen)
+      - name: Run tests
         working-directory: packages/onyxsdk_pen
         run: flutter test
+
+      - name: Lints
+        uses: invertase/github-action-dart-analyzer@v3
+        with:
+          working-directory: packages/onyxsdk_pen

@@ -16,11 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Remove unneeded files
-        run: |
-          rm -rf assets_raw
-          rm -rf submodules
-
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
@@ -67,3 +62,6 @@ jobs:
         with:
           name: Saber-test-failures
           path: test/failures
+
+      - name: Lints
+        uses: invertase/github-action-dart-analyzer@v3
