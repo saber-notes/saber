@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
+    autoStraightenLines(OUTDATED): Автоматическое выпрямление линий
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -107,6 +108,7 @@ settings:
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
+    autoStraightenLines(OUTDATED): Выпрямляет длинные линии без использования фигурного пера.
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
   themeModes:
     system: Системная
@@ -203,7 +205,7 @@ update:
   updateAvailable: Доступно обновление
   updateAvailableDescription: "Доступна новая версия приложения со следующими изменениями:"
   update: Обновить
-  downloadNotAvailableYet(OUTDATED): "Загрузка пока недоступна для вашей платформы. Пожалуйста, зайдите позже."
+  downloadNotAvailableYet: "Загрузка недоступна для вашей платформы. Пожалуйста, проверьте ещё раз позже."
 editor:
   toolbar:
     toggleColors: Выбор цвета (Ctrl C)

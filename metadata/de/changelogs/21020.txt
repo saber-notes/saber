@@ -1,0 +1,3 @@
+• Der Laserpointer wartet nun darauf, dass Sie mit dem Schreiben aufhören, bevor er ausgeblendet wird
+• Es wurde ein Fehler behoben, der dazu führte, dass einige PDF-Seiten verloren gingen
+• Es wurde ein Fehler behoben, bei dem Miniaturansichten gelöschter Notizen nicht entfernt wurden

@@ -1,0 +1,3 @@
+• Lazer işaretçi artık kaybolmadan önce yazmayı bırakmanızı bekliyor
+• Bazı PDF sayfalarının kaybolmasına neden olan bir hata düzeltildi
+• Silinen notların küçük resimlerinin kaldırılmamasına neden olan bir hata düzeltildi

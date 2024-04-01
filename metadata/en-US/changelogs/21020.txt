@@ -1,0 +1,3 @@
+• The laser pointer now waits for you to stop writing before fading out
+• Fixed a bug that caused some PDF pages to get lost
+• Fixed a bug where thumbnails of deleted notes weren't removed

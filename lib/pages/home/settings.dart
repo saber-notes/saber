@@ -472,6 +472,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
                 },
               ),
+              SettingsSwitch(
+                title: t.settings.prefLabels.autoStraightenLines,
+                subtitle: t.settings.prefDescriptions.autoStraightenLines,
+                icon: Icons.straighten,
+                pref: Prefs.autoStraightenLines,
+              ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
               if (requiresManualUpdates ||
                   Prefs.shouldCheckForUpdates.value !=

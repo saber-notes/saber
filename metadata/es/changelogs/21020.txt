@@ -1,0 +1,3 @@
+• El puntero láser ahora espera que dejes de escribir antes de desaparecer
+• Arreglado un error que causó algunas páginas PDF para perderse
+• Arregla un error donde las miniaturas de notas eliminadas no fueron eliminadas

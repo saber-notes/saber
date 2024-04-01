@@ -1,0 +1,2 @@
+• Weniger Fehlalarme beim automatischen Begradigen von Linien
+• Experimentelle Unterstützung für Hintergrundsynchronisierung auf Android und iOS

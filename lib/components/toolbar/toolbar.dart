@@ -11,6 +11,7 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/export_bar.dart';
 import 'package:saber/components/toolbar/pen_modal.dart';
 import 'package:saber/components/toolbar/selection_bar.dart';
+import 'package:saber/components/toolbar/size_picker.dart';
 import 'package:saber/components/toolbar/toolbar_button.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
@@ -212,10 +213,11 @@ class _ToolbarState extends State<Toolbar> {
             axis: isToolbarVertical
                 ? CollapsibleAxis.horizontal
                 : CollapsibleAxis.vertical,
-            maintainState: false,
+            maintainState: true,
             collapsed: toolOptionsType == ToolOptions.hide,
             child: switch (toolOptionsType) {
-              ToolOptions.hide => const SizedBox(),
+              ToolOptions.hide =>
+                const SizedBox.square(dimension: SizePicker.smallLength),
               ToolOptions.pen => PenModal(
                   getTool: () => Pen.currentPen,
                   setTool: widget.setTool,

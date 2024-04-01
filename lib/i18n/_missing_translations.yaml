@@ -45,6 +45,7 @@ ar:
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -55,6 +56,7 @@ ar:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
   login:
@@ -120,6 +122,7 @@ de:
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -128,6 +131,7 @@ de:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
   login:
@@ -158,8 +162,10 @@ es:
       performance(OUTDATED): Performance
     prefLabels:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
@@ -174,6 +180,10 @@ es:
       customBrightnessHue(OUTDATED): Custom $b $h
 fa:
   settings:
+    prefLabels:
+      autoStraightenLines(OUTDATED): Auto straighten lines
+    prefDescriptions:
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
@@ -181,6 +191,11 @@ fa:
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 fr:
+  settings:
+    prefLabels:
+      autoStraightenLines(OUTDATED): Auto straighten lines
+    prefDescriptions:
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -204,8 +219,10 @@ he:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
@@ -291,6 +308,7 @@ hu:
       printPageIndicators(OUTDATED): Print page indicators
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -302,6 +320,7 @@ hu:
       printPageIndicators(OUTDATED): Show page indicators in exports
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     layoutSizes:
       auto(OUTDATED): Auto
@@ -444,6 +463,7 @@ ja:
       recentColorsLength(OUTDATED): How many recent colors to store
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -452,6 +472,7 @@ ja:
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
   login:
@@ -490,8 +511,10 @@ pt-BR:
     prefLabels:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
   login:
     feedbacks:
@@ -512,15 +535,23 @@ pt-BR:
     selectionBar:
       duplicate(OUTDATED): Duplicate
 ru:
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  settings:
+    prefLabels:
+      autoStraightenLines(OUTDATED): Auto straighten lines
+    prefDescriptions:
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
 tr:
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 zh-Hans-CN:
+  settings:
+    prefLabels:
+      autoStraightenLines(OUTDATED): Auto straighten lines
+    prefDescriptions:
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      autoStraightenLines(OUTDATED): Auto straighten lines
+    prefDescriptions:
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen

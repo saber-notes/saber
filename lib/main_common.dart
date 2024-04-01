@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
-import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
@@ -29,6 +28,7 @@ import 'package:saber/pages/user/login.dart';
 import 'package:saber/pages/user/profile_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
+import 'package:workmanager/workmanager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,6 +81,7 @@ Future<void> main() async {
   HttpOverrides.global = NcHttpOverrides();
   runApp(TranslationProvider(child: const App()));
   startSyncAfterUsernameLoaded();
+  setupBackgroundSync();
 }
 
 void startSyncAfterUsernameLoaded() async {
@@ -106,6 +107,55 @@ void setLocale() {
   } else {
     LocaleSettings.useDeviceLocale();
   }
+}
+
+void setupBackgroundSync() {
+  if (!Platform.isAndroid && !Platform.isIOS) return;
+  if (!Prefs.syncInBackground.loaded) {
+    return Prefs.syncInBackground.addListener(setupBackgroundSync);
+  } else {
+    Prefs.syncInBackground.removeListener(setupBackgroundSync);
+  }
+  if (!Prefs.syncInBackground.value) return;
+
+  Workmanager().initialize(doBackgroundSync, isInDebugMode: kDebugMode);
+  const uniqueName = 'background-sync';
+  const initialDelay = Duration(hours: 12);
+  final constraints = Constraints(
+    networkType: NetworkType.unmetered,
+    requiresBatteryNotLow: true,
+    requiresCharging: false,
+    requiresDeviceIdle: true,
+    requiresStorageNotLow: true,
+  );
+
+  if (Platform.isAndroid)
+    Workmanager().registerPeriodicTask(uniqueName, uniqueName,
+        frequency: initialDelay,
+        initialDelay: initialDelay,
+        constraints: constraints);
+  else if (Platform.isIOS)
+    Workmanager().registerOneOffTask(uniqueName, uniqueName,
+        initialDelay: initialDelay, constraints: constraints);
+}
+
+@pragma('vm:entry-point')
+void doBackgroundSync() {
+  Workmanager().executeTask((_, __) async {
+    StrokeOptionsExtension.setDefaults();
+    Prefs.init();
+    Editor.canRasterPdf = false;
+
+    await Future.wait([
+      FileManager.init(),
+      workerManager.init(),
+      Prefs.url.waitUntilLoaded(),
+      Prefs.allowInsecureConnections.waitUntilLoaded(),
+    ]);
+
+    final filesSynced = await FileSyncer.startSync(maxFilesToSync: 10);
+    return filesSynced > 0;
+  });
 }
 
 class App extends StatefulWidget {
@@ -217,16 +267,6 @@ class _AppState extends State<App> {
         for (final file in files) {
           App.openFile(file);
         }
-      });
-    }
-
-    if (Platform.isAndroid) {
-      // this only works for files opened while the app is closed
-      OpenAsDefault.getFileIntent.then((File? file) {
-        if (file == null) return;
-        App.openFile(
-          SharedMediaFile(path: file.path, type: SharedMediaType.file),
-        );
       });
     }
   }

@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.20.3+20030
+version: 0.21.2+21020
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -69,8 +69,8 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  share_plus: ^7.0.0
-  file_picker: ^6.0.0
+  share_plus: ^8.0.2
+  file_picker: ^8.0.0+1
 
   regexed_validator: ^2.0.0+1
 
@@ -96,13 +96,11 @@ dependencies:
   window_manager: ^0.3.0
 
   worker_manager: ^6.0.0
+  workmanager: ^0.5.0
 
   archive: ^3.4.6
 
   receive_sharing_intent: ^1.6.7
-  open_as_default:
-    git:
-      url: https://github.com/adil192/open_as_default.git
 
   onyxsdk_pen:
     path: packages/onyxsdk_pen
@@ -121,10 +119,10 @@ dependencies:
 
   fast_image_resizer: ^0.0.2
 
-  google_mobile_ads: ^4.0.0
+  google_mobile_ads: ^5.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.0
 
   flutter_speed_dial: ^7.0.0
 
@@ -134,13 +132,15 @@ dependencies:
 
   device_info_plus: ^9.0.3
 
-  yaru: ^1.1.0
+  yaru: ^4.0.0
 
-  one_dollar_unistroke_recognizer: ^1.0.0
+  one_dollar_unistroke_recognizer: ^1.1.1
 
   meta: ^1.0.0
 
   mutex: ^3.1.0
+
+  collection: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -157,8 +157,6 @@ dev_dependencies:
 
   icons_launcher: ^2.1.0
 
-  process_run: ^0.14.0+1
-
   simplytranslate: ^1.2.2
 
   auto_screenshot: ^0.0.2
@@ -173,12 +171,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
-
-  # https://github.com/mongo-dart/bson/pull/38
-  bson:
-    git:
-      url: https://github.com/adil192/bson
-      ref: toJson
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
