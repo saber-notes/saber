@@ -460,10 +460,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: bc1dff7a07ca45612db1a9801c9617656cb65121f011766849b4586d1c262798
+      sha256: "6f9dbc941ee788f32b22df68f4fb41a856c9667d73374a8545efc703e8b32ff9"
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.3"
+    version: "9.3.4"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -1229,18 +1229,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "15d25eb88df8e904e0c2ef77378c6010cc57bbfc0b6f91f2416d08fad5fcca92"
+      sha256: ea683cedf63d7d92731b53891a6baabf7d7e5b38ef10ab7a2ed145bd16af159c
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.5"
+    version: "0.8.9"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: f96db6b137a0b135e43034289bb55ca6447b65225076036e81f97ebb6381ffeb
+      sha256: "9ebae48891159d3365d342d6d43abeb5b702758ed30d2b0cc6c125fa0ad577e3"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.5"
+    version: "0.8.9"
   sync_http:
     dependency: transitive
     description:
@@ -1421,10 +1421,10 @@ packages:
     dependency: transitive
     description:
       name: web
-      sha256: "97da13628db363c635202ad97068d47c5b8aa555808e7a9411963c533b449b27"
+      sha256: "1d9158c616048c38f712a6646e317a3426da10e884447626167240d45209cbad"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.1"
+    version: "0.5.0"
   webdriver:
     dependency: transitive
     description:
