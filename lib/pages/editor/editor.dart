@@ -604,6 +604,10 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawUpdate(ScaleUpdateDetails details) {
+    if (dragPageIndex==null){
+      // cursor is somewhere between pages, do not respond until its page will be recognized
+      return;
+    }
     final page = coreInfo.pages[dragPageIndex!];
     Offset position = page.renderBox!.globalToLocal(details.focalPoint);
     Offset offset = position - previousPosition;
@@ -765,6 +769,10 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawEnd(ScaleEndDetails details) {
+    if (dragPageIndex==null){
+      // page cannot be determined from cursor position
+      return;
+    }
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
     setState(() {
@@ -820,6 +828,7 @@ class EditorState extends State<Editor> {
               moveOffset.dy,
             ),
           ));
+          select.selectResult.pageIndexStart=select.selectResult.pageIndex; // set starting page index to current page
         } else {
           shouldSave = false;
           select.onDragEnd(page.strokes, page.images);

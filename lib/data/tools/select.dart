@@ -131,7 +131,7 @@ class SelectResult {
   Path path;
 
   /// The page index when the items were selected.
-  final int pageIndexStart;
+  int pageIndexStart;
 
   SelectResult({
     required this.pageIndex,
