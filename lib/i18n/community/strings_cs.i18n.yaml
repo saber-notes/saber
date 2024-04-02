@@ -91,7 +91,7 @@ settings:
     autosaveDelay: Zpoždění automatického ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
-    customDataDir(OUTDATED): Vlastní datový adresář
+    customDataDir: Vlastní datový adresář
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -132,10 +132,10 @@ settings:
     button: Resetovat
   resyncEverything: Znovu synchronizovat všechny poznámky
   customDataDir:
-    cancel(OUTDATED): zrušení
-    select(OUTDATED): Vybrat
-    mustBeEmpty(OUTDATED): Vybraný adresář musí být prázdný
-    mustBeDoneSyncing(OUTDATED): "Před změnou adresáře se ujistěte, že je synchronizace dokončena"
+    cancel: Zrušit
+    select: Zvolit
+    mustBeEmpty: Zvolený adresář musí být prázdný
+    mustBeDoneSyncing: "Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace"
 login:
   title: Přihlásit se
   feedbacks:
