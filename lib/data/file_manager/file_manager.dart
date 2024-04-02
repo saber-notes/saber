@@ -87,16 +87,20 @@ class FileManager {
     required Directory oldDir,
     required Directory newDir,
   }) async {
+    String entityPath(FileSystemEntity entity) =>
+        '${newDir.path}/${entity.path.split('/').last}';
+
     await newDir.create(recursive: true);
-    await for (final entity in oldDir.list()) {
-      final entityPath = '${newDir.path}/${entity.path.split('/').last}';
-      switch (entity) {
-        case File _:
-          await entity.rename(entityPath);
-        case Directory _:
-          await moveDirContents(oldDir: oldDir, newDir: Directory(entityPath));
-      }
-    }
+    await Future.wait([
+      await for (final entity in oldDir.list())
+        switch (entity) {
+          (File _) => entity.rename(entityPath(entity)),
+          (Directory _) => moveDirContents(
+              oldDir: oldDir, newDir: Directory(entityPath(entity))),
+          _ => Future.value(
+              () => log.warning('Unknown file entity type: $entity')),
+        }
+    ]);
   }
 
   @visibleForTesting
