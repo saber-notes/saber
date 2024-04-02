@@ -90,8 +90,8 @@ settings:
     printPageIndicators: 列印頁碼
     autosaveDelay: 自動儲存延遲
     shapeRecognitionDelay: 形狀識別延遲
-    customDataDir(OUTDATED): 自訂資料目錄
-    autoStraightenLines(OUTDATED): 自動拉直線條
+    autoStraightenLines: 自動拉直線條
+    customDataDir: 自訂資料目錄
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -109,8 +109,8 @@ settings:
     printPageIndicators: 在匯出中顯示頁碼
     autosaveDelay: 自動儲存筆記之前等待多少時間
     shapeRecognitionDelay: 多久更新一次形狀預覽
+    autoStraightenLines: 無需使用形狀筆即可拉直線條
     shouldAlwaysAlertForUpdates: 一旦有更新請告訴我
-    autoStraightenLines(OUTDATED): 無需使用形狀筆即可拉直長線
   themeModes:
     system: 系統
     light: 淺色
@@ -132,10 +132,10 @@ settings:
     button: 重設
   resyncEverything: 全部重新同步
   customDataDir:
-    cancel(OUTDATED): 取消
-    select(OUTDATED): 選擇
-    mustBeEmpty(OUTDATED): 所選目錄必須為空
-    mustBeDoneSyncing(OUTDATED): 更改目錄之前確保同步已完成
+    cancel: 取消
+    select: 選擇
+    mustBeEmpty: 所選目錄必須是空的
+    mustBeDoneSyncing: 更改目錄之前請確保同步已完成
 login:
   title: 登入
   feedbacks:
