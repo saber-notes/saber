@@ -91,79 +91,79 @@ cs:
 de:
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse: Durchsuchen
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote: Notiz exportieren
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
+      newNote: Neue Notiz
+      importNote: Notiz importieren
+    invalidFormat: "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf."
+    backFolder: Zum vorherigen Ordner zurück gehen
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
+      moveNotes: Verschiebe $n Notizen
+      multipleRenamedTo: "Die folgenden Notizen werden umbenannt:"
+      numberRenamedTo: $n Notizen werden umbenannt, um Konfilkte zu vermeiden
+    deleteNote: Notiz löschen
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder: Ordner umbenennen
+      folderName: Ordner-Name
+      rename: Umbenennen
+      folderNameEmpty: Ordner-Name darf nicht leer sin
+      folderNameContainsSlash: Order-Name darf keinen Schrägstrich beinhalten
+      folderNameExists: Ein Ordner mit dem Namen existiert bereits
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder: Ordner löschen
+      deleteName: $f löschen
+      delete: LÖschen
+      alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
   settings:
     prefCategories:
       editor(OUTDATED): Editor
-      performance(OUTDATED): Performance
-      advanced(OUTDATED): Advanced
+      performance: Leistung
+      advanced: Erweitert
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      recentColorsLength(OUTDATED): How many recent colors to store
-      autosaveDelay(OUTDATED): Auto-save delay
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      shouldAlwaysAlertForUpdates: Schneller aktualisieren
+      disableEraserAfterUse: Radierer automatisch dekativieren
+      hideFingerDrawingToggle: Umschalter des Finger-Zeichnens ausblenden
+      recentColorsLength: Anzahl der zuletzt genutzten Farben
+      autosaveDelay: Verzögerung des automatischen Speicherns
+      shapeRecognitionDelay: Verzögerung der Formerkennung
+      autoStraightenLines: Linien automatisch begradigen
+      customDataDir: Benutzerdefiniertes Verzeichnis
     prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      disableEraserAfterUse: Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-    resyncEverything(OUTDATED): Resync everything
+        shown: Schützt vor versehentlichem Umschalten
+        fixedOn: Finger-Zeichnen ist als aktiviert festgelegt
+        fixedOff: Finger-Zeichnen ist als deaktiviert festgelegt
+      autosaveDelay: Verzögerung des automatischen Speicherns einer Notiz
+      shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
+      autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
+      shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
+    resyncEverything: Alles neu Synchronisieren
     customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      cancel: Abbrechen
+      select: Auswählen
+      mustBeEmpty: Ausgewähltes Verzeichnis muss leer sein
+      mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst
   login:
     feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
+      ncUnsupportedFailure: Der angegebene Server führt Nextcloud $v aus, aber diese Version von Sabre unterstützt nur Nextcloud $s bis $t.
   update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+    downloadNotAvailableYet: Der Download ist für deine Platform noch nicht verfügbar. Bitte schaue in Kürze noch einmal nach.
   editor:
     pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
+      pencil: Bleistift
+      shapePen: Form-Stift
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
       customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
+      dark: dunkel
+      light: hell
+      cyan: Cyan
+      pink: Pink
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate: Duplizieren
     menu:
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
