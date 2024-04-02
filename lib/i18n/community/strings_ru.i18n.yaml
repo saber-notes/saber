@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
+    customDataDir(OUTDATED): Пользовательский каталог данных
     autoStraightenLines(OUTDATED): Автоматическое выпрямление линий
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
@@ -108,8 +109,8 @@ settings:
     printPageIndicators: Показывать номера страниц при экспорте
     autosaveDelay: Время ожидания до автосохранения заметки
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
-    autoStraightenLines(OUTDATED): Выпрямляет длинные линии без использования фигурного пера.
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
+    autoStraightenLines(OUTDATED): Выпрямляет длинные линии без использования фигурного пера.
   themeModes:
     system: Системная
     light: Светлая
@@ -130,6 +131,11 @@ settings:
     title: "Сбросить эту настройку?"
     button: Сбросить
   resyncEverything: Повторная синхронизация всего
+  customDataDir:
+    cancel(OUTDATED): Отмена
+    select(OUTDATED): Выбирать
+    mustBeEmpty(OUTDATED): Выбранный каталог должен быть пустым
+    mustBeDoneSyncing(OUTDATED): "Прежде чем менять каталог, убедитесь, что синхронизация завершена."
 login:
   title: Авторизация
   feedbacks:

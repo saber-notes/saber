@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
@@ -108,8 +109,8 @@ settings:
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
-    autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
+    autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système
     light: Clair
@@ -130,6 +131,11 @@ settings:
     title: "Rétablir les valeurs par défaut ?"
     button: Défaut
   resyncEverything: Tout re-syncroniser
+  customDataDir:
+    cancel(OUTDATED): Annuler
+    select(OUTDATED): Sélectionner
+    mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
+    mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
 login:
   title: Connexion
   feedbacks:

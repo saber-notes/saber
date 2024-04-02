@@ -88,6 +88,7 @@ settings:
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
+    customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
     shapeRecognitionDelay(OUTDATED): עיכוב זיהוי צורות
     recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
@@ -107,8 +108,8 @@ settings:
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
-    autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
+    autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
   themeModes:
     system: מערכת
@@ -129,6 +130,11 @@ settings:
   reset:
     title: "אפס הגדרה זו?"
     button: אפס
+  customDataDir:
+    cancel(OUTDATED): לְבַטֵל
+    select(OUTDATED): בחר
+    mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה
+    mustBeDoneSyncing(OUTDATED): ודא שהסנכרון הושלם לפני שינוי הספרייה
   resyncEverything(OUTDATED): סנכרן הכל מחדש
 login:
   title: התחבר

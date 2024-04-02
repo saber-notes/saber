@@ -90,6 +90,7 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
@@ -108,8 +109,8 @@ settings:
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
-    autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
+    autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم
     light: روشن
@@ -129,6 +130,11 @@ settings:
   reset:
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
+  customDataDir:
+    cancel(OUTDATED): لغو کنید
+    select(OUTDATED): انتخاب کنید
+    mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد
+    mustBeDoneSyncing(OUTDATED): قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
 login:
   title: وارد شدن

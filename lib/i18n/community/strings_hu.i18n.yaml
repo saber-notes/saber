@@ -79,6 +79,7 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    customDataDir(OUTDATED): Egyedi adatkönyvtár
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
     shapeRecognitionDelay(OUTDATED): Alakfelismerési késleltetés
     recentColorsLength(OUTDATED): Hány friss színt kell tárolni
@@ -129,6 +130,11 @@ settings:
   reset:
     title: "Visszaállítsa ezt a beállítást?"
     button: Visszaállítás
+  customDataDir:
+    cancel(OUTDATED): Megszünteti
+    select(OUTDATED): Válassza ki
+    mustBeEmpty(OUTDATED): A kiválasztott könyvtárnak üresnek kell lennie
+    mustBeDoneSyncing(OUTDATED): "A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött"
   resyncEverything(OUTDATED): Resync mindent
 login:
   title: Bejelentkezés

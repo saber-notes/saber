@@ -81,6 +81,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
     shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
     recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
@@ -129,6 +130,11 @@ settings:
   reset:
     title: إعادة تعيين هذا الإعداد؟
     button: إعادة تعيين
+  customDataDir:
+    cancel(OUTDATED): يلغي
+    select(OUTDATED): يختار
+    mustBeEmpty(OUTDATED): يجب أن يكون الدليل المحدد فارغًا
+    mustBeDoneSyncing(OUTDATED): تأكد من اكتمال المزامنة قبل تغيير الدليل
   resyncEverything(OUTDATED): إعادة ترتيب كل شيء
 login:
   title: تسجيل الدخول

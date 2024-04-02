@@ -46,6 +46,7 @@ ar:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -59,6 +60,11 @@ ar:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -82,6 +88,14 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom data directory
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
 de:
   home:
     titles:
@@ -123,6 +137,7 @@ de:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -134,6 +149,11 @@ de:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -148,7 +168,7 @@ de:
       customHue(OUTDATED): Custom $h
       dark(OUTDATED): dark
       light(OUTDATED): light
-      cyan: Cyan
+      cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
@@ -163,10 +183,16 @@ es:
     prefLabels:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -182,9 +208,15 @@ fa:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -194,8 +226,14 @@ fr:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -220,10 +258,16 @@ he:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -309,6 +353,7 @@ hu:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -327,6 +372,11 @@ hu:
       phone(OUTDATED): Phone
       tablet(OUTDATED): Tablet
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -425,6 +475,14 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom data directory
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
 ja:
   home:
     titles:
@@ -464,6 +522,7 @@ ja:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -475,6 +534,11 @@ ja:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -512,10 +576,16 @@ pt-BR:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -538,20 +608,46 @@ ru:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
 tr:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom data directory
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
 zh-Hans-CN:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
 zh-Hant-TW:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory

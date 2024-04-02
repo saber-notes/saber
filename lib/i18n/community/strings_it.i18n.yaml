@@ -91,6 +91,7 @@ settings:
     autosaveDelay: Ritardo di salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
+    customDataDir(OUTDATED): Directory di dati personalizzata
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -130,6 +131,11 @@ settings:
     title: "Ripristinare questa impostazione?"
     button: Ripristina
   resyncEverything: Risincronizza tutto
+  customDataDir:
+    cancel(OUTDATED): Annulla
+    select(OUTDATED): Selezionare
+    mustBeEmpty(OUTDATED): La directory selezionata deve essere vuota
+    mustBeDoneSyncing(OUTDATED): Assicurati che la sincronizzazione sia completa prima di cambiare la directory
 login:
   title: Login
   feedbacks:

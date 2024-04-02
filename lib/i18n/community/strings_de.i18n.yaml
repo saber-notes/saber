@@ -84,6 +84,7 @@ settings:
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     printPageIndicators: Seitennummerierung drucken
+    customDataDir(OUTDATED): Benutzerdefiniertes Datenverzeichnis
     autoStraightenLines(OUTDATED): Linien automatisch begradigen
     shapeRecognitionDelay(OUTDATED): Verzögerung der Formerkennung
     recentColorsLength(OUTDATED): Wie viele aktuelle Farben gespeichert werden sollen
@@ -129,6 +130,11 @@ settings:
   reset:
     title: "Diese Einstellung zurücksetzen?"
     button: Zurücksetzen
+  customDataDir:
+    cancel(OUTDATED): Stornieren
+    select(OUTDATED): Wählen
+    mustBeEmpty(OUTDATED): Das ausgewählte Verzeichnis muss leer sein
+    mustBeDoneSyncing(OUTDATED): "Stellen Sie sicher, dass die Synchronisierung abgeschlossen ist, bevor Sie das Verzeichnis ändern"
   resyncEverything(OUTDATED): Alles in Ordnung bringen
 login:
   title: Login
@@ -242,6 +248,7 @@ editor:
     yellow: Gelb
     purple: Lila
     orange: Orange
+    cyan(OUTDATED): Türkis
     pastelRed: Pastellfarbenes Rot
     pastelOrange: Pastellfarbenes Orange
     pastelYellow: Pastellfarbenes Gelb
