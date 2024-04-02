@@ -24,11 +24,14 @@ class SettingsDirectorySelector extends StatelessWidget {
   final ValueChanged<Color?>? afterChange;
 
   void onPressed(context) async {
-    showAdaptiveDialog(
+    final oldDir = Directory(FileManager.documentsDirectory);
+    final oldDirIsEmpty = oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    await showAdaptiveDialog(
       context: context,
       builder: (context) => DirectorySelector(
         title: title,
         initialDirectory: FileManager.documentsDirectory,
+        mustBeEmpty: !oldDirIsEmpty,
       ),
     );
   }
