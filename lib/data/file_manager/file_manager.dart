@@ -52,14 +52,13 @@ class FileManager {
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
   }
 
-  static Future<String> getDocumentsDirectory() async {
-    return Prefs.customDataDir.value ??
-        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
-  }
+  static Future<String> getDocumentsDirectory() async =>
+      Prefs.customDataDir.value ?? await getDefaultDocumentsDirectory();
+
+  static Future<String> getDefaultDocumentsDirectory() async =>
+      '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
 
   static Future<void> migrateDataDir() async {
-    // TODO(adil192): Make sure we're not currently syncing
-
     final oldDir = Directory(documentsDirectory);
     final newDir = Directory(await getDocumentsDirectory());
     if (oldDir.path == newDir.path) return;

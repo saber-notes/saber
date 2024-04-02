@@ -25,7 +25,8 @@ class SettingsDirectorySelector extends StatelessWidget {
 
   void onPressed(context) async {
     final oldDir = Directory(FileManager.documentsDirectory);
-    final oldDirIsEmpty = oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    final oldDirIsEmpty =
+        oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
     await showAdaptiveDialog(
       context: context,
       builder: (context) => DirectorySelector(
@@ -98,12 +99,24 @@ class _DirectorySelectorState extends State<DirectorySelector> {
 
     if (directory == null) return;
     if (directory == _directory) return;
-    if (!mounted) return;
 
     final dir = Directory(directory);
     _directory = directory;
     _isEmpty = dir.existsSync() ? dir.listSync().isEmpty : true;
 
+    if (!mounted) return;
+
+    setState(() {});
+  }
+
+  Future<void> _pickDefaultDir() async {
+    final directory = await FileManager.getDefaultDocumentsDirectory();
+
+    final dir = Directory(directory);
+    _directory = directory;
+    _isEmpty = dir.existsSync() ? dir.listSync().isEmpty : true;
+
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -140,6 +153,11 @@ class _DirectorySelectorState extends State<DirectorySelector> {
                 icon: const Icon(Icons.folder),
                 onPressed: _pickDir,
               ),
+              if (Prefs.customDataDir.value != null)
+                IconButton(
+                  icon: const Icon(Icons.undo),
+                  onPressed: _pickDefaultDir,
+                ),
             ],
           ),
           if (emptyError)
