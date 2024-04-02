@@ -555,12 +555,12 @@ zh-Hans-CN:
 zh-Hant-TW:
   settings:
     prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      autoStraightenLines(OUTDATED): 自動拉直線條
+      customDataDir(OUTDATED): 自訂資料目錄
     prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      autoStraightenLines(OUTDATED): 無需使用形狀筆即可拉直線條
     customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      cancel(OUTDATED): 取消
+      select(OUTDATED): 選擇
+      mustBeEmpty(OUTDATED): 所選目錄必須是空的
+      mustBeDoneSyncing(OUTDATED): 更改目錄之前請確保同步已完成
