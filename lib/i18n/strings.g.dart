@@ -999,6 +999,7 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 		'يسار',
 	];
 	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
+	@override late final _StringsSettingsCustomDataDirAr customDataDir = _StringsSettingsCustomDataDirAr._(_root);
 	@override String get resyncEverything => 'إعادة ترتيب كل شيء';
 }
 
@@ -1256,6 +1257,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get customDataDir => 'دليل البيانات المخصصة';
 	@override String get autoStraightenLines => 'تصويب الخطوط تلقائيا';
 	@override String get shapeRecognitionDelay => 'تأخير التعرف على الشكل';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي سيتم تخزينها';
@@ -1335,6 +1337,19 @@ class _StringsSettingsResetAr extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'إعادة تعيين هذا الإعداد؟';
 	@override String get button => 'إعادة تعيين';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirAr extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'يلغي';
+	@override String get select => 'يختار';
+	@override String get mustBeEmpty => 'يجب أن يكون الدليل المحدد فارغًا';
+	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير الدليل';
 }
 
 // Path: login.feedbacks
@@ -1780,6 +1795,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
+	@override late final _StringsSettingsCustomDataDirCs customDataDir = _StringsSettingsCustomDataDirCs._(_root);
 }
 
 // Path: login
@@ -2046,6 +2062,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
+	@override String get customDataDir => 'Vlastní datový adresář';
 }
 
 // Path: settings.prefDescriptions
@@ -2115,6 +2132,19 @@ class _StringsSettingsResetCs extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Chcete resetovat tuto volbu?';
 	@override String get button => 'Resetovat';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirCs extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Zrušit';
+	@override String get select => 'Zvolit';
+	@override String get mustBeEmpty => 'Zvolený adresář musí být prázdný';
+	@override String get mustBeDoneSyncing => 'Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace';
 }
 
 // Path: login.feedbacks
@@ -2559,6 +2589,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 		'Links',
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
+	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
 	@override String get resyncEverything => 'Alles in Ordnung bringen';
 }
 
@@ -2819,6 +2850,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
+	@override String get customDataDir => 'Benutzerdefiniertes Datenverzeichnis';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get recentColorsLength => 'Wie viele aktuelle Farben gespeichert werden sollen';
@@ -2895,6 +2927,19 @@ class _StringsSettingsResetDe extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Diese Einstellung zurücksetzen?';
 	@override String get button => 'Zurücksetzen';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirDe extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Stornieren';
+	@override String get select => 'Wählen';
+	@override String get mustBeEmpty => 'Das ausgewählte Verzeichnis muss leer sein';
+	@override String get mustBeDoneSyncing => 'Stellen Sie sicher, dass die Synchronisierung abgeschlossen ist, bevor Sie das Verzeichnis ändern';
 }
 
 // Path: login.feedbacks
@@ -3121,6 +3166,7 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get yellow => 'Gelb';
 	@override String get purple => 'Lila';
 	@override String get orange => 'Orange';
+	@override String get cyan => 'Türkis';
 	@override String get pastelRed => 'Pastellfarbenes Rot';
 	@override String get pastelOrange => 'Pastellfarbenes Orange';
 	@override String get pastelYellow => 'Pastellfarbenes Gelb';
@@ -3338,6 +3384,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 		'Izquierda',
 	];
 	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
+	@override late final _StringsSettingsCustomDataDirEs customDataDir = _StringsSettingsCustomDataDirEs._(_root);
 	@override String get resyncEverything => 'Resync todo';
 }
 
@@ -3602,6 +3649,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
+	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
 }
@@ -3625,8 +3673,8 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
-	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
+	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
 
@@ -3673,6 +3721,19 @@ class _StringsSettingsResetEs extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => '¿Quieres restablecer esta configuración?';
 	@override String get button => 'Restablecer';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirEs extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
+	@override String get select => 'Seleccionar';
+	@override String get mustBeEmpty => 'El directorio seleccionado debe estar vacío.';
+	@override String get mustBeDoneSyncing => 'Asegúrese de que la sincronización esté completa antes de cambiar el directorio';
 }
 
 // Path: login.feedbacks
@@ -4117,6 +4178,7 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 		'چپ',
 	];
 	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
+	@override late final _StringsSettingsCustomDataDirFa customDataDir = _StringsSettingsCustomDataDirFa._(_root);
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
 }
 
@@ -4383,6 +4445,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
+	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
 	@override String get autoStraightenLines => 'صاف کردن خودکار خطوط';
 }
 
@@ -4406,8 +4469,8 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
-	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
+	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
 
 // Path: settings.themeModes
@@ -4453,6 +4516,19 @@ class _StringsSettingsResetFa extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'این تنظیمات را بازنشانی می کنید؟';
 	@override String get button => 'بازنشانی';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirFa extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'لغو کنید';
+	@override String get select => 'انتخاب کنید';
+	@override String get mustBeEmpty => 'دایرکتوری انتخاب شده باید خالی باشد';
+	@override String get mustBeDoneSyncing => 'قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است';
 }
 
 // Path: login.feedbacks
@@ -4898,6 +4974,7 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetFr reset = _StringsSettingsResetFr._(_root);
 	@override String get resyncEverything => 'Tout re-syncroniser';
+	@override late final _StringsSettingsCustomDataDirFr customDataDir = _StringsSettingsCustomDataDirFr._(_root);
 }
 
 // Path: login
@@ -5163,6 +5240,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
+	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
 }
 
@@ -5186,8 +5264,8 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
-	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
+	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
 
 // Path: settings.themeModes
@@ -5233,6 +5311,19 @@ class _StringsSettingsResetFr extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Rétablir les valeurs par défaut ?';
 	@override String get button => 'Défaut';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirFr extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Annuler';
+	@override String get select => 'Sélectionner';
+	@override String get mustBeEmpty => 'Le répertoire sélectionné doit être vide';
+	@override String get mustBeDoneSyncing => 'Assurez-vous que la synchronisation est terminée avant de modifier le répertoire';
 }
 
 // Path: login.feedbacks
@@ -5677,6 +5768,7 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 		'שמאל',
 	];
 	@override late final _StringsSettingsResetHe reset = _StringsSettingsResetHe._(_root);
+	@override late final _StringsSettingsCustomDataDirHe customDataDir = _StringsSettingsCustomDataDirHe._(_root);
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
 }
 
@@ -5941,6 +6033,7 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטית';
 	@override String get shapeRecognitionDelay => 'עיכוב זיהוי צורות';
 	@override String get recentColorsLength => 'כמה צבעים אחרונים לאחסן';
@@ -5965,8 +6058,8 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
-	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
+	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
 
@@ -6013,6 +6106,19 @@ class _StringsSettingsResetHe extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'אפס הגדרה זו?';
 	@override String get button => 'אפס';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirHe extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'לְבַטֵל';
+	@override String get select => 'בחר';
+	@override String get mustBeEmpty => 'הספרייה שנבחרה חייבת להיות ריקה';
+	@override String get mustBeDoneSyncing => 'ודא שהסנכרון הושלם לפני שינוי הספרייה';
 }
 
 // Path: login.feedbacks
@@ -6457,6 +6563,7 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 		'Balra',
 	];
 	@override late final _StringsSettingsResetHu reset = _StringsSettingsResetHu._(_root);
+	@override late final _StringsSettingsCustomDataDirHu customDataDir = _StringsSettingsCustomDataDirHu._(_root);
 	@override String get resyncEverything => 'Resync mindent';
 }
 
@@ -6712,6 +6819,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get customDataDir => 'Egyedi adatkönyvtár';
 	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
 	@override String get shapeRecognitionDelay => 'Alakfelismerési késleltetés';
 	@override String get recentColorsLength => 'Hány friss színt kell tárolni';
@@ -6793,6 +6901,19 @@ class _StringsSettingsResetHu extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Visszaállítsa ezt a beállítást?';
 	@override String get button => 'Visszaállítás';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirHu extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Megszünteti';
+	@override String get select => 'Válassza ki';
+	@override String get mustBeEmpty => 'A kiválasztott könyvtárnak üresnek kell lennie';
+	@override String get mustBeDoneSyncing => 'A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött';
 }
 
 // Path: login.feedbacks
@@ -7238,6 +7359,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 	@override String get resyncEverything => 'Risincronizza tutto';
+	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
 }
 
 // Path: login
@@ -7504,6 +7626,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
+	@override String get customDataDir => 'Directory di dati personalizzata';
 }
 
 // Path: settings.prefDescriptions
@@ -7573,6 +7696,19 @@ class _StringsSettingsResetIt extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Ripristinare questa impostazione?';
 	@override String get button => 'Ripristina';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirIt extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Annulla';
+	@override String get select => 'Selezionare';
+	@override String get mustBeEmpty => 'La directory selezionata deve essere vuota';
+	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare la directory';
 }
 
 // Path: login.feedbacks
@@ -8017,6 +8153,7 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 		'左側',
 	];
 	@override late final _StringsSettingsResetJa reset = _StringsSettingsResetJa._(_root);
+	@override late final _StringsSettingsCustomDataDirJa customDataDir = _StringsSettingsCustomDataDirJa._(_root);
 	@override String get resyncEverything => 'すべてを再同期する';
 }
 
@@ -8277,6 +8414,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
 	@override String get shapeRecognitionDelay => '形状認識の遅延';
 	@override String get recentColorsLength => '最近使用した色を何色保存するか';
@@ -8353,6 +8491,19 @@ class _StringsSettingsResetJa extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'この設定をリセットしますか？';
 	@override String get button => 'リセット';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirJa extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'キャンセル';
+	@override String get select => '選択する';
+	@override String get mustBeEmpty => '選択したディレクトリは空である必要があります';
+	@override String get mustBeDoneSyncing => 'ディレクトリを変更する前に同期が完了していることを確認してください';
 }
 
 // Path: login.feedbacks
@@ -8797,6 +8948,7 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 		'Esquerda',
 	];
 	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
+	@override late final _StringsSettingsCustomDataDirPtBr customDataDir = _StringsSettingsCustomDataDirPtBr._(_root);
 	@override String get resyncEverything => 'Resync tudo';
 }
 
@@ -9061,6 +9213,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
+	@override String get customDataDir => 'Diretório de dados personalizado';
 	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de forma';
 	@override String get recentColorsLength => 'Quantas cores recentes armazenar';
@@ -9085,8 +9238,8 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
-	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
+	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
 
@@ -9133,6 +9286,19 @@ class _StringsSettingsResetPtBr extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Redefinir esta configuração?';
 	@override String get button => 'Redefinir';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirPtBr extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
+	@override String get select => 'Selecione';
+	@override String get mustBeEmpty => 'O diretório selecionado deve estar vazio';
+	@override String get mustBeDoneSyncing => 'Certifique-se de que a sincronização esteja concluída antes de alterar o diretório';
 }
 
 // Path: login.feedbacks
@@ -9578,6 +9744,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 	@override String get resyncEverything => 'Повторная синхронизация всего';
+	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
 }
 
 // Path: login
@@ -9843,6 +10010,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
+	@override String get customDataDir => 'Пользовательский каталог данных';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 }
 
@@ -9866,8 +10034,8 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
-	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера.';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
+	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера.';
 }
 
 // Path: settings.themeModes
@@ -9913,6 +10081,19 @@ class _StringsSettingsResetRu extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Сбросить эту настройку?';
 	@override String get button => 'Сбросить';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirRu extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Отмена';
+	@override String get select => 'Выбирать';
+	@override String get mustBeEmpty => 'Выбранный каталог должен быть пустым';
+	@override String get mustBeDoneSyncing => 'Прежде чем менять каталог, убедитесь, что синхронизация завершена.';
 }
 
 // Path: login.feedbacks
@@ -10358,6 +10539,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
+	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
 }
 
 // Path: login
@@ -10624,6 +10806,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
+	@override String get customDataDir => 'Özel veri dizini';
 }
 
 // Path: settings.prefDescriptions
@@ -10693,6 +10876,19 @@ class _StringsSettingsResetTr extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => 'Ayarı sıfırlamak istiyor musunuz?';
 	@override String get button => 'Sıfırla';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirTr extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'İptal etmek';
+	@override String get select => 'Seçme';
+	@override String get mustBeEmpty => 'Seçilen dizin boş olmalıdır';
+	@override String get mustBeDoneSyncing => 'Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
 }
 
 // Path: login.feedbacks
@@ -11138,6 +11334,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 	@override String get resyncEverything => '重新同步所有';
+	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
 }
 
 // Path: login
@@ -11403,6 +11600,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
+	@override String get customDataDir => '自定义数据目录';
 	@override String get autoStraightenLines => '自动拉直线条';
 }
 
@@ -11426,8 +11624,8 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
-	@override String get autoStraightenLines => '无需使用形状笔即可拉直长线';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
+	@override String get autoStraightenLines => '无需使用形状笔即可拉直长线';
 }
 
 // Path: settings.themeModes
@@ -11473,6 +11671,19 @@ class _StringsSettingsResetZhHansCn extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => '重置此设置？';
 	@override String get button => '重置';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirZhHansCn extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
+	@override String get select => '选择';
+	@override String get mustBeEmpty => '所选目录必须为空';
+	@override String get mustBeDoneSyncing => '更改目录之前确保同步已完成';
 }
 
 // Path: login.feedbacks
@@ -11918,6 +12129,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 	@override String get resyncEverything => '全部重新同步';
+	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
 }
 
 // Path: login
@@ -12183,6 +12395,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
+	@override String get customDataDir => '自訂資料目錄';
 	@override String get autoStraightenLines => '自動拉直線條';
 }
 
@@ -12206,8 +12419,8 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
-	@override String get autoStraightenLines => '無需使用形狀筆即可拉直長線';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
+	@override String get autoStraightenLines => '無需使用形狀筆即可拉直長線';
 }
 
 // Path: settings.themeModes
@@ -12253,6 +12466,19 @@ class _StringsSettingsResetZhHantTw extends _StringsSettingsResetEn {
 	// Translations
 	@override String get title => '重設此設定?';
 	@override String get button => '重設';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirZhHantTw extends _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
+	@override String get select => '選擇';
+	@override String get mustBeEmpty => '所選目錄必須為空';
+	@override String get mustBeDoneSyncing => '更改目錄之前確保同步已完成';
 }
 
 // Path: login.feedbacks

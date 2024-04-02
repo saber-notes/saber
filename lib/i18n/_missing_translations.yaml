@@ -88,14 +88,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Vlastní datový adresář
-    customDataDir:
-      cancel(OUTDATED): Zrušit
-      select(OUTDATED): Zvolit
-      mustBeEmpty(OUTDATED): Zvolený adresář musí být prázdný
-      mustBeDoneSyncing(OUTDATED): Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace
 de:
   home:
     titles:
