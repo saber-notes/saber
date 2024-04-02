@@ -205,6 +205,7 @@ class _StringsSettingsEn {
 	];
 	late final _StringsSettingsResetEn reset = _StringsSettingsResetEn._(_root);
 	String get resyncEverything => 'Resync everything';
+	late final _StringsSettingsCustomDataDirEn customDataDir = _StringsSettingsCustomDataDirEn._(_root);
 }
 
 // Path: login
@@ -471,6 +472,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get autosaveDelay => 'Auto-save delay';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
+	String get customDataDir => 'Custom data directory';
 }
 
 // Path: settings.prefDescriptions
@@ -540,6 +542,19 @@ class _StringsSettingsResetEn {
 	// Translations
 	String get title => 'Reset this setting?';
 	String get button => 'Reset';
+}
+
+// Path: settings.customDataDir
+class _StringsSettingsCustomDataDirEn {
+	_StringsSettingsCustomDataDirEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get cancel => 'Cancel';
+	String get select => 'Select';
+	String get mustBeEmpty => 'Selected directory must be empty';
+	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the directory';
 }
 
 // Path: login.feedbacks

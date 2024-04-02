@@ -46,9 +46,58 @@ class FileManager {
     String? documentsDirectory,
     bool shouldWatchRootDirectory = true,
   }) async {
-    FileManager.documentsDirectory = documentsDirectory ??
-        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+    FileManager.documentsDirectory =
+        documentsDirectory ?? await getDocumentsDirectory();
+
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
+  }
+
+  static Future<String> getDocumentsDirectory() async {
+    return Prefs.customDataDir.value ??
+        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+  }
+
+  static Future<void> migrateDataDir() async {
+    // TODO(adil192): Make sure we're not currently syncing
+
+    final oldDir = Directory(documentsDirectory);
+    final newDir = Directory(await getDocumentsDirectory());
+    if (oldDir.path == newDir.path) return;
+    log.info('Migrating data directory from $oldDir to $newDir');
+
+    late final oldDirEmpty =
+        oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    late final newDirEmpty =
+        newDir.existsSync() ? newDir.listSync().isEmpty : true;
+
+    if (!oldDirEmpty && !newDirEmpty) {
+      log.severe('New and old data directory aren\'t empty, can\'t migrate');
+      return;
+    }
+
+    documentsDirectory = newDir.path;
+    if (oldDirEmpty) {
+      log.fine('Old data directory is empty or missing, nothing to migrate');
+    } else {
+      await moveDirContents(oldDir: oldDir, newDir: newDir);
+      await oldDir.delete();
+    }
+  }
+
+  static Future<void> moveDirContents({
+    required Directory oldDir,
+    required Directory newDir,
+  }) async {
+    await newDir.create(recursive: true);
+    await for (final entity in oldDir.list()) {
+      final entityPath = '${newDir.path}/${entity.path.split('/').last}';
+      switch (entity) {
+        case File _:
+          await entity.rename(entityPath);
+        case Directory _:
+          await moveDirContents(oldDir: oldDir, newDir: Directory(entityPath));
+      }
+    }
   }
 
   @visibleForTesting

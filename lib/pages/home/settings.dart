@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -9,6 +11,7 @@ import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/settings_button.dart';
 import 'package:saber/components/settings/settings_color.dart';
+import 'package:saber/components/settings/settings_directory_selector.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_subtitle.dart';
@@ -479,6 +482,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.autoStraightenLines,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
+              if (Platform.isAndroid)
+                SettingsDirectorySelector(
+                  title: t.settings.prefLabels.customDataDir,
+                  icon: Icons.folder,
+                ),
               if (requiresManualUpdates ||
                   Prefs.shouldCheckForUpdates.value !=
                       Prefs.shouldCheckForUpdates.defaultValue) ...[

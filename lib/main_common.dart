@@ -52,7 +52,7 @@ Future<void> main() async {
   Prefs.init();
 
   await Future.wait([
-    FileManager.init(),
+    Prefs.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
@@ -72,6 +72,7 @@ Future<void> main() async {
 
   setLocale();
   Prefs.locale.addListener(setLocale);
+  Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');

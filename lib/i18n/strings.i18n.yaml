@@ -91,6 +91,7 @@ settings:
     autosaveDelay: Auto-save delay
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
+    customDataDir: Custom data directory
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
@@ -130,6 +131,11 @@ settings:
     title: "Reset this setting?"
     button: Reset
   resyncEverything: Resync everything
+  customDataDir:
+    cancel: Cancel
+    select: Select
+    mustBeEmpty: Selected directory must be empty
+    mustBeDoneSyncing: Make sure syncing is complete before changing the directory
 login:
   title: Login
   feedbacks:
