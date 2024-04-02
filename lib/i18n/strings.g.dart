@@ -2556,16 +2556,16 @@ class _StringsHomeDe extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsDe tooltips = _StringsHomeTooltipsDe._(_root);
 	@override late final _StringsHomeCreateDe create = _StringsHomeCreateDe._(_root);
 	@override String get welcome => 'Willkommen bei Saber';
+	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.';
 	@override String get noFiles => 'Keine Dateien gefunden';
 	@override String get createNewNote => 'Drücke die + Schaltfläche, um eine neue Notiz zu erstellen';
+	@override String get backFolder => 'Zum vorherigen Ordner zurück gehen';
 	@override late final _StringsHomeNewFolderDe newFolder = _StringsHomeNewFolderDe._(_root);
 	@override late final _StringsHomeRenameNoteDe renameNote = _StringsHomeRenameNoteDe._(_root);
 	@override late final _StringsHomeMoveNoteDe moveNote = _StringsHomeMoveNoteDe._(_root);
+	@override String get deleteNote => 'Notiz löschen';
 	@override late final _StringsHomeRenameFolderDe renameFolder = _StringsHomeRenameFolderDe._(_root);
 	@override late final _StringsHomeDeleteFolderDe deleteFolder = _StringsHomeDeleteFolderDe._(_root);
-	@override String get backFolder => 'Zurück zum vorherigen Ordner';
-	@override String get deleteNote => 'Notiz löschen';
-	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2-, .sba oder .pdf-Datei aus.';
 }
 
 // Path: settings
@@ -2589,8 +2589,8 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 		'Links',
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
+	@override String get resyncEverything => 'Alles neu Synchronisieren';
 	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
-	@override String get resyncEverything => 'Alles in Ordnung bringen';
 }
 
 // Path: login
@@ -2661,7 +2661,7 @@ class _StringsUpdateDe extends _StringsUpdateEn {
 	@override String get updateAvailable => 'Aktualisierung verfügbar';
 	@override String get updateAvailableDescription => 'Eine neue Version der App ist verfügbar, mit folgenden Änderungen:';
 	@override String get update => 'Aktualisieren';
-	@override String get downloadNotAvailableYet => 'Der Download ist für Ihre Plattform noch nicht verfügbar. Bitte schauen Sie in Kürze noch einmal vorbei.';
+	@override String get downloadNotAvailableYet => 'Der Download ist für deine Platform noch nicht verfügbar. Bitte schaue in Kürze noch einmal nach.';
 }
 
 // Path: editor
@@ -2707,9 +2707,9 @@ class _StringsHomeTitlesDe extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'Letzte Notizen';
+	@override String get browse => 'Durchsuchen';
 	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Einstellungen';
-	@override String get browse => 'Durchsuchen';
 }
 
 // Path: home.tooltips
@@ -2773,12 +2773,12 @@ class _StringsHomeMoveNoteDe extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Notiz verschieben';
+	@override String moveNotes({required Object n}) => 'Verschiebe ${n} Notizen';
 	@override String moveName({required Object f}) => 'verschiebe ${f}';
 	@override String get move => 'Verschieben';
 	@override String renamedTo({required Object newName}) => 'Notiz wird umbenannt zu ${newName}';
-	@override String moveNotes({required Object n}) => '${n} Notizen verschieben';
-	@override String get multipleRenamedTo => 'Folgende Anmerkungen werden umbenannt:';
-	@override String numberRenamedTo({required Object n}) => '${n} Notizen werden umbenannt, um Konflikte zu vermeiden';
+	@override String get multipleRenamedTo => 'Die folgenden Notizen werden umbenannt:';
+	@override String numberRenamedTo({required Object n}) => '${n} Notizen werden umbenannt, um Konfilkte zu vermeiden';
 }
 
 // Path: home.renameFolder
@@ -2788,12 +2788,12 @@ class _StringsHomeRenameFolderDe extends _StringsHomeRenameFolderEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderNameEmpty => 'Der Ordnername darf nicht leer sein';
 	@override String get renameFolder => 'Ordner umbenennen';
-	@override String get folderName => 'Ordnernamen';
-	@override String get rename => 'Name';
-	@override String get folderNameContainsSlash => 'Der Ordnername darf keinen Schrägstrich enthalten';
-	@override String get folderNameExists => 'Ein Ordner mit diesem Namen existiert bereits';
+	@override String get folderName => 'Ordner-Name';
+	@override String get rename => 'Umbenennen';
+	@override String get folderNameEmpty => 'Ordner-Name darf nicht leer sin';
+	@override String get folderNameContainsSlash => 'Order-Name darf keinen Schrägstrich beinhalten';
+	@override String get folderNameExists => 'Ein Ordner mit dem Namen existiert bereits';
 }
 
 // Path: home.deleteFolder
@@ -2803,10 +2803,10 @@ class _StringsHomeDeleteFolderDe extends _StringsHomeDeleteFolderEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
+	@override String get deleteFolder => 'Ordner löschen';
 	@override String deleteName({required Object f}) => '${f} löschen';
-	@override String get deleteFolder => 'Lösche Ordner';
-	@override String get delete => 'Löschen';
-	@override String get alsoDeleteContents => 'Lösche außerdem alle Notizen in diesem Ordner';
+	@override String get delete => 'LÖschen';
+	@override String get alsoDeleteContents => 'Auch alle Notizen in diesem Ordner löschen';
 }
 
 // Path: settings.prefCategories
@@ -2818,9 +2818,9 @@ class _StringsSettingsPrefCategoriesDe extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'Allgemein';
 	@override String get writing => 'Eingabe';
+	@override String get editor => 'Editor';
 	@override String get performance => 'Leistung';
-	@override String get advanced => 'Fortgeschritten';
-	@override String get editor => 'Herausgeber';
+	@override String get advanced => 'Erweitert';
 }
 
 // Path: settings.prefLabels
@@ -2837,6 +2837,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
+	@override String get shouldAlwaysAlertForUpdates => 'Schneller aktualisieren';
 	@override String get disableAds => 'Werbung deaktivieren';
 	@override String get changeAdsConsent => 'Werbungsinhalt anpassen';
 	@override String get allowInsecureConnections => 'Unsichere Verbindung erlauben';
@@ -2846,18 +2847,17 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get maxImageSize => 'Maximale Bildgröße';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
+	@override String get disableEraserAfterUse => 'Radierer automatisch dekativieren';
+	@override String get hideFingerDrawingToggle => 'Umschalter des Finger-Zeichnens ausblenden';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
 	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
+	@override String get recentColorsLength => 'Anzahl der zuletzt genutzten Farben';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
-	@override String get customDataDir => 'Benutzerdefiniertes Datenverzeichnis';
-	@override String get autoStraightenLines => 'Linien automatisch begradigen';
+	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
-	@override String get recentColorsLength => 'Wie viele aktuelle Farben gespeichert werden sollen';
-	@override String get autosaveDelay => 'Verzögerung beim automatischen Speichern';
-	@override String get hideFingerDrawingToggle => 'Den Fingerzeichnungsschalter ausblenden';
-	@override String get shouldAlwaysAlertForUpdates => 'Schnellere Updates';
-	@override String get disableEraserAfterUse => 'Deaktivieren Sie den Radierer automatisch';
+	@override String get autoStraightenLines => 'Linien automatisch begradigen';
+	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
 }
 
 // Path: settings.prefDescriptions
@@ -2872,16 +2872,16 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
+	@override String get disableEraserAfterUse => 'Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln';
 	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
-	@override String get autoStraightenLines => 'Glättet lange Linien, ohne dass der Formstift verwendet werden muss';
-	@override String get shapeRecognitionDelay => 'Wie oft soll die Formvorschau aktualisiert werden?';
-	@override String get autosaveDelay => 'Wartezeit, bevor eine Notiz automatisch gespeichert wird';
-	@override String get disableEraserAfterUse => 'Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück';
-	@override String get shouldAlwaysAlertForUpdates => 'Informiere mich über Updates, sobald sie verfügbar sind';
+	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns einer Notiz';
+	@override String get shapeRecognitionDelay => 'Häufigkeit der Aktualisierung der Form-Vorschau';
+	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
+	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 }
 
 // Path: settings.themeModes
@@ -2936,10 +2936,10 @@ class _StringsSettingsCustomDataDirDe extends _StringsSettingsCustomDataDirEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Stornieren';
-	@override String get select => 'Wählen';
-	@override String get mustBeEmpty => 'Das ausgewählte Verzeichnis muss leer sein';
-	@override String get mustBeDoneSyncing => 'Stellen Sie sicher, dass die Synchronisierung abgeschlossen ist, bevor Sie das Verzeichnis ändern';
+	@override String get cancel => 'Abbrechen';
+	@override String get select => 'Auswählen';
+	@override String get mustBeEmpty => 'Ausgewähltes Verzeichnis muss leer sein';
+	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst';
 }
 
 // Path: login.feedbacks
@@ -2954,9 +2954,9 @@ class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
 	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
 	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
 	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
+	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Server führt Nextcloud ${v} aus, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
 	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Nextcloud-Server nutzt Version ${v}, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
 }
 
 // Path: login.form
@@ -3132,9 +3132,9 @@ class _StringsEditorPensDe extends _StringsEditorPensEn {
 	@override String get fountainPen => 'Füllfederhalter';
 	@override String get ballpointPen => 'Kugelschreiber';
 	@override String get highlighter => 'Textmarker';
-	@override String get laserPointer => 'Laserpointer';
 	@override String get pencil => 'Bleistift';
-	@override String get shapePen => 'Formstift';
+	@override String get shapePen => 'Form-Stift';
+	@override String get laserPointer => 'Laserpointer';
 }
 
 // Path: editor.penOptions
@@ -3155,6 +3155,10 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Farbauswahl';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get dark => 'dunkel';
+	@override String get light => 'hell';
 	@override String get black => 'Schwarz';
 	@override String get darkGrey => 'Dunkelgrau';
 	@override String get grey => 'Grau';
@@ -3162,11 +3166,12 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get white => 'Weiß';
 	@override String get red => 'Rot';
 	@override String get green => 'Grün';
+	@override String get cyan => 'Cyan';
 	@override String get blue => 'Blau';
 	@override String get yellow => 'Gelb';
 	@override String get purple => 'Lila';
+	@override String get pink => 'Pink';
 	@override String get orange => 'Orange';
-	@override String get cyan => 'Türkis';
 	@override String get pastelRed => 'Pastellfarbenes Rot';
 	@override String get pastelOrange => 'Pastellfarbenes Orange';
 	@override String get pastelYellow => 'Pastellfarbenes Gelb';
@@ -3175,11 +3180,6 @@ class _StringsEditorColorsDe extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'Pastellfarbenes Blau';
 	@override String get pastelPurple => 'Pastellfarbenes Lila';
 	@override String get pastelPink => 'Pastellfarbenes Rosa';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Benutzerdefiniert ${b} ${h}';
-	@override String customHue({required Object h}) => 'Benutzerdefiniert ${h}';
-	@override String get dark => 'dunkel';
-	@override String get light => 'Licht';
-	@override String get pink => 'Rosa';
 }
 
 // Path: editor.imageOptions
@@ -3205,7 +3205,7 @@ class _StringsEditorSelectionBarDe extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => 'Entfernen';
-	@override String get duplicate => 'Duplikat';
+	@override String get duplicate => 'Duplizieren';
 }
 
 // Path: editor.menu
@@ -3222,11 +3222,11 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Beeinflusst außerdem die Schriftgröße';
+	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
 	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
-	@override String get backgroundImageFit => 'Hintergrundbild';
 }
 
 // Path: editor.newerFileFormat
@@ -3275,9 +3275,9 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingDe extends _StringsSettin
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get fixedOn => 'Das Fingerzeichnen ist derzeit aktiviert';
-	@override String get fixedOff => 'Das Fingerzeichnen ist derzeit deaktiviert';
-	@override String get shown => 'Verhindert versehentliches Umschalten';
+	@override String get shown => 'Schützt vor versehentlichem Umschalten';
+	@override String get fixedOn => 'Finger-Zeichnen ist als aktiviert festgelegt';
+	@override String get fixedOff => 'Finger-Zeichnen ist als deaktiviert festgelegt';
 }
 
 // Path: editor.menu.boxFits
@@ -3306,8 +3306,8 @@ class _StringsEditorMenuBgPatternsDe extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'Kariert';
 	@override String get dots => 'Gepunktet';
 	@override String get staffs => 'Notenpapier';
+	@override String get tablature => 'Tablature';
 	@override String get cornell => 'Cornell-Stil';
-	@override String get tablature => 'Tabulatur';
 }
 
 // Path: <root>
