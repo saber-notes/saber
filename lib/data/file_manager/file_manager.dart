@@ -92,9 +92,9 @@ class FileManager {
     await for (final entity in oldDir.list()) {
       final entityPath = '${newDir.path}/${entity.path.split('/').last}';
       switch (entity) {
-        case File file:
-          await file.rename(entityPath);
-        case Directory dir:
+        case File _:
+          await entity.rename(entityPath);
+        case Directory _:
           await moveDirContents(oldDir: oldDir, newDir: Directory(entityPath));
       }
     }
