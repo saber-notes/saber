@@ -12395,8 +12395,8 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '列印頁碼';
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
-	@override String get customDataDir => '自訂資料目錄';
 	@override String get autoStraightenLines => '自動拉直線條';
+	@override String get customDataDir => '自訂資料目錄';
 }
 
 // Path: settings.prefDescriptions
@@ -12419,8 +12419,8 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
+	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
-	@override String get autoStraightenLines => '無需使用形狀筆即可拉直長線';
 }
 
 // Path: settings.themeModes
@@ -12477,8 +12477,8 @@ class _StringsSettingsCustomDataDirZhHantTw extends _StringsSettingsCustomDataDi
 	// Translations
 	@override String get cancel => '取消';
 	@override String get select => '選擇';
-	@override String get mustBeEmpty => '所選目錄必須為空';
-	@override String get mustBeDoneSyncing => '更改目錄之前確保同步已完成';
+	@override String get mustBeEmpty => '所選目錄必須是空的';
+	@override String get mustBeDoneSyncing => '更改目錄之前請確保同步已完成';
 }
 
 // Path: login.feedbacks
